@@ -21,6 +21,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.

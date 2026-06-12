@@ -24,10 +24,10 @@ This approach provides a simple way to scale with Claude, while offering central
 
 We've built new comprehensive controls that give organizations the visibility and management capabilities they need to enable employees to work productively with Claude.
 
-- **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
-- **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
-- **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
-- **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
+*   **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
+*   **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
+*   **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
+*   **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
 
 ## Compliance API
 

@@ -26,14 +26,14 @@ A plugin can bundle either remote or local MCP servers (or both). Installing a p
 
 # Quick guide
 
-| Your tool is…                         | Use                              | Available on         |
-| ------------------------------------- | -------------------------------- | -------------------- |
-| A cloud/SaaS product                  | Remote connector                 | All surfaces         |
-| In the Connectors Directory           | Remote connector                 | All surfaces         |
-| Running on your machine               | Desktop extension                | Desktop, Claude Code |
-| A local file or folder                | Desktop extension                | Desktop, Claude Code |
-| Something you built with a public URL | Remote connector (add as custom) | All surfaces         |
-| Something you built that runs locally | Desktop extension                | Desktop, Claude Code |
+| Your tool is… | Use | Available on |
+| --- | --- | --- |
+| A cloud/SaaS product | Remote connector | All surfaces |
+| In the Connectors Directory | Remote connector | All surfaces |
+| Running on your machine | Desktop extension | Desktop, Claude Code |
+| A local file or folder | Desktop extension | Desktop, Claude Code |
+| Something you built with a public URL | Remote connector (add as custom) | All surfaces |
+| Something you built that runs locally | Desktop extension | Desktop, Claude Code |
 
 # Get started
 

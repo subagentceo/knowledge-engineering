@@ -24,7 +24,7 @@ Claude can work with the following document types:
 
 - JSON
 
-- XLSX\*
+- XLSX*
 
 **Note:** You must enable **[code execution and file creation](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)** in your account to upload XLSX files.
 

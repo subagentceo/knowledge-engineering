@@ -11,6 +11,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchRetrieveParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -18,6 +19,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class MessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -49,6 +51,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -60,6 +63,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.

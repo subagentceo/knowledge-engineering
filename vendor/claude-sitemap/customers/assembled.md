@@ -4,11 +4,11 @@ Assembled relies on Claude for Assist, their omnichannel AI agent and copilot. T
 
 With Claude, Assembled Assist:
 
-- Increased customer satisfaction by 20% while decreasing support spend
-- Achieved over 50% reduction in escalations
-- Improved cases solved per hour by more than 30%
-- Automated over 50% of cases while maintaining 90%+ customer satisfaction
-- Switched to Claude in 20 minutes during a critical outage
+*   Increased customer satisfaction by 20% while decreasing support spend
+*   Achieved over 50% reduction in escalations
+*   Improved cases solved per hour by more than 30%
+*   Automated over 50% of cases while maintaining 90%+ customer satisfaction
+*   Switched to Claude in 20 minutes during a critical outage
 
 ## Meeting modern support challenges with AI
 
@@ -28,11 +28,11 @@ The team leveraged a sophisticated evaluation system to measure AI model perform
 
 Assembled Assist uses Claude to enhance support through:
 
-- Dynamic ticket categorization using meta-prompting that adapts to each customer's unique taxonomy
-- Intelligent routing between AI and human agents based on case complexity and customer sentiment
-- Multi-model architecture enabling seamless failover during outages
-- Real-time response generation and enhancement
-- Secure failover architecture for enterprise reliability
+*   Dynamic ticket categorization using meta-prompting that adapts to each customer's unique taxonomy
+*   Intelligent routing between AI and human agents based on case complexity and customer sentiment
+*   Multi-model architecture enabling seamless failover during outages
+*   Real-time response generation and enhancement
+*   Secure failover architecture for enterprise reliability
 
 ## Transforming support for leading brands
 
@@ -40,9 +40,9 @@ Assembled's impact goes beyond automation metrics—they're fundamentally changi
 
 Their approach has gained traction with industry leaders. For these companies, maintaining high-quality support while scaling globally isn't just about efficiency—it's crucial for brand reputation and customer loyalty.
 
-- **A leading consumer software company**: In just the first two weeks of using Assembled Assist, they saw material improvement in both average handle time per case and CSAT. They plan on automating at least 25% of all support tickets as part of a company-wide growth push.
-- **Thrasio**: Automates over 50% of support tickets with Assembled Assist, which led to nearly $2m in cost savings and a 50% decrease in full resolution time.
-- **Honeylove**: Saw massive productivity and efficiency benefits after just 5 months using Assembled Assist – solves per hour increased by 54%, escalations decreased by 20%, and CSAT for AI-powered responses increased by 18%.
+*   **A leading consumer software company**: In just the first two weeks of using Assembled Assist, they saw material improvement in both average handle time per case and CSAT. They plan on automating at least 25% of all support tickets as part of a company-wide growth push.
+*   **Thrasio**: Automates over 50% of support tickets with Assembled Assist, which led to nearly $2m in cost savings and a 50% decrease in full resolution time.
+*   **Honeylove**: Saw massive productivity and efficiency benefits after just 5 months using Assembled Assist – solves per hour increased by 54%, escalations decreased by 20%, and CSAT for AI-powered responses increased by 18%.
 
 ## Building the future of AI-enhanced support
 

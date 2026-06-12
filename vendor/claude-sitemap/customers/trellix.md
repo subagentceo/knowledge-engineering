@@ -4,10 +4,10 @@ Trellix, a leading cybersecurity company, uses Claude in Amazon Bedrock to power
 
 With Claude, Trellix:
 
-- Analyzes security alerts at the scale of hiring 10 additional staff members
-- Reduces development time for critical code from 40 hours to under 5 minutes
-- Saves an average of 8 hours of staff time for every 100 alerts processed
-- Enables junior analysts to perform at senior levels by learning from AI-generated responses
+*   Analyzes security alerts at the scale of hiring 10 additional staff members
+*   Reduces development time for critical code from 40 hours to under 5 minutes
+*   Saves an average of 8 hours of staff time for every 100 alerts processed
+*   Enables junior analysts to perform at senior levels by learning from AI-generated responses
 
 ## Transforming cybersecurity through autonomous AI agents
 
@@ -33,10 +33,10 @@ Holste uses an analogy to explain this approach: "Think about working with an ex
 
 Trellix's agentic AI system includes several specialized components:
 
-- **Event analysis and triage**: Autonomously reviews security events across endpoint, network, email, and cloud environments, identifying connections and prioritizing critical issues
-- **Contextual threat intelligence**: Correlates current activity with historical threat data and the latest intelligence to provide a complete picture of possible attacks
-- **Automated response recommendations**: Suggests specific remediation steps based on best practices and analysis of past successful resolutions
-- **Cross-platform investigation**: Connects insights across Trellix's entire security portfolio and over 500 technical partners, providing a comprehensive view of security posture
+*   **Event analysis and triage**: Autonomously reviews security events across endpoint, network, email, and cloud environments, identifying connections and prioritizing critical issues
+*   **Contextual threat intelligence**: Correlates current activity with historical threat data and the latest intelligence to provide a complete picture of possible attacks
+*   **Automated response recommendations**: Suggests specific remediation steps based on best practices and analysis of past successful resolutions
+*   **Cross-platform investigation**: Connects insights across Trellix's entire security portfolio and over 500 technical partners, providing a comprehensive view of security posture
 
 Instead of programming rigid procedures, Trellix gives Claude broad strategic direction. Holste explains, "We provide Claude with our security objectives and key considerations. We don't dictate every step of the analysis process. We trust Claude to determine the best next steps based on each specific security situation. This flexibility allows the system to adapt to new threats while following proven security practices."
 

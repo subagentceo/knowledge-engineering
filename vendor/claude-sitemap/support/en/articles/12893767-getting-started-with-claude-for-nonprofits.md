@@ -89,17 +89,17 @@ At this time, the following organizations are not eligible:
 
 1. Validate your nonprofit organization status through the [Goodstack form](https://validate.poweredbypercent.com/anthropic):
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550134/3415c95777759fcd2fa1f2c452a9/7a6e1fc2-94e9-4dc5-90aa-b72ef769a934?expires=1781284500&amp;signature=9de7375d2bca320d1f49f3c216eaceb10ec55fb29d8867d700653b72359b26b2&amp;req=dSgiH8x7nYBcXfMW1HO4zdZi%2FlZbzjrkauxJI2ssEtcqsCGXSd4RVXOLRdhs%0A98B1%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550134/3415c95777759fcd2fa1f2c452a9/7a6e1fc2-94e9-4dc5-90aa-b72ef769a934?expires=1781304300&amp;signature=e6aecafc8ea364140c750fe1aa8d719597520ae37c4a0efaf0224f4fc3ea4817&amp;req=dSgiH8x7nYBcXfMW1HO4zdZi%2FlZaxjriauxJI2ssEtfH9nmpKZso1IFcBT2z%0AgYYz%0A)
 
 2. If you match our nonprofit eligibility criteria, you should receive an email from Anthropic confirming your eligibility.
 
 3. Follow the link in the email to sign up on this page using your Goodstack verified email address. You must sign up using the organization email address you verified with Goodstack.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550858/a8e7833485a9306ef355ede135d9/0a6664d1-a09c-4790-86ec-d1d6d71cd5b5?expires=1781284500&amp;signature=358fef12f2b80cfd31a16ec885f753bb8d9fedfd89460c717b3f42173428ae19&amp;req=dSgiH8x7nYlaUfMW1HO4zUHP865ymnAgKfBwVdbHuxnx19rRpGU93G4B%2BXi%2B%0AG1Oy%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550858/a8e7833485a9306ef355ede135d9/0a6664d1-a09c-4790-86ec-d1d6d71cd5b5?expires=1781304300&amp;signature=0ae0c26e4490c14c45601e019d612266e2fad9063fc04fc5f6a5b460eab936c6&amp;req=dSgiH8x7nYlaUfMW1HO4zUHP865zknAmKfBwVdbHuxmIlWG3Aeiig24ZuAZR%0AZujh%0A)
 
 4. Click ‘With my team’ and fill in your details to set up your Team plan account:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859551642/ca5be89a4c185449daf6152097ad/cc2254e9-fe79-449c-92c0-f5acc91e1f03?expires=1781284500&amp;signature=983318c6fc77157c036ffa207cbae77c87ea0ff33870d483ccf7c40c714ce224&amp;req=dSgiH8x7nIdbW%2FMW1HO4zbZSGx0QSV%2Bmrg0IMwuRgiukA8Ehhvu%2BUppil12%2B%0AlNsN%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859551642/ca5be89a4c185449daf6152097ad/cc2254e9-fe79-449c-92c0-f5acc91e1f03?expires=1781304300&amp;signature=f229bf9d37f7e3439355853d0060f03ca62773ca8bb5af9b5bbd0b8443158f08&amp;req=dSgiH8x7nIdbW%2FMW1HO4zbZSGx0RQV%2Bgrg0IMwuRgivG%2F4kgijjINxWdM0zh%0AmwtG%0A)
 
 ### How long will the nonprofit discount apply to my organization?
 
@@ -165,15 +165,15 @@ Because we do not have a way to proactively apply Sales tax exemption, when sett
 
 1. Once logged into your account, click on your profile and select “Get help”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859539953/597e1f19c60656e83c1837bb8f58/378309b4-8aac-4ca0-8e5a-8dbaad5421fa?expires=1781284500&amp;signature=8d73809edcd44c96c6c7ada60bc522c05d3a2f4a5248cad736b8a5104d5c6410&amp;req=dSgiH8x9lIhaWvMW1HO4zXOOxffAyn6xeuk4zq7weKDgvZ6wuDXelSVR6BP0%0AshMj%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859539953/597e1f19c60656e83c1837bb8f58/378309b4-8aac-4ca0-8e5a-8dbaad5421fa?expires=1781304300&amp;signature=fb34845dcfdc182340d2dc34774c098254130abf8c07ce892ecbde77eb9199de&amp;req=dSgiH8x9lIhaWvMW1HO4zXOOxffBwn63euk4zq7weKBNwQiA1lyjVP%2B7CWRu%0AgWNq%0A)
 
 2. Next under “Messages”, click “Send us a message":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859540669/dea0231fbbeb497049cd83fbbb0c/f18b8af9-1621-45cf-8961-55aad08561eb?expires=1781284500&amp;signature=42a15c9ce72e9d935a03012f3e887f9f7084d9f83a6da7b3ac55056a31e6cc79&amp;req=dSgiH8x6nYdZUPMW1HO4zQgqnmJjtVUt8Dcdz%2Fuy4lakUM2guBw8X61RZFB1%0AIfrF%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859540669/dea0231fbbeb497049cd83fbbb0c/f18b8af9-1621-45cf-8961-55aad08561eb?expires=1781304300&amp;signature=62e507ed3d761842406dbedc5b47479c44fb064e827a6d63d483ae6bec6c556f&amp;req=dSgiH8x6nYdZUPMW1HO4zQgqnmJivVUr8Dcdz%2Fuy4lbXGCTYkoktbo6HuueD%0A0np0%0A)
 
 3. Accept the conditions:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859541804/ce534de604e9de751f9a0133e40d/ccd6ddf2-4912-4e13-9820-b8e39e31e6aa?expires=1781284500&amp;signature=3717bf06e204470991a29baaa6a2e19f18b7e3319be8f72c78f81067c5dec6a3&amp;req=dSgiH8x6nIlfXfMW1HO4zS9v1ZUx2gulRUfBF6HehmScV7vMBnuf0xQF1jea%0AHJpu%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859541804/ce534de604e9de751f9a0133e40d/ccd6ddf2-4912-4e13-9820-b8e39e31e6aa?expires=1781304300&amp;signature=e6d601e5bf9a4edf91b2f83daa337a38277f3609499bd5f9450bf112507fe293&amp;req=dSgiH8x6nIlfXfMW1HO4zS9v1ZUw0gujRUfBF6HehmS5%2Fpmeh2PnzhwGrbQs%0A3tZb%0A)
 
 4. Send a message saying something along the lines of “I was charged tax, but am tax exempt. I would like to submit my Sales tax exemption certificate for upload.”
 

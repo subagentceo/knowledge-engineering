@@ -4,8 +4,8 @@ YMCA South Australia is a nonprofit social enterprise delivering recreation, aqu
 
 ## With Claude, YMCA South Australia achieved:
 
-- Less than 30 minutes to produce operational reports that previously took a full day, with cross-site benchmarking, trend analysis, and recommended actions
-- 10–15 hours saved per week for key users across analysis, document production, and communications
-- Branded template production cut from 2–3 hours to 20 minutes
-- 20–30% time savings on tender content creation, with measurable improvements in submission quality
-- 20+ custom skills built to encode organizational knowledge, brand standards, and operational procedures
+*   Less than 30 minutes to produce operational reports that previously took a full day, with cross-site benchmarking, trend analysis, and recommended actions
+*   10–15 hours saved per week for key users across analysis, document production, and communications
+*   Branded template production cut from 2–3 hours to 20 minutes
+*   20–30% time savings on tender content creation, with measurable improvements in submission quality
+*   20+ custom skills built to encode organizational knowledge, brand standards, and operational procedures

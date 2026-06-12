@@ -4,11 +4,11 @@ Duvo builds AI agents that run procurement, supply chain, and category managemen
 
 ## With Claude, Duvo achieved:
 
-- €2.8M+ in annualized savings within three months for its customer Rohlik Group, across processes that had never been systematically run
-- Annual supplier negotiations shortened by one month at Rohlik Group, with approximately 80% automated from preparation through contract generation to ERP write-back
-- 40%+ of team capacity freed up on average across enterprise procurement, supply chain, and retail operations by reducing manual work
-- Eight weeks on average from first conversation to production deployment with measured savings
-- Production deployment within days of adopting the Claude Agent SDK
+*   €2.8M+ in annualized savings within three months for its customer Rohlik Group, across processes that had never been systematically run
+*   Annual supplier negotiations shortened by one month at Rohlik Group, with approximately 80% automated from preparation through contract generation to ERP write-back
+*   40%+ of team capacity freed up on average across enterprise procurement, supply chain, and retail operations by reducing manual work
+*   Eight weeks on average from first conversation to production deployment with measured savings
+*   Production deployment within days of adopting the Claude Agent SDK
 
 ## The challenge: The cost of "abandoned work" in enterprise operations
 

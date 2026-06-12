@@ -20,7 +20,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
 - `messages: list<MessageParam>`
 
@@ -35,16 +35,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -52,22 +52,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -157,9 +154,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -230,6 +228,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Returns
 
 - `Message`
+
   - `string id`
 
     Unique object identifier.
@@ -249,7 +248,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -258,18 +257,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
   - `Model model`
@@ -293,12 +289,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 

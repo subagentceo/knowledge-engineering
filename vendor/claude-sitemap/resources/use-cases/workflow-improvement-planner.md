@@ -4,11 +4,11 @@ I need help defining a workflow improvement opportunity at my nonprofit. Can you
 
 The artifact should help me think through:
 
-- What the current workflow looks like
-- Where the pain points and bottlenecks are
-- What inputs and outputs are involved
-- What success would look like
-- Any constraints we're working within
+*   What the current workflow looks like
+*   Where the pain points and bottlenecks are
+*   What inputs and outputs are involved
+*   What success would look like
+*   Any constraints we're working within
 
 Make this comprehensive enough that when I complete it, it provides me with a file that I can give back to Claude with all the information needed to design a practical solution. Include clear instructions at the end for how to use the completed template with Claude.
 

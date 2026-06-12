@@ -4,10 +4,10 @@ Lyft, a global mobility platform across six continents and thousands of cities, 
 
 ## With Claude, Lyft:
 
-- Enabled agents to focus on complex issues requiring human care and empathy
-- Built an AI assistant that maintains Lyft's brand personality while resolving issues in seconds
-- Reduced customer support resolution time by over 87%
-- Improved decision-making accuracy by over 30%
+*   Enabled agents to focus on complex issues requiring human care and empathy
+*   Built an AI assistant that maintains Lyft's brand personality while resolving issues in seconds
+*   Reduced customer support resolution time by over 87%
+*   Improved decision-making accuracy by over 30%
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6993ee609fe7b87e10a427d5_resized%20Anthropic_x_Lyft_Thumbnail_v03%201.png)
 

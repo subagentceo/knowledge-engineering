@@ -24,6 +24,7 @@ files. This is a destructive operation that cannot be undone.
 - `type: optional "claude_chat_deleted"`
 
   Constant string confirming deletion
+
   - `"claude_chat_deleted"`
 
 ### Example

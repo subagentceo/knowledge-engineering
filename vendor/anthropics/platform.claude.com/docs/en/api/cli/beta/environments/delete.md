@@ -19,6 +19,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 - `beta_environment_delete_response: object { id, type }`
 
   Response after deleting an environment.
+
   - `id: string`
 
     Environment identifier

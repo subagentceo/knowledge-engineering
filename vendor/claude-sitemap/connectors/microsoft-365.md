@@ -1,9 +1,9 @@
 # Microsoft 365
 
-Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude. Search and analyze documents across sites and libraries, review email threads and communications, and gather insights from calendar and chat. Make Microsoft 365 a native part of your Claude workflows while respecting all existing permissions and security controls.
-
-You can use the Microsoft 365 connector to:
-
+Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude. Search and analyze documents across sites and libraries, review email threads and communications, and gather insights from calendar and chat. Make Microsoft 365 a native part of your Claude workflows while respecting all existing permissions and security controls.  
+  
+You can use the Microsoft 365 connector to:  
+  
 Search documents across SharePoint and OneDrive:  
 "Find all project proposals in our SharePoint site from the last quarter and summarize the key themes"
 

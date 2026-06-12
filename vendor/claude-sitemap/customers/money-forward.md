@@ -4,12 +4,12 @@ Money Forward, one of Japan's largest cloud-based financial software companies, 
 
 ## With Claude Code, Money Forward:
 
-- Achieved 80% engineer adoption with over 70% using it as their daily driver
-- Reduced API endpoint implementation by 70%, from 2 days to 5 hours
-- Saved on average 7 hours per week per engineer according to an internal survey for early adopters
-- Compressed new developer onboarding from a week to a single day
-- Built internal tools including Sherlock for incident response and Lumos for automated Kubernetes fixes
-- Enabled a single engineer to build the entire Money Forward Cloud MCP Server in 3 months
+*   Achieved 80% engineer adoption with over 70% using it as their daily driver
+*   Reduced API endpoint implementation by 70%, from 2 days to 5 hours
+*   Saved on average 7 hours per week per engineer according to an internal survey for early adopters
+*   Compressed new developer onboarding from a week to a single day
+*   Built internal tools including Sherlock for incident response and Lumos for automated Kubernetes fixes
+*   Enabled a single engineer to build the entire Money Forward Cloud MCP Server in 3 months
 
 ## The problem
 

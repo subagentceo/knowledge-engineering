@@ -4,11 +4,11 @@ As AI coding tools help developers write code much faster, a new challenge has e
 
 With Claude, Qodo:
 
-- Reviews 1 million pull requests per quarter across enterprise customers
-- Achieves top 5 placement on SWE Bench Verified benchmark with their CLI agent, Qodo Command
-- Detects complex security vulnerabilities that syntax analysis tools miss
-- Generates clear PR descriptions to help developers understand AI-generated code
-- Enables Fortune 500 enterprises to adopt AI while maintaining code integrity
+*   Reviews 1 million pull requests per quarter across enterprise customers
+*   Achieves top 5 placement on SWE Bench Verified benchmark with their CLI agent, Qodo Command
+*   Detects complex security vulnerabilities that syntax analysis tools miss
+*   Generates clear PR descriptions to help developers understand AI-generated code
+*   Enables Fortune 500 enterprises to adopt AI while maintaining code integrity
 
 ## Bridging the gap between AI speed and enterprise quality
 

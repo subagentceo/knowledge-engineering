@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -69,7 +68,9 @@ The following `marketplace.json` allows `deploy-kit` to depend on a plugin from 
     {
       "name": "deploy-kit",
       "source": "./deploy-kit",
-      "dependencies": [{ "name": "audit-logger", "marketplace": "acme-shared" }]
+      "dependencies": [
+        { "name": "audit-logger", "marketplace": "acme-shared" }
+      ]
     }
   ]
 }
@@ -172,7 +173,7 @@ To check for these errors programmatically, run `claude plugin list --json` and 
 
 ## See also
 
-- [Create plugins](/en/plugins): build plugins with skills, agents, and hooks
-- [Create and distribute a plugin marketplace](/en/plugin-marketplaces): host plugins for your team
-- [Plugins reference](/en/plugins-reference#plugin-manifest-schema): the full `plugin.json` schema
-- [Version management](/en/plugins-reference#version-management): how a plugin's own version is resolved and used as the cache key
+* [Create plugins](/en/plugins): build plugins with skills, agents, and hooks
+* [Create and distribute a plugin marketplace](/en/plugin-marketplaces): host plugins for your team
+* [Plugins reference](/en/plugins-reference#plugin-manifest-schema): the full `plugin.json` schema
+* [Version management](/en/plugins-reference#version-management): how a plugin's own version is resolved and used as the cache key

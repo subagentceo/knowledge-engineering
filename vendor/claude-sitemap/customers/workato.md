@@ -4,11 +4,11 @@
 
 ## With Claude, Workato:
 
-- Provides 100+ fully managed MCP server templates connecting Claude to enterprise systems like Salesforce, NetSuite, and Workday
-- Enables sales, IT, finance, and HR teams to connect AI agents to business data with enterprise-grade governance
-- Powers SaaS platforms to make their products agent-ready for thousands of customers
-- Saw customers create 800+ MCP servers in 8 months, with adoption accelerating rapidly
-- Drove significant efficiency gains through internal deployment, with sales teams reducing deal preparation time by 75%
+*   Provides 100+ fully managed MCP server templates connecting Claude to enterprise systems like Salesforce, NetSuite, and Workday
+*   Enables sales, IT, finance, and HR teams to connect AI agents to business data with enterprise-grade governance
+*   Powers SaaS platforms to make their products agent-ready for thousands of customers
+*   Saw customers create 800+ MCP servers in 8 months, with adoption accelerating rapidly
+*   Drove significant efficiency gains through internal deployment, with sales teams reducing deal preparation time by 75%
 
 ## The problem
 

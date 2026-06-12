@@ -40,9 +40,9 @@ In some cases, you’ll see Claude writing example inputs and outputs to give it
 
 The prompt generator is based on a long prompt that itself uses many of the techniques already mentioned.
 
-- It contains numerous examples of task descriptions and prompt templates to show Claude how to go from a task description to a prompt template.
-- It encourages Claude to plan out the structure of the template it will produce before writing that template, allowing Claude time to collect its thoughts.
-- It has a strong “spine” composed of XML tags that mark the beginning and end of each section to enhance legibility.
+*   It contains numerous examples of task descriptions and prompt templates to show Claude how to go from a task description to a prompt template.
+*   It encourages Claude to plan out the structure of the template it will produce before writing that template, allowing Claude time to collect its thoughts.
+*   It has a strong “spine” composed of XML tags that mark the beginning and end of each section to enhance legibility.
 
 You can see the full prompt in this Colab notebook.
 

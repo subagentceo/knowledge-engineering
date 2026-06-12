@@ -26,20 +26,18 @@ We look forward to continuing to work with policymakers across the U.S. governme
 
 ## Related content
 
+### Results from the first Anthropic Public Record
+
+Read more
+
+### TCS and Anthropic partner to bring Claude to regulated industries
+
+We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
+
+Read more
+
 ### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
 We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
-
-Read more
-
-### Introducing Claude Corps
-
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
-
-Read more
-
-### Claude Fable 5 and Claude Mythos 5
-
-Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

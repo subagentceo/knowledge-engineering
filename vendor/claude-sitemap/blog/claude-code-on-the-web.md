@@ -18,11 +18,11 @@ With Claude Code running in the cloud, you can now **run multiple tasks in paral
 
 The web interface complements your existing Claude Code workflow. Running tasks in the cloud is especially effective for:
 
-- Answering questions about how projects work and how repositories are mapped
-- Bugfixes and routine, well-defined tasks
-- Backend changes, where Claude Code can use test-driven development to verify changes
+*   Answering questions about how projects work and how repositories are mapped
+*   Bugfixes and routine, well-defined tasks
+*   Backend changes, where Claude Code can use test-driven development to verify changes
 
-You can also use Claude Code on mobile. As part of this research preview, we’re making Claude Code available on our iOS app so developers can explore coding with Claude on the go. It’s an early preview, and we hope to quickly refine the mobile experience based on your feedback.
+You can also use Claude Code on mobile. As part of this research preview, we’re making Claude Code available on our iOS app so developers can explore coding with Claude on the go. It’s an early preview, and we hope to quickly refine the mobile experience based on your feedback.  
 
 ## Security-first cloud execution
 

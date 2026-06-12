@@ -29,9 +29,11 @@ List Vaults
 - `BetaManagedAgentsListVaultsResponse: object { data, next_page }`
 
   Response containing a paginated list of vaults.
+
   - `data: optional array of BetaManagedAgentsVault`
 
     List of vaults.
+
     - `id: string`
 
       Unique identifier for the vault.
@@ -53,6 +55,7 @@ List Vaults
       Arbitrary key-value metadata attached to the vault.
 
     - `type: "vault"`
+
       - `"vault"`
 
     - `updated_at: string`

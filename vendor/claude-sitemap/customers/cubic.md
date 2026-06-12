@@ -4,9 +4,9 @@ cubic, an AI-powered code review platform founded by former Instagram and Meta e
 
 **Key results with Claude**
 
-- First review delivered in 2 minutes instead of 2 hours — 60x faster feedback cycle
-- Teams ship code 28% faster after two weeks of using cubic
-- 98% of AI-generated comments receive positive developer feedback
+*   First review delivered in 2 minutes instead of 2 hours — 60x faster feedback cycle
+*   Teams ship code 28% faster after two weeks of using cubic
+*   98% of AI-generated comments receive positive developer feedback
 
 ## When AI coding creates new bottlenecks
 
@@ -28,11 +28,11 @@ Claude's confidence calibration also matches different teams' needs. "Different 
 
 Claude powers cubic's approach to modernizing code review through several key capabilities:
 
-- **Intelligent file organization**: Claude groups and orders pull request files by dependency relationships instead of alphabetical order, letting developers review code in a logical sequence from top to bottom
-- **Automated quality analysis**: Claude runs comprehensive tests on code changes, checking for bugs and quality issues while learning from codebase patterns and user feedback
-- **Architecture visualization**: When data flows change, Claude automatically generates architecture diagrams to show reviewers the broader impact
-- **Multi-language support**: Claude delivers consistent code review quality across programming languages from TypeScript and Python to less common ones like Elixir
-- **Smart suggestions**: Claude generates code improvement suggestions when confidence levels are high, helping teams maintain quality while moving faster
+*   **Intelligent file organization**: Claude groups and orders pull request files by dependency relationships instead of alphabetical order, letting developers review code in a logical sequence from top to bottom
+*   **Automated quality analysis**: Claude runs comprehensive tests on code changes, checking for bugs and quality issues while learning from codebase patterns and user feedback
+*   **Architecture visualization**: When data flows change, Claude automatically generates architecture diagrams to show reviewers the broader impact
+*   **Multi-language support**: Claude delivers consistent code review quality across programming languages from TypeScript and Python to less common ones like Elixir
+*   **Smart suggestions**: Claude generates code improvement suggestions when confidence levels are high, helping teams maintain quality while moving faster
 
 ## Transforming engineering velocity and code quality
 

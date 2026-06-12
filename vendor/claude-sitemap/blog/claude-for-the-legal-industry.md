@@ -26,69 +26,69 @@ New MCP connectors let Claude interact with the systems that legal teams already
 
 **Contract lifecycle and drafting**
 
-- **Definely**, which gives live, deterministic access to contract structure for review: resolve definitions, validate cross-references, map dependencies, and run structural diffs to see how edits propagate across an agreement;**‍**
-- **Docusign,** which connects Claude to your agreement data so you can quickly surface key terms like renewal dates and obligations, and orchestrate agreement workflows across the contract lifecycle, from drafting through signature and post signature management;
-- **Ironclad**, which lets Claude access your contract repository and workflows and ask questions about contracts in plain language, with results automatically scoped to each user's permissions.
+*   **Definely**, which gives live, deterministic access to contract structure for review: resolve definitions, validate cross-references, map dependencies, and run structural diffs to see how edits propagate across an agreement;**‍**
+*   **Docusign,** which connects Claude to your agreement data so you can quickly surface key terms like renewal dates and obligations, and orchestrate agreement workflows across the contract lifecycle, from drafting through signature and post signature management;
+*   **Ironclad**, which lets Claude access your contract repository and workflows and ask questions about contracts in plain language, with results automatically scoped to each user's permissions.
 
 **Deal rooms and transaction documents**: 
 
-- **Box**, which connects Claude to content stored in Box to search and access files, query documents, create or update content, and extract metadata fields, while enforcing existing Box security and access policies;
-- **Datasite**, which connects Claude to your Datasite virtual data room—the secure workspace where thousands of M&A deals are facilitated annually—to set up folder structures, invite users, search documents, track buyer Q&A, and audit data room readiness.
+*   **Box**, which connects Claude to content stored in Box to search and access files, query documents, create or update content, and extract metadata fields, while enforcing existing Box security and access policies;
+*   **Datasite**, which connects Claude to your Datasite virtual data room—the secure workspace where thousands of M&A deals are facilitated annually—to set up folder structures, invite users, search documents, track buyer Q&A, and audit data room readiness.
 
 **Document management:** 
 
-- **iManage,** a knowledge work platform, gives Claude permission-bound, auditable access to governed iManage content, including matter history, documents, and institutional knowledge, eliminating the need for bulk exports or custom integrations;**‍**
-- **NetDocuments**, which lets Claude search and retrieve documents from your NetDocuments repository and draft new documents based on your precedents, with full respect for your organization's permissions and governance policies.
+*   **iManage,** a knowledge work platform, gives Claude permission-bound, auditable access to governed iManage content, including matter history, documents, and institutional knowledge, eliminating the need for bulk exports or custom integrations;**‍**
+*   **NetDocuments**, which lets Claude search and retrieve documents from your NetDocuments repository and draft new documents based on your precedents, with full respect for your organization's permissions and governance policies.
 
 **Expert networks and skills:**
 
-- **Lawve AI,** which offers a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists, searchable from inside Claude;
-- **The L Suite,** which offers two MCP connectors from their leading in-house counsel community: (1) Lloyd, which allows The L Suite members to connect Claude with the Braintrust member platform; and (2) TopCounsel, which helps any in-house counsel find the right outside counsel for a specific matter based on The L Suite's proprietary dataset and ranking algorithm.
+*   **Lawve AI,** which offers a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists, searchable from inside Claude;
+*   **The L Suite,** which offers two MCP connectors from their leading in-house counsel community: (1) Lloyd, which allows The L Suite members to connect Claude with the Braintrust member platform; and (2) TopCounsel, which helps any in-house counsel find the right outside counsel for a specific matter based on The L Suite's proprietary dataset and ranking algorithm.
 
 **E-discovery and review:** 
 
-- **Consilio**, which puts a client’s own live matters and Consilio’s Aurora Legal AI at Claude's fingertips, with every response scoped to what the user is already entitled to see;
-- **Everlaw**, which provides a litigation platform, lets Claude search, organize, and retrieve documents from Everlaw projects using metadata, keywords, and document types, with direct review links;
-- **Relativity**, which lets Claude stand up matters, shape workspace schema, govern access, and analyze usage in its AI platform for legal data intelligence, RelativityOne.
+*   **Consilio**, which puts a client’s own live matters and Consilio’s Aurora Legal AI at Claude's fingertips, with every response scoped to what the user is already entitled to see;
+*   **Everlaw**, which provides a litigation platform, lets Claude search, organize, and retrieve documents from Everlaw projects using metadata, keywords, and document types, with direct review links;
+*   **Relativity**, which lets Claude stand up matters, shape workspace schema, govern access, and analyze usage in its AI platform for legal data intelligence, RelativityOne.
 
 **Fiduciary-grade workflows:**
 
-- **Thomson Reuters,** which connects Claude to CoCounsel Legal, a fiduciary-grade system for end-to-end drafting, research, review, and validation across all major practice areas, serving as an AI assistant for high-stakes legal work, grounded in Westlaw primary law, Practical Law guidance, KeyCite, and your own documents, with transparent and verifiable outputs.
+*   **Thomson Reuters,** which connects Claude to CoCounsel Legal, a fiduciary-grade system for end-to-end drafting, research, review, and validation across all major practice areas, serving as an AI assistant for high-stakes legal work, grounded in Westlaw primary law, Practical Law guidance, KeyCite, and your own documents, with transparent and verifiable outputs.
 
 **Legal research and case law:** 
 
-- **Legal Data Hunter**, which gives Claude access to the world's fastest growing legal corpus: 31M+ documents from 160+ jurisdictions, including EU consolidated law, case law from supreme and constitutional courts, and official doctrine;
-- **Midpage**, which connects Claude to a database of case law for complex legal research, opinion review, and work product, with everything hyperlinked to real sources for easy verification;
-- **Trellis**, which gives Claude direct access to the largest state trial-court dataset in the US, including dockets, rulings, verdicts, and filings, for judge and opposing-counsel analytics and motion drafting.
+*   **Legal Data Hunter**, which gives Claude access to the world's fastest growing legal corpus: 31M+ documents from 160+ jurisdictions, including EU consolidated law, case law from supreme and constitutional courts, and official doctrine;
+*   **Midpage**, which connects Claude to a database of case law for complex legal research, opinion review, and work product, with everything hyperlinked to real sources for easy verification;
+*   **Trellis**, which gives Claude direct access to the largest state trial-court dataset in the US, including dockets, rulings, verdicts, and filings, for judge and opposing-counsel analytics and motion drafting.
 
 **Legal AI assistants:**
 
-- **Harvey**, which brings Harvey's legal intelligence into Claude, supporting general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources;
-- **Solve Intelligence**, which connects Claude to patent and non-patent literature, legal texts, SEP technical standards, and the open web for prior-art search, claim mapping, and patent drafting.
+*   **Harvey**, which brings Harvey's legal intelligence into Claude, supporting general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources;
+*   **Solve Intelligence**, which connects Claude to patent and non-patent literature, legal texts, SEP technical standards, and the open web for prior-art search, claim mapping, and patent drafting.
 
 **Public service**
 
-- **BoardWise**, which guides licensed professionals facing state board matters: helping them understand deadlines, navigate their situation, and draft structured response letters tailored to their jurisdiction;
-- **Courtroom5**, which provides legal guidance to the roughly 80% of civil litigants who appear in court without an attorney, with jurisdiction-aware case intake, deadline calculation, and next-step guidance across all 50 states;
-- **Descrybe**, which gives Claude legal-research tools for working with primary law: search cases by concept or citation, check treatment status, find citing authorities, and verify quoted language;
-- **Free Law Project**, which connects Claude to CourtListener's millions of US court opinions, PACER dockets, judge profiles, oral arguments, and citation data.
+*   **BoardWise**, which guides licensed professionals facing state board matters: helping them understand deadlines, navigate their situation, and draft structured response letters tailored to their jurisdiction;
+*   **Courtroom5**, which provides legal guidance to the roughly 80% of civil litigants who appear in court without an attorney, with jurisdiction-aware case intake, deadline calculation, and next-step guidance across all 50 states;
+*   **Descrybe**, which gives Claude legal-research tools for working with primary law: search cases by concept or citation, check treatment status, find citing authorities, and verify quoted language;
+*   **Free Law Project**, which connects Claude to CourtListener's millions of US court opinions, PACER dockets, judge profiles, oral arguments, and citation data.
 
 ## Practice-area plugins
 
 Legal work looks different depending on the seat you're in. We're releasing 12 practice-area plugins (download them from the Legal Marketplace, here), each built around a specific legal role. Every plugin starts with a short setup interview that learns your practice: your playbook, your escalation chain, your risk calibration, your house style, so Claude’s answers are not generic but rather tailored for your team. These include:
 
-- **Commercial Legal** reviews vendor agreements and NDAs against your playbooks and routes escalations with a plain-language summary for business stakeholders.
-- **Corporate Legal** handles M&A: diligence across the data room, disclosure schedules, board consents, and the closing checklist. It can be configured for board work, public-company governance, or entity compliance.
-- **Employment Legal** covers hires, terminations, worker classification, leave deadlines, and investigations, and drafts policies with state-specific rules built in.
-- **Privacy Legal** reviews DPAs against your playbook, triages PIAs and DPIAs, prepares DSAR responses within statutory timelines, and flags gaps between written policy and actual practice.
-- **Product Legal** runs launch reviews against your internal framework, checks marketing claims for substantiation, and answers risk questions from teams across the business.
-- **Regulatory Legal** monitors regulatory developments, filters them to your materiality threshold, compares new rules against your policy library, and tracks gaps and comment deadlines.
-- **AI Governance Legal** triages AI use cases against your governance tiers, runs impact assessments, reviews vendor AI terms, and can draft a starting AI policy.
-- **IP Legal** conducts trademark clearance and freedom-to-operate triage, drafts and responds to cease-and-desist letters, handles DMCA takedowns and open-source compliance, and screens invention disclosures.
-- **Litigation Legal** manages matter intake and portfolio tracking, legal holds, demand letters, subpoena triage, chronologies, deposition preparation, privilege logs, and brief drafting.
-- **Law Student** provides Socratic drilling, case briefs, IRAC grading, and bar preparation with jurisdiction-specific distinctions.
-- **Legal Clinic** manages client intake, deadline tracking, case memos, and the supervisor review queue.
-- **Legal Builder Hub** finds and installs community-built legal skills from public registries, running a security review, license check, and freshness check on every install and update.
+*   **Commercial Legal** reviews vendor agreements and NDAs against your playbooks and routes escalations with a plain-language summary for business stakeholders.
+*   **Corporate Legal** handles M&A: diligence across the data room, disclosure schedules, board consents, and the closing checklist. It can be configured for board work, public-company governance, or entity compliance.
+*   **Employment Legal** covers hires, terminations, worker classification, leave deadlines, and investigations, and drafts policies with state-specific rules built in.
+*   **Privacy Legal** reviews DPAs against your playbook, triages PIAs and DPIAs, prepares DSAR responses within statutory timelines, and flags gaps between written policy and actual practice.
+*   **Product Legal** runs launch reviews against your internal framework, checks marketing claims for substantiation, and answers risk questions from teams across the business.
+*   **Regulatory Legal** monitors regulatory developments, filters them to your materiality threshold, compares new rules against your policy library, and tracks gaps and comment deadlines.
+*   **AI Governance Legal** triages AI use cases against your governance tiers, runs impact assessments, reviews vendor AI terms, and can draft a starting AI policy.
+*   **IP Legal** conducts trademark clearance and freedom-to-operate triage, drafts and responds to cease-and-desist letters, handles DMCA takedowns and open-source compliance, and screens invention disclosures.
+*   **Litigation Legal** manages matter intake and portfolio tracking, legal holds, demand letters, subpoena triage, chronologies, deposition preparation, privilege logs, and brief drafting.
+*   **Law Student** provides Socratic drilling, case briefs, IRAC grading, and bar preparation with jurisdiction-specific distinctions.
+*   **Legal Clinic** manages client intake, deadline tracking, case memos, and the supervisor review queue.
+*   **Legal Builder Hub** finds and installs community-built legal skills from public registries, running a security review, license check, and freshness check on every install and update.
 
 Each agent template can be installed in Cowork or Claude Code with a click, and produces outputs that match institutional drafting standards. A subset of these (Commercial Legal, Corporate Legal, Litigation Legal, Product Legal, Litigation Legal) are also available as cookbooks that can be deployed as Managed Agents in the Claude Platform for programmatic use. Teams can layer on their own precedents and playbooks to customize the skills.
 

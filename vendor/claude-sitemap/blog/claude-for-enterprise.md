@@ -10,10 +10,10 @@ With Claude, your organization’s knowledge is easier to share and reuse, enabl
 
 The Enterprise plan introduces critical security and administrative controls that prioritize managing and protecting your company’s sensitive data, including:
 
-- **Single sign-on (SSO) and domain capture**: Securely manage user access and centralize provisioning control.
-- **Role-based access with fine-grained permissioning**: Designate a primary owner for your workspace to enhance security and information management.
-- **Audit logs**: Trace system activities for security and compliance monitoring. Audit logs will be available in the coming weeks.
-- **System for Cross-domain Identity Management (SCIM)**: Automate user provisioning and access controls. SCIM will also be available in the coming weeks.
+*   **Single sign-on (SSO) and domain capture**: Securely manage user access and centralize provisioning control.
+*   **Role-based access with fine-grained permissioning**: Designate a primary owner for your workspace to enhance security and information management.
+*   **Audit logs**: Trace system activities for security and compliance monitoring. Audit logs will be available in the coming weeks.
+*   **System for Cross-domain Identity Management (SCIM)**: Automate user provisioning and access controls. SCIM will also be available in the coming weeks.
 
 ## Enterprise features
 

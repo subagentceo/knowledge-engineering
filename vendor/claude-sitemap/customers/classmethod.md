@@ -4,10 +4,10 @@ Japanese cloud integrator Classmethod empowers engineering teams to overcome chr
 
 With Claude Code, Classmethod achieved:
 
-- Reduced development time for specific coding tasks by up to 90%
-- Up to 80% decrease in time spent reviewing code
-- 96% reduction in Google Apps Script task processing time, from 24 hours to 1 hour
-- Increase in code contributions shipped to production (108 merged pull requests in January to 165 in May-June), enabling the team to deliver features and fixes faster
+*   Reduced development time for specific coding tasks by up to 90%
+*   Up to 80% decrease in time spent reviewing code
+*   96% reduction in Google Apps Script task processing time, from 24 hours to 1 hour
+*   Increase in code contributions shipped to production (108 merged pull requests in January to 165 in May-June), enabling the team to deliver features and fixes faster
 
 ## Efficient utilization of limited engineering resources
 

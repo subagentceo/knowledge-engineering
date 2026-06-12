@@ -4,9 +4,9 @@ LaunchNotes leverages Claude in Amazon Bedrock not only to power key capabilitie
 
 Teams using Graph with Claude in Amazon Bedrock have achieved:
 
-- 5x faster incident identification for site reliability engineering (SRE) teams
-- 50% reduction in meeting time through personalized, automated updates
-- Generation of customized release notes and technical docs in seconds
+*   5x faster incident identification for site reliability engineering (SRE) teams
+*   50% reduction in meeting time through personalized, automated updates
+*   Generation of customized release notes and technical docs in seconds
 
 ## Meeting the challenge of scaled engineering management
 
@@ -30,18 +30,18 @@ LaunchNotes' new product, Graph, uses Claude to transform engineering data into 
 
 The core LaunchNotes product uses Claude to power three key features:
 
-- Embedded AI writing assistant that can turn any PRD or tech spec into a marketing-grade announcement in seconds
-- Direct Jira integration for automated announcement creation from any epic or set of issues
-- Loom video transcription and announcement synthesis
+*   Embedded AI writing assistant that can turn any PRD or tech spec into a marketing-grade announcement in seconds
+*   Direct Jira integration for automated announcement creation from any epic or set of issues
+*   Loom video transcription and announcement synthesis
 
 ## Transforming team effectiveness through AI-powered insights
 
 LaunchNotes helps engineering leaders maintain effective oversight as their teams expand. Graph delivers immediate impact across multiple workflows:
 
-- Reduces incident identification time by up to 5x for SRE teams
-- Cuts stand-up meeting time by 50% through automated updates
-- Generates tailored, up-to-date release notes in seconds
-- Provides shared context for team meetings without manual preparation
+*   Reduces incident identification time by up to 5x for SRE teams
+*   Cuts stand-up meeting time by 50% through automated updates
+*   Generates tailored, up-to-date release notes in seconds
+*   Provides shared context for team meetings without manual preparation
 
 "Our goal is to help engineering managers anticipate and prevent problems before they escalate," said Davis. "Graph transforms hours of manual analysis into instant insights."
 

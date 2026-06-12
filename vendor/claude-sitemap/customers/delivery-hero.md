@@ -4,9 +4,9 @@ Delivery Hero operates in about 65 countries, connecting customers with restaura
 
 ## With Claude, Delivery Hero achieved:
 
-- > 100 merged pull requests per day from Herogen, Delivery Hero's autonomous software delivery agent, about 9% of all PRs 
-- 85% success rate on assigned tickets, with most requiring zero to one developer interactions
-- 18x the original quarterly goal for merged pull requests in Q1 2026
-- Cross-repository changes across hundreds of codebases, previously a multi-day effort, completed in minutes
-- 95% Claude model usage across central engineering teams
-- A 9-to-2 preference for Claude over the next closest option in a survey of the company's CTO group
+*   >100 merged pull requests per day from Herogen, Delivery Hero's autonomous software delivery agent, about 9% of all PRs 
+*   85% success rate on assigned tickets, with most requiring zero to one developer interactions
+*   18x the original quarterly goal for merged pull requests in Q1 2026
+*   Cross-repository changes across hundreds of codebases, previously a multi-day effort, completed in minutes
+*   95% Claude model usage across central engineering teams
+*   A 9-to-2 preference for Claude over the next closest option in a survey of the company's CTO group

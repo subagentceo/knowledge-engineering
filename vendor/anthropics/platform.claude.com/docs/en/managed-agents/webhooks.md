@@ -57,26 +57,27 @@ Set `ANTHROPIC_WEBHOOK_SIGNING_KEY` to the `whsec_`-prefixed secret shown at end
 from flask import Flask, request
 import anthropic
 
-client = anthropic.Anthropic() # reads ANTHROPIC_WEBHOOK_SIGNING_KEY from env
-app = Flask(**name**)
+client = anthropic.Anthropic()  # reads ANTHROPIC_WEBHOOK_SIGNING_KEY from env
+app = Flask(__name__)
+
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
-try: # unwrap() raises if the signature is invalid or the payload is stale
-event = client.beta.webhooks.unwrap(
-request.get_data(as_text=True),
-headers=dict(request.headers),
-)
-except Exception:
-return "invalid signature", 400
+    try:
+        # unwrap() raises if the signature is invalid or the payload is stale
+        event = client.beta.webhooks.unwrap(
+            request.get_data(as_text=True),
+            headers=dict(request.headers),
+        )
+    except Exception:
+        return "invalid signature", 400
 
     if event.data.type == "session.status_idled":
         print("session idled:", event.data.id)
     # handle other event types
 
     return "", 200
-
-````
+```
 
 ```typescript TypeScript nocheck
 import express from "express";
@@ -106,7 +107,7 @@ app.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
 
   res.sendStatus(200);
 });
-````
+```
 
 ```csharp C# nocheck
 using Anthropic;
@@ -272,7 +273,6 @@ post "/webhook" do
   status 200
 end
 ```
-
 </CodeGroup>
 
 ## Handle an event
@@ -354,7 +354,6 @@ if event.data.type == "session.status_idled"
 end
 status 204
 ```
-
 </CodeGroup>
 
 The top-level `event.id` is unique per event, not per delivery. If you receive the same `event.id` twice, it's a retry and you can discard it.

@@ -35,6 +35,7 @@ List Compliance Role Permissions
 - `data: array of object { action, resource_id, resource_type }`
 
   List of permissions
+
   - `action: string`
 
     Action permitted on the resource
@@ -85,6 +86,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 - `PermissionListResponse object { action, resource_id, resource_type }`
 
   Permission granted by a role.
+
   - `action: string`
 
     Action permitted on the resource

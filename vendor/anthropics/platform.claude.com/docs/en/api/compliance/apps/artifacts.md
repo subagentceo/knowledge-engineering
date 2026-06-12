@@ -112,6 +112,7 @@ curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID
 
   Returns metadata only. Use the sibling `/content` endpoint to fetch the
   artifact body.
+
   - `id: string`
 
     Artifact ID e.g. 'claude_artifact_abc123'

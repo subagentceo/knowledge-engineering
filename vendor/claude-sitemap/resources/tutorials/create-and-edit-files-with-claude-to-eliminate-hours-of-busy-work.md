@@ -12,11 +12,11 @@ If you're using a Team or Enterprise plan, see Configuring network access for ad
 
 Claude can now create and work directly with the documents that drive your business and return them back to you for further edits. This means you can:
 
-- **Build Excel models** — Develop financial forecasts with working formulas, create budget trackers with automatic calculations, or analyze sales data.**‍**
-- **Generate documents** — Directly generate reports, memos, technical papers, and more. Then download or export to GDrive in one click.**‍**
-- **Perform detailed analyses —** Use Claude to analyze your data, build models and forecasts, and generate data visualizations**‍**
-- **Craft PowerPoint presentations** — Convert documents into slide format, organize research into presentations, or transform notes into decks. From there, you can edit directly to polish and finalize.**‍**
-- **Fill PDF forms** — ask Claude to fill PDF forms with your information; just give it context on how to answer, and watch it do the work.
+*   **Build Excel models** — Develop financial forecasts with working formulas, create budget trackers with automatic calculations, or analyze sales data.**‍**
+*   **Generate documents** — Directly generate reports, memos, technical papers, and more. Then download or export to GDrive in one click.**‍**
+*   **Perform detailed analyses —** Use Claude to analyze your data, build models and forecasts, and generate data visualizations**‍**
+*   **Craft PowerPoint presentations** — Convert documents into slide format, organize research into presentations, or transform notes into decks. From there, you can edit directly to polish and finalize.**‍**
+*   **Fill PDF forms** — ask Claude to fill PDF forms with your information; just give it context on how to answer, and watch it do the work.
 
 After you’re done iterating with Claude, just open the file in Drive or hit Download to finalize and share.
 
@@ -56,9 +56,9 @@ Claude combines information from different file types into native workbooks with
 
 Simple file manipulation is just the beginning — the real power of file creation emerges when you start to combine Claude’s analytical and coding capabilities with the context of your work. This might look like:
 
-- **Turn text into a PowerPoint —** Claude can get your powerpoints started by summarizing your docs and translating them to slides. All you need to do is format and add the finishing touches.**‍**
-- **Redline or edit documents** — Claude can leave suggestions and comments on documents, so you can work with it like you would a real coworker. Taking feedback where you want it, and not where you don’t.**‍**
-- **Generate LaTeX files** — for your mathematical proofs, or technical documentation, all with proper formatting and equations**‍**
-- **Create interesting visualizations** — Claude can create a gif (like a visual graph of revenue growth based off your excel file) and implement it into your presentations **‍**
-- **Watermark your materials —** Claude can batch add images to a range of different file types, so you can upload your slides, and get watermarked versions back to send to your clients.**‍**
-- **Graph with matplotlib —** Try asking for something like: Plot monthly revenue for Q3 2024 using matplotlib. add a trend line and highlight the highest month.
+*   **Turn text into a PowerPoint —** Claude can get your powerpoints started by summarizing your docs and translating them to slides. All you need to do is format and add the finishing touches.**‍**
+*   **Redline or edit documents** — Claude can leave suggestions and comments on documents, so you can work with it like you would a real coworker. Taking feedback where you want it, and not where you don’t.**‍**
+*   **Generate LaTeX files** — for your mathematical proofs, or technical documentation, all with proper formatting and equations**‍**
+*   **Create interesting visualizations** — Claude can create a gif (like a visual graph of revenue growth based off your excel file) and implement it into your presentations **‍**
+*   **Watermark your materials —** Claude can batch add images to a range of different file types, so you can upload your slides, and get watermarked versions back to send to your clients.**‍**
+*   **Graph with matplotlib —** Try asking for something like: Plot monthly revenue for Q3 2024 using matplotlib. add a trend line and highlight the highest month.

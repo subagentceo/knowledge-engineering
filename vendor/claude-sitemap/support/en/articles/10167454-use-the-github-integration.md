@@ -4,7 +4,7 @@ Connect your GitHub repositories directly to Claude to provide comprehensive con
 
 ## How to add GitHub repositories
 
-**Note:** If you're currently unauthenticated with GitHub, you'll be redirected to GitHub to authenticate before you can use this integration.
+**Note:**  If you're currently unauthenticated with GitHub, you'll be redirected to GitHub to authenticate before you can use this integration.
 
 ### Chats
 

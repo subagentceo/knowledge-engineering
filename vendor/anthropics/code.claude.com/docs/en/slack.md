@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -13,10 +12,10 @@ This integration is built on the existing Claude for Slack app but adds intellig
 
 ## Use cases
 
-- **Bug investigation and fixes**: Ask Claude to investigate and fix bugs as soon as they're reported in Slack channels.
-- **Quick code reviews and modifications**: Have Claude implement small features or refactor code based on team feedback.
-- **Collaborative debugging**: When team discussions provide crucial context (e.g., error reproductions or user reports), Claude can use that information to inform its debugging approach.
-- **Parallel task execution**: Kick off coding tasks in Slack while you continue other work, receiving notifications when complete.
+* **Bug investigation and fixes**: Ask Claude to investigate and fix bugs as soon as they're reported in Slack channels.
+* **Quick code reviews and modifications**: Have Claude implement small features or refactor code based on team feedback.
+* **Collaborative debugging**: When team discussions provide crucial context (e.g., error reproductions or user reports), Claude can use that information to inform its debugging approach.
+* **Parallel task execution**: Kick off coding tasks in Slack while you continue other work, receiving notifications when complete.
 
 ## Prerequisites
 
@@ -43,7 +42,6 @@ Before using Claude Code in Slack, ensure you have the following:
     2. Navigate to the App Home tab
     3. Click "Connect" to link your Slack account with your Claude account
     4. Complete the authentication flow in your browser
-
   </Step>
 
   <Step title="Configure Claude Code on the web">
@@ -52,7 +50,6 @@ Before using Claude Code in Slack, ensure you have the following:
     * Visit [claude.ai/code](https://claude.ai/code) and sign in with the same account you connected to Slack
     * Connect your GitHub account if not already connected
     * Authenticate at least one repository that you want Claude to work with
-
   </Step>
 
   <Step title="Choose your routing mode">
@@ -66,7 +63,6 @@ Before using Claude Code in Slack, ensure you have the following:
     <Note>
       In Code + Chat mode, if Claude routes a message to Chat but you wanted a coding session, you can click "Retry as Code" to create a Claude Code session instead. Similarly, if it's routed to Code but you wanted a Chat session, you can choose that option in that thread.
     </Note>
-
   </Step>
 
   <Step title="Add Claude to channels">
@@ -115,10 +111,10 @@ The App Home tab shows your connection status and allows you to connect or disco
 
 ### Message actions
 
-- **View Session**: Opens the full Claude Code session in your browser where you can see all work performed, continue the session, or make additional requests.
-- **Create PR**: Creates a pull request directly from the session's changes.
-- **Retry as Code**: If Claude initially responds as a chat assistant but you wanted a coding session, click this button to retry the request as a Claude Code task.
-- **Change Repo**: Allows you to select a different repository if Claude chose incorrectly.
+* **View Session**: Opens the full Claude Code session in your browser where you can see all work performed, continue the session, or make additional requests.
+* **Create PR**: Creates a pull request directly from the session's changes.
+* **Retry as Code**: If Claude initially responds as a chat assistant but you wanted a coding session, click this button to retry the request as a Claude Code task.
+* **Change Repo**: Allows you to select a different repository if Claude chose incorrectly.
 
 ### Repository selection
 
@@ -149,10 +145,10 @@ Slack workspace administrators control whether the Claude app is available in th
 
 Claude is not automatically added to any channels after installation. Users must explicitly invite Claude to channels where they want to use it:
 
-- **Invite required**: Type `/invite @Claude` in any channel to add Claude to that channel
-- **Channel membership controls access**: Claude can only respond to @mentions in channels where it has been added
-- **Access gating through channels**: Admins can control who uses Claude Code by managing which channels Claude is invited to and who has access to those channels
-- **Private channel support**: Claude works in both public and private channels, giving teams flexibility in controlling visibility
+* **Invite required**: Type `/invite @Claude` in any channel to add Claude to that channel
+* **Channel membership controls access**: Claude can only respond to @mentions in channels where it has been added
+* **Access gating through channels**: Admins can control who uses Claude Code by managing which channels Claude is invited to and who has access to those channels
+* **Private channel support**: Claude works in both public and private channels, giving teams flexibility in controlling visibility
 
 This channel-based model allows teams to restrict Claude Code usage to specific channels, providing an additional layer of access control beyond workspace-level permissions.
 
@@ -170,10 +166,10 @@ for more details.
 
 ### Writing effective requests
 
-- **Be specific**: Include file names, function names, or error messages when relevant.
-- **Provide context**: Mention the repository or project if it's not clear from the conversation.
-- **Define success**: Explain what "done" looks like—should Claude write tests? Update documentation? Create a PR?
-- **Use threads**: Reply in threads when discussing bugs or features so Claude can gather the full context.
+* **Be specific**: Include file names, function names, or error messages when relevant.
+* **Provide context**: Mention the repository or project if it's not clear from the conversation.
+* **Define success**: Explain what "done" looks like—should Claude write tests? Update documentation? Create a PR?
+* **Use threads**: Reply in threads when discussing bugs or features so Claude can gather the full context.
 
 ### When to use Slack vs. web
 
@@ -213,10 +209,10 @@ for more details.
 
 ## Current limitations
 
-- **GitHub only**: Currently supports repositories on GitHub.
-- **One PR at a time**: Each session can create one pull request.
-- **Rate limits apply**: Sessions use your individual Claude plan's rate limits.
-- **Web access required**: Users must have Claude Code on the web access; those without it will only get standard Claude chat responses.
+* **GitHub only**: Currently supports repositories on GitHub.
+* **One PR at a time**: Each session can create one pull request.
+* **Rate limits apply**: Sessions use your individual Claude plan's rate limits.
+* **Web access required**: Users must have Claude Code on the web access; those without it will only get standard Claude chat responses.
 
 ## Related resources
 

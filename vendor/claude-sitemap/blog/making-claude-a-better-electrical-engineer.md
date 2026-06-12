@@ -8,9 +8,9 @@ An important task for electrical engineers is building reference designs: when a
 
 Electrical engineers already use Claude Code to auto-generate reference designs in Zener from unstructured documentation before they are reviewed. But given the novelty of the environment, which includes domain specific tooling and requires deep subject matter expertise, there is room for improvement on Claude’s agentic performance at generating reference designs, and Claude’s general understanding of this specific electrical engineering task. In the task of auto-generating reference designs, common failure modes when attempting the task include:
 
-- Missing nuances from the datasheet about how circuits should be configured
-- Misinterpreting reference schematic images
-- Misunderstanding or misusing Zener
+*   Missing nuances from the datasheet about how circuits should be configured
+*   Misinterpreting reference schematic images
+*   Misunderstanding or misusing Zener
 
 When we uncover gaps in Claude’s capabilities on domain specific tasks requiring deep subject matter expertise, we can partner with experts in the field to teach Claude to improve on these tasks. This knowledge is encoded in the Claude models that are released publicly, so that all users of Claude models benefit, be it in Claude Code, claude.ai, or their own Claude powered systems and applications.
 

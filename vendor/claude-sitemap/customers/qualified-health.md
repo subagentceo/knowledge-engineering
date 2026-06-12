@@ -4,11 +4,11 @@ Qualified Health is a healthcare-native AI platform that identifies patients who
 
 ## With Claude, Qualified Health and the UT System:
 
-- Screen a 2 million patient population to identify candidates for life-saving interventions
-- Route eligible patients directly into clinicians' workflows with supporting documentation
-- Complete chart reviews in minutes that previously required extensive manual abstraction
-- Identify patients who benefit from medication optimization, therapeutic intervention, or further discussion
-- Plan to expand from cardiology to primary care, vascular, GI, rheumatology, and neurology by end of 2026
+*   Screen a 2 million patient population to identify candidates for life-saving interventions
+*   Route eligible patients directly into clinicians' workflows with supporting documentation
+*   Complete chart reviews in minutes that previously required extensive manual abstraction
+*   Identify patients who benefit from medication optimization, therapeutic intervention, or further discussion
+*   Plan to expand from cardiology to primary care, vascular, GI, rheumatology, and neurology by end of 2026
 
 ## The problem
 

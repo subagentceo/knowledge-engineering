@@ -21,6 +21,7 @@ Upload File
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -127,6 +128,7 @@ List Files
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -267,6 +269,7 @@ Get File Metadata
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -358,6 +361,7 @@ Delete File
 ### Returns
 
 - `DeletedFile`
+
   - `string id`
 
     ID of the deleted file.
@@ -398,6 +402,7 @@ var_dump($deletedFile);
 ### Beta File Scope
 
 - `BetaFileScope`
+
   - `string id`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -409,6 +414,7 @@ var_dump($deletedFile);
 ### Deleted File
 
 - `DeletedFile`
+
   - `string id`
 
     ID of the deleted file.
@@ -422,6 +428,7 @@ var_dump($deletedFile);
 ### File Metadata
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.

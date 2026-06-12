@@ -6,10 +6,10 @@ Skills cover practical details like the modern function syntax (`export default 
 
 **How to use:** Once installed, the skills activate automatically when you're working on Netlify projects. Ask Claude to help with any Netlify feature and it will draw on the relevant skill. Example prompts:
 
-- _"Create a serverless function that handles POST requests at /api/submit"_
-- _"Set up Netlify DB with Drizzle ORM and create a users table"_
-- _"Add an edge function for geolocation-based redirects"_
-- _"Configure image CDN transforms for responsive thumbnails"_
-- _"Set up caching headers and CDN purging for my API routes"_
-- _"Deploy my site with the Netlify CLI and set up environment variables"_
-- _"Route AI requests through the Netlify AI Gateway"_
+*   _"Create a serverless function that handles POST requests at /api/submit"_
+*   _"Set up Netlify DB with Drizzle ORM and create a users table"_
+*   _"Add an edge function for geolocation-based redirects"_
+*   _"Configure image CDN transforms for responsive thumbnails"_
+*   _"Set up caching headers and CDN purging for my API routes"_
+*   _"Deploy my site with the Netlify CLI and set up environment variables"_
+*   _"Route AI requests through the Netlify AI Gateway"_

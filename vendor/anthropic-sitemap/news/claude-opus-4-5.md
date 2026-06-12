@@ -289,14 +289,14 @@ All evals were run with a 64K thinking budget, interleaved scratchpads, 200K con
 
 Read more
 
-### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+### TCS and Anthropic partner to bring Claude to regulated industries
 
-We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
+We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
 
 Read more
 
-### Introducing Claude Corps
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more

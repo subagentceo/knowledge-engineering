@@ -4,11 +4,11 @@ Pelanor, an AI-powered FinOps platform, uses Claude to help enterprises instantl
 
 ## With Claude, Pelanor:
 
-- Achieved 10x customer growth in 6 months (from 5 to 50 customers)
-- Shipped features that drive 40-50% of new business
-- Delivers cost insights in seconds that previously took weeks of analysis
-- Enables cost attribution down to individual customers, features, and code changes
-- Launched Agent Composer for creating custom cost monitoring in plain English
+*   Achieved 10x customer growth in 6 months (from 5 to 50 customers)
+*   Shipped features that drive 40-50% of new business
+*   Delivers cost insights in seconds that previously took weeks of analysis
+*   Enables cost attribution down to individual customers, features, and code changes
+*   Launched Agent Composer for creating custom cost monitoring in plain English
 
 ## When cloud costs become impossible to understand
 

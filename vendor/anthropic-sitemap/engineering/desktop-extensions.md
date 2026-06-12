@@ -1,10 +1,11 @@
 # Desktop Extensions: One-click MCP server installation for Claude Desktop
 
-- File extension update
-
-  Sep 11, 2025
-
-  Claude Desktop Extensions now use the .mcpb (MCP Bundle) file extension instead of .dxt. Existing .dxt extensions will continue to work, but we recommend developers use .mcpb for new extensions going forward. All functionality remains the same - this is purely a naming convention update.
+*   File extension update
+    
+    Sep 11, 2025
+    
+    Claude Desktop Extensions now use the .mcpb (MCP Bundle) file extension instead of .dxt. Existing .dxt extensions will continue to work, but we recommend developers use .mcpb for new extensions going forward. All functionality remains the same - this is purely a naming convention update.
+    
 
 —
 
@@ -16,11 +17,11 @@ Today, we're introducing Desktop Extensions—a new packaging format that makes 
 
 Local MCP servers unlock powerful capabilities for Claude Desktop users. They can interact with local applications, access private data, and integrate with development tools—all while keeping data on the user's machine. However, the current installation process creates significant barriers:
 
-- **Developer tools required**: Users need Node.js, Python, or other runtimes installed
-- **Manual configuration**: Each server requires editing JSON configuration files
-- **Dependency management**: Users must resolve package conflicts and version mismatches
-- **No discovery mechanism**: Finding useful MCP servers requires searching GitHub
-- **Update complexity**: Keeping servers current means manual reinstallation
+*   **Developer tools required**: Users need Node.js, Python, or other runtimes installed
+*   **Manual configuration**: Each server requires editing JSON configuration files
+*   **Dependency management**: Users must resolve package conflicts and version mismatches
+*   **No discovery mechanism**: Finding useful MCP servers requires searching GitHub
+*   **Update complexity**: Keeping servers current means manual reinstallation
 
 These friction points meant that MCP servers, despite their power, remained largely inaccessible to non-technical users.
 
@@ -31,10 +32,10 @@ Desktop Extensions (`.mcpb` files) solve these problems by bundling an entire MC
 **Before:**
 
 ```
-# Install Node.js first
-npm install -g @example/mcp-server
-# Edit ~/.claude/claude_desktop_config.json manually
-# Restart Claude Desktop
+# Install Node.js first 
+npm install -g @example/mcp-server 
+# Edit ~/.claude/claude_desktop_config.json manually 
+# Restart Claude Desktop 
 # Hope it works
 ```
 
@@ -56,7 +57,7 @@ A Desktop Extension is a zip archive containing the local MCP server as well as 
 extension.mcpb (ZIP archive)
 ├── manifest.json         # Extension metadata and configuration
 ├── server/               # MCP server implementation
-│   └── [server files]
+│   └── [server files]    
 ├── dependencies/         # All required packages/libraries
 └── icon.png             # Optional: Extension icon
 
@@ -84,9 +85,9 @@ Copy
 
 The only required file in a Desktop Extension is a manifest.json. Claude Desktop handles all the complexity:
 
-- **Built-in runtime**: We ship Node.js with Claude Desktop, eliminating external dependencies
-- **Automatic updates**: Extensions update automatically when new versions are available
-- **Secure secrets**: Sensitive configuration like API keys are stored in the OS keychain
+*   **Built-in runtime**: We ship Node.js with Claude Desktop, eliminating external dependencies
+*   **Automatic updates**: Extensions update automatically when new versions are available
+*   **Secure secrets**: Sensitive configuration like API keys are stored in the OS keychain
 
 The manifest contains human-readable information (like the name, description, or author), a declaration of features (tools, prompts), user configuration, and runtime requirements. Most fields are optional, so the minimal version is quite short, although in practice, we expect all three supported extension types (Node.js, Python, and classic binaries/executables) to include files:
 
@@ -106,7 +107,7 @@ The manifest contains human-readable information (like the name, description, or
       "command": "node",                    // Command to run the server
       "args": [                             // Arguments passed to the command
         "${__dirname}/server/index.js"      // ${__dirname} is replaced with the extension's directory
-      ]
+      ]                              
     }
   }
 }
@@ -285,10 +286,10 @@ Copy
 
 Claude Desktop will:
 
-- Display a user-friendly configuration UI
-- Validate inputs before enabling the extension
-- Securely store sensitive values
-- Pass configuration to your server either as arguments or environment variables, depending on developer configuration
+*   Display a user-friendly configuration UI
+*   Validate inputs before enabling the extension
+*   Securely store sensitive values
+*   Pass configuration to your server either as arguments or environment variables, depending on developer configuration
 
 In the example below, we’re passing the user configuration as an environment variable, but it could also be an argument.
 
@@ -327,9 +328,9 @@ This command:
 
 Drag your `.mcpb` file into Claude Desktop's Settings window. You'll see:
 
-- Human-readable information about your extension
-- Required permissions and configuration
-- A simple "Install" button
+*   Human-readable information about your extension
+*   Required permissions and configuration
+*   A simple "Install" button
 
 ### Advanced features
 
@@ -367,9 +368,9 @@ Copy
 
 Use template literals for runtime values:
 
-- `${__dirname}`: Extension's installation directory
-- `${user_config.key}`: User-provided configuration
-- `${HOME}, ${TEMP}`: System environment variables
+*   `${__dirname}`: Extension's installation directory
+*   `${user_config.key}`: User-provided configuration
+*   `${HOME}, ${TEMP}`: System environment variables
 
 #### Feature declaration
 
@@ -412,16 +413,16 @@ We are committed to the open ecosystem around MCP servers and believe that its a
 
 We're open-sourcing:
 
-- The complete MCPB specification
-- Packaging and validation tools
-- Reference implementation code
-- TypeScript types and schemas
+*   The complete MCPB specification
+*   Packaging and validation tools
+*   Reference implementation code
+*   TypeScript types and schemas
 
 This means:
 
-- **For MCP server developers**: Package once, run anywhere that supports MCPB
-- **For app developers**: Add extension support without building from scratch
-- **For users**: Consistent experience across all MCP-enabled applications
+*   **For MCP server developers**: Package once, run anywhere that supports MCPB
+*   **For app developers**: Add extension support without building from scratch
+*   **For users**: Consistent experience across all MCP-enabled applications
 
 The specification and toolchain is on purpose versioned as 0.1, as we are looking forward to working with the greater community on evolving and changing the format. We look forward to hearing from you.
 
@@ -431,17 +432,17 @@ We understand that extensions introduce new security considerations, particularl
 
 #### For users
 
-- Sensitive data stays in the OS keychain
-- Automatic updates
-- Ability to audit what extensions are installed
+*   Sensitive data stays in the OS keychain
+*   Automatic updates
+*   Ability to audit what extensions are installed
 
 #### For enterprises
 
-- Group Policy (Windows) and MDM (macOS) support
-- Ability to pre-install approved extensions
-- Blocklist specific extensions or publishers
-- Disable the extension directory entirely
-- Deploy private extension directories
+*   Group Policy (Windows) and MDM (macOS) support
+*   Ability to pre-install approved extensions
+*   Blocklist specific extensions or publishers
+*   Disable the extension directory entirely
+*   Deploy private extension directories
 
 For more information about how to manage extensions within your organization, see our documentation.
 

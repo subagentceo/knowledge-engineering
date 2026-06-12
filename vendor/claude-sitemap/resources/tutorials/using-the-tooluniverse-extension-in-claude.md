@@ -18,55 +18,55 @@ ToolUniverse provides access to a comprehensive ecosystem of scientific resource
 
 **Biological Databases and Biological Foundation Models**
 
-- UniProt - Complete protein knowledge database
-- Ensembl - Genomic data and annotations
-- RCSB PDB - Protein structure database
-- ChEMBL - Bioactive molecules and drug discovery database
-- NCBI databases - GenBank, RefSeq, SNP database
-- Gene Ontology - Biological process, function, and location annotations
-- ESM - Protein language models
-- TranscriptFormer - Single-cell foundation models
+*   UniProt - Complete protein knowledge database
+*   Ensembl - Genomic data and annotations
+*   RCSB PDB - Protein structure database
+*   ChEMBL - Bioactive molecules and drug discovery database
+*   NCBI databases - GenBank, RefSeq, SNP database
+*   Gene Ontology - Biological process, function, and location annotations
+*   ESM - Protein language models
+*   TranscriptFormer - Single-cell foundation models
 
 **Chemical and Drug Databases**
 
-- PubChem - Chemical structures and biological activities
-- DrugBank - Drug and drug target database
-- ChEMBL - Bioactive drug-like small molecules
-- FDA databases - Drug approval, drug prescribing information, adverse events, drug indications and contraindications, drug interactions
-- ClinicalTrials.gov - Clinical trial information
+*   PubChem - Chemical structures and biological activities
+*   DrugBank - Drug and drug target database
+*   ChEMBL - Bioactive drug-like small molecules
+*   FDA databases - Drug approval, drug prescribing information, adverse events, drug indications and contraindications, drug interactions
+*   ClinicalTrials.gov - Clinical trial information
 
 **Literature and Knowledge Bases**
 
-- PubMed - Biomedical literature database
-- Semantic Scholar - AI-powered literature analysis
-- Europe PMC - Open access biomedical literature
-- OpenAlex - Comprehensive scholarly works database
-- Crossref - DOI registration and metadata
-- OpenTargets - Insights for systematic drug target selection
+*   PubMed - Biomedical literature database
+*   Semantic Scholar - AI-powered literature analysis
+*   Europe PMC - Open access biomedical literature
+*   OpenAlex - Comprehensive scholarly works database
+*   Crossref - DOI registration and metadata
+*   OpenTargets - Insights for systematic drug target selection
 
 **Genomic and Health Data**
 
-- GTEx - Tissue-specific gene expression
-- GWAS Catalog - Genome-wide association studies
-- ClinVar - Genetic variation and disease relationships
-- OMIM - Online Mendelian Inheritance in Man
-- TCGA - Cancer genomics data
+*   GTEx - Tissue-specific gene expression
+*   GWAS Catalog - Genome-wide association studies
+*   ClinVar - Genetic variation and disease relationships
+*   OMIM - Online Mendelian Inheritance in Man
+*   TCGA - Cancer genomics data
 
 **Research Tools and APIs**
 
-- OpenTargets - Target-disease associations
-- STRING - Protein-protein interaction networks
-- KEGG - Pathway and disease information
-- Reactome - Biological pathway database
-- InterPro - Protein families and domains
+*   OpenTargets - Target-disease associations
+*   STRING - Protein-protein interaction networks
+*   KEGG - Pathway and disease information
+*   Reactome - Biological pathway database
+*   InterPro - Protein families and domains
 
 **AI Models, AI agents, Foundation and Generative Models, Visualizations and Scientific Workflows**
 
-- AlphaFold - Protein structure prediction
-- BLAST - Sequence similarity searching
-- ADMET-AI - Drug property prediction models
-- ChemTools - Chemical informatics utilities
-- Visualization tools - Molecular and data visualization
+*   AlphaFold - Protein structure prediction
+*   BLAST - Sequence similarity searching
+*   ADMET-AI - Drug property prediction models
+*   ChemTools - Chemical informatics utilities
+*   Visualization tools - Molecular and data visualization
 
 ‍
 
@@ -151,63 +151,63 @@ Technical details of the ToolUniverse integration can be found in ToolUniverse�
 
 **Drug Discovery and Therapeutic Development**
 
-- Therapeutic discovery and target-to-candidate workflows
-- **Sample Prompt:** “_Identify targets for hypercholesterolemia, prioritize one using evidence from OpenTargets and literature, then screen known drugs and close analogs, and rank candidates by predicted binding and ADMET tradeoffs. Provide intermediate evidence and a final shortlist._”
-- **Workflow:** ToolUniverse-powered AI scientists:
-  - Query disease-target associations using OpenTargets API
-  - Retrieve protein structures from RCSB PDB
-  - Analyze molecular interactions with ChEMBL compound data
-  - Predict binding affinities using integrated ML models
-  - Generate research hypotheses for therapeutic development
+*   Therapeutic discovery and target-to-candidate workflows
+*   **Sample Prompt:** “_Identify targets for hypercholesterolemia, prioritize one using evidence from OpenTargets and literature, then screen known drugs and close analogs, and rank candidates by predicted binding and ADMET tradeoffs. Provide intermediate evidence and a final shortlist._”
+*   **Workflow:** ToolUniverse-powered AI scientists:  
+    *   Query disease-target associations using OpenTargets API
+    *   Retrieve protein structures from RCSB PDB
+    *   Analyze molecular interactions with ChEMBL compound data
+    *   Predict binding affinities using integrated ML models
+    *   Generate research hypotheses for therapeutic development
 
 ‍
 
 **Human Genetics and Genomic Research**
 
-- Human genetics to mechanism (variant-to-gene-to-pathway)
-- **Sample Prompt:** “_From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize functional annotations and tissue expression, and return enriched pathways with supporting references and links to primary sources._”
-- **Workflow:** ToolUniverse-powered AI scientists:
-  - Search GWAS catalog for disease-associated genetic variants
-  - Map SNPs to genes using Ensembl and NCBI databases
-  - Retrieve functional annotations from Gene Ontology
-  - Analyze tissue-specific expression using GTEx data
-  - Identify biological pathways using KEGG and Reactome
+*   Human genetics to mechanism (variant-to-gene-to-pathway)
+*   **Sample Prompt:** “_From GWAS hits for type 2 diabetes, map variants to candidate genes, summarize functional annotations and tissue expression, and return enriched pathways with supporting references and links to primary sources._”
+*   **Workflow:** ToolUniverse-powered AI scientists:  
+    *   Search GWAS catalog for disease-associated genetic variants
+    *   Map SNPs to genes using Ensembl and NCBI databases
+    *   Retrieve functional annotations from Gene Ontology
+    *   Analyze tissue-specific expression using GTEx data
+    *   Identify biological pathways using KEGG and Reactome
 
 ‍
 
 **Literature and Multimodal Evidence Synthesis**
 
-- **Sample Prompt:** “_Search PubMed and Europe PMC for recent CRISPR off-target detection methods, extract key experimental settings and reported failure modes, and produce a structured comparison table with citations._”
-- **Workflow:** ToolUniverse-powered AI scientists:
-  - Multi-database literature searches (PubMed, Europe PMC, bioRxiv)
-  - Automated paper summarization and key finding extraction
-  - Citation network analysis using Semantic Scholar
-  - Trend identification through temporal analysis
-  - Cross-referencing with clinical trial data from ClinicalTrials.gov
+*   **Sample Prompt:** “_Search PubMed and Europe PMC for recent CRISPR off-target detection methods, extract key experimental settings and reported failure modes, and produce a structured comparison table with citations._”
+*   **Workflow:** ToolUniverse-powered AI scientists:  
+    *   Multi-database literature searches (PubMed, Europe PMC, bioRxiv)
+    *   Automated paper summarization and key finding extraction
+    *   Citation network analysis using Semantic Scholar
+    *   Trend identification through temporal analysis
+    *   Cross-referencing with clinical trial data from ClinicalTrials.gov
 
 ‍
 
 **Chemical and Molecular Analysis**
 
-- **Sample Prompt:** "_Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular properties of FDA-approved drugs for hypertension, predict their ADMET profiles, and identify potential side effect patterns._"
-- Workflow: ToolUniverse-powered AI scientists:
-  - Query FDA drug databases for approved medications
-  - Calculate molecular descriptors and properties
-  - Predict pharmacokinetic profiles using ADMET-AI models
-  - Analyze structure-activity relationships
-  - Identify potential drug repurposing opportunities
+*   **Sample Prompt:** "_Using ToolUniverse's OpenFDA and ADMET-AI tools, analyze the molecular properties of FDA-approved drugs for hypertension, predict their ADMET profiles, and identify potential side effect patterns._"
+*   Workflow: ToolUniverse-powered AI scientists:  
+    *   Query FDA drug databases for approved medications
+    *   Calculate molecular descriptors and properties
+    *   Predict pharmacokinetic profiles using ADMET-AI models
+    *   Analyze structure-activity relationships
+    *   Identify potential drug repurposing opportunities
 
 ‍
 
 **Scientific Discovery and Automation for Multi-Tool Studies**
 
-- **Sample Prompt:** "_Build a reusable workflow that runs multiple literature searches in parallel, consolidates results, and produces a reproducible report. Return the workflow as a composed tool with clear inputs and outputs. Using ToolUniverse's UniProt, PRIDE, and KEGG pathway tools, design a complete proteomics workflow: from protein identification using mass spectrometry data to functional analysis and pathway mapping._"
-- **Workflow:** ToolUniverse-powered AI scientists:
-  - Integrate multimodal proteomics databases (UniProt, PRIDE)
-  - Automate data processing and quality control of proteomics readouts
-  - Annotate protein functions and perform pathway analysis
-  - Complete statistical analyses and generate interactive visualizations
-  - Generate reports with summaries
+*   **Sample Prompt:** "_Build a reusable workflow that runs multiple literature searches in parallel, consolidates results, and produces a reproducible report. Return the workflow as a composed tool with clear inputs and outputs. Using ToolUniverse's UniProt, PRIDE, and KEGG pathway tools, design a complete proteomics workflow: from protein identification using mass spectrometry data to functional analysis and pathway mapping._"
+*   **Workflow:** ToolUniverse-powered AI scientists:  
+    *   Integrate multimodal proteomics databases (UniProt, PRIDE)
+    *   Automate data processing and quality control of proteomics readouts
+    *   Annotate protein functions and perform pathway analysis
+    *   Complete statistical analyses and generate interactive visualizations
+    *   Generate reports with summaries
 
 ‍
 
@@ -215,9 +215,9 @@ Technical details of the ToolUniverse integration can be found in ToolUniverse�
 
 **Live Demonstrations**
 
-- **Interactive Web Platform:** AIScientist.Tools - Live tool discovery and execution interface for exploring 700+ scientific tools
-- **Video Demonstrations:** Available on YouTube
-- **GitHub Repository:** ToolUniverse on GitHub - Complete source code, documentation, and community with 797+ stars
+*   **Interactive Web Platform:** AIScientist.Tools - Live tool discovery and execution interface for exploring 700+ scientific tools
+*   **Video Demonstrations:** Available on YouTube
+*   **GitHub Repository:** ToolUniverse on GitHub - Complete source code, documentation, and community with 797+ stars
 
 ‍
 

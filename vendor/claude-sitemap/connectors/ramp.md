@@ -2,8 +2,8 @@
 
 Enables secure, read-only access to Ramp data for customer-defined logic. Supports loading and querying transactions, reimbursements, bills, purchase orders, cards, vendors, and more, enabling dynamic data fetching and analysis.
 
-You can use the Ramp connector to:
-
+You can use the Ramp connector to:  
+  
 Analyze vendor spending:  
 "Show me our top 10 vendors by spend last quarter"
 

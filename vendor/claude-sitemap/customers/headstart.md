@@ -4,9 +4,9 @@ Headstart, an AI-native software development company, uses Claude to deliver ent
 
 With Claude, Headstart has achieved:
 
-- 10-100x faster software development
-- 90-97% of client code written by Claude
-- Reduction in project timelines from months to weeks
+*   10-100x faster software development
+*   90-97% of client code written by Claude
+*   Reduction in project timelines from months to weeks
 
 ## Making AI-powered software development accessible
 

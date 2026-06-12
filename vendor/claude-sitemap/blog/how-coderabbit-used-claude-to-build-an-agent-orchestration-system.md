@@ -88,4 +88,4 @@ How will you know the output matches intent before rollout?
 
 Create a record of work: a chronicle of planning artifacts that is saved and reused.
 
-**Build your startup on the** **Claude Platform\*\***.\*\*
+**Build your startup on the** **Claude Platform****.**

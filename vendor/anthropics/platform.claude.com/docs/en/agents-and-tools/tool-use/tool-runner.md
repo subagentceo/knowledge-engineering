@@ -97,21 +97,18 @@ const getWeatherTool = betaZodTool({
   description: "Get the current weather in a given location",
   inputSchema: z.object({
     location: z.string().describe("The city and state, e.g. San Francisco, CA"),
-    unit: z
-      .enum(["celsius", "fahrenheit"])
-      .default("fahrenheit")
-      .describe("Temperature unit"),
+    unit: z.enum(["celsius", "fahrenheit"]).default("fahrenheit").describe("Temperature unit")
   }),
   run: async (input) => {
     return JSON.stringify({ temperature: "20°C", condition: "Sunny" });
-  },
+  }
 });
 
 const finalMessage = await client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [getWeatherTool],
-  messages: [{ role: "user", content: "What's the weather like in Paris?" }],
+  messages: [{ role: "user", content: "What's the weather like in Paris?" }]
 });
 
 for (const block of finalMessage.content) {
@@ -140,20 +137,20 @@ const calculateSumTool = betaTool({
     type: "object",
     properties: {
       a: { type: "number", description: "First number" },
-      b: { type: "number", description: "Second number" },
+      b: { type: "number", description: "Second number" }
     },
-    required: ["a", "b"],
+    required: ["a", "b"]
   },
   run: async (input) => {
     return String(input.a + input.b);
-  },
+  }
 });
 
 const finalMessage = await client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [calculateSumTool],
-  messages: [{ role: "user", content: "What's 15 + 27?" }],
+  messages: [{ role: "user", content: "What's 15 + 27?" }]
 });
 
 for (const block of finalMessage.content) {
@@ -642,14 +639,14 @@ const getWeatherTool = betaZodTool({
   name: "get_weather",
   description: "Get the current weather in a given location",
   inputSchema: z.object({ location: z.string() }),
-  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" }),
+  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" })
 });
 
 const runner = client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [getWeatherTool],
-  messages: [{ role: "user", content: "What's the weather like in Paris?" }],
+  messages: [{ role: "user", content: "What's the weather like in Paris?" }]
 });
 
 const finalMessage = await runner;
@@ -1005,7 +1002,7 @@ When you take over for an iteration, the runner does not append the assistant me
 
 Use `generate_tool_call_response()` to inspect or compute the tool result. Calling `append_messages()` inside the loop tells the runner you're managing history yourself, so include the assistant message and tool result in what you append.
 
-```python
+````python
 runner = client.beta.messages.tool_runner(
     model="claude-opus-4-8",
     max_tokens=1024,
@@ -1026,14 +1023,14 @@ for message in runner:
             {"role": "user", "content": "Please be concise."},
         )
     # When there's no tool call, leave state untouched so the loop exits.
-```
+````
 
 To change request parameters such as `max_tokens` without taking over message history, use `set_messages_params()`. The runner still appends the assistant message and tool result automatically.
 
-```python
+````python
 for message in runner:
     runner.set_messages_params(lambda params: {**params, "max_tokens": 2048})
-```
+````
 
 </Tab>
 <Tab title="TypeScript">
@@ -1042,7 +1039,7 @@ Use `runner.params` to read the current request parameters and `setMessagesParam
 
 The following example retries a truncated response with a larger `max_tokens` budget.
 
-```typescript
+````typescript
 const runner = client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
@@ -1051,9 +1048,9 @@ const runner = client.beta.messages.toolRunner({
   messages: [
     {
       role: "user",
-      content: "Give me a detailed weather report for every major US city.",
-    },
-  ],
+      content: "Give me a detailed weather report for every major US city."
+    }
+  ]
 });
 
 const MAX_TOKEN_CEILING = 8192;
@@ -1066,9 +1063,7 @@ for await (const message of runner) {
       break;
     }
     const doubled = Math.min(current * 2, MAX_TOKEN_CEILING);
-    console.log(
-      `Response truncated at ${current} tokens; retrying with ${doubled}.`,
-    );
+    console.log(`Response truncated at ${current} tokens; retrying with ${doubled}.`);
     // Bump the budget. setMessagesParams() flags state as modified, so the
     // runner does NOT append the truncated message. The next iteration retries
     // the same turn with the larger budget.
@@ -1076,14 +1071,14 @@ for await (const message of runner) {
   }
   // Otherwise leave state untouched so the runner auto-appends and continues.
 }
-```
+````
 
 </Tab>
 <Tab title="C#">
 
 Calling `SetParams()` or `PushMessages()` flags state as modified, which causes the runner to skip its auto-append for that turn. When you take over, push the assistant message and a tool result yourself; otherwise the conversation won't make forward progress. The C# runner always exits when a response has no tool calls, so condition any state mutation on the presence of a `tool_use` block.
 
-```csharp
+````csharp
 var runner = client.Beta.Messages.ToolRunner(
     new MessageCreateParams
     {
@@ -1133,14 +1128,14 @@ await foreach (var message in runner)
         new() { Role = Role.User, Content = "Please be concise in your response." }
     );
 }
-```
+````
 
 </Tab>
 <Tab title="Go">
 
 The Go runner exposes parameters as a public `Params` field. Modifying `runner.Params` between calls to `NextMessage(ctx)` applies to the next API request. Unlike other SDKs, the Go runner always appends the assistant message and tool results unconditionally; modifying `Params` does not suppress that step.
 
-```go
+````go
 runner := client.Beta.Messages.NewToolRunner(
 	[]anthropic.BetaTool{getWeather},
 	anthropic.BetaToolRunnerParams{
@@ -1170,7 +1165,7 @@ for {
 	// Param changes here apply to the next iteration.
 	runner.Params.MaxTokens = 2048
 }
-```
+````
 
 </Tab>
 <Tab title="Java">
@@ -1179,7 +1174,7 @@ Use `runner.params()` to read the current parameters and `runner.setNextParams()
 
 The following example retries a turn that hit the token limit by doubling `max_tokens`. Mutating only on the `max_tokens` branch keeps the loop converging: turns that complete normally fall through, and the runner auto-appends and exits when there are no more tool calls.
 
-```java
+````java
 BetaToolRunner runner = client.beta()
         .messages()
         .toolRunner(ToolRunnerCreateParams.builder()
@@ -1212,7 +1207,7 @@ for (BetaMessage message : runner) {
     }
     // No mutation on a normal turn: the runner auto-appends and continues.
 }
-```
+````
 
 </Tab>
 <Tab title="PHP">
@@ -1221,7 +1216,7 @@ Use `setMessagesParams()` and `pushMessages()` to modify the runner's state, and
 
 The following example doubles `max_tokens` and retries when a response is cut off.
 
-```php
+````php
 use Anthropic\Beta\Messages\BetaStopReason;
 
 $runner = $client->beta->messages->toolRunner(
@@ -1255,7 +1250,7 @@ foreach ($runner as $message) {
         $runner->setMessagesParams(['maxTokens' => $doubled]);
     }
 }
-```
+````
 
 </Tab>
 <Tab title="Ruby">
@@ -1264,7 +1259,7 @@ Use `next_message` for step-by-step control. By the time `next_message` returns,
 
 You take over message history when you reassign `runner.params[:messages]`, or call `feed_messages` from inside an `each_message` block. The following pattern calls `feed_messages` between `next_message` calls, which does not take over.
 
-```ruby
+````ruby
 runner = client.beta.messages.tool_runner(
   model: "claude-opus-4-8",
   max_tokens: 1024,
@@ -1286,7 +1281,7 @@ runner.feed_messages({role: "user", content: "Also check Boston."})
 runner.params.update(max_tokens: 2048)
 
 runner.run_until_finished
-```
+````
 
 </Tab>
 </Tabs>
@@ -1373,14 +1368,14 @@ const myTool = betaZodTool({
   name: "my_tool",
   description: "A sample tool",
   inputSchema: z.object({ query: z.string() }),
-  run: async (input) => `Result for: ${input.query}`,
+  run: async (input) => `Result for: ${input.query}`
 });
 
 const runner = client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [myTool],
-  messages: [{ role: "user", content: "Run my_tool with the query 'hello'." }],
+  messages: [{ role: "user", content: "Run my_tool with the query 'hello'." }]
 });
 
 for await (const message of runner) {
@@ -1605,7 +1600,7 @@ const searchDocuments = betaZodTool({
   name: "search_documents",
   description: "Search documents for relevant information",
   inputSchema: z.object({ query: z.string() }),
-  run: async (input) => `Found 3 documents matching: ${input.query}`,
+  run: async (input) => `Found 3 documents matching: ${input.query}`
 });
 
 const runner = client.beta.messages.toolRunner({
@@ -1613,11 +1608,8 @@ const runner = client.beta.messages.toolRunner({
   max_tokens: 1024,
   tools: [searchDocuments],
   messages: [
-    {
-      role: "user",
-      content: "Search for information about the climate of San Francisco",
-    },
-  ],
+    { role: "user", content: "Search for information about the climate of San Francisco" }
+  ]
 });
 
 for await (const message of runner) {
@@ -1941,17 +1933,15 @@ const getWeatherTool = betaZodTool({
   name: "get_weather",
   description: "Get the current weather in a given location",
   inputSchema: z.object({ location: z.string() }),
-  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" }),
+  run: async () => JSON.stringify({ temperature: "20°C", condition: "Sunny" })
 });
 
 const runner = client.beta.messages.toolRunner({
   model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [
-    { role: "user", content: "What is the weather in San Francisco?" },
-  ],
+  messages: [{ role: "user", content: "What is the weather in San Francisco?" }],
   tools: [getWeatherTool],
-  stream: true,
+  stream: true
 });
 
 // When streaming, the runner returns BetaMessageStream

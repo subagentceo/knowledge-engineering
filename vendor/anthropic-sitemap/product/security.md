@@ -20,6 +20,8 @@ Claude Security reads code the way a security researcher would. It follows varia
 
 Proposed fixes open in Claude Code for review; these aren't changes that ship on their own. Humans stay in the decision loop, so teams are always in control.
 
+  
+
 ## How Claude Security works, from scan to fix
 
 01

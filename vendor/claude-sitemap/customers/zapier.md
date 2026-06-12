@@ -4,9 +4,9 @@ Zapier, the leading AI orchestration platform, uses Claude to drive company-wide
 
 Key results:
 
-- 89% AI adoption across all employees—highest in the company's history
-- 800+ AI agents deployed internally, exceeding their employee count
-- 10x year-over-year growth in Anthropic app usage
+*   89% AI adoption across all employees—highest in the company's history
+*   800+ AI agents deployed internally, exceeding their employee count
+*   10x year-over-year growth in Anthropic app usage
 
 ## Building the robot for distributed teams
 
@@ -26,10 +26,10 @@ Claude's artifacts, features, and sophisticated reasoning capabilities set it ap
 
 Claude powers productivity across Zapier's distributed teams through several key applications:
 
-- **Content creation and marketing**: The product marketing team leverages Claude extensively for customer-facing content, from blog posts to social media and keynote presentations. They've built automated workflows where Claude drafts content, saves it to Google Docs, and notifies team members in Slack for review.
-- **Engineering and development**: Engineering teams rapidly adopted Claude Code for everything from code generation to automated merge requests. Their CTO built a system where adding an emoji to a Slack thread triggers Claude to analyze the context, generate code, and create a merge request for team review—all within minutes.
-- **Strategic planning and research**: Robinson uses Claude with Zapier's MCP integration for strategic intelligence gathering. In preparing for industry events, he asks Claude to research attendees using Zapier's CRM and web search capabilities, which provide instant context about customers and prospects he wouldn't know otherwise.
-- **Customer research and design**: Zapier Design teams use Claude artifacts to rapidly prototype during customer interviews, showing design concepts in real-time that would normally take weeks to develop. This enables immediate feedback and iteration during conversations with potential users.
+*   **Content creation and marketing**: The product marketing team leverages Claude extensively for customer-facing content, from blog posts to social media and keynote presentations. They've built automated workflows where Claude drafts content, saves it to Google Docs, and notifies team members in Slack for review.
+*   **Engineering and development**: Engineering teams rapidly adopted Claude Code for everything from code generation to automated merge requests. Their CTO built a system where adding an emoji to a Slack thread triggers Claude to analyze the context, generate code, and create a merge request for team review—all within minutes.
+*   **Strategic planning and research**: Robinson uses Claude with Zapier's MCP integration for strategic intelligence gathering. In preparing for industry events, he asks Claude to research attendees using Zapier's CRM and web search capabilities, which provide instant context about customers and prospects he wouldn't know otherwise.
+*   **Customer research and design**: Zapier Design teams use Claude artifacts to rapidly prototype during customer interviews, showing design concepts in real-time that would normally take weeks to develop. This enables immediate feedback and iteration during conversations with potential users.
 
 ## The impact of AI-first culture
 

@@ -10,12 +10,12 @@ To help security and risk leaders build for this shift, we put together a practi
 
 In this guide, we share:
 
-- The security considerations unique to agentic systems, including tool access, autonomous decision-making, context persistence, and multi-agent coordination
-- The current threat landscape for agents, including prompt injection, tool poisoning, identity and privilege abuse, memory poisoning, and supply chain attacks
-- A three-tier Zero Trust framework (Foundation, Advanced, and Optimized) mapped to organizational maturity and risk tolerance
-- An eight-phase implementation workflow covering identity, access scoping, sandboxing, input and output controls, and memory safeguards
-- How to run agentic security operations (Agentic SOAR) fast enough to contend with AI-accelerated attackers
-- Compliance alignment for regulated industries including healthcare, finance, and government
+*   The security considerations unique to agentic systems, including tool access, autonomous decision-making, context persistence, and multi-agent coordination
+*   The current threat landscape for agents, including prompt injection, tool poisoning, identity and privilege abuse, memory poisoning, and supply chain attacks
+*   A three-tier Zero Trust framework (Foundation, Advanced, and Optimized) mapped to organizational maturity and risk tolerance
+*   An eight-phase implementation workflow covering identity, access scoping, sandboxing, input and output controls, and memory safeguards
+*   How to run agentic security operations (Agentic SOAR) fast enough to contend with AI-accelerated attackers
+*   Compliance alignment for regulated industries including healthcare, finance, and government
 
 The organizations best positioned for this shift will be the ones whose fundamentals are strong enough that AI-assisted scanning finds fewer bugs in the first place, and whose agent deployments are architected for breach from day one.
 

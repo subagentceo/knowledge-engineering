@@ -4,10 +4,10 @@ Researchers at the University of Sydney use Claude to analyze vast acoustic data
 
 With Claude, the research team achieved:
 
-- 89.4% accuracy in detecting minke whales, compared to 76.5% with traditional methods
-- Real-time analysis of data that previously took two weeks to process manually
-- Coverage of thousands of kilometers of North American coastline
-- Analysis of hundreds of thousands of acoustic recordings annually
+*   89.4% accuracy in detecting minke whales, compared to 76.5% with traditional methods
+*   Real-time analysis of data that previously took two weeks to process manually
+*   Coverage of thousands of kilometers of North American coastline
+*   Analysis of hundreds of thousands of acoustic recordings annually
 
 ## Meeting the urgent need for scalable marine conservation
 
@@ -25,10 +25,10 @@ Second, Claude's foundation models were valuable given the unique challenges of 
 
 The team created a dual AI system that combines two types of artificial intelligence. Data is initially transformed from raw underwater sound recordings into visual charts called spectrograms. These spectrograms are like sound fingerprints that show the unique patterns of whale calls. Claude then uses its advanced visual recognition capabilities, in parallel with a specialised AI network called a CNN (Convolutional Neural Network) to analyse these spectrograms and identify whale activity with unprecedented accuracy . This approach enabled four key breakthroughs in whale conservation:
 
-- Real-time monitoring of whale populations across vast ocean areas, replacing manual processes that took weeks
-- Precise mapping of migration patterns and critical habitats, informing protected area decisions
-- Detailed assessment of how human activities like shipping and drilling affect whale behavior
-- Standardized data sharing between international conservation groups, enabling coordinated protection efforts
+*   Real-time monitoring of whale populations across vast ocean areas, replacing manual processes that took weeks
+*   Precise mapping of migration patterns and critical habitats, informing protected area decisions
+*   Detailed assessment of how human activities like shipping and drilling affect whale behavior
+*   Standardized data sharing between international conservation groups, enabling coordinated protection efforts
 
 ## Driving measurable conservation impact
 
@@ -36,10 +36,10 @@ Claude's integration has transformed how researchers protect whales by enabling 
 
 The real-world impact is significant. Conservation teams can use accurate, up-to-the-minute whale location data to:
 
-- Create protected zones along major migration routes and breeding grounds
-- Redirect shipping traffic away from areas where whales are present
-- Pause or modify drilling operations when whales are detected nearby
-- Adjust fishing zones and enforce stricter regulations to prevent gear entanglement
+*   Create protected zones along major migration routes and breeding grounds
+*   Redirect shipping traffic away from areas where whales are present
+*   Pause or modify drilling operations when whales are detected nearby
+*   Adjust fishing zones and enforce stricter regulations to prevent gear entanglement
 
 These interventions address several of the main threats to whale populations. The solution provides practical tools for keeping whales safe by reducing ocean noise from industrial activities and preventing vessel strikes, which claim the lives of thousands of whales annually.
 

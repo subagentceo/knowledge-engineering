@@ -27,6 +27,7 @@ Delete Skill Version
 ### Returns
 
 - `VersionDeleteResponse`
+
   - `string id`
 
     Version identifier for the skill.

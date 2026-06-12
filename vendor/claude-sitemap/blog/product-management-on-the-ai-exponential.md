@@ -100,11 +100,11 @@ At Anthropic, product managers aren’t the only ones transforming their workflo
 
 The PM role now is to track both things at once: how AI is changing the way you work, and how it's changing what's possible in your product. Do that well, and you stop being surprised when the table tool finally works. You're the one who saw it coming. 
 
-_Start building better products with_ _Claude Code\_\_._
+_Start building better products with_ _Claude Code__._
 
 ‍
 
-***Acknowledgments:*** *This article was written by Cat Wu, the Head of Product for Claude Code at Anthropic. You can find her on* _X_ _and_ _LinkedIn\_\_. She'd like to thank Bihan Jiang and Kai Xin Tai for their contributions to this piece._
+**_Acknowledgments:_** _This article was written by Cat Wu, the Head of Product for Claude Code at Anthropic. You can find her on_ _X_ _and_ _LinkedIn__. She'd like to thank Bihan Jiang and Kai Xin Tai for their contributions to this piece._
 
 ‍
 

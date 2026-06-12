@@ -31,6 +31,7 @@ Create a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -153,7 +154,9 @@ List memories
 ### Returns
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -193,6 +196,7 @@ List memories
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -270,6 +274,7 @@ Retrieve a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -381,6 +386,7 @@ Update a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -485,6 +491,7 @@ Delete a memory
 ### Returns
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -524,6 +531,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Conflict Error
 
 - `ManagedAgentsConflictError`
+
   - `Type type`
 
   - `?string message`
@@ -531,6 +539,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Content Sha256 Precondition
 
 - `ManagedAgentsContentSha256Precondition`
+
   - `Type type`
 
   - `?string contentSha256`
@@ -540,6 +549,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Deleted Memory
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -549,57 +559,69 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Error
 
 - `ManagedAgentsError`
+
   - `BetaInvalidRequestError`
+
     - `string message`
 
     - `"invalid_request_error" type`
 
   - `BetaAuthenticationError`
+
     - `string message`
 
     - `"authentication_error" type`
 
   - `BetaBillingError`
+
     - `string message`
 
     - `"billing_error" type`
 
   - `BetaPermissionError`
+
     - `string message`
 
     - `"permission_error" type`
 
   - `BetaNotFoundError`
+
     - `string message`
 
     - `"not_found_error" type`
 
   - `BetaRateLimitError`
+
     - `string message`
 
     - `"rate_limit_error" type`
 
   - `BetaGatewayTimeoutError`
+
     - `string message`
 
     - `"timeout_error" type`
 
   - `BetaAPIError`
+
     - `string message`
 
     - `"api_error" type`
 
   - `BetaOverloadedError`
+
     - `string message`
 
     - `"overloaded_error" type`
 
   - `ManagedAgentsMemoryPreconditionFailedError`
+
     - `Type type`
 
     - `?string message`
 
   - `ManagedAgentsMemoryPathConflictError`
+
     - `Type type`
 
     - `?string conflictingMemoryID`
@@ -609,6 +631,7 @@ var_dump($betaManagedAgentsDeletedMemory);
     - `?string message`
 
   - `ManagedAgentsConflictError`
+
     - `Type type`
 
     - `?string message`
@@ -616,6 +639,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -657,7 +681,9 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory List Item
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -697,6 +723,7 @@ var_dump($betaManagedAgentsDeletedMemory);
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -706,6 +733,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `ManagedAgentsMemoryPathConflictError`
+
   - `Type type`
 
   - `?string conflictingMemoryID`
@@ -717,6 +745,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `ManagedAgentsMemoryPreconditionFailedError`
+
   - `Type type`
 
   - `?string message`
@@ -724,6 +753,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Prefix
 
 - `ManagedAgentsMemoryPrefix`
+
   - `string path`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -733,6 +763,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory View
 
 - `ManagedAgentsMemoryView`
+
   - `"basic"`
 
   - `"full"`
@@ -740,6 +771,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Precondition
 
 - `ManagedAgentsPrecondition`
+
   - `Type type`
 
   - `?string contentSha256`

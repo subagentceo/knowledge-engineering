@@ -27,6 +27,7 @@ Get Skill Version
 ### Returns
 
 - `VersionGetResponse`
+
   - `string id`
 
     Unique identifier for the skill version.

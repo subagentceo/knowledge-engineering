@@ -4,10 +4,10 @@ Emergent is an AI platform that makes building software as simple as having a co
 
 ## With Claude, Emergent has:
 
-- Achieved $25M ARR in 4.5 months of commercial launch
-- Enabled more than 2 million users to build applications without coding knowledge
-- Generated complete full-stack applications averaging 5,000+ lines of code
-- Built multi-agent systems where specialized Claude instances handle frontend, backend, testing, and deployment
+*   Achieved $25M ARR in 4.5 months of commercial launch
+*   Enabled more than 2 million users to build applications without coding knowledge
+*   Generated complete full-stack applications averaging 5,000+ lines of code
+*   Built multi-agent systems where specialized Claude instances handle frontend, backend, testing, and deployment
 
 ## The problem
 

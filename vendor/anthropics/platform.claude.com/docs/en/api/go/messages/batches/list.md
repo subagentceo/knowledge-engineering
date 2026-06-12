@@ -11,6 +11,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `query MessageBatchListParams`
+
   - `AfterID param.Field[string]`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -28,6 +29,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `type MessageBatch struct{…}`
+
   - `ID string`
 
     Unique object identifier.
@@ -59,6 +61,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus MessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `const MessageBatchProcessingStatusInProgress MessageBatchProcessingStatus = "in_progress"`
 
     - `const MessageBatchProcessingStatusCanceling MessageBatchProcessingStatus = "canceling"`
@@ -70,6 +73,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -109,6 +113,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
+
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Example

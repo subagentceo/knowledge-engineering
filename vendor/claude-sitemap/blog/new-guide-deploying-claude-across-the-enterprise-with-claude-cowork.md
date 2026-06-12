@@ -8,12 +8,12 @@ To help teams get the most out of Claude Cowork, we put together a guide that wa
 
 Inside the guide, we share:
 
-- A five-level maturity model for Claude Cowork adoption, from chat Q&A to department-wide plugins
-- How to choose your first use case and structure a pilot evaluation
-- A six-month roadmap for moving from champion teams to organization-wide deployment
-- How Anthropic's finance, legal, sales, and product teams use Cowork in production
-- Customer stories from Thomson Reuters, Zapier, and Jamf
+*   A five-level maturity model for Claude Cowork adoption, from chat Q&A to department-wide plugins
+*   How to choose your first use case and structure a pilot evaluation
+*   A six-month roadmap for moving from champion teams to organization-wide deployment
+*   How Anthropic's finance, legal, sales, and product teams use Cowork in production
+*   Customer stories from Thomson Reuters, Zapier, and Jamf
 
-**Check it out,** **here\*\***.\*\* ‍
+**Check it out,** **here****.** ‍
 
 Get started with Claude Cowork today.

@@ -1,10 +1,10 @@
 # Turn ideas into interactive AI-powered apps
 
-***Update:*** *Artifacts now support MCP and persistent storage. (October 21, 2025)*
+**_Update:_** _Artifacts now support MCP and persistent storage. (October 21, 2025)_
 
-***Update:*** *Now available on Team and Enterprise plans. (July 31, 2025)*
+**_Update:_** _Now available on Team and Enterprise plans. (July 31, 2025)_
 
-***Update:*** *Now available on iOS and Android apps. (July 21, 2025)*
+**_Update:_** _Now available on iOS and Android apps. (July 21, 2025)_
 
 ‍
 
@@ -20,10 +20,10 @@ With our latest update, you can build even more interactive experiences. For exa
 
 Additionally, our new artifacts space makes creation seamless:
 
-- **Browse curated artifacts** for inspiration
-- **Customize existing creations** in minutes
-- **Build from scratch** through simple conversation
-- **Organize everything** in one place
+*   **Browse curated artifacts** for inspiration
+*   **Customize existing creations** in minutes
+*   **Build from scratch** through simple conversation
+*   **Organize everything** in one place
 
 ### When conversation becomes creation
 

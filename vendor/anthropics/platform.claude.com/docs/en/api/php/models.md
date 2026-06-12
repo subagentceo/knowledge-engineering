@@ -33,6 +33,7 @@ The Models API response can be used to determine which models are available for 
 ### Returns
 
 - `ModelInfo`
+
   - `string id`
 
     Unique model identifier.
@@ -186,6 +187,7 @@ The Models API response can be used to determine information about a specific mo
 ### Returns
 
 - `ModelInfo`
+
   - `string id`
 
     Unique model identifier.
@@ -311,6 +313,7 @@ var_dump($modelInfo);
 ### Capability Support
 
 - `CapabilitySupport`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -318,6 +321,7 @@ var_dump($modelInfo);
 ### Context Management Capability
 
 - `ContextManagementCapability`
+
   - `?CapabilitySupport clearThinking20251015`
 
     Indicates whether a capability is supported.
@@ -337,6 +341,7 @@ var_dump($modelInfo);
 ### Effort Capability
 
 - `EffortCapability`
+
   - `CapabilitySupport high`
 
     Whether the model supports high effort level.
@@ -364,6 +369,7 @@ var_dump($modelInfo);
 ### Model Capabilities
 
 - `ModelCapabilities`
+
   - `CapabilitySupport batch`
 
     Whether the model supports the Batch API.
@@ -403,6 +409,7 @@ var_dump($modelInfo);
 ### Model Info
 
 - `ModelInfo`
+
   - `string id`
 
     Unique model identifier.
@@ -436,6 +443,7 @@ var_dump($modelInfo);
 ### Thinking Capability
 
 - `ThinkingCapability`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -447,6 +455,7 @@ var_dump($modelInfo);
 ### Thinking Types
 
 - `ThinkingTypes`
+
   - `CapabilitySupport adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).

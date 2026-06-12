@@ -28,8 +28,8 @@ And because we work in healthcare, we take “do no harm” seriously. That star
 
 Next, organizations need to be able to evaluate AI before taking it into production, and they need to be able to monitor it on an ongoing basis. Some examples:
 
-- An early capability we released was a summarization of the medical record, and it included links to the parts of the record where clinicians could go verify. That provided a foundation so that as you move to more agentic capabilities, the organization and the users already have confidence.
-- We have a capability for physicians and nurses to quickly respond to messages from patients. If you have an individual that is a hundred percent of the time using those drafts without any edit, that’s incorrect. And if you have an individual that zero percent of the time is using any of them, that’s also incorrect. So you have to be able to monitor that.
+*   An early capability we released was a summarization of the medical record, and it included links to the parts of the record where clinicians could go verify. That provided a foundation so that as you move to more agentic capabilities, the organization and the users already have confidence.
+*   We have a capability for physicians and nurses to quickly respond to messages from patients. If you have an individual that is a hundred percent of the time using those drafts without any edit, that’s incorrect. And if you have an individual that zero percent of the time is using any of them, that’s also incorrect. So you have to be able to monitor that.
 
 And the user experience needs to continue to adapt. The AI we use today needs to help acclimate folks across healthcare to what is continuing to come. And that’s where a number of us spend a lot of time at the company—helping think about how product design evolves through these different stages, as both the models and the agentic capabilities continue to improve, and helping users be able to activate these tools effectively.
 

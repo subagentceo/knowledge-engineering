@@ -14,6 +14,6 @@ You can use the ToolUniverse connector to:
 
 **Execute Computational Biology Workflows:** "Search for EGFR inhibitors and retrieve their bioactivity data from ChEMBL"
 
-**Compose Multi-Step Research Pipelines:** "Identify drug targets for Alzheimer's disease, then find approved drugs that interact with those targets"
-
+**Compose Multi-Step Research Pipelines:** "Identify drug targets for Alzheimer's disease, then find approved drugs that interact with those targets"  
+  
 Note: ToolUniverse is only available on Claude desktop app.

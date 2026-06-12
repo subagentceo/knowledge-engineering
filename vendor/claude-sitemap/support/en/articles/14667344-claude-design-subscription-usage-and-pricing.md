@@ -6,20 +6,20 @@ The sections below walk through what each plan includes, how billing works once 
 
 Claude Design comes with a recurring weekly allowance that resets every seven days. **[Usage credits](https://support.claude.com/en/articles/12429409-)** are available for purchase.
 
-| **Plan** | **Best for**                                                    |
-| -------- | --------------------------------------------------------------- |
-| Pro      | Quick explorations, one-off use                                 |
-| Max 5x   | Semi-regular use — PMs and engineers producing regular mock-ups |
-| Max 20x  | Power use — designers and creatives                             |
+| **Plan** | **Best for** |
+| --- | --- |
+| Pro | Quick explorations, one-off use |
+| Max 5x | Semi-regular use — PMs and engineers producing regular mock-ups |
+| Max 20x | Power use — designers and creatives |
 
 ## Team plan
 
 Each provisioned user gets a recurring weekly allowance that resets every seven days, with no additional setup required. Admins can purchase **[usage credits](https://support.claude.com/en/articles/12005970-manage-extra-usage-for-team-and-seat-based-enterprise-plans)** for additional capacity.
 
-| **Seat type** | **Best for**                          |
-| ------------- | ------------------------------------- |
-| Standard      | Quick explorations, one-off use       |
-| Premium       | Power users — designers and creatives |
+| **Seat type** | **Best for** |
+| --- | --- |
+| Standard | Quick explorations, one-off use |
+| Premium | Power users — designers and creatives |
 
 ## Enterprise plans
 
@@ -29,10 +29,10 @@ Enterprise customers fall into one of two billing models—legacy seat-based or 
 
 Each provisioned user gets a recurring weekly allowance that resets every seven days, with no additional setup. Admins can purchase **[usage credits](https://support.claude.com/en/articles/12005970-manage-extra-usage-for-team-and-seat-based-enterprise-plans)** for users who need more capacity.
 
-| **Seat type** | **Best for**                                                       |
-| ------------- | ------------------------------------------------------------------ |
-| Standard      | Semi-regular use — PMs and engineers producing occasional mock-ups |
-| Premium       | Power users — designers and creatives                              |
+| **Seat type** | **Best for** |
+| --- | --- |
+| Standard | Semi-regular use — PMs and engineers producing occasional mock-ups |
+| Premium | Power users — designers and creatives |
 
 ## Enterprise (usage-based)
 

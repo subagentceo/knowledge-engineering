@@ -4,10 +4,10 @@ Norway's largest communications group, TRY, uses Claude Enterprise to transform 
 
 **With Claude, TRY achieved:**
 
-- 30% reduction in time spent on routine tasks, freeing teams for higher-value work for customers
-- 40% faster proposal development, improving competitiveness
-- Over 50 use cases implemented across creative, strategy, and technical teams
-- Seamless creation of internal AI agents across the organization
+*   30% reduction in time spent on routine tasks, freeing teams for higher-value work for customers
+*   40% faster proposal development, improving competitiveness
+*   Over 50 use cases implemented across creative, strategy, and technical teams
+*   Seamless creation of internal AI agents across the organization
 
 ## Navigating creative industry pressures while scaling innovation
 
@@ -29,12 +29,12 @@ What distinguished Claude from competitors was Anthropic's collaborative approac
 
 TRY has strategically integrated Claude across nearly every aspect of their operations, with applications spanning:
 
-- **Creative strategy and development**: Strategic AI sparring partner for client strategy development, creative brief enhancement, concept testing and refinement, market and competitive analysis
-- **Project management and client service**: Meeting summaries and action item tracking, extracting key insights from complex client documents, translating technical information into clear client communications, automating routine client communications
-- **Proposal development and new business**: Proposal writing assistance, RFP response optimization, competitive differentiation strategy, budget justification and presentation
-- **Content development**: Content strategy development, multi-channel content adaptation, media analysis and trend identification, tone of voice generation and consistency
-- **Digital and technical applications**: Code debugging and optimization, technical documentation creation, UX writing and digital content, data analysis and visualization narratives
-- **Knowledge management**: Creation of internal knowledge libraries, training material development, process documentation and improvement, research synthesis and sharing
+*   **Creative strategy and development**: Strategic AI sparring partner for client strategy development, creative brief enhancement, concept testing and refinement, market and competitive analysis
+*   **Project management and client service**: Meeting summaries and action item tracking, extracting key insights from complex client documents, translating technical information into clear client communications, automating routine client communications
+*   **Proposal development and new business**: Proposal writing assistance, RFP response optimization, competitive differentiation strategy, budget justification and presentation
+*   **Content development**: Content strategy development, multi-channel content adaptation, media analysis and trend identification, tone of voice generation and consistency
+*   **Digital and technical applications**: Code debugging and optimization, technical documentation creation, UX writing and digital content, data analysis and visualization narratives
+*   **Knowledge management**: Creation of internal knowledge libraries, training material development, process documentation and improvement, research synthesis and sharing
 
 ## Empowering creativity while delivering business results
 

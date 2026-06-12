@@ -1,16 +1,16 @@
 # How to build a plugin from scratch in Claude Cowork
 
-A Cowork plugin is a group of files that can teach Claude how to do a specific job — encoding your methodology, your workflows, your tool connections.
-
+A Cowork plugin is a group of files that can teach Claude how to do a specific job — encoding your methodology, your workflows, your tool connections.  
+  
 Anthropic publishes pre-built plugins for common roles like Sales, Finance, and Legal. Customizing those with your company's context can help tailor the plugin to your needs. Building from scratch is for when your team has workflows, processes, or institutional knowledge that existing plugins don't cover.
 
-_To learn more about installing and using plugins in Cowork,_ _visit here\_\_._
+_To learn more about installing and using plugins in Cowork,_ _visit here__._
 
 ## Why build from scratch
 
-- **Your workflow doesn't map to an existing plugin.** Your workflow has specifics that an existing plugin doesn't cover, and customizing one doesn't close the gap.
-- **You want to encode institutional knowledge for your team.** The way your team actually does things — your standards, your judgment calls, your process docs — packaged so everyone works from the same playbook.
-- **You need Claude to coordinate across your tools.** Your workflow pulls from a particular combination of data sources, applies particular criteria, and produces a particular deliverable.
+*   **Your workflow doesn't map to an existing plugin.** Your workflow has specifics that an existing plugin doesn't cover, and customizing one doesn't close the gap.
+*   **You want to encode institutional knowledge for your team.** The way your team actually does things — your standards, your judgment calls, your process docs — packaged so everyone works from the same playbook.
+*   **You need Claude to coordinate across your tools.** Your workflow pulls from a particular combination of data sources, applies particular criteria, and produces a particular deliverable.
 
 ## What's inside a plugin
 
@@ -38,7 +38,7 @@ Understanding the components within a plugin can give you a framework for what t
 
 In Cowork, describe the plugin you want to build — even a sentence is enough to start.
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b8460843a447d8ca18de65_699fb4b80c990fef020d939d_699fadff328117154b6b0dd6_Screenshot%2525202026-02-25%252520at%2525206.20.40%2525E2%252580%2525AFPM.png)
+![\_\_wf\_reserved\_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b8460843a447d8ca18de65_699fb4b80c990fef020d939d_699fadff328117154b6b0dd6_Screenshot%2525202026-02-25%252520at%2525206.20.40%2525E2%252580%2525AFPM.png)
 
 A simpler start works too — Claude will follow up with questions about your workflow, your tools, your standards, and how you handle edge cases.
 
@@ -82,21 +82,21 @@ With detailed instructions, Claude can handle many of these workflows. A plugin 
 
 ## Refining your plugin
 
-- **Use it on real work and refine as you go.** If you run a skill and something's off — a step is missing, the criteria need adjusting, the output format isn't right — tell Claude and it can update the plugin files directly. Looking through the files after Claude builds them can also help spot gaps early.
-- **Show Claude the deliverable.** Upload an example or point Claude to one in a connected drive. Claude picks up the structure, emphasis, and formatting directly.
-- **Keep skills focused.** Claude composes multiple skills when a task spans several areas, and focused skills with specific descriptions tend to activate more reliably than broad ones. If a skill isn't loading when you expect, its description is likely too vague — structure it as _what it does, when to use it, what it covers._
-- **Consider sub-agents for multi-source or long-running tasks.** If a workflow pulls from several tools at once, or if a task regularly hits context limits from processing too much in one pass, sub-agents let Claude split the work across separate context windows.
+*   **Use it on real work and refine as you go.** If you run a skill and something's off — a step is missing, the criteria need adjusting, the output format isn't right — tell Claude and it can update the plugin files directly. Looking through the files after Claude builds them can also help spot gaps early.
+*   **Show Claude the deliverable.** Upload an example or point Claude to one in a connected drive. Claude picks up the structure, emphasis, and formatting directly.
+*   **Keep skills focused.** Claude composes multiple skills when a task spans several areas, and focused skills with specific descriptions tend to activate more reliably than broad ones. If a skill isn't loading when you expect, its description is likely too vague — structure it as _what it does, when to use it, what it covers._
+*   **Consider sub-agents for multi-source or long-running tasks.** If a workflow pulls from several tools at once, or if a task regularly hits context limits from processing too much in one pass, sub-agents let Claude split the work across separate context windows.
 
 ## Things to know
 
-- **Plugins work in Cowork, not Chat.** Your plugin's skills are active in the Cowork tab.
-- **Plugins live on your machine.** They don't sync across devices or to teammates automatically. You can share them as a compressed file, host them on GitHub for automatic updates, or have an admin provision them across your org. _Learn more about sharing plugins._
-- **Skills and connectors can also live outside plugins.** If you have personal context that applies across everything you do in Cowork — not tied to one plugin — you can add standalone skills and connectors in settings.
+*   **Plugins work in Cowork, not Chat.** Your plugin's skills are active in the Cowork tab.
+*   **Plugins live on your machine.** They don't sync across devices or to teammates automatically. You can share them as a compressed file, host them on GitHub for automatic updates, or have an admin provision them across your org. _Learn more about sharing plugins._
+*   **Skills and connectors can also live outside plugins.** If you have personal context that applies across everything you do in Cowork — not tied to one plugin — you can add standalone skills and connectors in settings.
 
-_Cowork with plugins is available as a research preview for all paid Claude plans (Pro, Max, Team, Enterprise) on macOS and Windows. Browse_ _available plugins\_\_._
+_Cowork with plugins is available as a research preview for all paid Claude plans (Pro, Max, Team, Enterprise) on macOS and Windows. Browse_ _available plugins__._
 
 ## Learn more
 
-- ‍Getting started with Cowork
-- Using plugins in Cowork
-- ‍Browse plugins
+*   ‍Getting started with Cowork
+*   Using plugins in Cowork
+*   ‍Browse plugins

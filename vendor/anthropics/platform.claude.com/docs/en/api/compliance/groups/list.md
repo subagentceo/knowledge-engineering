@@ -27,6 +27,7 @@ List Compliance Groups
 - `data: array of object { id, created_at, description, 4 more }`
 
   List of groups
+
   - `id: string`
 
     Group identifier (tagged ID)
@@ -80,7 +81,9 @@ curl https://api.anthropic.com/v1/compliance/groups \
       "created_at": "created_at",
       "description": "description",
       "name": "name",
-      "roles": ["string"],
+      "roles": [
+        "string"
+      ],
       "source_type": "source_type",
       "updated_at": "updated_at"
     }

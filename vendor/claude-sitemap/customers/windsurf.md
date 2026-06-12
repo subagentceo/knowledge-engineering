@@ -4,11 +4,11 @@ Windsurf, a leading AI coding platform, uses Claude to power their revolutionary
 
 With Claude, Windsurf:
 
-- Reached hundreds of thousands of users within their first few weeks of launch
-- Achieved high user retention with daily active users
-- Processes over 100M tokens per minute
-- Powers reasoning and planning capabilities in their Cascade agent
-- Helped companies use AI to write nearly half of their code
+*   Reached hundreds of thousands of users within their first few weeks of launch
+*   Achieved high user retention with daily active users
+*   Processes over 100M tokens per minute
+*   Powers reasoning and planning capabilities in their Cascade agent
+*   Helped companies use AI to write nearly half of their code
 
 ## Making development more powerful and accessible
 

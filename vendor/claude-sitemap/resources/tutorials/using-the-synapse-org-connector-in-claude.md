@@ -10,8 +10,8 @@ Services include search and (meta)data retrieval services. Data access will be g
 
 ## Who can access the Synapse.org integration
 
-- Individuals who have a registered Synapse account (register for free)
-- Data access may be subject to use restriction from contributors
+*   Individuals who have a registered Synapse account (register for free)
+*   Data access may be subject to use restriction from contributors
 
 More details on accessing the integration can be found in Synapse’s MCP Server Documentation.
 
@@ -43,18 +43,18 @@ Technical details of the Synapse.org integration can be found in Synapse’s MCP
 
 ## Common use cases
 
-- Search for reusable scientific data across all of the Synapse.org platform
-  - _“Find RNA-seq datasets related to Alzheimer's disease in Synapse”_
-  - _“Search Synapse for single-cell transcriptomics datasets”_
-  - _"Find genomic sequencing data for plexiform neurofibromas in the NF Data Portal”_
-- Authorized users can see hierarchy of folders, files, tables, datasets within projects to help organize and monitor data assets
-  - _“Explain the files and folders in the public AACR Project GENIE project”_
-  - _“Give me a quick overview of the data assets in the SEA-AD challenge project with agentic track (syn66496696)?”_
-- Get custom metadata of entities in Synapse
-  - _“What are the annotations and metadata for file syn4553239?”_
-  - _“Show me the custom metadata fields for dataset syn66364675”_
-- Get provenance information for entities in Synapse to help understand past data processing
-  - _“What's the processing history for file syn51543273?”_
-  - _“Show me the data lineage and upstream dependencies for the dataset syn68719289”_
+*   Search for reusable scientific data across all of the Synapse.org platform
+    *   _“Find RNA-seq datasets related to Alzheimer's disease in Synapse”_
+    *   _“Search Synapse for single-cell transcriptomics datasets”_
+    *   _"Find genomic sequencing data for plexiform neurofibromas in the NF Data Portal”_
+*   Authorized users can see hierarchy of folders, files, tables, datasets within projects to help organize and monitor data assets
+    *   _“Explain the files and folders in the public AACR Project GENIE project”_
+    *   _“Give me a quick overview of the data assets in the SEA-AD challenge project with agentic track (syn66496696)?”_
+*   Get custom metadata of entities in Synapse
+    *   _“What are the annotations and metadata for file syn4553239?”_
+    *   _“Show me the custom metadata fields for dataset syn66364675”_
+*   Get provenance information for entities in Synapse to help understand past data processing
+    *   _“What's the processing history for file syn51543273?”_
+    *   _“Show me the data lineage and upstream dependencies for the dataset syn68719289”_
 
 ‍

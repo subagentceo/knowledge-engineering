@@ -4,11 +4,11 @@
 
 ## With Claude, Stripe:
 
-- Deployed Claude Code to 1,370 engineers with a zero-configuration setup that works immediately on every developer's machine
-- Migrated 10,000 lines of Scala to Java in four days, a project estimated at ten engineering weeks without AI assistance
-- Collaborated with Anthropic to produce a signed enterprise binary, solving security concerns that had initially blocked deployment
-- Created an education program that reframed AI assistants as capable new engineers who need context, not replacements who work autonomously
-- Built a foundation for AI-powered agents focused on maintaining Stripe's 5.5 nines of reliability
+*   Deployed Claude Code to 1,370 engineers with a zero-configuration setup that works immediately on every developer's machine
+*   Migrated 10,000 lines of Scala to Java in four days, a project estimated at ten engineering weeks without AI assistance
+*   Collaborated with Anthropic to produce a signed enterprise binary, solving security concerns that had initially blocked deployment
+*   Created an education program that reframed AI assistants as capable new engineers who need context, not replacements who work autonomously
+*   Built a foundation for AI-powered agents focused on maintaining Stripe's 5.5 nines of reliability
 
 # The challenge
 

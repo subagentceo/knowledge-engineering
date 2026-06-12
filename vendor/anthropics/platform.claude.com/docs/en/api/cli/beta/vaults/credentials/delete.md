@@ -25,11 +25,13 @@ Delete Credential
 - `beta_managed_agents_deleted_credential: object { id, type }`
 
   Confirmation of a deleted credential.
+
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
+
     - `"vault_credential_deleted"`
 
 ### Example

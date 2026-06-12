@@ -6,9 +6,9 @@ Zoom, the AI-first work platform, is bringing AI-driven collaboration and produc
 
 The surge in remote work brought a new set of challenges for businesses, particularly in managing time and productivity. A survey from Morning Consult, commissioned by Zoom, highlighted the extent of these issues:
 
-- 82% of leaders and 72% of employees reported insufficient time between meetings or chats to complete tasks
-- Over one-third of leaders (35%) spend three or more hours daily on in-person meetings or email
-- Conversely, 84% of leaders whose teams use AI reported faster task completion and increased productivity
+*   82% of leaders and 72% of employees reported insufficient time between meetings or chats to complete tasks
+*   Over one-third of leaders (35%) spend three or more hours daily on in-person meetings or email
+*   Conversely, 84% of leaders whose teams use AI reported faster task completion and increased productivity
 
 Zoom identified a critical need: streamlining workflows to allow users to focus on tasks requiring human creativity and strategic thinking. The company saw generative AI as a potential solution to this problem.
 
@@ -18,19 +18,19 @@ Zoom identified a critical need: streamlining workflows to allow users to focus 
 
 Zoom's AI Companion, powered by Anthropic's Claude and other third party models, directly addresses the time management and productivity challenges of hybrid work environments. By automating routine tasks and enhancing collaboration, AI Companion helps users "work happy" while boosting efficiency. Here's how:
 
-- Meeting Summaries: Claude helps generate high-quality, automated recaps, and next steps allowing participants to stay fully engaged during meetings without worrying about note-taking. This directly tackles the issue of time lost to meetings, as employees can now focus on strategic discussions rather than documentation.
-- In-Meeting Questions: Users can easily catch up on missed parts of meetings by asking AI Companion questions like "What were the key points just discussed?" or "Was my name mentioned?" This feature helps combat the fatigue and distraction often associated with back-to-back meetings.
-- Meeting next steps: Claude helps generate high-quality, automated recaps and next steps so that participants can stay fully engaged.
-- Zoom Docs: Claude helps transform meeting content into actionable collaborative documents, wikis, and plans. This streamlines the often time-consuming process of post-meeting follow-ups and documentation, addressing the challenge of insufficient time between meetings to complete tasks.
-- Meeting Prep: By analyzing previous communications, Claude helps craft agendas and pose questions for future meetings. This feature enhances meeting productivity, potentially reducing the overall time spent in meetings - a key concern highlighted in the Morning Consult survey.
+*   Meeting Summaries: Claude helps generate high-quality, automated recaps, and next steps allowing participants to stay fully engaged during meetings without worrying about note-taking. This directly tackles the issue of time lost to meetings, as employees can now focus on strategic discussions rather than documentation.
+*   In-Meeting Questions: Users can easily catch up on missed parts of meetings by asking AI Companion questions like "What were the key points just discussed?" or "Was my name mentioned?" This feature helps combat the fatigue and distraction often associated with back-to-back meetings.
+*   Meeting next steps: Claude helps generate high-quality, automated recaps and next steps so that participants can stay fully engaged.
+*   Zoom Docs: Claude helps transform meeting content into actionable collaborative documents, wikis, and plans. This streamlines the often time-consuming process of post-meeting follow-ups and documentation, addressing the challenge of insufficient time between meetings to complete tasks.
+*   Meeting Prep: By analyzing previous communications, Claude helps craft agendas and pose questions for future meetings. This feature enhances meeting productivity, potentially reducing the overall time spent in meetings - a key concern highlighted in the Morning Consult survey.
 
 The impact of these AI-driven features has been significant. "Partnering with Anthropic, along with other LLMs as part of our federated approach, has allowed us to keep rapidly innovating and respond to customer requests for new features quickly, which really differentiates us in the market," said Siegelin.
 
 This agility in development and deployment has led to tangible outcomes:
 
-- A 14% improvement in meeting summary accuracy, enhancing the quality of post-meeting documentation
-- Rapid integration of new AI models, with features being enhanced within just two weeks of new model releases
-- Increased user engagement and satisfaction
+*   A 14% improvement in meeting summary accuracy, enhancing the quality of post-meeting documentation
+*   Rapid integration of new AI models, with features being enhanced within just two weeks of new model releases
+*   Increased user engagement and satisfaction
 
 ![Zoom product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0581da34cf948e314c5_c5a96cab55d8d111a59ea86b8dbbcfc8df8e6127-1920x1080.jpeg)
 

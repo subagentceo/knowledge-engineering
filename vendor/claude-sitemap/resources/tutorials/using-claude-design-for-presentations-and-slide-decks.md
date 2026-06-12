@@ -18,11 +18,11 @@ Claude Design presentations are generated as interactive HTML rendered in the ca
 
 Teams at Anthropic are using Claude Design presentations for:
 
-- Meeting prep decks with customer-specific branding
-- All-hands and company-wide presentations
-- Co-branded partner proposals
-- Executive readouts and quarterly reviews
-- Board presentations and investor updates
+*   Meeting prep decks with customer-specific branding
+*   All-hands and company-wide presentations
+*   Co-branded partner proposals
+*   Executive readouts and quarterly reviews
+*   Board presentations and investor updates
 
 ## Creating a presentation
 
@@ -34,11 +34,11 @@ To create a presentation, simply describe what you need in your prompt. Be speci
 
 Here are some prompts that work well:
 
-- "Create a 10-slide deck about Q1 results with sections for revenue, product updates, and team highlights"
-- "Build a 15-slide executive overview of our product roadmap for the board"
-- "Generate a meeting prep deck for my customer call covering use cases, competitive positioning, and next steps"
-- "Make a 5-slide partner proposal deck that's co-branded with our partner's logo and colors"
-- "Create an all-hands presentation covering Q2 OKRs, hiring plans, and culture updates"
+*   "Create a 10-slide deck about Q1 results with sections for revenue, product updates, and team highlights"
+*   "Build a 15-slide executive overview of our product roadmap for the board"
+*   "Generate a meeting prep deck for my customer call covering use cases, competitive positioning, and next steps"
+*   "Make a 5-slide partner proposal deck that's co-branded with our partner's logo and colors"
+*   "Create an all-hands presentation covering Q2 OKRs, hiring plans, and culture updates"
 
 ### Customizing your deck
 
@@ -66,10 +66,10 @@ You can ask Claude to include images, logos, and other visual elements in your s
 
 You can share your presentation with colleagues through the standard Claude sharing mechanism. The options are:
 
-- “Private”
-- “Anyone in your organization with the link can view”
-- “Anyone in your organization with the link can comment” — default
-- “Anyone in your organization with the link can edit”
+*   “Private”
+*   “Anyone in your organization with the link can view”
+*   “Anyone in your organization with the link can comment” — default
+*   “Anyone in your organization with the link can edit”
 
 When multiple users have access, they can both chat with the agent together in a group chat-style interface.
 
@@ -77,12 +77,12 @@ When multiple users have access, they can both chat with the agent together in a
 
 Slides are exportable in the following ways: 
 
-- Export as standalone HTML - best for interactivity and animations 
-- Export as PPTX 
-- Export as PDF 
-- Download project as .zip
-- Send to Canva 
-- Hand off to Claude Code 
+*   Export as standalone HTML - best for interactivity and animations 
+*   Export as PPTX 
+*   Export as PDF 
+*   Download project as .zip
+*   Send to Canva 
+*   Hand off to Claude Code 
 
 **Have questions about Claude Design presentations?** Reach out to your Design Team or try building a deck yourself – most people find the workflow intuitive once they create their first one.
 

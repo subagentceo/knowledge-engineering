@@ -6,10 +6,10 @@ Organization instructions are available to Admins, Owners, and Primary Owners on
 
 Claude supports two levels of instructions. Understanding how they interact helps admins and the people on your team get the most out of both.
 
-| **Level**                    | **Set by**                         | **Scope**                                           | **Visibility**                         |
-| ---------------------------- | ---------------------------------- | --------------------------------------------------- | -------------------------------------- |
-| Organization instructions    | Admins, Owners, and Primary Owners | All people in your organization, every conversation | Only Admins and above can view or edit |
-| Individual user instructions | Each user                          | That individual’s conversations only                | Only that user can view or edit        |
+| **Level** | **Set by** | **Scope** | **Visibility** |
+| --- | --- | --- | --- |
+| Organization instructions | Admins, Owners, and Primary Owners | All people in your organization, every conversation | Only Admins and above can view or edit |
+| Individual user instructions | Each user | That individual’s conversations only | Only that user can view or edit |
 
 When both are set, organization instructions take precedence. If an individual instruction directly contradicts an organization instruction, Claude favors the organization-level instruction. For example, if an organization instruction says “Always respond in formal English” but an individual instruction says “use a casual tone,” Claude responds formally.
 

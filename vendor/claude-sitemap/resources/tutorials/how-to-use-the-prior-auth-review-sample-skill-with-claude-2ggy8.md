@@ -4,10 +4,10 @@
 
 The Prior Authorization skill is a sample skill that digests request packet documentation and performs several initial checks to be verified by a human reviewer.  These include:
 
-- NPI Physician Registry
-- ICD-10 Lookup
-- CMS Coverage Database
-- CPT Codes
+*   NPI Physician Registry
+*   ICD-10 Lookup
+*   CMS Coverage Database
+*   CPT Codes
 
 It then extracts clinical data to summarize the argument for medical necessity and confirms all the required documentation is present.
 

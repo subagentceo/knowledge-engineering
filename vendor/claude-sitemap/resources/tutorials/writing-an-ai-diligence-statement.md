@@ -76,9 +76,9 @@ Leaders set the tone here. When a manager includes a diligence statement on thei
 
 A few practical steps for organizations: 
 
-- Make diligence statements part of your templates and workflows rather than an afterthought. 
-- Celebrate thorough disclosures the same way you'd celebrate thorough methods sections in research. 
-- Avoid policies that treat AI use as inherently suspect. The goal is responsible use, and responsibility requires honesty. If your culture penalizes honesty, you won't get responsibility either.
+*   Make diligence statements part of your templates and workflows rather than an afterthought. 
+*   Celebrate thorough disclosures the same way you'd celebrate thorough methods sections in research. 
+*   Avoid policies that treat AI use as inherently suspect. The goal is responsible use, and responsibility requires honesty. If your culture penalizes honesty, you won't get responsibility either.
 
 ## Frequently asked questions about AI diligence statements
 
@@ -98,4 +98,4 @@ Writing AI diligence statements and taking full responsibility for AI’s output
 
 ‍
 
-_This tutorial is part of the AI Fluency effort at Anthropic. It was designed to help professionals develop practical, responsible approaches to AI collaboration. Learn more at_ _Anthropic Academy\_\_._
+_This tutorial is part of the AI Fluency effort at Anthropic. It was designed to help professionals develop practical, responsible approaches to AI collaboration. Learn more at_ _Anthropic Academy__._

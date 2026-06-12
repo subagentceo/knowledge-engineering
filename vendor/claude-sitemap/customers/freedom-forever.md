@@ -4,10 +4,10 @@ Freedom Forever, the largest residential solar installer in the United States, h
 
 ## With Claude, Freedom Forever:
 
-- Achieved 97.5% success rate on complex web automation benchmarks where alternative frameworks hit 20–60%
-- Processed approximately 19,000 permit emails in the first month of production, handling communications from hundreds of utility companies
-- Built a unified agent framework connecting web automation, CRM workflows, file validation, and sales support
-- Reduced agent execution costs to $0.20–$0.35 per run while completing most tasks in about two minutes
+*   Achieved 97.5% success rate on complex web automation benchmarks where alternative frameworks hit 20–60%
+*   Processed approximately 19,000 permit emails in the first month of production, handling communications from hundreds of utility companies
+*   Built a unified agent framework connecting web automation, CRM workflows, file validation, and sales support
+*   Reduced agent execution costs to $0.20–$0.35 per run while completing most tasks in about two minutes
 
 ## The problem
 

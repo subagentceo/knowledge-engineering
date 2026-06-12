@@ -4,9 +4,9 @@ FutureHouse, a nonprofit advancing research automation, uses Claude to power a s
 
 With Claude, FutureHouse:
 
-- Built four specialized AI agents for different stages of the scientific process
-- Achieves superior precision in scientific reasoning
-- Delivers expert-level analysis of scientific literature with comprehensive citation tracking
+*   Built four specialized AI agents for different stages of the scientific process
+*   Achieves superior precision in scientific reasoning
+*   Delivers expert-level analysis of scientific literature with comprehensive citation tracking
 
 ## Breaking through the information barrier in modern science
 

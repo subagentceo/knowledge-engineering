@@ -16,10 +16,10 @@ Announced at the conference, we doubled rate limits on Claude Code and raised AP
 
 We also introduced new capabilities to Claude Managed Agents on the Claude Platform aimed at helping teams build and deploy cloud-hosted agents at scale. Four new features are now available to all developers:
 
-- **Dreaming.** A scheduled process that reviews past agent sessions, surfaces patterns, and curates memory, so agents improve between runs. Recurring mistakes, shared workflows, and team preferences get pulled into a more useful memory store.
-- **Multiagent orchestration.** A lead agent can delegate to specialist subagents working in parallel on a shared filesystem, each with its own model, prompt, and tools. The whole flow is traceable in the Claude Console.
-- **Outcomes.** Developers define a rubric for what a good output looks like. A separate grader evaluates each result in its own context window and sends the agent back to revise until it meets the bar. On our internal benchmarks, outcomes lifted task success by up to 10 points on the hardest problems.
-- **Webhooks**: Once you’ve defined an outcome, you can let the agent run, and get notified by a webhook when it's done.
+*   **Dreaming.** A scheduled process that reviews past agent sessions, surfaces patterns, and curates memory, so agents improve between runs. Recurring mistakes, shared workflows, and team preferences get pulled into a more useful memory store.
+*   **Multiagent orchestration.** A lead agent can delegate to specialist subagents working in parallel on a shared filesystem, each with its own model, prompt, and tools. The whole flow is traceable in the Claude Console.
+*   **Outcomes.** Developers define a rubric for what a good output looks like. A separate grader evaluates each result in its own context window and sends the agent back to revise until it meets the bar. On our internal benchmarks, outcomes lifted task success by up to 10 points on the hardest problems.
+*   **Webhooks**: Once you’ve defined an outcome, you can let the agent run, and get notified by a webhook when it's done.
 
 ## In case you missed it
 
@@ -33,6 +33,6 @@ Our talks go behind the scenes of building Claude with Anthropic teams and share
 
 We’ll be taking Code w/ Claude to London (May 20-21) and Tokyo (June 5-6). All Day 1 keynotes and breakout sessions will be streamed live.
 
-*Stay tuned for technical tutorials, guides, and customer stories inspired by our talks.* 
+_Stay tuned for technical tutorials, guides, and customer stories inspired by our talks._ 
 
 ‍

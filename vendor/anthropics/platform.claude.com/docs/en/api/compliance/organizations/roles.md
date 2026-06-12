@@ -31,6 +31,7 @@ List Compliance Roles
 - `data: array of object { id, created_at, description, 2 more }`
 
   List of roles
+
   - `id: string`
 
     Role identifier (tagged ID)
@@ -152,6 +153,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 - `RoleListResponse object { id, created_at, description, 2 more }`
 
   Role information for compliance responses.
+
   - `id: string`
 
     Role identifier (tagged ID)
@@ -177,6 +179,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 - `RoleRetrieveResponse object { id, created_at, description, 2 more }`
 
   Role information for compliance responses.
+
   - `id: string`
 
     Role identifier (tagged ID)
@@ -234,6 +237,7 @@ List Compliance Role Permissions
 - `data: array of object { action, resource_id, resource_type }`
 
   List of permissions
+
   - `action: string`
 
     Action permitted on the resource
@@ -284,6 +288,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 - `PermissionListResponse object { action, resource_id, resource_type }`
 
   Permission granted by a role.
+
   - `action: string`
 
     Action permitted on the resource

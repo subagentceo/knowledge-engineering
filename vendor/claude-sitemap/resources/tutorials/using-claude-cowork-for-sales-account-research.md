@@ -70,18 +70,18 @@ Ask
 
 From the transcript, Claude drafts three pieces:
 
-- **Action items** — a checklist, saved straight to your working folder
-- **Team message** — key takeaways, next steps, and owners for your account channel
-- **Customer follow-up** — a recap and next steps, drafted in your voice
+*   **Action items** — a checklist, saved straight to your working folder
+*   **Team message** — key takeaways, next steps, and owners for your account channel
+*   **Customer follow-up** — a recap and next steps, drafted in your voice
 
 ## Make it yours
 
 This setup fits any role that walks into a meeting needing more context than they have:
 
-- **Customer success** before a renewal or escalation — usage history, support tickets, the account’s chat channel
-- **Partnerships** before a first meeting — deal history, public news, what’s been discussed internally
-- **Recruiting** before a panel — the candidate’s portfolio, prior interview notes, the role’s requirements
-- **Corporate development** before a diligence call — public filings, prior internal analysis, market signals
+*   **Customer success** before a renewal or escalation — usage history, support tickets, the account’s chat channel
+*   **Partnerships** before a first meeting — deal history, public news, what’s been discussed internally
+*   **Recruiting** before a panel — the candidate’s portfolio, prior interview notes, the role’s requirements
+*   **Corporate development** before a diligence call — public filings, prior internal analysis, market signals
 
 The setup is the same every time:
 
@@ -94,8 +94,8 @@ Claude does the gathering. The judgment about what to do with it is yours.
 
 ## Learn more
 
-- Claude Cowork 101. Take the full Cowork course to dive deeper into the product.
-- Customize Cowork. Learn how to set up connectors, skills, and instructions.
-- AI Fluency: Framework and Foundations. Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
-- The 4 Ds of AI Fluency. Learn practical skills and mental models behind building AI fluency.
-- Use Cowork safely. Understand access, approvals, and what Claude can see.
+*   Claude Cowork 101. Take the full Cowork course to dive deeper into the product.
+*   Customize Cowork. Learn how to set up connectors, skills, and instructions.
+*   AI Fluency: Framework and Foundations. Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
+*   The 4 Ds of AI Fluency. Learn practical skills and mental models behind building AI fluency.
+*   Use Cowork safely. Understand access, approvals, and what Claude can see.

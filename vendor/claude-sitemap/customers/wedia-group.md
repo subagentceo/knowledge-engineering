@@ -4,9 +4,9 @@ Wedia Group, a leading provider of digital asset management (DAM) solutions, use
 
 With Claude, Wedia saw:
 
-- Ability to process 20,000-30,000 new images per month
-- Reduction in image metadata tagging time
-- Support for 20+ languages in image descriptions
+*   Ability to process 20,000-30,000 new images per month
+*   Reduction in image metadata tagging time
+*   Support for 20+ languages in image descriptions
 
 ## The challenge: Organizing vast libraries of visual content
 

@@ -55,6 +55,7 @@ List memory versions
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -187,6 +188,7 @@ Retrieve a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -307,6 +309,7 @@ Redact a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -410,7 +413,9 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Actor
 
 - `ManagedAgentsActor`
+
   - `ManagedAgentsSessionActor`
+
     - `string sessionID`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -418,6 +423,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsAPIActor`
+
     - `string apiKeyID`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
@@ -425,6 +431,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsUserActor`
+
     - `Type type`
 
     - `string userID`
@@ -434,6 +441,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents API Actor
 
 - `ManagedAgentsAPIActor`
+
   - `string apiKeyID`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
@@ -443,6 +451,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -496,6 +505,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version Operation
 
 - `ManagedAgentsMemoryVersionOperation`
+
   - `"created"`
 
   - `"modified"`
@@ -505,6 +515,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Session Actor
 
 - `ManagedAgentsSessionActor`
+
   - `string sessionID`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -514,6 +525,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents User Actor
 
 - `ManagedAgentsUserActor`
+
   - `Type type`
 
   - `string userID`

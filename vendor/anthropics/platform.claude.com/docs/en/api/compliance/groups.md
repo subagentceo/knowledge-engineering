@@ -29,6 +29,7 @@ List Compliance Groups
 - `data: array of object { id, created_at, description, 4 more }`
 
   List of groups
+
   - `id: string`
 
     Group identifier (tagged ID)
@@ -82,7 +83,9 @@ curl https://api.anthropic.com/v1/compliance/groups \
       "created_at": "created_at",
       "description": "description",
       "name": "name",
-      "roles": ["string"],
+      "roles": [
+        "string"
+      ],
       "source_type": "source_type",
       "updated_at": "updated_at"
     }
@@ -153,7 +156,9 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
   "created_at": "created_at",
   "description": "description",
   "name": "name",
-  "roles": ["string"],
+  "roles": [
+    "string"
+  ],
   "source_type": "source_type",
   "updated_at": "updated_at"
 }
@@ -166,6 +171,7 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
 - `GroupListResponse object { id, created_at, description, 4 more }`
 
   Group information for compliance responses.
+
   - `id: string`
 
     Group identifier (tagged ID)
@@ -199,6 +205,7 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
 - `GroupRetrieveResponse object { id, created_at, description, 4 more }`
 
   Group information for compliance responses.
+
   - `id: string`
 
     Group identifier (tagged ID)
@@ -260,6 +267,7 @@ List Compliance Group Members
 - `data: array of object { created_at, email, updated_at, user_id }`
 
   List of group members
+
   - `created_at: string`
 
     Membership creation timestamp (ISO 8601)
@@ -315,6 +323,7 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID/members \
 - `MemberListResponse object { created_at, email, updated_at, user_id }`
 
   Group member for compliance responses.
+
   - `created_at: string`
 
     Membership creation timestamp (ISO 8601)
