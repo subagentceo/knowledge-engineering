@@ -1,0 +1,169 @@
+# REST Resource: namespaces.configurations
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+*   Home
+*   Documentation
+*   Application hosting
+*   Cloud Run
+*   Reference
+
+Send feedback
+
+# REST Resource: namespaces.configurations Stay organized with collections Save and categorize content based on your preferences.
+
+*   Resource: Configuration
+    *   JSON representation
+*   ConfigurationSpec
+    *   JSON representation
+*   ConfigurationStatus
+    *   JSON representation
+*   Methods
+
+## Resource: Configuration
+
+Configuration represents the "floating HEAD" of a linear history of Revisions, and optionally how the containers those revisions reference are built. Users create new Revisions by updating the Configuration's spec. The "latest created" revision's name is available under status, as is the "latest ready" revision's name.
+
+JSON representation
+
+{
+  "apiVersion": string,
+  "kind": string,
+  "metadata": {
+    object (`ObjectMeta`)
+  },
+  "spec": {
+    object (`ConfigurationSpec`)
+  },
+  "status": {
+    object (`ConfigurationStatus`)
+  }
+}
+
+ 
+
+Fields
+
+`apiVersion`
+
+`string`
+
+The API version for this call such as "serving.knative.dev/v1".
+
+`kind`
+
+`string`
+
+The kind of resource, in this case always "Configuration".
+
+`metadata`
+
+``object (`ObjectMeta`)``
+
+Metadata associated with this Configuration, including name, namespace, labels, and annotations.
+
+`spec`
+
+``object (`ConfigurationSpec`)``
+
+Spec holds the desired state of the Configuration (from the client).
+
+`status`
+
+``object (`ConfigurationStatus`)``
+
+Status communicates the observed state of the Configuration (from the controller).
+
+## ConfigurationSpec
+
+ConfigurationSpec holds the desired state of the Configuration (from the client).
+
+JSON representation
+
+{
+  "template": {
+    object (`RevisionTemplate`)
+  }
+}
+
+ 
+
+Fields
+
+`template`
+
+``object (`RevisionTemplate`)``
+
+Template holds the latest specification for the Revision to be stamped out.
+
+## ConfigurationStatus
+
+ConfigurationStatus communicates the observed state of the Configuration (from the controller).
+
+JSON representation
+
+{
+  "observedGeneration": integer,
+  "latestCreatedRevisionName": string,
+  "latestReadyRevisionName": string,
+  "conditions": [
+    {
+      object (`Condition`)
+    }
+  ]
+}
+
+ 
+
+Fields
+
+`observedGeneration`
+
+`integer`
+
+ObservedGeneration is the 'Generation' of the Configuration that was last processed by the controller. The observed generation is updated even if the controller failed to process the spec and create the Revision.
+
+Clients polling for completed reconciliation should poll until observedGeneration = metadata.generation, and the Ready condition's status is True or False.
+
+`latestCreatedRevisionName`
+
+`string`
+
+LatestCreatedRevisionName is the last revision that was created from this Configuration. It might not be ready yet, so for the latest ready revision, use LatestReadyRevisionName.
+
+`latestReadyRevisionName`
+
+`string`
+
+LatestReadyRevisionName holds the name of the latest Revision stamped out from this Configuration that has had its "Ready" condition become "True".
+
+`conditions[]`
+
+``object (`Condition`)``
+
+Conditions communicate information about ongoing/complete reconciliation processes that bring the "spec" inline with the observed state of the world.
+
+ 
+
+## Methods
+
+### get
+
+Get information about a configuration.
+
+### list
+
+List configurations.
+
+Send feedback
