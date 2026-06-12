@@ -27,6 +27,7 @@ List Vaults
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.

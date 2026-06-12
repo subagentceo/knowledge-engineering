@@ -44,8 +44,8 @@ The obvious approach is to automate those judgments with rules: map how clinicia
 
 Carta Healthcare’s early systems used natural language processing (NLP) to extract registry data automatically. Pattern recognition, it turned out, can't replicate clinical judgment.
 
-"That's where Carta Healthcare started years ago with NLP, and it's exactly why we moved to LLMs," says Hannah Glaser, Applied AI Applications Manager at Carta Healthcare.
-
+"That's where Carta Healthcare started years ago with NLP, and it's exactly why we moved to LLMs," says Hannah Glaser, Applied AI Applications Manager at Carta Healthcare.  
+  
 Getting reasoning right is critical as three abstractors can review the same cardiac case and reach different but defensible answers. Physician notes point one way, imaging studies another. The right answer requires weighing both, and that's not a problem you can rule your way out of.
 
 "What an AI system needs to understand is what a trained clinical abstractor understands: how to read clinical language in context, weigh conflicting evidence across documents, apply temporal logic relative to specific procedure dates, and handle ambiguity," Glaser says. "If weight was assessed after the procedure, a skilled abstractor knows that doesn't count as a pre-procedure weight, and the system needs to know that too.”

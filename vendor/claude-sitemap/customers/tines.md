@@ -4,9 +4,9 @@ Tines is a workflow orchestration and automation platform for security and IT te
 
 With Claude as a foundational part of its platform, Tines delivers:
 
-- 10–100x usability improvement in complex data transformations
-- 100x faster time-to-value — converting 120-step workflows to single-step agents
-- Dramatically reduced workflow building time through AI-powered automation
+*   10–100x usability improvement in complex data transformations
+*   100x faster time-to-value — converting 120-step workflows to single-step agents
+*   Dramatically reduced workflow building time through AI-powered automation
 
 ## Breaking through the automation accessibility barrier
 
@@ -26,9 +26,9 @@ The integration validated their choice. “Amazon Bedrock made integration strai
 
 Tines integrated Claude across their platform to transform how teams create and manage workflows:
 
-- **Automatic Transform Mode**: Haiku powers complex data transformations without code, allowing users to compose sophisticated data manipulations through natural language. This eliminates the dependency on engineering resources for complex data manipulation.
-- **Workbench**: Sonnet drives their universal AI copilot, offering all the connectivity and workflow power of Tines in a secure chat environment. This provides teams with a conversational interface to access Tines' full automation capabilities.
-- **Agents**: Sonnet enables fully or partially agentic workflows with reasoning and tool use, launched as their latest tier 1 product in late June 2025. These agents can handle the workflow logic dynamically during execution, reducing complex multi-step processes to single operations.
+*   **Automatic Transform Mode**: Haiku powers complex data transformations without code, allowing users to compose sophisticated data manipulations through natural language. This eliminates the dependency on engineering resources for complex data manipulation.
+*   **Workbench**: Sonnet drives their universal AI copilot, offering all the connectivity and workflow power of Tines in a secure chat environment. This provides teams with a conversational interface to access Tines' full automation capabilities.
+*   **Agents**: Sonnet enables fully or partially agentic workflows with reasoning and tool use, launched as their latest tier 1 product in late June 2025. These agents can handle the workflow logic dynamically during execution, reducing complex multi-step processes to single operations.
 
 ## Transforming productivity and workflow creation
 

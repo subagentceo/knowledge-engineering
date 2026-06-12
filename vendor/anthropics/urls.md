@@ -1,7 +1,7 @@
 ---
 vendor: anthropics
 llms_txt: https://code.claude.com/llms.txt
-count: 1565
+count: 1696
 transform: verbatim
 ---
 
@@ -662,7 +662,6 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/retrieve.md` |
-| https://platform.claude.com/docs/en/api/csharp/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/completions.md` |
 | https://platform.claude.com/docs/en/api/csharp/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/completions/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/messages.md` |
 | https://platform.claude.com/docs/en/api/csharp/messages/batches.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/messages/batches.md` |
@@ -1071,7 +1070,6 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/retrieve.md` |
-| https://platform.claude.com/docs/en/api/php/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/completions.md` |
 | https://platform.claude.com/docs/en/api/php/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/completions/create.md` |
 | https://platform.claude.com/docs/en/api/php/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/messages.md` |
 | https://platform.claude.com/docs/en/api/php/messages/batches.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/messages/batches.md` |

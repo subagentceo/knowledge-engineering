@@ -66,11 +66,11 @@ According to Bow, this type of investigation would typically take at least half 
 
 When the team set out to build CLUE, they wanted to understand not just whether it felt faster, but whether they could quantify the results.
 
-**Fewer false positives**: Before CLUE Triage, roughly one in three alerts turned out to be false positives. That rate has dropped to 7%, meaning analysts spend their time on signals that matter.\*
+**Fewer false positives**: Before CLUE Triage, roughly one in three alerts turned out to be false positives. That rate has dropped to 7%, meaning analysts spend their time on signals that matter.*
 
 **Broader coverage**: Perhaps more important than speed is what the team can now examine. Before CLUE, lower-confidence signals went unexamined because there simply wasn't time. Now, CLUE Triage processes every incoming alert with enrichment, and batch processing handles thousands of signals that would have previously been noise in a dashboard.
 
-**Time savings at scale**: Based on 30 days of usage, CLUE automated roughly 12,000 queries and 27,000 tool calls—work that would have taken an estimated 1,870 hours (234 person-days) to complete manually. That translates to 5-10x time savings compared to manual triage.\*
+**Time savings at scale**: Based on 30 days of usage, CLUE automated roughly 12,000 queries and 27,000 tool calls—work that would have taken an estimated 1,870 hours (234 person-days) to complete manually. That translates to 5-10x time savings compared to manual triage.*
 
 **What they're still learning to measure**: Accuracy is harder to quantify than speed. The team reviews CLUE's dispositions and tracks disagreements, but they're still building the feedback loops to understand how often Claude catches something analysts would have missed—and vice versa. The transcripts help: every investigation can be audited for exactly what Claude examined and how it reached its conclusions.
 
@@ -94,6 +94,6 @@ _Check out our best practices for preparing your security program for AI-acceler
 
 _Get started with_ _Claude Code_ _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
 
-_\*These results were generated using Claude Sonnet and Opus models._
+_*These results were generated using Claude Sonnet and Opus models._
 
 ‍

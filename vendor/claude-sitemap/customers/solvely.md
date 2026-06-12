@@ -4,9 +4,9 @@ Solvely.ai has created an AI learning platform that serves 5+ million students a
 
 Key results:
 
-- Ranks #1 education app on the App Store with a 4.8/5 star rating
-- Increases pair-coding productivity by 5x through advanced AI-assisted collaboration
-- Accelerates research, product design, and creative brainstorming processes by up to 8x
+*   Ranks #1 education app on the App Store with a 4.8/5 star rating
+*   Increases pair-coding productivity by 5x through advanced AI-assisted collaboration
+*   Accelerates research, product design, and creative brainstorming processes by up to 8x
 
 ![Solvely product screen 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0531a41c2b9dfd0fa50_9c071dc921a4c9079cd471814df94e3eba2592b5-1920x1043.png)
 

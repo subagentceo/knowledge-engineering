@@ -29,6 +29,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Returns
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB

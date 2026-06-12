@@ -8,16 +8,16 @@ To help leaders chart this path, we put together a guide on the three pillars of
 
 In this guide, we share:
 
-- How to overcome the "agentic thinking divide" and why some AI deployments compound while others stall
-- Best practices for upskilling employees with AI that reflects how your organization actually works
-- Examples of how organizations can compress information-dense processes without sacrificing human-in-the-loop judgement and expertise
-- Guidance for building new product capabilities that generate revenue, not just reduce cost
-- A six-month deployment framework for rolling out Claude Cowork 
-- Customer stories from L'Oreal, Lyft, and Rakuten
+*   How to overcome the "agentic thinking divide" and why some AI deployments compound while others stall
+*   Best practices for upskilling employees with AI that reflects how your organization actually works
+*   Examples of how organizations can compress information-dense processes without sacrificing human-in-the-loop judgement and expertise
+*   Guidance for building new product capabilities that generate revenue, not just reduce cost
+*   A six-month deployment framework for rolling out Claude Cowork 
+*   Customer stories from L'Oreal, Lyft, and Rakuten
 
 The companies getting the biggest returns from AI are being deliberate about how they teach it to employees, where they apply it, and what they build next.
 
-**Check it out,** **here\*\***.\*\* 
+**Check it out,** **here****.** 
 
 Get started with Claude Cowork today.
 

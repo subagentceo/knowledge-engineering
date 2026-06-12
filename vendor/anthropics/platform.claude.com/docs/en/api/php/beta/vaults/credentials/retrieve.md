@@ -19,6 +19,7 @@ Get Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.

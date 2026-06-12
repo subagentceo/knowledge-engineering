@@ -5,7 +5,7 @@ The Wolfram MCP Server transforms your AI environment into a rigorous computatio
 You can use Wolfram to:
 
 **Solve and verify math:**  
-"Integrate x^2 \* e^(-x) from 0 to infinity"
+"Integrate x^2 * e^(-x) from 0 to infinity"
 
 **Query curated data:**  
 "What's the GDP per capita of Portugal vs Spain over the last 20 years?"

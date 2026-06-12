@@ -93,8 +93,8 @@ Here are a few patterns we’ve found useful for optimizing prompt caching when 
 
 Claude Code is built around prompt caching from day one; for the best results when building an agent, we suggest you do, too.  
 
-_Get started_ *with Claude Code today.* 
+_Get started_ _with Claude Code today._ 
 
-*This article was written by Thariq Shihipar, a member of technical staff on the Claude Code team.* 
+_This article was written by Thariq Shihipar, a member of technical staff on the Claude Code team._ 
 
 ‍

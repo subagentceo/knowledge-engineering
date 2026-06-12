@@ -86,13 +86,13 @@ The Figma Connector allows Claude to access designs within Figma. This lets Clau
 
 Claude Connectors include integrations for:
 
-- **Notion** for workspace documentation
-- **Linear** for issue tracking
-- **Stripe** for payment data
-- **Canva** and **Figma** for design assistance
-- **Hubspot** for automating CRM tasks
-- **Sentry** for error tracking
-- ...and many more
+*   **Notion** for workspace documentation
+*   **Linear** for issue tracking
+*   **Stripe** for payment data
+*   **Canva** and **Figma** for design assistance
+*   **Hubspot** for automating CRM tasks
+*   **Sentry** for error tracking
+*   ...and many more
 
 Each connector takes just a few seconds to configure to become part of Claude's working context. Outside of Claude, there is an ecosystem of MCP servers on the open-source MCP Registry.
 

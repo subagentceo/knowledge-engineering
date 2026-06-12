@@ -29,6 +29,7 @@ List Compliance Group Members
 - `data: array of object { created_at, email, updated_at, user_id }`
 
   List of group members
+
   - `created_at: string`
 
     Membership creation timestamp (ISO 8601)

@@ -23,6 +23,7 @@ Retrieve a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.

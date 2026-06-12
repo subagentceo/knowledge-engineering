@@ -27,6 +27,7 @@ For users on Claude for Work (Team and Enterprise) plans, projects can be shared
 - **Can edit:** Members can modify project instructions and knowledge, add/remove members, update member settings, and actively contribute to the project.
 
 - **Project creators can:**
+
   - Share to specific members instead of making a project fully private or public to the entire organization.
 
   - Make a previously-created private project visible to the whole organization.
@@ -38,6 +39,7 @@ For users on Claude for Work (Team and Enterprise) plans, projects can be shared
 - **Bulk sharing:** Add multiple users at once using email lists.
 
 - **Organization-wide sharing:** Make projects available to everyone in your organization either when creating the project or afterward.
+
   - **Note:** If an Owner or Primary Owner disables public projects, organization-wide sharing will be disabled both when creating the project and afterward.
 
 **Collaboration features:**

@@ -26,22 +26,19 @@ For manual installation on individual machines, use the following PowerShell com
 
 ### Install for single user
 
-````
+```
 ```powershell
 Add-AppxPackage -Path "Claude.msix"
-````
-
+```
 ```
 For more details, see Microsoft's **[Add-AppxPackage](https://learn.microsoft.com/en-us/powershell/module/appx/add-appxpackage?view=windowsserver2022-ps)** documentation.
 
 ### Install for all users (provisions machine-wide)
 
 ```
-
 ```powershell
 Add-AppxProvisionedPackage -Online -PackagePath "Claude.msix" -SkipLicense -Regions "all"
 ```
-
 ```
 For more details, see Microsoft's **[Add-AppxProvisionedPackage](https://learn.microsoft.com/en-us/powershell/module/dism/add-appxprovisionedpackage?view=windowsserver2022-ps)** documentation.
 
@@ -68,4 +65,3 @@ To configure Claude Desktop settings such as auto-updates, extensions, and MCP s
 ### MSIX package not working with AppLocker?
 
 By default, packaged apps may be restricted by AppLocker policies. Ensure your AppLocker rules allow MSIX packages, or add Claude Desktop to your allowed applications list. Consult your organization's security policies before making changes.
-```

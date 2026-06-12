@@ -4,9 +4,9 @@ Grab, Southeast Asia's leading super-app, uses Claude to democratize business co
 
 Key results with Claude:
 
-- 5.7 percentage point increase in resolution rate
-- 8% growth in inbound merchant conversations
-- 25% reduction in negative sentiment
+*   5.7 percentage point increase in resolution rate
+*   8% growth in inbound merchant conversations
+*   25% reduction in negative sentiment
 
 ## The challenge of scaling personalized merchant support
 
@@ -30,11 +30,11 @@ Claude powers the conversational heart of Grab's Merchant AI Assistant. It proce
 
 The AI Assistant functions like a dedicated business consultant available around the clock, providing:
 
-- **Practical guidance**: Detects missing menu photos and guides merchants to add them step-by-step
-- **Strategic recommendations**: Suggests new menu items based on local trends and competitor analysis
-- **Marketing insights**: Offers advice on effective promotional campaigns when competitors boost sales through promos
-- **Business analysis**: Helps merchants analyze performance data and identify growth opportunities
-- **Operational support**: Provides guidance on navigating the GrabMerchant app and platform features
+*   **Practical guidance**: Detects missing menu photos and guides merchants to add them step-by-step
+*   **Strategic recommendations**: Suggests new menu items based on local trends and competitor analysis
+*   **Marketing insights**: Offers advice on effective promotional campaigns when competitors boost sales through promos
+*   **Business analysis**: Helps merchants analyze performance data and identify growth opportunities
+*   **Operational support**: Provides guidance on navigating the GrabMerchant app and platform features
 
 This approach transforms the Assistant from a simple help desk into a true business advisor that understands each merchant's unique context and goals.
 

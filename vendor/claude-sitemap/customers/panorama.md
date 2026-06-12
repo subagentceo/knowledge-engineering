@@ -4,10 +4,10 @@ Panorama empowers K-12 educators with Claude-powered AI tools that transform fra
 
 With Claude in Amazon Bedrock, Panorama delivers:
 
-- Service to over 25% of the U.S. student population
-- AI platform implementation across 11 states
-- Integration of data from multiple disconnected school systems into unified student profiles
-- Secure processing that protects sensitive student information
+*   Service to over 25% of the U.S. student population
+*   AI platform implementation across 11 states
+*   Integration of data from multiple disconnected school systems into unified student profiles
+*   Secure processing that protects sensitive student information
 
 ## Breaking down educational data silos for better student outcomes
 
@@ -29,10 +29,10 @@ The true value of these AI models in education is their ability to use detailed 
 
 Claude powers multiple AI capabilities across Panorama's educational platform:
 
-- Solara platform: A purpose-built generative AI tool that processes student data while maintaining privacy compliance
-- Dynamic data summaries: Generation of personalized insights from multiple educational data sources
-- Pattern recognition: Identifying trends and connections across datasets to develop targeted interventions
-- Strategic recommendations: AI-driven guidance for educators developing personalized support plans
+*   Solara platform: A purpose-built generative AI tool that processes student data while maintaining privacy compliance
+*   Dynamic data summaries: Generation of personalized insights from multiple educational data sources
+*   Pattern recognition: Identifying trends and connections across datasets to develop targeted interventions
+*   Strategic recommendations: AI-driven guidance for educators developing personalized support plans
 
 These capabilities address what Kennedy describes as a foundational need in education. Kennedy shares, "By creating a complete view of each student that integrates data from all district systems, we can provide powerful insights while maintaining full compliance with data privacy requirements through Claude's security protections."
 

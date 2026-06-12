@@ -30,10 +30,10 @@ Turn on the _Extended Thinking_ feature before creating files. This helps Claude
 
 It's particularly helpful for:
 
-- Presentations with complex visual hierarchy
-- Spreadsheets with interconnected formulas
-- Documents synthesizing multiple sources
-- Any multi-step file creation task
+*   Presentations with complex visual hierarchy
+*   Spreadsheets with interconnected formulas
+*   Documents synthesizing multiple sources
+*   Any multi-step file creation task
 
 ### Write detailed prompts with quality checks
 
@@ -41,24 +41,24 @@ Provide specific details to give Claude clear direction. Include exact measureme
 
 **Presentations:**
 
-- **Design language**: Reference specific design languages (e.g., "consulting-style," "startup pitch deck")**‍**
-- **Exact measurements**: Provide specific font sizes, line spacing, margin dimensions**‍**
-- **Visual specifications**: Define exact fonts and hex color codes**‍**
-- **Verification**: "Verify that all elements fit within slide bounds with no overlapping"
+*   **Design language**: Reference specific design languages (e.g., "consulting-style," "startup pitch deck")**‍**
+*   **Exact measurements**: Provide specific font sizes, line spacing, margin dimensions**‍**
+*   **Visual specifications**: Define exact fonts and hex color codes**‍**
+*   **Verification**: "Verify that all elements fit within slide bounds with no overlapping"
 
 **Spreadsheets:**
 
-- **Structure and calculations**: List required columns and what formulas to calculate**‍**
-- **Usability features**: Request specific Excel features like frozen rows, data validation, cell locking**‍**
-- **Formatting**: Define conditional formatting rules **‍**
-- **Verification**: "Double-check all formulas calculate correctly"
+*   **Structure and calculations**: List required columns and what formulas to calculate**‍**
+*   **Usability features**: Request specific Excel features like frozen rows, data validation, cell locking**‍**
+*   **Formatting**: Define conditional formatting rules **‍**
+*   **Verification**: "Double-check all formulas calculate correctly"
 
 **Documents:**
 
-- **Document purpose**: "Board memo”, “Technical specification doc”**‍**
-- **Style choices**: “Use serif fonts”, "Company logo in header”**‍**
-- **Tables and figures**: "Use tables for all comparative data, not paragraphs”**‍**
-- **Verification**: “Ensure formatting stays consistent throughout the document"
+*   **Document purpose**: "Board memo”, “Technical specification doc”**‍**
+*   **Style choices**: “Use serif fonts”, "Company logo in header”**‍**
+*   **Tables and figures**: "Use tables for all comparative data, not paragraphs”**‍**
+*   **Verification**: “Ensure formatting stays consistent throughout the document"
 
 When working with multiple files, describe their relationship and what role each plays. For instance, you might upload brand guidelines to provide exact colors and fonts, a previous quarter's presentation to match the layout structure, and new data to source all metrics.
 
@@ -68,9 +68,9 @@ An effective way to communicate your specific requirements is to upload existing
 
 **What to upload:**
 
-- **Presentations**: Company templates, previous decks, or reference designs**‍**
-- **Spreadsheets**: Files demonstrating your preferred data structure, table layouts, or formula patterns**‍**
-- **Documents**: Style guides, previous reports, or formatting examples
+*   **Presentations**: Company templates, previous decks, or reference designs**‍**
+*   **Spreadsheets**: Files demonstrating your preferred data structure, table layouts, or formula patterns**‍**
+*   **Documents**: Style guides, previous reports, or formatting examples
 
 ### Open the file and refine
 
@@ -78,6 +78,6 @@ Chat previews don't always show the full picture. Download the file and open it 
 
 ## Additional resources
 
-- Explore more about creating and editing files with Claude here.
+*   Explore more about creating and editing files with Claude here.
 
 ‍

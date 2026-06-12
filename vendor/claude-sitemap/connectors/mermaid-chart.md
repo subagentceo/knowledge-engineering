@@ -2,8 +2,8 @@
 
 This MCP App validates Mermaid syntax, renders diagrams as high-quality SVG, and displays them instantly in an interactive UI where users can preview, zoom, and iterate in real time. It generates shareable playground URLs for collaboration and provides precise error diagnostics with actionable fixes for invalid code. The tool supports syntax checking, readability optimization, and preparing diagrams for embedding or documentation. It’s ideal for workflows that require reliable diagram validation, live rendering, and seamless sharing across teams.
 
-You can use the Mermaid Chart connector to:
-
+You can use the Mermaid Chart connector to:  
+  
 Instant Architecture Diagram:  
 “Create a Mermaid diagram showing a modern web app architecture"
 

@@ -5,6 +5,7 @@ How billing works depends on whether your organization is on a self-serve or sal
 **Important:** The main sections of this article describe the current Enterprise seat billing model, which applies to all new Enterprise plans (excluding HIPAA-ready plans).
 
 - If your organization was provisioned before the transition to the single Enterprise seat and you see **Chat** and **Chat + Claude Code** seat types in **[Organization settings > Organization](https://claude.ai/admin-settings/organization)**, skip to the **[Chat and Chat + Claude Code seats section](#h_f6aa4f4dd2)**.
+
   - **[HIPAA-ready Enterprise organizations](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)** are an exception: they are provisioned with separate Chat and Chat + Claude Code seat types and are not eligible for the single Enterprise seat billing model.
 
 - If your organization is on a seat-based plan with **Standard** and **Premium** seats, skip to the **[seat-based plans section](#h_3b87de90bd)**.
@@ -37,7 +38,7 @@ How and when you're billed for usage depends on your plan type:
 
 Usage is purchased **upfront in credits**. Your credits draw down as your team uses Claude and Claude Code. When your credits run out, usage stops until an Owner or Primary Owner purchases more. Self-serve Enterprise plans are billed in USD only. If your organization needs to pay in another currency, **[contact our Sales team](https://claude.com/contact-sales)** to set up a sales-assisted plan.
 
-- After setup, Owners and Primary Owners can purchase additional credits at any time from **[Organization](https://claude.ai/admin-settings/organization)\*\***[settings > Usage](https://claude.ai/admin-settings/usage)\*\*.
+- After setup, Owners and Primary Owners can purchase additional credits at any time from **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
 
 - All credits are shared across your organization — any team member can draw from the same pool.
 
@@ -69,7 +70,7 @@ There's no balance to deplete. Everyone's usage is metered and added to the same
 
 Owners and Primary Owners can set spending caps to manage your organization's consumption. This applies to both self-serve and sales-assisted plans.
 
-To configure spend controls, sign in as an Owner or Primary Owner and navigate to **[Organization](https://claude.ai/admin-settings/organization)\*\***[settings > Usage](https://claude.ai/admin-settings/usage)\*\*.
+To configure spend controls, sign in as an Owner or Primary Owner and navigate to **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
 
 You can set caps at two levels:
 
@@ -103,7 +104,7 @@ You can track your organization's usage and spending in a few places:
 
 If usage stops on your Enterprise plan, here's how to resume:
 
-- **Self-serve plans:** If credits run out or a spend cap is reached, an Owner or Primary Owner can purchase additional credits or raise the spend cap from **[Organization](https://claude.ai/admin-settings/organization)\*\***[settings > Usage](https://claude.ai/admin-settings/usage)\*\*.
+- **Self-serve plans:** If credits run out or a spend cap is reached, an Owner or Primary Owner can purchase additional credits or raise the spend cap from **[Organization](https://claude.ai/admin-settings/organization)****[settings > Usage](https://claude.ai/admin-settings/usage)**.
 
 - **Sales-assisted plans:** If a spend cap is reached, an Owner or Primary Owner can raise the cap, or usage will resume at the start of the next billing period. Contact your account manager with questions.
 

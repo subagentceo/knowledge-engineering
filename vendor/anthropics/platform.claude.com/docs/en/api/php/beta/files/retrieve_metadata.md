@@ -19,6 +19,7 @@ Get File Metadata
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.

@@ -31,6 +31,7 @@ List Skill Versions
 ### Returns
 
 - `VersionListResponse`
+
   - `string id`
 
     Unique identifier for the skill version.

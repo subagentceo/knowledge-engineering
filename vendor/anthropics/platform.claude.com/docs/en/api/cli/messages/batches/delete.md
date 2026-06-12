@@ -19,6 +19,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `deleted_message_batch: object { id, type }`
+
   - `id: string`
 
     ID of the Message Batch.

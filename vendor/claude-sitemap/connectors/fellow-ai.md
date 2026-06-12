@@ -1,9 +1,9 @@
 # Fellow.ai
 
-Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your team? Want to reference that brilliant idea from yesterday's brainstorm? Simply ask Claude and skip the endless scrolling through notes. Get the clarity you need, exactly when you need it, with Fellow's secure, centralized meeting intelligence.
-
-You can use the Fellow.ai connector to: 
-
+Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your team? Want to reference that brilliant idea from yesterday's brainstorm? Simply ask Claude and skip the endless scrolling through notes. Get the clarity you need, exactly when you need it, with Fellow's secure, centralized meeting intelligence.  
+  
+You can use the Fellow.ai connector to:   
+  
 Search Past Meeting Discussions:**  
 ‍**"In yesterday's client call with Acme Corp, what concerns did they raise about our implementation timeline?"
 

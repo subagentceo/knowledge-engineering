@@ -4,11 +4,11 @@
 
 ## With Claude, Nevis Wealth:
 
-- Saves advisors 5+ hours per week on routine tasks, allowing them to potentially double their client capacity
-- Generates AI-powered meeting notes, follow-up tasks, and context-aware client emails automatically
-- Powers intelligent document search and analysis across client data and communications
-- Implemented production systems in days, with minimal engineering friction
-- Enables wealth management firms to scale operations while their teams focus on higher-value client service
+*   Saves advisors 5+ hours per week on routine tasks, allowing them to potentially double their client capacity
+*   Generates AI-powered meeting notes, follow-up tasks, and context-aware client emails automatically
+*   Powers intelligent document search and analysis across client data and communications
+*   Implemented production systems in days, with minimal engineering friction
+*   Enables wealth management firms to scale operations while their teams focus on higher-value client service
 
 ## The problem
 

@@ -26,7 +26,7 @@ NextNext
 
 ### Safety built in
 
-Anthropic's frontier models focused on safety, paired with your AWS account, billing, and procurement controls.
+Anthropic's frontier models focused on safety, paired with your AWS account, billing, and procurement controls.  
 
 ### Capabilities for your best work
 
@@ -52,7 +52,7 @@ Get API docsGet API docs
 
 ### Native Claude Experience
 
-Native Claude experience and full suite of Claude models and capabilities on AWS.
+Native Claude experience and full suite of Claude models and capabilities on AWS.  
 
 ### Native AWS integration
 

@@ -4,11 +4,11 @@ The Tahoe Lead Removal Project used Claude to analyze decades of technical docum
 
 Key results with Claude:
 
-- Built comprehensive research foundation from centuries of technical documentation in weeks
-- Analyzed complex environmental reports and legal filings to extract key takeaways without sorting through dozens of pages of legalese
-- Generated environmental reports used in the permitting process across seven regulatory agencies
-- Gathered 832 petition signatures through informed community engagement
-- Demonstrated feasible removal path, leading to AT&T completing the project in November 2024
+*   Built comprehensive research foundation from centuries of technical documentation in weeks
+*   Analyzed complex environmental reports and legal filings to extract key takeaways without sorting through dozens of pages of legalese
+*   Generated environmental reports used in the permitting process across seven regulatory agencies
+*   Gathered 832 petition signatures through informed community engagement
+*   Demonstrated feasible removal path, leading to AT&T completing the project in November 2024
 
 ## Breaking through decades of dense technical documentation
 
@@ -32,10 +32,10 @@ This historical perspective was crucial for the project's collaborative approach
 
 Claude transformed the Tahoe Lead Removal Project's approach to technical analysis and community mobilization, enabling rapid progress across multiple fronts:
 
-- **Historical research:** Claude processed Bell Systems technical papers from the 1920s, extracting information about cable design, choice of materials, and original environmental considerations
-- **Legal document analysis:** Claude helped review complex and convoluted legal filings from both sides, allowing the team to understand arguments and differences in opinion without having to draw their own conclusions or be overly influenced by partisan writing
-- **Regulatory preparation:** The AI helped synthesize requirements from seven different agencies into comprehensive permit applications, demonstrating removal feasibility
-- **Community education:** Claude helped translate complex technical information into accessible materials for public engagement and petition drives
+*   **Historical research:** Claude processed Bell Systems technical papers from the 1920s, extracting information about cable design, choice of materials, and original environmental considerations
+*   **Legal document analysis:** Claude helped review complex and convoluted legal filings from both sides, allowing the team to understand arguments and differences in opinion without having to draw their own conclusions or be overly influenced by partisan writing
+*   **Regulatory preparation:** The AI helped synthesize requirements from seven different agencies into comprehensive permit applications, demonstrating removal feasibility
+*   **Community education:** Claude helped translate complex technical information into accessible materials for public engagement and petition drives
 
 "Claude helped us decode bureaucracy across 7 agencies, lawsuits, and environmental reports," said Dreyer. "This was so complex and convoluted across so many disparate sources - but we had one constant tool that allowed us to analyze everything, and move fast in doing so."
 

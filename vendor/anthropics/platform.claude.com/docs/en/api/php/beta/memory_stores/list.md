@@ -35,6 +35,7 @@ List memory stores
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.

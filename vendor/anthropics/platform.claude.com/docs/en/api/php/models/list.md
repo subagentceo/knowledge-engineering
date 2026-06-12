@@ -31,6 +31,7 @@ The Models API response can be used to determine which models are available for 
 ### Returns
 
 - `ModelInfo`
+
   - `string id`
 
     Unique model identifier.

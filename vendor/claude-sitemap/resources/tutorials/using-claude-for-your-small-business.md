@@ -7,27 +7,28 @@ With the Claude for Small Business plugin installed and set up in Claude Cowork,
 Below are four examples: what each prompt runs, what Claude does at each step, and what you have when it's done.  
 ‍
 
-> ‍***Tip***: To set up the plugin that enables the workflows below and see the full inventory of skills, visit How to install and use the Claude for Small Business plugin  
+> ‍**_Tip_**: To set up the plugin that enables the workflows below and see the full inventory of skills, visit How to install and use the Claude for Small Business plugin  
 > ‍  
 > **To learn more:** see Customize Claude Cowork and Customizing plugins in Claude Cowork
 
 In this guide
 
 1.  Get a pulse on your business
-
+    
     One Monday-morning page that covers what you'd otherwise check across four browser tabs.
-
+    
 2.  Run your next campaign
-
+    
     Find the slow stretch in your sales and stage the whole campaign across the tools you already use.
-
+    
 3.  Close the month with fewer errors
-
+    
     Reconcile your books against your settlements and hand your accountant a packet that's already done.
-
+    
 4.  Plan payroll with confidence
-
+    
     See whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.
+    
 
 ## Get a pulse on your business
 
@@ -35,7 +36,7 @@ Help me build a Monday morning brief every week in Slack. Pull my cash position 
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -69,7 +70,7 @@ Find my weakest revenue month from last year and plan a promo to address it. Dra
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -115,7 +116,7 @@ Close out March for me. Reconcile my QuickBooks transactions against PayPal sett
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -155,7 +156,7 @@ Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my 
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -191,19 +192,19 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 ## Things to note
 
-- **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
-- **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
-- **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, tell `/monday-brief` what to lead with, and the change is saved for the next run. The pattern is in How to customize plugins in Cowork.
-- **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.**‍**
-- **Anthropic doesn't train Claude on your business data** — the full policy is in the Trust Center.
+*   **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
+*   **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
+*   **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, tell `/monday-brief` what to lead with, and the change is saved for the next run. The pattern is in How to customize plugins in Cowork.
+*   **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.**‍**
+*   **Anthropic doesn't train Claude on your business data** — the full policy is in the Trust Center.
 
 ## Learn more
 
-- Introducing Claude for Small Business — the launch announcement
-- How to install and use the Claude for Small Business plugin — install the plugin, browse what's in it, and run your first task
-- How to customize plugins in Cowork — make the skills run from your context
-- What are skills — how skills work in Claude
-- AI Fluency for Small Business — a free course on running a small business with AI
+*   Introducing Claude for Small Business — the launch announcement
+*   How to install and use the Claude for Small Business plugin — install the plugin, browse what's in it, and run your first task
+*   How to customize plugins in Cowork — make the skills run from your context
+*   What are skills — how skills work in Claude
+*   AI Fluency for Small Business — a free course on running a small business with AI
 
 ‍
 
@@ -215,20 +216,21 @@ To learn more, see Customize Claude Cowork and Customizing plugins in Claude Cow
 In this guide
 
 1.  Get a pulse on your business
-
+    
     One Monday-morning page that covers what you'd otherwise check across four browser tabs.
-
+    
 2.  Run your next campaign
-
+    
     Find the slow stretch in your sales and stage the whole campaign across the tools you already use.
-
+    
 3.  Close the month with fewer errors
-
+    
     Reconcile your books against your settlements and hand your accountant a packet that's already done.
-
+    
 4.  Plan payroll with confidence
-
+    
     See whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.
+    
 
 ## Get a pulse on your business
 
@@ -236,7 +238,7 @@ Help me build a Monday morning brief every week in Slack. Pull my cash position 
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -270,7 +272,7 @@ Find my weakest revenue month from last year and plan a promo to address it. Dra
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -316,7 +318,7 @@ Close out March for me. Reconcile my QuickBooks transactions against PayPal sett
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -356,7 +358,7 @@ Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my 
 
 Business
 
--
++
 
 Open in Cowork
 
@@ -392,16 +394,16 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 
 ## Things to note
 
-- **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
-- **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
-- **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, tell `/monday-brief` what to lead with, and the change is saved for the next run. The pattern is in How to customize plugins in Cowork.
-- **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.**‍**
-- **Anthropic doesn't train Claude on your business data** — the full policy is in the Trust Center.
+*   **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
+*   **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
+*   **The skills update when you correct them** — tell `/invoice-chase` you chase at 15 days, tell `/monday-brief` what to lead with, and the change is saved for the next run. The pattern is in How to customize plugins in Cowork.
+*   **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.**‍**
+*   **Anthropic doesn't train Claude on your business data** — the full policy is in the Trust Center.
 
 ## Learn more
 
-- Introducing Claude for Small Business — the launch announcement
-- How to install and use the Claude for Small Business plugin — install the plugin, browse what's in it, and run your first task
-- How to customize plugins in Cowork — make the skills run from your context
-- What are skills — how skills work in Claude
-- AI Fluency for Small Business — a free course on running a small business with AI
+*   Introducing Claude for Small Business — the launch announcement
+*   How to install and use the Claude for Small Business plugin — install the plugin, browse what's in it, and run your first task
+*   How to customize plugins in Cowork — make the skills run from your context
+*   What are skills — how skills work in Claude
+*   AI Fluency for Small Business — a free course on running a small business with AI

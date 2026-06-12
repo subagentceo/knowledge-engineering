@@ -45,15 +45,15 @@ You can work with Claude to build a threat model in two steps:
 
 A few practices can make a big difference:
 
-- **Consider your dependencies’ security policies.** Many open-source projects publish one. For example, vLLM’s `security.md`, SQLite's "Defense Against the Dark Arts", and ImageMagick's security policy. Your threat model should consider them directly instead of rebuilding a policy from scratch.
-- **Name what  is trusted.** If you trust config files or authenticated clients, document it in the threat model. These assumptions help separate non-exploitable bugs from actual exploits.
-- **Include a `THREAT_MODEL.md` with the code.** Have it in the repo and update it as code changes. The discovery agent can then read it before searching, skipping known non-issues.
+*   **Consider your dependencies’ security policies.** Many open-source projects publish one. For example, vLLM’s `security.md`, SQLite's "Defense Against the Dark Arts", and ImageMagick's security policy. Your threat model should consider them directly instead of rebuilding a policy from scratch.
+*   **Name what  is trusted.** If you trust config files or authenticated clients, document it in the threat model. These assumptions help separate non-exploitable bugs from actual exploits.
+*   **Include a `THREAT_MODEL.md` with the code.** Have it in the repo and update it as code changes. The discovery agent can then read it before searching, skipping known non-issues.
 
 You’ll use the threat model in two places. In discovery, as scope**:** partition the code, prioritize targets, and skip what is out of scope. This helps with large codebases you cannot scan entirely. In triage, as a filter: after scanning broadly, use the threat model to better calibrate severity to your system and environment.
 
 > _One team scanning a large project had a 40% false positive rate and dug into why. The findings were reproducible and the PoCs proved exploitability. But the dev team who owned the code dismissed them as false positives because the bugs didn't fit the project's threat model. Another team's CISO put it succinctly: "[The model has] good context of the code, but not good context of us."_
 
-**Try the** **threat-model skill\*\***.\*\* It walks through both steps described in this section—`bootstrap` derives a draft from your code, CVEs, and git history, and interview walks a system owner through Shostack’s four questions to refine it. The output is a `THREAT_MODEL.md` file which is used in the Discovery and Triage steps.
+**Try the** **threat-model skill****.** It walks through both steps described in this section—`bootstrap` derives a draft from your code, CVEs, and git history, and interview walks a system owner through Shostack’s four questions to refine it. The output is a `THREAT_MODEL.md` file which is used in the Discovery and Triage steps.
 
 ## 2. Sandbox: Run agents safely and verify exploitability
 
@@ -85,9 +85,9 @@ Give the discovery agent access to context it can load as needed, such as the th
 
 We’ve found frontier models to benefit from increasingly simple prompts during the discovery phase. Counterintuitively, more prescriptive prompts make discovery worse—long checklists tend to reduce the model’s creativity and generate fewer novel bugs. Here are some prompting tips that helped in the discovery phase:
 
-- **Provide the goal and context.** Indicate the “why” and “what”—why you’re scanning, what a finding that matters looks like, what system is being scanned—and leave “how to scan for vulnerabilities" to the model. Frontier models are increasingly good at security tasks and being overly prescriptive can narrow what they try.
-- **Try asking for a specific vulnerability class.** If you’d like to focus on a specific type of vulnerability guided by prior CVEs or the codebase’s language, say that. Describe the vulnerability class, what it does and where it tends to live, so the model can recognize it in your codebase.
-- **Define the output.** Ask for a structured report with predefined fields, and order them so the model’s reasoning builds on each field. Example fields include rationale, finding, impact, severity, etc. Include an escape hatch so the model can exit early for weak findings.
+*   **Provide the goal and context.** Indicate the “why” and “what”—why you’re scanning, what a finding that matters looks like, what system is being scanned—and leave “how to scan for vulnerabilities" to the model. Frontier models are increasingly good at security tasks and being overly prescriptive can narrow what they try.
+*   **Try asking for a specific vulnerability class.** If you’d like to focus on a specific type of vulnerability guided by prior CVEs or the codebase’s language, say that. Describe the vulnerability class, what it does and where it tends to live, so the model can recognize it in your codebase.
+*   **Define the output.** Ask for a structured report with predefined fields, and order them so the model’s reasoning builds on each field. Example fields include rationale, finding, impact, severity, etc. Include an escape hatch so the model can exit early for weak findings.
 
 Give the model tools to search through and read the codebase, such as grep, glob, etc. Also let the model use security-specific tools your team might use such as SAST scanners or fuzzers. Ask the model what tools are needed for a specific task and make them available. Finally, let the model build tools as needed: recent frontier models are increasingly good at writing the tools they need.
 
@@ -127,19 +127,19 @@ Proper triage helps prevent alert fatigue. If you submit too many bugs that are 
 
 To deduplicate findings, consider the root cause. Scanners often flag one bug at multiple call sites or report multiple symptoms of a single root cause. Here’s one practical approach: First, use a cheap deterministic pass: same file, same category, vulnerability line numbers within ten lines of each other. Then, have a model apply qualitative rules to what remains:
 
-- **Treat as duplicate**: the same root cause worded differently; the same vulnerability reported at multiple call sites; a missing global protection (like an auth check) reported per endpoint; or a cause and its consequence flagged in the same path.
-- **Treat as distinct**: different vulnerability classes in the same file; different variables reaching different sinks; two independent bugs inside one helper; the same missing check on two endpoints, but each requires its own fix.
+*   **Treat as duplicate**: the same root cause worded differently; the same vulnerability reported at multiple call sites; a missing global protection (like an auth check) reported per endpoint; or a cause and its consequence flagged in the same path.
+*   **Treat as distinct**: different vulnerability classes in the same file; different variables reaching different sinks; two independent bugs inside one helper; the same missing check on two endpoints, but each requires its own fix.
 
-If your harness generates PoCs and patches for each finding, another approach to deduplicate findings is to check if the patch for one finding also disarms the PoCs of others.
+If your harness generates PoCs and patches for each finding, another approach to deduplicate findings is to check if the patch for one finding also disarms the PoCs of others.  
 
 After deduplication, rate the severity of each finding based on:
 
-- **Reachability.** Can an attacker reach this code from a real entry point, or is it only reachable from internal code and endpoints?
-- **Attacker control.** Does untrusted input reach the sink intact, or does something upstream sanitize or constrain it?
-- **Preconditions.** What has to be in place for the bug to trigger: a non-default setting, a specific feature flag, a narrow time window the attacker has to hit?
-- **Authentication.** Can an unauthenticated attacker trigger it, or does it require a logged-in user or an admin?
-- **Read vs. write.** Can the attacker only read data, or also modify it? 
-- **Blast radius.** If the PoC fires, who is affected? One user or all users, one tenant or the platform, userland or the kernel?
+*   **Reachability.** Can an attacker reach this code from a real entry point, or is it only reachable from internal code and endpoints?
+*   **Attacker control.** Does untrusted input reach the sink intact, or does something upstream sanitize or constrain it?
+*   **Preconditions.** What has to be in place for the bug to trigger: a non-default setting, a specific feature flag, a narrow time window the attacker has to hit?
+*   **Authentication.** Can an unauthenticated attacker trigger it, or does it require a logged-in user or an admin?
+*   **Read vs. write.** Can the attacker only read data, or also modify it? 
+*   **Blast radius.** If the PoC fires, who is affected? One user or all users, one tenant or the platform, userland or the kernel?
 
 To turn the rubric into a score, have the model write out its answer to each question before assigning a severity. Going through the evidence first keeps the model from anchoring on the bug class (“SQL injection, so critical”) and then inflating the severity to match. As a starting point: zero preconditions with unauthenticated remote access is critical or high severity. One or two preconditions, or an authenticated path, is medium. Three or more, or local-only, is low. Adjust the thresholds to your system.
 
@@ -149,7 +149,7 @@ The solution is to provide a threat model during triage that tells the model whi
 
 > _One team found the model is often overconfident unless grounded in something to verify, or has more context on whether something is expected as part of the threat model. Their fix was to give the triage agent the same threat model the discovery agent gets._
 
-**Try the** **`triage` skill\*\***.\*\* It does both verification and triage: multi-vote verification per finding, deduplication across runs, and re-ranking by derived exploitability. The output is a short, ranked, owned list instead of a raw dump.
+**Try the** **`triage` skill****.** It does both verification and triage: multi-vote verification per finding, deduplication across runs, and re-ranking by derived exploitability. The output is a short, ranked, owned list instead of a raw dump.
 
 ## 6. Patching: Close the loop and improve context for the next cycle
 
@@ -174,7 +174,7 @@ You can validate each patch against a ladder of checks, starting with the cheape
 
 Finally, while the model can write the patch, a human still needs to own it. Generated patches can fail in predictable ways—fixing the symptom instead of the root cause, blocking legitimate input, or removing access to a dependent service. The goal is to validate each patch as much as possible so human review requires less effort. The goal is to help the dev team focus on nuances the model might be unaware of (e.g., incoming changes, code style) with minimal review and updates needed to patches.
 
-**Try the** **`patch` skill\*\***.\*\* It consumes the triage output and generates a candidate diff per finding, with an independent reviewer agent checking each one.
+**Try the** **`patch` skill****.** It consumes the triage output and generates a candidate diff per finding, with an independent reviewer agent checking each one.
 
 ## Getting started
 
@@ -186,11 +186,11 @@ Your first scan will surface more findings than you’d expect. Most will requir
 
 Some resources you might find helpful:
 
-- Claude Security: Anthropic’s managed product for agentic vulnerability detection and patching.
-- `defending-code-reference-harness`: Companion repo with skills for interactive workflows and a demo harness for autonomous runs.
-- `claude-code-security-review action`: Github action with Claude as a security reviewer on every pull request.
-- Threat Intelligence Enrichment Agent: Cookbook to build an agent that enriches indicators of compromise against threat intel feeds.
-- Vulnerability Detection Agent: Cookbook to build an agent that builds a threat-model, scans for vulnerabilities, and triages findings into a structured report.
+*   Claude Security: Anthropic’s managed product for agentic vulnerability detection and patching.
+*   `defending-code-reference-harness`: Companion repo with skills for interactive workflows and a demo harness for autonomous runs.
+*   `claude-code-security-review action`: Github action with Claude as a security reviewer on every pull request.
+*   Threat Intelligence Enrichment Agent: Cookbook to build an agent that enriches indicators of compromise against threat intel feeds.
+*   Vulnerability Detection Agent: Cookbook to build an agent that builds a threat-model, scans for vulnerabilities, and triages findings into a structured report.
 
 ## Moving forward
 

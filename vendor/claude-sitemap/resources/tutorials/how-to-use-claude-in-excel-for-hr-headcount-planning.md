@@ -88,13 +88,13 @@ When Claude builds a new calculated column, it writes actual Excel formulas that
 
 ## Get started
 
-- Install Claude in Excel from the Microsoft AppSource
-- Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
-- Start with "Walk me through this workbook" on any spreadsheet you've inherited
+*   Install Claude in Excel from the Microsoft AppSource
+*   Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
+*   Start with "Walk me through this workbook" on any spreadsheet you've inherited
 
 Claude in Excel is available in beta on Max, Team, and Enterprise plans.
 
 **Learn more:**
 
-- Claude in Excel help article
-- What is the Max plan?
+*   Claude in Excel help article
+*   What is the Max plan?

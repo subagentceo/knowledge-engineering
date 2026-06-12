@@ -28,7 +28,8 @@ The advisor strategy also works with Haiku as the executor. On BrowseComp, Haiku
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d7a8216b96ea826922fcfd_ca657f5f.png)
 
-Declare advisor_20260301 in your Messages API request, and the model handoff happens inside a single /v1/messages request—no extra round-trips or context management. The executor model decides when to invoke it. When it does, we route the curated context to the advisor model, return the plan, and the executor continues all within the same request.
+  
+Declare advisor_20260301 in your Messages API request, and the model handoff happens inside a single /v1/messages request—no extra round-trips or context management. The executor model decides when to invoke it. When it does, we route the curated context to the advisor model, return the plan, and the executor continues all within the same request.  
 
 ```python
 response = client.messages.create(
@@ -49,8 +50,8 @@ response = client.messages.create(
 # in the usage block.
 ```
 
-**Pricing**. Advisor tokens are billed at the advisor model's rates; executor tokens are billed at the executor model's rates. Since the advisor only generates a short plan (typically 400-700 text tokens) while the executor handles the full output at its lower rate, the overall cost stays well below running the advisor model end-to-end.\*\*
-
-Built-in cost controls.\*\* Set max_uses to cap advisor calls per request. Advisor tokens are reported separately in the usage block so you can track spend per tier.
+**Pricing**. Advisor tokens are billed at the advisor model's rates; executor tokens are billed at the executor model's rates. Since the advisor only generates a short plan (typically 400-700 text tokens) while the executor handles the full output at its lower rate, the overall cost stays well below running the advisor model end-to-end.**  
+  
+Built-in cost controls.** Set max_uses to cap advisor calls per request. Advisor tokens are reported separately in the usage block so you can track spend per tier.
 
 **Works alongside your existing tools.** The advisor tool is just another entry in your Messages API request. Your agent can search the web, execute code, and consult Opus in the same loop.

@@ -16,9 +16,9 @@ Each subagent starts fresh, unburdened by the history of the conversation or inv
 
 Claude Code includes several built-in subagent types, including:
 
-- **General-purpose agents** for complex multi-step tasks
-- **Plan agents** that research codebases before presenting implementation strategies
-- **Explore agents** optimized for fast, read-only code search 
+*   **General-purpose agents** for complex multi-step tasks
+*   **Plan agents** that research codebases before presenting implementation strategies
+*   **Explore agents** optimized for fast, read-only code search 
 
 Claude Code often spawns subagents on its own to handle assigned tasks. It's also possible to direct that behavior explicitly and to define reusable specialists that Claude delegates to automatically. Knowing when to reach for subagents is what makes the feature useful. 
 
@@ -80,10 +80,10 @@ The most flexible approach is simply asking Claude to use subagents in conversat
 
 Natural language patterns that reliably invoke subagents include:
 
-- "Use a subagent to explore how authentication works in this codebase"
-- "Have a separate agent review this code for security issues"
-- "Research this in parallel. Check the API routes, database models, and frontend components simultaneously"
-- "Spin up subagents to fix these TypeScript errors across the different packages"
+*   "Use a subagent to explore how authentication works in this codebase"
+*   "Have a separate agent review this code for security issues"
+*   "Research this in parallel. Check the API routes, database models, and frontend components simultaneously"
+*   "Spin up subagents to fix these TypeScript errors across the different packages"
 
 Being explicit matters. Specify the scope, request parallel execution when tasks are independent, and describe the desired output.
 
@@ -103,10 +103,10 @@ This prompt works because it clearly defines three independent tasks, explicitly
 
 Tips for effective conversational invocation include:
 
-- **Scope tasks clearly.** "Explore how payments work" beats "explore everything."
-- **Request parallelization explicitly.** Say "these can run in parallel" or "work on all three simultaneously."
-- **Specify what should be returned.** Summaries, specific findings, or recommendations. Naming the output format helps Claude deliver it.
-- **Ask for fresh context when unbiased analysis matters.** "Use a subagent that does not see our previous discussion" ensures clean evaluation.
+*   **Scope tasks clearly.** "Explore how payments work" beats "explore everything."
+*   **Request parallelization explicitly.** Say "these can run in parallel" or "work on all three simultaneously."
+*   **Specify what should be returned.** Summaries, specific findings, or recommendations. Naming the output format helps Claude deliver it.
+*   **Ask for fresh context when unbiased analysis matters.** "Use a subagent that does not see our previous discussion" ensures clean evaluation.
 
 **Pro-tip:** When a subagent is taking a while, Ctrl+B sends it to the background. The conversation can continue while it runs, and results surface automatically when it finishes. The /tasks command shows anything running in the background.
 
@@ -132,7 +132,6 @@ model: sonnet
 
 You are a security-focused code reviewer. Analyze the provided
 changes for:
-
 - SQL injection, XSS, and command injection risks
 - Authentication and authorization gaps
 - Sensitive data in logs, errors, or responses
@@ -147,9 +146,9 @@ With this in place, Claude routes matching work to the subagent automatically. I
 
 Custom subagents work best when:
 
-- A specialist should be available for Claude to delegate to automatically when a task matches
-- The work benefits from a tightly scoped system prompt and restricted tools
-- The configuration should be shared across a team or reused across projects
+*   A specialist should be available for Claude to delegate to automatically when a task matches
+*   The work benefits from a tightly scoped system prompt and restricted tools
+*   The configuration should be shared across a team or reused across projects
 
 **Pro-tip:** The description field is what Claude uses to decide when to delegate. Be specific about the trigger conditions, not just the capability. "Reviews code for security issues before commits" routes better than "security expert."
 
@@ -161,9 +160,9 @@ Custom subagents define who the specialists are. CLAUDE.md files define the rule
 
 CLAUDE.md is a good fit for subagent instructions when:
 
-- Code reviews should always use read-only subagents
-- The project has specific research patterns Claude should follow
-- Consistent behavior is needed across team members and sessions
+*   Code reviews should always use read-only subagents
+*   The project has specific research patterns Claude should follow
+*   Consistent behavior is needed across team members and sessions
 
 Here’s an example of a simple CLAUDE.md file that triggers a subagent given specific conditions:
 
@@ -172,7 +171,6 @@ Here’s an example of a simple CLAUDE.md file that triggers a subagent given sp
 
 When asked to review code, ALWAYS use a subagent with READ-ONLY access
 (Glob, Grep, Read only). The review should ALWAYS check for:
-
 - Security vulnerabilities
 - Performance issues
 - Adherence to project patterns in /docs/architecture.md
@@ -192,9 +190,9 @@ Skills differ from CLAUDE.md files in scope. CLAUDE.md files are always loaded a
 
 Skills fit well when:
 
-- Certain actions get run regularly
-- Different team members need access to the same complex operation
-- Standardizing how certain tasks are performed across the team matters
+*   Certain actions get run regularly
+*   Different team members need access to the same complex operation
+*   Standardizing how certain tasks are performed across the team matters
 
 Here’s an example of a deep-review skill for comprehensive code review:
 
@@ -202,12 +200,10 @@ Here’s an example of a deep-review skill for comprehensive code review:
 # .claude/skills/deep-review/SKILL.md
 
 ---
-
 name: deep-review
 description: Comprehensive code review that checks security,
-performance, and style in parallel. Use when reviewing staged
-changes before a commit or PR.
-
+  performance, and style in parallel. Use when reviewing staged
+  changes before a commit or PR.
 ---
 
 Run three parallel subagent reviews on the staged changes:
@@ -235,9 +231,9 @@ Hooks are user-defined shell commands, HTTP endpoints, or LLM prompts that execu
 
 Hooks are the right tool when:
 
-- Every commit should be reviewed automatically before it's created
-- Security checks should run without anyone remembering to ask
-- CI-like quality gates belong in the local development process
+*   Every commit should be reviewed automatically before it's created
+*   Security checks should run without anyone remembering to ask
+*   CI-like quality gates belong in the local development process
 
 Here is an example of a Stop hook that blocks Claude from ending its turn until a test is passed:
 
@@ -297,7 +293,6 @@ When adding a feature to unfamiliar code, delegating research to a subagent firs
 
 ```markdown
 Before I implement user notifications, use a subagent to research:
-
 - How are emails currently sent in this codebase?
 - What notification patterns already exist?
 - Where should new notification logic live based on the current architecture?
@@ -313,7 +308,6 @@ When the same pattern needs updating across multiple files, parallel subagents f
 
 ```markdown
 Use parallel subagents to update the error handling in these files:
-
 - src/api/users.ts
 - src/api/orders.ts
 - src/api/products.ts
@@ -359,11 +353,11 @@ While subagents are a useful feature, subagents carry overhead. Each one spins u
 
 For smaller or tightly sequential tasks, sticking to the main conversation is usually simpler, for example: 
 
-- **Sequential, dependent work.** When step two needs the full output of step one, and step three needs both, a single session handling the chain is usually cleaner than a relay of subagents passing state through files.
-- **Same-file edits.** Two subagents editing the same file in parallel is a recipe for conflict. In this scenario, keep tightly coupled changes in one context window.
-- **Small tasks.** For a quick fix or a focused question, the overhead of delegation outweighs the benefit. Just prompt or ask in your main conversation.  
-- **Too many specialist agents.** It's tempting to define a custom subagent for everything, but flooding Claude with options makes automatic delegation less reliable. Most teams settle on a handful of well-scoped agents rather than a sprawling roster.
-- **Work that needs agents to coordinate with each other.** Subagents report back to the main conversation but can't talk to one another. For tasks where subagents need to communicate, use agent teams. With agent teams, subagents coordinate across separate sessions rather than within one, which makes them heavier and more expensive. For more guidance on when to use subagents vs Agent Teams, check out our Claude Code agent teams docs.
+*   **Sequential, dependent work.** When step two needs the full output of step one, and step three needs both, a single session handling the chain is usually cleaner than a relay of subagents passing state through files.
+*   **Same-file edits.** Two subagents editing the same file in parallel is a recipe for conflict. In this scenario, keep tightly coupled changes in one context window.
+*   **Small tasks.** For a quick fix or a focused question, the overhead of delegation outweighs the benefit. Just prompt or ask in your main conversation.  
+*   **Too many specialist agents.** It's tempting to define a custom subagent for everything, but flooding Claude with options makes automatic delegation less reliable. Most teams settle on a handful of well-scoped agents rather than a sprawling roster.
+*   **Work that needs agents to coordinate with each other.** Subagents report back to the main conversation but can't talk to one another. For tasks where subagents need to communicate, use agent teams. With agent teams, subagents coordinate across separate sessions rather than within one, which makes them heavier and more expensive. For more guidance on when to use subagents vs Agent Teams, check out our Claude Code agent teams docs.
 
 The signals described earlier (i.e., needing a second opinion, a lack of dependencies between sub-tasks, and extensive research) make it clear when delegation to a subagent is worth it.
 

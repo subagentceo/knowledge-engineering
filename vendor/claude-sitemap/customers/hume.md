@@ -4,9 +4,10 @@ Hume AI uses Claude to power natural, empathetic voice conversations that help t
 
 ## Key impact metrics:
 
-- Over 2 million minutes of AI voice conversations completed
-- 36% of users choose Claude, higher than any external LLM integrated with Hume’s speech-language foundation model
-- 80% reduction in costs and 10% decrease in latency through prompt caching
+*   Over 2 million minutes of AI voice conversations completed
+*   36% of users choose Claude, higher than any external LLM integrated with Hume’s speech-language foundation model
+*   80% reduction in costs and 10% decrease in latency through prompt caching  
+    
 
 ## From emotion research to AI innovation
 
@@ -34,11 +35,11 @@ At the heart of Hume's technology is EVI, their flagship voice-to-voice AI platf
 
 ## Hume's Claude-powered EVI platform enables compelling use cases:
 
-- Practice sessions for difficult emotional interactions
-- Mental health support conversations
-- Customer service interactions
-- AI tutoring
-- Personal digital assistants
+*   Practice sessions for difficult emotional interactions
+*   Mental health support conversations
+*   Customer service interactions
+*   AI tutoring
+*   Personal digital assistants
 
 ![Hume product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05f5c5cb77349e8a943_55a24857d52d3173018a620631700baaea6ac995-1920x1080.png)
 
@@ -48,8 +49,8 @@ The integration of Claude with EVI has driven remarkable adoption and engagement
 
 > "Our users say that they love Claude 3.5 Sonnet, and find its personality fits really well with EVI. One customer is using EVI for immersive coaching simulations, helping managers practice delivering feedback to a defensive direct report. They've found Sonnet through EVI adapts to complex personality traits throughout a long conversation,” said Cowen.
 
-The technical benefits have been equally impressive. Prompt caching has helped Hume reduce costs by 80% and decrease latency by 10% or more. Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users’ overall experience over time.
-
+The technical benefits have been equally impressive. Prompt caching has helped Hume reduce costs by 80% and decrease latency by 10% or more. Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users’ overall experience over time.  
+  
 Hume encourages their customers to look beyond traditional metrics to measure impact through the lens of user wellbeing. They track not just customer satisfaction but also how interactions affect users' overall experience over time.
 
 ## Looking ahead to a voice-first future

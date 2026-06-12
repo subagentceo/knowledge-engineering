@@ -1,7 +1,7 @@
 # Kiwi.com
 
-Brings flight search directly into Claude. The Kiwi connector supports one-way/round-trip, flexible dates, multiple passengers, all cabin classes. Works with Claude and Claude Desktop.
-
+Brings flight search directly into Claude. The Kiwi connector supports one-way/round-trip, flexible dates, multiple passengers, all cabin classes. Works with Claude and Claude Desktop.  
+  
 You can use the Kiwi connector to:
 
 Find Last-Minute Weekend Getaways:**  

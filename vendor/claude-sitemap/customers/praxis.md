@@ -4,9 +4,9 @@ Praxis AI is transforming higher education by using Claude in Amazon Bedrock to 
 
 With Claude, Praxis has achieved:
 
-- 15x increase in usage of platform across higher education
-- 75% student engagement with digital twins, compared to 14% for generic AI tools
-- Full letter grade improvement in class averages after implementing professor digital twins
+*   15x increase in usage of platform across higher education
+*   75% student engagement with digital twins, compared to 14% for generic AI tools
+*   Full letter grade improvement in class averages after implementing professor digital twins
 
 ## Solving the capacity crisis in higher education
 

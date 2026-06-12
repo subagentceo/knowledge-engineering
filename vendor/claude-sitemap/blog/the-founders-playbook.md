@@ -6,12 +6,12 @@ We put together a practical playbook for building an AI-native startup. It remap
 
 In this playbook, we share:
 
-- How to validate a problem hypothesis, map a competitive landscape, and run customer discovery with AI
-- Architecture, scope, and security practices that keep AI-generated MVP codebases from accruing technical debt
-- A measurement framework for distinguishing genuine product-market fit from early hype
-- A Launch-stage operating system that replaces founder attention with agentic workflows
-- A product matrix for when and how to use Chat, Claude Cowork, and Claude Code across each stage of the startup journey
-- Founder stories from Ambral, Anything, Carta Healthcare, HumanLayer, Vulcan Technologies, and more
+*   How to validate a problem hypothesis, map a competitive landscape, and run customer discovery with AI
+*   Architecture, scope, and security practices that keep AI-generated MVP codebases from accruing technical debt
+*   A measurement framework for distinguishing genuine product-market fit from early hype
+*   A Launch-stage operating system that replaces founder attention with agentic workflows
+*   A product matrix for when and how to use Chat, Claude Cowork, and Claude Code across each stage of the startup journey
+*   Founder stories from Ambral, Anything, Carta Healthcare, HumanLayer, Vulcan Technologies, and more
 
 These best practices were written for founders deciding how to architect their company around AI from day one and for the early operators helping them get there.
 

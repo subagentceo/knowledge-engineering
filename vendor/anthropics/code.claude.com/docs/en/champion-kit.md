@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -44,10 +43,10 @@ The most useful posts describe a technique a colleague can reuse tomorrow rather
 
 Examples of reusable techniques:
 
-- "I learned that @-mentioning a directory works. Pointing it at `@src/components/` and asking which were missing tests surfaced two I had overlooked."
-- "Plan mode (`Shift+Tab`) shows exactly which files will be touched before any edit is made, which is why I am comfortable using it on shared code."
-- "I configured a Stop hook so I receive a desktop notification when a long task completes. Configuration is in the thread."
-- "Running `/init` generates a `CLAUDE.md` from the repository so the assistant stops re-asking about our conventions."
+* "I learned that @-mentioning a directory works. Pointing it at `@src/components/` and asking which were missing tests surfaced two I had overlooked."
+* "Plan mode (`Shift+Tab`) shows exactly which files will be touched before any edit is made, which is why I am comfortable using it on shared code."
+* "I configured a Stop hook so I receive a desktop notification when a long task completes. Configuration is in the thread."
+* "Running `/init` generates a `CLAUDE.md` from the repository so the assistant stops re-asking about our conventions."
 
 ### Where to share it
 
@@ -140,28 +139,24 @@ If a loose plan is helpful, the sequence below reflects what tends to work acros
     Create the channel, pin the [Quickstart](/en/quickstart), and post two or three of your own examples with the prompts included.
 
     **Signal that it is working:** a few colleagues react or reply, and at least one question is asked in the channel.
-
   </Step>
 
   <Step title="Week 2: Start the rhythm">
     Start the weekly show-and-tell thread, answer every question publicly, and share one custom skill or `CLAUDE.md` snippet.
 
     **Signal that it is working:** someone other than you posts an example of their own.
-
   </Step>
 
   <Step title="Week 3: Pair and consolidate">
     Offer two or three short pairing sessions and consolidate the most common questions and answers into a pinned FAQ message.
 
     **Signal that it is working:** you see repeat usage, with the same colleagues returning rather than trying once and stopping.
-
   </Step>
 
   <Step title="Week 4: Hand off">
     Identify a second champion and share a brief summary of what is working and what is not with your lead or administrator.
 
     **Signal that it is working:** questions in the channel are being answered by people other than you.
-
   </Step>
 </Steps>
 

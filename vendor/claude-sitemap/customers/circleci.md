@@ -4,11 +4,11 @@ CircleCI, whose CI/CD platform processes billions of jobs annually for teams at 
 
 ## With Claude, CircleCI achieved:
 
-- 75% reduction in average test run time when customers use CircleCI's Smarter Testing feature
-- 90% of the engineering team on Claude Code, with daily usage jumping 9x since structured adoption began
-- 90%+ prompt cache efficiency in production, meaning context is reused rather than reprocessed across workflows.
-- Multi-quarter internal projects completed in weeks, including an AI-powered PR review system. 
-- More than 4 in 5 agent tasks now triggered automatically at the point of failure, with the rate of tasks converted into completed pull requests more than doubling since launch
+*   75% reduction in average test run time when customers use CircleCI's Smarter Testing feature
+*   90% of the engineering team on Claude Code, with daily usage jumping 9x since structured adoption began
+*   90%+ prompt cache efficiency in production, meaning context is reused rather than reprocessed across workflows.
+*   Multi-quarter internal projects completed in weeks, including an AI-powered PR review system. 
+*   More than 4 in 5 agent tasks now triggered automatically at the point of failure, with the rate of tasks converted into completed pull requests more than doubling since launch
 
 ## The challenge: Maintenance backlogs that slow teams
 

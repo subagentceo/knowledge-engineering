@@ -20,10 +20,10 @@ When you need to ask a question mid-task, you can open a side chat (⌘ + ; or C
 
 The redesign brings more commonly-used tools into the app, so you can review, tweak, and ship Claude's work without bouncing to your editor:
 
-- **Integrated terminal**: Run tests or builds alongside your session.
-- **In-app file editor**: Open files, make spot edits directly, and save changes.
-- **Faster diff viewer**: Rebuilt for performance on large changesets.
-- **Expanded preview**: Open HTML files or PDFs in-app, in addition to running local app servers in the preview pane.
+*   **Integrated terminal**: Run tests or builds alongside your session.
+*   **In-app file editor**: Open files, make spot edits directly, and save changes.
+*   **Faster diff viewer**: Rebuilt for performance on large changesets.
+*   **Expanded preview**: Open HTML files or PDFs in-app, in addition to running local app servers in the preview pane.
 
 Every pane is drag-and-drop. Arrange the terminal, preview, diff viewer, and chat in whatever grid matches how you work.
 

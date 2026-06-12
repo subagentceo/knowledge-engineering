@@ -23,11 +23,11 @@ Attach skills when creating an agent. Each session supports up to 20 skills tota
 
 Each entry in the `skills` array uses the following fields:
 
-| Field      | Description                                                                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`     | Either `anthropic` for pre-built skills or `custom` for workspace-authored skills.                                                                  |
+| Field | Description |
+| --- | --- |
+| `type` | Either `anthropic` for pre-built skills or `custom` for workspace-authored skills. |
 | `skill_id` | The skill identifier. For Anthropic skills, use the short name (for example, `xlsx`). For custom skills, use the `skill_*` ID returned at creation. |
-| `version`  | Custom skills only. Pin to a specific version or use `latest`.                                                                                      |
+| `version` | Custom skills only. Pin to a specific version or use `latest`. |
 
 <CodeGroup defaultLanguage="CLI">
 ```bash curl
@@ -90,14 +90,14 @@ const agent = await client.beta.agents.create({
   skills: [
     {
       type: "anthropic",
-      skill_id: "xlsx",
+      skill_id: "xlsx"
     },
     {
       type: "custom",
       skill_id: "skill_abc123",
-      version: "latest",
-    },
-  ],
+      version: "latest"
+    }
+  ]
 });
 ```
 
@@ -186,5 +186,4 @@ agent = client.beta.agents.create(
   ]
 )
 ```
-
 </CodeGroup>

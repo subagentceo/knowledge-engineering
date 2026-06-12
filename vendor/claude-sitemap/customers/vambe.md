@@ -4,11 +4,11 @@ Vambe is a Chilean startup building conversational AI that helps mid-sized busin
 
 ## With Claude, Vambe achieved:
 
-- 95%+ multi-agent reliability, up from 30%, enabling multi-agent workflows
-- 40-60% higher conversion rates compared to customers' previous sales processes, including both manual workflows and prior AI models
-- 60% reduction in healthcare clinic no-shows
-- Customer onboarding time reduced from 7 days to 3 days
-- Engineering debugging time dropped from 40% to 10%, freeing 120 hours per month 
+*   95%+ multi-agent reliability, up from 30%, enabling multi-agent workflows
+*   40-60% higher conversion rates compared to customers' previous sales processes, including both manual workflows and prior AI models
+*   60% reduction in healthcare clinic no-shows
+*   Customer onboarding time reduced from 7 days to 3 days
+*   Engineering debugging time dropped from 40% to 10%, freeing 120 hours per month 
 
 ## The challenge
 

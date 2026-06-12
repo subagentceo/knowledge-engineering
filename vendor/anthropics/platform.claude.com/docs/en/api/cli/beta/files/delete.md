@@ -19,6 +19,7 @@ Delete File
 ### Returns
 
 - `deleted_file: object { id, type }`
+
   - `id: string`
 
     ID of the deleted file.
@@ -28,6 +29,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"`
 
 ### Example

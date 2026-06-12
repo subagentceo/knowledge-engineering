@@ -10,10 +10,10 @@ Only primary owners and owners can manage seat assignments. Other roles won't se
 
 **To access seat management:**
 
-- Log into your organization at Claude.ai
-- Click "Settings" in the left panel
-- Navigate to "Members"
-- Click "View tier breakdown" to see your available seats by tier
+*   Log into your organization at Claude.ai
+*   Click "Settings" in the left panel
+*   Navigate to "Members"
+*   Click "View tier breakdown" to see your available seats by tier
 
 ‍
 
@@ -21,9 +21,9 @@ Only primary owners and owners can manage seat assignments. Other roles won't se
 
 Within members, you’ll note three seat types, each of which serves a unique purpose for your users:
 
-- **Standard** **seats** — Standard seats provide full Claude for Enterprise access without Claude Code capabilities. Assign Standard seats to team members who primarily use Claude for writing, analysis, research, and general AI assistance. This tier works well for project managers, marketers, content creators, business analysts, and anyone who needs Claude's conversational AI but doesn't write code regularly.
-- **Premium** **seats** — Premium seats include everything in Standard plus Claude Code access and increased usage limits for both Claude.ai and Claude Code. Assign Premium seats to developers, engineers, data scientists, and technical team members who need AI assistance for coding tasks. These seats are ideal for anyone who switches between planning in Claude.ai and implementing in their terminal, or who needs higher usage limits for intensive AI-assisted development work.
-- **Unassigned** **seats** — Unassigned seats serve as your flexibility buffer—they're placeholder allocations that let you swap team members between Standard and Premium without purchasing additional seats. Think of these as your reserve pool for handling team changes, temporary project needs, or trial periods.
+*   **Standard** **seats** — Standard seats provide full Claude for Enterprise access without Claude Code capabilities. Assign Standard seats to team members who primarily use Claude for writing, analysis, research, and general AI assistance. This tier works well for project managers, marketers, content creators, business analysts, and anyone who needs Claude's conversational AI but doesn't write code regularly.
+*   **Premium** **seats** — Premium seats include everything in Standard plus Claude Code access and increased usage limits for both Claude.ai and Claude Code. Assign Premium seats to developers, engineers, data scientists, and technical team members who need AI assistance for coding tasks. These seats are ideal for anyone who switches between planning in Claude.ai and implementing in their terminal, or who needs higher usage limits for intensive AI-assisted development work.
+*   **Unassigned** **seats** — Unassigned seats serve as your flexibility buffer—they're placeholder allocations that let you swap team members between Standard and Premium without purchasing additional seats. Think of these as your reserve pool for handling team changes, temporary project needs, or trial periods.
 
 ## Assigning seats to members
 
@@ -47,7 +47,7 @@ Once seats are assigned, end users in Claude Code should be able to select the l
 
 ‍
 
-*Here’s some copy you can send to users:* 
+_Here’s some copy you can send to users:_ 
 
 “Great news! You now have access to Claude Code through our Enterprise plan! To get started:
 

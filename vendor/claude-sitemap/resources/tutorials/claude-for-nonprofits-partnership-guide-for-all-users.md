@@ -6,9 +6,9 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 
 #### Key resources
 
-- Getting started guides with best practices and practical guidance on Claude features
-- On-demand AI fluency courses
-- Use case and workflow planning
+*   Getting started guides with best practices and practical guidance on Claude features
+*   On-demand AI fluency courses
+*   Use case and workflow planning
 
 #### Recommended actions
 
@@ -20,17 +20,17 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 
 #### Implementation tips
 
-- **Ask Claude for help.** If you're not sure where to start, describe your goals, role, or challenges
-- **Save effective prompts** for reuse and adaptation
-- **Iterate and refine.** Treat your first prompt as a starting point
+*   **Ask Claude for help.** If you're not sure where to start, describe your goals, role, or challenges
+*   **Save effective prompts** for reuse and adaptation
+*   **Iterate and refine.** Treat your first prompt as a starting point
 
 ## Getting productive with Claude
 
 #### Key resources
 
-- Use case library
-- Claude artifact inspiration gallery
-- MCP connector directory
+*   Use case library
+*   Claude artifact inspiration gallery
+*   MCP connector directory
 
 #### Recommended actions
 
@@ -40,16 +40,16 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 
 #### Implementation tips
 
-- Use library prompts as templates for formatting and organizing information
-- Upload organizational documents to projects for persistent context
-- Turn on memory (go to settings > capabilities) to allow Claude to remember relevant context across conversations
+*   Use library prompts as templates for formatting and organizing information
+*   Upload organizational documents to projects for persistent context
+*   Turn on memory (go to settings > capabilities) to allow Claude to remember relevant context across conversations
 
 ## Reaching new levels with Claude
 
 #### Key resources
 
-- Claude train the trainer program (includes a certificate of completion)
-- Case studies hub
+*   Claude train the trainer program (includes a certificate of completion)
+*   Case studies hub
 
 #### Recommended actions
 
@@ -60,9 +60,9 @@ Welcome to the Claude for nonprofits community. This guide is a pathway to help 
 
 #### Implementation tips
 
-- **Celebrate both wins and lessons learned.** Sharing what didn't work well is just as valuable as success stories
-- **Establish quality checks.** Claude is a powerful collaborator, but always review outputs for accuracy
-- **Chain complex requests together.** Break large projects into sequential prompts
+*   **Celebrate both wins and lessons learned.** Sharing what didn't work well is just as valuable as success stories
+*   **Establish quality checks.** Claude is a powerful collaborator, but always review outputs for accuracy
+*   **Chain complex requests together.** Break large projects into sequential prompts
 
 _Note: There's no single "right" way to integrate Claude into your work. Whether you're adopting quickly or taking a measured approach, Claude helps you focus more energy on the people and programs that matter most._
 

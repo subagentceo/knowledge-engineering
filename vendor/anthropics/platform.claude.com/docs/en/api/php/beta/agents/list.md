@@ -35,6 +35,7 @@ List Agents
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`

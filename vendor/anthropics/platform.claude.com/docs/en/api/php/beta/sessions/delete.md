@@ -17,6 +17,7 @@ Delete Session
 ### Returns
 
 - `BetaManagedAgentsDeletedSession`
+
   - `string id`
 
   - `Type type`

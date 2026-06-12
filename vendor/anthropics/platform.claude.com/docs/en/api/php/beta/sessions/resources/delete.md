@@ -19,6 +19,7 @@ Delete Session Resource
 ### Returns
 
 - `ManagedAgentsDeleteSessionResource`
+
   - `string id`
 
   - `Type type`

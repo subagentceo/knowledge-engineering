@@ -40,7 +40,7 @@ To make this model even more accessible for a wide range of use cases, we’re l
 
 Starting today, model distillation and the faster Claude 3.5 Haiku are available in preview in Amazon Bedrock. For developers seeking the optimal balance of price, performance, and speed, you now have expanded model options with Claude:
 
-- Claude 3.5 Haiku with latency optimization, powered by Trainium2, for general use cases
-- Claude 3 Haiku, distilled with frontier performance, for high-volume, repetitive use cases
+*   Claude 3.5 Haiku with latency optimization, powered by Trainium2, for general use cases
+*   Claude 3 Haiku, distilled with frontier performance, for high-volume, repetitive use cases
 
 To get started, visit the Amazon Bedrock console. We can’t wait to see what you build.

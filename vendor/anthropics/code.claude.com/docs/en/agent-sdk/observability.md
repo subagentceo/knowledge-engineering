@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,10 +8,10 @@
 
 When you run agents in production, you need visibility into what they did:
 
-- which tools they called
-- how long each model request took
-- how many tokens were spent
-- where failures occurred
+* which tools they called
+* how long each model request took
+* how many tokens were spent
+* where failures occurred
 
 The Agent SDK can export this data as OpenTelemetry traces, metrics, and log events to any backend that accepts the OpenTelemetry Protocol (OTLP), such as Honeycomb, Datadog, Grafana, Langfuse, or a self-hosted collector.
 
@@ -24,8 +23,8 @@ The Agent SDK runs the Claude Code CLI as a child process and communicates with 
 
 Configuration is passed as environment variables. By default, the child process inherits your application's environment, so you can configure telemetry in either of two places:
 
-- **Process environment:** set the variables in your shell, container, or orchestrator before your application starts. Every `query()` call picks them up automatically with no code change. This is the recommended approach for production deployments.
-- **Per-call options:** set the variables in `ClaudeAgentOptions.env` (Python) or `options.env` (TypeScript). Use this when different agents in the same process need different telemetry settings. In Python, `env` is merged on top of the inherited environment. In TypeScript, `env` replaces the inherited environment entirely, so include `...process.env` in the object you pass.
+* **Process environment:** set the variables in your shell, container, or orchestrator before your application starts. Every `query()` call picks them up automatically with no code change. This is the recommended approach for production deployments.
+* **Per-call options:** set the variables in `ClaudeAgentOptions.env` (Python) or `options.env` (TypeScript). Use this when different agents in the same process need different telemetry settings. In Python, `env` is merged on top of the inherited environment. In TypeScript, `env` replaces the inherited environment entirely, so include `...process.env` in the object you pass.
 
 The CLI exports three independent OpenTelemetry signals. Each has its own enable switch and its own exporter, so you can turn on only the ones you need.
 
@@ -48,55 +47,58 @@ The following example sets the variables in a dictionary and passes them through
   import asyncio
   from claude_agent_sdk import query, ClaudeAgentOptions
 
-OTEL_ENV = {
-"CLAUDE_CODE_ENABLE_TELEMETRY": "1", # Required for traces, which are in beta. Metrics and log events do not need this.
-"CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1", # Choose an exporter per signal. Use otlp for the SDK; see the Note below.
-"OTEL_TRACES_EXPORTER": "otlp",
-"OTEL_METRICS_EXPORTER": "otlp",
-"OTEL_LOGS_EXPORTER": "otlp", # Standard OTLP transport configuration.
-"OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
-"OTEL_EXPORTER_OTLP_ENDPOINT": "http://collector.example.com:4318",
-"OTEL_EXPORTER_OTLP_HEADERS": "Authorization=Bearer your-token",
-}
+  OTEL_ENV = {
+      "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+      # Required for traces, which are in beta. Metrics and log events do not need this.
+      "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1",
+      # Choose an exporter per signal. Use otlp for the SDK; see the Note below.
+      "OTEL_TRACES_EXPORTER": "otlp",
+      "OTEL_METRICS_EXPORTER": "otlp",
+      "OTEL_LOGS_EXPORTER": "otlp",
+      # Standard OTLP transport configuration.
+      "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+      "OTEL_EXPORTER_OTLP_ENDPOINT": "http://collector.example.com:4318",
+      "OTEL_EXPORTER_OTLP_HEADERS": "Authorization=Bearer your-token",
+  }
 
-async def main():
-options = ClaudeAgentOptions(env=OTEL_ENV)
-async for message in query(
-prompt="List the files in this directory", options=options
-):
-print(message)
 
-asyncio.run(main())
+  async def main():
+      options = ClaudeAgentOptions(env=OTEL_ENV)
+      async for message in query(
+          prompt="List the files in this directory", options=options
+      ):
+          print(message)
 
-````
 
-```typescript TypeScript theme={null}
-import { query } from "@anthropic-ai/claude-agent-sdk";
+  asyncio.run(main())
+  ```
 
-const otelEnv = {
-  CLAUDE_CODE_ENABLE_TELEMETRY: "1",
-  // Required for traces, which are in beta. Metrics and log events do not need this.
-  CLAUDE_CODE_ENHANCED_TELEMETRY_BETA: "1",
-  // Choose an exporter per signal. Use otlp for the SDK; see the Note below.
-  OTEL_TRACES_EXPORTER: "otlp",
-  OTEL_METRICS_EXPORTER: "otlp",
-  OTEL_LOGS_EXPORTER: "otlp",
-  // Standard OTLP transport configuration.
-  OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf",
-  OTEL_EXPORTER_OTLP_ENDPOINT: "http://collector.example.com:4318",
-  OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Bearer your-token",
-};
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
 
-for await (const message of query({
-  prompt: "List the files in this directory",
-  // env replaces the inherited environment in TypeScript, so spread
-  // process.env first to keep PATH, ANTHROPIC_API_KEY, and other variables.
-  options: { env: { ...process.env, ...otelEnv } },
-})) {
-  console.log(message);
-}
-````
+  const otelEnv = {
+    CLAUDE_CODE_ENABLE_TELEMETRY: "1",
+    // Required for traces, which are in beta. Metrics and log events do not need this.
+    CLAUDE_CODE_ENHANCED_TELEMETRY_BETA: "1",
+    // Choose an exporter per signal. Use otlp for the SDK; see the Note below.
+    OTEL_TRACES_EXPORTER: "otlp",
+    OTEL_METRICS_EXPORTER: "otlp",
+    OTEL_LOGS_EXPORTER: "otlp",
+    // Standard OTLP transport configuration.
+    OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf",
+    OTEL_EXPORTER_OTLP_ENDPOINT: "http://collector.example.com:4318",
+    OTEL_EXPORTER_OTLP_HEADERS: "Authorization=Bearer your-token",
+  };
 
+  for await (const message of query({
+    prompt: "List the files in this directory",
+    // env replaces the inherited environment in TypeScript, so spread
+    // process.env first to keep PATH, ANTHROPIC_API_KEY, and other variables.
+    options: { env: { ...process.env, ...otelEnv } },
+  })) {
+    console.log(message);
+  }
+  ```
 </CodeGroup>
 
 Because the child process inherits your application's environment by default, you can achieve the same result by exporting these variables in a Dockerfile, Kubernetes manifest, or shell profile and omitting `options.env` entirely.
@@ -125,25 +127,24 @@ By default, metrics export every 60 seconds and traces and logs export every 5 s
   }
   ```
 
-```typescript TypeScript theme={null}
-const otelEnv = {
-  // ... exporter configuration from the previous example ...
-  OTEL_METRIC_EXPORT_INTERVAL: "1000",
-  OTEL_LOGS_EXPORT_INTERVAL: "1000",
-  OTEL_TRACES_EXPORT_INTERVAL: "1000",
-};
-```
-
+  ```typescript TypeScript theme={null}
+  const otelEnv = {
+    // ... exporter configuration from the previous example ...
+    OTEL_METRIC_EXPORT_INTERVAL: "1000",
+    OTEL_LOGS_EXPORT_INTERVAL: "1000",
+    OTEL_TRACES_EXPORT_INTERVAL: "1000",
+  };
+  ```
 </CodeGroup>
 
 ## Read agent traces
 
 Traces give you the most detailed view of an agent run. With `CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1` set, each step of the agent loop becomes a span you can inspect in your tracing backend:
 
-- **`claude_code.interaction`:** wraps a single turn of the agent loop, from receiving a prompt to producing a response.
-- **`claude_code.llm_request`:** wraps each call to the Claude API, with model name, latency, and token counts as attributes.
-- **`claude_code.tool`:** wraps each tool invocation, with child spans for the permission wait (`claude_code.tool.blocked_on_user`) and the execution itself (`claude_code.tool.execution`).
-- **`claude_code.hook`:** wraps each [hook](/en/agent-sdk/hooks) execution. Requires detailed beta tracing (`ENABLE_BETA_TRACING_DETAILED=1` and `BETA_TRACING_ENDPOINT`) in addition to the variables above.
+* **`claude_code.interaction`:** wraps a single turn of the agent loop, from receiving a prompt to producing a response.
+* **`claude_code.llm_request`:** wraps each call to the Claude API, with model name, latency, and token counts as attributes.
+* **`claude_code.tool`:** wraps each tool invocation, with child spans for the permission wait (`claude_code.tool.blocked_on_user`) and the execution itself (`claude_code.tool.execution`).
+* **`claude_code.hook`:** wraps each [hook](/en/agent-sdk/hooks) execution. Requires detailed beta tracing (`ENABLE_BETA_TRACING_DETAILED=1` and `BETA_TRACING_ENDPOINT`) in addition to the variables above.
 
 The `llm_request`, `tool`, and `hook` spans are children of the enclosing `claude_code.interaction` span. When the agent spawns a subagent through the Task tool, the subagent's `llm_request` and `tool` spans nest under the parent agent's `claude_code.tool` span, so the full delegation chain appears as one trace.
 
@@ -180,18 +181,17 @@ The following example renames the service and attaches deployment metadata. Thes
   )
   ```
 
-```typescript TypeScript theme={null}
-const options = {
-  env: {
-    ...process.env,
-    // ... exporter configuration ...
-    OTEL_SERVICE_NAME: "support-triage-agent",
-    OTEL_RESOURCE_ATTRIBUTES:
-      "service.version=1.4.0,deployment.environment=production",
-  },
-};
-```
-
+  ```typescript TypeScript theme={null}
+  const options = {
+    env: {
+      ...process.env,
+      // ... exporter configuration ...
+      OTEL_SERVICE_NAME: "support-triage-agent",
+      OTEL_RESOURCE_ATTRIBUTES:
+        "service.version=1.4.0,deployment.environment=production",
+    },
+  };
+  ```
 </CodeGroup>
 
 ## Attribute actions to your end users
@@ -204,24 +204,23 @@ To make tool calls and MCP activity attributable to your application's end users
   ```python Python theme={null}
   from urllib.parse import quote
 
-options = ClaudeAgentOptions(
-env={ # ... exporter configuration ...
-"OTEL_RESOURCE_ATTRIBUTES": f"enduser.id={quote(request.user_id)},tenant.id={quote(request.tenant_id)}",
-},
-)
+  options = ClaudeAgentOptions(
+      env={
+          # ... exporter configuration ...
+          "OTEL_RESOURCE_ATTRIBUTES": f"enduser.id={quote(request.user_id)},tenant.id={quote(request.tenant_id)}",
+      },
+  )
+  ```
 
-````
-
-```typescript TypeScript theme={null}
-const options = {
-  env: {
-    ...process.env,
-    // ... exporter configuration ...
-    OTEL_RESOURCE_ATTRIBUTES: `enduser.id=${encodeURIComponent(request.userId)},tenant.id=${encodeURIComponent(request.tenantId)}`,
-  },
-};
-````
-
+  ```typescript TypeScript theme={null}
+  const options = {
+    env: {
+      ...process.env,
+      // ... exporter configuration ...
+      OTEL_RESOURCE_ATTRIBUTES: `enduser.id=${encodeURIComponent(request.userId)},tenant.id=${encodeURIComponent(request.tenantId)}`,
+    },
+  };
+  ```
 </CodeGroup>
 
 With end-user identity attached, the `tool_decision`, `tool_result`, `mcp_server_connection`, and `permission_mode_changed` events become a per-user audit trail you can forward to a Security Information and Event Management (SIEM) platform. See [Audit security events](/en/monitoring-usage#audit-security-events) in the Monitoring reference for the full list of security-relevant events and the attributes each one carries.
@@ -243,6 +242,6 @@ Leave these unset unless your observability pipeline is approved to store the da
 
 These guides cover adjacent topics for monitoring and deploying agents:
 
-- [Track cost and usage](/en/agent-sdk/cost-tracking): read token and cost data from the message stream without an external backend.
-- [Hosting the Agent SDK](/en/agent-sdk/hosting): deploy agents in containers where you can set OpenTelemetry variables at the environment level.
-- [Monitoring](/en/monitoring-usage): the complete reference for every environment variable, metric, and event the CLI emits.
+* [Track cost and usage](/en/agent-sdk/cost-tracking): read token and cost data from the message stream without an external backend.
+* [Hosting the Agent SDK](/en/agent-sdk/hosting): deploy agents in containers where you can set OpenTelemetry variables at the environment level.
+* [Monitoring](/en/monitoring-usage): the complete reference for every environment variable, metric, and event the CLI emits.

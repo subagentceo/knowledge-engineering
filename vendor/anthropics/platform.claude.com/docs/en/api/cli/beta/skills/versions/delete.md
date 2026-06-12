@@ -27,6 +27,7 @@ Delete Skill Version
 ### Returns
 
 - `BetaSkillVersionDeleteResponse: object { id, type }`
+
   - `id: string`
 
     Version identifier for the skill.

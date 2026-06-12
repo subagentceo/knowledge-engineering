@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,18 +10,18 @@ System prompts define Claude's behavior, capabilities, and response style. Start
 
 This page covers:
 
-- [How system prompts work](#how-system-prompts-work), with a decision table for choosing between the preset, the preset with `append`, and a custom prompt
-- [Customize agent behavior](#customize-agent-behavior) with CLAUDE.md files, output styles, `append`, or a custom string
-- [Compare the four approaches](#compare-the-four-approaches) by persistence, scope, and what they preserve
-- [Combine approaches](#combine-approaches) to layer customization methods together
+* [How system prompts work](#how-system-prompts-work), with a decision table for choosing between the preset, the preset with `append`, and a custom prompt
+* [Customize agent behavior](#customize-agent-behavior) with CLAUDE.md files, output styles, `append`, or a custom string
+* [Compare the four approaches](#compare-the-four-approaches) by persistence, scope, and what they preserve
+* [Combine approaches](#combine-approaches) to layer customization methods together
 
 ## How system prompts work
 
 A system prompt is the initial instruction set that shapes how Claude behaves throughout a conversation. The Agent SDK has three starting points for it:
 
-- **Minimal default**: when you don't set `systemPrompt` in TypeScript or `system_prompt` in Python, the SDK uses a minimal prompt that covers tool calling but omits Claude Code's coding guidelines, response style, and project context. This differs from `claude -p`, which uses the full Claude Code prompt by default. If you're migrating from the CLI and want matching behavior, set the `claude_code` preset.
-- **`claude_code` preset**: the full system prompt that the Claude Code CLI uses, with tool usage instructions, code style and formatting guidelines, response tone and verbosity rules, security and safety instructions, and context about the working directory and environment. Set `systemPrompt: { type: "preset", preset: "claude_code" }` in TypeScript or `system_prompt={"type": "preset", "preset": "claude_code"}` in Python, optionally with `append` to add your own instructions on the end.
-- **Custom string**: a prompt you write yourself. The SDK sends only what you provide.
+* **Minimal default**: when you don't set `systemPrompt` in TypeScript or `system_prompt` in Python, the SDK uses a minimal prompt that covers tool calling but omits Claude Code's coding guidelines, response style, and project context. This differs from `claude -p`, which uses the full Claude Code prompt by default. If you're migrating from the CLI and want matching behavior, set the `claude_code` preset.
+* **`claude_code` preset**: the full system prompt that the Claude Code CLI uses, with tool usage instructions, code style and formatting guidelines, response tone and verbosity rules, security and safety instructions, and context about the working directory and environment. Set `systemPrompt: { type: "preset", preset: "claude_code" }` in TypeScript or `system_prompt={"type": "preset", "preset": "claude_code"}` in Python, optionally with `append` to add your own instructions on the end.
+* **Custom string**: a prompt you write yourself. The SDK sends only what you provide.
 
 ### Decide on a starting point
 
@@ -37,10 +36,10 @@ The deciding factor is how closely your agent resembles Claude Code: a coding ag
 
 "Different from Claude Code" usually means one of the following:
 
-- **Different surface**: the output isn't read in a terminal by the person who triggered it. Chat UIs, structured-output consumers, and non-coding automation each need a prompt that matches how their output is rendered and reviewed. Unattended coding automation, like a CI job that fixes lint errors or reviews diffs, still fits the preset because the work itself is what the preset is written for.
-- **Different identity**: the agent shouldn't present itself as Claude Code. A support bot, a data-analysis assistant, or any domain-specific agent needs its own name, scope, and persona.
-- **Different permission model**: the agent runs autonomously without a human approving each step, or operates on a narrow set of resources. Claude Code's prompt assumes a human is in the loop with access to a full toolset.
-- **Non-coding tasks**: most of Claude Code's prompt is coding guidance. For research, content, or operations agents, that guidance competes with the instructions you actually need.
+* **Different surface**: the output isn't read in a terminal by the person who triggered it. Chat UIs, structured-output consumers, and non-coding automation each need a prompt that matches how their output is rendered and reviewed. Unattended coding automation, like a CI job that fixes lint errors or reviews diffs, still fits the preset because the work itself is what the preset is written for.
+* **Different identity**: the agent shouldn't present itself as Claude Code. A support bot, a data-analysis assistant, or any domain-specific agent needs its own name, scope, and persona.
+* **Different permission model**: the agent runs autonomously without a human approving each step, or operates on a narrow set of resources. Claude Code's prompt assumes a human is in the loop with access to a full toolset.
+* **Non-coding tasks**: most of Claude Code's prompt is coding guidance. For research, content, or operations agents, that guidance competes with the instructions you actually need.
 
 The [comparison table](#compare-the-four-approaches) shows what each customization method preserves.
 
@@ -62,45 +61,43 @@ To load CLAUDE.md, set `settingSources` to include the level your CLAUDE.md live
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-const messages = [];
+  const messages = [];
 
-for await (const message of query({
-prompt: "Add a new React component for user profiles",
-options: {
-systemPrompt: {
-type: "preset",
-preset: "claude_code" // Use Claude Code's system prompt
-},
-settingSources: ["project"] // Loads CLAUDE.md from project
-}
-})) {
-messages.push(message);
-}
+  for await (const message of query({
+    prompt: "Add a new React component for user profiles",
+    options: {
+      systemPrompt: {
+        type: "preset",
+        preset: "claude_code" // Use Claude Code's system prompt
+      },
+      settingSources: ["project"] // Loads CLAUDE.md from project
+    }
+  })) {
+    messages.push(message);
+  }
 
-// Now Claude has access to your project guidelines from CLAUDE.md
+  // Now Claude has access to your project guidelines from CLAUDE.md
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions
+  messages = []
 
-messages = []
+  async for message in query(
+      prompt="Add a new React component for user profiles",
+      options=ClaudeAgentOptions(
+          system_prompt={
+              "type": "preset",
+              "preset": "claude_code",  # Use Claude Code's system prompt
+          },
+          setting_sources=["project"],  # Loads CLAUDE.md from project
+      ),
+  ):
+      messages.append(message)
 
-async for message in query(
-    prompt="Add a new React component for user profiles",
-    options=ClaudeAgentOptions(
-        system_prompt={
-            "type": "preset",
-            "preset": "claude_code",  # Use Claude Code's system prompt
-        },
-        setting_sources=["project"],  # Loads CLAUDE.md from project
-    ),
-):
-    messages.append(message)
-
-# Now Claude has access to your project guidelines from CLAUDE.md
-````
-
+  # Now Claude has access to your project guidelines from CLAUDE.md
+  ```
 </CodeGroup>
 
 CLAUDE.md is persistent across all sessions in a project, shared with your team through git, and discovered automatically without code changes. It is not loaded if you pass an empty `settingSources` array.
@@ -127,7 +124,6 @@ keep-coding-instructions: true
 You are an expert code reviewer.
 
 For every code submission:
-
 1. Check for bugs and security issues
 2. Evaluate performance
 3. Suggest improvements
@@ -138,9 +134,9 @@ For every code submission:
 
 Once created, activate output styles via:
 
-- **CLI**: run `/config` and select an output style
-- **Settings**: set `outputStyle` in `.claude/settings.local.json`
-- **TypeScript SDK**: set `outputStyle` inside the inline `settings` object passed to `query()`, or point `settings` at a settings file that sets it. `outputStyle` is not a top-level `Options` field
+* **CLI**: run `/config` and select an output style
+* **Settings**: set `outputStyle` in `.claude/settings.local.json`
+* **TypeScript SDK**: set `outputStyle` inside the inline `settings` object passed to `query()`, or point `settings` at a settings file that sets it. `outputStyle` is not a top-level `Options` field
 
 The Python SDK does not have an option to select an output style programmatically. For code-only deployments where you can't write to `.claude/settings.local.json`, use `append` or a custom prompt string instead.
 
@@ -154,46 +150,44 @@ You can use the Claude Code preset with an `append` property to add your custom 
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-const messages = [];
+  const messages = [];
 
-for await (const message of query({
-prompt: "Help me write a Python function to calculate fibonacci numbers",
-options: {
-systemPrompt: {
-type: "preset",
-preset: "claude_code",
-append: "Always include detailed docstrings and type hints in Python code."
-}
-}
-})) {
-messages.push(message);
-if (message.type === "assistant") {
-console.log(message.message.content);
-}
-}
+  for await (const message of query({
+    prompt: "Help me write a Python function to calculate fibonacci numbers",
+    options: {
+      systemPrompt: {
+        type: "preset",
+        preset: "claude_code",
+        append: "Always include detailed docstrings and type hints in Python code."
+      }
+    }
+  })) {
+    messages.push(message);
+    if (message.type === "assistant") {
+      console.log(message.message.content);
+    }
+  }
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
+  messages = []
 
-messages = []
-
-async for message in query(
-    prompt="Help me write a Python function to calculate fibonacci numbers",
-    options=ClaudeAgentOptions(
-        system_prompt={
-            "type": "preset",
-            "preset": "claude_code",
-            "append": "Always include detailed docstrings and type hints in Python code.",
-        }
-    ),
-):
-    messages.append(message)
-    if isinstance(message, AssistantMessage):
-        print(message.content)
-````
-
+  async for message in query(
+      prompt="Help me write a Python function to calculate fibonacci numbers",
+      options=ClaudeAgentOptions(
+          system_prompt={
+              "type": "preset",
+              "preset": "claude_code",
+              "append": "Always include detailed docstrings and type hints in Python code.",
+          }
+      ),
+  ):
+      messages.append(message)
+      if isinstance(message, AssistantMessage):
+          print(message.content)
+  ```
 </CodeGroup>
 
 #### Improve prompt caching across users and machines
@@ -212,39 +206,37 @@ The following example pairs a shared `append` block with `excludeDynamicSections
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-for await (const message of query({
-prompt: "Triage the open issues in this repo",
-options: {
-systemPrompt: {
-type: "preset",
-preset: "claude_code",
-append: "You operate Acme's internal triage workflow. Label issues by component and severity.",
-excludeDynamicSections: true
-}
-}
-})) {
-// ...
-}
+  for await (const message of query({
+    prompt: "Triage the open issues in this repo",
+    options: {
+      systemPrompt: {
+        type: "preset",
+        preset: "claude_code",
+        append: "You operate Acme's internal triage workflow. Label issues by component and severity.",
+        excludeDynamicSections: true
+      }
+    }
+  })) {
+    // ...
+  }
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async for message in query(
-    prompt="Triage the open issues in this repo",
-    options=ClaudeAgentOptions(
-        system_prompt={
-            "type": "preset",
-            "preset": "claude_code",
-            "append": "You operate Acme's internal triage workflow. Label issues by component and severity.",
-            "exclude_dynamic_sections": True,
-        },
-    ),
-):
-    ...
-````
-
+  async for message in query(
+      prompt="Triage the open issues in this repo",
+      options=ClaudeAgentOptions(
+          system_prompt={
+              "type": "preset",
+              "preset": "claude_code",
+              "append": "You operate Acme's internal triage workflow. Label issues by component and severity.",
+              "exclude_dynamic_sections": True,
+          },
+      ),
+  ):
+      ...
+  ```
 </CodeGroup>
 
 **Tradeoffs:** the working directory, the git-repo flag, the platform, the active shell, the OS version, and auto-memory paths still reach Claude, but as part of the first user message rather than the system prompt. Instructions in the user message carry marginally less weight than the same text in the system prompt, so Claude may rely on them less strongly when reasoning about the current directory or auto-memory paths. Enable this option when cross-session cache reuse matters more than maximally authoritative environment context.
@@ -259,53 +251,50 @@ You can provide a custom string as `systemPrompt` to replace the default entirel
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-const customPrompt = `You are a Python coding specialist.
-Follow these guidelines:
+  const customPrompt = `You are a Python coding specialist.
+  Follow these guidelines:
+  - Write clean, well-documented code
+  - Use type hints for all functions
+  - Include comprehensive docstrings
+  - Prefer functional programming patterns when appropriate
+  - Always explain your code choices`;
 
-- Write clean, well-documented code
-- Use type hints for all functions
-- Include comprehensive docstrings
-- Prefer functional programming patterns when appropriate
-- Always explain your code choices`;
+  const messages = [];
 
-const messages = [];
+  for await (const message of query({
+    prompt: "Create a data processing pipeline",
+    options: {
+      systemPrompt: customPrompt
+    }
+  })) {
+    messages.push(message);
+    if (message.type === "assistant") {
+      console.log(message.message.content);
+    }
+  }
+  ```
 
-for await (const message of query({
-prompt: "Create a data processing pipeline",
-options: {
-systemPrompt: customPrompt
-}
-})) {
-messages.push(message);
-if (message.type === "assistant") {
-console.log(message.message.content);
-}
-}
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
 
-````
+  custom_prompt = """You are a Python coding specialist.
+  Follow these guidelines:
+  - Write clean, well-documented code
+  - Use type hints for all functions
+  - Include comprehensive docstrings
+  - Prefer functional programming patterns when appropriate
+  - Always explain your code choices"""
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
+  messages = []
 
-custom_prompt = """You are a Python coding specialist.
-Follow these guidelines:
-- Write clean, well-documented code
-- Use type hints for all functions
-- Include comprehensive docstrings
-- Prefer functional programming patterns when appropriate
-- Always explain your code choices"""
-
-messages = []
-
-async for message in query(
-    prompt="Create a data processing pipeline",
-    options=ClaudeAgentOptions(system_prompt=custom_prompt),
-):
-    messages.append(message)
-    if isinstance(message, AssistantMessage):
-        print(message.content)
-````
-
+  async for message in query(
+      prompt="Create a data processing pipeline",
+      options=ClaudeAgentOptions(system_prompt=custom_prompt),
+  ):
+      messages.append(message)
+      if isinstance(message, AssistantMessage):
+          print(message.content)
+  ```
 </CodeGroup>
 
 ## Compare the four approaches
@@ -340,16 +329,16 @@ Output styles are for personas you want to reuse across the CLI and SDK without 
 
 **Best for:**
 
-- Persistent behavior changes across sessions
-- Team-shared configurations
-- Specialized assistants like a code reviewer, data scientist, or DevOps assistant
-- Complex prompt modifications that need versioning
+* Persistent behavior changes across sessions
+* Team-shared configurations
+* Specialized assistants like a code reviewer, data scientist, or DevOps assistant
+* Complex prompt modifications that need versioning
 
 **Examples:**
 
-- Creating a dedicated SQL optimization assistant
-- Building a security-focused code reviewer
-- Developing a teaching assistant with specific pedagogy
+* Creating a dedicated SQL optimization assistant
+* Building a security-focused code reviewer
+* Developing a teaching assistant with specific pedagogy
 
 ### When to use `systemPrompt` with append
 
@@ -357,11 +346,11 @@ Use `append` when the `claude_code` preset already fits your product and you onl
 
 **Best for:**
 
-- Adding specific coding standards or preferences
-- Customizing output formatting
-- Adding domain-specific knowledge
-- Modifying response verbosity
-- Enhancing Claude Code's default behavior without losing tool instructions
+* Adding specific coding standards or preferences
+* Customizing output formatting
+* Adding domain-specific knowledge
+* Modifying response verbosity
+* Enhancing Claude Code's default behavior without losing tool instructions
 
 ### When to use custom `systemPrompt`
 
@@ -369,11 +358,11 @@ Use a custom prompt when your agent's surface, identity, or permission model dif
 
 **Best for:**
 
-- Complete control over Claude's behavior
-- Specialized single-session tasks
-- Testing new prompt strategies
-- Situations where default tools aren't needed
-- Building specialized agents with unique behavior
+* Complete control over Claude's behavior
+* Specialized single-session tasks
+* Testing new prompt strategies
+* Situations where default tools aren't needed
+* Building specialized agents with unique behavior
 
 ## Combine approaches
 
@@ -387,60 +376,59 @@ The example below assumes a Code Reviewer output style is already active. The `a
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-// Assuming "Code Reviewer" output style is active (via /config or settings)
-// Add session-specific focus areas
-const messages = [];
+  // Assuming "Code Reviewer" output style is active (via /config or settings)
+  // Add session-specific focus areas
+  const messages = [];
 
-for await (const message of query({
-prompt: "Review this authentication module",
-options: {
-systemPrompt: {
-type: "preset",
-preset: "claude_code",
-append: `           For this review, prioritize:
+  for await (const message of query({
+    prompt: "Review this authentication module",
+    options: {
+      systemPrompt: {
+        type: "preset",
+        preset: "claude_code",
+        append: `
+          For this review, prioritize:
           - OAuth 2.0 compliance
           - Token storage security
           - Session management
         `
-}
-}
-})) {
-messages.push(message);
-}
+      }
+    }
+  })) {
+    messages.push(message);
+  }
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions
+  # Assuming "Code Reviewer" output style is active (via /config or settings)
+  # Add session-specific focus areas
+  messages = []
 
-# Assuming "Code Reviewer" output style is active (via /config or settings)
-# Add session-specific focus areas
-messages = []
-
-async for message in query(
-    prompt="Review this authentication module",
-    options=ClaudeAgentOptions(
-        system_prompt={
-            "type": "preset",
-            "preset": "claude_code",
-            "append": """
-            For this review, prioritize:
-            - OAuth 2.0 compliance
-            - Token storage security
-            - Session management
-            """,
-        }
-    ),
-):
-    messages.append(message)
-````
-
+  async for message in query(
+      prompt="Review this authentication module",
+      options=ClaudeAgentOptions(
+          system_prompt={
+              "type": "preset",
+              "preset": "claude_code",
+              "append": """
+              For this review, prioritize:
+              - OAuth 2.0 compliance
+              - Token storage security
+              - Session management
+              """,
+          }
+      ),
+  ):
+      messages.append(message)
+  ```
 </CodeGroup>
 
 ## See also
 
-- [Output styles](/en/output-styles): create, manage, and share output styles for the CLI, including the file format and storage locations
-- [How Claude remembers your project](/en/memory): what to put in CLAUDE.md, where to place it, and how to write effective project instructions
-- [TypeScript SDK reference](/en/agent-sdk/typescript): the full `Options` type, including `systemPrompt`, `settingSources`, and `settings`
-- [Python SDK reference](/en/agent-sdk/python): the full `ClaudeAgentOptions` type, including `system_prompt` and `setting_sources`
-- [Settings](/en/settings): the `settings.json` reference, including where output styles and other configuration are stored
+* [Output styles](/en/output-styles): create, manage, and share output styles for the CLI, including the file format and storage locations
+* [How Claude remembers your project](/en/memory): what to put in CLAUDE.md, where to place it, and how to write effective project instructions
+* [TypeScript SDK reference](/en/agent-sdk/typescript): the full `Options` type, including `systemPrompt`, `settingSources`, and `settings`
+* [Python SDK reference](/en/agent-sdk/python): the full `ClaudeAgentOptions` type, including `system_prompt` and `setting_sources`
+* [Settings](/en/settings): the `settings.json` reference, including where output styles and other configuration are stored

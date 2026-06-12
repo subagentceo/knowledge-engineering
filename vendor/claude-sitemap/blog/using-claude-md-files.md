@@ -14,7 +14,7 @@ CLAUDE.md is a special configuration file that lives in your repository and prov
 
 Here’s an example CLAUDE.md that you might have in your repository:
 
-````markdown
+```markdown
 # Project Context
 
 When working with this codebase, prioritize readability over cleverness. Ask clarifying questions before making architectural changes.
@@ -36,18 +36,15 @@ FastAPI REST API for user authentication and profiles. Uses SQLAlchemy for datab
 - PEP 8 with 100 character lines
 
 ## Common Commands
-
 ```bash
 uvicorn app.main:app --reload  # dev server
 pytest tests/ -v               # run tests
 ```
-````
 
 ## Notes
 
 All routes use `/api/v1` prefix. JWT tokens expire after 24 hours.
-
-````
+```
 
 A well-configured CLAUDE.md transforms how Claude works with your specific project. The file serves multiple purposes: providing architectural context, establishing workflows, and connecting Claude to your development tools. Each addition should solve a real problem you have encountered, not theoretical concerns about what Claude might need.
 
@@ -67,7 +64,7 @@ Run `/init` in any Claude Code session:
 cd your-project
 claude
 /init
-````
+```
 
 Claude examines your codebase—reading package files, existing documentation, configuration files, and code structure—then generates a CLAUDE.md tailored to your project. The generated file typically includes build commands, test instructions, key directories, and coding conventions it detected.
 
@@ -77,10 +74,10 @@ You can also use `/init` on existing projects that already have a CLAUDE.md. Cla
 
 After running `/init`, consider these next steps:
 
-- Review the generated content for accuracy
-- Add workflow instructions Claude couldn't infer (branch naming conventions, deployment processes, code review requirements)
-- Remove generic guidance that doesn't apply to your project
-- Commit the file to version control so your team benefits
+*   Review the generated content for accuracy
+*   Add workflow instructions Claude couldn't infer (branch naming conventions, deployment processes, code review requirements)
+*   Remove generic guidance that doesn't apply to your project
+*   Commit the file to version control so your team benefits
 
 The `/init` command works well for getting oriented quickly, but the real value comes from iterating on the generated file over time. As you work with Claude Code, use the `#` key to add instructions you find yourself repeating—these additions accumulate into a CLAUDE.md that genuinely reflects how your team works.
 
@@ -99,12 +96,12 @@ A simple tree output showing key directories helps Claude understand where diffe
 ```markdown
 main.py
 ├── logs
-│ ├── application.log
+│   ├── application.log
 ├── modules
-│ ├── cli.py
-│ ├── logging_utils.py
-│ ├── media_handler.py
-│ ├── player.py
+│   ├── cli.py
+│   ├── logging_utils.py
+│   ├── media_handler.py
+│   ├── player.py
 ```
 
 Include information about your main dependencies, architectural patterns, and any non-standard organizational choices. If you use domain-driven design, microservices, or specific frameworks, document that. Claude uses this map to make better decisions about where to find code and where to make changes.
@@ -121,7 +118,6 @@ For example, if you have a Slack MCP server configured for your organization and
 
 ```markdown
 ### Slack MCP
-
 - Posts to #dev-notifications channel only
 - Use for deployment notifications and build failures
 - Do not use for individual PR updates (those go through GitHub webhooks)
@@ -148,10 +144,10 @@ Specific workflows might include explore-plan-code-commit for features, test-dri
 An example workflow instruction might be: 
 
 ```markdown
-1. Before modifying code in the following locations: X, Y, Z
-   - Consider how it might affect A, B, C
-   - Construct an implementation plan
-   - Develop a test plan that will validate the following functions...
+1) Before modifying code in the following locations: X, Y, Z
+	- Consider how it might affect A, B, C
+	- Construct an implementation plan
+	- Develop a test plan that will validate the following functions...
 ```
 
 ## ‍Additional tips for working with Claude Code
@@ -190,7 +186,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 ## Areas to Analyze
 
 ### Database & Data Access
-
 - N+1 query problems and missing eager loading
 - Lack of database indexes on frequently queried columns
 - Inefficient joins or subqueries
@@ -199,7 +194,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Connection pooling issues
 
 ### Algorithm Efficiency
-
 - Time complexity issues (O(n²) or worse when better exists)
 - Nested loops that could be optimized
 - Redundant calculations or repeated work
@@ -207,7 +201,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Missing memoization or dynamic programming opportunities
 
 ### Memory Management
-
 - Memory leaks or retained references
 - Loading entire datasets when streaming is possible
 - Excessive object instantiation in loops
@@ -215,7 +208,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Missing garbage collection opportunities
 
 ### Async & Concurrency
-
 - Blocking I/O operations that should be async
 - Sequential operations that could run in parallel
 - Missing Promise.all() or concurrent execution patterns
@@ -223,7 +215,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Unoptimized worker thread usage
 
 ### Network & I/O
-
 - Excessive API calls (missing request batching)
 - No response caching strategy
 - Large payloads without compression
@@ -231,7 +222,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Lack of connection reuse
 
 ### Frontend Performance
-
 - Render-blocking JavaScript or CSS
 - Missing code splitting or lazy loading
 - Unoptimized images or assets
@@ -240,7 +230,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - No debouncing/throttling on expensive operations
 
 ### Caching
-
 - Missing HTTP caching headers
 - No application-level caching layer
 - Absence of memoization for pure functions
@@ -249,7 +238,6 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 ## Output Format
 
 For each issue identified:
-
 1. **Issue**: Describe the performance problem
 2. **Location**: Specify file/function/line numbers
 3. **Impact**: Rate severity (Critical/High/Medium/Low) and explain expected performance degradation
@@ -259,18 +247,14 @@ For each issue identified:
 7. **Expected Improvement**: Quantify performance gains if measurable
 
 If code is well-optimized:
-
 - Confirm optimization status
 - List performance best practices properly implemented
 - Note any minor improvements possible
 
 **Code to review:**
 ```
-
 $ARGUMENTS
-
 ```
-
 ```
 
 You don't need to write custom command files manually. Ask Claude to create them for you:

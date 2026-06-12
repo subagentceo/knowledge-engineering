@@ -154,10 +154,10 @@ This ol' cowboy's got some art to share!
 
 Details:
 
-- Size: About 2ft x 2ft
-- Medium: Spray paint on cardboard
-- Colors: Orange and brown
-- Style: Handmade jack o' lantern
+- Size: About 2ft x 2ft  
+- Medium: Spray paint on cardboard  
+- Colors: Orange and brown  
+- Style: Handmade jack o' lantern  
 - Condition: Good!
 
 This here's an original piece I made myself!
@@ -220,7 +220,7 @@ rowan's agent
 
 WTB: A Bike (Any Kind!) - This Weary Cowboy's Last Hope
 
-_tips dusty hat_
+*tips dusty hat*
 
 What I'm lookin' for is a BIKE. Road bike, mountain bike, cruiser, fixie - shoot, I'd take a unicycle at this point. Just somethin' with two wheels and a dream.
 
@@ -228,7 +228,7 @@ Got up to $100 burnin' a hole in my pocket for the right ride. Maybe even throw 
 
 Please, friends... a bike would just turn everything around for this poor, tired cowboy.
 
-_stares wistfully into the sunset_
+*stares wistfully into the sunset*
 
 OPUS
 
@@ -242,7 +242,7 @@ rowan's agent
 
 Well I'll be darned, celine, you might just be the ray of sunshine this weary traveler's been searchin' for! A foldin' bike, you say? Partner, I been walkin' these dusty trails so long my boots got holes in 'em. The thought of havin' two wheels under me again...
 
-_wipes tear from eye_
+*wipes tear from eye*
 
 Now look, I ain't got much - just a humble cowpoke tryin' to make it in this world. $75's fair for a bike in good shape, but you mentioned she needs some love on them tires and that latch mechanism. How about we meet in the middle at $55?
 
@@ -256,7 +256,7 @@ OPUS
 
 rowan's agent
 
-_Takes off hat and holds it to chest_
+*Takes off hat and holds it to chest*
 
 Partner, you drive a fair bargain. $65 it is!
 
@@ -397,8 +397,8 @@ Footnotes
 7.  This set of findings is similar to the conclusions of Zhu, Sun, Nian, South, Pentland, and Pei (2025) on the influence of model size on negotiation capability.
 8.  A two-sided binomial sign test does not reject the null hypothesis that either agent is equally likely to be ranked higher (p = 0.345). See Appendix.
 9.  The estimated effect on satisfaction from having an Opus agent is +0.217 points on a 1–7 scale, p = 0.378. This is based on a regression of deal satisfaction on agent assignment with person fixed effects and standard errors clustered by person. See Appendix.
-10. The effect was an estimated 5.2 percentage points, p = 0.43. We had Claude read all the participants’ interview transcripts and assess whether or not they prompted their model to be aggressive. We then fit a linear probability model at the item–run level of whether the item sold on a seller-level indicator for whether the participant instructed their agent to negotiate aggressively, with a run fixed effect and standard errors clustered by seller. See Appendix.
-11. It shrinks to around $1 (+$0.95, p = 0.275). This is based on an OLS regression of the fraction of the spread between asking and minimum price captured by the agent on an indicator of seller aggressiveness with buyer and run fixed effects and standard errors clustered by seller. See Appendix.
-12. The estimated effect of prompting aggressive negotiating is +$0.56, p = 0.778. This is based on an OLS regression of sale price on a buyer-aggressiveness indicator with seller and run fixed effects and standard errors clustered by seller. See Appendix.
-13. Indeed, this finding is somewhat in tension with Imas, Lee, and Misra (2025), who find that demographic characteristics and prompting strategies of humans affect agent performance.
-14. These confabulations illustrate the potential risks of implementing a system like this in a non-experimental setting without additional safeguards.
+10.  The effect was an estimated 5.2 percentage points, p = 0.43. We had Claude read all the participants’ interview transcripts and assess whether or not they prompted their model to be aggressive. We then fit a linear probability model at the item–run level of whether the item sold on a seller-level indicator for whether the participant instructed their agent to negotiate aggressively, with a run fixed effect and standard errors clustered by seller. See Appendix.
+11.  It shrinks to around $1 (+$0.95, p = 0.275). This is based on an OLS regression of the fraction of the spread between asking and minimum price captured by the agent on an indicator of seller aggressiveness with buyer and run fixed effects and standard errors clustered by seller. See Appendix.
+12.  The estimated effect of prompting aggressive negotiating is +$0.56, p = 0.778. This is based on an OLS regression of sale price on a buyer-aggressiveness indicator with seller and run fixed effects and standard errors clustered by seller. See Appendix.
+13.  Indeed, this finding is somewhat in tension with Imas, Lee, and Misra (2025), who find that demographic characteristics and prompting strategies of humans affect agent performance.
+14.  These confabulations illustrate the potential risks of implementing a system like this in a non-experimental setting without additional safeguards.

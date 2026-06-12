@@ -6,9 +6,9 @@ Core capabilities include semantic search across your data catalog, upstream and
 
 **How to use:** After installing, authenticate by running `/mcp` in Claude Code — this opens a browser-based login flow. Then interact with your catalog using natural language prompts like:
 
-- "Search for all tables related to customer revenue"
-- "Show me the upstream lineage for the orders_fact table"
-- "Create a glossary term called 'Monthly Active Users' with a definition"
-- "Set the certification status of the payments table to VERIFIED"
-- "Create a data quality rule to check for null values in the email column"
-- "List all data products in the Finance domain"
+*   "Search for all tables related to customer revenue"
+*   "Show me the upstream lineage for the orders_fact table"
+*   "Create a glossary term called 'Monthly Active Users' with a definition"
+*   "Set the certification status of the payments table to VERIFIED"
+*   "Create a data quality rule to check for null values in the email column"
+*   "List all data products in the Finance domain"

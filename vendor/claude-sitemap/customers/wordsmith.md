@@ -6,11 +6,11 @@ Wordsmith chose Claude after comprehensive evaluation across 40 different use ca
 
 With Claude, Wordsmith:
 
-- **Transforms days into minutes**: Processes 400-page contract bundles with 300-point compliance checks in 4-5 minutes
-- **Produces professional legal documents**: Creates properly structured agreements that understand the blueprint of good legal writing
-- **Maintains jurisdiction compliance**: Ensures data remains ephemeral and jurisdiction-locked for EU and US requirements
-- **Accelerates development**: Powers engineering workflows with 20-30% velocity improvements through Claude Code
-- **Enables instant legal guidance**: Provides immediate, accurate responses when legal teams aren't available
+*   **Transforms days into minutes**: Processes 400-page contract bundles with 300-point compliance checks in 4-5 minutes
+*   **Produces professional legal documents**: Creates properly structured agreements that understand the blueprint of good legal writing
+*   **Maintains jurisdiction compliance**: Ensures data remains ephemeral and jurisdiction-locked for EU and US requirements
+*   **Accelerates development**: Powers engineering workflows with 20-30% velocity improvements through Claude Code
+*   **Enables instant legal guidance**: Provides immediate, accurate responses when legal teams aren't available
 
 ## The impossible balancing act
 

@@ -27,6 +27,7 @@ Add Session Resource
 ### Returns
 
 - `ManagedAgentsFileResource`
+
   - `string id`
 
   - `\Datetime createdAt`

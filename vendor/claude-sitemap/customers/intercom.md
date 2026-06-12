@@ -4,11 +4,11 @@ Intercom is a leading customer service platform that uses Claude to help its ove
 
 With Claude, Intercom’s Fin:
 
-- Resolves up to 86% of customer's support volume with human-quality, personalized responses
-- Achieves a 51% average resolution rate out of the box
-- Reduces response times from 30 minutes to seconds
-- Delivers responses in over 45 languages for global customers
-- Provides customized tone of voice and answer length for each business
+*   Resolves up to 86% of customer's support volume with human-quality, personalized responses
+*   Achieves a 51% average resolution rate out of the box
+*   Reduces response times from 30 minutes to seconds
+*   Delivers responses in over 45 languages for global customers
+*   Provides customized tone of voice and answer length for each business
 
 ‍
 
@@ -26,9 +26,9 @@ While other AI agents focused on deflecting customer inquiries, Intercom saw an 
 
 After analyzing millions of real customer conversations, three key factors led Intercom to choose Claude:
 
-- **Superior performance:** Through comprehensive evaluations, Claude consistently outperformed other models. "We switched to Anthropic because its Claude models are the best at providing high-quality answers to our customers at scale," said Reid. The results speak for themselves—Fin achieves a 51% resolution rate out of the box, before any customization or tuning.
-- **Reliability and scale:** Claude demonstrated enterprise-grade reliability at global scale across Intercom's diverse customer base. Claude helps Fin maintain high-quality responses while handling millions of support queries daily, delivering consistent results whether serving startups or global enterprises. This scalability enables Intercom's customers to grow their support operations without compromising on quality or response time.
-- **Strategic partnership:** Intercom's relationship with Anthropic has proven valuable beyond model performance. "The partnership with Anthropic was excellent because we had very good solutions engineers who shared important expertise," noted Tabacof. This collaboration helped Intercom optimize their implementation and unlock new capabilities, including personalized answer length and tone, policy-aware responses, and sophisticated conversation analysis.
+*   **Superior performance:** Through comprehensive evaluations, Claude consistently outperformed other models. "We switched to Anthropic because its Claude models are the best at providing high-quality answers to our customers at scale," said Reid. The results speak for themselves—Fin achieves a 51% resolution rate out of the box, before any customization or tuning.
+*   **Reliability and scale:** Claude demonstrated enterprise-grade reliability at global scale across Intercom's diverse customer base. Claude helps Fin maintain high-quality responses while handling millions of support queries daily, delivering consistent results whether serving startups or global enterprises. This scalability enables Intercom's customers to grow their support operations without compromising on quality or response time.
+*   **Strategic partnership:** Intercom's relationship with Anthropic has proven valuable beyond model performance. "The partnership with Anthropic was excellent because we had very good solutions engineers who shared important expertise," noted Tabacof. This collaboration helped Intercom optimize their implementation and unlock new capabilities, including personalized answer length and tone, policy-aware responses, and sophisticated conversation analysis.
 
 The strongest validation of Intercom's approach comes from Anthropic choosing Fin as their customer service AI agent. Mike Krieger, Chief Product Officer at Anthropic, describes the Intercom linkup as his “favorite kind of partnership” because it’s based on “experimentation and evaluation.” Des Traynor, Co-founder & Chief Strategy Officer of Intercom adds, "Working with Anthropic keeps us at the forefront of AI, letting us explore the future and work on the bleeding edge, while delivering stable, reliable, and incredible results for our customers.”
 
@@ -36,10 +36,10 @@ The strongest validation of Intercom's approach comes from Anthropic choosing Fi
 
 Through testing and refinement, Intercom integrated Claude into their Fin AI agent to revolutionize customer support through four key capabilities:
 
-- **Knowledge**: Fin learns everything about a company's products and services, using their entire knowledge base to generate accurate answers. "Previously, someone might spend 30 minutes searching through help articles. With Fin powered by Claude, they get their answer instantly," said Reid.
-- **Behavior**: Fin adapts its communication style to match each business, maintaining a consistent tone of voice while following specific policies and procedures. This ensures reliable, personalized support that aligns with each company's brand and guidelines.
-- **Actions**: Rather than just providing information, Fin can take concrete actions on behalf of customers - from processing refunds to managing account changes. "This capability to handle complex workflows autonomously will take us from 50% average resolution rates to potentially 80 or 90%," said Tabacof.
-- **Insights**: Fin provides visibility across the entire support operation through AI-generated analytics. This helps businesses ensure consistently high-quality support while identifying areas for improvement.
+*   **Knowledge**: Fin learns everything about a company's products and services, using their entire knowledge base to generate accurate answers. "Previously, someone might spend 30 minutes searching through help articles. With Fin powered by Claude, they get their answer instantly," said Reid.
+*   **Behavior**: Fin adapts its communication style to match each business, maintaining a consistent tone of voice while following specific policies and procedures. This ensures reliable, personalized support that aligns with each company's brand and guidelines.
+*   **Actions**: Rather than just providing information, Fin can take concrete actions on behalf of customers - from processing refunds to managing account changes. "This capability to handle complex workflows autonomously will take us from 50% average resolution rates to potentially 80 or 90%," said Tabacof.
+*   **Insights**: Fin provides visibility across the entire support operation through AI-generated analytics. This helps businesses ensure consistently high-quality support while identifying areas for improvement.
 
 ![Intercom product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0503c4672b0f83f738a_8da374dc4ad747b0c918e668c3fdc3dd1b38ff45-1920x969.png)
 

@@ -53,5 +53,6 @@
   "pdf_allow_prefixes": [
     "https://cdn.sanity.io/files/4zrzovbb/",
     "https://www-cdn.anthropic.com/"
-  ]
+  ],
+  "incremental": true
 }

@@ -6,11 +6,11 @@ With Claude Managed Agents, Sentry built the infrastructure to go from bug detec
 
 ## With Claude, Sentry achieved:
 
-- End-to-end automation from bug detection to pull request, powered by Claude Managed Agents
-- Ability to efficiently process over 1 million RCAs (Root Cause Analysis) a year
-- Near immediate reviews provided on over 600k pull requests a month
-- Initial Managed Agents integration shipped in weeks instead of months by a single engineer
-- Elimination of the ongoing operational overhead of maintaining custom agent infrastructure
+*   End-to-end automation from bug detection to pull request, powered by Claude Managed Agents
+*   Ability to efficiently process over 1 million RCAs (Root Cause Analysis) a year
+*   Near immediate reviews provided on over 600k pull requests a month
+*   Initial Managed Agents integration shipped in weeks instead of months by a single engineer
+*   Elimination of the ongoing operational overhead of maintaining custom agent infrastructure
 
 ## The challenge: A gap between knowing what's broken and fixing it
 

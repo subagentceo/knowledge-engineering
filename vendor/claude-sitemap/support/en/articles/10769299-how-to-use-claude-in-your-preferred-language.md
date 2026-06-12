@@ -36,4 +36,4 @@ Claude is available in multiple languages on web and desktop applications.
 
 4. The interface will update automatically.
 
-**Note:** Even if you've changed your language settings, you can still chat with Claude in any language. Claude will converse with you in the language you use.
+**Note:**  Even if you've changed your language settings, you can still chat with Claude in any language. Claude will converse with you in the language you use.

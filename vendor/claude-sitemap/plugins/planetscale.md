@@ -6,8 +6,8 @@ The plugin also includes expert database skills for MySQL, PostgreSQL, Vitess, a
 
 **How to use:** After installing, Claude can access your PlanetScale resources through natural language. Try prompts like:
 
-- "List all databases in my PlanetScale organization"
-- "Show the schema for the users table on the main branch"
-- "Find the slowest queries hitting my production database"
-- "Help me design an index strategy for this query pattern"
-- "What's the best way to run this schema migration safely on PlanetScale?"
+*   "List all databases in my PlanetScale organization"
+*   "Show the schema for the users table on the main branch"
+*   "Find the slowest queries hitting my production database"
+*   "Help me design an index strategy for this query pattern"
+*   "What's the best way to run this schema migration safely on PlanetScale?"

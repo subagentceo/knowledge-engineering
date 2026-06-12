@@ -8,10 +8,10 @@ _Note: This connector is currently in beta with core functionality available._
 
 ## What this connector provides
 
-- **Search organizations:** Find nonprofits and foundations by name, mission, location, work area, transparency seal, or leadership demographics (women, BIPOC, LGBTQ+, people with disabilities)
-- **Find mentioned organizations:** Automatically identifies organization names in conversation and links them to official Candid profiles
-- **Knowledge search:** Access Candid's expert knowledge base including research reports, training materials, blog posts, and curated daily news
-- **Find relevant taxonomic terms:** Uses AI to identify relevant terms from Candid's Philanthropy Classification System based on your descriptions
+*   **Search organizations:** Find nonprofits and foundations by name, mission, location, work area, transparency seal, or leadership demographics (women, BIPOC, LGBTQ+, people with disabilities)
+*   **Find mentioned organizations:** Automatically identifies organization names in conversation and links them to official Candid profiles
+*   **Knowledge search:** Access Candid's expert knowledge base including research reports, training materials, blog posts, and curated daily news
+*   **Find relevant taxonomic terms:** Uses AI to identify relevant terms from Candid's Philanthropy Classification System based on your descriptions
 
 ## Who can use this
 
@@ -63,31 +63,31 @@ Claude searches Candid's learning and help sources for expert guidance, training
 
 #### Be specific with locations
 
-- ✓ `nonprofits in Brooklyn, New York`
-- ✓ `foundations serving rural Montana communities`
-- ✗ `organizations in the Northeast` (too broad)
+*   ✓ `nonprofits in Brooklyn, New York`
+*   ✓ `foundations serving rural Montana communities`
+*   ✗ `organizations in the Northeast` (too broad)
 
 #### Describe work, not just keywords
 
-- ✓ `organizations helping homeless youth find permanent housing`
-- ✓ `funders supporting immigrant and refugee integration programs`
+*   ✓ `organizations helping homeless youth find permanent housing`
+*   ✓ `funders supporting immigrant and refugee integration programs`
 
 #### Combine multiple filters
 
-- `Environmental organizations in California with BIPOC leadership`
-- `Healthcare nonprofits in Texas with Platinum transparency seals`
+*   `Environmental organizations in California with BIPOC leadership`
+*   `Healthcare nonprofits in Texas with Platinum transparency seals`
 
 #### Ask follow-up questions
 
-- `Tell me more about [organization name]`
-- `Are there similar organizations in other states?`
+*   `Tell me more about [organization name]`
+*   `Are there similar organizations in other states?`
 
 ## Understanding seals of transparency
 
-- **Platinum:** Most comprehensive information including impact metrics
-- **Gold:** Detailed financials and demographics
-- **Silver:** Program information and organizational details
-- **Bronze:** Basic core organization information
+*   **Platinum:** Most comprehensive information including impact metrics
+*   **Gold:** Detailed financials and demographics
+*   **Silver:** Program information and organizational details
+*   **Bronze:** Basic core organization information
 
 ## Frequently asked questions
 
@@ -109,8 +109,8 @@ Try searching by EIN, alternate names or acronyms, or broadening your search ter
 
 ## Privacy and data usage
 
-- The connector accesses publicly available nonprofit information only
-- No personal user data is shared with Candid
-- Search queries are used only to retrieve relevant results
+*   The connector accesses publicly available nonprofit information only
+*   No personal user data is shared with Candid
+*   Search queries are used only to retrieve relevant results
 
 For Candid-specific questions, email [email protected].

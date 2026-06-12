@@ -216,7 +216,7 @@
 
   ⎿  > [email protected] test
 
-     > mocha tests/\*_/_.test.js
+     > mocha tests/**/*.test.js
 
      … +10 lines (ctrl+o to expand)
 

@@ -4,9 +4,9 @@ Palo Alto Networks, the world's largest cybersecurity company, uses Claude on Go
 
 With Claude on Vertex AI, Palo Alto Networks achieved:
 
-- 20-30% increase in feature development velocity
-- Reduction in new developer onboarding time from months to weeks
-- Onboarded 2,500 developers, ramping up to 3,500 in the coming months
+*   20-30% increase in feature development velocity
+*   Reduction in new developer onboarding time from months to weeks
+*   Onboarded 2,500 developers, ramping up to 3,500 in the coming months
 
 ## Meeting the opportunity for AI-accelerated cybersecurity
 
@@ -26,15 +26,15 @@ Palo Alto Networks employs different Claude models for specific development task
 
 For new developers:
 
-- Reduces onboarding time from months to weeks
-- Enables understanding of complex codebases without extensive senior developer support
-- Facilitates faster contribution to production code
+*   Reduces onboarding time from months to weeks
+*   Enables understanding of complex codebases without extensive senior developer support
+*   Facilitates faster contribution to production code
 
 For experienced developers:
 
-- Acts as an always-available pair programmer
-- Assists with complex debugging and architectural decisions
-- Provides instant feedback on code quality and performance optimization
+*   Acts as an always-available pair programmer
+*   Assists with complex debugging and architectural decisions
+*   Provides instant feedback on code quality and performance optimization
 
 ## Measurable impact across the organization
 

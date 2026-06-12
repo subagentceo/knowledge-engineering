@@ -4,10 +4,10 @@ n8n empowers technical teams to build, orchestrate, and deploy reliable AI workf
 
 **With Claude, n8n:**
 
-- Built its AI Workflow Builder product on Claude in two months from concept to production, with the architecture since evolving into a multi-agent system with specialized agents managing different tasks
-- Developed a chat-based workflow creator and debugger that replaces the two-tab workflow of switching between an LLM and the n8n interface
-- Cuts 80% of the work out of building a workflow, leaving engineers to handle the final refinements
-- Built reliable function calling for complex multi-step workflow assembly, with Claude performing best among other models for precise instruction following 
+*   Built its AI Workflow Builder product on Claude in two months from concept to production, with the architecture since evolving into a multi-agent system with specialized agents managing different tasks
+*   Developed a chat-based workflow creator and debugger that replaces the two-tab workflow of switching between an LLM and the n8n interface
+*   Cuts 80% of the work out of building a workflow, leaving engineers to handle the final refinements
+*   Built reliable function calling for complex multi-step workflow assembly, with Claude performing best among other models for precise instruction following 
 
 ## The challenge: Getting a model to generate a precise structured format
 

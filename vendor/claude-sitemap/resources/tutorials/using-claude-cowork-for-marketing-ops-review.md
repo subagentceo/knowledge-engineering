@@ -63,14 +63,14 @@ The scheduled task from step 2 already ran the prep: the data is pulled together
 
 Ask _"How did the prep go?"_ and Claude walks you through what it pulled and what it couldn’t resolve. From there it’s a short back-and-forth to continue building the full report:
 
-- **Pick the focus:** from what it found, Claude offers a few candidates for the report’s focus. Which one fits this week is your call.
-- **Answer what it flags:** a good prep skill asks for clarification instead of guessing. In the video the segment structure changed, so Claude raises one question before it continues.
-- **Approve the outline, then expand:** check the metrics table and main points first. Once they read right, tell Claude to expand, and it fills in the detail without changing what you approved.
+*   **Pick the focus:** from what it found, Claude offers a few candidates for the report’s focus. Which one fits this week is your call.
+*   **Answer what it flags:** a good prep skill asks for clarification instead of guessing. In the video the segment structure changed, so Claude raises one question before it continues.
+*   **Approve the outline, then expand:** check the metrics table and main points first. Once they read right, tell Claude to expand, and it fills in the detail without changing what you approved.
 
 From there, you can tell Claude to turn the weekly review into any format you need, or finish the work in your other tools:
 
-- **Any format:** the finalized doc, a one-slide summary for leadership, or whatever cut you need
-- **Finished in your tools:** the summary message posted to your team’s channel, the follow-ups created as tasks in your tracker
+*   **Any format:** the finalized doc, a one-slide summary for leadership, or whatever cut you need
+*   **Finished in your tools:** the summary message posted to your team’s channel, the follow-ups created as tasks in your tracker
 
 Anything that sends or shares waits for your yes.
 
@@ -96,10 +96,10 @@ Because a skill is a plain-text file in a folder, you can share it. Anyone on th
 
 This workflow fits any recurring report where the prep is the same every cycle:
 
-- **Sales pipeline review** — pipeline by stage, slipped deals, weekly delta
-- **Financial close** — variance to plan, open items, the explainers
-- **Product metrics rollup** — usage by segment, feature adoption, what changed
-- **Board prep** — the same numbers, one altitude up
+*   **Sales pipeline review** — pipeline by stage, slipped deals, weekly delta
+*   **Financial close** — variance to plan, open items, the explainers
+*   **Product metrics rollup** — usage by segment, feature adoption, what changed
+*   **Board prep** — the same numbers, one altitude up
 
 The setup is the same every time:
 
@@ -112,8 +112,8 @@ When you arrive, the data is there and the candidates are named. The focus call 
 
 ## Learn more
 
-- Claude Cowork 101. The full Cowork course to go deeper into the product.
-- Customize Cowork. How to set up connectors, skills, and instructions.
-- AI Fluency: Framework and Foundations. The full AI fluency course for effective, efficient, and ethical AI use.
-- The 4 Ds of AI Fluency. The practical skills and mental models behind building AI fluency.
-- Use Cowork safely. Access, approvals, and what Claude can see.
+*   Claude Cowork 101. The full Cowork course to go deeper into the product.
+*   Customize Cowork. How to set up connectors, skills, and instructions.
+*   AI Fluency: Framework and Foundations. The full AI fluency course for effective, efficient, and ethical AI use.
+*   The 4 Ds of AI Fluency. The practical skills and mental models behind building AI fluency.
+*   Use Cowork safely. Access, approvals, and what Claude can see.

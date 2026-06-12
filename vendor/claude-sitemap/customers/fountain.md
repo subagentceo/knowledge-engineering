@@ -4,11 +4,11 @@ Fountain, a frontline workforce management platform, has partnered with Anthropi
 
 With Claude, Fountain:
 
-- 50% reduction in manual screening effort
-- 30–40% time savings on onboarding workflows
-- 2x increase in candidate conversion rates with AI-enabled workflows
-- A decrease in HR support tickets by 30% for customers
-- Helped one major logistics customer fully staff a new fulfillment center in under 72 hours
+*   50% reduction in manual screening effort
+*   30–40% time savings on onboarding workflows
+*   2x increase in candidate conversion rates with AI-enabled workflows
+*   A decrease in HR support tickets by 30% for customers
+*   Helped one major logistics customer fully staff a new fulfillment center in under 72 hours
 
 ## Solving the frontline workforce challenge
 

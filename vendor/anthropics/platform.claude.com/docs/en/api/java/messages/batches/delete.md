@@ -13,6 +13,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchDeleteParams params`
+
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -20,6 +21,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class DeletedMessageBatch:`
+
   - `String id`
 
     ID of the Message Batch.
@@ -29,6 +31,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
     - `MESSAGE_BATCH_DELETED("message_batch_deleted")`
 
 ### Example

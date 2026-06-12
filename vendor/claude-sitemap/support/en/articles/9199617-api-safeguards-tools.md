@@ -5,6 +5,7 @@ Whether you are just starting the process of setting up safeguards for your API 
 - Store IDs linked with each API call, so if you need to pinpoint specific violative content you have the ability to find it in your systems.
 
 - Consider assigning IDs to users, which can help you track specific individuals who are violating Anthropic’s AUP, allowing for more targeted action in cases of misuse.
+
   - The choice to [pass IDs to Anthropic through the API](https://docs.anthropic.com/claude/reference/messages_post#:~:text=models%20for%20details.-,metadata,object,-An%20object%20describing) is up to you. But, if provided, we can more precisely pinpoint violations. To help protect end-users' privacy, any IDs passed should be cryptographically hashed.
 
 - Consider requiring customer to sign-up for an account on your platform before utilizing Claude
@@ -18,9 +19,11 @@ Whether you are just starting the process of setting up safeguards for your API 
 - Create customization frameworks that restrict end-user interactions with Claude to a limited set of prompts or only allow Claude to review a specific knowledge corpus that you already have, which will decrease the ability of users to engage in violative behavior.
 
 - Enable additional safety filters - free real-time moderation tooling built by Anthropic for helping detect potentially harmful prompts and managing real-time actions to reduce harm
+
   - For more information about how to enable our additional safety filters, please reach out to <usersafety@anthropic.com>.
 
-- _For Bedrock Customers:_
+- *For Bedrock Customers:*
+
   - Activate your private S3 bucket in order to store prompts and completions for your own evaluation
 
 **Advanced Safeguards**

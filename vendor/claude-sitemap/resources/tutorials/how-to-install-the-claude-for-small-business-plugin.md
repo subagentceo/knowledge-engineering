@@ -16,8 +16,8 @@ After installing the plugin, you'll have all of the skills listed below availabl
 
 #### To run a skill:
 
-- Type `/` in the Cowork chat bar and pick it from the list, or
-- Describe the job in plain English and Claude picks the skill that fits.
+*   Type `/` in the Cowork chat bar and pick it from the list, or
+*   Describe the job in plain English and Claude picks the skill that fits.
 
 Either way, Claude follows the skill's instructions for that task. To learn more, see What are skills and Use plugins in Claude Cowork.
 
@@ -247,46 +247,46 @@ Pick something that's on your list this week and describe it the way you'd descr
 
 ### Money and finance
 
-- _What does cash look like for the next 60 days?_
-- _Which invoices are open and which ones should I follow up on?_
-- _Help me close out April and reconcile the books._
-- _What are my margins on the catering side of the business?_
-- _Get my Q2 estimated taxes ready for my accountant._
+*   _What does cash look like for the next 60 days?_
+*   _Which invoices are open and which ones should I follow up on?_
+*   _Help me close out April and reconcile the books._
+*   _What are my margins on the catering side of the business?_
+*   _Get my Q2 estimated taxes ready for my accountant._
 
 ### Sales and marketing
 
-- _Who should I call first today?_
-- _What's selling and what should I push this month?_
-- _June is usually a quieter month — help me plan a promo to fill it._
+*   _Who should I call first today?_
+*   _What's selling and what should I push this month?_
+*   _June is usually a quieter month — help me plan a promo to fill it._
 
 ### Customers and operations
 
-- _A customer wrote about a late shipment. Help me draft a reply._
-- _What are customers saying lately, and what should I act on?_
-- _Tidy up the CRM and tell me what's worth a fresh look._
-- _Walk me through this NDA before I sign it._
+*   _A customer wrote about a late shipment. Help me draft a reply._
+*   _What are customers saying lately, and what should I act on?_
+*   _Tidy up the CRM and tell me what's worth a fresh look._
+*   _Walk me through this NDA before I sign it._
 
 ### Business intelligence and hiring
 
-- _Give me my Monday brief._
-- _How'd we do this week?_
-- _Write the QBR narrative for last quarter._
-- _Help me hire a part-time bookkeeper — write the post and the interview guide._
+*   _Give me my Monday brief._
+*   _How'd we do this week?_
+*   _Write the QBR narrative for last quarter._
+*   _Help me hire a part-time bookkeeper — write the post and the interview guide._
 
 For a step-by-step walkthrough of four of these — payroll, the month-end close, the Monday brief, and a campaign — see Using Claude for your small business.
 
 ## Things to note
 
-- **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
-- **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.
-- **Anthropic doesn't train Claude on your business data** — and the permissions you've already set in your tools still apply. If an employee can't see something in QuickBooks today, they can't see it through Claude. The full policy is in the Trust Center.
-- **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
-- **Some features depend on your plan in a connected tool** — generating designs or staging sends may need a higher tier in that tool. When something isn't available, the skill tells you and offers a workaround.
+*   **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
+*   **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.
+*   **Anthropic doesn't train Claude on your business data** — and the permissions you've already set in your tools still apply. If an employee can't see something in QuickBooks today, they can't see it through Claude. The full policy is in the Trust Center.
+*   **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
+*   **Some features depend on your plan in a connected tool** — generating designs or staging sends may need a higher tier in that tool. When something isn't available, the skill tells you and offers a workaround.
 
 ## Learn more
 
-- Introducing Claude for Small Business — the launch announcement
-- Using Claude for your small business — four workflows the plugin runs end to end
-- How to customize plugins in Cowork — make the skills run from your context
-- What are skills — how skills work in Claude
-- AI Fluency for Small Business — a free course on running a small business with AI
+*   Introducing Claude for Small Business — the launch announcement
+*   Using Claude for your small business — four workflows the plugin runs end to end
+*   How to customize plugins in Cowork — make the skills run from your context
+*   What are skills — how skills work in Claude
+*   AI Fluency for Small Business — a free course on running a small business with AI

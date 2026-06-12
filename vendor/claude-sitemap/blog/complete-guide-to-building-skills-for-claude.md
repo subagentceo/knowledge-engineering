@@ -8,18 +8,18 @@ We put together this guide to fill that gap. It covers everything from technical
 
 **What you'll learn:**
 
-- Technical requirements and best practices for skill structure
-- Patterns for standalone skills and MCP-enhanced workflows
-- Patterns that have worked across different use cases
-- How to test, iterate, and distribute your skills
+*   Technical requirements and best practices for skill structure
+*   Patterns for standalone skills and MCP-enhanced workflows
+*   Patterns that have worked across different use cases
+*   How to test, iterate, and distribute your skills
 
 If you know the top 2-3 workflows you want to automate, expect about 15-30 minutes to build and test your first working skill using the skill-creator.
 
 **Who this is for:**
 
-- Developers who want Claude to follow specific workflows consistently
-- MCP connector builders adding workflow knowledge to their integrations
-- Power users automating repeatable tasks
-- Teams looking to standardize how Claude works across their organization
+*   Developers who want Claude to follow specific workflows consistently
+*   MCP connector builders adding workflow knowledge to their integrations
+*   Power users automating repeatable tasks
+*   Teams looking to standardize how Claude works across their organization
 
 Download the guide here.

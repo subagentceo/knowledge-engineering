@@ -22,11 +22,11 @@ Ask Claude to pull together meeting notes from last week, identify action items 
 
 Using Research with Google Workspace:
 
-- **Marketing teams** can plan for product launches faster by having Claude gather competitive intelligence from the web while pulling relevant product specs, positioning, and strategy documents to create comprehensive launch plans.
-- **Sales teams** can prepare for client meetings more efficiently by having Claude search through correspondence history, calendar invitations with meeting notes, and the latest updates about the prospect's company to create detailed briefing documents.
-- **Engineers** can create technical solutions that integrate with existing systems by having Claude analyze design documents and system specifications alongside external API documentation, implementation patterns, and security best practices.
-- **University students** can learn new topics by working with Claude to analyze learning materials and notes from past courses, while searching for the latest academic research, interactive learning resources, and expert explanations to create personalized study plans.
-- **Parents** can streamline personal organization by having Claude scan emails and calendar events to highlight important commitments, while searching the web for updated school calendars, local community events, and weather forecasts that might affect family plans.
+*   **Marketing teams** can plan for product launches faster by having Claude gather competitive intelligence from the web while pulling relevant product specs, positioning, and strategy documents to create comprehensive launch plans.
+*   **Sales teams** can prepare for client meetings more efficiently by having Claude search through correspondence history, calendar invitations with meeting notes, and the latest updates about the prospect's company to create detailed briefing documents.
+*   **Engineers** can create technical solutions that integrate with existing systems by having Claude analyze design documents and system specifications alongside external API documentation, implementation patterns, and security best practices.
+*   **University students** can learn new topics by working with Claude to analyze learning materials and notes from past courses, while searching for the latest academic research, interactive learning resources, and expert explanations to create personalized study plans.
+*   **Parents** can streamline personal organization by having Claude scan emails and calendar events to highlight important commitments, while searching the web for updated school calendars, local community events, and weather forecasts that might affect family plans.
 
 ### Google Docs cataloging
 

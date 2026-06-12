@@ -4,10 +4,10 @@ Aura Intelligence is an AI-driven platform for Organizational Decision Intellige
 
 With Claude in Amazon Bedrock, Aura:
 
-- Achieved 94% overall classification accuracy, with 100% accuracy in tech, finance, and medical sectors
-- Reduced title classification time from 2-3 months to a 30-minute automated process
-- Lowered unclassified data rates to under 8% across industries
-- Processes and analyzes over 200 million titles and industry pairings across multiple languages
+*   Achieved 94% overall classification accuracy, with 100% accuracy in tech, finance, and medical sectors
+*   Reduced title classification time from 2-3 months to a 30-minute automated process
+*   Lowered unclassified data rates to under 8% across industries
+*   Processes and analyzes over 200 million titles and industry pairings across multiple languages
 
 ## Meeting the workforce analytics challenge
 
@@ -31,12 +31,12 @@ The integration also optimized their technical operations through prompt caching
 
 Aura has transformed their ML pipeline from a traditional structure requiring multiple specialists to an efficient system where a single engineer can manage the entire process. Their solution now handles:
 
-- Title classification across industries with context preservation
-- Automated report generation
-- Anomaly detection in workforce trends
-- Sentiment analysis of company reviews
-- Multilingual data processing and translation
-- Real-time analysis of hiring and exit patterns
+*   Title classification across industries with context preservation
+*   Automated report generation
+*   Anomaly detection in workforce trends
+*   Sentiment analysis of company reviews
+*   Multilingual data processing and translation
+*   Real-time analysis of hiring and exit patterns
 
 ## Transforming decision making with AI-powered insights
 

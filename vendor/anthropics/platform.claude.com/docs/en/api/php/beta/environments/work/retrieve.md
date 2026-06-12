@@ -21,9 +21,10 @@ Retrieve detailed information about a specific work item.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 

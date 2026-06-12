@@ -4,11 +4,11 @@ StudyFetch uses Claude to transform educational content into personalized learni
 
 With Claude, StudyFetch achieved:
 
-- Significant improvement in response quality, shown through higher user satisfaction ratings after upgrading to Claude Haiku
-- 20+ language support enabling global learning
-- Processing and analysis of thousands of lectures and course materials daily
-- Rapid implementation of new Claude features, typically within 48 hours of release
-- Scale to serve millions of students globally
+*   Significant improvement in response quality, shown through higher user satisfaction ratings after upgrading to Claude Haiku
+*   20+ language support enabling global learning
+*   Processing and analysis of thousands of lectures and course materials daily
+*   Rapid implementation of new Claude features, typically within 48 hours of release
+*   Scale to serve millions of students globally
 
 ## Breaking down barriers to effective learning
 
@@ -30,21 +30,21 @@ StudyFetch built a comprehensive learning platform powered by Claude that suppor
 
 Content Processing:
 
-- Analyzes and summarizes lectures, textbooks, and course materials
-- Generates comprehensive study guides and notes
-- Creates personalized practice tests based on course content
+*   Analyzes and summarizes lectures, textbooks, and course materials
+*   Generates comprehensive study guides and notes
+*   Creates personalized practice tests based on course content
 
 Interactive Learning:
 
-- Powers Spark.E, their AI tutor, providing 24/7 learning support
-- Enables natural-language questions about course material
-- Offers tailored explanations to individual learning styles
+*   Powers Spark.E, their AI tutor, providing 24/7 learning support
+*   Enables natural-language questions about course material
+*   Offers tailored explanations to individual learning styles
 
 Study Tools:
 
-- Generates spaced-repetition flashcards for optimal retention
-- Creates practice questions with detailed explanations
-- Provides real-time feedback on student responses
+*   Generates spaced-repetition flashcards for optimal retention
+*   Creates practice questions with detailed explanations
+*   Provides real-time feedback on student responses
 
 ![StudyFetch product screen 1](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf04f9293bd813dae5cb4_93e804304a3b0e301d168f515ff09b829b9ea683-1920x1006.png)
 

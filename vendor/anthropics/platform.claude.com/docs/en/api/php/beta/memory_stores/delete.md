@@ -17,6 +17,7 @@ Delete a memory store
 ### Returns
 
 - `BetaManagedAgentsDeletedMemoryStore`
+
   - `string id`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.

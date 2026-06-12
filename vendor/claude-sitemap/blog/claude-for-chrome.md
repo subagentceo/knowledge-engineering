@@ -54,8 +54,8 @@ As we’ll explain in the next section, we've already implemented several defens
 
 The first line of defense against prompt injection attacks is _permissions_. Users maintain control over what Claude in Chrome can access and do:
 
-- **Site-level permissions**: Users can grant or revoke Claude's access to specific websites at any time in the Settings.
-- **Action confirmations**: Claude asks users before taking high-risk actions like publishing, purchasing, or sharing personal data. Even when users opt into our experimental “autonomous mode,” Claude still maintains certain safeguards for highly sensitive actions (Note: all red-teaming and safety evaluations were conducted in autonomous mode).
+*   **Site-level permissions**: Users can grant or revoke Claude's access to specific websites at any time in the Settings.
+*   **Action confirmations**: Claude asks users before taking high-risk actions like publishing, purchasing, or sharing personal data. Even when users opt into our experimental “autonomous mode,” Claude still maintains certain safeguards for highly sensitive actions (Note: all red-teaming and safety evaluations were conducted in autonomous mode).
 
 We’ve also built additional safeguards in line with Anthropic’s trustworthy agents principles. First, we’ve improved our system prompts—the general instructions Claude receives before specific instructions from users—to direct Claude on how to handle sensitive data and respond to requests to take sensitive actions.
 
@@ -79,7 +79,7 @@ We'll use insights from the pilot to refine our prompt injection classifiers and
 
 For the pilot, we’re looking for trusted testers who are comfortable with Claude taking actions in Chrome on their behalf, and who don’t have setups that are safety-critical or otherwise sensitive.
 
-**If you’d like to take part, you can join the Claude in Chrome research preview waitlist at** **claude.ai/chrome\*\***.\*\* Once you have access, you can install the extension from the Chrome Web Store and authenticate with your Claude credentials.
+**If you’d like to take part, you can join the Claude in Chrome research preview waitlist at** **claude.ai/chrome****.** Once you have access, you can install the extension from the Chrome Web Store and authenticate with your Claude credentials.
 
 We recommend starting with trusted sites—always be mindful of the data that’s visible to Claude—and avoiding use of Claude in Chrome for sites that involve financial, legal, medical, or other types of sensitive information. You can find a detailed safety guide in our Help Center.
 

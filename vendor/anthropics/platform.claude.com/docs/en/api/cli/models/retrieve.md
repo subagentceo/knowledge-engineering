@@ -21,6 +21,7 @@ The Models API response can be used to determine information about a specific mo
 ### Returns
 
 - `model_info: object { id, capabilities, created_at, 4 more }`
+
   - `id: string`
 
     Unique model identifier.
@@ -28,9 +29,11 @@ The Models API response can be used to determine information about a specific mo
   - `capabilities: object { batch, citations, code_execution, 6 more }`
 
     Model capability information.
+
     - `batch: object { supported }`
 
       Whether the model supports the Batch API.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -38,6 +41,7 @@ The Models API response can be used to determine information about a specific mo
     - `citations: object { supported }`
 
       Whether the model supports citation generation.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -45,6 +49,7 @@ The Models API response can be used to determine information about a specific mo
     - `code_execution: object { supported }`
 
       Whether the model supports code execution tools.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -52,9 +57,11 @@ The Models API response can be used to determine information about a specific mo
     - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: object { supported }`
 
         Indicates whether a capability is supported.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -62,6 +69,7 @@ The Models API response can be used to determine information about a specific mo
       - `clear_tool_uses_20250919: object { supported }`
 
         Indicates whether a capability is supported.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -69,6 +77,7 @@ The Models API response can be used to determine information about a specific mo
       - `compact_20260112: object { supported }`
 
         Indicates whether a capability is supported.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -80,9 +89,11 @@ The Models API response can be used to determine information about a specific mo
     - `effort: object { high, low, max, 3 more }`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: object { supported }`
 
         Whether the model supports high effort level.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -90,6 +101,7 @@ The Models API response can be used to determine information about a specific mo
       - `low: object { supported }`
 
         Whether the model supports low effort level.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -97,6 +109,7 @@ The Models API response can be used to determine information about a specific mo
       - `max: object { supported }`
 
         Whether the model supports max effort level.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -104,6 +117,7 @@ The Models API response can be used to determine information about a specific mo
       - `medium: object { supported }`
 
         Whether the model supports medium effort level.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -115,6 +129,7 @@ The Models API response can be used to determine information about a specific mo
       - `xhigh: object { supported }`
 
         Indicates whether a capability is supported.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -122,6 +137,7 @@ The Models API response can be used to determine information about a specific mo
     - `image_input: object { supported }`
 
       Whether the model accepts image content blocks.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -129,6 +145,7 @@ The Models API response can be used to determine information about a specific mo
     - `pdf_input: object { supported }`
 
       Whether the model accepts PDF content blocks.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -136,6 +153,7 @@ The Models API response can be used to determine information about a specific mo
     - `structured_outputs: object { supported }`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -143,6 +161,7 @@ The Models API response can be used to determine information about a specific mo
     - `thinking: object { supported, types }`
 
       Thinking capability and supported type configurations.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -150,9 +169,11 @@ The Models API response can be used to determine information about a specific mo
       - `types: object { adaptive, enabled }`
 
         Supported thinking type configurations.
+
         - `adaptive: object { supported }`
 
           Whether the model supports thinking with type 'adaptive' (auto).
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -160,6 +181,7 @@ The Models API response can be used to determine information about a specific mo
         - `enabled: object { supported }`
 
           Whether the model supports thinking with type 'enabled'.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
