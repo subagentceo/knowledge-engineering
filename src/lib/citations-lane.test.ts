@@ -57,14 +57,16 @@ assert.ok(live.length > 5000);
 assert.ok(corpus(REPO_ROOT) === live); // memoized
 assert.ok(searchCitations(live, "economic research", 5).length > 0);
 
-// B13 — AccessLogger appends one row per current memory, hermetic fake pg
+// B13/KAN-13 — AccessLogger appends one fact row per current memory plus
+// one raw events_memory_access row per requested id, hermetic fake pg
 {
   const { AccessLogger } = await import("./memory-access-log.js");
-  const calls: unknown[][] = [];
+  const calls: Array<{ text: string; values: unknown[] }> = [];
   const logger = new AccessLogger(
     {
-      async query(_text: string, values: unknown[] = []) {
-        calls.push(values);
+      async query(text: string, values: unknown[] = []) {
+        calls.push({ text, values });
+        if (text.includes("events_memory_access")) return { rows: [] };
         const ids = values[2] as string[];
         return { rows: ids.filter((i) => i !== "missing").map(() => ({ memory_sk: 1 })) };
       },
@@ -75,8 +77,12 @@ assert.ok(searchCitations(live, "economic research", 5).length > 0);
   assert.equal(calls.length, 0);
   const n = await logger.record(["anthropic-sitemap:research:clio", "missing"]);
   assert.equal(n, 1);
-  assert.equal(calls[0]?.[0], "test-agent");
-  assert.match(String(calls[0]?.[1]), /^202\d{5}$/);
+  assert.equal(calls[0]?.values[0], "test-agent");
+  assert.match(String(calls[0]?.values[1]), /^202\d{5}$/);
+  // raw event stream gets every requested id, matched or not
+  assert.equal(calls.length, 2);
+  assert.ok(calls[1]?.text.includes("dw.events_memory_access"));
+  assert.deepEqual(calls[1]?.values, ["test-agent", ["anthropic-sitemap:research:clio", "missing"]]);
 }
 
 // B15 — BM25 ranking over the live corpus; id-shaped queries fall back

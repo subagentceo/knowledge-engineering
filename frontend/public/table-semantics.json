@@ -383,6 +383,61 @@
     "apiVersion": "anthropic.com/v1",
     "kind": "AlloyDbTableSemantics",
     "metadata": {
+      "name": "events_memory_access",
+      "labels": {
+        "lane": "citation-memory",
+        "source": "src/lib/memory-access-log.ts"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Raw append-only stream of research-agent memory reads, the events_ counterpart of fact_memory_access (which stays the dreams job's aggregated input). One row per read regardless of whether a current dim_memory row matched — unmatched reads are the demand signal for memories that do not exist yet.",
+      "columns": [
+        {
+          "name": "csl_id",
+          "sql_type": "text",
+          "description": "requested citation id (memory natural key source)",
+          "kind": "dimension"
+        },
+        {
+          "name": "agent_id",
+          "sql_type": "text",
+          "description": "reading agent (session or coworker id)",
+          "kind": "dimension"
+        },
+        {
+          "name": "matched",
+          "sql_type": "boolean",
+          "description": "whether a current dim_memory row existed at read time",
+          "kind": "dimension"
+        },
+        {
+          "name": "occurred_at",
+          "sql_type": "timestamptz",
+          "description": "read wall-clock time",
+          "kind": "time_dimension"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append at read time; never mutated",
+      "data_start_date": "2026-06-12",
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
+    },
+    "table_kind": "events",
+    "grain": "one row per memory read event (csl_id × agent_id × occurred_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
       "name": "fact_cache_hits",
       "labels": {
         "lane": "semantic-cache",
