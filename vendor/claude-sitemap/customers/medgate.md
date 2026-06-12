@@ -4,10 +4,10 @@ Medgate, one of Europe's largest telemedicine providers, connects 2.5 million pa
 
 ## With Claude Code during the pilot phase, Medgate achieved:
 
-- Up to 80% faster test case development
-- 50-99% reduction in delivery time for some development features
-- 90% faster bug resolution through automated root cause analysis
-- 50% improvement in code quality with AI-enhanced PR reviews
+*   Up to 80% faster test case development
+*   50-99% reduction in delivery time for some development features
+*   90% faster bug resolution through automated root cause analysis
+*   50% improvement in code quality with AI-enhanced PR reviews
 
 ## The challenge
 

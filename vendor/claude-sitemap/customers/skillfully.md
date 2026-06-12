@@ -4,11 +4,11 @@ Skillfully uses Claude to transform traditional hiring, complementing convention
 
 With Claude, Skillfully:
 
-- Generates a large volume of AI-powered job simulations weekly without requiring complex model fine-tuning
-- Partners with leading employers like Ernst & Young and Athena to transform their hiring practices
-- Opens doors for historically underrepresented talent through partnerships with CUNY, America Needs You, and American Student Assistance
-- Identifies candidates on the basis of demonstrated skills are 10x more likely to convert to full time hires than conventional resume-driven methods
-- Helps employers on average realize a 50% reduction in hiring cycle time, and a 70% decrease in the total cost to hire
+*   Generates a large volume of AI-powered job simulations weekly without requiring complex model fine-tuning
+*   Partners with leading employers like Ernst & Young and Athena to transform their hiring practices
+*   Opens doors for historically underrepresented talent through partnerships with CUNY, America Needs You, and American Student Assistance
+*   Identifies candidates on the basis of demonstrated skills are 10x more likely to convert to full time hires than conventional resume-driven methods
+*   Helps employers on average realize a 50% reduction in hiring cycle time, and a 70% decrease in the total cost to hire
 
 ## The broken state of resume-based hiring
 

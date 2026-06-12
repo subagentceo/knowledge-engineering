@@ -934,9 +934,9 @@ Apply
 
 ## Finance
 
-29 Open Roles
+28 Open Roles
 
-29 Open Roles
+28 Open Roles
 
 Analytics, Finance & Strategy
 
@@ -971,12 +971,6 @@ Apply
 Finance & Strategy, Deal Operations - EMEA
 
 Dublin, IE
-
-Apply
-
-Finance & Strategy, EMEA GTM (Dublin or London location)
-
-Dublin, IE; London, UK
 
 Apply
 
@@ -1114,9 +1108,9 @@ Apply
 
 ## Legal
 
-17 Open Roles
+16 Open Roles
 
-17 Open Roles
+16 Open Roles
 
 AI Compliance Officer
 
@@ -1163,12 +1157,6 @@ Apply
 Contracts Manager
 
 San Francisco, CA | New York City, NY
-
-Apply
-
-Contracts Manager, Public Sector
-
-San Francisco, CA | New York City, NY | Washington, DC
 
 Apply
 
@@ -1222,9 +1210,9 @@ Apply
 
 ## Marketing & Brand
 
-16 Open Roles
+17 Open Roles
 
-16 Open Roles
+17 Open Roles
 
 Art Director, Enterprise
 
@@ -1250,7 +1238,7 @@ San Francisco, CA
 
 Apply
 
-Field Marketing Lead, Industries - EMEA
+Field Marketing Lead, EMEA
 
 London, UK
 
@@ -1322,6 +1310,12 @@ San Francisco, CA | New York City, NY
 
 Apply
 
+Web Producer, CMS Publishing
+
+San Francisco, CA | New York City, NY
+
+Apply
+
 ## People
 
 5 Open Roles
@@ -1360,13 +1354,19 @@ Apply
 
 ## Product Management, Support, & Operations
 
-14 Open Roles
+15 Open Roles
 
-14 Open Roles
+15 Open Roles
 
 Product Manager, Safeguards Rare Harms
 
 San Francisco, CA
+
+Apply
+
+Product Management, Human Data Platform
+
+San Francisco, CA | New York City, NY
 
 Apply
 
@@ -1600,9 +1600,9 @@ Apply
 
 ## Sales
 
-68 Open Roles
+67 Open Roles
 
-68 Open Roles
+67 Open Roles
 
 Account Executive - ASEAN
 
@@ -1691,12 +1691,6 @@ Apply
 Customer Success Programs Manager
 
 Boston, MA; New York City, NY; San Francisco, CA; Seattle, WA; Washington, DC
-
-Apply
-
-Emerging Account Executive, AI Native
-
-New York City, NY; San Francisco, CA
 
 Apply
 
@@ -1862,12 +1856,6 @@ San Francisco, CA
 
 Apply
 
-Head of Partner Success
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
 Head of Programmatic Customer Success
 
 San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
@@ -1917,6 +1905,12 @@ New York City, NY; San Francisco, CA | New York City, NY
 Apply
 
 Manager, Sales Development (Startups & Commercial)
+
+San Francisco, CA | New York City, NY
+
+Apply
+
+Manager, Startup Partnerships
 
 San Francisco, CA | New York City, NY
 
@@ -2024,12 +2018,6 @@ San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
-Enterprise Threat Intelligence Lead, Global Safety, Intelligence & Security
-
-San Francisco, CA | Seattle, WA | New York City, NY | Washington, DC
-
-Apply
-
 Incident Manager - Detection & Response
 
 New York City, NY; San Francisco, CA | New York City, NY
@@ -2051,6 +2039,12 @@ Apply
 IT Support Engineer
 
 Sydney, Australia
+
+Apply
+
+IT Systems Engineer, Client Platform Engineer
+
+Boston, MA; New York City, NY; Remote-Friendly (Travel-Required) | Washington, DC
 
 Apply
 
@@ -2122,9 +2116,9 @@ Apply
 
 ## Software Engineering - Infrastructure
 
-28 Open Roles
+29 Open Roles
 
-28 Open Roles
+29 Open Roles
 
 Engineering Manager - Privacy Infrastructure
 
@@ -2288,6 +2282,12 @@ London, UK
 
 Apply
 
+Staff+ Software Engineer, Inference Runtime
+
+Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
+
+Apply
+
 Staff+ Software Engineer, Privacy
 
 San Francisco, CA | New York City, NY | Seattle, WA
@@ -2308,9 +2308,9 @@ Apply
 
 ## Technical Program Management
 
-15 Open Roles
+16 Open Roles
 
-15 Open Roles
+16 Open Roles
 
 Field Services Engineer
 
@@ -2325,6 +2325,12 @@ New York City, NY; San Francisco, CA | New York City, NY; Seattle, WA
 Apply
 
 Technical Program Management, Alignment
+
+San Francisco, CA | New York City, NY
+
+Apply
+
+Technical Program Manager, API Platform
 
 San Francisco, CA | New York City, NY
 

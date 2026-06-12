@@ -38,16 +38,16 @@ Thorough analysis can identify root causes, but modern deployment means dozens o
 
 Developers of all skill levels can integrate AI coding assistants like Claude into their debugging workflows for immediate error analysis. You can collaborate with Claude to debug in two different ways:
 
-- **Claude.ai**: Free web interface. Paste stack traces, describe bugs, get quick analysis with specific hypotheses and investigation paths. Any browser, desktop, or mobile.
-- **Claude Code**: Command line tool for agentic coding. Unlike traditional assistants that wait for your next instruction, Claude Code autonomously works through multi-step debugging workflows reading error traces, analyzing code across files, running diagnostic tests, and implementing fixes while you focus on other tasks. 
+*   **Claude.ai**: Free web interface. Paste stack traces, describe bugs, get quick analysis with specific hypotheses and investigation paths. Any browser, desktop, or mobile.
+*   **Claude Code**: Command line tool for agentic coding. Unlike traditional assistants that wait for your next instruction, Claude Code autonomously works through multi-step debugging workflows reading error traces, analyzing code across files, running diagnostic tests, and implementing fixes while you focus on other tasks. 
 
 ## Start with Claude.ai
 
 Before diving deep into your codebase, use Claude.ai to quickly analyze error patterns and generate investigation hypotheses. The web interface lets you paste stack traces, describe symptoms, and get immediate feedback. This first-pass analysis helps you understand what to look for before committing to time-intensive debugging approaches. Common debugging questions developers ask Claude:
 
-- "Here's a test failure from CI. What could be causing it?"
-- "Why might this Redux selector return undefined sometimes?"
-- "Compare our debounce and throttle helpers—which is safer?"
+*   "Here's a test failure from CI. What could be causing it?"
+*   "Why might this Redux selector return undefined sometimes?"
+*   "Compare our debounce and throttle helpers—which is safer?"
 
 These questions help you quickly validate theories, identify blind spots in your investigation, and prioritize which debugging approaches to try first. 
 
@@ -93,9 +93,9 @@ Some bugs require structured reasoning rather than direct debugging.
 
 Try:
 
-- "Think through concurrency issues if two users trigger checkout simultaneously"
-- "What breaks if we shorten token expiry from 24 hours to 15 minutes?"
-- "Help me reason through a safe refactor for our session handler"
+*   "Think through concurrency issues if two users trigger checkout simultaneously"
+*   "What breaks if we shorten token expiry from 24 hours to 15 minutes?"
+*   "Help me reason through a safe refactor for our session handler"
 
 Claude breaks down problems systematically, identifies race conditions, and suggests mitigation strategies.
 
@@ -113,9 +113,9 @@ Every edit is local, permissioned, and reversible. By default, Claude Code reque
 
 Claude Code generates and runs tests verifying the bug is resolved and surrounding behavior remains stable:
 
-- Write a test that reproduces this bug
-- Generate integration tests for this fix
-- Run the test suite and show me what changed
+*   Write a test that reproduces this bug
+*   Generate integration tests for this fix
+*   Run the test suite and show me what changed
 
 ### Ship with automated workflows
 
@@ -139,9 +139,9 @@ Ramp uses Claude Code to accelerate delivery across hundreds of services.
 
 Results:
 
-- **1M+ lines of AI-suggested code** in 30 days
-- **80% reduction in incident triage time**
-- **50% weekly active usage** across engineering teams
+*   **1M+ lines of AI-suggested code** in 30 days
+*   **80% reduction in incident triage time**
+*   **50% weekly active usage** across engineering teams
 
 "When we discovered Claude Code, our teams immediately recognized its potential and integrated it into our workflows," says Austin Ray, Senior Software Engineer.
 

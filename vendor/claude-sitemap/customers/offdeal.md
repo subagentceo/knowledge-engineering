@@ -4,10 +4,10 @@ OffDeal is an AI-native investment bank that helps founder-led businesses sell t
 
 ## With Claude, OffDeal:
 
-- Increased eval accuracy from 25% to 85% after switching to the Claude Agent SDK and iterating on MCP design and prompting
-- Dropped failed API calls from context overflow to zero overnight
-- Consolidated 12+ independent agentic workflows into a single general-purpose agent, Archie
-- Achieved 5 to 8 concurrent deals managed by each banker, with AI handling work across every phase of the deal lifecycle
-- Built a buyer sourcing agent that runs autonomously for up to 4 hours, researching potential acquirers across 10 different sourcing methods
-- Equipped each banker to meet 2 to 3 new potential clients per day, supported by AI-generated prep and materials 
-- Closed 8 deals totaling $91M in transaction value in the firm’s first year, with a team of two bankers
+*   Increased eval accuracy from 25% to 85% after switching to the Claude Agent SDK and iterating on MCP design and prompting
+*   Dropped failed API calls from context overflow to zero overnight
+*   Consolidated 12+ independent agentic workflows into a single general-purpose agent, Archie
+*   Achieved 5 to 8 concurrent deals managed by each banker, with AI handling work across every phase of the deal lifecycle
+*   Built a buyer sourcing agent that runs autonomously for up to 4 hours, researching potential acquirers across 10 different sourcing methods
+*   Equipped each banker to meet 2 to 3 new potential clients per day, supported by AI-generated prep and materials 
+*   Closed 8 deals totaling $91M in transaction value in the firm’s first year, with a team of two bankers

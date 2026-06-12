@@ -4,15 +4,15 @@ Novo Nordisk, a global pharmaceutical company and maker of Ozempic, develops inn
 
 **With Claude, Novo Nordisk:**
 
-- Automates clinical study report generation across the organization
-- Slashed patient documentation creation from months to minutes
-- Enabled even non-technical team members to prototype features 
-- Expanded AI-powered documentation beyond clinical trials to device testing and patient materials
+*   Automates clinical study report generation across the organization
+*   Slashed patient documentation creation from months to minutes
+*   Enabled even non-technical team members to prototype features 
+*   Expanded AI-powered documentation beyond clinical trials to device testing and patient materials
 
 ## The problem
 
-For pharmaceutical companies, the path from drug discovery to patient access is paved with paperwork. It’s a highly regulated industry, so each new treatment Novo Nordisk develops comes with its own mountain of required documentation: Clinical study reports that run hundreds of pages. Highly technical device verification protocols. Guides that explain complex treatments in consumer-friendly ways. Producing the documentation for a clinical trial consumed so much time and so many resources, even with help from external agencies, that it was slowing down the organization’s ability to bring new medicines to market.
-
+For pharmaceutical companies, the path from drug discovery to patient access is paved with paperwork. It’s a highly regulated industry, so each new treatment Novo Nordisk develops comes with its own mountain of required documentation: Clinical study reports that run hundreds of pages. Highly technical device verification protocols. Guides that explain complex treatments in consumer-friendly ways. Producing the documentation for a clinical trial consumed so much time and so many resources, even with help from external agencies, that it was slowing down the organization’s ability to bring new medicines to market.  
+  
 The pinnacle of this process is the clinical study report (CSR), which summarizes drug trial results in a document that can be up to 300 pages long. Producing a CSR was a grueling multi-month cycle of writing, reviews, rewrites, and approvals. Staff writers averaged only 2.3 CSRs per year, and the manual process remained prone to errors and subjective interpretation.
 
 The stakes couldn't have been higher. Each day of delay in bringing a new medicine to market can cost pharmaceutical companies up to $15 million in potential revenue. More importantly, patients with diabetes, obesity, and other chronic conditions continue waiting for treatments that could transform their lives.
@@ -23,12 +23,12 @@ Transform document production from a months-long manual process into an automate
 
 ## Building NovoScribe: From idea to approval in record time
 
-Novo Nordisk used Claude Code to develop NovoScribe, their generative AI platform built on Amazon Bedrock and MongoDB Atlas, with Claude models as the frontier intelligence driving the entire system. The platform combines retrieval-augmented generation (RAG) with domain expert-approved text and case-specific variables to produce accurate, compliant documentation. Initially the team focused on perfecting NovoScribe for CSR production, and then expanded to device protocol documentation and patient materials.
-
+Novo Nordisk used Claude Code to develop NovoScribe, their generative AI platform built on Amazon Bedrock and MongoDB Atlas, with Claude models as the frontier intelligence driving the entire system. The platform combines retrieval-augmented generation (RAG) with domain expert-approved text and case-specific variables to produce accurate, compliant documentation. Initially the team focused on perfecting NovoScribe for CSR production, and then expanded to device protocol documentation and patient materials.  
+  
 The time saved by NovoScribe was immediate and substantial. “Claude has helped us cut writing times on CSRs by 90% so we can get documentation directly into human hands for review and approval,” said Waheed Jowiya, Digitalization Strategy Director at Novo Nordisk.
 
-Review-to-approval cycles for these automated CSRs have also decreased significantly as reviewers became increasingly satisfied with clinical interpretation and overall output quality. For new trials, the team can now produce a complete study booklet and patient guide in under a minute — materials that previously required months of back-and-forth work with external agencies.
-
+Review-to-approval cycles for these automated CSRs have also decreased significantly as reviewers became increasingly satisfied with clinical interpretation and overall output quality. For new trials, the team can now produce a complete study booklet and patient guide in under a minute — materials that previously required months of back-and-forth work with external agencies.  
+  
 Technical setup for these use cases varied. Adapting the RAG configuration for patient booklets took minimal time, while integrating legacy systems for device protocols required several months of development to ingest unstructured data. "In a highly regulated industry, we can't just throw our data and information into a large language model and hope for the best," Jowiya said. “Our conversations with Anthropic really guided in the ways we can securely use Claude for planning, for strategic tasks, for code generation.” In fact, he adds, Claude has already solved one of his team’s biggest headaches: extracting data from historical research documents.
 
 ## Using Claude Code to accelerate development and empower non-technical teams

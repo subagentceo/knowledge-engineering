@@ -20,10 +20,10 @@ Internally, Hebbia leverages Claude to build key platform features, with meta-pr
 
 Hebbia's Matrix lets users analyze hundreds of documents simultaneously. When users input queries, Claude helps in multiple ways:
 
-- Generates prompts for complex analysis
-- Provides metadata and quick summaries through Claude Haiku
-- Offers detailed analysis of technical documents via Claude
-- Enables natural language interactions so users don't need to write technical prompts
+*   Generates prompts for complex analysis
+*   Provides metadata and quick summaries through Claude Haiku
+*   Offers detailed analysis of technical documents via Claude
+*   Enables natural language interactions so users don't need to write technical prompts
 
 ## Hebbia delivers speedy document analysis with Claude
 

@@ -13,6 +13,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchDeleteParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -20,6 +21,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class DeletedMessageBatch:`
+
   - `required string ID`
 
     ID of the Message Batch.

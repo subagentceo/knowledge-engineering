@@ -6,8 +6,8 @@ Key capabilities include creating and configuring databases, executing queries a
 
 **How to use:** Once installed, interact with your Postgres databases using natural language prompts like:
 
-- `"Set up this project with a new database in us-east-1"`
-- `"Show me all users who signed up this week and their activity levels"`
-- `"Check my migration status and create a new user preferences table"`
-- `"Create a new database from the most recent backup"`
-- `"Open Prisma Studio and show me the data in my users table"`
+*   `"Set up this project with a new database in us-east-1"`
+*   `"Show me all users who signed up this week and their activity levels"`
+*   `"Check my migration status and create a new user preferences table"`
+*   `"Create a new database from the most recent backup"`
+*   `"Open Prisma Studio and show me the data in my users table"`

@@ -222,11 +222,11 @@ Ross Stores Foundation - Dublin, CA
 
 Based on the latest research and insights from the philanthropic sector, here are the key trends shaping climate philanthropy:
 
-_Significant Growth, But Still Insufficient_
+*Significant Growth, But Still Insufficient*
 
 Foundation funding for climate mitigation nearly tripled from 2019 to 2023, reaching $4.8 billion according to ClimateWorks Foundation. However, this represents less than 2% of global philanthropic giving—far below what's needed to address the crisis.
 
-_Major Geographic Disparities_
+*Major Geographic Disparities*
 
 60% of single-region foundation funding goes to the U.S. and Europe, while Africa, Asia, Oceania, and Latin America receive only 20%. Low- to middle-income countries most vulnerable to climate impacts capture just 14% of funding.
 

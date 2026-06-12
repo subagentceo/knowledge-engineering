@@ -4,10 +4,10 @@ Law&Company uses Claude to power SuperLawyer, South Korea's first AI legal assis
 
 With Claude, Law&Company:
 
-- Attracted 6,000 users—20% of South Korean Practicing lawyers—within 180 days
-- Achieved a 60.2% free-to-paid conversion rate and a 79.1% second-month retention
-- Helped lawyers increase efficiency 1.7x, saving 25 minutes per hour of work
-- Enabled legal teams to save over 2.3 million collective work hours in the first 180 days
+*   Attracted 6,000 users—20% of South Korean Practicing lawyers—within 180 days
+*   Achieved a 60.2% free-to-paid conversion rate and a 79.1% second-month retention
+*   Helped lawyers increase efficiency 1.7x, saving 25 minutes per hour of work
+*   Enabled legal teams to save over 2.3 million collective work hours in the first 180 days
 
 ## Addressing inefficiencies in legal services
 
@@ -27,11 +27,11 @@ Law&Company built a flexible architecture for SuperLawyer that could accommodate
 
 SuperLawyer uses Claude to streamline key aspects of legal work:
 
-- Legal research and precedent analysis
-- Document drafting and creation
-- Case law summarization
-- Document-based conversation
-- Regulatory compliance checking
+*   Legal research and precedent analysis
+*   Document drafting and creation
+*   Case law summarization
+*   Document-based conversation
+*   Regulatory compliance checking
 
 The platform initially faced scaling challenges as user numbers surged, requiring an expansion of API usage limits. However, with support from Anthropic's customer service team, they quickly resolved these issues to maintain service reliability.
 

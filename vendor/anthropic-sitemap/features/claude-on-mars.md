@@ -8,6 +8,8 @@ The first AI-planned drive
 
 on another planet.
 
+  
+
 Exploring new planets means that you’re always operating in the past. It takes about twenty minutes for a signal to reach a Mars rover from Earth; by the time a new instruction arrives, the rover will already have acted on the previous one.
 
 But on December 8 and 10, 2025, the commands that were sent to NASA’s Perseverance Rover looked like something from the future. That’s because, for the first time ever, they’d been written by an AI.

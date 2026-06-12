@@ -10,23 +10,23 @@ The Daloopa integration relies upon Claude's ability to use remote connectors.
 
 The Daloopa integration enables Claude to access comprehensive financial data from public company filings.
 
-- **Company Discovery and Identification:** Search for companies using ticker symbols or company names across Daloopa's database of 3,500+ public companies. The search handles name variations and automatically matches to the correct entity.**‍**
-- **Financial Metric Discovery:** Explore all available data series for any company, including standard financial statements and company-specific KPIs like subscriber counts for streaming services or wafer shipments for semiconductors. This reveals unique operational metrics beyond standard line items.**‍**
-- **Historical Data Retrieval:** Access specific financial fundamentals across custom time periods, with most companies having 10+ years of data. Request individual quarters, full years, or any combination for flexible analysis.**‍**
-- **Source-Linked Data Points:** Every financial value includes a hyperlink to its exact location in SEC filings or investor materials, providing complete transparency and audit trails.**‍**
-- **Flexible Period Selection:** Request data for any combination of quarters or years to enable quarter-over-quarter comparisons, year-over-year analyses, or custom period selections matching your analytical needs.**‍**
-- **Granular Metric Access:** Access specific line items like segment revenue breakdowns or working capital components without retrieving entire financial statements.
+*   **Company Discovery and Identification:** Search for companies using ticker symbols or company names across Daloopa's database of 3,500+ public companies. The search handles name variations and automatically matches to the correct entity.**‍**
+*   **Financial Metric Discovery:** Explore all available data series for any company, including standard financial statements and company-specific KPIs like subscriber counts for streaming services or wafer shipments for semiconductors. This reveals unique operational metrics beyond standard line items.**‍**
+*   **Historical Data Retrieval:** Access specific financial fundamentals across custom time periods, with most companies having 10+ years of data. Request individual quarters, full years, or any combination for flexible analysis.**‍**
+*   **Source-Linked Data Points:** Every financial value includes a hyperlink to its exact location in SEC filings or investor materials, providing complete transparency and audit trails.**‍**
+*   **Flexible Period Selection:** Request data for any combination of quarters or years to enable quarter-over-quarter comparisons, year-over-year analyses, or custom period selections matching your analytical needs.**‍**
+*   **Granular Metric Access:** Access specific line items like segment revenue breakdowns or working capital components without retrieving entire financial statements.
 
 ## How Claude Uses Daloopa Data
 
 Claude applies Daloopa's financial data to support your analysis.
 
-- **Multi-Company Comparisons:** Retrieves metrics for multiple companies and builds comparative tables showing revenue growth, margins, and other KPIs side by side to identify relative performance.**‍**
-- **Trend Analysis Construction:** Pulls data across multiple periods to calculate growth rates and identify patterns, highlighting periods of acceleration or deceleration in company performance.**‍**
-- **Custom Metric Calculations:** Computes derived metrics like free cash flow conversion or return on invested capital using raw financial data, creating calculations tailored to your analytical framework.**‍**
-- **Data Quality Verification:** Uses source links to reference specific filing locations, helping verify unusual figures or reconcile discrepancies with explanations from the original documents.**‍**
-- **Earnings Analysis Automation:** Following releases, pulls latest results and compares to prior periods, calculating variances and presenting structured analysis of key changes.**‍**
-- **Metric Discovery for Unfamiliar Companies:** First explores available metrics for new companies, then retrieves the most relevant KPIs, particularly useful when analyzing unfamiliar sectors with different performance indicators.
+*   **Multi-Company Comparisons:** Retrieves metrics for multiple companies and builds comparative tables showing revenue growth, margins, and other KPIs side by side to identify relative performance.**‍**
+*   **Trend Analysis Construction:** Pulls data across multiple periods to calculate growth rates and identify patterns, highlighting periods of acceleration or deceleration in company performance.**‍**
+*   **Custom Metric Calculations:** Computes derived metrics like free cash flow conversion or return on invested capital using raw financial data, creating calculations tailored to your analytical framework.**‍**
+*   **Data Quality Verification:** Uses source links to reference specific filing locations, helping verify unusual figures or reconcile discrepancies with explanations from the original documents.**‍**
+*   **Earnings Analysis Automation:** Following releases, pulls latest results and compares to prior periods, calculating variances and presenting structured analysis of key changes.**‍**
+*   **Metric Discovery for Unfamiliar Companies:** First explores available metrics for new companies, then retrieves the most relevant KPIs, particularly useful when analyzing unfamiliar sectors with different performance indicators.
 
 ## Setting Up Daloopa Integration
 
@@ -100,8 +100,8 @@ Learn about finding and connecting tools.
 
 ## Tips for Using Daloopa
 
-- Use specific company tickers (MSFT, AAPL)
-- Define clear time periods (Q1 2024, 2023FY)
-- Request specific metrics rather than general categories
-- Limit scope to reasonable number of companies for clear comparisons
-- Consider data freshness - Daloopa updates after earnings releases but may not have real-time intraday data
+*   Use specific company tickers (MSFT, AAPL)
+*   Define clear time periods (Q1 2024, 2023FY)
+*   Request specific metrics rather than general categories
+*   Limit scope to reasonable number of companies for clear comparisons
+*   Consider data freshness - Daloopa updates after earnings releases but may not have real-time intraday data

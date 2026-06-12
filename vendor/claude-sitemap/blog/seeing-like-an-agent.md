@@ -4,7 +4,7 @@ One of the hardest parts about building an agent harness is constructing its too
 
 Claude acts completely through tool calling, but there are a number of ways tools can be constructed in the Claude API with primitives like bash, skills and code execution. (You can read more about programmatic tool calling on the Claude API in @RLanceMartin's new article).
 
-So how do you design your agents' tools? Do you give it one general-purpose tool like bash or code execution? Or fifty specialized tools, one for each use case?
+So how do you design your agents' tools? Do you give it one general-purpose tool like bash or code execution? Or fifty specialized tools, one for each use case?  
 
 To put yourself in the mind of the model, imagine being given a difficult math problem. What tools would you want in order to solve it? It would depend on your own skill set!
 
@@ -30,7 +30,7 @@ The first approach we tried was adding a parameter to the ExitPlanTool to have a
 
 Next, we tried updating Claude’s output instructions to serve a slightly modified markdown format that it could use to ask questions. For example, we could ask it to output a list of bullet point questions with alternatives in brackets. We could then parse and format that question as UI for the user.
 
-Claude could usually produce this format, but not reliably. It would append extra sentences, drop options, or abandon the structure altogether. Onto the next approach.
+Claude could usually produce this format, but not reliably. It would append extra sentences, drop options, or abandon the structure altogether. Onto the next approach.  
 
 ### Attempt 3: The AskUserQuestion Tool
 

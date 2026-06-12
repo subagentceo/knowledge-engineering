@@ -18,11 +18,11 @@ These diverse needs require technology that can meet merchants where they are. "
 
 Sidekick acts as an always-available partner that helps merchants succeed:
 
-- Translates natural language into complex ShopifyQL analytics queries, combining multiple data sources for contextual insights
-- Guides new merchants from store setup through SEO optimization to their first sale
-- Provides sophisticated multi-step reasoning that pulls in product information, analytics, and business context
-- Maintains conversation quality while executing multiple tool calls per interaction to get merchants the best answer
-- Scales expertise across millions of merchants without compromising response quality
+*   Translates natural language into complex ShopifyQL analytics queries, combining multiple data sources for contextual insights
+*   Guides new merchants from store setup through SEO optimization to their first sale
+*   Provides sophisticated multi-step reasoning that pulls in product information, analytics, and business context
+*   Maintains conversation quality while executing multiple tool calls per interaction to get merchants the best answer
+*   Scales expertise across millions of merchants without compromising response quality
 
 ## Sidekick transforms merchant empowerment
 

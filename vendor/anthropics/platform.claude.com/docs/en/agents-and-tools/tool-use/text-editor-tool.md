@@ -13,7 +13,6 @@ For model support, see the [Tool reference](/docs/en/agents-and-tools/tool-use/t
 ## When to use the text editor tool
 
 Some examples of when to use the text editor tool are:
-
 - **Code debugging:** Have Claude identify and fix bugs in your code, from syntax errors to logic issues.
 - **Code refactoring:** Let Claude improve your code structure, readability, and performance through targeted edits.
 - **Documentation generation:** Ask Claude to add docstrings, comments, or README files to your codebase.
@@ -101,16 +100,15 @@ const response = await anthropic.messages.create({
     {
       type: "text_editor_20250728",
       name: "str_replace_based_edit_tool",
-      max_characters: 10000,
-    },
+      max_characters: 10000
+    }
   ],
   messages: [
     {
       role: "user",
-      content:
-        "There's a syntax error in my primes.py file. Can you help me fix it?",
-    },
-  ],
+      content: "There's a syntax error in my primes.py file. Can you help me fix it?"
+    }
+  ]
 });
 
 console.log(response);
@@ -143,7 +141,6 @@ void main() {
   IO.println(message);
 }
 ```
-
 </CodeGroup>
 
 The text editor tool can be used in the following way:
@@ -186,7 +183,6 @@ The text editor tool supports several commands for viewing and modifying files:
 The `view` command allows Claude to examine the contents of a file or list the contents of a directory. It can read the entire file or a specific range of lines.
 
 Parameters:
-
 - `command`: Must be "view"
 - `path`: The path to the file or directory to view
 - `view_range` (optional): An array of two integers specifying the start and end line numbers to view. Line numbers are 1-indexed, and -1 for the end line means read to the end of the file. This parameter only applies when viewing files, not directories.
@@ -228,7 +224,6 @@ Example for viewing a directory:
 The `str_replace` command allows Claude to replace a specific string in a file with a new string. This is used for making precise edits.
 
 Parameters:
-
 - `command`: Must be "str_replace"
 - `path`: The path to the file to modify
 - `old_str`: The text to replace (must match exactly, including whitespace and indentation)
@@ -257,7 +252,6 @@ Parameters:
 The `create` command allows Claude to create a new file with specified content.
 
 Parameters:
-
 - `command`: Must be "create"
 - `path`: The path where the new file should be created
 - `file_text`: The content to write to the new file
@@ -284,7 +278,6 @@ Parameters:
 The `insert` command allows Claude to insert text at a specific location in a file.
 
 Parameters:
-
 - `command`: Must be "insert"
 - `path`: The path to the file to modify
 - `insert_line`: The line number after which to insert the text (0 for beginning of file)
@@ -377,16 +370,15 @@ const response = await anthropic.messages.create({
   tools: [
     {
       type: "text_editor_20250728",
-      name: "str_replace_based_edit_tool",
-    },
+      name: "str_replace_based_edit_tool"
+    }
   ],
   messages: [
     {
       role: "user",
-      content:
-        "There's a syntax error in my primes.py file. Can you help me fix it?",
-    },
-  ],
+      content: "There's a syntax error in my primes.py file. Can you help me fix it?"
+    }
+  ]
 });
 
 console.log(response);
@@ -417,7 +409,6 @@ void main() {
   IO.println(message);
 }
 ```
-
 </CodeGroup>
 
 Claude uses the text editor tool first to view the file:
@@ -615,21 +606,20 @@ const response = await anthropic.messages.create({
   tools: [
     {
       type: "text_editor_20250728",
-      name: "str_replace_based_edit_tool",
-    },
+      name: "str_replace_based_edit_tool"
+    }
   ],
   messages: [
     {
       role: "user",
-      content:
-        "There's a syntax error in my primes.py file. Can you help me fix it?",
+      content: "There's a syntax error in my primes.py file. Can you help me fix it?"
     },
     {
       role: "assistant",
       content: [
         {
           type: "text",
-          text: "I'll help you fix the syntax error in your primes.py file. First, let me take a look at the file to identify the issue.",
+          text: "I'll help you fix the syntax error in your primes.py file. First, let me take a look at the file to identify the issue."
         },
         {
           type: "tool_use",
@@ -637,10 +627,10 @@ const response = await anthropic.messages.create({
           name: "str_replace_based_edit_tool",
           input: {
             command: "view",
-            path: "primes.py",
-          },
-        },
-      ],
+            path: "primes.py"
+          }
+        }
+      ]
     },
     {
       role: "user",
@@ -649,11 +639,11 @@ const response = await anthropic.messages.create({
           type: "tool_result",
           tool_use_id: "toolu_01AbCdEfGhIjKlMnOpQrStU",
           content:
-            '1: def is_prime(n):\n2:     """Check if a number is prime."""\n3:     if n <= 1:\n4:         return False\n5:     if n <= 3:\n6:         return True\n7:     if n % 2 == 0 or n % 3 == 0:\n8:         return False\n9:     i = 5\n10:     while i * i <= n:\n11:         if n % i == 0 or n % (i + 2) == 0:\n12:             return False\n13:         i += 6\n14:     return True\n15: \n16: def get_primes(limit):\n17:     """Generate a list of prime numbers up to the given limit."""\n18:     primes = []\n19:     for num in range(2, limit + 1)\n20:         if is_prime(num):\n21:             primes.append(num)\n22:     return primes\n23: \n24: def main():\n25:     """Main function to demonstrate prime number generation."""\n26:     limit = 100\n27:     prime_list = get_primes(limit)\n28:     print(f"Prime numbers up to {limit}:")\n29:     print(prime_list)\n30:     print(f"Found {len(prime_list)} prime numbers.")\n31: \n32: if __name__ == "__main__":\n33:     main()',
-        },
-      ],
-    },
-  ],
+            '1: def is_prime(n):\n2:     """Check if a number is prime."""\n3:     if n <= 1:\n4:         return False\n5:     if n <= 3:\n6:         return True\n7:     if n % 2 == 0 or n % 3 == 0:\n8:         return False\n9:     i = 5\n10:     while i * i <= n:\n11:         if n % i == 0 or n % (i + 2) == 0:\n12:             return False\n13:         i += 6\n14:     return True\n15: \n16: def get_primes(limit):\n17:     """Generate a list of prime numbers up to the given limit."""\n18:     primes = []\n19:     for num in range(2, limit + 1)\n20:         if is_prime(num):\n21:             primes.append(num)\n22:     return primes\n23: \n24: def main():\n25:     """Main function to demonstrate prime number generation."""\n26:     limit = 100\n27:     prime_list = get_primes(limit)\n28:     print(f"Prime numbers up to {limit}:")\n29:     print(prime_list)\n30:     print(f"Found {len(prime_list)} prime numbers.")\n31: \n32: if __name__ == "__main__":\n33:     main()'
+        }
+      ]
+    }
+  ]
 });
 
 console.log(response);
@@ -721,7 +711,6 @@ public class TextEditorToolResultExample {
   }
 }
 ```
-
 </CodeGroup>
 
 <Tip>
@@ -844,8 +833,8 @@ const response = await client.messages.create({
   tools: [
     {
       type: "text_editor_20250728",
-      name: "str_replace_based_edit_tool",
-    },
+      name: "str_replace_based_edit_tool"
+    }
   ],
   messages: [
     // Previous messages...
@@ -854,7 +843,7 @@ const response = await client.messages.create({
       content: [
         {
           type: "text",
-          text: "I found the syntax error in your primes.py file. In the `get_primes` function, there is a missing colon (:) at the end of the for loop line. Let me fix that for you.",
+          text: "I found the syntax error in your primes.py file. In the `get_primes` function, there is a missing colon (:) at the end of the for loop line. Let me fix that for you."
         },
         {
           type: "tool_use",
@@ -864,10 +853,10 @@ const response = await client.messages.create({
             command: "str_replace",
             path: "primes.py",
             old_str: "    for num in range(2, limit + 1)",
-            new_str: "    for num in range(2, limit + 1):",
-          },
-        },
-      ],
+            new_str: "    for num in range(2, limit + 1):"
+          }
+        }
+      ]
     },
     {
       role: "user",
@@ -875,11 +864,11 @@ const response = await client.messages.create({
         {
           type: "tool_result",
           tool_use_id: "toolu_01PqRsTuVwXyZAbCdEfGh",
-          content: "Successfully replaced text at exactly one location.",
-        },
-      ],
-    },
-  ],
+          content: "Successfully replaced text at exactly one location."
+        }
+      ]
+    }
+  ]
 });
 
 console.log(response);
@@ -957,12 +946,11 @@ public class TextEditorConversationExample {
   }
 }
 ```
-
 </CodeGroup>
 
 Finally, Claude provides a complete explanation of the fix:
 
-````json Output
+```json Output
 {
   "id": "msg_01IjKlMnOpQrStUvWxYzAb",
   "model": "claude-opus-4-8",
@@ -975,7 +963,7 @@ Finally, Claude provides a complete explanation of the fix:
     }
   ]
 }
-````
+```
 
 ## Implement the text editor tool
 
@@ -1008,7 +996,6 @@ The tool type is `type: "text_editor_20250728"` for Claude 4 models.
             # Insert text at location
             pass
     ```
-
   </Step>
   <Step title="Implement security measures">
     Add validation and security checks:
@@ -1048,7 +1035,6 @@ The tool type is `type: "text_editor_20250728"` for Claude 4 models.
                 "content": result,
             }
     ```
-
   </Step>
 </Steps>
 
@@ -1059,7 +1045,7 @@ When implementing the text editor tool, keep in mind:
 2. **Backup:** Always create backups before allowing edits to important files.
 3. **Validation:** Validate all inputs to prevent unintended changes.
 4. **Unique matching:** Make sure replacements match exactly one location to avoid unintended edits.
-   </Warning>
+</Warning>
 
 ### Handle errors
 
@@ -1188,7 +1174,6 @@ def backup_file(file_path):
 <section title="Handle unique text replacement carefully">
 
 The `str_replace` command requires an exact match for the text to be replaced. Your application should ensure that there is exactly one match for the old text or provide appropriate error messages.
-
 ```python
 def safe_replace(file_path, old_text, new_text):
     """Replace text only if there's exactly one match."""
@@ -1212,7 +1197,6 @@ def safe_replace(file_path, old_text, new_text):
 <section title="Verify changes">
 
 After Claude makes changes to a file, verify the changes by running tests or checking that the code still works as expected.
-
 ```python
 def verify_changes(file_path):
     """Run tests or checks after making changes."""
@@ -1238,26 +1222,25 @@ The text editor tool uses the same pricing structure as other tools used with Cl
 
 In addition to the base tokens, the following additional input tokens are needed for the text editor tool:
 
-| Tool                                | Additional input tokens |
-| ----------------------------------- | ----------------------- |
-| `text_editor_20250429` (Claude 4.x) | 700 tokens              |
+| Tool | Additional input tokens |
+| ----------------------------------------- | --------------------------------------- |
+| `text_editor_20250429` (Claude 4.x) | 700 tokens |
 
 For more detailed information about tool pricing, see [Tool use pricing](/docs/en/agents-and-tools/tool-use/overview#pricing).
 
 ## Integrate the text editor tool with other tools
 
 The text editor tool can be used alongside other Claude tools. When combining tools, ensure you:
-
 - Match the tool version with the model you're using
 - Account for the additional token usage for all tools included in your request
 
 ## Change log
 
-| Date             | Version                | Changes                                                                                                                                                                                                                                                               |
-| ---------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| July 28, 2025    | `text_editor_20250728` | Release of an updated text editor Tool that fixes some issues and adds an optional `max_characters` parameter. It is otherwise identical to `text_editor_20250429`.                                                                                                   |
-| April 29, 2025   | `text_editor_20250429` | Release of the text editor Tool for Claude 4. This version removes the `undo_edit` command but maintains all other capabilities. The tool name has been updated to reflect its str_replace-based architecture.                                                        |
-| March 13, 2025   | `text_editor_20250124` | Introduction of standalone text editor Tool documentation. This version is optimized for Claude Sonnet 3.7 but has identical capabilities to the previous version.                                                                                                    |
+| Date | Version | Changes |
+| ---- | ------- | ------- |
+| July 28, 2025 | `text_editor_20250728` | Release of an updated text editor Tool that fixes some issues and adds an optional `max_characters` parameter. It is otherwise identical to `text_editor_20250429`. |
+| April 29, 2025 | `text_editor_20250429` | Release of the text editor Tool for Claude 4. This version removes the `undo_edit` command but maintains all other capabilities. The tool name has been updated to reflect its str_replace-based architecture. |
+| March 13, 2025 | `text_editor_20250124` | Introduction of standalone text editor Tool documentation. This version is optimized for Claude Sonnet 3.7 but has identical capabilities to the previous version. |
 | October 22, 2024 | `text_editor_20241022` | Initial release of the text editor Tool with Claude Sonnet 3.5 ([retired](/docs/en/about-claude/model-deprecations)). Provides capabilities for viewing, creating, and editing files through the `view`, `create`, `str_replace`, `insert`, and `undo_edit` commands. |
 
 ## Next steps
@@ -1281,14 +1264,11 @@ The text editor tool enables Claude to work directly with your codebase, support
     Learn how to implement tool workflows for use with Claude.
   </Card>
 
-<Card
-title="Bash tool"
-icon="terminal"
-href="/docs/en/agents-and-tools/tool-use/bash-tool"
-
->
-
+  <Card
+    title="Bash tool"
+    icon="terminal"
+    href="/docs/en/agents-and-tools/tool-use/bash-tool"
+  >
     Execute shell commands with Claude.
-
   </Card>
 </CardGroup>

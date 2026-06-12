@@ -50,9 +50,8 @@ jq '{id, diagnostics}' <<< "$response"
 message_id=$(jq -r '.id' <<< "$response")
 
 # Turn 2: reference the previous turn so the API can compare prefixes
-
 curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
- --header "x-api-key: $ANTHROPIC_API_KEY" \
+  --header "x-api-key: $ANTHROPIC_API_KEY" \
   --header "anthropic-version: 2023-06-01" \
   --header "anthropic-beta: cache-diagnosis-2026-04-07" \
   --header "content-type: application/json" \
@@ -70,8 +69,7 @@ curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
   "diagnostics": {"previous_message_id": "$message_id"}
 }
 EOF
-
-````
+```
 
 ```bash CLI
 # Turn 1
@@ -112,7 +110,7 @@ messages:
 diagnostics:
   previous_message_id: $message_id
 YAML
-````
+```
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -161,8 +159,7 @@ import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 
-const SYSTEM =
-  "You are an AI assistant analyzing a large document. <document>...</document>";
+const SYSTEM = "You are an AI assistant analyzing a large document. <document>...</document>";
 
 // Turn 1: opt in with previous_message_id: null
 const r1 = await client.beta.messages.create({
@@ -172,7 +169,7 @@ const r1 = await client.beta.messages.create({
   system: SYSTEM,
   messages: [{ role: "user", content: "Summarize section 1." }],
   diagnostics: { previous_message_id: null },
-  betas: ["cache-diagnosis-2026-04-07"],
+  betas: ["cache-diagnosis-2026-04-07"]
 });
 
 // Turn 2: reference the previous response id
@@ -184,10 +181,10 @@ const r2 = await client.beta.messages.create({
   messages: [
     { role: "user", content: "Summarize section 1." },
     { role: "assistant", content: r1.content },
-    { role: "user", content: "Now summarize section 2." },
+    { role: "user", content: "Now summarize section 2." }
   ],
   diagnostics: { previous_message_id: r1.id },
-  betas: ["cache-diagnosis-2026-04-07"],
+  betas: ["cache-diagnosis-2026-04-07"]
 });
 
 if (r2.diagnostics === null) {
@@ -465,7 +462,6 @@ in {cache_miss_reason: {type:}}
   puts "cache_miss_reason: #{type}"
 end
 ```
-
 </CodeGroup>
 
 ## Streaming
@@ -491,11 +487,9 @@ response=$(curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
 message_id=$(jq -r '.id' <<< "$response")
 
 # Turn 2: stream the response. diagnostics arrives on the message_start event;
-
 # a null value means no divergence was found.
-
 curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
- --header "x-api-key: $ANTHROPIC_API_KEY" \
+  --header "x-api-key: $ANTHROPIC_API_KEY" \
   --header "anthropic-version: 2023-06-01" \
   --header "anthropic-beta: cache-diagnosis-2026-04-07" \
   --header "content-type: application/json" \
@@ -514,8 +508,7 @@ curl -sS --fail-with-body https://api.anthropic.com/v1/messages \
   "diagnostics": {"previous_message_id": "$message_id"}
 }
 EOF
-
-````
+```
 
 ```bash CLI hidelines={1..22}
 #!/usr/bin/env bash
@@ -561,7 +554,7 @@ diagnostics:
   previous_message_id: $message_id
 YAML
   jq -c 'select(.type == "message_start") | .message | {id,usage,diagnostics}'
-````
+```
 
 ```python Python hidelines={1..17}
 import anthropic
@@ -614,8 +607,7 @@ import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 
-const SYSTEM =
-  "You are an AI assistant analyzing a large document. <document>...</document>";
+const SYSTEM = "You are an AI assistant analyzing a large document. <document>...</document>";
 
 // Turn 1: opt in with previous_message_id: null
 const r1 = await client.beta.messages.create({
@@ -625,7 +617,7 @@ const r1 = await client.beta.messages.create({
   system: SYSTEM,
   messages: [{ role: "user", content: "Summarize section 1." }],
   diagnostics: { previous_message_id: null },
-  betas: ["cache-diagnosis-2026-04-07"],
+  betas: ["cache-diagnosis-2026-04-07"]
 });
 
 // Turn 2: stream, referencing the previous response id
@@ -637,17 +629,14 @@ const stream = client.beta.messages.stream({
   messages: [
     { role: "user", content: "Summarize section 1." },
     { role: "assistant", content: r1.content },
-    { role: "user", content: "Now summarize section 2." },
+    { role: "user", content: "Now summarize section 2." }
   ],
   diagnostics: { previous_message_id: r1.id },
-  betas: ["cache-diagnosis-2026-04-07"],
+  betas: ["cache-diagnosis-2026-04-07"]
 });
 
 for await (const event of stream) {
-  if (
-    event.type === "content_block_delta" &&
-    event.delta.type === "text_delta"
-  ) {
+  if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
     process.stdout.write(event.delta.text);
   }
 }
@@ -996,7 +985,6 @@ in {cache_miss_reason: {type:}}
   puts "cache_miss_reason: #{type}"
 end
 ```
-
 </CodeGroup>
 
 The `message_start` event carries the full `diagnostics` field; see [Response format](#response-format) for the possible values.
@@ -1030,9 +1018,9 @@ messages = []
 prev_id = None
 
 for i, user_message in enumerate(
-["Summarize section 1.", "Now section 2.", "Now section 3."]
+    ["Summarize section 1.", "Now section 2.", "Now section 3."]
 ):
-messages.append({"role": "user", "content": user_message})
+    messages.append({"role": "user", "content": user_message})
 
     r = client.beta.messages.create(
         model="claude-opus-4-8",
@@ -1049,8 +1037,7 @@ messages.append({"role": "user", "content": user_message})
 
     messages.append({"role": "assistant", "content": r.content})
     prev_id = r.id
-
-````
+```
 </Tab>
 
 <Tab title="TypeScript">
@@ -1087,8 +1074,7 @@ for (const [i, prompt] of prompts.entries()) {
   messages.push({ role: "assistant", content: r.content });
   prevId = r.id;
 }
-````
-
+```
 </Tab>
 
 <Tab title="C#">
@@ -1109,7 +1095,7 @@ string[] prompts = ["Summarize section 1.", "Now section 2.", "Now section 3."];
 
 for (int i = 0; i < prompts.Length; i++)
 {
-messages.Add(new() { Role = Role.User, Content = prompts[i] });
+    messages.Add(new() { Role = Role.User, Content = prompts[i] });
 
     var r = await client.Beta.Messages.Create(
         new()
@@ -1137,10 +1123,8 @@ messages.Add(new() { Role = Role.User, Content = prompts[i] });
         }
     );
     prevId = r.ID;
-
 }
-
-````
+```
 </Tab>
 
 <Tab title="Go">
@@ -1194,8 +1178,7 @@ func main() {
 		prevID = anthropic.String(r.ID)
 	}
 }
-````
-
+```
 </Tab>
 
 <Tab title="Java">
@@ -1210,7 +1193,7 @@ import com.anthropic.models.beta.messages.MessageCreateParams;
 import com.anthropic.models.messages.Model;
 
 void main() {
-var client = AnthropicOkHttpClient.fromEnv();
+    var client = AnthropicOkHttpClient.fromEnv();
 
     var system = "You are an AI assistant analyzing a large document. <document>...</document>";
     var prompts = List.of("Summarize section 1.", "Now section 2.", "Now section 3.");
@@ -1249,10 +1232,8 @@ var client = AnthropicOkHttpClient.fromEnv();
         messages.add(r.toParam());
         prevId = r.id();
     }
-
 }
-
-````
+```
 </Tab>
 
 <Tab title="PHP">
@@ -1293,8 +1274,7 @@ foreach (['Summarize section 1.', 'Now section 2.', 'Now section 3.'] as $i => $
     $messages[] = ['role' => 'assistant', 'content' => $r->content];
     $prevId = $r->id;
 }
-````
-
+```
 </Tab>
 
 <Tab title="Ruby">
@@ -1309,27 +1289,26 @@ messages = []
 prev_id = nil
 
 ["Summarize section 1.", "Now section 2.", "Now section 3."].each_with_index do |user_msg, i|
-messages << {role: "user", content: user_msg}
+  messages << {role: "user", content: user_msg}
 
-r = client.beta.messages.create(
-model: :"claude-opus-4-8",
-max*tokens: 1024,
-cache_control: {type: "ephemeral"},
-system*: SYSTEM,
-messages: messages,
-diagnostics: {previous_message_id: prev_id},
-betas: ["cache-diagnosis-2026-04-07"]
-)
+  r = client.beta.messages.create(
+    model: :"claude-opus-4-8",
+    max_tokens: 1024,
+    cache_control: {type: "ephemeral"},
+    system_: SYSTEM,
+    messages: messages,
+    diagnostics: {previous_message_id: prev_id},
+    betas: ["cache-diagnosis-2026-04-07"]
+  )
 
-if (reason = r.diagnostics&.cache_miss_reason)
-puts "Turn #{i + 1} cache_miss_reason: #{reason.type}"
+  if (reason = r.diagnostics&.cache_miss_reason)
+    puts "Turn #{i + 1} cache_miss_reason: #{reason.type}"
+  end
+
+  messages << {role: "assistant", content: r.content}
+  prev_id = r.id
 end
-
-messages << {role: "assistant", content: r.content}
-prev_id = r.id
-end
-
-````
+```
 </Tab>
 </Tabs>
 
@@ -1365,20 +1344,20 @@ When `cache_miss_reason` is non-null, it looks like this:
     }
   }
 }
-````
+```
 
 ## Cache miss reason types
 
 `cache_miss_reason` is a discriminated union on `type`. The response reports the earliest divergence only, so fix it first; later ones may be hidden behind it.
 
-| Type                         | What it means                                                                                                                                                                                                                                                                                                                                                                                                                                   | What to change                                                                                                                                                                                                                                                                     |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `model_changed`              | The `model` differs from the previous request (for example, a router, A/B test, or fallback selected a different model). The cache is per-model.                                                                                                                                                                                                                                                                                                | Hold the model constant within a cached conversation.                                                                                                                                                                                                                              |
-| `system_changed`             | The `system` parameter differs. Typically a timestamp, request ID, or other per-request value was interpolated into the system prompt.                                                                                                                                                                                                                                                                                                          | Make the system prompt a byte-stable constant and move dynamic data into the first `user` message after your cache breakpoint.                                                                                                                                                     |
-| `tools_changed`              | The `tools` array differs: tools were added, removed, or reordered between turns, or tool `input_schema` JSON was serialized non-deterministically.                                                                                                                                                                                                                                                                                             | Send the same tool list on every turn in a fixed order with deterministically serialized schemas (for example, sort keys).                                                                                                                                                         |
-| `messages_changed`           | The model, system, and tools all match, but an earlier entry in `messages` was altered, reordered, or removed rather than appended to. Typically conversation history was truncated or edited, or assistant turns and `tool_result` blocks were re-serialized differently on resend.                                                                                                                                                            | Treat the history as append-only; echo assistant `content` and tool results back verbatim.                                                                                                                                                                                         |
-| `previous_message_not_found` | No stored fingerprint exists for the supplied `previous_message_id`. This is not evidence that your request changed. Typically the previous request did not carry the beta header, it came from a different workspace, or too much time has passed since it was sent.                                                                                                                                                                           | Send the beta header on every turn and keep consecutive turns close together in time.                                                                                                                                                                                              |
-| `unavailable`                | Diagnostic information was not available for this request. This includes the case where `model`, `system`, and `tools` match but another prompt-affecting request parameter (`tool_choice`, `thinking`, `context_management`, `output_config`, `output_format`, or the set of active `anthropic-beta` headers) differs, and very long conversations where the divergence is beyond the comparison horizon. Your request was processed normally. | Keep the prompt-affecting request parameters constant for the lifetime of a cached conversation. If persistent, apply the manual checks under [Troubleshooting common issues](/docs/en/build-with-claude/prompt-caching#troubleshooting-common-issues) on the prompt caching page. |
+| Type | What it means | What to change |
+| --- | --- | --- |
+| `model_changed` | The `model` differs from the previous request (for example, a router, A/B test, or fallback selected a different model). The cache is per-model. | Hold the model constant within a cached conversation. |
+| `system_changed` | The `system` parameter differs. Typically a timestamp, request ID, or other per-request value was interpolated into the system prompt. | Make the system prompt a byte-stable constant and move dynamic data into the first `user` message after your cache breakpoint. |
+| `tools_changed` | The `tools` array differs: tools were added, removed, or reordered between turns, or tool `input_schema` JSON was serialized non-deterministically. | Send the same tool list on every turn in a fixed order with deterministically serialized schemas (for example, sort keys). |
+| `messages_changed` | The model, system, and tools all match, but an earlier entry in `messages` was altered, reordered, or removed rather than appended to. Typically conversation history was truncated or edited, or assistant turns and `tool_result` blocks were re-serialized differently on resend. | Treat the history as append-only; echo assistant `content` and tool results back verbatim. |
+| `previous_message_not_found` | No stored fingerprint exists for the supplied `previous_message_id`. This is not evidence that your request changed. Typically the previous request did not carry the beta header, it came from a different workspace, or too much time has passed since it was sent. | Send the beta header on every turn and keep consecutive turns close together in time. |
+| `unavailable` | Diagnostic information was not available for this request. This includes the case where `model`, `system`, and `tools` match but another prompt-affecting request parameter (`tool_choice`, `thinking`, `context_management`, `output_config`, `output_format`, or the set of active `anthropic-beta` headers) differs, and very long conversations where the divergence is beyond the comparison horizon. Your request was processed normally. | Keep the prompt-affecting request parameters constant for the lifetime of a cached conversation. If persistent, apply the manual checks under [Troubleshooting common issues](/docs/en/build-with-claude/prompt-caching#troubleshooting-common-issues) on the prompt caching page. |
 
 <Note>
 The four `*_changed` types also carry a `cache_missed_input_tokens` integer: an estimate of how many input tokens fell after the divergence point, giving you a sense of how much cacheable prefix was lost. It is derived from byte lengths before tokenization, so treat it as a magnitude indicator rather than a billing number. It can differ from (and occasionally exceed) `usage.input_tokens`.
@@ -1390,12 +1369,12 @@ The four `*_changed` types also carry a `cache_missed_input_tokens` integer: an 
 
 This matrix applies to turns where you passed a real `previous_message_id`. On the first turn (`previous_message_id: null`), `diagnostics` is always `null` and `cache_read_input_tokens` is normally zero because the cache is being written, not read; no troubleshooting is needed. The matrix also does not apply when `cache_miss_reason` is `null` (the comparison is still pending; check the next turn) or when its `type` is `previous_message_not_found` or `unavailable` (no comparison was produced).
 
-| Diagnostics result                        | Cache read tokens | Interpretation                                                                                                                                                                                            |
-| ----------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `null`                                    | high              | Working as expected. Your prefix is stable and the cache hit.                                                                                                                                             |
-| `null`                                    | low or zero       | Your requests match but the cache entry was no longer available. Consider shortening gaps between turns or using the [1-hour cache TTL](/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration). |
-| `cache_miss_reason` is a `*_changed` type | low or zero       | Your bug. The request changed; fix the cause indicated by `type`.                                                                                                                                         |
-| `cache_miss_reason` is a `*_changed` type | high              | Rare. A change occurred late in the prompt but an earlier `cache_control` breakpoint still hit. Worth fixing, but low impact.                                                                             |
+| Diagnostics result | Cache read tokens | Interpretation |
+| --- | --- | --- |
+| `null` | high | Working as expected. Your prefix is stable and the cache hit. |
+| `null` | low or zero | Your requests match but the cache entry was no longer available. Consider shortening gaps between turns or using the [1-hour cache TTL](/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration). |
+| `cache_miss_reason` is a `*_changed` type | low or zero | Your bug. The request changed; fix the cause indicated by `type`. |
+| `cache_miss_reason` is a `*_changed` type | high | Rare. A change occurred late in the prompt but an earlier `cache_control` breakpoint still hit. Worth fixing, but low impact. |
 
 ## Limitations
 

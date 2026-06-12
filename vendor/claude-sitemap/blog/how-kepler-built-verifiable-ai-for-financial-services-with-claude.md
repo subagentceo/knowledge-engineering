@@ -82,4 +82,4 @@ Build for provenance from day one
 
 Professionals are trained to verify everything. Provenance has to shape the entire system, not get added at the end.
 
-**Build your startup on the** **Claude Platform\*\***.\*\*
+**Build your startup on the** **Claude Platform****.**

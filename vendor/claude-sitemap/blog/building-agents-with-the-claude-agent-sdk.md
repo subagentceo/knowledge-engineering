@@ -20,10 +20,10 @@ But this has also made Claude in Claude Code effective at _non_-coding tasks. By
 
 We believe giving Claude a computer unlocks the ability to build agents that are more effective than before. For example, with our SDK, developers can build:
 
-- **Finance agents**: Build agents that can understand your portfolio and goals, as well as help you evaluate investments by accessing external APIs, storing data and running code to make calculations.
-- **Personal assistant agents**. Build agents that can help you book travel and manage your calendar, as well as schedule appointments, put together briefs, and more by connecting to your internal data sources and tracking context across applications.
-- **Customer support agents:** Build agents that can handle high ambiguity user requests, like customer service tickets, by collecting and reviewing user data, connecting to external APIs, messaging users back and escalating to humans when needed.
-- **Deep research agents**: Build agents that can conduct comprehensive research across large document collections by searching through file systems, analyzing and synthesizing information from multiple sources, cross-referencing data across files, and generating detailed reports.
+*   **Finance agents**: Build agents that can understand your portfolio and goals, as well as help you evaluate investments by accessing external APIs, storing data and running code to make calculations.
+*   **Personal assistant agents**. Build agents that can help you book travel and manage your calendar, as well as schedule appointments, put together briefs, and more by connecting to your internal data sources and tracking context across applications.
+*   **Customer support agents:** Build agents that can handle high ambiguity user requests, like customer service tickets, by collecting and reviewing user data, connecting to external APIs, messaging users back and escalating to humans when needed.
+*   **Deep research agents**: Build agents that can conduct comprehensive research across large document collections by searching through file systems, analyzing and synthesizing information from multiple sources, cross-referencing data across files, and generating detailed reports.
 
 And much more. At its core, the SDK gives you the primitives to build agents for whatever workflow you're trying to automate.
 
@@ -125,10 +125,10 @@ When using an agent to complete visual tasks, like UI generation or testing, vis
 
 For instance:
 
-- **Layout** - Are elements positioned correctly? Is spacing appropriate?
-- **Styling** - Do colors, fonts, and formatting appear as intended?
-- **Content hierarchy** - Is information presented in the right order with proper emphasis?
-- **Responsiveness** - Does it look broken or cramped? (though a single screenshot has limited viewport info)
+*   **Layout** - Are elements positioned correctly? Is spacing appropriate?
+*   **Styling** - Do colors, fonts, and formatting appear as intended?
+*   **Content hierarchy** - Is information presented in the right order with proper emphasis?
+*   **Responsiveness** - Does it look broken or cramped? (though a single screenshot has limited viewport info)
 
 Using an MCP server like Playwright, you can automate this visual feedback loop—taking screenshots of rendered HTML, capturing different viewport sizes, and even testing interactive elements—all within your agent's workflow.
 
@@ -148,10 +148,10 @@ After you’ve gone through the agent loop a few times, we recommend testing you
 
 Here are some other questions to ask as you’re evaluating whether or not your agent is well-equipped to do its job:
 
-- If your agent misunderstands the task, it might be missing key information. Can you alter the structure of your search APIs to make it easier to find what it needs to know?
-- If your agent fails at a task repeatedly, can you add a formal rule in your tool calls to identify and fix the failure?
-- If your agent can’t fix its errors, can you give it more useful or creative tools to approach the problem differently?
-- If your agent’s performance varies as you add features, build a representative test set for programmatic evaluations (or evals) based on customer usage.
+*   If your agent misunderstands the task, it might be missing key information. Can you alter the structure of your search APIs to make it easier to find what it needs to know?
+*   If your agent fails at a task repeatedly, can you add a formal rule in your tool calls to identify and fix the failure?
+*   If your agent can’t fix its errors, can you give it more useful or creative tools to approach the problem differently?
+*   If your agent’s performance varies as you add features, build a representative test set for programmatic evaluations (or evals) based on customer usage.
 
 ## Getting started
 

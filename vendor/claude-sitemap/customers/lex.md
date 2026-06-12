@@ -4,9 +4,9 @@ Lex, an AI-powered writing platform, uses Claude to provide writers with AI-powe
 
 With Claude, Lex saw:
 
-- 25,000 sign ups within 24 hours of launch
-- 20-30% decrease in monthly customer churn
-- 50% decrease in cost
+*   25,000 sign ups within 24 hours of launch
+*   20-30% decrease in monthly customer churn
+*   50% decrease in cost
 
 ## Improving creative writing tools
 
@@ -28,10 +28,10 @@ Lex's decision to use Claude was also based on qualitative improvements in user 
 
 Lex leverages Claude in several key ways to enhance the writing experience:
 
-- AI-powered comments: Users can tag the AI in comments for specific feedback or revisions on highlighted text.
-- High-level document feedback: Claude provides comprehensive feedback, identifying weak arguments and suggesting improvements.
-- Customizable prompts: Users can create and share saved prompts for consistent feedback across teams or projects.
-- Style and brevity checks: Claude helps refine prose by suggesting ways to streamline text and adhere to style guidelines.
+*   AI-powered comments: Users can tag the AI in comments for specific feedback or revisions on highlighted text.
+*   High-level document feedback: Claude provides comprehensive feedback, identifying weak arguments and suggesting improvements.
+*   Customizable prompts: Users can create and share saved prompts for consistent feedback across teams or projects.
+*   Style and brevity checks: Claude helps refine prose by suggesting ways to streamline text and adhere to style guidelines.
 
 ![Lex product image](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c363fe7f3722742f4_563a3f8f68e4ea02b8c063f6595bfd5abb668f0b-1920x1080.jpeg)
 

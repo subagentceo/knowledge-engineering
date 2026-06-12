@@ -3,8 +3,8 @@
 Adobe for creativity brings Photoshop, Lightroom, Illustrator, Firefly, Premiere, Express, InDesign, and Stock capabilities directly into Claude. Create, edit, and design with natural language, without switching apps. Edit multiple photos, create assets, and refine video for polished results. Sign in with your Adobe account for higher usage limits and saved work across sessions.  
 ‍
 
-Key capabilities:
-
+Key capabilities:  
+  
 • Edit and transform images: Adjust color and lighting, remove/blur backgrounds, and expand or crop images.  
 • Create and animate assets: Start from a template, trim video, and license stock.   
 • Search, organize, and summarize: Find assets, summarize content, and manage files.  

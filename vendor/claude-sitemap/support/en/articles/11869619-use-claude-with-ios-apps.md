@@ -48,11 +48,11 @@ When Claude determines that using one of these features would be helpful, it wil
 
 3. Tap the message card to open your Messages app or Mail app.
 
-4. Third-party apps (WhatsApp, Messenger, Signal) are also supported.
+  1. Third-party apps (WhatsApp, Messenger, Signal) are also supported.
 
-5. Review the pre-filled content and make any changes if needed.
+4. Review the pre-filled content and make any changes if needed.
 
-6. Send the message as you normally would.
+5. Send the message as you normally would.
 
 **Example:** "Draft an email to my manager explaining that I'll be late to the morning meeting due to a doctor's appointment."
 

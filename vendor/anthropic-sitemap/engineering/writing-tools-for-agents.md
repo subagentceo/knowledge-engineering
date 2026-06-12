@@ -6,17 +6,17 @@ In this post, we describe our most effective techniques for improving performanc
 
 We begin by covering how you can:
 
-- Build and test prototypes of your tools
-- Create and run comprehensive evaluations of your tools with agents
-- Collaborate with agents like Claude Code to automatically increase the performance of your tools
+*   Build and test prototypes of your tools
+*   Create and run comprehensive evaluations of your tools with agents
+*   Collaborate with agents like Claude Code to automatically increase the performance of your tools
 
 We conclude with key principles for writing high-quality tools we’ve identified along the way:
 
-- Choosing the right tools to implement (and not to implement)
-- Namespacing tools to define clear boundaries in functionality
-- Returning meaningful context from tools back to agents
-- Optimizing tool responses for token efficiency
-- Prompt-engineering tool descriptions and specs
+*   Choosing the right tools to implement (and not to implement)
+*   Namespacing tools to define clear boundaries in functionality
+*   Returning meaningful context from tools back to agents
+*   Optimizing tool responses for token efficiency
+*   Prompt-engineering tool descriptions and specs
 
 ![This is an image depicting how an engineer might use Claude Code to evaluate the efficacy of agentic tools.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcdc027ad2730e4732168bb198fc9363678544f99-1920x1080.png&w=3840&q=75)
 
@@ -66,15 +66,15 @@ With your early prototype, Claude Code can quickly explore your tools and create
 
 Here are some examples of strong tasks:
 
-- Schedule a meeting with Jane next week to discuss our latest Acme Corp project. Attach the notes from our last project planning meeting and reserve a conference room.
-- Customer ID 9182 reported that they were charged three times for a single purchase attempt. Find all relevant log entries and determine if any other customers were affected by the same issue.
-- Customer Sarah Chen just submitted a cancellation request. Prepare a retention offer. Determine: (1) why they're leaving, (2) what retention offer would be most compelling, and (3) any risk factors we should be aware of before making an offer.
+*   Schedule a meeting with Jane next week to discuss our latest Acme Corp project. Attach the notes from our last project planning meeting and reserve a conference room.
+*   Customer ID 9182 reported that they were charged three times for a single purchase attempt. Find all relevant log entries and determine if any other customers were affected by the same issue.
+*   Customer Sarah Chen just submitted a cancellation request. Prepare a retention offer. Determine: (1) why they're leaving, (2) what retention offer would be most compelling, and (3) any risk factors we should be aware of before making an offer.
 
 And here are some weaker tasks:
 
-- Schedule a meeting with jane@acme.corp next week.
-- Search the payment logs for `purchase_complete` and `customer_id=9182`.
-- Find the cancellation request by Customer ID 45892.
+*   Schedule a meeting with jane@acme.corp next week.
+*   Search the payment logs for `purchase_complete` and `customer_id=9182`.
+*   Find the cancellation request by Customer ID 45892.
 
 Each evaluation prompt should be paired with a verifiable response or outcome. Your verifier can be as simple as an exact string comparison between ground truth and sampled responses, or as advanced as enlisting Claude to judge the response. Avoid overly strict verifiers that reject correct responses due to spurious differences like formatting, punctuation, or valid alternative phrasings.
 
@@ -129,9 +129,9 @@ Tools can consolidate functionality, handling potentially _multiple_ discrete op
 
 Here are some examples:
 
-- Instead of implementing a `list_users`, `list_events`, and `create_event` tools, consider implementing a `schedule_event` tool which finds availability and schedules an event.
-- Instead of implementing a `read_logs` tool, consider implementing a `search_logs` tool which only returns relevant log lines and some surrounding context.
-- Instead of implementing `get_customer_by_id`, `list_transactions`, and `list_notes` tools, implement a `get_customer_context` tool which compiles all of a customer’s recent & relevant information all at once.
+*   Instead of implementing a `list_users`, `list_events`, and `create_event` tools, consider implementing a `schedule_event` tool which finds availability and schedules an event.
+*   Instead of implementing a `read_logs` tool, consider implementing a `search_logs` tool which only returns relevant log lines and some surrounding context.
+*   Instead of implementing `get_customer_by_id`, `list_transactions`, and `list_notes` tools, implement a `get_customer_context` tool which compiles all of a customer’s recent & relevant information all at once.
 
 Make sure each tool you build has a clear, distinct purpose. Tools should enable agents to subdivide and solve tasks in much the same way that a human would, given access to the same underlying resources, and simultaneously reduce the context that would have otherwise been consumed by intermediate outputs.
 

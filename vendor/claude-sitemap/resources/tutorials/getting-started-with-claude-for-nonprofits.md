@@ -6,8 +6,8 @@ Claude for nonprofits enhances mission-driven organizations with specialized cap
 
 Claude for nonprofits is available on two plans:
 
-- **Team plan:** $8/user/month
-- **Enterprise plan:** $10/user/month
+*   **Team plan:** $8/user/month
+*   **Enterprise plan:** $10/user/month
 
 Both plans include access to Claude Sonnet 4.5 and Haiku 4.5, with a minimum of 2 seats for teams under 150.
 
@@ -17,9 +17,9 @@ To get started, verify your nonprofit status through our partner Goodstack by co
 
 Claude connects to three nonprofit-specific connectors through the Model Context Protocol (MCP):
 
-- **Benevity\*\***:\*\* Access a database of 2.4M+ validated nonprofits for cause discovery and research
-- **Blackbaud\*\***:\*\* Connect to Raiser's Edge NXT for donor records, gift history, events, and personalized communications
-- **Candid\*\***:\*\* Search 1.9M+ nonprofits and foundations with detailed profiles, financials, and grant data
+*   **Benevity****:** Access a database of 2.4M+ validated nonprofits for cause discovery and research
+*   **Blackbaud****:** Connect to Raiser's Edge NXT for donor records, gift history, events, and personalized communications
+*   **Candid****:** Search 1.9M+ nonprofits and foundations with detailed profiles, financials, and grant data
 
 Additional connectors include Microsoft 365, Gmail, Google Drive, Asana, Slack, and HubSpot. Browse all available connectors in the connector directory.
 
@@ -31,11 +31,11 @@ The AI fluency for nonprofits course covers responsible AI adoption, practical u
 
 Explore the full nonprofit use case library for inspiration, including:
 
-- Program design and evaluation
-- AI policy templates for your organization
-- Data visualization and reporting
-- Grant writing and donor communications
-- Research and landscape analysis
+*   Program design and evaluation
+*   AI policy templates for your organization
+*   Data visualization and reporting
+*   Grant writing and donor communications
+*   Research and landscape analysis
 
 ## Frequently asked questions
 
@@ -77,7 +77,7 @@ Visit the use case library and help center for resources and guidance.
 
 ## Troubleshooting
 
-- **Discount link not working:** Clear your browser cache and try again in an incognito window. If the issue persists, contact support.
-- **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions
-- **Email domain questions:** All team members don't need the same domain. Learn about allowed email domains.
-- **Connecting tools:** Learn how to browse and connect tools from the directory.
+*   **Discount link not working:** Clear your browser cache and try again in an incognito window. If the issue persists, contact support.
+*   **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions
+*   **Email domain questions:** All team members don't need the same domain. Learn about allowed email domains.
+*   **Connecting tools:** Learn how to browse and connect tools from the directory.

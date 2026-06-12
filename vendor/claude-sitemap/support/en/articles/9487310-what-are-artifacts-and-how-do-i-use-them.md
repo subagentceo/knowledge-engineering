@@ -66,15 +66,19 @@ When Claude creates an artifact, you'll see the content displayed in a dedicated
 
 ### Edit and iterate
 
-- Ask Claude to modify or update the artifact content
+- Ask Claude to modify or update the artifact content.
 
-- Changes appear directly in the artifact window
+- For Markdown documents, you can edit in place: highlight the text you want changed, click "Edit with Claude," and type your request. Claude makes the edit right where you marked it, so you don't have to describe which section you mean in the chat.
 
-- Switch between different versions using the version selector
+- Changes appear directly in the artifact window.
 
-- Your edits won't change Claude's memory of the original content
+- Switch between different versions using the version selector.
 
-- Edit prior chat messages to create a different version of the conversation, with its own set of artifacts—this lets you explore different directions without losing previous work
+- Your edits won't change Claude's memory of the original content.
+
+- Edit prior chat messages to create a different version of the conversation, with its own set of artifacts—this lets you explore different directions without losing previous work.
+
+**Note:** When Claude drafts content across multiple Markdown files, such as a skill or plugin, you can leave edit requests in several files before submitting. Each request is added to your next message, and the file list shows how many requests are waiting in each file. Send the message and Claude applies the whole batch in one pass.
 
 ### View and export
 

@@ -42,7 +42,7 @@ With Extended thinking on, Opus 4.7 decides per question how much to think. Simp
 
 ### 4. Better at document and spreadsheet work
 
-Opus 4.7 is stronger at producing and reviewing its own work on office tasks, so the files it returns are more complete and correct on the first pass. Whether it's redlining a Word doc, building a slide deck, or working through a spreadsheet, it's more likely to spot its own layout and formula mistakes before outputting the file. That cuts down the rounds of back-and-forth it takes to reach something usable.
+Opus 4.7 is stronger at producing and reviewing its own work on office tasks, so the files it returns are more complete and correct on the first pass. Whether it's redlining a Word doc, building a slide deck, or working through a spreadsheet, it's more likely to spot its own layout and formula mistakes before outputting the file. That cuts down the rounds of back-and-forth it takes to reach something usable.  
 
 **What this means for you:** Choose Opus 4.7 when you're asking Claude to create office files. You'll get a draft you can open and continue working in rather than one you have to rebuild. This applies to file creation in claude.ai Chat and Cowork, and to Claude in Excel and Claude in PowerPoint.
 
@@ -70,7 +70,7 @@ If the answer should come from somewhere specific — Drive, Slack, the web — 
 
 Opus 4.7 makes good use of the context you've already given Claude — so it's worth setting up once.
 
-- **On claude.ai** — turn on Memory, put ongoing work in a Project with its source files and custom instructions, and add connectors plus web search so Claude can pull from your tools when you ask.
-- In **Cowork** — point a Project at a real folder, set per-project instructions, and enable connectors, browser access through Claude in Chrome so tasks can navigate your browser, and scheduled tasks so recurring work can read from your sources and run on its own.
-- **Across devices** — install the mobile app and use Dispatch to send work to Cowork when you're away from your desk → See how to  Send work to Claude with Dispatch.
-- In **Excel and PowerPoint** — install Claude in Excel and Claude in PowerPoint to work directly inside your files.
+*   **On claude.ai** — turn on Memory, put ongoing work in a Project with its source files and custom instructions, and add connectors plus web search so Claude can pull from your tools when you ask.
+*   In **Cowork** — point a Project at a real folder, set per-project instructions, and enable connectors, browser access through Claude in Chrome so tasks can navigate your browser, and scheduled tasks so recurring work can read from your sources and run on its own.
+*   **Across devices** — install the mobile app and use Dispatch to send work to Cowork when you're away from your desk → See how to  Send work to Claude with Dispatch.
+*   In **Excel and PowerPoint** — install Claude in Excel and Claude in PowerPoint to work directly inside your files.

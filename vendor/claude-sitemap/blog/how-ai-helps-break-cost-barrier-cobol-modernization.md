@@ -1,7 +1,7 @@
 # How AI helps break the cost barrier to COBOL modernization
 
-COBOL is everywhere. It handles an estimated 95% of ATM transactions in the US. Hundreds of billions of lines of COBOL run in production every day, powering critical systems in finance, airlines, and government.
-
+COBOL is everywhere. It handles an estimated 95% of ATM transactions in the US. Hundreds of billions of lines of COBOL run in production every day, powering critical systems in finance, airlines, and government.  
+  
 Despite that, the number of people who understand it shrinks every year.
 
 The developers who built these systems retired years ago, and the institutional knowledge they carried left with them. Production code has been modified repeatedly over decades, but the documentation hasn't kept up. Meanwhile, we aren't exactly minting replacements—COBOL is taught at only a handful of universities, and finding engineers who can read it gets harder every quarter.
@@ -49,16 +49,17 @@ With the codebase mapped, AI can assess which components are safe to move and wh
 
 This is where human judgment becomes essential. Your COBOL engineers bring the understanding of regulatory requirements, business priorities, operational constraints, and risk tolerance that AI cannot.
 
-**The planning phase** develops a detailed roadmap that sequences modernization work strategically:
+**The planning phase** develops a detailed roadmap that sequences modernization work strategically:  
 
-- AI suggests prioritization based on the risks, dependencies, and complexity it identified during analysis.
-- Your team reviews these recommendations and decides which components to modernize first based on business value, technical risk, and organizational priorities.
-- This is also when your team defines the target architecture, code standards, and integration requirements for modernized components.
+*   AI suggests prioritization based on the risks, dependencies, and complexity it identified during analysis.
+*   Your team reviews these recommendations and decides which components to modernize first based on business value, technical risk, and organizational priorities.
+*   This is also when your team defines the target architecture, code standards, and integration requirements for modernized components.  
+    
 
-**Code testing and validation** are also defined before any code changes:
+**Code testing and validation** are also defined before any code changes:  
 
-- AI designs preliminary function tests that verify migrated code produces identical outputs to legacy COBOL. 
-- Your team decides whether those tests are sufficient, which business scenarios need manual validation by subject-matter experts, and what performance benchmarks the modernized components need to meet.
+*   AI designs preliminary function tests that verify migrated code produces identical outputs to legacy COBOL. 
+*   Your team decides whether those tests are sufficient, which business scenarios need manual validation by subject-matter experts, and what performance benchmarks the modernized components need to meet.
 
 ### Incremental implementation with continuous validation
 

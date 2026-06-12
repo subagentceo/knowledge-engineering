@@ -18,30 +18,30 @@ The Pathology Explorer offers a range of capabilities, allowing Claude to analyz
 
 For each cell type (lymphocytes, neutrophils, plasmocytes, fibroblasts, eosinophils, cancer cell), the model provides:
 
-- count\_{cell_type}: The total number of cells of the specified type detected in the slide.
-- global*density*{cell_type}: The density of the specified cell type per unit area of the tissue.
+*   count_{cell_type}: The total number of cells of the specified type detected in the slide.
+*   global_density_{cell_type}: The density of the specified cell type per unit area of the tissue.
 
 **Morphological features of the nucleus**
 
 For each cell type, the model provides:
 
-- mean*area*{cell_type}: The average area of the nuclei of the specified cell type in the slides.
-- mean*circularity*{cell_type}: The average circularity of the nuclei of the specified cell type in the slides.
-- mean*perimeter*{cell_type}: The average perimeter of the nuclei of the specified cell type in the slides.
+*   mean_area_{cell_type}: The average area of the nuclei of the specified cell type in the slides.
+*   mean_circularity_{cell_type}: The average circularity of the nuclei of the specified cell type in the slides.
+*   mean_perimeter_{cell_type}: The average perimeter of the nuclei of the specified cell type in the slides.
 
 **Spatial organization features**
 
 For three types of regions (tumor, tumor core and tumor core stroma), the model provides for each cell type:
 
-- density*{cell_type}\_in*{region}: The density of the specified cell type within the specified region.
+*   density_{cell_type}_in_{region}: The density of the specified cell type within the specified region.
 
 For each region, the model also provides:
 
-- area\_{region}: The area of the specified region in the slide.
+*   area_{region}: The area of the specified region in the slide.
 
 In addition, for a selection of biologically relevant cell-cell interactions, the model provides:
 
-- average*co_occurrence*{cell*type}*{cell_type2}\_rad_20.0um: The average co-occurrence of the two specified cell types nuclei within a radius of 20 micrometers.
+*   average_co_occurrence_{cell_type}_{cell_type2}_rad_20.0um: The average co-occurrence of the two specified cell types nuclei within a radius of 20 micrometers.
 
 The model also computes the tils_diffusivity, a metric for quantifying the tumor-infiltrating lymphocytes diffusivity for the slide.
 
@@ -51,32 +51,32 @@ The model also computes the tils_diffusivity, a metric for quantifying the tumor
 
 The features are available on the following TCGA cohorts:
 
-- TCGA_ACC
-- TCGA_BLCA
-- TCGA_BRCA
-- TCGA_CESC
-- TCGA_CHOL
-- TCGA_COAD
-- TCGA_DLBC
-- TCGA_ESCA
-- TCGA_HNSC
-- TCGA_KICH
-- TCGA_KIRC
-- TCGA_KIRP
-- TCGA_LIHC
-- TCGA_LUAD
-- TCGA_LUSC
-- TCGA_MESO
-- TCGA_OV
-- TCGA_PAAD
-- TCGA_PRAD
-- TCGA_READ
-- TCGA_SARC
-- TCGA_STAD
-- TCGA_THCA
-- TCGA_THYM
-- TCGA_UCEC
-- TCGA_UCS
+*   TCGA_ACC
+*   TCGA_BLCA
+*   TCGA_BRCA
+*   TCGA_CESC
+*   TCGA_CHOL
+*   TCGA_COAD
+*   TCGA_DLBC
+*   TCGA_ESCA
+*   TCGA_HNSC
+*   TCGA_KICH
+*   TCGA_KIRC
+*   TCGA_KIRP
+*   TCGA_LIHC
+*   TCGA_LUAD
+*   TCGA_LUSC
+*   TCGA_MESO
+*   TCGA_OV
+*   TCGA_PAAD
+*   TCGA_PRAD
+*   TCGA_READ
+*   TCGA_SARC
+*   TCGA_STAD
+*   TCGA_THCA
+*   TCGA_THYM
+*   TCGA_UCEC
+*   TCGA_UCS
 
 ‍
 
@@ -84,18 +84,18 @@ The features are available on the following TCGA cohorts:
 
 Pharma researchers and healthcare providers (Research Use Only), for example:
 
-- Translational and immuno-oncology researchers
-- Novel drug discovery teams
-- Drug development and biomarker discovery teams
-- Digital pathology research groups
-- Companion diagnostic development groups
+*   Translational and immuno-oncology researchers
+*   Novel drug discovery teams
+*   Drug development and biomarker discovery teams
+*   Digital pathology research groups
+*   Companion diagnostic development groups
 
 ## Who can access the Owkin integration
 
 Prerequisites to access the connector are:
 
-- An account with access to the K Pro platform (product page, signup page)
-- Access to Claude.ai or Claude Desktop
+*   An account with access to the K Pro platform (product page, signup page)
+*   Access to Claude.ai or Claude Desktop
 
 More details on accessing the integration can be found in Owkin’s MCP Server Documentation.
 
@@ -128,14 +128,14 @@ Technical details of the Owkin integration can be found in Owkin’s MCP Server 
 
 ## Example use cases
 
-- **Refine patient stratification.** Identify patient subgroups that generalist models miss through granular profiling of 6 distinct cell types (including understudied populations like neutrophils and eosinophils). Leverage spatial organization analysis to characterize TME structures and phenotypes beyond simple counts.
-  - Example prompt: _"I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?"_
-- **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.
-  - Example prompt: _"Find the slide the most enriched in eosinophils from cohort TCGA_BRCA and plot it."_
-- **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.
-  - Example prompt: _"Is the density of plasmocytes associated with overall survival in bladder carcinoma?"_
-- **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.
-  - Example prompt: _"Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis."_
-- **Understand Owkin’s Pathology Explorer capabilities and context.** Gain transparency into the model by querying its technical specifications directly. Learn about the supported cell types, the pan-cancer training dataset and more, to ensure the model is appropriate for your research question.
+*   **Refine patient stratification.** Identify patient subgroups that generalist models miss through granular profiling of 6 distinct cell types (including understudied populations like neutrophils and eosinophils). Leverage spatial organization analysis to characterize TME structures and phenotypes beyond simple counts.  
+    *   Example prompt: _"I'm looking for Lung Adenocarcinoma patients that might be resistant to immunotherapy. Are there cases with low immune infiltration in the TCGA cohort?"_
+*   **Visualize whole-slide images.** Build confidence in the model output by retrieving whole-slide images directly within the chat interface.  
+    *   Example prompt: _"Find the slide the most enriched in eosinophils from cohort TCGA_BRCA and plot it."_
+*   **Assess prognostic value of H&E based markers.** Test clinical hypotheses by performing survival analysis on your cohorts, by splitting patients based on features such as specific cell densities or spatial scores.  
+    *   Example prompt: _"Is the density of plasmocytes associated with overall survival in bladder carcinoma?"_
+*   **Extract quantitative evidence for reproducibility.** Build trust in AI-generated insights by retrieving the underlying raw data for independent verification or downstream analysis.  
+    *   Example prompt: _"Export the breakdown of all cell types for patient TCGA-A2-A0YI-01Z-00-DX1.1CF2EC2D-C722-467F-8832-409B823E8D8F.svs in parquet format, so I can reproduce this analysis."_
+*   **Understand Owkin’s Pathology Explorer capabilities and context.** Gain transparency into the model by querying its technical specifications directly. Learn about the supported cell types, the pan-cancer training dataset and more, to ensure the model is appropriate for your research question.
 
 Example prompt: _"Can you provide an overview of Owkin’s Pathology Explorer model and its capabilities?"_

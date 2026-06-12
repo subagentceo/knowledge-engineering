@@ -4,9 +4,9 @@ Cove is pioneering a new way to interact with AI through a visual workspace, whe
 
 By integrating Claude, Cove:
 
-- Improved response accuracy and context understanding
-- Saw 30% faster response times compared to previous solutions
-- Achieved optimal performance by pairing best-fit Claude models to different use cases
+*   Improved response accuracy and context understanding
+*   Saw 30% faster response times compared to previous solutions
+*   Achieved optimal performance by pairing best-fit Claude models to different use cases
 
 ## Reimagining human-AI collaboration
 
@@ -42,16 +42,16 @@ One particular challenge is Cove’s requirement for both advanced reasoning abi
 
 Claude 3.5 Sonnet is used for much of the core reasoning:
 
-- Interprets user input and determines how to respond
-- Edits and manipulates items in workspace
-- Generates new content in workspace
-- Example: When a user starts a new project, Sonnet analyzes the request and determines the initial cards, content, and other visual elements needed
+*   Interprets user input and determines how to respond
+*   Edits and manipulates items in workspace
+*   Generates new content in workspace
+*   Example: When a user starts a new project, Sonnet analyzes the request and determines the initial cards, content, and other visual elements needed
 
 Claude 3 Haiku is used for real time interactions where speed and cost are key:
 
-- Provides contextual suggestions as users work
-- Generates low-latency responses for dynamic interface updates
-- Example: As a user edits a table, Haiku might suggest adding relevant columns or expanding certain points
+*   Provides contextual suggestions as users work
+*   Generates low-latency responses for dynamic interface updates
+*   Example: As a user edits a table, Haiku might suggest adding relevant columns or expanding certain points
 
 "After Claude 3.5 Sonnet generates an answer, we immediately trigger Claude 3 Haiku for quick suggestions, creating a seamless experience for users," explains Chu.
 

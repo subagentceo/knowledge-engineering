@@ -18,20 +18,20 @@ A financial analyst can pull comparable company financials from an open workbook
 
 Skills turn complete workflows into a one-click action. When someone on the team figures out the right way to run a variance analysis or compose a client deck using the firm's template, saving it as a skill makes that process instantly repeatable for the future.
 
-![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b18f278891d8d39110c45e_Claude-Blog-Excel-PPT-3P%20(1).png>)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b18f278891d8d39110c45e_Claude-Blog-Excel-PPT-3P%20\(1\).png)
 
 We've shipped a preloaded starter set of skills that cover the most common Excel and PowerPoint use cases. For Excel, the starter skills cover the workflows that come up most often in financial analysis: 
 
-- Auditing a model for formula errors and balance-sheet integrity
-- Building and populating LBO, DCF, and 3-statement model templates
-- Running comparable company analyses
-- Cleaning messy spreadsheet data—a range, active sheet, or whole file
+*   Auditing a model for formula errors and balance-sheet integrity
+*   Building and populating LBO, DCF, and 3-statement model templates
+*   Running comparable company analyses
+*   Cleaning messy spreadsheet data—a range, active sheet, or whole file
 
 For PowerPoint, the starter skills cover the presentation-layer work that follows an analysis:
 
-- Building competitive landscape decks including market positioning and peer deep-dives
-- Updating an existing deck with new information or additional data
-- Reviewing an investment banking deck for number consistency, data-narrative alignment, and language polish
+*   Building competitive landscape decks including market positioning and peer deep-dives
+*   Updating an existing deck with new information or additional data
+*   Reviewing an investment banking deck for number consistency, data-narrative alignment, and language polish
 
 Every skill already set up in Claude via the desktop or web app—either personal or organization-wide—works inside the add-ins out of the box, the same way MCP connectors do. The starter skills for Excel and PowerPoint are also available through the Financial Analysis plugin, which auto-installs on both add-ins. New skills added to the plugin are available without any additional setup.
 

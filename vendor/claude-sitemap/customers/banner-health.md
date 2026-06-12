@@ -4,11 +4,11 @@ Banner Health, one of the largest nonprofit health systems in the United States,
 
 ## With Claude, Banner Health:
 
-- Built BannerWise, an enterprise AI platform now available to 55,000+ employees
-- Transformed oncology chart preparation from an after-hours labor to an efficient in-clinic process
-- Achieved 85% of users reporting significant time savings alongside improved accuracy
-- Deployed a privacy-preserving AI system within their existing AWS environment in under 30 days
-- Created a foundation for reducing provider administrative burden by 50% over four years
+*   Built BannerWise, an enterprise AI platform now available to 55,000+ employees
+*   Transformed oncology chart preparation from an after-hours labor to an efficient in-clinic process
+*   Achieved 85% of users reporting significant time savings alongside improved accuracy
+*   Deployed a privacy-preserving AI system within their existing AWS environment in under 30 days
+*   Created a foundation for reducing provider administrative burden by 50% over four years
 
 ## The problem
 

@@ -45,7 +45,9 @@ List memories
 ### Returns
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -85,6 +87,7 @@ List memories
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.

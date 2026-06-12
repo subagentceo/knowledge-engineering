@@ -2,9 +2,9 @@
 
 Factory uses Claude to power autonomous droids that streamline software development for enterprises, saving customers over 500,000 engineering hours and millions of dollars across each step of the software development lifecycle.
 
-- 550,000 hours of development time saved across customers
-- Reduced development cycle time 20%
-- 3x reduction in code churn
+*   550,000 hours of development time saved across customers
+*   Reduced development cycle time 20%
+*   3x reduction in code churn
 
 ## Automating labor-intensive coding tasks
 

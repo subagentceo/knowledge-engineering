@@ -35,6 +35,7 @@ Record a heartbeat for a work item to maintain the lease.
 - `beta_self_hosted_work_heartbeat_response: object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -46,6 +47,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`

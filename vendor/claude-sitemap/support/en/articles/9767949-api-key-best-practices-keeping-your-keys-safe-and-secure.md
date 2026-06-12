@@ -6,13 +6,14 @@ One of the most frequent causes of API key leaks is accidental exposure in publi
 
 ## Best Practices for API Key Security
 
-### 1. _Never_ share your API key
+### 1. *Never* share your API key
 
 - **Keep it confidential**: Just as you wouldn't share your personal password, don't share your API key. If someone needs access to the Claude API, they should obtain their own key.
 
 - **Don’t share your key in public forums**: Don't include your API key in public discussions, emails, or support tickets, even between you and Anthropic.
 
 - **Exercise caution with third-party tools**: Consider that when you upload your API key to third-party tools or platforms (such as an web-based IDE, Cloud Provider, or CI/CD platform), you are giving the developer of that tool access to your Claude Console account. If you don’t trust their reputation, don’t trust them with your API key.
+
   - When using a third-party provider, always add your API key as an encrypted secret. Never include it directly in your code or configuration files.
 
 ### 2. Monitor Usage and Logs Closely
@@ -20,10 +21,13 @@ One of the most frequent causes of API key leaks is accidental exposure in publi
 We recommend regularly reviewing [logs](https://console.anthropic.com/settings/logs) and [usage](https://console.anthropic.com/settings/usage) patterns for your API keys within the Console.
 
 - **For Custom Rate Limit API orgs**: Implement usage and spend limits in your account settings.
+
   - These limits act as a safeguard against unexpected usage due to leaked keys or errant scripts.
 
 - **For Standard Rate Limit API orgs**: Enable and configure auto-reload settings in your account.
+
   - This feature allows you to set a threshold at which your account will automatically charge the card on file to replenish usage credits.
+
     - Carefully consider auto-reload limits. While they ensure continuous service, they also act as a safeguard against unexpected high usage that could result from leaked keys or mistakes in your code.
 
 ### 3. Securely Handling API Keys with environment Variables and Secrets
@@ -41,13 +45,11 @@ If you are storing secrets locally using dotenv, you must add your `.env` files 
 ```
 ANTHROPIC_API_KEY=your-api-key-here
 ```
-
 3. Install the `python-dotenv` package:
 
 ```
 pip install python-dotenv
 ```
-
 4. Load the API key in your Python script:
 
 ```
@@ -58,7 +60,6 @@ import os
 load_dotenv()
 my_api_key = os.getenv("ANTHROPIC_API_KEY")
 ```
-
 5. If you are deploying your application to a cloud hosting environment, refer to your cloud provider’s documentation on how to add your Claude API Key and share it with your application ([AWS](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html), [GCP](https://cloud.google.com/security/products/secret-manager?hl=en#how-it-works), [Azure](https://learn.microsoft.com/en-us/azure/key-vault/general/overview), [Vercel](https://vercel.com/docs/cli/secrets), [Heroku](https://devcenter.heroku.com/articles/config-vars)). Some providers offer multiple ways to securely inject environment variables into your app.
 
 ### 4. Rotate API Keys Regularly

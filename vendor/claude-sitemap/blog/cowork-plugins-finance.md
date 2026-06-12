@@ -12,9 +12,10 @@ The work around finance lives in many different places. A deal memo pulls from a
 
 An equity analyst can ask Claude to analyze earnings, update a financial model, and build a summary slide – all without switching tools. When inputs change, Claude automatically updates the rest of the workflow. 
 
-Claude working across Excel and PowerPoint is now available in research preview for all paid plans across Mac and Windows.
+Claude working across Excel and PowerPoint is now available in research preview for all paid plans across Mac and Windows.  
+  
 
-![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699e3f480ae40e9e292d36f1_image%20(49).png>)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699e3f480ae40e9e292d36f1_image%20\(49\).png)
 
 ## New finance plugins
 
@@ -22,14 +23,14 @@ We’re introducing five new Anthropic-built plugins, and several plugins built 
 
 The 5 Anthropic-developed plugins are all available now in our public repository.
 
-- First, the **financial analysis** plugin supports baseline workflows all finance analysts need, across market and competitive research, financial modeling, and powerpoint template creation and quality checking.
+*   First, the **financial analysis** plugin supports baseline workflows all finance analysts need, across market and competitive research, financial modeling, and powerpoint template creation and quality checking.
 
 Additional plugins support workflows specific to key finance functions:
 
-- **Investment banking** helps bankers with deal workflows: reviewing transaction documents, building comparable company analyses, and preparing pitch materials.
-- **Equity research** accelerates research workflows—parsing earnings transcripts, updating financial models with new guidance, and drafting research notes.
-- **Private equity** is built for deal sourcing and diligence. Claude can review large document sets, extract standardized financial data, model scenarios, and score opportunities against investment criteria.**‍**
-- **Wealth management** helps advisors analyze portfolios, identify drift and tax exposure, and generate rebalancing recommendations at scale.
+*   **Investment banking** helps bankers with deal workflows: reviewing transaction documents, building comparable company analyses, and preparing pitch materials.
+*   **Equity research** accelerates research workflows—parsing earnings transcripts, updating financial models with new guidance, and drafting research notes.
+*   **Private equity** is built for deal sourcing and diligence. Claude can review large document sets, extract standardized financial data, model scenarios, and score opportunities against investment criteria.**‍**
+*   **Wealth management** helps advisors analyze portfolios, identify drift and tax exposure, and generate rebalancing recommendations at scale.
 
 Beyond these five plugins, finance professionals also rely on proprietary data and specialized platforms that no general-purpose plugin can replicate. Our partners have built their own connectors and plugins that bring institutional data directly into Claude’s context, so user workflows are grounded in the exact sources their teams already trust.
 
@@ -37,13 +38,13 @@ Beyond these five plugins, finance professionals also rely on proprietary data a
 
 In addition to existing financial MCP connectors we already support, two new MCP connectors give Claude direct access to institutional data platforms. 
 
-- The **FactSet** connector brings real-time market data, fundamental analysis, earnings estimates, and research insights into Claude, to enhance users’ financial analysis and investment research workflows with trusted, institutional-quality data.
-- The **MSCI** connector brings MSCI’s trusted index data into Claude, enabling users to access MSCI’s proprietary index data and quickly gain insights into index performance, exposures, constituents and methodologies.
+*   The **FactSet** connector brings real-time market data, fundamental analysis, earnings estimates, and research insights into Claude, to enhance users’ financial analysis and investment research workflows with trusted, institutional-quality data.
+*   The **MSCI** connector brings MSCI’s trusted index data into Claude, enabling users to access MSCI’s proprietary index data and quickly gain insights into index performance, exposures, constituents and methodologies.
 
 Several partners are also launching their own plugins, which can be found in the same financial services plugins repository above. 
 
-- The **S&P Global** plugin brings Capital IQ Pro into Claude’s context. Skills include company tear sheets, industry transaction summaries, and earnings calls previews.
-- The **LSEG** plugin gives financial professionals direct access to LSEG’s market data and analytics from within Claude. Build DCF models with live yield curves, draft morning notes with real-time news, rebalance portfolios with current cross-asset pricing, and analyze deals with actual financing economics. Available for users with active LSEG data entitlements.
+*   The **S&P Global** plugin brings Capital IQ Pro into Claude’s context. Skills include company tear sheets, industry transaction summaries, and earnings calls previews.
+*   The **LSEG** plugin gives financial professionals direct access to LSEG’s market data and analytics from within Claude. Build DCF models with live yield curves, draft morning notes with real-time news, rebalance portfolios with current cross-asset pricing, and analyze deals with actual financing economics. Available for users with active LSEG data entitlements.
 
 ## Getting started
 

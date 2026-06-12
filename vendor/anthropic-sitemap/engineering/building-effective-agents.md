@@ -8,8 +8,8 @@ In this post, we share what we’ve learned from working with our customers and 
 
 "Agent" can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. Others use the term to describe more prescriptive implementations that follow predefined workflows. At Anthropic, we categorize all these variations as **agentic systems**, but draw an important architectural distinction between **workflows** and **agents**:
 
-- **Workflows** are systems where LLMs and tools are orchestrated through predefined code paths.
-- **Agents**, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
+*   **Workflows** are systems where LLMs and tools are orchestrated through predefined code paths.
+*   **Agents**, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
 
 Below, we will explore both types of agentic systems in detail. In Appendix 1 (“Agents in Practice”), we describe two domains where customers have found particular value in using these kinds of systems.
 
@@ -23,10 +23,10 @@ When more complexity is warranted, workflows offer predictability and consistenc
 
 There are many frameworks that make agentic systems easier to implement, including:
 
-- The Claude Agent SDK;
-- Strands Agents SDK by AWS;
-- Rivet, a drag and drop GUI LLM workflow builder; and
-- Vellum, another GUI tool for building and testing complex workflows.
+*   The Claude Agent SDK;
+*   Strands Agents SDK by AWS;
+*   Rivet, a drag and drop GUI LLM workflow builder; and
+*   Vellum, another GUI tool for building and testing complex workflows.
 
 These frameworks make it easy to get started by simplifying standard low-level tasks like calling LLMs, defining and parsing tools, and chaining calls together. However, they often create extra layers of abstraction that can obscure the underlying prompts ​​and responses, making them harder to debug. They can also make it tempting to add complexity when a simpler setup would suffice.
 
@@ -62,8 +62,8 @@ The prompt chaining workflow
 
 **Examples where prompt chaining is useful:**
 
-- Generating Marketing copy, then translating it into a different language.
-- Writing an outline of a document, checking that the outline meets certain criteria, then writing the document based on the outline.
+*   Generating Marketing copy, then translating it into a different language.
+*   Writing an outline of a document, checking that the outline meets certain criteria, then writing the document based on the outline.
 
 ### Workflow: Routing
 
@@ -77,15 +77,15 @@ The routing workflow
 
 **Examples where routing is useful:**
 
-- Directing different types of customer service queries (general questions, refund requests, technical support) into different downstream processes, prompts, and tools.
-- Routing easy/common questions to smaller, cost-efficient models like Claude Haiku 4.5 and hard/unusual questions to more capable models like Claude Sonnet 4.5 to optimize for best performance.
+*   Directing different types of customer service queries (general questions, refund requests, technical support) into different downstream processes, prompts, and tools.
+*   Routing easy/common questions to smaller, cost-efficient models like Claude Haiku 4.5 and hard/unusual questions to more capable models like Claude Sonnet 4.5 to optimize for best performance.
 
 ### Workflow: Parallelization
 
 LLMs can sometimes work simultaneously on a task and have their outputs aggregated programmatically. This workflow, parallelization, manifests in two key variations:
 
-- **Sectioning**: Breaking a task into independent subtasks run in parallel.
-- **Voting:** Running the same task multiple times to get diverse outputs.
+*   **Sectioning**: Breaking a task into independent subtasks run in parallel.
+*   **Voting:** Running the same task multiple times to get diverse outputs.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F406bb032ca007fd1624f261af717d70e6ca86286-2401x1000.png&w=3840&q=75)
 
@@ -95,12 +95,12 @@ The parallelization workflow
 
 **Examples where parallelization is useful:**
 
-- **Sectioning**:
-  - Implementing guardrails where one model instance processes user queries while another screens them for inappropriate content or requests. This tends to perform better than having the same LLM call handle both guardrails and the core response.
-  - Automating evals for evaluating LLM performance, where each LLM call evaluates a different aspect of the model’s performance on a given prompt.
-- **Voting**:
-  - Reviewing a piece of code for vulnerabilities, where several different prompts review and flag the code if they find a problem.
-  - Evaluating whether a given piece of content is inappropriate, with multiple prompts evaluating different aspects or requiring different vote thresholds to balance false positives and negatives.
+*   **Sectioning**:
+    *   Implementing guardrails where one model instance processes user queries while another screens them for inappropriate content or requests. This tends to perform better than having the same LLM call handle both guardrails and the core response.
+    *   Automating evals for evaluating LLM performance, where each LLM call evaluates a different aspect of the model’s performance on a given prompt.
+*   **Voting**:
+    *   Reviewing a piece of code for vulnerabilities, where several different prompts review and flag the code if they find a problem.
+    *   Evaluating whether a given piece of content is inappropriate, with multiple prompts evaluating different aspects or requiring different vote thresholds to balance false positives and negatives.
 
 ### Workflow: Orchestrator-workers
 
@@ -114,8 +114,8 @@ The orchestrator-workers workflow
 
 **Example where orchestrator-workers is useful:**
 
-- Coding products that make complex changes to multiple files each time.
-- Search tasks that involve gathering and analyzing information from multiple sources for possible relevant information.
+*   Coding products that make complex changes to multiple files each time.
+*   Search tasks that involve gathering and analyzing information from multiple sources for possible relevant information.
 
 ### Workflow: Evaluator-optimizer
 
@@ -129,8 +129,8 @@ The evaluator-optimizer workflow
 
 **Examples where evaluator-optimizer is useful:**
 
-- Literary translation where there are nuances that the translator LLM might not capture initially, but where an evaluator LLM can provide useful critiques.
-- Complex search tasks that require multiple rounds of searching and analysis to gather comprehensive information, where the evaluator decides whether further searches are warranted.
+*   Literary translation where there are nuances that the translator LLM might not capture initially, but where an evaluator LLM can provide useful critiques.
+*   Complex search tasks that require multiple rounds of searching and analysis to gather comprehensive information, where the evaluator decides whether further searches are warranted.
 
 ### Agents
 
@@ -150,8 +150,8 @@ The autonomous nature of agents means higher costs, and the potential for compou
 
 The following examples are from our own implementations:
 
-- A coding Agent to resolve SWE-bench tasks, which involve edits to many files based on a task description;
-- Our “computer use” reference implementation, where Claude uses a computer to accomplish tasks.
+*   A coding Agent to resolve SWE-bench tasks, which involve edits to many files based on a task description;
+*   Our “computer use” reference implementation, where Claude uses a computer to accomplish tasks.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b9a1f4eb63d5962a6e1746ac26bbc857cf3474f-2400x1666.png&w=3840&q=75)
 
@@ -185,10 +185,10 @@ Our work with customers has revealed two particularly promising applications for
 
 Customer support combines familiar chatbot interfaces with enhanced capabilities through tool integration. This is a natural fit for more open-ended agents because:
 
-- Support interactions naturally follow a conversation flow while requiring access to external information and actions;
-- Tools can be integrated to pull customer data, order history, and knowledge base articles;
-- Actions such as issuing refunds or updating tickets can be handled programmatically; and
-- Success can be clearly measured through user-defined resolutions.
+*   Support interactions naturally follow a conversation flow while requiring access to external information and actions;
+*   Tools can be integrated to pull customer data, order history, and knowledge base articles;
+*   Actions such as issuing refunds or updating tickets can be handled programmatically; and
+*   Success can be clearly measured through user-defined resolutions.
 
 Several companies have demonstrated the viability of this approach through usage-based pricing models that charge only for successful resolutions, showing confidence in their agents' effectiveness.
 
@@ -196,10 +196,10 @@ Several companies have demonstrated the viability of this approach through usage
 
 The software development space has shown remarkable potential for LLM features, with capabilities evolving from code completion to autonomous problem-solving. Agents are particularly effective because:
 
-- Code solutions are verifiable through automated tests;
-- Agents can iterate on solutions using test results as feedback;
-- The problem space is well-defined and structured; and
-- Output quality can be measured objectively.
+*   Code solutions are verifiable through automated tests;
+*   Agents can iterate on solutions using test results as feedback;
+*   The problem space is well-defined and structured; and
+*   Output quality can be measured objectively.
 
 In our own implementation, agents can now solve real GitHub issues in the SWE-bench Verified benchmark based on the pull request description alone. However, whereas automated testing helps verify functionality, human review remains crucial for ensuring solutions align with broader system requirements.
 
@@ -211,15 +211,15 @@ There are often several ways to specify the same action. For instance, you can s
 
 Our suggestions for deciding on tool formats are the following:
 
-- Give the model enough tokens to "think" before it writes itself into a corner.
-- Keep the format close to what the model has seen naturally occurring in text on the internet.
-- Make sure there's no formatting "overhead" such as having to keep an accurate count of thousands of lines of code, or string-escaping any code it writes.
+*   Give the model enough tokens to "think" before it writes itself into a corner.
+*   Keep the format close to what the model has seen naturally occurring in text on the internet.
+*   Make sure there's no formatting "overhead" such as having to keep an accurate count of thousands of lines of code, or string-escaping any code it writes.
 
 One rule of thumb is to think about how much effort goes into human-computer interfaces (HCI), and plan to invest just as much effort in creating good _agent_-computer interfaces (ACI). Here are some thoughts on how to do so:
 
-- Put yourself in the model's shoes. Is it obvious how to use this tool, based on the description and parameters, or would you need to think carefully about it? If so, then it’s probably also true for the model. A good tool definition often includes example usage, edge cases, input format requirements, and clear boundaries from other tools.
-- How can you change parameter names or descriptions to make things more obvious? Think of this as writing a great docstring for a junior developer on your team. This is especially important when using many similar tools.
-- Test how the model uses your tools: Run many example inputs in our workbench to see what mistakes the model makes, and iterate.
-- Poka-yoke your tools. Change the arguments so that it is harder to make mistakes.
+*   Put yourself in the model's shoes. Is it obvious how to use this tool, based on the description and parameters, or would you need to think carefully about it? If so, then it’s probably also true for the model. A good tool definition often includes example usage, edge cases, input format requirements, and clear boundaries from other tools.
+*   How can you change parameter names or descriptions to make things more obvious? Think of this as writing a great docstring for a junior developer on your team. This is especially important when using many similar tools.
+*   Test how the model uses your tools: Run many example inputs in our workbench to see what mistakes the model makes, and iterate.
+*   Poka-yoke your tools. Change the arguments so that it is harder to make mistakes.
 
 While building our agent for SWE-bench, we actually spent more time optimizing our tools than the overall prompt. For example, we found that the model would make mistakes with tools using relative filepaths after the agent had moved out of the root directory. To fix this, we changed the tool to always require absolute filepaths—and we found that the model used this method flawlessly.

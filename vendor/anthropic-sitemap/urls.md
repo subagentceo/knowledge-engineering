@@ -1,7 +1,7 @@
 ---
 vendor: anthropic-sitemap
 llms_txt: 
-count: 409
+count: 410
 transform: html-extract
 ---
 
@@ -262,6 +262,7 @@ transform: html-extract
 | https://www.anthropic.com/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team | `vendor/anthropic-sitemap/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team.md` |
 | https://www.anthropic.com/news/strengthening-our-safeguards-through-collaboration-with-us-caisi-and-uk-aisi | `vendor/anthropic-sitemap/news/strengthening-our-safeguards-through-collaboration-with-us-caisi-and-uk-aisi.md` |
 | https://www.anthropic.com/news/sydney-fourth-office-asia-pacific | `vendor/anthropic-sitemap/news/sydney-fourth-office-asia-pacific.md` |
+| https://www.anthropic.com/news/tcs-anthropic-partnership | `vendor/anthropic-sitemap/news/tcs-anthropic-partnership.md` |
 | https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks | `vendor/anthropic-sitemap/news/testing-and-mitigating-elections-related-risks.md` |
 | https://www.anthropic.com/news/testing-our-safety-defenses-with-a-new-bug-bounty-program | `vendor/anthropic-sitemap/news/testing-our-safety-defenses-with-a-new-bug-bounty-program.md` |
 | https://www.anthropic.com/news/the-anthropic-economic-index | `vendor/anthropic-sitemap/news/the-anthropic-economic-index.md` |

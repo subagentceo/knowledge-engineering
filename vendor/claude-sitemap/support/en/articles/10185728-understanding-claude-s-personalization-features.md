@@ -12,13 +12,13 @@ To set your instructions:
 
 3. Under "Instructions for Claude," describe your instructions, such as:
 
-- Your preferred approaches or methods
+  - Your preferred approaches or methods
 
-- Common terms or concepts you use
+  - Common terms or concepts you use
 
-- Typical scenarios you encounter
+  - Typical scenarios you encounter
 
-- General communication instructions
+  - General communication instructions
 
 Any instructions you add here will be applied to all of your conversations with Claude.
 

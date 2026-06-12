@@ -106,11 +106,11 @@ Austin sees the role of growth marketer evolving rapidly. "I think growth market
 
 Austin isn't the only marketer at Anthropic building with Claude. Across the marketing organization, teams are finding similar results:
 
-- **Influencer Marketing** uses Claude to write scripts for influencers and podcasts, freeing up 100+ hours per month to focus on higher-value work
-- **Customer Marketing** drafts case studies in 30 minutes instead of 2.5 hours, saving 10 hours per week
-- **Digital Marketing** built web development workflows that increased team productivity by 5x year-over-year
-- **Product Marketing** uses Skills and Projects to create launch briefs, saving 5-10 hours per launch
-- **Partner Marketing** built self-serve event enablement for Sales, reducing time spent on trade show prep by 40%
+*   **Influencer Marketing** uses Claude to write scripts for influencers and podcasts, freeing up 100+ hours per month to focus on higher-value work
+*   **Customer Marketing** drafts case studies in 30 minutes instead of 2.5 hours, saving 10 hours per week
+*   **Digital Marketing** built web development workflows that increased team productivity by 5x year-over-year
+*   **Product Marketing** uses Skills and Projects to create launch briefs, saving 5-10 hours per launch
+*   **Partner Marketing** built self-serve event enablement for Sales, reducing time spent on trade show prep by 40%
 
 "Most marketers probably approach AI in the same way, where they just see it as a way to help streamline things like writing copy or brainstorming," Austin says. "But they haven't really thought through what are the actual areas that they can truly embed tools like Claude into their workflow."
 

@@ -14,13 +14,13 @@ HealthEx allows you to connect Claude to your health records, securely pulling d
 
 The HealthEx connector is for patients, including:
 
-- Individuals managing chronic conditions (diabetes, heart disease, autoimmune illness, etc.)
-- Individuals coordinating care across multiple providers or systems
-- Individuals preparing for procedures, follow-ups, or second opinions
-- Health-literate individuals wanting clearer explanations of labs, imaging, and notes
-- Biohackers or proactive wellness users seeking deeper insight into their history
-- People navigating new diagnoses or confusing medical documentation
-- Any individual looking to better manage their health and take control of their health journey
+*   Individuals managing chronic conditions (diabetes, heart disease, autoimmune illness, etc.)
+*   Individuals coordinating care across multiple providers or systems
+*   Individuals preparing for procedures, follow-ups, or second opinions
+*   Health-literate individuals wanting clearer explanations of labs, imaging, and notes
+*   Biohackers or proactive wellness users seeking deeper insight into their history
+*   People navigating new diagnoses or confusing medical documentation
+*   Any individual looking to better manage their health and take control of their health journey
 
 ## Who can access the HealthEx integration
 
@@ -28,10 +28,10 @@ The HealthEx connector is available to all Claude Max users in the United States
 
 Key requirements across all HealthEx connector users:
 
-- CLEAR-verified identity is required before any record retrieval.
-- Explicit, task-scoped consent governs all data access.
-- Permissions can be viewed, limited, or revoked at any time.
-- HealthEx applies a privacy-first, minimum-necessary access model, with data retrieved only when requested.
+*   CLEAR-verified identity is required before any record retrieval.
+*   Explicit, task-scoped consent governs all data access.
+*   Permissions can be viewed, limited, or revoked at any time.
+*   HealthEx applies a privacy-first, minimum-necessary access model, with data retrieved only when requested.
 
 More details on accessing the integration can be found in HealthEx’s Connector Support Guide.
 
@@ -39,10 +39,10 @@ More details on accessing the integration can be found in HealthEx’s Connector
 
 The HealthEx connector helps people understand, organize, and act on their own health through clear, personalized insights grounded in their real medical history.
 
-- **Get an overview:** “_Show me a summary of my health records._”
-- **Learn about your health:** “_Help me understand my most recent lab results._”
-- **Plan your care:** “_What questions should I ask my doctor at my next visit?_”
-- **Guide your daily routine:** “_What types of exercise would be best for me?”_
+*   **Get an overview:** “_Show me a summary of my health records._”
+*   **Learn about your health:** “_Help me understand my most recent lab results._”
+*   **Plan your care:** “_What questions should I ask my doctor at my next visit?_”
+*   **Guide your daily routine:** “_What types of exercise would be best for me?”_
 
 ## Setting up the HealthEx integration in Claude
 
@@ -63,24 +63,24 @@ Technical details of the HealthEx integration can be found in HealthEx’s MCP S
 Setup can take a few minutes. Users will need a phone, a valid US government ID, and logins for health portals.
 
 1.  Click get started
-2.  Begin with identity verification by clicking Verify with CLEAR
+2.  Begin with identity verification by clicking Verify with CLEAR  
     1.  You will typically need to enter a phone number, email address, take a selfie, and take a picture of the front and back of your valid US government ID. 
     2.  CLEAR will transition you to your phone from the desktop via a text code or QR code. Once you are done, you will automatically be transitioned back to the HealthEx Connector experience on the desktop. 
-3.  Next, you will be asked to consent to access and connect your health records  
+3.  Next, you will be asked to consent to access and connect your health records    
     1.  You will authorize HealthEx to access your records on your behalf for up to 1 year. You have the ability to withdraw your consent at any time. 
     2.  You will authorize that Claude can connect to your data for up to 1 year for any conversations that will access the HealthEx MCP server. You can disconnect the HealthEx Connector at any time and/or withdraw consent at any time. 
-4.  Next, you will review and log in to health systems where records were automatically found 
+4.  Next, you will review and log in to health systems where records were automatically found   
     1.  You can login to your health portals one by one. 
     2.  If you do not have a specific login available or do not want to include a set of records, you can choose Skip Records from this Provider
-    3.  When you login to each portal, you will be asked to consent for your provider to give HealthEx access–this is expected. 
+    3.  When you login to each portal, you will be asked to consent for your provider to give HealthEx access–this is expected.   
         1.  For EPIC sites, data sets are checked by default and you can unselect any items you wish to not include. Then you will need to select a duration–you can select any timeframe here. 
-5.  Next, you have the option to Add a Provider to create a complete set of your health records. 
+5.  Next, you have the option to Add a Provider to create a complete set of your health records.   
     1.  Search for a clinic name or health system where you have received care. The ones closest to you will populate at the top of the search results
     2.  Select one and login. You will do this with each provider you add. 
     3.  Add as many providers to create your complete list
-6.  Next, you will review your complete list and click Access Records
+6.  Next, you will review your complete list and click Access Records  
     1.  In the background, HealthEx will be retrieving records and preparing them for use in Claude. This can take anywhere from 10-30 minutes given the types and size of the health records. 
-7.  Lastly, click Finish and Return to Claude
+7.  Lastly, click Finish and Return to Claude  
     1.  You are done with your part. We will notify you via email as soon as your records are connected to Claude so you can begin your first conversation.
 
 ## How does Claude protect my data privacy and safety?

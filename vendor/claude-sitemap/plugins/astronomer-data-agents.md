@@ -8,9 +8,9 @@ The plugin provides an `af` CLI tool for terminal-based Airflow interaction, ena
 
 **How to use:** Skills are invoked automatically based on your prompts, or you can trigger them directly. Try prompts like:
 
-- "Write a DAG that loads CSV files from S3 into Snowflake on a daily schedule"
-- "Debug why my etl_pipeline DAG failed last night"
-- "Trace where the orders_fact table gets its data from"
-- "Profile the customers table and check data quality"
-- "Migrate my Airflow 2 DAGs to Airflow 3"
-- "Set up a new Astro project and deploy it locally"
+*   "Write a DAG that loads CSV files from S3 into Snowflake on a daily schedule"
+*   "Debug why my etl_pipeline DAG failed last night"
+*   "Trace where the orders_fact table gets its data from"
+*   "Profile the customers table and check data quality"
+*   "Migrate my Airflow 2 DAGs to Airflow 3"
+*   "Set up a new Astro project and deploy it locally"

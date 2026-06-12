@@ -19,6 +19,7 @@ Redact a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).

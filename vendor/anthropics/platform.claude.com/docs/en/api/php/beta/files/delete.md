@@ -19,6 +19,7 @@ Delete File
 ### Returns
 
 - `DeletedFile`
+
   - `string id`
 
     ID of the deleted file.

@@ -30,14 +30,14 @@ See the pdf
 
 See the PDF
 
-- Version 3.3 and redline (effective May 26, 2026)
-- Version 3.2 and redline (effective April 29, 2026)
-- Version 3.1 and redline (effective April 2, 2026)
-- Version 3.0 (effective February 24, 2026)
-- Version 2.2 and redline (effective May 14, 2025)
-- Version 2.1 (effective March 31, 2025)
-- Version 2.0 (effective October 15, 2024)
-- Version 1.0 (effective September 19, 2023)
+*   Version 3.3 and redline (effective May 26, 2026)
+*   Version 3.2 and redline (effective April 29, 2026)
+*   Version 3.1 and redline (effective April 2, 2026)
+*   Version 3.0 (effective February 24, 2026)
+*   Version 2.2 and redline (effective May 14, 2025)
+*   Version 2.1 (effective March 31, 2025)
+*   Version 2.0 (effective October 15, 2024)
+*   Version 1.0 (effective September 19, 2023)
 
 ## May 26, 2026
 
@@ -53,8 +53,8 @@ We are updating our Frontier Safety Roadmap, because we have achieved two of the
 
 We have also made two minor updates to the text of the Responsible Scaling Policy, updating it to version 3.1. After we released the v3 update, readers noted two areas on which our language could be clarified. We have therefore made the following updates, neither of which significantly change the substance of the policy:
 
-- We now include a clearer definition of the AI R&D capability threshold. For example, in v3, our language around AI doubling the rate of progress (“compress two years of 2018 – 2024 AI progress into a single year”) could have been read as AI “doubling the rate of progress in aggregate AI capabilities”, or “doubling the productivity of researchers”. In v3.1, we are clear that we mean the former and not the latter.
-- We now clarify that, even if not required by the RSP, we remain free to take measures such as pausing the development of our AI systems in any circumstances in which we deem them appropriate. This was true of RSP v3, but it is stated more clearly in the v3.1 update.
+*   We now include a clearer definition of the AI R&D capability threshold. For example, in v3, our language around AI doubling the rate of progress (“compress two years of 2018 – 2024 AI progress into a single year”) could have been read as AI “doubling the rate of progress in aggregate AI capabilities”, or “doubling the productivity of researchers”. In v3.1, we are clear that we mean the former and not the latter.
+*   We now clarify that, even if not required by the RSP, we remain free to take measures such as pausing the development of our AI systems in any circumstances in which we deem them appropriate. This was true of RSP v3, but it is stated more clearly in the v3.1 update.
 
 There are also a number of smaller edits for style and clarity elsewhere in the policy.
 
@@ -66,14 +66,14 @@ We posted an update to our RSP Noncompliance Reporting and Anti-Retaliation Poli
 
 ## February 24, 2026
 
-Version 3.0 is a comprehensive rewrite of the RSP. The reasoning behind the rewrite can be found here.
-
+Version 3.0 is a comprehensive rewrite of the RSP. The reasoning behind the rewrite can be found here.  
+  
 This new version of the RSP involves the publication of Frontier Safety Roadmaps with detailed safety goals, and Risk Reports that quantify risk across all our deployed models.
 
 ## February 10, 2026
 
-Our RSP requires that once models cross the AI R&D-4 capability threshold, we develop an affirmative case identifying the most immediate and relevant misalignment risks from models pursuing misaligned goals and explaining how we have mitigated them. Our determination is that Claude Opus 4.6 does not cross this threshold.
-
+Our RSP requires that once models cross the AI R&D-4 capability threshold, we develop an affirmative case identifying the most immediate and relevant misalignment risks from models pursuing misaligned goals and explaining how we have mitigated them. Our determination is that Claude Opus 4.6 does not cross this threshold.  
+  
 However, as we noted in the Claude Opus 4.5 System Card and the Claude Opus 4.6 System Card, confidently ruling out this threshold is becoming increasingly difficult, and doing so requires assessments that are more subjective than we would like. Rather than rely solely on those assessments, we committed during the launch of Claude Opus 4.5 to writing sabotage risk reports for all future frontier models clearly exceeding Opus 4.5's capabilities. Today, consistent with that commitment, we are publishing the external-facing version of the Sabotage Risk Report we prepared for Claude Opus 4.6.
 
 Read the Sabotage Risk Report
@@ -148,14 +148,14 @@ The following sections outline the key security controls we plan to implement as
 7.  Endpoint patching: Use device management software (e.g., Mobile Device Management) to update all devices to the latest, most secure OS and software versions. Monitor for publicly disclosed vulnerabilities in third-party software and quickly deploy patches or mitigate risks. Restrict access for devices that fall behind on critical updates until patches are applied. Implement automated patching processes to close any manual oversight gaps.
 8.  Hardware procurement: Source employee endpoints directly from vetted manufacturers for secure chain of custody. Maintain a curated list of approved, recommended hardware and peripherals and provide employees with securely sourced peripherals.
 9.  Executive Risk Council: Establish an Executive Risk Council sponsored by executive leadership to oversee security programs. Follow a risk-based approach aligned with ISO 27001 standard. Perform periodic reviews to assess our security program's adherence to obligations deriving appropriately from both internal factors (e.g., adopted industry practices, contractual commitments, internal policies) and appropriate external factors (e.g., regulations and statutes).
-10. Access control for model weights: Implement multi-party authorization and mandatory code review on production code to remove persistent, high-privilege access to model weights. Grant temporary access and only via the smallest set of necessary permissions to reduce risk of weights exfiltration. Require hardware authentication device prompt, justification and employee approval to grant access.
-11. Infrastructure policy: Require all new production infrastructure to be defined in Infrastructure As Code (IaC) before promotion to production environments. Require infrastructure changes be reviewed by the Security team.
-12. Cloud security posture management: Reduce risk of compromise due to cloud misconfiguration by defining and implementing internal standards and best practices. Conduct regular audits of cloud environments and promptly remediate any identified gaps.
-13. Red teaming and penetration testing: Partner with a diverse range of external red team and penetration testing experts. Simulate sophisticated attacks, including insider threat and software supply chain compromise scenarios, to identify vulnerabilities. Build an in-house security team with wide-ranging expertise, including APT defense, insider risk, incident response, and secure design.
-14. Centralized log management and analysis: Centralize storage of major security-centric log sources in a SIEM/SOAR platform. Enable manual and automated analysis, log retention, rule creation and execution for detections and response workflows. Implement orchestration and response playbooks for automated alert investigation. Use a casebook workflow for security analysts to manage incidents.
-15. Access monitoring for critical assets: Conduct manual monitoring of access to model weights and high value IP, including recurring automated detections. Build automated detection across all major log sources for access to critical assets. Leverage additional threat intelligence to continuously improve detections.
-16. Deception technology: Install and monitor honeypots (including fake model weights) for high precision detection of unauthorized system access. Implement deception technology in a realistic way to trick attackers and gain insights into their tactics.
-17. Physical security: Conduct regular Technical Surveillance Countermeasures (TSCM) at physical spaces using advanced detection equipment and techniques. Tailor TSCM sweeps to specific events, threats or incidents that may trigger an inspection. Regularly sweep physical premises for intruders and conduct physical security red-teaming
+10.  Access control for model weights: Implement multi-party authorization and mandatory code review on production code to remove persistent, high-privilege access to model weights. Grant temporary access and only via the smallest set of necessary permissions to reduce risk of weights exfiltration. Require hardware authentication device prompt, justification and employee approval to grant access.
+11.  Infrastructure policy: Require all new production infrastructure to be defined in Infrastructure As Code (IaC) before promotion to production environments. Require infrastructure changes be reviewed by the Security team.
+12.  Cloud security posture management: Reduce risk of compromise due to cloud misconfiguration by defining and implementing internal standards and best practices. Conduct regular audits of cloud environments and promptly remediate any identified gaps.
+13.  Red teaming and penetration testing: Partner with a diverse range of external red team and penetration testing experts. Simulate sophisticated attacks, including insider threat and software supply chain compromise scenarios, to identify vulnerabilities. Build an in-house security team with wide-ranging expertise, including APT defense, insider risk, incident response, and secure design.
+14.  Centralized log management and analysis: Centralize storage of major security-centric log sources in a SIEM/SOAR platform. Enable manual and automated analysis, log retention, rule creation and execution for detections and response workflows. Implement orchestration and response playbooks for automated alert investigation. Use a casebook workflow for security analysts to manage incidents.
+15.  Access monitoring for critical assets: Conduct manual monitoring of access to model weights and high value IP, including recurring automated detections. Build automated detection across all major log sources for access to critical assets. Leverage additional threat intelligence to continuously improve detections.
+16.  Deception technology: Install and monitor honeypots (including fake model weights) for high precision detection of unauthorized system access. Implement deception technology in a realistic way to trick attackers and gain insights into their tactics.
+17.  Physical security: Conduct regular Technical Surveillance Countermeasures (TSCM) at physical spaces using advanced detection equipment and techniques. Tailor TSCM sweeps to specific events, threats or incidents that may trigger an inspection. Regularly sweep physical premises for intruders and conduct physical security red-teaming
 
 ### Planned Capability Assessments
 

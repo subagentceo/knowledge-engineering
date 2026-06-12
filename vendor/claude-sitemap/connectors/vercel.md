@@ -2,8 +2,8 @@
 
 The Vercel connector allows you to search and navigate documentation, manage projects and deployments, and analyze deployment logs—all in one place.
 
-You can use the Vercel connector to:
-
+You can use the Vercel connector to:  
+  
 Search Vercel documentation:  
 "What is Vercel Fluid compute?"
 

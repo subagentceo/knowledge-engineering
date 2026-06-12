@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -19,17 +18,17 @@ Claude Code's **Default** output style is the existing system prompt, designed t
 
 There are three additional built-in output styles:
 
-- **Proactive**: Claude executes immediately, makes reasonable assumptions instead of pausing for routine decisions, and prefers action over planning. This is stronger autonomous-execution guidance than [auto mode](/en/permission-modes#eliminate-prompts-with-auto-mode) applies, and it works without changing your permission mode, so you still see permission prompts before tools run.
+* **Proactive**: Claude executes immediately, makes reasonable assumptions instead of pausing for routine decisions, and prefers action over planning. This is stronger autonomous-execution guidance than [auto mode](/en/permission-modes#eliminate-prompts-with-auto-mode) applies, and it works without changing your permission mode, so you still see permission prompts before tools run.
 
-- **Explanatory**: Provides educational "Insights" in between helping you complete software engineering tasks. Helps you understand implementation choices and codebase patterns.
+* **Explanatory**: Provides educational "Insights" in between helping you complete software engineering tasks. Helps you understand implementation choices and codebase patterns.
 
-- **Learning**: Collaborative, learn-by-doing mode where Claude will not only share "Insights" while coding, but also ask you to contribute small, strategic pieces of code yourself. Claude Code will add `TODO(human)` markers in your code for you to implement.
+* **Learning**: Collaborative, learn-by-doing mode where Claude will not only share "Insights" while coding, but also ask you to contribute small, strategic pieces of code yourself. Claude Code will add `TODO(human)` markers in your code for you to implement.
 
 ## Change your output style
 
 Run `/config` and select **Output style** to pick a style from a menu. Your selection is saved to `.claude/settings.local.json` at the [local project level](/en/settings).
 
-<Note>{/_ max-version: 2.1.90 _/}The standalone `/output-style` command was deprecated in v2.1.73 and removed in v2.1.91. Use `/config` or edit the `outputStyle` setting directly.</Note>
+<Note>{/* max-version: 2.1.90 */}The standalone `/output-style` command was deprecated in v2.1.73 and removed in v2.1.91. Use `/config` or edit the `outputStyle` setting directly.</Note>
 
 To set a style without the menu, edit the `outputStyle` field directly in a settings file:
 
@@ -52,7 +51,6 @@ A custom output style is a Markdown file: frontmatter for metadata, then the ins
     * User: `~/.claude/output-styles`
     * Project: `.claude/output-styles`
     * Managed policy: `.claude/output-styles` inside the [managed settings directory](/en/settings#settings-files)
-
   </Step>
 
   <Step title="Add frontmatter and instructions">
@@ -73,7 +71,6 @@ A custom output style is a Markdown file: frontmatter for metadata, then the ins
 
     Use `flowchart TD` for control flow and `sequenceDiagram` for request paths. Keep diagrams under 15 nodes.
     ```
-
   </Step>
 
   <Step title="Switch to your style">
@@ -98,9 +95,9 @@ Output style files support these frontmatter fields:
 
 Output styles directly modify Claude Code's system prompt.
 
-- All output styles have their own custom instructions added to the end of the system prompt.
-- All output styles trigger reminders for Claude to adhere to the output style instructions during the conversation.
-- Custom output styles leave out Claude Code's built-in software engineering instructions, such as how to scope changes, write comments, and verify work, unless `keep-coding-instructions` is set to `true`.
+* All output styles have their own custom instructions added to the end of the system prompt.
+* All output styles trigger reminders for Claude to adhere to the output style instructions during the conversation.
+* Custom output styles leave out Claude Code's built-in software engineering instructions, such as how to scope changes, write comments, and verify work, unless `keep-coding-instructions` is set to `true`.
 
 Token usage depends on the style. Adding instructions to the system prompt increases input tokens, though prompt caching reduces this cost after the first request in a session. The built-in Explanatory and Learning styles produce longer responses than Default by design, which increases output tokens. For custom styles, output token usage depends on what your instructions tell Claude to produce.
 
@@ -118,7 +115,7 @@ Several features customize how Claude Code behaves. Output styles modify the sys
 
 ## Related resources
 
-- [Settings](/en/settings): where the `outputStyle` field lives and how settings precedence works
-- [Permission modes](/en/permission-modes): how the Proactive style compares to auto mode
-- [Plugins](/en/plugins): package and distribute output styles alongside skills, hooks, and agents
-- [Debug your configuration](/en/debug-your-config): diagnose why an output style isn't taking effect
+* [Settings](/en/settings): where the `outputStyle` field lives and how settings precedence works
+* [Permission modes](/en/permission-modes): how the Proactive style compares to auto mode
+* [Plugins](/en/plugins): package and distribute output styles alongside skills, hooks, and agents
+* [Debug your configuration](/en/debug-your-config): diagnose why an output style isn't taking effect

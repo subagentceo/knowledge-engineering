@@ -16,10 +16,10 @@ Managed Agents handles the complexity. You define your agent's tasks, tools, and
 
 Managed Agents includes:
 
-- **Production-grade agents** with secure sandboxing, authentication, and tool execution handled for you.
-- **Long-running sessions** that operate autonomously for hours, with progress and outputs that persist even through disconnections.
-- **Multi-agent coordination** so agents can spin up and direct other agents to parallelize complex work (available in _research preview_, request access here).**‍**
-- **Trusted governance,** giving agents access to real systems with scoped permissions, identity management, and execution tracing built in.
+*   **Production-grade agents** with secure sandboxing, authentication, and tool execution handled for you.
+*   **Long-running sessions** that operate autonomously for hours, with progress and outputs that persist even through disconnections.
+*   **Multi-agent coordination** so agents can spin up and direct other agents to parallelize complex work (available in _research preview_, request access here).**‍**
+*   **Trusted governance,** giving agents access to real systems with scoped permissions, identity management, and execution tracing built in.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69d53a1b570fa207204f0111_Claude-Blog-Managed-Agents-Diagram-NoBorder.png)
 
@@ -39,8 +39,8 @@ Session tracing, integration analytics, and troubleshooting guidance are built d
 
 Teams are already shipping 10x faster with Managed Agents across a range of production use cases. Coding agents that read a codebase, plan a fix, and open a PR. Productivity agents that join a project, pick up tasks, and deliver work alongside the rest of the team. Finance and legal agents that process documents and extract what matters. In each case, shipping in days meant providing value to users faster.
 
-- **Notion** lets teams delegate work to Claude directly inside their workspace (available now in private alpha inside Notion Custom Agents). Engineers use it to ship code, while knowledge workers use it to produce websites and presentations. Dozens of tasks can run in parallel while the whole team collaborates on the output.
-- **Rakuten** shipped enterprise agents across product, sales, marketing and finance that plug into Slack and Teams, letting employees assign tasks and get back deliverables like spreadsheets, slides, and apps. Each specialist agent was deployed within a week.
-- **Asana** built AI Teammates, collaborative AI agents that work alongside humans inside Asana projects, taking on tasks and drafting deliverables. The team used Managed Agents to add advanced features dramatically faster than they would have been able to otherwise.
-- **Vibecode** helps their customers go from prompt to deployed app using Managed Agents as the default integration, powering a new generation of AI-native apps. Users can now spin up that same infrastructure at least 10x quicker than before.**‍**
-- **Sentry** paired Seer, their debugging agent, with a Claude-powered agent that writes the patch and opens the PR, so developers go from a flagged bug to a reviewable fix in one flow. The integration shipped in weeks instead of months on Managed Agents.
+*   **Notion** lets teams delegate work to Claude directly inside their workspace (available now in private alpha inside Notion Custom Agents). Engineers use it to ship code, while knowledge workers use it to produce websites and presentations. Dozens of tasks can run in parallel while the whole team collaborates on the output.
+*   **Rakuten** shipped enterprise agents across product, sales, marketing and finance that plug into Slack and Teams, letting employees assign tasks and get back deliverables like spreadsheets, slides, and apps. Each specialist agent was deployed within a week.
+*   **Asana** built AI Teammates, collaborative AI agents that work alongside humans inside Asana projects, taking on tasks and drafting deliverables. The team used Managed Agents to add advanced features dramatically faster than they would have been able to otherwise.
+*   **Vibecode** helps their customers go from prompt to deployed app using Managed Agents as the default integration, powering a new generation of AI-native apps. Users can now spin up that same infrastructure at least 10x quicker than before.**‍**
+*   **Sentry** paired Seer, their debugging agent, with a Claude-powered agent that writes the patch and opens the PR, so developers go from a flagged bug to a reviewable fix in one flow. The integration shipped in weeks instead of months on Managed Agents.

@@ -8,9 +8,9 @@ Before starting any financial analysis, it's essential to understand which data 
 
 Start your analysis sessions by confirming data availability:
 
-- "_What S&P Global financial data can you access through Kensho?_"
+*   "_What S&P Global financial data can you access through Kensho?_"
 
-- "_Can you retrieve segment data through Daloopa?_"
+*   "_Can you retrieve segment data through Daloopa?_"
 
 This preliminary step prevents requesting analyses that require unavailable data and helps you understand which integration to specify for different types of analysis.
 
@@ -152,14 +152,14 @@ The specific criteria ensure Claude identifies companies that match your investm
 
 ## Tips for Efficient Prompting
 
-- State your end goal upfront so Claude can suggest appropriate approaches.
-- Use consistent terminology throughout your analysis.
-- Save successful prompt templates for recurring analyses.
-- Start with smaller test requests before scaling up.
-- Name the specific data source in your prompts (Daloopa, Kensho/S&P Global).
-- Consider data freshness - specify if you need latest available or specific historical data.
-- Include output format preferences (table, bullet points, narrative).
-- Request source citations when accuracy is critical.
-- For recurring analyses, establish a consistent prompt structure you can reuse.
+*   State your end goal upfront so Claude can suggest appropriate approaches.
+*   Use consistent terminology throughout your analysis.
+*   Save successful prompt templates for recurring analyses.
+*   Start with smaller test requests before scaling up.
+*   Name the specific data source in your prompts (Daloopa, Kensho/S&P Global).
+*   Consider data freshness - specify if you need latest available or specific historical data.
+*   Include output format preferences (table, bullet points, narrative).
+*   Request source citations when accuracy is critical.
+*   For recurring analyses, establish a consistent prompt structure you can reuse.
 
 These strategies help you get the most value from Claude's financial analysis capabilities while avoiding common pitfalls. As you develop experience with the system, you'll identify prompt patterns that work well for your specific analytical needs.

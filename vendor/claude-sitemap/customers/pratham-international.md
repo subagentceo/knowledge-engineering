@@ -4,9 +4,9 @@ Pratham is one of the world’s largest education nonprofits. Founded 30 years a
 
 ## With Claude, Pratham achieved:
 
-- **1,500+ student assessments** completed across 20 schools
-- **30% → 80% grading accuracy** through iterative prompt engineering with Anthropic
-- **90% accuracy** in generating questions aligned to Bloom's Taxonomy—the universal educational framework for assessing everything from basic factual recall to complex, higher-order reasoning
+*   **1,500+ student assessments** completed across 20 schools
+*   **30% → 80% grading accuracy** through iterative prompt engineering with Anthropic
+*   **90% accuracy** in generating questions aligned to Bloom's Taxonomy—the universal educational framework for assessing everything from basic factual recall to complex, higher-order reasoning
 
 ## The challenge: Thousands of practice exams, no way to give individual feedback
 

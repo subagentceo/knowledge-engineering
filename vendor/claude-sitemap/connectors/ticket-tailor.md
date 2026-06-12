@@ -2,8 +2,8 @@
 
 Provides event organisers with tools to interact with a Ticket Tailor box office account. It covers nearly every aspect of event ticketing: from event creation and ticket issuing, to managing orders, discounts, products, and more.
 
-You can use the Ticket Tailor connector to:
-
+You can use the Ticket Tailor connector to:  
+  
 Create events with tickets and products:  
 "Create a new event for a 'Summer Music Festival' at Central Park in New York. Set it up with two ticket types: General Admission at $75 and VIP passes at $150. Also add a merchandise product - festival t-shirts for $25. Then create three event occurrences for July 15th, 16th, and 17th, each running from 6 PM to 11 PM"
 

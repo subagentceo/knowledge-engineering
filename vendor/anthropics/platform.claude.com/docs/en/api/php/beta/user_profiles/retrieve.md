@@ -17,6 +17,7 @@ Get User Profile
 ### Returns
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.

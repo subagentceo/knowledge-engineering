@@ -6,8 +6,8 @@ Their flagship product, Resolve, is an AI assistant built on Claude that works a
 
 ## With Claude, IFS Nexus Black:
 
-- Helps manufacturers move from reactive repairs to predictive maintenance—William Grant & Sons is set to save millions annually at one distillery site
-- Resolves faults in assets at a plant, site or in the field 25% faster with AI that works for engineers in the field
+*   Helps manufacturers move from reactive repairs to predictive maintenance—William Grant & Sons is set to save millions annually at one distillery site
+*   Resolves faults in assets at a plant, site or in the field 25% faster with AI that works for engineers in the field
 
 ## The challenge
 

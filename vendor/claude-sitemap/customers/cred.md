@@ -4,10 +4,10 @@ CRED, a fintech platform serving over 15 million users across India, uses Claude
 
 With Claude, CRED achieved:
 
-- 2x faster execution speed for delivering features and fixes
-- 10% increase in test coverage across existing codebases
-- Greater testing and observability coverage
-- Independent end-to-end project delivery for previously lower-priority initiatives
+*   2x faster execution speed for delivering features and fixes
+*   10% increase in test coverage across existing codebases
+*   Greater testing and observability coverage
+*   Independent end-to-end project delivery for previously lower-priority initiatives
 
 ## Streamlining development cycles with agentic coding
 
@@ -37,9 +37,9 @@ It also outperformed other models in iterative development workflows, particular
 
 After seeing success with the API to help automate parts of their design automation suite, the team underwent testing to implement Claude Code with powerful results. Claude Code is Anthropic's command line tool that enables developers to delegate coding tasks directly from their terminal. CRED used Claude Code to enhance their development process across multiple dimensions:
 
-- **End-to-end development lifecycle**: Developers rely on Claude Code for identifying incremental solutions to writing, testing, and committing code across both new and existing projects
-- **Complex task breakdown**: Claude Code breaks down complex problems into manageable steps while maintaining structured context management through features like Claude.md
-- **Repository documentation**: The tool generates clear, structured documentation for existing codebases, making them easier to understand and maintain across teams
+*   **End-to-end development lifecycle**: Developers rely on Claude Code for identifying incremental solutions to writing, testing, and committing code across both new and existing projects
+*   **Complex task breakdown**: Claude Code breaks down complex problems into manageable steps while maintaining structured context management through features like Claude.md
+*   **Repository documentation**: The tool generates clear, structured documentation for existing codebases, making them easier to understand and maintain across teams
 
 These capabilities translated into immediate productivity gains that transformed CRED’s development approach. The tool enabled a fundamental shift toward agentic coding, solution discovery, and documentation.
 

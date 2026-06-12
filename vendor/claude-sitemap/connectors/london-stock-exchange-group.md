@@ -2,8 +2,8 @@
 
 Provides real-time access to LSEG's comprehensive financial market data ecosystem, spanning across asset classes and domains. It enables seamless integration of institutional-grade market data, analytics, and valuation tools directly into conversational workflows, allowing users to access deep market insights, perform complex calculations, and analyze financial instruments through natural language interactions.
 
-You can use the LSEG connector to:
-
+You can use the LSEG connector to:  
+  
 Get current FX spot rates:  
 "What is the current EUR/GBP spot rate?"
 

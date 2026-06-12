@@ -31,6 +31,7 @@ Add Session Resource
 ### Returns
 
 - `beta_managed_agents_file_resource: object { id, created_at, file_id, 3 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -42,6 +43,7 @@ Add Session Resource
   - `mount_path: string`
 
   - `type: "file"`
+
     - `"file"`
 
   - `updated_at: string`

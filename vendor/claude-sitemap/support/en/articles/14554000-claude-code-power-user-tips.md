@@ -16,22 +16,22 @@ Everything else in this guide works on a stock Claude Code install. When in doub
 
 ## Contents
 
-| **Section**                     | **Covers**                                               |
-| ------------------------------- | -------------------------------------------------------- |
-| Working in Parallel             | Worktrees, subagent isolation, `/batch`                  |
-| Planning Before Building        | Plan mode, model choice, effort levels                   |
-| Prompting Effectively           | Pushback prompts, `/btw`                                 |
-| Learning With Claude            | Explanatory output, diagrams, spaced repetition          |
-| CLAUDE.md and Memory            | `/init`, @claude in PRs, auto-memory, auto-dream         |
-| Verification                    | Chrome extension, Desktop app, `/simplify`               |
-| Commands, Skills, and Subagents | Custom commands, agent definitions, code-review agents   |
-| Hooks                           | Lifecycle events and patterns                            |
-| Permissions and Safety          | Pre-approvals, auto mode, sandboxing, long-running tasks |
-| Scheduled and Recurring Tasks   | `/loop`, `/schedule`                                     |
-| Mobile and Remote Control       | Mobile app, teleport, remote control, Dispatch           |
-| Tool Integrations (MCP)         | Data analytics, bug fixing, plugins                      |
-| Customizing Your Environment    | Terminal, status line, voice, output styles              |
-| SDK and Multi-Repo Work         | `--bare`, `--add-dir`, forking, setup scripts            |
+| **Section** | **Covers** |
+| --- | --- |
+| Working in Parallel | Worktrees, subagent isolation, `/batch` |
+| Planning Before Building | Plan mode, model choice, effort levels |
+| Prompting Effectively | Pushback prompts, `/btw` |
+| Learning With Claude | Explanatory output, diagrams, spaced repetition |
+| CLAUDE.md and Memory | `/init`, @claude in PRs, auto-memory, auto-dream |
+| Verification | Chrome extension, Desktop app, `/simplify` |
+| Commands, Skills, and Subagents | Custom commands, agent definitions, code-review agents |
+| Hooks | Lifecycle events and patterns |
+| Permissions and Safety | Pre-approvals, auto mode, sandboxing, long-running tasks |
+| Scheduled and Recurring Tasks | `/loop`, `/schedule` |
+| Mobile and Remote Control | Mobile app, teleport, remote control, Dispatch |
+| Tool Integrations (MCP) | Data analytics, bug fixing, plugins |
+| Customizing Your Environment | Terminal, status line, voice, output styles |
+| SDK and Multi-Repo Work | `--bare`, `--add-dir`, forking, setup scripts |
 
 ---
 
@@ -61,8 +61,7 @@ model: haiku
 isolation: worktree
 ---
 ```
-
-Then prompt naturally: _“Migrate all sync IO to async. Batch the changes and launch 10 parallel agents with worktree isolation. Each agent should test its changes end to end, then put up a PR.”_
+Then prompt naturally: *“Migrate all sync IO to async. Batch the changes and launch 10 parallel agents with worktree isolation. Each agent should test its changes end to end, then put up a PR.”*
 
 ### /batch for large migrations
 
@@ -90,7 +89,7 @@ A few patterns from the team:
 
 ### Use Opus with thinking for everything
 
-Claude Code team’s reasoning: _“It’s the best coding model I’ve ever used, and even though it’s bigger & slower than Sonnet, since you have to steer it less and it’s better at tool use, it is almost always faster than using a smaller model in the end.”_
+Claude Code team’s reasoning: *“It’s the best coding model I’ve ever used, and even though it’s bigger & slower than Sonnet, since you have to steer it less and it’s better at tool use, it is almost always faster than using a smaller model in the end.”*
 
 **The math:** less steering + better tool use = faster overall results, even with a larger model.
 
@@ -126,7 +125,7 @@ While Claude is actively working, use `/btw` to ask a quick question without int
 
 Claude Code isn’t just for writing code—it’s a powerful learning tool when you configure it to explain and teach.
 
-- **Enable “Explanatory” or “Learning” output style** in `/config` to have Claude explain the _why_ behind changes.
+- **Enable “Explanatory” or “Learning” output style** in `/config` to have Claude explain the *why* behind changes.
 
 - **Generate visual HTML presentations** explaining unfamiliar code.
 
@@ -142,7 +141,7 @@ Claude Code isn’t just for writing code—it’s a powerful learning tool when
 
 Share a single `CLAUDE.md` file at your repo root, checked into git, with the whole team contributing. The key practice: **anytime Claude does something incorrectly, add it to CLAUDE.md** so it knows not to repeat the mistake.
 
-After every correction, end with: _“Update your CLAUDE.md so you don’t make that mistake again.”_ Claude is very good at writing rules for itself.
+After every correction, end with: *“Update your CLAUDE.md so you don’t make that mistake again.”* Claude is very good at writing rules for itself.
 
 ### @claude in Code Reviews
 
@@ -151,7 +150,6 @@ Install the GitHub Action with `/install-github-app`, then tag `@claude` in PR c
 ```
 nit: use a string literal, not ts enum  @claude add to CLAUDE.md to never use enums, always prefer literal unions
 ```
-
 This is “Compounding Engineering”—each correction makes every future session better.
 
 ### Auto-memory
@@ -215,7 +213,6 @@ Think of subagents as automations for your most common PR workflows. Drop `.md` 
 ```
 .claude/agents/   build-validator.md   code-architect.md   code-simplifier.md   verify-app.md
 ```
-
 Each agent can have a custom name, color, tool set, allowed/disallowed tools, permission mode, and model. Set the **default agent for your main conversation** by adding `"agent"` to `settings.json` or using `claude --agent <name>`. Run `/agents` to get started.
 
 ### --agent for custom system prompts
@@ -246,14 +243,14 @@ Hooks let you deterministically run logic at points in the agent lifecycle. Ask 
 
 ### Common hook patterns
 
-| **Event**           | **Use case**                                                          |
-| ------------------- | --------------------------------------------------------------------- |
-| `SessionStart`      | Dynamically load context each time you start Claude                   |
-| `PreToolUse`        | Log every bash command the model runs                                 |
-| `PostToolUse`       | Auto-format code after Write/Edit to prevent CI failures              |
-| `PermissionRequest` | Route permission prompts to Slack, WhatsApp, or Opus for review       |
-| `Stop`              | Run deterministic checks on long tasks, or nudge Claude to keep going |
-| `PostCompact`       | Re-inject critical instructions after context compression             |
+| **Event** | **Use case** |
+| --- | --- |
+| `SessionStart` | Dynamically load context each time you start Claude |
+| `PreToolUse` | Log every bash command the model runs |
+| `PostToolUse` | Auto-format code after Write/Edit to prevent CI failures |
+| `PermissionRequest` | Route permission prompts to Slack, WhatsApp, or Opus for review |
+| `Stop` | Run deterministic checks on long tasks, or nudge Claude to keep going |
+| `PostCompact` | Re-inject critical instructions after context compression |
 
 Example `PostToolUse` hook for auto-formatting:
 
@@ -340,7 +337,7 @@ Move sessions back and forth between mobile, web, desktop, and terminal:
 
 - `/remote-control` lets you control a local session from your phone or the web.
 
-- `claude remote-control` lets you spawn a new local session from the mobile app. _Availability: Pro, Max, Team, and Enterprise plans on CLI v2.1.51+._
+- `claude remote-control` lets you spawn a new local session from the mobile app. *Availability: Pro, Max, Team, and Enterprise plans on CLI v2.1.51+.*
 
 You can also enable **“Enable Remote Control for all sessions”** in `/config`.
 
@@ -445,29 +442,29 @@ In Claude Code on web and desktop, add a **setup script** that runs before each 
 
 ## Appendix: Quick reference
 
-| **Area**         | **Key commands**                                             |
-| ---------------- | ------------------------------------------------------------ |
-| Parallel work    | `claude --worktree`, `/batch`, `isolation: worktree`         |
-| Planning         | Shift+Tab, `/effort max`, `claude --name`                    |
-| Memory           | `CLAUDE.md`, `/memory`, `/dream`, `@claude` in PRs           |
-| Verification     | Chrome extension, `/simplify`, Desktop app                   |
-| Automation       | `.claude/skills/`, `.claude/agents/`, `--agent`              |
-| Hooks            | `PostToolUse`, `Stop`, `PostCompact`, `PermissionRequest`    |
-| Permissions      | `/permissions`, auto mode, `/sandbox`                        |
-| Scheduling       | `/loop`, `/schedule`                                         |
-| Remote           | `--teleport`, `/remote-control`, mobile app, iMessage        |
-| Customization    | `/statusline`, `/color`, `/voice`, `/keybindings`, `/config` |
-| SDK & multi-repo | `--bare`, `--add-dir`, `/branch`                             |
+| **Area** | **Key commands** |
+| --- | --- |
+| Parallel work | `claude --worktree`, `/batch`, `isolation: worktree` |
+| Planning | Shift+Tab, `/effort max`, `claude --name` |
+| Memory | `CLAUDE.md`, `/memory`, `/dream`, `@claude` in PRs |
+| Verification | Chrome extension, `/simplify`, Desktop app |
+| Automation | `.claude/skills/`, `.claude/agents/`, `--agent` |
+| Hooks | `PostToolUse`, `Stop`, `PostCompact`, `PermissionRequest` |
+| Permissions | `/permissions`, auto mode, `/sandbox` |
+| Scheduling | `/loop`, `/schedule` |
+| Remote | `--teleport`, `/remote-control`, mobile app, iMessage |
+| Customization | `/statusline`, `/color`, `/voice`, `/keybindings`, `/config` |
+| SDK & multi-repo | `--bare`, `--add-dir`, `/branch` |
 
 ---
 
 ## Appendix: Related articles
 
-| **Resource**                | **Link**                                                                                       |
-| --------------------------- | ---------------------------------------------------------------------------------------------- |
-| Hooks reference             | **[code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks)**                     |
-| Subagents and custom agents | **[code.claude.com/docs/en/sub-agents](https://code.claude.com/docs/en/sub-agents)**           |
-| Scheduled tasks             | **[code.claude.com/docs/en/scheduled-tasks](https://code.claude.com/docs/en/scheduled-tasks)** |
-| Chrome extension            | **[code.claude.com/docs/en/chrome](https://code.claude.com/docs/en/chrome)**                   |
+| **Resource** | **Link** |
+| --- | --- |
+| Hooks reference | **[code.claude.com/docs/en/hooks](https://code.claude.com/docs/en/hooks)** |
+| Subagents and custom agents | **[code.claude.com/docs/en/sub-agents](https://code.claude.com/docs/en/sub-agents)** |
+| Scheduled tasks | **[code.claude.com/docs/en/scheduled-tasks](https://code.claude.com/docs/en/scheduled-tasks)** |
+| Chrome extension | **[code.claude.com/docs/en/chrome](https://code.claude.com/docs/en/chrome)** |
 
 Claude Code ships frequently. Verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.

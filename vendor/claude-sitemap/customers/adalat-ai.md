@@ -4,11 +4,11 @@
 
 ## With Claude, Adalat AI accomplished:
 
-- 50–200% productivity gains across engineering teams with Claude Code
-- Production-ready products deployed to real users in under 30 days, built by a single engineer using Claude Code
-- Claude API intelligence layer implemented in 2 days; first working prototype in 1 week
-- Bug resolution dropped from half-day investigations to under two hours
-- National WhatsApp helpline provides multilingual legal information across the country
+*   50–200% productivity gains across engineering teams with Claude Code
+*   Production-ready products deployed to real users in under 30 days, built by a single engineer using Claude Code
+*   Claude API intelligence layer implemented in 2 days; first working prototype in 1 week
+*   Bug resolution dropped from half-day investigations to under two hours
+*   National WhatsApp helpline provides multilingual legal information across the country
 
 ## The challenge: A justice system overwhelmed by delay
 

@@ -4,11 +4,11 @@ Sett builds AI-powered playable ads—interactive mini-games used to acquire use
 
 ## With Claude, Sett:
 
-- Reduced playable ad production time from one week to 75 minutes
-- Cut refinement effort within their agentic system by 50%
-- Built Claude as the orchestrator agent managing their entire creative pipeline
-- Achieved creative coding that understands abstract concepts like "taste" and user appeal
-- Laid the foundation for a fully autonomous user acquisition agent
+*   Reduced playable ad production time from one week to 75 minutes
+*   Cut refinement effort within their agentic system by 50%
+*   Built Claude as the orchestrator agent managing their entire creative pipeline
+*   Achieved creative coding that understands abstract concepts like "taste" and user appeal
+*   Laid the foundation for a fully autonomous user acquisition agent
 
 ## The problem
 

@@ -54,5 +54,5 @@
     "https://cdn.sanity.io/files/4zrzovbb/",
     "https://www-cdn.anthropic.com/"
   ],
-  "incremental": false
+  "incremental": true
 }

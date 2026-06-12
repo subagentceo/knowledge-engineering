@@ -17,6 +17,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Returns
 
 - `BetaEnvironmentDeleteResponse`
+
   - `string id`
 
     Environment identifier

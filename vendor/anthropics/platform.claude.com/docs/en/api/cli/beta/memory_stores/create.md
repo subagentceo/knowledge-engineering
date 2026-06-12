@@ -29,6 +29,7 @@ Create a memory store
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -42,6 +43,7 @@ Create a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
+
     - `"memory_store"`
 
   - `updated_at: string`

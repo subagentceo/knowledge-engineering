@@ -4,10 +4,10 @@ Harvey helps law firms and Fortune 500 enterprises revolutionize their approach 
 
 ## Key results with Claude:
 
-- Deployed Claude across the platform in under one month
-- Achieved one of the highest performance scores on Harvey's proprietary BigLaw Bench evaluation
-- Delivered statistically significant improvements on complex workflows requiring long-context reasoning
-- Deployed Claude at enterprise scale and with enterprise-grade security and privacy.
+*   Deployed Claude across the platform in under one month
+*   Achieved one of the highest performance scores on Harvey's proprietary BigLaw Bench evaluation
+*   Delivered statistically significant improvements on complex workflows requiring long-context reasoning
+*   Deployed Claude at enterprise scale and with enterprise-grade security and privacy.
 
 ## Legal AI demands exceptional accuracy and deep reasoning
 

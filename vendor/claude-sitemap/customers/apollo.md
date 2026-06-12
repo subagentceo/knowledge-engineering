@@ -4,12 +4,12 @@ Apollo helps thousands of sales teams convert prospects more effectively by comb
 
 ## With Claude, Apollo has enabled:
 
-- 35% boost in meeting bookings when leveraging Claude-powered messaging
-- 15% increase in customer retention rates
-- 5M+ Claude-powered messaging actions per month
-- 76% preference rate for Claude-powered messages in blind testing
-- 80% reduction in email writing time for sales reps at FLO EV Charging
-- 40% decrease in prospecting time for account executives at Qualytics
+*   35% boost in meeting bookings when leveraging Claude-powered messaging
+*   15% increase in customer retention rates
+*   5M+ Claude-powered messaging actions per month
+*   76% preference rate for Claude-powered messages in blind testing
+*   80% reduction in email writing time for sales reps at FLO EV Charging
+*   40% decrease in prospecting time for account executives at Qualytics
 
 ## Transforming traditional sales outreach
 
@@ -33,10 +33,10 @@ Apollo's integration of Claude goes beyond simple message generation. The implem
 
 Claude powers several critical components:
 
-- **AI Copywriter Model**: Claude 3.5 Haiku generates all AI-driven outbound messages, from personalized emails to follow-up sequences. When users click to create a message, Claude crafts compelling copy tailored to each prospect's industry, role, and interests.
-- **Signal Aggregation**: Claude combines data from Apollo's database with external signals like recent news, company events, and hiring patterns. This creates messages referencing timely, relevant information about each prospect.
-- **Voice and Tone Matching**: Claude learns each salesperson's unique writing style and adapts all generated content to match their authentic voice and preferred tone by analyzing samples of users' past successful emails.
-- **Messaging Templates**: All of Apollo's pre-built sales templates use Claude for dynamic content generation. Whether using a cold outreach template or a re-engagement sequence, Claude ensures each message feels personalized rather than templated.
+*   **AI Copywriter Model**: Claude 3.5 Haiku generates all AI-driven outbound messages, from personalized emails to follow-up sequences. When users click to create a message, Claude crafts compelling copy tailored to each prospect's industry, role, and interests.
+*   **Signal Aggregation**: Claude combines data from Apollo's database with external signals like recent news, company events, and hiring patterns. This creates messages referencing timely, relevant information about each prospect.
+*   **Voice and Tone Matching**: Claude learns each salesperson's unique writing style and adapts all generated content to match their authentic voice and preferred tone by analyzing samples of users' past successful emails.
+*   **Messaging Templates**: All of Apollo's pre-built sales templates use Claude for dynamic content generation. Whether using a cold outreach template or a re-engagement sequence, Claude ensures each message feels personalized rather than templated.
 
 "We use external tools to pull signals and our internal data, then Claude aggregates them to generate messages in your tone and voice, relevant to the target persona," Phillips said. "It functions as our intelligent aggregation model."
 

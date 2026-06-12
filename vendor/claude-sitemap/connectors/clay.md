@@ -1,7 +1,7 @@
 # Clay
 
-Run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all directly in Claude.
-
+Run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all directly in Claude.  
+  
 You can use Clay in Claude to:
 
 Find & Target Ideal Contacts:**  

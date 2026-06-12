@@ -4,10 +4,10 @@ Decagon, a software platform that powers customer support, uses Claude to create
 
 With Claude, Decagon:
 
-- Reduced over-inferencing rates by 70%
-- Powers support for both B2B and B2C companies across multiple industries - from consumer platforms like Eventbrite to business software like Rippling
-- Sees higher customer satisfaction due to Claude's ability to follow complex instructions and policies exactly
-- Decreased their own customer support volume, freeing up times and resources for growing their business
+*   Reduced over-inferencing rates by 70%
+*   Powers support for both B2B and B2C companies across multiple industries - from consumer platforms like Eventbrite to business software like Rippling
+*   Sees higher customer satisfaction due to Claude's ability to follow complex instructions and policies exactly
+*   Decreased their own customer support volume, freeing up times and resources for growing their business
 
 ## Delivering AI-powered support that doesn't feel like AI
 

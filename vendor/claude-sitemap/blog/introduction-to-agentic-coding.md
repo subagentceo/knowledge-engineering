@@ -96,10 +96,10 @@ The final implementation achieved 99.9% numerical accuracy compared to the refer
 
 **Rakuten's transformation metrics:**
 
-- **79% faster** feature delivery (24 days → 5 days)
-- **7-hour** autonomous implementations with minimal human intervention
-- **99.9%** accuracy on complex algorithmic refactoring
-- **5x** parallel task execution capacity for engineering teams
+*   **79% faster** feature delivery (24 days → 5 days)
+*   **7-hour** autonomous implementations with minimal human intervention
+*   **99.9%** accuracy on complex algorithmic refactoring
+*   **5x** parallel task execution capacity for engineering teams
 
 As Yusuke Kaji, General Manager of AI for Business at Rakuten, explained: "You can have five tasks running in parallel by delegating four to Claude Code while focusing on the remaining one."
 
@@ -143,9 +143,9 @@ Claude Code analyzes your entire codebase, identifies specific ORM patterns caus
 
 As you work with Claude Code, you develop intuition for which tasks benefit most from autonomous execution versus tasks better handled with traditional development tools. Some immediate applications that provide quick wins include:
 
-- **Test automation** for your uncovered code paths
-- **Documentation generation** for your legacy systems
-- **Routine refactoring** of your technical debt
-- **Feature implementation** for well-understood requirements
+*   **Test automation** for your uncovered code paths
+*   **Documentation generation** for your legacy systems
+*   **Routine refactoring** of your technical debt
+*   **Feature implementation** for well-understood requirements
 
 Each interaction provides an opportunity to learn how Claude Code approaches problems within your specific codebase. Get started with Claude Code or visit our docs to learn more.

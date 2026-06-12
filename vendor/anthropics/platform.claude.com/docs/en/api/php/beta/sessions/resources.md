@@ -29,6 +29,7 @@ Add Session Resource
 ### Returns
 
 - `ManagedAgentsFileResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -105,7 +106,9 @@ List Session Resources
 ### Returns
 
 - `ManagedAgentsSessionResource`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -125,6 +128,7 @@ List Session Resources
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -142,9 +146,10 @@ List Session Resources
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -238,7 +243,9 @@ Get Session Resource
 ### Returns
 
 - `ResourceGetResponse`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -258,6 +265,7 @@ Get Session Resource
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -275,9 +283,10 @@ Get Session Resource
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -361,7 +370,9 @@ Update Session Resource
 ### Returns
 
 - `ResourceUpdateResponse`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -381,6 +392,7 @@ Update Session Resource
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -398,9 +410,10 @@ Update Session Resource
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -481,6 +494,7 @@ Delete Session Resource
 ### Returns
 
 - `ManagedAgentsDeleteSessionResource`
+
   - `string id`
 
   - `Type type`
@@ -521,6 +535,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Delete Session Resource
 
 - `ManagedAgentsDeleteSessionResource`
+
   - `string id`
 
   - `Type type`
@@ -528,6 +543,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents File Resource
 
 - `ManagedAgentsFileResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -547,6 +563,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents GitHub Repository Resource
 
 - `ManagedAgentsGitHubRepositoryResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -568,9 +585,10 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Memory Store Resource
 
 - `ManagedAgentsMemoryStoreResource`
+
   - `string memoryStoreID`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `Type type`
 
@@ -597,7 +615,9 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Session Resource
 
 - `ManagedAgentsSessionResource`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -617,6 +637,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -634,9 +655,10 @@ var_dump($betaManagedAgentsDeleteSessionResource);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 

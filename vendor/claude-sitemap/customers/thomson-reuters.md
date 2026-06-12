@@ -4,11 +4,11 @@ Thomson Reuters uses Claude in Amazon Bedrock as part of its strategy to power t
 
 With Claude, Thomson Reuters:
 
-- Powers AI features that deliver expertise from 3,000+ subject matter experts to users across all domains
-- Built a comprehensive Retrieval-Augmented Generation (RAG) architecture for tax and legal analysis
-- Processes complex contracts and tax documents by deploying a secure, extensive, and reliable AWS Global Cloud Infrastructure
-- Maintains rigorous accuracy through expert validation
-- Implements prompt caching for efficient processing
+*   Powers AI features that deliver expertise from 3,000+ subject matter experts to users across all domains
+*   Built a comprehensive Retrieval-Augmented Generation (RAG) architecture for tax and legal analysis
+*   Processes complex contracts and tax documents by deploying a secure, extensive, and reliable AWS Global Cloud Infrastructure
+*   Maintains rigorous accuracy through expert validation
+*   Implements prompt caching for efficient processing
 
 ## Building AI solutions that exceed professional standards
 

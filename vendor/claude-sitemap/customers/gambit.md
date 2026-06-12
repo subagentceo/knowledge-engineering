@@ -4,9 +4,9 @@ Gambit Robotics uses Claude to power an AI kitchen device that guides home cooks
 
 ## With Claude, Gambit:
 
-- Achieves ~97%+ successful recipe parses across their pipeline
-- Writes 90% of their code with Claude Code
-- Built a working prototype within days of first integrating Claude
+*   Achieves ~97%+ successful recipe parses across their pipeline
+*   Writes 90% of their code with Claude Code
+*   Built a working prototype within days of first integrating Claude
 
 ## Better food. Less time. Less stress.
 
@@ -30,13 +30,13 @@ Gambit’s device combines a custom hardware platform with an RGB camera, a ther
 
 Here's what happens during a typical session:
 
-- Claude reads a recipe from a photo, a URL, or voice input, pulling out ingredients, steps, times, and temperatures
-- It structures the recipe into prep steps, cooking steps, and components like protein, sauce, and sides
-- It builds a live timeline of actions (add, stir, flip, reduce heat, remove), sequenced across burners
-- It keeps the full session in context throughout: the recipe, prior steps, elapsed time, user preferences, and what just happened
-- It watches the stove using vision and thermal data and adjusts guidance based on what's actually happening
-- When something is unclear, Claude pauses or asks instead of guessing
-- When users swap ingredients, change doneness preferences, or go out of order, Claude updates the plan without restarting
+*   Claude reads a recipe from a photo, a URL, or voice input, pulling out ingredients, steps, times, and temperatures
+*   It structures the recipe into prep steps, cooking steps, and components like protein, sauce, and sides
+*   It builds a live timeline of actions (add, stir, flip, reduce heat, remove), sequenced across burners
+*   It keeps the full session in context throughout: the recipe, prior steps, elapsed time, user preferences, and what just happened
+*   It watches the stove using vision and thermal data and adjusts guidance based on what's actually happening
+*   When something is unclear, Claude pauses or asks instead of guessing
+*   When users swap ingredients, change doneness preferences, or go out of order, Claude updates the plan without restarting
 
 Users can also show prep work to the device, like chopped vegetables, and Claude evaluates whether they're ready for the next step. Over time, the system personalizes recipes to how a user actually cooks.
 

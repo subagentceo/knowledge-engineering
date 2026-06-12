@@ -12,15 +12,15 @@ This integration provides access to the 2026 International Classification of Dis
 
 This connector provides nine primary tool calls that access ICD-10-CM and ICD-10-PCS codes.
 
-- **search_diagnosis_by_description** enables users to find diagnosis codes by disease name or medical terminology (e.g., "diabetes", "myocardial infarction", "breast cancer"), using case-insensitive text matching across code descriptions with automatic filtering for HIPAA-valid codes (excludes category headers that cannot be billed).
-- **search_diagnosis_by_code** finds diagnosis codes by exact code match or prefix search (e.g., "E11" returns all Type 2 diabetes codes), useful for exploring code families and related conditions.
-- **search_procedure_by_description** searches ICD-10-PCS procedure codes by anatomical terms and root operations (e.g., "appendix", "resection", "percutaneous endoscopic" for laparoscopic procedures), noting that PCS uses standardized terminology rather than common procedure names.
-- **search_procedure_by_code** finds procedure codes by exact match or prefix (e.g., "0DT" returns gastrointestinal resection procedures), enabling systematic exploration of procedure code families.
-- **lookup_code** retrieves complete details for a specific code when the exact code is known (e.g., "E11.65", "0DTJ4ZZ"), returning short and long descriptions plus HIPAA transaction validity status.
-- **validate_code** checks whether a code exists in the database and confirms its validity for HIPAA-covered transactions, distinguishing between billable codes and category headers.
-- **get_hierarchy** retrieves the full code family tree under a category prefix (e.g., "E11" returns all 117 Type 2 diabetes codes), showing parent-child relationships and complication progressions.
-- **get_by_category** navigates diagnosis codes by chapter (single letter like "E" for Endocrine diseases) or 3-character category (e.g., "E11" for Type 2 Diabetes).
-- **get_by_body_system** retrieves ICD-10-PCS procedure codes for specific anatomical systems using the first character body system code (e.g., "0" for Central Nervous System, "D" for Gastrointestinal).
+*   **search_diagnosis_by_description** enables users to find diagnosis codes by disease name or medical terminology (e.g., "diabetes", "myocardial infarction", "breast cancer"), using case-insensitive text matching across code descriptions with automatic filtering for HIPAA-valid codes (excludes category headers that cannot be billed).
+*   **search_diagnosis_by_code** finds diagnosis codes by exact code match or prefix search (e.g., "E11" returns all Type 2 diabetes codes), useful for exploring code families and related conditions.
+*   **search_procedure_by_description** searches ICD-10-PCS procedure codes by anatomical terms and root operations (e.g., "appendix", "resection", "percutaneous endoscopic" for laparoscopic procedures), noting that PCS uses standardized terminology rather than common procedure names.
+*   **search_procedure_by_code** finds procedure codes by exact match or prefix (e.g., "0DT" returns gastrointestinal resection procedures), enabling systematic exploration of procedure code families.
+*   **lookup_code** retrieves complete details for a specific code when the exact code is known (e.g., "E11.65", "0DTJ4ZZ"), returning short and long descriptions plus HIPAA transaction validity status.
+*   **validate_code** checks whether a code exists in the database and confirms its validity for HIPAA-covered transactions, distinguishing between billable codes and category headers.
+*   **get_hierarchy** retrieves the full code family tree under a category prefix (e.g., "E11" returns all 117 Type 2 diabetes codes), showing parent-child relationships and complication progressions.
+*   **get_by_category** navigates diagnosis codes by chapter (single letter like "E" for Endocrine diseases) or 3-character category (e.g., "E11" for Type 2 Diabetes).
+*   **get_by_body_system** retrieves ICD-10-PCS procedure codes for specific anatomical systems using the first character body system code (e.g., "0" for Central Nervous System, "D" for Gastrointestinal).
 
 On the provider side, the connector accesses a locally stored database of the 2026 ICD-10-CM and ICD-10-PCS code sets published by CMS and CDC/NCHS. The database includes code structure (chapter, category, subcategory), short and long descriptions, and HIPAA transaction validity flags. ICD-10-CM codes are 3-7 alphanumeric characters documenting diagnoses; ICD-10-PCS codes are exactly 7 alphanumeric characters documenting inpatient procedures. Category header codes (shorter codes like "E11" or "E11.3") serve as organizational groupings and are NOT valid for billing—only fully specified codes with maximum detail are HIPAA-compliant.
 
@@ -28,12 +28,12 @@ On the provider side, the connector accesses a locally stored database of the 20
 
 ## Who should use the ICD-10 integration
 
-- **Medical Coders & Health Information Management Professionals:** Search and validate diagnosis and procedure codes for accurate medical record documentation, ensure code specificity meets billing requirements, verify HIPAA transaction validity, and explore code hierarchies to select the most appropriate codes.
-- **Revenue Cycle Management Teams & Billing Specialists:** Validate code accuracy before claim submission to reduce denials, verify codes are valid for the current fiscal year (FY 2026), identify codes requiring additional documentation specificity, and ensure compliance with payer coding requirements.
-- **Clinical Documentation Improvement (CDI) Specialists:** Query physicians for more specific documentation when codes lack required detail, identify incomplete or non-specific codes that may result in claim denials, ensure documentation supports the most accurate and specific ICD-10 codes, and track code hierarchy relationships for comorbidity and complication coding.
-- **Healthcare IT & EHR Integration Teams:** Build and maintain code validation logic in electronic health record systems, implement automated code suggestion features based on clinical documentation, create coding reference tools integrated into clinical workflows, and ensure coding databases are updated with annual ICD-10 revisions.
-- **Medical Auditors & Compliance Officers:** Audit coded medical records for accuracy and specificity, identify patterns of coding errors or undercoding, verify compliance with CMS coding guidelines and HIPAA standards, and conduct retrospective reviews of diagnosis and procedure coding quality.
-- **Healthcare Data Analysts & Population Health Teams:** Analyze disease prevalence and treatment patterns using standardized ICD-10 codes, track diagnosis trends across patient populations, conduct outcomes research using procedure codes, and support quality reporting and value-based care initiatives with accurate coded data.
+*   **Medical Coders & Health Information Management Professionals:** Search and validate diagnosis and procedure codes for accurate medical record documentation, ensure code specificity meets billing requirements, verify HIPAA transaction validity, and explore code hierarchies to select the most appropriate codes.
+*   **Revenue Cycle Management Teams & Billing Specialists:** Validate code accuracy before claim submission to reduce denials, verify codes are valid for the current fiscal year (FY 2026), identify codes requiring additional documentation specificity, and ensure compliance with payer coding requirements.
+*   **Clinical Documentation Improvement (CDI) Specialists:** Query physicians for more specific documentation when codes lack required detail, identify incomplete or non-specific codes that may result in claim denials, ensure documentation supports the most accurate and specific ICD-10 codes, and track code hierarchy relationships for comorbidity and complication coding.
+*   **Healthcare IT & EHR Integration Teams:** Build and maintain code validation logic in electronic health record systems, implement automated code suggestion features based on clinical documentation, create coding reference tools integrated into clinical workflows, and ensure coding databases are updated with annual ICD-10 revisions.
+*   **Medical Auditors & Compliance Officers:** Audit coded medical records for accuracy and specificity, identify patterns of coding errors or undercoding, verify compliance with CMS coding guidelines and HIPAA standards, and conduct retrospective reviews of diagnosis and procedure coding quality.
+*   **Healthcare Data Analysts & Population Health Teams:** Analyze disease prevalence and treatment patterns using standardized ICD-10 codes, track diagnosis trends across patient populations, conduct outcomes research using procedure codes, and support quality reporting and value-based care initiatives with accurate coded data.
 
 ‍
 
@@ -67,27 +67,27 @@ Learn about finding and connecting tools in Claude.
 
 **Medical Coding & Documentation Accuracy**
 
-- Scenario: Coders and CDI specialists ensuring accurate, specific code selection for billing and documentation
-- Sample Prompts:
-  - _"Find all ICD-10 codes for Type 2 diabetes with complications. Show me the complete hierarchy"_
-  - _"Validate code E11.65 for HIPAA billing. Is this code specific enough or is it a category header?"_
-  - _"Search for diagnosis codes related to hypertension with chronic kidney disease"_
-  - _"What ICD-10-PCS codes exist for laparoscopic appendectomy? Search procedures for 'appendix' and 'percutaneous endoscopic'"_
+*   Scenario: Coders and CDI specialists ensuring accurate, specific code selection for billing and documentation
+*   Sample Prompts:  
+    *   _"Find all ICD-10 codes for Type 2 diabetes with complications. Show me the complete hierarchy"_
+    *   _"Validate code E11.65 for HIPAA billing. Is this code specific enough or is it a category header?"_
+    *   _"Search for diagnosis codes related to hypertension with chronic kidney disease"_
+    *   _"What ICD-10-PCS codes exist for laparoscopic appendectomy? Search procedures for 'appendix' and 'percutaneous endoscopic'"_
 
 **Billing Compliance & Claims Processing**
 
-- Scenario: Revenue cycle teams validating codes before claim submission to prevent denials
-- Sample Prompts:
-  - _"Is E11.9 valid for HIPAA transactions? What's the full description?"_
-  - _"Search for all myocardial infarction diagnosis codes that are valid for billing"_
-  - _"Find procedure codes for coronary artery bypass graft by searching code prefix '021'"_
-  - _"Validate this procedure code 0DTJ4ZZ - is it valid for inpatient hospital billing?"_
+*   Scenario: Revenue cycle teams validating codes before claim submission to prevent denials
+*   Sample Prompts:  
+    *   _"Is E11.9 valid for HIPAA transactions? What's the full description?"_
+    *   _"Search for all myocardial infarction diagnosis codes that are valid for billing"_
+    *   _"Find procedure codes for coronary artery bypass graft by searching code prefix '021'"_
+    *   _"Validate this procedure code 0DTJ4ZZ - is it valid for inpatient hospital billing?"_
 
 **Clinical Documentation Improvement & Audit**
 
-- Scenario: CDI specialists and auditors reviewing documentation specificity and code appropriateness
-- Sample Prompts:
-  - _"Show me the hierarchy of breast cancer diagnosis codes to identify if we're using the most specific code"_
-  - _"Search for diabetes codes with retinopathy complications - which codes distinguish between severity levels?"_
-  - _"What ICD-10 codes exist in the category E08 for diabetes due to underlying condition?"_
-  - _"Find all gastrointestinal resection procedures by body system. Are we coding to the appropriate specificity level?"_
+*   Scenario: CDI specialists and auditors reviewing documentation specificity and code appropriateness
+*   Sample Prompts:  
+    *   _"Show me the hierarchy of breast cancer diagnosis codes to identify if we're using the most specific code"_
+    *   _"Search for diabetes codes with retinopathy complications - which codes distinguish between severity levels?"_
+    *   _"What ICD-10 codes exist in the category E08 for diabetes due to underlying condition?"_
+    *   _"Find all gastrointestinal resection procedures by body system. Are we coding to the appropriate specificity level?"_

@@ -1,4 +1,4 @@
-_This article is about our consumer products (e.g. Claude Free, Pro, Max (and when using Claude Code with those accounts))._
+*This article is about our consumer products (e.g. Claude Free, Pro, Max (and when using Claude Code with those accounts)).*
 
 ## How we protect your data when you help improve Claude
 

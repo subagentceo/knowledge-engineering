@@ -1,9 +1,9 @@
 # Intercom
 
-Manage customer conversations, access support tickets, retrieve customer profiles, analyze conversation patterns, and handle customer service workflows through Intercom’s messaging platform. Provide intelligent customer support responses and insights using conversational AI integrated with your customer communication data.
-
-You can use the Intercom connector to:
-
+Manage customer conversations, access support tickets, retrieve customer profiles, analyze conversation patterns, and handle customer service workflows through Intercom’s messaging platform. Provide intelligent customer support responses and insights using conversational AI integrated with your customer communication data.  
+  
+You can use the Intercom connector to:  
+  
 Find conversations by contact:  
 "Find all Intercom Conversations started by Jennifer Parker"
 

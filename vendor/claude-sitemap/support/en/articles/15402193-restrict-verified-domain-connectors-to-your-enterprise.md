@@ -6,6 +6,8 @@ This setting is available to Owners, Primary Owners, and custom roles with the I
 
 When you turn on **Restrict verified-domain connectors to your enterprise**, only Claude accounts in your Enterprise organization can connect the supported connectors using an email address on your verified domains. Anyone who tries to make one of these connections from a Claude account outside your Enterprise is blocked. This setting applies to your entire Enterprise. You manage it at the parent organization level, and it applies to all child organizations.
 
+This check relies on the connected service sharing the account's identity during the connection process. For supported connectors, Claude can confirm the email domain of the account being connected and enforce the restriction. When a service doesn't share account identity, Claude can't perform the check and the connection proceeds normally.
+
 **Note:** This setting applies only to specific supported connectors, which you can view in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 
 For example, someone has two Claude accounts: a personal account using their personal email, and a work account using their work email. The work email is on a domain your Enterprise organization has verified.
@@ -43,6 +45,8 @@ If someone tries to make a connection that’s restricted, the connection fails 
 ## What the setting doesn't do
 
 - **It doesn't restrict connections in the other direction.** When the setting is on, people in your Enterprise can still connect services for personal use to their Enterprise Claude account. For example, they can connect their personal Gmail account.
+
+- **It doesn't replace data loss prevention.** It's a safeguard against accidentally connecting a work account to the wrong Claude account, not a control against deliberate data movement.
 
 - **It doesn't disconnect existing connections.** The restriction applies only to new connection attempts. Connections made before you turned on the setting stay connected.
 

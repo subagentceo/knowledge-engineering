@@ -16,8 +16,8 @@ Effective financial analysis with Claude follows a structured approach that mirr
 
 Before beginning your workflow, establish a proper workspace to maintain context and organization:
 
-- Create a project for your analysis
-- Upload any reference documents such as previous analyses or style guides
+*   Create a project for your analysis
+*   Upload any reference documents such as previous analyses or style guides
 
 For detailed project setup instructions, see What are projects? The examples that follow assume you have the necessary integrations enabled and have created a project workspace.
 
@@ -123,7 +123,7 @@ Artifacts can be shared with other members of your organization. The interactive
 
 ## Next Steps
 
-- Review integration guides to understand data availability for your specific use cases.
-- See Prompting Strategies for Financial Analysis for techniques to optimize your workflows.
-- Test workflows with smaller datasets before scaling to full analyses.
-- Save successful prompt sequences as templates for recurring analyses.
+*   Review integration guides to understand data availability for your specific use cases.
+*   See Prompting Strategies for Financial Analysis for techniques to optimize your workflows.
+*   Test workflows with smaller datasets before scaling to full analyses.
+*   Save successful prompt sequences as templates for recurring analyses.

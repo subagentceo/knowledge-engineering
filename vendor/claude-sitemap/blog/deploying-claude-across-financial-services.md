@@ -6,15 +6,15 @@ To help leaders chart their rollout, we put together a practical deployment guid
 
 In this guide, we share:
 
-- A product matrix for when to use Claude Chat, Cowork, Code, the Microsoft 365 add-ins, the Claude Platform, and Claude Managed Agents
-- 10 pre-built finance agent templates, including pitch builders, market researchers, KYC screeners, general ledger reconcilers, and month-end closers
-- Customer stories from AIG, Commonwealth Bank of Australia, IG Group, and Moody's
-- A three-phase adoption playbook—foundation, pilot, scale—with the actions and pro-tips that work at each stage
-- Use cases organized by sector, across investment banking and private equity, wealth and asset management, and retail and commercial banking
+*   A product matrix for when to use Claude Chat, Cowork, Code, the Microsoft 365 add-ins, the Claude Platform, and Claude Managed Agents
+*   10 pre-built finance agent templates, including pitch builders, market researchers, KYC screeners, general ledger reconcilers, and month-end closers
+*   Customer stories from AIG, Commonwealth Bank of Australia, IG Group, and Moody's
+*   A three-phase adoption playbook—foundation, pilot, scale—with the actions and pro-tips that work at each stage
+*   Use cases organized by sector, across investment banking and private equity, wealth and asset management, and retail and commercial banking
 
 The guide is built for AI leaders deciding where Claude fits inside their firm and the engineers who will roll it out.
 
-**Check it out,** **here\*\***.\*\*
+**Check it out,** **here****.**
 
 Get started with Claude for Financial Services today.
 

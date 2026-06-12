@@ -27,14 +27,14 @@ This Skill generates peer benchmarking tables with valuation multiples and opera
 
 **Suggested data sources:**
 
-- Public company fundamentals (FactSet/CapIQ/Daloopa)
-- Private company fundamentals (PitchBook)
-- M&A transactions data (PitchBook)
+*   Public company fundamentals (FactSet/CapIQ/Daloopa)
+*   Private company fundamentals (PitchBook)
+*   M&A transactions data (PitchBook)
 
 **Key outputs:**
 
-- Excel spreadsheet with peer company financial data and valuation multiples
-- Written analysis documenting peer selection rationale and key insights
+*   Excel spreadsheet with peer company financial data and valuation multiples
+*   Written analysis documenting peer selection rationale and key insights
 
 ## Discounted Cash Flow (DCF) modeling
 
@@ -44,15 +44,15 @@ This Skill builds discounted cash flow models with proper WACC calculations, sce
 
 **Suggested data sources:**
 
-- Public company fundamentals (FactSet/CapIQ/Daloopa)
-- Consensus estimates (FactSet)
-- Broker research
+*   Public company fundamentals (FactSet/CapIQ/Daloopa)
+*   Consensus estimates (FactSet)
+*   Broker research
 
 **Key outputs:**
 
-- Excel DCF model with detailed cash flow projections and valuation
-- Sensitivity analysis showing impact of key assumptions
-- Executive summary with valuation range and key drivers
+*   Excel DCF model with detailed cash flow projections and valuation
+*   Sensitivity analysis showing impact of key assumptions
+*   Executive summary with valuation range and key drivers
 
 ## Initiating coverage research
 
@@ -62,16 +62,16 @@ This Skill helps conduct comprehensive company research for initiating coverage,
 
 **Suggest data sources:**
 
-- Web search on key company developments
-- SEC filings (EDGAR)
-- Public company fundamentals (FactSet/CapIQ/Daloopa)
-- Earnings transcripts (Aiera)
+*   Web search on key company developments
+*   SEC filings (EDGAR)
+*   Public company fundamentals (FactSet/CapIQ/Daloopa)
+*   Earnings transcripts (Aiera)
 
 **Key outputs:**
 
-- Comprehensive initiation report with investment recommendation and price target
-- Detailed financial model with projections and valuation analysis
-- Executive summary presentation for investment committee review
+*   Comprehensive initiation report with investment recommendation and price target
+*   Detailed financial model with projections and valuation analysis
+*   Executive summary presentation for investment committee review
 
 ## Strip profile/business overview creation
 
@@ -81,14 +81,14 @@ This Skill creates concise 1-2 page company summaries for pitch books and buyer 
 
 **Suggested data sources:**
 
-- Public company fundamentals (FactSet/CapIQ/Daloopa)
-- Private company fundamentals & developments (Pitchbook)
+*   Public company fundamentals (FactSet/CapIQ/Daloopa)
+*   Private company fundamentals & developments (Pitchbook)
 
 **Key outputs:**
 
-- Professional company profile presentation with executive summary
-- Business overview document with key metrics and positioning
-- Investment thesis summary with growth drivers and risks
+*   Professional company profile presentation with executive summary
+*   Business overview document with key metrics and positioning
+*   Investment thesis summary with growth drivers and risks
 
 ## Due diligence data pack creation
 
@@ -98,13 +98,13 @@ This Skill processes data room documents into structured Excel data packs with f
 
 **Suggested data sources:**
 
-- Due diligence / CIM documents (SharePoint, Egnyte)
+*   Due diligence / CIM documents (SharePoint, Egnyte)
 
 **Key outputs:**
 
-- Standardized financial data pack with historical and projected financials
-- Executive summary highlighting key investment metrics
-- Normalized data for comps analysis and modeling
+*   Standardized financial data pack with historical and projected financials
+*   Executive summary highlighting key investment metrics
+*   Normalized data for comps analysis and modeling
 
 ## Earnings Analysis
 
@@ -114,9 +114,9 @@ This Skill creates professional equity research earnings update reports analyzin
 
 **Suggested data sources:**
 
-- Earnings call transcripts (Aiera)
-- Investor presentations (Daloopa, Aiera)
-- Public company fundamentals (FactSet/CapIQ/Daloopa)
+*   Earnings call transcripts (Aiera)
+*   Investor presentations (Daloopa, Aiera)
+*   Public company fundamentals (FactSet/CapIQ/Daloopa)
 
 ## How to use these Skills
 
@@ -128,13 +128,13 @@ To guarantee Claude uses the skill, you are also welcome to explicitly instruct 
 
 ## Best Practices
 
-- **Be specific about your requirements:** Clearly state the company name, analysis type, and any specific parameters you need.**‍**
-- **Provide context:** Share relevant details like industry, time period, or specific metrics you want to focus on.**‍**
-- **Review and refine:** After Claude generates output using a Skill, you can ask for adjustments or additional analysis.**‍**
-- **Leverage multiple Skills:** Many workflows benefit from using several Skills together—for example, using the research Skill to initiate coverage, then the DCF Skill for valuation.
+*   **Be specific about your requirements:** Clearly state the company name, analysis type, and any specific parameters you need.**‍**
+*   **Provide context:** Share relevant details like industry, time period, or specific metrics you want to focus on.**‍**
+*   **Review and refine:** After Claude generates output using a Skill, you can ask for adjustments or additional analysis.**‍**
+*   **Leverage multiple Skills:** Many workflows benefit from using several Skills together—for example, using the research Skill to initiate coverage, then the DCF Skill for valuation.
 
 ## Learn more about Skills
 
-- What are Skills?‍
-- Using Skills in Claude‍
-- How to create custom Skills
+*   What are Skills?‍
+*   Using Skills in Claude‍
+*   How to create custom Skills

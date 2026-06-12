@@ -4,10 +4,10 @@ Grafana Labs uses Claude to power an intelligent multi-agent assistant that help
 
 **With Claude, Grafana delivers:**
 
-- Prototypes built in under one week, full private preview in under eight weeks
-- Complex dashboards and queries created using simple natural language
-- Automatic PromQL and LogQL query generation, eliminating technical barriers
-- Intelligent workflow automation across the entire Grafana ecosystem
+*   Prototypes built in under one week, full private preview in under eight weeks
+*   Complex dashboards and queries created using simple natural language
+*   Automatic PromQL and LogQL query generation, eliminating technical barriers
+*   Intelligent workflow automation across the entire Grafana ecosystem
 
 ## Making observability accessible to every team
 
@@ -33,10 +33,10 @@ Grafana's AI assistant operates directly within the interface as a sidebar, prov
 
 The multi-agent system handles sophisticated observability tasks:
 
-- **Natural language query generation**: Users ask questions like "What’s the request latency for my checkout service?" and the assistant automatically finds relevant metrics and constructs appropriate queries
-- **Dashboard creation**: Creates entire dashboards with multiple panels, selects visualizations, crafts titles and descriptions, and handles panel placement—tasks typically requiring significant time and expertise
-- **Intelligent investigations**: When prompted about service issues, navigates through logs and metrics, identifies errors, analyzes latency patterns, and provides root cause analysis with recommended actions
-- **Multi-step automation**: Breaks complex observability tasks into logical steps, showing reasoning and tool usage throughout
+*   **Natural language query generation**: Users ask questions like "What’s the request latency for my checkout service?" and the assistant automatically finds relevant metrics and constructs appropriate queries
+*   **Dashboard creation**: Creates entire dashboards with multiple panels, selects visualizations, crafts titles and descriptions, and handles panel placement—tasks typically requiring significant time and expertise
+*   **Intelligent investigations**: When prompted about service issues, navigates through logs and metrics, identifies errors, analyzes latency patterns, and provides root cause analysis with recommended actions
+*   **Multi-step automation**: Breaks complex observability tasks into logical steps, showing reasoning and tool usage throughout
 
 The assistant leverages specialized tools to query metrics, navigate between Grafana views, fix problematic panels, and adjust visual elements like color schemes across multiple panels simultaneously.
 

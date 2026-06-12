@@ -1,7 +1,8 @@
 # Introducing the Max Plan
 
-***Update:*** *Four major upgrades to the max plan. (May 1, 2025)*
+**_Update:_** _Four major upgrades to the max plan. (May 1, 2025)_
 
+  
 Today we're introducing the Max plan—designed for those who collaborate with Claude extensively and need expanded access for their most important work.
 
 In addition to more usage, Max plan users will also have priority access to our newest features and models, ensuring you always get the best of Claude.
@@ -14,22 +15,22 @@ The Max plan offers flexible usage levels that grow with you. Simply select the 
 
 **Expanded Usage: 5x more usage than Pro**
 
-- $100 per month
-- Ideal for frequent users who work with Claude on a variety of tasks
+*   $100 per month
+*   Ideal for frequent users who work with Claude on a variety of tasks
 
 **Maximum Flexibility: 20x more usage than Pro**
 
-- $200 per month
-- Ideal for daily users who collaborate often with Claude for most tasks
+*   $200 per month
+*   Ideal for daily users who collaborate often with Claude for most tasks
 
 ### Is the Max plan right for you?
 
 The Max plan is made for people who use Claude regularly and need higher usage limits. It's perfect if you:
 
-- Need extended conversations to refine and perfect your work
-- Work with substantial documents and complex data regularly
-- Have deadlines that can’t wait for your current usage limits
-- Find yourself turning to Claude throughout your day for various tasks
+*   Need extended conversations to refine and perfect your work
+*   Work with substantial documents and complex data regularly
+*   Have deadlines that can’t wait for your current usage limits
+*   Find yourself turning to Claude throughout your day for various tasks
 
 More usage unlocks more possibilities to collaborate with Claude, whether for work or life. At work, it means you can build Projects around any work task—whether it be writing, software, or data analysis—and really collaborate with Claude until your outcomes are just right.
 

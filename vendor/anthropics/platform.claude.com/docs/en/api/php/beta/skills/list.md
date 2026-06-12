@@ -25,8 +25,9 @@ List Skills
   Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-  - `"custom"`: only return user-created skills
-  - `"anthropic"`: only return Anthropic-created skills
+
+  * `"custom"`: only return user-created skills
+  * `"anthropic"`: only return Anthropic-created skills
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -35,6 +36,7 @@ List Skills
 ### Returns
 
 - `SkillListResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -62,8 +64,9 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `string type`
 

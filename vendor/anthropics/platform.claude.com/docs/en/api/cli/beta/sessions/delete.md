@@ -21,9 +21,11 @@ Delete Session
 - `beta_managed_agents_deleted_session: object { id, type }`
 
   Confirmation that a `session` has been permanently deleted.
+
   - `id: string`
 
   - `type: "session_deleted"`
+
     - `"session_deleted"`
 
 ### Example

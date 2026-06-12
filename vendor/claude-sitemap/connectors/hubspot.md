@@ -2,8 +2,8 @@
 
 Chat with your HubSpot CRM data directly within Claude to get instant, personalized insights. Query key CRM objects like contacts, deals, companies, and tickets based on your permissions, all without switching contexts. Your data stays secure while enabling smarter, faster decision-making with accurate, real-time customer information.
 
-You can use the HubSpot connector to:
-
+You can use the HubSpot connector to:  
+  
 Track contact lifecycle progression:  
 "Track HubSpot contacts for the last quarter through lifecycle stages, with time spent in each stage"
 

@@ -4,11 +4,11 @@ In an earlier post, we explored when multi-agent systems provide value and when 
 
 We've seen teams choose patterns based on what sounds sophisticated rather than what fits the problem at hand. We recommend starting with the simplest pattern that could work, watching where it struggles, and evolving from there. This post examines the mechanics and limitations of five patterns:
 
-- **Generator-verifier**, for quality-critical output with explicit evaluation criteria
-- **Orchestrator-subagent**, for clear task decomposition with bounded subtasks
-- **Agent teams**, for parallel, independent, long-running subtasks
-- **Message bus**, for event-driven pipelines with a growing agent ecosystem
-- **Shared-state**, for collaborative work where agents build on each other's findings
+*   **Generator-verifier**, for quality-critical output with explicit evaluation criteria
+*   **Orchestrator-subagent**, for clear task decomposition with bounded subtasks
+*   **Agent teams**, for parallel, independent, long-running subtasks
+*   **Message bus**, for event-driven pipelines with a growing agent ecosystem
+*   **Shared-state**, for collaborative work where agents build on each other's findings
 
 ## Pattern 1: Generator-verifier
 
@@ -144,8 +144,8 @@ The right pattern depends on a handful of structural questions about the system.
 
 Both involve a coordinator dispatching work to other agents. The question is how long workers need to maintain their context.
 
-- **Choose orchestrator-subagent** when subtasks are short, focused, and produce clear outputs. The code review system works well here because each check runs its analysis, generates a report, and returns within a single bounded invocation. The subagent doesn't need to carry context across multiple cycles.
-- **Choose agent teams** when subtasks benefit from sustained, multi-step work. The codebase migration fits here because each teammate develops real familiarity with its assigned service: the dependency graph, test patterns, deployment configuration. That accumulated context improves performance in ways one-shot dispatch can't replicate.
+*   **Choose orchestrator-subagent** when subtasks are short, focused, and produce clear outputs. The code review system works well here because each check runs its analysis, generates a report, and returns within a single bounded invocation. The subagent doesn't need to carry context across multiple cycles.
+*   **Choose agent teams** when subtasks benefit from sustained, multi-step work. The codebase migration fits here because each teammate develops real familiarity with its assigned service: the dependency graph, test patterns, deployment configuration. That accumulated context improves performance in ways one-shot dispatch can't replicate.
 
 When subagents need to retain state across invocations, agent teams are the better fit.
 
@@ -155,8 +155,8 @@ When subagents need to retain state across invocations, agent teams are the bett
 
 Both can handle multi-step workflows. The question is how predictable the workflow structure is.
 
-- **Choose orchestrator-subagent** when the sequence of steps is known in advance. The code review system follows a fixed pipeline: receive a PR, run checks, synthesize results.
-- **Choose message bus** when the workflow emerges from events and may vary based on what's discovered. The security operations system can't predict what alerts will arrive or what investigation paths they'll require. New alert types may emerge that need new handling. The message bus accommodates that variability by routing events to capable agents rather than following a predetermined sequence.
+*   **Choose orchestrator-subagent** when the sequence of steps is known in advance. The code review system follows a fixed pipeline: receive a PR, run checks, synthesize results.
+*   **Choose message bus** when the workflow emerges from events and may vary based on what's discovered. The security operations system can't predict what alerts will arrive or what investigation paths they'll require. New alert types may emerge that need new handling. The message bus accommodates that variability by routing events to capable agents rather than following a predetermined sequence.
 
 As conditional logic accumulates in the orchestrator to handle an expanding variety of cases, the message bus makes that routing explicit and extensible.
 
@@ -166,8 +166,8 @@ As conditional logic accumulates in the orchestrator to handle an expanding vari
 
 Both involve agents working autonomously. The question is whether agents need each other's findings.
 
-- **Choose agent teams** when agents work on separate partitions that don't interact. The codebase migration fits here because each teammate handles its service and the coordinator combines results at the end.
-- **Choose shared state** when agents' work is collaborative and findings should flow between them in real time. The research synthesis system is a better match because the academic agent's discovery of a key researcher immediately becomes relevant to the industry agent's investigation.
+*   **Choose agent teams** when agents work on separate partitions that don't interact. The codebase migration fits here because each teammate handles its service and the coordinator combines results at the end.
+*   **Choose shared state** when agents' work is collaborative and findings should flow between them in real time. The research synthesis system is a better match because the academic agent's discovery of a key researcher immediately becomes relevant to the industry agent's investigation.
 
 Once teammates need to communicate with each other rather than only share final results, shared state makes that more natural.
 
@@ -177,8 +177,8 @@ Once teammates need to communicate with each other rather than only share final 
 
 Both support complex multi-agent coordination. The question is whether work flows as discrete events or accumulates into a shared knowledge base.
 
-- **Choose message bus** when agents react to events in a pipeline. The security operations system processes alerts stage by stage, with each event triggering the next before completing. The pattern is efficient at routing events to capable agents.
-- **Choose shared state** when agents build on accumulated findings over time. The research synthesis system gathers knowledge continuously. Agents return to the store repeatedly, seeing what others have discovered and adjusting their investigations.
+*   **Choose message bus** when agents react to events in a pipeline. The security operations system processes alerts stage by stage, with each event triggering the next before completing. The pattern is efficient at routing events to capable agents.
+*   **Choose shared state** when agents build on accumulated findings over time. The research synthesis system gathers knowledge continuously. Agents return to the store repeatedly, seeing what others have discovered and adjusting their investigations.
 
 The message bus still has a router, which means a central component decides where events go. Shared state is decentralized. If eliminating single points of failure is a priority, shared state provides that more completely.
 
@@ -220,7 +220,7 @@ Shared State
 
 For most use cases, we recommend starting with orchestrator-subagent. It handles the widest range of problems with the least coordination overhead. Observe where it struggles, then evolve toward other patterns as specific needs become clear.
 
-‍*In upcoming posts, we will examine each pattern in depth with production implementations and case studies. For background on when multi-agent systems are worth the investment, see* _Building multi-agent systems: when and how to use them\_\_._
+‍_In upcoming posts, we will examine each pattern in depth with production implementations and case studies. For background on when multi-agent systems are worth the investment, see_ _Building multi-agent systems: when and how to use them__._
 
 ## Acknowledgements
 

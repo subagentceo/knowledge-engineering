@@ -52,7 +52,7 @@ Giving Claude the ability to access skills addresses this: the YAML frontmatter 
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cd895f7f04456cccf7b7e0_image3.png)
 
-*Claude can use skills to progressively disclose task-relevant context.* 
+_Claude can use skills to progressively disclose task-relevant context._ 
 
 While skills give Claude the freedom to assemble its own context window, context editing is the inverse, providing a way to selectively remove context that’s become stale or irrelevant, such as old tool results or thinking blocks. 
 
@@ -154,7 +154,7 @@ We see this pattern repeat itself. In an agent we built for long-horizon tasks, 
 
 Removing this dead weight is important because it can bottleneck Claude’s performance. Over time, the structure or boundaries in our applications should be pruned based the question: _what can I stop doing?_
 
-_To use all tools and patterns discussed here, check out_ _our claude-api skill\_\_._
+_To use all tools and patterns discussed here, check out_ _our claude-api skill__._
 
 ### Acknowledgements
 

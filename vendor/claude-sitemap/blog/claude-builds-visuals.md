@@ -1,6 +1,6 @@
 # Claude now creates interactive charts, diagrams and visualizations
 
-**_Update:_** \_Now available in Claude Cowork on all paid plans (April 22, 2026).\_Last fall, we previewed Imagine with Claude: a new way for Claude to build visuals in real time, without any code. We’re now bringing a version of this feature, in beta, to Claude’s chat conversations. Claude can create custom charts, diagrams and other visualizations in-line in its responses—and then tweak and modify its creations as the conversation develops.
+**_Update:_** _Now available in Claude Cowork on all paid plans (April 22, 2026)._Last fall, we previewed Imagine with Claude: a new way for Claude to build visuals in real time, without any code. We’re now bringing a version of this feature, in beta, to Claude’s chat conversations. Claude can create custom charts, diagrams and other visualizations in-line in its responses—and then tweak and modify its creations as the conversation develops.
 
 ‍
 

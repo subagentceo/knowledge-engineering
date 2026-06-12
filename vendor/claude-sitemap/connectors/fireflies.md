@@ -2,8 +2,8 @@
 
 Extract valuable insights from meeting transcripts and summaries.
 
-You can use the Fireflies connector to:
-
+You can use the Fireflies connector to:  
+  
 Review meeting decisions:  
 "What decisions were made in yesterday's product strategy meeting?"
 

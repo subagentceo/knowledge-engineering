@@ -78,8 +78,8 @@ Org Settings > Skills Settings
 Admin curated
 
 **Admins provision; users consume**  
-Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.
-
+Users can't create personal skills. Peer-to-peer and peer-to-org sharing are both disabled.  
+  
 Skills and plugins come from admins only.
 
 **Skills:** On  
@@ -89,10 +89,10 @@ Skills and plugins come from admins only.
 
 Guided creation
 
-**Users create and share skills peer-to-peer; champions promote to plugins.**
-
-Users can create personal skills and share skills with peers.
-
+**Users create and share skills peer-to-peer; champions promote to plugins.**  
+  
+Users can create personal skills and share skills with peers.  
+  
 Sharing disabled peer-to-org. Champions review and promote the best skills to team plugins.
 
 **Skills:** On  
@@ -102,10 +102,10 @@ Sharing disabled peer-to-org. Champions review and promote the best skills to te
 
 Fully open
 
-**Users create and share with each other and org-wide; admins monitor and curate plugins.**
-
-Users can create personal skills and share skills with peers and the org.
-
+**Users create and share with each other and org-wide; admins monitor and curate plugins.**  
+  
+Users can create personal skills and share skills with peers and the org.  
+  
 Admins monitor skill adoption and usage. Champions run quarterly skill reviews.
 
 **Skills:** On  
@@ -115,10 +115,10 @@ Admins monitor skill adoption and usage. Champions run quarterly skill reviews.
 
 Posture isn't one switch — it's three org-level toggles in Settings → Skills, plus how you scope plugins: 
 
-- User-created skills — can users build their own? 
-- Skill sharing — can users hand a skill to a teammate? 
-- Share with organization — can users publish to the org directory? 
-- Plugin group access — which groups see / auto-install each plugin?
+*   User-created skills — can users build their own? 
+*   Skill sharing — can users hand a skill to a teammate? 
+*   Share with organization — can users publish to the org directory? 
+*   Plugin group access — which groups see / auto-install each plugin?
 
 Plugin sharing to groups allows Admins to override a plugin's org-wide availability for specific groups, further scoping plugin access — e.g. make a plugin available only to the Legal group, or auto-install it for Engineering while keeping it hidden from everyone else.
 
@@ -132,44 +132,44 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 
 ### Who makes a good champion:
 
-- A power user who is already getting value from AI tools - whether Claude or otherwise 
-- Willing to build and experiment for their teams 
-- Trusted by admins to help gather departmental feedback and surface blockers
+*   A power user who is already getting value from AI tools - whether Claude or otherwise 
+*   Willing to build and experiment for their teams 
+*   Trusted by admins to help gather departmental feedback and surface blockers
 
 ### How to find champions:
 
-- Usage analytics are a great signal for discovering champions. Anthropic provides per-user activity data which will help uncover power users early on. 
-- Ask function leads to nominate
-- Target ratio 1 champion per 25–50 users
-- Mix technical and non-technical users across different departments 
-- Include enthusiasts and sceptics; an all-enthusiastic pilot gives false positives
+*   Usage analytics are a great signal for discovering champions. Anthropic provides per-user activity data which will help uncover power users early on. 
+*   Ask function leads to nominate
+*   Target ratio 1 champion per 25–50 users
+*   Mix technical and non-technical users across different departments 
+*   Include enthusiasts and sceptics; an all-enthusiastic pilot gives false positives
 
 ### What to give champions:
 
-- Permission to create Skills and consider turning on peer-to-peer Skill sharing for pilot group 
-- A 30-minute orientation on skills, plugins, and the governance model you're using
-- A channel (Slack channel, Teams group) where champions across departments can share what's working
-- Access to Anthropic's pre-built plugins as starting points
-- Recognition for their contributions to the rollout
+*   Permission to create Skills and consider turning on peer-to-peer Skill sharing for pilot group 
+*   A 30-minute orientation on skills, plugins, and the governance model you're using
+*   A channel (Slack channel, Teams group) where champions across departments can share what's working
+*   Access to Anthropic's pre-built plugins as starting points
+*   Recognition for their contributions to the rollout
 
 ### What to expect from champions:
 
-- Build 2–3 starter skills for their team 
-- Help their teams audit workflows and generate use case ideas
-- Run a skills workshop for their team
-- Own and maintain their department's plugins; identify the need for sub-team plugins (ex. Marketing vs. Demand Gen) 
-- Surface what's working and what's not in the champions channel
-- Do a quarterly curation review of their department's skills
+*   Build 2–3 starter skills for their team 
+*   Help their teams audit workflows and generate use case ideas
+*   Run a skills workshop for their team
+*   Own and maintain their department's plugins; identify the need for sub-team plugins (ex. Marketing vs. Demand Gen) 
+*   Surface what's working and what's not in the champions channel
+*   Do a quarterly curation review of their department's skills
 
 ## 4. Rollout phases
 
 The organizations that see the fastest, deepest value invest in readiness, curate first experiences, and govern deliberately by following these five principles.
 
-- **Executive sponsorship**: Visible and sustained — not just a kickoff email.
-- **Curated first experiences**: Guide users to high-value use cases, not blind experimentation.
-- **Connectors enabled early**: The aha moment arrives faster when Cowork reaches existing tools.
-- **Champion network first**: Every team needs someone who can demo, troubleshoot, and evangelize.
-- **Governance defined upfront**: Connector approval, skill creation, and access policies from Day 1.
+*   **Executive sponsorship**: Visible and sustained — not just a kickoff email.
+*   **Curated first experiences**: Guide users to high-value use cases, not blind experimentation.
+*   **Connectors enabled early**: The aha moment arrives faster when Cowork reaches existing tools.
+*   **Champion network first**: Every team needs someone who can demo, troubleshoot, and evangelize.
+*   **Governance defined upfront**: Connector approval, skill creation, and access policies from Day 1.
 
 Here's what a typical Cowork rollout looks like. Adapt the pace to your org. Note that the phases below assume Setup and Configuration steps from the Cowork Enterprise Admin Guide are complete.
 
@@ -179,23 +179,23 @@ Here's what a typical Cowork rollout looks like. Adapt the pace to your org. Not
 
 Admins and AI transformation teams own:
 
-- Recruit 1–2 champions per pilot department**.** Follow criteria in Section 3.
-- Enable initial connectors org-wide; sequence security review by risk tier (read-only first is common)
-- Set initial governance posture for the pilot group based on strategy for skill and plugin sharing across your org
-- Define 2–3 success metrics upfront and stand up feedback loops (pulse survey, dashboard review, escalation paths for feedback)
-- Announce launch, initial connectors and enablement opportunities to the pilot group 
+*   Recruit 1–2 champions per pilot department**.** Follow criteria in Section 3.
+*   Enable initial connectors org-wide; sequence security review by risk tier (read-only first is common)
+*   Set initial governance posture for the pilot group based on strategy for skill and plugin sharing across your org
+*   Define 2–3 success metrics upfront and stand up feedback loops (pulse survey, dashboard review, escalation paths for feedback)
+*   Announce launch, initial connectors and enablement opportunities to the pilot group 
 
 Champions own:
 
-- Install and try Anthropic's pre-built function plugins for their department
-- Build 2–3 starter skills for their own work
-- Report what's working / blocked in the champions channel
+*   Install and try Anthropic's pre-built function plugins for their department
+*   Build 2–3 starter skills for their own work
+*   Report what's working / blocked in the champions channel
 
 Exit when ready: 
 
-- > 70% weekly active users by week 4
-- Each pilot department has multiple repeatable use cases validated and documented
-- Champions are willing and briefed to run a workshop for their teams
+*   >70% weekly active users by week 4
+*   Each pilot department has multiple repeatable use cases validated and documented
+*   Champions are willing and briefed to run a workshop for their teams
 
 What changes between pilot and broad rollout is usually the governance posture, new connectors cleared by security, and new departments onboarding with their own champions. 
 
@@ -205,23 +205,23 @@ What changes between pilot and broad rollout is usually the governance posture, 
 
 Admins and AI transformation teams own:
 
-- Open access to the next wave of departments; onboard their champions
-- Clear the next tier of connectors through security
-- Revisit governance posture with pilot evidence (most orgs loosen here)
-- Stand up self-service resources and a tiered support path (champion → program team → Anthropic)
-- Watch spend patterns and adjust controls
+*   Open access to the next wave of departments; onboard their champions
+*   Clear the next tier of connectors through security
+*   Revisit governance posture with pilot evidence (most orgs loosen here)
+*   Stand up self-service resources and a tiered support path (champion → program team → Anthropic)
+*   Watch spend patterns and adjust controls
 
 Champions own:
 
-- Run a skills workshop for their department (format → Section 5)
-- Surface team-built skills; promote the best into the department plugin
-- Share wins cross-department in the champions channel
+*   Run a skills workshop for their department (format → Section 5)
+*   Surface team-built skills; promote the best into the department plugin
+*   Share wins cross-department in the champions channel
 
 Exit when:
 
-- Every onboarded department has a maintained plugin with a named owner
-- Workshop run in each department; majority of attendees built or adopted a skill
-- Connector and governance requests are flowing through a defined process 
+*   Every onboarded department has a maintained plugin with a named owner
+*   Workshop run in each department; majority of attendees built or adopted a skill
+*   Connector and governance requests are flowing through a defined process 
 
 ### Phase 3: Scale and Monitor
 
@@ -229,29 +229,29 @@ Exit when:
 
 Admins and AI transformation teams own:
 
-- Roll the workshop motion to remaining departments
-- Establish cadences: monthly champion check-in, quarterly governance review
-- Stand up (or formalize) an AI Enablement CoE to own the skill library and advanced capabilities
-- Move measurement from activity (WAU, sessions) to outcomes (time saved, use-case ROI); report quarterly
+*   Roll the workshop motion to remaining departments
+*   Establish cadences: monthly champion check-in, quarterly governance review
+*   Stand up (or formalize) an AI Enablement CoE to own the skill library and advanced capabilities
+*   Move measurement from activity (WAU, sessions) to outcomes (time saved, use-case ROI); report quarterly
 
 Champions own:
 
-- Quarterly curation: surface the best skills from their teams, promote winners to plugins, archive stale skills, merge duplicates
-- Onboard replacement champions as people rotate
-- Building plugins and skills enablement into new-hire onboarding
+*   Quarterly curation: surface the best skills from their teams, promote winners to plugins, archive stale skills, merge duplicates
+*   Onboard replacement champions as people rotate
+*   Building plugins and skills enablement into new-hire onboarding
 
 You're in steady state when:
 
-- Every major department has an owned plugin and an active champion
-- New skills are entering the library faster from champions than from the program team
-- Quarterly ROI reporting is running based on business value, not just time-save
+*   Every major department has an owned plugin and an active champion
+*   New skills are entering the library faster from champions than from the program team
+*   Quarterly ROI reporting is running based on business value, not just time-save
 
 #### Pitfalls to avoid:
 
-- **Launch ≠ enablement.** IT flipping the switch and sending an email isn't a rollout.Treat a Cowork rollout as a program requiring change management.
-- **First-impression failure.** Unguided experimentation underwhelms — curate starter use cases per role and have champions lead first sessions.
-- **The chat trap.** Users default to short prompts with no connectors. Enablement must demo delegation side-by-side with chat. Push users to authenticate connectors when they get provisioned.
-- **Treating config as permanent.** Plan to revisit connectors and posture with usage evidence; a working proof point de-risks the next approval better than another security review.
+*   **Launch ≠ enablement.** IT flipping the switch and sending an email isn't a rollout.Treat a Cowork rollout as a program requiring change management.
+*   **First-impression failure.** Unguided experimentation underwhelms — curate starter use cases per role and have champions lead first sessions.
+*   **The chat trap.** Users default to short prompts with no connectors. Enablement must demo delegation side-by-side with chat. Push users to authenticate connectors when they get provisioned.
+*   **Treating config as permanent.** Plan to revisit connectors and posture with usage evidence; a working proof point de-risks the next approval better than another security review.
 
 **Only measuring time-saved or login counts.** Consider what ROI on Claude Cowork means for your business. Define outcome-based measures including net new work completed and qualitative feedback on use cases in addition to productivity measurement.
 
@@ -265,27 +265,27 @@ Enablement follows a natural progression: users start by completing a single tas
 
 Get every user from zero to their first successful task with a connector.
 
-- **Curated first session per role**. Don't hand people a blank page. Share a one-pager or distribute a skill that describes "your first 3 tasks as a [sales rep / PM / analyst]." 
-- **Connector authentication moment.** Users who never authenticate a connector get a chat experience, not a Claude Cowork experience. Don't leave this to chance: a 10-min calendar hold on launch day, or have a rotation of teammates available for setup assistance.
-- **Side-by-side demo**. The champion shows the same task done as a chat prompt vs. a delegated Claude Cowork task with connectors. Same input, different output. 
-- **1:many Cowork 101 training**. Introduce skills, connectors, plugins and recurring tasks following the curriculum outlined in Intro to Claude Cowork 
+*   **Curated first session per role**. Don't hand people a blank page. Share a one-pager or distribute a skill that describes "your first 3 tasks as a [sales rep / PM / analyst]." 
+*   **Connector authentication moment.** Users who never authenticate a connector get a chat experience, not a Claude Cowork experience. Don't leave this to chance: a 10-min calendar hold on launch day, or have a rotation of teammates available for setup assistance.
+*   **Side-by-side demo**. The champion shows the same task done as a chat prompt vs. a delegated Claude Cowork task with connectors. Same input, different output. 
+*   **1:many Cowork 101 training**. Introduce skills, connectors, plugins and recurring tasks following the curriculum outlined in Intro to Claude Cowork 
 
 ### Phase 2: Enablement (connectors, skills, and real workflows)
 
 Shift from first success to repeatable competence. Every user gets at least one skill they rely on and at least one plugin installed.
 
-- **Skills workshop**. The centerpiece of an enablement motion. A hands-on session where every attendee builds at least one skill for their actual work. Champions run one per department during Phases 2–3. See What are Skills?.
-- **Plugin activation push**. Users who install a plugin and run its skills early learn Claude Cowork faster. Ensure relevant plugins are available coming out of the Pilot, and include directions on how to use plugins in launch comms. See Managing Claude Cowork plugins.
-- **Weekly office hours.** 30-min drop-in where the champion screen-shares, unblocks stuck users, and demos new skills. 
-- **Skill of the week**. Team posts one skill in the team channel with a short video of it running on real work. Skills provide inspiration for cross-functional teams.
-- **Champion demo days**. Cross-department show-and-tell on a monthly cadence. A sales champion demos their call-prep skill; an engineer demos their incident postmortem drafter. This is how ideas cross silos.
+*   **Skills workshop**. The centerpiece of an enablement motion. A hands-on session where every attendee builds at least one skill for their actual work. Champions run one per department during Phases 2–3. See What are Skills?.
+*   **Plugin activation push**. Users who install a plugin and run its skills early learn Claude Cowork faster. Ensure relevant plugins are available coming out of the Pilot, and include directions on how to use plugins in launch comms. See Managing Claude Cowork plugins.
+*   **Weekly office hours.** 30-min drop-in where the champion screen-shares, unblocks stuck users, and demos new skills. 
+*   **Skill of the week**. Team posts one skill in the team channel with a short video of it running on real work. Skills provide inspiration for cross-functional teams.
+*   **Champion demo days**. Cross-department show-and-tell on a monthly cadence. A sales champion demos their call-prep skill; an engineer demos their incident postmortem drafter. This is how ideas cross silos.
 
 ### Phase 3: Habit (automation and steady state)
 
 Lasting adoption means Claude Cowork is already running when users sit down in the morning.
 
-- **Get everyone one scheduled task**. Once a user has a daily pipeline digest or weekly report landing automatically, Claude Cowork comes to them. See Scheduled tasks.
-- **Embed in existing rituals**. The standard for a weekly pipeline review becomes the Claude Cowork-generated digest. The standard for a monthly board deck becomes a Claude Cowork-assembled first draft. Attach Claude Cowork to existing working rhythms.
+*   **Get everyone one scheduled task**. Once a user has a daily pipeline digest or weekly report landing automatically, Claude Cowork comes to them. See Scheduled tasks.
+*   **Embed in existing rituals**. The standard for a weekly pipeline review becomes the Claude Cowork-generated digest. The standard for a monthly board deck becomes a Claude Cowork-assembled first draft. Attach Claude Cowork to existing working rhythms.
 
 **Bake into new-hire onboarding**. Include Cowork in Day-1 checklist: install the desktop app, authenticate 3 connectors, install the department plugin, run its flagship skill. See Installing Claude Desktop.
 
@@ -307,4 +307,4 @@ Lasting adoption means Claude Cowork is already running when users sit down in t
 
 ‍
 
-_Further reading:_ _Cowork Enterprise Admin Settings_ _·\_\_Provision and manage Skills for your organization_ _·_ _Manage Cowork plugins for your organizations_ _·_ _Schedule recurring tasks in Cowork_
+_Further reading:_ _Cowork Enterprise Admin Settings_ _·__Provision and manage Skills for your organization_ _·_ _Manage Cowork plugins for your organizations_ _·_ _Schedule recurring tasks in Cowork_

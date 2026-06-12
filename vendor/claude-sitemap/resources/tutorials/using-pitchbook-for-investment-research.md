@@ -12,29 +12,29 @@ The integrated dataset provided by this integration includes profiles for more t
 
 The PitchBook integration enables Claude to access private capital market data:
 
-- **Entity Search and Identification:** Search PitchBook's database for companies, investors, funds, people, limited partners (LPs), and deals by name or ticker, retrieving unique PitchBook identifiers (PBIDs).
+*   **Entity Search and Identification:** Search PitchBook's database for companies, investors, funds, people, limited partners (LPs), and deals by name or ticker, retrieving unique PitchBook identifiers (PBIDs).
 
-- **Company Data Access:** Retrieve company profiles, including business descriptions, ownership status, complete financing history, financial statements (income statement, balance sheet, cash flow), team members, and current/former investors.
+*   **Company Data Access:** Retrieve company profiles, including business descriptions, ownership status, complete financing history, financial statements (income statement, balance sheet, cash flow), team members, and current/former investors.
 
-- **Investor and Fund Information:** Access investor profiles with AUM and investment focus, portfolio holdings showing current and exited investments, funds raised by each investor, and limited partner commitments to specific funds.
+*   **Investor and Fund Information:** Access investor profiles with AUM and investment focus, portfolio holdings showing current and exited investments, funds raised by each investor, and limited partner commitments to specific funds.
 
-- **Deal and Transaction Details:** Pull complete deal information including participants, investment amounts, valuations, terms, lead investor status, and detailed cap tables showing ownership percentages and liquidation preferences across rounds.
+*   **Deal and Transaction Details:** Pull complete deal information including participants, investment amounts, valuations, terms, lead investor status, and detailed cap tables showing ownership percentages and liquidation preferences across rounds.
 
-- **Relationship and Network Data:** Find connections between entities, such as co-investors in deals, shared portfolio companies between investors, team member histories across companies, and LP participation across multiple funds.
+*   **Relationship and Network Data:** Find connections between entities, such as co-investors in deals, shared portfolio companies between investors, team member histories across companies, and LP participation across multiple funds.
 
 ## How Claude Uses PitchBook's Data
 
 Claude accesses PitchBook data to help build your analyses. Here are several examples of tasks where Claude may decide to use data provided by PitchBook:
 
-- **Funding Timeline Construction:** Claude retrieves a company's deal history to show how valuations changed, which investors participated in each round, and how ownership diluted over time.
+*   **Funding Timeline Construction:** Claude retrieves a company's deal history to show how valuations changed, which investors participated in each round, and how ownership diluted over time.
 
-- **Peer Group Benchmarking:** When comparing companies, Claude pulls financial metrics, valuation multiples, and funding amounts to identify which companies are valued higher or lower than similar ones.
+*   **Peer Group Benchmarking:** When comparing companies, Claude pulls financial metrics, valuation multiples, and funding amounts to identify which companies are valued higher or lower than similar ones.
 
-- **Investor Portfolio Analysis:** Claude examines an investor's portfolio to identify their typical investment sizes, preferred sectors, and stage focus.
+*   **Investor Portfolio Analysis:** Claude examines an investor's portfolio to identify their typical investment sizes, preferred sectors, and stage focus.
 
-- **Connection Discovery:** Claude traces relationships between companies and investors to find warm introduction paths, like identifying mutual connections through board members or past deals.
+*   **Connection Discovery:** Claude traces relationships between companies and investors to find warm introduction paths, like identifying mutual connections through board members or past deals.
 
-- **Exit Pattern Recognition:** Claude analyzes past exits in your sector to show typical acquisition multiples, common buyers, and average holding periods for similar companies.
+*   **Exit Pattern Recognition:** Claude analyzes past exits in your sector to show typical acquisition multiples, common buyers, and average holding periods for similar companies.
 
 ## Setting Up PitchBook Integration
 
@@ -86,15 +86,15 @@ Discover unexpected connections between companies, investors, and professionals 
 
 ## Tips for Using PitchBook's Data
 
-- Start prompts with “Use PitchBook data to...” to ensure that Claude returns results based on PitchBook’s comprehensive dataset of private capital market intelligence.
+*   Start prompts with “Use PitchBook data to...” to ensure that Claude returns results based on PitchBook’s comprehensive dataset of private capital market intelligence.
 
-- Ask detailed, multi-part questions to receive comprehensive answers to complex queries. For example, to build a market map you should (1) start with a company, (2) pick key investors, (3) analyze portfolio companies, and (4) ask to identify patterns across the network.
+*   Ask detailed, multi-part questions to receive comprehensive answers to complex queries. For example, to build a market map you should (1) start with a company, (2) pick key investors, (3) analyze portfolio companies, and (4) ask to identify patterns across the network.
 
-- Use PitchBook’s data as a reference for deal sourcing, due diligence, and deal execution, rather than as the sole source of information.
+*   Use PitchBook’s data as a reference for deal sourcing, due diligence, and deal execution, rather than as the sole source of information.
 
-- Combine data retrieval with analysis from PitchBook researchers to build a complete view of the market and identify opportunities with full context.
+*   Combine data retrieval with analysis from PitchBook researchers to build a complete view of the market and identify opportunities with full context.
 
-- PitchBook's private capital market data is sourced directly from funds, companies, filings, and relationships.
+*   PitchBook's private capital market data is sourced directly from funds, companies, filings, and relationships.
 
 ## Contact
 
