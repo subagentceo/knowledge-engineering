@@ -3,7 +3,7 @@
 //   @cite ../../data/models/alloydb/fact_doc_ingest.yaml
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import { columnBadge, topologyNote, type SemanticTable, type SemanticColumn } from "../src/warehouse.js";
 

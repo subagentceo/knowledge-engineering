@@ -15,13 +15,13 @@ import { marked } from "marked";
 let purifier: ReturnType<typeof createDOMPurify> | null = null;
 
 export function setPurifierWindow(win: unknown): void {
-  purifier = createDOMPurify(win as Window);
+  purifier = createDOMPurify(win as Parameters<typeof createDOMPurify>[0]);
 }
 
 function getPurifier(): ReturnType<typeof createDOMPurify> {
   if (purifier !== null) return purifier;
   if (typeof window !== "undefined") {
-    purifier = createDOMPurify(window as unknown as Window);
+    purifier = createDOMPurify(window as unknown as Parameters<typeof createDOMPurify>[0]);
     return purifier;
   }
   throw new Error("vendor-loader: no DOM available — call setPurifierWindow() before renderMarkdown()");

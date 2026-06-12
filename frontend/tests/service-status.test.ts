@@ -3,7 +3,7 @@
 //   @cite ../../data/models/alloydb/fact_vendor_crawl.yaml
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import {
   barWidth,

@@ -3,7 +3,7 @@
 //   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/citations.md
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import { citationsByYear, citeHash, filterCitations, issuedYear, isTeamQuery, rowFromHash, teamChips, toApa, toBibtex, type CitationRow } from "../src/citations.js";
 

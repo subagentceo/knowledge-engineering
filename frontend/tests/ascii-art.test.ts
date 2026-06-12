@@ -3,7 +3,7 @@
 //   @cite rubrics/phase-13.md (O7)
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import { __test } from "../src/ascii-art.js";
 

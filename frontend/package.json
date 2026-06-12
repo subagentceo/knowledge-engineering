@@ -2,7 +2,7 @@
   "name": "@subagentceo/subagentknowledge-frontend",
   "version": "0.2.0",
   "private": true,
-  "description": "subagentknowledge.com \u2014 single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
+  "description": "subagentknowledge.com — single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
   "type": "module",
   "scripts": {
     "build:manifest": "tsx scripts/build-vendor-manifest.ts",
@@ -10,7 +10,7 @@
     "dev": "vite dev",
     "deploy:dry-run": "npm run build && wrangler deploy --dry-run",
     "deploy": "npm run build && wrangler deploy",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "build:crawler": "tsx scripts/build-crawler-surface.ts",
     "qa:visual": "node scripts/visual-qa.mts"
@@ -29,6 +29,7 @@
     "tsx": "^4.21.0",
     "typescript": "^5.6.0",
     "vite": "^6.0.0",
+    "vitest": "^4.1.8",
     "wrangler": "^4.0.0"
   },
   "overrides": {

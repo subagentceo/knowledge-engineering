@@ -3,7 +3,7 @@
 //   @cite ../../data/models/alloydb/fact_cache_hits.yaml
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import {
   hitRatioPct,

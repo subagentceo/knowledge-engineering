@@ -5,7 +5,7 @@ import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { test } from "node:test";
+import { test } from "vitest";
 
 const srcDir = join(dirname(fileURLToPath(import.meta.url)), "..", "src");
 const css = readFileSync(join(srcDir, "styles.css"), "utf8");
