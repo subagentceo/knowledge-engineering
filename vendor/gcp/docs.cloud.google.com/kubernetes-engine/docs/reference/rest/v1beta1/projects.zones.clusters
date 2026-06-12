@@ -1,0 +1,998 @@
+# REST Resource: projects.zones.clusters
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+*   Home
+*   Documentation
+*   Application hosting
+*   Google Kubernetes Engine (GKE)
+*   Reference
+
+Send feedback
+
+# REST Resource: projects.zones.clusters Stay organized with collections Save and categorize content based on your preferences.
+
+*   Resource: Cluster
+    *   JSON representation
+*   Methods
+
+## Resource: Cluster
+
+A Google Kubernetes Engine cluster.
+
+JSON representation
+
+{
+  "name": string,
+  "description": string,
+  "initialNodeCount": integer,
+  "nodeConfig": {
+    object (`NodeConfig`)
+  },
+  "masterAuth": {
+    object (`MasterAuth`)
+  },
+  "loggingService": string,
+  "monitoringService": string,
+  "network": string,
+  "clusterIpv4Cidr": string,
+  "addonsConfig": {
+    object (`AddonsConfig`)
+  },
+  "subnetwork": string,
+  "nodePools": [
+    {
+      object (`NodePool`)
+    }
+  ],
+  "locations": [
+    string
+  ],
+  "enableKubernetesAlpha": boolean,
+  "alphaClusterFeatureGates": [
+    string
+  ],
+  "enableK8sBetaApis": {
+    object (`K8sBetaAPIConfig`)
+  },
+  "resourceLabels": {
+    string: string,
+    ...
+  },
+  "labelFingerprint": string,
+  "legacyAbac": {
+    object (`LegacyAbac`)
+  },
+  "networkPolicy": {
+    object (`NetworkPolicy`)
+  },
+  "ipAllocationPolicy": {
+    object (`IPAllocationPolicy`)
+  },
+  "masterAuthorizedNetworksConfig": {
+    object (`MasterAuthorizedNetworksConfig`)
+  },
+  "maintenancePolicy": {
+    object (`MaintenancePolicy`)
+  },
+  "binaryAuthorization": {
+    object (`BinaryAuthorization`)
+  },
+  "podSecurityPolicyConfig": {
+    object (`PodSecurityPolicyConfig`)
+  },
+  "autoscaling": {
+    object (`ClusterAutoscaling`)
+  },
+  "networkConfig": {
+    object (`NetworkConfig`)
+  },
+  "privateCluster": boolean,
+  "masterIpv4CidrBlock": string,
+  "defaultMaxPodsConstraint": {
+    object (`MaxPodsConstraint`)
+  },
+  "resourceUsageExportConfig": {
+    object (`ResourceUsageExportConfig`)
+  },
+  "authenticatorGroupsConfig": {
+    object (`AuthenticatorGroupsConfig`)
+  },
+  "privateClusterConfig": {
+    object (`PrivateClusterConfig`)
+  },
+  "verticalPodAutoscaling": {
+    object (`VerticalPodAutoscaling`)
+  },
+  "shieldedNodes": {
+    object (`ShieldedNodes`)
+  },
+  "releaseChannel": {
+    object (`ReleaseChannel`)
+  },
+  "workloadIdentityConfig": {
+    object (`WorkloadIdentityConfig`)
+  },
+  "workloadCertificates": {
+    object (`WorkloadCertificates`)
+  },
+  "meshCertificates": {
+    object (`MeshCertificates`)
+  },
+  "workloadAltsConfig": {
+    object (`WorkloadALTSConfig`)
+  },
+  "costManagementConfig": {
+    object (`CostManagementConfig`)
+  },
+  "clusterTelemetry": {
+    object (`ClusterTelemetry`)
+  },
+  "tpuConfig": {
+    object (`TpuConfig`)
+  },
+  "notificationConfig": {
+    object (`NotificationConfig`)
+  },
+  "confidentialNodes": {
+    object (`ConfidentialNodes`)
+  },
+  "identityServiceConfig": {
+    object (`IdentityServiceConfig`)
+  },
+  "selfLink": string,
+  "zone": string,
+  "endpoint": string,
+  "initialClusterVersion": string,
+  "currentMasterVersion": string,
+  "currentEmulatedVersion": string,
+  "rollbackSafeUpgrade": {
+    object (`RollbackSafeUpgrade`)
+  },
+  "nodePoolUpgradeConcurrencyConfig": {
+    object (`NodePoolUpgradeConcurrencyConfig`)
+  },
+  "currentNodeVersion": string,
+  "createTime": string,
+  "status": enum (`Status`),
+  "statusMessage": string,
+  "nodeIpv4CidrSize": integer,
+  "servicesIpv4Cidr": string,
+  "instanceGroupUrls": [
+    string
+  ],
+  "currentNodeCount": integer,
+  "expireTime": string,
+  "location": string,
+  "enableTpu": boolean,
+  "tpuIpv4CidrBlock": string,
+  "databaseEncryption": {
+    object (`DatabaseEncryption`)
+  },
+  "conditions": [
+    {
+      object (`StatusCondition`)
+    }
+  ],
+  "master": {
+    object (`Master`)
+  },
+  "autopilot": {
+    object (`Autopilot`)
+  },
+  "id": string,
+  "loggingConfig": {
+    object (`LoggingConfig`)
+  },
+  "monitoringConfig": {
+    object (`MonitoringConfig`)
+  },
+  "nodePoolAutoConfig": {
+    object (`NodePoolAutoConfig`)
+  },
+  "podAutoscaling": {
+    object (`PodAutoscaling`)
+  },
+  "etag": string,
+  "fleet": {
+    object (`Fleet`)
+  },
+  "securityPostureConfig": {
+    object (`SecurityPostureConfig`)
+  },
+  "controlPlaneEndpointsConfig": {
+    object (`ControlPlaneEndpointsConfig`)
+  },
+  "enterpriseConfig": {
+    object (`EnterpriseConfig`)
+  },
+  "secretManagerConfig": {
+    object (`SecretManagerConfig`)
+  },
+  "compliancePostureConfig": {
+    object (`CompliancePostureConfig`)
+  },
+  "gkeAutoUpgradeConfig": {
+    object (`GkeAutoUpgradeConfig`)
+  },
+  "anonymousAuthenticationConfig": {
+    object (`AnonymousAuthenticationConfig`)
+  },
+  "scheduleUpgradeConfig": {
+    object (`ScheduleUpgradeConfig`)
+  },
+  "secretSyncConfig": {
+    object (`SecretSyncConfig`)
+  },
+  "managedOpentelemetryConfig": {
+    object (`ManagedOpenTelemetryConfig`)
+  },
+  "controlPlaneEgress": {
+    object (`ControlPlaneEgress`)
+  },
+  "managedMachineLearningDiagnosticsConfig": {
+    object (`ManagedMachineLearningDiagnosticsConfig`)
+  },
+  "nodeCreationConfig": {
+    object (`NodeCreationConfig`)
+  },
+  "nodePoolDefaults": {
+    object (`NodePoolDefaults`)
+  },
+  "protectConfig": {
+    object (`ProtectConfig`)
+  },
+  "satisfiesPzs": boolean,
+  "satisfiesPzi": boolean,
+  "userManagedKeysConfig": {
+    object (`UserManagedKeysConfig`)
+  },
+  "rbacBindingConfig": {
+    object (`RBACBindingConfig`)
+  }
+}
+
+ 
+
+Fields
+
+`name`
+
+`string`
+
+The name of this cluster. The name must be unique within this project and location (e.g. zone or region), and can be up to 40 characters with the following restrictions:
+
+*   Lowercase letters, numbers, and hyphens only.
+*   Must start with a letter.
+*   Must end with a number or a letter.
+
+`description`
+
+`string`
+
+An optional description of this cluster.
+
+`initialNodeCount   **(deprecated)**`
+
+`integer`
+
+This item is deprecated!
+
+The number of nodes to create in this cluster. You must ensure that your Compute Engine resource quota is sufficient for this number of instances. You must also have available firewall and routes quota. For requests, this field should only be used in lieu of a "nodePool" object, since this configuration (along with the "nodeConfig") will be used to create a "NodePool" object with an auto-generated name. Do not use this and a nodePool at the same time.
+
+This field is deprecated, use nodePool.initial_node_count instead.
+
+`nodeConfig   **(deprecated)**`
+
+``object (`NodeConfig`)``
+
+This item is deprecated!
+
+Parameters used in creating the cluster's nodes. For requests, this field should only be used in lieu of a "nodePool" object, since this configuration (along with the "initialNodeCount") will be used to create a "NodePool" object with an auto-generated name. Do not use this and a nodePool at the same time. For responses, this field will be populated with the node configuration of the first node pool. (For configuration of each node pool, see `nodePool.config`)
+
+If unspecified, the defaults are used. This field is deprecated, use nodePool.config instead.
+
+`masterAuth`
+
+``object (`MasterAuth`)``
+
+The authentication information for accessing the master endpoint. If unspecified, the defaults are used: For clusters before v1.12, if masterAuth is unspecified, `username` will be set to "admin", a random password will be generated, and a client certificate will be issued.
+
+`loggingService`
+
+`string`
+
+The logging service the cluster should use to write logs. Currently available options:
+
+*   `logging.googleapis.com/kubernetes` - The Cloud Logging service with a Kubernetes-native resource model
+*   `logging.googleapis.com` - The legacy Cloud Logging service (no longer available as of GKE 1.15).
+*   `none` - no logs will be exported from the cluster.
+
+If left as an empty string,`logging.googleapis.com/kubernetes` will be used for GKE 1.14+ or `logging.googleapis.com` for earlier versions.
+
+`monitoringService`
+
+`string`
+
+The monitoring service the cluster should use to write metrics. Currently available options:
+
+*   `monitoring.googleapis.com/kubernetes` - The Cloud Monitoring service with a Kubernetes-native resource model
+*   `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer available as of GKE 1.15).
+*   `none` - No metrics will be exported from the cluster.
+
+If left as an empty string,`monitoring.googleapis.com/kubernetes` will be used for GKE 1.14+ or `monitoring.googleapis.com` for earlier versions.
+
+`network`
+
+`string`
+
+The name of the Google Compute Engine network to which the cluster is connected. If left unspecified, the `default` network will be used. On output this shows the network ID instead of the name.
+
+`clusterIpv4Cidr`
+
+`string`
+
+The IP address range of the container pods in this cluster, in CIDR notation (e.g. `10.96.0.0/14`). Leave blank to have one automatically chosen or specify a `/14` block in `10.0.0.0/8`.
+
+`addonsConfig`
+
+``object (`AddonsConfig`)``
+
+Configurations for the various addons available to run in the cluster.
+
+`subnetwork`
+
+`string`
+
+The name of the Google Compute Engine subnetwork to which the cluster is connected. On output this shows the subnetwork ID instead of the name.
+
+`nodePools[]`
+
+``object (`NodePool`)``
+
+The node pools associated with this cluster. This field should not be set if "nodeConfig" or "initialNodeCount" are specified.
+
+`locations[]`
+
+`string`
+
+The list of Google Compute Engine zones in which the cluster's nodes should be located.
+
+This field provides a default value if NodePool.Locations are not specified during node pool creation.
+
+Warning: changing cluster locations will update the NodePool.Locations of all node pools and will result in nodes being added and/or removed.
+
+`enableKubernetesAlpha`
+
+`boolean`
+
+Kubernetes alpha features are enabled on this cluster. This includes alpha API groups (e.g. v1beta1) and features that may not be production ready in the kubernetes version of the master and nodes. The cluster has no SLA for uptime and master/node upgrades are disabled. Alpha enabled clusters are automatically deleted thirty days after creation.
+
+`alphaClusterFeatureGates[]`
+
+`string`
+
+The list of user specified Kubernetes feature gates. Each string represents the activation status of a feature gate (e.g. "featureX=true" or "featureX=false")
+
+`enableK8sBetaApis`
+
+``object (`K8sBetaAPIConfig`)``
+
+Kubernetes open source beta apis enabled on the cluster. Only beta apis.
+
+`resourceLabels`
+
+`map (key: string, value: string)`
+
+The resource labels for the cluster to use to annotate any related Google Compute Engine resources.
+
+`labelFingerprint`
+
+`string`
+
+The fingerprint of the set of labels for this cluster.
+
+`legacyAbac`
+
+``object (`LegacyAbac`)``
+
+Configuration for the legacy ABAC authorization mode.
+
+`networkPolicy`
+
+``object (`NetworkPolicy`)``
+
+Configuration options for the NetworkPolicy feature.
+
+`ipAllocationPolicy`
+
+``object (`IPAllocationPolicy`)``
+
+Configuration for cluster IP allocation.
+
+`masterAuthorizedNetworksConfig   **(deprecated)**`
+
+``object (`MasterAuthorizedNetworksConfig`)``
+
+This item is deprecated!
+
+The configuration options for master authorized networks feature.
+
+Deprecated: Use `ControlPlaneEndpointsConfig.IPEndpointsConfig.authorized_networks_config` instead.
+
+`maintenancePolicy`
+
+``object (`MaintenancePolicy`)``
+
+Configure the maintenance policy for this cluster.
+
+`binaryAuthorization`
+
+``object (`BinaryAuthorization`)``
+
+Configuration for Binary Authorization.
+
+`podSecurityPolicyConfig`
+
+``object (`PodSecurityPolicyConfig`)``
+
+Configuration for the PodSecurityPolicy feature.
+
+`autoscaling`
+
+``object (`ClusterAutoscaling`)``
+
+Cluster-level autoscaling configuration.
+
+`networkConfig`
+
+``object (`NetworkConfig`)``
+
+Configuration for cluster networking.
+
+`privateCluster   **(deprecated)**`
+
+`boolean`
+
+This item is deprecated!
+
+If this is a private cluster setup. Private clusters are clusters that, by default have no external IP addresses on the nodes and where nodes and the master communicate over private IP addresses. This field is deprecated, use privateClusterConfig.enable_private_nodes instead.
+
+`masterIpv4CidrBlock   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+The IP prefix in CIDR notation to use for the hosted master network. This prefix will be used for assigning private IP addresses to the master or set of masters, as well as the ILB VIP. This field is deprecated, use privateClusterConfig.master_ipv4_cidr_block instead.
+
+`defaultMaxPodsConstraint`
+
+``object (`MaxPodsConstraint`)``
+
+The default constraint on the maximum number of pods that can be run simultaneously on a node in the node pool of this cluster. Only honored if cluster created with IP Alias support.
+
+`resourceUsageExportConfig`
+
+``object (`ResourceUsageExportConfig`)``
+
+Configuration for exporting resource usages. Resource usage export is disabled when this config unspecified.
+
+`authenticatorGroupsConfig`
+
+``object (`AuthenticatorGroupsConfig`)``
+
+Configuration controlling RBAC group membership information.
+
+`privateClusterConfig`
+
+``object (`PrivateClusterConfig`)``
+
+Configuration for private cluster.
+
+`verticalPodAutoscaling`
+
+``object (`VerticalPodAutoscaling`)``
+
+Cluster-level Vertical Pod Autoscaling configuration.
+
+`shieldedNodes`
+
+``object (`ShieldedNodes`)``
+
+Shielded Nodes configuration.
+
+`releaseChannel`
+
+``object (`ReleaseChannel`)``
+
+Release channel configuration. If left unspecified on cluster creation and a version is specified, the cluster is enrolled in the most mature release channel where the version is available (first checking STABLE, then REGULAR, and finally RAPID). Otherwise, if no release channel configuration and no version is specified, the cluster is enrolled in the REGULAR channel with its default version.
+
+`workloadIdentityConfig`
+
+``object (`WorkloadIdentityConfig`)``
+
+Configuration for the use of Kubernetes Service Accounts in IAM policies.
+
+`workloadCertificates`
+
+``object (`WorkloadCertificates`)``
+
+Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+
+`meshCertificates`
+
+``object (`MeshCertificates`)``
+
+Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+
+`workloadAltsConfig`
+
+``object (`WorkloadALTSConfig`)``
+
+Configuration for direct-path (via ALTS) with workload identity. This feature is not officially supported for external customers in Kubernetes Engine when using Workload Identity.
+
+`costManagementConfig`
+
+``object (`CostManagementConfig`)``
+
+Configuration for the fine-grained cost management feature.
+
+`clusterTelemetry`
+
+``object (`ClusterTelemetry`)``
+
+Telemetry integration for the cluster.
+
+`tpuConfig   **(deprecated)**`
+
+``object (`TpuConfig`)``
+
+This item is deprecated!
+
+Configuration for Cloud TPU support; This field is deprecated due to the deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
+
+`notificationConfig`
+
+``object (`NotificationConfig`)``
+
+Notification configuration of the cluster.
+
+`confidentialNodes`
+
+``object (`ConfidentialNodes`)``
+
+Configuration of Confidential Nodes. All the nodes in the cluster will be Confidential VM once enabled.
+
+`identityServiceConfig`
+
+``object (`IdentityServiceConfig`)``
+
+Configuration for Identity Service component.
+
+`selfLink`
+
+`string`
+
+Output only. Server-defined URL for the resource.
+
+`zone   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+Output only. The name of the Google Compute Engine zone in which the cluster resides. This field is deprecated, use location instead.
+
+`endpoint`
+
+`string`
+
+Output only. The IP address of this cluster's master endpoint. The endpoint can be accessed from the internet at `https://username:password@endpoint/`.
+
+See the `masterAuth` property of this resource for username and password information.
+
+`initialClusterVersion`
+
+`string`
+
+The initial Kubernetes version for this cluster. Valid versions are those found in validMasterVersions returned by getServerConfig. The version can be upgraded over time; such upgrades are reflected in currentMasterVersion and currentNodeVersion.
+
+Users may specify either explicit versions offered by Kubernetes Engine or version aliases, which have the following behavior:
+
+*   "latest": picks the highest valid Kubernetes version
+*   "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+*   "1.X.Y": picks the highest valid gke.N patch in the 1.X.Y version
+*   "1.X.Y-gke.N": picks an explicit Kubernetes version
+*   "","-": picks the default Kubernetes version
+
+`currentMasterVersion`
+
+`string`
+
+Output only. The current software version of the master endpoint.
+
+`currentEmulatedVersion`
+
+`string`
+
+Output only. The current emulated version of the master endpoint. The version is in minor version format, e.g. 1.30. No value or empty string means the cluster has no emulated version.
+
+`rollbackSafeUpgrade`
+
+``object (`RollbackSafeUpgrade`)``
+
+The rollback safe upgrade information of the cluster. This field is used when user manually triggers a rollback safe upgrade.
+
+`nodePoolUpgradeConcurrencyConfig`
+
+``object (`NodePoolUpgradeConcurrencyConfig`)``
+
+The node pool upgrade concurrency config of the cluster. This field is used for auto upgrade.
+
+`currentNodeVersion   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+Output only. Deprecated, use NodePool.version instead. The current version of the node software components. If they are currently at multiple versions because they're in the process of being upgraded, this reflects the minimum version of all nodes.
+
+`createTime`
+
+`string`
+
+Output only. The time the cluster was created, in RFC3339 text format.
+
+`status`
+
+``enum (`Status`)``
+
+Output only. The current status of this cluster.
+
+`statusMessage   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+Output only. Deprecated. Use conditions instead. Additional information about the current status of this cluster, if available.
+
+`nodeIpv4CidrSize`
+
+`integer`
+
+Output only. The size of the address space on each node for hosting containers. This is provisioned from within the `container_ipv4_cidr` range. This field will only be set when cluster is in route-based network mode.
+
+`servicesIpv4Cidr`
+
+`string`
+
+Output only. The IP address range of the Kubernetes services in this cluster, in CIDR notation (e.g. `1.2.3.4/29`). Service addresses are typically put in the last `/16` from the container CIDR.
+
+`instanceGroupUrls[]   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+Output only. Deprecated. Use nodePools.instance_group_urls.
+
+`currentNodeCount   **(deprecated)**`
+
+`integer`
+
+This item is deprecated!
+
+Output only. The number of nodes currently in the cluster. Deprecated. Call Kubernetes API directly to retrieve node information.
+
+`expireTime`
+
+`string`
+
+Output only. The time the cluster will be automatically deleted in RFC3339 text format.
+
+`location`
+
+`string`
+
+Output only. The name of the Google Compute Engine zone or region in which the cluster resides.
+
+`enableTpu   **(deprecated)**`
+
+`boolean`
+
+This item is deprecated!
+
+Enable the ability to use Cloud TPUs in this cluster. This field is deprecated, use tpuConfig.enabled instead. This field is deprecated due to the deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
+
+`tpuIpv4CidrBlock   **(deprecated)**`
+
+`string`
+
+This item is deprecated!
+
+Output only. The IP address range of the Cloud TPUs in this cluster, in CIDR notation (e.g. `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
+
+`databaseEncryption`
+
+``object (`DatabaseEncryption`)``
+
+Configuration of etcd encryption.
+
+`conditions[]`
+
+``object (`StatusCondition`)``
+
+Which conditions caused the current cluster state.
+
+`master`
+
+``object (`Master`)``
+
+Configuration for master components.
+
+`autopilot`
+
+``object (`Autopilot`)``
+
+Autopilot configuration for the cluster.
+
+`id`
+
+`string`
+
+Output only. Unique id for the cluster.
+
+`loggingConfig`
+
+``object (`LoggingConfig`)``
+
+Logging configuration for the cluster.
+
+`monitoringConfig`
+
+``object (`MonitoringConfig`)``
+
+Monitoring configuration for the cluster.
+
+`nodePoolAutoConfig`
+
+``object (`NodePoolAutoConfig`)``
+
+Node pool configs that apply to all auto-provisioned node pools in autopilot clusters and node auto-provisioning enabled clusters.
+
+`podAutoscaling`
+
+``object (`PodAutoscaling`)``
+
+The config for pod autoscaling.
+
+`etag`
+
+`string`
+
+This checksum is computed by the server based on the value of cluster fields, and may be sent on update requests to ensure the client has an up-to-date value before proceeding.
+
+`fleet`
+
+``object (`Fleet`)``
+
+Fleet information for the cluster.
+
+`securityPostureConfig`
+
+``object (`SecurityPostureConfig`)``
+
+Optional. Enable/Disable Security Posture API features for the cluster.
+
+`controlPlaneEndpointsConfig`
+
+``object (`ControlPlaneEndpointsConfig`)``
+
+Configuration for all cluster's control plane endpoints.
+
+`enterpriseConfig   **(deprecated)**`
+
+``object (`EnterpriseConfig`)``
+
+This item is deprecated!
+
+GKE Enterprise Configuration.
+
+Deprecated: GKE Enterprise features are now available without an Enterprise tier.
+
+`secretManagerConfig`
+
+``object (`SecretManagerConfig`)``
+
+Secret CSI driver configuration.
+
+`compliancePostureConfig   **(deprecated)**`
+
+``object (`CompliancePostureConfig`)``
+
+This item is deprecated!
+
+Optional. Deprecated: Compliance Posture is no longer supported. For more details, see https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
+
+Enable/Disable Compliance Posture features for the cluster.
+
+`gkeAutoUpgradeConfig`
+
+``object (`GkeAutoUpgradeConfig`)``
+
+Configuration for GKE auto upgrades.
+
+`anonymousAuthenticationConfig`
+
+``object (`AnonymousAuthenticationConfig`)``
+
+Configuration for limiting anonymous access to all endpoints except the health checks.
+
+`scheduleUpgradeConfig`
+
+``object (`ScheduleUpgradeConfig`)``
+
+Optional. Configuration for scheduled upgrades.
+
+`secretSyncConfig`
+
+``object (`SecretSyncConfig`)``
+
+Configuration for sync Secret Manager secrets as k8s secrets.
+
+`managedOpentelemetryConfig`
+
+``object (`ManagedOpenTelemetryConfig`)``
+
+Configuration for Managed OpenTelemetry pipeline.
+
+`controlPlaneEgress`
+
+``object (`ControlPlaneEgress`)``
+
+Configuration for control plane egress control.
+
+`managedMachineLearningDiagnosticsConfig`
+
+``object (`ManagedMachineLearningDiagnosticsConfig`)``
+
+Configuration for managed machine learning diagnostics.
+
+`nodeCreationConfig`
+
+``object (`NodeCreationConfig`)``
+
+Optional. Configuration for Node Creation Mode.
+
+`nodePoolDefaults`
+
+``object (`NodePoolDefaults`)``
+
+Default NodePool settings for the entire cluster. These settings are overridden if specified on the specific NodePool object.
+
+`protectConfig   **(deprecated)**`
+
+``object (`ProtectConfig`)``
+
+This item is deprecated!
+
+Deprecated: Use SecurityPostureConfig instead. Enable/Disable Protect API features for the cluster.
+
+`satisfiesPzs`
+
+`boolean`
+
+Output only. Reserved for future use.
+
+`satisfiesPzi`
+
+`boolean`
+
+Output only. Reserved for future use.
+
+`userManagedKeysConfig`
+
+``object (`UserManagedKeysConfig`)``
+
+The Custom keys configuration for the cluster.
+
+`rbacBindingConfig`
+
+``object (`RBACBindingConfig`)``
+
+RBACBindingConfig allows user to restrict ClusterRoleBindings an RoleBindings that can be created.
+
+ 
+
+## Methods
+
+### addons
+
+Sets the addons for a specific cluster.
+
+### completeControlPlaneUpgrade
+
+CompleteControlPlaneUpgrade completes the rollback-safe upgrade by performing the step two upgrade for a specific cluster.
+
+### completeIpRotation
+
+Completes master IP rotation.
+
+### create
+
+Creates a cluster, consisting of the specified number and type of Google Compute Engine instances.
+
+### delete
+
+Deletes the cluster, including the Kubernetes endpoint and all worker nodes.
+
+### fetchClusterUpgradeInfo
+
+Fetch upgrade information of a specific cluster.
+
+### get
+
+Gets the details for a specific cluster.
+
+### legacyAbac
+
+Enables or disables the ABAC authorization mechanism on a cluster.
+
+### list
+
+Lists all clusters owned by a project in either the specified zone or all zones.
+
+### locations(deprecated)
+
+Sets the locations for a specific cluster.
+
+### logging
+
+Sets the logging service for a specific cluster.
+
+### master
+
+Updates the master for a specific cluster.
+
+### monitoring
+
+Sets the monitoring service for a specific cluster.
+
+### resourceLabels
+
+Sets labels on a cluster.
+
+### setMaintenancePolicy
+
+Sets the maintenance policy for a cluster.
+
+### setMasterAuth
+
+Sets master auth materials.
+
+### setNetworkPolicy
+
+Enables or disables Network Policy for a cluster.
+
+### startIpRotation
+
+Starts master IP rotation.
+
+### update
+
+Updates the settings for a specific cluster.
+
+Send feedback

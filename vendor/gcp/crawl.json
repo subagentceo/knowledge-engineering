@@ -29,5 +29,8 @@
   "strip_query_params": true,
   "fetch_headers": {
     "Accept-Language": "en"
+  },
+  "html_extract": {
+    "selector": "article.devsite-article, .devsite-article-body, article, main"
   }
 }
