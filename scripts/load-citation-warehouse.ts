@@ -22,6 +22,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseTableSemantics, validateInheritance } from "../src/lib/table-semantics.js";
 import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
+import { shapeCacheStats } from "../src/lib/cache-stats.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
@@ -33,6 +34,7 @@ const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
 const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
+const CACHE_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "cache-stats.json");
 
 async function main(): Promise<void> {
   const tables = readdirSync(ALLOYDB_DIR)
@@ -226,6 +228,33 @@ async function main(): Promise<void> {
             misses = EXCLUDED.misses,
             promotions = EXCLUDED.promotions`);
     console.log(`fact_cache_hits: upserted ${factCache.rowCount} rows (grain: key × tier × day)`);
+
+    // KAN-10 feed: per-tier hit ratios + hottest keys for the frontend
+    // cache panel (KAN-11) and the vendor_cache_stats MCP tool (KAN-12).
+    const tierRollup = await pool.query(`
+      SELECT tier, SUM(hits)::bigint AS hits, SUM(misses)::bigint AS misses,
+             SUM(promotions)::bigint AS promotions
+      FROM dw.fact_cache_hits GROUP BY 1`);
+    const hotKeys = await pool.query(`
+      SELECT d.cache_key, d.lane, SUM(f.hits)::bigint AS hits
+      FROM dw.fact_cache_hits f
+      JOIN dw.dim_cache_key d ON d.surrogate_key = f.cache_key_sk AND d.is_current
+      GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 10`);
+    const cacheStats = shapeCacheStats(
+      tierRollup.rows.map((r) => ({
+        tier: String(r.tier),
+        hits: Number(r.hits),
+        misses: Number(r.misses),
+        promotions: Number(r.promotions),
+      })),
+      hotKeys.rows.map((r) => ({
+        cache_key: String(r.cache_key),
+        lane: r.lane === null ? null : String(r.lane),
+        hits: Number(r.hits),
+      })),
+    );
+    writeFileSync(CACHE_STATS_JSON, JSON.stringify(cacheStats, null, 2) + "\n");
+    console.log(`cache-stats: wrote frontend/public/cache-stats.json (${cacheStats.hottest_keys.length} hot keys)`);
 
     // B14: rpt refreshes (load_type: full) + static feeds
     await pool.query("BEGIN");
