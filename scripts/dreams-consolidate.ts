@@ -72,6 +72,9 @@ async function main(): Promise<void> {
     process.env.DATABASE_URL ? { connectionString: process.env.DATABASE_URL } : {},
   );
   try {
+    // L2 warming below emits cache events — sink them to the warehouse.
+    const { initCacheEvents } = await import("../src/cache/events.js");
+    await initCacheEvents(pool);
     const { rows } = await pool.query(
       `SELECT d.surrogate_key, d.memory_path, d.content, d.csl_id,
               SUM(f.access_count)::bigint AS accesses,
@@ -152,6 +155,9 @@ async function main(): Promise<void> {
       }
     }
   } finally {
+    const { detachCacheEventSink, flushCacheEvents } = await import("../src/cache/events.js");
+    await flushCacheEvents().catch(() => undefined);
+    detachCacheEventSink();
     await pool.end();
   }
 }
