@@ -11,6 +11,7 @@ Create Skill
 ### Parameters
 
 - `SkillCreateParams parameters`
+
   - `string? displayTitle`
 
     Body param: Display title for the skill.
@@ -26,6 +27,7 @@ Create Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -78,11 +80,14 @@ Create Skill
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class SkillCreateResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill.
@@ -110,8 +115,9 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `required string Type`
 
@@ -158,6 +164,7 @@ List Skills
 ### Parameters
 
 - `SkillListParams parameters`
+
   - `Long limit`
 
     Query param: Number of results to return per page.
@@ -175,12 +182,14 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-    - `"custom"`: only return user-created skills
-    - `"anthropic"`: only return Anthropic-created skills
+
+    * `"custom"`: only return user-created skills
+    * `"anthropic"`: only return Anthropic-created skills
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -233,14 +242,18 @@ List Skills
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class SkillListPageResponse:`
+
   - `required IReadOnlyList<SkillListResponse> Data`
 
     List of skills.
+
     - `required string ID`
 
       Unique identifier for the skill.
@@ -268,8 +281,9 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-      - `"custom"`: the skill was created by a user
-      - `"anthropic"`: the skill was created by Anthropic
+
+      * `"custom"`: the skill was created by a user
+      * `"anthropic"`: the skill was created by Anthropic
 
     - `required string Type`
 
@@ -336,6 +350,7 @@ Get Skill
 ### Parameters
 
 - `SkillRetrieveParams parameters`
+
   - `required string skillID`
 
     Unique identifier for the skill.
@@ -345,6 +360,7 @@ Get Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -397,11 +413,14 @@ Get Skill
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class SkillRetrieveResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill.
@@ -429,8 +448,9 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `required string Type`
 
@@ -477,6 +497,7 @@ Delete Skill
 ### Parameters
 
 - `SkillDeleteParams parameters`
+
   - `required string skillID`
 
     Unique identifier for the skill.
@@ -486,6 +507,7 @@ Delete Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -538,11 +560,14 @@ Delete Skill
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class SkillDeleteResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill.
@@ -587,6 +612,7 @@ Create Skill Version
 ### Parameters
 
 - `VersionCreateParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -602,6 +628,7 @@ Create Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -654,11 +681,14 @@ Create Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionCreateResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -739,6 +769,7 @@ List Skill Versions
 ### Parameters
 
 - `VersionListParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -758,6 +789,7 @@ List Skill Versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -810,14 +842,18 @@ List Skill Versions
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionListPageResponse:`
+
   - `required IReadOnlyList<VersionListResponse> Data`
 
     List of skill versions.
+
     - `required string ID`
 
       Unique identifier for the skill version.
@@ -914,6 +950,7 @@ Download a skill version's content as a zip archive.
 ### Parameters
 
 - `VersionDownloadParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -929,6 +966,7 @@ Download a skill version's content as a zip archive.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -981,7 +1019,9 @@ Download a skill version's content as a zip archive.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Example
 
@@ -1008,6 +1048,7 @@ Get Skill Version
 ### Parameters
 
 - `VersionRetrieveParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -1023,6 +1064,7 @@ Get Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1075,11 +1117,14 @@ Get Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionRetrieveResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -1164,6 +1209,7 @@ Delete Skill Version
 ### Parameters
 
 - `VersionDeleteParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -1179,6 +1225,7 @@ Delete Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1231,11 +1278,14 @@ Delete Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionDeleteResponse:`
+
   - `required string ID`
 
     Version identifier for the skill.

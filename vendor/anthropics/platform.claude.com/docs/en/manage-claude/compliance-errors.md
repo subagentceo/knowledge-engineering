@@ -5,7 +5,7 @@ Every Compliance API error message with cause and fix, organized by HTTP status 
 ---
 
 <Note>
-  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  To enable the Compliance API, see [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 
 This page lists the response messages each documented Compliance API endpoint returns, the cause, and the fix.
@@ -25,16 +25,16 @@ Match on `error.type`, not on the message string. Messages are stable enough to 
 
 The following table tells you at a glance whether to retry. Each section that follows shows the verbatim error body and the fix.
 
-| Status                                                  | Retry?                      | When                                                                                                                           |
-| ------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| [400 Bad Request](#400-bad-request)                     | No                          | Fix the request and resend.                                                                                                    |
-| [401 Unauthorized](#401-unauthorized)                   | No                          | Fix or rotate the key, then resend.                                                                                            |
-| [403 Forbidden](#403-forbidden)                         | No                          | Add the missing scope or use the right key type, then resend.                                                                  |
-| [404 Not Found](#404-not-found)                         | No                          | The resource was deleted or never existed; remove it from your queue.                                                          |
+| Status                                                  | Retry?                      | When                                                                  |
+| ------------------------------------------------------- | --------------------------- | --------------------------------------------------------------------- |
+| [400 Bad Request](#400-bad-request)                     | No                          | Fix the request and resend.                                           |
+| [401 Unauthorized](#401-unauthorized)                   | No                          | Fix or rotate the key, then resend.                                   |
+| [403 Forbidden](#403-forbidden)                         | No                          | Add the missing scope or use the right key type, then resend.         |
+| [404 Not Found](#404-not-found)                         | No                          | The resource was deleted or never existed; remove it from your queue. |
 | [409 Conflict](#409-conflict)                           | No                          | The request conflicts with the resource's current state; resolve the conflict (such as detaching child resources), then retry. |
-| [429 Too Many Requests](#429-too-many-requests)         | Yes, after `retry-after`    | Wait the seconds in `retry-after`, then retry; do not advance your cursor.                                                     |
-| [500 Internal Server Error](#500-internal-server-error) | Depends on `x-should-retry` | Check the `x-should-retry` response header before retrying.                                                                    |
-| [502, 503, 504, 529](#500-internal-server-error)        | Yes, with backoff           | Transient; retry with exponential backoff.                                                                                     |
+| [429 Too Many Requests](#429-too-many-requests)         | Yes, after `retry-after`    | Wait the seconds in `retry-after`, then retry; do not advance your cursor. |
+| [500 Internal Server Error](#500-internal-server-error) | Depends on `x-should-retry` | Check the `x-should-retry` response header before retrying.           |
+| [502, 503, 504, 529](#500-internal-server-error)        | Yes, with backoff           | Transient; retry with exponential backoff.                            |
 
 ## 400 Bad Request
 
@@ -128,6 +128,21 @@ Missing required scopes. Got: ['read:compliance_user_data'] Needed: ['read:compl
 
 **Fix:** [Create a new Compliance Access Key](/docs/en/manage-claude/compliance-api-access#create-a-compliance-access-key) with `read:compliance_org_data` selected. Admin API keys cannot read organization metadata; the Compliance Access Key is required.
 
+### Insufficient scope: organization settings
+
+**Type:** `permission_error`
+
+```text
+Missing required scopes. Got: ['read:compliance_org_data'] Needed: ['read:compliance_org_settings']
+```
+
+**Cause:** A key without `read:compliance_org_settings` was used to call `GET /v1/compliance/organizations/{organization_id}/settings`. There are two common paths to this error:
+
+- A Compliance Access Key (`sk-ant-api01-...`) was created without the `read:compliance_org_settings` scope.
+- A Claude Console Admin API key (`sk-ant-admin01-...`) was used. Admin API keys carry only `read:compliance_activities` and cannot read organization settings.
+
+**Fix:** [Create a new Compliance Access Key](/docs/en/manage-claude/compliance-api-access#create-a-compliance-access-key) with `read:compliance_org_settings` selected. Admin API keys cannot read organization settings; the Compliance Access Key is required.
+
 ### Insufficient scope: user data
 
 **Type:** `permission_error`
@@ -220,6 +235,18 @@ The organization, role, and group endpoints return a 404 `not_found_error` in th
 **Cause:** The ID in the path does not match a record readable through the Compliance API. Roles and groups can be deleted, and organizations can be unlinked from the parent tree.
 
 **Fix:** Verify the ID against the corresponding list endpoint, and reconcile against recent organization, role, or group activities in the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed).
+
+### Organization settings not available
+
+**Type:** `not_found_error`
+
+```text
+organization `91012d09-e48b-438e-a489-1bebfd8fa6f9` not found in this organization's hierarchy
+```
+
+**Cause:** `GET /v1/compliance/organizations/{organization_id}/settings` returns this 404 in three cases that intentionally share the same body so the response does not reveal whether an organization exists: the `organization_id` is not one of your parent's linked organizations, the value is not a valid UUID, or the settings endpoint is not yet enabled for your parent organization.
+
+**Fix:** Verify the ID against [List organizations](/docs/en/api/compliance/organizations/list). If a known-good organization ID still returns 404, the settings endpoint is not yet enabled for your parent organization; contact your Anthropic representative.
 
 ## 409 Conflict
 

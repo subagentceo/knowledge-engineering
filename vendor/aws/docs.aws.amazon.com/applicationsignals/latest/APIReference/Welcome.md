@@ -12,4 +12,4 @@ Application Signals provides the following benefits:
 
 Application Signals works with CloudWatch RUM, CloudWatch Synthetics canaries, and AWS Service Catalog AppRegistry, to display your client pages, Synthetics canaries, and application names within dashboards and maps.
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

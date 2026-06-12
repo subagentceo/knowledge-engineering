@@ -11,12 +11,15 @@ Get statistics about the work queue for an environment.
 - `environmentID: string`
 
 - `params: WorkStatsParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -69,7 +72,9 @@ Get statistics about the work queue for an environment.
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -78,6 +83,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -93,6 +99,7 @@ Get statistics about the work queue for an environment.
   - `type: "work_queue_stats"`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: number | null`
@@ -102,14 +109,14 @@ Get statistics about the work queue for an environment.
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaSelfHostedWorkQueueStats = await client.beta.environments.work.stats(
-  "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  'env_011CZkZ9X2dpNyB7HsEFoRfW',
 );
 
 console.log(betaSelfHostedWorkQueueStats.depth);

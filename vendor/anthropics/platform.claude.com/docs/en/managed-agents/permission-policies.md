@@ -12,15 +12,14 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 
 ## Permission policy types
 
-| Policy         | Behavior                                                                                                                                                       |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `always_allow` | The tool executes automatically with no confirmation.                                                                                                          |
-| `always_ask`   | The session pauses and waits for your approval before executing. See [Respond to confirmation requests](#respond-to-confirmation-requests) for the event flow. |
+| Policy | Behavior |
+| --- | --- |
+| `always_allow` | The tool executes automatically with no confirmation. |
+| `always_ask` | The session pauses and waits for your approval before executing. See [Respond to confirmation requests](#respond-to-confirmation-requests) for the event flow. |
 
 ## Set a policy for a toolset
 
 ### Agent toolset permissions
-
 When creating an agent, you may optionally apply a policy to every tool in `agent_toolset_20260401` using `default_config.permission_policy`:
 
 <CodeGroup defaultLanguage="CLI">
@@ -79,10 +78,10 @@ const agent = await client.beta.agents.create({
     {
       type: "agent_toolset_20260401",
       default_config: {
-        permission_policy: { type: "always_ask" },
-      },
-    },
-  ],
+        permission_policy: { type: "always_ask" }
+      }
+    }
+  ]
 });
 ```
 
@@ -182,10 +181,9 @@ agent = client.beta.agents.create(
   ]
 )
 ```
-
 </CodeGroup>
 
-`default_config` is an optional setting. If you omit it, the agent toolset will be enabled with the default permission policy, `always_allow`.
+`default_config` is an optional setting. If you omit it, the agent toolset is enabled with the default permission policy, `always_allow`.
 
 ### MCP toolset permissions
 
@@ -263,19 +261,17 @@ agent = client.beta.agents.create(
 const agent = await client.beta.agents.create({
   name: "Dev Assistant",
   model: "claude-opus-4-8",
-  mcp_servers: [
-    { type: "url", name: "github", url: "https://mcp.example.com/github" },
-  ],
+  mcp_servers: [{ type: "url", name: "github", url: "https://mcp.example.com/github" }],
   tools: [
     { type: "agent_toolset_20260401" },
     {
       type: "mcp_toolset",
       mcp_server_name: "github",
       default_config: {
-        permission_policy: { type: "always_allow" },
-      },
-    },
-  ],
+        permission_policy: { type: "always_allow" }
+      }
+    }
+  ]
 });
 ```
 
@@ -430,7 +426,6 @@ agent = client.beta.agents.create(
   ]
 )
 ```
-
 </CodeGroup>
 
 ## Override an individual tool policy
@@ -491,15 +486,15 @@ const tools = [
   {
     type: "agent_toolset_20260401",
     default_config: {
-      permission_policy: { type: "always_allow" },
+      permission_policy: { type: "always_allow" }
     },
     configs: [
       {
         name: "bash",
-        permission_policy: { type: "always_ask" },
-      },
-    ],
-  },
+        permission_policy: { type: "always_ask" }
+      }
+    ]
+  }
 ] satisfies Anthropic.Beta.AgentCreateParams["tools"];
 ```
 
@@ -612,7 +607,6 @@ tools = [
   }
 ]
 ```
-
 </CodeGroup>
 
 ## Respond to confirmation requests
@@ -645,9 +639,8 @@ curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
   }'
 
 # Or deny it with an explanation
-
 curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: managed-agents-2026-04-01" \
   -H "content-type: application/json" \
@@ -656,13 +649,12 @@ curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
       {
         "type": "user.tool_confirmation",
         "tool_use_id": "'$MCP_TOOL_USE_EVENT_ID'",
-"result": "deny",
-"deny_message": "Don'\''t create issues in the production project. Use the staging project."
-}
-]
-}'
-
-````
+        "result": "deny",
+        "deny_message": "Don'\''t create issues in the production project. Use the staging project."
+      }
+    ]
+  }'
+```
 
 ```bash CLI nocheck
 # Allow the tool to execute
@@ -675,7 +667,7 @@ ant beta:sessions:events send \
   --session-id "$SESSION_ID" \
   --event "{type: user.tool_confirmation, tool_use_id: $MCP_TOOL_USE_EVENT_ID, result: deny,
     deny_message: Don't create issues in the production project. Use the staging project.}"
-````
+```
 
 ```python Python
 # Allow the tool to execute
@@ -711,9 +703,9 @@ await client.beta.sessions.events.send(session.id, {
     {
       type: "user.tool_confirmation",
       tool_use_id: agent_tool_use_event.id,
-      result: "allow",
-    },
-  ],
+      result: "allow"
+    }
+  ]
 });
 
 // Or deny it with an explanation
@@ -723,10 +715,9 @@ await client.beta.sessions.events.send(session.id, {
       type: "user.tool_confirmation",
       tool_use_id: mcp_tool_use_event.id,
       result: "deny",
-      deny_message:
-        "Don't create issues in the production project. Use the staging project.",
-    },
-  ],
+      deny_message: "Don't create issues in the production project. Use the staging project."
+    }
+  ]
 });
 ```
 
@@ -878,7 +869,6 @@ client.beta.sessions.events.send_(
   ]
 )
 ```
-
 </CodeGroup>
 
 ## Custom tools

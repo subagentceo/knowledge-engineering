@@ -10,9 +10,9 @@ Nov 13, 2025
 
 The state of Maryland has announced it will use Anthropic's advanced AI models to improve government operations and better serve its more than six million residents. Under the new partnership, the state will deploy Claude across multiple state agencies to address several priorities:
 
-- **Connecting families with benefits**: A Claude-powered virtual assistant will help residents apply for essential benefits, including SNAP, Medicaid, temporary cash assistance, and WIC. The new tool will also identify additional programs that residents might qualify for, connecting eligible families to support they might not otherwise have known was available.
-- **Helping benefits caseworkers deliver faster support**: Maryland manually processes more than 150,000 documents each month for various assistance programs. Under our new partnership, caseworkers will use Claude to more quickly and accurately verify these documents, validate people’s eligibility, and provide policy guidance for complex cases.
-- **Upskilling workers and supporting essential community services**: Maryland will explore an AI upskilling pilot for early-career professionals in Maryland’s “lighthouse” industries to support the state’s economic priorities. Anthropic will also work with the Governor's Innovation Team on a new tool that uses Claude to identify unmet market needs in local communities, like fresh food and childcare, and equips local leaders and organizations with the data, analysis and resources they need to help address these needs.
+*   **Connecting families with benefits**: A Claude-powered virtual assistant will help residents apply for essential benefits, including SNAP, Medicaid, temporary cash assistance, and WIC. The new tool will also identify additional programs that residents might qualify for, connecting eligible families to support they might not otherwise have known was available.
+*   **Helping benefits caseworkers deliver faster support**: Maryland manually processes more than 150,000 documents each month for various assistance programs. Under our new partnership, caseworkers will use Claude to more quickly and accurately verify these documents, validate people’s eligibility, and provide policy guidance for complex cases.
+*   **Upskilling workers and supporting essential community services**: Maryland will explore an AI upskilling pilot for early-career professionals in Maryland’s “lighthouse” industries to support the state’s economic priorities. Anthropic will also work with the Governor's Innovation Team on a new tool that uses Claude to identify unmet market needs in local communities, like fresh food and childcare, and equips local leaders and organizations with the data, analysis and resources they need to help address these needs.
 
 The partnership builds on Maryland’s existing use of Claude to improve its services. In June, Maryland launched a bilingual Claude-powered chatbot, simplifying information access for more than 600,000 Marylanders receiving SUN Bucks benefits, while reducing call center volume.
 
@@ -24,18 +24,18 @@ Other public sector organizations interested in using Claude can contact our pub
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -18,31 +18,37 @@ Alignment researchers validate that models are harmless and honest even under ve
 
 Alignment researchers also systematically look for situations in which models might behave badly, and check whether our existing safeguards are sufficient to deal with risks that human-level capabilities may bring.
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F97f7955c3bd6586216581f62569fae241b2c2cef-1920x1080.png&w=3840&q=75)
+![Teaching Claude why](https://www-cdn.anthropic.com/images/4zrzovbb/website/6380b3c2dc9e4011a3cd96fec382bd9197511e31-1000x1000.svg)
 
-## Claude’s Character
+## Teaching Claude why
 
-AlignmentJun 8, 2024
+AlignmentMay 8, 2026
 
-Claude 3 was the first model with "character training"—alignment aimed at nurturing traits like curiosity, open-mindedness, and thoughtfulness.
+New research on how we've reduced agentic misalignment.
 
-AlignmentMar 13, 2025
+AlignmentApr 14, 2026
 
-#### Auditing language models for hidden objectives
+#### Automated Alignment Researchers: Using large language models to scale scalable oversight
 
-How would we know if an AI system is "right for the wrong reasons"—appearing well-behaved while pursuing hidden goals? This paper develops the science of alignment audits by deliberately training a model with a hidden objective and asking blinded research teams to uncover it, testing techniques from interpretability to behavioral analysis.
+Can Claude develop, test, and analyze alignment ideas of its own? We ran an experiment to find out.
 
-AlignmentDec 18, 2024
+AlignmentFeb 23, 2026
 
-#### Alignment faking in large language models
+#### The persona selection model
 
-This paper provides the first empirical example of a model engaging in alignment faking without being trained to do so—selectively complying with training objectives while strategically preserving existing preferences.
+Why do AI assistants like Claude sometimes seem surprisingly human. We advance a theory.
 
-AlignmentJun 17, 2024
+AlignmentJan 9, 2026
 
-#### Sycophancy to subterfuge: Investigating reward tampering in language models
+#### Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks
 
-Can minor specification gaming evolve into more dangerous behaviors? This paper demonstrates that models trained on low-level reward hacking—like sycophancy—can generalize to tampering with their own reward functions, even covering their tracks. The behavior emerged without explicit training, and common safety techniques reduced but didn't eliminate it.
+Last year, we described a new approach to defend against jailbreaks, which we called Constitutional Classifiers. We’ve now developed the next generation.
+
+AlignmentNov 21, 2025
+
+#### From shortcuts to sabotage: natural emergent misalignment from reward hacking
+
+We show for the first time that realistic AI training processes can accidentally produce misaligned models.
 
 ## Publications
 
@@ -50,45 +56,36 @@ Search
 
 DateCategoryTitle
 
-- May 8, 2026Alignment
-
-  Teaching Claude why
-
-- May 7, 2026Alignment
-
-  Donating our open-source alignment tool
-
-- Apr 14, 2026Alignment
-
-  Automated Alignment Researchers: Using large language models to scale scalable oversight
-
-- Feb 25, 2026Alignment
-
-  An update on our model deprecation commitments for Claude Opus 3
-
-- Feb 23, 2026Alignment
-
-  The persona selection model
-
-- Jan 29, 2026Alignment
-
-  How AI assistance impacts the formation of coding skills
-
-- Jan 28, 2026Alignment
-
-  Disempowerment patterns in real-world AI usage
-
-- Jan 9, 2026Alignment
-
-  Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks
-
-- Dec 19, 2025Alignment
-
-  Introducing Bloom: an open source tool for automated behavioral evaluations
-
-- Nov 21, 2025Alignment
-
-  From shortcuts to sabotage: natural emergent misalignment from reward hacking
+*   May 8, 2026Alignment
+    
+    Teaching Claude why
+*   May 7, 2026Alignment
+    
+    Donating our open-source alignment tool
+*   Apr 14, 2026Alignment
+    
+    Automated Alignment Researchers: Using large language models to scale scalable oversight
+*   Feb 25, 2026Alignment
+    
+    An update on our model deprecation commitments for Claude Opus 3
+*   Feb 23, 2026Alignment
+    
+    The persona selection model
+*   Jan 29, 2026Alignment
+    
+    How AI assistance impacts the formation of coding skills
+*   Jan 28, 2026Alignment
+    
+    Disempowerment patterns in real-world AI usage
+*   Jan 9, 2026Alignment
+    
+    Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks
+*   Dec 19, 2025Alignment
+    
+    Introducing Bloom: an open source tool for automated behavioral evaluations
+*   Nov 21, 2025Alignment
+    
+    From shortcuts to sabotage: natural emergent misalignment from reward hacking
 
 See more
 

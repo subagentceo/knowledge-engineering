@@ -1,4 +1,4 @@
-_This article is about our consumer products (e.g. Claude Free, Claude Pro). For our commercial products (e.g. Claude for Work, Claude API), see [here](https://privacy.claude.com/en/articles/11117329-how-can-i-delete-or-rename-a-conversation)._
+*This article is about our consumer products (e.g. Claude Free, Claude Pro). For our commercial products (e.g. Claude for Work, Claude API), see [here](https://privacy.claude.com/en/articles/11117329-how-can-i-delete-or-rename-a-conversation).*
 
 ## Deleting and renaming individual conversations
 
@@ -10,7 +10,7 @@ To delete or rename an individual conversation:
 
 3. Select either "Delete" or "Rename" from the options that appear:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1780164900&signature=6e762dae49ed4ce1f2c10c2dc37fc2dc135ba2b2d82428ac07d960ad6306ab94&req=dSYlF8B7mIJbUfMW1HO4zVBo5OP2a4RTt5RK2C3E1TfJsPq62VeDDIv5B9TH%0A%2F%2FYff3%2FZevz%2FvuTbw3o%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1781284500&amp;signature=9375dc50bc957bd47d01d818236d8fde4d8a74f08e1d02125ccf5c902e805e88&amp;req=dSYlF8B7mIJbUfMW1HO4zVBo5OL1ZYRft5RK2C3E1TePS%2BfNtXL1txVw%2Fcp2%0Aem%2FYH89CqD%2FrXygWy5g%3D%0A)
 
 ## Deleting conversations in bulk
 

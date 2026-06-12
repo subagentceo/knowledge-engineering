@@ -23,6 +23,7 @@ certificate is added.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -56,6 +57,7 @@ certificate is added.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -64,7 +66,7 @@ certificate is added.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

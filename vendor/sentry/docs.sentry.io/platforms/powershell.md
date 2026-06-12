@@ -35,7 +35,7 @@ Import-Module Sentry
 
 Start-Sentry {
     # You can set it in the SENTRY_DSN environment variable, or you can set it in code here.
-    $_.Dsn = '___PUBLIC_DSN___'
+    $_.Dsn = 'https://<key>@o<orgId>.ingest.sentry.io/<projectId>'
 
     # If you'd like to include data that potentially includes PII, such as Machine Name
     $_.SendDefaultPii = $true

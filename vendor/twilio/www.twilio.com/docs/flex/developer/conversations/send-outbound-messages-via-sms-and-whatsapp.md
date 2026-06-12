@@ -163,7 +163,6 @@ class Program {
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.flexapi.v1.Interaction;
 
@@ -605,7 +604,6 @@ class Program {
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.flexapi.v1.Interaction;
 

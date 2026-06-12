@@ -15,9 +15,11 @@ Stream Session Thread Events
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -70,16 +72,20 @@ Stream Session Thread Events
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 30 more`
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 31 more`
 
   Server-sent event in a single thread's stream.
+
   - `class BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -87,25 +93,31 @@ Stream Session Thread Events
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock]`
 
       Array of content blocks comprising the user message.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
+
         - `text: String`
 
           The text content.
 
         - `type: :text`
+
           - `:text`
 
       - `class BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
           Union type for image source variants.
+
           - `class BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
+
             - `data: String`
 
               Base64-encoded image data.
@@ -115,12 +127,15 @@ Stream Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `type: :base64`
+
               - `:base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
+
             - `type: :url`
+
               - `:url`
 
             - `url: String`
@@ -130,25 +145,31 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
             - `type: :file`
+
               - `:file`
 
         - `type: :image`
+
           - `:image`
 
       - `class BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
           Union type for document source variants.
+
           - `class BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
+
             - `data: String`
 
               Base64-encoded document data.
@@ -158,11 +179,13 @@ Stream Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `type: :base64`
+
               - `:base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
+
             - `data: String`
 
               The plain text content.
@@ -170,15 +193,19 @@ Stream Session Thread Events
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
+
               - `:"text/plain"`
 
             - `type: :text`
+
               - `:text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
+
             - `type: :url`
+
               - `:url`
 
             - `url: String`
@@ -188,14 +215,17 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
+
             - `file_id: String`
 
               ID of a previously uploaded file.
 
             - `type: :file`
+
               - `:file`
 
         - `type: :document`
+
           - `:document`
 
         - `context: String`
@@ -207,6 +237,7 @@ Stream Session Thread Events
           The title of the document.
 
     - `type: :"user.message"`
+
       - `:"user.message"`
 
     - `processed_at: Time`
@@ -216,11 +247,13 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
+
     - `id: String`
 
       Unique identifier for this event.
 
     - `type: :"user.interrupt"`
+
       - `:"user.interrupt"`
 
     - `processed_at: Time`
@@ -234,6 +267,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -241,6 +275,7 @@ Stream Session Thread Events
     - `result: :allow | :deny`
 
       UserToolConfirmationResult enum
+
       - `:allow`
 
       - `:deny`
@@ -250,6 +285,7 @@ Stream Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_confirmation"`
+
       - `:"user.tool_confirmation"`
 
     - `deny_message: String`
@@ -267,6 +303,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -276,11 +313,13 @@ Stream Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.custom_tool_result"`
+
       - `:"user.custom_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -296,9 +335,11 @@ Stream Session Thread Events
       - `class BetaManagedAgentsSearchResultBlock`
 
         A block containing a web search result.
+
         - `citations: BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
+
           - `enabled: bool`
 
             Whether citations are enabled for this search result.
@@ -306,11 +347,13 @@ Stream Session Thread Events
         - `content: Array[BetaManagedAgentsSearchResultContent]`
 
           Array of text content blocks from the search result.
+
           - `text: String`
 
             The text content.
 
           - `type: :text`
+
             - `:text`
 
         - `source: String`
@@ -322,6 +365,7 @@ Stream Session Thread Events
           The title of the search result.
 
         - `type: :search_result`
+
           - `:search_result`
 
     - `is_error: bool`
@@ -339,6 +383,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -356,6 +401,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.custom_tool_use"`
+
       - `:"agent.custom_tool_use"`
 
     - `session_thread_id: String`
@@ -365,6 +411,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -372,6 +419,7 @@ Stream Session Thread Events
     - `content: Array[BetaManagedAgentsTextBlock]`
 
       Array of text blocks comprising the agent response.
+
       - `text: String`
 
         The text content.
@@ -383,11 +431,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.message"`
+
       - `:"agent.message"`
 
   - `class BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -397,11 +447,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.thinking"`
+
       - `:"agent.thinking"`
 
   - `class BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -423,11 +475,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.mcp_tool_use"`
+
       - `:"agent.mcp_tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
       AgentEvaluatedPermission enum
+
       - `:allow`
 
       - `:ask`
@@ -441,6 +495,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -454,11 +509,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.mcp_tool_result"`
+
       - `:"agent.mcp_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -482,6 +539,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -499,11 +557,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.tool_use"`
+
       - `:"agent.tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
       AgentEvaluatedPermission enum
+
       - `:allow`
 
       - `:ask`
@@ -517,6 +577,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -530,11 +591,13 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: :"agent.tool_result"`
+
       - `:"agent.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -558,6 +621,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -565,6 +629,7 @@ Stream Session Thread Events
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock]`
 
       Message content blocks.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -586,6 +651,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.thread_message_received"`
+
       - `:"agent.thread_message_received"`
 
     - `from_agent_name: String`
@@ -595,6 +661,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -602,6 +669,7 @@ Stream Session Thread Events
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock]`
 
       Message content blocks.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -623,6 +691,7 @@ Stream Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: :"agent.thread_message_sent"`
+
       - `:"agent.thread_message_sent"`
 
     - `to_agent_name: String`
@@ -632,6 +701,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -641,21 +711,25 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"agent.thread_context_compacted"`
+
       - `:"agent.thread_context_compacted"`
 
   - `class BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
+
     - `id: String`
 
       Unique identifier for this event.
 
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 4 more`
+    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
       - `class BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
         - `message: String`
 
           Human-readable error description.
@@ -663,30 +737,39 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
             - `type: :retrying`
+
               - `:retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
             - `type: :exhausted`
+
               - `:exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
+
             - `type: :terminal`
+
               - `:terminal`
 
         - `type: :unknown_error`
+
           - `:unknown_error`
 
       - `class BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
         - `message: String`
 
           Human-readable error description.
@@ -694,6 +777,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -707,11 +791,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_overloaded_error`
+
           - `:model_overloaded_error`
 
       - `class BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
+
         - `message: String`
 
           Human-readable error description.
@@ -719,6 +805,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -732,11 +819,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_rate_limited_error`
+
           - `:model_rate_limited_error`
 
       - `class BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
+
         - `message: String`
 
           Human-readable error description.
@@ -744,6 +833,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -757,11 +847,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_request_failed_error`
+
           - `:model_request_failed_error`
 
       - `class BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
+
         - `mcp_server_name: String`
 
           Name of the MCP server that failed to connect.
@@ -773,6 +865,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -786,11 +879,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :mcp_connection_failed_error`
+
           - `:mcp_connection_failed_error`
 
       - `class BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
+
         - `mcp_server_name: String`
 
           Name of the MCP server that failed authentication.
@@ -802,6 +897,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -815,11 +911,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :mcp_authentication_failed_error`
+
           - `:mcp_authentication_failed_error`
 
       - `class BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
         - `message: String`
 
           Human-readable error description.
@@ -827,6 +925,7 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -840,18 +939,57 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :billing_error`
+
           - `:billing_error`
+
+      - `class BetaManagedAgentsCredentialHostUnreachableError`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `credential_id: String`
+
+          ID of the affected credential.
+
+        - `message: String`
+
+          Human-readable error description.
+
+        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `type: :credential_host_unreachable_error`
+
+          - `:credential_host_unreachable_error`
+
+        - `vault_id: String`
+
+          ID of the vault containing the affected credential.
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
 
     - `type: :"session.error"`
+
       - `:"session.error"`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -861,11 +999,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"session.status_rescheduled"`
+
       - `:"session.status_rescheduled"`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -875,11 +1015,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"session.status_running"`
+
       - `:"session.status_running"`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -891,34 +1033,43 @@ Stream Session Thread Events
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `class BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
+
         - `type: :end_turn`
+
           - `:end_turn`
 
       - `class BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
         - `event_ids: Array[String]`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `type: :requires_action`
+
           - `:requires_action`
 
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+
         - `type: :retries_exhausted`
+
           - `:retries_exhausted`
 
     - `type: :"session.status_idle"`
+
       - `:"session.status_idle"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -928,11 +1079,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"session.status_terminated"`
+
       - `:"session.status_terminated"`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -950,11 +1103,13 @@ Stream Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `type: :"session.thread_created"`
+
       - `:"session.thread_created"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -972,11 +1127,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"span.outcome_evaluation_start"`
+
       - `:"span.outcome_evaluation_start"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1006,11 +1163,13 @@ Stream Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: :"span.outcome_evaluation_end"`
+
       - `:"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
       Token usage for a single model request.
+
       - `cache_creation_input_tokens: Integer`
 
         Tokens used to create prompt cache in this request.
@@ -1030,6 +1189,7 @@ Stream Session Thread Events
       - `speed: :standard | :fast`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `:standard`
 
         - `:fast`
@@ -1037,6 +1197,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1046,11 +1207,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"span.model_request_start"`
+
       - `:"span.model_request_start"`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1072,11 +1235,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"span.model_request_end"`
+
       - `:"span.model_request_end"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1094,11 +1259,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"span.outcome_evaluation_ongoing"`
+
       - `:"span.outcome_evaluation_ongoing"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1122,32 +1289,39 @@ Stream Session Thread Events
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
       Rubric for grading the quality of an outcome.
+
       - `class BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
+
         - `file_id: String`
 
           ID of the rubric file.
 
         - `type: :file`
+
           - `:file`
 
       - `class BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
+
         - `content: String`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `type: :text`
+
           - `:text`
 
     - `type: :"user.define_outcome"`
+
       - `:"user.define_outcome"`
 
   - `class BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1157,11 +1331,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"session.deleted"`
+
       - `:"session.deleted"`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1176,14 +1352,16 @@ Stream Session Thread Events
 
     - `session_thread_id: String`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `type: :"session.thread_status_running"`
+
       - `:"session.thread_status_running"`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1198,11 +1376,12 @@ Stream Session Thread Events
 
     - `session_thread_id: String`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `class BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
@@ -1216,11 +1395,13 @@ Stream Session Thread Events
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
     - `type: :"session.thread_status_idle"`
+
       - `:"session.thread_status_idle"`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1235,14 +1416,16 @@ Stream Session Thread Events
 
     - `session_thread_id: String`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `type: :"session.thread_status_terminated"`
+
       - `:"session.thread_status_terminated"`
 
   - `class BetaManagedAgentsUserToolResultEvent`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1252,11 +1435,13 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_result"`
+
       - `:"user.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock`
 
         Regular text content.
@@ -1288,6 +1473,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1302,14 +1488,16 @@ Stream Session Thread Events
 
     - `session_thread_id: String`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `type: :"session.thread_status_rescheduled"`
+
       - `:"session.thread_status_rescheduled"`
 
   - `class BetaManagedAgentsSessionUpdatedEvent`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
     - `id: String`
 
       Unique identifier for this event.
@@ -1319,19 +1507,23 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: :"session.updated"`
+
       - `:"session.updated"`
 
     - `agent: BetaManagedAgentsSessionAgent`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
       - `id: String`
 
       - `description: String`
 
       - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
         - `name: String`
 
         - `type: :url`
+
           - `:url`
 
         - `url: String`
@@ -1339,16 +1531,27 @@ Stream Session Thread Events
       - `model: BetaManagedAgentsModelConfig`
 
         Model identifier and configuration.
+
         - `id: BetaManagedAgentsModel`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-          - `BetaManagedAgentsModel = :"claude-opus-4-7" | :"claude-opus-4-6" | :"claude-sonnet-4-6" | 6 more`
+
+          - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `:"claude-opus-4-8"`
+
+              Frontier intelligence for long-running agents and coding
+
             - `:"claude-opus-4-7"`
 
               Frontier intelligence for long-running agents and coding
@@ -1390,6 +1593,7 @@ Stream Session Thread Events
         - `speed: :standard | :fast`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
           - `:standard`
 
           - `:fast`
@@ -1397,14 +1601,17 @@ Stream Session Thread Events
       - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
         Resolved coordinator topology with full agent definitions for each roster member.
+
         - `agents: Array[BetaManagedAgentsSessionThreadAgent]`
 
           Full `agent` definitions the coordinator may spawn as session threads.
+
           - `id: String`
 
           - `description: String`
 
           - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
             - `name: String`
 
             - `type: :url`
@@ -1418,12 +1625,15 @@ Stream Session Thread Events
           - `name: String`
 
           - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
             - `class BetaManagedAgentsAnthropicSkill`
 
               A resolved Anthropic-managed skill.
+
               - `skill_id: String`
 
               - `type: :anthropic`
+
                 - `:anthropic`
 
               - `version: String`
@@ -1431,9 +1641,11 @@ Stream Session Thread Events
             - `class BetaManagedAgentsCustomSkill`
 
               A resolved user-created custom skill.
+
               - `skill_id: String`
 
               - `type: :custom`
+
                 - `:custom`
 
               - `version: String`
@@ -1441,13 +1653,17 @@ Stream Session Thread Events
           - `system_: String`
 
           - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
             - `class BetaManagedAgentsAgentToolset20260401`
+
               - `configs: Array[BetaManagedAgentsAgentToolConfig]`
+
                 - `enabled: bool`
 
                 - `name: :bash | :edit | :read | 5 more`
 
                   Built-in agent tool identifier.
+
                   - `:bash`
 
                   - `:edit`
@@ -1467,26 +1683,33 @@ Stream Session Thread Events
                 - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
+
                     - `type: :always_allow`
+
                       - `:always_allow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy`
 
                     Tool calls require user confirmation before execution.
+
                     - `type: :always_ask`
+
                       - `:always_ask`
 
               - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
                 Resolved default configuration for agent tools.
+
                 - `enabled: bool`
 
                 - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1496,10 +1719,13 @@ Stream Session Thread Events
                     Tool calls require user confirmation before execution.
 
               - `type: :agent_toolset_20260401`
+
                 - `:agent_toolset_20260401`
 
             - `class BetaManagedAgentsMCPToolset`
+
               - `configs: Array[BetaManagedAgentsMCPToolConfig]`
+
                 - `enabled: bool`
 
                 - `name: String`
@@ -1507,6 +1733,7 @@ Stream Session Thread Events
                 - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1518,11 +1745,13 @@ Stream Session Thread Events
               - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
+
                 - `enabled: bool`
 
                 - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1534,45 +1763,47 @@ Stream Session Thread Events
               - `mcp_server_name: String`
 
               - `type: :mcp_toolset`
+
                 - `:mcp_toolset`
 
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
+
               - `description: String`
 
               - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
                 JSON Schema for custom tool input parameters.
-                - `properties: Hash[Symbol, untyped]`
-
-                  JSON Schema properties defining the tool's input parameters.
-
-                - `required: Array[String]`
-
-                  List of required property names.
 
                 - `type: :object`
 
-                  Must be 'object' for tool input schemas.
                   - `:object`
+
+                - `properties: Hash[Symbol, untyped]`
+
+                - `required: Array[String]`
 
               - `name: String`
 
               - `type: :custom`
+
                 - `:custom`
 
           - `type: :agent`
+
             - `:agent`
 
           - `version: Integer`
 
         - `type: :coordinator`
+
           - `:coordinator`
 
       - `name: String`
 
       - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
         - `class BetaManagedAgentsAnthropicSkill`
 
           A resolved Anthropic-managed skill.
@@ -1584,6 +1815,7 @@ Stream Session Thread Events
       - `system_: String`
 
       - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
         - `class BetaManagedAgentsAgentToolset20260401`
 
         - `class BetaManagedAgentsMCPToolset`
@@ -1593,6 +1825,7 @@ Stream Session Thread Events
           A custom tool as returned in API responses.
 
       - `type: :agent`
+
         - `:agent`
 
       - `version: Integer`
@@ -1604,6 +1837,34 @@ Stream Session Thread Events
     - `title: String`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsSystemMessageEvent`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `id: String`
+
+      Unique identifier for this event.
+
+    - `content: Array[BetaManagedAgentsSystemContentBlock]`
+
+      System content blocks. Text-only.
+
+      - `text: String`
+
+        The text content.
+
+      - `type: :text`
+
+        - `:text`
+
+    - `type: :"system.message"`
+
+      - `:"system.message"`
+
+    - `processed_at: Time`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 

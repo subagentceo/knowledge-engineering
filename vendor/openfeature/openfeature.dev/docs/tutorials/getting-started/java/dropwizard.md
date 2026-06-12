@@ -1,30 +1,30 @@
 # Getting Started with the OpenFeature Java SDK and Dropwizard
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction​
 
 This walk-through teaches you the basics of using OpenFeature in Java in the context of a Dropwizard application.
 
 You'll learn how to:
 
--   Integrate the OpenFeature Java SDK
--   Install and configure the OpenFeature provider
--   Perform basic feature flagging
+*   Integrate the OpenFeature Java SDK
+*   Install and configure the OpenFeature provider
+*   Perform basic feature flagging
 
-## Requirements[​](#requirements "Direct link to Requirements")
+## Requirements​
 
 This walk-through assumes that:
 
--   You have a basic knowledge of Java and Dropwizard
--   You have Java 8 or later
--   You have Docker installed and running on the host system
+*   You have a basic knowledge of Java and Dropwizard
+*   You have Java 8 or later
+*   You have Docker installed and running on the host system
 
 This guide uses Java 21 syntax, adjustments might be needed for earlier Java versions.
 
-## Walk-through[​](#walk-through "Direct link to Walk-through")
+## Walk-through​
 
-### Step 1: Create a Dropwizard application[​](#step-1-create-a-dropwizard-application "Direct link to Step 1: Create a Dropwizard application")
+### Step 1: Create a Dropwizard application​
 
-Create a new Dropwizard application following the guide on [dropwizard.io](https://www.dropwizard.io/en/stable/getting-started.html).
+Create a new Dropwizard application following the guide on dropwizard.io.
 
 For this example we are using the maven archetype
 
@@ -38,14 +38,14 @@ We now have an application we can open
 cd openfeature-example
 ```
 
-### Step 2: Add dependencies[​](#step-2-add-dependencies "Direct link to Step 2: Add dependencies")
+### Step 2: Add dependencies​
 
-For dropwizard we can either use the SDK directly, or use a community module [dropwizard-openfeature](https://github.com/sideshowcoder/dropwizard-openfeature), and while dropwizard-openfeature provides some benefits like built-in healthchecks, and managing the startup and shutdown of resources associated with the OpenFeature Java SDK, it is not however not officially supported, so use at your own risk.
+For dropwizard we can either use the SDK directly, or use a community module dropwizard-openfeature, and while dropwizard-openfeature provides some benefits like built-in healthchecks, and managing the startup and shutdown of resources associated with the OpenFeature Java SDK, it is not however not officially supported, so use at your own risk.
 
 Depending what you choose add the following to your `pom.xml`
 
--   sdk-only
--   dropwizard-openfeature
+*   sdk-only
+*   dropwizard-openfeature
 
 ```
 <dependency>    <groupId>dev.openfeature</groupId>    <artifactId>sdk</artifactId>    <version>1.20.1</version></dependency><dependency>    <groupId>dev.openfeature.contrib.providers</groupId>    <artifactId>flagd</artifactId>    <version>0.11.8</version></dependency>
@@ -55,7 +55,7 @@ Depending what you choose add the following to your `pom.xml`
 <dependency>    <groupId>io.github.sideshowcoder</groupId>    <artifactId>dropwizard-openfeature</artifactId>    <version>1.0.1</version></dependency>
 ```
 
-### Step 3: Create a resource[​](#step-3-create-a-resource "Direct link to Step 3: Create a resource")
+### Step 3: Create a resource​
 
 We create a resource to serve the `/welcome` endpoint. Depending on the value of the feature flag named `"welcome-message"`, it serves different messages.
 
@@ -69,7 +69,7 @@ to make this resource available we need to register it, and inject the OpenFeatu
 public class OpenFeatureExampleApplication extends Application<OpenFeatureExampleConfiguration> {    public static void main(final String[] args) throws Exception {        new OpenFeatureExampleApplication().run(args);    }    @Override    public String getName() {        return "OpenFeatureExample";    }    @Override    public void initialize(final Bootstrap<OpenFeatureExampleConfiguration> bootstrap) {        // TODO: application initialization    }    @Override    public void run(final OpenFeatureExampleConfiguration configuration, final Environment environment) {        // TODO: implement application        var client = OpenFeatureAPI.getInstance().getClient("dev.openfeature.OpenFeatureExample");        var welcomeResource = new WelcomeResource(client);        environment.jersey().register(welcomeResource);    }}
 ```
 
-### Step 4: Run the application[​](#step-4-run-the-application "Direct link to Step 4: Run the application")
+### Step 4: Run the application​
 
 Now we can build and run the initial version of the application.
 
@@ -85,7 +85,7 @@ $ curl -i http://localhost:8080/welcomeHTTP/1.1 200 OKDate: Fri, 13 Jun 2025 10:
 
 "Why I'm I seeing that value?", you may ask. Well, it's because a provider hasn't been configured yet. Without a provider to actually evaluate flags, OpenFeature will return the default value. In the next step, you'll learn how to add a provider.
 
-### Step 5: Configure flagd as a provider[​](#step-5-configure-flagd-as-a-provider "Direct link to Step 5: Configure flagd as a provider")
+### Step 5: Configure flagd as a provider​
 
 Providers are an important concept in OpenFeature because they are responsible for the flag evaluation itself. As we saw in the previous step, OpenFeature without a provider always returns the default value. If we want to actually perform feature flagging, we'll need to register a provider.
 
@@ -99,7 +99,7 @@ Create a new file named `flags.flagd.json` and add the following JSON. Notice th
 
 With the flagd configuration in place, start flagd service with the following docker command.
 
-> NOTE: On Windows WSL is required both for running docker and to store the file. This is a limitation of Docker ([https://github.com/docker/for-win/issues/8479](https://github.com/docker/for-win/issues/8479))
+> NOTE: On Windows WSL is required both for running docker and to store the file. This is a limitation of Docker (https://github.com/docker/for-win/issues/8479)
 
 ```
 docker run -p 8013:8013 -v $(pwd)/:/etc/flagd/ -it ghcr.io/open-feature/flagd:latest start --uri file:/etc/flagd/flags.flagd.json
@@ -107,8 +107,8 @@ docker run -p 8013:8013 -v $(pwd)/:/etc/flagd/ -it ghcr.io/open-feature/flagd:la
 
 Now we configure flagd as the provider in our application
 
--   sdk-only
--   dropwizard-openfeature
+*   sdk-only
+*   dropwizard-openfeature
 
 ```
 public class OpenFeatureExampleApplication extends Application<OpenFeatureExampleConfiguration> {    public static void main(final String[] args) throws Exception {        new OpenFeatureExampleApplication().run(args);    }    @Override    public String getName() {        return "OpenFeatureExample";    }    @Override    public void initialize(final Bootstrap<OpenFeatureExampleConfiguration> bootstrap) {        // nothing to do here    }    @Override    public void run(final OpenFeatureExampleConfiguration configuration, final Environment environment) {        // Use flagd as the OpenFeature provider and use default configurations        try {            OpenFeatureAPI.getInstance().setProviderAndWait(new FlagdProvider());        } catch (OpenFeatureError e) {            throw new RuntimeException("Failed to set OpenFeature provider", e);        }        var client = OpenFeatureAPI.getInstance().getClient("dev.openfeature.OpenFeatureExample");        var welcomeResource = new WelcomeResource(client);        environment.jersey().register(welcomeResource);    }}
@@ -134,7 +134,7 @@ public class OpenFeatureExampleApplication extends Application<OpenFeatureExampl
 
 > NOTE: dropwizard-openfeature not only configures the provider, but also adds a healthcheck and hooks the provider into the application startup and shutdown lifecycle.
 
-### Step 6: Rerun the application[​](#step-6-rerun-the-application "Direct link to Step 6: Rerun the application")
+### Step 6: Rerun the application​
 
 We can now rerun the application
 
@@ -160,6 +160,6 @@ fetching `/welcome` now will show the message for `"welcome-message"` being `tru
 $ curl -i http://localhost:8080/welcomeHTTP/1.1 200 OKDate: Fri, 13 Jun 2025 10:00:00 GMTContent-Type: text/plainVary: Accept-EncodingContent-Length: 38Welcome to OpenFeature in Dropwizard!
 ```
 
-## Conclusion[​](#conclusion "Direct link to Conclusion")
+## Conclusion​
 
 In this walkthrough we learned how to integrate OpenFeature into a Dropwizard application, using flagd to provide the feature flags at runtime. We saw how changing the flags definition can change the runtime behaviour of our application, without the need to redeploy or restart the application.

@@ -24,11 +24,11 @@ A core focus of the collaboration is agentic AI—systems that go beyond answeri
 
 Together, Infosys and Anthropic will develop AI agents tailored to specific industries:
 
-- **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
-- **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
-- **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
-- **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
-- **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
+*   **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
+*   **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
+*   **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
+*   **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
+*   **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
 
 ## Getting started
 
@@ -38,18 +38,20 @@ Learn more about Anthropic’s expanded presence in India here.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Introducing Claude Opus 4.8
+### Introducing Claude Corps
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Claude Fable 5 and Claude Mythos 5
 
-We're opening a new office in Milan, our sixth in Europe.
+Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

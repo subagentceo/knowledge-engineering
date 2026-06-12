@@ -9,6 +9,7 @@ Create Skill Version
 ### Parameters
 
 - `VersionCreateParams params`
+
   - `Optional<String> skillId`
 
     Unique identifier for the skill.
@@ -18,6 +19,7 @@ Create Skill Version
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -70,7 +72,9 @@ Create Skill Version
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<List<String>> files`
 
@@ -81,6 +85,7 @@ Create Skill Version
 ### Returns
 
 - `class VersionCreateResponse:`
+
   - `String id`
 
     Unique identifier for the skill version.

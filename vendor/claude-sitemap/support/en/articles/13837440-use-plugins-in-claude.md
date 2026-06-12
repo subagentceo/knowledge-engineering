@@ -38,7 +38,7 @@ In Cowork, open the "Cowork" tab first, then open **Customize**.
 
 You can also upload a custom plugin file if you built one yourself or received one from a colleague. On Claude Desktop and in Cowork, plugins you add yourself are saved locally to your computer.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1780164900&signature=96ef7f00baff0b4b9da594ba8dfd24c238d239a4e3283a896c732a030a7358e0&req=diEnFs1%2BlINeWPMW1HO4zZF3IhXcNfFcxakFVfq5WwyCD6jbRyaGyCbiPqn%2F%0A6Kb5Jsxyu5grvYSigbo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1781284500&amp;signature=4164efad3d3d213b1fdd5ee496d4868d3484bc7ba923704a477f1a8c34355c9d&amp;req=diEnFs1%2BlINeWPMW1HO4zZF3IhTfO%2FFQxakFVfq5Www3BjbjoBJuQQauEacf%0A3t%2Fe5hT0Ql5ugX8qPWI%3D%0A)
 
 ---
 
@@ -46,7 +46,7 @@ You can also upload a custom plugin file if you built one yourself or received o
 
 Each plugin you install adds skills you can use while working with Claude. Type "/" or click the "+" button to see the available skills from your installed plugins, in chat and in Cowork. Click any skill to see its details.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1780164900&signature=0aaccbae86365cbee4f928d8bb87ef0c82e0cb5cc5258f92fe75f689ce885e65&req=diEiEcp3m4lbXfMW1HO4zf4NBPb9hUSdmKUxugP2BQt8h2smfz1oZfkAJgvS%0A7yNazzHtQD497W5leAc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1781284500&amp;signature=df78ccd37f125ff551ef8c1e97f7f28d1cc360b9bd089bd85f03534df6de0570&amp;req=diEiEcp3m4lbXfMW1HO4zf4NBPf%2Bi0SRmKUxugP2BQs%2BN5xj%2BqmBxA5B6Aft%0AK9YzfEw3vNX4k5iEOps%3D%0A)
 
 ---
 
@@ -80,9 +80,9 @@ To add a marketplace:
 
 3. Choose how to add it:
 
-- **Browse Anthropic sources:** Pick from marketplaces curated by Anthropic, such as Knowledge Work, Life Sciences, Financial Services, and Legal. Click "Add" next to the one you want, then click "Done."
+  - **Browse Anthropic sources:** Pick from marketplaces curated by Anthropic, such as Knowledge Work, Life Sciences, Financial Services, and Legal. Click "Add" next to the one you want, then click "Done."
 
-- **Add from a repository:** Sync a marketplace from a GitHub repository or git URL.
+  - **Add from a repository:** Sync a marketplace from a GitHub repository or git URL.
 
 To remove a marketplace, including the default Knowledge Work marketplace:
 

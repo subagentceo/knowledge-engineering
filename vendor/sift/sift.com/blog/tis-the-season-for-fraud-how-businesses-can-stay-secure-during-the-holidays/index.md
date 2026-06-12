@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# ‘Tis the season for fraud: How businesses can stay secure during the holidays
+
+Home/Blog
 
 Table of Contents
 
@@ -26,21 +28,21 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F&title=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays)
--   [](https://twitter.com/intent/tweet?text=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays&url=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F&picture=&title=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays)
--   [](/cdn-cgi/l/email-protection#7a45090f18101f190e475f3f485f424a5f43422e13095f484a0e121f5f484a091f1b0915145f484a1c15085f484a1c081b0f1e5f493b5f484a32150d5f484a180f0913141f09091f095f484a191b145f484a090e1b035f484a091f190f081f5f484a1e0f0813141d5f484a0e121f5f484a121516131e1b03095c594a49424118151e0347120e0e0a095f493b5f483c5f483c09131c0e541915175f483c1816151d5f483c0e1309570e121f57091f1b091514571c1508571c081b0f1e5712150d57180f0913141f09091f0957191b1457090e1b0357091f190f081f571e0f0813141d570e121f57121516131e1b03095f483c)
+*   
+*   
+*   
+*   
 
--   [Digital Trust](https://sift.com/blog/category/digital-trust/)
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
+*   Fraud
 
 # ‘Tis the season for fraud: How businesses can stay secure during the holidays
 
 Discover practical strategies to prevent fraud during the holiday shopping rush while reducing friction for trusted customers.
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/rebecca-alter/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Rebecca Alter](https://sift.com/blog/author/rebecca-alter/)
+Rebecca Alter
 
 Nov 14, 2023
 
@@ -50,7 +52,7 @@ Nov 14, 2023
 
 As the holiday shopping season ramps up, risk teams should prepare for transaction volumes and fraud rates to skyrocket.
 
-Although many consumers are still facing sticker shock as the price of goods and interest rates [remain high](https://www.wsj.com/personal-finance/savings/fed-interest-rates-holiday-spending-saving-73c1d272?st=iah2k6q9z3qpoat&mod=googlenewsfeed), the [economy is holding strong](https://www.reuters.com/markets/us/fed-poised-hold-rates-steady-despite-economys-bullish-tone-2023-11-01/) and inflation has slowed—spelling good news for merchants heading into the busy holiday season. Holiday shopping is expected to finally [surpass pre-pandemic figures](https://www2.deloitte.com/us/en/insights/industry/retail-distribution/holiday-retail-sales-consumer-survey.html), with consumers spending more overall, but on fewer purchases. 
+Although many consumers are still facing sticker shock as the price of goods and interest rates remain high, the economy is holding strong and inflation has slowed—spelling good news for merchants heading into the busy holiday season. Holiday shopping is expected to finally surpass pre-pandemic figures, with consumers spending more overall, but on fewer purchases. 
 
 This means more competition for customers attention, costlier chargebacks, and higher stakes. In order to ensure a profitable holiday season, businesses need to consider both how they’re keeping their sites secure from heightened fraudulent activity and how they’re enabling seamless customer experiences from login to transaction to checkout. 
 
@@ -58,126 +60,126 @@ In this blog, we’ll cover practical strategies to prevent fraud during the hol
 
 ![Sift tis the season for fraud](https://dev-sift.pantheonsite.io/app/uploads/2023/11/Sift_tis-the-season-for-fraud_Blog_1454x1044-edited.jpg)
 
-## **Top holiday shopping trends this year**
+## Top holiday shopping trends this year
 
 If you’re a merchant that’s been in business through the holidays, you’re no stranger to the flurry of seasonal spending, but there are some specific trends unique to this year that you should be prepared to plan around.
 
--   **Consumers will be pickier with their purchases, but willing to spend more.** Consumers plan to offset higher prices by [buying one fewer gift](https://www2.deloitte.com/us/en/insights/industry/retail-distribution/holiday-retail-sales-consumer-survey.html) on average, but will continue to splurge on themselves. Globally, e-commerce transactions are forecast to [increase 14%](https://www.businesswire.com/news/home/20231024233099/en/Global-eCommerce-Transactions-Expected-To-Surge-by-14-During-2023-Holiday-Season-Friendly-Fraud-Looms-as-the-Biggest-Spoiler) during the holiday season. [Consumers are expected to spend](https://www.ctinsider.com/business/article/holiday-shopping-spending-deloitte-18430305.php) an average of $1,650 on gifts and self-indulgences over the course of the holiday shopping season—up more than $150 from 2022.
+*   **Consumers will be pickier with their purchases, but willing to spend more.** Consumers plan to offset higher prices by buying one fewer gift on average, but will continue to splurge on themselves. Globally, e-commerce transactions are forecast to increase 14% during the holiday season. Consumers are expected to spend an average of $1,650 on gifts and self-indulgences over the course of the holiday shopping season—up more than $150 from 2022.
 
--   **Holiday shopping starts earlier every year.** Every year, it feels like holiday deals creep up earlier and earlier in the season—long before traditional Black Friday and Cyber Monday events post-Thanksgiving. And although some consumers may balk at holiday deals advertised before Halloween, it’s becoming the new norm, with [41%](https://news.shopify.com/americans-say-theyre-holding-firm-on-holiday-shopping-the-season-starts-now) planning to start shopping by the end of October to get a head start on the holiday rush. However, last minute shopping will still remain popular, with nearly 40% waiting until November and 20% holding off until December. For merchants, this means a longer holiday shopping—and fraud season—to manage. 
+*   **Holiday shopping starts earlier every year.** Every year, it feels like holiday deals creep up earlier and earlier in the season—long before traditional Black Friday and Cyber Monday events post-Thanksgiving. And although some consumers may balk at holiday deals advertised before Halloween, it’s becoming the new norm, with 41% planning to start shopping by the end of October to get a head start on the holiday rush. However, last minute shopping will still remain popular, with nearly 40% waiting until November and 20% holding off until December. For merchants, this means a longer holiday shopping—and fraud season—to manage. 
 
--   **Businesses are cracking down on return policies.** During the pandemic, many businesses adjusted their return policies to be more lenient in order to accommodate the influx of online orders and attract customers. Now, many are planning to tighten the reins again, as the cost of returns skyrocket for businesses, particularly those in the physical goods space dealing with the expenses of shipping. During the 2022 holiday season, the [return rates reached 16%](https://www.insiderintelligence.com/content/ecommerce-return-rates-rose-retail-s-longest-holiday-season-yet), resulting in millions in lost revenue. For every $100 in returned merchandise, [retailers lost $10.40](https://nrf.com/media-center/press-releases/2022-retail-returns-rate-remains-flat-816-billion). With [88% of global retailers](https://www.salesforce.com/news/stories/salesforce-holiday-predictions-2023/) planning to make their return policies stricter this year, it’s an opportunity for merchants to attract more business by offering more flexible returns.
+*   **Businesses are cracking down on return policies.** During the pandemic, many businesses adjusted their return policies to be more lenient in order to accommodate the influx of online orders and attract customers. Now, many are planning to tighten the reins again, as the cost of returns skyrocket for businesses, particularly those in the physical goods space dealing with the expenses of shipping. During the 2022 holiday season, the return rates reached 16%, resulting in millions in lost revenue. For every $100 in returned merchandise, retailers lost $10.40. With 88% of global retailers planning to make their return policies stricter this year, it’s an opportunity for merchants to attract more business by offering more flexible returns.
 
--   **Alternative payments remain popular options**. Nearly nine in ten (89%) consumers were using digital payments in 2022, with 62% using multiple modes, according to [McKinsey](https://www.mckinsey.com/industries/financial-services/our-insights/banking-matters/consumer-trends-in-digital-payments). As consumer behavior shifts demand for [alternative payment methods](https://sift.com/blog/addressing-digital-risk-in-emerging-payments/) (APMs), such as buy now, pay later (BNPL), new [payment service providers](https://sift.com/industries/psp) (PSPs), ACH, crypto, and digital wallets, grows, with volumes reaching [$19 trillion](https://www.ey.com/en_us/banking-capital-markets/the-rise-of-alternative-payment-methods) in 2022. Buy now, pay later (BNPL) transactions in particular are [expected to triple](https://www.businesswire.com/news/home/20231024233099/en/Global-eCommerce-Transactions-Expected-To-Surge-by-14-During-2023-Holiday-Season-Friendly-Fraud-Looms-as-the-Biggest-Spoiler) as consumers look to stretch their money. To stay competitive with other merchants and keep up with consumer demand, businesses should prioritize an inclusive range of payment options.
+*   **Alternative payments remain popular options**. Nearly nine in ten (89%) consumers were using digital payments in 2022, with 62% using multiple modes, according to McKinsey. As consumer behavior shifts demand for alternative payment methods (APMs), such as buy now, pay later (BNPL), new payment service providers (PSPs), ACH, crypto, and digital wallets, grows, with volumes reaching $19 trillion in 2022. Buy now, pay later (BNPL) transactions in particular are expected to triple as consumers look to stretch their money. To stay competitive with other merchants and keep up with consumer demand, businesses should prioritize an inclusive range of payment options.
 
-## **Five surging fraud vectors to prepare for this holiday season**
+## Five surging fraud vectors to prepare for this holiday season
 
 During the holiday rush, fraud teams will likely see similar types of fraud as throughout the rest of the year, but on a larger scale. There are many forms of fraud that surge during the holidays, including: 
 
-1.  **Chargebacks and first-party fraud**: Fraud attempts are expected to grow to 3% of all transactions, with [first-party fraud making up 20%](https://www.businesswire.com/news/home/20231024233099/en/Global-eCommerce-Transactions-Expected-To-Surge-by-14-During-2023-Holiday-Season-Friendly-Fraud-Looms-as-the-Biggest-Spoiler) of all fraud threats. More consumers participate in [first-party fraud](https://sift.com/blog/chargeback-fraud//) during the holidays, especially if they feel financially strapped. Due to the card-not-present dispute process being more favorable to consumers over merchants, this can mean multi-level losses for many merchants, costing the price of the product, chargeback fees, and operational costs.
+1.  **Chargebacks and first-party fraud**: Fraud attempts are expected to grow to 3% of all transactions, with first-party fraud making up 20% of all fraud threats. More consumers participate in first-party fraud during the holidays, especially if they feel financially strapped. Due to the card-not-present dispute process being more favorable to consumers over merchants, this can mean multi-level losses for many merchants, costing the price of the product, chargeback fees, and operational costs.
 
-2.  **Account takeovers**: Experts predict [billions in fraud losses](https://insights.co-opfs.org/blog/3-fraud-predictions-for-2023#:~:text=According%20to%20estimates%20from%20the,series%20of%20seemingly%20innocuous%20steps.) by the end of 2023, with over $635B related to account takeover (ATO). Across the Sift global network, ATO attacks [jumped a staggering 354%](https://sift.com/blog/account-takeover-data-consumer-insights-and-emerging-trends-in-2023/) year-over-year in Q2 2023, and are expected to be a major concern during the busy holiday season. Leaving ATO unchecked can cause even more problems, including future customer churn and revenue loss. Over three-quarters (76%) of consumers would permanently stop shopping with a brand if they became a victim of ATO on that company’s site or app.
+2.  **Account takeovers**: Experts predict billions in fraud losses by the end of 2023, with over $635B related to account takeover (ATO). Across the Sift global network, ATO attacks jumped a staggering 354% year-over-year in Q2 2023, and are expected to be a major concern during the busy holiday season. Leaving ATO unchecked can cause even more problems, including future customer churn and revenue loss. Over three-quarters (76%) of consumers would permanently stop shopping with a brand if they became a victim of ATO on that company’s site or app.
 
-3.  **Reseller abuse:** Fraudsters frequently target limited stock and high-demand items during the holidays and sell them on secondary marketplaces for a profit. [Viral TikTok videos](https://www.newsweek.com/20-products-sold-out-because-tiktok-popularity-1581946) are one major driver of these popularly trending items, including anything from shower head filters to cat treats. Cybercriminals may purchase large quantities of these items with the intent of reselling them for triple the price. This creates a negative brand experience for consumers, who are likely to be frustrated with highly sought after items being out of stock—and more susceptible to fraudulent offers or off-platform purchases.
+3.  **Reseller abuse:** Fraudsters frequently target limited stock and high-demand items during the holidays and sell them on secondary marketplaces for a profit. Viral TikTok videos are one major driver of these popularly trending items, including anything from shower head filters to cat treats. Cybercriminals may purchase large quantities of these items with the intent of reselling them for triple the price. This creates a negative brand experience for consumers, who are likely to be frustrated with highly sought after items being out of stock—and more susceptible to fraudulent offers or off-platform purchases.
 
-4.  **Alternate payment fraud:** Providing additional payment methods means businesses must uplevel their fraud prevention capabilities to keep up with evolving fraud. Because these are new technologies, fraudsters are especially narrowed in on cracking any potential vulnerabilities. There’s evidence that fintech and alternative payments are being targeted with advanced and automated fraud schemes. [Sift network data](https://sift.com/resources/index-reports/digital-trust-index-payment-fraud-2023/) shows that attempted payment fraud in fintech jumped 13% in 2022, with BNPL struggling against a 211% increase, and crypto exchanges seeing a 45% surge. 
+4.  **Alternate payment fraud:** Providing additional payment methods means businesses must uplevel their fraud prevention capabilities to keep up with evolving fraud. Because these are new technologies, fraudsters are especially narrowed in on cracking any potential vulnerabilities. There’s evidence that fintech and alternative payments are being targeted with advanced and automated fraud schemes. Sift network data shows that attempted payment fraud in fintech jumped 13% in 2022, with BNPL struggling against a 211% increase, and crypto exchanges seeing a 45% surge. 
 
-5.  **Gift card fraud**: Gift cards are already a prime target for social engineering scams, and the holidays are the busiest season for these prepaid cards. [The FTC](https://www.ftc.gov/business-guidance/blog/2021/12/gift-card-scams-out-shadows-ftc-data-spotlight) found that gift cards are the #1 payment method of choice for scammers, resulting in a reported $148 million stolen from consumers. Gift card scams are popular among fraudsters because they lack proper security features, and many consumers don’t spend the funds right away—extending the window for potential fraudulent activity. With more businesses offering gift cards as purchase rewards and as reimbursement for returned items, tracking fraudulent funds becomes even more complex. 
+5.  **Gift card fraud**: Gift cards are already a prime target for social engineering scams, and the holidays are the busiest season for these prepaid cards. The FTC found that gift cards are the #1 payment method of choice for scammers, resulting in a reported $148 million stolen from consumers. Gift card scams are popular among fraudsters because they lack proper security features, and many consumers don’t spend the funds right away—extending the window for potential fraudulent activity. With more businesses offering gift cards as purchase rewards and as reimbursement for returned items, tracking fraudulent funds becomes even more complex. 
 
-## **Ensuring your business is secure for the busy holiday season**
+## Ensuring your business is secure for the busy holiday season
 
 Navigating transaction surges and anomalous behavior can make the holidays a stressful time for risk teams. Here are a few tips to help secure your business from fraudulent activity and feel confident going into the holiday shopping season. 
 
--   **Automate risk management with workflows.** Given the surge in transaction volumes, it can be difficult for risk teams to keep up with manual reviews. Many merchants lower risk thresholds to capitalize on the flood of transaction volumes, but this can make it easier for fraudsters to get through undetected. Businesses should be strategic about the adjustments they make to thresholds, depending on their risk tolerance and resources for manual review. By leveraging machine learning and automation, analysts can accurately detect anomalies in real time. And with [Sift Workflows](https://sift.com/blog/sift-workflow-best-practices/), risk teams can automatically block known fraud and improve the acceptance rate for trusted customers. 
+*   **Automate risk management with workflows.** Given the surge in transaction volumes, it can be difficult for risk teams to keep up with manual reviews. Many merchants lower risk thresholds to capitalize on the flood of transaction volumes, but this can make it easier for fraudsters to get through undetected. Businesses should be strategic about the adjustments they make to thresholds, depending on their risk tolerance and resources for manual review. By leveraging machine learning and automation, analysts can accurately detect anomalies in real time. And with Sift Workflows, risk teams can automatically block known fraud and improve the acceptance rate for trusted customers. 
 
--   **Proactively shut down account takeovers.** Maintaining trust with customers can be as difficult as building trust. Businesses can build better customer relationships with automatic security notifications within Sift. Risk teams can verify credentials and protect users from ATO without blocking trustworthy logins by configuring and triggering security notifications directly from the Sift Console. This is designed to ensure user trust by notifying them of any suspicious login activity, and proving that your business is committed to keeping their account safe. 
+*   **Proactively shut down account takeovers.** Maintaining trust with customers can be as difficult as building trust. Businesses can build better customer relationships with automatic security notifications within Sift. Risk teams can verify credentials and protect users from ATO without blocking trustworthy logins by configuring and triggering security notifications directly from the Sift Console. This is designed to ensure user trust by notifying them of any suspicious login activity, and proving that your business is committed to keeping their account safe. 
 
--   **Prioritize offering top-notch  customer service.** Many merchants are providing customers with incentives to shop with them, such as extending discounts and offering longer return windows. By focusing on how to optimize the customer experience, businesses can avoid future returns and chargebacks that will ultimately lead to greater losses.
+*   **Prioritize offering top-notch  customer service.** Many merchants are providing customers with incentives to shop with them, such as extending discounts and offering longer return windows. By focusing on how to optimize the customer experience, businesses can avoid future returns and chargebacks that will ultimately lead to greater losses.
 
--   **Managing fraud analyst workloads and maximizing review efficiency.** It’s common for risk teams of every size to become buried in manual review during the holidays. By setting up automation thresholds for blocking and accepting orders, teams can better enable smoother transactions for trusted users and flag suspicious behavior for review or automatically block known fraud. 
+*   **Managing fraud analyst workloads and maximizing review efficiency.** It’s common for risk teams of every size to become buried in manual review during the holidays. By setting up automation thresholds for blocking and accepting orders, teams can better enable smoother transactions for trusted users and flag suspicious behavior for review or automatically block known fraud. 
 
--   **Create a clear path for escalations during busy periods.** Merchants should have a strategy in place for risk thresholds and how to respond in the event of a large-scale fraud attack. Implementing a clear plan of action across departments can help speed up escalations and prevent potential losses. Businesses should also evaluate their security weaknesses before code freezes go into effect, allowing for any necessary changes to be built into the roadmap. 
+*   **Create a clear path for escalations during busy periods.** Merchants should have a strategy in place for risk thresholds and how to respond in the event of a large-scale fraud attack. Implementing a clear plan of action across departments can help speed up escalations and prevent potential losses. Businesses should also evaluate their security weaknesses before code freezes go into effect, allowing for any necessary changes to be built into the roadmap. 
 
--   **Prepare for chargeback season now.** The 2–3 months of the new year is known as chargeback season, following the holiday rush. Merchants can reduce the number of chargebacks they face in the new year by having clear cancellation and return policies in place for the holidays. The [Visa CE3.0 compelling evidence](https://sift.com/blog/what-you-need-to-know-about-the-visa-compelling-evidence-3-0-update/) update will also help merchants better defend against first-party misuse. 
+*   **Prepare for chargeback season now.** The 2–3 months of the new year is known as chargeback season, following the holiday rush. Merchants can reduce the number of chargebacks they face in the new year by having clear cancellation and return policies in place for the holidays. The Visa CE3.0 compelling evidence update will also help merchants better defend against first-party misuse. 
 
-[For more timely fraud insights, check out FIBR, the definitive Fraud Industry Benchmarking Resource, powered by Sift.](https://sift.com/fraud-center/fraud-industry-benchmarking-resource)
+For more timely fraud insights, check out FIBR, the definitive Fraud Industry Benchmarking Resource, powered by Sift.
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F&title=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays)
--   [](https://twitter.com/intent/tweet?text=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays&url=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Ftis-the-season-for-fraud-how-businesses-can-stay-secure-during-the-holidays%2F&picture=&title=%E2%80%98Tis%20the%20season%20for%20fraud%3A%20How%20businesses%20can%20stay%20secure%20during%20the%20holidays)
--   [](/cdn-cgi/l/email-protection#9aa5e9eff8f0fff9eea7bfdfa8bfa2aabfa3a2cef3e9bfa8aaeef2ffbfa8aae9fffbe9f5f4bfa8aafcf5e8bfa8aafce8fbeffebfa9dbbfa8aad2f5edbfa8aaf8efe9f3f4ffe9e9ffe9bfa8aaf9fbf4bfa8aae9eefbe3bfa8aae9fff9efe8ffbfa8aafeefe8f3f4fdbfa8aaeef2ffbfa8aaf2f5f6f3fefbe3e9bcb9aaa9a2a1f8f5fee3a7f2eeeeeae9bfa9dbbfa8dcbfa8dce9f3fceeb4f9f5f7bfa8dcf8f6f5fdbfa8dceef3e9b7eef2ffb7e9fffbe9f5f4b7fcf5e8b7fce8fbeffeb7f2f5edb7f8efe9f3f4ffe9e9ffe9b7f9fbf4b7e9eefbe3b7e9fff9efe8ffb7feefe8f3f4fdb7eef2ffb7f2f5f6f3fefbe3e9bfa8dc)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

@@ -1,10 +1,12 @@
-[Content Library](/library/)
+# Plan
 
-[Scenarios](/library/scenarios/)
+Libraries
 
-[Migrations](/library/scenarios/migrations/)
+Scenarios
 
-[Azure DevOps to GitHub Enterprise Migration Guide](/library/scenarios/migrations/azure-devops-migration-guide/)
+Migrations
+
+Azure DevOps to GitHub Enterprise Migration Guide
 
 Plan
 
@@ -12,61 +14,61 @@ Plan
 
 A successful migration from Azure DevOps to GitHub Enterprise Cloud requires teamwork, clear goals, and a thoughtful approach. This guide helps you build a structured plan so your migration is smooth, secure, and sets your team up for long-term success.
 
-## In this guide[](#in-this-guide)
+## In this guide
 
 Section
 
 Description
 
-[Project charter](#project-charter)
+Project charter
 
 Define your objectives, scope, and what success looks like
 
-[Integration strategy](#integration-strategy)
+Integration strategy
 
 Decide which Azure DevOps services to keep in the process
 
-[Migration timeline](#migration-timeline)
+Migration timeline
 
 Plan your project phases and key milestones
 
-[Risk management](#risk-management)
+Risk management
 
 Identify potential risks and mitigation strategies
 
-[Communication plan](#communication-plan)
+Communication plan
 
 Establish clear communication channels and schedules
 
-[Training strategy](#training-strategy)
+Training strategy
 
 Prepare teams for the new environment
 
-## Progress tracker[](#progress-tracker)
+## Progress tracker
 
 Use this checklist to help guide your planning:
 
--    Project charter completed
--    Stakeholders identified
--    Integration strategy determined
--    Migration timeline established
--    Risk management plan created
--    Communication plan developed
--    Training strategy defined
--    Developer readiness criteria established
--    Resource planning completed
+*    Project charter completed
+*    Stakeholders identified
+*    Integration strategy determined
+*    Migration timeline established
+*    Risk management plan created
+*    Communication plan developed
+*    Training strategy defined
+*    Developer readiness criteria established
+*    Resource planning completed
 
-## Learning resources[](#learning-resources)
+## Learning resources
 
 Before you begin, review these resources to support your planning:
 
--   [Planning your migration](https://docs.github.com/migrations/overview/planning-your-migration-to-github)
+*   Planning your migration
 
-## Project charter[](#project-charter)
+## Project charter
 
-### Define objectives and scope[](#define-objectives-and-scope)
+### Define objectives and scope
 
--    Document migration goals:
+*    Document migration goals:
     
     Goal
     
@@ -88,224 +90,222 @@ Before you begin, review these resources to support your planning:
     
     Ensure governance
     
--    Define project boundaries:
+*    Define project boundaries:
     
-    -   **Repositories**: Which code and artifact repositories are making the move?
-    -   **Teams**: Who will be impacted: development teams, users, and stakeholders?
-    -   **Timeline**: What is the project duration and what are the key dates?
-    -   **Features**: What needs to come over: history, pull requests, work items, boards, pipelines?
--    Establish success metrics:
+    *   **Repositories**: Which code and artifact repositories are making the move?
+    *   **Teams**: Who will be impacted: development teams, users, and stakeholders?
+    *   **Timeline**: What is the project duration and what are the key dates?
+    *   **Features**: What needs to come over: history, pull requests, work items, boards, pipelines?
+*    Establish success metrics:
     
-    -   Data integrity (100% code preservation)
-    -   Performance (speed, system response)
-    -   Integration availability
-    -   User adoption
--    Define developer readiness criteria:
+    *   Data integrity (100% code preservation)
+    *   Performance (speed, system response)
+    *   Integration availability
+    *   User adoption
+*    Define developer readiness criteria:
     
-    -   **Productivity metrics**: Developer workflow completion times, successful repository operations
-    -   **Competency checkpoints**: Training completion rates, hands-on assessment scores
-    -   **Adoption indicators**: Active users on GitHub, pull request workflows
-    -   **Support metrics**: Help desk ticket volume, resolution times for GitHub-related issues
-    -   **Integration proficiency**: Successful use of Azure DevOps integrations, CI/CD pipeline operations
--    Document out-of-scope items:
+    *   **Productivity metrics**: Developer workflow completion times, successful repository operations
+    *   **Competency checkpoints**: Training completion rates, hands-on assessment scores
+    *   **Adoption indicators**: Active users on GitHub, pull request workflows
+    *   **Support metrics**: Help desk ticket volume, resolution times for GitHub-related issues
+    *   **Integration proficiency**: Successful use of Azure DevOps integrations, CI/CD pipeline operations
+*    Document out-of-scope items:
     
-    -   Legacy system maintenance
-    -   Optional feature migrations
-    -   Non-critical integrations
+    *   Legacy system maintenance
+    *   Optional feature migrations
+    *   Non-critical integrations
 
-### Integration strategy[](#integration-strategy)
+### Integration strategy
 
 Decide which Azure DevOps services to keep using after migrating repositories to GitHub:
 
--    **Azure Boards decision**:
+*    **Azure Boards decision**:
     
-    -    Continue using Azure Boards for work item tracking
-    -    Migrate to GitHub Issues and Projects
-    -    Use hybrid approach (Azure Boards + GitHub Issues)
-    -   Consider: Teams requiring continued access, work item linking requirements, process template dependencies, cross-repository relationships
--    **Azure Pipelines decision**:
+    *    Continue using Azure Boards for work item tracking
+    *    Migrate to GitHub Issues and Projects
+    *    Use hybrid approach (Azure Boards + GitHub Issues)
+    *   Consider: Teams requiring continued access, work item linking requirements, process template dependencies, cross-repository relationships
+*    **Azure Pipelines decision**:
     
-    -    Continue using Azure Pipelines for CI/CD
-    -    Migrate to GitHub Actions
-    -    Use hybrid approach (Azure Pipelines + GitHub Actions)
-    -   Consider: Release pipeline handling, service connection management, secrets and variables strategy
--    **Other services**:
+    *    Continue using Azure Pipelines for CI/CD
+    *    Migrate to GitHub Actions
+    *    Use hybrid approach (Azure Pipelines + GitHub Actions)
+    *   Consider: Release pipeline handling, service connection management, secrets and variables strategy
+*    **Other services**:
     
-    -    Azure Artifacts (package management)
-    -    Azure Test Plans (testing)
-    -    Azure DevOps Extensions and integrations
+    *    Azure Artifacts (package management)
+    *    Azure Test Plans (testing)
+    *    Azure DevOps Extensions and integrations
 
-### Stakeholder management[](#stakeholder-management)
+### Stakeholder management
 
--    Identify key stakeholders:
+*    Identify key stakeholders:
     
-    -   Executive sponsor
-    -   Project manager
-    -   Technical leads
-    -   Team representatives
-    -   Security and compliance teams
-    -   Application owners
-    -   Change managers
--    Create a RACI matrix for clear roles
+    *   Executive sponsor
+    *   Project manager
+    *   Technical leads
+    *   Team representatives
+    *   Security and compliance teams
+    *   Application owners
+    *   Change managers
+*    Create a RACI matrix for clear roles
     
--    Schedule regular stakeholder meetings
+*    Schedule regular stakeholder meetings
     
--    Document individuals who need to be involved at different stages
+*    Document individuals who need to be involved at different stages
     
 
-## Migration timeline[](#migration-timeline)
+## Migration timeline
 
-### Project phases[](#project-phases)
+### Project phases
 
--    **Source Environment Assessment**
+*    **Source Environment Assessment**
     
-    -   Azure DevOps services analysis
-    -   Repository inventory and analysis
-    -   Integration dependencies mapping
-    -   Access patterns documentation
-    -   Performance and compliance considerations
--    **Target Environment Setup**
+    *   Azure DevOps services analysis
+    *   Repository inventory and analysis
+    *   Integration dependencies mapping
+    *   Access patterns documentation
+    *   Performance and compliance considerations
+*    **Target Environment Setup**
     
-    -   GitHub Enterprise Cloud configuration
-    -   Organization and team structure
-    -   Security and compliance settings
-    -   Integration setup and testing
--    **Migration Testing**
+    *   GitHub Enterprise Cloud configuration
+    *   Organization and team structure
+    *   Security and compliance settings
+    *   Integration setup and testing
+*    **Migration Testing**
     
-    -   Test environment preparation
-    -   Pilot migration execution
-    -   Integration validation
-    -   Team workflow testing
-    -   Issue identification and resolution
--    **Repository Migration**
+    *   Test environment preparation
+    *   Pilot migration execution
+    *   Integration validation
+    *   Team workflow testing
+    *   Issue identification and resolution
+*    **Repository Migration**
     
-    -   Pre-migration preparations
-    -   Repository migration execution
-    -   Integration updates
-    -   Team communication and coordination
--    **Post-Migration Activities**
+    *   Pre-migration preparations
+    *   Repository migration execution
+    *   Integration updates
+    *   Team communication and coordination
+*    **Post-Migration Activities**
     
-    -   Repository governance implementation
-    -   Performance optimization
-    -   Team support and training
-    -   Cleanup and validation
+    *   Repository governance implementation
+    *   Performance optimization
+    *   Team support and training
+    *   Cleanup and validation
 
-### Key milestones[](#key-milestones)
+### Key milestones
 
--    Source environment assessment complete
--    Target environment configured and ready
--    Migration testing successful
--    Team training and readiness validated
--    Repository migrations completed
--    Integrations updated and verified
--    Post-migration governance implemented
--    Team fully operational on GitHub
+*    Source environment assessment complete
+*    Target environment configured and ready
+*    Migration testing successful
+*    Team training and readiness validated
+*    Repository migrations completed
+*    Integrations updated and verified
+*    Post-migration governance implemented
+*    Team fully operational on GitHub
 
-## Risk management[](#risk-management)
+## Risk management
 
--    Identify common risks:
+*    Identify common risks:
     
-    -   Data loss during migration (data which is not planned to be migrated)
-    -   Integration failures
-    -   Developer change management
-    -   Timeline delays
-    -   Resource constraints
-    -   Compliance issues
--    Develop mitigation strategies:
+    *   Data loss during migration (data which is not planned to be migrated)
+    *   Integration failures
+    *   Developer change management
+    *   Timeline delays
+    *   Resource constraints
+    *   Compliance issues
+*    Develop mitigation strategies:
     
-    -   Detailed backup plans
-    -   Rollback procedures
-    -   Contingency plans
-    -   Monitoring and alerting
-    -   Resource allocation buffers
+    *   Detailed backup plans
+    *   Rollback procedures
+    *   Contingency plans
+    *   Monitoring and alerting
+    *   Resource allocation buffers
 
-## Communication plan[](#communication-plan)
+## Communication plan
 
 Clear, proactive communication keeps everyone aligned and reduces surprises:
 
--    Establish communication infrastructure:
+*    Establish communication infrastructure:
     
-    -   Dedicated migration support channel
-    -   Migration status dashboard
-    -   Regular update meetings
-    -   Escalation paths
--    Define communication schedule:
+    *   Dedicated migration support channel
+    *   Migration status dashboard
+    *   Regular update meetings
+    *   Escalation paths
+*    Define communication schedule:
     
-    -   Initial announcement
-    -   Training notifications
-    -   Migration timeline updates
-    -   Go-live communications
-    -   Post-migration support
-    -   Freeze period reminders
--    Create communication templates for:
+    *   Initial announcement
+    *   Training notifications
+    *   Migration timeline updates
+    *   Go-live communications
+    *   Post-migration support
+    *   Freeze period reminders
+*    Create communication templates for:
     
-    -   Expected timing
-    -   Expected downtime
-    -   Emergency contacts
+    *   Expected timing
+    *   Expected downtime
+    *   Emergency contacts
 
-## Training strategy[](#training-strategy)
+## Training strategy
 
 ℹ️
 
-If you need help with training content and material, please contact either [GitHub Professional Services](https://github.com/services#services-contact), your Microsoft account team and check the [Enterprise Skills Initiative](https://esi.microsoft.com/), or a GitHub authorized partner. If you’re unsure, please contact your GitHub account representative or [GitHub Support](https://support.github.com/) for assistance.
+If you need help with training content and material, please contact either GitHub Professional Services, your Microsoft account team and check the Enterprise Skills Initiative, or a GitHub authorized partner. If you’re unsure, please contact your GitHub account representative or GitHub Support for assistance.
 
 Help your administrators and developers feel confident in the new environment and ensure comprehensive readiness:
 
--    Administrator training plan:
+*    Administrator training plan:
     
-    -   [GitHub Administration Fundamentals](https://learn.microsoft.com/training/paths/github-administration-products/)
-    -   [GitHub Enterprise Cloud administration](https://github.com/services/admin-training-github-enterprise-cloud)
-    -   Security best practices
-    -   Audit logging and compliance monitoring
--    Developer training plan:
+    *   GitHub Administration Fundamentals
+    *   GitHub Enterprise Cloud administration
+    *   Security best practices
+    *   Audit logging and compliance monitoring
+*    Developer training plan:
     
-    -   [Git fundamentals review](https://learn.microsoft.com/training/paths/github-foundations/)
-    -   [GitHub workflow training](https://learn.microsoft.com/training/paths/github-foundations-2/)
-    -   GitHub Actions for Azure DevOps users
-        -   [Introduction to Actions](https://learn.microsoft.com/training/modules/introduction-to-github-actions/)
-        -   [Building Continuous Integration with Actions](https://learn.microsoft.com/training/modules/github-actions-ci/)
-    -   [Azure DevOps Board → GitHub integration workflows](https://learn.microsoft.com/azure/devops/boards/github/?view=azure-devops)
-    -   Integration tools training (third-party CI/CD, monitoring, code quality tools)
-    -   Security awareness
--    Azure DevOps integration-specific training:
+    *   Git fundamentals review
+    *   GitHub workflow training
+    *   GitHub Actions for Azure DevOps users
+        *   Introduction to Actions
+        *   Building Continuous Integration with Actions
+    *   Azure DevOps Board → GitHub integration workflows
+    *   Integration tools training (third-party CI/CD, monitoring, code quality tools)
+    *   Security awareness
+*    Azure DevOps integration-specific training:
     
-    -   **Azure Boards integration**: Training on linking GitHub commits and pull requests to Azure Boards work items
-        -   [Documentation](https://learn.microsoft.com/azure/devops/boards/github/link-to-from-github?view=azure-devops)
-    -   **Azure Pipelines integration**: Training on GitHub repository authentication and build triggers
-        -   [Documentation](https://learn.microsoft.com/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml)
-    -   **Workflow transitions**: Training on moving between Azure DevOps and GitHub interfaces
-    -   **Cross-platform processes**: Training on managing work across both platforms during integration periods
--    Developer readiness validation:
+    *   **Azure Boards integration**: Training on linking GitHub commits and pull requests to Azure Boards work items
+        *   Documentation
+    *   **Azure Pipelines integration**: Training on GitHub repository authentication and build triggers
+        *   Documentation
+    *   **Workflow transitions**: Training on moving between Azure DevOps and GitHub interfaces
+    *   **Cross-platform processes**: Training on managing work across both platforms during integration periods
+*    Developer readiness validation:
     
-    -   Hands-on workshops with test repositories
-    -   Integration workflow demonstrations
-    -   Q&A sessions and troubleshooting guides
-    -   Certification or assessment of core competencies
-    -   Post-training support and follow-up sessions
+    *   Hands-on workshops with test repositories
+    *   Integration workflow demonstrations
+    *   Q&A sessions and troubleshooting guides
+    *   Certification or assessment of core competencies
+    *   Post-training support and follow-up sessions
 
-## Resource planning[](#resource-planning)
+## Resource planning
 
--    Allocate team resources:
+*    Allocate team resources:
     
-    -   Migration team members
-    -   Technical support staff
-    -   Training resources
-    -   Documentation writers
--    Develop migration runbook:
+    *   Migration team members
+    *   Technical support staff
+    *   Training resources
+    *   Documentation writers
+*    Develop migration runbook:
     
-    -   Step-by-step procedures
-    -   Troubleshooting guides
-    -   Contact information
-    -   Rollback procedures
-    -   Validation checklists
-    -   Emergency response protocols
-    -   Communication templates
+    *   Step-by-step procedures
+    *   Troubleshooting guides
+    *   Contact information
+    *   Rollback procedures
+    *   Validation checklists
+    *   Emergency response protocols
+    *   Communication templates
 
-## Next steps[](#next-steps)
+## Next steps
 
-1.  Proceed to [Environment assessment](https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/assess/)
-2.  Consider engaging [GitHub Expert Services](https://github.com/services#services-catalog) for additional support
+1.  Proceed to Environment assessment
+2.  Consider engaging GitHub Expert Services for additional support
 
-Last updated on December 10, 2025
-
-[Assess](/library/scenarios/migrations/azure-devops-migration-guide/assess/ "Assess")
+OverviewAssess

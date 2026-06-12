@@ -13,6 +13,7 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `ModelListParams parameters`
+
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -30,6 +31,7 @@ The Models API response can be used to determine which models are available for 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -82,22 +84,32 @@ The Models API response can be used to determine which models are available for 
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class ModelListPageResponse:`
+
   - `required IReadOnlyList<BetaModelInfo> Data`
+
     - `required string ID`
 
       Unique model identifier.
 
+    - `required IReadOnlyList<string>? AllowedFallbackModels`
+
+      Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
     - `required BetaModelCapabilities? Capabilities`
 
       Model capability information.
+
       - `required BetaCapabilitySupport Batch`
 
         Whether the model supports the Batch API.
+
         - `required Boolean Supported`
 
           Whether this capability is supported by the model.
@@ -113,6 +125,7 @@ The Models API response can be used to determine which models are available for 
       - `required BetaContextManagementCapability ContextManagement`
 
         Context management support and available strategies.
+
         - `required BetaCapabilitySupport? ClearThinking20251015`
 
           Indicates whether a capability is supported.
@@ -132,6 +145,7 @@ The Models API response can be used to determine which models are available for 
       - `required BetaEffortCapability Effort`
 
         Effort (reasoning_effort) support and available levels.
+
         - `required BetaCapabilitySupport High`
 
           Whether the model supports high effort level.
@@ -171,6 +185,7 @@ The Models API response can be used to determine which models are available for 
       - `required BetaThinkingCapability Thinking`
 
         Thinking capability and supported type configurations.
+
         - `required Boolean Supported`
 
           Whether this capability is supported by the model.
@@ -178,6 +193,7 @@ The Models API response can be used to determine which models are available for 
         - `required BetaThinkingTypes Types`
 
           Supported thinking type configurations.
+
           - `required BetaCapabilitySupport Adaptive`
 
             Whether the model supports thinking with type 'adaptive' (auto).
@@ -239,6 +255,9 @@ await foreach (var item in page.Paginate())
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true
@@ -326,6 +345,7 @@ The Models API response can be used to determine information about a specific mo
 ### Parameters
 
 - `ModelRetrieveParams parameters`
+
   - `required string modelID`
 
     Model identifier or alias.
@@ -333,6 +353,7 @@ The Models API response can be used to determine information about a specific mo
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -385,21 +406,30 @@ The Models API response can be used to determine information about a specific mo
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaModelInfo:`
+
   - `required string ID`
 
     Unique model identifier.
 
+  - `required IReadOnlyList<string>? AllowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `required BetaModelCapabilities? Capabilities`
 
     Model capability information.
+
     - `required BetaCapabilitySupport Batch`
 
       Whether the model supports the Batch API.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -415,6 +445,7 @@ The Models API response can be used to determine information about a specific mo
     - `required BetaContextManagementCapability ContextManagement`
 
       Context management support and available strategies.
+
       - `required BetaCapabilitySupport? ClearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -434,6 +465,7 @@ The Models API response can be used to determine information about a specific mo
     - `required BetaEffortCapability Effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `required BetaCapabilitySupport High`
 
         Whether the model supports high effort level.
@@ -473,6 +505,7 @@ The Models API response can be used to determine information about a specific mo
     - `required BetaThinkingCapability Thinking`
 
       Thinking capability and supported type configurations.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -480,6 +513,7 @@ The Models API response can be used to determine information about a specific mo
       - `required BetaThinkingTypes Types`
 
         Supported thinking type configurations.
+
         - `required BetaCapabilitySupport Adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -525,6 +559,9 @@ Console.WriteLine(betaModelInfo);
 ```json
 {
   "id": "claude-opus-4-6",
+  "allowed_fallback_models": [
+    "string"
+  ],
   "capabilities": {
     "batch": {
       "supported": true
@@ -601,6 +638,7 @@ Console.WriteLine(betaModelInfo);
 - `class BetaCapabilitySupport:`
 
   Indicates whether a capability is supported.
+
   - `required Boolean Supported`
 
     Whether this capability is supported by the model.
@@ -610,9 +648,11 @@ Console.WriteLine(betaModelInfo);
 - `class BetaContextManagementCapability:`
 
   Context management capability details.
+
   - `required BetaCapabilitySupport? ClearThinking20251015`
 
     Indicates whether a capability is supported.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -634,9 +674,11 @@ Console.WriteLine(betaModelInfo);
 - `class BetaEffortCapability:`
 
   Effort (reasoning_effort) capability details.
+
   - `required BetaCapabilitySupport High`
 
     Whether the model supports high effort level.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -666,9 +708,11 @@ Console.WriteLine(betaModelInfo);
 - `class BetaModelCapabilities:`
 
   Model capability information.
+
   - `required BetaCapabilitySupport Batch`
 
     Whether the model supports the Batch API.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -684,6 +728,7 @@ Console.WriteLine(betaModelInfo);
   - `required BetaContextManagementCapability ContextManagement`
 
     Context management support and available strategies.
+
     - `required BetaCapabilitySupport? ClearThinking20251015`
 
       Indicates whether a capability is supported.
@@ -703,6 +748,7 @@ Console.WriteLine(betaModelInfo);
   - `required BetaEffortCapability Effort`
 
     Effort (reasoning_effort) support and available levels.
+
     - `required BetaCapabilitySupport High`
 
       Whether the model supports high effort level.
@@ -742,6 +788,7 @@ Console.WriteLine(betaModelInfo);
   - `required BetaThinkingCapability Thinking`
 
     Thinking capability and supported type configurations.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -749,6 +796,7 @@ Console.WriteLine(betaModelInfo);
     - `required BetaThinkingTypes Types`
 
       Supported thinking type configurations.
+
       - `required BetaCapabilitySupport Adaptive`
 
         Whether the model supports thinking with type 'adaptive' (auto).
@@ -760,16 +808,23 @@ Console.WriteLine(betaModelInfo);
 ### Beta Model Info
 
 - `class BetaModelInfo:`
+
   - `required string ID`
 
     Unique model identifier.
 
+  - `required IReadOnlyList<string>? AllowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `required BetaModelCapabilities? Capabilities`
 
     Model capability information.
+
     - `required BetaCapabilitySupport Batch`
 
       Whether the model supports the Batch API.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -785,6 +840,7 @@ Console.WriteLine(betaModelInfo);
     - `required BetaContextManagementCapability ContextManagement`
 
       Context management support and available strategies.
+
       - `required BetaCapabilitySupport? ClearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -804,6 +860,7 @@ Console.WriteLine(betaModelInfo);
     - `required BetaEffortCapability Effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `required BetaCapabilitySupport High`
 
         Whether the model supports high effort level.
@@ -843,6 +900,7 @@ Console.WriteLine(betaModelInfo);
     - `required BetaThinkingCapability Thinking`
 
       Thinking capability and supported type configurations.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -850,6 +908,7 @@ Console.WriteLine(betaModelInfo);
       - `required BetaThinkingTypes Types`
 
         Supported thinking type configurations.
+
         - `required BetaCapabilitySupport Adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -885,6 +944,7 @@ Console.WriteLine(betaModelInfo);
 - `class BetaThinkingCapability:`
 
   Thinking capability details.
+
   - `required Boolean Supported`
 
     Whether this capability is supported by the model.
@@ -892,9 +952,11 @@ Console.WriteLine(betaModelInfo);
   - `required BetaThinkingTypes Types`
 
     Supported thinking type configurations.
+
     - `required BetaCapabilitySupport Adaptive`
 
       Whether the model supports thinking with type 'adaptive' (auto).
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -908,9 +970,11 @@ Console.WriteLine(betaModelInfo);
 - `class BetaThinkingTypes:`
 
   Supported thinking type configurations.
+
   - `required BetaCapabilitySupport Adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.

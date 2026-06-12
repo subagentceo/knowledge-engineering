@@ -181,7 +181,7 @@ After the customer initiates a dispute, Stripe notifies you using:
 - Stripe Dashboard
 - An API `charge.dispute.created` event (if your integration is set up to receive [webhooks](https://docs.stripe.com/webhooks.md))
 
-Stripe holds back the disputed amount from your balance until Affirm resolves the dispute, which can take a maximum of 30 calendar days from dispute creation.
+Stripe holds back the disputed amount from your balance until Affirm resolves the dispute, which can take a maximum of 60 calendar days from dispute creation.
 
 Stripe requests that you upload compelling evidence that you fulfilled the purchase order [using the Stripe Dashboard](https://docs.stripe.com/disputes/responding.md#respond). This evidence can include:
 

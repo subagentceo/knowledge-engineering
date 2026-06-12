@@ -24,19 +24,19 @@ LLNL's Claude application suite includes robust security features designed speci
 
 LLNL scientists are using Claude across disciplines—from materials science to computational biology—with potential to drive scientific breakthroughs. By integrating Claude across their operations, LLNL researchers are able to:
 
-- **Accelerate Scientific Discovery:** Process and analyze complex datasets, generate hypotheses, and explore new research directions with an AI assistant that understands scientific context.
-- **Enhance Collaboration:** Share insights and build on collective knowledge across interdisciplinary teams potentially spanning classified and unclassified projects.
-- **Streamline Operations:** Reduce time spent on routine tasks and documentation, allowing scientists to focus on high-impact research that maintains American strategic advantage in critical areas from nuclear deterrence to energy security.
+*   **Accelerate Scientific Discovery:** Process and analyze complex datasets, generate hypotheses, and explore new research directions with an AI assistant that understands scientific context.
+*   **Enhance Collaboration:** Share insights and build on collective knowledge across interdisciplinary teams potentially spanning classified and unclassified projects.
+*   **Streamline Operations:** Reduce time spent on routine tasks and documentation, allowing scientists to focus on high-impact research that maintains American strategic advantage in critical areas from nuclear deterrence to energy security.
 
 ## Security & compliance for national security missions
 
 Claude supports LLNL teams working on:
 
-- **Emergency Response:** Analyzing data from the National Atmospheric Release Advisory Center (NARAC) to respond to nuclear, radiological, chemical, or biological incidents
-- **Energy Security:** Advancing fusion energy research building on LLNL's historic achievement of fusion ignition in 2022
-- **Advanced Manufacturing:** Accelerating materials discovery and optimization through AI-driven analysis of 3D printing processes and manufacturing data
-- **Computational Biology:** Processing vast simulation datasets to advance biosecurity research and accelerate biological threat detection capabilities
-- **High-Performance Computing:** Optimizing code development and scientific computing workflows to maximize the impact of LLNL's world-class supercomputing resources
+*   **Emergency Response:** Analyzing data from the National Atmospheric Release Advisory Center (NARAC) to respond to nuclear, radiological, chemical, or biological incidents
+*   **Energy Security:** Advancing fusion energy research building on LLNL's historic achievement of fusion ignition in 2022
+*   **Advanced Manufacturing:** Accelerating materials discovery and optimization through AI-driven analysis of 3D printing processes and manufacturing data
+*   **Computational Biology:** Processing vast simulation datasets to advance biosecurity research and accelerate biological threat detection capabilities
+*   **High-Performance Computing:** Optimizing code development and scientific computing workflows to maximize the impact of LLNL's world-class supercomputing resources
 
 This expansion follows a successful pilot program, the first-ever AI Jam with U.S. National Labs, and the aiEDGE for Innovation Day in March, where approximately 3,200 LLNL scientists and operational staff experienced firsthand how Claude can accelerate and enhance scientific national security research.
 
@@ -48,18 +48,18 @@ _This blog was updated on July 11, 2025 with additional information from LLNL._
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

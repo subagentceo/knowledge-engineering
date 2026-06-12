@@ -14,6 +14,10 @@ Turnstile is Cloudflare's smart CAPTCHA alternative
 
 - [Plans](https://developers.cloudflare.com/turnstile/plans/index.md): Compare Turnstile feature availability and widget limits across plans.
 
+## Turnstile Spin (beta)
+
+- [Turnstile Spin (beta)](https://developers.cloudflare.com/turnstile/spin/index.md): Set up Turnstile end-to-end (widget + backend siteverify) using an AI coding agent.
+
 ## Get started
 
 - [Get started](https://developers.cloudflare.com/turnstile/get-started/index.md): Set up Turnstile to verify visitors without a traditional CAPTCHA.

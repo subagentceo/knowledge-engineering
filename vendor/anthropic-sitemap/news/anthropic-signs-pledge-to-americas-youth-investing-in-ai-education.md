@@ -30,9 +30,9 @@ All of these commitments build on the efforts we have already undertaken to ensu
 
 Through partnerships with leading education platforms, we're seeing how AI is helping to transform learning for millions of students and educators across America:
 
-- MagicSchool, a K-12 education platform, uses Claude to serve 3 million educators across every U.S. school district with 100+ million AI engagements, becoming the fastest growing education technology platform ever.
-- Amira Learning, an AI reading technology platform for K-12 students, uses Claude to help millions of students develop reading comprehension skills and background knowledge through individualized, conversational learning experiences.
-- Solvely.ai, an AI-powered academic companion that helps students of all ages with writing, math, and more, uses Claude to help 5+ million students across 120+ countries.
+*   MagicSchool, a K-12 education platform, uses Claude to serve 3 million educators across every U.S. school district with 100+ million AI engagements, becoming the fastest growing education technology platform ever.
+*   Amira Learning, an AI reading technology platform for K-12 students, uses Claude to help millions of students develop reading comprehension skills and background knowledge through individualized, conversational learning experiences.
+*   Solvely.ai, an AI-powered academic companion that helps students of all ages with writing, math, and more, uses Claude to help 5+ million students across 120+ countries.
 
 Beyond helping students learn with AI, we're helping them build with it. Claude for Education serves 100,000+ students and faculty, including USF Law's first fully AI-integrated curriculum and Northeastern's 13-campus adoption. Additionally, Claude Builder Clubs are launching in over 60 U.S. universities this fall, empowering students to launch real startups and build tools that solve problems in their communities.
 
@@ -48,18 +48,18 @@ Our participation in today's White House AI Education Taskforce meeting demonstr
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

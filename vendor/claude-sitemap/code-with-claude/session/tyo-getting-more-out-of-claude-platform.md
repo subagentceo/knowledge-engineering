@@ -24,25 +24,35 @@ Product Management Lead, Claude Platform,
 
 Anthropic
 
+Rod Howarth
+
+Member of Technical Staff,
+
+Anthropic
+
 Language
 
 English
 
 Agenda
 
-**A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
+Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
-Demos and office hours run all day. Drop by between sessions. All times in Japan Standard Time (JST).
+**A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Session track
 
-- All tracks
+*   All tracks
+    
 
-- Research
+*   Research
+    
 
-- Claude Platform
+*   Claude Platform
+    
 
-- Claude Code
+*   Claude Code
+    
 
 08:00 – 09:00
 
@@ -52,17 +62,33 @@ Check-in and breakfast
 
 Opening keynote
 
+·
+
 (Main stage)
+
+(
+
+Main stage
+
+)
 
 ·
 
 Angela Jiang
 
+Anthropic
+
 Cat Wu
+
+Anthropic
 
 Dianne Penn
 
+Anthropic
+
 Katelyn Lesse
+
+Anthropic
 
 10:00AM – 10:30AM
 
@@ -73,6 +99,8 @@ morning sessions
 10:30 – 11:00
 
 What's new in Claude Code
+
+·
 
 (
 
@@ -86,7 +114,11 @@ Claude Code
 
 Charmaine Lee
 
+Anthropic
+
 Memory and dreaming for self-learning agents
+
+·
 
 (
 
@@ -100,9 +132,13 @@ Claude Platform
 
 Mahesh Murag
 
+Anthropic
+
 10:30 – 11:15
 
 Picking the right model
+
+·
 
 (
 
@@ -116,9 +152,13 @@ Research
 
 Rodrigo Olivares
 
+Anthropic
+
 11:15 – 11:45
 
 Inside Canva AI: Architecting an agentic system for tens of millions of users
+
+·
 
 (
 
@@ -132,7 +172,11 @@ Claude Platform
 
 Danny Wu
 
+Canva
+
 The expanding toolkit
+
+·
 
 (
 
@@ -144,11 +188,15 @@ Research
 
 ·
 
-Lucas Gonzalez
+Jake Dejno
+
+Anthropic
 
 11:30 – 12:15
 
 Beyond the basics with Claude Code
+
+·
 
 (
 
@@ -162,9 +210,13 @@ Claude Code
 
 Sosuke Suzuki
 
+Anthropic
+
 12:00 – 12:30
 
 How to get to production faster with Claude Managed Agents
+
+·
 
 (
 
@@ -178,11 +230,19 @@ Claude Platform
 
 Jess Yan
 
+Anthropic
+
 Michael Cohen
+
+Anthropic
 
 Yusuke Kaji
 
+Rakuten Group, Inc.
+
 From "AI-assisted" to "AI-delegated": Redesigning the development process to standardize AI across the org
+
+·
 
 (
 
@@ -198,6 +258,8 @@ Claude Code
 
 Kohei Noguchi
 
+CyberAgent, Inc. / MG-DX Inc.
+
 12:30 – 14:00
 
 Lunch
@@ -208,11 +270,11 @@ afternoon sessions
 
 Stop babysitting your agents
 
+·
+
 (
 
 Workshop
-
-Claude Code
 
 )
 
@@ -222,15 +284,17 @@ Claude Code
 
 Sid Bidasaria
 
+Anthropic
+
 13:30 – 14:15
 
 AI with Claude on AWS: From code to orchestration
 
+·
+
 (
 
 Workshop
-
-Claude Platform
 
  // presented in Japanese
 
@@ -242,15 +306,17 @@ Claude Platform
 
 Kazuya Iwami
 
+AWS
+
 13:50 – 14:20
 
 Rakuten's AI-nization: Autonomy × empowerment
 
+·
+
 (
 
 Main stage
-
-Research
 
  // presented in Japanese
 
@@ -262,13 +328,15 @@ Research
 
 Yusuke Kaji
 
+Rakuten Group, Inc.
+
 The thinking lever
+
+·
 
 (
 
 Breakout stage
-
-Research
 
 )
 
@@ -278,15 +346,17 @@ Research
 
 Donny Greenberg
 
+Anthropic
+
 14:30 – 15:15
 
 Build a production-ready agent with Claude Managed Agents
 
+·
+
 (
 
 Workshop
-
-Claude Platform
 
 )
 
@@ -296,15 +366,17 @@ Claude Platform
 
 Gabe Cemaj
 
+Anthropic
+
 14:35 – 15:05
 
 Building an AI-native engineering organization at Mizuho
 
+·
+
 (
 
 Main stage
-
-Claude Platform
 
  // presented in Japanese
 
@@ -316,15 +388,19 @@ Claude Platform
 
 Kentaro Someya
 
+Mizuho Financial Group, Inc.
+
 Tatsuto Fujii
 
+Mizuho Financial Group, Inc.
+
 Running an AI-native engineering org
+
+·
 
 (
 
 Breakout stage
-
-Claude Code
 
 )
 
@@ -334,15 +410,17 @@ Claude Code
 
 Fiona Fung
 
+Anthropic
+
 15:20 – 15:50
 
 The capability curve
 
+·
+
 (
 
 Main stage
-
-Research
 
 )
 
@@ -352,13 +430,15 @@ Research
 
 Theo Chu
 
-Rebuilding SaaS for AI — where the done-for-you experience finally began
+Anthropic
+
+Rebuilding SaaS for AI: Where the done-for-you experience finally began
+
+·
 
 (
 
 Breakout stage
-
-Claude Platform
 
  // presented in Japanese
 
@@ -370,15 +450,17 @@ Claude Platform
 
 Ryu Yokoji
 
+freee K.K.
+
 15:30 – 16:15
 
 Build AI agents using Claude in Microsoft Foundry
 
+·
+
 (
 
 Workshop
-
-Claude Platform
 
  // presented in Japanese
 
@@ -390,15 +472,21 @@ Claude Platform
 
 Madoka Chiyoda
 
+Microsoft
+
+Nobu Tanahashi
+
+Microsoft
+
 16:05 – 16:35
 
-Fit-for-purpose model selection: A work-specific eval loop for enterprise adoption
+How NRI picks models with business-task benchmarks: A continuous eval loop for enterprise adoption
+
+·
 
 (
 
 Main stage
-
-Research
 
  // presented in Japanese
 
@@ -410,13 +498,15 @@ Research
 
 Yuki Kitamura
 
+Nomura Research Institute, Ltd.
+
 Building with Claude on Google Cloud
+
+·
 
 (
 
 Breakout stage
-
-Claude Platform
 
  // presented in Japanese
 
@@ -428,17 +518,21 @@ Claude Platform
 
 Ivan Nardini
 
+Google Cloud
+
 Kaz Sato
+
+Google Cloud
 
 16:30 – 17:15
 
 Build a proactive agent workflow with Claude Code
 
+·
+
 (
 
 Workshop
-
-Claude Code
 
 )
 
@@ -448,17 +542,21 @@ Claude Code
 
 Ash Prabaker
 
+Anthropic
+
 Christian Ryan
+
+Anthropic
 
 16:50 – 17:20
 
 Getting more out of the Claude Platform
 
+·
+
 (
 
 Main stage
-
-Claude Platform
 
 )
 
@@ -468,13 +566,19 @@ Claude Platform
 
 Brad Abrams
 
-Toward human-on-the-loop — How Mercari is transforming our software development into AI-native
+Anthropic
+
+Rod Howarth
+
+Anthropic
+
+Toward human-on-the-loop: How Mercari is transforming our software development into AI-native
+
+·
 
 (
 
 Breakout stage
-
-Claude Code
 
  // presented in Japanese
 
@@ -486,15 +590,17 @@ Claude Code
 
 Yu Nakai
 
+Mercari, Inc.
+
 17:30 – 18:15
 
 The prompting playbook
 
+·
+
 (
 
 Workshop
-
-Research
 
 )
 
@@ -504,9 +610,13 @@ Research
 
 Hannah Moran
 
+Anthropic
+
 17:35 – 18:05
 
 The democratization of software development, and the future of the Japanese community
+
+·
 
 (
 
@@ -519,6 +629,8 @@ Main stage
 ·
 
 Junichiro Tsuji
+
+Anthropic
 
 Evening
 

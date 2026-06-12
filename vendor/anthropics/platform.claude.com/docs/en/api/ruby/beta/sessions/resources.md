@@ -17,6 +17,7 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: :file`
+
   - `:file`
 
 - `mount_path: String`
@@ -26,9 +27,11 @@ Add Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -81,11 +84,14 @@ Add Session Resource
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsFileResource`
+
   - `id: String`
 
   - `created_at: Time`
@@ -97,6 +103,7 @@ Add Session Resource
   - `mount_path: String`
 
   - `type: :file`
+
     - `:file`
 
   - `updated_at: Time`
@@ -155,9 +162,11 @@ List Session Resources
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -210,14 +219,18 @@ List Session Resources
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -227,6 +240,7 @@ List Session Resources
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -236,23 +250,29 @@ List Session Resources
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -264,6 +284,7 @@ List Session Resources
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -273,16 +294,19 @@ List Session Resources
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -362,9 +386,11 @@ Get Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -417,14 +443,18 @@ Get Session Resource
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -434,6 +464,7 @@ Get Session Resource
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -443,23 +474,29 @@ Get Session Resource
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -471,6 +508,7 @@ Get Session Resource
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -480,16 +518,19 @@ Get Session Resource
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -563,9 +604,11 @@ Update Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -618,14 +661,18 @@ Update Session Resource
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -635,6 +682,7 @@ Update Session Resource
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -644,23 +692,29 @@ Update Session Resource
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -672,6 +726,7 @@ Update Session Resource
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -681,16 +736,19 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -761,9 +819,11 @@ Delete Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -816,16 +876,20 @@ Delete Session Resource
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
+
   - `id: String`
 
   - `type: :session_resource_deleted`
+
     - `:session_resource_deleted`
 
 ### Example
@@ -859,14 +923,17 @@ puts(beta_managed_agents_delete_session_resource)
 - `class BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
+
   - `id: String`
 
   - `type: :session_resource_deleted`
+
     - `:session_resource_deleted`
 
 ### Beta Managed Agents File Resource
 
 - `class BetaManagedAgentsFileResource`
+
   - `id: String`
 
   - `created_at: Time`
@@ -878,6 +945,7 @@ puts(beta_managed_agents_delete_session_resource)
   - `mount_path: String`
 
   - `type: :file`
+
     - `:file`
 
   - `updated_at: Time`
@@ -887,6 +955,7 @@ puts(beta_managed_agents_delete_session_resource)
 ### Beta Managed Agents GitHub Repository Resource
 
 - `class BetaManagedAgentsGitHubRepositoryResource`
+
   - `id: String`
 
   - `created_at: Time`
@@ -896,6 +965,7 @@ puts(beta_managed_agents_delete_session_resource)
   - `mount_path: String`
 
   - `type: :github_repository`
+
     - `:github_repository`
 
   - `updated_at: Time`
@@ -905,20 +975,25 @@ puts(beta_managed_agents_delete_session_resource)
   - `url: String`
 
   - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
     - `class BetaManagedAgentsBranchCheckout`
+
       - `name: String`
 
         Branch name to check out.
 
       - `type: :branch`
+
         - `:branch`
 
     - `class BetaManagedAgentsCommitCheckout`
+
       - `sha: String`
 
         Full commit SHA to check out.
 
       - `type: :commit`
+
         - `:commit`
 
 ### Beta Managed Agents Memory Store Resource
@@ -926,16 +1001,19 @@ puts(beta_managed_agents_delete_session_resource)
 - `class BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
+
   - `memory_store_id: String`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `type: :memory_store`
+
     - `:memory_store`
 
   - `access: :read_write | :read_only`
 
     Access mode for an attached memory store.
+
     - `:read_write`
 
     - `:read_only`
@@ -961,7 +1039,9 @@ puts(beta_managed_agents_delete_session_resource)
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -971,6 +1051,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -980,23 +1061,29 @@ puts(beta_managed_agents_delete_session_resource)
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -1008,6 +1095,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -1017,16 +1105,19 @@ puts(beta_managed_agents_delete_session_resource)
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -1052,7 +1143,9 @@ puts(beta_managed_agents_delete_session_resource)
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -1062,6 +1155,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -1071,23 +1165,29 @@ puts(beta_managed_agents_delete_session_resource)
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -1099,6 +1199,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -1108,16 +1209,19 @@ puts(beta_managed_agents_delete_session_resource)
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -1143,7 +1247,9 @@ puts(beta_managed_agents_delete_session_resource)
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -1153,6 +1259,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -1162,23 +1269,29 @@ puts(beta_managed_agents_delete_session_resource)
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -1190,6 +1303,7 @@ puts(beta_managed_agents_delete_session_resource)
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -1199,16 +1313,19 @@ puts(beta_managed_agents_delete_session_resource)
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`

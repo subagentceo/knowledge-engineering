@@ -29,11 +29,13 @@ List Workspace Members
 ### Returns
 
 - `data: array of WorkspaceMember`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -47,6 +49,7 @@ List Workspace Members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -74,7 +77,7 @@ List Workspace Members
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

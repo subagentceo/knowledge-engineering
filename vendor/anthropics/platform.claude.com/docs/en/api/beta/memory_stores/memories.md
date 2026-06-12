@@ -15,6 +15,7 @@ Create a memory
 - `view: optional BetaManagedAgentsMemoryView`
 
   Query parameter for view
+
   - `"basic"`
 
   - `"full"`
@@ -24,9 +25,11 @@ Create a memory
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -79,7 +82,9 @@ Create a memory
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -96,6 +101,7 @@ Create a memory
 - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -125,6 +131,7 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
+
     - `"memory"`
 
   - `updated_at: string`
@@ -189,6 +196,7 @@ List memories
 - `order: optional "asc" or "desc"`
 
   Query parameter for order
+
   - `"asc"`
 
   - `"desc"`
@@ -208,6 +216,7 @@ List memories
 - `view: optional BetaManagedAgentsMemoryView`
 
   Query parameter for view
+
   - `"basic"`
 
   - `"full"`
@@ -217,9 +226,11 @@ List memories
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -272,16 +283,20 @@ List memories
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: optional array of BetaManagedAgentsMemoryListItem`
 
   One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
+
   - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
     - `id: string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -311,6 +326,7 @@ List memories
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `type: "memory"`
+
       - `"memory"`
 
     - `updated_at: string`
@@ -324,11 +340,13 @@ List memories
   - `BetaManagedAgentsMemoryPrefix object { path, type }`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
     - `path: string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `type: "memory_prefix"`
+
       - `"memory_prefix"`
 
 - `next_page: optional string`
@@ -383,6 +401,7 @@ Retrieve a memory
 - `view: optional BetaManagedAgentsMemoryView`
 
   Query parameter for view
+
   - `"basic"`
 
   - `"full"`
@@ -392,9 +411,11 @@ Retrieve a memory
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -447,13 +468,16 @@ Retrieve a memory
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -483,6 +507,7 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
+
     - `"memory"`
 
   - `updated_at: string`
@@ -536,6 +561,7 @@ Update a memory
 - `view: optional BetaManagedAgentsMemoryView`
 
   Query parameter for view
+
   - `"basic"`
 
   - `"full"`
@@ -545,9 +571,11 @@ Update a memory
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -600,7 +628,9 @@ Update a memory
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -615,7 +645,9 @@ Update a memory
 - `precondition: optional BetaManagedAgentsPrecondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `type: "content_sha256"`
+
     - `"content_sha256"`
 
   - `content_sha256: optional string`
@@ -627,6 +659,7 @@ Update a memory
 - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -656,6 +689,7 @@ Update a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
+
     - `"memory"`
 
   - `updated_at: string`
@@ -717,9 +751,11 @@ Delete a memory
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -772,18 +808,22 @@ Delete a memory
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeletedMemory object { id, type }`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
+
     - `"memory_deleted"`
 
 ### Example
@@ -810,7 +850,9 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 ### Beta Managed Agents Conflict Error
 
 - `BetaManagedAgentsConflictError object { type, message }`
+
   - `type: "conflict_error"`
+
     - `"conflict_error"`
 
   - `message: optional string`
@@ -820,7 +862,9 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsContentSha256Precondition object { type, content_sha256 }`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `type: "content_sha256"`
+
     - `"content_sha256"`
 
   - `content_sha256: optional string`
@@ -832,78 +876,103 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsDeletedMemory object { id, type }`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
+
     - `"memory_deleted"`
 
 ### Beta Managed Agents Error
 
 - `BetaManagedAgentsError = BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 9 more`
+
   - `BetaInvalidRequestError object { message, type }`
+
     - `message: string`
 
     - `type: "invalid_request_error"`
+
       - `"invalid_request_error"`
 
   - `BetaAuthenticationError object { message, type }`
+
     - `message: string`
 
     - `type: "authentication_error"`
+
       - `"authentication_error"`
 
   - `BetaBillingError object { message, type }`
+
     - `message: string`
 
     - `type: "billing_error"`
+
       - `"billing_error"`
 
   - `BetaPermissionError object { message, type }`
+
     - `message: string`
 
     - `type: "permission_error"`
+
       - `"permission_error"`
 
   - `BetaNotFoundError object { message, type }`
+
     - `message: string`
 
     - `type: "not_found_error"`
+
       - `"not_found_error"`
 
   - `BetaRateLimitError object { message, type }`
+
     - `message: string`
 
     - `type: "rate_limit_error"`
+
       - `"rate_limit_error"`
 
   - `BetaGatewayTimeoutError object { message, type }`
+
     - `message: string`
 
     - `type: "timeout_error"`
+
       - `"timeout_error"`
 
   - `BetaAPIError object { message, type }`
+
     - `message: string`
 
     - `type: "api_error"`
+
       - `"api_error"`
 
   - `BetaOverloadedError object { message, type }`
+
     - `message: string`
 
     - `type: "overloaded_error"`
+
       - `"overloaded_error"`
 
   - `BetaManagedAgentsMemoryPreconditionFailedError object { type, message }`
+
     - `type: "memory_precondition_failed_error"`
+
       - `"memory_precondition_failed_error"`
 
     - `message: optional string`
 
   - `BetaManagedAgentsMemoryPathConflictError object { type, conflicting_memory_id, conflicting_path, message }`
+
     - `type: "memory_path_conflict_error"`
+
       - `"memory_path_conflict_error"`
 
     - `conflicting_memory_id: optional string`
@@ -913,7 +982,9 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
     - `message: optional string`
 
   - `BetaManagedAgentsConflictError object { type, message }`
+
     - `type: "conflict_error"`
+
       - `"conflict_error"`
 
     - `message: optional string`
@@ -923,6 +994,7 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -952,6 +1024,7 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
+
     - `"memory"`
 
   - `updated_at: string`
@@ -967,9 +1040,11 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory or BetaManagedAgentsMemoryPrefix`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
   - `BetaManagedAgentsMemory object { id, content_sha256, content_size_bytes, 7 more }`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
     - `id: string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -999,6 +1074,7 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `type: "memory"`
+
       - `"memory"`
 
     - `updated_at: string`
@@ -1012,17 +1088,21 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
   - `BetaManagedAgentsMemoryPrefix object { path, type }`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
     - `path: string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `type: "memory_prefix"`
+
       - `"memory_prefix"`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `BetaManagedAgentsMemoryPathConflictError object { type, conflicting_memory_id, conflicting_path, message }`
+
   - `type: "memory_path_conflict_error"`
+
     - `"memory_path_conflict_error"`
 
   - `conflicting_memory_id: optional string`
@@ -1034,7 +1114,9 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `BetaManagedAgentsMemoryPreconditionFailedError object { type, message }`
+
   - `type: "memory_precondition_failed_error"`
+
     - `"memory_precondition_failed_error"`
 
   - `message: optional string`
@@ -1044,11 +1126,13 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsMemoryPrefix object { path, type }`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
   - `path: string`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `type: "memory_prefix"`
+
     - `"memory_prefix"`
 
 ### Beta Managed Agents Memory View
@@ -1056,6 +1140,7 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsMemoryView = "basic" or "full"`
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
   - `"basic"`
 
   - `"full"`
@@ -1065,7 +1150,9 @@ curl https://api.anthropic.com/v1/memory_stores/$MEMORY_STORE_ID/memories/$MEMOR
 - `BetaManagedAgentsPrecondition object { type, content_sha256 }`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `type: "content_sha256"`
+
     - `"content_sha256"`
 
   - `content_sha256: optional string`

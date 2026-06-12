@@ -1,4 +1,6 @@
-[Home](https://sift.com)/Sift for iGaming | Demo
+# Fraud Prevention for iGaming | Sift
+
+Home/Sift for iGaming | Demo
 
 ## Gain the Confidence to Give Players a Chance
 

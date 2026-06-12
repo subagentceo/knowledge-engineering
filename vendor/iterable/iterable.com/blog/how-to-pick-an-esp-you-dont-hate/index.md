@@ -1,3 +1,5 @@
+# How to Pick an ESP (You Don’t Hate) - Iterable
+
 ## How to Pick an ESP (You Don’t Hate)
 
 **Published by**
@@ -6,19 +8,19 @@ April 18, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/LiveDemo.png)
 
-[90 percent](https://www.emailmonday.com/wp-content/uploads/2015/04/National-client-email-2015-DMA.pdf) of marketers consider email a channel of strategic importance. So why is it that so many of them hate their Email Service Provider (ESP)?
+90 percent of marketers consider email a channel of strategic importance. So why is it that so many of them hate their Email Service Provider (ESP)?
 
 It’s common to hear stories of clunky and outdated ESPs. Any of these sound familiar?
 
--   **Requiring IT** to change a “schema” in order to collect new customer info.
--   **Waiting days** (yes, days!) for the results of a segmentation.
--   Dealing with difficult and **unintuitive interfaces** built over a decade ago.
+*   **Requiring IT** to change a “schema” in order to collect new customer info.
+*   **Waiting days** (yes, days!) for the results of a segmentation.
+*   Dealing with difficult and **unintuitive interfaces** built over a decade ago.
 
 If any of this is familiar, it’s time to consider replacing a tool you can barely tolerate with a platform you actually enjoy using.
 
-Here is a [handy checklist](https://iterable.com/esp-checklist) of the five things to look for when comparing options.
+Here is a handy checklist of the five things to look for when comparing options.
 
-#### **Is your next ESP…**
+#### Is your next ESP…
 
 **MODERN?**
 
@@ -52,6 +54,6 @@ When it comes to email marketing metrics, up-to-the-minute reporting is essentia
 
 Lastly, your ESP is only as good as the people who support you. Make sure that your provider offers live chat with knowledgeable customer success managers, so your issues get solved in real time — not days afterward when it’s too late.
 
-Don’t worry about bookmarking this blog, or worse, printing it out (gasp!). Take this growth marketing checklist on the go by [downloading the PDF version](https://iterable.com/esp-checklist).
+Don’t worry about bookmarking this blog, or worse, printing it out (gasp!). Take this growth marketing checklist on the go by downloading the PDF version.
 
-To learn more about how to pick an ESP you won’t hate, [request a demo](https://iterable.com/demo) of the [Iterable Growth Marketing Platform](https://iterable.com).
+To learn more about how to pick an ESP you won’t hate, request a demo of the Iterable Growth Marketing Platform.

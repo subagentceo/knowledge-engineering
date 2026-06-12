@@ -1,8 +1,12 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Edge API Response Parameters
 
 # Overview
 
-This section outlines how to make POST requests to the Arkose Labs **Edge API**, including endpoint structure, required headers, and request body format.
+This section describes the response parameters returned by the Arkose Labs **Edge API**, including session details, IP intelligence, session risk scores, aggregation data, and email intelligence fields.
 
 ## Response Body Parameters
 
@@ -728,7 +732,7 @@ This section outlines how to make POST requests to the Arkose Labs **Edge API**,
       <td />
 
       <td>
-        `long_term`
+        `ip.long_term`
       </td>
 
       <td>
@@ -744,7 +748,7 @@ This section outlines how to make POST requests to the Arkose Labs **Edge API**,
       <td />
 
       <td>
-        `long_term`.`interval_minutes`
+        `ip.long_term`.`interval_minutes`
       </td>
 
       <td>
@@ -760,7 +764,7 @@ This section outlines how to make POST requests to the Arkose Labs **Edge API**,
       <td />
 
       <td>
-        `long_term`.`count`
+        `ip.long_term`.`count`
       </td>
 
       <td>
@@ -776,7 +780,7 @@ This section outlines how to make POST requests to the Arkose Labs **Edge API**,
       <td />
 
       <td>
-        `long_term`.`threshold`
+        `ip.long_term`.`threshold`
       </td>
 
       <td>

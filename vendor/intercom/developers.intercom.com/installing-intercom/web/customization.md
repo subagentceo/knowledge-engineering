@@ -43,6 +43,27 @@ The z-index can also be updated programmatically via an [API call](/installing-i
 * Confetti animation will always remain on a high z-index (however if it's rendered inside the  Messenger, a lower z-index of the parent widget will take precedence).
 
 
+## Messenger style override
+
+If you have multiple brand or style configurations set up in your Intercom workspace, you can specify which style the Messenger should load at boot time using `messenger_style_id`.
+
+
+```javascript
+window.intercomSettings = {
+  app_id: 'abc123',
+  messenger_style_id: '123456'
+};
+```
+
+You can also switch styles dynamically without a full page reload:
+
+
+```javascript
+Intercom('update', { messenger_style_id: '789012' });
+```
+
+Style IDs are available in your Intercom workspace under **Settings → Messenger → Appearance → Manage Style**.
+
 ## Test out customizations
 
 To see how the Messenger customizations work, check out [this Codepen](https://codepen.io/intercom/pen/QGqWxw).

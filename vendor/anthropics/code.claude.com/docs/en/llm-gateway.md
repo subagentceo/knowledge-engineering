@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,11 +8,13 @@
 
 LLM gateways provide a centralized proxy layer between Claude Code and model providers, often providing:
 
-- **Centralized authentication** - Single point for API key management
-- **Usage tracking** - Monitor usage across teams and projects
-- **Cost controls** - Implement budgets and rate limits
-- **Audit logging** - Track all model interactions for compliance
-- **Model routing** - Switch between providers without code changes
+* **Centralized authentication** - Single point for API key management
+* **Usage tracking** - Monitor usage across teams and projects
+* **Cost controls** - Implement budgets and rate limits
+* **Audit logging** - Track all model interactions for compliance
+* **Model routing** - Switch between providers without code changes
+
+This page covers gateway requirements and configuration for the Claude Code CLI. Enterprise Desktop deployments can configure gateway providers via [managed settings](https://support.claude.com/en/articles/12622667-enterprise-configuration). The Claude Desktop app can also run against a self-hosted gateway through the [Cowork on 3P research preview](https://claude.com/docs/cowork/3p/gateway), which uses its own configuration keys.
 
 ## Gateway requirements
 
@@ -24,13 +25,13 @@ For an LLM gateway to work with Claude Code, it must meet the following requirem
 The gateway must expose to clients at least one of the following API formats:
 
 1. **Anthropic Messages**: `/v1/messages`, `/v1/messages/count_tokens`
-   - Must forward request headers: `anthropic-beta`, `anthropic-version`
+   * Must forward request headers: `anthropic-beta`, `anthropic-version`
 
 2. **Bedrock InvokeModel**: `/invoke`, `/invoke-with-response-stream`
-   - Must preserve request body fields: `anthropic_beta`, `anthropic_version`
+   * Must preserve request body fields: `anthropic_beta`, `anthropic_version`
 
 3. **Vertex rawPredict**: `:rawPredict`, `:streamRawPredict`, `/count-tokens:rawPredict`
-   - Must forward request headers: `anthropic-beta`, `anthropic-version`
+   * Must forward request headers: `anthropic-beta`, `anthropic-version`
 
 Failure to forward headers or preserve body fields may result in reduced functionality or inability to use Claude Code features.
 
@@ -71,18 +72,18 @@ If your gateway uses model names that do not match the discovery filter, use the
 <Warning>
   LiteLLM PyPI versions 1.82.7 and 1.82.8 were compromised with credential-stealing malware. Do not install these versions. If you have already installed them:
 
-- Remove the package
-- Rotate all credentials on affected systems
-- Follow the remediation steps in [BerriAI/litellm#24518](https://github.com/BerriAI/litellm/issues/24518)
+  * Remove the package
+  * Rotate all credentials on affected systems
+  * Follow the remediation steps in [BerriAI/litellm#24518](https://github.com/BerriAI/litellm/issues/24518)
 
-LiteLLM is a third-party proxy service. Anthropic doesn't endorse, maintain, or audit LiteLLM's security or functionality. This guide is provided for informational purposes and may become outdated. Use at your own discretion.
+  LiteLLM is a third-party proxy service. Anthropic doesn't endorse, maintain, or audit LiteLLM's security or functionality. This guide is provided for informational purposes and may become outdated. Use at your own discretion.
 </Warning>
 
 ### Prerequisites
 
-- Claude Code updated to the latest version
-- LiteLLM Proxy Server deployed and accessible
-- Access to Claude models through your chosen provider
+* Claude Code updated to the latest version
+* LiteLLM Proxy Server deployed and accessible
+* Access to Claude models through your chosen provider
 
 ### Basic LiteLLM setup
 
@@ -155,9 +156,9 @@ export ANTHROPIC_BASE_URL=https://litellm-server:4000
 
 **Benefits of the unified endpoint over pass-through endpoints:**
 
-- Load balancing
-- Fallbacks
-- Consistent support for cost tracking and end-user tracking
+* Load balancing
+* Fallbacks
+* Consistent support for cost tracking and end-user tracking
 
 #### Provider-specific pass-through endpoints (alternative)
 
@@ -206,7 +207,7 @@ For more detailed information, refer to the [LiteLLM documentation](https://docs
 
 ## Additional resources
 
-- [LiteLLM documentation](https://docs.litellm.ai/)
-- [Claude Code settings](/en/settings)
-- [Enterprise network configuration](/en/network-config)
-- [Third-party integrations overview](/en/third-party-integrations)
+* [LiteLLM documentation](https://docs.litellm.ai/)
+* [Claude Code settings](/en/settings)
+* [Enterprise network configuration](/en/network-config)
+* [Third-party integrations overview](/en/third-party-integrations)

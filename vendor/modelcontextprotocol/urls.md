@@ -10,6 +10,7 @@ transform: append-md
 | URL | Local |
 |---|---|
 | https://modelcontextprotocol.io/community/antitrust.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/antitrust.md` |
+| https://modelcontextprotocol.io/community/auth/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/auth/charter.md` |
 | https://modelcontextprotocol.io/community/charter-template.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/charter-template.md` |
 | https://modelcontextprotocol.io/community/communication.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/communication.md` |
 | https://modelcontextprotocol.io/community/contributing.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/contributing.md` |
@@ -128,4 +129,3 @@ transform: append-md
 | https://modelcontextprotocol.io/specification/2025-11-25/server/resources.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/resources.md` |
 | https://modelcontextprotocol.io/specification/2025-11-25/server/tools.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/tools.md` |
 | https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion.md` |
-| https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging.md` |

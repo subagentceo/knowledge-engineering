@@ -44,11 +44,11 @@ Follow these steps to get started:
 
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1780164900&signature=1538581a1577afd98e3f354079202c8250e30d885bb3b3558460582f1e6979c2&req=diEhH8B7mYFXX%2FMW1HO4zSZP0pKKEwr2B32drIe5EDnIldfPxQFp%2B8HCRKQV%0Ao9cM%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1781284500&amp;signature=952cbe240f2941df72980ccd0c0089287febaf7bba0617c5e64f558c1ded99ab&amp;req=diEhH8B7mYFXX%2FMW1HO4zSZP0pOJHQr6B32drIe5EDmEvsoKw8VoSSEw8qLI%0AeI%2FK%0A)
 
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1780164900&signature=eae083f694c25ca35212e5d2005121d54b90e5099068676409a20e552f69e0ab&req=diEhH8B7mIFXW%2FMW1HO4zaZWs9qZWwUXepuGRb1rD3J5KP9YD9KCGEsgH4G0%0ARzjB%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1781284500&amp;signature=a6c4d0ac0a71a4a05d9c079f189f4593594f0c7a0963dcbd6aafabe90c998c13&amp;req=diEhH8B7mIFXW%2FMW1HO4zaZWs9uaVQUbepuGRb1rD3KQtZHm%2BovFqlCVJLMW%0Af2JA%0A)
 
 7. Click “Finish setup.”
 
@@ -110,7 +110,7 @@ Before enabling this, make sure you:
 
 - Know how to quickly disconnect or revoke access
 
-Only connect these agents if you're comfortable with what they _could_ do, not just what you intend them to do.
+Only connect these agents if you're comfortable with what they *could* do, not just what you intend them to do.
 
 For additional safety guidance, see **[Use Cowork safely](https://support.claude.com/en/articles/13364135-use-cowork-safely)**.
 

@@ -10,9 +10,9 @@ Function members can securely see a summary of their lab results, ask health que
 
 With this connector, you can:
 
-- See an at-a-glance summary of your lab results by category
-- Understand which health areas may need more attention
-- Get nutrition plans informed by your lab results
+*   See an at-a-glance summary of your lab results by category
+*   Understand which health areas may need more attention
+*   Get nutrition plans informed by your lab results
 
 ## Who should use the Function integration
 
@@ -69,7 +69,7 @@ When you ask a health-related question, Claude pulls only the data it needs to a
 
 **Your conversations stay private**
 
-Chats that use the Function integration are never used to train our models. We've designed our memory feature so that Claude does not use sensitive health data in future conversations, while still keeping in mind your areas of concern to inform your conversations.
+Chats that use the Function integration are not used to train our models. We've designed our memory feature so that Claude does not use sensitive health data in future conversations, while still keeping in mind your areas of concern to inform your conversations.
 
 **Empowering you, not replacing your doctor**
 

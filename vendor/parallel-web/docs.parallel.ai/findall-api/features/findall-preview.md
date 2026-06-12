@@ -54,7 +54,6 @@ Preview mode uses the same API endpoint as regular FindAll runs, but with `gener
   ```bash cURL theme={"system"}
   curl -X POST "https://api.parallel.ai/v1beta/findall/runs" \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json" \
     -d '{
       "objective": "FindAll portfolio companies of Khosla Ventures founded after 2020",

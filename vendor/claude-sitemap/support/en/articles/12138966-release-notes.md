@@ -1,3 +1,17 @@
+## June 2026
+
+### June 9, 2026
+
+**Claude Fable 5 launch**
+
+We launched Claude Fable 5, a Mythos-class model that we’ve made safe for general use. For more information, see our blog post: **[Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)**.
+
+### June 2, 2026
+
+**Enterprise plans can manage admin permissions with custom roles**
+
+We extended the existing custom roles framework by adding admin permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without the need to make them Owners. For more information, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_fde60b08bd)**.
+
 ## May 2026
 
 ### May 28, 2026
@@ -219,6 +233,7 @@ Claude in Chrome is now available in beta to all paid plan subscribers, includin
 - **Console logs:** Claude can now read browser console output, helping developers identify and fix errors without switching contexts.
 
 - **Admin controls for Team and Enterprise:** Admins can now manage Claude in Chrome at the organization level:
+
   - Enable or disable the extension org-wide
 
   - Configure allowlists and blocklists to control which sites Claude can access

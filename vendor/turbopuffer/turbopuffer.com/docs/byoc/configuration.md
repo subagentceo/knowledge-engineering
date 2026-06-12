@@ -63,11 +63,12 @@ The following configuration settings are under `kubernetes`:
 The preferred availability zone to be used for query and index nodes.
 
 **Note**: Setting this to multiple availability zones will incur an additional networking charge from AWS.
+Example:
 ```yaml
 kubernetes:
-  ec2_preferred_zone:
-    query: "us-west-2a"
-    index: "us-west-2a"
+    ec2_preferred_zone:
+      query: "us-west-2a"
+      index: "us-west-2a"
 ```
 
 ---
@@ -76,10 +77,11 @@ kubernetes:
 
 Tags to be added to the EC2 instances in the cluster.
 
+Example:
 ```yaml
 kubernetes:
-  ec2_instance_tags:
-    my-tag: my-value
+    ec2_instance_tags:
+      my-tag: my-value
 ```
 
 ---
@@ -88,10 +90,11 @@ kubernetes:
 
 Additional labels to be applied to the node pools.
 
+Example:
 ```yaml
 kubernetes:
-  nodepool_labels:
-    yourcorp-billing-code: xyz
+    nodepool_labels:
+      yourcorp-billing-code: xyz
 ```
 #### Azure
 
@@ -99,11 +102,26 @@ kubernetes:
 
 The preferred availability zone to be used for query and index nodes.
 
+Example:
 ```yaml
 kubernetes:
-  azure_preferred_zone:
-    query: "1"
-    index: "1"
+    azure_preferred_zone:
+      query: "1"
+      index: "1"
+```
+
+---
+
+**kubernetes.azure_os_disk_size_gb** object
+
+Optional per-pool override for the OS disk size (in GiB) on Azure AKSNodeClass. Set each value larger than the local NVMe capacity of that node type to force Azure to provision a managed OS disk instead of consuming the local NVMe. Maintenance and default nodes are not affected.
+
+Example:
+```yaml
+kubernetes:
+    azure_os_disk_size_gb:
+      index: 881
+      query: 950
 ```
 
 ---
@@ -112,10 +130,11 @@ kubernetes:
 
 Additional labels to be applied to the node pools.
 
+Example:
 ```yaml
 kubernetes:
-  nodepool_labels:
-    yourcorp-billing-code: xyz
+    nodepool_labels:
+      yourcorp-billing-code: xyz
 ```
 #### GCP
 
@@ -123,11 +142,12 @@ kubernetes:
 
 The preferred availability zone to be used for query and index nodes.
 
+Example:
 ```yaml
 kubernetes:
-  preferred_zone:
-    query: "us-central1-a"
-    index: "us-central1-a"
+    preferred_zone:
+      query: "us-central1-a"
+      index: "us-central1-a"
 ```
 
 ---
@@ -136,10 +156,11 @@ kubernetes:
 
 Additional labels to be applied to the node pools.
 
+Example:
 ```yaml
 kubernetes:
-  nodepool_labels:
-    yourcorp-billing-code: xyz
+    nodepool_labels:
+      yourcorp-billing-code: xyz
 ```
 
 The following are configurations settings under `ingress`:
@@ -148,9 +169,10 @@ The following are configurations settings under `ingress`:
 
 If true, the turbopuffer ingress will be exposed on an internal IP.
 
+Example:
 ```yaml
 ingress:
-  internal: false
+    internal: false
 ```
 
 ---
@@ -164,32 +186,11 @@ Configures how certificates will be handled in the cluster.
   * `letsencrypt`
   * `aws` - use an AWS managed certificate. You must also set `aws.certificate_arn:`
 
+Example:
 ```yaml
 ingress:
-  certificates:
-    mode: 'letsencrypt'
-```
-
----
-
-**ingress.read_replicas** object
-
-Configures additional query replicas for specific (org, namespace) pairs. By default a namespace is served by a single query replica. Configuring read replicas spreads query load across more nodes, which is useful for read-heavy or high-QPS namespaces.
-
-The `namespace` field supports glob wildcards (`*`, `?`). The first matching entry wins if multiple patterns match the same namespace.
-
-```yaml
-tpuf_config:
-  ingress:
-    read_replicas:
-      # Spread load for a high-QPS namespace across 4 replicas.
-      - org_id: "5x8olkguh1l2jvtjrpgnvlcm"
-        namespace: "high-qps-namespace"
-        count: 4
-      # Glob patterns match many namespaces with a single entry.
-      - org_id: "5x8olkguh1l2jvtjrpgnvlcm"
-        namespace: "prod.shard-*"
-        count: 2
+    certificates:
+      mode: 'letsencrypt'
 ```
 
 ## turbopuffer specific settings
@@ -198,16 +199,17 @@ tpuf_config:
 
 A mapping of org ids to API keys. Each API key is expected by be a 44 character base 64 encoded SHA-256 key.
 
-See [Org Configuration](/docs/byoc/operations#securely-partitioning-your-data) for details on generating org IDs and API keys.
+See [Org Configuration](/docs/byoc/operations#securely-partitioning-your-data) for details on generating org ids and API keys.
 
 **Note**: Currently all BYOC keys are generated as _admin_ keys for their organization.
 To partition your data securely we recommend [creating multiple organizations](/docs/byoc/operations#adding-additional-organizations).
+Example:
 ```yaml
 tpuf_config:
-  authentication:
-    allowed_api_keys_sha256:
-      "5x8olkguh1l2jvtjrpgnvlcm":  # Org ID (24 chars, lowercase alphanumeric)
-        - "IaG0JUcIiCXKwqhIWH8Qr0incF2xsbRZRRJJxznl0GM="  # base64(sha256("tpuf_..."))
+    authentication:
+      allowed_api_keys_sha256:
+        "5x8olkguh1l2jvtjrpgnvlcm":  # Org id (24 chars, lowercase alphanumeric)
+          - "IaG0JUcIiCXKwqhIWH8Qr0incF2xsbRZRRJJxznl0GM="  # base64(sha256("tpuf_..."))
 ```
 
 ---
@@ -219,10 +221,11 @@ This lets you change settings (e.g. add orgs or API keys) by updating that file 
 The file is re-fetched on an interval controlled by **`dynamic_poll_remote_ms`** (milliseconds). Only settings that are "dynamic"
 (e.g. `authentication.allowed_api_keys_sha256`) are applied on each reload without a restart.
 
+Example:
 ```yaml
 tpuf_config:
-  remote_settings_overrides: true
-  dynamic_poll_remote_ms: 300000  # optional; re-fetch remote overlay every 5 minutes
+    remote_settings_overrides: true
+    dynamic_poll_remote_ms: 300000  # optional; re-fetch remote overlay every 5 minutes
 ```
 
 ---
@@ -233,10 +236,11 @@ Maximum concurrent queries to a single namespace allowed. This protects the node
 against a single namespace being overloaded. 429s will be returned from
 queries if there is not enough capacity to handle them.
 
+Example:
 ```yaml
 tpuf_config:
-  fairness:
-    query_concurrency_per_namespace: 16  # default
+    fairness:
+      query_concurrency_per_namespace: 16  # default
 ```
 
 ---
@@ -245,10 +249,11 @@ tpuf_config:
 
 Maximum milliseconds to wait if the query concurrency limit is reached.
 
+Example:
 ```yaml
 tpuf_config:
-  fairness:
-    query_bulkhead_wait_ms: 800  # default
+    fairness:
+      query_bulkhead_wait_ms: 800  # default
 ```
 
 ---
@@ -257,10 +262,11 @@ tpuf_config:
 
 Maximum number of documents that can be requested in a single query via the `limit.total` parameter.
 
+Example:
 ```yaml
 tpuf_config:
-  search:
-    max_topk: 10000  # default
+    search:
+      max_topk: 10000  # default
 ```
 
 ---
@@ -272,13 +278,14 @@ namespaces for these orgs to ensure their cache is hot.
 
 Not recommended for most users.
 
+Example:
 ```yaml
 tpuf_config:
-  cache:
-    prewarm:
-      keep_warm_orgs:
-        - '<premium-users-org>'
-        - '<no-cold-starts-pls-org>'
+    cache:
+      prewarm:
+        keep_warm_orgs:
+          - '<premium-users-org>'
+          - '<no-cold-starts-pls-org>'
 ```
 
 ---
@@ -289,10 +296,11 @@ The absolute number of bytes or percentage of local SSD capacity to use as a cac
 
 Not recommended changing for most users.
 
+Example:
 ```yaml
 tpuf_config:
-  cache:
-    disk_budget_bytes: 0.95  # default, leaves headroom for the filesystem
+    cache:
+      disk_budget_bytes: 0.95  # default, leaves headroom for the filesystem
 ```
 
 ---
@@ -305,10 +313,11 @@ after a a cold query.
 We prioritize cache fills for more important files (i.e. to get faster queries
 sooner), e.g. centroids.
 
+Example:
 ```yaml
 tpuf_config:
-  indexing:
-    cache_fill_concurrency: 2  # default
+    indexing:
+      cache_fill_concurrency: 2  # default
 ```
 
 ---
@@ -317,10 +326,11 @@ tpuf_config:
 
 The maximum number of unindexed bytes allowed in the WAL before a reindex is triggered.
 
+Example:
 ```yaml
 tpuf_config:
-  indexing:
-    reindex_unindexed_bytes_max: 64000000  # default
+    indexing:
+      reindex_unindexed_bytes_max: 64000000  # default
 ```
 
 ---
@@ -331,10 +341,11 @@ The maximum number of rows we'll allow to remain unindexed. If the
 namespace has at least this many unindexed rows, a /index call will
 always trigger an index operation.
 
+Example:
 ```yaml
 tpuf_config:
-  indexing:
-    reindex_unindexed_rows_max: 50000  # default
+    indexing:
+      reindex_unindexed_rows_max: 50000  # default
 ```
 
 ---
@@ -343,10 +354,11 @@ tpuf_config:
 
 The maximum number of unindexed WAL entries allowed before a reindex is triggered.
 
+Example:
 ```yaml
 tpuf_config:
-  indexing:
-    reindex_unindexed_wal_entries: 512  # default
+    indexing:
+      reindex_unindexed_wal_entries: 512  # default
 ```
 
 ---
@@ -357,10 +369,34 @@ During indexing, the number of document bytes to process at a given time before
 flushing. An indexing run can be composed of multiple batches, where we
 flush our progress incrementally after each bach.
 
+Example:
 ```yaml
 tpuf_config:
-  indexing:
-    batch_size_bytes: 1250000000  # 1.25 GB, default
+    indexing:
+      batch_size_bytes: 1250000000  # 1.25 GB, default
+```
+
+---
+
+**ingress.read_replicas** object
+
+Configures additional query replicas for specific (org, namespace) pairs. By default a namespace is served by a single query replica. Configuring read replicas spreads query load across more nodes, which is useful for read-heavy or high-QPS namespaces.
+
+The `namespace` field supports glob wildcards (`*`, `?`). The first matching entry wins if multiple patterns match the same namespace.
+
+Example:
+```yaml
+tpuf_config:
+    ingress:
+      read_replicas:
+        # Spread load for a high-QPS namespace across 4 replicas.
+        - org_id: "5x8olkguh1l2jvtjrpgnvlcm"
+          namespace: "high-qps-namespace"
+          count: 4
+        # Glob patterns match many namespaces with a single entry.
+        - org_id: "5x8olkguh1l2jvtjrpgnvlcm"
+          namespace: "prod.shard-*"
+          count: 2
 ```
 
 ---
@@ -370,10 +406,11 @@ tpuf_config:
 The OTLP endpoint to emit traces to, if any. Should end with `/v1/traces`. If empty, traces
 won't be emitted.
 
+Example:
 ```yaml
 tpuf_config:
-  tracing:
-    otlp_endpoint: "http://localhost:4318/v1/traces"
+    tracing:
+      otlp_endpoint: "http://localhost:4318/v1/traces"
 ```
 
 ---
@@ -384,12 +421,13 @@ A statsd endpoint to emit metrics to.
 
 If present, all three subfields are required.
 
+Example:
 ```yaml
 tpuf_config:
-  stats_export:
-    prefix: "foocorp.turbopuffer"  # do not include trailing dot
-    host: "foocorp-statsd"
-    port: 8125
+    stats_export:
+      prefix: "foocorp.turbopuffer"  # do not include trailing dot
+      host: "foocorp-statsd"
+      port: 8125
 ```
 
 ---
@@ -398,10 +436,11 @@ tpuf_config:
 
 The maximum number of concurrent requests in flight to object storage at one given time.
 
+Example:
 ```yaml
 tpuf_config:
-  blob:
-    max_concurrent_requests: 4000  # default
+    blob:
+      max_concurrent_requests: 4000  # default
 ```
 
 ---
@@ -416,8 +455,18 @@ This setting serves two purposes:
   X days, setting this to a value < X days will ensure that the index doesn't still contain any residual
   data from the deleted documents.
 
+Example:
 ```yaml
 tpuf_config:
-  storage:
-    lsm_ttl_seconds: 1728000  # 20 days, default
+    storage:
+      lsm_ttl_seconds: 1728000  # 20 days, default
 ```
+
+
+---
+
+This page: [/docs/byoc/configuration.md](https://turbopuffer.com/docs/byoc/configuration.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

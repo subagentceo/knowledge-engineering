@@ -12,9 +12,9 @@ The U.S. Department of Defense (DOD), through its Chief Digital and Artificial I
 
 With CDAO and other DOD organizations and commands, we'll engage in:
 
-- Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
-- Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
-- Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
+*   Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
+*   Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
+*   Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
 
 ## Our commitment to responsible AI deployment
 
@@ -34,20 +34,22 @@ Claude Gov models, which we custom built for national security customers, alread
 
 Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

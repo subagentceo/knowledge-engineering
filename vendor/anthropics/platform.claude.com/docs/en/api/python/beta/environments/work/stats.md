@@ -13,9 +13,11 @@ Get statistics about the work queue for an environment.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,7 +70,9 @@ Get statistics about the work queue for an environment.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -77,6 +81,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: int`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -92,6 +97,7 @@ Get statistics about the work queue for an environment.
   - `type: Literal["work_queue_stats"]`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: Optional[int]`

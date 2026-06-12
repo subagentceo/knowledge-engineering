@@ -2,56 +2,46 @@
 
 You can build almost anything with the Brave Search API. Check out a few popular use cases to get you inspired.
 
--   [LLM context Connect internal chatbots to the open Web
+*   LLM context Connect internal chatbots to the open Web
     
     Give internal chatbots (trained on proprietary data) secure access to the open Web.
     
-    ](#chatbot-web-search)
--   [LLM context Improve accuracy of AI responses at lower costs
+*   LLM context Improve accuracy of AI responses at lower costs
     
     Get pre-extracted, AI-optimized Web content for better answers.
     
-    ](#response-accuracy)
--   [LLM context Real-time grounding to reduce AI hallucinations
+*   LLM context Real-time grounding to reduce AI hallucinations
     
     Reduce hallucinations and increase the quality of your chatbot's answers.
     
-    ](#hallucination-detection)
--   [Business intelligence Build a market-research agent
+*   Business intelligence Build a market-research agent
     
     Automate your market research with the Brave Search API + Amazon’s AWS Bedrock AgentCore.
     
-    ](#market-research-agent)
--   [Business intelligence Competitive intelligence for due diligence
+*   Business intelligence Competitive intelligence for due diligence
     
     Maintain real-time company profiles for better decision-making.
     
-    ](#due-diligence)
--   [Business intelligence Real-time reputation tracking
+*   Business intelligence Real-time reputation tracking
     
     Build a real-time reputation tracker to monitor brand mentions and sentiment.
     
-    ](#reputation-tracker)
--   [Legal Analysis of legal docs and precedence
+*   Legal Analysis of legal docs and precedence
     
     Improve doc-heavy workflows for fast, accurate, and scalable legal reviews.
     
-    ](#document-analysis)
--   [Finance Regulatory and compliance tracking
+*   Finance Regulatory and compliance tracking
     
     Continuously track regulatory changes, filings, and enforcement actions around the world.
     
-    ](#regulatory-tracking)
--   [Finance Fraud and risk detection
+*   Finance Fraud and risk detection
     
     Detect fraud faster by augmenting risk and transaction data with real-time external intelligence.
     
-    ](#fraud-detection)
--   [Retail Unbiased tech reviews
+*   Retail Unbiased tech reviews
     
     Deliver better reviews of consumer tech, without the bias of SEO spam or eComm sites.
     
-    ](#tech-reviews)
 
 ## LLM context Connect internal chatbots to the open Web
 
@@ -63,40 +53,40 @@ Brave’s LLM Context API can handle the heavy lifting in the grounding process.
 
 **How the Brave Search API can help connect internal chatbots to the Web:**
 
--   Eliminate hallucinations by fact-checking internal knowledge against real-time Web data before generating a response
--   Cut development costs by receiving smart, pre-extracted content chunks (rather than raw links that require complex scraping and parsing)
+*   Eliminate hallucinations by fact-checking internal knowledge against real-time Web data before generating a response
+*   Cut development costs by receiving smart, pre-extracted content chunks (rather than raw links that require complex scraping and parsing)
 
-Try this with the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) endpoint.
+Try this with the LLM_Context endpoint.
 
 ## LLM context Improve accuracy of AI responses at lower costs
 
-Traditional grounding pipelines built on [scraper-based APIs](/blog/search-api-growth/) (those that deliver results scraped from Google rather than from their own Web index) often force developers into the role of “data janitors.” Scrapers can require devs to manually scrape websites, parse messy HTML, and build complex ranking algorithms just to filter out the noise from low-quality API results.
+Traditional grounding pipelines built on scraper-based APIs (those that deliver results scraped from Google rather than from their own Web index) often force developers into the role of “data janitors.” Scrapers can require devs to manually scrape websites, parse messy HTML, and build complex ranking algorithms just to filter out the noise from low-quality API results.
 
 The Brave Search API’s new LLM Context endpoint streamlines this entire process into a single, high-performance call. Instead of receiving a raw list of links that require further processing, you get smart chunks of pre-extracted Web content, scored by relevance. This content (including text, tables, and code) is already optimized for AI consumption, a “data-first” approach that significantly reduces the time and cost of delivering high-quality answers to end users.
 
 **How the Brave Search API can improve response accuracy at lower costs:**
 
--   Eliminate the need for separate scraping, cleaning, and re-ranking services, drastically reducing your infrastructure overhead
--   Extract cleanly formatted, hyper-relevant page excerpts rather than an entire webpage of irrelevant content
--   Reduce the number of tokens your LLM needs to process by up to 4x
--   Allow your dev team to focus on building features rather than managing fragmented infrastructure
--   Results from the Brave Search API are delivered from an independent Web index; this means no scraping of Big Tech indexes, and state-of-the-art results with better factual accuracy and better data security
+*   Eliminate the need for separate scraping, cleaning, and re-ranking services, drastically reducing your infrastructure overhead
+*   Extract cleanly formatted, hyper-relevant page excerpts rather than an entire webpage of irrelevant content
+*   Reduce the number of tokens your LLM needs to process by up to 4x
+*   Allow your dev team to focus on building features rather than managing fragmented infrastructure
+*   Results from the Brave Search API are delivered from an independent Web index; this means no scraping of Big Tech indexes, and state-of-the-art results with better factual accuracy and better data security
 
-Try this with the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) endpoint.
+Try this with the LLM_Context endpoint.
 
 ## LLM context Real-time grounding to reduce AI hallucinations
 
-So-called “AI hallucinations” (where an LLM invents facts, legal precedents, or sensitive data) is one of the biggest problems in AI. Hallucinations can lead users to lose trust in a brand, or churn and not come back. Hallucinations can even lead to legal damage, as seen in recent high-profile cases with [Deloitte](https://arstechnica.com/ai/2025/10/deloitte-will-refund-australian-government-for-ai-hallucination-filled-report/), the [Morgan & Morgan law firm](https://arstechnica.com/tech-policy/2025/02/ai-making-up-cases-can-get-lawyers-fired-scandalized-law-firm-warns/), and [the Canadian government](https://arstechnica.com/ai/2025/09/education-report-calling-for-ethical-ai-use-contains-over-15-fake-sources/).
+So-called “AI hallucinations” (where an LLM invents facts, legal precedents, or sensitive data) is one of the biggest problems in AI. Hallucinations can lead users to lose trust in a brand, or churn and not come back. Hallucinations can even lead to legal damage, as seen in recent high-profile cases with Deloitte, the Morgan & Morgan law firm, and the Canadian government.
 
 The Brave Search API can help reduce hallucinations through a technique called “grounding.” By integrating Brave’s new LLM Context endpoint, organization’s AI models can be grounded (essentially fact-checked) against real-time data from the Web. With grounding, a chatbot no longer relies solely on its internal memory. Instead, it acts like a researcher with access to a live library.
 
 **How the Brave Search API can help reduce LLM hallucinations:**
 
--   Anchor chatbot responses to a verifiable, real-time Web index
--   Protect organizations from the brand damage (and possible legal repercussions) of hallucinations
--   Instantly retrieve and verify up-to-the-minute data (which is already ranked and summarised) from the Web to provide relevant context for AI answer grounding
+*   Anchor chatbot responses to a verifiable, real-time Web index
+*   Protect organizations from the brand damage (and possible legal repercussions) of hallucinations
+*   Instantly retrieve and verify up-to-the-minute data (which is already ranked and summarised) from the Web to provide relevant context for AI answer grounding
 
-Try this with the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) endpoint.
+Try this with the LLM_Context endpoint.
 
 ## Business intelligence Build a market-research agent
 
@@ -106,13 +96,13 @@ By automating research with an agent, and connecting this agent to the full scop
 
 **How the Brave Search API can help with market research:**
 
--   Empower an agent with real-time data on market, industry, or technology changes
--   Get well-structured data that’s easy to parse by humans and other automated tools
--   Make business decisions faster and with better information
+*   Empower an agent with real-time data on market, industry, or technology changes
+*   Get well-structured data that’s easy to parse by humans and other automated tools
+*   Make business decisions faster and with better information
 
-Try this using [Brave’s MCP server](https://github.com/brave/brave-search-mcp-server) and [Amazon’s Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/), along with the Brave Search API [LLM Context endpoint](https://api-dashboard.search.brave.com/documentation/services/llm-context).
+Try this using Brave’s MCP server and Amazon’s Bedrock AgentCore, along with the Brave Search API LLM Context endpoint.
 
-[Read the full case study from AWS.](https://repost.aws/articles/ARLNfaFmWvRNe0I9webR9DnQ)
+Read the full case study from AWS.
 
 ## Business intelligence Competitive intelligence for due diligence
 
@@ -122,11 +112,11 @@ By integrating generative AI with Search APIs, firms can maintain continuously u
 
 **How the Brave Search API can help with company intelligence:**
 
--   Build / maintain dynamic company profiles by using search APIs to extract the latest financial news, executive changes, partnerships, litigation, and supply-chain insights
--   Enrich CRM systems and investment memos with comprehensive, auto-updated data for thorough due diligence and competitive analysis
--   Deliver unbiased data from verifiable sources to enhance accuracy and reduce editorial slant.
+*   Build / maintain dynamic company profiles by using search APIs to extract the latest financial news, executive changes, partnerships, litigation, and supply-chain insights
+*   Enrich CRM systems and investment memos with comprehensive, auto-updated data for thorough due diligence and competitive analysis
+*   Deliver unbiased data from verifiable sources to enhance accuracy and reduce editorial slant.
 
-Try this using the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context), [News\_Search](https://api-dashboard.search.brave.com/documentation/services/news-search), and [Web\_Search](https://api-dashboard.search.brave.com/documentation/services/web-search) endpoints.
+Try this using the LLM_Context, News_Search, and Web_Search endpoints.
 
 ## Business intelligence Real-time reputation tracking
 
@@ -136,12 +126,12 @@ The Brave Search API can help teams build a real-time reputation tracker filtere
 
 **How the Brave Search API can help build a reputation tracker:**
 
--   Continuously aggregate and analyze breaking news, earnings reports, geopolitical events, and market sentiment from diverse global sources
--   Capture brand mentions across two or more different time frames to show change in sentiment over time, and validate the effectiveness of brand work
--   Automatically identify and summarize any recent shifts in public sentiment in real-time
--   Use real-time data to instantly find PR issues; validate if work to mitigate those PR issues is working or if the issues remain
+*   Continuously aggregate and analyze breaking news, earnings reports, geopolitical events, and market sentiment from diverse global sources
+*   Capture brand mentions across two or more different time frames to show change in sentiment over time, and validate the effectiveness of brand work
+*   Automatically identify and summarize any recent shifts in public sentiment in real-time
+*   Use real-time data to instantly find PR issues; validate if work to mitigate those PR issues is working or if the issues remain
 
-Try this with the [Answers](https://api-dashboard.search.brave.com/documentation/services/answers) plan and the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) endpoint.
+Try this with the Answers plan and the LLM_Context endpoint.
 
 ## Legal Analysis of legal docs and precedence
 
@@ -153,12 +143,12 @@ Generative AI with a robust, tightly-integrated, real-time search API can help. 
 
 **How the Brave Search API can help with managing legal docs and analyzing precedence:**
 
--   Perform real-time analysis and intelligent summarization of contracts, case files, pleadings, and legal research materials
--   Rapidly extract critical clauses, obligations, risks, dates, and parties from vast and diverse document collections
--   Ensure the AI always grounds its analysis in the most current versions of laws, precedents, and reference materials, dramatically reducing hallucination risk and increasing reliability
--   Pre-filter legal docs to ground answers in verifiable Web sources, allowing junior associates to quickly identify so-called “landmark” cases and verify citations
+*   Perform real-time analysis and intelligent summarization of contracts, case files, pleadings, and legal research materials
+*   Rapidly extract critical clauses, obligations, risks, dates, and parties from vast and diverse document collections
+*   Ensure the AI always grounds its analysis in the most current versions of laws, precedents, and reference materials, dramatically reducing hallucination risk and increasing reliability
+*   Pre-filter legal docs to ground answers in verifiable Web sources, allowing junior associates to quickly identify so-called “landmark” cases and verify citations
 
-Try this with the [Answers](https://api-dashboard.search.brave.com/documentation/services/answers), [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context), and [Web\_Search](https://api-dashboard.search.brave.com/documentation/services/web-search) endpoints.
+Try this with the Answers, LLM_Context, and Web_Search endpoints.
 
 ## Finance Regulatory and compliance tracking
 
@@ -170,12 +160,12 @@ The Brave Search API features an independent index and AI-optimized grounding to
 
 **How the Brave Search API can help with compliance tracking:**
 
--   Automatically monitor evolving regulations, SEC filings, AML guidelines, ESG mandates, and enforcement actions across multiple jurisdictions
--   Generate timely alerts and compliance summaries to facilitate quick policy adjustments and audit readiness
--   Support rapid revision of policies, contracts, and compliance frameworks
--   Ensure your AI system has up-to-date information, and can respond within hours to regulatory shifts
+*   Automatically monitor evolving regulations, SEC filings, AML guidelines, ESG mandates, and enforcement actions across multiple jurisdictions
+*   Generate timely alerts and compliance summaries to facilitate quick policy adjustments and audit readiness
+*   Support rapid revision of policies, contracts, and compliance frameworks
+*   Ensure your AI system has up-to-date information, and can respond within hours to regulatory shifts
 
-Try this using the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) and [Web\_Search](https://api-dashboard.search.brave.com/documentation/services/web-search) endpoints.
+Try this using the LLM_Context and Web_Search endpoints.
 
 ## Finance Fraud and risk detection
 
@@ -185,11 +175,11 @@ With search APIs, organizations can augment internal risk and transaction data w
 
 **How the Brave Search API can help with fraud detection:**
 
--   Augment internal risk models with real-time external signals like emerging scam patterns, negative media on counterparties, or sanctions updates
--   Enable contextual fraud scoring and proactive threat detection to minimize vulnerabilities and false positives
--   Utilize a privacy-respecting design and fresh data retrieval to provide secure, external context without compromising sensitive financial operations
+*   Augment internal risk models with real-time external signals like emerging scam patterns, negative media on counterparties, or sanctions updates
+*   Enable contextual fraud scoring and proactive threat detection to minimize vulnerabilities and false positives
+*   Utilize a privacy-respecting design and fresh data retrieval to provide secure, external context without compromising sensitive financial operations
 
-Try this with the [Answers](https://api-dashboard.search.brave.com/documentation/services/answers) and [Web\_Search](https://api-dashboard.search.brave.com/documentation/services/web-search) endpoints.
+Try this with the Answers and Web_Search endpoints.
 
 ## Retail Unbiased tech reviews
 
@@ -201,9 +191,7 @@ The Brave Search API can deliver the unbiased, informational results that end us
 
 **How the Brave Search API can help AI deliver unbiased tech reviews:**
 
--   Use Web Search to aggregate tech reviews from across the Web, ensuring freshness of the latest sites and newest consumer tech
--   Use the Goggles parameter in the Brave Search API to apply a custom filter to the index (for example, to only pull from a list of “reputable, unbiased” tech blogs that you define), allowing your app to re-rank results in real-time based on a transparent set of rules
+*   Use Web Search to aggregate tech reviews from across the Web, ensuring freshness of the latest sites and newest consumer tech
+*   Use the Goggles parameter in the Brave Search API to apply a custom filter to the index (for example, to only pull from a list of “reputable, unbiased” tech blogs that you define), allowing your app to re-rank results in real-time based on a transparent set of rules
 
-Try this with the [LLM\_Context](https://api-dashboard.search.brave.com/documentation/services/llm-context) and [Web\_Search](https://api-dashboard.search.brave.com/documentation/services/web-search) endpoints, alongside the [Goggles](https://api-dashboard.search.brave.com/documentation/resources/goggles) parameter.
-
-[](#use-cases)
+Try this with the LLM_Context and Web_Search endpoints, alongside the Goggles parameter.

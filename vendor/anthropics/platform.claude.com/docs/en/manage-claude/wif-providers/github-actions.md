@@ -68,7 +68,9 @@ See [GitHub's OIDC subject claim reference](https://docs.github.com/en/actions/d
 
 ## Configure Anthropic
 
-Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federation#set-up-federation) to register a federation issuer, create an Anthropic service account, and create a federation rule in the Claude Console. Use these GitHub Actions-specific values.
+In the Claude Console, open **Settings → Workload identity**, click **Connect workload**, and select the **GitHub Actions** tile. The wizard walks you through registering the issuer, creating a service account, and creating a federation rule.
+
+The wizard creates these resources for you. Use the following values whether you enter them in the wizard or send them to the [Admin API](/docs/en/manage-claude/wif-admin-api):
 
 **Federation issuer:** GitHub publishes its OIDC discovery document and JWKS publicly, so use discovery mode. Anthropic refreshes the keys automatically when GitHub rotates them.
 
@@ -76,7 +78,7 @@ Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federati
 {
   "name": "github-actions",
   "issuer_url": "https://token.actions.githubusercontent.com",
-  "jwks_source": "discovery"
+  "jwks": { "type": "discovery" }
 }
 ```
 
@@ -103,7 +105,7 @@ Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federati
 }
 ```
 
-Be as specific as the workload allows. Loosen `subject_prefix` to `repo:your-org/your-repo:*` (paired with a `claims.ref` constraint) only if the rule must match multiple event types from the same repository, since the trailing segment of `sub` varies between `ref:...`, `environment:...`, and `pull_request` events.
+Be as specific as the workload allows. Loosen `subject_prefix` to `repo:your-org/your-repo:*` (paired with a `claims.ref` constraint) only if the rule must match multiple event types from the same repository, because the trailing segment of `sub` varies between `ref:...`, `environment:...`, and `pull_request` events.
 
 ## Acquire and use a token
 
@@ -126,7 +128,7 @@ jobs:
       ANTHROPIC_FEDERATION_RULE_ID: fdrl_...
       ANTHROPIC_ORGANIZATION_ID: 00000000-0000-0000-0000-000000000000
       ANTHROPIC_SERVICE_ACCOUNT_ID: svac_...
-      ANTHROPIC_WORKSPACE_ID: wrkspc_... # required when the rule covers multiple workspaces
+      ANTHROPIC_WORKSPACE_ID: wrkspc_...  # required when the rule covers multiple workspaces
       ANTHROPIC_IDENTITY_TOKEN_FILE: /tmp/gha-jwt
     steps:
       - uses: actions/checkout@v5
@@ -198,7 +200,7 @@ const client = new Anthropic();
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }],
+  messages: [{ role: "user", content: "Hello, Claude" }]
 });
 for (const block of message.content) {
   if (block.type === "text") {

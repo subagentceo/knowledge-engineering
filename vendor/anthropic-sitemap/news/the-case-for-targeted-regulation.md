@@ -40,9 +40,9 @@ Anthropic has had a formal RSP in place since September 2023 (and recently relea
 
 RSPs serve many useful purposes:
 
-- They increase a developer’s **investment in computer security and in safety evaluations**. Both security and evaluations are typically built after encountering problems, but RSPs publicly commit a developer to develop and resource these areas _ahead of time_. At Anthropic, teams such as Security, Trust & Safety, Interpretability, and the Frontier Red Team have had to ramp up hiring to have a reasonable chance of achieving the safety and security prerequisites set out by our RSP. Properly implemented, RSPs drive organizational structure and priorities. They become a key part of product roadmaps, rather than just being a policy on paper;
-- RSPs serve as a forcing function for a developer to **flesh out risks and threat models**. Such models tend to be rather abstract, but an RSP makes them interact directly with the day-to-day business of a company, forcing developers to make them as specific and well-grounded as possible, and to reassess them over time;
-- Having an RSP encourages developers to **be transparent about their computer security and misuse mitigation practices**. Our RSP commits us to internally document our findings and recommendations regarding the safeguards we’ve implemented. We’ve also found that our RSP has naturally generated much of the substantive work we’ve needed to meet voluntary commitments such as the White House Voluntary AI Commitments and those made at the Bletchley Park AI Safety Summit.
+*   They increase a developer’s **investment in computer security and in safety evaluations**. Both security and evaluations are typically built after encountering problems, but RSPs publicly commit a developer to develop and resource these areas _ahead of time_. At Anthropic, teams such as Security, Trust & Safety, Interpretability, and the Frontier Red Team have had to ramp up hiring to have a reasonable chance of achieving the safety and security prerequisites set out by our RSP. Properly implemented, RSPs drive organizational structure and priorities. They become a key part of product roadmaps, rather than just being a policy on paper;
+*   RSPs serve as a forcing function for a developer to **flesh out risks and threat models**. Such models tend to be rather abstract, but an RSP makes them interact directly with the day-to-day business of a company, forcing developers to make them as specific and well-grounded as possible, and to reassess them over time;
+*   Having an RSP encourages developers to **be transparent about their computer security and misuse mitigation practices**. Our RSP commits us to internally document our findings and recommendations regarding the safeguards we’ve implemented. We’ve also found that our RSP has naturally generated much of the substantive work we’ve needed to meet voluntary commitments such as the White House Voluntary AI Commitments and those made at the Bletchley Park AI Safety Summit.
 
 Our Responsible Scaling Policy isn’t perfect, but as we’ve repeatedly deployed models with it, we’re getting better at making it run smoothly while also testing for risks. **Despite the need for iteration and course-corrections, we are fundamentally convinced that RSPs are a workable policy with which AI companies can successfully comply while remaining competitive in the marketplace.**
 
@@ -92,20 +92,22 @@ _Q: Won’t regulation harm the open source ecosystem?_
 
 A: Our view is that regulation of frontier models should focus on empirically measured risks, not on whether a system is open-or closed-weights. Regulation should thus intrinsically neither favor nor disfavor open-weights models, except to the extent that uniform, empirically rigorous tests show them to present greater or less risk. If there are unique risks associated with open weights models—for instance, their ability to be arbitrarily finetuned onto new datasets—then regulation should be designed to incentivize developers to address those risks, just as with closed-weights models.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

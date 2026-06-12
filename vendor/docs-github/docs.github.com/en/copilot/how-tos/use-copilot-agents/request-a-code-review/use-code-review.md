@@ -2,12 +2,6 @@
 
 Learn how to request a code review from GitHub Copilot.
 
-<!-- expires 2026-06-01 -->
-
-> \[!IMPORTANT] Starting June 1, 2026, Copilot code review runs will consume GitHub Actions minutes. For more details on this and how to prepare, see [Pricing and usage cost considerations for Copilot code review](/en/copilot/reference/copilot-billing/models-and-pricing#pricing-and-usage-cost-considerations-for-copilot-code-review).
-
-<!-- end expires 2026-06-01 -->
-
 ## Introduction
 
 GitHub Copilot can review your code and provide feedback. Where possible, Copilot's feedback includes suggested changes which you can apply with a couple of clicks.
@@ -101,6 +95,28 @@ When performing a code review, apply the checks in the `/security/security-check
 
 When performing a code review, focus on readability and avoid nested ternary operators.
 ```
+
+## MCP servers and agent skills
+
+> \[!NOTE]
+> Support for agent skills and MCP servers with Copilot code review is in public preview and subject to change.
+
+Copilot code review can use agent skills and MCP servers configured in the repository, when they are relevant to the code being reviewed.
+
+To make these available for Copilot code review on GitHub, configure:
+
+* **Agent skills** in your repository (in `.github/skills`). If you want a skill to target review tasks, use a review-focused skill directory name such as `code-review`. For setup details, see [Adding agent skills for GitHub Copilot](/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
+* **MCP servers** in repository Copilot settings. The GitHub MCP server and Playwright MCP server are enabled by default. For setup details, see [Configure MCP servers for your repository](/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers).
+
+Copilot code review is more likely to use this context when:
+
+* Agent skills directories have review-focused names and descriptions, such as `code-review`, that indicate they are intended for pull request review.
+* Your agent skills or custom instructions explicitly tell Copilot code review to use specific MCP context.
+* Pull request descriptions reference items available through configured MCP servers, such as issue keys or incident IDs.
+
+To verify which MCP context Copilot code review used for a specific review, open the linked review session from the pull request timeline, then check the session logs to see which MCP servers and tools were called.
+
+In repository settings, **Allow Copilot to use MCP tools when reviewing pull requests** is enabled by default. Disable this setting if you want MCP servers available only for Copilot cloud agent, and not for Copilot code review. For step-by-step instructions, see [Configure MCP servers for your repository](/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers#disabling-mcp-tools-for-code-review).
 
 </div>
 

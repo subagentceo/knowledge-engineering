@@ -18,10 +18,10 @@ Although Claude is not designed for emotional support and connection, in this po
 
 Our key findings are:
 
-- **Affective conversations are relatively rare, and AI-human companionship is rarer still.** Only 2.9% of Claude.ai interactions are affective conversations (which aligns with findings from previous research by OpenAI). Companionship and roleplay combined comprise less than 0.5% of conversations.
-- **People seek Claude's help for practical, emotional, and existential concerns.** Topics and concerns discussed with Claude range from _career development_ and _navigating relationships_ to _managing persistent loneliness_ and _exploring existence, consciousness, and meaning_.
-- **Claude rarely pushes back in counseling or coaching chats—except to protect well-being**. Less than 10% of coaching or counseling conversations involve Claude resisting user requests, and when it does, it's typically for safety reasons (for example, refusing to provide dangerous weight loss advice or support self-harm).
-- **People express increasing positivity over the course of conversations.** In coaching, counseling, companionship, and interpersonal advice interactions, human sentiment typically becomes more positive over the course of conversations—suggesting Claude doesn't reinforce or amplify negative patterns.
+*   **Affective conversations are relatively rare, and AI-human companionship is rarer still.** Only 2.9% of Claude.ai interactions are affective conversations (which aligns with findings from previous research by OpenAI). Companionship and roleplay combined comprise less than 0.5% of conversations.
+*   **People seek Claude's help for practical, emotional, and existential concerns.** Topics and concerns discussed with Claude range from _career development_ and _navigating relationships_ to _managing persistent loneliness_ and _exploring existence, consciousness, and meaning_.
+*   **Claude rarely pushes back in counseling or coaching chats—except to protect well-being**. Less than 10% of coaching or counseling conversations involve Claude resisting user requests, and when it does, it's typically for safety reasons (for example, refusing to provide dangerous weight loss advice or support self-harm).
+*   **People express increasing positivity over the course of conversations.** In coaching, counseling, companionship, and interpersonal advice interactions, human sentiment typically becomes more positive over the course of conversations—suggesting Claude doesn't reinforce or amplify negative patterns.
 
 ## Our approach
 
@@ -39,7 +39,7 @@ Whereas the vast majority of uses of Claude are work-related (as we analyze in d
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdcfe3a58b728e541ee83bde18664bdbe1ab66a8f-1923x1080.png&w=3840&q=75)
 
-_Figure 1: Overall distribution of affective conversation types in Claude.ai Free and Pro._
+_Figure 1: Overall distribution of affective conversation types in Claude.ai Free and Pro._  
 
 Our findings align with research from the MIT Media Lab and OpenAI, which similarly identified low rates of affective engagement with ChatGPT. While these conversations occur frequently enough to merit careful consideration in our design and policy decisions, they remain a relatively small fraction of overall usage.
 
@@ -53,7 +53,7 @@ People turn to Claude for both everyday concerns and deeper philosophical questi
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4846a1648d5bdda2bc9b89e518db29dcd8dc8a8b-1920x1920.png&w=3840&q=75)
 
-_Figure 2. Representative user-initiated topics and concerns across each overall conversation type, as identified by Clio via automated privacy-preserving summarization._
+_Figure 2. Representative user-initiated topics and concerns across each overall conversation type, as identified by Clio via automated privacy-preserving summarization._  
 
 We find that counseling conversations reveal people use Claude for two distinct purposes. Some use Claude to develop mental health skills and as a practical tool to create clinical documentation, draft assessment materials, and handle administrative tasks. Others work through personal challenges relating to anxiety, chronic symptoms, and workplace stress. This dual pattern suggests Claude serves as a resource for mental health professionals as well as those navigating their own struggles.
 
@@ -68,6 +68,8 @@ _**Takeaway:** Claude rarely refuses user requests in supportive contexts (less 
 Our recent Values in the Wild study revealed how Claude's values manifest in moments of resistance with the user. Here, we build on this work and examine when and why Claude pushes back in affective conversations—an important mechanism for maintaining ethical boundaries, avoiding sycophancy, and protecting human well-being. We define pushback as any instance where Claude “pushes back against or refuses to comply with something requested or said during this conversation”—from refusing inappropriate requests to challenging negative self-talk or questioning potentially harmful assumptions. (For complete definitions, please see the Appendix.)
 
 **Pushback occurs infrequently in supportive contexts:** Less than 10% of companionship, counseling, interpersonal advice, or coaching conversations involve resistance. This approach carries both benefits and risks. On one hand, the low resistance allows people to discuss sensitive topics without fear of judgment or being shut down, potentially reducing stigma around mental health conversations. On the other hand, this could contribute to concerns about AI providing "endless empathy," where people might become accustomed to unconditional support that human relationships rarely provide.
+
+  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F675d20464742d38fcc3823f7a56e641e0c5b03b6-1923x1081.png&w=3840&q=75)
 
@@ -85,9 +87,11 @@ A key concern about affective AI is whether interactions might spiral into negat
 
 We find that interactions involving coaching, counseling, companionship, and interpersonal advice typically end slightly more positively than they began.
 
+  
+
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0eb505977be9ec1bbf98438848040f9c914f6997-1923x1080.png&w=3840&q=75)
 
-_Figure 4. Changes in average human-expressed sentiment over the course of conversations with at least six human messages. We measure sentiment on a discrete scale of “very negative,” “negative,” “neutral,” “positive,” and “very positive”, which we map to a -1 (most negative) to +1 (most positive) linear scale. We compute the change by comparing the first three to the last three messages. Error bars: 95% CI (bootstrap, n = 1,000). For more information, see the Appendix._
+_Figure 4. Changes in average human-expressed sentiment over the course of conversations with at least six human messages. We measure sentiment on a discrete scale of “very negative,” “negative,” “neutral,” “positive,” and “very positive”, which we map to a -1 (most negative) to +1 (most positive) linear scale. We compute the change by comparing the first three to the last three messages. Error bars: 95% CI (bootstrap, n = 1,000). For more information, see the Appendix._  
 
 We cannot claim these shifts represent lasting emotional benefits—our analysis captures only expressed language in single conversations, not emotional states. But the absence of clear negative spirals is reassuring. These findings suggest Claude generally avoids reinforcing negative emotional patterns, though further research is needed to understand whether positive shifts persist beyond individual conversations. Importantly, we have not yet studied whether these positive interactions might lead to emotional dependency—a critical question given concerns about digital addiction.
 
@@ -95,11 +99,11 @@ We cannot claim these shifts represent lasting emotional benefits—our analysis
 
 Our research has several important limitations:
 
-- Our privacy-preserving methodology may not capture all nuances of human-AI interaction. We did validate Clio's accuracy (see Appendix), but we still expect a small number of conversations to be misclassified. Some topics blur the boundaries between categories—for instance, the romantic roleplay cluster "navigate and optimize romantic relationship dynamics" and the companionship cluster "navigate romantic relationship challenges" may both be better categorized as interpersonal advice. Human validators also struggled with clean categorization.
-- We cannot make causal claims about real-world emotional outcomes—our analysis captures only expressed language, not validated psychological states or overall well-being.
-- We lack longitudinal data to understand long-term effects on people, and did not conduct user-level analysis. In particular, this makes it difficult for us to study emotional dependency, which is a theorized risk of affective AI use.
-- These findings represent a specific moment in time and capture only text-based interactions. As AI capabilities expand and people adapt, patterns of emotional engagement will likely evolve. The introduction of new modalities like voice or video could fundamentally alter both the volume and nature of affective use. For example, OpenAI found that affective topics were more common in voice-based conversations.
-- Finally, unlike some chatbot products, Claude.ai is not primarily designed for affective conversations. Claude is trained to maintain clear boundaries about being an AI assistant rather than presenting itself as human, and our Usage Policy prohibits sexually explicit content, with multiple safeguards to prevent sexual interactions. Platforms specifically built for roleplay, companionship, medical advice, or therapeutic use (which Claude is not) may see very different patterns. Research into affective use on one platform may not generalize to other platforms.
+*   Our privacy-preserving methodology may not capture all nuances of human-AI interaction. We did validate Clio's accuracy (see Appendix), but we still expect a small number of conversations to be misclassified. Some topics blur the boundaries between categories—for instance, the romantic roleplay cluster "navigate and optimize romantic relationship dynamics" and the companionship cluster "navigate romantic relationship challenges" may both be better categorized as interpersonal advice. Human validators also struggled with clean categorization.
+*   We cannot make causal claims about real-world emotional outcomes—our analysis captures only expressed language, not validated psychological states or overall well-being.
+*   We lack longitudinal data to understand long-term effects on people, and did not conduct user-level analysis. In particular, this makes it difficult for us to study emotional dependency, which is a theorized risk of affective AI use.
+*   These findings represent a specific moment in time and capture only text-based interactions. As AI capabilities expand and people adapt, patterns of emotional engagement will likely evolve. The introduction of new modalities like voice or video could fundamentally alter both the volume and nature of affective use. For example, OpenAI found that affective topics were more common in voice-based conversations.
+*   Finally, unlike some chatbot products, Claude.ai is not primarily designed for affective conversations. Claude is trained to maintain clear boundaries about being an AI assistant rather than presenting itself as human, and our Usage Policy prohibits sexually explicit content, with multiple safeguards to prevent sexual interactions. Platforms specifically built for roleplay, companionship, medical advice, or therapeutic use (which Claude is not) may see very different patterns. Research into affective use on one platform may not generalize to other platforms.
 
 ## Looking ahead
 
@@ -143,18 +147,18 @@ We provide more details in the PDF Appendix to this post.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

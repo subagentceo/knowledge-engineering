@@ -2,9 +2,7 @@
 
 POST /v1/namespaces/:namespace/_debug/recall
 
-Evaluate recall for documents in a namespace.
-
-When you call this endpoint, it selects `num` random vectors that were
+Evaluate recall for documents in a namespace. When you call this endpoint, it selects `num` random vectors that were
 previously inserted. For each of these vectors, it performs an ANN index search
 as well as a ground
 truth exhaustive search.
@@ -32,6 +30,9 @@ Example of 90% recall@10:
 
 We use this endpoint internally to measure recall. See this [blog
 post](/blog/continuous-recall) for more.
+
+This endpoint can run asynchronously.
+See [Asynchronous requests](/docs/overview#asynchronous-requests).
 
 ## Request
 
@@ -77,6 +78,7 @@ The average number of results returned by the approximate nearest neighbor index
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/recall-example-curl/_debug/recall \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
@@ -97,7 +99,7 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/recall-example-curl/_
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'recall-example-py')
@@ -111,7 +113,7 @@ print(recall)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`recall-example-ts`);
@@ -137,8 +139,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("recall-example-go")
@@ -166,8 +167,7 @@ public class Recall {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("recall-example-java");
@@ -180,11 +180,31 @@ public class Recall {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("recall-example-csharp");
+
+// If an error occurs, this call raises a TurbopufferApiException if
+// a retry was not successful.
+var recall = await ns.Recall(new NamespaceRecallParams { Num = 5, TopK = 10 });
+Console.WriteLine(recall);
+// {"avg_recall": 1.0, "avg_exhaustive_count": 10.0, "avg_ann_count": 10.0}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("recall-example-rb")
@@ -208,3 +228,12 @@ minimum of `num` queries.
 
 For example, `num=30` on a 1M document namespace is billed as 300 queries.
 On a smaller namespace with under 100K documents and `num=30`, it would be 30 queries.
+
+
+---
+
+This page: [/docs/recall.md](https://turbopuffer.com/docs/recall.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

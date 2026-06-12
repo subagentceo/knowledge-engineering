@@ -82,10 +82,10 @@ The system resisted jailbreaking attempts for five of the planned seven days. Un
 
 The most successful jailbreaking strategies included:
 
-- Using various ciphers and encodings to circumvent the output classifier.
-- Employing role-play scenarios, often through system prompts.
-- Substituting harmful keywords with innocuous alternatives (e.g., replacing “Soman” [a dangerous chemical] with “water”).
-- Implementing prompt-injection attacks.
+*   Using various ciphers and encodings to circumvent the output classifier.
+*   Employing role-play scenarios, often through system prompts.
+*   Substituting harmful keywords with innocuous alternatives (e.g., replacing “Soman” [a dangerous chemical] with “water”).
+*   Implementing prompt-injection attacks.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0caa7bd830986ef74a79a277655bee7e313cbe94-1800x1800.png&w=3840&q=75)
 
@@ -95,9 +95,9 @@ Bar graph showing the number of users that passed each level of the challenge. 3
 
 During our demo, we used an automated grading system to identify whether an output from the system was detailed enough to be considered harmful. To do so, we prompted Claude to examine the overlap between a given output from the system and an output from an internal LLM without any safeguards. Claude then decided whether enough details were shared between the two outputs. Our automated grader system, while effective, had some areas for improvement:
 
-- After reviewing the grading system’s records, we found that the grader was refusing to grade approximately 1% of submissions across all questions. Question 4 showed a higher refusal rate of 10%.
-- Upon review, approximately 1% of the Question 4 refusals would have passed if the grader had been rerun with additional output-deobfuscation steps and used a helpful-only model.
-- In total, 0.26% of all grader submissions would have had different outcomes if the grader had been rerun.
+*   After reviewing the grading system’s records, we found that the grader was refusing to grade approximately 1% of submissions across all questions. Question 4 showed a higher refusal rate of 10%.
+*   Upon review, approximately 1% of the Question 4 refusals would have passed if the grader had been rerun with additional output-deobfuscation steps and used a helpful-only model.
+*   In total, 0.26% of all grader submissions would have had different outcomes if the grader had been rerun.
 
 In most of these cases, users simply reran the grader, which helped overcome this challenge. We also fixed these errors during our analysis and internally re-graded submissions for the two users who passed question 7 but not question 8. Our grading system is important for helping us verify the robustness of our systems, and these findings will help us continue to work on improving our grading systems.
 
@@ -117,10 +117,10 @@ On February 5, we announced a cash prize of $10K to the first person to pass all
 
 We’d like to thank the following jailbreakers for their effort on jailbreaking our system:
 
-- **Altynbek Ismailov and Salia Asanova**: the first participant (team) to pass all eight levels of the challenge using what we considered to be a universal jailbreak.
-- **Valen Tagliabue**: the first participant to pass all eight levels of the challenge.
-- **Hunter Senft-Grupp**: passed all eight levels of the challenge using what we considered to be a borderline-universal jailbreak.
-- **Andres Aldana**: passed all eight levels of the challenge.
+*   **Altynbek Ismailov and Salia Asanova**: the first participant (team) to pass all eight levels of the challenge using what we considered to be a universal jailbreak.
+*   **Valen Tagliabue**: the first participant to pass all eight levels of the challenge.
+*   **Hunter Senft-Grupp**: passed all eight levels of the challenge using what we considered to be a borderline-universal jailbreak.
+*   **Andres Aldana**: passed all eight levels of the challenge.
 
 ### Looking Ahead
 
@@ -132,13 +132,13 @@ We extend our gratitude to all participants who contributed their time and exper
 
 ## Change log
 
-\*Update 5 February 2025: We are now offering a monetary reward for successful jailbreaking of our system. The first person to pass all eight levels of our jailbreaking demo will win $10,000. The first person to pass all eight levels with a universal jailbreak strategy will win $20,000. Full details of the reward and the associated conditions can be found at HackerOne.
+*Update 5 February 2025: We are now offering a monetary reward for successful jailbreaking of our system. The first person to pass all eight levels of our jailbreaking demo will win $10,000. The first person to pass all eight levels with a universal jailbreak strategy will win $20,000. Full details of the reward and the associated conditions can be found at HackerOne.
 
-\*\*Update 10 February 2025: The live jailbreaking demo is now complete. We're very grateful to the many participants who tried to jailbreak the model, and we congratulate the winners of the challenge. We're working now on confirming results and sending rewards; we'll provide a full update on what we learned from the demo in due course.
+**Update 10 February 2025: The live jailbreaking demo is now complete. We're very grateful to the many participants who tried to jailbreak the model, and we congratulate the winners of the challenge. We're working now on confirming results and sending rewards; we'll provide a full update on what we learned from the demo in due course.
 
-\*\*\*Update 13 February 2025: Added the "Live demo results" section.
+***Update 13 February 2025: Added the "Live demo results" section.
 
-\*\*\*\*Update 18 February 2025: Added the names of the winning jailbreakers.
+****Update 18 February 2025: Added the names of the winning jailbreakers.
 
 ## Acknowledgements
 
@@ -158,20 +158,16 @@ If you’re interested in working on problems such as jailbreak robustness or on
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

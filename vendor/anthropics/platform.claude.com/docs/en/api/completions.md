@@ -15,9 +15,11 @@ Future models and features will not be compatible with Text Completions. See our
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -70,7 +72,9 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -85,11 +89,21 @@ Future models and features will not be compatible with Text Completions. See our
   The model that will complete your prompt.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-  - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
+
+  - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"`
 
       Frontier intelligence for long-running agents and coding
@@ -176,9 +190,9 @@ Future models and features will not be compatible with Text Completions. See our
 
   ```
   "
-
+  
   Human: {userQuestion}
-
+  
   Assistant:"
   ```
 
@@ -187,6 +201,7 @@ Future models and features will not be compatible with Text Completions. See our
 - `metadata: optional Metadata`
 
   An object describing metadata about the request.
+
   - `user_id: optional string`
 
     An external identifier for the user who is associated with the request.
@@ -234,6 +249,7 @@ Future models and features will not be compatible with Text Completions. See our
 ### Returns
 
 - `Completion object { id, completion, model, 2 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -249,11 +265,21 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
+
+    - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -333,14 +359,16 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
+
     - `"completion"`
 
 ### Example
@@ -378,6 +406,7 @@ curl https://api.anthropic.com/v1/complete \
 ### Completion
 
 - `Completion object { id, completion, model, 2 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -393,11 +422,21 @@ curl https://api.anthropic.com/v1/complete \
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
+
+    - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -477,12 +516,14 @@ curl https://api.anthropic.com/v1/complete \
     The reason that we stopped.
 
     This may be one the following values:
-    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
+
     - `"completion"`

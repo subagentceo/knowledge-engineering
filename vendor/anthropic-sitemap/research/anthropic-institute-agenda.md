@@ -12,10 +12,10 @@ At The Anthropic Institute (TAI), we’ll be using the information we can access
 
 Our agenda focuses on four areas for research:
 
-- Economic diffusion
-- Threats and resilience
-- AI systems in the wild
-- AI-driven R&D
+*   Economic diffusion
+*   Threats and resilience
+*   AI systems in the wild
+*   AI-driven R&D
 
 In Core Views on AI Safety, we wrote that doing effective safety research required close contact with frontier AI systems. The same logic applies to doing effective research on AI’s impacts on security, the economy, and society.
 
@@ -25,9 +25,9 @@ At TAI, we’ll study AI's real-world impacts from our position within a frontie
 
 We’ll share research, data, and tools to make it easier for individual researchers and institutions to work on these research questions. In particular, we’ll share:
 
-- More granular information from The Anthropic Economic Index, at a higher cadence, about what we’re seeing in labor impacts and usage of AI. We’ll try to be an early warning signal for significant change and disruption.
-- Research on the societal areas most in need of investment in resilience in the face of new AI-enabled security risks.
-- More detailed information about how our work at Anthropic has sped up as a result of new AI tools, and ideas about the implications of potential recursive self-improvement of AI systems.
+*   More granular information from The Anthropic Economic Index, at a higher cadence, about what we’re seeing in labor impacts and usage of AI. We’ll try to be an early warning signal for significant change and disruption.
+*   Research on the societal areas most in need of investment in resilience in the face of new AI-enabled security risks.
+*   More detailed information about how our work at Anthropic has sped up as a result of new AI tools, and ideas about the implications of potential recursive self-improvement of AI systems.
 
 TAI will shape the decisions Anthropic makes. That may look like the company sharing data with the world that it otherwise would not (like the Economic Index), or approaching how it releases technology differently (like cyber threat analyses which feed into initiatives like Project Glasswing).
 
@@ -49,27 +49,27 @@ To answer the questions in this pillar of our research, we’ll further develop 
 
 _AI adoption and diffusion_
 
-- **Who adopts AI?** AI development is concentrated in a small number of companies in a small number of countries, but deployment is global. What determines whether a country, region, or city can access AI? If it can access it, how does it capture economic value from AI? What policies and business models meaningfully shift that balance? How do free or open weight models contribute to this dynamic?
-- **Adoption in firms:** What causes AI adoption at the firm level, and what are the consequences? How does AI change the scale at which a firm or team can be most efficient? How concentrated is AI usage across firms? How do changes in concentration of AI adoption translate into markups and labor share? If a 3-person team or company can now do what required 300 before, what happens to industrial organization? Or, if firms can more easily centralize knowledge and there are benefits from doing so at scale, will we see larger, more expansive firms with a greater incentive to systematically surveil workers?
-- **Is AI a general purpose technology?** Is AI following the pattern of previous “general purpose technologies,” where adoption is fastest in high-margin commercial applications, and slowest where social returns exceed private returns? Are there policies or decisions that could change these dynamics?
+*   **Who adopts AI?** AI development is concentrated in a small number of companies in a small number of countries, but deployment is global. What determines whether a country, region, or city can access AI? If it can access it, how does it capture economic value from AI? What policies and business models meaningfully shift that balance? How do free or open weight models contribute to this dynamic?
+*   **Adoption in firms:** What causes AI adoption at the firm level, and what are the consequences? How does AI change the scale at which a firm or team can be most efficient? How concentrated is AI usage across firms? How do changes in concentration of AI adoption translate into markups and labor share? If a 3-person team or company can now do what required 300 before, what happens to industrial organization? Or, if firms can more easily centralize knowledge and there are benefits from doing so at scale, will we see larger, more expansive firms with a greater incentive to systematically surveil workers?
+*   **Is AI a general purpose technology?** Is AI following the pattern of previous “general purpose technologies,” where adoption is fastest in high-margin commercial applications, and slowest where social returns exceed private returns? Are there policies or decisions that could change these dynamics?
 
 _Productivity and economic growth_
 
-- **Productivity growth:** What impact will AI have on the rate of innovation and productivity growth across the economy?
-- **Sharing the gains:** What pre- or re-distributive mechanisms could effectively spread the gains from AI development and deployment more broadly?
-- **Transaction costs in markets:** How does AI affect systems of exchange and transaction costs in marketplaces? When does access to agents able to negotiate on your behalf improve market efficiency and equitable outcomes? When does it not?
+*   **Productivity growth:** What impact will AI have on the rate of innovation and productivity growth across the economy?
+*   **Sharing the gains:** What pre- or re-distributive mechanisms could effectively spread the gains from AI development and deployment more broadly?
+*   **Transaction costs in markets:** How does AI affect systems of exchange and transaction costs in marketplaces? When does access to agents able to negotiate on your behalf improve market efficiency and equitable outcomes? When does it not?
 
 _Broad labor market impacts_
 
-- **AI and jobs:** How will AI change jobs and employment in different parts of the economy? What new tasks and jobs could emerge as AI automates existing parts of the economy? How will these changes vary across regions and countries? Our Anthropic Economic Index Survey will provide monthly signals of how people see AI affecting their work, and what they expect for the future. We’re also updating the Economic Index to share more high-frequency, granular data.
-- **Can AI diffusion be modulated?** Central banks seek to moderate inflation through “dials” like the policy rate and forward guidance. Are there analogous dials that AI companies (at an industry level, in partnership with government) might turn to control the rate of AI diffusion on a sector-by-sector basis? Would there be a clear public benefit to turning them?
+*   **AI and jobs:** How will AI change jobs and employment in different parts of the economy? What new tasks and jobs could emerge as AI automates existing parts of the economy? How will these changes vary across regions and countries? Our Anthropic Economic Index Survey will provide monthly signals of how people see AI affecting their work, and what they expect for the future. We’re also updating the Economic Index to share more high-frequency, granular data.
+*   **Can AI diffusion be modulated?** Central banks seek to moderate inflation through “dials” like the policy rate and forward guidance. Are there analogous dials that AI companies (at an industry level, in partnership with government) might turn to control the rate of AI diffusion on a sector-by-sector basis? Would there be a clear public benefit to turning them?
 
 _The future of jobs and workplaces_
 
-- **Worker views of their jobs:** How are workers across the economy experiencing changes in their professions? How much influence do they have over these changes, and can 'worker' power be preserved or transformed?
-- **The professional pipeline:** Many professions rely on junior roles (like paralegals, junior analysts, and associate developers) to serve as training for the senior practitioners of the future. If AI absorbs the tasks that historically built expertise, how do people become experts in the first place? What does this mean for the long-term supply of senior judgment in a field?
-- **Studying for the future:** What should people study today to be well positioned for the future? What are the professions of the future? How does AI change what it means to learn something and to develop expertise?
-- **The role of paid work:** If AI substantially reduces the centrality of paid work in human life, what conditions will allow people to reallocate their time and effort toward other sources of meaning, and what can we learn from historical or contemporary populations where work has been scarce or optional? How do societies navigate this transition?
+*   **Worker views of their jobs:** How are workers across the economy experiencing changes in their professions? How much influence do they have over these changes, and can 'worker' power be preserved or transformed?
+*   **The professional pipeline:** Many professions rely on junior roles (like paralegals, junior analysts, and associate developers) to serve as training for the senior practitioners of the future. If AI absorbs the tasks that historically built expertise, how do people become experts in the first place? What does this mean for the long-term supply of senior judgment in a field?
+*   **Studying for the future:** What should people study today to be well positioned for the future? What are the professions of the future? How does AI change what it means to learn something and to develop expertise?
+*   **The role of paid work:** If AI substantially reduces the centrality of paid work in human life, what conditions will allow people to reallocate their time and effort toward other sources of meaning, and what can we learn from historical or contemporary populations where work has been scarce or optional? How do societies navigate this transition?
 
 ### Threats and resilience
 
@@ -79,18 +79,18 @@ We're asking these questions to help develop partnerships to improve the world's
 
 _Assessing risk and dual-use capabilities:_
 
-- **Dual-use technology:** Powerful AI is inherently dual-use: the same tools that improve health and education can enable surveillance and repression. Can we build observability tools to understand whether and how this is happening?
-- **Pricing risk appropriately:** What are the effective, market-driven approaches to improve societal resilience to anticipated threats from AI systems? Can we develop new ways of pricing risk, or technical tools and human organizations to improve resilience ahead of the arrival of predictable threats (like improved AI cyberattack capabilities)?
-- **Offense-defense balance:** Will AI-enabled capabilities structurally benefit the attacker in domains like cyber and bio? When AI is applied in more conventional domains, like increasing integration into command and control systems, does it benefit the attacker? More generally, how will AI change the character of human conflict?
+*   **Dual-use technology:** Powerful AI is inherently dual-use: the same tools that improve health and education can enable surveillance and repression. Can we build observability tools to understand whether and how this is happening?
+*   **Pricing risk appropriately:** What are the effective, market-driven approaches to improve societal resilience to anticipated threats from AI systems? Can we develop new ways of pricing risk, or technical tools and human organizations to improve resilience ahead of the arrival of predictable threats (like improved AI cyberattack capabilities)?
+*   **Offense-defense balance:** Will AI-enabled capabilities structurally benefit the attacker in domains like cyber and bio? When AI is applied in more conventional domains, like increasing integration into command and control systems, does it benefit the attacker? More generally, how will AI change the character of human conflict?
 
 _Establishing risk mitigations:_
 
-- **Planning for crisis scenarios:** During the Cold War, the American president had a hotline directly to the Kremlin, for use in the event of a nuclear crisis. What geopolitical infrastructure would be needed in the event of a crisis scenario involving AI systems? This infrastructure might not necessarily be state-to-state, but could be company-to-state or company-to-company.
-- **Faster defensive mechanisms:** AI capabilities can advance in months. Regulatory, insurance, and infrastructure responses operate on timescales of years. How do we close that gap? Can defensive mechanisms—like automated patching, AI-enabled threat detection, or pre-positioned response capabilities match the tempo and scale of AI-enabled offense? Or is the asymmetry structural? And how do we roll these defensive mechanisms out as effectively as possible?
+*   **Planning for crisis scenarios:** During the Cold War, the American president had a hotline directly to the Kremlin, for use in the event of a nuclear crisis. What geopolitical infrastructure would be needed in the event of a crisis scenario involving AI systems? This infrastructure might not necessarily be state-to-state, but could be company-to-state or company-to-company.
+*   **Faster defensive mechanisms:** AI capabilities can advance in months. Regulatory, insurance, and infrastructure responses operate on timescales of years. How do we close that gap? Can defensive mechanisms—like automated patching, AI-enabled threat detection, or pre-positioned response capabilities match the tempo and scale of AI-enabled offense? Or is the asymmetry structural? And how do we roll these defensive mechanisms out as effectively as possible?
 
 _Intelligence capabilities for surveillance_
 
-- **AI’s effect on surveillance:** How does AI change how surveillance works? Will it make surveillance cheaper, or more effective, or both?
+*   **AI’s effect on surveillance:** How does AI change how surveillance works? Will it make surveillance cheaper, or more effective, or both?
 
 ### AI systems in the wild
 
@@ -98,23 +98,23 @@ The interaction of people and organizations with AI systems will be a major sour
 
 _The impact of AI to individuals and societies:_
 
-- **Group epistemology:** When a large fraction of a population consults the same few models, what happens to our epistemology? Can we find ways to measure large-scale changes in beliefs, writing style, and problem-solving approaches that are attributable to shared AI use?
-- **Critical thinking:** As AI systems become more capable and more trusted, how do we detect and avoid the degradation of human critical thinking skills that may come from increasing deference to AI judgment?
-- **Technological interfaces:** The interfaces for technologies can determine how people interact with them—televisions make people passive viewers, and computers can make it easier for people to be generative creators. What interfaces can be built to cause AI systems to improve and promote human agency?
-- **Managing human-AI systems:** How might humans manage teams composed of a mixture of humans and AI systems effectively? And how might this be inverted—how might AI systems manage teams that consist of humans, AIs, or some combination thereof?
+*   **Group epistemology:** When a large fraction of a population consults the same few models, what happens to our epistemology? Can we find ways to measure large-scale changes in beliefs, writing style, and problem-solving approaches that are attributable to shared AI use?
+*   **Critical thinking:** As AI systems become more capable and more trusted, how do we detect and avoid the degradation of human critical thinking skills that may come from increasing deference to AI judgment?
+*   **Technological interfaces:** The interfaces for technologies can determine how people interact with them—televisions make people passive viewers, and computers can make it easier for people to be generative creators. What interfaces can be built to cause AI systems to improve and promote human agency?
+*   **Managing human-AI systems:** How might humans manage teams composed of a mixture of humans and AI systems effectively? And how might this be inverted—how might AI systems manage teams that consist of humans, AIs, or some combination thereof?
 
 _Identifying significant impacts from AI:_
 
-- **Behavioral effects:** In the same way that social media led to behavioral changes in people, AI may shape human behavior. What kinds of monitoring or measurement can inform researchers about this dynamic?
-- **Enabling research:** Are there transparency regimes and tools that can enable a broad set of people, not just frontier AI companies, to easily study real-world AI usage?
+*   **Behavioral effects:** In the same way that social media led to behavioral changes in people, AI may shape human behavior. What kinds of monitoring or measurement can inform researchers about this dynamic?
+*   **Enabling research:** Are there transparency regimes and tools that can enable a broad set of people, not just frontier AI companies, to easily study real-world AI usage?
 
 _Understanding and governing AI models:_
 
-- **System “values”:** What are the expressed “values” of AI systems and how do these relate to how these systems were trained? More specifically, how can we measure the influence that an AI “constitution” has on behavior of the model once deployed? We’ll extend our previous research on these questions.
-- **Governing autonomous agents:** What aspects of existing laws, governance systems, and accountability mechanisms could be adapted to autonomous AI agents? For example, how naval law treats abandoned ships has relevance to how the law might treat agents that run without human oversight. Conversely, are there aspects of existing law which already apply to AI agents and shouldn’t?
-- **Reliability of agents:** What aspects of autonomous AI agents could be adapted to fit into existing laws, governance systems, and accountability mechanisms? For example, can we ensure AI agents have a unique identity that they reliably output, even in the absence of direct human control?
-- **AI governance of AI:** How effectively can we use AI to govern AI systems? What are areas of AI oversight where humans either have a comparative advantage or a legal or normative requirement to be 'in the loop'?
-- **Agent interactions:** What kinds of norms emerge in how AI agents interact with one another? How might different agents express different preferences, and how might these influence other agents?
+*   **System “values”:** What are the expressed “values” of AI systems and how do these relate to how these systems were trained? More specifically, how can we measure the influence that an AI “constitution” has on behavior of the model once deployed? We’ll extend our previous research on these questions.
+*   **Governing autonomous agents:** What aspects of existing laws, governance systems, and accountability mechanisms could be adapted to autonomous AI agents? For example, how naval law treats abandoned ships has relevance to how the law might treat agents that run without human oversight. Conversely, are there aspects of existing law which already apply to AI agents and shouldn’t?
+*   **Reliability of agents:** What aspects of autonomous AI agents could be adapted to fit into existing laws, governance systems, and accountability mechanisms? For example, can we ensure AI agents have a unique identity that they reliably output, even in the absence of direct human control?
+*   **AI governance of AI:** How effectively can we use AI to govern AI systems? What are areas of AI oversight where humans either have a comparative advantage or a legal or normative requirement to be 'in the loop'?
+*   **Agent interactions:** What kinds of norms emerge in how AI agents interact with one another? How might different agents express different preferences, and how might these influence other agents?
 
 ### AI-driven R&D
 
@@ -126,32 +126,28 @@ AI-driven AI R&D holds within itself the potential for significant danger. As po
 
 _AI for AI R&D_
 
-- **Governance of AI R&D:** If AI systems are being used to autonomously develop and improve themselves, how do humans exercise meaningful visibility into and control over these systems? What will eventually govern these systems?
-- **Fire drill scenarios:** How do we run a "fire drill" for an intelligence explosion? What would a tabletop exercise look like that actually tests the decision-making of lab leadership, boards, and governments?
-- **Telemetry for AI R&D:** How can we measure the aggregate speed of AI research and development? What sorts of telemetry and underlying technical affordances must exist in order to gather this information? How might metrics relating to AI R&D serve as early warning signals for recursive self-improvement?
-- **Controlling AI acceleration:** If an intelligence explosion was upon us, what intervention points would facilitate slowing or otherwise changing the rate of the explosion? Assuming humans can intervene, which entities should wield this capacity—governments? Companies?
+*   **Governance of AI R&D:** If AI systems are being used to autonomously develop and improve themselves, how do humans exercise meaningful visibility into and control over these systems? What will eventually govern these systems?
+*   **Fire drill scenarios:** How do we run a "fire drill" for an intelligence explosion? What would a tabletop exercise look like that actually tests the decision-making of lab leadership, boards, and governments?
+*   **Telemetry for AI R&D:** How can we measure the aggregate speed of AI research and development? What sorts of telemetry and underlying technical affordances must exist in order to gather this information? How might metrics relating to AI R&D serve as early warning signals for recursive self-improvement?
+*   **Controlling AI acceleration:** If an intelligence explosion was upon us, what intervention points would facilitate slowing or otherwise changing the rate of the explosion? Assuming humans can intervene, which entities should wield this capacity—governments? Companies?
 
 _AI for R&D in general—that is, AI-driven research in other fields:_
 
-- **The tech tree:** AI is speeding up some sciences far faster than others, depending on data availability, evaluation signals, and how much knowledge is tacit or institutionally gated. How uneven is this gradient, and what does the changing composition of scientific progress imply for which human problems get solved first?
-- **The jagged frontier:** Model capabilities are stronger in some domains than in others. Domains with large positive externalities—like drug discovery and materials science—receive less investment than their value warrants. Markets steer the direction of model improvement according to private return, but can we improve how models perform to address social externalities?
+*   **The tech tree:** AI is speeding up some sciences far faster than others, depending on data availability, evaluation signals, and how much knowledge is tacit or institutionally gated. How uneven is this gradient, and what does the changing composition of scientific progress imply for which human problems get solved first?
+*   **The jagged frontier:** Model capabilities are stronger in some domains than in others. Domains with large positive externalities—like drug discovery and materials science—receive less investment than their value warrants. Markets steer the direction of model improvement according to private return, but can we improve how models perform to address social externalities?
 
 ## Related content
+
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
 
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

@@ -2,13 +2,13 @@ This article applies to individual consumers using Pro or Max plan subscriptions
 
 ## What is Claude Code?
 
-Claude Code is a command line tool that gives you access to Claude models directly in your terminal, allowing you to delegate complex coding tasks while maintaining transparency and control. With Pro and Max plans, you now have access to both Claude on the web, desktop, and mobile apps and Claude Code in your terminal with one unified subscription.
+Claude Code is a coding tool that gives you access to Claude models directly in your terminal or supported IDE, allowing you to delegate complex coding tasks while maintaining transparency and control. With Pro and Max plans, you now have access to both Claude on the web, desktop, and mobile apps and Claude Code in your terminal with one unified subscription.
 
 ### Why use Claude and Claude Code?
 
 Use two powerful AI products in one simple subscription.
 
-- Use Claude for writing, research, analysis, and more — at work and at home.
+- Use Claude for writing, research, analysis, and more—at work and at home.
 
 - Use Claude Code for your terminal-based coding workflows.
 
@@ -18,21 +18,21 @@ Use two powerful AI products in one simple subscription.
 
 1. **Ensure you have an active Pro or Max plan subscription**
 
-- If you're not already subscribed, upgrade at **[claude.ai/upgrade](https://claude.ai/upgrade)**
+  - If you're not already subscribed, upgrade at **[claude.ai/upgrade](https://claude.ai/upgrade)**
 
 2. **Install Claude Code**
 
-- Visit the **[Claude Code page in our Claude Docs](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)** to download and install Claude Code.
+  - Visit the **[Claude Code page in our Claude Docs](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)** to download and install Claude Code.
 
-- Follow the installation instructions for your operating system.
+  - Follow the installation instructions for your operating system.
 
 3. **Authenticate with your Claude credentials**
 
-- When prompted during setup or first use, log in with the same credentials you use for Claude.
+  - When prompted during setup or first use, log in with the same credentials you use for Claude.
 
-- This will connect your Pro or Max plan subscription to Claude Code.
+  - This will connect your Pro or Max plan subscription to Claude Code.
 
-- If you're already logged in to Claude Code via Claude Console PAYG, run /login from within Claude Code to switch to your subscription plan.
+  - If you're already logged in to Claude Code via Claude Console PAYG, run /login from within Claude Code to switch to your subscription plan.
 
 ### Having trouble using your Pro or Max plan to access Claude Code?
 
@@ -47,6 +47,12 @@ If you're not seeing the option to authenticate with your preferred account, fol
 4. Run `claude` and select the correct account to use Claude Code.
 
 **Important:** If you have an ANTHROPIC_API_KEY environment variable set on your system, Claude Code will use this API key for authentication instead of your Claude subscription (Pro, Max, Team, or Enterprise plans), resulting in API usage charges rather than using your subscription's included usage. See this article for more information: **[Managing API key environment variables in Claude Code](https://support.claude.com/en/articles/12304248-managing-api-key-environment-variables-in-claude-code).**
+
+## Use Claude Code in your IDE
+
+Your Pro or Max plan also covers Claude Code in supported IDEs, including VS Code, Cursor and other VS Code forks, and JetBrains IDEs like IntelliJ and PyCharm. Log in with the same Claude credentials you use in the terminal. IDE usage counts toward the same usage limits shared across Claude and Claude Code.
+
+To install and set up the extension for your IDE, see **[Platforms and integrations](https://code.claude.com/docs/en/platforms)** in our Claude Code Docs.
 
 ---
 

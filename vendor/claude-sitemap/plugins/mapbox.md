@@ -1,13 +1,13 @@
 # mapbox
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Mapbox
-
-- Installs
-
-  158
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Mapbox
+    
+*   Installs
+    
+    274

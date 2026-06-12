@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # React Native Mobile SDK
 
 # Introduction
@@ -19,11 +23,17 @@ Arkose Mobile SDK for React Native:
 
 ## Mobile SDK High Level Design
 
-<Image border={false} src="https://files.readme.io/60d1bae5e588f8b7589ba1f9d75a2fa68e8d86a4ff12088439c3fa842b88c1b2-image.png" />
+![](https://files.readme.io/60d1bae5e588f8b7589ba1f9d75a2fa68e8d86a4ff12088439c3fa842b88c1b2-image.png)
 
 ## Architecture
 
 The SDK uses a **React Native Bridge** to enable communication between the React Native JavaScript layer and the native iOS/Android SDKs. All existing detection and challenge features on our native Android/iOS SDKs are also available in the React Native SDK.
+
+### New in v2.15.0 and above - React Native New Architecture support
+
+The SDK now supports **both** React Native's **Old Architecture** and the **New Architecture (Fabric / TurboModules)**. You can select the architecture per platform using the standard React Native / Expo flags (see *Architecture Selection* below).
+
+For **Expo** projects, v2.15.0 introduces a **required config plugin** that must be enabled in `app.json`. See *React Native Expo* below.
 
 ## Security
 
@@ -44,6 +54,8 @@ Ensure you have the following installed:
 * **React Native**: Follow the [React Native Documentation](https://reactnative.dev/docs/set-up-your-environment) guide to set up your environment for iOS and Android.
 * **Xcode** (for iOS development).
 * **Android Studio** (for Android development).
+  * **JDK 17** is required for Android builds. This is mandated by the Android Gradle Plugin 8.x used by React Native 0.73+ and Expo SDK 50+.
+  * **Node.js**: 16+
 * For the full **end-to-end Arkose setup**, you must also complete the standard [Arkose Server-Side setup instructions](https://developer.arkoselabs.com/docs/server-side-instructions-v4).
 
 ## Steps for Integration (For v2.13.0 & above)
@@ -90,6 +102,32 @@ Then, run the following command to install dependencies:
 
 ```
 npm install
+```
+
+<br />
+
+## Architecture Selection
+
+The SDK works with both architectures. Select your architecture before building:
+
+### React Native CLI
+
+**Android:** set `newArchEnabled=true` (New) or `newArchEnabled=false` (Old) in `android/gradle.properties`.
+
+**iOS:** run pod install with `RCT_NEW_ARCH_ENABLED=1` (New) or `RCT_NEW_ARCH_ENABLED=0` (Old):
+
+```
+cd ios 
+RCT_NEW_ARCH_ENABLED=1 pod install 
+cd ..
+```
+
+### Expo
+
+Set `"newArchEnabled": true` (or `false`) under `"expo"` in `app.json`, then run:
+
+```
+npx expo prebuild --clean
 ```
 
 <br />
@@ -141,15 +179,34 @@ watchman watch-del-all
 
 Follow these steps if you are using an **Expo** project.
 
-### Step 1: Pre-build the App
+### Step 1: Enable Arkose config plugin (Starting SDK v2.15.0)
+
+For Expo projects, you must add the Arkose config plugin to the `plugins` array in your `app.json` (or `app.config.js`). This allows the SDK to wire its native Android component into your app during pre-build:
+
+```
+{
+"expo": {
+    .
+    .
+    .
+    "plugins": [
+      "react-native-arkoselabs/app.plugin.js"
+    ]
+  }
+}
+```
+
+<Callout icon="📘" theme="info">
+  Reference the plugin by its explicit path `react-native-arkoselabs/app.plugin.js`.
+</Callout>
+
+### Step 2: Pre-build the App
 
 ```
 npx expo prebuild --clean
 ```
 
-### Step 2: Run the App
-
-For ReactNative Cli :
+### Step 3: Run the App
 
 ```
 # To run Android
@@ -158,13 +215,6 @@ npx expo run:android
 # To run iOS
 npx expo run:ios
 ```
-
-**NOTE: Support for New Architecture**
-
-Although this SDK can potentially be used within New Architecture React Native apps, it has not undergone full compatibility testing.
-
-* The SDK itself is not implemented using the New Architecture stack.
-* **Native support for the New Architecture is planned for a future version of the SDK.**
 
 <br />
 
@@ -314,23 +364,29 @@ Refer to [Callbacks](https://developer.arkoselabs.com/docs/callbacks) for callba
 
 ## iOS: "Could not find key window" Error
 
-**Problem:** Error appears when initializing SDK on iOS 15+.
-**Solution:** Update to v2.14.0+, which automatically handles scene-based and legacy window management across Expo and multi-window scenarios.
+**Problem:** Error appears when initializing SDK on iOS 15+. **Solution:** Update to v2.14.0+, which automatically handles scene-based and legacy window management across Expo and multi-window scenarios.
 
 ## Challenge Not Appearing in React Native Modal
 
-**Problem:** Enforcement challenge doesn't trigger inside React Native Modal components.
-**Solution:** Update to v2.14.0+, which resolves the top-most view controller even when modals are present.
+**Problem:** Enforcement challenge doesn't trigger inside React Native Modal components. **Solution:** Update to v2.14.0+, which resolves the top-most view controller even when modals are present.
+
+## Android Challenge Not Rendering / onError on Older Devices (System WebView \< 39)
+
+**Problem:** On Android, the SDK initializes but `showEnforcementChallenge` fires `onError` and the challenge never renders. The error references a System WebView version below the required minimum (e.g., "*Detected WebView version of 37 … minimum WebView version 39 required*").
+
+**Solution:** The Arkose challenge requires **Android System WebView version 39 or higher**. This typically affects very old Android versions (e.g., API 21 / Android 5.0, which ships WebView 37). Update the device's Android System WebView, or test on **API 23+** (WebView ≥ 44). Handle the `onError` event gracefully in your integration so older devices degrade cleanly. This requirement is independent of `minSdkVersion` and architecture.
+
+## Android Build Error: "Direct local .aar file dependencies are not supported"
+
+**Problem:** The Android build fails with `Direct local .aar file dependencies are not supported when building an AAR` (the `hasLocalAarDeps` error), typically on newer Android Gradle Plugin versions used by Expo and recent React Native.
+
+**Solution:** Ensure you are on **SDK v2.15.0 or later**, which resolves how the native Android SDK is packaged. Earlier versions could trigger this error on newer Android Gradle Plugin versions.
 
 <br />
 
 # **References**
 
-* [React Native Documentation](https://reactnative.dev/docs/set-up-your-environment)
-  Official guide for setting up and developing React Native apps.
-* [Arkose Labs SDK Documentation](https://developer.arkoselabs.com/docs/welcome-to-arkose-labs)
-  Comprehensive documentation for integrating Arkose Labs' bot mitigation and fraud prevention.
-* [Android Mobile SDK](https://developer.arkoselabs.com/docs/android-mobile-sdk)
-  Documentation for integrating Arkose Labs' Android SDK.
-* [iOS Mobile SDK](https://developer.arkoselabs.com/docs/ios-mobile-sdk)
-  Documentation for integrating Arkose Labs' iOS SDK.
+* [React Native Documentation](https://reactnative.dev/docs/set-up-your-environment) Official guide for setting up and developing React Native apps.
+* [Arkose Labs SDK Documentation](https://developer.arkoselabs.com/docs/welcome-to-arkose-labs) Comprehensive documentation for integrating Arkose Labs' bot mitigation and fraud prevention.
+* [Android Mobile SDK](https://developer.arkoselabs.com/docs/android-mobile-sdk) Documentation for integrating Arkose Labs' Android SDK.
+* [iOS Mobile SDK](https://developer.arkoselabs.com/docs/ios-mobile-sdk) Documentation for integrating Arkose Labs' iOS SDK.

@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Payment Fraud
+# Grow Beyond Payment Fraud
+
+Home/Solutions/Payment Fraud
 
 # Grow Beyond Payment Fraud
 
@@ -10,7 +12,7 @@ Activate growth with increased acceptance rates when you roll out the red carpet
 
 —John Page, Merchant Processing Director, ChowNow
 
-[See Sift in Action](/demo/)[Compare Industry Payment Fraud Data](/fibr-fraud-industry-benchmarking-resource/)
+See Sift in ActionCompare Industry Payment Fraud Data
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,10 +36,10 @@ Merchant losses to CNP fraud in 2023
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Deeper and Costlier Than Credit Card Fraud Alone
 
@@ -47,15 +49,15 @@ Payment fraud is any deceptive or unauthorized activities aimed at manipulating 
 
 49%
 
-Consumers have experienced payment fraud\*
+Consumers have experienced payment fraud*
 
-\*Source: Sift research and analysis
+*Source: Sift research and analysis
 
 80%
 
-Users who would abandon a brand due to payment fraud\*
+Users who would abandon a brand due to payment fraud*
 
-\*Source: Sift Consumer Surveys, 2020–2023
+*Source: Sift Consumer Surveys, 2020–2023
 
 ## Growth-Driven Defense Against Payment Fraud
 
@@ -65,7 +67,7 @@ Users who would abandon a brand due to payment fraud\*
 
 **Clear the path for meteoric growth**. Confidently approve more transactions and save friction for fraudsters, driving higher customer loyalty and revenue.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![PaymentFraud\_Solutions Overview Circle@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -109,7 +111,7 @@ Say goodbye to rigid review practices, disparate point solutions, and unclear de
 
 ## Real Numbers, Real Results
 
-FIBR includes actual performance rates from Sift customers. [Go to FIBR](/fibr-fraud-industry-benchmarking-resource/) to learn more.
+FIBR includes actual performance rates from Sift customers. Go to FIBR to learn more.
 
 2.7%
 
@@ -131,7 +133,7 @@ Current manual review rate experienced by Sift customers (from FIBR)
 
 ## Our Impact on Customer Success Across Industries
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![harrys-logo-black](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20330%2058'%3E%3C/svg%3E)
 
@@ -147,7 +149,7 @@ Kaity Reagle
 
 Trust and Safety Senior Associate at Harry’s
 
-[read customer story](/resources/case-studies/harrys-case-study/)
+read customer story
 
 ![harry](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -169,7 +171,7 @@ Joshua Hamman
 
 Director of Client Services at Paula’s Choice
 
-[read customer story](/resources/case-studies/paulas-choice-case-study/)
+read customer story
 
 ![Case-Study-Paulas-Choice](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -191,7 +193,7 @@ Yan Pritzker
 
 Co-founder & CTO at Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -211,8 +213,6 @@ From account creation to chargeback mitigation, Sift is your go-to partner in fi
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![Dispute Management](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Chargeback Fraud
@@ -220,8 +220,6 @@ Chargeback Fraud
 Quit leaking your bottom line to friendly fraud and mitigate more chargebacks with intelligent automation.
 
 learn more
-
-](/solutions/chargeback-fraud/)[
 
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -231,8 +229,6 @@ Make new users untouchable from the second they sign up.
 
 learn more
 
-](/solutions/account-creation/)[
-
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Account Takeover
@@ -241,8 +237,6 @@ Lock down loyal customers’ accounts and assets, and prevent valuable PII from 
 
 learn more
 
-](/solutions/ato/)[
-
 ![Money Movement](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2078'%3E%3C/svg%3E)
 
 Money Movement
@@ -250,8 +244,6 @@ Money Movement
 Get fintech-forward protection against evolving payment fraud.
 
 learn more
-
-](/solutions/money-movement/)
 
 ### Start Your Digital Risk Assessment
 
@@ -263,13 +255,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -279,8 +269,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -288,8 +276,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -299,13 +285,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

@@ -2,6 +2,46 @@
 
 Three of Europe's fastest-scaling tech companies made three different bets on Claude: Delivery Hero built an autonomous agent that now merges 100+ PRs a day, Doctolib governs Claude Code across its entire healthcare engineering org, and monday.com ships it inside the product to users who've never written code. Hear what they built, where it broke, and how they stay ahead of a model that changes every few months.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+14:35 – 15:05
+
+Speaker(s)
+
+Ruslan Semenov
+
+Engineering Director,
+
+monday.com
+
+Alex Kaluzny
+
+Chief Technology Officer,
+
+Doctolib
+
+Rodrigue Schäfer
+
+Vice President Platform,
+
+Delivery Hero
+
+Rebecca Harbeck
+
+Account Executive,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

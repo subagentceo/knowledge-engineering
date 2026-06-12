@@ -1,7 +1,7 @@
 > This page location: Plans and billing
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the details of Neon's pricing plans, how to manage billing, monitor usage, and strategies for cost optimization.
+> Summary: Neon's pricing plans, how to manage billing, monitor usage, and strategies for cost optimization.
 
 # Plans and billing
 

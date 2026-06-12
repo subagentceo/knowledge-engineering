@@ -34,7 +34,7 @@ Error Monitoring\[ ]Tracing\[ ]Logs
 
 ```go
 err := sentry.Init(sentry.ClientOptions{
-    Dsn: "___PUBLIC_DSN___",
+    Dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
     // Enable printing of SDK debug messages.
     // Useful when getting started or trying to figure something out.
     Debug: true,
@@ -75,7 +75,7 @@ import (
 
 func main() {
 	err := sentry.Init(sentry.ClientOptions{
-		Dsn: "___PUBLIC_DSN___",
+		Dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
 		// Adds request headers and IP for users,
         // visit: https://docs.sentry.io/platforms/go/data-management/data-collected/ for more info
         SendDefaultPII: true,

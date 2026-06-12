@@ -1,4 +1,6 @@
-[![sift-transparent](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](/)
+# How Mature Is Your Fraud Program, Really?
+
+![sift-transparent](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Digital Risk Assessment
 
@@ -8,12 +10,11 @@ Let’s begin assessing your foundation....
 
 ![sprout](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[![sift-transparent](https://sift.com/wp-content/uploads/2025/10/sift-transparent.svg)](/)
+![sift-transparent](https://sift.com/wp-content/uploads/2025/10/sift-transparent.svg)
 
 DIGITAL RISK ASSESSMENT
 
-# How Mature  
-Is Your Fraud Program, Really?
+# How MatureIs Your Fraud Program, Really?
 
 Answer 7 quick questions to benchmark your fraud operations and see whether you’re **building, scaling, or optimizing**, with clear next steps.
 
@@ -165,18 +166,18 @@ Find your tailored insights in your inbox soon.
 
 ![Insight Sprout Stage 5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[return to start](/risk-assessment/)
+return to start
 
-[![BgBlueLogo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://sift.com)
+![BgBlueLogo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
--   [](https://www.youtube.com/@getsift)
--   [](https://www.linkedin.com/company/getsift/)
--   [](https://www.instagram.com/get_sift/)
--   [](https://twitter.com/GetSift)
--   [](https://www.facebook.com/GetSift/)
+*   
+*   
+*   
+*   
+*   
 
 © Sift Science, Inc. All rights reserved. Sift and the Sift logo are trademarks or registered trademarks of Sift Science, Inc.
 
--   [Privacy & Terms](/legal-and-compliance/)
+*   Privacy & Terms
     
--   [Sitemap](/sitemap/)
+*   Sitemap

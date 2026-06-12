@@ -34,7 +34,7 @@ Start a task in Claude Desktop and let it handle work in the browser without swi
 
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1780164900&signature=00a26b926bb0c259519ce9de3d07aef40a56243824611be754505467eba345a9&req=dSguFM93m4RfW%2FMW1HO4zdOezItd7rdwhnw73Y7ib%2Bc9wx7glAaP20RCjedv%0AYxNNvcEjnoBCFaDHHe8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1781284500&amp;signature=8bacebe0dab82283f11388c3b38898baab4fe73539a760eada0116fd83dc51eb&amp;req=dSguFM93m4RfW%2FMW1HO4zdOezIpe4Ld8hnw73Y7ib%2Bdq1GuMisxvQgt8chSX%0AZdNF0Snz89NX6hqXC5c%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 
@@ -82,17 +82,17 @@ Switch between models anytime based on what you need.
 
 1. Open a Google Chrome browser window.
 
-1. **Note:** Claude in Chrome is not supported on other Chromium-based web browsers or mobile devices.
+  1. **Note:** Claude in Chrome is not supported on other Chromium-based web browsers or mobile devices.
 
-1. Visit the **[Chrome Web Store](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)** to find Claude in Chrome.
+2. Visit the **[Chrome Web Store](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)** to find Claude in Chrome.
 
-1. Click "Add to Chrome" to install the extension.
+3. Click "Add to Chrome" to install the extension.
 
-1. Sign in with your Claude account credentials when prompted.
+4. Sign in with your Claude account credentials when prompted.
 
-1. Pin the extension by clicking the puzzle piece icon, then the thumbtack next to "Claude."
+5. Pin the extension by clicking the puzzle piece icon, then the thumbtack next to "Claude."
 
-1. Grant the necessary permissions to enable Claude to interact with your browser.
+6. Grant the necessary permissions to enable Claude to interact with your browser.
 
 The Claude icon will appear in your Chrome toolbar. Click it to open Claude in a side panel that stays visible while you browse.
 
@@ -102,23 +102,23 @@ The Claude icon will appear in your Chrome toolbar. Click it to open Claude in a
 
 You will need to grant Claude in Chrome the following permissions to install and use the extension:
 
-| **Permission**                      | **Why Claude Needs This**                                                                                                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sidePanel                           | This lets Claude appear as a panel on the side of your browser, so you can chat with Claude while browsing any website.                                                |
-| storage                             | This lets Claude save your preferences so they're still there when you close and reopen your browser.                                                                  |
-| scripting                           | This lets Claude read text on webpages so it can help you with tasks.                                                                                                  |
-| debugger                            | This is what allows Claude to actually control your browser – clicking buttons, typing text, and taking screenshots – when you ask it to complete tasks for you.       |
-| tabGroups                           | This lets Claude organize tabs it opens into a separate group with a different color, so you can easily tell which tabs Claude is using versus your personal browsing. |
-| tabs                                | This lets Claude open, close, and switch between browser tabs when completing tasks for you.                                                                           |
-| alarms                              | This lets Claude run scheduled tasks at specific times you choose – like checking something on a website at a set time every day.                                      |
-| notifications                       | This lets Claude send you a notification on your computer when it finishes a task or needs you to take action.                                                         |
-| system.display                      | This lets Claude know the size of your screen so it can accurately click in the right places when automating tasks.                                                    |
-| webNavigation                       | This lets Claude intervene if it detects that you are on a high-risk website.                                                                                          |
-| declarativeNetRequestWithHostAccess | This lets the extension identify itself to Anthropic's servers, helping us understand how the browser extension is being used and troubleshoot any issues.             |
-| offscreen                           | This lets Claude play notification sounds in the background when your attention is needed.                                                                             |
-| nativeMessaging                     | This will let the extension seamlessly integrate with other Anthropic products on your computer like Claude Desktop or Claude Code once we enable that capability.     |
-| downloads                           | This lets Claude download files from websites and open them when you ask it to save or work with files as part of an automated workflow.                               |
-| unlimitedStorage                    | This lets Claude store more data locally (like complex instructions for a detailed workflow) beyond the normal limits that Chrome sets for extensions.                 |
+| **Permission** | **Why Claude Needs This** |
+| --- | --- |
+| sidePanel | This lets Claude appear as a panel on the side of your browser, so you can chat with Claude while browsing any website. |
+| storage | This lets Claude save your preferences so they're still there when you close and reopen your browser. |
+| scripting | This lets Claude read text on webpages so it can help you with tasks. |
+| debugger | This is what allows Claude to actually control your browser – clicking buttons, typing text, and taking screenshots – when you ask it to complete tasks for you. |
+| tabGroups | This lets Claude organize tabs it opens into a separate group with a different color, so you can easily tell which tabs Claude is using versus your personal browsing. |
+| tabs | This lets Claude open, close, and switch between browser tabs when completing tasks for you. |
+| alarms | This lets Claude run scheduled tasks at specific times you choose – like checking something on a website at a set time every day. |
+| notifications | This lets Claude send you a notification on your computer when it finishes a task or needs you to take action. |
+| system.display | This lets Claude know the size of your screen so it can accurately click in the right places when automating tasks. |
+| webNavigation | This lets Claude intervene if it detects that you are on a high-risk website. |
+| declarativeNetRequestWithHostAccess | This lets the extension identify itself to Anthropic's servers, helping us understand how the browser extension is being used and troubleshoot any issues. |
+| offscreen | This lets Claude play notification sounds in the background when your attention is needed. |
+| nativeMessaging | This will let the extension seamlessly integrate with other Anthropic products on your computer like Claude Desktop or Claude Code once we enable that capability. |
+| downloads | This lets Claude download files from websites and open them when you ask it to save or work with files as part of an automated workflow. |
+| unlimitedStorage | This lets Claude store more data locally (like complex instructions for a detailed workflow) beyond the normal limits that Chrome sets for extensions. |
 
 Refer to the **[Google Chrome Permissions documentation](https://developer.chrome.com/docs/extensions/reference/permissions-list)** for more information.
 

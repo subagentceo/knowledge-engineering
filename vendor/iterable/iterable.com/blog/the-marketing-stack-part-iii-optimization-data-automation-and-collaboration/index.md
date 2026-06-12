@@ -1,3 +1,5 @@
+# The Marketing Stack Part III: Optimization, Data, Automation and Collaboration - Iterable
+
 ## The Marketing Stack Part III: Optimization, Data, Automation and Collaboration
 
 **Published by**
@@ -6,7 +8,7 @@ August 31, 2015
 
 ![](https://iterable.com/wp-content/uploads/2026/04/MT.jpg)
 
-This is the third post in our Marketing Stack series. In the first post we introduced our [marketing stack](https://iterable.com/blog/growth-marketing-stack/) and in the second post we went into more detail on [user acquisition and user engagement](https://iterable.com/blog/marketing-stack-user-acquisition-and-engagement/).
+This is the third post in our Marketing Stack series. In the first post we introduced our marketing stack and in the second post we went into more detail on user acquisition and user engagement.
 
 In this post we are going to do a brief overview of the remaining layers and then start laying the foundation for our growth marketing framework.
 
@@ -57,9 +59,9 @@ However, we felt it was worth calling out because new collaboration platforms ha
 
 This concludes our functional overview of the Iterable Marketing Stack. But this leads us to the more interesting parts of our framework and analysis. As mentioned in the first post, our ultimate goal is to explore:
 
--   How the different tools fit together.
--   What areas can best drive growth (and how).
--   How a company’s stack evolves as they grow in size and sophistication.
+*   How the different tools fit together.
+*   What areas can best drive growth (and how).
+*   How a company’s stack evolves as they grow in size and sophistication.
 
 We’ve covered a good portion of the first bullet point and we’ll now embark on the second and third points.
 

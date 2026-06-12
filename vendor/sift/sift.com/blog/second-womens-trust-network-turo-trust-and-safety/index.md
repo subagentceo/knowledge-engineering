@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# 3 Things We Learned at the Women’s Trust Network Event
+
+Home/Blog
 
 Explore AI Summary
 
@@ -24,20 +26,20 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F&title=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event)
--   [](https://twitter.com/intent/tweet?text=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event&url=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F&picture=&title=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event)
--   [](/cdn-cgi/l/email-protection#2c135f594e46494f58111f091e1c784445424b5f091e1c7b49091e1c60494d5e424948091e1c4d58091e1c584449091e1c7b4341494209691e09141c0915155f091e1c785e595f58091e1c6249585b435e47091e1c695a4942580a0f1c1f14174e434855114458585c5f091f6d091e6a091e6a5f454a58024f4341091e6a4e40434b091e6a5f494f434248015b434149425f01585e595f58014249585b435e470158595e4301585e595f58014d4248015f4d4a495855091e6a)
+*   
+*   
+*   
+*   
 
--   [Digital Trust](https://sift.com/blog/category/digital-trust/)
+*   Digital Trust
 
 # 3 Things We Learned at the Women’s Trust Network Event
 
-Working in Trust & Safety can be a lonely experience — doubly so for women in the space. That’s why we were proud to sponsor…
+Working in Trust & Safety can be a lonely experience — doubly so for women in the space. That’s why we were proud to…
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+Sift Trust and Safety Team
 
 May 8, 2019
 
@@ -53,15 +55,15 @@ Here are three things we learned at the event.
 
 ![](https://dev-sift.pantheonsite.io/app/uploads/2019/05/Image-from-iOS-2.jpg)
 
-### **1) Having mentors is crucial to success.**
+### 1) Having mentors is crucial to success.
 
 A good mentor — often a manager, but not necessarily — can help take your career to the next level. At the WTN event, attendees shared the importance of connecting with mentors and getting advice from other women in the space. Because there’s a dearth of women in Trust & Safety leadership, attendees mentioned that mentorship can come from anywhere. They suggested that people remain open to unconventional or surprising sources of mentorship and guidance.
 
-### **2) Small teams can mean big challenges.**
+### 2) Small teams can mean big challenges.
 
 Many attendees said that they work on small teams, or even teams of one. That means it’s sometimes difficult to get work done… and that they have to fight harder to get much-needed resources. Attendees agreed that they often don’t get the resources they need until some catastrophic event like a fraud attack. Many suggested asking your peers for advice on working effectively on a small team.
 
-### **3) Connecting with other women is paramount.**
+### 3) Connecting with other women is paramount.
 
 There’s no denying it: this field is dominated by men. This presents some unique challenges for women in the Trust & Safety space. It’s important for women to connect and share best practices to navigate this obstacle course. Most attendees cited the importance of events like the Women’s Trust Network to build bridges and share knowledge.
 
@@ -69,80 +71,80 @@ So, stay tuned — there are more great events to come!
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F&title=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event)
--   [](https://twitter.com/intent/tweet?text=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event&url=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fsecond-womens-trust-network-turo-trust-and-safety%2F&picture=&title=3%20Things%20We%20Learned%20at%20the%20Women%E2%80%99s%20Trust%20Network%20Event)
--   [](/cdn-cgi/l/email-protection#98a7ebedfaf2fdfbeca5abbdaaa8ccf0f1f6ffebbdaaa8cffdbdaaa8d4fdf9eaf6fdfcbdaaa8f9ecbdaaa8ecf0fdbdaaa8cff7f5fdf6bdddaabda0a8bda1a1ebbdaaa8cceaedebecbdaaa8d6fdeceff7eaf3bdaaa8ddeefdf6ecbebba8aba0a3faf7fce1a5f0ecece8ebbdabd9bdaadebdaadeebf1feecb6fbf7f5bdaadefaf4f7ffbdaadeebfdfbf7f6fcb5eff7f5fdf6ebb5eceaedebecb5f6fdeceff7eaf3b5ecedeaf7b5eceaedebecb5f9f6fcb5ebf9fefdece1bdaade)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

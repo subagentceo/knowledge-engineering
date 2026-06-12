@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Audience
@@ -96,9 +96,9 @@ You control the behavior of the inclusion criteria with the checkbox `Don't enfo
 variant`. The images below illustrate the evaluation logic for sticky
 assignment with and without this checkbox checked.
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/sticky-assignment.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=ae70b7635475e93285ca0efa022e599e" alt="" width="6776" height="1932" data-path="images/sticky-assignment.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/sticky-assignment.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=fbebb5ed81183e101b4ef9a115d97bcb" alt="" width="6776" height="1932" data-path="images/sticky-assignment.png" />
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/sticky-assignment-no-inc.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=ae121c4fe9ec45aa9cf969a3d89aa9c8" alt="" width="6798" height="1964" data-path="images/sticky-assignment-no-inc.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/sticky-assignment-no-inc.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=e000b8809ee38d99341dae6390893e65" alt="" width="6798" height="1964" data-path="images/sticky-assignment-no-inc.png" />
 
 You can use sticky assignment with the sidecar resolver by hosting your own sticky assignment table. Read more about the [sidecar resolver](/docs/how-to-guides/setup-local-resolver).
 

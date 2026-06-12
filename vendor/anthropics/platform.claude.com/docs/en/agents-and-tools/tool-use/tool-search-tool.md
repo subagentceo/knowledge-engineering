@@ -205,13 +205,13 @@ const response = await client.messages.create({
   messages: [
     {
       role: "user",
-      content: "What is the weather in San Francisco?",
-    },
+      content: "What is the weather in San Francisco?"
+    }
   ],
   tools: [
     {
       type: "tool_search_tool_regex_20251119",
-      name: "tool_search_tool_regex",
+      name: "tool_search_tool_regex"
     },
     {
       name: "get_weather",
@@ -222,12 +222,12 @@ const response = await client.messages.create({
           location: { type: "string" },
           unit: {
             type: "string",
-            enum: ["celsius", "fahrenheit"],
-          },
+            enum: ["celsius", "fahrenheit"]
+          }
         },
-        required: ["location"],
+        required: ["location"]
       },
-      defer_loading: true,
+      defer_loading: true
     },
     {
       name: "search_files",
@@ -238,14 +238,14 @@ const response = await client.messages.create({
           query: { type: "string" },
           file_types: {
             type: "array",
-            items: { type: "string" },
-          },
+            items: { type: "string" }
+          }
         },
-        required: ["query"],
+        required: ["query"]
       },
-      defer_loading: true,
-    },
-  ],
+      defer_loading: true
+    }
+  ]
 });
 
 console.log(response);
@@ -438,7 +438,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 2048,
@@ -640,9 +640,7 @@ When Claude uses the tool search tool, the response includes new block types:
       "tool_use_id": "srvtoolu_01ABC123",
       "content": {
         "type": "tool_search_tool_search_result",
-        "tool_references": [
-          { "type": "tool_reference", "tool_name": "get_weather" }
-        ]
+        "tool_references": [{ "type": "tool_reference", "tool_name": "get_weather" }]
       }
     },
     {
@@ -841,7 +839,7 @@ You can include the tool search tool in the [Messages Batches API](/docs/en/buil
 - **Maximum tools:** 10,000 tools in your catalog
 - **Search results:** Returns 3-5 most relevant tools per search
 - **Pattern length:** Maximum 200 characters for regex patterns
-- **Model support:** [Claude Mythos Preview](https://anthropic.com/glasswing), Sonnet 4.0+, Opus 4.0+, Haiku 4.5+
+- **Model support:** Claude Fable 5, Claude Mythos 5, [Claude Mythos Preview](https://anthropic.com/glasswing), Sonnet 4.0+, Opus 4.0+, Haiku 4.5+
 
 ### When to use tool search
 

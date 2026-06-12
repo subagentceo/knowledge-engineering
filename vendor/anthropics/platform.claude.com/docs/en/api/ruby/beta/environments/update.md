@@ -13,26 +13,32 @@ Update an existing environment's configuration.
 - `config: BetaCloudConfigParams | BetaSelfHostedConfigParams`
 
   Updated environment configuration
+
   - `class BetaCloudConfigParams`
 
     Request params for `cloud` environment configuration.
 
     Fields default to null; on update, omitted fields preserve the
     existing value.
+
     - `type: :cloud`
 
       Environment type
+
       - `:cloud`
 
     - `networking: BetaUnrestrictedNetwork | BetaLimitedNetworkParams`
 
       Network configuration policy. Omit on update to preserve the existing value.
+
       - `class BetaUnrestrictedNetwork`
 
         Unrestricted network access.
+
         - `type: :unrestricted`
 
           Network policy type
+
           - `:unrestricted`
 
       - `class BetaLimitedNetworkParams`
@@ -41,9 +47,11 @@ Update an existing environment's configuration.
 
         Fields default to null; on update, omitted fields preserve the
         existing value.
+
         - `type: :limited`
 
           Network policy type
+
           - `:limited`
 
         - `allow_mcp_servers: bool`
@@ -63,6 +71,7 @@ Update an existing environment's configuration.
       Specify packages (and optionally their versions) available in this environment.
 
       When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
       - `apt: Array[String]`
 
         Ubuntu/Debian packages to install
@@ -90,14 +99,17 @@ Update an existing environment's configuration.
       - `type: :packages`
 
         Package configuration type
+
         - `:packages`
 
   - `class BetaSelfHostedConfigParams`
 
     Request params for `self_hosted` environment configuration.
+
     - `type: :self_hosted`
 
       Environment type
+
       - `:self_hosted`
 
 - `description: String`
@@ -115,6 +127,7 @@ Update an existing environment's configuration.
 - `scope: :organization | :account`
 
   The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
   - `:organization`
 
   - `:account`
@@ -122,9 +135,11 @@ Update an existing environment's configuration.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -177,16 +192,19 @@ Update an existing environment's configuration.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: String`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: String`
 
@@ -195,23 +213,29 @@ Update an existing environment's configuration.
   - `config: BetaCloudConfig | BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork`
 
           Unrestricted network access.
+
           - `type: :unrestricted`
 
             Network policy type
+
             - `:unrestricted`
 
         - `class BetaLimitedNetwork`
 
           Limited network access.
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -227,11 +251,13 @@ Update an existing environment's configuration.
           - `type: :limited`
 
             Network policy type
+
             - `:limited`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: Array[String]`
 
           Ubuntu/Debian packages to install
@@ -259,19 +285,23 @@ Update an existing environment's configuration.
         - `type: :packages`
 
           Package configuration type
+
           - `:packages`
 
       - `type: :cloud`
 
         Environment type
+
         - `:cloud`
 
     - `class BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
+
       - `type: :self_hosted`
 
         Environment type
+
         - `:self_hosted`
 
   - `created_at: String`
@@ -293,6 +323,7 @@ Update an existing environment's configuration.
   - `type: :environment`
 
     The type of object (always 'environment')
+
     - `:environment`
 
   - `updated_at: String`
@@ -302,6 +333,7 @@ Update an existing environment's configuration.
   - `scope: :organization | :account`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `:organization`
 
     - `:account`
@@ -328,16 +360,31 @@ puts(beta_environment)
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

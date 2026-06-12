@@ -29,7 +29,6 @@ Style guide to follow for contributing to Cloudflare docs.
 - [Details](https://developers.cloudflare.com/style-guide/components/details/index.md): Create collapsible content sections.
 - [Directory listing](https://developers.cloudflare.com/style-guide/components/directory-listing/index.md): Auto-generate listings of child pages.
 - [Example](https://developers.cloudflare.com/style-guide/components/example/index.md): Highlight example content in a styled block.
-- [External resources](https://developers.cloudflare.com/style-guide/components/external-resources/index.md): Display links to external learning resources.
 - [Feature](https://developers.cloudflare.com/style-guide/components/feature/index.md): Display a feature card on overview pages.
 - [Feature table](https://developers.cloudflare.com/style-guide/components/feature-table/index.md): Display feature availability by plan in a table.
 - [File tree](https://developers.cloudflare.com/style-guide/components/file-tree/index.md): Display a file and directory tree structure.
@@ -62,12 +61,10 @@ Style guide to follow for contributing to Cloudflare docs.
 - [TypeScript example](https://developers.cloudflare.com/style-guide/components/typescript-example/index.md): Show TypeScript and auto-transpiled JavaScript tabs.
 - [Usage](https://developers.cloudflare.com/style-guide/components/usage/index.md): Guidelines for using components in documentation.
 - [Width](https://developers.cloudflare.com/style-guide/components/width/index.md): Constrain content width for layout control.
-- [WranglerCLI](https://developers.cloudflare.com/style-guide/components/wrangler-cli/index.md): Display Wrangler CLI command documentation.
 - [WranglerCommand](https://developers.cloudflare.com/style-guide/components/wrangler-command/index.md): Display a single Wrangler command with details.
 - [WranglerConfig](https://developers.cloudflare.com/style-guide/components/wrangler-config/index.md): Display Wrangler config in TOML and JSON tabs.
 - [WranglerNamespace](https://developers.cloudflare.com/style-guide/components/wrangler-namespace/index.md): Display Wrangler command namespace documentation.
 - [YouTube](https://developers.cloudflare.com/style-guide/components/youtube/index.md): Embed a YouTube video by ID.
-- [YouTube Videos](https://developers.cloudflare.com/style-guide/components/youtube-videos/index.md): Embed multiple YouTube videos in a grid.
 
 ## Product docs content strategy
 
@@ -121,7 +118,6 @@ Style guide to follow for contributing to Cloudflare docs.
 - [Banner](https://developers.cloudflare.com/style-guide/frontmatter/banner/index.md): How to display a banner at the top of the page and when to use it.
 - [Custom properties](https://developers.cloudflare.com/style-guide/frontmatter/custom-properties/index.md): Configure custom frontmatter properties.
 - [Sidebar](https://developers.cloudflare.com/style-guide/frontmatter/sidebar/index.md): Configuring how folders and pages appear in the sidebar.
-- [Tags](https://developers.cloudflare.com/style-guide/frontmatter/tags/index.md): Use validated tags in documentation frontmatter.
 
 ## API docs content strategy
 

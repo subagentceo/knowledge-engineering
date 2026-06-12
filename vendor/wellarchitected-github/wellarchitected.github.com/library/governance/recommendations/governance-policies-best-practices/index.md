@@ -1,39 +1,37 @@
-[Content Library](/library/)
+# GitHub Enterprise Policies & Best Practices
 
-[📜 Governance](/library/governance/)
+Libraries
 
-[Recommendations](/library/governance/recommendations/)
+Governance
+
+Recommendations
 
 GitHub Enterprise Policies & Best Practices
 
 # GitHub Enterprise Policies & Best Practices
 
-Abhishek Dutta·[@abhi-dutta](https://github.com/abhi-dutta)
+Abhishek Dutta·@abhi-dutta
 
 July 29, 2024
 
-|
-
-Updated April 10, 2026
-
-## Scenario overview[](#scenario-overview)
+## Scenario overview
 
 Adopting GitHub’s general platform best practices is crucial for effectively managing software development projects. These practices provide a structured framework that ensures projects are secure, maintainable, and scalable. By fostering a collaborative and efficient environment, these guidelines help organizations avoid common pitfalls, maintain high-quality codebases, and streamline project workflows. Ultimately, adhering to these best practices leads to successful and sustainable software projects.
 
-For enterprise governance architecture decisions — including structural components, user access models, organization strategies, enterprise policies, billing, repository governance, teams and roles, programmatic access, and audit logs — use the companion guide [Essentials of governance and administration with GitHub Enterprise](/library/governance/recommendations/governance-administration-essentials/). This article remains focused on high-impact policy guardrails.
+For enterprise governance architecture decisions — including structural components, user access models, organization strategies, enterprise policies, billing, repository governance, teams and roles, programmatic access, and audit logs — use the companion guide Essentials of governance and administration with GitHub Enterprise. This article remains focused on high-impact policy guardrails.
 
 For additional topic-specific guidance, see also:
 
--   [Repository rulesets best practices](/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/)
--   [Custom properties best practices](/library/governance/recommendations/managing-repositories-at-scale/custom-properties-best-practices/)
+*   Repository rulesets best practices
+*   Custom properties best practices
 
-## Key design strategies and checklist[](#key-design-strategies-and-checklist)
+## Key design strategies and checklist
 
 Use these key strategies as a baseline to implement GitHub’s best practices for governance:
 
-1.  [Restrict Actions execution to specific repositories](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization) and not let repo users and owners to arbitrarily create and execute actions workflow. Set this at the **Organization level**.
+1.  Restrict Actions execution to specific repositories and not let repo users and owners to arbitrarily create and execute actions workflow. Set this at the **Organization level**.
     
-2.  [Use Actions created by GitHub](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions) and Verified Creators **wherever applicable**. This settings can be enforced at **Enterprise level**.
+2.  Use Actions created by GitHub and Verified Creators **wherever applicable**. This settings can be enforced at **Enterprise level**.
     
 3.  Default Workflow token permission should be **read-only**: Following the principle of least privilege, it is recommended to set the default workflow token permissions to read-only. Default is read/write, which should be avoided because if a token is compromised, malicious actors can run exploits within the GitHub platform through actions execution.
     
@@ -53,49 +51,49 @@ Use these key strategies as a baseline to implement GitHub’s best practices fo
      
 11.  Webhooks should be configured to **use SSL**.
      
-12.  Always use **Repository Rulesets** with fine grained policy enforcements around checks needing pull request review, required checks, and leverage protected branches. ![image1](image1.png)
+12.  Always use **Repository Rulesets** with fine grained policy enforcements around checks needing pull request review, required checks, and leverage protected branches. ![image1](.././assets/image1.png)
      
 13.  **Define CODEOWNERS**: To protect a repository against unauthorized changes, you also need to define owners using a `CODEOWNERS` file. The most secure method is to define a `CODEOWNERS` file in the `.github` directory of the repository and define the repository owner as the owner of either the `CODEOWNERS` file (`/.github/CODEOWNERS @owner_username`) or the whole directory (`/.github/ @owner_username`).
      
 14.  Initiate and impose **commit signing** whenever possible. This will deter malicious actors from creating a commit with malicious code and help prevent a possible supply chain attack.
      
-     > **Note:** Copilot cloud agent signs its commits automatically. For broader agent governance guidance, see [Governing agents in GitHub Enterprise](/library/governance/recommendations/governing-agents/)
+     > **Note:** Copilot cloud agent signs its commits automatically. For broader agent governance guidance, see Governing agents in GitHub Enterprise
      
 15.  **Bypass of rulesets should not be allowed** under the Repository Ruleset configuration. Enforcing policies around repo ruleset is designed for a reason and allowing users to bypass rulesets might allow an attacker to gain access as a user who is allowed to bypass ruleset and compromise the integrity of the codebase.
      
 16.  **Runner groups should be limited** to a select number of repositories. Configuring a runner group for all repositories can expose vulnerabilities or allow malicious actors to exploit misconfigured runners. Additionally, maintaining runner groups for specific repositories ensures that self-hosted runners are used for their intended specialized workloads. Granting access to everyone in the organization can lead to wasting resources on unnecessary execution tasks.
      
-17.  **Bypass Push Protection:** By default, anyone with write access can bypass a commit blockage due to protection. Considering the criticality of leaked secrets, it is recommended to have bypass capability limited to spefic roles and teams. ![image2](image2.png)
+17.  **Bypass Push Protection:** By default, anyone with write access can bypass a commit blockage due to protection. Considering the criticality of leaked secrets, it is recommended to have bypass capability limited to spefic roles and teams. ![image2](.././assets/image2.png)
      
 18.  **Audit log streaming** is often overlooked by enterprises when implementing GitHub. Streaming audit logs from GitHub is crucial for monitoring platform usage trends. The extensive data captured in these logs provides valuable insights into potential unwanted activities occurring on the platform.
      
 
-## Seeking further assistance[](#seeking-further-assistance)
+## Seeking further assistance
 
-### GitHub Support[](#github-support)
+### GitHub Support
 
-Visit the [GitHub Support Portal](https://support.github.com/) for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
+Visit the GitHub Support Portal for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
 
-Can’t find what you’re looking for? You can contact GitHub Support by [opening a ticket](https://support.github.com/contact).
+Can’t find what you’re looking for? You can contact GitHub Support by opening a ticket.
 
-### GitHub Expert Services[](#github-expert-services)
+### GitHub Expert Services
 
-GitHub’s [Expert Services Team](https://github.com/services) is here to help you architect, implement, and optimize a solution that meets your unique needs. [Contact us](https://github.com/services#services-contact) to learn more about how we can help you.
+GitHub’s Expert Services Team is here to help you architect, implement, and optimize a solution that meets your unique needs. Contact us to learn more about how we can help you.
 
-### GitHub Partners[](#github-partners)
+### GitHub Partners
 
-GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs [here](https://portal.github.partners/#/page/directory).
+GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs here.
 
-### GitHub Community[](#github-community)
+### GitHub Community
 
-Join the [GitHub Community Forum](https://github.com/orgs/community/discussions?discussions_q=label%3A%22GitHub+Well-Architected%22) to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
+Join the GitHub Community Forum to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
 
-## Related links[](#related-links)
+## Related links
 
-### GitHub Documentation[](#github-documentation)
+### GitHub Documentation
 
-For more details about GitHub’s features and services, check out [GitHub Documentation](https://docs.github.com/).
+For more details about GitHub’s features and services, check out GitHub Documentation.
 
-Last updated on April 10, 2026
+Last updated on July 29, 2024
 
-[Governing agents in GitHub Enterprise](/library/governance/recommendations/governing-agents/ "Governing agents in GitHub Enterprise")
+Governing agents in GitHub EnterpriseGoverning agentic workflows with gh-aw and APM

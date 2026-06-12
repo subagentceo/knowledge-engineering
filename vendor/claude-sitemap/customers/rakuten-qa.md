@@ -1,0 +1,19 @@
+# Inside Rakuten's plan to turn every employee into a builder with Claude Managed Agents
+
+Rakuten is a global technology company with over 70 businesses spanning e-commerce, travel, fintech, digital content, and communications. As part of its company-wide "AI-nization" strategy, the company moved from using Claude Code to accelerate software development to building AI agents that work alongside employees in every business function. Yusuke Kaji, General Manager of AI for Business at Rakuten, spoke with Anthropic about why the team adopted Claude Managed Agents, what it took to go from experiment to production, and what changes when employees start delegating outcomes to agents instead of tasks. The following conversation has been edited for length and clarity.
+
+## Your team invested early in building agentic infrastructure from scratch. What changed when you started using Claude Managed Agents?
+
+**Yusuke Kaji, Rakuten:** When you are at the frontier, you are often solving problems that have no prior art. We had a strong hunch early on that agents would need persistent compute, memory, and storage to move beyond chat-based AI interaction. That turned out to be exactly the right bet. Our engineers invested significant effort into the infrastructure needed to make our agents reliable and scalable. That was the right call at the time, because no one else had done it before.
+
+Now managing the agent execution layer is not our core objective. With Managed Agents now handling scalability and reliability, that same engineering talent can be redirected toward what actually differentiates us: the agentic experience itself, and the safe, governed integration of agents with corporate systems. We see value in accomplishing things in a week rather than a year. The world will not wait for us.
+
+## Rakuten's company-wide AI strategy accelerated with Claude Code. What made agents across the whole company the next step?
+
+**Kaji:** From day one, we clearly saw the potential of Claude Code as a new way to work beyond engineering. We understand that technical innovation starts with a small group of users and then quickly scales to change the world. We see the agent as the next wave of that pattern.
+
+With Managed Agents, our power users become like Galileo, contributing across domains far beyond a single specialty or discipline. We deploy each specialist agent within a week, managing long-running tasks across engineering, product, sales, marketing, and finance, generating apps, proposal decks, and spreadsheets in sandboxed environments. As agents become more capable, Managed Agents lets us scale safely without building agentic infrastructure ourselves, so we can focus entirely on democratizing innovation across the company.
+
+In practice, we integrate agents with Slack, Microsoft Teams, and our own Kanban-style task system, where users create and assign tasks to agents. The workspace and artifacts are shared with colleagues. Managed Agents' support for multiple environments lets us create separate workspaces for each of these use cases.
+
+We learned we can get things done anywhere, particularly from our mobile devices. Information density tends to be sparse in written communication. By natively supporting mobile, we use voice to communicate with agents, capturing more detail about the problem we want to solve while assigning tasks on the go. We see this as especially encouraging because we have Rakuten Mobile as a mobile communications business. We democratized the telecom industry, and now, using this mobile network, we can democratize innovation with AI agents.

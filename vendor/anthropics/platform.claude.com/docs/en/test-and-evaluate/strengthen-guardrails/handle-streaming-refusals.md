@@ -34,13 +34,13 @@ No additional refusal message is included. You must handle the response and prov
 When you receive **`stop_reason`: `refusal`**, you must reset the conversation context before continuing. You can remove or rephrase the turn that triggered the refusal, or clear the conversation history entirely. Attempting to continue without resetting will result in continued refusals.
 
 <Note>
-Usage metrics are still provided in the response for billing purposes, even when the response is refused.
+Usage metrics are still provided in the response, even when the response is refused.
 
-You will be billed for output tokens up until the refusal.
+When a refusal arrives before Claude generates any output, you are not billed for the request on the Claude API, and the usage counts in that response are informational only. When Claude generates output before the refusal, you are billed for that request.
 </Note>
 
 <Tip>
-If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
+If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1 ([deprecated](/docs/en/about-claude/model-deprecations)), you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
 </Tip>
 
 ## Implementation guide
@@ -62,15 +62,11 @@ response=$(curl -N https://api.anthropic.com/v1/messages \
   }')
 
 # Check for refusal in the stream
-
 if echo "$response" | grep -q '"stop_reason":"refusal"'; then
-echo "Response refused - resetting conversation context"
-
-# Reset your conversation state here
-
+  echo "Response refused - resetting conversation context"
+  # Reset your conversation state here
 fi
-
-````
+```
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -100,7 +96,7 @@ try:
                     break
 except Exception as e:
     print(f"Error: {e}")
-````
+```
 
 ```typescript TypeScript nocheck hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
@@ -118,15 +114,12 @@ try {
   const stream = await client.messages.stream({
     messages: [...messages, { role: "user", content: "Hello" }],
     model: "claude-opus-4-8",
-    max_tokens: 1024,
+    max_tokens: 1024
   });
 
   for await (const event of stream) {
     // Check for refusal in message delta
-    if (
-      event.type === "message_delta" &&
-      event.delta.stop_reason === "refusal"
-    ) {
+    if (event.type === "message_delta" && event.delta.stop_reason === "refusal") {
       resetConversation();
       break;
     }
@@ -279,7 +272,7 @@ void resetConversation() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [];
 
 function resetConversation(&$messages) {
@@ -337,18 +330,17 @@ rescue => e
   puts "Error: #{e.message}"
 end
 ```
-
 </CodeGroup>
 
 ## Current refusal types
 
 The API currently handles refusals in three different ways:
 
-| Refusal Type                       | Response Format              | When It Occurs                                  |
-| ---------------------------------- | ---------------------------- | ----------------------------------------------- |
-| Streaming classifier refusals      | **`stop_reason`: `refusal`** | During streaming when content violates policies |
-| API input and copyright validation | 400 error codes              | When input fails validation checks              |
-| Model-generated refusals           | Standard text responses      | When the model itself decides to refuse         |
+| Refusal Type | Response Format | When It Occurs |
+|-------------|----------------|----------------|
+| Streaming classifier refusals | **`stop_reason`: `refusal`** | During streaming when content violates policies |
+| API input and copyright validation | 400 error codes | When input fails validation checks |
+| Model-generated refusals | Standard text responses | When the model itself decides to refuse |
 
 <Note>
 Future API versions will expand the **`stop_reason`: `refusal`** pattern to unify refusal handling across all types.

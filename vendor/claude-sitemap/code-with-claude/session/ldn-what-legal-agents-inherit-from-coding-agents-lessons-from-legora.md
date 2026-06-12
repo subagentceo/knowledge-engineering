@@ -2,6 +2,28 @@
 
 Three patterns shaped Legora's legal-AI agent: what they could reuse from coding agents, what they had to translate, and what they had to invent. Hear Staff Software Engineer Jakob Emmerling share how Legora rebuilt document editing, linting, and bulk review around coding-agent principles and see the agent live.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+16:05 – 16:35
+
+Speaker(s)
+
+Jakob Emmerling
+
+Staff Software Engineer,
+
+Legora
+
 ## Watch recording
 
 Play videoPlay video

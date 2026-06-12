@@ -1,10 +1,12 @@
-[Home](https://sift.com)/Developer Overview
+# Developer tools
+
+Home/Developer Overview
 
 # Developer tools
 
 Integrate the Sift Platform through open, accessible, and easy-to-understand API documentation.
 
-[see sift in action](/demo/)
+see sift in action
 
 ![pettern](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20684%20460'%3E%3C/svg%3E)
 
@@ -30,13 +32,11 @@ Learn how to create custom events, send historical data, fight multiple types of
 
 See what Michael Widell has to say about the ease of integrating Sift at the Nordic API conference.
 
-[](https://www.youtube.com/embed/UhSFpyMKOx4?si=U_6uunQa-atveDC0)
-
 ### Engineering blog
 
 Learn more about the engineering teams at Sift and get updates on what we’re working on.
 
-[READ THE BLOG](/blog/)
+READ THE BLOG
 
 ![blog](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3C/svg%3E)
 
@@ -46,4 +46,4 @@ Learn more about the engineering teams at Sift and get updates on what we’re w
 
 We’re building the largest digital trust network for online businesses and consumers. Join us on our journey alongside the brightest fraud fighters in the industry.
 
-[WORK WITH US](/careers/)
+WORK WITH US

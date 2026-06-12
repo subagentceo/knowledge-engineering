@@ -13,7 +13,9 @@ Future models and features will not be compatible with Text Completions. See our
 ### Parameters
 
 - `CompletionCreateParams = CompletionCreateParamsNonStreaming | CompletionCreateParamsStreaming`
+
   - `CompletionCreateParamsBase`
+
     - `max_tokens_to_sample: number`
 
       Body param: The maximum number of tokens to generate before stopping.
@@ -25,7 +27,17 @@ Future models and features will not be compatible with Text Completions. See our
       Body param: The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-8" | "claude-opus-4-7" | "claude-mythos-preview" | 15 more`
+
+      - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 17 more`
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"`
 
           Frontier intelligence for long-running agents and coding
@@ -112,9 +124,9 @@ Future models and features will not be compatible with Text Completions. See our
 
       ```
       "
-
+      
       Human: {userQuestion}
-
+      
       Assistant:"
       ```
 
@@ -123,6 +135,7 @@ Future models and features will not be compatible with Text Completions. See our
     - `metadata?: Metadata`
 
       Body param: An object describing metadata about the request.
+
       - `user_id?: string | null`
 
         An external identifier for the user who is associated with the request.
@@ -142,6 +155,7 @@ Future models and features will not be compatible with Text Completions. See our
       Body param: Whether to incrementally stream the response using server-sent events.
 
       See [streaming](https://docs.claude.com/en/api/streaming) for details.
+
       - `false`
 
     - `temperature?: number`
@@ -171,9 +185,11 @@ Future models and features will not be compatible with Text Completions. See our
     - `betas?: Array<AnthropicBeta>`
 
       Header param: Optional header to specify the beta version(s) you want to use.
+
       - `(string & {})`
 
-      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
         - `"message-batches-2024-09-24"`
 
         - `"prompt-caching-2024-07-31"`
@@ -226,9 +242,12 @@ Future models and features will not be compatible with Text Completions. See our
 
         - `"thinking-token-count-2026-05-13"`
 
-        - `"mid-conversation-system-2026-04-07"`
+        - `"server-side-fallback-2026-06-01"`
+
+        - `"fallback-credit-2026-06-01"`
 
   - `CompletionCreateParamsNonStreaming extends CompletionCreateParamsBase`
+
     - `stream?: false`
 
       Body param: Whether to incrementally stream the response using server-sent events.
@@ -236,16 +255,19 @@ Future models and features will not be compatible with Text Completions. See our
       See [streaming](https://docs.claude.com/en/api/streaming) for details.
 
   - `CompletionCreateParamsStreaming extends CompletionCreateParamsBase`
+
     - `stream: true`
 
       Body param: Whether to incrementally stream the response using server-sent events.
 
       See [streaming](https://docs.claude.com/en/api/streaming) for details.
+
       - `true`
 
 ### Returns
 
 - `Completion`
+
   - `id: string`
 
     Unique object identifier.
@@ -261,7 +283,17 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8" | "claude-opus-4-7" | "claude-mythos-preview" | 15 more`
+
+    - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 17 more`
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -341,29 +373,31 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
+
     - `"completion"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const completion = await client.completions.create({
   max_tokens_to_sample: 256,
-  model: "claude-2.1",
-  prompt: "\n\nHuman: Hello, world!\n\nAssistant:",
+  model: 'claude-2.1',
+  prompt: '\n\nHuman: Hello, world!\n\nAssistant:',
 });
 
 console.log(completion.id);

@@ -16,20 +16,22 @@ Rahul brings over 20 years of experience building and maintaining industry-leadi
 
 For developers building with Claude, Rahul's appointment signals our commitment to world-class infrastructure and reliability at scale. As part of these changes, Sam McCandlish, one of Anthropic's co-founders and previously CTO, has taken on a new role as Chief Architect. In this role, Sam will deepen his focus on large-scale model training, continuing to lead pretraining while expanding his scope to include research productivity and RL infrastructure.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

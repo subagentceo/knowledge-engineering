@@ -1,7 +1,7 @@
-> This page location: Start with Neon > 3 - Branching
+> This page location: Branching > Branching workflow primer
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of Neon's database branching feature, enabling developers to create isolated data branches quickly for integration into their workflows using the Neon CLI or GitHub actions.
+> Summary: Neon database branching creates isolated Postgres branches in ~1 second, each with its own connection string and a full copy of the parent's schema and data. Use this page when setting up per-developer, per-PR preview, or CI/CD test database environments via the Neon CLI or GitHub Actions. Available GitHub Actions include create-branch, delete-branch, reset-branch, and schema-diff; schema-only branching and automatic branch expiration are also covered.
 
 # Database branching workflow primer
 
@@ -35,7 +35,7 @@ You can use either the Neon CLI or GitHub actions to incorporate branching into 
 
 ### Neon CLI
 
-Using the [Neon CLI](https://neon.com/docs/reference/neon-cli), you can create branches without leaving your editor or automate branch creation in your CI/CD pipeline.
+Using the [Neon CLI](https://neon.com/docs/cli), you can create branches without leaving your editor or automate branch creation in your CI/CD pipeline.
 
 And here are the key CLI actions you can use:
 
@@ -53,7 +53,7 @@ neon branches delete <id|name> [options]
 For more information, see:
 
 - [Branching with the Neon CLI](https://neon.com/docs/guides/branching-neon-cli): Learn about branching with the Neon CLI
-- [Neon CLI Reference](https://neon.com/docs/reference/neon-cli): Reference for all commands in the Neon CLI
+- [Neon CLI Reference](https://neon.com/docs/cli): Reference for all commands in the Neon CLI
 
 ### GitHub Actions
 
@@ -130,9 +130,7 @@ dev/alice             dev/new-onboarding
 
 Whenever you create a pull request, you can create a Neon branch for your preview deployment. This allows you to test your code changes and SQL migrations against production-like data.
 
-**Tip:**
-
-We recommend following this naming convention to identify these branches easily:
+We recommend following this naming convention to identify preview branches easily:
 
 ```bash
 preview/pr-<pull_request_number>-<git_branch_name>
@@ -143,6 +141,10 @@ Example:
 ```bash
 preview/pr-123-feat/new-login-screen
 ```
+
+**Tip: Using Neon Auth?**
+
+[Neon Auth](https://neon.com/docs/auth/overview) is provisioned on preview branches when enabled on production. Each preview gets isolated users, sessions, and auth configuration that branches with the database. Vercel integrations set `NEON_AUTH_BASE_URL` and `VITE_NEON_AUTH_URL` automatically. See [Branching authentication](https://neon.com/docs/auth/branching-authentication) and [Neon-managed Vercel integration](https://neon.com/docs/guides/neon-managed-vercel-integration).
 
 You can also automate branch creation for every preview. These example applications show how to create Neon branches with GitHub Actions for every preview environment.
 
@@ -181,8 +183,12 @@ To prevent branch accumulation and manage resources effectively, you can set bra
 
 ---
 
-## Related docs (Start with Neon)
+## Related docs (Branching)
 
-- [1 - Basics](https://neon.com/docs/get-started/signing-up)
-- [2 - Connect](https://neon.com/docs/get-started/connect-neon)
-- [4 - Setup Neon Auth](https://neon.com/docs/auth/overview)
+- [Get started with branching](https://neon.com/docs/guides/branching-intro)
+- [About branching](https://neon.com/docs/introduction/branching)
+- [Branching workflows](https://neon.com/docs/guides/branching-test-queries)
+- [Branch archiving](https://neon.com/docs/guides/branch-archiving)
+- [Branch expiration](https://neon.com/docs/guides/branch-expiration)
+- [Schema-only branches](https://neon.com/docs/guides/branching-schema-only)
+- [Reset from parent](https://neon.com/docs/guides/reset-from-parent)

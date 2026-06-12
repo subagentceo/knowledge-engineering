@@ -11,6 +11,7 @@ List Agent Versions
 - `agentID: string`
 
 - `params: VersionListParams`
+
   - `limit?: number`
 
     Query param: Maximum results per page. Default 20, maximum 100.
@@ -22,9 +23,11 @@ List Agent Versions
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -77,13 +80,16 @@ List Agent Versions
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
   - `id: string`
 
   - `archived_at: string | null`
@@ -97,9 +103,11 @@ List Agent Versions
   - `description: string | null`
 
   - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
     - `name: string`
 
     - `type: "url"`
+
       - `"url"`
 
     - `url: string`
@@ -109,12 +117,23 @@ List Agent Versions
   - `model: BetaManagedAgentsModelConfig`
 
     Model identifier and configuration.
+
     - `id: BetaManagedAgentsModel`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+
+      - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
+
         - `"claude-opus-4-7"`
 
           Frontier intelligence for long-running agents and coding
@@ -156,6 +175,7 @@ List Agent Versions
     - `speed?: "standard" | "fast"`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
       - `"standard"`
 
       - `"fast"`
@@ -163,28 +183,35 @@ List Agent Versions
   - `multiagent: BetaManagedAgentsMultiagent | null`
 
     Resolved coordinator topology with a concrete agent roster.
+
     - `agents: Array<BetaManagedAgentsAgentReference>`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
+
       - `id: string`
 
       - `type: "agent"`
+
         - `"agent"`
 
       - `version: number`
 
     - `type: "coordinator"`
+
       - `"coordinator"`
 
   - `name: string`
 
   - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
     - `BetaManagedAgentsAnthropicSkill`
 
       A resolved Anthropic-managed skill.
+
       - `skill_id: string`
 
       - `type: "anthropic"`
+
         - `"anthropic"`
 
       - `version: string`
@@ -192,9 +219,11 @@ List Agent Versions
     - `BetaManagedAgentsCustomSkill`
 
       A resolved user-created custom skill.
+
       - `skill_id: string`
 
       - `type: "custom"`
+
         - `"custom"`
 
       - `version: string`
@@ -202,13 +231,17 @@ List Agent Versions
   - `system: string | null`
 
   - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
     - `BetaManagedAgentsAgentToolset20260401`
+
       - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
         - `enabled: boolean`
 
         - `name: "bash" | "edit" | "read" | 5 more`
 
           Built-in agent tool identifier.
+
           - `"bash"`
 
           - `"edit"`
@@ -228,26 +261,33 @@ List Agent Versions
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
+
             - `type: "always_allow"`
+
               - `"always_allow"`
 
           - `BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
             - `type: "always_ask"`
+
               - `"always_ask"`
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
         Resolved default configuration for agent tools.
+
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -257,10 +297,13 @@ List Agent Versions
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
+
         - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
+
       - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
         - `enabled: boolean`
 
         - `name: string`
@@ -268,6 +311,7 @@ List Agent Versions
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -279,11 +323,13 @@ List Agent Versions
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
+
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -295,35 +341,35 @@ List Agent Versions
       - `mcp_server_name: string`
 
       - `type: "mcp_toolset"`
+
         - `"mcp_toolset"`
 
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
       - `description: string`
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+          - `"object"`
+
         - `properties?: Record<string, unknown> | null`
 
-          JSON Schema properties defining the tool's input parameters.
-
-        - `required?: Array<string>`
-
-          List of required property names.
-
-        - `type?: "object"`
-
-          Must be 'object' for tool input schemas.
-          - `"object"`
+        - `required?: Array<string> | null`
 
       - `name: string`
 
       - `type: "custom"`
+
         - `"custom"`
 
   - `type: "agent"`
+
     - `"agent"`
 
   - `updated_at: string`
@@ -337,15 +383,15 @@ List Agent Versions
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsAgent of client.beta.agents.versions.list(
-  "agent_011CZkYpogX7uDKUyvBTophP",
+  'agent_011CZkYpogX7uDKUyvBTophP',
 )) {
   console.log(betaManagedAgentsAgent.id);
 }

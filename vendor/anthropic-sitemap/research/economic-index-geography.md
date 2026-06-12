@@ -14,10 +14,10 @@ That doesn’t mean these are the _most popular_ tasks: software engineering is 
 
 These are statistics we found in our third Anthropic Economic Index report. In this latest installment, we’ve expanded our efforts to document the early patterns of AI adoption that are beginning to reshape work and the economy. We measure how Claude is being used differently…
 
-- **…within the US:** we provide the first-ever detailed assessment of how AI use differs between US states. We find that the composition of states’ economies informs which states use Claude the most per capita – and, surprisingly, that the very highest-use states _aren’t_ the ones where coding dominates.
-- **…across different countries:** our new analysis finds that countries’ use of Claude is strongly correlated with income, and that people in lower-use countries use Claude to automate work _more_ frequently than those in higher-use ones.
-- **…over time:** we compare our latest data with December 2024-January 2025 and February–March 2025. We find that the proportion of ‘directively’ automated tasks increased sharply from 27% to 39%, suggesting a rapid increase in AI’s responsibility (and in users’ trust).
-- **…and by business users:** we now include anonymized data from Anthropic’s first-party API customers (in addition to users of Claude.ai), allowing us to analyze businesses’ interactions for the first time. We find that API users are significantly more likely to automate tasks with Claude than consumers are, which suggests that major labor market implications could be on the horizon.
+*   **…within the US:** we provide the first-ever detailed assessment of how AI use differs between US states. We find that the composition of states’ economies informs which states use Claude the most per capita – and, surprisingly, that the very highest-use states _aren’t_ the ones where coding dominates.
+*   **…across different countries:** our new analysis finds that countries’ use of Claude is strongly correlated with income, and that people in lower-use countries use Claude to automate work _more_ frequently than those in higher-use ones.
+*   **…over time:** we compare our latest data with December 2024-January 2025 and February–March 2025. We find that the proportion of ‘directively’ automated tasks increased sharply from 27% to 39%, suggesting a rapid increase in AI’s responsibility (and in users’ trust).
+*   **…and by business users:** we now include anonymized data from Anthropic’s first-party API customers (in addition to users of Claude.ai), allowing us to analyze businesses’ interactions for the first time. We find that API users are significantly more likely to automate tasks with Claude than consumers are, which suggests that major labor market implications could be on the horizon.
 
 We summarize the report below. In addition, we’ve designed an interactive website where you can explore our data yourself. For the first time, you can search for trends and results in Claude.ai use across every US state and all occupations we track, to see how AI is used where you live or by people in similar jobs. Finally, if you’d like to build on our analysis, we’ve made our dataset openly available, alongside the data from our previous Economic Index reports.
 
@@ -57,7 +57,7 @@ US states’ Claude adoption relative to their working age populations.
 
 ## Trends in Claude use
 
-We’ve been tracking how people use Claude since December 2024. We use a privacy-preserving classification method that categorizes anonymized conversation transcripts into task groups defined by O\*NET, a US government database that classifies jobs and the tasks associated with them.2 By doing this, we can analyze both how the tasks that people give Claude have changed since last year, and how the ways people choose to collaborate—how much oversight and input into Claude’s work they choose to have—have changed too.
+We’ve been tracking how people use Claude since December 2024. We use a privacy-preserving classification method that categorizes anonymized conversation transcripts into task groups defined by O*NET, a US government database that classifies jobs and the tasks associated with them.2 By doing this, we can analyze both how the tasks that people give Claude have changed since last year, and how the ways people choose to collaborate—how much oversight and input into Claude’s work they choose to have—have changed too.
 
 ### Tasks
 
@@ -139,26 +139,22 @@ If you’re interested in working at Anthropic to help build the systems powerin
 
 1. As for Utah, in second: when further investigating Utah’s activity, we discovered that a notable fraction of its use appeared to be associated with indicators of coordinated abuse – which is also reflected in Utah’s much higher “directive” automation score than average. However, we ran robustness checks and believe that this activity is not driving the results.
 
-2. We supplement this with a ‘bottom-up’ task classification in which Claude classifies conversations according to its own taxonomy, in order to address any gaps in the O\*NET categories. The full details of our privacy-preserving analysis methodology are available here.
+2. We supplement this with a ‘bottom-up’ task classification in which Claude classifies conversations according to its own taxonomy, in order to address any gaps in the O*NET categories. The full details of our privacy-preserving analysis methodology are available here.
 
 3. Data in this section covers 1 million transcripts from August 2025, sampled randomly from a pool of 1P API customers constituting roughly half of our 1P API usage. We continue to manage data according to our privacy and retention policies, and our analysis is consistent with our terms, policies, and contractual agreements.
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

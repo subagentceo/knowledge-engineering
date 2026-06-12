@@ -34,29 +34,28 @@ import anthropic
 client = anthropic.Anthropic()
 
 # Initial request with web search
-
 response = client.messages.create(
-model="claude-opus-4-8",
-max_tokens=1024,
-messages=[
-{
-"role": "user",
-"content": "Search for comprehensive information about quantum computing breakthroughs in 2025",
-}
-],
-tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}],
+    model="claude-opus-4-8",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": "Search for comprehensive information about quantum computing breakthroughs in 2025",
+        }
+    ],
+    tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}],
 )
 
 # Check if the response has pause_turn stop reason
-
-if response.stop_reason == "pause_turn": # Continue the conversation with the paused content
-messages = [
-{
-"role": "user",
-"content": "Search for comprehensive information about quantum computing breakthroughs in 2025",
-},
-{"role": "assistant", "content": response.content},
-]
+if response.stop_reason == "pause_turn":
+    # Continue the conversation with the paused content
+    messages = [
+        {
+            "role": "user",
+            "content": "Search for comprehensive information about quantum computing breakthroughs in 2025",
+        },
+        {"role": "assistant", "content": response.content},
+    ]
 
     # Send the continuation request
     continuation = client.messages.create(
@@ -67,11 +66,9 @@ messages = [
     )
 
     print(continuation)
-
 else:
-print(response)
-
-````
+    print(response)
+```
 
 ```typescript TypeScript hidelines={1..4}
 import Anthropic from "@anthropic-ai/sdk";
@@ -132,7 +129,7 @@ async function main() {
 }
 
 main().catch(console.error);
-````
+```
 
 ```csharp C#
 using Anthropic;
@@ -297,7 +294,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->create(
     maxTokens: 1024,
@@ -402,11 +399,9 @@ else
   puts response
 end
 ```
-
 </CodeGroup>
 
 When handling `pause_turn`:
-
 - **Continue the conversation:** Pass the paused response back as-is in a subsequent request to let Claude continue its turn
 - **Modify if needed:** You can optionally modify the content before continuing if you want to interrupt or redirect the conversation
 - **Preserve tool state:** Include the same tools in the continuation request to maintain functionality
@@ -461,12 +456,11 @@ Request-level domain restrictions must be compatible with organization-level dom
 Be aware that Unicode characters in domain names can create security vulnerabilities through homograph attacks, where visually similar characters from different scripts can bypass domain filters. For example, `аmazon.com` (using Cyrillic 'а') may appear identical to `amazon.com` but represents a different domain.
 
 When configuring domain allow/block lists:
-
 - Use ASCII-only domain names when possible
 - Consider that URL parsers may handle Unicode normalization differently
 - Test your domain filters with potential homograph variations
 - Regularly audit your domain configurations for suspicious Unicode characters
-  </Warning>
+</Warning>
 
 ## Dynamic filtering with code execution
 

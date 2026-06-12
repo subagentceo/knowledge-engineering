@@ -21,6 +21,7 @@ Build secure, isolated code execution environments
 - [Analyze data with AI](https://developers.cloudflare.com/sandbox/tutorials/analyze-data-with-ai/index.md): Upload CSV files, generate analysis code with Claude, and return visualizations.
 - [Automated testing pipeline](https://developers.cloudflare.com/sandbox/tutorials/automated-testing-pipeline/index.md): Build a testing pipeline that clones Git repositories, installs dependencies, runs tests, and reports results.
 - [Run Claude Code on a Sandbox](https://developers.cloudflare.com/sandbox/tutorials/claude-code/index.md): Use Claude Code to implement a task in your GitHub repository.
+- [Set up Claude Managed Agents](https://developers.cloudflare.com/sandbox/tutorials/claude-managed-agents/index.md): Run Claude Managed Agents on self-managed Cloudflare environments.
 - [Build a code review bot](https://developers.cloudflare.com/sandbox/tutorials/code-review-bot/index.md): Clone repositories, analyze code with Claude, and post review comments to GitHub PRs.
 - [Build an AI coding agent with OpenAI Agents SDK](https://developers.cloudflare.com/sandbox/tutorials/openai-agents/index.md): Use the OpenAI Agents SDK with Cloudflare Sandbox to build a Python agent that writes, tests, and delivers code in an isolated environment.
 - [Data persistence with R2](https://developers.cloudflare.com/sandbox/tutorials/persistent-storage/index.md): Mount R2 buckets as local filesystem paths to persist data across sandbox lifecycles.
@@ -36,13 +37,15 @@ Build secure, isolated code execution environments
 - [Code interpreter](https://developers.cloudflare.com/sandbox/api/interpreter/index.md): Execute Python, JavaScript, and TypeScript code with rich output formats in Sandbox SDK.
 - [Lifecycle](https://developers.cloudflare.com/sandbox/api/lifecycle/index.md): Create, configure, and manage Sandbox SDK container instances and their resources.
 - [Ports](https://developers.cloudflare.com/sandbox/api/ports/index.md): Expose sandbox services via public preview URLs using the Sandbox SDK ports API.
-- [Sessions](https://developers.cloudflare.com/sandbox/api/sessions/index.md): Create isolated execution contexts with independent shell state within a Sandbox SDK container.
+- [Sessions](https://developers.cloudflare.com/sandbox/api/sessions/index.md): Create shell sessions with independent working directories and environment variables within a sandbox.
 - [Storage](https://developers.cloudflare.com/sandbox/api/storage/index.md): Mount S3-compatible storage buckets into the Sandbox SDK filesystem for persistent data access.
 - [Terminal](https://developers.cloudflare.com/sandbox/api/terminal/index.md): Connect browser-based terminal UIs to sandbox shells via WebSocket.
+- [Tunnels](https://developers.cloudflare.com/sandbox/api/tunnels/index.md): Expose sandbox services on the public internet with quick tunnels (*.trycloudflare.com) or named tunnels bound to a hostname on your Cloudflare zone.
 
 ## How-to guides
 
 - [How-to guides](https://developers.cloudflare.com/sandbox/guides/index.md): Practical guides for solving specific tasks with the Sandbox SDK.
+- [2026 deprecation migration guide](https://developers.cloudflare.com/sandbox/guides/2026-deprecation/index.md): Migrate away from Sandbox SDK features deprecated in June 2026.
 - [Run background processes](https://developers.cloudflare.com/sandbox/guides/background-processes/index.md): Start and manage long-running services and applications.
 - [Backup and restore](https://developers.cloudflare.com/sandbox/guides/backup-restore/index.md): Create point-in-time backups and restore sandbox directories.
 - [Browser terminals](https://developers.cloudflare.com/sandbox/guides/browser-terminals/index.md): Connect browser-based terminals to sandbox shells using xterm.js or raw WebSockets.
@@ -69,7 +72,7 @@ Build secure, isolated code execution environments
 - [Preview URLs](https://developers.cloudflare.com/sandbox/concepts/preview-urls/index.md): Sandbox SDK preview URLs provide public HTTPS access to services running inside sandboxes.
 - [Sandbox lifecycle](https://developers.cloudflare.com/sandbox/concepts/sandboxes/index.md): Sandbox SDK sandboxes transition through running, sleeping, and destroyed states based on activity.
 - [Security model](https://developers.cloudflare.com/sandbox/concepts/security/index.md): Sandbox SDK uses VM-level isolation, input validation, and network controls to run untrusted code safely.
-- [Session management](https://developers.cloudflare.com/sandbox/concepts/sessions/index.md): Sandbox SDK sessions are independent shell execution contexts within a single container.
+- [Session management](https://developers.cloudflare.com/sandbox/concepts/sessions/index.md): Sandbox SDK sessions are shell execution contexts within a single sandbox.
 - [Terminal connections](https://developers.cloudflare.com/sandbox/concepts/terminal/index.md): Sandbox SDK terminal connections stream bidirectional data between browser UIs and container shells.
 
 ## Configuration

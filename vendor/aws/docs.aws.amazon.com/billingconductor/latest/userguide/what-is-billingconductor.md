@@ -37,6 +37,11 @@ You can configure billing groups, pricing plans, pricing rules, and custom line 
 
 For more information about AWS Billing Conductor service quotas, see [Quotas and restrictions](limits.md). For more information about billing transfer, see [Transfer billing management to external accounts](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/orgs_transfer_billing.html).
 
+## Sign up for an AWS account
+<a name="sign-up-for-aws"></a>
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com//accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.
+
 ## Features in AWS Billing Conductor
 <a name="abc-features"></a>
 

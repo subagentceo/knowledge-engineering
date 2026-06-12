@@ -1,7 +1,7 @@
 > This page location: Connect to Neon
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the various methods to connect to a Neon database, including standard Postgres connections, specialized drivers, and tools for different environments and applications.
+> Summary: Index of every supported Neon connection method: standard PostgreSQL connection strings, the Neon serverless driver (HTTP and WebSockets for edge and serverless environments), the Data API (driver-free HTTP queries), psql, and GUI tools such as pgAdmin and DBeaver. Also links to connection pooling, SSL/TLS security, and latency and timeout troubleshooting.
 
 # Connect to Neon
 

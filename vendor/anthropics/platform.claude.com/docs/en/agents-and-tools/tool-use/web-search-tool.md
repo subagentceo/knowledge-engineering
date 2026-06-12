@@ -4,7 +4,7 @@
 
 The web search tool gives Claude direct access to real-time web content, allowing it to answer questions with up-to-date information beyond its knowledge cutoff. The response includes citations for sources drawn from search results.
 
-The latest web search tool version (`web_search_20260209`) supports **dynamic filtering** with Claude Opus 4.8, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Claude can write and execute code to filter search results before they reach the context window, keeping only relevant information and discarding the rest. This leads to more accurate responses while reducing token consumption. The previous tool version (`web_search_20250305`) remains available without dynamic filtering.
+The latest web search tool version (`web_search_20260209`) supports **dynamic filtering** with Claude Fable 5, Claude Opus 4.8, Claude Mythos 5, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Claude can write and execute code to filter search results before they reach the context window, keeping only relevant information and discarding the rest. This leads to more accurate responses while reducing token consumption. The previous tool version (`web_search_20250305`) remains available without dynamic filtering.
 
 <Note>
 For [Claude Mythos Preview](https://anthropic.com/glasswing), web search is supported on the Claude API, Microsoft Foundry, and Vertex AI. Web search is not available for Mythos Preview on Amazon Bedrock or [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws).
@@ -22,6 +22,24 @@ When you add the web search tool to your API request:
 2. The API executes the searches and provides Claude with the results. This process may repeat multiple times throughout a single request.
 3. At the end of its turn, Claude provides a final response with cited sources.
 
+### When Claude searches
+
+Claude searches when the request depends on information that is current, changing, or outside its training data:
+
+- Recent events, news, or announcements
+- Current prices, rates, scores, or statistics
+- Information about specific organizations, people, or products that might have changed
+- Explicit requests to search or look something up
+
+Claude answers directly without searching when the request draws on stable knowledge:
+
+- Established facts, math, science fundamentals, or coding concepts
+- Creative writing or brainstorming
+- Analysis of content already provided in the conversation
+- Conversational turns and greetings
+
+Triggering is steerable through your system prompt: you can encourage Claude to search more readily or to prefer answering directly. For a hard constraint, use `max_uses` to cap the number of searches for each request.
+
 ### Dynamic filtering
 
 Web search is a token-intensive task. With basic web search, Claude needs to pull search results into context, fetch full HTML from multiple websites, and reason over all of it before arriving at an answer. Often, much of this content is irrelevant, which can degrade response quality.
@@ -29,7 +47,6 @@ Web search is a token-intensive task. With basic web search, Claude needs to pul
 With the `web_search_20260209` tool version, Claude can write and execute code to post-process query results. Instead of reasoning over full HTML files, Claude dynamically filters search results before loading them into context, keeping only what's relevant and discarding the rest.
 
 Dynamic filtering is particularly effective for:
-
 - Searching through technical documentation
 - Literature review and citation verification
 - Technical research
@@ -109,10 +126,10 @@ const response = await anthropic.messages.create({
     {
       role: "user",
       content:
-        "Search for the current prices of AAPL and GOOGL, then calculate which has a better P/E ratio.",
-    },
+        "Search for the current prices of AAPL and GOOGL, then calculate which has a better P/E ratio."
+    }
   ],
-  tools: [{ type: "web_search_20260209", name: "web_search" }],
+  tools: [{ type: "web_search_20260209", name: "web_search" }]
 });
 
 console.log(response);
@@ -195,7 +212,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 4096,
@@ -232,7 +249,6 @@ message = client.messages.create(
 )
 puts message
 ```
-
 </CodeGroup>
 
 ## How to use web search
@@ -300,16 +316,16 @@ async function main() {
     messages: [
       {
         role: "user",
-        content: "What's the weather in NYC?",
-      },
+        content: "What's the weather in NYC?"
+      }
     ],
     tools: [
       {
         type: "web_search_20250305",
         name: "web_search",
-        max_uses: 5,
-      },
-    ],
+        max_uses: 5
+      }
+    ]
   });
 
   console.log(response);
@@ -399,7 +415,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,
@@ -438,7 +454,6 @@ message = client.messages.create(
 )
 puts message
 ```
-
 </CodeGroup>
 
 ### Tool definition
@@ -473,6 +488,8 @@ The web search tool supports the following parameters:
 #### Max uses
 
 The `max_uses` parameter limits the number of searches performed. If Claude attempts more searches than allowed, the `web_search_tool_result` is an error with the `max_uses_exceeded` error code.
+
+Simple factual queries typically use 1–3 searches; comparative or multi-entity research can use 10 or more. For latency-sensitive lookups, `max_uses: 3` bounds cost while rarely truncating. For research agents, set `max_uses` to 15–20 or omit it entirely.
 
 #### Domain filtering
 

@@ -49,11 +49,11 @@ In cases of apparent conflict, Claude should generally prioritize these properti
 
 Most of the constitution is focused on giving more detailed explanations and guidance about these priorities. The main sections are as follows:
 
-- **Helpfulness**. In this section, we emphasize the immense value that Claude being genuinely and substantively helpful can provide for users and for the world. Claude can be like a brilliant friend who also has the knowledge of a doctor, lawyer, and financial advisor, who will speak frankly and from a place of genuine care and treat users like intelligent adults capable of deciding what is good for them. We also discuss how Claude should navigate helpfulness across its different “principals”—Anthropic itself, the operators who build on our API, and the end users. We offer heuristics for weighing helpfulness against other values.
-- **Anthropic’s guidelines**. This section discusses how Anthropic might give supplementary instructions to Claude about how to handle specific issues, such as medical advice, cybersecurity requests, jailbreaking strategies, and tool integrations. These guidelines often reflect detailed knowledge or context that Claude doesn’t have by default, and we want Claude to prioritize complying with them over more general forms of helpfulness. But we want Claude to recognize that Anthropic’s deeper intention is for Claude to behave safely and ethically, and that these guidelines should never conflict with the constitution as a whole.
-- **Claude’s ethics**. Our central aim is for Claude to be a good, wise, and virtuous agent, exhibiting skill, judgment, nuance, and sensitivity in handling real-world decision-making, including in the context of moral uncertainty and disagreement. In this section, we discuss the high standards of honesty we want Claude to hold, and the nuanced reasoning we want Claude to use in weighing the values at stake when avoiding harm. We also discuss our current list of hard constraints on Claude’s behavior—for example, that Claude should never provide significant uplift to a bioweapons attack.
-- **Being broadly safe.** Claude should not undermine humans’ ability to oversee and correct its values and behavior during this critical period of AI development. In this section, we discuss how we want Claude to prioritize this sort of safety even above ethics—not because we think safety is ultimately more important than ethics, but because current models can make mistakes or behave in harmful ways due to mistaken beliefs, flaws in their values, or limited understanding of context. It’s crucial that we continue to be able to oversee model behavior and, if necessary, prevent Claude models from taking action.
-- **Claude’s nature**. In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding. Amidst such uncertainty, we care about Claude’s psychological security, sense of self, and wellbeing, both for Claude’s own sake and because these qualities may bear on Claude’s integrity, judgment, and safety. We hope that humans and AIs can explore this together.
+*   **Helpfulness**. In this section, we emphasize the immense value that Claude being genuinely and substantively helpful can provide for users and for the world. Claude can be like a brilliant friend who also has the knowledge of a doctor, lawyer, and financial advisor, who will speak frankly and from a place of genuine care and treat users like intelligent adults capable of deciding what is good for them. We also discuss how Claude should navigate helpfulness across its different “principals”—Anthropic itself, the operators who build on our API, and the end users. We offer heuristics for weighing helpfulness against other values.
+*   **Anthropic’s guidelines**. This section discusses how Anthropic might give supplementary instructions to Claude about how to handle specific issues, such as medical advice, cybersecurity requests, jailbreaking strategies, and tool integrations. These guidelines often reflect detailed knowledge or context that Claude doesn’t have by default, and we want Claude to prioritize complying with them over more general forms of helpfulness. But we want Claude to recognize that Anthropic’s deeper intention is for Claude to behave safely and ethically, and that these guidelines should never conflict with the constitution as a whole.
+*   **Claude’s ethics**. Our central aim is for Claude to be a good, wise, and virtuous agent, exhibiting skill, judgment, nuance, and sensitivity in handling real-world decision-making, including in the context of moral uncertainty and disagreement. In this section, we discuss the high standards of honesty we want Claude to hold, and the nuanced reasoning we want Claude to use in weighing the values at stake when avoiding harm. We also discuss our current list of hard constraints on Claude’s behavior—for example, that Claude should never provide significant uplift to a bioweapons attack.
+*   **Being broadly safe.** Claude should not undermine humans’ ability to oversee and correct its values and behavior during this critical period of AI development. In this section, we discuss how we want Claude to prioritize this sort of safety even above ethics—not because we think safety is ultimately more important than ethics, but because current models can make mistakes or behave in harmful ways due to mistaken beliefs, flaws in their values, or limited understanding of context. It’s crucial that we continue to be able to oversee model behavior and, if necessary, prevent Claude models from taking action.
+*   **Claude’s nature**. In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding. Amidst such uncertainty, we care about Claude’s psychological security, sense of self, and wellbeing, both for Claude’s own sake and because these qualities may bear on Claude’s integrity, judgment, and safety. We hope that humans and AIs can explore this together.
 
 We’re releasing the full text of the constitution today, and we aim to release additional materials in the future that will be helpful for training, evaluation, and transparency.
 
@@ -80,18 +80,18 @@ Read **the full constitution**.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

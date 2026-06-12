@@ -15,12 +15,15 @@ The Models API response can be used to determine information about a specific mo
   Model identifier or alias.
 
 - `query BetaModelGetParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -73,21 +76,30 @@ The Models API response can be used to determine information about a specific mo
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaModelInfo struct{…}`
+
   - `ID string`
 
     Unique model identifier.
 
+  - `AllowedFallbackModels []string`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `Capabilities BetaModelCapabilities`
 
     Model capability information.
+
     - `Batch BetaCapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -103,6 +115,7 @@ The Models API response can be used to determine information about a specific mo
     - `ContextManagement BetaContextManagementCapability`
 
       Context management support and available strategies.
+
       - `ClearThinking20251015 BetaCapabilitySupport`
 
         Indicates whether a capability is supported.
@@ -122,6 +135,7 @@ The Models API response can be used to determine information about a specific mo
     - `Effort BetaEffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `High BetaCapabilitySupport`
 
         Whether the model supports high effort level.
@@ -161,6 +175,7 @@ The Models API response can be used to determine information about a specific mo
     - `Thinking BetaThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -168,6 +183,7 @@ The Models API response can be used to determine information about a specific mo
       - `Types BetaThinkingTypes`
 
         Supported thinking type configurations.
+
         - `Adaptive BetaCapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -197,6 +213,7 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
+
     - `const ModelModel Model = "model"`
 
 ### Example
@@ -235,6 +252,9 @@ func main() {
 ```json
 {
   "id": "claude-opus-4-6",
+  "allowed_fallback_models": [
+    "string"
+  ],
   "capabilities": {
     "batch": {
       "supported": true

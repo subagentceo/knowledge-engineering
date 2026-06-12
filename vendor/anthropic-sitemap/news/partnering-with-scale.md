@@ -8,6 +8,7 @@ Apr 26, 2023
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdf9f22e51ec2857161c30f0aa5f7c04eef0a84e0-5760x3240.png&w=3840&q=75)
 
+  
 We are pleased to announce our partnership with Scale, a leading platform for building, deploying and managing Generative AI applications. Scale customers will now be able to use Claude, our conversational AI assistant based on research into training helpful, honest, and harmless systems.
 
 Moving beyond experiments into real-world applications of AI requires resourcing and deep expertise. Businesses can now create applications on top of Claude using Scale's robust deployment and management functionality.
@@ -22,18 +23,18 @@ The future of AI is collaborative. We are excited to collaborate with Scale.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

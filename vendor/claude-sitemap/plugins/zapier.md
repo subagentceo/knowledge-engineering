@@ -1,10 +1,11 @@
 # zapier
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  2245
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    2440

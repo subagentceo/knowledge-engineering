@@ -16,7 +16,15 @@ Think of Claude as a friendly, enthusiastic colleague or personal assistant who 
 
 As we work to improve both the performance and safety of our models, we have increased the length of Claude’s input and output. Users can input up to 100K tokens in each prompt, which means that Claude can work over hundreds of pages of technical documentation or even a book. Claude can now also write longer documents - from memos to letters to stories up to a few thousand tokens - all in one go.
 
+  
+
+  
+
 In addition, our latest model has greatly improved coding skills. Claude 2 scored a **71.2%** up from 56.0% on the Codex HumanEval, a Python coding test. On GSM8k, a large set of grade-school math problems, Claude 2 scored **88.0%** up from 85.2%. We have an exciting roadmap of capability improvements planned for Claude 2 and will be slowly and iteratively deploying them in the coming months.
+
+  
+
+  
 
 We've been iterating to improve the underlying safety of Claude 2, so that it is more harmless and harder to prompt to produce offensive or dangerous output. We have an internal red-teaming evaluation that scores our models on a large representative set of harmful prompts, using an automated test while we also regularly check the results manually. In this evaluation, Claude 2 was **2x better** at giving harmless responses compared to Claude 1.3. Although no model is immune from jailbreaks, we’ve used a variety of safety techniques (which you can read about here and here), as well as extensive red-teaming, to improve its outputs.
 
@@ -30,18 +38,18 @@ We welcome your feedback as we work to responsibly deploy our products more broa
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -16,8 +16,8 @@ Developers can now connect their Claude account to Xcode 26 to power coding inte
 
 When you log into your Claude account in Xcode, you’ll have access to coding intelligence features powered by Claude Sonnet 4:
 
-- **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
-- **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
+*   **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
+*   **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
 
 Your Claude subscription usage limits are shared across platforms, with a portion available through Xcode.
 
@@ -33,22 +33,23 @@ To start using Claude in Xcode:
 
 Claude in Xcode works with all plans that include Claude Code—Pro and Max, plus premium seats for Team and Enterprise plans.
 
+  
 For more details, see the Xcode 26 release notes and Apple's documentation on writing code with intelligence in Xcode.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

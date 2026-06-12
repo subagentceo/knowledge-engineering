@@ -1,10 +1,16 @@
-# dataverse
+# Microsoft Dataverse
 
-- Install in
+Microsoft Dataverse Plugin empowers your AI coding agents to seamlessly connect with Microsoft Dataverse—the enterprise-grade data platform behind Dynamics 365 and Power Platform. Leveraging the official Dataverse MCP server, Dataverse CLI, Python SDK, and PAC CLI, this plugin enables you to build tables and forms, import or generate data, query and analyze records, deploy solutions across environments, and manage your tenant—entirely through natural language interactions, from initial setup to production deployment, without the need to toggle between multiple tools and skills.
 
-  Claude Code
+Specialized agent skills intelligently orchestrate every aspect of the Dataverse workflow, including schema authoring, record creation and updates (CRUD), bulk data import, advanced queries and analytics, solution lifecycle management, environment administration, and security and access controls. The agent automatically selects the optimal tool for each task: MCP for straightforward reads and writes, the Python SDK for high-volume operations and analytics, Dataverse CLI for data-plane commands and MCP proxying, and PAC CLI for solution and tenant operations—eliminating the complexity of manual tool selection.
 
-- Made by
-- Installs
+Getting started is simple: install the plugin and prompt your agent to "Connect to Dataverse" to initiate a streamlined, one-time setup that installs the Dataverse CLI, manages authentication, and registers the MCP server. Once connected, describe your goals in plain English and let your agent handle the rest. Example use cases include:
 
-  1451
+*   "Show me my open deals over $100K closing this quarter"
+*   "Import this CSV into the contacts table"
+*   "Create a customer feedback table with name, rating, and comment columns"
+*   "Pull the schema and pack it into a solution"
+*   "Bulk delete activities older than 2024"
+*   "Add a teammate to the sales team on the dev environment"
+
+Transform how you interact with enterprise data—making Dataverse accessible, secure, and easy to operate for both developers and business users.

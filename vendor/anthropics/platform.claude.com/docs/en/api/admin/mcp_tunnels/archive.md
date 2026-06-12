@@ -20,6 +20,7 @@ tunnel returns the existing record unchanged.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -50,6 +51,7 @@ tunnel returns the existing record unchanged.
 - `type: "tunnel"`
 
   Object type. Always `tunnel` for Tunnels.
+
   - `"tunnel"`
 
 - `workspace_id: string`
@@ -63,7 +65,7 @@ tunnel returns the existing record unchanged.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

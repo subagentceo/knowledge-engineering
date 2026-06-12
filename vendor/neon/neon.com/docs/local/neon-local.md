@@ -1,7 +1,7 @@
 > This page location: Tools & Workflows > Local development > Neon Local
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of Neon Local, a proxy service that enables connection to existing or ephemeral Neon database branches using Docker, simplifying branch management and eliminating the need for manual connection string updates.
+> Summary: Neon Local is a Docker proxy that routes local Postgres connections to a Neon cloud branch. No connection string changes are needed when switching branches. Use it to connect to an existing branch via BRANCH_ID, or to auto-create ephemeral branches with PARENT_BRANCH_ID that are deleted when the container stops. Both the standard postgres driver and the Neon serverless driver are supported through the same Docker configuration.
 
 # Neon Local
 

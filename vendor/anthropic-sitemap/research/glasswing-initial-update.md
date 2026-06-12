@@ -30,10 +30,10 @@ After one month, most partners have each found hundreds of critical- or high-sev
 
 This tallies with external testers’ experience of Mythos Preview’s performance, and with recent additional evaluations of the model:
 
-- **The UK’s AI Security Institute** reports that Mythos Preview is the first model to solve both of their cyber ranges (simulations of multistep cyberattacks) end to end;
-- **Mozilla** found and fixed 271 vulnerabilities in Firefox 150 while testing Mythos Preview—over ten times more than they found in Firefox 148 with Claude Opus 4.6;
-- **XBOW**, an independent security platform, reports that Mythos Preview is a “significant step up over all existing models” on its web exploit benchmark, and provides “absolutely unprecedented precision” on a token-for-token basis;
-- **ExploitBench** and **ExploitGym**, two recently released academic benchmarks for measuring models’ exploit development capabilities, show Mythos Preview as the strongest performer. We discuss what these benchmarks tell us about the model in more detail on our Frontier Red Team blog.
+*   **The UK’s AI Security Institute** reports that Mythos Preview is the first model to solve both of their cyber ranges (simulations of multistep cyberattacks) end to end;
+*   **Mozilla** found and fixed 271 vulnerabilities in Firefox 150 while testing Mythos Preview—over ten times more than they found in Firefox 148 with Claude Opus 4.6;
+*   **XBOW**, an independent security platform, reports that Mythos Preview is a “significant step up over all existing models” on its web exploit benchmark, and provides “absolutely unprecedented precision” on a token-for-token basis;
+*   **ExploitBench** and **ExploitGym**, two recently released academic benchmarks for measuring models’ exploit development capabilities, show Mythos Preview as the strongest performer. We discuss what these benchmarks tell us about the model in more detail on our Frontier Red Team blog.
 
 More generally, we’re now seeing that patched software is being rolled out much more quickly. The latest Palo Alto Networks release included over five times as many patches as usual. Microsoft has reported that the number of new patches they’ll release will “continue trending larger for some time.” And Oracle is finding and fixing vulnerabilities across its products and cloud multiple times faster than before.
 
@@ -73,8 +73,8 @@ Currently, there’s often a long lag between the discovery of a vulnerability, 
 
 Software developers and users should act now to reduce their exposure to these risks. The advice below is not new, and many researchers (including at Anthropic) are currently working on better and more durable solutions. In the meantime, it’s important to get the basics right:
 
-- **Software developers** should shorten their patch cycles and make security fixes available as quickly as possible. The thoughtful use of publicly available AI models can help here; we’re building tools and sharing our research to support this (more details below). Developers should also help their users stay up-to-date with their software by making it as easy as possible to install updates; to the extent feasible, they should be more persistent with users who are still running software with known vulnerabilities.
-- **Network defenders** should shorten their patch testing and deployment timelines. The critical controls laid out by organizations like the National Institute of Standards and Technology and the UK’s National Cyber Security Centre are now all the more important, since they improve security without depending on any single patch landing in time. These include steps like hardening networks’ default configurations, enforcing multi-factor authentication, and keeping comprehensive logs for detection and response.
+*   **Software developers** should shorten their patch cycles and make security fixes available as quickly as possible. The thoughtful use of publicly available AI models can help here; we’re building tools and sharing our research to support this (more details below). Developers should also help their users stay up-to-date with their software by making it as easy as possible to install updates; to the extent feasible, they should be more persistent with users who are still running software with known vulnerabilities.
+*   **Network defenders** should shorten their patch testing and deployment timelines. The critical controls laid out by organizations like the National Institute of Standards and Technology and the UK’s National Cyber Security Centre are now all the more important, since they improve security without depending on any single patch landing in time. These include steps like hardening networks’ default configurations, enforcing multi-factor authentication, and keeping comprehensive logs for detection and response.
 
 ### Tools for cyberdefense with publicly available AI models
 
@@ -86,9 +86,9 @@ We’ve also begun our Cyber Verification Program, which allows security profess
 
 Now, we’re making the tools that we and our partners have used with Mythos Preview available to qualifying customers’ security teams on request. Our aim is to make it much easier to get the best performance out of highly capable public models without extensive setup. This release includes:
 
-- The skills (custom instructions for repeated work) that we and our partners have built and shared;
-- A harness that helps Claude map the codebase, spin up scanning subagents, triage its findings, and write reports;
-- A threat model builder, which maps a codebase to identify potential targets for attack and prioritizes the model’s work accordingly.
+*   The skills (custom instructions for repeated work) that we and our partners have built and shared;
+*   A harness that helps Claude map the codebase, spin up scanning subagents, triage its findings, and write reports;
+*   A threat model builder, which maps a codebase to identify potential targets for attack and prioritizes the model’s work accordingly.
 
 Cisco, one of our Project Glasswing partners, has also recently open-sourced its Foundry Security Spec to help other defenders build an evaluation system similar to the one they use themselves.
 
@@ -108,22 +108,20 @@ Next, we will work with critical partners—including US and allied governments�
 
 On the far side of these risks, there’s an encouraging world available to us: one in which important code is hardened far better than it is today, and in which hacking is far less prevalent. There are many obstacles, but we’re nonetheless confident that Project Glasswing can help get us there.
 
+  
+
 ## Related content
+
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
 
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-Read more
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
 
 Read more

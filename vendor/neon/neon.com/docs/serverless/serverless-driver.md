@@ -1,7 +1,7 @@
 > This page location: Connect to Neon > Neon serverless driver
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of the Neon serverless driver for JavaScript and TypeScript, enabling low-latency Postgres queries over HTTP or WebSockets in serverless environments.
+> Summary: The Neon serverless driver (`@neondatabase/serverless`) is a JavaScript and TypeScript Postgres driver that replaces TCP with HTTP or WebSockets, enabling Postgres queries from serverless and edge runtimes such as Vercel Edge Functions and Cloudflare Workers. Use the `neon()` function over HTTP for single or non-interactive batched queries, or the `Pool`/`Client` constructors over WebSockets when sessions, interactive transactions, or node-postgres drop-in compatibility are required. TypeScript types are bundled; install with `npm install @neondatabase/serverless`.
 
 # Neon serverless driver
 

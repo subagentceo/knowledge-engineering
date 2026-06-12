@@ -26,11 +26,11 @@ Mar 18, 2026
 
 We invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.
 
-Societal ImpactsDec 2, 2025
+Societal ImpactsFeb 18, 2026
 
-#### How AI is transforming work at Anthropic
+#### Measuring AI agent autonomy in practice
 
-We surveyed Anthropic engineers and researchers, conducted in-depth qualitative interviews, and studied internal Claude Code usage data to find out how AI use is changing how we do our jobs. We found that AI use is radically changing the nature of work for software developers.
+How much autonomy do people grant agents? How does that change as people gain experience? We analyzed millions of human-agent interactions to answer these and other questions.
 
 Societal ImpactsDec 4, 2025
 
@@ -38,17 +38,17 @@ Societal ImpactsDec 4, 2025
 
 We built an interview tool called Anthropic Interviewer. Powered by Claude, Anthropic Interviewer runs detailed interviews automatically and at unprecedented scale.
 
+Societal ImpactsDec 2, 2025
+
+#### How AI is transforming work at Anthropic
+
+We surveyed Anthropic engineers and researchers, conducted in-depth qualitative interviews, and studied internal Claude Code usage data to find out how AI use is changing how we do our jobs.
+
 Societal ImpactsApr 21, 2025
 
 #### Values in the wild: Discovering and analyzing values in real-world language model interactions
 
-What values does Claude actually express during real conversations? Analyzing 700,000 interactions, this paper creates the first large-scale empirical taxonomy of AI values and finds that Claude adapts its expressed values to context—mirroring users in most cases, but resisting when core principles are at stake.
-
-Societal ImpactsFeb 15, 2022
-
-#### Predictability and Surprise in Large Generative Models
-
-Large models have predictable loss via scaling laws but unpredictable capabilities. This tension has significant policy implications.
+What values does Claude actually express during real conversations? Analyzing 700,000 interactions, this paper creates the first large-scale empirical taxonomy of AI values.
 
 ## Publications
 
@@ -56,49 +56,38 @@ Search
 
 DateCategoryTitle
 
-- Apr 30, 2026Societal Impacts
-
-  How people ask Claude for personal guidance
-
-- Feb 18, 2026Societal Impacts
-
-  Measuring AI agent autonomy in practice
-
-- Dec 4, 2025Societal Impacts
-
-  Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
-
-- Dec 2, 2025Societal Impacts
-
-  How AI is transforming work at Anthropic
-
-- Aug 27, 2025Societal Impacts
-
-  Anthropic Education Report: How educators use Claude
-
-- Jun 27, 2025Societal Impacts
-
-  How people use Claude for support, advice, and companionship
-
-- Apr 28, 2025Societal Impacts
-
-  Anthropic Economic Index: AI’s impact on software development
-
-- Apr 21, 2025Societal Impacts
-
-  Values in the wild: Discovering and analyzing values in real-world language model interactions
-
-- Apr 8, 2025Announcements
-
-  Anthropic Education Report: How university students use Claude
-
-- Mar 27, 2025Societal Impacts
-
-  Anthropic Economic Index: Insights from Claude 3.7 Sonnet
+*   Apr 30, 2026Societal Impacts
+    
+    How people ask Claude for personal guidance
+*   Feb 18, 2026Societal Impacts
+    
+    Measuring AI agent autonomy in practice
+*   Dec 4, 2025Societal Impacts
+    
+    Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
+*   Dec 2, 2025Societal Impacts
+    
+    How AI is transforming work at Anthropic
+*   Aug 27, 2025Societal Impacts
+    
+    Anthropic Education Report: How educators use Claude
+*   Jun 27, 2025Societal Impacts
+    
+    How people use Claude for support, advice, and companionship
+*   Apr 28, 2025Societal Impacts
+    
+    Anthropic Economic Index: AI’s impact on software development
+*   Apr 21, 2025Societal Impacts
+    
+    Values in the wild: Discovering and analyzing values in real-world language model interactions
+*   Apr 8, 2025Announcements
+    
+    Anthropic Education Report: How university students use Claude
+*   Mar 27, 2025Societal Impacts
+    
+    Anthropic Economic Index: Insights from Claude 3.7 Sonnet
 
 See more
-
-![How people ask Claude for personal guidance](https://www-cdn.anthropic.com/images/4zrzovbb/website/6380b3c2dc9e4011a3cd96fec382bd9197511e31-1000x1000.svg)
 
 Join the Research team
 

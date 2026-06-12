@@ -39,6 +39,7 @@ Create Session
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -86,6 +87,10 @@ Create Session
   - `list<string> vaultIDs`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -276,6 +281,9 @@ var_dump($betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

@@ -18,20 +18,22 @@ Liddell currently serves as a Director of both Commonwealth Fusion Systems and t
 
 Beyond his corporate and public service career, Liddell has been recognized for his contributions to business and philanthropy. He currently serves as Chairman of New Zealand’s largest environmental foundation and has sat on several nonprofit boards, including the New Zealand Rugby Union. In 2016, he was appointed a Companion of the New Zealand Order of Merit for services to business and philanthropy.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

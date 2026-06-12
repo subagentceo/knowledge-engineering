@@ -1,10 +1,11 @@
 # base44
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  1079
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    1214

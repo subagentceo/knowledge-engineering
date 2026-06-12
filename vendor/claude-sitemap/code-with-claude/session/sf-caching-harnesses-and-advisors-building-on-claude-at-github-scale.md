@@ -2,6 +2,34 @@
 
 GitHub’s Copilot team ships Claude to millions of developers across chat, CLI, coding agent, and code review, and has become one of the most demanding users of the Claude Platform. GitHub CPO Mario Rodriguez and Anthropic’s Brad Abrams break down how the team pushes quality up and costs down at scale, from caching and evaluation to the new Advisor strategy. Walk away with patterns you can apply to your own Claude-powered product.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+11:15AM – 11:45AM
+
+Speaker(s)
+
+Mario Rodriguez
+
+Chief Product Officer,
+
+GitHub
+
+Brad Abrams
+
+Product Management Lead, Claude Platform,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

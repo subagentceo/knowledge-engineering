@@ -23,11 +23,9 @@ Error Monitoring\[ ]Tracing
 
 Sentry captures data by using an SDK within your application's runtime.
 
-`pubspec.yaml`
-
 ```yml
 dependencies:
-  sentry: ^9.20.0
+  sentry: ^9.22.0
 ```
 
 ## [Configure](https://docs.sentry.io/platforms/dart.md#configure)
@@ -39,7 +37,7 @@ import 'package:sentry/sentry.dart';
 
 Future<void> main() async {
   await Sentry.init((options) {
-    options.dsn = '___PUBLIC_DSN___';
+    options.dsn = 'https://<key>@o<orgId>.ingest.sentry.io/<projectId>';
     // Adds request headers and IP for users, for more info visit:
     // https://docs.sentry.io/platforms/dart/data-management/data-collected/
     options.sendDefaultPii = true;
@@ -85,10 +83,10 @@ try {
 ## Topics
 
 - [Features](https://docs.sentry.io/platforms/dart/features.md)
-- [Debug Symbols](https://docs.sentry.io/platforms/dart/debug-symbols.md)
 - [Basic Configuration](https://docs.sentry.io/platforms/dart/configuration.md)
 - [Integrations](https://docs.sentry.io/platforms/dart/integrations.md)
 - [Usage](https://docs.sentry.io/platforms/dart/usage.md)
+- [Debug Symbols](https://docs.sentry.io/platforms/dart/debug-symbols.md)
 - [Enriching Events](https://docs.sentry.io/platforms/dart/enriching-events.md)
 - [Data Management](https://docs.sentry.io/platforms/dart/data-management.md)
 - [Tracing](https://docs.sentry.io/platforms/dart/tracing.md)

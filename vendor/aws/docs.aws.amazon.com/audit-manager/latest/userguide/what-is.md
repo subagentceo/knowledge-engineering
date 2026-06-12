@@ -89,5 +89,5 @@ For a list of AWS services in scope of specific compliance programs, see [AWS se
 
 Explore the following resources to learn more about Audit Manager.
 + Video: Collect Evidence and Manage Audit Data Using AWS Audit Manager  
-[![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/G4yRj4nLwFI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/G4yRj4nLwFI)
+[![AWS Videos](http://img.youtube.com/vi/G4yRj4nLwFI/0.jpg)](http://www.youtube.com/watch?v=G4yRj4nLwFI)
 +  [Integrate across the Three Lines Model (Part 2): Transform AWS Config conformance packs into AWS Audit Manager assessments](https://aws.amazon.com/blogs/mt/integrate-across-the-three-lines-model-part-2-transform-aws-config-conformance-packs-into-aws-audit-manager-assessments/) from the *AWS Management & Governance Blog* 

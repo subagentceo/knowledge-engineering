@@ -1,3 +1,5 @@
+# User Engagement Teardown: Poshmark Sends Excellent User Engagement Campaign to New Users - Iterable
+
 ## User Engagement Teardown: Poshmark Sends Excellent User Engagement Campaign to New Users
 
 **Published by**
@@ -16,10 +18,10 @@ The frequency of the daily blast emails and the push notifications was great bec
 
 Check out the full teardown below to learn more. _(Note: if you can’t see the embedded SlideShare, make sure to turn off any ad blockers!)_
 
-[https://www.slideshare.net/slideshow/embed\_code/key/4MLmOgIdyamvOk](https://www.slideshare.net/slideshow/embed_code/key/4MLmOgIdyamvOk)
+https://www.slideshare.net/slideshow/embed_code/key/4MLmOgIdyamvOk
 
-For more information on how to build world-class, omni-channel campaigns, take a look at our recent [case studies](https://iterable.com/resources/case-studies?utm_source=blog&utm_medium=bottombanner&utm_campaign=learn).
+For more information on how to build world-class, omni-channel campaigns, take a look at our recent case studies.
 
-Interested in more user engagement teardowns? You can find them all on our [Teardowns page](https://iterable.com/user-engagement-teardowns), where you can also subscribe to get emails when we publish new ones.
+Interested in more user engagement teardowns? You can find them all on our Teardowns page, where you can also subscribe to get emails when we publish new ones.
 
 _Note: Poshmark is not an Iterable customer._

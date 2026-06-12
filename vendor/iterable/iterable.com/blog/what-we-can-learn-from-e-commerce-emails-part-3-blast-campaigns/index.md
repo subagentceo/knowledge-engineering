@@ -1,3 +1,5 @@
+# What We Can Learn From E-Commerce Emails, Part 3: Blast Campaigns - Iterable
+
 ## What We Can Learn From E-Commerce Emails, Part 3: Blast Campaigns
 
 **Published by**
@@ -6,13 +8,13 @@ May 9, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/Iterable_QuizImage_Options_V2_Q1.png)
 
-Recently, we launched a three-part blog series to demonstrate what makes an effective email marketing campaign with case studies from leading retailers featured in our [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/).
+Recently, we launched a three-part blog series to demonstrate what makes an effective email marketing campaign with case studies from leading retailers featured in our User Engagement Top 100 Report.
 
-Over the past two weeks, we’ve talked about building rapport with [welcome campaigns](https://iterable.com/blog/what-we-can-learn-from-e-commerce-emails-part-1-welcome-campaigns) and optimizing [cart abandonment strategies](https://iterable.com/blog/what-we-can-learn-from-e-commerce-emails-part-2-cart-abandonment-campaigns). Today, we are finishing this blog series by spotlighting what makes a winning email blast.
+Over the past two weeks, we’ve talked about building rapport with welcome campaigns and optimizing cart abandonment strategies. Today, we are finishing this blog series by spotlighting what makes a winning email blast.
 
 Unlike a welcome series that aims to give new users a good first impression, or a cart recovery email that is designed to complete more checkouts, blast campaigns do not necessarily share a clearly defined purpose.
 
-The formatting and design of [e-commerce](https://iterable.com/e-commerce/) email blasts are also more flexible and vary significantly among retailers. So how can we tell what a good blast even looks like?
+The formatting and design of e-commerce email blasts are also more flexible and vary significantly among retailers. So how can we tell what a good blast even looks like?
 
 Every marketer wants to actively and effectively engage their customers. For each email that lands in their inboxes, there needs to be a relevant message, eye-catching visuals and a clear call to action.
 
@@ -50,6 +52,6 @@ To summarize, here are our recommendations for a successful blast email campaign
 
 This concludes our blog series on what we can learn from e-commerce emails.
 
-If you like to read more email marketing tips, download our [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/).
+If you like to read more email marketing tips, download our User Engagement Top 100 Report.
 
-To learn how Iterable can improve your campaigns, [request a demo](https://iterable.com/demo/) today.
+To learn how Iterable can improve your campaigns, request a demo today.

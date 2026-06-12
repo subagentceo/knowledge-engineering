@@ -10,6 +10,7 @@ are sorted chronologically (time ascending) by created_at.
 ### Query Parameters
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter projects created after this time (RFC 3339 format)
@@ -51,6 +52,7 @@ are sorted chronologically (time ascending) by created_at.
 - `data: array of object { id, created_at, deleted_at, 6 more }`
 
   List of projects sorted by creation date ascending
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -85,7 +87,12 @@ are sorted chronologically (time ascending) by created_at.
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -138,9 +145,6 @@ curl https://api.anthropic.com/v1/compliance/apps/projects \
 **get** `/v1/compliance/apps/projects/{project_id}`
 
 Get detailed information for a specific project.
-
-Returns:
-Detailed project information including description, instructions, and counts
 
 ### Path Parameters
 
@@ -204,7 +208,12 @@ Detailed project information including description, instructions, and counts
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -258,13 +267,6 @@ Hard-deletes the project and all its associated data including:
 
 Project must have no attached chats - returns 409 if chats exist.
 
-Returns:
-ClaudeProjectDeleteResponse confirming the deletion
-
-Raises:
-ConflictException: If project has chats attached
-NotFoundException: If project doesn't exist or already deleted
-
 ### Path Parameters
 
 - `project_id: string`
@@ -284,6 +286,7 @@ NotFoundException: If project doesn't exist or already deleted
 - `type: optional "claude_project_deleted"`
 
   Constant string confirming deletion.
+
   - `"claude_project_deleted"`
 
 ### Example
@@ -310,6 +313,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectListResponse object { id, created_at, deleted_at, 6 more }`
 
   Project information for compliance responses.
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -344,7 +348,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -358,6 +367,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectRetrieveResponse object { id, attachments_count, chats_count, 10 more }`
 
   Detailed project information for compliance responses.
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -408,7 +418,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -422,6 +437,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectDeleteResponse object { id, type }`
 
   Response for deleting a Claude project.
+
   - `id: string`
 
     The ID of the Claude project that was deleted
@@ -429,6 +445,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
   - `type: optional "claude_project_deleted"`
 
     Constant string confirming deletion.
+
     - `"claude_project_deleted"`
 
 # Attachments
@@ -447,12 +464,6 @@ GET /v1/compliance/apps/chats/files/{claude_file_id}/content endpoint.
 
 The text content of attached project documents can be fetched using the
 GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
-
-Returns:
-List of project attachments with pagination info
-
-Raises:
-NotFoundException: If project doesn't exist or project_id format is invalid
 
 ### Path Parameters
 
@@ -479,9 +490,11 @@ NotFoundException: If project doesn't exist or project_id format is invalid
 - `data: array of object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   List of attachments sorted chronologically by created_at, tie break by id
+
   - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
+
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -501,11 +514,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
+
       - `"project_file"`
 
   - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
+
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -521,11 +536,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
+
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
+
       - `"project_doc"`
 
 - `has_more: boolean`
@@ -568,9 +585,11 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
 - `AttachmentListResponse = object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   File attachment reference for compliance responses.
+
   - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
+
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -590,11 +609,13 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
+
       - `"project_file"`
 
   - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
+
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -610,12 +631,333 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
+
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
+
       - `"project_doc"`
+
+# Collaborators
+
+## List project collaborators
+
+**get** `/v1/compliance/apps/projects/{project_id}/collaborators`
+
+List the users, groups, and organization-wide grants on a project.
+
+Each entry represents one active role assignment on the project. Principals
+are returned as a discriminated union on `type` — an individual user, an
+RBAC group, the whole organization, or all holders of an organization-level
+role.
+
+### Path Parameters
+
+- `project_id: string`
+
+  The project ID (tagged ID, e.g., claude_proj_abc123)
+
+### Query Parameters
+
+- `limit: optional number`
+
+  Maximum results (default: 20, max: 100)
+
+- `page: optional string`
+
+  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+
+### Header Parameters
+
+- `"x-api-key": optional string`
+
+### Returns
+
+- `data: array of object { granted_at, role, type, user_id }  or object { granted_at, group_id, role, type }  or object { granted_at, organization_uuid, role, type }  or object { granted_at, organization_role, role, type }`
+
+  List of collaborators sorted chronologically by granted_at, tie break by the underlying role-assignment UUID
+
+  - `ComplianceProjectUserCollaborator object { granted_at, role, type, user_id }`
+
+    An individual user granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "user"`
+
+      Discriminator marking this as an individual user collaborator
+
+      - `"user"`
+
+    - `user_id: string`
+
+      Identifier of the user granted access (tagged ID), or null if their account has since been deleted
+
+  - `ComplianceProjectGroupCollaborator object { granted_at, group_id, role, type }`
+
+    An RBAC group granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `group_id: string`
+
+      Identifier of the group granted access (tagged ID)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "group"`
+
+      Discriminator marking this as a group collaborator
+
+      - `"group"`
+
+  - `ComplianceProjectOrganizationCollaborator object { granted_at, organization_uuid, role, type }`
+
+    An entire organization granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_uuid: string`
+
+      UUID of the organization granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization"`
+
+      Discriminator marking this as an organization-wide grant
+
+      - `"organization"`
+
+  - `ComplianceProjectOrganizationRoleCollaborator object { granted_at, organization_role, role, type }`
+
+    All holders of an organization-level role granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_role: string`
+
+      The organization-level role whose holders are granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization_role"`
+
+      Discriminator marking this as a grant to all organization members holding a specific org-level role
+
+      - `"organization_role"`
+
+- `has_more: boolean`
+
+  Whether more records exist beyond the current result set
+
+- `next_page: string`
+
+  To get the next page, use the 'next_page' from the current response as the 'page' in your next request
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/collaborators \
+    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "granted_at": "2019-12-27T18:11:19.117Z",
+      "role": "admin",
+      "type": "user",
+      "user_id": "user_id"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
+## Domain Types
+
+### Collaborator List Response
+
+- `CollaboratorListResponse = object { granted_at, role, type, user_id }  or object { granted_at, group_id, role, type }  or object { granted_at, organization_uuid, role, type }  or object { granted_at, organization_role, role, type }`
+
+  An individual user granted a role on a project.
+
+  - `ComplianceProjectUserCollaborator object { granted_at, role, type, user_id }`
+
+    An individual user granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "user"`
+
+      Discriminator marking this as an individual user collaborator
+
+      - `"user"`
+
+    - `user_id: string`
+
+      Identifier of the user granted access (tagged ID), or null if their account has since been deleted
+
+  - `ComplianceProjectGroupCollaborator object { granted_at, group_id, role, type }`
+
+    An RBAC group granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `group_id: string`
+
+      Identifier of the group granted access (tagged ID)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "group"`
+
+      Discriminator marking this as a group collaborator
+
+      - `"group"`
+
+  - `ComplianceProjectOrganizationCollaborator object { granted_at, organization_uuid, role, type }`
+
+    An entire organization granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_uuid: string`
+
+      UUID of the organization granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization"`
+
+      Discriminator marking this as an organization-wide grant
+
+      - `"organization"`
+
+  - `ComplianceProjectOrganizationRoleCollaborator object { granted_at, organization_role, role, type }`
+
+    All holders of an organization-level role granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_role: string`
+
+      The organization-level role whose holders are granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization_role"`
+
+      Discriminator marking this as a grant to all organization members holding a specific org-level role
+
+      - `"organization_role"`
 
 # Documents
 
@@ -624,9 +966,6 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
 **get** `/v1/compliance/apps/projects/documents/{document_id}`
 
 Get detailed information for a specific project document.
-
-Returns:
-Project document information including content and metadata
 
 ### Path Parameters
 
@@ -658,7 +997,12 @@ Project document information including content and metadata
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -735,6 +1079,7 @@ consumer can dedupe or match hashes without downloading every document.
 - `mime_type: "text/plain"`
 
   MIME type of the document content, always plain text
+
   - `"text/plain"`
 
 - `size_bytes: number`
@@ -743,7 +1088,12 @@ consumer can dedupe or match hashes without downloading every document.
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -785,9 +1135,6 @@ Delete a project document for compliance purposes.
 
 Hard-deletes the project document permanently.
 
-Returns:
-ComplianceProjectDocumentDeleteResponse confirming the deletion
-
 ### Path Parameters
 
 - `document_id: string`
@@ -807,6 +1154,7 @@ ComplianceProjectDocumentDeleteResponse confirming the deletion
 - `type: "claude_project_document_deleted"`
 
   Constant string confirming deletion.
+
   - `"claude_project_document_deleted"`
 
 ### Example
@@ -833,6 +1181,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentRetrieveResponse object { id, content, created_at, 2 more }`
 
   Project document information for compliance responses.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -851,7 +1200,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -868,6 +1222,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   Returns metadata only. Use the sibling endpoint (without `/metadata`)
   to fetch the document text content.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -891,6 +1246,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `mime_type: "text/plain"`
 
     MIME type of the document content, always plain text
+
     - `"text/plain"`
 
   - `size_bytes: number`
@@ -899,7 +1255,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -913,6 +1274,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentDeleteResponse object { id, type }`
 
   Response for deleting a project document.
+
   - `id: string`
 
     The ID of the project document that was deleted
@@ -920,4 +1282,5 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `type: "claude_project_document_deleted"`
 
     Constant string confirming deletion.
+
     - `"claude_project_document_deleted"`

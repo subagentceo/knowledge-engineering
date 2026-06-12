@@ -1,29 +1,5 @@
 # Regions
 
-turbopuffer supports multiple regions, choose the one closest to your backend.
-
-| Region | URL | Location |
-| --- | --- | --- |
-| aws-ap-southeast-2 | https://aws-ap-southeast-2.turbopuffer.com | Sydney |
-| aws-ca-central-1 | https://aws-ca-central-1.turbopuffer.com | Montreal |
-| aws-eu-central-1 | https://aws-eu-central-1.turbopuffer.com | Frankfurt |
-| aws-eu-west-1 | https://aws-eu-west-1.turbopuffer.com | Ireland |
-| aws-eu-west-2 | https://aws-eu-west-2.turbopuffer.com | London |
-| aws-us-east-1 | https://aws-us-east-1.turbopuffer.com | N. Virginia |
-| aws-us-east-2 | https://aws-us-east-2.turbopuffer.com | Ohio |
-| aws-us-west-2 | https://aws-us-west-2.turbopuffer.com | Oregon |
-| aws-ap-south-1 | https://aws-ap-south-1.turbopuffer.com | Mumbai |
-| aws-sa-east-1 | https://aws-sa-east-1.turbopuffer.com | São Paulo |
-| gcp-us-central1 | https://gcp-us-central1.turbopuffer.com | Iowa |
-| gcp-us-east1 | https://gcp-us-east1.turbopuffer.com | South Carolina |
-| gcp-us-west1 | https://gcp-us-west1.turbopuffer.com | Oregon |
-| gcp-us-east4 | https://gcp-us-east4.turbopuffer.com | N. Virginia |
-| gcp-northamerica-northeast2 | https://gcp-northamerica-northeast2.turbopuffer.com | Toronto |
-| gcp-europe-west3 | https://gcp-europe-west3.turbopuffer.com | Frankfurt |
-| gcp-europe-west1 | https://gcp-europe-west1.turbopuffer.com | Belgium |
-| gcp-asia-southeast1 | https://gcp-asia-southeast1.turbopuffer.com | Singapore |
-| gcp-asia-northeast3 | https://gcp-asia-northeast3.turbopuffer.com | Seoul |
-
 We support Azure for "Deploy in your VPC", but no public regions yet. [Contact us](/contact) if you need a public Azure region.
 
 In addition to these public clusters, we run dedicated clusters in various other
@@ -34,8 +10,7 @@ demand.
 
 <!-- multilang -->
 ```bash
-# Pick the right region: https://turbopuffer.com/docs/regions
-REGION_URL="https://gcp-us-east4.turbopuffer.com"
+REGION_URL="https://gcp-us-east4.turbopuffer.com" # choose best region: https://turbopuffer.com/docs/regions
 
 # First, create a namespace and add some data
 curl --fail-with-body -X POST "$REGION_URL/v2/namespaces/region-example-curl" \
@@ -53,8 +28,7 @@ curl --fail-with-body -X POST "$REGION_URL/v2/namespaces/region-example-curl" \
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    # Pick the right region: https://turbopuffer.com/docs/regions
-    region='gcp-us-east4',
+    region='gcp-us-east4', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'region-example-py')
@@ -63,11 +37,10 @@ ns = tpuf.namespace(f'region-example-py')
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  // Pick the right region: https://turbopuffer.com/docs/regions
-  region: "gcp-us-east4",
+  region: "gcp-us-east4", // choose best region: https://turbopuffer.com/docs/regions
 });
 
-const ns = tpuf.namespace(`region-example-mts`);
+const ns = tpuf.namespace(`region-example-ts`);
 ```
 ```go
 package main
@@ -82,11 +55,10 @@ import (
 
 func main() {
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-east4"),
+		option.WithRegion("gcp-us-east4"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
-	ns := tpuf.Namespace("my-namespace")
+	ns := tpuf.Namespace("region-example-go")
 
 	// Use the namespace to avoid "declared and not used" error
 	fmt.Printf("Created namespace in region: %v\n", ns)
@@ -106,19 +78,31 @@ public class Region {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-east4")
+      .region("gcp-us-east4") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("region-example-java");
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-east4",
+};
+
+var ns = tpuf.Namespace("region-example-csharp");
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central4", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-east4", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("region-example-rb")
@@ -152,3 +136,36 @@ Service Connect, Azure Private Link or an interconnect to reduce networking fees
 to \$0.01/GB. Unless you're transferring tens of billions of vectors per month,
 this is unlikely to have a large effect on your bill (1B vectors = 6TB would be
 \$600 of egress, not a significant issue).
+
+## All Regions
+
+| Region | URL | Location |
+| --- | --- | --- |
+| aws-ap-southeast-2 | https://aws-ap-southeast-2.turbopuffer.com | Sydney, Australia |
+| aws-ca-central-1 | https://aws-ca-central-1.turbopuffer.com | Montreal, Canada |
+| aws-eu-central-1 | https://aws-eu-central-1.turbopuffer.com | Frankfurt, Germany |
+| aws-eu-west-1 | https://aws-eu-west-1.turbopuffer.com | Dublin, Ireland |
+| aws-eu-west-2 | https://aws-eu-west-2.turbopuffer.com | London, UK |
+| aws-us-east-1 | https://aws-us-east-1.turbopuffer.com | N. Virginia, US |
+| aws-us-east-2 | https://aws-us-east-2.turbopuffer.com | Ohio, US |
+| aws-us-west-2 | https://aws-us-west-2.turbopuffer.com | Oregon, US |
+| aws-ap-south-1 | https://aws-ap-south-1.turbopuffer.com | Mumbai, India |
+| aws-sa-east-1 | https://aws-sa-east-1.turbopuffer.com | São Paulo, Brazil |
+| gcp-us-central1 | https://gcp-us-central1.turbopuffer.com | Iowa, US |
+| gcp-us-east1 | https://gcp-us-east1.turbopuffer.com | South Carolina, US |
+| gcp-us-west1 | https://gcp-us-west1.turbopuffer.com | Oregon, US |
+| gcp-us-east4 | https://gcp-us-east4.turbopuffer.com | N. Virginia, US |
+| gcp-northamerica-northeast2 | https://gcp-northamerica-northeast2.turbopuffer.com | Toronto, Canada |
+| gcp-europe-west3 | https://gcp-europe-west3.turbopuffer.com | Frankfurt, Germany |
+| gcp-europe-west1 | https://gcp-europe-west1.turbopuffer.com | St. Ghislain, Belgium |
+| gcp-asia-southeast1 | https://gcp-asia-southeast1.turbopuffer.com | Jurong West, Singapore |
+| gcp-asia-northeast3 | https://gcp-asia-northeast3.turbopuffer.com | Seoul, South Korea |
+
+
+---
+
+This page: [/docs/regions.md](https://turbopuffer.com/docs/regions.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

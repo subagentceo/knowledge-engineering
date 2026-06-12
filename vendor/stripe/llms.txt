@@ -135,7 +135,7 @@ Integrate a Stripe product to start accepting payments online and in person, emb
 - [Link in the Mobile Payment Element](https://docs.stripe.com/payments/link/mobile-payment-element-link.md): Add Link to your native iOS, Android, and React Native apps.
 - [Link in the Express Checkout Element](https://docs.stripe.com/payments/link/express-checkout-element-link.md): Let customers check out faster with Link and the Express Checkout Element.
 - [Link with Invoicing](https://docs.stripe.com/payments/link/invoicing.md): Speed up invoice payments by using Link with the Hosted Invoice Page.
-- [Explore the Link Authentication Element](https://docs.stripe.com/payments/link/link-authentication-element.md): Create a single email input for both email collection and Link authentication.
+- [Explore the Contact Details Element](https://docs.stripe.com/payments/link/contact-details-element.md): Create a single email input for both email collection and Link authentication.
 
 ## Architecture and Dashboard
 
@@ -224,7 +224,7 @@ You can use Elements with:
 - The [Payment Intents API](https://docs.stripe.com/api/payment_intents.md) to [build an advanced integration](https://docs.stripe.com/payments/advanced.md).
 
 - [Address Element](https://docs.stripe.com/elements/address-element.md): Use the Address Element to collect complete billing and shipping addresses.
-- [Link Authentication Element](https://docs.stripe.com/payments/elements/link-authentication-element.md): Use the Link Authentication Element to integrate Link.
+- [Contact Details Element](https://docs.stripe.com/payments/elements/contact-details-element.md): Use the Contact Details Element to integrate Link.
 - [Payment Sheet](https://docs.stripe.com/payments/mobile/payment-sheet.md): A prebuilt UI that presents payment methods in a sheet.
 - [Payment Element](https://docs.stripe.com/payments/mobile/embedded.md): Embed payment methods directly in your app.
 - [Migrate to Confirmation Tokens](https://docs.stripe.com/payments/payment-element/migration-ct.md): Finalize payments on the server by using a ConfirmationToken instead of a PaymentMethod.
@@ -268,9 +268,9 @@ Onboarding follows the Accounts v2 model. See /connect/accounts-v2 for how to cr
 ### Accounts and capabilities
 For new integrations, use the Accounts v2 API as described in /connect/accounts-v2. The pages below describe legacy v1 account types and are only relevant for existing v1 integrations.
 - [Account capabilities and configurations](https://docs.stripe.com/connect/account-capabilities.md): Learn how Connect capabilities work and how requested capabilities affect verification requirements and what a connected account can do.
-- [Connect account types](https://docs.stripe.com/connect/accounts.md): (Legacy) Learn about older v1 connected account configurations. For new integrations, use Accounts v2.
-- [Using Connect with Standard connected accounts](https://docs.stripe.com/connect/standard-accounts.md): (Legacy) Standard connected accounts are a v1 account type. For new integrations, configure accounts using Accounts v2 responsibilities and dashboard settings.
-- [Using Connect with Custom connected accounts](https://docs.stripe.com/connect/custom-accounts.md): (Legacy) Custom connected accounts are a v1 account type. For new integrations, configure accounts using Accounts v2 responsibilities and dashboard settings.
+- [Connected account types](https://docs.stripe.com/connect/accounts.md): (Legacy) Learn about older v1 connected account configurations. For new integrations, use Accounts v2.
+- [Using Standard connected accounts](https://docs.stripe.com/connect/standard-accounts.md): (Legacy) Standard connected accounts are a v1 account type. For new integrations, configure accounts using Accounts v2 responsibilities and dashboard settings.
+- [Using Custom connected accounts](https://docs.stripe.com/connect/custom-accounts.md): (Legacy) Custom connected accounts are a v1 account type. For new integrations, configure accounts using Accounts v2 responsibilities and dashboard settings.
 - [Express Dashboard](https://docs.stripe.com/connect/express-dashboard.md): (Legacy) The Express Dashboard is a v1 feature. For new integrations, configure dashboard access using Accounts v2.
 
 ### Charges and fund flows
@@ -572,7 +572,7 @@ With Sigma, you can:
 - [View API request logs](https://docs.stripe.com/development/dashboard/request-logs.md): Filter API request logs and view log entries in the Developers Dashboard.
 - [Acceptance analytics](https://docs.stripe.com/payments/analytics/acceptance.md): Understand what affects payment acceptance and why payments fail or are declined.
 - [View events and event object payloads](https://docs.stripe.com/development/dashboard/events.md): View events triggered by your account and their event object payload in the Developers Dashboard.
-- [Migrate queries](https://docs.stripe.com/stripe-data/migrate-queries.md): Migrate your Sigma queries from Presto to Trino.
+- [Migrate queries](https://docs.stripe.com/data/migrate-queries.md): Migrate your Sigma queries from Presto to Trino.
 
 ## Payment Links
 Sell online without building a digital storefront.
@@ -595,7 +595,7 @@ Radar evaluates transactions in real-time, using machine learning algorithms to 
 
 - [Understand fraud](https://docs.stripe.com/disputes/prevention.md): Learn how to identify fraud, and design a strategy to prevent it.
 - [Fraud prevention rules](https://docs.stripe.com/radar/rules.md): Use fraud prevention rules to help protect your business.
-- [Optimize risk factors](https://docs.stripe.com/radar/optimize-risk-factors.md): Adhere to our recommendations to maximize Stripe Radar's effectiveness.
+- [Risk factors recommendations](https://docs.stripe.com/radar/optimize-risk-factors.md): Follow our recommendations to maximize the effectiveness of Stripe Radar.
 - [Supported attributes](https://docs.stripe.com/radar/rules/supported-attributes.md): Review a complete list of attributes supported in Radar rules.
 - [Dispute and fraud card monitoring programs](https://docs.stripe.com/disputes/monitoring-programs.md): Learn about the monitoring programs operated by the card networks, and what to do if you're placed into one.
 - [Protect yourself from card testing](https://docs.stripe.com/disputes/prevention/card-testing.md): Learn about this fraudulent activity and how to protect yourself against it.

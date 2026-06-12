@@ -20,9 +20,9 @@ For enterprises already invested in Microsoft Foundry and Microsoft 365 Copilot,
 
 Claude is available in Microsoft Foundry via serverless deployment, allowing developers to scale while Anthropic manages the infrastructure. This integration enables developers to:
 
-- **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
-- **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
-- **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
+*   **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
+*   **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
+*   **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
 
 Claude is available in the Global Standard deployment rolling out today, using our standard API pricing, with the US DataZone coming soon. Visit our pricing page for details.
 
@@ -44,18 +44,18 @@ Claude is available now in public preview through Microsoft Foundry. Visit the M
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -2,6 +2,32 @@
 
 In 45 minutes you'll stand up Claude Code in Amazon Bedrock, teach it your team's conventions with CLAUDE.md, and turn your everyday workflows into reusable agent skills. You'll leave with a working, team-tuned agentic dev environment on Bedrock.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+13:30 – 14:15
+
+Session type
+
+Workshop
+
+Speaker(s)
+
+Antonio Rodriguez
+
+Principal Solutions Architect,
+
+AWS
+
 ## Watch recording
 
 Play videoPlay video

@@ -8,6 +8,8 @@ Nov 21, 2025
 
 Read the paper
 
+![From shortcuts to sabotage: natural emergent misalignment from reward hacking](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd9280698dd1e2f52a1ec49acf9e06a99488073a2-2000x1125.png&w=3840&q=75)
+
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F42f265902f9b2fe0e1495ee21d55d9f99c936913-1920x1080.png&w=3840&q=75)
 
 _In the latest research from Anthropic’s alignment team, we show for the first time that realistic AI training processes can accidentally produce misaligned models1._
@@ -91,20 +93,16 @@ Read the full paper.
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

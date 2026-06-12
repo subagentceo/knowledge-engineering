@@ -112,6 +112,20 @@ To get started with Klarna:
 
    You can also use Checkout to [embed a payment page on your site](https://docs.stripe.com/checkout/embedded/quickstart.md) or [build a customized checkout page with Elements](https://docs.stripe.com/payments/quickstart-checkout-sessions.md) (such as the [Payment Method Messaging Element](https://docs.stripe.com/elements/payment-method-messaging.md)). To build an advanced integration that handles complex payment flows, you can use [Stripe Elements](https://docs.stripe.com/payments/elements.md) with the [Payment Intents API](https://docs.stripe.com/api/payment_intents.md).
 
+   (Private preview) [Stripe Terminal](https://docs.stripe.com/terminal.md) supports using Klarna in-store with [additional payment methods](https://docs.stripe.com/terminal/payments/additional-payment-methods.md?payment-method=klarna). If you’re interested in joining the preview, [share your email address to request access](https://docs.stripe.com/payments/klarna.md#signup). 
+   ### Want access to Klarna on Stripe Terminal?
+
+Enter your email to request access.
+
+   ```bash
+   curl https://docs.stripe.com/preview/register \
+     -X POST \
+     -H "Content-Type: application/json" \
+     -H "Referer: https://docs.stripe.com/payments/klarna" \
+     -d '{"email": "EMAIL", "preview": "terminal_lpm_preview"}'
+```
+
+
 1. Follow best practices, such as [sending relevant data to Klarna about items in the shopping cart](https://docs.stripe.com/payments/klarna/best-practices.md#send-shopping-cart-item-data), to [optimize conversion and cart size for Klarna payments](https://docs.stripe.com/payments/klarna/best-practices.md).
 
 ## Payment options 
@@ -243,17 +257,19 @@ Depending on the customer’s currency and the transaction amount, Klarna can pr
   - DE
   - FI
   - GB\*
+  - IT
   - NO
   - SE
-  - US                                                                                                 | - CAD: 250-17,500
+  - US                                                                                          | - CAD: 250-17,500
   - EUR:
     - Austria: 25-5,000
     - Finland: 25-3,000
     - Germany: 25-10,000
+    - Italy: 35-3,000
   - GBP: 250-5,000
   - NOK: 250-75,000
   - SEK: 250-100,000
-  - USD: 45-10,000                                                                                                                                                                                                                           |
+  - USD: 45-10,000                                                                                                                                                                                                     |
 
 1 When you set the [setup_future_usage](https://docs.stripe.com/api/payment_intents/object.md#payment_intent_object-setup_future_usage) parameter, a Klarna payment isn’t considered a one-time payment. This prevents the [Payment Method Messaging Element](https://docs.stripe.com/elements/payment-method-messaging.md) and [Payment Element](https://docs.stripe.com/payments/payment-element.md) from displaying payment plans that a customer is eligible for.
 

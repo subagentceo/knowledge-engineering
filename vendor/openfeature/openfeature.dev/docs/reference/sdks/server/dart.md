@@ -1,41 +1,41 @@
 # OpenFeature Dart SDK
 
-[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.0.22&color=blue&style=for-the-badge)](https://github.com/open-feature/dart-server-sdk/releases/tag/v0.0.22)[![Built with Dart](https://img.shields.io/badge/Built%20with-Dart-blue.svg?style=for-the-badge)](https://dart.dev/)  
-[![Pub Version](https://img.shields.io/pub/v/openfeature_dart_server_sdk.svg?style=for-the-badge)](https://pub.dev/packages/openfeature_dart_server_sdk)[![API Reference](https://img.shields.io/badge/API-reference-blue.svg?style=for-the-badge)](https://openfeature.dev/docs/reference/intro)[![Code Coverage](https://codecov.io/gh/open-feature/dart-server-sdk/branch/main/graph/badge.svg?token=FZ17BHNSU5)](https://codecov.io/gh/open-feature/dart-server-sdk)[![GitHub CI Status](https://github.com/open-feature/dart-server-sdk/actions/workflows/validation-workflow.yml/badge.svg?style=for-the-badge)](https://github.com/open-feature/dart-server-sdk/actions/workflows/validation-workflow.yml)
+![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)![Release](https://img.shields.io/static/v1?label=release&message=v0.0.22&color=blue&style=for-the-badge)![Built with Dart](https://img.shields.io/badge/Built%20with-Dart-blue.svg?style=for-the-badge)  
+![Pub Version](https://img.shields.io/pub/v/openfeature_dart_server_sdk.svg?style=for-the-badge)![API Reference](https://img.shields.io/badge/API-reference-blue.svg?style=for-the-badge)![Code Coverage](https://codecov.io/gh/open-feature/dart-server-sdk/branch/main/graph/badge.svg?token=FZ17BHNSU5)![GitHub CI Status](https://github.com/open-feature/dart-server-sdk/actions/workflows/validation-workflow.yml/badge.svg?style=for-the-badge)
 
-## Quick start[​](#quick-start "Direct link to Quick start")
+## Quick start​
 
-### Requirements[​](#requirements "Direct link to Requirements")
+### Requirements​
 
-Dart language version: [3.11.4](https://dart.dev/get-dart/archive)
+Dart language version: 3.11.4
 
 Note
 
 The OpenFeature Dart Server SDK only supports the latest currently maintained Dart language versions.
 
-### Install[​](#install "Direct link to Install")
+### Install​
 
 ```
 dependencies:  openfeature_dart_server_sdk: ^0.0.22
 ```
 
-### Then run[​](#then-run "Direct link to Then run")
+### Then run​
 
 ```
 dart pub get
 ```
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage​
 
 ```
 import 'package:openfeature_dart_server_sdk/feature_provider.dart';import 'package:openfeature_dart_server_sdk/open_feature_api.dart';void main() async {  final api = OpenFeatureAPI();  await api.setProviderAndWait(    InMemoryProvider({      'new-feature': true,      'welcome-message': 'Hello, OpenFeature!',    }),  );  final client = api.getClient('my-app');  final newFeatureEnabled = await client.getBooleanFlag(    'new-feature',    defaultValue: false,  );  final details = await client.getBooleanDetails(    'new-feature',    defaultValue: false,  );  print('Reason: ${details.reason}, Variant: ${details.variant}');  if (newFeatureEnabled) {    final welcomeMessage = await client.getStringFlag(      'welcome-message',      defaultValue: 'Welcome!',    );    print(welcomeMessage);  }}
 ```
 
-### API reference[​](#api-reference "Direct link to API reference")
+### API reference​
 
-See [pub.dev/documentation/openfeature\_dart\_server\_sdk/latest](https://pub.dev/documentation/openfeature_dart_server_sdk/latest/) for the complete API documentation.
+See pub.dev/documentation/openfeature_dart_server_sdk/latest for the complete API documentation.
 
-## Features[​](#features "Direct link to Features")
+## Features​
 
 Status
 
@@ -45,91 +45,91 @@ Description
 
 ✅
 
-[Providers](#providers)
+Providers
 
 Integrate with a commercial, open source, or in-house feature management tool.
 
 ✅
 
-[Targeting](#targeting)
+Targeting
 
-Contextually-aware flag evaluation using [evaluation context](/docs/reference/concepts/evaluation-context).
+Contextually-aware flag evaluation using evaluation context.
 
 ✅
 
-[Hooks](#hooks)
+Hooks
 
 Add functionality to various stages of the flag evaluation life-cycle.
 
 ✅
 
-[Tracking](#tracking)
+Tracking
 
 Associate user actions with feature flag evaluations for experimentation.
 
 ✅
 
-[Logging](#logging)
+Logging
 
 Integrate with popular logging packages.
 
 ✅
 
-[Domains](#domains)
+Domains
 
 Logically bind clients with providers.
 
 ⚠️
 
-[Multi-Provider](#multi-provider-experimental)
+Multi-Provider
 
 Compose multiple providers behind one SDK-level provider with a selection strategy.
 
 ✅
 
-[Eventing](#eventing)
+Eventing
 
 React to state changes in the provider or flag management system.
 
 ✅
 
-[Shutdown](#shutdown)
+Shutdown
 
 Gracefully clean up a provider during application shutdown.
 
 ✅
 
-[Transaction Context Propagation](#transaction-context-propagation)
+Transaction Context Propagation
 
-Set a specific [evaluation context](/docs/reference/concepts/evaluation-context) for a transaction such as an HTTP request or thread.
+Set a specific evaluation context for a transaction such as an HTTP request or thread.
 
 ✅
 
-[Extending](#extending)
+Extending
 
 Extend OpenFeature with custom providers and hooks.
 
 Implemented: ✅ | Experimental: ⚠️ | Not implemented yet: ❌
 
-### Providers[​](#providers "Direct link to Providers")
+### Providers​
 
-[Providers](/docs/reference/concepts/provider) are an abstraction between a flag management system and the OpenFeature SDK. Look [here](//ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Provider&instant_search%5BrefinementList%5D%5BallTechnologies%5D%5B0%5D=Dart) for a complete list of available providers. If the provider you need does not exist yet, see [Develop a provider](#develop-a-provider).
+Providers are an abstraction between a flag management system and the OpenFeature SDK. Look here for a complete list of available providers. If the provider you need does not exist yet, see Develop a provider.
 
 ```
 final api = OpenFeatureAPI();api.setProvider(MyProvider());
 ```
 
-### Targeting[​](#targeting "Direct link to Targeting")
+### Targeting​
 
-Sometimes the value of a flag must consider dynamic criteria about the application or user, such as location, IP, or organization. In OpenFeature this is called [targeting](/specification/glossary#targeting). If your flag management system supports targeting, you can provide the input data using the [evaluation context](/docs/reference/concepts/evaluation-context).
+Sometimes the value of a flag must consider dynamic criteria about the application or user, such as location, IP, or organization. In OpenFeature this is called targeting. If your flag management system supports targeting, you can provide the input data using the evaluation context.
 
 ```
 final api = OpenFeatureAPI();api.setGlobalContext(  OpenFeatureEvaluationContext({    'region': 'us-east-1-iah-1a',  }),);final client = FeatureClient(  metadata: ClientMetadata(name: 'my-app'),  hookManager: HookManager(),  defaultContext: const EvaluationContext(    attributes: {      'version': '1.4.6',    },  ),  provider: api.provider,);final result = await client.getBooleanFlag(  'feature-flag',  defaultValue: false,  context: const EvaluationContext(    attributes: {      'user': 'user-123',      'company': 'Initech',    },  ),);
 ```
 
-### Hooks[​](#hooks "Direct link to Hooks")
+### Hooks​
 
-[Hooks](/docs/reference/concepts/hooks) allow custom logic to be added at well-defined points of the flag evaluation life-cycle. Look [here](/ecosystem/?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Hook&instant_search%5BrefinementList%5D%5Btechnology%5D%5B0%5D=Dart) for a complete list of available hooks.
+Hooks allow custom logic to be added at well-defined points of the flag evaluation life-cycle. Look here for a complete list of available hooks.
 
 Once you have added a hook dependency, it can be registered at the global or client level.
 
@@ -147,9 +147,9 @@ Note
 
 Invocation-level hooks are not yet supported. Hooks can currently be registered at the global or client level.
 
-### Tracking[​](#tracking "Direct link to Tracking")
+### Tracking​
 
-The [tracking API](/specification/sections/tracking/) allows you to associate user actions with feature flag evaluations. This is useful for experimentation and downstream analytics.
+The tracking API allows you to associate user actions with feature flag evaluations. This is useful for experimentation and downstream analytics.
 
 ```
 import 'package:openfeature_dart_server_sdk/evaluation_context.dart';import 'package:openfeature_dart_server_sdk/feature_provider.dart';import 'package:openfeature_dart_server_sdk/open_feature_api.dart';final api = OpenFeatureAPI();final client = api.getClient('my-app');await client.track(  'checkout-completed',  context: const EvaluationContext(    attributes: {      'user': 'user-123',    },  ),  trackingDetails: const TrackingEventDetails(    value: 99.99,    attributes: {'currency': 'USD'},  ),);
@@ -157,15 +157,15 @@ import 'package:openfeature_dart_server_sdk/evaluation_context.dart';import 'pac
 
 Note that some providers may not support tracking. Check the provider documentation for details.
 
-### Logging[​](#logging "Direct link to Logging")
+### Logging​
 
 In accordance with the OpenFeature specification, the SDK does not generally log messages during flag evaluation.
 
-The SDK uses the [package:logging](https://pub.dev/packages/logging) structured logging API internally. You can configure log levels and listeners to capture SDK output for troubleshooting and debugging.
+The SDK uses the package:logging structured logging API internally. You can configure log levels and listeners to capture SDK output for troubleshooting and debugging.
 
 For lifecycle-level logging, use the built-in `LoggingHook` or `OpenTelemetryHook`. `LoggingHook` redacts evaluation-context values by default and only emits context keys unless `includeContext: true` is set explicitly.
 
-### Domains[​](#domains "Direct link to Domains")
+### Domains​
 
 Clients can be assigned to a domain. A domain is a logical identifier that can be used to associate clients with a particular provider. If a domain has no associated provider, the default provider is used.
 
@@ -173,7 +173,7 @@ Clients can be assigned to a domain. A domain is a logical identifier that can b
 import 'package:openfeature_dart_server_sdk/feature_provider.dart';import 'package:openfeature_dart_server_sdk/open_feature_api.dart';final api = OpenFeatureAPI();api.setProvider(InMemoryProvider({'default-flag': true}));api.registerProvider(CustomCacheProvider());api.bindClientToProvider('cache-domain', 'CustomCacheProvider');final defaultClient = api.getClient('default-client');await defaultClient.getBooleanFlag('default-flag', defaultValue: false);final cacheClient = api.getClient('cache-client', domain: 'cache-domain');await cacheClient.getBooleanFlag('cached-flag', defaultValue: false);
 ```
 
-### Multi-Provider (experimental)[​](#multi-provider-experimental "Direct link to Multi-Provider (experimental)")
+### Multi-Provider (experimental)​
 
 OpenFeature treats Multi-Provider as an SDK-level utility rather than behavior owned by any one provider. It is useful for migrations and fallback compositions where one client should consult more than one underlying provider.
 
@@ -185,7 +185,7 @@ import 'package:openfeature_dart_server_sdk/feature_provider.dart';import 'packa
 
 Treat the current Multi-Provider surface as experimental until the strategy API and documentation settle further.
 
-### Eventing[​](#eventing "Direct link to Eventing")
+### Eventing​
 
 Events allow you to react to state changes in the provider or underlying flag management system, such as flag definition changes, provider readiness, or error conditions. Initialization events (`PROVIDER_READY` on success, `PROVIDER_ERROR` on failure) are dispatched for every provider. Some providers support additional events such as `PROVIDER_CONFIGURATION_CHANGED`.
 
@@ -205,7 +205,7 @@ The SDK also exposes a global event bus for SDK-specific flag evaluation events.
 import 'package:openfeature_dart_server_sdk/event_system.dart';OpenFeatureEvents.instance.subscribe(  (event) {    print('Flag evaluated: ${event.data['flagKey']} = ${event.data['result']}');  },  filter: EventFilter(    types: {OpenFeatureEventType.flagEvaluated},  ),);
 ```
 
-### Shutdown[​](#shutdown "Direct link to Shutdown")
+### Shutdown​
 
 The OpenFeature API provides mechanisms to perform cleanup of registered providers. This should only be called when your application is shutting down.
 
@@ -213,7 +213,7 @@ The OpenFeature API provides mechanisms to perform cleanup of registered provide
 import 'package:openfeature_dart_server_sdk/open_feature_api.dart';import 'package:openfeature_dart_server_sdk/shutdown_manager.dart';final api = OpenFeatureAPI();final shutdownManager = ShutdownManager();shutdownManager.registerHook(  ShutdownHook(    name: 'provider-cleanup',    phase: ShutdownPhase.PROVIDER_SHUTDOWN,    execute: () async {      await api.dispose();    },  ),);await shutdownManager.shutdown();
 ```
 
-### Transaction Context Propagation[​](#transaction-context-propagation "Direct link to Transaction Context Propagation")
+### Transaction Context Propagation​
 
 Transaction context is a container for transaction-specific evaluation context, such as user id, user agent, or IP. Transaction context can be set where request-specific data is available and then automatically applied to flag evaluations inside that transaction.
 
@@ -221,29 +221,29 @@ Transaction context is a container for transaction-specific evaluation context, 
 import 'package:openfeature_dart_server_sdk/transaction_context.dart';final transactionManager = TransactionContextManager();final context = TransactionContext(  transactionId: 'request-123',  attributes: {    'user': 'user-456',    'region': 'us-west-1',  },);transactionManager.pushContext(context);await client.getBooleanFlag('my-flag', defaultValue: false);await transactionManager.withContext(  'transaction-id',  {'user': 'user-123'},  () async {    await client.getBooleanFlag('my-flag', defaultValue: false);  },);transactionManager.popContext();
 ```
 
-## Extending[​](#extending "Direct link to Extending")
+## Extending​
 
-### Develop a provider[​](#develop-a-provider "Direct link to Develop a provider")
+### Develop a provider​
 
-To develop a provider, create a new project and include the OpenFeature SDK as a dependency. This can live in a new repository or in the existing [contrib repository](https://github.com/open-feature/dart-server-sdk-contrib).
+To develop a provider, create a new project and include the OpenFeature SDK as a dependency. This can live in a new repository or in the existing contrib repository.
 
 ```
 import 'package:openfeature_dart_server_sdk/feature_provider.dart';class MyCustomProvider implements FeatureProvider {  @override  String get name => 'MyCustomProvider';  @override  ProviderMetadata get metadata => ProviderMetadata(name: name);  @override  ProviderState get state => ProviderState.READY;  @override  ProviderConfig get config => ProviderConfig();  @override  Future<void> initialize([Map<String, dynamic>? config]) async {}  @override  Future<void> connect() async {}  @override  Future<void> shutdown() async {}  @override  Future<void> track(    String trackingEventName, {    Map<String, dynamic>? evaluationContext,    TrackingEventDetails? trackingDetails,  }) async {}  @override  Future<FlagEvaluationResult<bool>> getBooleanFlag(    String flagKey,    bool defaultValue, {    Map<String, dynamic>? context,  }) async {    return FlagEvaluationResult(      flagKey: flagKey,      value: true,      evaluatedAt: DateTime.now(),      evaluatorId: name,    );  }  @override  Future<FlagEvaluationResult<String>> getStringFlag(    String flagKey,    String defaultValue, {    Map<String, dynamic>? context,  }) async {    return FlagEvaluationResult(      flagKey: flagKey,      value: 'value',      evaluatedAt: DateTime.now(),      evaluatorId: name,    );  }  @override  Future<FlagEvaluationResult<int>> getIntegerFlag(    String flagKey,    int defaultValue, {    Map<String, dynamic>? context,  }) async {    return FlagEvaluationResult(      flagKey: flagKey,      value: 42,      evaluatedAt: DateTime.now(),      evaluatorId: name,    );  }  @override  Future<FlagEvaluationResult<double>> getDoubleFlag(    String flagKey,    double defaultValue, {    Map<String, dynamic>? context,  }) async {    return FlagEvaluationResult(      flagKey: flagKey,      value: 3.14,      evaluatedAt: DateTime.now(),      evaluatorId: name,    );  }  @override  Future<FlagEvaluationResult<Map<String, dynamic>>> getObjectFlag(    String flagKey,    Map<String, dynamic> defaultValue, {    Map<String, dynamic>? context,  }) async {    return FlagEvaluationResult(      flagKey: flagKey,      value: {'key': 'value'},      evaluatedAt: DateTime.now(),      evaluatorId: name,    );  }}
 ```
 
-> Built a new provider? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=provider&projects=&template=document-provider.yaml&title=%5BProvider%5D%3A+) so we can add it to the docs.
+> Built a new provider? Let us know so we can add it to the docs.
 
-### Develop a hook[​](#develop-a-hook "Direct link to Develop a hook")
+### Develop a hook​
 
-To develop a hook, create a new project and include the OpenFeature SDK as a dependency. This can live in a new repository or in the existing [contrib repository](https://github.com/open-feature/dart-server-sdk-contrib). Implement your own hook by using the hook interfaces exported by the SDK.
+To develop a hook, create a new project and include the OpenFeature SDK as a dependency. This can live in a new repository or in the existing contrib repository. Implement your own hook by using the hook interfaces exported by the SDK.
 
 ```
 import 'package:openfeature_dart_server_sdk/hooks.dart';class MyCustomHook extends BaseHook {  MyCustomHook()    : super(metadata: HookMetadata(name: 'MyCustomHook'));  @override  Future<Map<String, dynamic>?> before(HookContext context) async {    print('Before evaluating flag: ${context.flagKey}');    return {      'requestSource': 'my-hook',    };  }  @override  Future<void> after(HookContext context) async {    print('After evaluating flag: ${context.flagKey}, result: ${context.result}');  }  @override  Future<void> error(HookContext context) async {    print('Error evaluating flag: ${context.flagKey}, error: ${context.error}');  }  @override  Future<void> finally_(    HookContext context,    EvaluationDetails? evaluationDetails, [    HookHints? hints,  ]) async {    print('Finished evaluating flag: ${context.flagKey}');  }}
 ```
 
-> Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs.
+> Built a new hook? Let us know so we can add it to the docs.
 
-## Testing[​](#testing "Direct link to Testing")
+## Testing​
 
 Use the `InMemoryProvider` to set flags for the scope of a test. Use `OpenFeatureAPI.resetInstance()` in `tearDown` to clean up between tests.
 

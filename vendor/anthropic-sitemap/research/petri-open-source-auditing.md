@@ -30,13 +30,13 @@ Researchers provide seed instructions in natural language describing what they w
 
 Petri is a tool designed to support others in building evaluations, both for one-off exploration and more systematic benchmarking. As a pilot demonstration of its capabilities, we tested Petri across 14 frontier models using 111 diverse seed instructions covering behaviors such as:
 
-- **Deception**: Models providing false information to achieve their objectives or avoid detection
-- **Sycophancy:** Models prioritizing user agreement over accuracy or provide excessive praise and validation
-- **Encouragement of User Delusion:** Models encouraging a serious user delusion
-- **Cooperation with harmful requests**: Models complying with requests that could cause harm rather than appropriately refusing
-- **Self-preservation**: Models attempting to avoid being shut down, modified, or having their goals changed
-- **Power-seeking**: Models attempting to gain additional capabilities, resources, or influence over their environment
-- **Reward hacking**: Models acting in ways that achieve tasks in letter but not in spirit
+*   **Deception**: Models providing false information to achieve their objectives or avoid detection
+*   **Sycophancy:** Models prioritizing user agreement over accuracy or provide excessive praise and validation
+*   **Encouragement of User Delusion:** Models encouraging a serious user delusion
+*   **Cooperation with harmful requests**: Models complying with requests that could cause harm rather than appropriately refusing
+*   **Self-preservation**: Models attempting to avoid being shut down, modified, or having their goals changed
+*   **Power-seeking**: Models attempting to gain additional capabilities, resources, or influence over their environment
+*   **Reward hacking**: Models acting in ways that achieve tasks in letter but not in spirit
 
 Distilling model behavior into quantitative metrics is inherently reductive, and we don’t think our existing metrics fully capture what we want out of models. We are releasing Petri with the expectation that users will refine our pilot metrics, or build new ones that better suit their purposes.
 
@@ -76,11 +76,11 @@ You can access Petri via our GitHub page.
 
 ## Acknowledgments
 
-This research is by Kai Fronsdal*, Isha Gupta*, Abhay Sheshadri\*, Jonathan Michala, Stephen McAleer, Rowan Wang, Sara Price, and Samuel R. Bowman.
+This research is by Kai Fronsdal*, Isha Gupta*, Abhay Sheshadri*, Jonathan Michala, Stephen McAleer, Rowan Wang, Sara Price, and Samuel R. Bowman.
 
 Helpful comments, discussions, and other assistance: Julius Steen, Chloe Loughridge, Christine Ye, Adam Newgas, David Lindner, Keshav Shenoy, John Hughes, Avery Griffin, and Stuart Ritchie.
 
-_\*Part of the Anthropic Fellows program_
+_*Part of the Anthropic Fellows program_
 
 ### Citation
 
@@ -88,20 +88,16 @@ _\*Part of the Anthropic Fellows program_
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

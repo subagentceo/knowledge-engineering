@@ -17,12 +17,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   ID of the Message Batch.
 
 - `params: BatchDeleteParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -75,11 +78,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaDeletedMessageBatch`
+
   - `id: string`
 
     ID of the Message Batch.
@@ -89,19 +95,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
+
     - `"message_batch_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaDeletedMessageBatch =
-  await client.beta.messages.batches.delete("message_batch_id");
+const betaDeletedMessageBatch = await client.beta.messages.batches.delete('message_batch_id');
 
 console.log(betaDeletedMessageBatch.id);
 ```

@@ -11,6 +11,7 @@ List Session Thread Events
 ### Parameters
 
 - `EventListParams parameters`
+
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -30,6 +31,7 @@ List Session Thread Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -82,19 +84,24 @@ List Session Thread Events
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class EventListPageResponse:`
 
   Paginated list of events for a single thread within a `session`.
+
   - `IReadOnlyList<BetaManagedAgentsSessionEvent> Data`
 
     Events for the thread, ordered by `created_at`.
+
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -102,25 +109,31 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks comprising the user message.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
+
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
+
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
+
           - `required Source Source`
 
             Union type for image source variants.
+
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
+
               - `required string Data`
 
                 Base64-encoded image data.
@@ -130,12 +143,15 @@ List Session Thread Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
+
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
+
               - `required Type Type`
+
                 - `"url"Url`
 
               - `required string Url`
@@ -145,25 +161,31 @@ List Session Thread Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
+
                 - `"file"File`
 
           - `required Type Type`
+
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
           - `required Source Source`
 
             Union type for document source variants.
+
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
+
               - `required string Data`
 
                 Base64-encoded document data.
@@ -173,11 +195,13 @@ List Session Thread Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
+
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
+
               - `required string Data`
 
                 The plain text content.
@@ -185,15 +209,19 @@ List Session Thread Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
+
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
+
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
+
               - `required Type Type`
+
                 - `"url"Url`
 
               - `required string Url`
@@ -203,14 +231,17 @@ List Session Thread Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
+
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
+
                 - `"file"File`
 
           - `required Type Type`
+
             - `"document"Document`
 
           - `string? Context`
@@ -222,6 +253,7 @@ List Session Thread Events
             The title of the document.
 
       - `required Type Type`
+
         - `"user.message"UserMessage`
 
       - `DateTimeOffset? ProcessedAt`
@@ -231,11 +263,13 @@ List Session Thread Events
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
+
       - `required string ID`
 
         Unique identifier for this event.
 
       - `required Type Type`
+
         - `"user.interrupt"UserInterrupt`
 
       - `DateTimeOffset? ProcessedAt`
@@ -249,6 +283,7 @@ List Session Thread Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -256,6 +291,7 @@ List Session Thread Events
       - `required Result Result`
 
         UserToolConfirmationResult enum
+
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -265,6 +301,7 @@ List Session Thread Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
+
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -282,6 +319,7 @@ List Session Thread Events
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -291,11 +329,13 @@ List Session Thread Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
+
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -311,9 +351,11 @@ List Session Thread Events
         - `class BetaManagedAgentsSearchResultBlock:`
 
           A block containing a web search result.
+
           - `required BetaManagedAgentsSearchResultCitations Citations`
 
             Citation settings for a search result.
+
             - `required Boolean Enabled`
 
               Whether citations are enabled for this search result.
@@ -321,11 +363,13 @@ List Session Thread Events
           - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
             Array of text content blocks from the search result.
+
             - `required string Text`
 
               The text content.
 
             - `required Type Type`
+
               - `"text"Text`
 
           - `required string Source`
@@ -337,6 +381,7 @@ List Session Thread Events
             The title of the search result.
 
           - `required Type Type`
+
             - `"search_result"SearchResult`
 
       - `Boolean? IsError`
@@ -354,6 +399,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
       Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -371,6 +417,7 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.custom_tool_use"AgentCustomToolUse`
 
       - `string? SessionThreadID`
@@ -380,6 +427,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentMessageEvent:`
 
       An agent response event in the session conversation.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -387,6 +435,7 @@ List Session Thread Events
       - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
         Array of text blocks comprising the agent response.
+
         - `required string Text`
 
           The text content.
@@ -398,11 +447,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.message"AgentMessage`
 
     - `class BetaManagedAgentsAgentThinkingEvent:`
 
       Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -412,11 +463,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.thinking"AgentThinking`
 
     - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
       Event emitted when the agent invokes a tool provided by an MCP server.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -438,11 +491,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.mcp_tool_use"AgentMcpToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
+
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -456,6 +511,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
       Event representing the result of an MCP tool execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -469,11 +525,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.mcp_tool_result"AgentMcpToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -497,6 +555,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentToolUseEvent:`
 
       Event emitted when the agent invokes a built-in agent tool.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -514,11 +573,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.tool_use"AgentToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
+
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -532,6 +593,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentToolResultEvent:`
 
       Event representing the result of an agent tool execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -545,11 +607,13 @@ List Session Thread Events
         The id of the `agent.tool_use` event this result corresponds to.
 
       - `required Type Type`
+
         - `"agent.tool_result"AgentToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -573,6 +637,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
       Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -580,6 +645,7 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -601,6 +667,7 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.thread_message_received"AgentThreadMessageReceived`
 
       - `string? FromAgentName`
@@ -610,6 +677,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
       Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -617,6 +685,7 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -638,6 +707,7 @@ List Session Thread Events
         Public `sthr_` ID of the thread the message was sent to.
 
       - `required Type Type`
+
         - `"agent.thread_message_sent"AgentThreadMessageSent`
 
       - `string? ToAgentName`
@@ -647,6 +717,7 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
       Indicates that context compaction (summarization) occurred during the session.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -656,11 +727,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
     - `class BetaManagedAgentsSessionErrorEvent:`
 
       An error event indicating a problem occurred during session execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -668,9 +741,11 @@ List Session Thread Events
       - `required Error Error`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
         - `class BetaManagedAgentsUnknownError:`
 
           An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
           - `required string Message`
 
             Human-readable error description.
@@ -678,30 +753,39 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
               - `required Type Type`
+
                 - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
               - `required Type Type`
+
                 - `"exhausted"Exhausted`
 
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
+
               - `required Type Type`
+
                 - `"terminal"Terminal`
 
           - `required Type Type`
+
             - `"unknown_error"UnknownError`
 
         - `class BetaManagedAgentsModelOverloadedError:`
 
           The model is currently overloaded. Emitted after automatic retries are exhausted.
+
           - `required string Message`
 
             Human-readable error description.
@@ -709,6 +793,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -722,11 +807,13 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"model_overloaded_error"ModelOverloadedError`
 
         - `class BetaManagedAgentsModelRateLimitedError:`
 
           The model request was rate-limited.
+
           - `required string Message`
 
             Human-readable error description.
@@ -734,6 +821,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -747,11 +835,13 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"model_rate_limited_error"ModelRateLimitedError`
 
         - `class BetaManagedAgentsModelRequestFailedError:`
 
           A model request failed for a reason other than overload or rate-limiting.
+
           - `required string Message`
 
             Human-readable error description.
@@ -759,6 +849,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -772,11 +863,13 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"model_request_failed_error"ModelRequestFailedError`
 
         - `class BetaManagedAgentsMcpConnectionFailedError:`
 
           Failed to connect to an MCP server.
+
           - `required string McpServerName`
 
             Name of the MCP server that failed to connect.
@@ -788,6 +881,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -801,11 +895,13 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"mcp_connection_failed_error"McpConnectionFailedError`
 
         - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
           Authentication to an MCP server failed.
+
           - `required string McpServerName`
 
             Name of the MCP server that failed authentication.
@@ -817,6 +913,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -830,11 +927,13 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
         - `class BetaManagedAgentsBillingError:`
 
           The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
           - `required string Message`
 
             Human-readable error description.
@@ -842,6 +941,7 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
+
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -855,18 +955,57 @@ List Session Thread Events
               The session encountered a terminal error and will transition to `terminated` state.
 
           - `required Type Type`
+
             - `"billing_error"BillingError`
+
+        - `class BetaManagedAgentsCredentialHostUnreachableError:`
+
+          An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+          - `required string CredentialID`
+
+            ID of the affected credential.
+
+          - `required string Message`
+
+            Human-readable error description.
+
+          - `required RetryStatus RetryStatus`
+
+            What the client should do next in response to this error.
+
+            - `class BetaManagedAgentsRetryStatusRetrying:`
+
+              The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+            - `class BetaManagedAgentsRetryStatusExhausted:`
+
+              This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+            - `class BetaManagedAgentsRetryStatusTerminal:`
+
+              The session encountered a terminal error and will transition to `terminated` state.
+
+          - `required Type Type`
+
+            - `"credential_host_unreachable_error"CredentialHostUnreachableError`
+
+          - `required string VaultID`
+
+            ID of the vault containing the affected credential.
 
       - `required DateTimeOffset ProcessedAt`
 
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.error"SessionError`
 
     - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
       Indicates the session is recovering from an error state and is rescheduled for execution.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -876,11 +1015,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.status_rescheduled"SessionStatusRescheduled`
 
     - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
       Indicates the session is actively running and the agent is working.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -890,11 +1031,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.status_running"SessionStatusRunning`
 
     - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
       Indicates the agent has paused and is awaiting user input.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -906,34 +1049,43 @@ List Session Thread Events
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
+
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
+
           - `required Type Type`
+
             - `"end_turn"EndTurn`
 
         - `class BetaManagedAgentsSessionRequiresAction:`
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
           - `required IReadOnlyList<string> EventIds`
 
             The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
           - `required Type Type`
+
             - `"requires_action"RequiresAction`
 
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+
           - `required Type Type`
+
             - `"retries_exhausted"RetriesExhausted`
 
       - `required Type Type`
+
         - `"session.status_idle"SessionStatusIdle`
 
     - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
       Indicates the session has terminated, either due to an error or completion.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -943,11 +1095,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.status_terminated"SessionStatusTerminated`
 
     - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
       Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -965,11 +1119,13 @@ List Session Thread Events
         Public `sthr_` ID of the newly created thread.
 
       - `required Type Type`
+
         - `"session.thread_created"SessionThreadCreated`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
       Emitted when an outcome evaluation cycle begins.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -987,11 +1143,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
       Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1021,11 +1179,13 @@ List Session Thread Events
         Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
       - `required Type Type`
+
         - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
       - `required BetaManagedAgentsSpanModelUsage Usage`
 
         Token usage for a single model request.
+
         - `required Int CacheCreationInputTokens`
 
           Tokens used to create prompt cache in this request.
@@ -1045,6 +1205,7 @@ List Session Thread Events
         - `Speed? Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -1052,6 +1213,7 @@ List Session Thread Events
     - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
       Emitted when a model request is initiated by the agent.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1061,11 +1223,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"span.model_request_start"SpanModelRequestStart`
 
     - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
       Emitted when a model request completes.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1087,11 +1251,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"span.model_request_end"SpanModelRequestEnd`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
       Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1109,11 +1275,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1137,32 +1305,39 @@ List Session Thread Events
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
+
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
+
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
+
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
+
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `required Type Type`
+
             - `"text"Text`
 
       - `required Type Type`
+
         - `"user.define_outcome"UserDefineOutcome`
 
     - `class BetaManagedAgentsSessionDeletedEvent:`
 
       Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1172,11 +1347,13 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.deleted"SessionDeleted`
 
     - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
       A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1191,14 +1368,16 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr\_ ID of the thread that started running.
+        Public sthr_ ID of the thread that started running.
 
       - `required Type Type`
+
         - `"session.thread_status_running"SessionThreadStatusRunning`
 
     - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
       A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1213,11 +1392,12 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr\_ ID of the thread that went idle.
+        Public sthr_ ID of the thread that went idle.
 
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
+
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
@@ -1231,11 +1411,13 @@ List Session Thread Events
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
       - `required Type Type`
+
         - `"session.thread_status_idle"SessionThreadStatusIdle`
 
     - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1250,14 +1432,16 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr\_ ID of the thread that terminated.
+        Public sthr_ ID of the thread that terminated.
 
       - `required Type Type`
+
         - `"session.thread_status_terminated"SessionThreadStatusTerminated`
 
     - `class BetaManagedAgentsUserToolResultEvent:`
 
       Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1267,11 +1451,13 @@ List Session Thread Events
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
+
         - `"user.tool_result"UserToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
+
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
@@ -1303,6 +1489,7 @@ List Session Thread Events
     - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
       A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1317,14 +1504,16 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr\_ ID of the thread that is retrying.
+        Public sthr_ ID of the thread that is retrying.
 
       - `required Type Type`
+
         - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
 
     - `class BetaManagedAgentsSessionUpdatedEvent:`
 
       Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
       - `required string ID`
 
         Unique identifier for this event.
@@ -1334,19 +1523,23 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
+
         - `"session.updated"SessionUpdated`
 
       - `BetaManagedAgentsSessionAgent? Agent`
 
         Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
           - `required string Name`
 
           - `required Type Type`
+
             - `"url"Url`
 
           - `required string Url`
@@ -1354,11 +1547,21 @@ List Session Thread Events
         - `required BetaManagedAgentsModelConfig Model`
 
           Model identifier and configuration.
+
           - `required BetaManagedAgentsModel ID`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5"ClaudeFable5`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-opus-4-8"ClaudeOpus4_8`
+
+              Frontier intelligence for long-running agents and coding
+
             - `"claude-opus-4-7"ClaudeOpus4_7`
 
               Frontier intelligence for long-running agents and coding
@@ -1398,6 +1601,7 @@ List Session Thread Events
           - `Speed Speed`
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
             - `"standard"Standard`
 
             - `"fast"Fast`
@@ -1405,14 +1609,17 @@ List Session Thread Events
         - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
           Resolved coordinator topology with full agent definitions for each roster member.
+
           - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
             Full `agent` definitions the coordinator may spawn as session threads.
+
             - `required string ID`
 
             - `required string? Description`
 
             - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
               - `required string Name`
 
               - `required Type Type`
@@ -1426,12 +1633,15 @@ List Session Thread Events
             - `required string Name`
 
             - `required IReadOnlyList<Skill> Skills`
+
               - `class BetaManagedAgentsAnthropicSkill:`
 
                 A resolved Anthropic-managed skill.
+
                 - `required string SkillID`
 
                 - `required Type Type`
+
                   - `"anthropic"Anthropic`
 
                 - `required string Version`
@@ -1439,9 +1649,11 @@ List Session Thread Events
               - `class BetaManagedAgentsCustomSkill:`
 
                 A resolved user-created custom skill.
+
                 - `required string SkillID`
 
                 - `required Type Type`
+
                   - `"custom"Custom`
 
                 - `required string Version`
@@ -1449,13 +1661,17 @@ List Session Thread Events
             - `required string? System`
 
             - `required IReadOnlyList<Tool> Tools`
+
               - `class BetaManagedAgentsAgentToolset20260401:`
+
                 - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+
                   - `required Boolean Enabled`
 
                   - `required Name Name`
 
                     Built-in agent tool identifier.
+
                     - `"bash"Bash`
 
                     - `"edit"Edit`
@@ -1475,26 +1691,33 @@ List Session Thread Events
                   - `required PermissionPolicy PermissionPolicy`
 
                     Permission policy for tool execution.
+
                     - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                       Tool calls are automatically approved without user confirmation.
+
                       - `required Type Type`
+
                         - `"always_allow"AlwaysAllow`
 
                     - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                       Tool calls require user confirmation before execution.
+
                       - `required Type Type`
+
                         - `"always_ask"AlwaysAsk`
 
                 - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
                   Resolved default configuration for agent tools.
+
                   - `required Boolean Enabled`
 
                   - `required PermissionPolicy PermissionPolicy`
 
                     Permission policy for tool execution.
+
                     - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                       Tool calls are automatically approved without user confirmation.
@@ -1504,10 +1727,13 @@ List Session Thread Events
                       Tool calls require user confirmation before execution.
 
                 - `required Type Type`
+
                   - `"agent_toolset_20260401"AgentToolset20260401`
 
               - `class BetaManagedAgentsMcpToolset:`
+
                 - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+
                   - `required Boolean Enabled`
 
                   - `required string Name`
@@ -1515,6 +1741,7 @@ List Session Thread Events
                   - `required PermissionPolicy PermissionPolicy`
 
                     Permission policy for tool execution.
+
                     - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                       Tool calls are automatically approved without user confirmation.
@@ -1526,11 +1753,13 @@ List Session Thread Events
                 - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
                   Resolved default configuration for all tools from an MCP server.
+
                   - `required Boolean Enabled`
 
                   - `required PermissionPolicy PermissionPolicy`
 
                     Permission policy for tool execution.
+
                     - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                       Tool calls are automatically approved without user confirmation.
@@ -1542,45 +1771,45 @@ List Session Thread Events
                 - `required string McpServerName`
 
                 - `required Type Type`
+
                   - `"mcp_toolset"McpToolset`
 
               - `class BetaManagedAgentsCustomTool:`
 
                 A custom tool as returned in API responses.
+
                 - `required string Description`
 
                 - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
                   JSON Schema for custom tool input parameters.
+
+                  - `JsonElement Type "object"constant`
+
                   - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
-                    JSON Schema properties defining the tool's input parameters.
-
-                  - `IReadOnlyList<string> Required`
-
-                    List of required property names.
-
-                  - `Type Type`
-
-                    Must be 'object' for tool input schemas.
-                    - `"object"Object`
+                  - `IReadOnlyList<string>? Required`
 
                 - `required string Name`
 
                 - `required Type Type`
+
                   - `"custom"Custom`
 
             - `required Type Type`
+
               - `"agent"Agent`
 
             - `required Int Version`
 
           - `required Type Type`
+
             - `"coordinator"Coordinator`
 
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
+
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
@@ -1592,6 +1821,7 @@ List Session Thread Events
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
+
           - `class BetaManagedAgentsAgentToolset20260401:`
 
           - `class BetaManagedAgentsMcpToolset:`
@@ -1601,6 +1831,7 @@ List Session Thread Events
             A custom tool as returned in API responses.
 
         - `required Type Type`
+
           - `"agent"Agent`
 
         - `required Int Version`
@@ -1612,6 +1843,34 @@ List Session Thread Events
       - `string? Title`
 
         The session's new title. Present only when the update changed it.
+
+    - `class BetaManagedAgentsSystemMessageEvent:`
+
+      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
+
+        System content blocks. Text-only.
+
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+
+          - `"text"Text`
+
+      - `required Type Type`
+
+        - `"system.message"SystemMessage`
+
+      - `DateTimeOffset? ProcessedAt`
+
+        A timestamp in RFC 3339 format
 
   - `string? NextPage`
 
@@ -1665,6 +1924,7 @@ Stream Session Thread Events
 ### Parameters
 
 - `EventStreamParams parameters`
+
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -1676,6 +1936,7 @@ Stream Session Thread Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1728,16 +1989,20 @@ Stream Session Thread Events
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsStreamSessionThreadEvents: A class that can be one of several variants.union`
 
   Server-sent event in a single thread's stream.
+
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -1745,25 +2010,31 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
+
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
+
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
         - `required Source Source`
 
           Union type for image source variants.
+
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
+
             - `required string Data`
 
               Base64-encoded image data.
@@ -1773,12 +2044,15 @@ Stream Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
+
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
+
             - `required Type Type`
+
               - `"url"Url`
 
             - `required string Url`
@@ -1788,25 +2062,31 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
+
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
+
               - `"file"File`
 
         - `required Type Type`
+
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
         - `required Source Source`
 
           Union type for document source variants.
+
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
+
             - `required string Data`
 
               Base64-encoded document data.
@@ -1816,11 +2096,13 @@ Stream Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
+
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
+
             - `required string Data`
 
               The plain text content.
@@ -1828,15 +2110,19 @@ Stream Session Thread Events
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
+
               - `"text/plain"TextPlain`
 
             - `required Type Type`
+
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
+
             - `required Type Type`
+
               - `"url"Url`
 
             - `required string Url`
@@ -1846,14 +2132,17 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
+
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
+
               - `"file"File`
 
         - `required Type Type`
+
           - `"document"Document`
 
         - `string? Context`
@@ -1865,6 +2154,7 @@ Stream Session Thread Events
           The title of the document.
 
     - `required Type Type`
+
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -1874,11 +2164,13 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
+
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
+
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -1892,6 +2184,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -1899,6 +2192,7 @@ Stream Session Thread Events
     - `required Result Result`
 
       UserToolConfirmationResult enum
+
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -1908,6 +2202,7 @@ Stream Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
+
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -1925,6 +2220,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -1934,11 +2230,13 @@ Stream Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
+
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -1954,9 +2252,11 @@ Stream Session Thread Events
       - `class BetaManagedAgentsSearchResultBlock:`
 
         A block containing a web search result.
+
         - `required BetaManagedAgentsSearchResultCitations Citations`
 
           Citation settings for a search result.
+
           - `required Boolean Enabled`
 
             Whether citations are enabled for this search result.
@@ -1964,11 +2264,13 @@ Stream Session Thread Events
         - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
           Array of text content blocks from the search result.
+
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
+
             - `"text"Text`
 
         - `required string Source`
@@ -1980,6 +2282,7 @@ Stream Session Thread Events
           The title of the search result.
 
         - `required Type Type`
+
           - `"search_result"SearchResult`
 
     - `Boolean? IsError`
@@ -1997,6 +2300,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2014,6 +2318,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -2023,6 +2328,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2030,6 +2336,7 @@ Stream Session Thread Events
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
+
       - `required string Text`
 
         The text content.
@@ -2041,11 +2348,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2055,11 +2364,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2081,11 +2392,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
+
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -2099,6 +2412,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2112,11 +2426,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -2140,6 +2456,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2157,11 +2474,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
+
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -2175,6 +2494,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2188,11 +2508,13 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
+
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -2216,6 +2538,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2223,6 +2546,7 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -2244,6 +2568,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -2253,6 +2578,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2260,6 +2586,7 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -2281,6 +2608,7 @@ Stream Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
+
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -2290,6 +2618,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2299,11 +2628,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2311,9 +2642,11 @@ Stream Session Thread Events
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
         - `required string Message`
 
           Human-readable error description.
@@ -2321,30 +2654,39 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
             - `required Type Type`
+
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
             - `required Type Type`
+
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
+
             - `required Type Type`
+
               - `"terminal"Terminal`
 
         - `required Type Type`
+
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
         - `required string Message`
 
           Human-readable error description.
@@ -2352,6 +2694,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2365,11 +2708,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
+
         - `required string Message`
 
           Human-readable error description.
@@ -2377,6 +2722,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2390,11 +2736,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
+
         - `required string Message`
 
           Human-readable error description.
@@ -2402,6 +2750,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2415,11 +2764,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
+
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -2431,6 +2782,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2444,11 +2796,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
+
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -2460,6 +2814,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2473,11 +2828,13 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
         - `required string Message`
 
           Human-readable error description.
@@ -2485,6 +2842,7 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
+
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -2498,18 +2856,57 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `required Type Type`
+
           - `"billing_error"BillingError`
+
+      - `class BetaManagedAgentsCredentialHostUnreachableError:`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `required string CredentialID`
+
+          ID of the affected credential.
+
+        - `required string Message`
+
+          Human-readable error description.
+
+        - `required RetryStatus RetryStatus`
+
+          What the client should do next in response to this error.
+
+          - `class BetaManagedAgentsRetryStatusRetrying:`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `class BetaManagedAgentsRetryStatusExhausted:`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `class BetaManagedAgentsRetryStatusTerminal:`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `required Type Type`
+
+          - `"credential_host_unreachable_error"CredentialHostUnreachableError`
+
+        - `required string VaultID`
+
+          ID of the vault containing the affected credential.
 
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2519,11 +2916,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2533,11 +2932,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2549,34 +2950,43 @@ Stream Session Thread Events
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
+
         - `required Type Type`
+
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
+
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+
         - `required Type Type`
+
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
+
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2586,11 +2996,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2608,11 +3020,13 @@ Stream Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
+
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2630,11 +3044,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2664,11 +3080,13 @@ Stream Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
+
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
+
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -2688,6 +3106,7 @@ Stream Session Thread Events
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -2695,6 +3114,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2704,11 +3124,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2730,11 +3152,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2752,11 +3176,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2780,32 +3206,39 @@ Stream Session Thread Events
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
+
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
+
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
+
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
+
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
+
           - `"text"Text`
 
     - `required Type Type`
+
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2815,11 +3248,13 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2834,14 +3269,16 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `required Type Type`
+
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2856,11 +3293,12 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
@@ -2874,11 +3312,13 @@ Stream Session Thread Events
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
     - `required Type Type`
+
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2893,14 +3333,16 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `required Type Type`
+
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
 
   - `class BetaManagedAgentsUserToolResultEvent:`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2910,11 +3352,13 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
+
       - `"user.tool_result"UserToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
+
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
@@ -2946,6 +3390,7 @@ Stream Session Thread Events
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2960,14 +3405,16 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `required Type Type`
+
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
 
   - `class BetaManagedAgentsSessionUpdatedEvent:`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
     - `required string ID`
 
       Unique identifier for this event.
@@ -2977,19 +3424,23 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
+
       - `"session.updated"SessionUpdated`
 
     - `BetaManagedAgentsSessionAgent? Agent`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
       - `required string ID`
 
       - `required string? Description`
 
       - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
         - `required string Name`
 
         - `required Type Type`
+
           - `"url"Url`
 
         - `required string Url`
@@ -2997,11 +3448,21 @@ Stream Session Thread Events
       - `required BetaManagedAgentsModelConfig Model`
 
         Model identifier and configuration.
+
         - `required BetaManagedAgentsModel ID`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"ClaudeFable5`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-4-8"ClaudeOpus4_8`
+
+            Frontier intelligence for long-running agents and coding
+
           - `"claude-opus-4-7"ClaudeOpus4_7`
 
             Frontier intelligence for long-running agents and coding
@@ -3041,6 +3502,7 @@ Stream Session Thread Events
         - `Speed Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -3048,14 +3510,17 @@ Stream Session Thread Events
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
         Resolved coordinator topology with full agent definitions for each roster member.
+
         - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
           Full `agent` definitions the coordinator may spawn as session threads.
+
           - `required string ID`
 
           - `required string? Description`
 
           - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
             - `required string Name`
 
             - `required Type Type`
@@ -3069,12 +3534,15 @@ Stream Session Thread Events
           - `required string Name`
 
           - `required IReadOnlyList<Skill> Skills`
+
             - `class BetaManagedAgentsAnthropicSkill:`
 
               A resolved Anthropic-managed skill.
+
               - `required string SkillID`
 
               - `required Type Type`
+
                 - `"anthropic"Anthropic`
 
               - `required string Version`
@@ -3082,9 +3550,11 @@ Stream Session Thread Events
             - `class BetaManagedAgentsCustomSkill:`
 
               A resolved user-created custom skill.
+
               - `required string SkillID`
 
               - `required Type Type`
+
                 - `"custom"Custom`
 
               - `required string Version`
@@ -3092,13 +3562,17 @@ Stream Session Thread Events
           - `required string? System`
 
           - `required IReadOnlyList<Tool> Tools`
+
             - `class BetaManagedAgentsAgentToolset20260401:`
+
               - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+
                 - `required Boolean Enabled`
 
                 - `required Name Name`
 
                   Built-in agent tool identifier.
+
                   - `"bash"Bash`
 
                   - `"edit"Edit`
@@ -3118,26 +3592,33 @@ Stream Session Thread Events
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
+
                     - `required Type Type`
+
                       - `"always_allow"AlwaysAllow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                     Tool calls require user confirmation before execution.
+
                     - `required Type Type`
+
                       - `"always_ask"AlwaysAsk`
 
               - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
                 Resolved default configuration for agent tools.
+
                 - `required Boolean Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
@@ -3147,10 +3628,13 @@ Stream Session Thread Events
                     Tool calls require user confirmation before execution.
 
               - `required Type Type`
+
                 - `"agent_toolset_20260401"AgentToolset20260401`
 
             - `class BetaManagedAgentsMcpToolset:`
+
               - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+
                 - `required Boolean Enabled`
 
                 - `required string Name`
@@ -3158,6 +3642,7 @@ Stream Session Thread Events
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
@@ -3169,11 +3654,13 @@ Stream Session Thread Events
               - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
+
                 - `required Boolean Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
+
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
@@ -3185,45 +3672,45 @@ Stream Session Thread Events
               - `required string McpServerName`
 
               - `required Type Type`
+
                 - `"mcp_toolset"McpToolset`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
+
               - `required string Description`
 
               - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
                 JSON Schema for custom tool input parameters.
+
+                - `JsonElement Type "object"constant`
+
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
-                  JSON Schema properties defining the tool's input parameters.
-
-                - `IReadOnlyList<string> Required`
-
-                  List of required property names.
-
-                - `Type Type`
-
-                  Must be 'object' for tool input schemas.
-                  - `"object"Object`
+                - `IReadOnlyList<string>? Required`
 
               - `required string Name`
 
               - `required Type Type`
+
                 - `"custom"Custom`
 
           - `required Type Type`
+
             - `"agent"Agent`
 
           - `required Int Version`
 
         - `required Type Type`
+
           - `"coordinator"Coordinator`
 
       - `required string Name`
 
       - `required IReadOnlyList<Skill> Skills`
+
         - `class BetaManagedAgentsAnthropicSkill:`
 
           A resolved Anthropic-managed skill.
@@ -3235,6 +3722,7 @@ Stream Session Thread Events
       - `required string? System`
 
       - `required IReadOnlyList<Tool> Tools`
+
         - `class BetaManagedAgentsAgentToolset20260401:`
 
         - `class BetaManagedAgentsMcpToolset:`
@@ -3244,6 +3732,7 @@ Stream Session Thread Events
           A custom tool as returned in API responses.
 
       - `required Type Type`
+
         - `"agent"Agent`
 
       - `required Int Version`
@@ -3255,6 +3744,34 @@ Stream Session Thread Events
     - `string? Title`
 
       The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsSystemMessageEvent:`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
+
+      System content blocks. Text-only.
+
+      - `required string Text`
+
+        The text content.
+
+      - `required Type Type`
+
+        - `"text"Text`
+
+    - `required Type Type`
+
+      - `"system.message"SystemMessage`
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 

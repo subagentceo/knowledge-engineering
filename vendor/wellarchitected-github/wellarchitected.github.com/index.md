@@ -1,12 +1,14 @@
+# Apply design thinking to build and ship your software securely and at scale with GitHub
+
 ![GitHub](/media/github-mark-white.png)
 
-[GitHub Well-Architected What's new](/library/overview/release-notes)
+GitHub Well-Architected What's new
 
 # Apply design thinking to build and ship your software securely and at scale with GitHub
 
 Opinionated resources for designing, deploying, and optimizing resilient GitHub solutions. Curated by GitHub's customer-facing engineers, partner community, and key customer contributors.
 
-[Explore the Framework](/library/overview) [Learn more →](/library/overview/layers)
+Explore the Framework Learn more →
 
 ![GitHub Well-Architected hero illustration](/media/hero.png)
 
@@ -20,34 +22,34 @@ Productivity
 
 Proven strategies and tools to streamline workflows, automate processes, and accelerate team velocity.
 
-[Learn more →](/library/productivity)
+Learn more →
 
 Collaboration
 
 Inclusive practices and transparent project management to foster open knowledge sharing, enhance teamwork, and boost overall productivity.
 
-[Learn more →](/library/collaboration)
+Learn more →
 
 Application Security
 
 Proactive guidelines for embedding security into every stage of development, from code scanning to compliance.
 
-[Learn more →](/library/application-security)
+Learn more →
 
 Governance
 
 Clear policies and controls that balance innovation with oversight, ensuring compliance, access management, and accountability at scale.
 
-[Learn more →](/library/governance)
+Learn more →
 
 Architecture
 
 Approaches for designing scalable, resilient, and efficient GitHub environments, including enterprise-level solutions (e.g., GHES), tailored to your organization's needs.
 
-[Learn more →](/library/architecture)
+Learn more →
 
 ## Design, Deploy, and Scale to Confidently Achieve Your Business Objectives
 
 Embrace design thinking to deliver solutions aligned with your strategic objectives. Explore our self-guided Well-Architected assessment checklists or collaborate with experts GitHub, Microsoft, and our Partners for tailored guidance
 
-[Get started](/library/overview/getting-started-checklist/) [Learn about the assessment →](/library/overview/about-the-assessment)
+Get started Learn about the assessment →

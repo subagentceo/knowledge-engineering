@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +7,13 @@
 > Learn how Claude Code can integrate with various third-party services and infrastructure to meet enterprise deployment requirements.
 
 export const ContactSalesCard = ({surface}) => {
-const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-<line x1="5" y1="12" x2="19" y2="12" />
-<polyline points="12 5 19 12 12 19" />
-</svg>;
-const STYLES = `.cc-cs {
+  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>;
+  const STYLES = `
+.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,23 +56,24 @@ const STYLES = `.cc-cs {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}`;
-return <div className="cc-cs not-prose">
-<style>{STYLES}</style>
-<div className="cc-cs-card">
-<div className="cc-cs-text">
-<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-</div>
-<div className="cc-cs-actions">
-<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-View plans
-</a>
-<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-Contact sales {iconArrowRight()}
-</a>
-</div>
-</div>
-</div>;
+}
+`;
+  return <div className="cc-cs not-prose">
+      <style>{STYLES}</style>
+      <div className="cc-cs-card">
+        <div className="cc-cs-text">
+          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+        </div>
+        <div className="cc-cs-actions">
+          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+            View plans
+          </a>
+          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+            Contact sales {iconArrowRight()}
+          </a>
+        </div>
+      </div>
+    </div>;
 };
 
 Organizations can deploy Claude Code through Anthropic directly or through a cloud provider. This page helps you choose the right configuration.
@@ -184,25 +185,24 @@ If your organization has specific infrastructure requirements, compare the optio
       <td>IAM roles, Cloud Audit Logs</td>
       <td>RBAC policies, Azure Monitor</td>
     </tr>
-
   </tbody>
 </table>
 
 Select a deployment option to view setup instructions:
 
-- [Claude for Teams or Enterprise](/en/authentication#claude-for-teams-or-enterprise)
-- [Anthropic Console](/en/authentication#claude-console-authentication)
-- [Amazon Bedrock](/en/amazon-bedrock)
-- [Claude Platform on AWS](/en/claude-platform-on-aws)
-- [Google Vertex AI](/en/google-vertex-ai)
-- [Microsoft Foundry](/en/microsoft-foundry)
+* [Claude for Teams or Enterprise](/en/authentication#claude-for-teams-or-enterprise)
+* [Anthropic Console](/en/authentication#claude-console-authentication)
+* [Amazon Bedrock](/en/amazon-bedrock)
+* [Claude Platform on AWS](/en/claude-platform-on-aws)
+* [Google Vertex AI](/en/google-vertex-ai)
+* [Microsoft Foundry](/en/microsoft-foundry)
 
 ## Configure proxies and gateways
 
 Most organizations can use a cloud provider directly without additional configuration. However, you may need to configure a corporate proxy or LLM gateway if your organization has specific network or management requirements. These are different configurations that can be used together:
 
-- **Corporate proxy**: Routes traffic through an HTTP/HTTPS proxy. Use this if your organization requires all outbound traffic to pass through a proxy server for security monitoring, compliance, or network policy enforcement. Configure with the `HTTPS_PROXY` or `HTTP_PROXY` environment variables. Learn more in [Enterprise network configuration](/en/network-config).
-- **LLM Gateway**: A service that sits between Claude Code and the cloud provider to handle authentication and routing. Use this if you need centralized usage tracking across teams, custom rate limiting or budgets, or centralized authentication management. Configure with the `ANTHROPIC_BASE_URL`, `ANTHROPIC_BEDROCK_BASE_URL`, `ANTHROPIC_AWS_BASE_URL`, or `ANTHROPIC_VERTEX_BASE_URL` environment variables. Learn more in [LLM gateway configuration](/en/llm-gateway).
+* **Corporate proxy**: Routes traffic through an HTTP/HTTPS proxy. Use this if your organization requires all outbound traffic to pass through a proxy server for security monitoring, compliance, or network policy enforcement. Configure with the `HTTPS_PROXY` or `HTTP_PROXY` environment variables. Learn more in [Enterprise network configuration](/en/network-config).
+* **LLM Gateway**: A service that sits between Claude Code and the cloud provider to handle authentication and routing. Use this if you need centralized usage tracking across teams, custom rate limiting or budgets, or centralized authentication management. Configure with the `ANTHROPIC_BASE_URL`, `ANTHROPIC_BEDROCK_BASE_URL`, `ANTHROPIC_AWS_BASE_URL`, or `ANTHROPIC_VERTEX_BASE_URL` environment variables. Learn more in [LLM gateway configuration](/en/llm-gateway).
 
 The following examples show the environment variables to set in your shell or shell profile (`.bashrc`, `.zshrc`). See [Settings](/en/settings) for other configuration methods.
 
@@ -220,7 +220,6 @@ The following examples show the environment variables to set in your shell or sh
     # Configure corporate proxy
     export HTTPS_PROXY='https://proxy.example.com:8080'
     ```
-
   </Tab>
 
   <Tab title="LLM Gateway">
@@ -234,7 +233,6 @@ The following examples show the environment variables to set in your shell or sh
     export ANTHROPIC_BEDROCK_BASE_URL='https://your-llm-gateway.com/bedrock'
     export CLAUDE_CODE_SKIP_BEDROCK_AUTH=1  # If gateway handles AWS auth
     ```
-
   </Tab>
 </Tabs>
 
@@ -253,7 +251,6 @@ The following examples show the environment variables to set in your shell or sh
     # Configure corporate proxy
     export HTTPS_PROXY='https://proxy.example.com:8080'
     ```
-
   </Tab>
 
   <Tab title="LLM Gateway">
@@ -267,7 +264,6 @@ The following examples show the environment variables to set in your shell or sh
     export ANTHROPIC_FOUNDRY_BASE_URL='https://your-llm-gateway.com'
     export CLAUDE_CODE_SKIP_FOUNDRY_AUTH=1  # If gateway handles Azure auth
     ```
-
   </Tab>
 </Tabs>
 
@@ -286,7 +282,6 @@ The following examples show the environment variables to set in your shell or sh
     # Configure corporate proxy
     export HTTPS_PROXY='https://proxy.example.com:8080'
     ```
-
   </Tab>
 
   <Tab title="LLM Gateway">
@@ -300,7 +295,6 @@ The following examples show the environment variables to set in your shell or sh
     export ANTHROPIC_VERTEX_BASE_URL='https://your-llm-gateway.com/vertex'
     export CLAUDE_CODE_SKIP_VERTEX_AUTH=1  # If gateway handles GCP auth
     ```
-
   </Tab>
 </Tabs>
 
@@ -314,8 +308,8 @@ The following examples show the environment variables to set in your shell or sh
 
 We strongly recommend investing in documentation so that Claude Code understands your codebase. Organizations can deploy CLAUDE.md files at multiple levels:
 
-- **Organization-wide**: Deploy to system directories like `/Library/Application Support/ClaudeCode/CLAUDE.md` (macOS) for company-wide standards
-- **Repository-level**: Create `CLAUDE.md` files in repository roots containing project architecture, build commands, and contribution guidelines. Check these into source control so all users benefit
+* **Organization-wide**: Deploy to system directories like `/Library/Application Support/ClaudeCode/CLAUDE.md` (macOS) for company-wide standards
+* **Repository-level**: Create `CLAUDE.md` files in repository roots containing project architecture, build commands, and contribution guidelines. Check these into source control so all users benefit
 
 Learn more in [Memory and CLAUDE.md files](/en/memory).
 
@@ -329,7 +323,7 @@ Encourage new users to try Claude Code for codebase Q\&A, or on smaller bug fixe
 
 ### Pin model versions for cloud providers
 
-If you deploy through [Bedrock](/en/amazon-bedrock), [Vertex AI](/en/google-vertex-ai), [Foundry](/en/microsoft-foundry), or [Claude Platform on AWS](/en/claude-platform-on-aws), pin specific model versions using `ANTHROPIC_DEFAULT_OPUS_MODEL`, `ANTHROPIC_DEFAULT_SONNET_MODEL`, and `ANTHROPIC_DEFAULT_HAIKU_MODEL`. Without pinning, model aliases resolve to the latest version, which may not yet be enabled in your account when Anthropic releases an update. Pinning lets you control when your users move to a new model. See [Model configuration](/en/model-config#pin-models-for-third-party-deployments) for what each provider does when the latest version is unavailable.
+If you deploy through [Bedrock](/en/amazon-bedrock), [Vertex AI](/en/google-vertex-ai), [Foundry](/en/microsoft-foundry), or [Claude Platform on AWS](/en/claude-platform-on-aws), pin specific model versions using `ANTHROPIC_DEFAULT_FABLE_MODEL`, `ANTHROPIC_DEFAULT_OPUS_MODEL`, `ANTHROPIC_DEFAULT_SONNET_MODEL`, and `ANTHROPIC_DEFAULT_HAIKU_MODEL`. Without pinning, model aliases resolve to Claude Code's built-in default for that provider, which can lag the newest release and may not yet be enabled in your account. Pinning lets you control when your users move to a new model. See [Model configuration](/en/model-config#pin-models-for-third-party-deployments) for what each provider does when the default is unavailable.
 
 ### Configure security policies
 

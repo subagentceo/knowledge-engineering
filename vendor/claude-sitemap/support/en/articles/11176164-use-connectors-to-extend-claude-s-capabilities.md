@@ -74,6 +74,8 @@ Before members of Team and Enterprise plans can use connectors, an Owner or Prim
 
 Once enabled at the org level, individual users follow the same steps described above to connect and authenticate.
 
+**Note:** On Enterprise plans, Owners and Primary Owners can prevent services on their verified domains from being connected to Claude accounts outside the organization. Learn more about **[restricting verified-domain connectors to your enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)**.
+
 ### Restrict actions within connected services
 
 Owners on Team and Enterprise plans can limit which actions a connected service can take across your organization. For example, you can allow a connector to read data from a service while preventing it from writing any changes back. This applies org-wide to everyone using the connector—individual users can't override it.
@@ -88,15 +90,13 @@ Common use cases:
 
 To configure action restrictions:
 
-1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors)**
+1. Navigate to **[Customize > Connectors](http://claude.ai/customize/connectors).**
 
 2. Select the connector to see **Tool permissions**.
 
-3. The permissions will be categorized by type (for example, read-only tools, write/delete tools)
+3. The permissions will be categorized by type (for example, read-only tools, write/delete tools).
 
-4. You
-
-5. For each permission category or individual permission, select Always allow, Needs approval, or Blocked.
+4. For each permission category or individual permission, select Always allow, Needs approval, or Blocked.
 
 **Note:** Action restrictions work alongside source-system permissions. Even when you allow a write action in Claude, a person still needs the underlying permission in the source system to make that change. Restricting actions in Claude never grants more access than the source system permits—it only narrows it.
 
@@ -108,7 +108,7 @@ Once you connect to a service on Claude or Claude Desktop, it will be available 
 
 Once connected, services become available in your conversations:
 
-1. Click the “+” button in the lower left of the chat interface (you can also type “/” to open this menu).
+1. Click the “+”  button in the lower left of the chat interface (you can also type “/” to open this menu).
 
 2. Hover over “Connectors” to open the menu.
 
@@ -193,6 +193,12 @@ If you're having trouble connecting to a service, try these steps:
 3. Review any permissions or account type requirements for the service.
 
 4. If authentication fails, try disconnecting and reconnecting from **[Customize > Connectors](http://claude.ai/customize/connectors)**.
+
+### See a message that says, "This corporate identity belongs to an Enterprise that manages access through their own Claude account"?
+
+The service you're trying to connect uses an email address on a domain that an Enterprise organization has verified, and that organization restricts connections to its own Claude accounts only. To use this connection, sign in to your organization's Claude account and connect the service there. If you don't have a Claude account in that organization, contact your admin for access.
+
+Admins can learn more about **[restricting verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)**.
 
 ### Custom connector not connecting or timing out?
 

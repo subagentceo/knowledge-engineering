@@ -23,9 +23,11 @@ List Vaults
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -78,13 +80,16 @@ List Vaults
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: optional array of BetaManagedAgentsVault`
 
   List of vaults.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -106,6 +111,7 @@ List Vaults
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`

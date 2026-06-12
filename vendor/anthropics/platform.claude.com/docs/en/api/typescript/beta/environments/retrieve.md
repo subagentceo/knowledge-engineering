@@ -11,12 +11,15 @@ Retrieve a specific environment by ID.
 - `environmentID: string`
 
 - `params: EnvironmentRetrieveParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -69,16 +72,19 @@ Retrieve a specific environment by ID.
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string | null`
 
@@ -87,23 +93,29 @@ Retrieve a specific environment by ID.
   - `config: BetaCloudConfig | BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -119,11 +131,13 @@ Retrieve a specific environment by ID.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: Array<string>`
 
           Ubuntu/Debian packages to install
@@ -151,19 +165,23 @@ Retrieve a specific environment by ID.
         - `type?: "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -185,6 +203,7 @@ Retrieve a specific environment by ID.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -194,6 +213,7 @@ Retrieve a specific environment by ID.
   - `scope?: "organization" | "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -201,15 +221,13 @@ Retrieve a specific environment by ID.
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaEnvironment = await client.beta.environments.retrieve(
-  "env_011CZkZ9X2dpNyB7HsEFoRfW",
-);
+const betaEnvironment = await client.beta.environments.retrieve('env_011CZkZ9X2dpNyB7HsEFoRfW');
 
 console.log(betaEnvironment.id);
 ```
@@ -224,16 +242,31 @@ console.log(betaEnvironment.id);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

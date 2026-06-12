@@ -15,6 +15,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Parameters
 
 - `MessageCreateParams parameters`
+
   - `required Long maxTokens`
 
     Body param: The maximum number of tokens to generate before stopping.
@@ -23,7 +24,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-    Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+    Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
   - `required IReadOnlyList<BetaMessageParam> messages`
 
@@ -38,16 +39,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example with a single `user` message:
 
     ```json
-    [{ "role": "user", "content": "Hello, Claude" }]
+    [{"role": "user", "content": "Hello, Claude"}]
     ```
 
     Example with multiple conversational turns:
 
     ```json
     [
-      { "role": "user", "content": "Hello there." },
-      { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-      { "role": "user", "content": "Can you explain LLMs in plain English?" }
+      {"role": "user", "content": "Hello there."},
+      {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+      {"role": "user", "content": "Can you explain LLMs in plain English?"},
     ]
     ```
 
@@ -55,22 +56,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("},
     ]
     ```
 
     Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
     ```json
-    { "role": "user", "content": "Hello, Claude" }
+    {"role": "user", "content": "Hello, Claude"}
     ```
 
     ```json
-    { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+    {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
     ```
 
     See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -78,11 +76,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
     There is a limit of 100,000 messages in a single request.
+
     - `required Content Content`
+
       - `string`
 
       - `IReadOnlyList<BetaContentBlockParam>`
+
         - `class BetaTextBlockParam:`
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -90,6 +92,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
+
             - `JsonElement Type "ephemeral"constant`
 
             - `Ttl Ttl`
@@ -97,16 +100,20 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               The time-to-live for the cache control breakpoint.
 
               This may be one the following values:
+
               - `5m`: 5 minutes
               - `1h`: 1 hour
 
               Defaults to `5m`.
+
               - `"5m"Ttl5m`
 
               - `"1h"Ttl1h`
 
           - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
             - `class BetaCitationCharLocationParam:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -120,6 +127,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "char_location"constant`
 
             - `class BetaCitationPageLocationParam:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -133,6 +141,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "page_location"constant`
 
             - `class BetaCitationContentBlockLocationParam:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -156,6 +165,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "content_block_location"constant`
 
             - `class BetaCitationWebSearchResultLocationParam:`
+
               - `required string CitedText`
 
               - `required string EncryptedIndex`
@@ -167,6 +177,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `required string Url`
 
             - `class BetaCitationSearchResultLocationParam:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -196,11 +207,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "search_result_location"constant`
 
         - `class BetaImageBlockParam:`
+
           - `required Source Source`
+
             - `class BetaBase64ImageSource:`
+
               - `required string Data`
 
               - `required MediaType MediaType`
+
                 - `"image/jpeg"ImageJpeg`
 
                 - `"image/png"ImagePng`
@@ -212,11 +227,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "base64"constant`
 
             - `class BetaUrlImageSource:`
+
               - `JsonElement Type "url"constant`
 
               - `required string Url`
 
             - `class BetaFileImageSource:`
+
               - `required string FileID`
 
               - `JsonElement Type "file"constant`
@@ -228,8 +245,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestDocumentBlock:`
+
           - `required Source Source`
+
             - `class BetaBase64PdfSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "application/pdf"constant`
@@ -237,6 +257,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "base64"constant`
 
             - `class BetaPlainTextSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "text/plain"constant`
@@ -244,10 +265,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "text"constant`
 
             - `class BetaContentBlockSource:`
+
               - `required Content Content`
+
                 - `string`
 
                 - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                   - `class BetaTextBlockParam:`
 
                   - `class BetaImageBlockParam:`
@@ -255,11 +279,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "content"constant`
 
             - `class BetaUrlPdfSource:`
+
               - `JsonElement Type "url"constant`
 
               - `required string Url`
 
             - `class BetaFileDocumentSource:`
+
               - `required string FileID`
 
               - `JsonElement Type "file"constant`
@@ -271,6 +297,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
           - `BetaCitationsConfigParam? Citations`
+
             - `Boolean Enabled`
 
           - `string? Context`
@@ -278,7 +305,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `string? Title`
 
         - `class BetaSearchResultBlockParam:`
+
           - `required IReadOnlyList<BetaTextBlockParam> Content`
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -302,6 +331,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `BetaCitationsConfigParam Citations`
 
         - `class BetaThinkingBlockParam:`
+
           - `required string Signature`
 
           - `required string Thinking`
@@ -309,11 +339,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "thinking"constant`
 
         - `class BetaRedactedThinkingBlockParam:`
+
           - `required string Data`
 
           - `JsonElement Type "redacted_thinking"constant`
 
         - `class BetaToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -329,24 +361,29 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
+
               - `JsonElement Type "direct"constant`
 
             - `class BetaServerToolCaller:`
 
               Tool invocation generated by a server-side tool.
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20250825"constant`
 
             - `class BetaServerToolCaller20260120:`
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20260120"constant`
 
         - `class BetaToolResultBlockParam:`
+
           - `required string ToolUseID`
 
           - `JsonElement Type "tool_result"constant`
@@ -356,9 +393,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
           - `Content Content`
+
             - `string`
 
             - `IReadOnlyList<Block>`
+
               - `class BetaTextBlockParam:`
 
               - `class BetaImageBlockParam:`
@@ -370,6 +409,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `class BetaToolReferenceBlockParam:`
 
                 Tool reference block that can be included in tool_result content.
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -381,11 +421,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `Boolean IsError`
 
         - `class BetaServerToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
 
           - `required Name Name`
+
             - `"advisor"Advisor`
 
             - `"web_search"WebSearch`
@@ -411,6 +453,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -422,8 +465,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebSearchToolResultBlockParam:`
+
           - `required BetaWebSearchToolResultBlockParamContent Content`
+
             - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
               - `required string EncryptedContent`
 
               - `required string Title`
@@ -435,7 +481,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `string? PageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -461,6 +509,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -472,9 +521,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebFetchToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"url_too_long"UrlTooLong`
@@ -496,6 +549,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "web_fetch_tool_result_error"constant`
 
             - `class BetaWebFetchBlockParam:`
+
               - `required BetaRequestDocumentBlock Content`
 
               - `JsonElement Type "web_fetch_result"constant`
@@ -519,6 +573,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -530,9 +585,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaAdvisorToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaAdvisorToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"max_uses_exceeded"MaxUsesExceeded`
 
                 - `"prompt_too_long"PromptTooLong`
@@ -545,9 +604,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
                 - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                - `"model_not_found"ModelNotFound`
+
               - `JsonElement Type "advisor_tool_result_error"constant`
 
             - `class BetaAdvisorResultBlockParam:`
+
               - `required string Text`
 
               - `JsonElement Type "advisor_result"constant`
@@ -555,6 +617,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `string? StopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
+
               - `required string EncryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -572,11 +635,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
+
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `class BetaCodeExecutionToolResultErrorParam:`
+
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -588,7 +655,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "code_execution_tool_result_error"constant`
 
             - `class BetaCodeExecutionResultBlockParam:`
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -604,7 +673,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -626,9 +697,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -642,7 +717,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
             - `class BetaBashCodeExecutionResultBlockParam:`
+
               - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "bash_code_execution_output"constant`
@@ -664,9 +741,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -682,9 +763,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `string? ErrorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
               - `required string Content`
 
               - `required FileType FileType`
+
                 - `"text"Text`
 
                 - `"image"Image`
@@ -700,11 +783,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `Long? TotalLines`
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
               - `required Boolean IsFileUpdate`
 
               - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
               - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
               - `IReadOnlyList<string>? Lines`
@@ -726,9 +811,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaToolSearchToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -739,8 +828,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               - `JsonElement Type "tool_search_tool_result_error"constant`
 
+              - `string? ErrorMessage`
+
             - `class BetaToolSearchToolSearchResultBlockParam:`
+
               - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -760,6 +853,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -777,6 +871,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
+
           - `required string ToolUseID`
 
           - `JsonElement Type "mcp_tool_result"constant`
@@ -786,9 +881,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             Create a cache control breakpoint at this content block.
 
           - `Content Content`
+
             - `string`
 
             - `IReadOnlyList<BetaTextBlockParam>`
+
               - `required string Text`
 
               - `JsonElement Type "text"constant`
@@ -805,6 +902,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
+
           - `required string FileID`
 
           - `JsonElement Type "container_upload"constant`
@@ -822,6 +920,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
+
           - `JsonElement Type "compaction"constant`
 
           - `BetaCacheControlEphemeral? CacheControl`
@@ -842,9 +941,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           Use this block to provide or update system-level instructions at a specific
           point in the conversation, rather than only via the top-level `system` parameter.
+
           - `required IReadOnlyList<BetaTextBlockParam> Content`
 
             System instruction text blocks.
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -861,7 +962,122 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Create a cache control breakpoint at this content block.
 
+        - `class BetaFallbackBlockParam:`
+
+          A `fallback` block echoed back from a prior response.
+
+          Accepted in `messages[].content` and never rendered into the prompt,
+          not validated against the request's `fallbacks` chain or top-level
+          `model`, and stripped before the sticky-routing cache key is computed.
+
+          Callers should echo the assistant turn verbatim — block included. The
+          block's position is load-bearing for thinking verification: the thinking
+          runs on either side of a fallback hop carry independently-rooted
+          verification hash chains, and this block is the only record of where one
+          chain ends and the next begins. When thinking runs flank the boundary,
+          omitting the block merges the runs into one contiguous span whose hashes
+          cannot verify (the request is rejected), and moving it into the middle of
+          a single run splits that run's chain and is likewise rejected; between
+          non-thinking blocks the block's placement has no verification effect.
+
+          - `required BetaFallbackInfoParam From`
+
+            Identifies one hop of a fallback transition.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-fable-5"ClaudeFable5`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `"claude-mythos-5"ClaudeMythos5`
+
+                Most capable model for cybersecurity and biology research
+
+              - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                New class of intelligence, strongest in coding and cybersecurity
+
+              - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                Best combination of speed and intelligence
+
+              - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                High-performance model for agents and coding
+
+              - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                High-performance model for agents and coding
+
+              - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                Powerful model for complex tasks
+
+              - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                Powerful model for complex tasks
+
+              - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                High-performance model with extended thinking
+
+              - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                High-performance model with extended thinking
+
+              - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                Fast and cost-effective model
+
+          - `required BetaFallbackInfoParam To`
+
+            Identifies one hop of a fallback transition.
+
+          - `JsonElement Type "fallback"constant`
+
     - `required Role Role`
+
       - `"user"User`
 
       - `"assistant"Assistant`
@@ -881,9 +1097,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `Container? container`
 
     Body param: Container identifier for reuse across requests.
+
     - `class BetaContainerParams:`
 
       Container parameters with skills to be loaded.
+
       - `string? ID`
 
         Container id
@@ -891,6 +1109,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `IReadOnlyList<BetaSkillParams>? Skills`
 
         List of skills to load in the container
+
         - `required string SkillID`
 
           Skill ID
@@ -898,6 +1117,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `required Type Type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
           - `"anthropic"Anthropic`
 
           - `"custom"Custom`
@@ -919,6 +1139,127 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Body param: Request-level diagnostics. Currently carries the previous response
     id for prompt-cache divergence reporting.
 
+  - `string? fallbackCreditToken`
+
+    Body param: The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+    When a preceding request was refused and returned a `fallback_credit_token`,
+    pass that code here on the retry to have the retry's cache-creation tokens
+    for the prefix that was warm on the refused model billed at the cache-read
+    rate. Must be redeemed by the same organization and workspace, with the same
+    request body (optionally extended by one appended `assistant` message whose
+    content is the partial text — with any trailing whitespace stripped from
+    the final text block — and paired server-tool blocks streamed before the
+    refusal; the appended-assistant form is not available for requests with
+    `output_format` set or forced `tool_choice`), on an eligible fallback
+    model, on the same platform,
+    and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+    mid-server-tool-loop whose partial content was continuable may only be
+    redeemed with the appended-assistant form — if an exact-body retry is
+    rejected with a 400 saying the token must be redeemed by continuing the
+    partial response, retry with the appended-assistant form instead.
+
+    When the appended-assistant form is used on a model that otherwise disallows
+    assistant-turn prefill, this token also authorizes that one prefill.
+
+  - `IReadOnlyList<BetaFallbackParam>? fallbacks`
+
+    Body param: Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+
+    - `required Model Model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `Long? MaxTokens`
+
+    - `BetaOutputConfig? OutputConfig`
+
+      - `Effort? Effort`
+
+        All possible effort levels.
+
+        - `"low"Low`
+
+        - `"medium"Medium`
+
+        - `"high"High`
+
+        - `"xhigh"Xhigh`
+
+        - `"max"Max`
+
+      - `BetaJsonOutputFormat? Format`
+
+        A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+        - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+          The JSON schema of the format
+
+        - `JsonElement Type "json_schema"constant`
+
+      - `BetaTokenTaskBudget? TaskBudget`
+
+        User-configurable total token budget across contexts.
+
+        - `required Long Total`
+
+          Total token budget across all contexts in the session.
+
+        - `JsonElement Type "tokens"constant`
+
+          The budget type. Currently only 'tokens' is supported.
+
+        - `Long? Remaining`
+
+          Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+    - `Speed? Speed`
+
+      - `"standard"Standard`
+
+      - `"fast"Fast`
+
+    - `Thinking? Thinking`
+
+      - `class BetaThinkingConfigEnabled:`
+
+        - `required Long BudgetTokens`
+
+          Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+          Must be ≥1024 and less than `max_tokens`.
+
+          See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
+        - `JsonElement Type "enabled"constant`
+
+        - `Display? Display`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"Summarized`
+
+          - `"omitted"Omitted`
+
+      - `class BetaThinkingConfigDisabled:`
+
+        - `JsonElement Type "disabled"constant`
+
+      - `class BetaThinkingConfigAdaptive:`
+
+        - `JsonElement Type "adaptive"constant`
+
+        - `Display? Display`
+
+          Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+          - `"summarized"Summarized`
+
+          - `"omitted"Omitted`
+
   - `string? inferenceGeo`
 
     Body param: Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
@@ -926,6 +1267,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `IReadOnlyList<BetaRequestMcpServerUrlDefinition> mcpServers`
 
     Body param: MCP servers to be utilized in this request
+
     - `required string Name`
 
     - `JsonElement Type "url"constant`
@@ -935,6 +1277,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `string? AuthorizationToken`
 
     - `BetaRequestMcpServerToolConfiguration? ToolConfiguration`
+
       - `IReadOnlyList<string>? AllowedTools`
 
       - `Boolean? Enabled`
@@ -958,6 +1301,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Body param: Determines whether to use priority capacity (if available) or standard capacity for this request.
 
     Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+
     - `"auto"Auto`
 
     - `"standard_only"StandardOnly`
@@ -965,6 +1309,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `Speed? speed`
 
     Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+
     - `"standard"Standard`
 
     - `"fast"Fast`
@@ -982,9 +1327,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Body param: System prompt.
 
     A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+
     - `string`
 
     - `IReadOnlyList<BetaTextBlockParam>`
+
       - `required string Text`
 
       - `JsonElement Type "text"constant`
@@ -1024,9 +1371,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
     Each tool definition includes:
-    - `name`: Name of the tool.
-    - `description`: Optional, but strongly-recommended description of the tool.
-    - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+    * `name`: Name of the tool.
+    * `description`: Optional, but strongly-recommended description of the tool.
+    * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
     For example, if you defined `tools` as:
 
@@ -1077,12 +1425,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
     See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+
     - `class BetaTool:`
+
       - `required InputSchema InputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
+
         - `JsonElement Type "object"constant`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
@@ -1096,6 +1447,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1127,9 +1479,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
       - `Type? Type`
+
         - `"custom"Custom`
 
     - `class BetaToolBash20241022:`
+
       - `JsonElement Name "bash"constant`
 
         Name of the tool.
@@ -1139,6 +1493,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "bash_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1160,6 +1515,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolBash20250124:`
+
       - `JsonElement Name "bash"constant`
 
         Name of the tool.
@@ -1169,6 +1525,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "bash_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1190,6 +1547,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaCodeExecutionTool20250522:`
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -1199,6 +1557,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "code_execution_20250522"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1218,6 +1577,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaCodeExecutionTool20250825:`
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -1227,6 +1587,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "code_execution_20250825"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1248,6 +1609,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `class BetaCodeExecutionTool20260120:`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -1257,6 +1619,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "code_execution_20260120"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1276,6 +1639,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20241022:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -1293,6 +1657,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "computer_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1318,6 +1683,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaMemoryTool20250818:`
+
       - `JsonElement Name "memory"constant`
 
         Name of the tool.
@@ -1327,6 +1693,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "memory_20250818"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1348,6 +1715,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20250124:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -1365,6 +1733,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "computer_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1390,6 +1759,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20241022:`
+
       - `JsonElement Name "str_replace_editor"constant`
 
         Name of the tool.
@@ -1399,6 +1769,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text_editor_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1420,6 +1791,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20251124:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -1437,6 +1809,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "computer_20251124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1466,6 +1839,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250124:`
+
       - `JsonElement Name "str_replace_editor"constant`
 
         Name of the tool.
@@ -1475,6 +1849,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text_editor_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1496,6 +1871,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250429:`
+
       - `JsonElement Name "str_replace_based_edit_tool"constant`
 
         Name of the tool.
@@ -1505,6 +1881,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text_editor_20250429"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1526,6 +1903,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250728:`
+
       - `JsonElement Name "str_replace_based_edit_tool"constant`
 
         Name of the tool.
@@ -1535,6 +1913,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text_editor_20250728"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1560,6 +1939,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaWebSearchTool20250305:`
+
       - `JsonElement Name "web_search"constant`
 
         Name of the tool.
@@ -1569,6 +1949,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "web_search_20250305"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1602,6 +1983,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `BetaUserLocation? UserLocation`
 
         Parameters for the user's location. Used to provide more relevant search results.
+
         - `JsonElement Type "approximate"constant`
 
         - `string? City`
@@ -1621,6 +2003,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
     - `class BetaWebFetchTool20250910:`
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -1630,6 +2013,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "web_fetch_20250910"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1669,6 +2053,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaWebSearchTool20260209:`
+
       - `JsonElement Name "web_search"constant`
 
         Name of the tool.
@@ -1678,6 +2063,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "web_search_20260209"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1713,6 +2099,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         Parameters for the user's location. Used to provide more relevant search results.
 
     - `class BetaWebFetchTool20260209:`
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -1722,6 +2109,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "web_fetch_20260209"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1763,6 +2151,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `class BetaWebFetchTool20260309:`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -1772,6 +2161,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "web_fetch_20260309"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1815,82 +2205,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
     - `class BetaAdvisorTool20260301:`
+
       - `required Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-8"ClaudeOpus4_8`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"ClaudeOpus4_7`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"ClaudeMythosPreview`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"ClaudeOpus4_6`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"ClaudeOpus4_5`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-          High-performance model for agents and coding
-
-        - `"claude-opus-4-1"ClaudeOpus4_1`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-0"ClaudeOpus4_0`
-
-          Powerful model for complex tasks
-
-        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-          Powerful model for complex tasks
-
-        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-          High-performance model with extended thinking
-
-        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-          High-performance model with extended thinking
-
-        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-          Fast and cost-effective model
 
       - `JsonElement Name "advisor"constant`
 
@@ -1901,6 +2221,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "advisor_20260301"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1919,6 +2240,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+      - `Long? MaxTokens`
+
+        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
       - `Long? MaxUses`
 
         Maximum number of times the tool can be used in the API request.
@@ -1928,6 +2253,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolSearchToolBm25_20251119:`
+
       - `JsonElement Name "tool_search_tool_bm25"constant`
 
         Name of the tool.
@@ -1935,11 +2261,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `required Type Type`
+
         - `"tool_search_tool_bm25_20251119"ToolSearchToolBm25_20251119`
 
         - `"tool_search_tool_bm25"ToolSearchToolBm25`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1959,6 +2287,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolSearchToolRegex20251119:`
+
       - `JsonElement Name "tool_search_tool_regex"constant`
 
         Name of the tool.
@@ -1966,11 +2295,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `required Type Type`
+
         - `"tool_search_tool_regex_20251119"ToolSearchToolRegex20251119`
 
         - `"tool_search_tool_regex"ToolSearchToolRegex`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -1995,6 +2326,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
+
       - `required string McpServerName`
 
         Name of the MCP server to configure tools for
@@ -2008,6 +2340,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
 
         Configuration overrides for specific tools, keyed by tool name
+
         - `Boolean DeferLoading`
 
         - `Boolean Enabled`
@@ -2015,6 +2348,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `BetaMcpToolDefaultConfig DefaultConfig`
 
         Default configuration applied to all tools from this server
+
         - `Boolean DeferLoading`
 
         - `Boolean Enabled`
@@ -2042,6 +2376,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2094,11 +2429,14 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessage:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -2108,6 +2446,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `required BetaContainer? Container`
 
     Information about the container used in the request (for the code execution tool)
+
     - `required string ID`
 
       Identifier for the container used in this request
@@ -2119,6 +2458,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `required IReadOnlyList<BetaSkill>? Skills`
 
       Skills loaded in the container
+
       - `required string SkillID`
 
         Skill ID
@@ -2126,6 +2466,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `required Type Type`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
         - `"anthropic"Anthropic`
 
         - `"custom"Custom`
@@ -2143,7 +2484,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -2152,27 +2493,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
     - `class BetaTextBlock:`
+
       - `required IReadOnlyList<BetaTextCitation>? Citations`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `class BetaCitationCharLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -2188,6 +2529,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "char_location"constant`
 
         - `class BetaCitationPageLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -2203,6 +2545,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "page_location"constant`
 
         - `class BetaCitationContentBlockLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -2228,6 +2571,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "content_block_location"constant`
 
         - `class BetaCitationsWebSearchResultLocation:`
+
           - `required string CitedText`
 
           - `required string EncryptedIndex`
@@ -2239,6 +2583,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `required string Url`
 
         - `class BetaCitationSearchResultLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -2272,6 +2617,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text"constant`
 
     - `class BetaThinkingBlock:`
+
       - `required string Signature`
 
       - `required string Thinking`
@@ -2279,11 +2625,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "thinking"constant`
 
     - `class BetaRedactedThinkingBlock:`
+
       - `required string Data`
 
       - `JsonElement Type "redacted_thinking"constant`
 
     - `class BetaToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -2295,29 +2643,35 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
+
           - `JsonElement Type "direct"constant`
 
         - `class BetaServerToolCaller:`
 
           Tool invocation generated by a server-side tool.
+
           - `required string ToolID`
 
           - `JsonElement Type "code_execution_20250825"constant`
 
         - `class BetaServerToolCaller20260120:`
+
           - `required string ToolID`
 
           - `JsonElement Type "code_execution_20260120"constant`
 
     - `class BetaServerToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
 
       - `required Name Name`
+
         - `"advisor"Advisor`
 
         - `"web_search"WebSearch`
@@ -2339,6 +2693,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -2350,9 +2705,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaWebSearchToolResultBlock:`
+
       - `required BetaWebSearchToolResultBlockContent Content`
+
         - `class BetaWebSearchToolResultError:`
+
           - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -2368,6 +2727,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "web_search_tool_result_error"constant`
 
         - `IReadOnlyList<BetaWebSearchResultBlock>`
+
           - `required string EncryptedContent`
 
           - `required string? PageAge`
@@ -2385,6 +2745,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -2396,9 +2757,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaWebFetchToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaWebFetchToolResultErrorBlock:`
+
           - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"url_too_long"UrlTooLong`
@@ -2420,14 +2785,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "web_fetch_tool_result_error"constant`
 
         - `class BetaWebFetchBlock:`
+
           - `required BetaDocumentBlock Content`
+
             - `required BetaCitationConfig? Citations`
 
               Citation configuration for the document
+
               - `required Boolean Enabled`
 
             - `required Source Source`
+
               - `class BetaBase64PdfSource:`
+
                 - `required string Data`
 
                 - `JsonElement MediaType "application/pdf"constant`
@@ -2435,6 +2805,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `JsonElement Type "base64"constant`
 
               - `class BetaPlainTextSource:`
+
                 - `required string Data`
 
                 - `JsonElement MediaType "text/plain"constant`
@@ -2464,6 +2835,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -2475,9 +2847,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaAdvisorToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaAdvisorToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"max_uses_exceeded"MaxUsesExceeded`
 
             - `"prompt_too_long"PromptTooLong`
@@ -2490,9 +2866,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+            - `"model_not_found"ModelNotFound`
+
           - `JsonElement Type "advisor_tool_result_error"constant`
 
         - `class BetaAdvisorResultBlock:`
+
           - `required string? StopReason`
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -2502,6 +2881,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "advisor_result"constant`
 
         - `class BetaAdvisorRedactedResultBlock:`
+
           - `required string EncryptedContent`
 
             Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -2517,11 +2897,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "advisor_tool_result"constant`
 
     - `class BetaCodeExecutionToolResultBlock:`
+
       - `required BetaCodeExecutionToolResultBlockContent Content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `class BetaCodeExecutionToolResultError:`
+
           - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -2533,7 +2917,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "code_execution_tool_result_error"constant`
 
         - `class BetaCodeExecutionResultBlock:`
+
           - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "code_execution_output"constant`
@@ -2549,7 +2935,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "code_execution_output"constant`
@@ -2567,9 +2955,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "code_execution_tool_result"constant`
 
     - `class BetaBashCodeExecutionToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaBashCodeExecutionToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -2583,7 +2975,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
         - `class BetaBashCodeExecutionResultBlock:`
+
           - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "bash_code_execution_output"constant`
@@ -2601,9 +2995,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "bash_code_execution_tool_result"constant`
 
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -2619,9 +3017,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
           - `required string Content`
 
           - `required FileType FileType`
+
             - `"text"Text`
 
             - `"image"Image`
@@ -2637,11 +3037,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
           - `required Boolean IsFileUpdate`
 
           - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
           - `required IReadOnlyList<string>? Lines`
 
           - `required Long? NewLines`
@@ -2659,9 +3061,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
     - `class BetaToolSearchToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaToolSearchToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -2675,7 +3081,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `JsonElement Type "tool_search_tool_result_error"constant`
 
         - `class BetaToolSearchToolSearchResultBlock:`
+
           - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
             - `required string ToolName`
 
             - `JsonElement Type "tool_reference"constant`
@@ -2687,6 +3095,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "tool_search_tool_result"constant`
 
     - `class BetaMcpToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -2702,10 +3111,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `JsonElement Type "mcp_tool_use"constant`
 
     - `class BetaMcpToolResultBlock:`
+
       - `required Content Content`
+
         - `string`
 
         - `IReadOnlyList<BetaTextBlock>`
+
           - `required IReadOnlyList<BetaTextCitation>? Citations`
 
             Citations supporting the text block.
@@ -2725,6 +3137,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
+
       - `required string FileID`
 
       - `JsonElement Type "container_upload"constant`
@@ -2736,6 +3149,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When content is None, it indicates the compaction failed to produce a valid
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
+
       - `required string? Content`
 
         Summary of compacted content, or null if compaction failed
@@ -2746,15 +3160,128 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       - `JsonElement Type "compaction"constant`
 
+    - `class BetaFallbackBlock:`
+
+      Marks the point in `content` where one model's output gives way to the next.
+
+      One block appears per hop where a preceding model actually ran this turn and
+      declined. A turn routed directly by the sticky decision has no such boundary
+      and carries no block — the signal for whether a fallback model served the
+      response is the presence of a `fallback_message` entry in
+      `usage.iterations`, not this block.
+
+      The block is treated like a server-tool content block for streaming: it
+      arrives via the standard `content_block_start` / `content_block_stop`
+      pair and carries no deltas.
+
+      - `required BetaFallbackInfo From`
+
+        The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"ClaudeFable5`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"ClaudeMythos5`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-4-8"ClaudeOpus4_8`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"ClaudeMythosPreview`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+          - `"claude-opus-4-1"ClaudeOpus4_1`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-0"ClaudeOpus4_0`
+
+            Powerful model for complex tasks
+
+          - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+            Powerful model for complex tasks
+
+          - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+            High-performance model with extended thinking
+
+          - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+            High-performance model with extended thinking
+
+          - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+            Fast and cost-effective model
+
+      - `required BetaFallbackInfo To`
+
+        The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+      - `JsonElement Type "fallback"constant`
+
   - `required BetaContextManagementResponse? ContextManagement`
 
     Context management response.
 
     Information about context management strategies applied during the request.
+
     - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
       List of context management edits that were applied.
+
       - `class BetaClearToolUses20250919EditResponse:`
+
         - `required Long ClearedInputTokens`
 
           Number of input tokens cleared by this edit.
@@ -2768,6 +3295,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           The type of context management edit applied.
 
       - `class BetaClearThinking20251015EditResponse:`
+
         - `required Long ClearedInputTokens`
 
           Number of input tokens cleared by this edit.
@@ -2784,10 +3312,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Response envelope for request-level diagnostics. Present (possibly
     null) whenever the caller supplied `diagnostics` on the request.
+
     - `required CacheMissReason? CacheMissReason`
 
       Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
       - `class BetaCacheMissModelChanged:`
+
         - `required Long CacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -2795,6 +3326,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `JsonElement Type "model_changed"constant`
 
       - `class BetaCacheMissSystemChanged:`
+
         - `required Long CacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -2802,6 +3334,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `JsonElement Type "system_changed"constant`
 
       - `class BetaCacheMissToolsChanged:`
+
         - `required Long CacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -2809,6 +3342,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `JsonElement Type "tools_changed"constant`
 
       - `class BetaCacheMissMessagesChanged:`
+
         - `required Long CacheMissedInputTokens`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -2816,9 +3350,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `JsonElement Type "messages_changed"constant`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
+
         - `JsonElement Type "previous_message_not_found"constant`
 
       - `class BetaCacheMissUnavailable:`
+
         - `JsonElement Type "unavailable"constant`
 
   - `required Model Model`
@@ -2826,77 +3362,6 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8"ClaudeOpus4_8`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-opus-4-7"ClaudeOpus4_7`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-mythos-preview"ClaudeMythosPreview`
-
-      New class of intelligence, strongest in coding and cybersecurity
-
-    - `"claude-opus-4-6"ClaudeOpus4_6`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-      Best combination of speed and intelligence
-
-    - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-      Fastest model with near-frontier intelligence
-
-    - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-      Fastest model with near-frontier intelligence
-
-    - `"claude-opus-4-5"ClaudeOpus4_5`
-
-      Premium model combining maximum intelligence with practical performance
-
-    - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-      Premium model combining maximum intelligence with practical performance
-
-    - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-      High-performance model for agents and coding
-
-    - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-      High-performance model for agents and coding
-
-    - `"claude-opus-4-1"ClaudeOpus4_1`
-
-      Exceptional model for specialized complex tasks
-
-    - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-      Exceptional model for specialized complex tasks
-
-    - `"claude-opus-4-0"ClaudeOpus4_0`
-
-      Powerful model for complex tasks
-
-    - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-      Powerful model for complex tasks
-
-    - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-      High-performance model with extended thinking
-
-    - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-      High-performance model with extended thinking
-
-    - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-      Fast and cost-effective model
 
   - `JsonElement Role "assistant"constant`
 
@@ -2907,20 +3372,73 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `required BetaRefusalStopDetails? StopDetails`
 
     Structured information about a refusal.
+
     - `required Category? Category`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"Cyber`
 
       - `"bio"Bio`
+
+      - `"reasoning_extraction"ReasoningExtraction`
 
     - `required string? Explanation`
 
       Human-readable explanation of the refusal.
 
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+    - `required string? FallbackCreditToken`
+
+      Opaque code that refunds the cache-miss cost when retrying this refused
+      request on the fallback model. Pass it as `fallback_credit_token` on the
+      retry request. Expires 5 minutes after the refusal.
+
+      The retry is sent either with the same request body (`system`, `messages`,
+      `tools`, and other render-shaping fields), or with the same body plus one
+      appended `assistant` message whose content is the partial text (with any
+      trailing whitespace stripped from the final text block) and paired
+      server-tool blocks from this refusal — which also authorizes that
+      appended turn as an assistant-prefill continuation on models that otherwise
+      disallow prefill. A token minted mid-server-tool-loop whose partial content
+      was continuable may only be redeemed the second way — if a same-body retry
+      is rejected with a 400 saying the token must be redeemed by continuing the
+      partial response, retry the second way instead. Either way: same workspace,
+      same platform; a mismatch is a 400. Resending a token for an already-warm
+      prefix is permitted but yields no additional credit.
+
+      `null` when the refused model isn't eligible for a fallback credit.
+
+    - `required Boolean? FallbackHasPrefillClaim`
+
+      Whether the accompanying `fallback_credit_token` may be redeemed with the
+      appended-assistant retry form. Only set when `fallback_credit_token` is
+      present.
+
+      `true`: retry by resending the same request body plus one appended
+      `assistant` message whose content is this response's `content` with any
+      trailing whitespace stripped from the final text block and unpaired
+      `tool_use` blocks omitted (the same appended-turn shape described on
+      `fallback_credit_token`), with the token attached. `false`: retry by
+      resending the original request body unchanged, with the token attached —
+      the appended-assistant form is not available for this refusal (no
+      continuable partial content, or the request uses `output_format` or a
+      `tool_choice` that forces tool use). One exception: when the request used
+      `output_format` or a forced `tool_choice` and the refusal arrived after
+      server tools (including MCP connector tools) had already executed, the
+      token may not be redeemable by either retry form; if the exact-body retry
+      is then rejected with a 400 saying the token must be redeemed by
+      continuing the partial response, discard the token and retry without it.
+
+      Advisory: if an appended-assistant retry is rejected with a 400 despite
+      `true`, fall back to resending the original request body with the token.
+
+    - `required string? RecommendedModel`
+
+      The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
     - `JsonElement Type "refusal"constant`
 
@@ -2929,14 +3447,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"EndTurn`
 
     - `"max_tokens"MaxTokens`
@@ -2976,9 +3496,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `required BetaCacheCreation? CacheCreation`
 
       Breakdown of cached tokens by TTL
+
       - `required Long Ephemeral1hInputTokens`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -3008,6 +3530,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Per-iteration token usage breakdown.
 
       Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
       - Calculate the true context window size from the last iteration
       - Understand token accumulation across server-side tool use loops
@@ -3015,6 +3538,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `class BetaMessageIterationUsage:`
 
         Token usage for a sampling iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3031,6 +3555,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           The number of input tokens which were used.
 
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
         - `required Long OutputTokens`
 
           The number of output tokens which were used.
@@ -3042,6 +3572,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3069,6 +3600,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3099,11 +3631,50 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           Usage for an advisor sub-inference iteration
 
+      - `class BetaFallbackMessageIterationUsage:`
+
+        Token usage for the fallback-model attempt of a server-side fallback request.
+
+        Produced in place of a `message` entry for whichever hop served the
+        response. A declined hop produces the existing `message` entry. Whether
+        a fallback model served the response is signalled by the presence of this
+        entry in `usage.iterations`.
+
+        - `required BetaCacheCreation? CacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `required Long CacheCreationInputTokens`
+
+          The number of input tokens used to create the cache entry.
+
+        - `required Long CacheReadInputTokens`
+
+          The number of input tokens read from the cache.
+
+        - `required Long InputTokens`
+
+          The number of input tokens which were used.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `required Long OutputTokens`
+
+          The number of output tokens which were used.
+
+        - `JsonElement Type "fallback_message"constant`
+
+          Usage for the fallback-model attempt that served the response
+
     - `required Long OutputTokens`
 
       The number of output tokens which were used.
 
-    - `required OutputTokensDetails? OutputTokensDetails`
+    - `required BetaOutputTokensDetails? OutputTokensDetails`
 
       Breakdown of output tokens by category.
 
@@ -3111,6 +3682,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `required Long ThinkingTokens`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -3125,6 +3697,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `required BetaServerToolUsage? ServerToolUse`
 
       The number of server tool requests.
+
       - `required Long WebFetchRequests`
 
         The number of web fetch tool requests.
@@ -3136,6 +3709,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `required ServiceTier? ServiceTier`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"Standard`
 
       - `"priority"Priority`
@@ -3145,6 +3719,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `required Speed? Speed`
 
       The inference speed mode used for this request.
+
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -3224,6 +3799,9 @@ Console.WriteLine(betaMessage);
   "stop_details": {
     "category": "cyber",
     "explanation": "explanation",
+    "fallback_credit_token": "fallback_credit_token",
+    "fallback_has_prefill_claim": true,
+    "recommended_model": "recommended_model",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -3247,6 +3825,7 @@ Console.WriteLine(betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
+        "model": "claude-fable-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -3280,6 +3859,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 ### Parameters
 
 - `MessageCountTokensParams parameters`
+
   - `required IReadOnlyList<BetaMessageParam> messages`
 
     Body param: Input messages.
@@ -3293,16 +3873,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Example with a single `user` message:
 
     ```json
-    [{ "role": "user", "content": "Hello, Claude" }]
+    [{"role": "user", "content": "Hello, Claude"}]
     ```
 
     Example with multiple conversational turns:
 
     ```json
     [
-      { "role": "user", "content": "Hello there." },
-      { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-      { "role": "user", "content": "Can you explain LLMs in plain English?" }
+      {"role": "user", "content": "Hello there."},
+      {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+      {"role": "user", "content": "Can you explain LLMs in plain English?"},
     ]
     ```
 
@@ -3310,22 +3890,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("},
     ]
     ```
 
     Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
     ```json
-    { "role": "user", "content": "Hello, Claude" }
+    {"role": "user", "content": "Hello, Claude"}
     ```
 
     ```json
-    { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+    {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
     ```
 
     See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -3333,11 +3910,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
     There is a limit of 100,000 messages in a single request.
+
     - `required Content Content`
+
       - `string`
 
       - `IReadOnlyList<BetaContentBlockParam>`
+
         - `class BetaTextBlockParam:`
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -3345,6 +3926,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
+
             - `JsonElement Type "ephemeral"constant`
 
             - `Ttl Ttl`
@@ -3352,16 +3934,20 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               The time-to-live for the cache control breakpoint.
 
               This may be one the following values:
+
               - `5m`: 5 minutes
               - `1h`: 1 hour
 
               Defaults to `5m`.
+
               - `"5m"Ttl5m`
 
               - `"1h"Ttl1h`
 
           - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
             - `class BetaCitationCharLocationParam:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -3375,6 +3961,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "char_location"constant`
 
             - `class BetaCitationPageLocationParam:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -3388,6 +3975,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "page_location"constant`
 
             - `class BetaCitationContentBlockLocationParam:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -3411,6 +3999,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "content_block_location"constant`
 
             - `class BetaCitationWebSearchResultLocationParam:`
+
               - `required string CitedText`
 
               - `required string EncryptedIndex`
@@ -3422,6 +4011,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `required string Url`
 
             - `class BetaCitationSearchResultLocationParam:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -3451,11 +4041,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "search_result_location"constant`
 
         - `class BetaImageBlockParam:`
+
           - `required Source Source`
+
             - `class BetaBase64ImageSource:`
+
               - `required string Data`
 
               - `required MediaType MediaType`
+
                 - `"image/jpeg"ImageJpeg`
 
                 - `"image/png"ImagePng`
@@ -3467,11 +4061,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "base64"constant`
 
             - `class BetaUrlImageSource:`
+
               - `JsonElement Type "url"constant`
 
               - `required string Url`
 
             - `class BetaFileImageSource:`
+
               - `required string FileID`
 
               - `JsonElement Type "file"constant`
@@ -3483,8 +4079,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestDocumentBlock:`
+
           - `required Source Source`
+
             - `class BetaBase64PdfSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "application/pdf"constant`
@@ -3492,6 +4091,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "base64"constant`
 
             - `class BetaPlainTextSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "text/plain"constant`
@@ -3499,10 +4099,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "text"constant`
 
             - `class BetaContentBlockSource:`
+
               - `required Content Content`
+
                 - `string`
 
                 - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                   - `class BetaTextBlockParam:`
 
                   - `class BetaImageBlockParam:`
@@ -3510,11 +4113,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "content"constant`
 
             - `class BetaUrlPdfSource:`
+
               - `JsonElement Type "url"constant`
 
               - `required string Url`
 
             - `class BetaFileDocumentSource:`
+
               - `required string FileID`
 
               - `JsonElement Type "file"constant`
@@ -3526,6 +4131,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
           - `BetaCitationsConfigParam? Citations`
+
             - `Boolean Enabled`
 
           - `string? Context`
@@ -3533,7 +4139,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `string? Title`
 
         - `class BetaSearchResultBlockParam:`
+
           - `required IReadOnlyList<BetaTextBlockParam> Content`
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -3557,6 +4165,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `BetaCitationsConfigParam Citations`
 
         - `class BetaThinkingBlockParam:`
+
           - `required string Signature`
 
           - `required string Thinking`
@@ -3564,11 +4173,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `JsonElement Type "thinking"constant`
 
         - `class BetaRedactedThinkingBlockParam:`
+
           - `required string Data`
 
           - `JsonElement Type "redacted_thinking"constant`
 
         - `class BetaToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -3584,24 +4195,29 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
+
               - `JsonElement Type "direct"constant`
 
             - `class BetaServerToolCaller:`
 
               Tool invocation generated by a server-side tool.
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20250825"constant`
 
             - `class BetaServerToolCaller20260120:`
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20260120"constant`
 
         - `class BetaToolResultBlockParam:`
+
           - `required string ToolUseID`
 
           - `JsonElement Type "tool_result"constant`
@@ -3611,9 +4227,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
           - `Content Content`
+
             - `string`
 
             - `IReadOnlyList<Block>`
+
               - `class BetaTextBlockParam:`
 
               - `class BetaImageBlockParam:`
@@ -3625,6 +4243,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `class BetaToolReferenceBlockParam:`
 
                 Tool reference block that can be included in tool_result content.
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -3636,11 +4255,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Boolean IsError`
 
         - `class BetaServerToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
 
           - `required Name Name`
+
             - `"advisor"Advisor`
 
             - `"web_search"WebSearch`
@@ -3666,6 +4287,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -3677,8 +4299,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebSearchToolResultBlockParam:`
+
           - `required BetaWebSearchToolResultBlockParamContent Content`
+
             - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
               - `required string EncryptedContent`
 
               - `required string Title`
@@ -3690,7 +4315,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `string? PageAge`
 
             - `class BetaWebSearchToolRequestError:`
+
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -3716,6 +4343,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -3727,9 +4355,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebFetchToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaWebFetchToolResultErrorBlockParam:`
+
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"url_too_long"UrlTooLong`
@@ -3751,6 +4383,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "web_fetch_tool_result_error"constant`
 
             - `class BetaWebFetchBlockParam:`
+
               - `required BetaRequestDocumentBlock Content`
 
               - `JsonElement Type "web_fetch_result"constant`
@@ -3774,6 +4407,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -3785,9 +4419,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaAdvisorToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaAdvisorToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"max_uses_exceeded"MaxUsesExceeded`
 
                 - `"prompt_too_long"PromptTooLong`
@@ -3800,9 +4438,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
                 - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                - `"model_not_found"ModelNotFound`
+
               - `JsonElement Type "advisor_tool_result_error"constant`
 
             - `class BetaAdvisorResultBlockParam:`
+
               - `required string Text`
 
               - `JsonElement Type "advisor_result"constant`
@@ -3810,6 +4451,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `string? StopReason`
 
             - `class BetaAdvisorRedactedResultBlockParam:`
+
               - `required string EncryptedContent`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -3827,11 +4469,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaCodeExecutionToolResultBlockParam:`
+
           - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `class BetaCodeExecutionToolResultErrorParam:`
+
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -3843,7 +4489,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "code_execution_tool_result_error"constant`
 
             - `class BetaCodeExecutionResultBlockParam:`
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -3859,7 +4507,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -3881,9 +4531,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaBashCodeExecutionToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaBashCodeExecutionToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -3897,7 +4551,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
             - `class BetaBashCodeExecutionResultBlockParam:`
+
               - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "bash_code_execution_output"constant`
@@ -3919,9 +4575,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -3937,9 +4597,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `string? ErrorMessage`
 
             - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
               - `required string Content`
 
               - `required FileType FileType`
+
                 - `"text"Text`
 
                 - `"image"Image`
@@ -3955,11 +4617,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Long? TotalLines`
 
             - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
               - `required Boolean IsFileUpdate`
 
               - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
               - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
               - `IReadOnlyList<string>? Lines`
@@ -3981,9 +4645,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaToolSearchToolResultBlockParam:`
+
           - `required Content Content`
+
             - `class BetaToolSearchToolResultErrorParam:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -3994,8 +4662,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
               - `JsonElement Type "tool_search_tool_result_error"constant`
 
+              - `string? ErrorMessage`
+
             - `class BetaToolSearchToolSearchResultBlockParam:`
+
               - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -4015,6 +4687,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaMcpToolUseBlockParam:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -4032,6 +4705,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
         - `class BetaRequestMcpToolResultBlockParam:`
+
           - `required string ToolUseID`
 
           - `JsonElement Type "mcp_tool_result"constant`
@@ -4041,9 +4715,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             Create a cache control breakpoint at this content block.
 
           - `Content Content`
+
             - `string`
 
             - `IReadOnlyList<BetaTextBlockParam>`
+
               - `required string Text`
 
               - `JsonElement Type "text"constant`
@@ -4060,6 +4736,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
+
           - `required string FileID`
 
           - `JsonElement Type "container_upload"constant`
@@ -4077,6 +4754,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
+
           - `JsonElement Type "compaction"constant`
 
           - `BetaCacheControlEphemeral? CacheControl`
@@ -4097,9 +4775,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           Use this block to provide or update system-level instructions at a specific
           point in the conversation, rather than only via the top-level `system` parameter.
+
           - `required IReadOnlyList<BetaTextBlockParam> Content`
 
             System instruction text blocks.
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -4116,7 +4796,122 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
             Create a cache control breakpoint at this content block.
 
+        - `class BetaFallbackBlockParam:`
+
+          A `fallback` block echoed back from a prior response.
+
+          Accepted in `messages[].content` and never rendered into the prompt,
+          not validated against the request's `fallbacks` chain or top-level
+          `model`, and stripped before the sticky-routing cache key is computed.
+
+          Callers should echo the assistant turn verbatim — block included. The
+          block's position is load-bearing for thinking verification: the thinking
+          runs on either side of a fallback hop carry independently-rooted
+          verification hash chains, and this block is the only record of where one
+          chain ends and the next begins. When thinking runs flank the boundary,
+          omitting the block merges the runs into one contiguous span whose hashes
+          cannot verify (the request is rejected), and moving it into the middle of
+          a single run splits that run's chain and is likewise rejected; between
+          non-thinking blocks the block's placement has no verification effect.
+
+          - `required BetaFallbackInfoParam From`
+
+            Identifies one hop of a fallback transition.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-fable-5"ClaudeFable5`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `"claude-mythos-5"ClaudeMythos5`
+
+                Most capable model for cybersecurity and biology research
+
+              - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                New class of intelligence, strongest in coding and cybersecurity
+
+              - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                Best combination of speed and intelligence
+
+              - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                High-performance model for agents and coding
+
+              - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                High-performance model for agents and coding
+
+              - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                Powerful model for complex tasks
+
+              - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                Powerful model for complex tasks
+
+              - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                High-performance model with extended thinking
+
+              - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                High-performance model with extended thinking
+
+              - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                Fast and cost-effective model
+
+          - `required BetaFallbackInfoParam To`
+
+            Identifies one hop of a fallback transition.
+
+          - `JsonElement Type "fallback"constant`
+
     - `required Role Role`
+
       - `"user"User`
 
       - `"assistant"Assistant`
@@ -4142,6 +4937,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `IReadOnlyList<BetaRequestMcpServerUrlDefinition> mcpServers`
 
     Body param: MCP servers to be utilized in this request
+
     - `required string Name`
 
     - `JsonElement Type "url"constant`
@@ -4151,6 +4947,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `string? AuthorizationToken`
 
     - `BetaRequestMcpServerToolConfiguration? ToolConfiguration`
+
       - `IReadOnlyList<string>? AllowedTools`
 
       - `Boolean? Enabled`
@@ -4168,6 +4965,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `Speed? speed`
 
     Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+
     - `"standard"Standard`
 
     - `"fast"Fast`
@@ -4177,9 +4975,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Body param: System prompt.
 
     A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+
     - `string`
 
     - `IReadOnlyList<BetaTextBlockParam>`
+
       - `required string Text`
 
       - `JsonElement Type "text"constant`
@@ -4211,9 +5011,10 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
     Each tool definition includes:
-    - `name`: Name of the tool.
-    - `description`: Optional, but strongly-recommended description of the tool.
-    - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+    * `name`: Name of the tool.
+    * `description`: Optional, but strongly-recommended description of the tool.
+    * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
     For example, if you defined `tools` as:
 
@@ -4264,12 +5065,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
     See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+
     - `class BetaTool:`
+
       - `required InputSchema InputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
+
         - `JsonElement Type "object"constant`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
@@ -4283,6 +5087,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4314,9 +5119,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
       - `Type? Type`
+
         - `"custom"Custom`
 
     - `class BetaToolBash20241022:`
+
       - `JsonElement Name "bash"constant`
 
         Name of the tool.
@@ -4326,6 +5133,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "bash_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4347,6 +5155,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolBash20250124:`
+
       - `JsonElement Name "bash"constant`
 
         Name of the tool.
@@ -4356,6 +5165,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "bash_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4377,6 +5187,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaCodeExecutionTool20250522:`
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -4386,6 +5197,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "code_execution_20250522"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4405,6 +5217,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaCodeExecutionTool20250825:`
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -4414,6 +5227,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "code_execution_20250825"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4435,6 +5249,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `class BetaCodeExecutionTool20260120:`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
       - `JsonElement Name "code_execution"constant`
 
         Name of the tool.
@@ -4444,6 +5259,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "code_execution_20260120"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4463,6 +5279,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20241022:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -4480,6 +5297,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "computer_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4505,6 +5323,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaMemoryTool20250818:`
+
       - `JsonElement Name "memory"constant`
 
         Name of the tool.
@@ -4514,6 +5333,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "memory_20250818"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4535,6 +5355,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20250124:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -4552,6 +5373,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "computer_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4577,6 +5399,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20241022:`
+
       - `JsonElement Name "str_replace_editor"constant`
 
         Name of the tool.
@@ -4586,6 +5409,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "text_editor_20241022"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4607,6 +5431,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolComputerUse20251124:`
+
       - `required Long DisplayHeightPx`
 
         The height of the display in pixels.
@@ -4624,6 +5449,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "computer_20251124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4653,6 +5479,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250124:`
+
       - `JsonElement Name "str_replace_editor"constant`
 
         Name of the tool.
@@ -4662,6 +5489,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "text_editor_20250124"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4683,6 +5511,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250429:`
+
       - `JsonElement Name "str_replace_based_edit_tool"constant`
 
         Name of the tool.
@@ -4692,6 +5521,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "text_editor_20250429"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4713,6 +5543,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolTextEditor20250728:`
+
       - `JsonElement Name "str_replace_based_edit_tool"constant`
 
         Name of the tool.
@@ -4722,6 +5553,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "text_editor_20250728"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4747,6 +5579,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaWebSearchTool20250305:`
+
       - `JsonElement Name "web_search"constant`
 
         Name of the tool.
@@ -4756,6 +5589,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "web_search_20250305"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4789,6 +5623,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `BetaUserLocation? UserLocation`
 
         Parameters for the user's location. Used to provide more relevant search results.
+
         - `JsonElement Type "approximate"constant`
 
         - `string? City`
@@ -4808,6 +5643,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
     - `class BetaWebFetchTool20250910:`
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -4817,6 +5653,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "web_fetch_20250910"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4856,6 +5693,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaWebSearchTool20260209:`
+
       - `JsonElement Name "web_search"constant`
 
         Name of the tool.
@@ -4865,6 +5703,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "web_search_20260209"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4900,6 +5739,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Parameters for the user's location. Used to provide more relevant search results.
 
     - `class BetaWebFetchTool20260209:`
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -4909,6 +5749,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "web_fetch_20260209"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -4950,6 +5791,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `class BetaWebFetchTool20260309:`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
+
       - `JsonElement Name "web_fetch"constant`
 
         Name of the tool.
@@ -4959,6 +5801,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "web_fetch_20260309"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -5002,82 +5845,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
     - `class BetaAdvisorTool20260301:`
+
       - `required Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-8"ClaudeOpus4_8`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"ClaudeOpus4_7`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"ClaudeMythosPreview`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"ClaudeOpus4_6`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"ClaudeOpus4_5`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-          High-performance model for agents and coding
-
-        - `"claude-opus-4-1"ClaudeOpus4_1`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-0"ClaudeOpus4_0`
-
-          Powerful model for complex tasks
-
-        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-          Powerful model for complex tasks
-
-        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-          High-performance model with extended thinking
-
-        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-          High-performance model with extended thinking
-
-        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-          Fast and cost-effective model
 
       - `JsonElement Name "advisor"constant`
 
@@ -5088,6 +5861,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `JsonElement Type "advisor_20260301"constant`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -5106,6 +5880,10 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+      - `Long? MaxTokens`
+
+        Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
       - `Long? MaxUses`
 
         Maximum number of times the tool can be used in the API request.
@@ -5115,6 +5893,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolSearchToolBm25_20251119:`
+
       - `JsonElement Name "tool_search_tool_bm25"constant`
 
         Name of the tool.
@@ -5122,11 +5901,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `required Type Type`
+
         - `"tool_search_tool_bm25_20251119"ToolSearchToolBm25_20251119`
 
         - `"tool_search_tool_bm25"ToolSearchToolBm25`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -5146,6 +5927,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `class BetaToolSearchToolRegex20251119:`
+
       - `JsonElement Name "tool_search_tool_regex"constant`
 
         Name of the tool.
@@ -5153,11 +5935,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `required Type Type`
+
         - `"tool_search_tool_regex_20251119"ToolSearchToolRegex20251119`
 
         - `"tool_search_tool_regex"ToolSearchToolRegex`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
         - `"direct"Direct`
 
         - `"code_execution_20250825"CodeExecution20250825`
@@ -5182,6 +5966,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
+
       - `required string McpServerName`
 
         Name of the MCP server to configure tools for
@@ -5195,6 +5980,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
 
         Configuration overrides for specific tools, keyed by tool name
+
         - `Boolean DeferLoading`
 
         - `Boolean Enabled`
@@ -5202,6 +5988,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `BetaMcpToolDefaultConfig DefaultConfig`
 
         Default configuration applied to all tools from this server
+
         - `Boolean DeferLoading`
 
         - `Boolean Enabled`
@@ -5209,6 +5996,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -5261,14 +6049,18 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageTokensCount:`
+
   - `required BetaCountTokensContextManagementResponse? ContextManagement`
 
     Information about context management applied to the message.
+
     - `required Long OriginalInputTokens`
 
       The original token count before context management was applied
@@ -5316,9 +6108,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaAdvisorMessageIterationUsage:`
 
   Token usage for an advisor sub-inference iteration.
+
   - `required BetaCacheCreation? CacheCreation`
 
     Breakdown of cached tokens by TTL
+
     - `required Long Ephemeral1hInputTokens`
 
       The number of input tokens used to create the 1 hour cache entry.
@@ -5344,6 +6138,15 @@ Console.WriteLine(betaMessageTokensCount);
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"ClaudeOpus4_8`
 
       Frontier intelligence for long-running agents and coding
@@ -5427,6 +6230,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Redacted Result Block
 
 - `class BetaAdvisorRedactedResultBlock:`
+
   - `required string EncryptedContent`
 
     Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -5440,6 +6244,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Redacted Result Block Param
 
 - `class BetaAdvisorRedactedResultBlockParam:`
+
   - `required string EncryptedContent`
 
     Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -5451,6 +6256,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Result Block
 
 - `class BetaAdvisorResultBlock:`
+
   - `required string? StopReason`
 
     The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -5462,6 +6268,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Result Block Param
 
 - `class BetaAdvisorResultBlockParam:`
+
   - `required string Text`
 
   - `JsonElement Type "advisor_result"constant`
@@ -5471,11 +6278,21 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Tool 20260301
 
 - `class BetaAdvisorTool20260301:`
+
   - `required Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"ClaudeOpus4_8`
 
       Frontier intelligence for long-running agents and coding
@@ -5557,6 +6374,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "advisor_20260301"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -5566,6 +6384,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -5573,10 +6392,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -5589,6 +6410,10 @@ Console.WriteLine(betaMessageTokensCount);
 
     If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+  - `Long? MaxTokens`
+
+    Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
   - `Long? MaxUses`
 
     Maximum number of times the tool can be used in the API request.
@@ -5600,9 +6425,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Tool Result Block
 
 - `class BetaAdvisorToolResultBlock:`
+
   - `required Content Content`
+
     - `class BetaAdvisorToolResultError:`
+
       - `required ErrorCode ErrorCode`
+
         - `"max_uses_exceeded"MaxUsesExceeded`
 
         - `"prompt_too_long"PromptTooLong`
@@ -5615,9 +6444,12 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+        - `"model_not_found"ModelNotFound`
+
       - `JsonElement Type "advisor_tool_result_error"constant`
 
     - `class BetaAdvisorResultBlock:`
+
       - `required string? StopReason`
 
         The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -5627,6 +6459,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "advisor_result"constant`
 
     - `class BetaAdvisorRedactedResultBlock:`
+
       - `required string EncryptedContent`
 
         Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -5644,9 +6477,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Tool Result Block Param
 
 - `class BetaAdvisorToolResultBlockParam:`
+
   - `required Content Content`
+
     - `class BetaAdvisorToolResultErrorParam:`
+
       - `required ErrorCode ErrorCode`
+
         - `"max_uses_exceeded"MaxUsesExceeded`
 
         - `"prompt_too_long"PromptTooLong`
@@ -5659,9 +6496,12 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+        - `"model_not_found"ModelNotFound`
+
       - `JsonElement Type "advisor_tool_result_error"constant`
 
     - `class BetaAdvisorResultBlockParam:`
+
       - `required string Text`
 
       - `JsonElement Type "advisor_result"constant`
@@ -5669,6 +6509,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `string? StopReason`
 
     - `class BetaAdvisorRedactedResultBlockParam:`
+
       - `required string EncryptedContent`
 
         Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -5684,6 +6525,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -5691,10 +6533,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -5702,7 +6546,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Advisor Tool Result Error
 
 - `class BetaAdvisorToolResultError:`
+
   - `required ErrorCode ErrorCode`
+
     - `"max_uses_exceeded"MaxUsesExceeded`
 
     - `"prompt_too_long"PromptTooLong`
@@ -5714,13 +6560,17 @@ Console.WriteLine(betaMessageTokensCount);
     - `"unavailable"Unavailable`
 
     - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+    - `"model_not_found"ModelNotFound`
 
   - `JsonElement Type "advisor_tool_result_error"constant`
 
 ### Beta Advisor Tool Result Error Param
 
 - `class BetaAdvisorToolResultErrorParam:`
+
   - `required ErrorCode ErrorCode`
+
     - `"max_uses_exceeded"MaxUsesExceeded`
 
     - `"prompt_too_long"PromptTooLong`
@@ -5733,19 +6583,24 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+    - `"model_not_found"ModelNotFound`
+
   - `JsonElement Type "advisor_tool_result_error"constant`
 
 ### Beta All Thinking Turns
 
 - `class BetaAllThinkingTurns:`
+
   - `JsonElement Type "all"constant`
 
 ### Beta Base64 Image Source
 
 - `class BetaBase64ImageSource:`
+
   - `required string Data`
 
   - `required MediaType MediaType`
+
     - `"image/jpeg"ImageJpeg`
 
     - `"image/png"ImagePng`
@@ -5759,6 +6614,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Base64 PDF Source
 
 - `class BetaBase64PdfSource:`
+
   - `required string Data`
 
   - `JsonElement MediaType "application/pdf"constant`
@@ -5768,6 +6624,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Output Block
 
 - `class BetaBashCodeExecutionOutputBlock:`
+
   - `required string FileID`
 
   - `JsonElement Type "bash_code_execution_output"constant`
@@ -5775,6 +6632,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Output Block Param
 
 - `class BetaBashCodeExecutionOutputBlockParam:`
+
   - `required string FileID`
 
   - `JsonElement Type "bash_code_execution_output"constant`
@@ -5782,7 +6640,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Result Block
 
 - `class BetaBashCodeExecutionResultBlock:`
+
   - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "bash_code_execution_output"constant`
@@ -5798,7 +6658,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Result Block Param
 
 - `class BetaBashCodeExecutionResultBlockParam:`
+
   - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "bash_code_execution_output"constant`
@@ -5814,9 +6676,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Block
 
 - `class BetaBashCodeExecutionToolResultBlock:`
+
   - `required Content Content`
+
     - `class BetaBashCodeExecutionToolResultError:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -5830,7 +6696,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
     - `class BetaBashCodeExecutionResultBlock:`
+
       - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "bash_code_execution_output"constant`
@@ -5850,9 +6718,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Block Param
 
 - `class BetaBashCodeExecutionToolResultBlockParam:`
+
   - `required Content Content`
+
     - `class BetaBashCodeExecutionToolResultErrorParam:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -5866,7 +6738,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
     - `class BetaBashCodeExecutionResultBlockParam:`
+
       - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "bash_code_execution_output"constant`
@@ -5886,6 +6760,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -5893,10 +6768,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -5904,7 +6781,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Error
 
 - `class BetaBashCodeExecutionToolResultError:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -5920,7 +6799,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Error Param
 
 - `class BetaBashCodeExecutionToolResultErrorParam:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -5936,6 +6817,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Control Ephemeral
 
 - `class BetaCacheControlEphemeral:`
+
   - `JsonElement Type "ephemeral"constant`
 
   - `Ttl Ttl`
@@ -5943,10 +6825,12 @@ Console.WriteLine(betaMessageTokensCount);
     The time-to-live for the cache control breakpoint.
 
     This may be one the following values:
+
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
     Defaults to `5m`.
+
     - `"5m"Ttl5m`
 
     - `"1h"Ttl1h`
@@ -5954,6 +6838,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Creation
 
 - `class BetaCacheCreation:`
+
   - `required Long Ephemeral1hInputTokens`
 
     The number of input tokens used to create the 1 hour cache entry.
@@ -5965,6 +6850,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Miss Messages Changed
 
 - `class BetaCacheMissMessagesChanged:`
+
   - `required Long CacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -5974,6 +6860,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Miss Model Changed
 
 - `class BetaCacheMissModelChanged:`
+
   - `required Long CacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -5983,11 +6870,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Miss Previous Message Not Found
 
 - `class BetaCacheMissPreviousMessageNotFound:`
+
   - `JsonElement Type "previous_message_not_found"constant`
 
 ### Beta Cache Miss System Changed
 
 - `class BetaCacheMissSystemChanged:`
+
   - `required Long CacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -5997,6 +6886,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Miss Tools Changed
 
 - `class BetaCacheMissToolsChanged:`
+
   - `required Long CacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -6006,11 +6896,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Cache Miss Unavailable
 
 - `class BetaCacheMissUnavailable:`
+
   - `JsonElement Type "unavailable"constant`
 
 ### Beta Citation Char Location
 
 - `class BetaCitationCharLocation:`
+
   - `required string CitedText`
 
   - `required Long DocumentIndex`
@@ -6028,6 +6920,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Char Location Param
 
 - `class BetaCitationCharLocationParam:`
+
   - `required string CitedText`
 
   - `required Long DocumentIndex`
@@ -6043,11 +6936,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Config
 
 - `class BetaCitationConfig:`
+
   - `required Boolean Enabled`
 
 ### Beta Citation Content Block Location
 
 - `class BetaCitationContentBlockLocation:`
+
   - `required string CitedText`
 
     The full text of the cited block range, concatenated.
@@ -6075,6 +6970,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Content Block Location Param
 
 - `class BetaCitationContentBlockLocationParam:`
+
   - `required string CitedText`
 
     The full text of the cited block range, concatenated.
@@ -6100,6 +6996,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Page Location
 
 - `class BetaCitationPageLocation:`
+
   - `required string CitedText`
 
   - `required Long DocumentIndex`
@@ -6117,6 +7014,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Page Location Param
 
 - `class BetaCitationPageLocationParam:`
+
   - `required string CitedText`
 
   - `required Long DocumentIndex`
@@ -6132,6 +7030,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Search Result Location
 
 - `class BetaCitationSearchResultLocation:`
+
   - `required string CitedText`
 
     The full text of the cited block range, concatenated.
@@ -6163,6 +7062,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Search Result Location Param
 
 - `class BetaCitationSearchResultLocationParam:`
+
   - `required string CitedText`
 
     The full text of the cited block range, concatenated.
@@ -6194,6 +7094,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citation Web Search Result Location Param
 
 - `class BetaCitationWebSearchResultLocationParam:`
+
   - `required string CitedText`
 
   - `required string EncryptedIndex`
@@ -6207,13 +7108,17 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citations Config Param
 
 - `class BetaCitationsConfigParam:`
+
   - `Boolean Enabled`
 
 ### Beta Citations Delta
 
 - `class BetaCitationsDelta:`
+
   - `required Citation Citation`
+
     - `class BetaCitationCharLocation:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -6229,6 +7134,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "char_location"constant`
 
     - `class BetaCitationPageLocation:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -6244,6 +7150,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "page_location"constant`
 
     - `class BetaCitationContentBlockLocation:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -6269,6 +7176,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "content_block_location"constant`
 
     - `class BetaCitationsWebSearchResultLocation:`
+
       - `required string CitedText`
 
       - `required string EncryptedIndex`
@@ -6280,6 +7188,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required string Url`
 
     - `class BetaCitationSearchResultLocation:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -6313,6 +7222,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Citations Web Search Result Location
 
 - `class BetaCitationsWebSearchResultLocation:`
+
   - `required string CitedText`
 
   - `required string EncryptedIndex`
@@ -6326,17 +7236,21 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Clear Thinking 20251015 Edit
 
 - `class BetaClearThinking20251015Edit:`
+
   - `JsonElement Type "clear_thinking_20251015"constant`
 
   - `Keep Keep`
 
     Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
     - `class BetaThinkingTurns:`
+
       - `JsonElement Type "thinking_turns"constant`
 
       - `required Long Value`
 
     - `class BetaAllThinkingTurns:`
+
       - `JsonElement Type "all"constant`
 
     - `class All:`
@@ -6344,6 +7258,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Clear Thinking 20251015 Edit Response
 
 - `class BetaClearThinking20251015EditResponse:`
+
   - `required Long ClearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -6359,11 +7274,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Clear Tool Uses 20250919 Edit
 
 - `class BetaClearToolUses20250919Edit:`
+
   - `JsonElement Type "clear_tool_uses_20250919"constant`
 
   - `BetaInputTokensClearAtLeast? ClearAtLeast`
 
     Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
     - `JsonElement Type "input_tokens"constant`
 
     - `required Long Value`
@@ -6371,6 +7288,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `ClearToolInputs? ClearToolInputs`
 
     Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
     - `Boolean`
 
     - `IReadOnlyList<string>`
@@ -6382,6 +7300,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaToolUsesKeep Keep`
 
     Number of tool uses to retain in the conversation
+
     - `JsonElement Type "tool_uses"constant`
 
     - `required Long Value`
@@ -6389,12 +7308,15 @@ Console.WriteLine(betaMessageTokensCount);
   - `Trigger Trigger`
 
     Condition that triggers the context management strategy
+
     - `class BetaInputTokensTrigger:`
+
       - `JsonElement Type "input_tokens"constant`
 
       - `required Long Value`
 
     - `class BetaToolUsesTrigger:`
+
       - `JsonElement Type "tool_uses"constant`
 
       - `required Long Value`
@@ -6402,6 +7324,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Clear Tool Uses 20250919 Edit Response
 
 - `class BetaClearToolUses20250919EditResponse:`
+
   - `required Long ClearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -6417,6 +7340,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Output Block
 
 - `class BetaCodeExecutionOutputBlock:`
+
   - `required string FileID`
 
   - `JsonElement Type "code_execution_output"constant`
@@ -6424,6 +7348,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Output Block Param
 
 - `class BetaCodeExecutionOutputBlockParam:`
+
   - `required string FileID`
 
   - `JsonElement Type "code_execution_output"constant`
@@ -6431,7 +7356,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Result Block
 
 - `class BetaCodeExecutionResultBlock:`
+
   - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "code_execution_output"constant`
@@ -6447,7 +7374,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Result Block Param
 
 - `class BetaCodeExecutionResultBlockParam:`
+
   - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "code_execution_output"constant`
@@ -6463,6 +7392,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool 20250522
 
 - `class BetaCodeExecutionTool20250522:`
+
   - `JsonElement Name "code_execution"constant`
 
     Name of the tool.
@@ -6472,6 +7402,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "code_execution_20250522"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -6481,6 +7412,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -6488,10 +7420,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -6507,6 +7441,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool 20250825
 
 - `class BetaCodeExecutionTool20250825:`
+
   - `JsonElement Name "code_execution"constant`
 
     Name of the tool.
@@ -6516,6 +7451,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "code_execution_20250825"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -6525,6 +7461,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -6532,10 +7469,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -6553,6 +7492,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaCodeExecutionTool20260120:`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
   - `JsonElement Name "code_execution"constant`
 
     Name of the tool.
@@ -6562,6 +7502,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "code_execution_20260120"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -6571,6 +7512,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -6578,10 +7520,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -6597,11 +7541,15 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block
 
 - `class BetaCodeExecutionToolResultBlock:`
+
   - `required BetaCodeExecutionToolResultBlockContent Content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `class BetaCodeExecutionToolResultError:`
+
       - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -6613,7 +7561,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "code_execution_tool_result_error"constant`
 
     - `class BetaCodeExecutionResultBlock:`
+
       - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "code_execution_output"constant`
@@ -6629,7 +7579,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaEncryptedCodeExecutionResultBlock:`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "code_execution_output"constant`
@@ -6651,8 +7603,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaCodeExecutionToolResultBlockContent: A class that can be one of several variants.union`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `class BetaCodeExecutionToolResultError:`
+
     - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
       - `"invalid_tool_input"InvalidToolInput`
 
       - `"unavailable"Unavailable`
@@ -6664,7 +7619,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_tool_result_error"constant`
 
   - `class BetaCodeExecutionResultBlock:`
+
     - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
       - `required string FileID`
 
       - `JsonElement Type "code_execution_output"constant`
@@ -6680,7 +7637,9 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaEncryptedCodeExecutionResultBlock:`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
       - `required string FileID`
 
       - `JsonElement Type "code_execution_output"constant`
@@ -6696,11 +7655,15 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block Param
 
 - `class BetaCodeExecutionToolResultBlockParam:`
+
   - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `class BetaCodeExecutionToolResultErrorParam:`
+
       - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -6712,7 +7675,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "code_execution_tool_result_error"constant`
 
     - `class BetaCodeExecutionResultBlockParam:`
+
       - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "code_execution_output"constant`
@@ -6728,7 +7693,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
         - `required string FileID`
 
         - `JsonElement Type "code_execution_output"constant`
@@ -6748,6 +7715,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -6755,10 +7723,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -6768,8 +7738,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaCodeExecutionToolResultBlockParamContent: A class that can be one of several variants.union`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `class BetaCodeExecutionToolResultErrorParam:`
+
     - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
       - `"invalid_tool_input"InvalidToolInput`
 
       - `"unavailable"Unavailable`
@@ -6781,7 +7754,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_tool_result_error"constant`
 
   - `class BetaCodeExecutionResultBlockParam:`
+
     - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
       - `required string FileID`
 
       - `JsonElement Type "code_execution_output"constant`
@@ -6797,7 +7772,9 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
       - `required string FileID`
 
       - `JsonElement Type "code_execution_output"constant`
@@ -6813,7 +7790,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error
 
 - `class BetaCodeExecutionToolResultError:`
+
   - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -6827,6 +7806,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error Code
 
 - `enum BetaCodeExecutionToolResultErrorCode:`
+
   - `"invalid_tool_input"InvalidToolInput`
 
   - `"unavailable"Unavailable`
@@ -6838,7 +7818,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error Param
 
 - `class BetaCodeExecutionToolResultErrorParam:`
+
   - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -6854,6 +7836,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaCompact20260112Edit:`
 
   Automatically compact older context when reaching the configured trigger threshold.
+
   - `JsonElement Type "compact_20260112"constant`
 
   - `string? Instructions`
@@ -6867,6 +7850,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaInputTokensTrigger? Trigger`
 
     When to trigger compaction. Defaults to 150000 input tokens.
+
     - `JsonElement Type "input_tokens"constant`
 
     - `required Long Value`
@@ -6880,6 +7864,7 @@ Console.WriteLine(betaMessageTokensCount);
   When content is None, it indicates the compaction failed to produce a valid
   summary (e.g., malformed output from the model). Clients may round-trip
   compaction blocks with null content; the server treats them as no-ops.
+
   - `required string? Content`
 
     Summary of compacted content, or null if compaction failed
@@ -6901,11 +7886,13 @@ Console.WriteLine(betaMessageTokensCount);
 
   When content is None, the block represents a failed compaction. The server
   treats these as no-ops. Empty string content is not allowed.
+
   - `JsonElement Type "compaction"constant`
 
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -6913,10 +7900,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -6932,6 +7921,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Compaction Content Block Delta
 
 - `class BetaCompactionContentBlockDelta:`
+
   - `required string? Content`
 
   - `required string? EncryptedContent`
@@ -6945,9 +7935,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaCompactionIterationUsage:`
 
   Token usage for a compaction iteration.
+
   - `required BetaCacheCreation? CacheCreation`
 
     Breakdown of cached tokens by TTL
+
     - `required Long Ephemeral1hInputTokens`
 
       The number of input tokens used to create the 1 hour cache entry.
@@ -6981,6 +7973,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaContainer:`
 
   Information about the container used in the request (for the code execution tool)
+
   - `required string ID`
 
     Identifier for the container used in this request
@@ -6992,6 +7985,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required IReadOnlyList<BetaSkill>? Skills`
 
     Skills loaded in the container
+
     - `required string SkillID`
 
       Skill ID
@@ -6999,6 +7993,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required Type Type`
 
       Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
       - `"anthropic"Anthropic`
 
       - `"custom"Custom`
@@ -7012,6 +8007,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaContainerParams:`
 
   Container parameters with skills to be loaded.
+
   - `string? ID`
 
     Container id
@@ -7019,6 +8015,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `IReadOnlyList<BetaSkillParams>? Skills`
 
     List of skills to load in the container
+
     - `required string SkillID`
 
       Skill ID
@@ -7026,6 +8023,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required Type Type`
 
       Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
       - `"anthropic"Anthropic`
 
       - `"custom"Custom`
@@ -7039,6 +8037,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaContainerUploadBlock:`
 
   Response model for a file uploaded to the container.
+
   - `required string FileID`
 
   - `JsonElement Type "container_upload"constant`
@@ -7049,6 +8048,7 @@ Console.WriteLine(betaMessageTokensCount);
 
   A content block that represents a file to be uploaded to the container
   Files uploaded via this block will be available in the container's input directory.
+
   - `required string FileID`
 
   - `JsonElement Type "container_upload"constant`
@@ -7056,6 +8056,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -7063,10 +8064,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -7076,13 +8079,17 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaContentBlock: A class that can be one of several variants.union`
 
   Response model for a file uploaded to the container.
+
   - `class BetaTextBlock:`
+
     - `required IReadOnlyList<BetaTextCitation>? Citations`
 
       Citations supporting the text block.
 
       The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
       - `class BetaCitationCharLocation:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -7098,6 +8105,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocation:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -7113,6 +8121,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocation:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -7138,6 +8147,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationsWebSearchResultLocation:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -7149,6 +8159,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocation:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -7182,6 +8193,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text"constant`
 
   - `class BetaThinkingBlock:`
+
     - `required string Signature`
 
     - `required string Thinking`
@@ -7189,11 +8201,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "thinking"constant`
 
   - `class BetaRedactedThinkingBlock:`
+
     - `required string Data`
 
     - `JsonElement Type "redacted_thinking"constant`
 
   - `class BetaToolUseBlock:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -7205,29 +8219,35 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
+
         - `JsonElement Type "direct"constant`
 
       - `class BetaServerToolCaller:`
 
         Tool invocation generated by a server-side tool.
+
         - `required string ToolID`
 
         - `JsonElement Type "code_execution_20250825"constant`
 
       - `class BetaServerToolCaller20260120:`
+
         - `required string ToolID`
 
         - `JsonElement Type "code_execution_20260120"constant`
 
   - `class BetaServerToolUseBlock:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
 
     - `required Name Name`
+
       - `"advisor"Advisor`
 
       - `"web_search"WebSearch`
@@ -7249,6 +8269,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -7260,9 +8281,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaWebSearchToolResultBlock:`
+
     - `required BetaWebSearchToolResultBlockContent Content`
+
       - `class BetaWebSearchToolResultError:`
+
         - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -7278,6 +8303,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "web_search_tool_result_error"constant`
 
       - `IReadOnlyList<BetaWebSearchResultBlock>`
+
         - `required string EncryptedContent`
 
         - `required string? PageAge`
@@ -7295,6 +8321,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -7306,9 +8333,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaWebFetchToolResultBlock:`
+
     - `required Content Content`
+
       - `class BetaWebFetchToolResultErrorBlock:`
+
         - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"url_too_long"UrlTooLong`
@@ -7330,14 +8361,19 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "web_fetch_tool_result_error"constant`
 
       - `class BetaWebFetchBlock:`
+
         - `required BetaDocumentBlock Content`
+
           - `required BetaCitationConfig? Citations`
 
             Citation configuration for the document
+
             - `required Boolean Enabled`
 
           - `required Source Source`
+
             - `class BetaBase64PdfSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "application/pdf"constant`
@@ -7345,6 +8381,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "base64"constant`
 
             - `class BetaPlainTextSource:`
+
               - `required string Data`
 
               - `JsonElement MediaType "text/plain"constant`
@@ -7374,6 +8411,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -7385,9 +8423,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaAdvisorToolResultBlock:`
+
     - `required Content Content`
+
       - `class BetaAdvisorToolResultError:`
+
         - `required ErrorCode ErrorCode`
+
           - `"max_uses_exceeded"MaxUsesExceeded`
 
           - `"prompt_too_long"PromptTooLong`
@@ -7400,9 +8442,12 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+          - `"model_not_found"ModelNotFound`
+
         - `JsonElement Type "advisor_tool_result_error"constant`
 
       - `class BetaAdvisorResultBlock:`
+
         - `required string? StopReason`
 
           The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -7412,6 +8457,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "advisor_result"constant`
 
       - `class BetaAdvisorRedactedResultBlock:`
+
         - `required string EncryptedContent`
 
           Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -7427,11 +8473,15 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "advisor_tool_result"constant`
 
   - `class BetaCodeExecutionToolResultBlock:`
+
     - `required BetaCodeExecutionToolResultBlockContent Content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `class BetaCodeExecutionToolResultError:`
+
         - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -7443,7 +8493,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "code_execution_tool_result_error"constant`
 
       - `class BetaCodeExecutionResultBlock:`
+
         - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "code_execution_output"constant`
@@ -7459,7 +8511,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaEncryptedCodeExecutionResultBlock:`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "code_execution_output"constant`
@@ -7477,9 +8531,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_tool_result"constant`
 
   - `class BetaBashCodeExecutionToolResultBlock:`
+
     - `required Content Content`
+
       - `class BetaBashCodeExecutionToolResultError:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -7493,7 +8551,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
       - `class BetaBashCodeExecutionResultBlock:`
+
         - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "bash_code_execution_output"constant`
@@ -7511,9 +8571,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "bash_code_execution_tool_result"constant`
 
   - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
     - `required Content Content`
+
       - `class BetaTextEditorCodeExecutionToolResultError:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -7529,9 +8593,11 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
       - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
         - `required string Content`
 
         - `required FileType FileType`
+
           - `"text"Text`
 
           - `"image"Image`
@@ -7547,11 +8613,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
       - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
         - `required Boolean IsFileUpdate`
 
         - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
         - `required IReadOnlyList<string>? Lines`
 
         - `required Long? NewLines`
@@ -7569,9 +8637,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
   - `class BetaToolSearchToolResultBlock:`
+
     - `required Content Content`
+
       - `class BetaToolSearchToolResultError:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -7585,7 +8657,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "tool_search_tool_result_error"constant`
 
       - `class BetaToolSearchToolSearchResultBlock:`
+
         - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
           - `required string ToolName`
 
           - `JsonElement Type "tool_reference"constant`
@@ -7597,6 +8671,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "tool_search_tool_result"constant`
 
   - `class BetaMcpToolUseBlock:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -7612,10 +8687,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "mcp_tool_use"constant`
 
   - `class BetaMcpToolResultBlock:`
+
     - `required Content Content`
+
       - `string`
 
       - `IReadOnlyList<BetaTextBlock>`
+
         - `required IReadOnlyList<BetaTextCitation>? Citations`
 
           Citations supporting the text block.
@@ -7635,6 +8713,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaContainerUploadBlock:`
 
     Response model for a file uploaded to the container.
+
     - `required string FileID`
 
     - `JsonElement Type "container_upload"constant`
@@ -7646,6 +8725,7 @@ Console.WriteLine(betaMessageTokensCount);
     When content is None, it indicates the compaction failed to produce a valid
     summary (e.g., malformed output from the model). Clients may round-trip
     compaction blocks with null content; the server treats them as no-ops.
+
     - `required string? Content`
 
       Summary of compacted content, or null if compaction failed
@@ -7656,12 +8736,124 @@ Console.WriteLine(betaMessageTokensCount);
 
     - `JsonElement Type "compaction"constant`
 
+  - `class BetaFallbackBlock:`
+
+    Marks the point in `content` where one model's output gives way to the next.
+
+    One block appears per hop where a preceding model actually ran this turn and
+    declined. A turn routed directly by the sticky decision has no such boundary
+    and carries no block — the signal for whether a fallback model served the
+    response is the presence of a `fallback_message` entry in
+    `usage.iterations`, not this block.
+
+    The block is treated like a server-tool content block for streaming: it
+    arrives via the standard `content_block_start` / `content_block_stop`
+    pair and carries no deltas.
+
+    - `required BetaFallbackInfo From`
+
+      The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"ClaudeFable5`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"ClaudeMythos5`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-4-8"ClaudeOpus4_8`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"ClaudeOpus4_7`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-mythos-preview"ClaudeMythosPreview`
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-opus-4-6"ClaudeOpus4_6`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"ClaudeOpus4_5`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+          High-performance model for agents and coding
+
+        - `"claude-opus-4-1"ClaudeOpus4_1`
+
+          Exceptional model for specialized complex tasks
+
+        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+          Exceptional model for specialized complex tasks
+
+        - `"claude-opus-4-0"ClaudeOpus4_0`
+
+          Powerful model for complex tasks
+
+        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+          Powerful model for complex tasks
+
+        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+          High-performance model with extended thinking
+
+        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+          High-performance model with extended thinking
+
+        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+          Fast and cost-effective model
+
+    - `required BetaFallbackInfo To`
+
+      The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+    - `JsonElement Type "fallback"constant`
+
 ### Beta Content Block Param
 
 - `class BetaContentBlockParam: A class that can be one of several variants.union`
 
   Regular text content.
+
   - `class BetaTextBlockParam:`
+
     - `required string Text`
 
     - `JsonElement Type "text"constant`
@@ -7669,6 +8861,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -7676,16 +8869,20 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
 
     - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
       - `class BetaCitationCharLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -7699,6 +8896,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -7712,6 +8910,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -7735,6 +8934,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationWebSearchResultLocationParam:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -7746,6 +8946,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -7775,11 +8976,15 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "search_result_location"constant`
 
   - `class BetaImageBlockParam:`
+
     - `required Source Source`
+
       - `class BetaBase64ImageSource:`
+
         - `required string Data`
 
         - `required MediaType MediaType`
+
           - `"image/jpeg"ImageJpeg`
 
           - `"image/png"ImagePng`
@@ -7791,11 +8996,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "base64"constant`
 
       - `class BetaUrlImageSource:`
+
         - `JsonElement Type "url"constant`
 
         - `required string Url`
 
       - `class BetaFileImageSource:`
+
         - `required string FileID`
 
         - `JsonElement Type "file"constant`
@@ -7807,8 +9014,11 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaRequestDocumentBlock:`
+
     - `required Source Source`
+
       - `class BetaBase64PdfSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "application/pdf"constant`
@@ -7816,6 +9026,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "base64"constant`
 
       - `class BetaPlainTextSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "text/plain"constant`
@@ -7823,10 +9034,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text"constant`
 
       - `class BetaContentBlockSource:`
+
         - `required Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaContentBlockSourceContent>`
+
             - `class BetaTextBlockParam:`
 
             - `class BetaImageBlockParam:`
@@ -7834,11 +9048,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content"constant`
 
       - `class BetaUrlPdfSource:`
+
         - `JsonElement Type "url"constant`
 
         - `required string Url`
 
       - `class BetaFileDocumentSource:`
+
         - `required string FileID`
 
         - `JsonElement Type "file"constant`
@@ -7850,6 +9066,7 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `BetaCitationsConfigParam? Citations`
+
       - `Boolean Enabled`
 
     - `string? Context`
@@ -7857,7 +9074,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `string? Title`
 
   - `class BetaSearchResultBlockParam:`
+
     - `required IReadOnlyList<BetaTextBlockParam> Content`
+
       - `required string Text`
 
       - `JsonElement Type "text"constant`
@@ -7881,6 +9100,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCitationsConfigParam Citations`
 
   - `class BetaThinkingBlockParam:`
+
     - `required string Signature`
 
     - `required string Thinking`
@@ -7888,11 +9108,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "thinking"constant`
 
   - `class BetaRedactedThinkingBlockParam:`
+
     - `required string Data`
 
     - `JsonElement Type "redacted_thinking"constant`
 
   - `class BetaToolUseBlockParam:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -7908,24 +9130,29 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
+
         - `JsonElement Type "direct"constant`
 
       - `class BetaServerToolCaller:`
 
         Tool invocation generated by a server-side tool.
+
         - `required string ToolID`
 
         - `JsonElement Type "code_execution_20250825"constant`
 
       - `class BetaServerToolCaller20260120:`
+
         - `required string ToolID`
 
         - `JsonElement Type "code_execution_20260120"constant`
 
   - `class BetaToolResultBlockParam:`
+
     - `required string ToolUseID`
 
     - `JsonElement Type "tool_result"constant`
@@ -7935,9 +9162,11 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `Content Content`
+
       - `string`
 
       - `IReadOnlyList<Block>`
+
         - `class BetaTextBlockParam:`
 
         - `class BetaImageBlockParam:`
@@ -7949,6 +9178,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaToolReferenceBlockParam:`
 
           Tool reference block that can be included in tool_result content.
+
           - `required string ToolName`
 
           - `JsonElement Type "tool_reference"constant`
@@ -7960,11 +9190,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `Boolean IsError`
 
   - `class BetaServerToolUseBlockParam:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
 
     - `required Name Name`
+
       - `"advisor"Advisor`
 
       - `"web_search"WebSearch`
@@ -7990,6 +9222,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -8001,8 +9234,11 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaWebSearchToolResultBlockParam:`
+
     - `required BetaWebSearchToolResultBlockParamContent Content`
+
       - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
         - `required string EncryptedContent`
 
         - `required string Title`
@@ -8014,7 +9250,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `string? PageAge`
 
       - `class BetaWebSearchToolRequestError:`
+
         - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -8040,6 +9278,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -8051,9 +9290,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaWebFetchToolResultBlockParam:`
+
     - `required Content Content`
+
       - `class BetaWebFetchToolResultErrorBlockParam:`
+
         - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"url_too_long"UrlTooLong`
@@ -8075,6 +9318,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "web_fetch_tool_result_error"constant`
 
       - `class BetaWebFetchBlockParam:`
+
         - `required BetaRequestDocumentBlock Content`
 
         - `JsonElement Type "web_fetch_result"constant`
@@ -8098,6 +9342,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `Caller Caller`
 
       Tool invocation directly from the model.
+
       - `class BetaDirectCaller:`
 
         Tool invocation directly from the model.
@@ -8109,9 +9354,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaServerToolCaller20260120:`
 
   - `class BetaAdvisorToolResultBlockParam:`
+
     - `required Content Content`
+
       - `class BetaAdvisorToolResultErrorParam:`
+
         - `required ErrorCode ErrorCode`
+
           - `"max_uses_exceeded"MaxUsesExceeded`
 
           - `"prompt_too_long"PromptTooLong`
@@ -8124,9 +9373,12 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+          - `"model_not_found"ModelNotFound`
+
         - `JsonElement Type "advisor_tool_result_error"constant`
 
       - `class BetaAdvisorResultBlockParam:`
+
         - `required string Text`
 
         - `JsonElement Type "advisor_result"constant`
@@ -8134,6 +9386,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `string? StopReason`
 
       - `class BetaAdvisorRedactedResultBlockParam:`
+
         - `required string EncryptedContent`
 
           Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -8151,11 +9404,15 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaCodeExecutionToolResultBlockParam:`
+
     - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `class BetaCodeExecutionToolResultErrorParam:`
+
         - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -8167,7 +9424,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "code_execution_tool_result_error"constant`
 
       - `class BetaCodeExecutionResultBlockParam:`
+
         - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "code_execution_output"constant`
@@ -8183,7 +9442,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "code_execution_output"constant`
@@ -8205,9 +9466,13 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaBashCodeExecutionToolResultBlockParam:`
+
     - `required Content Content`
+
       - `class BetaBashCodeExecutionToolResultErrorParam:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -8221,7 +9486,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
       - `class BetaBashCodeExecutionResultBlockParam:`
+
         - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
           - `required string FileID`
 
           - `JsonElement Type "bash_code_execution_output"constant`
@@ -8243,9 +9510,13 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
     - `required Content Content`
+
       - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -8261,9 +9532,11 @@ Console.WriteLine(betaMessageTokensCount);
         - `string? ErrorMessage`
 
       - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
         - `required string Content`
 
         - `required FileType FileType`
+
           - `"text"Text`
 
           - `"image"Image`
@@ -8279,11 +9552,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `Long? TotalLines`
 
       - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
         - `required Boolean IsFileUpdate`
 
         - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
         - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
         - `IReadOnlyList<string>? Lines`
@@ -8305,9 +9580,13 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaToolSearchToolResultBlockParam:`
+
     - `required Content Content`
+
       - `class BetaToolSearchToolResultErrorParam:`
+
         - `required ErrorCode ErrorCode`
+
           - `"invalid_tool_input"InvalidToolInput`
 
           - `"unavailable"Unavailable`
@@ -8318,8 +9597,12 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `JsonElement Type "tool_search_tool_result_error"constant`
 
+        - `string? ErrorMessage`
+
       - `class BetaToolSearchToolSearchResultBlockParam:`
+
         - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
           - `required string ToolName`
 
           - `JsonElement Type "tool_reference"constant`
@@ -8339,6 +9622,7 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaMcpToolUseBlockParam:`
+
     - `required string ID`
 
     - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -8356,6 +9640,7 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `class BetaRequestMcpToolResultBlockParam:`
+
     - `required string ToolUseID`
 
     - `JsonElement Type "mcp_tool_result"constant`
@@ -8365,9 +9650,11 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `Content Content`
+
       - `string`
 
       - `IReadOnlyList<BetaTextBlockParam>`
+
         - `required string Text`
 
         - `JsonElement Type "text"constant`
@@ -8384,6 +9671,7 @@ Console.WriteLine(betaMessageTokensCount);
 
     A content block that represents a file to be uploaded to the container
     Files uploaded via this block will be available in the container's input directory.
+
     - `required string FileID`
 
     - `JsonElement Type "container_upload"constant`
@@ -8401,6 +9689,7 @@ Console.WriteLine(betaMessageTokensCount);
 
     When content is None, the block represents a failed compaction. The server
     treats these as no-ops. Empty string content is not allowed.
+
     - `JsonElement Type "compaction"constant`
 
     - `BetaCacheControlEphemeral? CacheControl`
@@ -8421,9 +9710,11 @@ Console.WriteLine(betaMessageTokensCount);
 
     Use this block to provide or update system-level instructions at a specific
     point in the conversation, rather than only via the top-level `system` parameter.
+
     - `required IReadOnlyList<BetaTextBlockParam> Content`
 
       System instruction text blocks.
+
       - `required string Text`
 
       - `JsonElement Type "text"constant`
@@ -8440,14 +9731,132 @@ Console.WriteLine(betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
+  - `class BetaFallbackBlockParam:`
+
+    A `fallback` block echoed back from a prior response.
+
+    Accepted in `messages[].content` and never rendered into the prompt,
+    not validated against the request's `fallbacks` chain or top-level
+    `model`, and stripped before the sticky-routing cache key is computed.
+
+    Callers should echo the assistant turn verbatim — block included. The
+    block's position is load-bearing for thinking verification: the thinking
+    runs on either side of a fallback hop carry independently-rooted
+    verification hash chains, and this block is the only record of where one
+    chain ends and the next begins. When thinking runs flank the boundary,
+    omitting the block merges the runs into one contiguous span whose hashes
+    cannot verify (the request is rejected), and moving it into the middle of
+    a single run splits that run's chain and is likewise rejected; between
+    non-thinking blocks the block's placement has no verification effect.
+
+    - `required BetaFallbackInfoParam From`
+
+      Identifies one hop of a fallback transition.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"ClaudeFable5`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"ClaudeMythos5`
+
+          Most capable model for cybersecurity and biology research
+
+        - `"claude-opus-4-8"ClaudeOpus4_8`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-opus-4-7"ClaudeOpus4_7`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-mythos-preview"ClaudeMythosPreview`
+
+          New class of intelligence, strongest in coding and cybersecurity
+
+        - `"claude-opus-4-6"ClaudeOpus4_6`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"ClaudeOpus4_5`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+          High-performance model for agents and coding
+
+        - `"claude-opus-4-1"ClaudeOpus4_1`
+
+          Exceptional model for specialized complex tasks
+
+        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+          Exceptional model for specialized complex tasks
+
+        - `"claude-opus-4-0"ClaudeOpus4_0`
+
+          Powerful model for complex tasks
+
+        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+          Powerful model for complex tasks
+
+        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+          High-performance model with extended thinking
+
+        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+          High-performance model with extended thinking
+
+        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+          Fast and cost-effective model
+
+    - `required BetaFallbackInfoParam To`
+
+      Identifies one hop of a fallback transition.
+
+    - `JsonElement Type "fallback"constant`
+
 ### Beta Content Block Source
 
 - `class BetaContentBlockSource:`
+
   - `required Content Content`
+
     - `string`
 
     - `IReadOnlyList<BetaContentBlockSourceContent>`
+
       - `class BetaTextBlockParam:`
+
         - `required string Text`
 
         - `JsonElement Type "text"constant`
@@ -8455,6 +9864,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `BetaCacheControlEphemeral? CacheControl`
 
           Create a cache control breakpoint at this content block.
+
           - `JsonElement Type "ephemeral"constant`
 
           - `Ttl Ttl`
@@ -8462,16 +9872,20 @@ Console.WriteLine(betaMessageTokensCount);
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"Ttl5m`
 
             - `"1h"Ttl1h`
 
         - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
           - `class BetaCitationCharLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -8485,6 +9899,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "char_location"constant`
 
           - `class BetaCitationPageLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -8498,6 +9913,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "page_location"constant`
 
           - `class BetaCitationContentBlockLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -8521,6 +9937,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content_block_location"constant`
 
           - `class BetaCitationWebSearchResultLocationParam:`
+
             - `required string CitedText`
 
             - `required string EncryptedIndex`
@@ -8532,6 +9949,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `required string Url`
 
           - `class BetaCitationSearchResultLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -8561,11 +9979,15 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "search_result_location"constant`
 
       - `class BetaImageBlockParam:`
+
         - `required Source Source`
+
           - `class BetaBase64ImageSource:`
+
             - `required string Data`
 
             - `required MediaType MediaType`
+
               - `"image/jpeg"ImageJpeg`
 
               - `"image/png"ImagePng`
@@ -8577,11 +9999,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaUrlImageSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileImageSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -8597,7 +10021,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Content Block Source Content
 
 - `class BetaContentBlockSourceContent: A class that can be one of several variants.union`
+
   - `class BetaTextBlockParam:`
+
     - `required string Text`
 
     - `JsonElement Type "text"constant`
@@ -8605,6 +10031,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -8612,16 +10039,20 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
 
     - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
       - `class BetaCitationCharLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -8635,6 +10066,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -8648,6 +10080,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -8671,6 +10104,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationWebSearchResultLocationParam:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -8682,6 +10116,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -8711,11 +10146,15 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "search_result_location"constant`
 
   - `class BetaImageBlockParam:`
+
     - `required Source Source`
+
       - `class BetaBase64ImageSource:`
+
         - `required string Data`
 
         - `required MediaType MediaType`
+
           - `"image/jpeg"ImageJpeg`
 
           - `"image/png"ImagePng`
@@ -8727,11 +10166,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "base64"constant`
 
       - `class BetaUrlImageSource:`
+
         - `JsonElement Type "url"constant`
 
         - `required string Url`
 
       - `class BetaFileImageSource:`
+
         - `required string FileID`
 
         - `JsonElement Type "file"constant`
@@ -8745,15 +10186,19 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Context Management Config
 
 - `class BetaContextManagementConfig:`
+
   - `IReadOnlyList<Edit> Edits`
 
     List of context management edits to apply
+
     - `class BetaClearToolUses20250919Edit:`
+
       - `JsonElement Type "clear_tool_uses_20250919"constant`
 
       - `BetaInputTokensClearAtLeast? ClearAtLeast`
 
         Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
         - `JsonElement Type "input_tokens"constant`
 
         - `required Long Value`
@@ -8761,6 +10206,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `ClearToolInputs? ClearToolInputs`
 
         Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
         - `Boolean`
 
         - `IReadOnlyList<string>`
@@ -8772,6 +10218,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `BetaToolUsesKeep Keep`
 
         Number of tool uses to retain in the conversation
+
         - `JsonElement Type "tool_uses"constant`
 
         - `required Long Value`
@@ -8779,28 +10226,35 @@ Console.WriteLine(betaMessageTokensCount);
       - `Trigger Trigger`
 
         Condition that triggers the context management strategy
+
         - `class BetaInputTokensTrigger:`
+
           - `JsonElement Type "input_tokens"constant`
 
           - `required Long Value`
 
         - `class BetaToolUsesTrigger:`
+
           - `JsonElement Type "tool_uses"constant`
 
           - `required Long Value`
 
     - `class BetaClearThinking20251015Edit:`
+
       - `JsonElement Type "clear_thinking_20251015"constant`
 
       - `Keep Keep`
 
         Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
         - `class BetaThinkingTurns:`
+
           - `JsonElement Type "thinking_turns"constant`
 
           - `required Long Value`
 
         - `class BetaAllThinkingTurns:`
+
           - `JsonElement Type "all"constant`
 
         - `class All:`
@@ -8808,6 +10262,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaCompact20260112Edit:`
 
       Automatically compact older context when reaching the configured trigger threshold.
+
       - `JsonElement Type "compact_20260112"constant`
 
       - `string? Instructions`
@@ -8825,10 +10280,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Context Management Response
 
 - `class BetaContextManagementResponse:`
+
   - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
     List of context management edits that were applied.
+
     - `class BetaClearToolUses20250919EditResponse:`
+
       - `required Long ClearedInputTokens`
 
         Number of input tokens cleared by this edit.
@@ -8842,6 +10300,7 @@ Console.WriteLine(betaMessageTokensCount);
         The type of context management edit applied.
 
     - `class BetaClearThinking20251015EditResponse:`
+
       - `required Long ClearedInputTokens`
 
         Number of input tokens cleared by this edit.
@@ -8857,6 +10316,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Count Tokens Context Management Response
 
 - `class BetaCountTokensContextManagementResponse:`
+
   - `required Long OriginalInputTokens`
 
     The original token count before context management was applied
@@ -8867,10 +10327,13 @@ Console.WriteLine(betaMessageTokensCount);
 
   Response envelope for request-level diagnostics. Present (possibly
   null) whenever the caller supplied `diagnostics` on the request.
+
   - `required CacheMissReason? CacheMissReason`
 
     Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
     - `class BetaCacheMissModelChanged:`
+
       - `required Long CacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -8878,6 +10341,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "model_changed"constant`
 
     - `class BetaCacheMissSystemChanged:`
+
       - `required Long CacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -8885,6 +10349,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "system_changed"constant`
 
     - `class BetaCacheMissToolsChanged:`
+
       - `required Long CacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -8892,6 +10357,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "tools_changed"constant`
 
     - `class BetaCacheMissMessagesChanged:`
+
       - `required Long CacheMissedInputTokens`
 
         Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -8899,9 +10365,11 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "messages_changed"constant`
 
     - `class BetaCacheMissPreviousMessageNotFound:`
+
       - `JsonElement Type "previous_message_not_found"constant`
 
     - `class BetaCacheMissUnavailable:`
+
       - `JsonElement Type "unavailable"constant`
 
 ### Beta Diagnostics Param
@@ -8910,6 +10378,7 @@ Console.WriteLine(betaMessageTokensCount);
 
   Request-level diagnostics. Currently carries the previous response
   id for prompt-cache divergence reporting.
+
   - `string? PreviousMessageID`
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
@@ -8919,18 +10388,23 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaDirectCaller:`
 
   Tool invocation directly from the model.
+
   - `JsonElement Type "direct"constant`
 
 ### Beta Document Block
 
 - `class BetaDocumentBlock:`
+
   - `required BetaCitationConfig? Citations`
 
     Citation configuration for the document
+
     - `required Boolean Enabled`
 
   - `required Source Source`
+
     - `class BetaBase64PdfSource:`
+
       - `required string Data`
 
       - `JsonElement MediaType "application/pdf"constant`
@@ -8938,6 +10412,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "base64"constant`
 
     - `class BetaPlainTextSource:`
+
       - `required string Data`
 
       - `JsonElement MediaType "text/plain"constant`
@@ -8955,7 +10430,9 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaEncryptedCodeExecutionResultBlock:`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "code_execution_output"constant`
@@ -8973,7 +10450,9 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
     - `required string FileID`
 
     - `JsonElement Type "code_execution_output"constant`
@@ -8986,1284 +10465,254 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `JsonElement Type "encrypted_code_execution_result"constant`
 
-### Beta File Document Source
+### Beta Fallback Block
 
-- `class BetaFileDocumentSource:`
-  - `required string FileID`
+- `class BetaFallbackBlock:`
 
-  - `JsonElement Type "file"constant`
+  Marks the point in `content` where one model's output gives way to the next.
 
-### Beta File Image Source
+  One block appears per hop where a preceding model actually ran this turn and
+  declined. A turn routed directly by the sticky decision has no such boundary
+  and carries no block — the signal for whether a fallback model served the
+  response is the presence of a `fallback_message` entry in
+  `usage.iterations`, not this block.
 
-- `class BetaFileImageSource:`
-  - `required string FileID`
+  The block is treated like a server-tool content block for streaming: it
+  arrives via the standard `content_block_start` / `content_block_stop`
+  pair and carries no deltas.
 
-  - `JsonElement Type "file"constant`
+  - `required BetaFallbackInfo From`
 
-### Beta Image Block Param
+    The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-- `class BetaImageBlockParam:`
-  - `required Source Source`
-    - `class BetaBase64ImageSource:`
-      - `required string Data`
+    - `required Model Model`
 
-      - `required MediaType MediaType`
-        - `"image/jpeg"ImageJpeg`
+      The model that will complete your prompt.
 
-        - `"image/png"ImagePng`
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"image/gif"ImageGif`
+      - `"claude-fable-5"ClaudeFable5`
 
-        - `"image/webp"ImageWebP`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `JsonElement Type "base64"constant`
+      - `"claude-mythos-5"ClaudeMythos5`
 
-    - `class BetaUrlImageSource:`
-      - `JsonElement Type "url"constant`
+        Most capable model for cybersecurity and biology research
 
-      - `required string Url`
+      - `"claude-opus-4-8"ClaudeOpus4_8`
 
-    - `class BetaFileImageSource:`
-      - `required string FileID`
+        Frontier intelligence for long-running agents and coding
 
-      - `JsonElement Type "file"constant`
+      - `"claude-opus-4-7"ClaudeOpus4_7`
 
-  - `JsonElement Type "image"constant`
+        Frontier intelligence for long-running agents and coding
 
-  - `BetaCacheControlEphemeral? CacheControl`
+      - `"claude-mythos-preview"ClaudeMythosPreview`
 
-    Create a cache control breakpoint at this content block.
-    - `JsonElement Type "ephemeral"constant`
+        New class of intelligence, strongest in coding and cybersecurity
 
-    - `Ttl Ttl`
+      - `"claude-opus-4-6"ClaudeOpus4_6`
 
-      The time-to-live for the cache control breakpoint.
+        Frontier intelligence for long-running agents and coding
 
-      This may be one the following values:
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
+      - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
-      Defaults to `5m`.
-      - `"5m"Ttl5m`
+        Best combination of speed and intelligence
 
-      - `"1h"Ttl1h`
+      - `"claude-haiku-4-5"ClaudeHaiku4_5`
 
-### Beta Input JSON Delta
+        Fastest model with near-frontier intelligence
 
-- `class BetaInputJsonDelta:`
-  - `required string PartialJson`
+      - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
 
-  - `JsonElement Type "input_json_delta"constant`
+        Fastest model with near-frontier intelligence
 
-### Beta Input Tokens Clear At Least
+      - `"claude-opus-4-5"ClaudeOpus4_5`
 
-- `class BetaInputTokensClearAtLeast:`
-  - `JsonElement Type "input_tokens"constant`
+        Premium model combining maximum intelligence with practical performance
 
-  - `required Long Value`
+      - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-### Beta Input Tokens Trigger
+        Premium model combining maximum intelligence with practical performance
 
-- `class BetaInputTokensTrigger:`
-  - `JsonElement Type "input_tokens"constant`
+      - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
-  - `required Long Value`
+        High-performance model for agents and coding
 
-### Beta JSON Output Format
+      - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
-- `class BetaJsonOutputFormat:`
-  - `required IReadOnlyDictionary<string, JsonElement> Schema`
+        High-performance model for agents and coding
 
-    The JSON schema of the format
+      - `"claude-opus-4-1"ClaudeOpus4_1`
 
-  - `JsonElement Type "json_schema"constant`
+        Exceptional model for specialized complex tasks
 
-### Beta MCP Tool Config
+      - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
 
-- `class BetaMcpToolConfig:`
+        Exceptional model for specialized complex tasks
 
-  Configuration for a specific tool in an MCP toolset.
-  - `Boolean DeferLoading`
+      - `"claude-opus-4-0"ClaudeOpus4_0`
 
-  - `Boolean Enabled`
+        Powerful model for complex tasks
 
-### Beta MCP Tool Default Config
+      - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
 
-- `class BetaMcpToolDefaultConfig:`
+        Powerful model for complex tasks
 
-  Default configuration for tools in an MCP toolset.
-  - `Boolean DeferLoading`
+      - `"claude-sonnet-4-0"ClaudeSonnet4_0`
 
-  - `Boolean Enabled`
+        High-performance model with extended thinking
 
-### Beta MCP Tool Result Block
+      - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
 
-- `class BetaMcpToolResultBlock:`
-  - `required Content Content`
-    - `string`
+        High-performance model with extended thinking
 
-    - `IReadOnlyList<BetaTextBlock>`
-      - `required IReadOnlyList<BetaTextCitation>? Citations`
+      - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
 
-        Citations supporting the text block.
+        Fast and cost-effective model
 
-        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-        - `class BetaCitationCharLocation:`
-          - `required string CitedText`
+  - `required BetaFallbackInfo To`
 
-          - `required Long DocumentIndex`
+    The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-          - `required string? DocumentTitle`
+  - `JsonElement Type "fallback"constant`
 
-          - `required Long EndCharIndex`
+### Beta Fallback Block Param
 
-          - `required string? FileID`
+- `class BetaFallbackBlockParam:`
 
-          - `required Long StartCharIndex`
+  A `fallback` block echoed back from a prior response.
 
-          - `JsonElement Type "char_location"constant`
+  Accepted in `messages[].content` and never rendered into the prompt,
+  not validated against the request's `fallbacks` chain or top-level
+  `model`, and stripped before the sticky-routing cache key is computed.
 
-        - `class BetaCitationPageLocation:`
-          - `required string CitedText`
+  Callers should echo the assistant turn verbatim — block included. The
+  block's position is load-bearing for thinking verification: the thinking
+  runs on either side of a fallback hop carry independently-rooted
+  verification hash chains, and this block is the only record of where one
+  chain ends and the next begins. When thinking runs flank the boundary,
+  omitting the block merges the runs into one contiguous span whose hashes
+  cannot verify (the request is rejected), and moving it into the middle of
+  a single run splits that run's chain and is likewise rejected; between
+  non-thinking blocks the block's placement has no verification effect.
 
-          - `required Long DocumentIndex`
+  - `required BetaFallbackInfoParam From`
 
-          - `required string? DocumentTitle`
+    Identifies one hop of a fallback transition.
 
-          - `required Long EndPageNumber`
+    - `required Model Model`
 
-          - `required string? FileID`
+      The model that will complete your prompt.
 
-          - `required Long StartPageNumber`
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `JsonElement Type "page_location"constant`
+      - `"claude-fable-5"ClaudeFable5`
 
-        - `class BetaCitationContentBlockLocation:`
-          - `required string CitedText`
+        Next generation of intelligence for the hardest knowledge work and coding problems
 
-            The full text of the cited block range, concatenated.
+      - `"claude-mythos-5"ClaudeMythos5`
 
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+        Most capable model for cybersecurity and biology research
 
-          - `required Long DocumentIndex`
+      - `"claude-opus-4-8"ClaudeOpus4_8`
 
-          - `required string? DocumentTitle`
+        Frontier intelligence for long-running agents and coding
 
-          - `required Long EndBlockIndex`
+      - `"claude-opus-4-7"ClaudeOpus4_7`
 
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
+        Frontier intelligence for long-running agents and coding
 
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+      - `"claude-mythos-preview"ClaudeMythosPreview`
 
-          - `required string? FileID`
+        New class of intelligence, strongest in coding and cybersecurity
 
-          - `required Long StartBlockIndex`
+      - `"claude-opus-4-6"ClaudeOpus4_6`
 
-            0-based index of the first cited block in the source's `content` array.
+        Frontier intelligence for long-running agents and coding
 
-          - `JsonElement Type "content_block_location"constant`
+      - `"claude-sonnet-4-6"ClaudeSonnet4_6`
 
-        - `class BetaCitationsWebSearchResultLocation:`
-          - `required string CitedText`
+        Best combination of speed and intelligence
 
-          - `required string EncryptedIndex`
+      - `"claude-haiku-4-5"ClaudeHaiku4_5`
 
-          - `required string? Title`
+        Fastest model with near-frontier intelligence
 
-          - `JsonElement Type "web_search_result_location"constant`
+      - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
 
-          - `required string Url`
+        Fastest model with near-frontier intelligence
 
-        - `class BetaCitationSearchResultLocation:`
-          - `required string CitedText`
+      - `"claude-opus-4-5"ClaudeOpus4_5`
 
-            The full text of the cited block range, concatenated.
+        Premium model combining maximum intelligence with practical performance
 
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+      - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
 
-          - `required Long EndBlockIndex`
+        Premium model combining maximum intelligence with practical performance
 
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
+      - `"claude-sonnet-4-5"ClaudeSonnet4_5`
 
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+        High-performance model for agents and coding
 
-          - `required Long SearchResultIndex`
+      - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
 
-            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+        High-performance model for agents and coding
 
-            Counted separately from `document_index`; server-side web search results are not included in this count.
+      - `"claude-opus-4-1"ClaudeOpus4_1`
 
-          - `required string Source`
+        Exceptional model for specialized complex tasks
 
-          - `required Long StartBlockIndex`
+      - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
 
-            0-based index of the first cited block in the source's `content` array.
+        Exceptional model for specialized complex tasks
 
-          - `required string? Title`
+      - `"claude-opus-4-0"ClaudeOpus4_0`
 
-          - `JsonElement Type "search_result_location"constant`
+        Powerful model for complex tasks
 
-      - `required string Text`
+      - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
 
-      - `JsonElement Type "text"constant`
+        Powerful model for complex tasks
 
-  - `required Boolean IsError`
+      - `"claude-sonnet-4-0"ClaudeSonnet4_0`
 
-  - `required string ToolUseID`
+        High-performance model with extended thinking
 
-  - `JsonElement Type "mcp_tool_result"constant`
+      - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
 
-### Beta MCP Tool Use Block
+        High-performance model with extended thinking
 
-- `class BetaMcpToolUseBlock:`
-  - `required string ID`
+      - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
 
-  - `required IReadOnlyDictionary<string, JsonElement> Input`
+        Fast and cost-effective model
 
-  - `required string Name`
+  - `required BetaFallbackInfoParam To`
 
-    The name of the MCP tool
+    Identifies one hop of a fallback transition.
 
-  - `required string ServerName`
+  - `JsonElement Type "fallback"constant`
 
-    The name of the MCP server
+### Beta Fallback Info
 
-  - `JsonElement Type "mcp_tool_use"constant`
+- `class BetaFallbackInfo:`
 
-### Beta MCP Tool Use Block Param
-
-- `class BetaMcpToolUseBlockParam:`
-  - `required string ID`
-
-  - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-  - `required string Name`
-
-  - `required string ServerName`
-
-    The name of the MCP server
-
-  - `JsonElement Type "mcp_tool_use"constant`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-    - `JsonElement Type "ephemeral"constant`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`.
-      - `"5m"Ttl5m`
-
-      - `"1h"Ttl1h`
-
-### Beta MCP Toolset
-
-- `class BetaMcpToolset:`
-
-  Configuration for a group of tools from an MCP server.
-
-  Allows configuring enabled status and defer_loading for all tools
-  from an MCP server, with optional per-tool overrides.
-  - `required string McpServerName`
-
-    Name of the MCP server to configure tools for
-
-  - `JsonElement Type "mcp_toolset"constant`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-    - `JsonElement Type "ephemeral"constant`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`.
-      - `"5m"Ttl5m`
-
-      - `"1h"Ttl1h`
-
-  - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
-
-    Configuration overrides for specific tools, keyed by tool name
-    - `Boolean DeferLoading`
-
-    - `Boolean Enabled`
-
-  - `BetaMcpToolDefaultConfig DefaultConfig`
-
-    Default configuration applied to all tools from this server
-    - `Boolean DeferLoading`
-
-    - `Boolean Enabled`
-
-### Beta Memory Tool 20250818
-
-- `class BetaMemoryTool20250818:`
-  - `JsonElement Name "memory"constant`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `JsonElement Type "memory_20250818"constant`
-
-  - `IReadOnlyList<AllowedCaller> AllowedCallers`
-    - `"direct"Direct`
-
-    - `"code_execution_20250825"CodeExecution20250825`
-
-    - `"code_execution_20260120"CodeExecution20260120`
-
-  - `BetaCacheControlEphemeral? CacheControl`
-
-    Create a cache control breakpoint at this content block.
-    - `JsonElement Type "ephemeral"constant`
-
-    - `Ttl Ttl`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`.
-      - `"5m"Ttl5m`
-
-      - `"1h"Ttl1h`
-
-  - `Boolean DeferLoading`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
-
-  - `Boolean Strict`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Memory Tool 20250818 Command
-
-- `class BetaMemoryTool20250818Command: A class that can be one of several variants.union`
-  - `class BetaMemoryTool20250818ViewCommand:`
-    - `JsonElement Command "view"constant`
-
-      Command type identifier
-
-    - `required string Path`
-
-      Path to directory or file to view
-
-    - `IReadOnlyList<Long> ViewRange`
-
-      Optional line range for viewing specific lines
-
-  - `class BetaMemoryTool20250818CreateCommand:`
-    - `JsonElement Command "create"constant`
-
-      Command type identifier
-
-    - `required string FileText`
-
-      Content to write to the file
-
-    - `required string Path`
-
-      Path where the file should be created
-
-  - `class BetaMemoryTool20250818StrReplaceCommand:`
-    - `JsonElement Command "str_replace"constant`
-
-      Command type identifier
-
-    - `required string NewStr`
-
-      Text to replace with
-
-    - `required string OldStr`
-
-      Text to search for and replace
-
-    - `required string Path`
-
-      Path to the file where text should be replaced
-
-  - `class BetaMemoryTool20250818InsertCommand:`
-    - `JsonElement Command "insert"constant`
-
-      Command type identifier
-
-    - `required Long InsertLine`
-
-      Line number where text should be inserted
-
-    - `required string InsertText`
-
-      Text to insert at the specified line
-
-    - `required string Path`
-
-      Path to the file where text should be inserted
-
-  - `class BetaMemoryTool20250818DeleteCommand:`
-    - `JsonElement Command "delete"constant`
-
-      Command type identifier
-
-    - `required string Path`
-
-      Path to the file or directory to delete
-
-  - `class BetaMemoryTool20250818RenameCommand:`
-    - `JsonElement Command "rename"constant`
-
-      Command type identifier
-
-    - `required string NewPath`
-
-      New path for the file or directory
-
-    - `required string OldPath`
-
-      Current path of the file or directory
-
-### Beta Memory Tool 20250818 Create Command
-
-- `class BetaMemoryTool20250818CreateCommand:`
-  - `JsonElement Command "create"constant`
-
-    Command type identifier
-
-  - `required string FileText`
-
-    Content to write to the file
-
-  - `required string Path`
-
-    Path where the file should be created
-
-### Beta Memory Tool 20250818 Delete Command
-
-- `class BetaMemoryTool20250818DeleteCommand:`
-  - `JsonElement Command "delete"constant`
-
-    Command type identifier
-
-  - `required string Path`
-
-    Path to the file or directory to delete
-
-### Beta Memory Tool 20250818 Insert Command
-
-- `class BetaMemoryTool20250818InsertCommand:`
-  - `JsonElement Command "insert"constant`
-
-    Command type identifier
-
-  - `required Long InsertLine`
-
-    Line number where text should be inserted
-
-  - `required string InsertText`
-
-    Text to insert at the specified line
-
-  - `required string Path`
-
-    Path to the file where text should be inserted
-
-### Beta Memory Tool 20250818 Rename Command
-
-- `class BetaMemoryTool20250818RenameCommand:`
-  - `JsonElement Command "rename"constant`
-
-    Command type identifier
-
-  - `required string NewPath`
-
-    New path for the file or directory
-
-  - `required string OldPath`
-
-    Current path of the file or directory
-
-### Beta Memory Tool 20250818 Str Replace Command
-
-- `class BetaMemoryTool20250818StrReplaceCommand:`
-  - `JsonElement Command "str_replace"constant`
-
-    Command type identifier
-
-  - `required string NewStr`
-
-    Text to replace with
-
-  - `required string OldStr`
-
-    Text to search for and replace
-
-  - `required string Path`
-
-    Path to the file where text should be replaced
-
-### Beta Memory Tool 20250818 View Command
-
-- `class BetaMemoryTool20250818ViewCommand:`
-  - `JsonElement Command "view"constant`
-
-    Command type identifier
-
-  - `required string Path`
-
-    Path to directory or file to view
-
-  - `IReadOnlyList<Long> ViewRange`
-
-    Optional line range for viewing specific lines
-
-### Beta Message
-
-- `class BetaMessage:`
-  - `required string ID`
-
-    Unique object identifier.
-
-    The format and length of IDs may change over time.
-
-  - `required BetaContainer? Container`
-
-    Information about the container used in the request (for the code execution tool)
-    - `required string ID`
-
-      Identifier for the container used in this request
-
-    - `required DateTimeOffset ExpiresAt`
-
-      The time at which the container will expire.
-
-    - `required IReadOnlyList<BetaSkill>? Skills`
-
-      Skills loaded in the container
-      - `required string SkillID`
-
-        Skill ID
-
-      - `required Type Type`
-
-        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-        - `"anthropic"Anthropic`
-
-        - `"custom"Custom`
-
-      - `required string Version`
-
-        Skill version or 'latest' for most recent version
-
-  - `required IReadOnlyList<BetaContentBlock> Content`
-
-    Content generated by the model.
-
-    This is an array of content blocks, each of which has a `type` that determines its shape.
-
-    Example:
-
-    ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
-    ```
-
-    If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
-
-    For example, if the input `messages` were:
-
-    ```json
-    [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
-    ]
-    ```
-
-    Then the response `content` might be:
-
-    ```json
-    [{ "type": "text", "text": "B)" }]
-    ```
-
-    - `class BetaTextBlock:`
-      - `required IReadOnlyList<BetaTextCitation>? Citations`
-
-        Citations supporting the text block.
-
-        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-        - `class BetaCitationCharLocation:`
-          - `required string CitedText`
-
-          - `required Long DocumentIndex`
-
-          - `required string? DocumentTitle`
-
-          - `required Long EndCharIndex`
-
-          - `required string? FileID`
-
-          - `required Long StartCharIndex`
-
-          - `JsonElement Type "char_location"constant`
-
-        - `class BetaCitationPageLocation:`
-          - `required string CitedText`
-
-          - `required Long DocumentIndex`
-
-          - `required string? DocumentTitle`
-
-          - `required Long EndPageNumber`
-
-          - `required string? FileID`
-
-          - `required Long StartPageNumber`
-
-          - `JsonElement Type "page_location"constant`
-
-        - `class BetaCitationContentBlockLocation:`
-          - `required string CitedText`
-
-            The full text of the cited block range, concatenated.
-
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-          - `required Long DocumentIndex`
-
-          - `required string? DocumentTitle`
-
-          - `required Long EndBlockIndex`
-
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-          - `required string? FileID`
-
-          - `required Long StartBlockIndex`
-
-            0-based index of the first cited block in the source's `content` array.
-
-          - `JsonElement Type "content_block_location"constant`
-
-        - `class BetaCitationsWebSearchResultLocation:`
-          - `required string CitedText`
-
-          - `required string EncryptedIndex`
-
-          - `required string? Title`
-
-          - `JsonElement Type "web_search_result_location"constant`
-
-          - `required string Url`
-
-        - `class BetaCitationSearchResultLocation:`
-          - `required string CitedText`
-
-            The full text of the cited block range, concatenated.
-
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-          - `required Long EndBlockIndex`
-
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-          - `required Long SearchResultIndex`
-
-            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-            Counted separately from `document_index`; server-side web search results are not included in this count.
-
-          - `required string Source`
-
-          - `required Long StartBlockIndex`
-
-            0-based index of the first cited block in the source's `content` array.
-
-          - `required string? Title`
-
-          - `JsonElement Type "search_result_location"constant`
-
-      - `required string Text`
-
-      - `JsonElement Type "text"constant`
-
-    - `class BetaThinkingBlock:`
-      - `required string Signature`
-
-      - `required string Thinking`
-
-      - `JsonElement Type "thinking"constant`
-
-    - `class BetaRedactedThinkingBlock:`
-      - `required string Data`
-
-      - `JsonElement Type "redacted_thinking"constant`
-
-    - `class BetaToolUseBlock:`
-      - `required string ID`
-
-      - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      - `required string Name`
-
-      - `JsonElement Type "tool_use"constant`
-
-      - `Caller Caller`
-
-        Tool invocation directly from the model.
-        - `class BetaDirectCaller:`
-
-          Tool invocation directly from the model.
-          - `JsonElement Type "direct"constant`
-
-        - `class BetaServerToolCaller:`
-
-          Tool invocation generated by a server-side tool.
-          - `required string ToolID`
-
-          - `JsonElement Type "code_execution_20250825"constant`
-
-        - `class BetaServerToolCaller20260120:`
-          - `required string ToolID`
-
-          - `JsonElement Type "code_execution_20260120"constant`
-
-    - `class BetaServerToolUseBlock:`
-      - `required string ID`
-
-      - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      - `required Name Name`
-        - `"advisor"Advisor`
-
-        - `"web_search"WebSearch`
-
-        - `"web_fetch"WebFetch`
-
-        - `"code_execution"CodeExecution`
-
-        - `"bash_code_execution"BashCodeExecution`
-
-        - `"text_editor_code_execution"TextEditorCodeExecution`
-
-        - `"tool_search_tool_regex"ToolSearchToolRegex`
-
-        - `"tool_search_tool_bm25"ToolSearchToolBm25`
-
-      - `JsonElement Type "server_tool_use"constant`
-
-      - `Caller Caller`
-
-        Tool invocation directly from the model.
-        - `class BetaDirectCaller:`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller:`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120:`
-
-    - `class BetaWebSearchToolResultBlock:`
-      - `required BetaWebSearchToolResultBlockContent Content`
-        - `class BetaWebSearchToolResultError:`
-          - `required BetaWebSearchToolResultErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"unavailable"Unavailable`
-
-            - `"max_uses_exceeded"MaxUsesExceeded`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"query_too_long"QueryTooLong`
-
-            - `"request_too_large"RequestTooLarge`
-
-          - `JsonElement Type "web_search_tool_result_error"constant`
-
-        - `IReadOnlyList<BetaWebSearchResultBlock>`
-          - `required string EncryptedContent`
-
-          - `required string? PageAge`
-
-          - `required string Title`
-
-          - `JsonElement Type "web_search_result"constant`
-
-          - `required string Url`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "web_search_tool_result"constant`
-
-      - `Caller Caller`
-
-        Tool invocation directly from the model.
-        - `class BetaDirectCaller:`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller:`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120:`
-
-    - `class BetaWebFetchToolResultBlock:`
-      - `required Content Content`
-        - `class BetaWebFetchToolResultErrorBlock:`
-          - `required BetaWebFetchToolResultErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"url_too_long"UrlTooLong`
-
-            - `"url_not_allowed"UrlNotAllowed`
-
-            - `"url_not_in_prior_context"UrlNotInPriorContext`
-
-            - `"url_not_accessible"UrlNotAccessible`
-
-            - `"unsupported_content_type"UnsupportedContentType`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"max_uses_exceeded"MaxUsesExceeded`
-
-            - `"unavailable"Unavailable`
-
-          - `JsonElement Type "web_fetch_tool_result_error"constant`
-
-        - `class BetaWebFetchBlock:`
-          - `required BetaDocumentBlock Content`
-            - `required BetaCitationConfig? Citations`
-
-              Citation configuration for the document
-              - `required Boolean Enabled`
-
-            - `required Source Source`
-              - `class BetaBase64PdfSource:`
-                - `required string Data`
-
-                - `JsonElement MediaType "application/pdf"constant`
-
-                - `JsonElement Type "base64"constant`
-
-              - `class BetaPlainTextSource:`
-                - `required string Data`
-
-                - `JsonElement MediaType "text/plain"constant`
-
-                - `JsonElement Type "text"constant`
-
-            - `required string? Title`
-
-              The title of the document
-
-            - `JsonElement Type "document"constant`
-
-          - `required string? RetrievedAt`
-
-            ISO 8601 timestamp when the content was retrieved
-
-          - `JsonElement Type "web_fetch_result"constant`
-
-          - `required string Url`
-
-            Fetched content URL
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "web_fetch_tool_result"constant`
-
-      - `Caller Caller`
-
-        Tool invocation directly from the model.
-        - `class BetaDirectCaller:`
-
-          Tool invocation directly from the model.
-
-        - `class BetaServerToolCaller:`
-
-          Tool invocation generated by a server-side tool.
-
-        - `class BetaServerToolCaller20260120:`
-
-    - `class BetaAdvisorToolResultBlock:`
-      - `required Content Content`
-        - `class BetaAdvisorToolResultError:`
-          - `required ErrorCode ErrorCode`
-            - `"max_uses_exceeded"MaxUsesExceeded`
-
-            - `"prompt_too_long"PromptTooLong`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"overloaded"Overloaded`
-
-            - `"unavailable"Unavailable`
-
-            - `"execution_time_exceeded"ExecutionTimeExceeded`
-
-          - `JsonElement Type "advisor_tool_result_error"constant`
-
-        - `class BetaAdvisorResultBlock:`
-          - `required string? StopReason`
-
-            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
-
-          - `required string Text`
-
-          - `JsonElement Type "advisor_result"constant`
-
-        - `class BetaAdvisorRedactedResultBlock:`
-          - `required string EncryptedContent`
-
-            Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
-
-          - `required string? StopReason`
-
-            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
-
-          - `JsonElement Type "advisor_redacted_result"constant`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "advisor_tool_result"constant`
-
-    - `class BetaCodeExecutionToolResultBlock:`
-      - `required BetaCodeExecutionToolResultBlockContent Content`
-
-        Code execution result with encrypted stdout for PFC + web_search results.
-        - `class BetaCodeExecutionToolResultError:`
-          - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"unavailable"Unavailable`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"execution_time_exceeded"ExecutionTimeExceeded`
-
-          - `JsonElement Type "code_execution_tool_result_error"constant`
-
-        - `class BetaCodeExecutionResultBlock:`
-          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
-            - `required string FileID`
-
-            - `JsonElement Type "code_execution_output"constant`
-
-          - `required Long ReturnCode`
-
-          - `required string Stderr`
-
-          - `required string Stdout`
-
-          - `JsonElement Type "code_execution_result"constant`
-
-        - `class BetaEncryptedCodeExecutionResultBlock:`
-
-          Code execution result with encrypted stdout for PFC + web_search results.
-          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
-            - `required string FileID`
-
-            - `JsonElement Type "code_execution_output"constant`
-
-          - `required string EncryptedStdout`
-
-          - `required Long ReturnCode`
-
-          - `required string Stderr`
-
-          - `JsonElement Type "encrypted_code_execution_result"constant`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "code_execution_tool_result"constant`
-
-    - `class BetaBashCodeExecutionToolResultBlock:`
-      - `required Content Content`
-        - `class BetaBashCodeExecutionToolResultError:`
-          - `required ErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"unavailable"Unavailable`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"execution_time_exceeded"ExecutionTimeExceeded`
-
-            - `"output_file_too_large"OutputFileTooLarge`
-
-          - `JsonElement Type "bash_code_execution_tool_result_error"constant`
-
-        - `class BetaBashCodeExecutionResultBlock:`
-          - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
-            - `required string FileID`
-
-            - `JsonElement Type "bash_code_execution_output"constant`
-
-          - `required Long ReturnCode`
-
-          - `required string Stderr`
-
-          - `required string Stdout`
-
-          - `JsonElement Type "bash_code_execution_result"constant`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "bash_code_execution_tool_result"constant`
-
-    - `class BetaTextEditorCodeExecutionToolResultBlock:`
-      - `required Content Content`
-        - `class BetaTextEditorCodeExecutionToolResultError:`
-          - `required ErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"unavailable"Unavailable`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"execution_time_exceeded"ExecutionTimeExceeded`
-
-            - `"file_not_found"FileNotFound`
-
-          - `required string? ErrorMessage`
-
-          - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
-
-        - `class BetaTextEditorCodeExecutionViewResultBlock:`
-          - `required string Content`
-
-          - `required FileType FileType`
-            - `"text"Text`
-
-            - `"image"Image`
-
-            - `"pdf"Pdf`
-
-          - `required Long? NumLines`
-
-          - `required Long? StartLine`
-
-          - `required Long? TotalLines`
-
-          - `JsonElement Type "text_editor_code_execution_view_result"constant`
-
-        - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-          - `required Boolean IsFileUpdate`
-
-          - `JsonElement Type "text_editor_code_execution_create_result"constant`
-
-        - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
-          - `required IReadOnlyList<string>? Lines`
-
-          - `required Long? NewLines`
-
-          - `required Long? NewStart`
-
-          - `required Long? OldLines`
-
-          - `required Long? OldStart`
-
-          - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "text_editor_code_execution_tool_result"constant`
-
-    - `class BetaToolSearchToolResultBlock:`
-      - `required Content Content`
-        - `class BetaToolSearchToolResultError:`
-          - `required ErrorCode ErrorCode`
-            - `"invalid_tool_input"InvalidToolInput`
-
-            - `"unavailable"Unavailable`
-
-            - `"too_many_requests"TooManyRequests`
-
-            - `"execution_time_exceeded"ExecutionTimeExceeded`
-
-          - `required string? ErrorMessage`
-
-          - `JsonElement Type "tool_search_tool_result_error"constant`
-
-        - `class BetaToolSearchToolSearchResultBlock:`
-          - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
-            - `required string ToolName`
-
-            - `JsonElement Type "tool_reference"constant`
-
-          - `JsonElement Type "tool_search_tool_search_result"constant`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "tool_search_tool_result"constant`
-
-    - `class BetaMcpToolUseBlock:`
-      - `required string ID`
-
-      - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      - `required string Name`
-
-        The name of the MCP tool
-
-      - `required string ServerName`
-
-        The name of the MCP server
-
-      - `JsonElement Type "mcp_tool_use"constant`
-
-    - `class BetaMcpToolResultBlock:`
-      - `required Content Content`
-        - `string`
-
-        - `IReadOnlyList<BetaTextBlock>`
-          - `required IReadOnlyList<BetaTextCitation>? Citations`
-
-            Citations supporting the text block.
-
-            The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
-          - `required string Text`
-
-          - `JsonElement Type "text"constant`
-
-      - `required Boolean IsError`
-
-      - `required string ToolUseID`
-
-      - `JsonElement Type "mcp_tool_result"constant`
-
-    - `class BetaContainerUploadBlock:`
-
-      Response model for a file uploaded to the container.
-      - `required string FileID`
-
-      - `JsonElement Type "container_upload"constant`
-
-    - `class BetaCompactionBlock:`
-
-      A compaction block returned when autocompact is triggered.
-
-      When content is None, it indicates the compaction failed to produce a valid
-      summary (e.g., malformed output from the model). Clients may round-trip
-      compaction blocks with null content; the server treats them as no-ops.
-      - `required string? Content`
-
-        Summary of compacted content, or null if compaction failed
-
-      - `required string? EncryptedContent`
-
-        Opaque metadata from prior compaction, to be round-tripped verbatim
-
-      - `JsonElement Type "compaction"constant`
-
-  - `required BetaContextManagementResponse? ContextManagement`
-
-    Context management response.
-
-    Information about context management strategies applied during the request.
-    - `required IReadOnlyList<AppliedEdit> AppliedEdits`
-
-      List of context management edits that were applied.
-      - `class BetaClearToolUses20250919EditResponse:`
-        - `required Long ClearedInputTokens`
-
-          Number of input tokens cleared by this edit.
-
-        - `required Long ClearedToolUses`
-
-          Number of tool uses that were cleared.
-
-        - `JsonElement Type "clear_tool_uses_20250919"constant`
-
-          The type of context management edit applied.
-
-      - `class BetaClearThinking20251015EditResponse:`
-        - `required Long ClearedInputTokens`
-
-          Number of input tokens cleared by this edit.
-
-        - `required Long ClearedThinkingTurns`
-
-          Number of thinking turns that were cleared.
-
-        - `JsonElement Type "clear_thinking_20251015"constant`
-
-          The type of context management edit applied.
-
-  - `required BetaDiagnostics? Diagnostics`
-
-    Response envelope for request-level diagnostics. Present (possibly
-    null) whenever the caller supplied `diagnostics` on the request.
-    - `required CacheMissReason? CacheMissReason`
-
-      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
-      - `class BetaCacheMissModelChanged:`
-        - `required Long CacheMissedInputTokens`
-
-          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonElement Type "model_changed"constant`
-
-      - `class BetaCacheMissSystemChanged:`
-        - `required Long CacheMissedInputTokens`
-
-          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonElement Type "system_changed"constant`
-
-      - `class BetaCacheMissToolsChanged:`
-        - `required Long CacheMissedInputTokens`
-
-          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonElement Type "tools_changed"constant`
-
-      - `class BetaCacheMissMessagesChanged:`
-        - `required Long CacheMissedInputTokens`
-
-          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
-
-        - `JsonElement Type "messages_changed"constant`
-
-      - `class BetaCacheMissPreviousMessageNotFound:`
-        - `JsonElement Type "previous_message_not_found"constant`
-
-      - `class BetaCacheMissUnavailable:`
-        - `JsonElement Type "unavailable"constant`
+  Identifies one hop of a fallback transition.
 
   - `required Model Model`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"ClaudeOpus4_8`
 
       Frontier intelligence for long-running agents and coding
@@ -10336,6 +10785,1945 @@ Console.WriteLine(betaMessageTokensCount);
 
       Fast and cost-effective model
 
+### Beta Fallback Info Param
+
+- `class BetaFallbackInfoParam:`
+
+  Identifies one hop of a fallback transition.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
+    - `"claude-opus-4-8"ClaudeOpus4_8`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-opus-4-7"ClaudeOpus4_7`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-mythos-preview"ClaudeMythosPreview`
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `"claude-opus-4-6"ClaudeOpus4_6`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+      Best combination of speed and intelligence
+
+    - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-opus-4-5"ClaudeOpus4_5`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+      High-performance model for agents and coding
+
+    - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+      High-performance model for agents and coding
+
+    - `"claude-opus-4-1"ClaudeOpus4_1`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-0"ClaudeOpus4_0`
+
+      Powerful model for complex tasks
+
+    - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+      Powerful model for complex tasks
+
+    - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+      High-performance model with extended thinking
+
+    - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+      High-performance model with extended thinking
+
+    - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+      Fast and cost-effective model
+
+### Beta Fallback Message Iteration Usage
+
+- `class BetaFallbackMessageIterationUsage:`
+
+  Token usage for the fallback-model attempt of a server-side fallback request.
+
+  Produced in place of a `message` entry for whichever hop served the
+  response. A declined hop produces the existing `message` entry. Whether
+  a fallback model served the response is signalled by the presence of this
+  entry in `usage.iterations`.
+
+  - `required BetaCacheCreation? CacheCreation`
+
+    Breakdown of cached tokens by TTL
+
+    - `required Long Ephemeral1hInputTokens`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+    - `required Long Ephemeral5mInputTokens`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+  - `required Long CacheCreationInputTokens`
+
+    The number of input tokens used to create the cache entry.
+
+  - `required Long CacheReadInputTokens`
+
+    The number of input tokens read from the cache.
+
+  - `required Long InputTokens`
+
+    The number of input tokens which were used.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
+    - `"claude-opus-4-8"ClaudeOpus4_8`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-opus-4-7"ClaudeOpus4_7`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-mythos-preview"ClaudeMythosPreview`
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `"claude-opus-4-6"ClaudeOpus4_6`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+      Best combination of speed and intelligence
+
+    - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-opus-4-5"ClaudeOpus4_5`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+      High-performance model for agents and coding
+
+    - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+      High-performance model for agents and coding
+
+    - `"claude-opus-4-1"ClaudeOpus4_1`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-0"ClaudeOpus4_0`
+
+      Powerful model for complex tasks
+
+    - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+      Powerful model for complex tasks
+
+    - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+      High-performance model with extended thinking
+
+    - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+      High-performance model with extended thinking
+
+    - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+      Fast and cost-effective model
+
+  - `required Long OutputTokens`
+
+    The number of output tokens which were used.
+
+  - `JsonElement Type "fallback_message"constant`
+
+    Usage for the fallback-model attempt that served the response
+
+### Beta Fallback Param
+
+- `class BetaFallbackParam:`
+
+  One entry in the `fallbacks` chain on a `/v1/messages` request.
+
+  `model` is required. The four override fields (`max_tokens`, `thinking`,
+  `output_config`, and `speed`) replace the corresponding top-level field
+  for this attempt only and are validated as if the request were made to
+  `model`. Any other key is rejected at parse time.
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
+    - `"claude-opus-4-8"ClaudeOpus4_8`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-opus-4-7"ClaudeOpus4_7`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-mythos-preview"ClaudeMythosPreview`
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `"claude-opus-4-6"ClaudeOpus4_6`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+      Best combination of speed and intelligence
+
+    - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-opus-4-5"ClaudeOpus4_5`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+      High-performance model for agents and coding
+
+    - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+      High-performance model for agents and coding
+
+    - `"claude-opus-4-1"ClaudeOpus4_1`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-0"ClaudeOpus4_0`
+
+      Powerful model for complex tasks
+
+    - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+      Powerful model for complex tasks
+
+    - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+      High-performance model with extended thinking
+
+    - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+      High-performance model with extended thinking
+
+    - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+      Fast and cost-effective model
+
+  - `Long? MaxTokens`
+
+  - `BetaOutputConfig? OutputConfig`
+
+    - `Effort? Effort`
+
+      All possible effort levels.
+
+      - `"low"Low`
+
+      - `"medium"Medium`
+
+      - `"high"High`
+
+      - `"xhigh"Xhigh`
+
+      - `"max"Max`
+
+    - `BetaJsonOutputFormat? Format`
+
+      A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+      - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+        The JSON schema of the format
+
+      - `JsonElement Type "json_schema"constant`
+
+    - `BetaTokenTaskBudget? TaskBudget`
+
+      User-configurable total token budget across contexts.
+
+      - `required Long Total`
+
+        Total token budget across all contexts in the session.
+
+      - `JsonElement Type "tokens"constant`
+
+        The budget type. Currently only 'tokens' is supported.
+
+      - `Long? Remaining`
+
+        Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+  - `Speed? Speed`
+
+    - `"standard"Standard`
+
+    - `"fast"Fast`
+
+  - `Thinking? Thinking`
+
+    - `class BetaThinkingConfigEnabled:`
+
+      - `required Long BudgetTokens`
+
+        Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+        Must be ≥1024 and less than `max_tokens`.
+
+        See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
+      - `JsonElement Type "enabled"constant`
+
+      - `Display? Display`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `"summarized"Summarized`
+
+        - `"omitted"Omitted`
+
+    - `class BetaThinkingConfigDisabled:`
+
+      - `JsonElement Type "disabled"constant`
+
+    - `class BetaThinkingConfigAdaptive:`
+
+      - `JsonElement Type "adaptive"constant`
+
+      - `Display? Display`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `"summarized"Summarized`
+
+        - `"omitted"Omitted`
+
+### Beta File Document Source
+
+- `class BetaFileDocumentSource:`
+
+  - `required string FileID`
+
+  - `JsonElement Type "file"constant`
+
+### Beta File Image Source
+
+- `class BetaFileImageSource:`
+
+  - `required string FileID`
+
+  - `JsonElement Type "file"constant`
+
+### Beta Image Block Param
+
+- `class BetaImageBlockParam:`
+
+  - `required Source Source`
+
+    - `class BetaBase64ImageSource:`
+
+      - `required string Data`
+
+      - `required MediaType MediaType`
+
+        - `"image/jpeg"ImageJpeg`
+
+        - `"image/png"ImagePng`
+
+        - `"image/gif"ImageGif`
+
+        - `"image/webp"ImageWebP`
+
+      - `JsonElement Type "base64"constant`
+
+    - `class BetaUrlImageSource:`
+
+      - `JsonElement Type "url"constant`
+
+      - `required string Url`
+
+    - `class BetaFileImageSource:`
+
+      - `required string FileID`
+
+      - `JsonElement Type "file"constant`
+
+  - `JsonElement Type "image"constant`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type "ephemeral"constant`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`.
+
+      - `"5m"Ttl5m`
+
+      - `"1h"Ttl1h`
+
+### Beta Input JSON Delta
+
+- `class BetaInputJsonDelta:`
+
+  - `required string PartialJson`
+
+  - `JsonElement Type "input_json_delta"constant`
+
+### Beta Input Tokens Clear At Least
+
+- `class BetaInputTokensClearAtLeast:`
+
+  - `JsonElement Type "input_tokens"constant`
+
+  - `required Long Value`
+
+### Beta Input Tokens Trigger
+
+- `class BetaInputTokensTrigger:`
+
+  - `JsonElement Type "input_tokens"constant`
+
+  - `required Long Value`
+
+### Beta JSON Output Format
+
+- `class BetaJsonOutputFormat:`
+
+  - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+    The JSON schema of the format
+
+  - `JsonElement Type "json_schema"constant`
+
+### Beta MCP Tool Config
+
+- `class BetaMcpToolConfig:`
+
+  Configuration for a specific tool in an MCP toolset.
+
+  - `Boolean DeferLoading`
+
+  - `Boolean Enabled`
+
+### Beta MCP Tool Default Config
+
+- `class BetaMcpToolDefaultConfig:`
+
+  Default configuration for tools in an MCP toolset.
+
+  - `Boolean DeferLoading`
+
+  - `Boolean Enabled`
+
+### Beta MCP Tool Result Block
+
+- `class BetaMcpToolResultBlock:`
+
+  - `required Content Content`
+
+    - `string`
+
+    - `IReadOnlyList<BetaTextBlock>`
+
+      - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `class BetaCitationCharLocation:`
+
+          - `required string CitedText`
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndCharIndex`
+
+          - `required string? FileID`
+
+          - `required Long StartCharIndex`
+
+          - `JsonElement Type "char_location"constant`
+
+        - `class BetaCitationPageLocation:`
+
+          - `required string CitedText`
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndPageNumber`
+
+          - `required string? FileID`
+
+          - `required Long StartPageNumber`
+
+          - `JsonElement Type "page_location"constant`
+
+        - `class BetaCitationContentBlockLocation:`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required string? FileID`
+
+          - `required Long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+          - `JsonElement Type "content_block_location"constant`
+
+        - `class BetaCitationsWebSearchResultLocation:`
+
+          - `required string CitedText`
+
+          - `required string EncryptedIndex`
+
+          - `required string? Title`
+
+          - `JsonElement Type "web_search_result_location"constant`
+
+          - `required string Url`
+
+        - `class BetaCitationSearchResultLocation:`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required Long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required Long SearchResultIndex`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+          - `required string Source`
+
+          - `required Long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+          - `required string? Title`
+
+          - `JsonElement Type "search_result_location"constant`
+
+      - `required string Text`
+
+      - `JsonElement Type "text"constant`
+
+  - `required Boolean IsError`
+
+  - `required string ToolUseID`
+
+  - `JsonElement Type "mcp_tool_result"constant`
+
+### Beta MCP Tool Use Block
+
+- `class BetaMcpToolUseBlock:`
+
+  - `required string ID`
+
+  - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+  - `required string Name`
+
+    The name of the MCP tool
+
+  - `required string ServerName`
+
+    The name of the MCP server
+
+  - `JsonElement Type "mcp_tool_use"constant`
+
+### Beta MCP Tool Use Block Param
+
+- `class BetaMcpToolUseBlockParam:`
+
+  - `required string ID`
+
+  - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+  - `required string Name`
+
+  - `required string ServerName`
+
+    The name of the MCP server
+
+  - `JsonElement Type "mcp_tool_use"constant`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type "ephemeral"constant`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`.
+
+      - `"5m"Ttl5m`
+
+      - `"1h"Ttl1h`
+
+### Beta MCP Toolset
+
+- `class BetaMcpToolset:`
+
+  Configuration for a group of tools from an MCP server.
+
+  Allows configuring enabled status and defer_loading for all tools
+  from an MCP server, with optional per-tool overrides.
+
+  - `required string McpServerName`
+
+    Name of the MCP server to configure tools for
+
+  - `JsonElement Type "mcp_toolset"constant`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type "ephemeral"constant`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`.
+
+      - `"5m"Ttl5m`
+
+      - `"1h"Ttl1h`
+
+  - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
+
+    Configuration overrides for specific tools, keyed by tool name
+
+    - `Boolean DeferLoading`
+
+    - `Boolean Enabled`
+
+  - `BetaMcpToolDefaultConfig DefaultConfig`
+
+    Default configuration applied to all tools from this server
+
+    - `Boolean DeferLoading`
+
+    - `Boolean Enabled`
+
+### Beta Memory Tool 20250818
+
+- `class BetaMemoryTool20250818:`
+
+  - `JsonElement Name "memory"constant`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `JsonElement Type "memory_20250818"constant`
+
+  - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+    - `"direct"Direct`
+
+    - `"code_execution_20250825"CodeExecution20250825`
+
+    - `"code_execution_20260120"CodeExecution20260120`
+
+  - `BetaCacheControlEphemeral? CacheControl`
+
+    Create a cache control breakpoint at this content block.
+
+    - `JsonElement Type "ephemeral"constant`
+
+    - `Ttl Ttl`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`.
+
+      - `"5m"Ttl5m`
+
+      - `"1h"Ttl1h`
+
+  - `Boolean DeferLoading`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+  - `Boolean Strict`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Memory Tool 20250818 Command
+
+- `class BetaMemoryTool20250818Command: A class that can be one of several variants.union`
+
+  - `class BetaMemoryTool20250818ViewCommand:`
+
+    - `JsonElement Command "view"constant`
+
+      Command type identifier
+
+    - `required string Path`
+
+      Path to directory or file to view
+
+    - `IReadOnlyList<Long> ViewRange`
+
+      Optional line range for viewing specific lines
+
+  - `class BetaMemoryTool20250818CreateCommand:`
+
+    - `JsonElement Command "create"constant`
+
+      Command type identifier
+
+    - `required string FileText`
+
+      Content to write to the file
+
+    - `required string Path`
+
+      Path where the file should be created
+
+  - `class BetaMemoryTool20250818StrReplaceCommand:`
+
+    - `JsonElement Command "str_replace"constant`
+
+      Command type identifier
+
+    - `required string NewStr`
+
+      Text to replace with
+
+    - `required string OldStr`
+
+      Text to search for and replace
+
+    - `required string Path`
+
+      Path to the file where text should be replaced
+
+  - `class BetaMemoryTool20250818InsertCommand:`
+
+    - `JsonElement Command "insert"constant`
+
+      Command type identifier
+
+    - `required Long InsertLine`
+
+      Line number where text should be inserted
+
+    - `required string InsertText`
+
+      Text to insert at the specified line
+
+    - `required string Path`
+
+      Path to the file where text should be inserted
+
+  - `class BetaMemoryTool20250818DeleteCommand:`
+
+    - `JsonElement Command "delete"constant`
+
+      Command type identifier
+
+    - `required string Path`
+
+      Path to the file or directory to delete
+
+  - `class BetaMemoryTool20250818RenameCommand:`
+
+    - `JsonElement Command "rename"constant`
+
+      Command type identifier
+
+    - `required string NewPath`
+
+      New path for the file or directory
+
+    - `required string OldPath`
+
+      Current path of the file or directory
+
+### Beta Memory Tool 20250818 Create Command
+
+- `class BetaMemoryTool20250818CreateCommand:`
+
+  - `JsonElement Command "create"constant`
+
+    Command type identifier
+
+  - `required string FileText`
+
+    Content to write to the file
+
+  - `required string Path`
+
+    Path where the file should be created
+
+### Beta Memory Tool 20250818 Delete Command
+
+- `class BetaMemoryTool20250818DeleteCommand:`
+
+  - `JsonElement Command "delete"constant`
+
+    Command type identifier
+
+  - `required string Path`
+
+    Path to the file or directory to delete
+
+### Beta Memory Tool 20250818 Insert Command
+
+- `class BetaMemoryTool20250818InsertCommand:`
+
+  - `JsonElement Command "insert"constant`
+
+    Command type identifier
+
+  - `required Long InsertLine`
+
+    Line number where text should be inserted
+
+  - `required string InsertText`
+
+    Text to insert at the specified line
+
+  - `required string Path`
+
+    Path to the file where text should be inserted
+
+### Beta Memory Tool 20250818 Rename Command
+
+- `class BetaMemoryTool20250818RenameCommand:`
+
+  - `JsonElement Command "rename"constant`
+
+    Command type identifier
+
+  - `required string NewPath`
+
+    New path for the file or directory
+
+  - `required string OldPath`
+
+    Current path of the file or directory
+
+### Beta Memory Tool 20250818 Str Replace Command
+
+- `class BetaMemoryTool20250818StrReplaceCommand:`
+
+  - `JsonElement Command "str_replace"constant`
+
+    Command type identifier
+
+  - `required string NewStr`
+
+    Text to replace with
+
+  - `required string OldStr`
+
+    Text to search for and replace
+
+  - `required string Path`
+
+    Path to the file where text should be replaced
+
+### Beta Memory Tool 20250818 View Command
+
+- `class BetaMemoryTool20250818ViewCommand:`
+
+  - `JsonElement Command "view"constant`
+
+    Command type identifier
+
+  - `required string Path`
+
+    Path to directory or file to view
+
+  - `IReadOnlyList<Long> ViewRange`
+
+    Optional line range for viewing specific lines
+
+### Beta Message
+
+- `class BetaMessage:`
+
+  - `required string ID`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `required BetaContainer? Container`
+
+    Information about the container used in the request (for the code execution tool)
+
+    - `required string ID`
+
+      Identifier for the container used in this request
+
+    - `required DateTimeOffset ExpiresAt`
+
+      The time at which the container will expire.
+
+    - `required IReadOnlyList<BetaSkill>? Skills`
+
+      Skills loaded in the container
+
+      - `required string SkillID`
+
+        Skill ID
+
+      - `required Type Type`
+
+        Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+        - `"anthropic"Anthropic`
+
+        - `"custom"Custom`
+
+      - `required string Version`
+
+        Skill version or 'latest' for most recent version
+
+  - `required IReadOnlyList<BetaContentBlock> Content`
+
+    Content generated by the model.
+
+    This is an array of content blocks, each of which has a `type` that determines its shape.
+
+    Example:
+
+    ```json
+    [{"type": "text", "text": "Hi, I'm Claude."}]
+    ```
+
+    If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
+
+    For example, if the input `messages` were:
+
+    ```json
+    [
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
+    ]
+    ```
+
+    Then the response `content` might be:
+
+    ```json
+    [{"type": "text", "text": "B)"}]
+    ```
+
+    - `class BetaTextBlock:`
+
+      - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+        Citations supporting the text block.
+
+        The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+        - `class BetaCitationCharLocation:`
+
+          - `required string CitedText`
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndCharIndex`
+
+          - `required string? FileID`
+
+          - `required Long StartCharIndex`
+
+          - `JsonElement Type "char_location"constant`
+
+        - `class BetaCitationPageLocation:`
+
+          - `required string CitedText`
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndPageNumber`
+
+          - `required string? FileID`
+
+          - `required Long StartPageNumber`
+
+          - `JsonElement Type "page_location"constant`
+
+        - `class BetaCitationContentBlockLocation:`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required Long DocumentIndex`
+
+          - `required string? DocumentTitle`
+
+          - `required Long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required string? FileID`
+
+          - `required Long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+          - `JsonElement Type "content_block_location"constant`
+
+        - `class BetaCitationsWebSearchResultLocation:`
+
+          - `required string CitedText`
+
+          - `required string EncryptedIndex`
+
+          - `required string? Title`
+
+          - `JsonElement Type "web_search_result_location"constant`
+
+          - `required string Url`
+
+        - `class BetaCitationSearchResultLocation:`
+
+          - `required string CitedText`
+
+            The full text of the cited block range, concatenated.
+
+            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+          - `required Long EndBlockIndex`
+
+            Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+          - `required Long SearchResultIndex`
+
+            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+            Counted separately from `document_index`; server-side web search results are not included in this count.
+
+          - `required string Source`
+
+          - `required Long StartBlockIndex`
+
+            0-based index of the first cited block in the source's `content` array.
+
+          - `required string? Title`
+
+          - `JsonElement Type "search_result_location"constant`
+
+      - `required string Text`
+
+      - `JsonElement Type "text"constant`
+
+    - `class BetaThinkingBlock:`
+
+      - `required string Signature`
+
+      - `required string Thinking`
+
+      - `JsonElement Type "thinking"constant`
+
+    - `class BetaRedactedThinkingBlock:`
+
+      - `required string Data`
+
+      - `JsonElement Type "redacted_thinking"constant`
+
+    - `class BetaToolUseBlock:`
+
+      - `required string ID`
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required string Name`
+
+      - `JsonElement Type "tool_use"constant`
+
+      - `Caller Caller`
+
+        Tool invocation directly from the model.
+
+        - `class BetaDirectCaller:`
+
+          Tool invocation directly from the model.
+
+          - `JsonElement Type "direct"constant`
+
+        - `class BetaServerToolCaller:`
+
+          Tool invocation generated by a server-side tool.
+
+          - `required string ToolID`
+
+          - `JsonElement Type "code_execution_20250825"constant`
+
+        - `class BetaServerToolCaller20260120:`
+
+          - `required string ToolID`
+
+          - `JsonElement Type "code_execution_20260120"constant`
+
+    - `class BetaServerToolUseBlock:`
+
+      - `required string ID`
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required Name Name`
+
+        - `"advisor"Advisor`
+
+        - `"web_search"WebSearch`
+
+        - `"web_fetch"WebFetch`
+
+        - `"code_execution"CodeExecution`
+
+        - `"bash_code_execution"BashCodeExecution`
+
+        - `"text_editor_code_execution"TextEditorCodeExecution`
+
+        - `"tool_search_tool_regex"ToolSearchToolRegex`
+
+        - `"tool_search_tool_bm25"ToolSearchToolBm25`
+
+      - `JsonElement Type "server_tool_use"constant`
+
+      - `Caller Caller`
+
+        Tool invocation directly from the model.
+
+        - `class BetaDirectCaller:`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller:`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120:`
+
+    - `class BetaWebSearchToolResultBlock:`
+
+      - `required BetaWebSearchToolResultBlockContent Content`
+
+        - `class BetaWebSearchToolResultError:`
+
+          - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"unavailable"Unavailable`
+
+            - `"max_uses_exceeded"MaxUsesExceeded`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"query_too_long"QueryTooLong`
+
+            - `"request_too_large"RequestTooLarge`
+
+          - `JsonElement Type "web_search_tool_result_error"constant`
+
+        - `IReadOnlyList<BetaWebSearchResultBlock>`
+
+          - `required string EncryptedContent`
+
+          - `required string? PageAge`
+
+          - `required string Title`
+
+          - `JsonElement Type "web_search_result"constant`
+
+          - `required string Url`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "web_search_tool_result"constant`
+
+      - `Caller Caller`
+
+        Tool invocation directly from the model.
+
+        - `class BetaDirectCaller:`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller:`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120:`
+
+    - `class BetaWebFetchToolResultBlock:`
+
+      - `required Content Content`
+
+        - `class BetaWebFetchToolResultErrorBlock:`
+
+          - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"url_too_long"UrlTooLong`
+
+            - `"url_not_allowed"UrlNotAllowed`
+
+            - `"url_not_in_prior_context"UrlNotInPriorContext`
+
+            - `"url_not_accessible"UrlNotAccessible`
+
+            - `"unsupported_content_type"UnsupportedContentType`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"max_uses_exceeded"MaxUsesExceeded`
+
+            - `"unavailable"Unavailable`
+
+          - `JsonElement Type "web_fetch_tool_result_error"constant`
+
+        - `class BetaWebFetchBlock:`
+
+          - `required BetaDocumentBlock Content`
+
+            - `required BetaCitationConfig? Citations`
+
+              Citation configuration for the document
+
+              - `required Boolean Enabled`
+
+            - `required Source Source`
+
+              - `class BetaBase64PdfSource:`
+
+                - `required string Data`
+
+                - `JsonElement MediaType "application/pdf"constant`
+
+                - `JsonElement Type "base64"constant`
+
+              - `class BetaPlainTextSource:`
+
+                - `required string Data`
+
+                - `JsonElement MediaType "text/plain"constant`
+
+                - `JsonElement Type "text"constant`
+
+            - `required string? Title`
+
+              The title of the document
+
+            - `JsonElement Type "document"constant`
+
+          - `required string? RetrievedAt`
+
+            ISO 8601 timestamp when the content was retrieved
+
+          - `JsonElement Type "web_fetch_result"constant`
+
+          - `required string Url`
+
+            Fetched content URL
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "web_fetch_tool_result"constant`
+
+      - `Caller Caller`
+
+        Tool invocation directly from the model.
+
+        - `class BetaDirectCaller:`
+
+          Tool invocation directly from the model.
+
+        - `class BetaServerToolCaller:`
+
+          Tool invocation generated by a server-side tool.
+
+        - `class BetaServerToolCaller20260120:`
+
+    - `class BetaAdvisorToolResultBlock:`
+
+      - `required Content Content`
+
+        - `class BetaAdvisorToolResultError:`
+
+          - `required ErrorCode ErrorCode`
+
+            - `"max_uses_exceeded"MaxUsesExceeded`
+
+            - `"prompt_too_long"PromptTooLong`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"overloaded"Overloaded`
+
+            - `"unavailable"Unavailable`
+
+            - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+            - `"model_not_found"ModelNotFound`
+
+          - `JsonElement Type "advisor_tool_result_error"constant`
+
+        - `class BetaAdvisorResultBlock:`
+
+          - `required string? StopReason`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
+
+          - `required string Text`
+
+          - `JsonElement Type "advisor_result"constant`
+
+        - `class BetaAdvisorRedactedResultBlock:`
+
+          - `required string EncryptedContent`
+
+            Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
+
+          - `required string? StopReason`
+
+            The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+          - `JsonElement Type "advisor_redacted_result"constant`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "advisor_tool_result"constant`
+
+    - `class BetaCodeExecutionToolResultBlock:`
+
+      - `required BetaCodeExecutionToolResultBlockContent Content`
+
+        Code execution result with encrypted stdout for PFC + web_search results.
+
+        - `class BetaCodeExecutionToolResultError:`
+
+          - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"unavailable"Unavailable`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+          - `JsonElement Type "code_execution_tool_result_error"constant`
+
+        - `class BetaCodeExecutionResultBlock:`
+
+          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
+            - `required string FileID`
+
+            - `JsonElement Type "code_execution_output"constant`
+
+          - `required Long ReturnCode`
+
+          - `required string Stderr`
+
+          - `required string Stdout`
+
+          - `JsonElement Type "code_execution_result"constant`
+
+        - `class BetaEncryptedCodeExecutionResultBlock:`
+
+          Code execution result with encrypted stdout for PFC + web_search results.
+
+          - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
+            - `required string FileID`
+
+            - `JsonElement Type "code_execution_output"constant`
+
+          - `required string EncryptedStdout`
+
+          - `required Long ReturnCode`
+
+          - `required string Stderr`
+
+          - `JsonElement Type "encrypted_code_execution_result"constant`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "code_execution_tool_result"constant`
+
+    - `class BetaBashCodeExecutionToolResultBlock:`
+
+      - `required Content Content`
+
+        - `class BetaBashCodeExecutionToolResultError:`
+
+          - `required ErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"unavailable"Unavailable`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+            - `"output_file_too_large"OutputFileTooLarge`
+
+          - `JsonElement Type "bash_code_execution_tool_result_error"constant`
+
+        - `class BetaBashCodeExecutionResultBlock:`
+
+          - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
+            - `required string FileID`
+
+            - `JsonElement Type "bash_code_execution_output"constant`
+
+          - `required Long ReturnCode`
+
+          - `required string Stderr`
+
+          - `required string Stdout`
+
+          - `JsonElement Type "bash_code_execution_result"constant`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "bash_code_execution_tool_result"constant`
+
+    - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
+      - `required Content Content`
+
+        - `class BetaTextEditorCodeExecutionToolResultError:`
+
+          - `required ErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"unavailable"Unavailable`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+            - `"file_not_found"FileNotFound`
+
+          - `required string? ErrorMessage`
+
+          - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
+
+        - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
+          - `required string Content`
+
+          - `required FileType FileType`
+
+            - `"text"Text`
+
+            - `"image"Image`
+
+            - `"pdf"Pdf`
+
+          - `required Long? NumLines`
+
+          - `required Long? StartLine`
+
+          - `required Long? TotalLines`
+
+          - `JsonElement Type "text_editor_code_execution_view_result"constant`
+
+        - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
+          - `required Boolean IsFileUpdate`
+
+          - `JsonElement Type "text_editor_code_execution_create_result"constant`
+
+        - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
+          - `required IReadOnlyList<string>? Lines`
+
+          - `required Long? NewLines`
+
+          - `required Long? NewStart`
+
+          - `required Long? OldLines`
+
+          - `required Long? OldStart`
+
+          - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "text_editor_code_execution_tool_result"constant`
+
+    - `class BetaToolSearchToolResultBlock:`
+
+      - `required Content Content`
+
+        - `class BetaToolSearchToolResultError:`
+
+          - `required ErrorCode ErrorCode`
+
+            - `"invalid_tool_input"InvalidToolInput`
+
+            - `"unavailable"Unavailable`
+
+            - `"too_many_requests"TooManyRequests`
+
+            - `"execution_time_exceeded"ExecutionTimeExceeded`
+
+          - `required string? ErrorMessage`
+
+          - `JsonElement Type "tool_search_tool_result_error"constant`
+
+        - `class BetaToolSearchToolSearchResultBlock:`
+
+          - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
+            - `required string ToolName`
+
+            - `JsonElement Type "tool_reference"constant`
+
+          - `JsonElement Type "tool_search_tool_search_result"constant`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "tool_search_tool_result"constant`
+
+    - `class BetaMcpToolUseBlock:`
+
+      - `required string ID`
+
+      - `required IReadOnlyDictionary<string, JsonElement> Input`
+
+      - `required string Name`
+
+        The name of the MCP tool
+
+      - `required string ServerName`
+
+        The name of the MCP server
+
+      - `JsonElement Type "mcp_tool_use"constant`
+
+    - `class BetaMcpToolResultBlock:`
+
+      - `required Content Content`
+
+        - `string`
+
+        - `IReadOnlyList<BetaTextBlock>`
+
+          - `required IReadOnlyList<BetaTextCitation>? Citations`
+
+            Citations supporting the text block.
+
+            The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
+          - `required string Text`
+
+          - `JsonElement Type "text"constant`
+
+      - `required Boolean IsError`
+
+      - `required string ToolUseID`
+
+      - `JsonElement Type "mcp_tool_result"constant`
+
+    - `class BetaContainerUploadBlock:`
+
+      Response model for a file uploaded to the container.
+
+      - `required string FileID`
+
+      - `JsonElement Type "container_upload"constant`
+
+    - `class BetaCompactionBlock:`
+
+      A compaction block returned when autocompact is triggered.
+
+      When content is None, it indicates the compaction failed to produce a valid
+      summary (e.g., malformed output from the model). Clients may round-trip
+      compaction blocks with null content; the server treats them as no-ops.
+
+      - `required string? Content`
+
+        Summary of compacted content, or null if compaction failed
+
+      - `required string? EncryptedContent`
+
+        Opaque metadata from prior compaction, to be round-tripped verbatim
+
+      - `JsonElement Type "compaction"constant`
+
+    - `class BetaFallbackBlock:`
+
+      Marks the point in `content` where one model's output gives way to the next.
+
+      One block appears per hop where a preceding model actually ran this turn and
+      declined. A turn routed directly by the sticky decision has no such boundary
+      and carries no block — the signal for whether a fallback model served the
+      response is the presence of a `fallback_message` entry in
+      `usage.iterations`, not this block.
+
+      The block is treated like a server-tool content block for streaming: it
+      arrives via the standard `content_block_start` / `content_block_stop`
+      pair and carries no deltas.
+
+      - `required BetaFallbackInfo From`
+
+        The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"ClaudeFable5`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"ClaudeMythos5`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-4-8"ClaudeOpus4_8`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"ClaudeMythosPreview`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+          - `"claude-opus-4-1"ClaudeOpus4_1`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-0"ClaudeOpus4_0`
+
+            Powerful model for complex tasks
+
+          - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+            Powerful model for complex tasks
+
+          - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+            High-performance model with extended thinking
+
+          - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+            High-performance model with extended thinking
+
+          - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+            Fast and cost-effective model
+
+      - `required BetaFallbackInfo To`
+
+        The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+      - `JsonElement Type "fallback"constant`
+
+  - `required BetaContextManagementResponse? ContextManagement`
+
+    Context management response.
+
+    Information about context management strategies applied during the request.
+
+    - `required IReadOnlyList<AppliedEdit> AppliedEdits`
+
+      List of context management edits that were applied.
+
+      - `class BetaClearToolUses20250919EditResponse:`
+
+        - `required Long ClearedInputTokens`
+
+          Number of input tokens cleared by this edit.
+
+        - `required Long ClearedToolUses`
+
+          Number of tool uses that were cleared.
+
+        - `JsonElement Type "clear_tool_uses_20250919"constant`
+
+          The type of context management edit applied.
+
+      - `class BetaClearThinking20251015EditResponse:`
+
+        - `required Long ClearedInputTokens`
+
+          Number of input tokens cleared by this edit.
+
+        - `required Long ClearedThinkingTurns`
+
+          Number of thinking turns that were cleared.
+
+        - `JsonElement Type "clear_thinking_20251015"constant`
+
+          The type of context management edit applied.
+
+  - `required BetaDiagnostics? Diagnostics`
+
+    Response envelope for request-level diagnostics. Present (possibly
+    null) whenever the caller supplied `diagnostics` on the request.
+
+    - `required CacheMissReason? CacheMissReason`
+
+      Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
+      - `class BetaCacheMissModelChanged:`
+
+        - `required Long CacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `JsonElement Type "model_changed"constant`
+
+      - `class BetaCacheMissSystemChanged:`
+
+        - `required Long CacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `JsonElement Type "system_changed"constant`
+
+      - `class BetaCacheMissToolsChanged:`
+
+        - `required Long CacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `JsonElement Type "tools_changed"constant`
+
+      - `class BetaCacheMissMessagesChanged:`
+
+        - `required Long CacheMissedInputTokens`
+
+          Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+        - `JsonElement Type "messages_changed"constant`
+
+      - `class BetaCacheMissPreviousMessageNotFound:`
+
+        - `JsonElement Type "previous_message_not_found"constant`
+
+      - `class BetaCacheMissUnavailable:`
+
+        - `JsonElement Type "unavailable"constant`
+
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
   - `JsonElement Role "assistant"constant`
 
     Conversational role of the generated message.
@@ -10345,20 +12733,73 @@ Console.WriteLine(betaMessageTokensCount);
   - `required BetaRefusalStopDetails? StopDetails`
 
     Structured information about a refusal.
+
     - `required Category? Category`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"Cyber`
 
       - `"bio"Bio`
+
+      - `"reasoning_extraction"ReasoningExtraction`
 
     - `required string? Explanation`
 
       Human-readable explanation of the refusal.
 
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+    - `required string? FallbackCreditToken`
+
+      Opaque code that refunds the cache-miss cost when retrying this refused
+      request on the fallback model. Pass it as `fallback_credit_token` on the
+      retry request. Expires 5 minutes after the refusal.
+
+      The retry is sent either with the same request body (`system`, `messages`,
+      `tools`, and other render-shaping fields), or with the same body plus one
+      appended `assistant` message whose content is the partial text (with any
+      trailing whitespace stripped from the final text block) and paired
+      server-tool blocks from this refusal — which also authorizes that
+      appended turn as an assistant-prefill continuation on models that otherwise
+      disallow prefill. A token minted mid-server-tool-loop whose partial content
+      was continuable may only be redeemed the second way — if a same-body retry
+      is rejected with a 400 saying the token must be redeemed by continuing the
+      partial response, retry the second way instead. Either way: same workspace,
+      same platform; a mismatch is a 400. Resending a token for an already-warm
+      prefix is permitted but yields no additional credit.
+
+      `null` when the refused model isn't eligible for a fallback credit.
+
+    - `required Boolean? FallbackHasPrefillClaim`
+
+      Whether the accompanying `fallback_credit_token` may be redeemed with the
+      appended-assistant retry form. Only set when `fallback_credit_token` is
+      present.
+
+      `true`: retry by resending the same request body plus one appended
+      `assistant` message whose content is this response's `content` with any
+      trailing whitespace stripped from the final text block and unpaired
+      `tool_use` blocks omitted (the same appended-turn shape described on
+      `fallback_credit_token`), with the token attached. `false`: retry by
+      resending the original request body unchanged, with the token attached —
+      the appended-assistant form is not available for this refusal (no
+      continuable partial content, or the request uses `output_format` or a
+      `tool_choice` that forces tool use). One exception: when the request used
+      `output_format` or a forced `tool_choice` and the refusal arrived after
+      server tools (including MCP connector tools) had already executed, the
+      token may not be redeemable by either retry form; if the exact-body retry
+      is then rejected with a 400 saying the token must be redeemed by
+      continuing the partial response, discard the token and retry without it.
+
+      Advisory: if an appended-assistant retry is rejected with a 400 despite
+      `true`, fall back to resending the original request body with the token.
+
+    - `required string? RecommendedModel`
+
+      The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
     - `JsonElement Type "refusal"constant`
 
@@ -10367,14 +12808,16 @@ Console.WriteLine(betaMessageTokensCount);
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"EndTurn`
 
     - `"max_tokens"MaxTokens`
@@ -10414,9 +12857,11 @@ Console.WriteLine(betaMessageTokensCount);
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `required BetaCacheCreation? CacheCreation`
 
       Breakdown of cached tokens by TTL
+
       - `required Long Ephemeral1hInputTokens`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -10446,6 +12891,7 @@ Console.WriteLine(betaMessageTokensCount);
       Per-iteration token usage breakdown.
 
       Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
       - Calculate the true context window size from the last iteration
       - Understand token accumulation across server-side tool use loops
@@ -10453,6 +12899,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaMessageIterationUsage:`
 
         Token usage for a sampling iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -10469,6 +12916,12 @@ Console.WriteLine(betaMessageTokensCount);
 
           The number of input tokens which were used.
 
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
         - `required Long OutputTokens`
 
           The number of output tokens which were used.
@@ -10480,6 +12933,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaCompactionIterationUsage:`
 
         Token usage for a compaction iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -10507,6 +12961,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaAdvisorMessageIterationUsage:`
 
         Token usage for an advisor sub-inference iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -10537,11 +12992,50 @@ Console.WriteLine(betaMessageTokensCount);
 
           Usage for an advisor sub-inference iteration
 
+      - `class BetaFallbackMessageIterationUsage:`
+
+        Token usage for the fallback-model attempt of a server-side fallback request.
+
+        Produced in place of a `message` entry for whichever hop served the
+        response. A declined hop produces the existing `message` entry. Whether
+        a fallback model served the response is signalled by the presence of this
+        entry in `usage.iterations`.
+
+        - `required BetaCacheCreation? CacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `required Long CacheCreationInputTokens`
+
+          The number of input tokens used to create the cache entry.
+
+        - `required Long CacheReadInputTokens`
+
+          The number of input tokens read from the cache.
+
+        - `required Long InputTokens`
+
+          The number of input tokens which were used.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `required Long OutputTokens`
+
+          The number of output tokens which were used.
+
+        - `JsonElement Type "fallback_message"constant`
+
+          Usage for the fallback-model attempt that served the response
+
     - `required Long OutputTokens`
 
       The number of output tokens which were used.
 
-    - `required OutputTokensDetails? OutputTokensDetails`
+    - `required BetaOutputTokensDetails? OutputTokensDetails`
 
       Breakdown of output tokens by category.
 
@@ -10549,6 +13043,7 @@ Console.WriteLine(betaMessageTokensCount);
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `required Long ThinkingTokens`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -10563,6 +13058,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required BetaServerToolUsage? ServerToolUse`
 
       The number of server tool requests.
+
       - `required Long WebFetchRequests`
 
         The number of web fetch tool requests.
@@ -10574,6 +13070,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required ServiceTier? ServiceTier`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"Standard`
 
       - `"priority"Priority`
@@ -10583,6 +13080,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required Speed? Speed`
 
       The inference speed mode used for this request.
+
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -10590,6 +13088,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Message Delta Usage
 
 - `class BetaMessageDeltaUsage:`
+
   - `required Long? CacheCreationInputTokens`
 
     The cumulative number of input tokens used to create the cache entry.
@@ -10607,6 +13106,7 @@ Console.WriteLine(betaMessageTokensCount);
     Per-iteration token usage breakdown.
 
     Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
     - Calculate the true context window size from the last iteration
     - Understand token accumulation across server-side tool use loops
@@ -10614,9 +13114,11 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaMessageIterationUsage:`
 
       Token usage for a sampling iteration.
+
       - `required BetaCacheCreation? CacheCreation`
 
         Breakdown of cached tokens by TTL
+
         - `required Long Ephemeral1hInputTokens`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -10637,65 +13139,20 @@ Console.WriteLine(betaMessageTokensCount);
 
         The number of input tokens which were used.
 
-      - `required Long OutputTokens`
-
-        The number of output tokens which were used.
-
-      - `JsonElement Type "message"constant`
-
-        Usage for a sampling iteration
-
-    - `class BetaCompactionIterationUsage:`
-
-      Token usage for a compaction iteration.
-      - `required BetaCacheCreation? CacheCreation`
-
-        Breakdown of cached tokens by TTL
-
-      - `required Long CacheCreationInputTokens`
-
-        The number of input tokens used to create the cache entry.
-
-      - `required Long CacheReadInputTokens`
-
-        The number of input tokens read from the cache.
-
-      - `required Long InputTokens`
-
-        The number of input tokens which were used.
-
-      - `required Long OutputTokens`
-
-        The number of output tokens which were used.
-
-      - `JsonElement Type "compaction"constant`
-
-        Usage for a compaction iteration
-
-    - `class BetaAdvisorMessageIterationUsage:`
-
-      Token usage for an advisor sub-inference iteration.
-      - `required BetaCacheCreation? CacheCreation`
-
-        Breakdown of cached tokens by TTL
-
-      - `required Long CacheCreationInputTokens`
-
-        The number of input tokens used to create the cache entry.
-
-      - `required Long CacheReadInputTokens`
-
-        The number of input tokens read from the cache.
-
-      - `required Long InputTokens`
-
-        The number of input tokens which were used.
-
       - `required Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"ClaudeFable5`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"ClaudeMythos5`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"ClaudeOpus4_8`
 
           Frontier intelligence for long-running agents and coding
@@ -10772,15 +13229,116 @@ Console.WriteLine(betaMessageTokensCount);
 
         The number of output tokens which were used.
 
+      - `JsonElement Type "message"constant`
+
+        Usage for a sampling iteration
+
+    - `class BetaCompactionIterationUsage:`
+
+      Token usage for a compaction iteration.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
+      - `JsonElement Type "compaction"constant`
+
+        Usage for a compaction iteration
+
+    - `class BetaAdvisorMessageIterationUsage:`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
       - `JsonElement Type "advisor_message"constant`
 
         Usage for an advisor sub-inference iteration
+
+    - `class BetaFallbackMessageIterationUsage:`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      Produced in place of a `message` entry for whichever hop served the
+      response. A declined hop produces the existing `message` entry. Whether
+      a fallback model served the response is signalled by the presence of this
+      entry in `usage.iterations`.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
+      - `JsonElement Type "fallback_message"constant`
+
+        Usage for the fallback-model attempt that served the response
 
   - `required Long OutputTokens`
 
     The cumulative number of output tokens which were used.
 
-  - `required OutputTokensDetails? OutputTokensDetails`
+  - `required BetaOutputTokensDetails? OutputTokensDetails`
 
     Breakdown of output tokens by category.
 
@@ -10788,6 +13346,7 @@ Console.WriteLine(betaMessageTokensCount);
     This object provides a read-only decomposition for observability — for example,
     how many of the billed output tokens were spent on internal reasoning that may
     have been summarized before being returned to you.
+
     - `required Long ThinkingTokens`
 
       Number of output tokens the model generated as internal reasoning, including
@@ -10802,6 +13361,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required BetaServerToolUsage? ServerToolUse`
 
     The number of server tool requests.
+
     - `required Long WebFetchRequests`
 
       The number of web fetch tool requests.
@@ -10815,9 +13375,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaMessageIterationUsage:`
 
   Token usage for a sampling iteration.
+
   - `required BetaCacheCreation? CacheCreation`
 
     Breakdown of cached tokens by TTL
+
     - `required Long Ephemeral1hInputTokens`
 
       The number of input tokens used to create the 1 hour cache entry.
@@ -10838,6 +13400,92 @@ Console.WriteLine(betaMessageTokensCount);
 
     The number of input tokens which were used.
 
+  - `required Model Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"ClaudeFable5`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"ClaudeMythos5`
+
+      Most capable model for cybersecurity and biology research
+
+    - `"claude-opus-4-8"ClaudeOpus4_8`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-opus-4-7"ClaudeOpus4_7`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-mythos-preview"ClaudeMythosPreview`
+
+      New class of intelligence, strongest in coding and cybersecurity
+
+    - `"claude-opus-4-6"ClaudeOpus4_6`
+
+      Frontier intelligence for long-running agents and coding
+
+    - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+      Best combination of speed and intelligence
+
+    - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+      Fastest model with near-frontier intelligence
+
+    - `"claude-opus-4-5"ClaudeOpus4_5`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+      Premium model combining maximum intelligence with practical performance
+
+    - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+      High-performance model for agents and coding
+
+    - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+      High-performance model for agents and coding
+
+    - `"claude-opus-4-1"ClaudeOpus4_1`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+      Exceptional model for specialized complex tasks
+
+    - `"claude-opus-4-0"ClaudeOpus4_0`
+
+      Powerful model for complex tasks
+
+    - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+      Powerful model for complex tasks
+
+    - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+      High-performance model with extended thinking
+
+    - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+      High-performance model with extended thinking
+
+    - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+      Fast and cost-effective model
+
   - `required Long OutputTokens`
 
     The number of output tokens which were used.
@@ -10849,11 +13497,15 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Message Param
 
 - `class BetaMessageParam:`
+
   - `required Content Content`
+
     - `string`
 
     - `IReadOnlyList<BetaContentBlockParam>`
+
       - `class BetaTextBlockParam:`
+
         - `required string Text`
 
         - `JsonElement Type "text"constant`
@@ -10861,6 +13513,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `BetaCacheControlEphemeral? CacheControl`
 
           Create a cache control breakpoint at this content block.
+
           - `JsonElement Type "ephemeral"constant`
 
           - `Ttl Ttl`
@@ -10868,16 +13521,20 @@ Console.WriteLine(betaMessageTokensCount);
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"Ttl5m`
 
             - `"1h"Ttl1h`
 
         - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
           - `class BetaCitationCharLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -10891,6 +13548,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "char_location"constant`
 
           - `class BetaCitationPageLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -10904,6 +13562,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "page_location"constant`
 
           - `class BetaCitationContentBlockLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -10927,6 +13586,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content_block_location"constant`
 
           - `class BetaCitationWebSearchResultLocationParam:`
+
             - `required string CitedText`
 
             - `required string EncryptedIndex`
@@ -10938,6 +13598,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `required string Url`
 
           - `class BetaCitationSearchResultLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -10967,11 +13628,15 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "search_result_location"constant`
 
       - `class BetaImageBlockParam:`
+
         - `required Source Source`
+
           - `class BetaBase64ImageSource:`
+
             - `required string Data`
 
             - `required MediaType MediaType`
+
               - `"image/jpeg"ImageJpeg`
 
               - `"image/png"ImagePng`
@@ -10983,11 +13648,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaUrlImageSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileImageSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -10999,8 +13666,11 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaRequestDocumentBlock:`
+
         - `required Source Source`
+
           - `class BetaBase64PdfSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "application/pdf"constant`
@@ -11008,6 +13678,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaPlainTextSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "text/plain"constant`
@@ -11015,10 +13686,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "text"constant`
 
           - `class BetaContentBlockSource:`
+
             - `required Content Content`
+
               - `string`
 
               - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                 - `class BetaTextBlockParam:`
 
                 - `class BetaImageBlockParam:`
@@ -11026,11 +13700,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content"constant`
 
           - `class BetaUrlPdfSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileDocumentSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -11042,6 +13718,7 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `BetaCitationsConfigParam? Citations`
+
           - `Boolean Enabled`
 
         - `string? Context`
@@ -11049,7 +13726,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `string? Title`
 
       - `class BetaSearchResultBlockParam:`
+
         - `required IReadOnlyList<BetaTextBlockParam> Content`
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -11073,6 +13752,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `BetaCitationsConfigParam Citations`
 
       - `class BetaThinkingBlockParam:`
+
         - `required string Signature`
 
         - `required string Thinking`
@@ -11080,11 +13760,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "thinking"constant`
 
       - `class BetaRedactedThinkingBlockParam:`
+
         - `required string Data`
 
         - `JsonElement Type "redacted_thinking"constant`
 
       - `class BetaToolUseBlockParam:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -11100,24 +13782,29 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
+
             - `JsonElement Type "direct"constant`
 
           - `class BetaServerToolCaller:`
 
             Tool invocation generated by a server-side tool.
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20250825"constant`
 
           - `class BetaServerToolCaller20260120:`
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20260120"constant`
 
       - `class BetaToolResultBlockParam:`
+
         - `required string ToolUseID`
 
         - `JsonElement Type "tool_result"constant`
@@ -11127,9 +13814,11 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `Content Content`
+
           - `string`
 
           - `IReadOnlyList<Block>`
+
             - `class BetaTextBlockParam:`
 
             - `class BetaImageBlockParam:`
@@ -11141,6 +13830,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `class BetaToolReferenceBlockParam:`
 
               Tool reference block that can be included in tool_result content.
+
               - `required string ToolName`
 
               - `JsonElement Type "tool_reference"constant`
@@ -11152,11 +13842,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `Boolean IsError`
 
       - `class BetaServerToolUseBlockParam:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
 
         - `required Name Name`
+
           - `"advisor"Advisor`
 
           - `"web_search"WebSearch`
@@ -11182,6 +13874,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -11193,8 +13886,11 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebSearchToolResultBlockParam:`
+
         - `required BetaWebSearchToolResultBlockParamContent Content`
+
           - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
             - `required string EncryptedContent`
 
             - `required string Title`
@@ -11206,7 +13902,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `string? PageAge`
 
           - `class BetaWebSearchToolRequestError:`
+
             - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -11232,6 +13930,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -11243,9 +13942,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebFetchToolResultBlockParam:`
+
         - `required Content Content`
+
           - `class BetaWebFetchToolResultErrorBlockParam:`
+
             - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"url_too_long"UrlTooLong`
@@ -11267,6 +13970,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "web_fetch_tool_result_error"constant`
 
           - `class BetaWebFetchBlockParam:`
+
             - `required BetaRequestDocumentBlock Content`
 
             - `JsonElement Type "web_fetch_result"constant`
@@ -11290,6 +13994,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -11301,9 +14006,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaAdvisorToolResultBlockParam:`
+
         - `required Content Content`
+
           - `class BetaAdvisorToolResultErrorParam:`
+
             - `required ErrorCode ErrorCode`
+
               - `"max_uses_exceeded"MaxUsesExceeded`
 
               - `"prompt_too_long"PromptTooLong`
@@ -11316,9 +14025,12 @@ Console.WriteLine(betaMessageTokensCount);
 
               - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+              - `"model_not_found"ModelNotFound`
+
             - `JsonElement Type "advisor_tool_result_error"constant`
 
           - `class BetaAdvisorResultBlockParam:`
+
             - `required string Text`
 
             - `JsonElement Type "advisor_result"constant`
@@ -11326,6 +14038,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `string? StopReason`
 
           - `class BetaAdvisorRedactedResultBlockParam:`
+
             - `required string EncryptedContent`
 
               Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -11343,11 +14056,15 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaCodeExecutionToolResultBlockParam:`
+
         - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `class BetaCodeExecutionToolResultErrorParam:`
+
             - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -11359,7 +14076,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "code_execution_tool_result_error"constant`
 
           - `class BetaCodeExecutionResultBlockParam:`
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -11375,7 +14094,9 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -11397,9 +14118,13 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaBashCodeExecutionToolResultBlockParam:`
+
         - `required Content Content`
+
           - `class BetaBashCodeExecutionToolResultErrorParam:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -11413,7 +14138,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
           - `class BetaBashCodeExecutionResultBlockParam:`
+
             - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "bash_code_execution_output"constant`
@@ -11435,9 +14162,13 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
         - `required Content Content`
+
           - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -11453,9 +14184,11 @@ Console.WriteLine(betaMessageTokensCount);
             - `string? ErrorMessage`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
             - `required string Content`
 
             - `required FileType FileType`
+
               - `"text"Text`
 
               - `"image"Image`
@@ -11471,11 +14204,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `Long? TotalLines`
 
           - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
             - `required Boolean IsFileUpdate`
 
             - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
             - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
             - `IReadOnlyList<string>? Lines`
@@ -11497,9 +14232,13 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaToolSearchToolResultBlockParam:`
+
         - `required Content Content`
+
           - `class BetaToolSearchToolResultErrorParam:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -11510,8 +14249,12 @@ Console.WriteLine(betaMessageTokensCount);
 
             - `JsonElement Type "tool_search_tool_result_error"constant`
 
+            - `string? ErrorMessage`
+
           - `class BetaToolSearchToolSearchResultBlockParam:`
+
             - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
               - `required string ToolName`
 
               - `JsonElement Type "tool_reference"constant`
@@ -11531,6 +14274,7 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaMcpToolUseBlockParam:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -11548,6 +14292,7 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaRequestMcpToolResultBlockParam:`
+
         - `required string ToolUseID`
 
         - `JsonElement Type "mcp_tool_result"constant`
@@ -11557,9 +14302,11 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaTextBlockParam>`
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -11576,6 +14323,7 @@ Console.WriteLine(betaMessageTokensCount);
 
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
+
         - `required string FileID`
 
         - `JsonElement Type "container_upload"constant`
@@ -11593,6 +14341,7 @@ Console.WriteLine(betaMessageTokensCount);
 
         When content is None, the block represents a failed compaction. The server
         treats these as no-ops. Empty string content is not allowed.
+
         - `JsonElement Type "compaction"constant`
 
         - `BetaCacheControlEphemeral? CacheControl`
@@ -11613,9 +14362,11 @@ Console.WriteLine(betaMessageTokensCount);
 
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
+
         - `required IReadOnlyList<BetaTextBlockParam> Content`
 
           System instruction text blocks.
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -11632,7 +14383,122 @@ Console.WriteLine(betaMessageTokensCount);
 
           Create a cache control breakpoint at this content block.
 
+      - `class BetaFallbackBlockParam:`
+
+        A `fallback` block echoed back from a prior response.
+
+        Accepted in `messages[].content` and never rendered into the prompt,
+        not validated against the request's `fallbacks` chain or top-level
+        `model`, and stripped before the sticky-routing cache key is computed.
+
+        Callers should echo the assistant turn verbatim — block included. The
+        block's position is load-bearing for thinking verification: the thinking
+        runs on either side of a fallback hop carry independently-rooted
+        verification hash chains, and this block is the only record of where one
+        chain ends and the next begins. When thinking runs flank the boundary,
+        omitting the block merges the runs into one contiguous span whose hashes
+        cannot verify (the request is rejected), and moving it into the middle of
+        a single run splits that run's chain and is likewise rejected; between
+        non-thinking blocks the block's placement has no verification effect.
+
+        - `required BetaFallbackInfoParam From`
+
+          Identifies one hop of a fallback transition.
+
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5"ClaudeFable5`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-mythos-5"ClaudeMythos5`
+
+              Most capable model for cybersecurity and biology research
+
+            - `"claude-opus-4-8"ClaudeOpus4_8`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"ClaudeOpus4_7`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-mythos-preview"ClaudeMythosPreview`
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-opus-4-6"ClaudeOpus4_6`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"ClaudeOpus4_5`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+              High-performance model for agents and coding
+
+            - `"claude-opus-4-1"ClaudeOpus4_1`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-0"ClaudeOpus4_0`
+
+              Powerful model for complex tasks
+
+            - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+              Powerful model for complex tasks
+
+            - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+              High-performance model with extended thinking
+
+            - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+              High-performance model with extended thinking
+
+            - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+              Fast and cost-effective model
+
+        - `required BetaFallbackInfoParam To`
+
+          Identifies one hop of a fallback transition.
+
+        - `JsonElement Type "fallback"constant`
+
   - `required Role Role`
+
     - `"user"User`
 
     - `"assistant"Assistant`
@@ -11642,9 +14508,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Message Tokens Count
 
 - `class BetaMessageTokensCount:`
+
   - `required BetaCountTokensContextManagementResponse? ContextManagement`
 
     Information about context management applied to the message.
+
     - `required Long OriginalInputTokens`
 
       The original token count before context management was applied
@@ -11656,6 +14524,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Metadata
 
 - `class BetaMetadata:`
+
   - `string? UserID`
 
     An external identifier for the user who is associated with the request.
@@ -11670,9 +14539,11 @@ Console.WriteLine(betaMessageTokensCount);
 
   Use this block to provide or update system-level instructions at a specific
   point in the conversation, rather than only via the top-level `system` parameter.
+
   - `required IReadOnlyList<BetaTextBlockParam> Content`
 
     System instruction text blocks.
+
     - `required string Text`
 
     - `JsonElement Type "text"constant`
@@ -11680,6 +14551,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -11687,16 +14559,20 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
 
     - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
       - `class BetaCitationCharLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -11710,6 +14586,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -11723,6 +14600,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -11746,6 +14624,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationWebSearchResultLocationParam:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -11757,6 +14636,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -11794,9 +14674,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Output Config
 
 - `class BetaOutputConfig:`
+
   - `Effort? Effort`
 
     All possible effort levels.
+
     - `"low"Low`
 
     - `"medium"Medium`
@@ -11810,6 +14692,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaJsonOutputFormat? Format`
 
     A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
     - `required IReadOnlyDictionary<string, JsonElement> Schema`
 
       The JSON schema of the format
@@ -11819,6 +14702,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaTokenTaskBudget? TaskBudget`
 
     User-configurable total token budget across contexts.
+
     - `required Long Total`
 
       Total token budget across all contexts in the session.
@@ -11831,9 +14715,25 @@ Console.WriteLine(betaMessageTokensCount);
 
       Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
+### Beta Output Tokens Details
+
+- `class BetaOutputTokensDetails:`
+
+  - `required Long ThinkingTokens`
+
+    Number of output tokens the model generated as internal reasoning, including
+    the thinking-block delimiter tokens.
+
+    Reflects the raw reasoning the model produced, not the (possibly shorter)
+    summarized thinking text returned in the response body. Computed by
+    re-tokenizing the raw reasoning text, so it may differ from the model's exact
+    generation count by a small number of tokens. Always ≤ `output_tokens`;
+    `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
 ### Beta Plain Text Source
 
 - `class BetaPlainTextSource:`
+
   - `required string Data`
 
   - `JsonElement MediaType "text/plain"constant`
@@ -11843,19 +14743,25 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Content Block Delta
 
 - `class BetaRawContentBlockDelta: A class that can be one of several variants.union`
+
   - `class BetaTextDelta:`
+
     - `required string Text`
 
     - `JsonElement Type "text_delta"constant`
 
   - `class BetaInputJsonDelta:`
+
     - `required string PartialJson`
 
     - `JsonElement Type "input_json_delta"constant`
 
   - `class BetaCitationsDelta:`
+
     - `required Citation Citation`
+
       - `class BetaCitationCharLocation:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -11871,6 +14777,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocation:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -11886,6 +14793,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocation:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -11911,6 +14819,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationsWebSearchResultLocation:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -11922,6 +14831,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocation:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -11953,6 +14863,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "citations_delta"constant`
 
   - `class BetaThinkingDelta:`
+
     - `required Long? EstimatedTokens`
 
       Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -11962,11 +14873,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "thinking_delta"constant`
 
   - `class BetaSignatureDelta:`
+
     - `required string Signature`
 
     - `JsonElement Type "signature_delta"constant`
 
   - `class BetaCompactionContentBlockDelta:`
+
     - `required string? Content`
 
     - `required string? EncryptedContent`
@@ -11978,20 +14891,27 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Content Block Delta Event
 
 - `class BetaRawContentBlockDeltaEvent:`
+
   - `required BetaRawContentBlockDelta Delta`
+
     - `class BetaTextDelta:`
+
       - `required string Text`
 
       - `JsonElement Type "text_delta"constant`
 
     - `class BetaInputJsonDelta:`
+
       - `required string PartialJson`
 
       - `JsonElement Type "input_json_delta"constant`
 
     - `class BetaCitationsDelta:`
+
       - `required Citation Citation`
+
         - `class BetaCitationCharLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -12007,6 +14927,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "char_location"constant`
 
         - `class BetaCitationPageLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -12022,6 +14943,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "page_location"constant`
 
         - `class BetaCitationContentBlockLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -12047,6 +14969,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "content_block_location"constant`
 
         - `class BetaCitationsWebSearchResultLocation:`
+
           - `required string CitedText`
 
           - `required string EncryptedIndex`
@@ -12058,6 +14981,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `required string Url`
 
         - `class BetaCitationSearchResultLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -12089,6 +15013,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "citations_delta"constant`
 
     - `class BetaThinkingDelta:`
+
       - `required Long? EstimatedTokens`
 
         Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -12098,11 +15023,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "thinking_delta"constant`
 
     - `class BetaSignatureDelta:`
+
       - `required string Signature`
 
       - `JsonElement Type "signature_delta"constant`
 
     - `class BetaCompactionContentBlockDelta:`
+
       - `required string? Content`
 
       - `required string? EncryptedContent`
@@ -12118,16 +15045,21 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Content Block Start Event
 
 - `class BetaRawContentBlockStartEvent:`
+
   - `required ContentBlock ContentBlock`
 
     Response model for a file uploaded to the container.
+
     - `class BetaTextBlock:`
+
       - `required IReadOnlyList<BetaTextCitation>? Citations`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `class BetaCitationCharLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -12143,6 +15075,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "char_location"constant`
 
         - `class BetaCitationPageLocation:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -12158,6 +15091,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "page_location"constant`
 
         - `class BetaCitationContentBlockLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -12183,6 +15117,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "content_block_location"constant`
 
         - `class BetaCitationsWebSearchResultLocation:`
+
           - `required string CitedText`
 
           - `required string EncryptedIndex`
@@ -12194,6 +15129,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `required string Url`
 
         - `class BetaCitationSearchResultLocation:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -12227,6 +15163,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "text"constant`
 
     - `class BetaThinkingBlock:`
+
       - `required string Signature`
 
       - `required string Thinking`
@@ -12234,11 +15171,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "thinking"constant`
 
     - `class BetaRedactedThinkingBlock:`
+
       - `required string Data`
 
       - `JsonElement Type "redacted_thinking"constant`
 
     - `class BetaToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -12250,29 +15189,35 @@ Console.WriteLine(betaMessageTokensCount);
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
+
           - `JsonElement Type "direct"constant`
 
         - `class BetaServerToolCaller:`
 
           Tool invocation generated by a server-side tool.
+
           - `required string ToolID`
 
           - `JsonElement Type "code_execution_20250825"constant`
 
         - `class BetaServerToolCaller20260120:`
+
           - `required string ToolID`
 
           - `JsonElement Type "code_execution_20260120"constant`
 
     - `class BetaServerToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
 
       - `required Name Name`
+
         - `"advisor"Advisor`
 
         - `"web_search"WebSearch`
@@ -12294,6 +15239,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -12305,9 +15251,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaWebSearchToolResultBlock:`
+
       - `required BetaWebSearchToolResultBlockContent Content`
+
         - `class BetaWebSearchToolResultError:`
+
           - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -12323,6 +15273,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "web_search_tool_result_error"constant`
 
         - `IReadOnlyList<BetaWebSearchResultBlock>`
+
           - `required string EncryptedContent`
 
           - `required string? PageAge`
@@ -12340,6 +15291,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -12351,9 +15303,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaWebFetchToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaWebFetchToolResultErrorBlock:`
+
           - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"url_too_long"UrlTooLong`
@@ -12375,14 +15331,19 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "web_fetch_tool_result_error"constant`
 
         - `class BetaWebFetchBlock:`
+
           - `required BetaDocumentBlock Content`
+
             - `required BetaCitationConfig? Citations`
 
               Citation configuration for the document
+
               - `required Boolean Enabled`
 
             - `required Source Source`
+
               - `class BetaBase64PdfSource:`
+
                 - `required string Data`
 
                 - `JsonElement MediaType "application/pdf"constant`
@@ -12390,6 +15351,7 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "base64"constant`
 
               - `class BetaPlainTextSource:`
+
                 - `required string Data`
 
                 - `JsonElement MediaType "text/plain"constant`
@@ -12419,6 +15381,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `Caller Caller`
 
         Tool invocation directly from the model.
+
         - `class BetaDirectCaller:`
 
           Tool invocation directly from the model.
@@ -12430,9 +15393,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaServerToolCaller20260120:`
 
     - `class BetaAdvisorToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaAdvisorToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"max_uses_exceeded"MaxUsesExceeded`
 
             - `"prompt_too_long"PromptTooLong`
@@ -12445,9 +15412,12 @@ Console.WriteLine(betaMessageTokensCount);
 
             - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+            - `"model_not_found"ModelNotFound`
+
           - `JsonElement Type "advisor_tool_result_error"constant`
 
         - `class BetaAdvisorResultBlock:`
+
           - `required string? StopReason`
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -12457,6 +15427,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "advisor_result"constant`
 
         - `class BetaAdvisorRedactedResultBlock:`
+
           - `required string EncryptedContent`
 
             Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -12472,11 +15443,15 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "advisor_tool_result"constant`
 
     - `class BetaCodeExecutionToolResultBlock:`
+
       - `required BetaCodeExecutionToolResultBlockContent Content`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `class BetaCodeExecutionToolResultError:`
+
           - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -12488,7 +15463,9 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "code_execution_tool_result_error"constant`
 
         - `class BetaCodeExecutionResultBlock:`
+
           - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "code_execution_output"constant`
@@ -12504,7 +15481,9 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "code_execution_output"constant`
@@ -12522,9 +15501,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "code_execution_tool_result"constant`
 
     - `class BetaBashCodeExecutionToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaBashCodeExecutionToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -12538,7 +15521,9 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
         - `class BetaBashCodeExecutionResultBlock:`
+
           - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
             - `required string FileID`
 
             - `JsonElement Type "bash_code_execution_output"constant`
@@ -12556,9 +15541,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "bash_code_execution_tool_result"constant`
 
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaTextEditorCodeExecutionToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -12574,9 +15563,11 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
           - `required string Content`
 
           - `required FileType FileType`
+
             - `"text"Text`
 
             - `"image"Image`
@@ -12592,11 +15583,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
           - `required Boolean IsFileUpdate`
 
           - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
           - `required IReadOnlyList<string>? Lines`
 
           - `required Long? NewLines`
@@ -12614,9 +15607,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
     - `class BetaToolSearchToolResultBlock:`
+
       - `required Content Content`
+
         - `class BetaToolSearchToolResultError:`
+
           - `required ErrorCode ErrorCode`
+
             - `"invalid_tool_input"InvalidToolInput`
 
             - `"unavailable"Unavailable`
@@ -12630,7 +15627,9 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "tool_search_tool_result_error"constant`
 
         - `class BetaToolSearchToolSearchResultBlock:`
+
           - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
             - `required string ToolName`
 
             - `JsonElement Type "tool_reference"constant`
@@ -12642,6 +15641,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "tool_search_tool_result"constant`
 
     - `class BetaMcpToolUseBlock:`
+
       - `required string ID`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -12657,10 +15657,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "mcp_tool_use"constant`
 
     - `class BetaMcpToolResultBlock:`
+
       - `required Content Content`
+
         - `string`
 
         - `IReadOnlyList<BetaTextBlock>`
+
           - `required IReadOnlyList<BetaTextCitation>? Citations`
 
             Citations supporting the text block.
@@ -12680,6 +15683,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaContainerUploadBlock:`
 
       Response model for a file uploaded to the container.
+
       - `required string FileID`
 
       - `JsonElement Type "container_upload"constant`
@@ -12691,6 +15695,7 @@ Console.WriteLine(betaMessageTokensCount);
       When content is None, it indicates the compaction failed to produce a valid
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
+
       - `required string? Content`
 
         Summary of compacted content, or null if compaction failed
@@ -12701,6 +15706,116 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `JsonElement Type "compaction"constant`
 
+    - `class BetaFallbackBlock:`
+
+      Marks the point in `content` where one model's output gives way to the next.
+
+      One block appears per hop where a preceding model actually ran this turn and
+      declined. A turn routed directly by the sticky decision has no such boundary
+      and carries no block — the signal for whether a fallback model served the
+      response is the presence of a `fallback_message` entry in
+      `usage.iterations`, not this block.
+
+      The block is treated like a server-tool content block for streaming: it
+      arrives via the standard `content_block_start` / `content_block_stop`
+      pair and carries no deltas.
+
+      - `required BetaFallbackInfo From`
+
+        The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"ClaudeFable5`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"ClaudeMythos5`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-4-8"ClaudeOpus4_8`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"ClaudeMythosPreview`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+          - `"claude-opus-4-1"ClaudeOpus4_1`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+            Exceptional model for specialized complex tasks
+
+          - `"claude-opus-4-0"ClaudeOpus4_0`
+
+            Powerful model for complex tasks
+
+          - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+            Powerful model for complex tasks
+
+          - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+            High-performance model with extended thinking
+
+          - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+            High-performance model with extended thinking
+
+          - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+            Fast and cost-effective model
+
+      - `required BetaFallbackInfo To`
+
+        The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+      - `JsonElement Type "fallback"constant`
+
   - `required Long Index`
 
   - `JsonElement Type "content_block_start"constant`
@@ -12708,6 +15823,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Content Block Stop Event
 
 - `class BetaRawContentBlockStopEvent:`
+
   - `required Long Index`
 
   - `JsonElement Type "content_block_stop"constant`
@@ -12715,13 +15831,17 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Message Delta Event
 
 - `class BetaRawMessageDeltaEvent:`
+
   - `required BetaContextManagementResponse? ContextManagement`
 
     Information about context management strategies applied during the request
+
     - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
       List of context management edits that were applied.
+
       - `class BetaClearToolUses20250919EditResponse:`
+
         - `required Long ClearedInputTokens`
 
           Number of input tokens cleared by this edit.
@@ -12735,6 +15855,7 @@ Console.WriteLine(betaMessageTokensCount);
           The type of context management edit applied.
 
       - `class BetaClearThinking20251015EditResponse:`
+
         - `required Long ClearedInputTokens`
 
           Number of input tokens cleared by this edit.
@@ -12748,9 +15869,11 @@ Console.WriteLine(betaMessageTokensCount);
           The type of context management edit applied.
 
   - `required Delta Delta`
+
     - `required BetaContainer? Container`
 
       Information about the container used in the request (for the code execution tool)
+
       - `required string ID`
 
         Identifier for the container used in this request
@@ -12762,6 +15885,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required IReadOnlyList<BetaSkill>? Skills`
 
         Skills loaded in the container
+
         - `required string SkillID`
 
           Skill ID
@@ -12769,6 +15893,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required Type Type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
           - `"anthropic"Anthropic`
 
           - `"custom"Custom`
@@ -12780,14 +15905,18 @@ Console.WriteLine(betaMessageTokensCount);
     - `required BetaRefusalStopDetails? StopDetails`
 
       Structured information about a refusal.
+
       - `required Category? Category`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"Cyber`
 
         - `"bio"Bio`
+
+        - `"reasoning_extraction"ReasoningExtraction`
 
       - `required string? Explanation`
 
@@ -12795,9 +15924,59 @@ Console.WriteLine(betaMessageTokensCount);
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
+      - `required string? FallbackCreditToken`
+
+        Opaque code that refunds the cache-miss cost when retrying this refused
+        request on the fallback model. Pass it as `fallback_credit_token` on the
+        retry request. Expires 5 minutes after the refusal.
+
+        The retry is sent either with the same request body (`system`, `messages`,
+        `tools`, and other render-shaping fields), or with the same body plus one
+        appended `assistant` message whose content is the partial text (with any
+        trailing whitespace stripped from the final text block) and paired
+        server-tool blocks from this refusal — which also authorizes that
+        appended turn as an assistant-prefill continuation on models that otherwise
+        disallow prefill. A token minted mid-server-tool-loop whose partial content
+        was continuable may only be redeemed the second way — if a same-body retry
+        is rejected with a 400 saying the token must be redeemed by continuing the
+        partial response, retry the second way instead. Either way: same workspace,
+        same platform; a mismatch is a 400. Resending a token for an already-warm
+        prefix is permitted but yields no additional credit.
+
+        `null` when the refused model isn't eligible for a fallback credit.
+
+      - `required Boolean? FallbackHasPrefillClaim`
+
+        Whether the accompanying `fallback_credit_token` may be redeemed with the
+        appended-assistant retry form. Only set when `fallback_credit_token` is
+        present.
+
+        `true`: retry by resending the same request body plus one appended
+        `assistant` message whose content is this response's `content` with any
+        trailing whitespace stripped from the final text block and unpaired
+        `tool_use` blocks omitted (the same appended-turn shape described on
+        `fallback_credit_token`), with the token attached. `false`: retry by
+        resending the original request body unchanged, with the token attached —
+        the appended-assistant form is not available for this refusal (no
+        continuable partial content, or the request uses `output_format` or a
+        `tool_choice` that forces tool use). One exception: when the request used
+        `output_format` or a forced `tool_choice` and the refusal arrived after
+        server tools (including MCP connector tools) had already executed, the
+        token may not be redeemable by either retry form; if the exact-body retry
+        is then rejected with a 400 saying the token must be redeemed by
+        continuing the partial response, discard the token and retry without it.
+
+        Advisory: if an appended-assistant retry is rejected with a 400 despite
+        `true`, fall back to resending the original request body with the token.
+
+      - `required string? RecommendedModel`
+
+        The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
       - `JsonElement Type "refusal"constant`
 
     - `required BetaStopReason? StopReason`
+
       - `"end_turn"EndTurn`
 
       - `"max_tokens"MaxTokens`
@@ -12829,6 +16008,7 @@ Console.WriteLine(betaMessageTokensCount);
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `required Long? CacheCreationInputTokens`
 
       The cumulative number of input tokens used to create the cache entry.
@@ -12846,6 +16026,7 @@ Console.WriteLine(betaMessageTokensCount);
       Per-iteration token usage breakdown.
 
       Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
       - Calculate the true context window size from the last iteration
       - Understand token accumulation across server-side tool use loops
@@ -12853,9 +16034,11 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaMessageIterationUsage:`
 
         Token usage for a sampling iteration.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
+
           - `required Long Ephemeral1hInputTokens`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -12876,65 +16059,20 @@ Console.WriteLine(betaMessageTokensCount);
 
           The number of input tokens which were used.
 
-        - `required Long OutputTokens`
-
-          The number of output tokens which were used.
-
-        - `JsonElement Type "message"constant`
-
-          Usage for a sampling iteration
-
-      - `class BetaCompactionIterationUsage:`
-
-        Token usage for a compaction iteration.
-        - `required BetaCacheCreation? CacheCreation`
-
-          Breakdown of cached tokens by TTL
-
-        - `required Long CacheCreationInputTokens`
-
-          The number of input tokens used to create the cache entry.
-
-        - `required Long CacheReadInputTokens`
-
-          The number of input tokens read from the cache.
-
-        - `required Long InputTokens`
-
-          The number of input tokens which were used.
-
-        - `required Long OutputTokens`
-
-          The number of output tokens which were used.
-
-        - `JsonElement Type "compaction"constant`
-
-          Usage for a compaction iteration
-
-      - `class BetaAdvisorMessageIterationUsage:`
-
-        Token usage for an advisor sub-inference iteration.
-        - `required BetaCacheCreation? CacheCreation`
-
-          Breakdown of cached tokens by TTL
-
-        - `required Long CacheCreationInputTokens`
-
-          The number of input tokens used to create the cache entry.
-
-        - `required Long CacheReadInputTokens`
-
-          The number of input tokens read from the cache.
-
-        - `required Long InputTokens`
-
-          The number of input tokens which were used.
-
         - `required Model Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"ClaudeFable5`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"ClaudeMythos5`
+
+            Most capable model for cybersecurity and biology research
+
           - `"claude-opus-4-8"ClaudeOpus4_8`
 
             Frontier intelligence for long-running agents and coding
@@ -13011,15 +16149,116 @@ Console.WriteLine(betaMessageTokensCount);
 
           The number of output tokens which were used.
 
+        - `JsonElement Type "message"constant`
+
+          Usage for a sampling iteration
+
+      - `class BetaCompactionIterationUsage:`
+
+        Token usage for a compaction iteration.
+
+        - `required BetaCacheCreation? CacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `required Long CacheCreationInputTokens`
+
+          The number of input tokens used to create the cache entry.
+
+        - `required Long CacheReadInputTokens`
+
+          The number of input tokens read from the cache.
+
+        - `required Long InputTokens`
+
+          The number of input tokens which were used.
+
+        - `required Long OutputTokens`
+
+          The number of output tokens which were used.
+
+        - `JsonElement Type "compaction"constant`
+
+          Usage for a compaction iteration
+
+      - `class BetaAdvisorMessageIterationUsage:`
+
+        Token usage for an advisor sub-inference iteration.
+
+        - `required BetaCacheCreation? CacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `required Long CacheCreationInputTokens`
+
+          The number of input tokens used to create the cache entry.
+
+        - `required Long CacheReadInputTokens`
+
+          The number of input tokens read from the cache.
+
+        - `required Long InputTokens`
+
+          The number of input tokens which were used.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `required Long OutputTokens`
+
+          The number of output tokens which were used.
+
         - `JsonElement Type "advisor_message"constant`
 
           Usage for an advisor sub-inference iteration
+
+      - `class BetaFallbackMessageIterationUsage:`
+
+        Token usage for the fallback-model attempt of a server-side fallback request.
+
+        Produced in place of a `message` entry for whichever hop served the
+        response. A declined hop produces the existing `message` entry. Whether
+        a fallback model served the response is signalled by the presence of this
+        entry in `usage.iterations`.
+
+        - `required BetaCacheCreation? CacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `required Long CacheCreationInputTokens`
+
+          The number of input tokens used to create the cache entry.
+
+        - `required Long CacheReadInputTokens`
+
+          The number of input tokens read from the cache.
+
+        - `required Long InputTokens`
+
+          The number of input tokens which were used.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `required Long OutputTokens`
+
+          The number of output tokens which were used.
+
+        - `JsonElement Type "fallback_message"constant`
+
+          Usage for the fallback-model attempt that served the response
 
     - `required Long OutputTokens`
 
       The cumulative number of output tokens which were used.
 
-    - `required OutputTokensDetails? OutputTokensDetails`
+    - `required BetaOutputTokensDetails? OutputTokensDetails`
 
       Breakdown of output tokens by category.
 
@@ -13027,6 +16266,7 @@ Console.WriteLine(betaMessageTokensCount);
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `required Long ThinkingTokens`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -13041,6 +16281,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required BetaServerToolUsage? ServerToolUse`
 
       The number of server tool requests.
+
       - `required Long WebFetchRequests`
 
         The number of web fetch tool requests.
@@ -13052,7 +16293,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Message Start Event
 
 - `class BetaRawMessageStartEvent:`
+
   - `required BetaMessage Message`
+
     - `required string ID`
 
       Unique object identifier.
@@ -13062,6 +16305,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required BetaContainer? Container`
 
       Information about the container used in the request (for the code execution tool)
+
       - `required string ID`
 
         Identifier for the container used in this request
@@ -13073,6 +16317,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required IReadOnlyList<BetaSkill>? Skills`
 
         Skills loaded in the container
+
         - `required string SkillID`
 
           Skill ID
@@ -13080,6 +16325,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required Type Type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
           - `"anthropic"Anthropic`
 
           - `"custom"Custom`
@@ -13097,7 +16343,7 @@ Console.WriteLine(betaMessageTokensCount);
       Example:
 
       ```json
-      [{ "type": "text", "text": "Hi, I'm Claude." }]
+      [{"type": "text", "text": "Hi, I'm Claude."}]
       ```
 
       If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -13106,27 +16352,27 @@ Console.WriteLine(betaMessageTokensCount);
 
       ```json
       [
-        {
-          "role": "user",
-          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-        },
-        { "role": "assistant", "content": "The best answer is (" }
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("}
       ]
       ```
 
       Then the response `content` might be:
 
       ```json
-      [{ "type": "text", "text": "B)" }]
+      [{"type": "text", "text": "B)"}]
       ```
 
       - `class BetaTextBlock:`
+
         - `required IReadOnlyList<BetaTextCitation>? Citations`
 
           Citations supporting the text block.
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
           - `class BetaCitationCharLocation:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -13142,6 +16388,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "char_location"constant`
 
           - `class BetaCitationPageLocation:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -13157,6 +16404,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "page_location"constant`
 
           - `class BetaCitationContentBlockLocation:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -13182,6 +16430,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content_block_location"constant`
 
           - `class BetaCitationsWebSearchResultLocation:`
+
             - `required string CitedText`
 
             - `required string EncryptedIndex`
@@ -13193,6 +16442,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `required string Url`
 
           - `class BetaCitationSearchResultLocation:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -13226,6 +16476,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text"constant`
 
       - `class BetaThinkingBlock:`
+
         - `required string Signature`
 
         - `required string Thinking`
@@ -13233,11 +16484,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "thinking"constant`
 
       - `class BetaRedactedThinkingBlock:`
+
         - `required string Data`
 
         - `JsonElement Type "redacted_thinking"constant`
 
       - `class BetaToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -13249,29 +16502,35 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
+
             - `JsonElement Type "direct"constant`
 
           - `class BetaServerToolCaller:`
 
             Tool invocation generated by a server-side tool.
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20250825"constant`
 
           - `class BetaServerToolCaller20260120:`
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20260120"constant`
 
       - `class BetaServerToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
 
         - `required Name Name`
+
           - `"advisor"Advisor`
 
           - `"web_search"WebSearch`
@@ -13293,6 +16552,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -13304,9 +16564,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebSearchToolResultBlock:`
+
         - `required BetaWebSearchToolResultBlockContent Content`
+
           - `class BetaWebSearchToolResultError:`
+
             - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -13322,6 +16586,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "web_search_tool_result_error"constant`
 
           - `IReadOnlyList<BetaWebSearchResultBlock>`
+
             - `required string EncryptedContent`
 
             - `required string? PageAge`
@@ -13339,6 +16604,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -13350,9 +16616,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebFetchToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaWebFetchToolResultErrorBlock:`
+
             - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"url_too_long"UrlTooLong`
@@ -13374,14 +16644,19 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "web_fetch_tool_result_error"constant`
 
           - `class BetaWebFetchBlock:`
+
             - `required BetaDocumentBlock Content`
+
               - `required BetaCitationConfig? Citations`
 
                 Citation configuration for the document
+
                 - `required Boolean Enabled`
 
               - `required Source Source`
+
                 - `class BetaBase64PdfSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "application/pdf"constant`
@@ -13389,6 +16664,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "base64"constant`
 
                 - `class BetaPlainTextSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "text/plain"constant`
@@ -13418,6 +16694,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -13429,9 +16706,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaAdvisorToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaAdvisorToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"max_uses_exceeded"MaxUsesExceeded`
 
               - `"prompt_too_long"PromptTooLong`
@@ -13444,9 +16725,12 @@ Console.WriteLine(betaMessageTokensCount);
 
               - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+              - `"model_not_found"ModelNotFound`
+
             - `JsonElement Type "advisor_tool_result_error"constant`
 
           - `class BetaAdvisorResultBlock:`
+
             - `required string? StopReason`
 
               The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -13456,6 +16740,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "advisor_result"constant`
 
           - `class BetaAdvisorRedactedResultBlock:`
+
             - `required string EncryptedContent`
 
               Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -13471,11 +16756,15 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "advisor_tool_result"constant`
 
       - `class BetaCodeExecutionToolResultBlock:`
+
         - `required BetaCodeExecutionToolResultBlockContent Content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `class BetaCodeExecutionToolResultError:`
+
             - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -13487,7 +16776,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "code_execution_tool_result_error"constant`
 
           - `class BetaCodeExecutionResultBlock:`
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -13503,7 +16794,9 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaEncryptedCodeExecutionResultBlock:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -13521,9 +16814,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "code_execution_tool_result"constant`
 
       - `class BetaBashCodeExecutionToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaBashCodeExecutionToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -13537,7 +16834,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
           - `class BetaBashCodeExecutionResultBlock:`
+
             - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "bash_code_execution_output"constant`
@@ -13555,9 +16854,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "bash_code_execution_tool_result"constant`
 
       - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaTextEditorCodeExecutionToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -13573,9 +16876,11 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
           - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
             - `required string Content`
 
             - `required FileType FileType`
+
               - `"text"Text`
 
               - `"image"Image`
@@ -13591,11 +16896,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
           - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
             - `required Boolean IsFileUpdate`
 
             - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
             - `required IReadOnlyList<string>? Lines`
 
             - `required Long? NewLines`
@@ -13613,9 +16920,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
       - `class BetaToolSearchToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaToolSearchToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -13629,7 +16940,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "tool_search_tool_result_error"constant`
 
           - `class BetaToolSearchToolSearchResultBlock:`
+
             - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
               - `required string ToolName`
 
               - `JsonElement Type "tool_reference"constant`
@@ -13641,6 +16954,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "tool_search_tool_result"constant`
 
       - `class BetaMcpToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -13656,10 +16970,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "mcp_tool_use"constant`
 
       - `class BetaMcpToolResultBlock:`
+
         - `required Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaTextBlock>`
+
             - `required IReadOnlyList<BetaTextCitation>? Citations`
 
               Citations supporting the text block.
@@ -13679,6 +16996,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaContainerUploadBlock:`
 
         Response model for a file uploaded to the container.
+
         - `required string FileID`
 
         - `JsonElement Type "container_upload"constant`
@@ -13690,6 +17008,7 @@ Console.WriteLine(betaMessageTokensCount);
         When content is None, it indicates the compaction failed to produce a valid
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
+
         - `required string? Content`
 
           Summary of compacted content, or null if compaction failed
@@ -13700,15 +17019,128 @@ Console.WriteLine(betaMessageTokensCount);
 
         - `JsonElement Type "compaction"constant`
 
+      - `class BetaFallbackBlock:`
+
+        Marks the point in `content` where one model's output gives way to the next.
+
+        One block appears per hop where a preceding model actually ran this turn and
+        declined. A turn routed directly by the sticky decision has no such boundary
+        and carries no block — the signal for whether a fallback model served the
+        response is the presence of a `fallback_message` entry in
+        `usage.iterations`, not this block.
+
+        The block is treated like a server-tool content block for streaming: it
+        arrives via the standard `content_block_start` / `content_block_stop`
+        pair and carries no deltas.
+
+        - `required BetaFallbackInfo From`
+
+          The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5"ClaudeFable5`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-mythos-5"ClaudeMythos5`
+
+              Most capable model for cybersecurity and biology research
+
+            - `"claude-opus-4-8"ClaudeOpus4_8`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"ClaudeOpus4_7`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-mythos-preview"ClaudeMythosPreview`
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-opus-4-6"ClaudeOpus4_6`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"ClaudeOpus4_5`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+              High-performance model for agents and coding
+
+            - `"claude-opus-4-1"ClaudeOpus4_1`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-0"ClaudeOpus4_0`
+
+              Powerful model for complex tasks
+
+            - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+              Powerful model for complex tasks
+
+            - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+              High-performance model with extended thinking
+
+            - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+              High-performance model with extended thinking
+
+            - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+              Fast and cost-effective model
+
+        - `required BetaFallbackInfo To`
+
+          The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+        - `JsonElement Type "fallback"constant`
+
     - `required BetaContextManagementResponse? ContextManagement`
 
       Context management response.
 
       Information about context management strategies applied during the request.
+
       - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
         List of context management edits that were applied.
+
         - `class BetaClearToolUses20250919EditResponse:`
+
           - `required Long ClearedInputTokens`
 
             Number of input tokens cleared by this edit.
@@ -13722,6 +17154,7 @@ Console.WriteLine(betaMessageTokensCount);
             The type of context management edit applied.
 
         - `class BetaClearThinking20251015EditResponse:`
+
           - `required Long ClearedInputTokens`
 
             Number of input tokens cleared by this edit.
@@ -13738,10 +17171,13 @@ Console.WriteLine(betaMessageTokensCount);
 
       Response envelope for request-level diagnostics. Present (possibly
       null) whenever the caller supplied `diagnostics` on the request.
+
       - `required CacheMissReason? CacheMissReason`
 
         Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
         - `class BetaCacheMissModelChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -13749,6 +17185,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "model_changed"constant`
 
         - `class BetaCacheMissSystemChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -13756,6 +17193,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "system_changed"constant`
 
         - `class BetaCacheMissToolsChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -13763,6 +17201,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "tools_changed"constant`
 
         - `class BetaCacheMissMessagesChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -13770,9 +17209,11 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "messages_changed"constant`
 
         - `class BetaCacheMissPreviousMessageNotFound:`
+
           - `JsonElement Type "previous_message_not_found"constant`
 
         - `class BetaCacheMissUnavailable:`
+
           - `JsonElement Type "unavailable"constant`
 
     - `required Model Model`
@@ -13780,77 +17221,6 @@ Console.WriteLine(betaMessageTokensCount);
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-8"ClaudeOpus4_8`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-opus-4-7"ClaudeOpus4_7`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-mythos-preview"ClaudeMythosPreview`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
-      - `"claude-opus-4-6"ClaudeOpus4_6`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"ClaudeOpus4_5`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-        High-performance model for agents and coding
-
-      - `"claude-opus-4-1"ClaudeOpus4_1`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-0"ClaudeOpus4_0`
-
-        Powerful model for complex tasks
-
-      - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-        Powerful model for complex tasks
-
-      - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-        High-performance model with extended thinking
-
-      - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-        High-performance model with extended thinking
-
-      - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-        Fast and cost-effective model
 
     - `JsonElement Role "assistant"constant`
 
@@ -13861,20 +17231,73 @@ Console.WriteLine(betaMessageTokensCount);
     - `required BetaRefusalStopDetails? StopDetails`
 
       Structured information about a refusal.
+
       - `required Category? Category`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"Cyber`
 
         - `"bio"Bio`
+
+        - `"reasoning_extraction"ReasoningExtraction`
 
       - `required string? Explanation`
 
         Human-readable explanation of the refusal.
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+      - `required string? FallbackCreditToken`
+
+        Opaque code that refunds the cache-miss cost when retrying this refused
+        request on the fallback model. Pass it as `fallback_credit_token` on the
+        retry request. Expires 5 minutes after the refusal.
+
+        The retry is sent either with the same request body (`system`, `messages`,
+        `tools`, and other render-shaping fields), or with the same body plus one
+        appended `assistant` message whose content is the partial text (with any
+        trailing whitespace stripped from the final text block) and paired
+        server-tool blocks from this refusal — which also authorizes that
+        appended turn as an assistant-prefill continuation on models that otherwise
+        disallow prefill. A token minted mid-server-tool-loop whose partial content
+        was continuable may only be redeemed the second way — if a same-body retry
+        is rejected with a 400 saying the token must be redeemed by continuing the
+        partial response, retry the second way instead. Either way: same workspace,
+        same platform; a mismatch is a 400. Resending a token for an already-warm
+        prefix is permitted but yields no additional credit.
+
+        `null` when the refused model isn't eligible for a fallback credit.
+
+      - `required Boolean? FallbackHasPrefillClaim`
+
+        Whether the accompanying `fallback_credit_token` may be redeemed with the
+        appended-assistant retry form. Only set when `fallback_credit_token` is
+        present.
+
+        `true`: retry by resending the same request body plus one appended
+        `assistant` message whose content is this response's `content` with any
+        trailing whitespace stripped from the final text block and unpaired
+        `tool_use` blocks omitted (the same appended-turn shape described on
+        `fallback_credit_token`), with the token attached. `false`: retry by
+        resending the original request body unchanged, with the token attached —
+        the appended-assistant form is not available for this refusal (no
+        continuable partial content, or the request uses `output_format` or a
+        `tool_choice` that forces tool use). One exception: when the request used
+        `output_format` or a forced `tool_choice` and the refusal arrived after
+        server tools (including MCP connector tools) had already executed, the
+        token may not be redeemable by either retry form; if the exact-body retry
+        is then rejected with a 400 saying the token must be redeemed by
+        continuing the partial response, discard the token and retry without it.
+
+        Advisory: if an appended-assistant retry is rejected with a 400 despite
+        `true`, fall back to resending the original request body with the token.
+
+      - `required string? RecommendedModel`
+
+        The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
       - `JsonElement Type "refusal"constant`
 
@@ -13883,14 +17306,16 @@ Console.WriteLine(betaMessageTokensCount);
       The reason that we stopped.
 
       This may be one the following values:
-      - `"end_turn"`: the model reached a natural stopping point
-      - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-      - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-      - `"tool_use"`: the model invoked one or more tools
-      - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-      - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+      * `"end_turn"`: the model reached a natural stopping point
+      * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+      * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+      * `"tool_use"`: the model invoked one or more tools
+      * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+      * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
       - `"end_turn"EndTurn`
 
       - `"max_tokens"MaxTokens`
@@ -13930,9 +17355,11 @@ Console.WriteLine(betaMessageTokensCount);
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `required BetaCacheCreation? CacheCreation`
 
         Breakdown of cached tokens by TTL
+
         - `required Long Ephemeral1hInputTokens`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -13962,6 +17389,7 @@ Console.WriteLine(betaMessageTokensCount);
         Per-iteration token usage breakdown.
 
         Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
         - Calculate the true context window size from the last iteration
         - Understand token accumulation across server-side tool use loops
@@ -13969,6 +17397,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaMessageIterationUsage:`
 
           Token usage for a sampling iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -13985,6 +17414,12 @@ Console.WriteLine(betaMessageTokensCount);
 
             The number of input tokens which were used.
 
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
           - `required Long OutputTokens`
 
             The number of output tokens which were used.
@@ -13996,6 +17431,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaCompactionIterationUsage:`
 
           Token usage for a compaction iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -14023,6 +17459,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaAdvisorMessageIterationUsage:`
 
           Token usage for an advisor sub-inference iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -14053,11 +17490,50 @@ Console.WriteLine(betaMessageTokensCount);
 
             Usage for an advisor sub-inference iteration
 
+        - `class BetaFallbackMessageIterationUsage:`
+
+          Token usage for the fallback-model attempt of a server-side fallback request.
+
+          Produced in place of a `message` entry for whichever hop served the
+          response. A declined hop produces the existing `message` entry. Whether
+          a fallback model served the response is signalled by the presence of this
+          entry in `usage.iterations`.
+
+          - `required BetaCacheCreation? CacheCreation`
+
+            Breakdown of cached tokens by TTL
+
+          - `required Long CacheCreationInputTokens`
+
+            The number of input tokens used to create the cache entry.
+
+          - `required Long CacheReadInputTokens`
+
+            The number of input tokens read from the cache.
+
+          - `required Long InputTokens`
+
+            The number of input tokens which were used.
+
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `required Long OutputTokens`
+
+            The number of output tokens which were used.
+
+          - `JsonElement Type "fallback_message"constant`
+
+            Usage for the fallback-model attempt that served the response
+
       - `required Long OutputTokens`
 
         The number of output tokens which were used.
 
-      - `required OutputTokensDetails? OutputTokensDetails`
+      - `required BetaOutputTokensDetails? OutputTokensDetails`
 
         Breakdown of output tokens by category.
 
@@ -14065,6 +17541,7 @@ Console.WriteLine(betaMessageTokensCount);
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
+
         - `required Long ThinkingTokens`
 
           Number of output tokens the model generated as internal reasoning, including
@@ -14079,6 +17556,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required BetaServerToolUsage? ServerToolUse`
 
         The number of server tool requests.
+
         - `required Long WebFetchRequests`
 
           The number of web fetch tool requests.
@@ -14090,6 +17568,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required ServiceTier? ServiceTier`
 
         If the request used the priority, standard, or batch tier.
+
         - `"standard"Standard`
 
         - `"priority"Priority`
@@ -14099,6 +17578,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required Speed? Speed`
 
         The inference speed mode used for this request.
+
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -14108,13 +17588,17 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Raw Message Stop Event
 
 - `class BetaRawMessageStopEvent:`
+
   - `JsonElement Type "message_stop"constant`
 
 ### Beta Raw Message Stream Event
 
 - `class BetaRawMessageStreamEvent: A class that can be one of several variants.union`
+
   - `class BetaRawMessageStartEvent:`
+
     - `required BetaMessage Message`
+
       - `required string ID`
 
         Unique object identifier.
@@ -14124,6 +17608,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required BetaContainer? Container`
 
         Information about the container used in the request (for the code execution tool)
+
         - `required string ID`
 
           Identifier for the container used in this request
@@ -14135,6 +17620,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required IReadOnlyList<BetaSkill>? Skills`
 
           Skills loaded in the container
+
           - `required string SkillID`
 
             Skill ID
@@ -14142,6 +17628,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `required Type Type`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
             - `"anthropic"Anthropic`
 
             - `"custom"Custom`
@@ -14159,7 +17646,7 @@ Console.WriteLine(betaMessageTokensCount);
         Example:
 
         ```json
-        [{ "type": "text", "text": "Hi, I'm Claude." }]
+        [{"type": "text", "text": "Hi, I'm Claude."}]
         ```
 
         If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -14168,27 +17655,27 @@ Console.WriteLine(betaMessageTokensCount);
 
         ```json
         [
-          {
-            "role": "user",
-            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-          },
-          { "role": "assistant", "content": "The best answer is (" }
+          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+          {"role": "assistant", "content": "The best answer is ("}
         ]
         ```
 
         Then the response `content` might be:
 
         ```json
-        [{ "type": "text", "text": "B)" }]
+        [{"type": "text", "text": "B)"}]
         ```
 
         - `class BetaTextBlock:`
+
           - `required IReadOnlyList<BetaTextCitation>? Citations`
 
             Citations supporting the text block.
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
             - `class BetaCitationCharLocation:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -14204,6 +17691,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "char_location"constant`
 
             - `class BetaCitationPageLocation:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -14219,6 +17707,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "page_location"constant`
 
             - `class BetaCitationContentBlockLocation:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -14244,6 +17733,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "content_block_location"constant`
 
             - `class BetaCitationsWebSearchResultLocation:`
+
               - `required string CitedText`
 
               - `required string EncryptedIndex`
@@ -14255,6 +17745,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `required string Url`
 
             - `class BetaCitationSearchResultLocation:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -14288,6 +17779,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "text"constant`
 
         - `class BetaThinkingBlock:`
+
           - `required string Signature`
 
           - `required string Thinking`
@@ -14295,11 +17787,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "thinking"constant`
 
         - `class BetaRedactedThinkingBlock:`
+
           - `required string Data`
 
           - `JsonElement Type "redacted_thinking"constant`
 
         - `class BetaToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -14311,29 +17805,35 @@ Console.WriteLine(betaMessageTokensCount);
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
+
               - `JsonElement Type "direct"constant`
 
             - `class BetaServerToolCaller:`
 
               Tool invocation generated by a server-side tool.
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20250825"constant`
 
             - `class BetaServerToolCaller20260120:`
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20260120"constant`
 
         - `class BetaServerToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
 
           - `required Name Name`
+
             - `"advisor"Advisor`
 
             - `"web_search"WebSearch`
@@ -14355,6 +17855,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -14366,9 +17867,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebSearchToolResultBlock:`
+
           - `required BetaWebSearchToolResultBlockContent Content`
+
             - `class BetaWebSearchToolResultError:`
+
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -14384,6 +17889,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "web_search_tool_result_error"constant`
 
             - `IReadOnlyList<BetaWebSearchResultBlock>`
+
               - `required string EncryptedContent`
 
               - `required string? PageAge`
@@ -14401,6 +17907,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -14412,9 +17919,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebFetchToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaWebFetchToolResultErrorBlock:`
+
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"url_too_long"UrlTooLong`
@@ -14436,14 +17947,19 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "web_fetch_tool_result_error"constant`
 
             - `class BetaWebFetchBlock:`
+
               - `required BetaDocumentBlock Content`
+
                 - `required BetaCitationConfig? Citations`
 
                   Citation configuration for the document
+
                   - `required Boolean Enabled`
 
                 - `required Source Source`
+
                   - `class BetaBase64PdfSource:`
+
                     - `required string Data`
 
                     - `JsonElement MediaType "application/pdf"constant`
@@ -14451,6 +17967,7 @@ Console.WriteLine(betaMessageTokensCount);
                     - `JsonElement Type "base64"constant`
 
                   - `class BetaPlainTextSource:`
+
                     - `required string Data`
 
                     - `JsonElement MediaType "text/plain"constant`
@@ -14480,6 +17997,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -14491,9 +18009,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaAdvisorToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaAdvisorToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"max_uses_exceeded"MaxUsesExceeded`
 
                 - `"prompt_too_long"PromptTooLong`
@@ -14506,9 +18028,12 @@ Console.WriteLine(betaMessageTokensCount);
 
                 - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                - `"model_not_found"ModelNotFound`
+
               - `JsonElement Type "advisor_tool_result_error"constant`
 
             - `class BetaAdvisorResultBlock:`
+
               - `required string? StopReason`
 
                 The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -14518,6 +18043,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "advisor_result"constant`
 
             - `class BetaAdvisorRedactedResultBlock:`
+
               - `required string EncryptedContent`
 
                 Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -14533,11 +18059,15 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "advisor_tool_result"constant`
 
         - `class BetaCodeExecutionToolResultBlock:`
+
           - `required BetaCodeExecutionToolResultBlockContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `class BetaCodeExecutionToolResultError:`
+
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -14549,7 +18079,9 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "code_execution_tool_result_error"constant`
 
             - `class BetaCodeExecutionResultBlock:`
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -14565,7 +18097,9 @@ Console.WriteLine(betaMessageTokensCount);
             - `class BetaEncryptedCodeExecutionResultBlock:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -14583,9 +18117,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "code_execution_tool_result"constant`
 
         - `class BetaBashCodeExecutionToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaBashCodeExecutionToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -14599,7 +18137,9 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
             - `class BetaBashCodeExecutionResultBlock:`
+
               - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "bash_code_execution_output"constant`
@@ -14617,9 +18157,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "bash_code_execution_tool_result"constant`
 
         - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaTextEditorCodeExecutionToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -14635,9 +18179,11 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
             - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
               - `required string Content`
 
               - `required FileType FileType`
+
                 - `"text"Text`
 
                 - `"image"Image`
@@ -14653,11 +18199,13 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
             - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
               - `required Boolean IsFileUpdate`
 
               - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
               - `required IReadOnlyList<string>? Lines`
 
               - `required Long? NewLines`
@@ -14675,9 +18223,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
         - `class BetaToolSearchToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaToolSearchToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -14691,7 +18243,9 @@ Console.WriteLine(betaMessageTokensCount);
               - `JsonElement Type "tool_search_tool_result_error"constant`
 
             - `class BetaToolSearchToolSearchResultBlock:`
+
               - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -14703,6 +18257,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "tool_search_tool_result"constant`
 
         - `class BetaMcpToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -14718,10 +18273,13 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "mcp_tool_use"constant`
 
         - `class BetaMcpToolResultBlock:`
+
           - `required Content Content`
+
             - `string`
 
             - `IReadOnlyList<BetaTextBlock>`
+
               - `required IReadOnlyList<BetaTextCitation>? Citations`
 
                 Citations supporting the text block.
@@ -14741,6 +18299,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `class BetaContainerUploadBlock:`
 
           Response model for a file uploaded to the container.
+
           - `required string FileID`
 
           - `JsonElement Type "container_upload"constant`
@@ -14752,6 +18311,7 @@ Console.WriteLine(betaMessageTokensCount);
           When content is None, it indicates the compaction failed to produce a valid
           summary (e.g., malformed output from the model). Clients may round-trip
           compaction blocks with null content; the server treats them as no-ops.
+
           - `required string? Content`
 
             Summary of compacted content, or null if compaction failed
@@ -14762,15 +18322,128 @@ Console.WriteLine(betaMessageTokensCount);
 
           - `JsonElement Type "compaction"constant`
 
+        - `class BetaFallbackBlock:`
+
+          Marks the point in `content` where one model's output gives way to the next.
+
+          One block appears per hop where a preceding model actually ran this turn and
+          declined. A turn routed directly by the sticky decision has no such boundary
+          and carries no block — the signal for whether a fallback model served the
+          response is the presence of a `fallback_message` entry in
+          `usage.iterations`, not this block.
+
+          The block is treated like a server-tool content block for streaming: it
+          arrives via the standard `content_block_start` / `content_block_stop`
+          pair and carries no deltas.
+
+          - `required BetaFallbackInfo From`
+
+            The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-fable-5"ClaudeFable5`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `"claude-mythos-5"ClaudeMythos5`
+
+                Most capable model for cybersecurity and biology research
+
+              - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                New class of intelligence, strongest in coding and cybersecurity
+
+              - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                Best combination of speed and intelligence
+
+              - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                High-performance model for agents and coding
+
+              - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                High-performance model for agents and coding
+
+              - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                Powerful model for complex tasks
+
+              - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                Powerful model for complex tasks
+
+              - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                High-performance model with extended thinking
+
+              - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                High-performance model with extended thinking
+
+              - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                Fast and cost-effective model
+
+          - `required BetaFallbackInfo To`
+
+            The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+          - `JsonElement Type "fallback"constant`
+
       - `required BetaContextManagementResponse? ContextManagement`
 
         Context management response.
 
         Information about context management strategies applied during the request.
+
         - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
           List of context management edits that were applied.
+
           - `class BetaClearToolUses20250919EditResponse:`
+
             - `required Long ClearedInputTokens`
 
               Number of input tokens cleared by this edit.
@@ -14784,6 +18457,7 @@ Console.WriteLine(betaMessageTokensCount);
               The type of context management edit applied.
 
           - `class BetaClearThinking20251015EditResponse:`
+
             - `required Long ClearedInputTokens`
 
               Number of input tokens cleared by this edit.
@@ -14800,10 +18474,13 @@ Console.WriteLine(betaMessageTokensCount);
 
         Response envelope for request-level diagnostics. Present (possibly
         null) whenever the caller supplied `diagnostics` on the request.
+
         - `required CacheMissReason? CacheMissReason`
 
           Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
           - `class BetaCacheMissModelChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -14811,6 +18488,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "model_changed"constant`
 
           - `class BetaCacheMissSystemChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -14818,6 +18496,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "system_changed"constant`
 
           - `class BetaCacheMissToolsChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -14825,6 +18504,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "tools_changed"constant`
 
           - `class BetaCacheMissMessagesChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -14832,9 +18512,11 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "messages_changed"constant`
 
           - `class BetaCacheMissPreviousMessageNotFound:`
+
             - `JsonElement Type "previous_message_not_found"constant`
 
           - `class BetaCacheMissUnavailable:`
+
             - `JsonElement Type "unavailable"constant`
 
       - `required Model Model`
@@ -14842,77 +18524,6 @@ Console.WriteLine(betaMessageTokensCount);
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-8"ClaudeOpus4_8`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"ClaudeOpus4_7`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"ClaudeMythosPreview`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"ClaudeOpus4_6`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"ClaudeOpus4_5`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-          High-performance model for agents and coding
-
-        - `"claude-opus-4-1"ClaudeOpus4_1`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-0"ClaudeOpus4_0`
-
-          Powerful model for complex tasks
-
-        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-          Powerful model for complex tasks
-
-        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-          High-performance model with extended thinking
-
-        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-          High-performance model with extended thinking
-
-        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-          Fast and cost-effective model
 
       - `JsonElement Role "assistant"constant`
 
@@ -14923,20 +18534,73 @@ Console.WriteLine(betaMessageTokensCount);
       - `required BetaRefusalStopDetails? StopDetails`
 
         Structured information about a refusal.
+
         - `required Category? Category`
 
           The policy category that triggered the refusal.
 
           `null` when the refusal doesn't map to a named category.
+
           - `"cyber"Cyber`
 
           - `"bio"Bio`
+
+          - `"reasoning_extraction"ReasoningExtraction`
 
         - `required string? Explanation`
 
           Human-readable explanation of the refusal.
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+        - `required string? FallbackCreditToken`
+
+          Opaque code that refunds the cache-miss cost when retrying this refused
+          request on the fallback model. Pass it as `fallback_credit_token` on the
+          retry request. Expires 5 minutes after the refusal.
+
+          The retry is sent either with the same request body (`system`, `messages`,
+          `tools`, and other render-shaping fields), or with the same body plus one
+          appended `assistant` message whose content is the partial text (with any
+          trailing whitespace stripped from the final text block) and paired
+          server-tool blocks from this refusal — which also authorizes that
+          appended turn as an assistant-prefill continuation on models that otherwise
+          disallow prefill. A token minted mid-server-tool-loop whose partial content
+          was continuable may only be redeemed the second way — if a same-body retry
+          is rejected with a 400 saying the token must be redeemed by continuing the
+          partial response, retry the second way instead. Either way: same workspace,
+          same platform; a mismatch is a 400. Resending a token for an already-warm
+          prefix is permitted but yields no additional credit.
+
+          `null` when the refused model isn't eligible for a fallback credit.
+
+        - `required Boolean? FallbackHasPrefillClaim`
+
+          Whether the accompanying `fallback_credit_token` may be redeemed with the
+          appended-assistant retry form. Only set when `fallback_credit_token` is
+          present.
+
+          `true`: retry by resending the same request body plus one appended
+          `assistant` message whose content is this response's `content` with any
+          trailing whitespace stripped from the final text block and unpaired
+          `tool_use` blocks omitted (the same appended-turn shape described on
+          `fallback_credit_token`), with the token attached. `false`: retry by
+          resending the original request body unchanged, with the token attached —
+          the appended-assistant form is not available for this refusal (no
+          continuable partial content, or the request uses `output_format` or a
+          `tool_choice` that forces tool use). One exception: when the request used
+          `output_format` or a forced `tool_choice` and the refusal arrived after
+          server tools (including MCP connector tools) had already executed, the
+          token may not be redeemable by either retry form; if the exact-body retry
+          is then rejected with a 400 saying the token must be redeemed by
+          continuing the partial response, discard the token and retry without it.
+
+          Advisory: if an appended-assistant retry is rejected with a 400 despite
+          `true`, fall back to resending the original request body with the token.
+
+        - `required string? RecommendedModel`
+
+          The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
         - `JsonElement Type "refusal"constant`
 
@@ -14945,14 +18609,16 @@ Console.WriteLine(betaMessageTokensCount);
         The reason that we stopped.
 
         This may be one the following values:
-        - `"end_turn"`: the model reached a natural stopping point
-        - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-        - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-        - `"tool_use"`: the model invoked one or more tools
-        - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-        - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+        * `"end_turn"`: the model reached a natural stopping point
+        * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+        * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+        * `"tool_use"`: the model invoked one or more tools
+        * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+        * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
         - `"end_turn"EndTurn`
 
         - `"max_tokens"MaxTokens`
@@ -14992,9 +18658,11 @@ Console.WriteLine(betaMessageTokensCount);
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
+
           - `required Long Ephemeral1hInputTokens`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -15024,6 +18692,7 @@ Console.WriteLine(betaMessageTokensCount);
           Per-iteration token usage breakdown.
 
           Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
           - Determine which iterations exceeded long context thresholds (>=200k tokens)
           - Calculate the true context window size from the last iteration
           - Understand token accumulation across server-side tool use loops
@@ -15031,6 +18700,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaMessageIterationUsage:`
 
             Token usage for a sampling iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -15047,6 +18717,12 @@ Console.WriteLine(betaMessageTokensCount);
 
               The number of input tokens which were used.
 
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
             - `required Long OutputTokens`
 
               The number of output tokens which were used.
@@ -15058,6 +18734,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaCompactionIterationUsage:`
 
             Token usage for a compaction iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -15085,6 +18762,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `class BetaAdvisorMessageIterationUsage:`
 
             Token usage for an advisor sub-inference iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -15115,11 +18793,50 @@ Console.WriteLine(betaMessageTokensCount);
 
               Usage for an advisor sub-inference iteration
 
+          - `class BetaFallbackMessageIterationUsage:`
+
+            Token usage for the fallback-model attempt of a server-side fallback request.
+
+            Produced in place of a `message` entry for whichever hop served the
+            response. A declined hop produces the existing `message` entry. Whether
+            a fallback model served the response is signalled by the presence of this
+            entry in `usage.iterations`.
+
+            - `required BetaCacheCreation? CacheCreation`
+
+              Breakdown of cached tokens by TTL
+
+            - `required Long CacheCreationInputTokens`
+
+              The number of input tokens used to create the cache entry.
+
+            - `required Long CacheReadInputTokens`
+
+              The number of input tokens read from the cache.
+
+            - `required Long InputTokens`
+
+              The number of input tokens which were used.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `required Long OutputTokens`
+
+              The number of output tokens which were used.
+
+            - `JsonElement Type "fallback_message"constant`
+
+              Usage for the fallback-model attempt that served the response
+
         - `required Long OutputTokens`
 
           The number of output tokens which were used.
 
-        - `required OutputTokensDetails? OutputTokensDetails`
+        - `required BetaOutputTokensDetails? OutputTokensDetails`
 
           Breakdown of output tokens by category.
 
@@ -15127,6 +18844,7 @@ Console.WriteLine(betaMessageTokensCount);
           This object provides a read-only decomposition for observability — for example,
           how many of the billed output tokens were spent on internal reasoning that may
           have been summarized before being returned to you.
+
           - `required Long ThinkingTokens`
 
             Number of output tokens the model generated as internal reasoning, including
@@ -15141,6 +18859,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required BetaServerToolUsage? ServerToolUse`
 
           The number of server tool requests.
+
           - `required Long WebFetchRequests`
 
             The number of web fetch tool requests.
@@ -15152,6 +18871,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required ServiceTier? ServiceTier`
 
           If the request used the priority, standard, or batch tier.
+
           - `"standard"Standard`
 
           - `"priority"Priority`
@@ -15161,6 +18881,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required Speed? Speed`
 
           The inference speed mode used for this request.
+
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -15168,11 +18889,13 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "message_start"constant`
 
   - `class BetaRawMessageDeltaEvent:`
+
     - `required BetaContextManagementResponse? ContextManagement`
 
       Information about context management strategies applied during the request
 
     - `required Delta Delta`
+
       - `required BetaContainer? Container`
 
         Information about the container used in the request (for the code execution tool)
@@ -15198,6 +18921,7 @@ Console.WriteLine(betaMessageTokensCount);
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `required Long? CacheCreationInputTokens`
 
         The cumulative number of input tokens used to create the cache entry.
@@ -15215,6 +18939,7 @@ Console.WriteLine(betaMessageTokensCount);
         Per-iteration token usage breakdown.
 
         Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
         - Calculate the true context window size from the last iteration
         - Understand token accumulation across server-side tool use loops
@@ -15223,7 +18948,7 @@ Console.WriteLine(betaMessageTokensCount);
 
         The cumulative number of output tokens which were used.
 
-      - `required OutputTokensDetails? OutputTokensDetails`
+      - `required BetaOutputTokensDetails? OutputTokensDetails`
 
         Breakdown of output tokens by category.
 
@@ -15231,28 +18956,21 @@ Console.WriteLine(betaMessageTokensCount);
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
-        - `required Long ThinkingTokens`
-
-          Number of output tokens the model generated as internal reasoning, including
-          the thinking-block delimiter tokens.
-
-          Reflects the raw reasoning the model produced, not the (possibly shorter)
-          summarized thinking text returned in the response body. Computed by
-          re-tokenizing the raw reasoning text, so it may differ from the model's exact
-          generation count by a small number of tokens. Always ≤ `output_tokens`;
-          `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
       - `required BetaServerToolUsage? ServerToolUse`
 
         The number of server tool requests.
 
   - `class BetaRawMessageStopEvent:`
+
     - `JsonElement Type "message_stop"constant`
 
   - `class BetaRawContentBlockStartEvent:`
+
     - `required ContentBlock ContentBlock`
 
       Response model for a file uploaded to the container.
+
       - `class BetaTextBlock:`
 
       - `class BetaThinkingBlock:`
@@ -15293,24 +19011,44 @@ Console.WriteLine(betaMessageTokensCount);
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
 
+      - `class BetaFallbackBlock:`
+
+        Marks the point in `content` where one model's output gives way to the next.
+
+        One block appears per hop where a preceding model actually ran this turn and
+        declined. A turn routed directly by the sticky decision has no such boundary
+        and carries no block — the signal for whether a fallback model served the
+        response is the presence of a `fallback_message` entry in
+        `usage.iterations`, not this block.
+
+        The block is treated like a server-tool content block for streaming: it
+        arrives via the standard `content_block_start` / `content_block_stop`
+        pair and carries no deltas.
+
     - `required Long Index`
 
     - `JsonElement Type "content_block_start"constant`
 
   - `class BetaRawContentBlockDeltaEvent:`
+
     - `required BetaRawContentBlockDelta Delta`
+
       - `class BetaTextDelta:`
+
         - `required string Text`
 
         - `JsonElement Type "text_delta"constant`
 
       - `class BetaInputJsonDelta:`
+
         - `required string PartialJson`
 
         - `JsonElement Type "input_json_delta"constant`
 
       - `class BetaCitationsDelta:`
+
         - `required Citation Citation`
+
           - `class BetaCitationCharLocation:`
 
           - `class BetaCitationPageLocation:`
@@ -15324,6 +19062,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "citations_delta"constant`
 
       - `class BetaThinkingDelta:`
+
         - `required Long? EstimatedTokens`
 
           Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -15333,11 +19072,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "thinking_delta"constant`
 
       - `class BetaSignatureDelta:`
+
         - `required string Signature`
 
         - `JsonElement Type "signature_delta"constant`
 
       - `class BetaCompactionContentBlockDelta:`
+
         - `required string? Content`
 
         - `required string? EncryptedContent`
@@ -15351,6 +19092,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "content_block_delta"constant`
 
   - `class BetaRawContentBlockStopEvent:`
+
     - `required Long Index`
 
     - `JsonElement Type "content_block_stop"constant`
@@ -15358,6 +19100,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Redacted Thinking Block
 
 - `class BetaRedactedThinkingBlock:`
+
   - `required string Data`
 
   - `JsonElement Type "redacted_thinking"constant`
@@ -15365,6 +19108,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Redacted Thinking Block Param
 
 - `class BetaRedactedThinkingBlockParam:`
+
   - `required string Data`
 
   - `JsonElement Type "redacted_thinking"constant`
@@ -15374,14 +19118,18 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaRefusalStopDetails:`
 
   Structured information about a refusal.
+
   - `required Category? Category`
 
     The policy category that triggered the refusal.
 
     `null` when the refusal doesn't map to a named category.
+
     - `"cyber"Cyber`
 
     - `"bio"Bio`
+
+    - `"reasoning_extraction"ReasoningExtraction`
 
   - `required string? Explanation`
 
@@ -15389,13 +19137,65 @@ Console.WriteLine(betaMessageTokensCount);
 
     This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
+  - `required string? FallbackCreditToken`
+
+    Opaque code that refunds the cache-miss cost when retrying this refused
+    request on the fallback model. Pass it as `fallback_credit_token` on the
+    retry request. Expires 5 minutes after the refusal.
+
+    The retry is sent either with the same request body (`system`, `messages`,
+    `tools`, and other render-shaping fields), or with the same body plus one
+    appended `assistant` message whose content is the partial text (with any
+    trailing whitespace stripped from the final text block) and paired
+    server-tool blocks from this refusal — which also authorizes that
+    appended turn as an assistant-prefill continuation on models that otherwise
+    disallow prefill. A token minted mid-server-tool-loop whose partial content
+    was continuable may only be redeemed the second way — if a same-body retry
+    is rejected with a 400 saying the token must be redeemed by continuing the
+    partial response, retry the second way instead. Either way: same workspace,
+    same platform; a mismatch is a 400. Resending a token for an already-warm
+    prefix is permitted but yields no additional credit.
+
+    `null` when the refused model isn't eligible for a fallback credit.
+
+  - `required Boolean? FallbackHasPrefillClaim`
+
+    Whether the accompanying `fallback_credit_token` may be redeemed with the
+    appended-assistant retry form. Only set when `fallback_credit_token` is
+    present.
+
+    `true`: retry by resending the same request body plus one appended
+    `assistant` message whose content is this response's `content` with any
+    trailing whitespace stripped from the final text block and unpaired
+    `tool_use` blocks omitted (the same appended-turn shape described on
+    `fallback_credit_token`), with the token attached. `false`: retry by
+    resending the original request body unchanged, with the token attached —
+    the appended-assistant form is not available for this refusal (no
+    continuable partial content, or the request uses `output_format` or a
+    `tool_choice` that forces tool use). One exception: when the request used
+    `output_format` or a forced `tool_choice` and the refusal arrived after
+    server tools (including MCP connector tools) had already executed, the
+    token may not be redeemable by either retry form; if the exact-body retry
+    is then rejected with a 400 saying the token must be redeemed by
+    continuing the partial response, discard the token and retry without it.
+
+    Advisory: if an appended-assistant retry is rejected with a 400 despite
+    `true`, fall back to resending the original request body with the token.
+
+  - `required string? RecommendedModel`
+
+    The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
   - `JsonElement Type "refusal"constant`
 
 ### Beta Request Document Block
 
 - `class BetaRequestDocumentBlock:`
+
   - `required Source Source`
+
     - `class BetaBase64PdfSource:`
+
       - `required string Data`
 
       - `JsonElement MediaType "application/pdf"constant`
@@ -15403,6 +19203,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "base64"constant`
 
     - `class BetaPlainTextSource:`
+
       - `required string Data`
 
       - `JsonElement MediaType "text/plain"constant`
@@ -15410,11 +19211,15 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "text"constant`
 
     - `class BetaContentBlockSource:`
+
       - `required Content Content`
+
         - `string`
 
         - `IReadOnlyList<BetaContentBlockSourceContent>`
+
           - `class BetaTextBlockParam:`
+
             - `required string Text`
 
             - `JsonElement Type "text"constant`
@@ -15422,6 +19227,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `BetaCacheControlEphemeral? CacheControl`
 
               Create a cache control breakpoint at this content block.
+
               - `JsonElement Type "ephemeral"constant`
 
               - `Ttl Ttl`
@@ -15429,16 +19235,20 @@ Console.WriteLine(betaMessageTokensCount);
                 The time-to-live for the cache control breakpoint.
 
                 This may be one the following values:
+
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
                 Defaults to `5m`.
+
                 - `"5m"Ttl5m`
 
                 - `"1h"Ttl1h`
 
             - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
               - `class BetaCitationCharLocationParam:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -15452,6 +19262,7 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "char_location"constant`
 
               - `class BetaCitationPageLocationParam:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -15465,6 +19276,7 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "page_location"constant`
 
               - `class BetaCitationContentBlockLocationParam:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -15488,6 +19300,7 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "content_block_location"constant`
 
               - `class BetaCitationWebSearchResultLocationParam:`
+
                 - `required string CitedText`
 
                 - `required string EncryptedIndex`
@@ -15499,6 +19312,7 @@ Console.WriteLine(betaMessageTokensCount);
                 - `required string Url`
 
               - `class BetaCitationSearchResultLocationParam:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -15528,11 +19342,15 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "search_result_location"constant`
 
           - `class BetaImageBlockParam:`
+
             - `required Source Source`
+
               - `class BetaBase64ImageSource:`
+
                 - `required string Data`
 
                 - `required MediaType MediaType`
+
                   - `"image/jpeg"ImageJpeg`
 
                   - `"image/png"ImagePng`
@@ -15544,11 +19362,13 @@ Console.WriteLine(betaMessageTokensCount);
                 - `JsonElement Type "base64"constant`
 
               - `class BetaUrlImageSource:`
+
                 - `JsonElement Type "url"constant`
 
                 - `required string Url`
 
               - `class BetaFileImageSource:`
+
                 - `required string FileID`
 
                 - `JsonElement Type "file"constant`
@@ -15562,11 +19382,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "content"constant`
 
     - `class BetaUrlPdfSource:`
+
       - `JsonElement Type "url"constant`
 
       - `required string Url`
 
     - `class BetaFileDocumentSource:`
+
       - `required string FileID`
 
       - `JsonElement Type "file"constant`
@@ -15578,6 +19400,7 @@ Console.WriteLine(betaMessageTokensCount);
     Create a cache control breakpoint at this content block.
 
   - `BetaCitationsConfigParam? Citations`
+
     - `Boolean Enabled`
 
   - `string? Context`
@@ -15587,6 +19410,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Request MCP Server Tool Configuration
 
 - `class BetaRequestMcpServerToolConfiguration:`
+
   - `IReadOnlyList<string>? AllowedTools`
 
   - `Boolean? Enabled`
@@ -15594,6 +19418,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Request MCP Server URL Definition
 
 - `class BetaRequestMcpServerUrlDefinition:`
+
   - `required string Name`
 
   - `JsonElement Type "url"constant`
@@ -15603,6 +19428,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `string? AuthorizationToken`
 
   - `BetaRequestMcpServerToolConfiguration? ToolConfiguration`
+
     - `IReadOnlyList<string>? AllowedTools`
 
     - `Boolean? Enabled`
@@ -15610,6 +19436,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Request MCP Tool Result Block Param
 
 - `class BetaRequestMcpToolResultBlockParam:`
+
   - `required string ToolUseID`
 
   - `JsonElement Type "mcp_tool_result"constant`
@@ -15617,6 +19444,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -15624,18 +19452,22 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
 
   - `Content Content`
+
     - `string`
 
     - `IReadOnlyList<BetaTextBlockParam>`
+
       - `required string Text`
 
       - `JsonElement Type "text"constant`
@@ -15645,7 +19477,9 @@ Console.WriteLine(betaMessageTokensCount);
         Create a cache control breakpoint at this content block.
 
       - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
         - `class BetaCitationCharLocationParam:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -15659,6 +19493,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "char_location"constant`
 
         - `class BetaCitationPageLocationParam:`
+
           - `required string CitedText`
 
           - `required Long DocumentIndex`
@@ -15672,6 +19507,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "page_location"constant`
 
         - `class BetaCitationContentBlockLocationParam:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -15695,6 +19531,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `JsonElement Type "content_block_location"constant`
 
         - `class BetaCitationWebSearchResultLocationParam:`
+
           - `required string CitedText`
 
           - `required string EncryptedIndex`
@@ -15706,6 +19543,7 @@ Console.WriteLine(betaMessageTokensCount);
           - `required string Url`
 
         - `class BetaCitationSearchResultLocationParam:`
+
           - `required string CitedText`
 
             The full text of the cited block range, concatenated.
@@ -15739,7 +19577,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Search Result Block Param
 
 - `class BetaSearchResultBlockParam:`
+
   - `required IReadOnlyList<BetaTextBlockParam> Content`
+
     - `required string Text`
 
     - `JsonElement Type "text"constant`
@@ -15747,6 +19587,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -15754,16 +19595,20 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
 
     - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
       - `class BetaCitationCharLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -15777,6 +19622,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "char_location"constant`
 
       - `class BetaCitationPageLocationParam:`
+
         - `required string CitedText`
 
         - `required Long DocumentIndex`
@@ -15790,6 +19636,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "page_location"constant`
 
       - `class BetaCitationContentBlockLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -15813,6 +19660,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content_block_location"constant`
 
       - `class BetaCitationWebSearchResultLocationParam:`
+
         - `required string CitedText`
 
         - `required string EncryptedIndex`
@@ -15824,6 +19672,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `required string Url`
 
       - `class BetaCitationSearchResultLocationParam:`
+
         - `required string CitedText`
 
           The full text of the cited block range, concatenated.
@@ -15863,6 +19712,7 @@ Console.WriteLine(betaMessageTokensCount);
     Create a cache control breakpoint at this content block.
 
   - `BetaCitationsConfigParam Citations`
+
     - `Boolean Enabled`
 
 ### Beta Server Tool Caller
@@ -15870,6 +19720,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaServerToolCaller:`
 
   Tool invocation generated by a server-side tool.
+
   - `required string ToolID`
 
   - `JsonElement Type "code_execution_20250825"constant`
@@ -15877,6 +19728,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Server Tool Caller 20260120
 
 - `class BetaServerToolCaller20260120:`
+
   - `required string ToolID`
 
   - `JsonElement Type "code_execution_20260120"constant`
@@ -15884,6 +19736,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Server Tool Usage
 
 - `class BetaServerToolUsage:`
+
   - `required Long WebFetchRequests`
 
     The number of web fetch tool requests.
@@ -15895,11 +19748,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Server Tool Use Block
 
 - `class BetaServerToolUseBlock:`
+
   - `required string ID`
 
   - `required IReadOnlyDictionary<string, JsonElement> Input`
 
   - `required Name Name`
+
     - `"advisor"Advisor`
 
     - `"web_search"WebSearch`
@@ -15921,19 +19776,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -15941,11 +19800,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Server Tool Use Block Param
 
 - `class BetaServerToolUseBlockParam:`
+
   - `required string ID`
 
   - `required IReadOnlyDictionary<string, JsonElement> Input`
 
   - `required Name Name`
+
     - `"advisor"Advisor`
 
     - `"web_search"WebSearch`
@@ -15967,6 +19828,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -15974,10 +19836,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -15985,19 +19849,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -16005,6 +19873,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Signature Delta
 
 - `class BetaSignatureDelta:`
+
   - `required string Signature`
 
   - `JsonElement Type "signature_delta"constant`
@@ -16014,6 +19883,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaSkill:`
 
   A skill that was loaded in a container (response model).
+
   - `required string SkillID`
 
     Skill ID
@@ -16021,6 +19891,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required Type Type`
 
     Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
     - `"anthropic"Anthropic`
 
     - `"custom"Custom`
@@ -16034,6 +19905,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaSkillParams:`
 
   Specification for a skill to be loaded in a container (request model).
+
   - `required string SkillID`
 
     Skill ID
@@ -16041,6 +19913,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required Type Type`
 
     Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
     - `"anthropic"Anthropic`
 
     - `"custom"Custom`
@@ -16052,6 +19925,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Stop Reason
 
 - `enum BetaStopReason:`
+
   - `"end_turn"EndTurn`
 
   - `"max_tokens"MaxTokens`
@@ -16071,12 +19945,15 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Block
 
 - `class BetaTextBlock:`
+
   - `required IReadOnlyList<BetaTextCitation>? Citations`
 
     Citations supporting the text block.
 
     The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
     - `class BetaCitationCharLocation:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -16092,6 +19969,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "char_location"constant`
 
     - `class BetaCitationPageLocation:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -16107,6 +19985,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "page_location"constant`
 
     - `class BetaCitationContentBlockLocation:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -16132,6 +20011,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "content_block_location"constant`
 
     - `class BetaCitationsWebSearchResultLocation:`
+
       - `required string CitedText`
 
       - `required string EncryptedIndex`
@@ -16143,6 +20023,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required string Url`
 
     - `class BetaCitationSearchResultLocation:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -16178,6 +20059,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Block Param
 
 - `class BetaTextBlockParam:`
+
   - `required string Text`
 
   - `JsonElement Type "text"constant`
@@ -16185,6 +20067,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -16192,16 +20075,20 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
 
   - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
     - `class BetaCitationCharLocationParam:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -16215,6 +20102,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "char_location"constant`
 
     - `class BetaCitationPageLocationParam:`
+
       - `required string CitedText`
 
       - `required Long DocumentIndex`
@@ -16228,6 +20116,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "page_location"constant`
 
     - `class BetaCitationContentBlockLocationParam:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -16251,6 +20140,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "content_block_location"constant`
 
     - `class BetaCitationWebSearchResultLocationParam:`
+
       - `required string CitedText`
 
       - `required string EncryptedIndex`
@@ -16262,6 +20152,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `required string Url`
 
     - `class BetaCitationSearchResultLocationParam:`
+
       - `required string CitedText`
 
         The full text of the cited block range, concatenated.
@@ -16293,7 +20184,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Citation
 
 - `class BetaTextCitation: A class that can be one of several variants.union`
+
   - `class BetaCitationCharLocation:`
+
     - `required string CitedText`
 
     - `required Long DocumentIndex`
@@ -16309,6 +20202,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "char_location"constant`
 
   - `class BetaCitationPageLocation:`
+
     - `required string CitedText`
 
     - `required Long DocumentIndex`
@@ -16324,6 +20218,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "page_location"constant`
 
   - `class BetaCitationContentBlockLocation:`
+
     - `required string CitedText`
 
       The full text of the cited block range, concatenated.
@@ -16349,6 +20244,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "content_block_location"constant`
 
   - `class BetaCitationsWebSearchResultLocation:`
+
     - `required string CitedText`
 
     - `required string EncryptedIndex`
@@ -16360,6 +20256,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required string Url`
 
   - `class BetaCitationSearchResultLocation:`
+
     - `required string CitedText`
 
       The full text of the cited block range, concatenated.
@@ -16391,7 +20288,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Citation Param
 
 - `class BetaTextCitationParam: A class that can be one of several variants.union`
+
   - `class BetaCitationCharLocationParam:`
+
     - `required string CitedText`
 
     - `required Long DocumentIndex`
@@ -16405,6 +20304,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "char_location"constant`
 
   - `class BetaCitationPageLocationParam:`
+
     - `required string CitedText`
 
     - `required Long DocumentIndex`
@@ -16418,6 +20318,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "page_location"constant`
 
   - `class BetaCitationContentBlockLocationParam:`
+
     - `required string CitedText`
 
       The full text of the cited block range, concatenated.
@@ -16441,6 +20342,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "content_block_location"constant`
 
   - `class BetaCitationWebSearchResultLocationParam:`
+
     - `required string CitedText`
 
     - `required string EncryptedIndex`
@@ -16452,6 +20354,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `required string Url`
 
   - `class BetaCitationSearchResultLocationParam:`
+
     - `required string CitedText`
 
       The full text of the cited block range, concatenated.
@@ -16483,6 +20386,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Delta
 
 - `class BetaTextDelta:`
+
   - `required string Text`
 
   - `JsonElement Type "text_delta"constant`
@@ -16490,6 +20394,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Create Result Block
 
 - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
   - `required Boolean IsFileUpdate`
 
   - `JsonElement Type "text_editor_code_execution_create_result"constant`
@@ -16497,6 +20402,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Create Result Block Param
 
 - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
   - `required Boolean IsFileUpdate`
 
   - `JsonElement Type "text_editor_code_execution_create_result"constant`
@@ -16504,6 +20410,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Str Replace Result Block
 
 - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
   - `required IReadOnlyList<string>? Lines`
 
   - `required Long? NewLines`
@@ -16519,6 +20426,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Str Replace Result Block Param
 
 - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
   - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
   - `IReadOnlyList<string>? Lines`
@@ -16534,9 +20442,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Block
 
 - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
   - `required Content Content`
+
     - `class BetaTextEditorCodeExecutionToolResultError:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -16552,9 +20464,11 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
     - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
       - `required string Content`
 
       - `required FileType FileType`
+
         - `"text"Text`
 
         - `"image"Image`
@@ -16570,11 +20484,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
     - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
       - `required Boolean IsFileUpdate`
 
       - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
       - `required IReadOnlyList<string>? Lines`
 
       - `required Long? NewLines`
@@ -16594,9 +20510,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Block Param
 
 - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
   - `required Content Content`
+
     - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -16612,9 +20532,11 @@ Console.WriteLine(betaMessageTokensCount);
       - `string? ErrorMessage`
 
     - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
       - `required string Content`
 
       - `required FileType FileType`
+
         - `"text"Text`
 
         - `"image"Image`
@@ -16630,11 +20552,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `Long? TotalLines`
 
     - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
       - `required Boolean IsFileUpdate`
 
       - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
       - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
       - `IReadOnlyList<string>? Lines`
@@ -16654,6 +20578,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -16661,10 +20586,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -16672,7 +20599,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Error
 
 - `class BetaTextEditorCodeExecutionToolResultError:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -16690,7 +20619,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Error Param
 
 - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -16708,9 +20639,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution View Result Block
 
 - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
   - `required string Content`
 
   - `required FileType FileType`
+
     - `"text"Text`
 
     - `"image"Image`
@@ -16728,9 +20661,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Text Editor Code Execution View Result Block Param
 
 - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
   - `required string Content`
 
   - `required FileType FileType`
+
     - `"text"Text`
 
     - `"image"Image`
@@ -16748,6 +20683,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Block
 
 - `class BetaThinkingBlock:`
+
   - `required string Signature`
 
   - `required string Thinking`
@@ -16757,6 +20693,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Block Param
 
 - `class BetaThinkingBlockParam:`
+
   - `required string Signature`
 
   - `required string Thinking`
@@ -16766,11 +20703,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Config Adaptive
 
 - `class BetaThinkingConfigAdaptive:`
+
   - `JsonElement Type "adaptive"constant`
 
   - `Display? Display`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
     - `"summarized"Summarized`
 
     - `"omitted"Omitted`
@@ -16778,11 +20717,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Config Disabled
 
 - `class BetaThinkingConfigDisabled:`
+
   - `JsonElement Type "disabled"constant`
 
 ### Beta Thinking Config Enabled
 
 - `class BetaThinkingConfigEnabled:`
+
   - `required Long BudgetTokens`
 
     Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -16796,6 +20737,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `Display? Display`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
     - `"summarized"Summarized`
 
     - `"omitted"Omitted`
@@ -16809,7 +20751,9 @@ Console.WriteLine(betaMessageTokensCount);
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
   See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
   - `class BetaThinkingConfigEnabled:`
+
     - `required Long BudgetTokens`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -16823,19 +20767,23 @@ Console.WriteLine(betaMessageTokensCount);
     - `Display? Display`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
       - `"summarized"Summarized`
 
       - `"omitted"Omitted`
 
   - `class BetaThinkingConfigDisabled:`
+
     - `JsonElement Type "disabled"constant`
 
   - `class BetaThinkingConfigAdaptive:`
+
     - `JsonElement Type "adaptive"constant`
 
     - `Display? Display`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
       - `"summarized"Summarized`
 
       - `"omitted"Omitted`
@@ -16843,6 +20791,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Delta
 
 - `class BetaThinkingDelta:`
+
   - `required Long? EstimatedTokens`
 
     Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -16854,6 +20803,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Thinking Turns
 
 - `class BetaThinkingTurns:`
+
   - `JsonElement Type "thinking_turns"constant`
 
   - `required Long Value`
@@ -16863,6 +20813,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaTokenTaskBudget:`
 
   User-configurable total token budget across contexts.
+
   - `required Long Total`
 
     Total token budget across all contexts in the session.
@@ -16878,11 +20829,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool
 
 - `class BetaTool:`
+
   - `required InputSchema InputSchema`
 
     [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
     This defines the shape of the `input` that your tool accepts and that the model will produce.
+
     - `JsonElement Type "object"constant`
 
     - `IReadOnlyDictionary<string, JsonElement>? Properties`
@@ -16896,6 +20849,7 @@ Console.WriteLine(betaMessageTokensCount);
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -16905,6 +20859,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -16912,10 +20867,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -16941,11 +20898,13 @@ Console.WriteLine(betaMessageTokensCount);
     When true, guarantees schema validation on tool names and inputs
 
   - `Type? Type`
+
     - `"custom"Custom`
 
 ### Beta Tool Bash 20241022
 
 - `class BetaToolBash20241022:`
+
   - `JsonElement Name "bash"constant`
 
     Name of the tool.
@@ -16955,6 +20914,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "bash_20241022"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -16964,6 +20924,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -16971,10 +20932,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -16992,6 +20955,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Bash 20250124
 
 - `class BetaToolBash20250124:`
+
   - `JsonElement Name "bash"constant`
 
     Name of the tool.
@@ -17001,6 +20965,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "bash_20250124"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17010,6 +20975,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17017,10 +20983,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17040,9 +21008,11 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolChoice: A class that can be one of several variants.union`
 
   How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
   - `class BetaToolChoiceAuto:`
 
     The model will automatically decide whether to use tools.
+
     - `JsonElement Type "auto"constant`
 
     - `Boolean DisableParallelToolUse`
@@ -17054,6 +21024,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaToolChoiceAny:`
 
     The model will use any available tools.
+
     - `JsonElement Type "any"constant`
 
     - `Boolean DisableParallelToolUse`
@@ -17065,6 +21036,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaToolChoiceTool:`
 
     The model will use the specified tool with `tool_choice.name`.
+
     - `required string Name`
 
       The name of the tool to use.
@@ -17080,6 +21052,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaToolChoiceNone:`
 
     The model will not be allowed to use tools.
+
     - `JsonElement Type "none"constant`
 
 ### Beta Tool Choice Any
@@ -17087,6 +21060,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolChoiceAny:`
 
   The model will use any available tools.
+
   - `JsonElement Type "any"constant`
 
   - `Boolean DisableParallelToolUse`
@@ -17100,6 +21074,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolChoiceAuto:`
 
   The model will automatically decide whether to use tools.
+
   - `JsonElement Type "auto"constant`
 
   - `Boolean DisableParallelToolUse`
@@ -17113,6 +21088,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolChoiceNone:`
 
   The model will not be allowed to use tools.
+
   - `JsonElement Type "none"constant`
 
 ### Beta Tool Choice Tool
@@ -17120,6 +21096,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolChoiceTool:`
 
   The model will use the specified tool with `tool_choice.name`.
+
   - `required string Name`
 
     The name of the tool to use.
@@ -17135,6 +21112,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Computer Use 20241022
 
 - `class BetaToolComputerUse20241022:`
+
   - `required Long DisplayHeightPx`
 
     The height of the display in pixels.
@@ -17152,6 +21130,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "computer_20241022"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17161,6 +21140,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17168,10 +21148,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17193,6 +21175,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Computer Use 20250124
 
 - `class BetaToolComputerUse20250124:`
+
   - `required Long DisplayHeightPx`
 
     The height of the display in pixels.
@@ -17210,6 +21193,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "computer_20250124"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17219,6 +21203,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17226,10 +21211,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17251,6 +21238,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Computer Use 20251124
 
 - `class BetaToolComputerUse20251124:`
+
   - `required Long DisplayHeightPx`
 
     The height of the display in pixels.
@@ -17268,6 +21256,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "computer_20251124"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17277,6 +21266,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17284,10 +21274,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17313,6 +21305,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Reference Block
 
 - `class BetaToolReferenceBlock:`
+
   - `required string ToolName`
 
   - `JsonElement Type "tool_reference"constant`
@@ -17322,6 +21315,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolReferenceBlockParam:`
 
   Tool reference block that can be included in tool_result content.
+
   - `required string ToolName`
 
   - `JsonElement Type "tool_reference"constant`
@@ -17329,6 +21323,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17336,10 +21331,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17347,6 +21344,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Result Block Param
 
 - `class BetaToolResultBlockParam:`
+
   - `required string ToolUseID`
 
   - `JsonElement Type "tool_result"constant`
@@ -17354,6 +21352,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17361,19 +21360,24 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
 
   - `Content Content`
+
     - `string`
 
     - `IReadOnlyList<Block>`
+
       - `class BetaTextBlockParam:`
+
         - `required string Text`
 
         - `JsonElement Type "text"constant`
@@ -17383,7 +21387,9 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
           - `class BetaCitationCharLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -17397,6 +21403,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "char_location"constant`
 
           - `class BetaCitationPageLocationParam:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -17410,6 +21417,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "page_location"constant`
 
           - `class BetaCitationContentBlockLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -17433,6 +21441,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content_block_location"constant`
 
           - `class BetaCitationWebSearchResultLocationParam:`
+
             - `required string CitedText`
 
             - `required string EncryptedIndex`
@@ -17444,6 +21453,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `required string Url`
 
           - `class BetaCitationSearchResultLocationParam:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -17473,11 +21483,15 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "search_result_location"constant`
 
       - `class BetaImageBlockParam:`
+
         - `required Source Source`
+
           - `class BetaBase64ImageSource:`
+
             - `required string Data`
 
             - `required MediaType MediaType`
+
               - `"image/jpeg"ImageJpeg`
 
               - `"image/png"ImagePng`
@@ -17489,11 +21503,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaUrlImageSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileImageSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -17505,7 +21521,9 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
       - `class BetaSearchResultBlockParam:`
+
         - `required IReadOnlyList<BetaTextBlockParam> Content`
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -17527,11 +21545,15 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `BetaCitationsConfigParam Citations`
+
           - `Boolean Enabled`
 
       - `class BetaRequestDocumentBlock:`
+
         - `required Source Source`
+
           - `class BetaBase64PdfSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "application/pdf"constant`
@@ -17539,6 +21561,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaPlainTextSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "text/plain"constant`
@@ -17546,10 +21569,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "text"constant`
 
           - `class BetaContentBlockSource:`
+
             - `required Content Content`
+
               - `string`
 
               - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                 - `class BetaTextBlockParam:`
 
                 - `class BetaImageBlockParam:`
@@ -17557,11 +21583,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content"constant`
 
           - `class BetaUrlPdfSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileDocumentSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -17581,6 +21609,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `class BetaToolReferenceBlockParam:`
 
         Tool reference block that can be included in tool_result content.
+
         - `required string ToolName`
 
         - `JsonElement Type "tool_reference"constant`
@@ -17594,6 +21623,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Bm25 20251119
 
 - `class BetaToolSearchToolBm25_20251119:`
+
   - `JsonElement Name "tool_search_tool_bm25"constant`
 
     Name of the tool.
@@ -17601,11 +21631,13 @@ Console.WriteLine(betaMessageTokensCount);
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `required Type Type`
+
     - `"tool_search_tool_bm25_20251119"ToolSearchToolBm25_20251119`
 
     - `"tool_search_tool_bm25"ToolSearchToolBm25`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17615,6 +21647,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17622,10 +21655,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17641,6 +21676,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Regex 20251119
 
 - `class BetaToolSearchToolRegex20251119:`
+
   - `JsonElement Name "tool_search_tool_regex"constant`
 
     Name of the tool.
@@ -17648,11 +21684,13 @@ Console.WriteLine(betaMessageTokensCount);
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `required Type Type`
+
     - `"tool_search_tool_regex_20251119"ToolSearchToolRegex20251119`
 
     - `"tool_search_tool_regex"ToolSearchToolRegex`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17662,6 +21700,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17669,10 +21708,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17688,9 +21729,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Result Block
 
 - `class BetaToolSearchToolResultBlock:`
+
   - `required Content Content`
+
     - `class BetaToolSearchToolResultError:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -17704,7 +21749,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "tool_search_tool_result_error"constant`
 
     - `class BetaToolSearchToolSearchResultBlock:`
+
       - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
         - `required string ToolName`
 
         - `JsonElement Type "tool_reference"constant`
@@ -17718,9 +21765,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Result Block Param
 
 - `class BetaToolSearchToolResultBlockParam:`
+
   - `required Content Content`
+
     - `class BetaToolSearchToolResultErrorParam:`
+
       - `required ErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -17731,8 +21782,12 @@ Console.WriteLine(betaMessageTokensCount);
 
       - `JsonElement Type "tool_search_tool_result_error"constant`
 
+      - `string? ErrorMessage`
+
     - `class BetaToolSearchToolSearchResultBlockParam:`
+
       - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
         - `required string ToolName`
 
         - `JsonElement Type "tool_reference"constant`
@@ -17740,6 +21795,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `BetaCacheControlEphemeral? CacheControl`
 
           Create a cache control breakpoint at this content block.
+
           - `JsonElement Type "ephemeral"constant`
 
           - `Ttl Ttl`
@@ -17747,10 +21803,12 @@ Console.WriteLine(betaMessageTokensCount);
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"Ttl5m`
 
             - `"1h"Ttl1h`
@@ -17768,7 +21826,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Result Error
 
 - `class BetaToolSearchToolResultError:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -17784,7 +21844,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Result Error Param
 
 - `class BetaToolSearchToolResultErrorParam:`
+
   - `required ErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -17795,10 +21857,14 @@ Console.WriteLine(betaMessageTokensCount);
 
   - `JsonElement Type "tool_search_tool_result_error"constant`
 
+  - `string? ErrorMessage`
+
 ### Beta Tool Search Tool Search Result Block
 
 - `class BetaToolSearchToolSearchResultBlock:`
+
   - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
     - `required string ToolName`
 
     - `JsonElement Type "tool_reference"constant`
@@ -17808,7 +21874,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Search Tool Search Result Block Param
 
 - `class BetaToolSearchToolSearchResultBlockParam:`
+
   - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
     - `required string ToolName`
 
     - `JsonElement Type "tool_reference"constant`
@@ -17816,6 +21884,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -17823,10 +21892,12 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
@@ -17836,6 +21907,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Text Editor 20241022
 
 - `class BetaToolTextEditor20241022:`
+
   - `JsonElement Name "str_replace_editor"constant`
 
     Name of the tool.
@@ -17845,6 +21917,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "text_editor_20241022"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17854,6 +21927,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17861,10 +21935,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17882,6 +21958,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Text Editor 20250124
 
 - `class BetaToolTextEditor20250124:`
+
   - `JsonElement Name "str_replace_editor"constant`
 
     Name of the tool.
@@ -17891,6 +21968,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "text_editor_20250124"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17900,6 +21978,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17907,10 +21986,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17928,6 +22009,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Text Editor 20250429
 
 - `class BetaToolTextEditor20250429:`
+
   - `JsonElement Name "str_replace_based_edit_tool"constant`
 
     Name of the tool.
@@ -17937,6 +22019,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "text_editor_20250429"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17946,6 +22029,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17953,10 +22037,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -17974,6 +22060,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Text Editor 20250728
 
 - `class BetaToolTextEditor20250728:`
+
   - `JsonElement Name "str_replace_based_edit_tool"constant`
 
     Name of the tool.
@@ -17983,6 +22070,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "text_editor_20250728"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -17992,6 +22080,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -17999,10 +22088,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -18026,12 +22117,15 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaToolUnion: A class that can be one of several variants.union`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
   - `class BetaTool:`
+
     - `required InputSchema InputSchema`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
       This defines the shape of the `input` that your tool accepts and that the model will produce.
+
       - `JsonElement Type "object"constant`
 
       - `IReadOnlyDictionary<string, JsonElement>? Properties`
@@ -18045,6 +22139,7 @@ Console.WriteLine(betaMessageTokensCount);
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18054,6 +22149,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCacheControlEphemeral? CacheControl`
 
       Create a cache control breakpoint at this content block.
+
       - `JsonElement Type "ephemeral"constant`
 
       - `Ttl Ttl`
@@ -18061,10 +22157,12 @@ Console.WriteLine(betaMessageTokensCount);
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"Ttl5m`
 
         - `"1h"Ttl1h`
@@ -18090,9 +22188,11 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
     - `Type? Type`
+
       - `"custom"Custom`
 
   - `class BetaToolBash20241022:`
+
     - `JsonElement Name "bash"constant`
 
       Name of the tool.
@@ -18102,6 +22202,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "bash_20241022"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18123,6 +22224,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolBash20250124:`
+
     - `JsonElement Name "bash"constant`
 
       Name of the tool.
@@ -18132,6 +22234,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "bash_20250124"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18153,6 +22256,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaCodeExecutionTool20250522:`
+
     - `JsonElement Name "code_execution"constant`
 
       Name of the tool.
@@ -18162,6 +22266,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_20250522"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18181,6 +22286,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaCodeExecutionTool20250825:`
+
     - `JsonElement Name "code_execution"constant`
 
       Name of the tool.
@@ -18190,6 +22296,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_20250825"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18211,6 +22318,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaCodeExecutionTool20260120:`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
     - `JsonElement Name "code_execution"constant`
 
       Name of the tool.
@@ -18220,6 +22328,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "code_execution_20260120"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18239,6 +22348,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolComputerUse20241022:`
+
     - `required Long DisplayHeightPx`
 
       The height of the display in pixels.
@@ -18256,6 +22366,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "computer_20241022"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18281,6 +22392,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaMemoryTool20250818:`
+
     - `JsonElement Name "memory"constant`
 
       Name of the tool.
@@ -18290,6 +22402,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "memory_20250818"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18311,6 +22424,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolComputerUse20250124:`
+
     - `required Long DisplayHeightPx`
 
       The height of the display in pixels.
@@ -18328,6 +22442,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "computer_20250124"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18353,6 +22468,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolTextEditor20241022:`
+
     - `JsonElement Name "str_replace_editor"constant`
 
       Name of the tool.
@@ -18362,6 +22478,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text_editor_20241022"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18383,6 +22500,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolComputerUse20251124:`
+
     - `required Long DisplayHeightPx`
 
       The height of the display in pixels.
@@ -18400,6 +22518,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "computer_20251124"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18429,6 +22548,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolTextEditor20250124:`
+
     - `JsonElement Name "str_replace_editor"constant`
 
       Name of the tool.
@@ -18438,6 +22558,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text_editor_20250124"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18459,6 +22580,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolTextEditor20250429:`
+
     - `JsonElement Name "str_replace_based_edit_tool"constant`
 
       Name of the tool.
@@ -18468,6 +22590,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text_editor_20250429"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18489,6 +22612,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolTextEditor20250728:`
+
     - `JsonElement Name "str_replace_based_edit_tool"constant`
 
       Name of the tool.
@@ -18498,6 +22622,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "text_editor_20250728"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18523,6 +22648,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaWebSearchTool20250305:`
+
     - `JsonElement Name "web_search"constant`
 
       Name of the tool.
@@ -18532,6 +22658,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_search_20250305"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18565,6 +22692,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaUserLocation? UserLocation`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `JsonElement Type "approximate"constant`
 
       - `string? City`
@@ -18584,6 +22712,7 @@ Console.WriteLine(betaMessageTokensCount);
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `class BetaWebFetchTool20250910:`
+
     - `JsonElement Name "web_fetch"constant`
 
       Name of the tool.
@@ -18593,6 +22722,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_fetch_20250910"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18614,6 +22744,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaCitationsConfigParam? Citations`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `Boolean Enabled`
 
     - `Boolean DeferLoading`
@@ -18633,6 +22764,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaWebSearchTool20260209:`
+
     - `JsonElement Name "web_search"constant`
 
       Name of the tool.
@@ -18642,6 +22774,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_search_20260209"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18677,6 +22810,7 @@ Console.WriteLine(betaMessageTokensCount);
       Parameters for the user's location. Used to provide more relevant search results.
 
   - `class BetaWebFetchTool20260209:`
+
     - `JsonElement Name "web_fetch"constant`
 
       Name of the tool.
@@ -18686,6 +22820,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_fetch_20260209"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18727,6 +22862,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `class BetaWebFetchTool20260309:`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
+
     - `JsonElement Name "web_fetch"constant`
 
       Name of the tool.
@@ -18736,6 +22872,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_fetch_20260309"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18779,11 +22916,21 @@ Console.WriteLine(betaMessageTokensCount);
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
   - `class BetaAdvisorTool20260301:`
+
     - `required Model Model`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5"ClaudeFable5`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"ClaudeMythos5`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"ClaudeOpus4_8`
 
         Frontier intelligence for long-running agents and coding
@@ -18865,6 +23012,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "advisor_20260301"constant`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18883,6 +23031,10 @@ Console.WriteLine(betaMessageTokensCount);
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+    - `Long? MaxTokens`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
     - `Long? MaxUses`
 
       Maximum number of times the tool can be used in the API request.
@@ -18892,6 +23044,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolSearchToolBm25_20251119:`
+
     - `JsonElement Name "tool_search_tool_bm25"constant`
 
       Name of the tool.
@@ -18899,11 +23052,13 @@ Console.WriteLine(betaMessageTokensCount);
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `required Type Type`
+
       - `"tool_search_tool_bm25_20251119"ToolSearchToolBm25_20251119`
 
       - `"tool_search_tool_bm25"ToolSearchToolBm25`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18923,6 +23078,7 @@ Console.WriteLine(betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `class BetaToolSearchToolRegex20251119:`
+
     - `JsonElement Name "tool_search_tool_regex"constant`
 
       Name of the tool.
@@ -18930,11 +23086,13 @@ Console.WriteLine(betaMessageTokensCount);
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `required Type Type`
+
       - `"tool_search_tool_regex_20251119"ToolSearchToolRegex20251119`
 
       - `"tool_search_tool_regex"ToolSearchToolRegex`
 
     - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
       - `"direct"Direct`
 
       - `"code_execution_20250825"CodeExecution20250825`
@@ -18959,6 +23117,7 @@ Console.WriteLine(betaMessageTokensCount);
 
     Allows configuring enabled status and defer_loading for all tools
     from an MCP server, with optional per-tool overrides.
+
     - `required string McpServerName`
 
       Name of the MCP server to configure tools for
@@ -18972,6 +23131,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
 
       Configuration overrides for specific tools, keyed by tool name
+
       - `Boolean DeferLoading`
 
       - `Boolean Enabled`
@@ -18979,6 +23139,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `BetaMcpToolDefaultConfig DefaultConfig`
 
       Default configuration applied to all tools from this server
+
       - `Boolean DeferLoading`
 
       - `Boolean Enabled`
@@ -18986,6 +23147,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Use Block
 
 - `class BetaToolUseBlock:`
+
   - `required string ID`
 
   - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -18997,19 +23159,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -19017,6 +23183,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Use Block Param
 
 - `class BetaToolUseBlockParam:`
+
   - `required string ID`
 
   - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -19028,6 +23195,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -19035,10 +23203,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -19046,19 +23216,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -19066,6 +23240,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Uses Keep
 
 - `class BetaToolUsesKeep:`
+
   - `JsonElement Type "tool_uses"constant`
 
   - `required Long Value`
@@ -19073,6 +23248,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Tool Uses Trigger
 
 - `class BetaToolUsesTrigger:`
+
   - `JsonElement Type "tool_uses"constant`
 
   - `required Long Value`
@@ -19080,6 +23256,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta URL Image Source
 
 - `class BetaUrlImageSource:`
+
   - `JsonElement Type "url"constant`
 
   - `required string Url`
@@ -19087,6 +23264,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta URL PDF Source
 
 - `class BetaUrlPdfSource:`
+
   - `JsonElement Type "url"constant`
 
   - `required string Url`
@@ -19094,9 +23272,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Usage
 
 - `class BetaUsage:`
+
   - `required BetaCacheCreation? CacheCreation`
 
     Breakdown of cached tokens by TTL
+
     - `required Long Ephemeral1hInputTokens`
 
       The number of input tokens used to create the 1 hour cache entry.
@@ -19126,6 +23306,7 @@ Console.WriteLine(betaMessageTokensCount);
     Per-iteration token usage breakdown.
 
     Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
     - Calculate the true context window size from the last iteration
     - Understand token accumulation across server-side tool use loops
@@ -19133,60 +23314,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `class BetaMessageIterationUsage:`
 
       Token usage for a sampling iteration.
-      - `required BetaCacheCreation? CacheCreation`
 
-        Breakdown of cached tokens by TTL
-
-      - `required Long CacheCreationInputTokens`
-
-        The number of input tokens used to create the cache entry.
-
-      - `required Long CacheReadInputTokens`
-
-        The number of input tokens read from the cache.
-
-      - `required Long InputTokens`
-
-        The number of input tokens which were used.
-
-      - `required Long OutputTokens`
-
-        The number of output tokens which were used.
-
-      - `JsonElement Type "message"constant`
-
-        Usage for a sampling iteration
-
-    - `class BetaCompactionIterationUsage:`
-
-      Token usage for a compaction iteration.
-      - `required BetaCacheCreation? CacheCreation`
-
-        Breakdown of cached tokens by TTL
-
-      - `required Long CacheCreationInputTokens`
-
-        The number of input tokens used to create the cache entry.
-
-      - `required Long CacheReadInputTokens`
-
-        The number of input tokens read from the cache.
-
-      - `required Long InputTokens`
-
-        The number of input tokens which were used.
-
-      - `required Long OutputTokens`
-
-        The number of output tokens which were used.
-
-      - `JsonElement Type "compaction"constant`
-
-        Usage for a compaction iteration
-
-    - `class BetaAdvisorMessageIterationUsage:`
-
-      Token usage for an advisor sub-inference iteration.
       - `required BetaCacheCreation? CacheCreation`
 
         Breakdown of cached tokens by TTL
@@ -19208,6 +23336,15 @@ Console.WriteLine(betaMessageTokensCount);
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"ClaudeFable5`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"ClaudeMythos5`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"ClaudeOpus4_8`
 
           Frontier intelligence for long-running agents and coding
@@ -19284,15 +23421,116 @@ Console.WriteLine(betaMessageTokensCount);
 
         The number of output tokens which were used.
 
+      - `JsonElement Type "message"constant`
+
+        Usage for a sampling iteration
+
+    - `class BetaCompactionIterationUsage:`
+
+      Token usage for a compaction iteration.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
+      - `JsonElement Type "compaction"constant`
+
+        Usage for a compaction iteration
+
+    - `class BetaAdvisorMessageIterationUsage:`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
       - `JsonElement Type "advisor_message"constant`
 
         Usage for an advisor sub-inference iteration
+
+    - `class BetaFallbackMessageIterationUsage:`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      Produced in place of a `message` entry for whichever hop served the
+      response. A declined hop produces the existing `message` entry. Whether
+      a fallback model served the response is signalled by the presence of this
+      entry in `usage.iterations`.
+
+      - `required BetaCacheCreation? CacheCreation`
+
+        Breakdown of cached tokens by TTL
+
+      - `required Long CacheCreationInputTokens`
+
+        The number of input tokens used to create the cache entry.
+
+      - `required Long CacheReadInputTokens`
+
+        The number of input tokens read from the cache.
+
+      - `required Long InputTokens`
+
+        The number of input tokens which were used.
+
+      - `required Model Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `required Long OutputTokens`
+
+        The number of output tokens which were used.
+
+      - `JsonElement Type "fallback_message"constant`
+
+        Usage for the fallback-model attempt that served the response
 
   - `required Long OutputTokens`
 
     The number of output tokens which were used.
 
-  - `required OutputTokensDetails? OutputTokensDetails`
+  - `required BetaOutputTokensDetails? OutputTokensDetails`
 
     Breakdown of output tokens by category.
 
@@ -19300,6 +23538,7 @@ Console.WriteLine(betaMessageTokensCount);
     This object provides a read-only decomposition for observability — for example,
     how many of the billed output tokens were spent on internal reasoning that may
     have been summarized before being returned to you.
+
     - `required Long ThinkingTokens`
 
       Number of output tokens the model generated as internal reasoning, including
@@ -19314,6 +23553,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required BetaServerToolUsage? ServerToolUse`
 
     The number of server tool requests.
+
     - `required Long WebFetchRequests`
 
       The number of web fetch tool requests.
@@ -19325,6 +23565,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required ServiceTier? ServiceTier`
 
     If the request used the priority, standard, or batch tier.
+
     - `"standard"Standard`
 
     - `"priority"Priority`
@@ -19334,6 +23575,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `required Speed? Speed`
 
     The inference speed mode used for this request.
+
     - `"standard"Standard`
 
     - `"fast"Fast`
@@ -19341,6 +23583,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta User Location
 
 - `class BetaUserLocation:`
+
   - `JsonElement Type "approximate"constant`
 
   - `string? City`
@@ -19362,14 +23605,19 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Block
 
 - `class BetaWebFetchBlock:`
+
   - `required BetaDocumentBlock Content`
+
     - `required BetaCitationConfig? Citations`
 
       Citation configuration for the document
+
       - `required Boolean Enabled`
 
     - `required Source Source`
+
       - `class BetaBase64PdfSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "application/pdf"constant`
@@ -19377,6 +23625,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "base64"constant`
 
       - `class BetaPlainTextSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "text/plain"constant`
@@ -19402,9 +23651,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Block Param
 
 - `class BetaWebFetchBlockParam:`
+
   - `required BetaRequestDocumentBlock Content`
+
     - `required Source Source`
+
       - `class BetaBase64PdfSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "application/pdf"constant`
@@ -19412,6 +23665,7 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "base64"constant`
 
       - `class BetaPlainTextSource:`
+
         - `required string Data`
 
         - `JsonElement MediaType "text/plain"constant`
@@ -19419,11 +23673,15 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "text"constant`
 
       - `class BetaContentBlockSource:`
+
         - `required Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaContentBlockSourceContent>`
+
             - `class BetaTextBlockParam:`
+
               - `required string Text`
 
               - `JsonElement Type "text"constant`
@@ -19431,6 +23689,7 @@ Console.WriteLine(betaMessageTokensCount);
               - `BetaCacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
+
                 - `JsonElement Type "ephemeral"constant`
 
                 - `Ttl Ttl`
@@ -19438,16 +23697,20 @@ Console.WriteLine(betaMessageTokensCount);
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
+
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
                   Defaults to `5m`.
+
                   - `"5m"Ttl5m`
 
                   - `"1h"Ttl1h`
 
               - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
                 - `class BetaCitationCharLocationParam:`
+
                   - `required string CitedText`
 
                   - `required Long DocumentIndex`
@@ -19461,6 +23724,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "char_location"constant`
 
                 - `class BetaCitationPageLocationParam:`
+
                   - `required string CitedText`
 
                   - `required Long DocumentIndex`
@@ -19474,6 +23738,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "page_location"constant`
 
                 - `class BetaCitationContentBlockLocationParam:`
+
                   - `required string CitedText`
 
                     The full text of the cited block range, concatenated.
@@ -19497,6 +23762,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "content_block_location"constant`
 
                 - `class BetaCitationWebSearchResultLocationParam:`
+
                   - `required string CitedText`
 
                   - `required string EncryptedIndex`
@@ -19508,6 +23774,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `required string Url`
 
                 - `class BetaCitationSearchResultLocationParam:`
+
                   - `required string CitedText`
 
                     The full text of the cited block range, concatenated.
@@ -19537,11 +23804,15 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "search_result_location"constant`
 
             - `class BetaImageBlockParam:`
+
               - `required Source Source`
+
                 - `class BetaBase64ImageSource:`
+
                   - `required string Data`
 
                   - `required MediaType MediaType`
+
                     - `"image/jpeg"ImageJpeg`
 
                     - `"image/png"ImagePng`
@@ -19553,11 +23824,13 @@ Console.WriteLine(betaMessageTokensCount);
                   - `JsonElement Type "base64"constant`
 
                 - `class BetaUrlImageSource:`
+
                   - `JsonElement Type "url"constant`
 
                   - `required string Url`
 
                 - `class BetaFileImageSource:`
+
                   - `required string FileID`
 
                   - `JsonElement Type "file"constant`
@@ -19571,11 +23844,13 @@ Console.WriteLine(betaMessageTokensCount);
         - `JsonElement Type "content"constant`
 
       - `class BetaUrlPdfSource:`
+
         - `JsonElement Type "url"constant`
 
         - `required string Url`
 
       - `class BetaFileDocumentSource:`
+
         - `required string FileID`
 
         - `JsonElement Type "file"constant`
@@ -19587,6 +23862,7 @@ Console.WriteLine(betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
     - `BetaCitationsConfigParam? Citations`
+
       - `Boolean Enabled`
 
     - `string? Context`
@@ -19606,6 +23882,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool 20250910
 
 - `class BetaWebFetchTool20250910:`
+
   - `JsonElement Name "web_fetch"constant`
 
     Name of the tool.
@@ -19615,6 +23892,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "web_fetch_20250910"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -19632,6 +23910,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -19639,10 +23918,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -19650,6 +23931,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCitationsConfigParam? Citations`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `Boolean Enabled`
 
   - `Boolean DeferLoading`
@@ -19671,6 +23953,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool 20260209
 
 - `class BetaWebFetchTool20260209:`
+
   - `JsonElement Name "web_fetch"constant`
 
     Name of the tool.
@@ -19680,6 +23963,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "web_fetch_20260209"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -19697,6 +23981,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -19704,10 +23989,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -19715,6 +24002,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCitationsConfigParam? Citations`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `Boolean Enabled`
 
   - `Boolean DeferLoading`
@@ -19738,6 +24026,7 @@ Console.WriteLine(betaMessageTokensCount);
 - `class BetaWebFetchTool20260309:`
 
   Web fetch tool with use_cache parameter for bypassing cached content.
+
   - `JsonElement Name "web_fetch"constant`
 
     Name of the tool.
@@ -19747,6 +24036,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "web_fetch_20260309"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -19764,6 +24054,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -19771,10 +24062,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -19782,6 +24075,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCitationsConfigParam? Citations`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `Boolean Enabled`
 
   - `Boolean DeferLoading`
@@ -19807,9 +24101,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Block
 
 - `class BetaWebFetchToolResultBlock:`
+
   - `required Content Content`
+
     - `class BetaWebFetchToolResultErrorBlock:`
+
       - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"url_too_long"UrlTooLong`
@@ -19831,14 +24129,19 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "web_fetch_tool_result_error"constant`
 
     - `class BetaWebFetchBlock:`
+
       - `required BetaDocumentBlock Content`
+
         - `required BetaCitationConfig? Citations`
 
           Citation configuration for the document
+
           - `required Boolean Enabled`
 
         - `required Source Source`
+
           - `class BetaBase64PdfSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "application/pdf"constant`
@@ -19846,6 +24149,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaPlainTextSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "text/plain"constant`
@@ -19875,19 +24179,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -19895,9 +24203,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Block Param
 
 - `class BetaWebFetchToolResultBlockParam:`
+
   - `required Content Content`
+
     - `class BetaWebFetchToolResultErrorBlockParam:`
+
       - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"url_too_long"UrlTooLong`
@@ -19919,9 +24231,13 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "web_fetch_tool_result_error"constant`
 
     - `class BetaWebFetchBlockParam:`
+
       - `required BetaRequestDocumentBlock Content`
+
         - `required Source Source`
+
           - `class BetaBase64PdfSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "application/pdf"constant`
@@ -19929,6 +24245,7 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "base64"constant`
 
           - `class BetaPlainTextSource:`
+
             - `required string Data`
 
             - `JsonElement MediaType "text/plain"constant`
@@ -19936,11 +24253,15 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "text"constant`
 
           - `class BetaContentBlockSource:`
+
             - `required Content Content`
+
               - `string`
 
               - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                 - `class BetaTextBlockParam:`
+
                   - `required string Text`
 
                   - `JsonElement Type "text"constant`
@@ -19948,6 +24269,7 @@ Console.WriteLine(betaMessageTokensCount);
                   - `BetaCacheControlEphemeral? CacheControl`
 
                     Create a cache control breakpoint at this content block.
+
                     - `JsonElement Type "ephemeral"constant`
 
                     - `Ttl Ttl`
@@ -19955,16 +24277,20 @@ Console.WriteLine(betaMessageTokensCount);
                       The time-to-live for the cache control breakpoint.
 
                       This may be one the following values:
+
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
                       Defaults to `5m`.
+
                       - `"5m"Ttl5m`
 
                       - `"1h"Ttl1h`
 
                   - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
                     - `class BetaCitationCharLocationParam:`
+
                       - `required string CitedText`
 
                       - `required Long DocumentIndex`
@@ -19978,6 +24304,7 @@ Console.WriteLine(betaMessageTokensCount);
                       - `JsonElement Type "char_location"constant`
 
                     - `class BetaCitationPageLocationParam:`
+
                       - `required string CitedText`
 
                       - `required Long DocumentIndex`
@@ -19991,6 +24318,7 @@ Console.WriteLine(betaMessageTokensCount);
                       - `JsonElement Type "page_location"constant`
 
                     - `class BetaCitationContentBlockLocationParam:`
+
                       - `required string CitedText`
 
                         The full text of the cited block range, concatenated.
@@ -20014,6 +24342,7 @@ Console.WriteLine(betaMessageTokensCount);
                       - `JsonElement Type "content_block_location"constant`
 
                     - `class BetaCitationWebSearchResultLocationParam:`
+
                       - `required string CitedText`
 
                       - `required string EncryptedIndex`
@@ -20025,6 +24354,7 @@ Console.WriteLine(betaMessageTokensCount);
                       - `required string Url`
 
                     - `class BetaCitationSearchResultLocationParam:`
+
                       - `required string CitedText`
 
                         The full text of the cited block range, concatenated.
@@ -20054,11 +24384,15 @@ Console.WriteLine(betaMessageTokensCount);
                       - `JsonElement Type "search_result_location"constant`
 
                 - `class BetaImageBlockParam:`
+
                   - `required Source Source`
+
                     - `class BetaBase64ImageSource:`
+
                       - `required string Data`
 
                       - `required MediaType MediaType`
+
                         - `"image/jpeg"ImageJpeg`
 
                         - `"image/png"ImagePng`
@@ -20070,11 +24404,13 @@ Console.WriteLine(betaMessageTokensCount);
                       - `JsonElement Type "base64"constant`
 
                     - `class BetaUrlImageSource:`
+
                       - `JsonElement Type "url"constant`
 
                       - `required string Url`
 
                     - `class BetaFileImageSource:`
+
                       - `required string FileID`
 
                       - `JsonElement Type "file"constant`
@@ -20088,11 +24424,13 @@ Console.WriteLine(betaMessageTokensCount);
             - `JsonElement Type "content"constant`
 
           - `class BetaUrlPdfSource:`
+
             - `JsonElement Type "url"constant`
 
             - `required string Url`
 
           - `class BetaFileDocumentSource:`
+
             - `required string FileID`
 
             - `JsonElement Type "file"constant`
@@ -20104,6 +24442,7 @@ Console.WriteLine(betaMessageTokensCount);
           Create a cache control breakpoint at this content block.
 
         - `BetaCitationsConfigParam? Citations`
+
           - `Boolean Enabled`
 
         - `string? Context`
@@ -20131,19 +24470,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -20151,7 +24494,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Block
 
 - `class BetaWebFetchToolResultErrorBlock:`
+
   - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"url_too_long"UrlTooLong`
@@ -20175,7 +24520,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Block Param
 
 - `class BetaWebFetchToolResultErrorBlockParam:`
+
   - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"url_too_long"UrlTooLong`
@@ -20199,6 +24546,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Code
 
 - `enum BetaWebFetchToolResultErrorCode:`
+
   - `"invalid_tool_input"InvalidToolInput`
 
   - `"url_too_long"UrlTooLong`
@@ -20220,6 +24568,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Result Block
 
 - `class BetaWebSearchResultBlock:`
+
   - `required string EncryptedContent`
 
   - `required string? PageAge`
@@ -20233,6 +24582,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Result Block Param
 
 - `class BetaWebSearchResultBlockParam:`
+
   - `required string EncryptedContent`
 
   - `required string Title`
@@ -20246,6 +24596,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool 20250305
 
 - `class BetaWebSearchTool20250305:`
+
   - `JsonElement Name "web_search"constant`
 
     Name of the tool.
@@ -20255,6 +24606,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "web_search_20250305"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -20272,6 +24624,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -20279,10 +24632,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -20302,6 +24657,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaUserLocation? UserLocation`
 
     Parameters for the user's location. Used to provide more relevant search results.
+
     - `JsonElement Type "approximate"constant`
 
     - `string? City`
@@ -20323,6 +24679,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool 20260209
 
 - `class BetaWebSearchTool20260209:`
+
   - `JsonElement Name "web_search"constant`
 
     Name of the tool.
@@ -20332,6 +24689,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `JsonElement Type "web_search_20260209"constant`
 
   - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
     - `"direct"Direct`
 
     - `"code_execution_20250825"CodeExecution20250825`
@@ -20349,6 +24707,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -20356,10 +24715,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -20379,6 +24740,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaUserLocation? UserLocation`
 
     Parameters for the user's location. Used to provide more relevant search results.
+
     - `JsonElement Type "approximate"constant`
 
     - `string? City`
@@ -20400,7 +24762,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Request Error
 
 - `class BetaWebSearchToolRequestError:`
+
   - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -20418,9 +24782,13 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Block
 
 - `class BetaWebSearchToolResultBlock:`
+
   - `required BetaWebSearchToolResultBlockContent Content`
+
     - `class BetaWebSearchToolResultError:`
+
       - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -20436,6 +24804,7 @@ Console.WriteLine(betaMessageTokensCount);
       - `JsonElement Type "web_search_tool_result_error"constant`
 
     - `IReadOnlyList<BetaWebSearchResultBlock>`
+
       - `required string EncryptedContent`
 
       - `required string? PageAge`
@@ -20453,19 +24822,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -20473,8 +24846,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Content
 
 - `class BetaWebSearchToolResultBlockContent: A class that can be one of several variants.union`
+
   - `class BetaWebSearchToolResultError:`
+
     - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
       - `"invalid_tool_input"InvalidToolInput`
 
       - `"unavailable"Unavailable`
@@ -20490,6 +24866,7 @@ Console.WriteLine(betaMessageTokensCount);
     - `JsonElement Type "web_search_tool_result_error"constant`
 
   - `IReadOnlyList<BetaWebSearchResultBlock>`
+
     - `required string EncryptedContent`
 
     - `required string? PageAge`
@@ -20503,8 +24880,11 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Param
 
 - `class BetaWebSearchToolResultBlockParam:`
+
   - `required BetaWebSearchToolResultBlockParamContent Content`
+
     - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
       - `required string EncryptedContent`
 
       - `required string Title`
@@ -20516,7 +24896,9 @@ Console.WriteLine(betaMessageTokensCount);
       - `string? PageAge`
 
     - `class BetaWebSearchToolRequestError:`
+
       - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
         - `"invalid_tool_input"InvalidToolInput`
 
         - `"unavailable"Unavailable`
@@ -20538,6 +24920,7 @@ Console.WriteLine(betaMessageTokensCount);
   - `BetaCacheControlEphemeral? CacheControl`
 
     Create a cache control breakpoint at this content block.
+
     - `JsonElement Type "ephemeral"constant`
 
     - `Ttl Ttl`
@@ -20545,10 +24928,12 @@ Console.WriteLine(betaMessageTokensCount);
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"Ttl5m`
 
       - `"1h"Ttl1h`
@@ -20556,19 +24941,23 @@ Console.WriteLine(betaMessageTokensCount);
   - `Caller Caller`
 
     Tool invocation directly from the model.
+
     - `class BetaDirectCaller:`
 
       Tool invocation directly from the model.
+
       - `JsonElement Type "direct"constant`
 
     - `class BetaServerToolCaller:`
 
       Tool invocation generated by a server-side tool.
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20250825"constant`
 
     - `class BetaServerToolCaller20260120:`
+
       - `required string ToolID`
 
       - `JsonElement Type "code_execution_20260120"constant`
@@ -20576,7 +24965,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Param Content
 
 - `class BetaWebSearchToolResultBlockParamContent: A class that can be one of several variants.union`
+
   - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
     - `required string EncryptedContent`
 
     - `required string Title`
@@ -20588,7 +24979,9 @@ Console.WriteLine(betaMessageTokensCount);
     - `string? PageAge`
 
   - `class BetaWebSearchToolRequestError:`
+
     - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
       - `"invalid_tool_input"InvalidToolInput`
 
       - `"unavailable"Unavailable`
@@ -20606,7 +24999,9 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Error
 
 - `class BetaWebSearchToolResultError:`
+
   - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
     - `"invalid_tool_input"InvalidToolInput`
 
     - `"unavailable"Unavailable`
@@ -20624,6 +25019,7 @@ Console.WriteLine(betaMessageTokensCount);
 ### Beta Web Search Tool Result Error Code
 
 - `enum BetaWebSearchToolResultErrorCode:`
+
   - `"invalid_tool_input"InvalidToolInput`
 
   - `"unavailable"Unavailable`
@@ -20653,9 +25049,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchCreateParams parameters`
+
   - `required IReadOnlyList<Request> requests`
 
     Body param: List of requests for prompt completion. Each is an individual request to create a Message.
+
     - `required string CustomID`
 
       Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -20667,6 +25065,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       Messages API creation parameters for the individual request.
 
       See the [Messages API reference](https://docs.claude.com/en/api/messages) for full documentation on available parameters.
+
       - `required Long MaxTokens`
 
         The maximum number of tokens to generate before stopping.
@@ -20675,7 +25074,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-        Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+        Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
       - `required IReadOnlyList<BetaMessageParam> Messages`
 
@@ -20690,22 +25089,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Example with a single `user` message:
 
         ```json
-        [{ "role": "user", "content": "Hello, Claude" }]
+        [{"role": "user", "content": "Hello, Claude"}]
         ```
 
         Example with multiple conversational turns:
 
         ```json
         [
-          { "role": "user", "content": "Hello there." },
-          {
-            "role": "assistant",
-            "content": "Hi, I'm Claude. How can I help you?"
-          },
-          {
-            "role": "user",
-            "content": "Can you explain LLMs in plain English?"
-          }
+          {"role": "user", "content": "Hello there."},
+          {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+          {"role": "user", "content": "Can you explain LLMs in plain English?"},
         ]
         ```
 
@@ -20713,25 +25106,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         ```json
         [
-          {
-            "role": "user",
-            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-          },
-          { "role": "assistant", "content": "The best answer is (" }
+          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+          {"role": "assistant", "content": "The best answer is ("},
         ]
         ```
 
         Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
         ```json
-        { "role": "user", "content": "Hello, Claude" }
+        {"role": "user", "content": "Hello, Claude"}
         ```
 
         ```json
-        {
-          "role": "user",
-          "content": [{ "type": "text", "text": "Hello, Claude" }]
-        }
+        {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
         ```
 
         See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -20739,11 +25126,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
         There is a limit of 100,000 messages in a single request.
+
         - `required Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaContentBlockParam>`
+
             - `class BetaTextBlockParam:`
+
               - `required string Text`
 
               - `JsonElement Type "text"constant`
@@ -20751,6 +25142,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `BetaCacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
+
                 - `JsonElement Type "ephemeral"constant`
 
                 - `Ttl Ttl`
@@ -20758,16 +25150,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
+
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
                   Defaults to `5m`.
+
                   - `"5m"Ttl5m`
 
                   - `"1h"Ttl1h`
 
               - `IReadOnlyList<BetaTextCitationParam>? Citations`
+
                 - `class BetaCitationCharLocationParam:`
+
                   - `required string CitedText`
 
                   - `required Long DocumentIndex`
@@ -20781,6 +25177,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "char_location"constant`
 
                 - `class BetaCitationPageLocationParam:`
+
                   - `required string CitedText`
 
                   - `required Long DocumentIndex`
@@ -20794,6 +25191,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "page_location"constant`
 
                 - `class BetaCitationContentBlockLocationParam:`
+
                   - `required string CitedText`
 
                     The full text of the cited block range, concatenated.
@@ -20817,6 +25215,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "content_block_location"constant`
 
                 - `class BetaCitationWebSearchResultLocationParam:`
+
                   - `required string CitedText`
 
                   - `required string EncryptedIndex`
@@ -20828,6 +25227,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `required string Url`
 
                 - `class BetaCitationSearchResultLocationParam:`
+
                   - `required string CitedText`
 
                     The full text of the cited block range, concatenated.
@@ -20857,11 +25257,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "search_result_location"constant`
 
             - `class BetaImageBlockParam:`
+
               - `required Source Source`
+
                 - `class BetaBase64ImageSource:`
+
                   - `required string Data`
 
                   - `required MediaType MediaType`
+
                     - `"image/jpeg"ImageJpeg`
 
                     - `"image/png"ImagePng`
@@ -20873,11 +25277,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "base64"constant`
 
                 - `class BetaUrlImageSource:`
+
                   - `JsonElement Type "url"constant`
 
                   - `required string Url`
 
                 - `class BetaFileImageSource:`
+
                   - `required string FileID`
 
                   - `JsonElement Type "file"constant`
@@ -20889,8 +25295,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaRequestDocumentBlock:`
+
               - `required Source Source`
+
                 - `class BetaBase64PdfSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "application/pdf"constant`
@@ -20898,6 +25307,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "base64"constant`
 
                 - `class BetaPlainTextSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "text/plain"constant`
@@ -20905,10 +25315,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "text"constant`
 
                 - `class BetaContentBlockSource:`
+
                   - `required Content Content`
+
                     - `string`
 
                     - `IReadOnlyList<BetaContentBlockSourceContent>`
+
                       - `class BetaTextBlockParam:`
 
                       - `class BetaImageBlockParam:`
@@ -20916,11 +25329,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "content"constant`
 
                 - `class BetaUrlPdfSource:`
+
                   - `JsonElement Type "url"constant`
 
                   - `required string Url`
 
                 - `class BetaFileDocumentSource:`
+
                   - `required string FileID`
 
                   - `JsonElement Type "file"constant`
@@ -20932,6 +25347,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
               - `BetaCitationsConfigParam? Citations`
+
                 - `Boolean Enabled`
 
               - `string? Context`
@@ -20939,7 +25355,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `string? Title`
 
             - `class BetaSearchResultBlockParam:`
+
               - `required IReadOnlyList<BetaTextBlockParam> Content`
+
                 - `required string Text`
 
                 - `JsonElement Type "text"constant`
@@ -20963,6 +25381,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `BetaCitationsConfigParam Citations`
 
             - `class BetaThinkingBlockParam:`
+
               - `required string Signature`
 
               - `required string Thinking`
@@ -20970,11 +25389,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonElement Type "thinking"constant`
 
             - `class BetaRedactedThinkingBlockParam:`
+
               - `required string Data`
 
               - `JsonElement Type "redacted_thinking"constant`
 
             - `class BetaToolUseBlockParam:`
+
               - `required string ID`
 
               - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -20990,24 +25411,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Caller Caller`
 
                 Tool invocation directly from the model.
+
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
+
                   - `JsonElement Type "direct"constant`
 
                 - `class BetaServerToolCaller:`
 
                   Tool invocation generated by a server-side tool.
+
                   - `required string ToolID`
 
                   - `JsonElement Type "code_execution_20250825"constant`
 
                 - `class BetaServerToolCaller20260120:`
+
                   - `required string ToolID`
 
                   - `JsonElement Type "code_execution_20260120"constant`
 
             - `class BetaToolResultBlockParam:`
+
               - `required string ToolUseID`
 
               - `JsonElement Type "tool_result"constant`
@@ -21017,9 +25443,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
               - `Content Content`
+
                 - `string`
 
                 - `IReadOnlyList<Block>`
+
                   - `class BetaTextBlockParam:`
 
                   - `class BetaImageBlockParam:`
@@ -21031,6 +25459,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `class BetaToolReferenceBlockParam:`
 
                     Tool reference block that can be included in tool_result content.
+
                     - `required string ToolName`
 
                     - `JsonElement Type "tool_reference"constant`
@@ -21042,11 +25471,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Boolean IsError`
 
             - `class BetaServerToolUseBlockParam:`
+
               - `required string ID`
 
               - `required IReadOnlyDictionary<string, JsonElement> Input`
 
               - `required Name Name`
+
                 - `"advisor"Advisor`
 
                 - `"web_search"WebSearch`
@@ -21072,6 +25503,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Caller Caller`
 
                 Tool invocation directly from the model.
+
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
@@ -21083,8 +25515,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `class BetaServerToolCaller20260120:`
 
             - `class BetaWebSearchToolResultBlockParam:`
+
               - `required BetaWebSearchToolResultBlockParamContent Content`
+
                 - `IReadOnlyList<BetaWebSearchResultBlockParam>`
+
                   - `required string EncryptedContent`
 
                   - `required string Title`
@@ -21096,7 +25531,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `string? PageAge`
 
                 - `class BetaWebSearchToolRequestError:`
+
                   - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"unavailable"Unavailable`
@@ -21122,6 +25559,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Caller Caller`
 
                 Tool invocation directly from the model.
+
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
@@ -21133,9 +25571,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `class BetaServerToolCaller20260120:`
 
             - `class BetaWebFetchToolResultBlockParam:`
+
               - `required Content Content`
+
                 - `class BetaWebFetchToolResultErrorBlockParam:`
+
                   - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"url_too_long"UrlTooLong`
@@ -21157,6 +25599,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "web_fetch_tool_result_error"constant`
 
                 - `class BetaWebFetchBlockParam:`
+
                   - `required BetaRequestDocumentBlock Content`
 
                   - `JsonElement Type "web_fetch_result"constant`
@@ -21180,6 +25623,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Caller Caller`
 
                 Tool invocation directly from the model.
+
                 - `class BetaDirectCaller:`
 
                   Tool invocation directly from the model.
@@ -21191,9 +25635,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `class BetaServerToolCaller20260120:`
 
             - `class BetaAdvisorToolResultBlockParam:`
+
               - `required Content Content`
+
                 - `class BetaAdvisorToolResultErrorParam:`
+
                   - `required ErrorCode ErrorCode`
+
                     - `"max_uses_exceeded"MaxUsesExceeded`
 
                     - `"prompt_too_long"PromptTooLong`
@@ -21206,9 +25654,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                     - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                    - `"model_not_found"ModelNotFound`
+
                   - `JsonElement Type "advisor_tool_result_error"constant`
 
                 - `class BetaAdvisorResultBlockParam:`
+
                   - `required string Text`
 
                   - `JsonElement Type "advisor_result"constant`
@@ -21216,6 +25667,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `string? StopReason`
 
                 - `class BetaAdvisorRedactedResultBlockParam:`
+
                   - `required string EncryptedContent`
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -21233,11 +25685,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaCodeExecutionToolResultBlockParam:`
+
               - `required BetaCodeExecutionToolResultBlockParamContent Content`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `class BetaCodeExecutionToolResultErrorParam:`
+
                   - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"unavailable"Unavailable`
@@ -21249,7 +25705,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "code_execution_tool_result_error"constant`
 
                 - `class BetaCodeExecutionResultBlockParam:`
+
                   - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                     - `required string FileID`
 
                     - `JsonElement Type "code_execution_output"constant`
@@ -21265,7 +25723,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
+
                   - `required IReadOnlyList<BetaCodeExecutionOutputBlockParam> Content`
+
                     - `required string FileID`
 
                     - `JsonElement Type "code_execution_output"constant`
@@ -21287,9 +25747,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaBashCodeExecutionToolResultBlockParam:`
+
               - `required Content Content`
+
                 - `class BetaBashCodeExecutionToolResultErrorParam:`
+
                   - `required ErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"unavailable"Unavailable`
@@ -21303,7 +25767,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
                 - `class BetaBashCodeExecutionResultBlockParam:`
+
                   - `required IReadOnlyList<BetaBashCodeExecutionOutputBlockParam> Content`
+
                     - `required string FileID`
 
                     - `JsonElement Type "bash_code_execution_output"constant`
@@ -21325,9 +25791,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
+
               - `required Content Content`
+
                 - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
+
                   - `required ErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"unavailable"Unavailable`
@@ -21343,9 +25813,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `string? ErrorMessage`
 
                 - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
+
                   - `required string Content`
 
                   - `required FileType FileType`
+
                     - `"text"Text`
 
                     - `"image"Image`
@@ -21361,11 +25833,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Long? TotalLines`
 
                 - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
+
                   - `required Boolean IsFileUpdate`
 
                   - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
                 - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
+
                   - `JsonElement Type "text_editor_code_execution_str_replace_result"constant`
 
                   - `IReadOnlyList<string>? Lines`
@@ -21387,9 +25861,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaToolSearchToolResultBlockParam:`
+
               - `required Content Content`
+
                 - `class BetaToolSearchToolResultErrorParam:`
+
                   - `required ErrorCode ErrorCode`
+
                     - `"invalid_tool_input"InvalidToolInput`
 
                     - `"unavailable"Unavailable`
@@ -21400,8 +25878,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `JsonElement Type "tool_search_tool_result_error"constant`
 
+                  - `string? ErrorMessage`
+
                 - `class BetaToolSearchToolSearchResultBlockParam:`
+
                   - `required IReadOnlyList<BetaToolReferenceBlockParam> ToolReferences`
+
                     - `required string ToolName`
 
                     - `JsonElement Type "tool_reference"constant`
@@ -21421,6 +25903,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaMcpToolUseBlockParam:`
+
               - `required string ID`
 
               - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -21438,6 +25921,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
             - `class BetaRequestMcpToolResultBlockParam:`
+
               - `required string ToolUseID`
 
               - `JsonElement Type "mcp_tool_result"constant`
@@ -21447,9 +25931,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 Create a cache control breakpoint at this content block.
 
               - `Content Content`
+
                 - `string`
 
                 - `IReadOnlyList<BetaTextBlockParam>`
+
                   - `required string Text`
 
                   - `JsonElement Type "text"constant`
@@ -21466,6 +25952,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
+
               - `required string FileID`
 
               - `JsonElement Type "container_upload"constant`
@@ -21483,6 +25970,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               When content is None, the block represents a failed compaction. The server
               treats these as no-ops. Empty string content is not allowed.
+
               - `JsonElement Type "compaction"constant`
 
               - `BetaCacheControlEphemeral? CacheControl`
@@ -21503,9 +25991,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               Use this block to provide or update system-level instructions at a specific
               point in the conversation, rather than only via the top-level `system` parameter.
+
               - `required IReadOnlyList<BetaTextBlockParam> Content`
 
                 System instruction text blocks.
+
                 - `required string Text`
 
                 - `JsonElement Type "text"constant`
@@ -21522,7 +26012,122 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 Create a cache control breakpoint at this content block.
 
+            - `class BetaFallbackBlockParam:`
+
+              A `fallback` block echoed back from a prior response.
+
+              Accepted in `messages[].content` and never rendered into the prompt,
+              not validated against the request's `fallbacks` chain or top-level
+              `model`, and stripped before the sticky-routing cache key is computed.
+
+              Callers should echo the assistant turn verbatim — block included. The
+              block's position is load-bearing for thinking verification: the thinking
+              runs on either side of a fallback hop carry independently-rooted
+              verification hash chains, and this block is the only record of where one
+              chain ends and the next begins. When thinking runs flank the boundary,
+              omitting the block merges the runs into one contiguous span whose hashes
+              cannot verify (the request is rejected), and moving it into the middle of
+              a single run splits that run's chain and is likewise rejected; between
+              non-thinking blocks the block's placement has no verification effect.
+
+              - `required BetaFallbackInfoParam From`
+
+                Identifies one hop of a fallback transition.
+
+                - `required Model Model`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `"claude-fable-5"ClaudeFable5`
+
+                    Next generation of intelligence for the hardest knowledge work and coding problems
+
+                  - `"claude-mythos-5"ClaudeMythos5`
+
+                    Most capable model for cybersecurity and biology research
+
+                  - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                    New class of intelligence, strongest in coding and cybersecurity
+
+                  - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                    Best combination of speed and intelligence
+
+                  - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                    Premium model combining maximum intelligence with practical performance
+
+                  - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                    Premium model combining maximum intelligence with practical performance
+
+                  - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                    Exceptional model for specialized complex tasks
+
+                  - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                    Exceptional model for specialized complex tasks
+
+                  - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                    Powerful model for complex tasks
+
+                  - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                    Powerful model for complex tasks
+
+                  - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                    High-performance model with extended thinking
+
+                  - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                    High-performance model with extended thinking
+
+                  - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                    Fast and cost-effective model
+
+              - `required BetaFallbackInfoParam To`
+
+                Identifies one hop of a fallback transition.
+
+              - `JsonElement Type "fallback"constant`
+
         - `required Role Role`
+
           - `"user"User`
 
           - `"assistant"Assistant`
@@ -21534,77 +26139,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-8"ClaudeOpus4_8`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"ClaudeOpus4_7`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"ClaudeMythosPreview`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"ClaudeOpus4_6`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"ClaudeOpus4_5`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-          High-performance model for agents and coding
-
-        - `"claude-opus-4-1"ClaudeOpus4_1`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-0"ClaudeOpus4_0`
-
-          Powerful model for complex tasks
-
-        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-          Powerful model for complex tasks
-
-        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-          High-performance model with extended thinking
-
-        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-          High-performance model with extended thinking
-
-        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-          Fast and cost-effective model
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -21613,9 +26147,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `Container? Container`
 
         Container identifier for reuse across requests.
+
         - `class BetaContainerParams:`
 
           Container parameters with skills to be loaded.
+
           - `string? ID`
 
             Container id
@@ -21623,6 +26159,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `IReadOnlyList<BetaSkillParams>? Skills`
 
             List of skills to load in the container
+
             - `required string SkillID`
 
               Skill ID
@@ -21630,6 +26167,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `required Type Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
               - `"anthropic"Anthropic`
 
               - `"custom"Custom`
@@ -21645,15 +26183,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Context management configuration.
 
         This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
+
         - `IReadOnlyList<Edit> Edits`
 
           List of context management edits to apply
+
           - `class BetaClearToolUses20250919Edit:`
+
             - `JsonElement Type "clear_tool_uses_20250919"constant`
 
             - `BetaInputTokensClearAtLeast? ClearAtLeast`
 
               Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
               - `JsonElement Type "input_tokens"constant`
 
               - `required Long Value`
@@ -21661,6 +26203,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ClearToolInputs? ClearToolInputs`
 
               Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
               - `Boolean`
 
               - `IReadOnlyList<string>`
@@ -21672,6 +26215,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `BetaToolUsesKeep Keep`
 
               Number of tool uses to retain in the conversation
+
               - `JsonElement Type "tool_uses"constant`
 
               - `required Long Value`
@@ -21679,28 +26223,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Trigger Trigger`
 
               Condition that triggers the context management strategy
+
               - `class BetaInputTokensTrigger:`
+
                 - `JsonElement Type "input_tokens"constant`
 
                 - `required Long Value`
 
               - `class BetaToolUsesTrigger:`
+
                 - `JsonElement Type "tool_uses"constant`
 
                 - `required Long Value`
 
           - `class BetaClearThinking20251015Edit:`
+
             - `JsonElement Type "clear_thinking_20251015"constant`
 
             - `Keep Keep`
 
               Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
               - `class BetaThinkingTurns:`
+
                 - `JsonElement Type "thinking_turns"constant`
 
                 - `required Long Value`
 
               - `class BetaAllThinkingTurns:`
+
                 - `JsonElement Type "all"constant`
 
               - `class All:`
@@ -21708,6 +26259,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `class BetaCompact20260112Edit:`
 
             Automatically compact older context when reaching the configured trigger threshold.
+
             - `JsonElement Type "compact_20260112"constant`
 
             - `string? Instructions`
@@ -21726,9 +26278,131 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Request-level diagnostics. Currently carries the previous response
         id for prompt-cache divergence reporting.
+
         - `string? PreviousMessageID`
 
           The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+      - `string? FallbackCreditToken`
+
+        The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+        When a preceding request was refused and returned a `fallback_credit_token`,
+        pass that code here on the retry to have the retry's cache-creation tokens
+        for the prefix that was warm on the refused model billed at the cache-read
+        rate. Must be redeemed by the same organization and workspace, with the same
+        request body (optionally extended by one appended `assistant` message whose
+        content is the partial text — with any trailing whitespace stripped from
+        the final text block — and paired server-tool blocks streamed before the
+        refusal; the appended-assistant form is not available for requests with
+        `output_format` set or forced `tool_choice`), on an eligible fallback
+        model, on the same platform,
+        and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+        mid-server-tool-loop whose partial content was continuable may only be
+        redeemed with the appended-assistant form — if an exact-body retry is
+        rejected with a 400 saying the token must be redeemed by continuing the
+        partial response, retry with the appended-assistant form instead.
+
+        When the appended-assistant form is used on a model that otherwise disallows
+        assistant-turn prefill, this token also authorizes that one prefill.
+
+      - `IReadOnlyList<BetaFallbackParam>? Fallbacks`
+
+        Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+
+        - `required Model Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `Long? MaxTokens`
+
+        - `BetaOutputConfig? OutputConfig`
+
+          - `Effort? Effort`
+
+            All possible effort levels.
+
+            - `"low"Low`
+
+            - `"medium"Medium`
+
+            - `"high"High`
+
+            - `"xhigh"Xhigh`
+
+            - `"max"Max`
+
+          - `BetaJsonOutputFormat? Format`
+
+            A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+            - `required IReadOnlyDictionary<string, JsonElement> Schema`
+
+              The JSON schema of the format
+
+            - `JsonElement Type "json_schema"constant`
+
+          - `BetaTokenTaskBudget? TaskBudget`
+
+            User-configurable total token budget across contexts.
+
+            - `required Long Total`
+
+              Total token budget across all contexts in the session.
+
+            - `JsonElement Type "tokens"constant`
+
+              The budget type. Currently only 'tokens' is supported.
+
+            - `Long? Remaining`
+
+              Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+        - `Speed? Speed`
+
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+        - `Thinking? Thinking`
+
+          - `class BetaThinkingConfigEnabled:`
+
+            - `required Long BudgetTokens`
+
+              Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+              Must be ≥1024 and less than `max_tokens`.
+
+              See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
+            - `JsonElement Type "enabled"constant`
+
+            - `Display? Display`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"Summarized`
+
+              - `"omitted"Omitted`
+
+          - `class BetaThinkingConfigDisabled:`
+
+            - `JsonElement Type "disabled"constant`
+
+          - `class BetaThinkingConfigAdaptive:`
+
+            - `JsonElement Type "adaptive"constant`
+
+            - `Display? Display`
+
+              Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+              - `"summarized"Summarized`
+
+              - `"omitted"Omitted`
 
       - `string? InferenceGeo`
 
@@ -21737,6 +26411,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `IReadOnlyList<BetaRequestMcpServerUrlDefinition> McpServers`
 
         MCP servers to be utilized in this request
+
         - `required string Name`
 
         - `JsonElement Type "url"constant`
@@ -21746,6 +26421,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `string? AuthorizationToken`
 
         - `BetaRequestMcpServerToolConfiguration? ToolConfiguration`
+
           - `IReadOnlyList<string>? AllowedTools`
 
           - `Boolean? Enabled`
@@ -21753,6 +26429,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `BetaMetadata Metadata`
 
         An object describing metadata about the request.
+
         - `string? UserID`
 
           An external identifier for the user who is associated with the request.
@@ -21762,42 +26439,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `BetaOutputConfig OutputConfig`
 
         Configuration options for the model's output, such as the output format.
-        - `Effort? Effort`
-
-          All possible effort levels.
-          - `"low"Low`
-
-          - `"medium"Medium`
-
-          - `"high"High`
-
-          - `"xhigh"Xhigh`
-
-          - `"max"Max`
-
-        - `BetaJsonOutputFormat? Format`
-
-          A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-          - `required IReadOnlyDictionary<string, JsonElement> Schema`
-
-            The JSON schema of the format
-
-          - `JsonElement Type "json_schema"constant`
-
-        - `BetaTokenTaskBudget? TaskBudget`
-
-          User-configurable total token budget across contexts.
-          - `required Long Total`
-
-            Total token budget across all contexts in the session.
-
-          - `JsonElement Type "tokens"constant`
-
-            The budget type. Currently only 'tokens' is supported.
-
-          - `Long? Remaining`
-
-            Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
       - `BetaJsonOutputFormat? OutputFormat`
 
@@ -21810,6 +26451,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Determines whether to use priority capacity (if available) or standard capacity for this request.
 
         Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+
         - `"auto"Auto`
 
         - `"standard_only"StandardOnly`
@@ -21817,6 +26459,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `Speed? Speed`
 
         The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -21840,9 +26483,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         System prompt.
 
         A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+
         - `string`
 
         - `IReadOnlyList<BetaTextBlockParam>`
+
           - `required string Text`
 
           - `JsonElement Type "text"constant`
@@ -21868,43 +26513,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
         See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
         - `class BetaThinkingConfigEnabled:`
-          - `required Long BudgetTokens`
-
-            Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-            Must be ≥1024 and less than `max_tokens`.
-
-            See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
-
-          - `JsonElement Type "enabled"constant`
-
-          - `Display? Display`
-
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-            - `"summarized"Summarized`
-
-            - `"omitted"Omitted`
 
         - `class BetaThinkingConfigDisabled:`
-          - `JsonElement Type "disabled"constant`
 
         - `class BetaThinkingConfigAdaptive:`
-          - `JsonElement Type "adaptive"constant`
-
-          - `Display? Display`
-
-            Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-            - `"summarized"Summarized`
-
-            - `"omitted"Omitted`
 
       - `BetaToolChoice ToolChoice`
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
         - `class BetaToolChoiceAuto:`
 
           The model will automatically decide whether to use tools.
+
           - `JsonElement Type "auto"constant`
 
           - `Boolean DisableParallelToolUse`
@@ -21916,6 +26539,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `class BetaToolChoiceAny:`
 
           The model will use any available tools.
+
           - `JsonElement Type "any"constant`
 
           - `Boolean DisableParallelToolUse`
@@ -21927,6 +26551,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `class BetaToolChoiceTool:`
 
           The model will use the specified tool with `tool_choice.name`.
+
           - `required string Name`
 
             The name of the tool to use.
@@ -21942,6 +26567,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `class BetaToolChoiceNone:`
 
           The model will not be allowed to use tools.
+
           - `JsonElement Type "none"constant`
 
       - `IReadOnlyList<BetaToolUnion> Tools`
@@ -21953,9 +26579,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
         Each tool definition includes:
-        - `name`: Name of the tool.
-        - `description`: Optional, but strongly-recommended description of the tool.
-        - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+        * `name`: Name of the tool.
+        * `description`: Optional, but strongly-recommended description of the tool.
+        * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
         For example, if you defined `tools` as:
 
@@ -22006,12 +26633,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
         See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+
         - `class BetaTool:`
+
           - `required InputSchema InputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
             This defines the shape of the `input` that your tool accepts and that the model will produce.
+
             - `JsonElement Type "object"constant`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
@@ -22025,6 +26655,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22056,9 +26687,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
           - `Type? Type`
+
             - `"custom"Custom`
 
         - `class BetaToolBash20241022:`
+
           - `JsonElement Name "bash"constant`
 
             Name of the tool.
@@ -22068,6 +26701,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "bash_20241022"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22089,6 +26723,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolBash20250124:`
+
           - `JsonElement Name "bash"constant`
 
             Name of the tool.
@@ -22098,6 +26733,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "bash_20250124"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22119,6 +26755,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaCodeExecutionTool20250522:`
+
           - `JsonElement Name "code_execution"constant`
 
             Name of the tool.
@@ -22128,6 +26765,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "code_execution_20250522"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22147,6 +26785,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaCodeExecutionTool20250825:`
+
           - `JsonElement Name "code_execution"constant`
 
             Name of the tool.
@@ -22156,6 +26795,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "code_execution_20250825"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22177,6 +26817,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `class BetaCodeExecutionTool20260120:`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
           - `JsonElement Name "code_execution"constant`
 
             Name of the tool.
@@ -22186,6 +26827,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "code_execution_20260120"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22205,6 +26847,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolComputerUse20241022:`
+
           - `required Long DisplayHeightPx`
 
             The height of the display in pixels.
@@ -22222,6 +26865,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "computer_20241022"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22247,6 +26891,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaMemoryTool20250818:`
+
           - `JsonElement Name "memory"constant`
 
             Name of the tool.
@@ -22256,6 +26901,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "memory_20250818"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22277,6 +26923,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolComputerUse20250124:`
+
           - `required Long DisplayHeightPx`
 
             The height of the display in pixels.
@@ -22294,6 +26941,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "computer_20250124"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22319,6 +26967,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolTextEditor20241022:`
+
           - `JsonElement Name "str_replace_editor"constant`
 
             Name of the tool.
@@ -22328,6 +26977,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "text_editor_20241022"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22349,6 +26999,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolComputerUse20251124:`
+
           - `required Long DisplayHeightPx`
 
             The height of the display in pixels.
@@ -22366,6 +27017,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "computer_20251124"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22395,6 +27047,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolTextEditor20250124:`
+
           - `JsonElement Name "str_replace_editor"constant`
 
             Name of the tool.
@@ -22404,6 +27057,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "text_editor_20250124"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22425,6 +27079,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolTextEditor20250429:`
+
           - `JsonElement Name "str_replace_based_edit_tool"constant`
 
             Name of the tool.
@@ -22434,6 +27089,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "text_editor_20250429"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22455,6 +27111,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolTextEditor20250728:`
+
           - `JsonElement Name "str_replace_based_edit_tool"constant`
 
             Name of the tool.
@@ -22464,6 +27121,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "text_editor_20250728"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22489,6 +27147,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaWebSearchTool20250305:`
+
           - `JsonElement Name "web_search"constant`
 
             Name of the tool.
@@ -22498,6 +27157,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "web_search_20250305"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22531,6 +27191,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `BetaUserLocation? UserLocation`
 
             Parameters for the user's location. Used to provide more relevant search results.
+
             - `JsonElement Type "approximate"constant`
 
             - `string? City`
@@ -22550,6 +27211,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
         - `class BetaWebFetchTool20250910:`
+
           - `JsonElement Name "web_fetch"constant`
 
             Name of the tool.
@@ -22559,6 +27221,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "web_fetch_20250910"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22598,6 +27261,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaWebSearchTool20260209:`
+
           - `JsonElement Name "web_search"constant`
 
             Name of the tool.
@@ -22607,6 +27271,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "web_search_20260209"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22642,6 +27307,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Parameters for the user's location. Used to provide more relevant search results.
 
         - `class BetaWebFetchTool20260209:`
+
           - `JsonElement Name "web_fetch"constant`
 
             Name of the tool.
@@ -22651,6 +27317,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "web_fetch_20260209"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22692,6 +27359,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `class BetaWebFetchTool20260309:`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
+
           - `JsonElement Name "web_fetch"constant`
 
             Name of the tool.
@@ -22701,6 +27369,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "web_fetch_20260309"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22744,6 +27413,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
         - `class BetaAdvisorTool20260301:`
+
           - `required Model Model`
 
             The model that will complete your prompt.
@@ -22759,6 +27429,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `JsonElement Type "advisor_20260301"constant`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22777,6 +27448,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+          - `Long? MaxTokens`
+
+            Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
           - `Long? MaxUses`
 
             Maximum number of times the tool can be used in the API request.
@@ -22786,6 +27461,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolSearchToolBm25_20251119:`
+
           - `JsonElement Name "tool_search_tool_bm25"constant`
 
             Name of the tool.
@@ -22793,11 +27469,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `required Type Type`
+
             - `"tool_search_tool_bm25_20251119"ToolSearchToolBm25_20251119`
 
             - `"tool_search_tool_bm25"ToolSearchToolBm25`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22817,6 +27495,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `class BetaToolSearchToolRegex20251119:`
+
           - `JsonElement Name "tool_search_tool_regex"constant`
 
             Name of the tool.
@@ -22824,11 +27503,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `required Type Type`
+
             - `"tool_search_tool_regex_20251119"ToolSearchToolRegex20251119`
 
             - `"tool_search_tool_regex"ToolSearchToolRegex`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
             - `"direct"Direct`
 
             - `"code_execution_20250825"CodeExecution20250825`
@@ -22853,6 +27534,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Allows configuring enabled status and defer_loading for all tools
           from an MCP server, with optional per-tool overrides.
+
           - `required string McpServerName`
 
             Name of the MCP server to configure tools for
@@ -22866,6 +27548,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `IReadOnlyDictionary<string, BetaMcpToolConfig>? Configs`
 
             Configuration overrides for specific tools, keyed by tool name
+
             - `Boolean DeferLoading`
 
             - `Boolean Enabled`
@@ -22873,6 +27556,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `BetaMcpToolDefaultConfig DefaultConfig`
 
             Default configuration applied to all tools from this server
+
             - `Boolean DeferLoading`
 
             - `Boolean Enabled`
@@ -22900,6 +27584,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -22952,11 +27637,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -22988,6 +27676,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -22999,6 +27688,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -23096,6 +27786,37 @@ BatchCreateParams parameters = new()
                 {
                     PreviousMessageID = "previous_message_id"
                 },
+                FallbackCreditToken = "x",
+                Fallbacks =
+                [
+                    new()
+                    {
+                        Model = Model.ClaudeFable5,
+                        MaxTokens = 0,
+                        OutputConfig = new()
+                        {
+                            Effort = Effort.Low,
+                            Format = new()
+                            {
+                                Schema = new Dictionary<string, JsonElement>()
+                                {
+                                    { "foo", JsonSerializer.SerializeToElement("bar") },
+                                },
+                            },
+                            TaskBudget = new()
+                            {
+                                Total = 1024,
+                                Remaining = 0,
+                            },
+                        },
+                        Speed = Speed.Standard,
+                        Thinking = new BetaThinkingConfigEnabled()
+                        {
+                            BudgetTokens = 1024,
+                            Display = Display.Summarized,
+                        },
+                    },
+                ],
                 InferenceGeo = "inference_geo",
                 McpServers =
                 [
@@ -23263,6 +27984,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchRetrieveParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -23270,6 +27992,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -23322,11 +28045,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -23358,6 +28084,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -23369,6 +28096,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -23455,6 +28183,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchListParams parameters`
+
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -23472,6 +28201,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -23524,12 +28254,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BatchListPageResponse:`
+
   - `required IReadOnlyList<BetaMessageBatch> Data`
+
     - `required string ID`
 
       Unique object identifier.
@@ -23561,6 +28295,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     - `required ProcessingStatus ProcessingStatus`
 
       Processing status of the Message Batch.
+
       - `"in_progress"InProgress`
 
       - `"canceling"Canceling`
@@ -23572,6 +28307,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       Tallies requests within the Message Batch, categorized by their status.
 
       Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
       - `required Long Canceled`
 
         Number of requests in the Message Batch that have been canceled.
@@ -23681,6 +28417,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchCancelParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -23688,6 +28425,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -23740,11 +28478,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -23776,6 +28517,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -23787,6 +28529,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -23875,6 +28618,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchDeleteParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -23882,6 +28626,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -23934,11 +28679,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaDeletedMessageBatch:`
+
   - `required string ID`
 
     ID of the Message Batch.
@@ -23983,6 +28731,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchResultsParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -23990,6 +28739,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -24042,13 +28792,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageBatchIndividualResponse:`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `required string CustomID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -24060,8 +28813,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `class BetaMessageBatchSucceededResult:`
+
       - `required BetaMessage Message`
+
         - `required string ID`
 
           Unique object identifier.
@@ -24071,6 +28827,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `required BetaContainer? Container`
 
           Information about the container used in the request (for the code execution tool)
+
           - `required string ID`
 
             Identifier for the container used in this request
@@ -24082,6 +28839,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `required IReadOnlyList<BetaSkill>? Skills`
 
             Skills loaded in the container
+
             - `required string SkillID`
 
               Skill ID
@@ -24089,6 +28847,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `required Type Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
               - `"anthropic"Anthropic`
 
               - `"custom"Custom`
@@ -24106,7 +28865,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -24115,27 +28874,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `class BetaTextBlock:`
+
             - `required IReadOnlyList<BetaTextCitation>? Citations`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `class BetaCitationCharLocation:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -24151,6 +28910,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "char_location"constant`
 
               - `class BetaCitationPageLocation:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -24166,6 +28926,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "page_location"constant`
 
               - `class BetaCitationContentBlockLocation:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -24191,6 +28952,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "content_block_location"constant`
 
               - `class BetaCitationsWebSearchResultLocation:`
+
                 - `required string CitedText`
 
                 - `required string EncryptedIndex`
@@ -24202,6 +28964,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `required string Url`
 
               - `class BetaCitationSearchResultLocation:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -24235,6 +28998,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "text"constant`
 
           - `class BetaThinkingBlock:`
+
             - `required string Signature`
 
             - `required string Thinking`
@@ -24242,11 +29006,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "thinking"constant`
 
           - `class BetaRedactedThinkingBlock:`
+
             - `required string Data`
 
             - `JsonElement Type "redacted_thinking"constant`
 
           - `class BetaToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -24258,29 +29024,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
+
                 - `JsonElement Type "direct"constant`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
+
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20250825"constant`
 
               - `class BetaServerToolCaller20260120:`
+
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20260120"constant`
 
           - `class BetaServerToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
 
             - `required Name Name`
+
               - `"advisor"Advisor`
 
               - `"web_search"WebSearch`
@@ -24302,6 +29074,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -24313,9 +29086,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaWebSearchToolResultBlock:`
+
             - `required BetaWebSearchToolResultBlockContent Content`
+
               - `class BetaWebSearchToolResultError:`
+
                 - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -24331,6 +29108,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "web_search_tool_result_error"constant`
 
               - `IReadOnlyList<BetaWebSearchResultBlock>`
+
                 - `required string EncryptedContent`
 
                 - `required string? PageAge`
@@ -24348,6 +29126,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -24359,9 +29138,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaWebFetchToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaWebFetchToolResultErrorBlock:`
+
                 - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"url_too_long"UrlTooLong`
@@ -24383,14 +29166,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "web_fetch_tool_result_error"constant`
 
               - `class BetaWebFetchBlock:`
+
                 - `required BetaDocumentBlock Content`
+
                   - `required BetaCitationConfig? Citations`
 
                     Citation configuration for the document
+
                     - `required Boolean Enabled`
 
                   - `required Source Source`
+
                     - `class BetaBase64PdfSource:`
+
                       - `required string Data`
 
                       - `JsonElement MediaType "application/pdf"constant`
@@ -24398,6 +29186,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                       - `JsonElement Type "base64"constant`
 
                     - `class BetaPlainTextSource:`
+
                       - `required string Data`
 
                       - `JsonElement MediaType "text/plain"constant`
@@ -24427,6 +29216,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -24438,9 +29228,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaAdvisorToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaAdvisorToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"max_uses_exceeded"MaxUsesExceeded`
 
                   - `"prompt_too_long"PromptTooLong`
@@ -24453,9 +29247,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                  - `"model_not_found"ModelNotFound`
+
                 - `JsonElement Type "advisor_tool_result_error"constant`
 
               - `class BetaAdvisorResultBlock:`
+
                 - `required string? StopReason`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -24465,6 +29262,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "advisor_result"constant`
 
               - `class BetaAdvisorRedactedResultBlock:`
+
                 - `required string EncryptedContent`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -24480,11 +29278,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "advisor_tool_result"constant`
 
           - `class BetaCodeExecutionToolResultBlock:`
+
             - `required BetaCodeExecutionToolResultBlockContent Content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `class BetaCodeExecutionToolResultError:`
+
                 - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -24496,7 +29298,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "code_execution_tool_result_error"constant`
 
               - `class BetaCodeExecutionResultBlock:`
+
                 - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -24512,7 +29316,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaEncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -24530,9 +29336,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "code_execution_tool_result"constant`
 
           - `class BetaBashCodeExecutionToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaBashCodeExecutionToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -24546,7 +29356,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
               - `class BetaBashCodeExecutionResultBlock:`
+
                 - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "bash_code_execution_output"constant`
@@ -24564,9 +29376,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "bash_code_execution_tool_result"constant`
 
           - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaTextEditorCodeExecutionToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -24582,9 +29398,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
               - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
                 - `required string Content`
 
                 - `required FileType FileType`
+
                   - `"text"Text`
 
                   - `"image"Image`
@@ -24600,11 +29418,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
               - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
                 - `required Boolean IsFileUpdate`
 
                 - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
                 - `required IReadOnlyList<string>? Lines`
 
                 - `required Long? NewLines`
@@ -24622,9 +29442,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
           - `class BetaToolSearchToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaToolSearchToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -24638,7 +29462,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "tool_search_tool_result_error"constant`
 
               - `class BetaToolSearchToolSearchResultBlock:`
+
                 - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
                   - `required string ToolName`
 
                   - `JsonElement Type "tool_reference"constant`
@@ -24650,6 +29476,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "tool_search_tool_result"constant`
 
           - `class BetaMcpToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -24665,10 +29492,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "mcp_tool_use"constant`
 
           - `class BetaMcpToolResultBlock:`
+
             - `required Content Content`
+
               - `string`
 
               - `IReadOnlyList<BetaTextBlock>`
+
                 - `required IReadOnlyList<BetaTextCitation>? Citations`
 
                   Citations supporting the text block.
@@ -24688,6 +29518,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `class BetaContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
+
             - `required string FileID`
 
             - `JsonElement Type "container_upload"constant`
@@ -24699,6 +29530,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
+
             - `required string? Content`
 
               Summary of compacted content, or null if compaction failed
@@ -24709,15 +29541,128 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             - `JsonElement Type "compaction"constant`
 
+          - `class BetaFallbackBlock:`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn routed directly by the sticky decision has no such boundary
+            and carries no block — the signal for whether a fallback model served the
+            response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `required BetaFallbackInfo From`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5"ClaudeFable5`
+
+                  Next generation of intelligence for the hardest knowledge work and coding problems
+
+                - `"claude-mythos-5"ClaudeMythos5`
+
+                  Most capable model for cybersecurity and biology research
+
+                - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                  New class of intelligence, strongest in coding and cybersecurity
+
+                - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                  Best combination of speed and intelligence
+
+                - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                  Fastest model with near-frontier intelligence
+
+                - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                  Fastest model with near-frontier intelligence
+
+                - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                  Premium model combining maximum intelligence with practical performance
+
+                - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                  Premium model combining maximum intelligence with practical performance
+
+                - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                  High-performance model for agents and coding
+
+                - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                  High-performance model for agents and coding
+
+                - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                  Exceptional model for specialized complex tasks
+
+                - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                  Exceptional model for specialized complex tasks
+
+                - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                  Powerful model for complex tasks
+
+                - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                  Powerful model for complex tasks
+
+                - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                  High-performance model with extended thinking
+
+                - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                  High-performance model with extended thinking
+
+                - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                  Fast and cost-effective model
+
+            - `required BetaFallbackInfo To`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `JsonElement Type "fallback"constant`
+
         - `required BetaContextManagementResponse? ContextManagement`
 
           Context management response.
 
           Information about context management strategies applied during the request.
+
           - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
             List of context management edits that were applied.
+
             - `class BetaClearToolUses20250919EditResponse:`
+
               - `required Long ClearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -24731,6 +29676,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 The type of context management edit applied.
 
             - `class BetaClearThinking20251015EditResponse:`
+
               - `required Long ClearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -24747,10 +29693,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Response envelope for request-level diagnostics. Present (possibly
           null) whenever the caller supplied `diagnostics` on the request.
+
           - `required CacheMissReason? CacheMissReason`
 
             Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
             - `class BetaCacheMissModelChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -24758,6 +29707,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonElement Type "model_changed"constant`
 
             - `class BetaCacheMissSystemChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -24765,6 +29715,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonElement Type "system_changed"constant`
 
             - `class BetaCacheMissToolsChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -24772,6 +29723,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonElement Type "tools_changed"constant`
 
             - `class BetaCacheMissMessagesChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -24779,9 +29731,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonElement Type "messages_changed"constant`
 
             - `class BetaCacheMissPreviousMessageNotFound:`
+
               - `JsonElement Type "previous_message_not_found"constant`
 
             - `class BetaCacheMissUnavailable:`
+
               - `JsonElement Type "unavailable"constant`
 
         - `required Model Model`
@@ -24789,77 +29743,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-          - `"claude-opus-4-8"ClaudeOpus4_8`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-opus-4-7"ClaudeOpus4_7`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-mythos-preview"ClaudeMythosPreview`
-
-            New class of intelligence, strongest in coding and cybersecurity
-
-          - `"claude-opus-4-6"ClaudeOpus4_6`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"ClaudeOpus4_5`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-            High-performance model for agents and coding
-
-          - `"claude-opus-4-1"ClaudeOpus4_1`
-
-            Exceptional model for specialized complex tasks
-
-          - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-            Exceptional model for specialized complex tasks
-
-          - `"claude-opus-4-0"ClaudeOpus4_0`
-
-            Powerful model for complex tasks
-
-          - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-            Powerful model for complex tasks
-
-          - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-            High-performance model with extended thinking
-
-          - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-            High-performance model with extended thinking
-
-          - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-            Fast and cost-effective model
 
         - `JsonElement Role "assistant"constant`
 
@@ -24870,20 +29753,73 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `required BetaRefusalStopDetails? StopDetails`
 
           Structured information about a refusal.
+
           - `required Category? Category`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `"cyber"Cyber`
 
             - `"bio"Bio`
+
+            - `"reasoning_extraction"ReasoningExtraction`
 
           - `required string? Explanation`
 
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `required string? FallbackCreditToken`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `required Boolean? FallbackHasPrefillClaim`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `required string? RecommendedModel`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
           - `JsonElement Type "refusal"constant`
 
@@ -24892,14 +29828,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `"end_turn"EndTurn`
 
           - `"max_tokens"MaxTokens`
@@ -24939,9 +29877,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
+
             - `required Long Ephemeral1hInputTokens`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -24971,6 +29911,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -24978,6 +29919,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `class BetaMessageIterationUsage:`
 
               Token usage for a sampling iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -24994,6 +29936,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 The number of input tokens which were used.
 
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
               - `required Long OutputTokens`
 
                 The number of output tokens which were used.
@@ -25005,6 +29953,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `class BetaCompactionIterationUsage:`
 
               Token usage for a compaction iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -25032,6 +29981,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `class BetaAdvisorMessageIterationUsage:`
 
               Token usage for an advisor sub-inference iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -25062,11 +30012,50 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 Usage for an advisor sub-inference iteration
 
+            - `class BetaFallbackMessageIterationUsage:`
+
+              Token usage for the fallback-model attempt of a server-side fallback request.
+
+              Produced in place of a `message` entry for whichever hop served the
+              response. A declined hop produces the existing `message` entry. Whether
+              a fallback model served the response is signalled by the presence of this
+              entry in `usage.iterations`.
+
+              - `required BetaCacheCreation? CacheCreation`
+
+                Breakdown of cached tokens by TTL
+
+              - `required Long CacheCreationInputTokens`
+
+                The number of input tokens used to create the cache entry.
+
+              - `required Long CacheReadInputTokens`
+
+                The number of input tokens read from the cache.
+
+              - `required Long InputTokens`
+
+                The number of input tokens which were used.
+
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `required Long OutputTokens`
+
+                The number of output tokens which were used.
+
+              - `JsonElement Type "fallback_message"constant`
+
+                Usage for the fallback-model attempt that served the response
+
           - `required Long OutputTokens`
 
             The number of output tokens which were used.
 
-          - `required OutputTokensDetails? OutputTokensDetails`
+          - `required BetaOutputTokensDetails? OutputTokensDetails`
 
             Breakdown of output tokens by category.
 
@@ -25074,6 +30063,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `required Long ThinkingTokens`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -25088,6 +30078,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `required BetaServerToolUsage? ServerToolUse`
 
             The number of server tool requests.
+
             - `required Long WebFetchRequests`
 
               The number of web fetch tool requests.
@@ -25099,6 +30090,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `required ServiceTier? ServiceTier`
 
             If the request used the priority, standard, or batch tier.
+
             - `"standard"Standard`
 
             - `"priority"Priority`
@@ -25108,6 +30100,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `required Speed? Speed`
 
             The inference speed mode used for this request.
+
             - `"standard"Standard`
 
             - `"fast"Fast`
@@ -25115,49 +30108,61 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `JsonElement Type "succeeded"constant`
 
     - `class BetaMessageBatchErroredResult:`
+
       - `required BetaErrorResponse Error`
+
         - `required BetaError Error`
+
           - `class BetaInvalidRequestError:`
+
             - `required string Message`
 
             - `JsonElement Type "invalid_request_error"constant`
 
           - `class BetaAuthenticationError:`
+
             - `required string Message`
 
             - `JsonElement Type "authentication_error"constant`
 
           - `class BetaBillingError:`
+
             - `required string Message`
 
             - `JsonElement Type "billing_error"constant`
 
           - `class BetaPermissionError:`
+
             - `required string Message`
 
             - `JsonElement Type "permission_error"constant`
 
           - `class BetaNotFoundError:`
+
             - `required string Message`
 
             - `JsonElement Type "not_found_error"constant`
 
           - `class BetaRateLimitError:`
+
             - `required string Message`
 
             - `JsonElement Type "rate_limit_error"constant`
 
           - `class BetaGatewayTimeoutError:`
+
             - `required string Message`
 
             - `JsonElement Type "timeout_error"constant`
 
           - `class BetaApiError:`
+
             - `required string Message`
 
             - `JsonElement Type "api_error"constant`
 
           - `class BetaOverloadedError:`
+
             - `required string Message`
 
             - `JsonElement Type "overloaded_error"constant`
@@ -25169,9 +30174,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `JsonElement Type "errored"constant`
 
     - `class BetaMessageBatchCanceledResult:`
+
       - `JsonElement Type "canceled"constant`
 
     - `class BetaMessageBatchExpiredResult:`
+
       - `JsonElement Type "expired"constant`
 
 ### Example
@@ -25190,6 +30197,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 ### Beta Deleted Message Batch
 
 - `class BetaDeletedMessageBatch:`
+
   - `required string ID`
 
     ID of the Message Batch.
@@ -25203,6 +30211,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 ### Beta Message Batch
 
 - `class BetaMessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -25234,6 +30243,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -25245,6 +30255,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -25288,54 +30299,67 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 ### Beta Message Batch Canceled Result
 
 - `class BetaMessageBatchCanceledResult:`
+
   - `JsonElement Type "canceled"constant`
 
 ### Beta Message Batch Errored Result
 
 - `class BetaMessageBatchErroredResult:`
+
   - `required BetaErrorResponse Error`
+
     - `required BetaError Error`
+
       - `class BetaInvalidRequestError:`
+
         - `required string Message`
 
         - `JsonElement Type "invalid_request_error"constant`
 
       - `class BetaAuthenticationError:`
+
         - `required string Message`
 
         - `JsonElement Type "authentication_error"constant`
 
       - `class BetaBillingError:`
+
         - `required string Message`
 
         - `JsonElement Type "billing_error"constant`
 
       - `class BetaPermissionError:`
+
         - `required string Message`
 
         - `JsonElement Type "permission_error"constant`
 
       - `class BetaNotFoundError:`
+
         - `required string Message`
 
         - `JsonElement Type "not_found_error"constant`
 
       - `class BetaRateLimitError:`
+
         - `required string Message`
 
         - `JsonElement Type "rate_limit_error"constant`
 
       - `class BetaGatewayTimeoutError:`
+
         - `required string Message`
 
         - `JsonElement Type "timeout_error"constant`
 
       - `class BetaApiError:`
+
         - `required string Message`
 
         - `JsonElement Type "api_error"constant`
 
       - `class BetaOverloadedError:`
+
         - `required string Message`
 
         - `JsonElement Type "overloaded_error"constant`
@@ -25349,6 +30373,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 ### Beta Message Batch Expired Result
 
 - `class BetaMessageBatchExpiredResult:`
+
   - `JsonElement Type "expired"constant`
 
 ### Beta Message Batch Individual Response
@@ -25356,6 +30381,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 - `class BetaMessageBatchIndividualResponse:`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `required string CustomID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -25367,8 +30393,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `class BetaMessageBatchSucceededResult:`
+
       - `required BetaMessage Message`
+
         - `required string ID`
 
           Unique object identifier.
@@ -25378,6 +30407,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required BetaContainer? Container`
 
           Information about the container used in the request (for the code execution tool)
+
           - `required string ID`
 
             Identifier for the container used in this request
@@ -25389,6 +30419,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `required IReadOnlyList<BetaSkill>? Skills`
 
             Skills loaded in the container
+
             - `required string SkillID`
 
               Skill ID
@@ -25396,6 +30427,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `required Type Type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
               - `"anthropic"Anthropic`
 
               - `"custom"Custom`
@@ -25413,7 +30445,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -25422,27 +30454,27 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `class BetaTextBlock:`
+
             - `required IReadOnlyList<BetaTextCitation>? Citations`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `class BetaCitationCharLocation:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -25458,6 +30490,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "char_location"constant`
 
               - `class BetaCitationPageLocation:`
+
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -25473,6 +30506,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "page_location"constant`
 
               - `class BetaCitationContentBlockLocation:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -25498,6 +30532,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "content_block_location"constant`
 
               - `class BetaCitationsWebSearchResultLocation:`
+
                 - `required string CitedText`
 
                 - `required string EncryptedIndex`
@@ -25509,6 +30544,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `required string Url`
 
               - `class BetaCitationSearchResultLocation:`
+
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -25542,6 +30578,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "text"constant`
 
           - `class BetaThinkingBlock:`
+
             - `required string Signature`
 
             - `required string Thinking`
@@ -25549,11 +30586,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "thinking"constant`
 
           - `class BetaRedactedThinkingBlock:`
+
             - `required string Data`
 
             - `JsonElement Type "redacted_thinking"constant`
 
           - `class BetaToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -25565,29 +30604,35 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
+
                 - `JsonElement Type "direct"constant`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
+
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20250825"constant`
 
               - `class BetaServerToolCaller20260120:`
+
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20260120"constant`
 
           - `class BetaServerToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
 
             - `required Name Name`
+
               - `"advisor"Advisor`
 
               - `"web_search"WebSearch`
@@ -25609,6 +30654,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -25620,9 +30666,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaWebSearchToolResultBlock:`
+
             - `required BetaWebSearchToolResultBlockContent Content`
+
               - `class BetaWebSearchToolResultError:`
+
                 - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -25638,6 +30688,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "web_search_tool_result_error"constant`
 
               - `IReadOnlyList<BetaWebSearchResultBlock>`
+
                 - `required string EncryptedContent`
 
                 - `required string? PageAge`
@@ -25655,6 +30706,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -25666,9 +30718,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaWebFetchToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaWebFetchToolResultErrorBlock:`
+
                 - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"url_too_long"UrlTooLong`
@@ -25690,14 +30746,19 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "web_fetch_tool_result_error"constant`
 
               - `class BetaWebFetchBlock:`
+
                 - `required BetaDocumentBlock Content`
+
                   - `required BetaCitationConfig? Citations`
 
                     Citation configuration for the document
+
                     - `required Boolean Enabled`
 
                   - `required Source Source`
+
                     - `class BetaBase64PdfSource:`
+
                       - `required string Data`
 
                       - `JsonElement MediaType "application/pdf"constant`
@@ -25705,6 +30766,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                       - `JsonElement Type "base64"constant`
 
                     - `class BetaPlainTextSource:`
+
                       - `required string Data`
 
                       - `JsonElement MediaType "text/plain"constant`
@@ -25734,6 +30796,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `Caller Caller`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
@@ -25745,9 +30808,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `class BetaServerToolCaller20260120:`
 
           - `class BetaAdvisorToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaAdvisorToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"max_uses_exceeded"MaxUsesExceeded`
 
                   - `"prompt_too_long"PromptTooLong`
@@ -25760,9 +30827,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
                   - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                  - `"model_not_found"ModelNotFound`
+
                 - `JsonElement Type "advisor_tool_result_error"constant`
 
               - `class BetaAdvisorResultBlock:`
+
                 - `required string? StopReason`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -25772,6 +30842,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "advisor_result"constant`
 
               - `class BetaAdvisorRedactedResultBlock:`
+
                 - `required string EncryptedContent`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -25787,11 +30858,15 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "advisor_tool_result"constant`
 
           - `class BetaCodeExecutionToolResultBlock:`
+
             - `required BetaCodeExecutionToolResultBlockContent Content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `class BetaCodeExecutionToolResultError:`
+
                 - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -25803,7 +30878,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "code_execution_tool_result_error"constant`
 
               - `class BetaCodeExecutionResultBlock:`
+
                 - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -25819,7 +30896,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `class BetaEncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -25837,9 +30916,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "code_execution_tool_result"constant`
 
           - `class BetaBashCodeExecutionToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaBashCodeExecutionToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -25853,7 +30936,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
               - `class BetaBashCodeExecutionResultBlock:`
+
                 - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
                   - `required string FileID`
 
                   - `JsonElement Type "bash_code_execution_output"constant`
@@ -25871,9 +30956,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "bash_code_execution_tool_result"constant`
 
           - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaTextEditorCodeExecutionToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -25889,9 +30978,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
               - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
                 - `required string Content`
 
                 - `required FileType FileType`
+
                   - `"text"Text`
 
                   - `"image"Image`
@@ -25907,11 +30998,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
               - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
                 - `required Boolean IsFileUpdate`
 
                 - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
                 - `required IReadOnlyList<string>? Lines`
 
                 - `required Long? NewLines`
@@ -25929,9 +31022,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
           - `class BetaToolSearchToolResultBlock:`
+
             - `required Content Content`
+
               - `class BetaToolSearchToolResultError:`
+
                 - `required ErrorCode ErrorCode`
+
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -25945,7 +31042,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 - `JsonElement Type "tool_search_tool_result_error"constant`
 
               - `class BetaToolSearchToolSearchResultBlock:`
+
                 - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
                   - `required string ToolName`
 
                   - `JsonElement Type "tool_reference"constant`
@@ -25957,6 +31056,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "tool_search_tool_result"constant`
 
           - `class BetaMcpToolUseBlock:`
+
             - `required string ID`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -25972,10 +31072,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "mcp_tool_use"constant`
 
           - `class BetaMcpToolResultBlock:`
+
             - `required Content Content`
+
               - `string`
 
               - `IReadOnlyList<BetaTextBlock>`
+
                 - `required IReadOnlyList<BetaTextCitation>? Citations`
 
                   Citations supporting the text block.
@@ -25995,6 +31098,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
+
             - `required string FileID`
 
             - `JsonElement Type "container_upload"constant`
@@ -26006,6 +31110,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
+
             - `required string? Content`
 
               Summary of compacted content, or null if compaction failed
@@ -26016,15 +31121,128 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
             - `JsonElement Type "compaction"constant`
 
+          - `class BetaFallbackBlock:`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn routed directly by the sticky decision has no such boundary
+            and carries no block — the signal for whether a fallback model served the
+            response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `required BetaFallbackInfo From`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5"ClaudeFable5`
+
+                  Next generation of intelligence for the hardest knowledge work and coding problems
+
+                - `"claude-mythos-5"ClaudeMythos5`
+
+                  Most capable model for cybersecurity and biology research
+
+                - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                  New class of intelligence, strongest in coding and cybersecurity
+
+                - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                  Frontier intelligence for long-running agents and coding
+
+                - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                  Best combination of speed and intelligence
+
+                - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                  Fastest model with near-frontier intelligence
+
+                - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                  Fastest model with near-frontier intelligence
+
+                - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                  Premium model combining maximum intelligence with practical performance
+
+                - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                  Premium model combining maximum intelligence with practical performance
+
+                - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                  High-performance model for agents and coding
+
+                - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                  High-performance model for agents and coding
+
+                - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                  Exceptional model for specialized complex tasks
+
+                - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                  Exceptional model for specialized complex tasks
+
+                - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                  Powerful model for complex tasks
+
+                - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                  Powerful model for complex tasks
+
+                - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                  High-performance model with extended thinking
+
+                - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                  High-performance model with extended thinking
+
+                - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                  Fast and cost-effective model
+
+            - `required BetaFallbackInfo To`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `JsonElement Type "fallback"constant`
+
         - `required BetaContextManagementResponse? ContextManagement`
 
           Context management response.
 
           Information about context management strategies applied during the request.
+
           - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
             List of context management edits that were applied.
+
             - `class BetaClearToolUses20250919EditResponse:`
+
               - `required Long ClearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -26038,6 +31256,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                 The type of context management edit applied.
 
             - `class BetaClearThinking20251015EditResponse:`
+
               - `required Long ClearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -26054,10 +31273,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
           Response envelope for request-level diagnostics. Present (possibly
           null) whenever the caller supplied `diagnostics` on the request.
+
           - `required CacheMissReason? CacheMissReason`
 
             Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
             - `class BetaCacheMissModelChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -26065,6 +31287,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "model_changed"constant`
 
             - `class BetaCacheMissSystemChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -26072,6 +31295,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "system_changed"constant`
 
             - `class BetaCacheMissToolsChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -26079,6 +31303,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "tools_changed"constant`
 
             - `class BetaCacheMissMessagesChanged:`
+
               - `required Long CacheMissedInputTokens`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -26086,9 +31311,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "messages_changed"constant`
 
             - `class BetaCacheMissPreviousMessageNotFound:`
+
               - `JsonElement Type "previous_message_not_found"constant`
 
             - `class BetaCacheMissUnavailable:`
+
               - `JsonElement Type "unavailable"constant`
 
         - `required Model Model`
@@ -26096,77 +31323,6 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-          - `"claude-opus-4-8"ClaudeOpus4_8`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-opus-4-7"ClaudeOpus4_7`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-mythos-preview"ClaudeMythosPreview`
-
-            New class of intelligence, strongest in coding and cybersecurity
-
-          - `"claude-opus-4-6"ClaudeOpus4_6`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"ClaudeOpus4_5`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-            High-performance model for agents and coding
-
-          - `"claude-opus-4-1"ClaudeOpus4_1`
-
-            Exceptional model for specialized complex tasks
-
-          - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-            Exceptional model for specialized complex tasks
-
-          - `"claude-opus-4-0"ClaudeOpus4_0`
-
-            Powerful model for complex tasks
-
-          - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-            Powerful model for complex tasks
-
-          - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-            High-performance model with extended thinking
-
-          - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-            High-performance model with extended thinking
-
-          - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-            Fast and cost-effective model
 
         - `JsonElement Role "assistant"constant`
 
@@ -26177,20 +31333,73 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required BetaRefusalStopDetails? StopDetails`
 
           Structured information about a refusal.
+
           - `required Category? Category`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `"cyber"Cyber`
 
             - `"bio"Bio`
+
+            - `"reasoning_extraction"ReasoningExtraction`
 
           - `required string? Explanation`
 
             Human-readable explanation of the refusal.
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+          - `required string? FallbackCreditToken`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `required Boolean? FallbackHasPrefillClaim`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `required string? RecommendedModel`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
           - `JsonElement Type "refusal"constant`
 
@@ -26199,14 +31408,16 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `"end_turn"EndTurn`
 
           - `"max_tokens"MaxTokens`
@@ -26246,9 +31457,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
+
             - `required Long Ephemeral1hInputTokens`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -26278,6 +31491,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -26285,6 +31499,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaMessageIterationUsage:`
 
               Token usage for a sampling iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -26301,6 +31516,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
                 The number of input tokens which were used.
 
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
               - `required Long OutputTokens`
 
                 The number of output tokens which were used.
@@ -26312,6 +31533,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaCompactionIterationUsage:`
 
               Token usage for a compaction iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -26339,6 +31561,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaAdvisorMessageIterationUsage:`
 
               Token usage for an advisor sub-inference iteration.
+
               - `required BetaCacheCreation? CacheCreation`
 
                 Breakdown of cached tokens by TTL
@@ -26369,11 +31592,50 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
                 Usage for an advisor sub-inference iteration
 
+            - `class BetaFallbackMessageIterationUsage:`
+
+              Token usage for the fallback-model attempt of a server-side fallback request.
+
+              Produced in place of a `message` entry for whichever hop served the
+              response. A declined hop produces the existing `message` entry. Whether
+              a fallback model served the response is signalled by the presence of this
+              entry in `usage.iterations`.
+
+              - `required BetaCacheCreation? CacheCreation`
+
+                Breakdown of cached tokens by TTL
+
+              - `required Long CacheCreationInputTokens`
+
+                The number of input tokens used to create the cache entry.
+
+              - `required Long CacheReadInputTokens`
+
+                The number of input tokens read from the cache.
+
+              - `required Long InputTokens`
+
+                The number of input tokens which were used.
+
+              - `required Model Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `required Long OutputTokens`
+
+                The number of output tokens which were used.
+
+              - `JsonElement Type "fallback_message"constant`
+
+                Usage for the fallback-model attempt that served the response
+
           - `required Long OutputTokens`
 
             The number of output tokens which were used.
 
-          - `required OutputTokensDetails? OutputTokensDetails`
+          - `required BetaOutputTokensDetails? OutputTokensDetails`
 
             Breakdown of output tokens by category.
 
@@ -26381,6 +31643,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `required Long ThinkingTokens`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -26395,6 +31658,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `required BetaServerToolUsage? ServerToolUse`
 
             The number of server tool requests.
+
             - `required Long WebFetchRequests`
 
               The number of web fetch tool requests.
@@ -26406,6 +31670,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `required ServiceTier? ServiceTier`
 
             If the request used the priority, standard, or batch tier.
+
             - `"standard"Standard`
 
             - `"priority"Priority`
@@ -26415,6 +31680,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `required Speed? Speed`
 
             The inference speed mode used for this request.
+
             - `"standard"Standard`
 
             - `"fast"Fast`
@@ -26422,49 +31688,61 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `JsonElement Type "succeeded"constant`
 
     - `class BetaMessageBatchErroredResult:`
+
       - `required BetaErrorResponse Error`
+
         - `required BetaError Error`
+
           - `class BetaInvalidRequestError:`
+
             - `required string Message`
 
             - `JsonElement Type "invalid_request_error"constant`
 
           - `class BetaAuthenticationError:`
+
             - `required string Message`
 
             - `JsonElement Type "authentication_error"constant`
 
           - `class BetaBillingError:`
+
             - `required string Message`
 
             - `JsonElement Type "billing_error"constant`
 
           - `class BetaPermissionError:`
+
             - `required string Message`
 
             - `JsonElement Type "permission_error"constant`
 
           - `class BetaNotFoundError:`
+
             - `required string Message`
 
             - `JsonElement Type "not_found_error"constant`
 
           - `class BetaRateLimitError:`
+
             - `required string Message`
 
             - `JsonElement Type "rate_limit_error"constant`
 
           - `class BetaGatewayTimeoutError:`
+
             - `required string Message`
 
             - `JsonElement Type "timeout_error"constant`
 
           - `class BetaApiError:`
+
             - `required string Message`
 
             - `JsonElement Type "api_error"constant`
 
           - `class BetaOverloadedError:`
+
             - `required string Message`
 
             - `JsonElement Type "overloaded_error"constant`
@@ -26476,14 +31754,17 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `JsonElement Type "errored"constant`
 
     - `class BetaMessageBatchCanceledResult:`
+
       - `JsonElement Type "canceled"constant`
 
     - `class BetaMessageBatchExpiredResult:`
+
       - `JsonElement Type "expired"constant`
 
 ### Beta Message Batch Request Counts
 
 - `class BetaMessageBatchRequestCounts:`
+
   - `required Long Canceled`
 
     Number of requests in the Message Batch that have been canceled.
@@ -26519,8 +31800,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
   Processing result for this request.
 
   Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
   - `class BetaMessageBatchSucceededResult:`
+
     - `required BetaMessage Message`
+
       - `required string ID`
 
         Unique object identifier.
@@ -26530,6 +31814,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required BetaContainer? Container`
 
         Information about the container used in the request (for the code execution tool)
+
         - `required string ID`
 
           Identifier for the container used in this request
@@ -26541,6 +31826,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required IReadOnlyList<BetaSkill>? Skills`
 
           Skills loaded in the container
+
           - `required string SkillID`
 
             Skill ID
@@ -26548,6 +31834,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `required Type Type`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
             - `"anthropic"Anthropic`
 
             - `"custom"Custom`
@@ -26565,7 +31852,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         Example:
 
         ```json
-        [{ "type": "text", "text": "Hi, I'm Claude." }]
+        [{"type": "text", "text": "Hi, I'm Claude."}]
         ```
 
         If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -26574,27 +31861,27 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
         ```json
         [
-          {
-            "role": "user",
-            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-          },
-          { "role": "assistant", "content": "The best answer is (" }
+          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+          {"role": "assistant", "content": "The best answer is ("}
         ]
         ```
 
         Then the response `content` might be:
 
         ```json
-        [{ "type": "text", "text": "B)" }]
+        [{"type": "text", "text": "B)"}]
         ```
 
         - `class BetaTextBlock:`
+
           - `required IReadOnlyList<BetaTextCitation>? Citations`
 
             Citations supporting the text block.
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
             - `class BetaCitationCharLocation:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -26610,6 +31897,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "char_location"constant`
 
             - `class BetaCitationPageLocation:`
+
               - `required string CitedText`
 
               - `required Long DocumentIndex`
@@ -26625,6 +31913,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "page_location"constant`
 
             - `class BetaCitationContentBlockLocation:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -26650,6 +31939,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "content_block_location"constant`
 
             - `class BetaCitationsWebSearchResultLocation:`
+
               - `required string CitedText`
 
               - `required string EncryptedIndex`
@@ -26661,6 +31951,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `required string Url`
 
             - `class BetaCitationSearchResultLocation:`
+
               - `required string CitedText`
 
                 The full text of the cited block range, concatenated.
@@ -26694,6 +31985,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "text"constant`
 
         - `class BetaThinkingBlock:`
+
           - `required string Signature`
 
           - `required string Thinking`
@@ -26701,11 +31993,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "thinking"constant`
 
         - `class BetaRedactedThinkingBlock:`
+
           - `required string Data`
 
           - `JsonElement Type "redacted_thinking"constant`
 
         - `class BetaToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -26717,29 +32011,35 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
+
               - `JsonElement Type "direct"constant`
 
             - `class BetaServerToolCaller:`
 
               Tool invocation generated by a server-side tool.
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20250825"constant`
 
             - `class BetaServerToolCaller20260120:`
+
               - `required string ToolID`
 
               - `JsonElement Type "code_execution_20260120"constant`
 
         - `class BetaServerToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
 
           - `required Name Name`
+
             - `"advisor"Advisor`
 
             - `"web_search"WebSearch`
@@ -26761,6 +32061,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -26772,9 +32073,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebSearchToolResultBlock:`
+
           - `required BetaWebSearchToolResultBlockContent Content`
+
             - `class BetaWebSearchToolResultError:`
+
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -26790,6 +32095,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "web_search_tool_result_error"constant`
 
             - `IReadOnlyList<BetaWebSearchResultBlock>`
+
               - `required string EncryptedContent`
 
               - `required string? PageAge`
@@ -26807,6 +32113,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -26818,9 +32125,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaWebFetchToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaWebFetchToolResultErrorBlock:`
+
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"url_too_long"UrlTooLong`
@@ -26842,14 +32153,19 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "web_fetch_tool_result_error"constant`
 
             - `class BetaWebFetchBlock:`
+
               - `required BetaDocumentBlock Content`
+
                 - `required BetaCitationConfig? Citations`
 
                   Citation configuration for the document
+
                   - `required Boolean Enabled`
 
                 - `required Source Source`
+
                   - `class BetaBase64PdfSource:`
+
                     - `required string Data`
 
                     - `JsonElement MediaType "application/pdf"constant`
@@ -26857,6 +32173,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                     - `JsonElement Type "base64"constant`
 
                   - `class BetaPlainTextSource:`
+
                     - `required string Data`
 
                     - `JsonElement MediaType "text/plain"constant`
@@ -26886,6 +32203,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `Caller Caller`
 
             Tool invocation directly from the model.
+
             - `class BetaDirectCaller:`
 
               Tool invocation directly from the model.
@@ -26897,9 +32215,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaServerToolCaller20260120:`
 
         - `class BetaAdvisorToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaAdvisorToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"max_uses_exceeded"MaxUsesExceeded`
 
                 - `"prompt_too_long"PromptTooLong`
@@ -26912,9 +32234,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
                 - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+                - `"model_not_found"ModelNotFound`
+
               - `JsonElement Type "advisor_tool_result_error"constant`
 
             - `class BetaAdvisorResultBlock:`
+
               - `required string? StopReason`
 
                 The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -26924,6 +32249,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "advisor_result"constant`
 
             - `class BetaAdvisorRedactedResultBlock:`
+
               - `required string EncryptedContent`
 
                 Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -26939,11 +32265,15 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "advisor_tool_result"constant`
 
         - `class BetaCodeExecutionToolResultBlock:`
+
           - `required BetaCodeExecutionToolResultBlockContent Content`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `class BetaCodeExecutionToolResultError:`
+
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -26955,7 +32285,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "code_execution_tool_result_error"constant`
 
             - `class BetaCodeExecutionResultBlock:`
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -26971,7 +32303,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `class BetaEncryptedCodeExecutionResultBlock:`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "code_execution_output"constant`
@@ -26989,9 +32323,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "code_execution_tool_result"constant`
 
         - `class BetaBashCodeExecutionToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaBashCodeExecutionToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -27005,7 +32343,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
             - `class BetaBashCodeExecutionResultBlock:`
+
               - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
                 - `required string FileID`
 
                 - `JsonElement Type "bash_code_execution_output"constant`
@@ -27023,9 +32363,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "bash_code_execution_tool_result"constant`
 
         - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaTextEditorCodeExecutionToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -27041,9 +32385,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
             - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
               - `required string Content`
 
               - `required FileType FileType`
+
                 - `"text"Text`
 
                 - `"image"Image`
@@ -27059,11 +32405,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
             - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
               - `required Boolean IsFileUpdate`
 
               - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
               - `required IReadOnlyList<string>? Lines`
 
               - `required Long? NewLines`
@@ -27081,9 +32429,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
         - `class BetaToolSearchToolResultBlock:`
+
           - `required Content Content`
+
             - `class BetaToolSearchToolResultError:`
+
               - `required ErrorCode ErrorCode`
+
                 - `"invalid_tool_input"InvalidToolInput`
 
                 - `"unavailable"Unavailable`
@@ -27097,7 +32449,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               - `JsonElement Type "tool_search_tool_result_error"constant`
 
             - `class BetaToolSearchToolSearchResultBlock:`
+
               - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
                 - `required string ToolName`
 
                 - `JsonElement Type "tool_reference"constant`
@@ -27109,6 +32463,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "tool_search_tool_result"constant`
 
         - `class BetaMcpToolUseBlock:`
+
           - `required string ID`
 
           - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -27124,10 +32479,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "mcp_tool_use"constant`
 
         - `class BetaMcpToolResultBlock:`
+
           - `required Content Content`
+
             - `string`
 
             - `IReadOnlyList<BetaTextBlock>`
+
               - `required IReadOnlyList<BetaTextCitation>? Citations`
 
                 Citations supporting the text block.
@@ -27147,6 +32505,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `class BetaContainerUploadBlock:`
 
           Response model for a file uploaded to the container.
+
           - `required string FileID`
 
           - `JsonElement Type "container_upload"constant`
@@ -27158,6 +32517,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           When content is None, it indicates the compaction failed to produce a valid
           summary (e.g., malformed output from the model). Clients may round-trip
           compaction blocks with null content; the server treats them as no-ops.
+
           - `required string? Content`
 
             Summary of compacted content, or null if compaction failed
@@ -27168,15 +32528,128 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
           - `JsonElement Type "compaction"constant`
 
+        - `class BetaFallbackBlock:`
+
+          Marks the point in `content` where one model's output gives way to the next.
+
+          One block appears per hop where a preceding model actually ran this turn and
+          declined. A turn routed directly by the sticky decision has no such boundary
+          and carries no block — the signal for whether a fallback model served the
+          response is the presence of a `fallback_message` entry in
+          `usage.iterations`, not this block.
+
+          The block is treated like a server-tool content block for streaming: it
+          arrives via the standard `content_block_start` / `content_block_stop`
+          pair and carries no deltas.
+
+          - `required BetaFallbackInfo From`
+
+            The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-fable-5"ClaudeFable5`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `"claude-mythos-5"ClaudeMythos5`
+
+                Most capable model for cybersecurity and biology research
+
+              - `"claude-opus-4-8"ClaudeOpus4_8`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-opus-4-7"ClaudeOpus4_7`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-mythos-preview"ClaudeMythosPreview`
+
+                New class of intelligence, strongest in coding and cybersecurity
+
+              - `"claude-opus-4-6"ClaudeOpus4_6`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+                Best combination of speed and intelligence
+
+              - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-opus-4-5"ClaudeOpus4_5`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+                High-performance model for agents and coding
+
+              - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+                High-performance model for agents and coding
+
+              - `"claude-opus-4-1"ClaudeOpus4_1`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-0"ClaudeOpus4_0`
+
+                Powerful model for complex tasks
+
+              - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+                Powerful model for complex tasks
+
+              - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+                High-performance model with extended thinking
+
+              - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+                High-performance model with extended thinking
+
+              - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+                Fast and cost-effective model
+
+          - `required BetaFallbackInfo To`
+
+            The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+          - `JsonElement Type "fallback"constant`
+
       - `required BetaContextManagementResponse? ContextManagement`
 
         Context management response.
 
         Information about context management strategies applied during the request.
+
         - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
           List of context management edits that were applied.
+
           - `class BetaClearToolUses20250919EditResponse:`
+
             - `required Long ClearedInputTokens`
 
               Number of input tokens cleared by this edit.
@@ -27190,6 +32663,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
               The type of context management edit applied.
 
           - `class BetaClearThinking20251015EditResponse:`
+
             - `required Long ClearedInputTokens`
 
               Number of input tokens cleared by this edit.
@@ -27206,10 +32680,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
         Response envelope for request-level diagnostics. Present (possibly
         null) whenever the caller supplied `diagnostics` on the request.
+
         - `required CacheMissReason? CacheMissReason`
 
           Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
           - `class BetaCacheMissModelChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -27217,6 +32694,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "model_changed"constant`
 
           - `class BetaCacheMissSystemChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -27224,6 +32702,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "system_changed"constant`
 
           - `class BetaCacheMissToolsChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -27231,6 +32710,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "tools_changed"constant`
 
           - `class BetaCacheMissMessagesChanged:`
+
             - `required Long CacheMissedInputTokens`
 
               Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -27238,9 +32718,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "messages_changed"constant`
 
           - `class BetaCacheMissPreviousMessageNotFound:`
+
             - `JsonElement Type "previous_message_not_found"constant`
 
           - `class BetaCacheMissUnavailable:`
+
             - `JsonElement Type "unavailable"constant`
 
       - `required Model Model`
@@ -27248,77 +32730,6 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-8"ClaudeOpus4_8`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"ClaudeOpus4_7`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"ClaudeMythosPreview`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"ClaudeOpus4_6`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"ClaudeOpus4_5`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-          High-performance model for agents and coding
-
-        - `"claude-opus-4-1"ClaudeOpus4_1`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-          Exceptional model for specialized complex tasks
-
-        - `"claude-opus-4-0"ClaudeOpus4_0`
-
-          Powerful model for complex tasks
-
-        - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-          Powerful model for complex tasks
-
-        - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-          High-performance model with extended thinking
-
-        - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-          High-performance model with extended thinking
-
-        - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-          Fast and cost-effective model
 
       - `JsonElement Role "assistant"constant`
 
@@ -27329,20 +32740,73 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required BetaRefusalStopDetails? StopDetails`
 
         Structured information about a refusal.
+
         - `required Category? Category`
 
           The policy category that triggered the refusal.
 
           `null` when the refusal doesn't map to a named category.
+
           - `"cyber"Cyber`
 
           - `"bio"Bio`
+
+          - `"reasoning_extraction"ReasoningExtraction`
 
         - `required string? Explanation`
 
           Human-readable explanation of the refusal.
 
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+        - `required string? FallbackCreditToken`
+
+          Opaque code that refunds the cache-miss cost when retrying this refused
+          request on the fallback model. Pass it as `fallback_credit_token` on the
+          retry request. Expires 5 minutes after the refusal.
+
+          The retry is sent either with the same request body (`system`, `messages`,
+          `tools`, and other render-shaping fields), or with the same body plus one
+          appended `assistant` message whose content is the partial text (with any
+          trailing whitespace stripped from the final text block) and paired
+          server-tool blocks from this refusal — which also authorizes that
+          appended turn as an assistant-prefill continuation on models that otherwise
+          disallow prefill. A token minted mid-server-tool-loop whose partial content
+          was continuable may only be redeemed the second way — if a same-body retry
+          is rejected with a 400 saying the token must be redeemed by continuing the
+          partial response, retry the second way instead. Either way: same workspace,
+          same platform; a mismatch is a 400. Resending a token for an already-warm
+          prefix is permitted but yields no additional credit.
+
+          `null` when the refused model isn't eligible for a fallback credit.
+
+        - `required Boolean? FallbackHasPrefillClaim`
+
+          Whether the accompanying `fallback_credit_token` may be redeemed with the
+          appended-assistant retry form. Only set when `fallback_credit_token` is
+          present.
+
+          `true`: retry by resending the same request body plus one appended
+          `assistant` message whose content is this response's `content` with any
+          trailing whitespace stripped from the final text block and unpaired
+          `tool_use` blocks omitted (the same appended-turn shape described on
+          `fallback_credit_token`), with the token attached. `false`: retry by
+          resending the original request body unchanged, with the token attached —
+          the appended-assistant form is not available for this refusal (no
+          continuable partial content, or the request uses `output_format` or a
+          `tool_choice` that forces tool use). One exception: when the request used
+          `output_format` or a forced `tool_choice` and the refusal arrived after
+          server tools (including MCP connector tools) had already executed, the
+          token may not be redeemable by either retry form; if the exact-body retry
+          is then rejected with a 400 saying the token must be redeemed by
+          continuing the partial response, discard the token and retry without it.
+
+          Advisory: if an appended-assistant retry is rejected with a 400 despite
+          `true`, fall back to resending the original request body with the token.
+
+        - `required string? RecommendedModel`
+
+          The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
         - `JsonElement Type "refusal"constant`
 
@@ -27351,14 +32815,16 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         The reason that we stopped.
 
         This may be one the following values:
-        - `"end_turn"`: the model reached a natural stopping point
-        - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-        - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-        - `"tool_use"`: the model invoked one or more tools
-        - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-        - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+        * `"end_turn"`: the model reached a natural stopping point
+        * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+        * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+        * `"tool_use"`: the model invoked one or more tools
+        * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+        * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
         - `"end_turn"EndTurn`
 
         - `"max_tokens"MaxTokens`
@@ -27398,9 +32864,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
         - `required BetaCacheCreation? CacheCreation`
 
           Breakdown of cached tokens by TTL
+
           - `required Long Ephemeral1hInputTokens`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -27430,6 +32898,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           Per-iteration token usage breakdown.
 
           Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
           - Determine which iterations exceeded long context thresholds (>=200k tokens)
           - Calculate the true context window size from the last iteration
           - Understand token accumulation across server-side tool use loops
@@ -27437,6 +32906,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaMessageIterationUsage:`
 
             Token usage for a sampling iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -27453,6 +32923,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
               The number of input tokens which were used.
 
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
             - `required Long OutputTokens`
 
               The number of output tokens which were used.
@@ -27464,6 +32940,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaCompactionIterationUsage:`
 
             Token usage for a compaction iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -27491,6 +32968,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaAdvisorMessageIterationUsage:`
 
             Token usage for an advisor sub-inference iteration.
+
             - `required BetaCacheCreation? CacheCreation`
 
               Breakdown of cached tokens by TTL
@@ -27521,11 +32999,50 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
               Usage for an advisor sub-inference iteration
 
+          - `class BetaFallbackMessageIterationUsage:`
+
+            Token usage for the fallback-model attempt of a server-side fallback request.
+
+            Produced in place of a `message` entry for whichever hop served the
+            response. A declined hop produces the existing `message` entry. Whether
+            a fallback model served the response is signalled by the presence of this
+            entry in `usage.iterations`.
+
+            - `required BetaCacheCreation? CacheCreation`
+
+              Breakdown of cached tokens by TTL
+
+            - `required Long CacheCreationInputTokens`
+
+              The number of input tokens used to create the cache entry.
+
+            - `required Long CacheReadInputTokens`
+
+              The number of input tokens read from the cache.
+
+            - `required Long InputTokens`
+
+              The number of input tokens which were used.
+
+            - `required Model Model`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `required Long OutputTokens`
+
+              The number of output tokens which were used.
+
+            - `JsonElement Type "fallback_message"constant`
+
+              Usage for the fallback-model attempt that served the response
+
         - `required Long OutputTokens`
 
           The number of output tokens which were used.
 
-        - `required OutputTokensDetails? OutputTokensDetails`
+        - `required BetaOutputTokensDetails? OutputTokensDetails`
 
           Breakdown of output tokens by category.
 
@@ -27533,6 +33050,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           This object provides a read-only decomposition for observability — for example,
           how many of the billed output tokens were spent on internal reasoning that may
           have been summarized before being returned to you.
+
           - `required Long ThinkingTokens`
 
             Number of output tokens the model generated as internal reasoning, including
@@ -27547,6 +33065,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required BetaServerToolUsage? ServerToolUse`
 
           The number of server tool requests.
+
           - `required Long WebFetchRequests`
 
             The number of web fetch tool requests.
@@ -27558,6 +33077,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required ServiceTier? ServiceTier`
 
           If the request used the priority, standard, or batch tier.
+
           - `"standard"Standard`
 
           - `"priority"Priority`
@@ -27567,6 +33087,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required Speed? Speed`
 
           The inference speed mode used for this request.
+
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -27574,49 +33095,61 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     - `JsonElement Type "succeeded"constant`
 
   - `class BetaMessageBatchErroredResult:`
+
     - `required BetaErrorResponse Error`
+
       - `required BetaError Error`
+
         - `class BetaInvalidRequestError:`
+
           - `required string Message`
 
           - `JsonElement Type "invalid_request_error"constant`
 
         - `class BetaAuthenticationError:`
+
           - `required string Message`
 
           - `JsonElement Type "authentication_error"constant`
 
         - `class BetaBillingError:`
+
           - `required string Message`
 
           - `JsonElement Type "billing_error"constant`
 
         - `class BetaPermissionError:`
+
           - `required string Message`
 
           - `JsonElement Type "permission_error"constant`
 
         - `class BetaNotFoundError:`
+
           - `required string Message`
 
           - `JsonElement Type "not_found_error"constant`
 
         - `class BetaRateLimitError:`
+
           - `required string Message`
 
           - `JsonElement Type "rate_limit_error"constant`
 
         - `class BetaGatewayTimeoutError:`
+
           - `required string Message`
 
           - `JsonElement Type "timeout_error"constant`
 
         - `class BetaApiError:`
+
           - `required string Message`
 
           - `JsonElement Type "api_error"constant`
 
         - `class BetaOverloadedError:`
+
           - `required string Message`
 
           - `JsonElement Type "overloaded_error"constant`
@@ -27628,15 +33161,19 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     - `JsonElement Type "errored"constant`
 
   - `class BetaMessageBatchCanceledResult:`
+
     - `JsonElement Type "canceled"constant`
 
   - `class BetaMessageBatchExpiredResult:`
+
     - `JsonElement Type "expired"constant`
 
 ### Beta Message Batch Succeeded Result
 
 - `class BetaMessageBatchSucceededResult:`
+
   - `required BetaMessage Message`
+
     - `required string ID`
 
       Unique object identifier.
@@ -27646,6 +33183,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     - `required BetaContainer? Container`
 
       Information about the container used in the request (for the code execution tool)
+
       - `required string ID`
 
         Identifier for the container used in this request
@@ -27657,6 +33195,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required IReadOnlyList<BetaSkill>? Skills`
 
         Skills loaded in the container
+
         - `required string SkillID`
 
           Skill ID
@@ -27664,6 +33203,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `required Type Type`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
           - `"anthropic"Anthropic`
 
           - `"custom"Custom`
@@ -27681,7 +33221,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       Example:
 
       ```json
-      [{ "type": "text", "text": "Hi, I'm Claude." }]
+      [{"type": "text", "text": "Hi, I'm Claude."}]
       ```
 
       If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -27690,27 +33230,27 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
       ```json
       [
-        {
-          "role": "user",
-          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-        },
-        { "role": "assistant", "content": "The best answer is (" }
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("}
       ]
       ```
 
       Then the response `content` might be:
 
       ```json
-      [{ "type": "text", "text": "B)" }]
+      [{"type": "text", "text": "B)"}]
       ```
 
       - `class BetaTextBlock:`
+
         - `required IReadOnlyList<BetaTextCitation>? Citations`
 
           Citations supporting the text block.
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
           - `class BetaCitationCharLocation:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -27726,6 +33266,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "char_location"constant`
 
           - `class BetaCitationPageLocation:`
+
             - `required string CitedText`
 
             - `required Long DocumentIndex`
@@ -27741,6 +33282,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "page_location"constant`
 
           - `class BetaCitationContentBlockLocation:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -27766,6 +33308,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "content_block_location"constant`
 
           - `class BetaCitationsWebSearchResultLocation:`
+
             - `required string CitedText`
 
             - `required string EncryptedIndex`
@@ -27777,6 +33320,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `required string Url`
 
           - `class BetaCitationSearchResultLocation:`
+
             - `required string CitedText`
 
               The full text of the cited block range, concatenated.
@@ -27810,6 +33354,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "text"constant`
 
       - `class BetaThinkingBlock:`
+
         - `required string Signature`
 
         - `required string Thinking`
@@ -27817,11 +33362,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "thinking"constant`
 
       - `class BetaRedactedThinkingBlock:`
+
         - `required string Data`
 
         - `JsonElement Type "redacted_thinking"constant`
 
       - `class BetaToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -27833,29 +33380,35 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
+
             - `JsonElement Type "direct"constant`
 
           - `class BetaServerToolCaller:`
 
             Tool invocation generated by a server-side tool.
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20250825"constant`
 
           - `class BetaServerToolCaller20260120:`
+
             - `required string ToolID`
 
             - `JsonElement Type "code_execution_20260120"constant`
 
       - `class BetaServerToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
 
         - `required Name Name`
+
           - `"advisor"Advisor`
 
           - `"web_search"WebSearch`
@@ -27877,6 +33430,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -27888,9 +33442,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebSearchToolResultBlock:`
+
         - `required BetaWebSearchToolResultBlockContent Content`
+
           - `class BetaWebSearchToolResultError:`
+
             - `required BetaWebSearchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -27906,6 +33464,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "web_search_tool_result_error"constant`
 
           - `IReadOnlyList<BetaWebSearchResultBlock>`
+
             - `required string EncryptedContent`
 
             - `required string? PageAge`
@@ -27923,6 +33482,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -27934,9 +33494,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaWebFetchToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaWebFetchToolResultErrorBlock:`
+
             - `required BetaWebFetchToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"url_too_long"UrlTooLong`
@@ -27958,14 +33522,19 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "web_fetch_tool_result_error"constant`
 
           - `class BetaWebFetchBlock:`
+
             - `required BetaDocumentBlock Content`
+
               - `required BetaCitationConfig? Citations`
 
                 Citation configuration for the document
+
                 - `required Boolean Enabled`
 
               - `required Source Source`
+
                 - `class BetaBase64PdfSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "application/pdf"constant`
@@ -27973,6 +33542,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
                   - `JsonElement Type "base64"constant`
 
                 - `class BetaPlainTextSource:`
+
                   - `required string Data`
 
                   - `JsonElement MediaType "text/plain"constant`
@@ -28002,6 +33572,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `Caller Caller`
 
           Tool invocation directly from the model.
+
           - `class BetaDirectCaller:`
 
             Tool invocation directly from the model.
@@ -28013,9 +33584,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaServerToolCaller20260120:`
 
       - `class BetaAdvisorToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaAdvisorToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"max_uses_exceeded"MaxUsesExceeded`
 
               - `"prompt_too_long"PromptTooLong`
@@ -28028,9 +33603,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
               - `"execution_time_exceeded"ExecutionTimeExceeded`
 
+              - `"model_not_found"ModelNotFound`
+
             - `JsonElement Type "advisor_tool_result_error"constant`
 
           - `class BetaAdvisorResultBlock:`
+
             - `required string? StopReason`
 
               The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -28040,6 +33618,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "advisor_result"constant`
 
           - `class BetaAdvisorRedactedResultBlock:`
+
             - `required string EncryptedContent`
 
               Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -28055,11 +33634,15 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "advisor_tool_result"constant`
 
       - `class BetaCodeExecutionToolResultBlock:`
+
         - `required BetaCodeExecutionToolResultBlockContent Content`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `class BetaCodeExecutionToolResultError:`
+
             - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -28071,7 +33654,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "code_execution_tool_result_error"constant`
 
           - `class BetaCodeExecutionResultBlock:`
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -28087,7 +33672,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `class BetaEncryptedCodeExecutionResultBlock:`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `required IReadOnlyList<BetaCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "code_execution_output"constant`
@@ -28105,9 +33692,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "code_execution_tool_result"constant`
 
       - `class BetaBashCodeExecutionToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaBashCodeExecutionToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -28121,7 +33712,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
           - `class BetaBashCodeExecutionResultBlock:`
+
             - `required IReadOnlyList<BetaBashCodeExecutionOutputBlock> Content`
+
               - `required string FileID`
 
               - `JsonElement Type "bash_code_execution_output"constant`
@@ -28139,9 +33732,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "bash_code_execution_tool_result"constant`
 
       - `class BetaTextEditorCodeExecutionToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaTextEditorCodeExecutionToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -28157,9 +33754,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
           - `class BetaTextEditorCodeExecutionViewResultBlock:`
+
             - `required string Content`
 
             - `required FileType FileType`
+
               - `"text"Text`
 
               - `"image"Image`
@@ -28175,11 +33774,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
           - `class BetaTextEditorCodeExecutionCreateResultBlock:`
+
             - `required Boolean IsFileUpdate`
 
             - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
+
             - `required IReadOnlyList<string>? Lines`
 
             - `required Long? NewLines`
@@ -28197,9 +33798,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
       - `class BetaToolSearchToolResultBlock:`
+
         - `required Content Content`
+
           - `class BetaToolSearchToolResultError:`
+
             - `required ErrorCode ErrorCode`
+
               - `"invalid_tool_input"InvalidToolInput`
 
               - `"unavailable"Unavailable`
@@ -28213,7 +33818,9 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             - `JsonElement Type "tool_search_tool_result_error"constant`
 
           - `class BetaToolSearchToolSearchResultBlock:`
+
             - `required IReadOnlyList<BetaToolReferenceBlock> ToolReferences`
+
               - `required string ToolName`
 
               - `JsonElement Type "tool_reference"constant`
@@ -28225,6 +33832,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "tool_search_tool_result"constant`
 
       - `class BetaMcpToolUseBlock:`
+
         - `required string ID`
 
         - `required IReadOnlyDictionary<string, JsonElement> Input`
@@ -28240,10 +33848,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `JsonElement Type "mcp_tool_use"constant`
 
       - `class BetaMcpToolResultBlock:`
+
         - `required Content Content`
+
           - `string`
 
           - `IReadOnlyList<BetaTextBlock>`
+
             - `required IReadOnlyList<BetaTextCitation>? Citations`
 
               Citations supporting the text block.
@@ -28263,6 +33874,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `class BetaContainerUploadBlock:`
 
         Response model for a file uploaded to the container.
+
         - `required string FileID`
 
         - `JsonElement Type "container_upload"constant`
@@ -28274,6 +33886,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         When content is None, it indicates the compaction failed to produce a valid
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
+
         - `required string? Content`
 
           Summary of compacted content, or null if compaction failed
@@ -28284,15 +33897,128 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
         - `JsonElement Type "compaction"constant`
 
+      - `class BetaFallbackBlock:`
+
+        Marks the point in `content` where one model's output gives way to the next.
+
+        One block appears per hop where a preceding model actually ran this turn and
+        declined. A turn routed directly by the sticky decision has no such boundary
+        and carries no block — the signal for whether a fallback model served the
+        response is the presence of a `fallback_message` entry in
+        `usage.iterations`, not this block.
+
+        The block is treated like a server-tool content block for streaming: it
+        arrives via the standard `content_block_start` / `content_block_stop`
+        pair and carries no deltas.
+
+        - `required BetaFallbackInfo From`
+
+          The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5"ClaudeFable5`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-mythos-5"ClaudeMythos5`
+
+              Most capable model for cybersecurity and biology research
+
+            - `"claude-opus-4-8"ClaudeOpus4_8`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"ClaudeOpus4_7`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-mythos-preview"ClaudeMythosPreview`
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-opus-4-6"ClaudeOpus4_6`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"ClaudeOpus4_5`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+              High-performance model for agents and coding
+
+            - `"claude-opus-4-1"ClaudeOpus4_1`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-0"ClaudeOpus4_0`
+
+              Powerful model for complex tasks
+
+            - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
+
+              Powerful model for complex tasks
+
+            - `"claude-sonnet-4-0"ClaudeSonnet4_0`
+
+              High-performance model with extended thinking
+
+            - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
+
+              High-performance model with extended thinking
+
+            - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
+
+              Fast and cost-effective model
+
+        - `required BetaFallbackInfo To`
+
+          The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+        - `JsonElement Type "fallback"constant`
+
     - `required BetaContextManagementResponse? ContextManagement`
 
       Context management response.
 
       Information about context management strategies applied during the request.
+
       - `required IReadOnlyList<AppliedEdit> AppliedEdits`
 
         List of context management edits that were applied.
+
         - `class BetaClearToolUses20250919EditResponse:`
+
           - `required Long ClearedInputTokens`
 
             Number of input tokens cleared by this edit.
@@ -28306,6 +34032,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
             The type of context management edit applied.
 
         - `class BetaClearThinking20251015EditResponse:`
+
           - `required Long ClearedInputTokens`
 
             Number of input tokens cleared by this edit.
@@ -28322,10 +34049,13 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
       Response envelope for request-level diagnostics. Present (possibly
       null) whenever the caller supplied `diagnostics` on the request.
+
       - `required CacheMissReason? CacheMissReason`
 
         Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
         - `class BetaCacheMissModelChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -28333,6 +34063,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "model_changed"constant`
 
         - `class BetaCacheMissSystemChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -28340,6 +34071,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "system_changed"constant`
 
         - `class BetaCacheMissToolsChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -28347,6 +34079,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "tools_changed"constant`
 
         - `class BetaCacheMissMessagesChanged:`
+
           - `required Long CacheMissedInputTokens`
 
             Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -28354,9 +34087,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
           - `JsonElement Type "messages_changed"constant`
 
         - `class BetaCacheMissPreviousMessageNotFound:`
+
           - `JsonElement Type "previous_message_not_found"constant`
 
         - `class BetaCacheMissUnavailable:`
+
           - `JsonElement Type "unavailable"constant`
 
     - `required Model Model`
@@ -28364,77 +34099,6 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-8"ClaudeOpus4_8`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-opus-4-7"ClaudeOpus4_7`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-mythos-preview"ClaudeMythosPreview`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
-      - `"claude-opus-4-6"ClaudeOpus4_6`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"ClaudeOpus4_5`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-        High-performance model for agents and coding
-
-      - `"claude-opus-4-1"ClaudeOpus4_1`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-1-20250805"ClaudeOpus4_1_20250805`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-0"ClaudeOpus4_0`
-
-        Powerful model for complex tasks
-
-      - `"claude-opus-4-20250514"ClaudeOpus4_20250514`
-
-        Powerful model for complex tasks
-
-      - `"claude-sonnet-4-0"ClaudeSonnet4_0`
-
-        High-performance model with extended thinking
-
-      - `"claude-sonnet-4-20250514"ClaudeSonnet4_20250514`
-
-        High-performance model with extended thinking
-
-      - `"claude-3-haiku-20240307"Claude_3_Haiku_20240307`
-
-        Fast and cost-effective model
 
     - `JsonElement Role "assistant"constant`
 
@@ -28445,20 +34109,73 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
     - `required BetaRefusalStopDetails? StopDetails`
 
       Structured information about a refusal.
+
       - `required Category? Category`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"Cyber`
 
         - `"bio"Bio`
+
+        - `"reasoning_extraction"ReasoningExtraction`
 
       - `required string? Explanation`
 
         Human-readable explanation of the refusal.
 
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
+
+      - `required string? FallbackCreditToken`
+
+        Opaque code that refunds the cache-miss cost when retrying this refused
+        request on the fallback model. Pass it as `fallback_credit_token` on the
+        retry request. Expires 5 minutes after the refusal.
+
+        The retry is sent either with the same request body (`system`, `messages`,
+        `tools`, and other render-shaping fields), or with the same body plus one
+        appended `assistant` message whose content is the partial text (with any
+        trailing whitespace stripped from the final text block) and paired
+        server-tool blocks from this refusal — which also authorizes that
+        appended turn as an assistant-prefill continuation on models that otherwise
+        disallow prefill. A token minted mid-server-tool-loop whose partial content
+        was continuable may only be redeemed the second way — if a same-body retry
+        is rejected with a 400 saying the token must be redeemed by continuing the
+        partial response, retry the second way instead. Either way: same workspace,
+        same platform; a mismatch is a 400. Resending a token for an already-warm
+        prefix is permitted but yields no additional credit.
+
+        `null` when the refused model isn't eligible for a fallback credit.
+
+      - `required Boolean? FallbackHasPrefillClaim`
+
+        Whether the accompanying `fallback_credit_token` may be redeemed with the
+        appended-assistant retry form. Only set when `fallback_credit_token` is
+        present.
+
+        `true`: retry by resending the same request body plus one appended
+        `assistant` message whose content is this response's `content` with any
+        trailing whitespace stripped from the final text block and unpaired
+        `tool_use` blocks omitted (the same appended-turn shape described on
+        `fallback_credit_token`), with the token attached. `false`: retry by
+        resending the original request body unchanged, with the token attached —
+        the appended-assistant form is not available for this refusal (no
+        continuable partial content, or the request uses `output_format` or a
+        `tool_choice` that forces tool use). One exception: when the request used
+        `output_format` or a forced `tool_choice` and the refusal arrived after
+        server tools (including MCP connector tools) had already executed, the
+        token may not be redeemable by either retry form; if the exact-body retry
+        is then rejected with a 400 saying the token must be redeemed by
+        continuing the partial response, discard the token and retry without it.
+
+        Advisory: if an appended-assistant retry is rejected with a 400 despite
+        `true`, fall back to resending the original request body with the token.
+
+      - `required string? RecommendedModel`
+
+        The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
       - `JsonElement Type "refusal"constant`
 
@@ -28467,14 +34184,16 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       The reason that we stopped.
 
       This may be one the following values:
-      - `"end_turn"`: the model reached a natural stopping point
-      - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-      - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-      - `"tool_use"`: the model invoked one or more tools
-      - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-      - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+      * `"end_turn"`: the model reached a natural stopping point
+      * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+      * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+      * `"tool_use"`: the model invoked one or more tools
+      * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+      * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
       - `"end_turn"EndTurn`
 
       - `"max_tokens"MaxTokens`
@@ -28514,9 +34233,11 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `required BetaCacheCreation? CacheCreation`
 
         Breakdown of cached tokens by TTL
+
         - `required Long Ephemeral1hInputTokens`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -28546,6 +34267,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         Per-iteration token usage breakdown.
 
         Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
         - Calculate the true context window size from the last iteration
         - Understand token accumulation across server-side tool use loops
@@ -28553,6 +34275,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `class BetaMessageIterationUsage:`
 
           Token usage for a sampling iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -28569,6 +34292,12 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
             The number of input tokens which were used.
 
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
           - `required Long OutputTokens`
 
             The number of output tokens which were used.
@@ -28580,6 +34309,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `class BetaCompactionIterationUsage:`
 
           Token usage for a compaction iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -28607,6 +34337,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         - `class BetaAdvisorMessageIterationUsage:`
 
           Token usage for an advisor sub-inference iteration.
+
           - `required BetaCacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
@@ -28637,11 +34368,50 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
 
             Usage for an advisor sub-inference iteration
 
+        - `class BetaFallbackMessageIterationUsage:`
+
+          Token usage for the fallback-model attempt of a server-side fallback request.
+
+          Produced in place of a `message` entry for whichever hop served the
+          response. A declined hop produces the existing `message` entry. Whether
+          a fallback model served the response is signalled by the presence of this
+          entry in `usage.iterations`.
+
+          - `required BetaCacheCreation? CacheCreation`
+
+            Breakdown of cached tokens by TTL
+
+          - `required Long CacheCreationInputTokens`
+
+            The number of input tokens used to create the cache entry.
+
+          - `required Long CacheReadInputTokens`
+
+            The number of input tokens read from the cache.
+
+          - `required Long InputTokens`
+
+            The number of input tokens which were used.
+
+          - `required Model Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `required Long OutputTokens`
+
+            The number of output tokens which were used.
+
+          - `JsonElement Type "fallback_message"constant`
+
+            Usage for the fallback-model attempt that served the response
+
       - `required Long OutputTokens`
 
         The number of output tokens which were used.
 
-      - `required OutputTokensDetails? OutputTokensDetails`
+      - `required BetaOutputTokensDetails? OutputTokensDetails`
 
         Breakdown of output tokens by category.
 
@@ -28649,6 +34419,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
+
         - `required Long ThinkingTokens`
 
           Number of output tokens the model generated as internal reasoning, including
@@ -28663,6 +34434,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required BetaServerToolUsage? ServerToolUse`
 
         The number of server tool requests.
+
         - `required Long WebFetchRequests`
 
           The number of web fetch tool requests.
@@ -28674,6 +34446,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required ServiceTier? ServiceTier`
 
         If the request used the priority, standard, or batch tier.
+
         - `"standard"Standard`
 
         - `"priority"Priority`
@@ -28683,6 +34456,7 @@ await foreach (var betaMessageBatchIndividualResponse in client.Beta.Messages.Ba
       - `required Speed? Speed`
 
         The inference speed mode used for this request.
+
         - `"standard"Standard`
 
         - `"fast"Fast`

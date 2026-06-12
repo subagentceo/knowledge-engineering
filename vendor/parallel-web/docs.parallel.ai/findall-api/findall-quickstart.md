@@ -11,7 +11,7 @@
 </div>
 
 <Note>
-  **Beta Notice**: Parallel FindAll is currently in public beta. Endpoints and request/response formats are subject to change. We will provide 30 days notice before any breaking changes. For production access, contact [support@parallel.ai](mailto:support@parallel.ai).
+  **Beta Notice**: Parallel FindAll is currently in public beta. Endpoints and request/response formats are subject to change. We will provide 30 days notice before any breaking changes.
 </Note>
 
 ## What is FindAll?
@@ -19,6 +19,10 @@
 FindAll is a web-scale entity discovery system that turns natural language queries into structured, enriched databases. It answers questions like <u>"FindAll AI companies that raised Series A funding in the last 3 months"</u> by combining intelligent search, evaluation, and enrichment capabilities.
 
 Unlike traditional search APIs that return a fixed set of results, FindAll generates candidates from web data, validates them against your criteria, and optionally enriches matches with additional structured information—all from a single natural language query.
+
+<Tip>
+  **Need results in seconds?** [Entity Search](/findall-api/entity-search) is a fast, synchronous people-and-company search within FindAll. Use it for real-time, human-in-the-loop, and latency-sensitive workflows where you want a quick candidate set rather than a comprehensive, enriched, cited list.
+</Tip>
 
 ## Key Features & Use Cases
 
@@ -88,7 +92,6 @@ The ingest endpoint automatically extracts:
   ```bash cURL theme={"system"}
   curl -X POST "https://api.parallel.ai/v1beta/findall/ingest" \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json" \
     -d '{
       "objective": "FindAll portfolio companies of Khosla Ventures founded after 2020"
@@ -165,7 +168,6 @@ You can use the schema from ingest directly, or modify it before passing it to t
   ```bash cURL theme={"system"}
   curl -X POST "https://api.parallel.ai/v1beta/findall/runs" \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json" \
     -d '{
       "objective": "FindAll portfolio companies of Khosla Ventures founded after 2020",
@@ -251,8 +253,7 @@ You can use the schema from ingest directly, or modify it before passing it to t
 <CodeGroup>
   ```bash cURL theme={"system"}
   curl -X GET "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f" \
-    -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15"
+    -H "x-api-key: $PARALLEL_API_KEY"
   ```
 
   ```python Python theme={"system"}
@@ -309,8 +310,7 @@ You can use the schema from ingest directly, or modify it before passing it to t
 <CodeGroup>
   ```bash cURL theme={"system"}
   curl -X GET "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/result" \
-    -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15"
+    -H "x-api-key: $PARALLEL_API_KEY"
   ```
 
   ```python Python theme={"system"}
@@ -420,6 +420,7 @@ You can use the schema from ingest directly, or modify it before passing it to t
 
 ## Next Steps
 
+* **[Entity Search](/findall-api/entity-search)**: Fast, synchronous people-and-company search for latency-sensitive workflows
 * **[Candidates](/findall-api/core-concepts/findall-candidates)**: Understand candidate object structure, states, and exclusion
 * **[Generators and Pricing](/findall-api/core-concepts/findall-generator-pricing)**: Understand generator options and pricing
 * **[Preview](/findall-api/features/findall-preview)**: Test queries with \~10 candidates before running full searches

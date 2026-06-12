@@ -16,46 +16,46 @@ As part of this Safety by Design effort, Anthropic is committed to the Safety by
 
 ## Develop
 
-- Responsibly source our training data: avoid ingesting data into training that has a known risk - as identified by relevant experts in the space - of containing CSAM and CSEM.
-- Detect, remove, and report CSAM and CSEM from our training data at ingestion.
-- Conduct red teaming, incorporating structured, scalable, and consistent stress testing of our models for AIG-CSAM and CSEM.
-- Define specific training data and model development policies.
-- Prohibit customer use of our models to further sexual harms against children.
+*   Responsibly source our training data: avoid ingesting data into training that has a known risk - as identified by relevant experts in the space - of containing CSAM and CSEM.
+*   Detect, remove, and report CSAM and CSEM from our training data at ingestion.
+*   Conduct red teaming, incorporating structured, scalable, and consistent stress testing of our models for AIG-CSAM and CSEM.
+*   Define specific training data and model development policies.
+*   Prohibit customer use of our models to further sexual harms against children.
 
 ## Deploy
 
-- Detect abusive content (CSAM, AIG-CSAM, and CSEM) in inputs and outputs.
-- Include user reporting, feedback, or flagging options.
-- Include an enforcement mechanism.
-- Include prevention messaging for CSAM solicitation using available tools.
-- Incorporate phased deployment, monitoring for abuse in early stages before launching broadly.
-- Incorporate a child safety section into our model cards.
+*   Detect abusive content (CSAM, AIG-CSAM, and CSEM) in inputs and outputs.
+*   Include user reporting, feedback, or flagging options.
+*   Include an enforcement mechanism.
+*   Include prevention messaging for CSAM solicitation using available tools.
+*   Incorporate phased deployment, monitoring for abuse in early stages before launching broadly.
+*   Incorporate a child safety section into our model cards.
 
 ## Maintain
 
-- When reporting to NCMEC, use the Generative AI File Annotation.
-- Detect, report, remove, and prevent CSAM, AIG-CSAM and CSEM.
-- Invest in tools to protect content from AI-generated manipulation.
-- Maintain the quality of our mitigations.
-- Disallow the use of generative AI to deceive others for the purpose of sexually harming children.
-- Leverage Open Source Intelligence (OSINT) capabilities to understand how our platforms, products and models are potentially being abused by bad actors.
+*   When reporting to NCMEC, use the Generative AI File Annotation.
+*   Detect, report, remove, and prevent CSAM, AIG-CSAM and CSEM.
+*   Invest in tools to protect content from AI-generated manipulation.
+*   Maintain the quality of our mitigations.
+*   Disallow the use of generative AI to deceive others for the purpose of sexually harming children.
+*   Leverage Open Source Intelligence (OSINT) capabilities to understand how our platforms, products and models are potentially being abused by bad actors.
 
 More detailed information about the principles which we and other organizations have signed up to can be found in the white paper: Safety by Design for Generative AI: Preventing Child Sexual Abuse.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

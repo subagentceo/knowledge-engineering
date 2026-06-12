@@ -27,7 +27,7 @@ Google issues identity tokens automatically to any workload with an attached ser
     gcloud run deploy my-service \
       --service-account inference-worker@my-project.iam.gserviceaccount.com
     ```
-
+    
 
     Inside the workload, the metadata server returns a signed identity token on demand. Request it with the `audience` you intend to register on the Anthropic side, and include `format=full` so the response carries the `email` claim:
 
@@ -43,7 +43,7 @@ Google issues identity tokens automatically to any workload with an attached ser
       --audiences="https://api.anthropic.com" \
       --include-email
     ```
-
+    
 
     The SDK equivalents are shown in [Acquire and use the token](#acquire-and-use-the-token).
 
@@ -62,7 +62,6 @@ Google issues identity tokens automatically to any workload with an attached ser
     ```
 
     The `sub` claim is the Google service account's opaque numeric unique ID. The `email` claim is the human-readable service account address. Match on both `sub` and `email` in your federation rule.
-
   </Tab>
 
   <Tab title="GKE with Workload Identity">
@@ -77,7 +76,7 @@ Google issues identity tokens automatically to any workload with an attached ser
       annotations:
         iam.gke.io/gcp-service-account: inference-worker@my-project.iam.gserviceaccount.com
     ```
-
+    
 
     With this binding in place, the GKE metadata server returns a Google-signed token identical to the Cloud Run and GCE case: same `https://accounts.google.com` issuer, same `email` claim, same fetch URL. Configure Anthropic exactly as in the next section.
 
@@ -86,13 +85,14 @@ Google issues identity tokens automatically to any workload with an attached ser
     <Note>
       If you do not want to bind Kubernetes service accounts to Google service accounts, GKE pods can instead use the cluster's own OIDC issuer (`https://container.googleapis.com/v1/projects/PROJECT/locations/REGION/clusters/CLUSTER`) with a projected `serviceAccountToken` volume. That path uses a per-cluster issuer rather than `accounts.google.com`. See [Use WIF with Kubernetes](/docs/en/manage-claude/wif-providers/kubernetes) for that pattern.
     </Note>
-
   </Tab>
 </Tabs>
 
 ## Configure Anthropic
 
-Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federation#set-up-federation) to register a federation issuer, create an Anthropic service account, and create a federation rule in the Claude Console. Use these Google Cloud-specific values.
+In the Claude Console, open **Settings → Workload identity**, click **Connect workload**, and select the **Google Cloud** tile. The wizard walks you through registering the issuer, creating a service account, and creating a federation rule.
+
+The wizard creates these resources for you. Use the following values whether you enter them in the wizard or send them to the [Admin API](/docs/en/manage-claude/wif-admin-api):
 
 **Federation issuer:** Google publishes its OIDC discovery document publicly, so use discovery mode. This single issuer covers every Google Cloud surface (Cloud Run, GCE, Cloud Functions, App Engine, and GKE with Workload Identity). Differentiate workloads with rules, not issuers.
 
@@ -100,7 +100,7 @@ Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federati
 {
   "name": "gcp",
   "issuer_url": "https://accounts.google.com",
-  "jwks_source": "discovery"
+  "jwks": { "type": "discovery" }
 }
 ```
 
@@ -208,7 +208,7 @@ const METADATA_URL =
 
 async function fetchGoogleIdentityToken(): Promise<string> {
   const response = await fetch(METADATA_URL, {
-    headers: { "Metadata-Flavor": "Google" },
+    headers: { "Metadata-Flavor": "Google" }
   });
   return response.text();
 }
@@ -221,14 +221,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch,
-  }),
+    fetch
+  })
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from Cloud Run" }],
+  messages: [{ role: "user", content: "Hello from Cloud Run" }]
 });
 for (const block of message.content) {
   if (block.type === "text") {

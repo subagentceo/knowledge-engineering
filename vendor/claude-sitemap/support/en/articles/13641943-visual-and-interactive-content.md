@@ -16,7 +16,7 @@ Claude can show current weather conditions and forecasts when you ask about the 
 
 Claude automatically displays temperatures in Fahrenheit for US locations and Celsius for everywhere else.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1780164900&signature=34df1c327cd4f41e7ad30ccac54473efc6d127a0a439520d266187b947164fa4&req=diAjFsx6mYhdXvMW1HO4zXlB7T670xyBdgndksVD5R26mO3fjF%2FvOgUKZ0IV%0AwbSazngTmhvA6wyzThg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1781284500&amp;signature=9b75e141abfba13da63d0eb48020cc75d6d10a815c7abc2ae7134761bc3e6b2b&amp;req=diAjFsx6mYhdXvMW1HO4zXlB7T%2B43RyNdgndksVD5R1tcRk72vyet2kMsB4U%0A0rP3NkqHBoUVZzzwa38%3D%0A)
 
 Weather is powered by Google Maps (<https://policies.google.com/privacy>).
 
@@ -26,7 +26,7 @@ When you ask about recipes, Claude can display formatted recipe cards that are e
 
 **Note:** Visual recipe cards are available on web and desktop only. On mobile, Claude provides recipe information as text in the conversation.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1780164900&signature=2edc5f874419969290c284ce8889da44ac0d2ee90fdff8a5e6bd150915419e39&req=diAjFsx6mYhdUPMW1HO4zUQpe7AU1FCerIPm%2FImZVg2%2B467F80pbM04FgDIa%0AN9QseCRaizMUJ0iXta4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1781284500&amp;signature=37e30c053dc1e001656718689dc7f2c2e8f7a7cb35f0cae692c1eae88bb87621&amp;req=diAjFsx6mYhdUPMW1HO4zUQpe7EX2lCSrIPm%2FImZVg3MVSxp4W9%2BAiKNgL7j%0AJ0rEo3EqmXsGCCHxh%2FI%3D%0A)
 
 ### Custom visuals
 
@@ -74,7 +74,7 @@ For example, if you ask Claude to help you plan a trip, it might ask you to:
 
 This content appears at the bottom of the chat. You can still type a response if you prefer.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1780164900&signature=43a83e0371ec2000ca7645664b31af44e644d07d88dee8ef96faf27ddc1f0876&req=diAjFsx6mYhcWfMW1HO4zWmF5%2FW%2Fbxqrx4wz0C7CTALSHrbeyrdebodHgoZX%0AJMM1pCvsNhwbCZCm%2FEY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1781284500&amp;signature=07c1632006aa5eccd60dc5dc24a777d188ce9683a3ad32f9db71fd250255140a&amp;req=diAjFsx6mYhcWfMW1HO4zWmF5%2FS8YRqnx4wz0C7CTAJH2LQjZ67CL2D%2BQ%2BMy%0A3f6jNlUXCuew3V2z36g%3D%0A)
 
 ---
 

@@ -8,6 +8,15 @@
 
 Nimble API powers Web Search Agents that extract structured knowledge from any website through a simple REST API. Use pre-built agents for popular platforms, create custom agents for any site, search the web, map site structures, and crawl entire websites at scale.
 
+## OpenAPI Specification
+
+The full OpenAPI (Swagger) specification is available for download. Use it to generate clients, import into tools like Postman, or feed it to coding agents.
+
+<Card icon="file-code" href="/api-reference/openapi.json" title="Download OpenAPI spec">
+  Get the complete OpenAPI 3.1 specification at
+  [`/api-reference/openapi.json`](/api-reference/openapi.json).
+</Card>
+
 ## API Features
 
 <CardGroup cols={3}>

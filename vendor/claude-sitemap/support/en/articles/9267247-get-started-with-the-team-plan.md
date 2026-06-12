@@ -5,6 +5,7 @@
 - All team members must have an email address with one of your organization's allowed email domains to be invited to the account.
 
 - During sign-up, you can choose between monthly or annual billing options.
+
   - Refer to this article for more information: **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
 - Team plans require a minimum of five members and are not intended for individual use.
@@ -15,13 +16,10 @@ To get started with the Team plan, navigate to **[claude.ai/login](http://claude
 
 ## Upgrade from an individual plan to the Team plan
 
-If you already have a free or paid Claude account associated with your work email and wish to create a Team plan, sign into your account, then visit **[claude.ai/upgrade](http://claude.ai/upgrade)**. Follow the steps to create your Team.
+If you already have a free or paid individual Claude account associated with your work email and wish to create a Team plan, sign into your individual account, then visit **[claude.ai/upgrade](http://claude.ai/upgrade)**. Follow the steps to create your Team.
 
-- Upgrading to the Team plan will create a new Claude organization, and your individual free or paid account (Pro or Max) will remain separate. You can toggle between them by clicking your initials or name in the lower left, then selecting the account you'd like to access.
+Upgrading to the Team plan creates a new Claude organization. Your individual Free, Pro, or Max account remains separate, and you can toggle between the two by clicking your initials or name in the lower left and selecting the account you'd like to access.
 
-- Team plan organizations are separate from free and paid individual Claude accounts. Data cannot be transferred between the separate instances.
+If you'd rather use a single account, you can migrate your personal account into your Team organization. Migration moves your chats, projects, files, memory, connectors, and skills into the organization's workspace, and your paid individual subscription is canceled automatically as part of the migration (subscriptions purchased through the Apple App Store must be canceled separately first). To get started, go to **[Settings > Account](https://claude.ai/settings/account)**, or see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)** for details.
 
-- If you only want to use your Team plan after upgrading, you'll need to cancel your paid subscription and/or delete your free or paid individual Claude account separately.
-  - **[How do I cancel my paid Claude subscription?](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)**
-
-  - **[How can I delete my Claude account?](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)**
+**Note:** Once content has been moved into an organization, it can't be moved back to a personal account.

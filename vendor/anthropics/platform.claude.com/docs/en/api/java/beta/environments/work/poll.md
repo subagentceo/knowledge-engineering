@@ -11,6 +11,7 @@ Long poll for work items in the queue.
 ### Parameters
 
 - `WorkPollParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<Long> blockMs`
@@ -24,6 +25,7 @@ Long poll for work items in the queue.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -76,7 +78,9 @@ Long poll for work items in the queue.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> anthropicWorkerId`
 
@@ -91,9 +95,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -106,13 +111,15 @@ Long poll for work items in the queue.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -134,6 +141,7 @@ Long poll for work items in the queue.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -155,6 +163,7 @@ Long poll for work items in the queue.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example

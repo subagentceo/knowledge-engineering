@@ -9,6 +9,7 @@ Create a new environment with the specified configuration.
 ### Parameters
 
 - `params BetaEnvironmentNewParams`
+
   - `Name param.Field[string]`
 
     Body param: Human-readable name for the environment
@@ -16,26 +17,32 @@ Create a new environment with the specified configuration.
   - `Config param.Field[BetaEnvironmentNewParamsConfigUnion]`
 
     Body param: Environment configuration
+
     - `type BetaCloudConfigParamsResp struct{…}`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `Type Cloud`
 
         Environment type
+
         - `const CloudCloud Cloud = "cloud"`
 
       - `Networking BetaCloudConfigParamsNetworkingUnionResp`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `type BetaUnrestrictedNetwork struct{…}`
 
           Unrestricted network access.
+
           - `Type Unrestricted`
 
             Network policy type
+
             - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
 
         - `type BetaLimitedNetworkParamsResp struct{…}`
@@ -44,9 +51,11 @@ Create a new environment with the specified configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `Type Limited`
 
             Network policy type
+
             - `const LimitedLimited Limited = "limited"`
 
           - `AllowMCPServers bool`
@@ -66,6 +75,7 @@ Create a new environment with the specified configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `Apt []string`
 
           Ubuntu/Debian packages to install
@@ -93,14 +103,17 @@ Create a new environment with the specified configuration.
         - `Type BetaPackagesParamsType`
 
           Package configuration type
+
           - `const BetaPackagesParamsTypePackages BetaPackagesParamsType = "packages"`
 
     - `type BetaSelfHostedConfigParamsResp struct{…}`
 
       Request params for `self_hosted` environment configuration.
+
       - `Type SelfHosted`
 
         Environment type
+
         - `const SelfHostedSelfHosted SelfHosted = "self_hosted"`
 
   - `Description param.Field[string]`
@@ -114,6 +127,7 @@ Create a new environment with the specified configuration.
   - `Scope param.Field[BetaEnvironmentNewParamsScope]`
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+
     - `const BetaEnvironmentNewParamsScopeOrganization BetaEnvironmentNewParamsScope = "organization"`
 
     - `const BetaEnvironmentNewParamsScopeAccount BetaEnvironmentNewParamsScope = "account"`
@@ -121,9 +135,11 @@ Create a new environment with the specified configuration.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -176,16 +192,19 @@ Create a new environment with the specified configuration.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `ID string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `ArchivedAt string`
 
@@ -194,23 +213,29 @@ Create a new environment with the specified configuration.
   - `Config BetaEnvironmentConfigUnion`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `type BetaCloudConfig struct{…}`
 
       `cloud` environment configuration.
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
+
         - `type BetaUnrestrictedNetwork struct{…}`
 
           Unrestricted network access.
+
           - `Type Unrestricted`
 
             Network policy type
+
             - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
 
         - `type BetaLimitedNetwork struct{…}`
 
           Limited network access.
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -226,11 +251,13 @@ Create a new environment with the specified configuration.
           - `Type Limited`
 
             Network policy type
+
             - `const LimitedLimited Limited = "limited"`
 
       - `Packages BetaPackages`
 
         Package manager configuration.
+
         - `Apt []string`
 
           Ubuntu/Debian packages to install
@@ -258,19 +285,23 @@ Create a new environment with the specified configuration.
         - `Type BetaPackagesType`
 
           Package configuration type
+
           - `const BetaPackagesTypePackages BetaPackagesType = "packages"`
 
       - `Type Cloud`
 
         Environment type
+
         - `const CloudCloud Cloud = "cloud"`
 
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
+
       - `Type SelfHosted`
 
         Environment type
+
         - `const SelfHostedSelfHosted SelfHosted = "self_hosted"`
 
   - `CreatedAt string`
@@ -292,6 +323,7 @@ Create a new environment with the specified configuration.
   - `Type Environment`
 
     The type of object (always 'environment')
+
     - `const EnvironmentEnvironment Environment = "environment"`
 
   - `UpdatedAt string`
@@ -301,6 +333,7 @@ Create a new environment with the specified configuration.
   - `Scope BetaEnvironmentScope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `const BetaEnvironmentScopeOrganization BetaEnvironmentScope = "organization"`
 
     - `const BetaEnvironmentScopeAccount BetaEnvironmentScope = "account"`
@@ -342,16 +375,31 @@ func main() {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

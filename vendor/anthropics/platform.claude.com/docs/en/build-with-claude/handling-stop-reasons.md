@@ -1,4 +1,6 @@
-# Handling stop reasons
+# Stop reasons and fallback
+
+The stop_reason field, what each value means, and where to handle refusals and fallback.
 
 ---
 
@@ -8,7 +10,7 @@ For details about `stop_reason` in the API response, see the [Messages API refer
 
 ## The stop_reason field
 
-The `stop_reason` field is part of every successful Messages API response. Unlike errors, which indicate failures in processing your request, `stop_reason` tells you why Claude successfully completed its response generation.
+The `stop_reason` field is part of every successful Messages API response. Unlike errors, which indicate failures in processing your request, `stop_reason` tells you why Claude completed its response generation.
 
 ```json Example response
 {
@@ -33,7 +35,6 @@ The `stop_reason` field is part of every successful Messages API response. Unlik
 ## Stop reason values
 
 ### end_turn
-
 The most common stop reason. Indicates Claude finished its response naturally.
 
 ```python Python
@@ -55,7 +56,6 @@ if response.stop_reason == "end_turn":
 Sometimes Claude returns an empty response (exactly 2-3 tokens with no content) with `stop_reason: "end_turn"`. This typically happens when Claude interprets that the assistant turn is complete, particularly after tool results.
 
 **Common causes:**
-
 - Adding text blocks immediately after tool results (Claude learns to expect the user to always insert text after tool results, so it ends its turn to follow the pattern)
 - Sending Claude's completed response back without adding anything (Claude already decided it's done, so it will remain done)
 
@@ -111,7 +111,7 @@ messages = [
 ]
 
 
-# If you still get empty responses after fixing the above:
+# If you still get empty responses after fixing the message structure:
 def handle_empty_response(client, messages):
     response = client.messages.create(
         model="claude-opus-4-8", max_tokens=1024, messages=messages
@@ -133,13 +133,11 @@ def handle_empty_response(client, messages):
 ```
 
 **Best practices:**
-
 1. **Never add text blocks immediately after tool results** - This teaches Claude to expect user input after every tool use
 2. **Don't retry empty responses without modification** - Simply sending the empty response back won't help
-3. **Use continuation prompts as a last resort** - Only if the above fixes don't resolve the issue
+3. **Use continuation prompts as a last resort** - Only if these fixes don't resolve the issue
 
 ### max_tokens
-
 Claude stopped because it reached the `max_tokens` limit specified in your request.
 
 ```python Python
@@ -209,7 +207,7 @@ if (response.stop_reason === "max_tokens") {
       model: "claude-opus-4-8",
       max_tokens: 4096, // Increased limit
       messages: messages,
-      tools: tools,
+      tools: tools
     });
   }
 }
@@ -325,7 +323,7 @@ if (response.stopReason().isPresent() && response.stopReason().get().equals(Stop
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->create(
     maxTokens: 1024,
@@ -382,11 +380,9 @@ if response.stop_reason == :max_tokens
   end
 end
 ```
-
 </CodeGroup>
 
 ### stop_sequence
-
 Claude encountered one of your custom stop sequences.
 
 ```python Python
@@ -402,7 +398,6 @@ if response.stop_reason == "stop_sequence":
 ```
 
 ### tool_use
-
 Claude is calling a tool and expects you to execute it.
 
 <Note>
@@ -447,7 +442,6 @@ if response.stop_reason == "tool_use":
 ```
 
 ### pause_turn
-
 Returned when the server-side sampling loop reaches its iteration limit while executing [server tools](/docs/en/agents-and-tools/tool-use/server-tools) like web search or web fetch. The default limit is 10 iterations per request.
 
 When this happens, the response may contain a `server_tool_use` block without a corresponding `server_tool_result`. To let Claude finish processing, continue the conversation by sending the response back as-is.
@@ -479,8 +473,7 @@ Your application should handle `pause_turn` in any agent loop that uses server t
 </Note>
 
 ### refusal
-
-Claude refused to generate a response due to safety concerns.
+Claude declined to generate a response. On Claude Fable 5, safety classifiers return this stop reason as a normal HTTP 200 response, not an error.
 
 ```python Python
 response = client.messages.create(
@@ -496,37 +489,14 @@ if response.stop_reason == "refusal":
 ```
 
 <Tip>
-If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
+If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1 ([deprecated](/docs/en/about-claude/model-deprecations)), you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
 </Tip>
 
-#### Refusal categories
+On a refusal, the `stop_details` object identifies the policy category that triggered it. The categories and the full refusal response shape are covered on [Refusals and fallback](/docs/en/build-with-claude/refusals-and-fallback#refusal-response). `stop_details` is `null` for all stop reasons other than `refusal`.
 
-On Claude Opus 4.7 and later models, a `refusal` response also includes a `stop_details` object alongside `stop_reason`, with no beta header required:
-
-- `stop_details.type` is always `"refusal"`.
-- `stop_details.category` identifies the policy category that triggered the refusal: `"cyber"` or `"bio"`. It is `null` when the refusal doesn't map to a named category.
-- `stop_details.explanation` is a human-readable description of the refusal, or `null` when no explanation is available for the category. The text is not guaranteed to be stable, so don't parse it programmatically.
-
-Use `stop_details.category` to handle specific refusal categories differently in your application, for example by logging them separately or surfacing a category-specific message to the user.
-
-```python Python
-response = client.messages.create(
-    model="claude-opus-4-8",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": "[Unsafe request]"}],
-)
-
-if response.stop_reason == "refusal" and response.stop_details:
-    print(f"Refusal category: {response.stop_details.category}")
-    if response.stop_details.category == "cyber":
-        # Route this category differently from generic safety refusals
-        print(response.stop_details.explanation)
-```
-
-`stop_details` is `null` for all stop reasons other than `refusal`.
+A refused request on Claude Fable 5 can usually be served by retrying on another Claude model, and [Refusals and fallback](/docs/en/build-with-claude/refusals-and-fallback) shows how to set up that retry, server-side or in your client. [Fallback credit](/docs/en/build-with-claude/fallback-credit) covers how to avoid paying the prompt-cache cost twice when you build the retry yourself.
 
 ### model_context_window_exceeded
-
 Claude stopped because it reached the model's context window limit. This allows you to request the maximum possible tokens without knowing the exact input size.
 
 ```python Python nocheck
@@ -638,13 +608,11 @@ def handle_server_tool_conversation(client, user_query, tools, max_continuations
 It's important to distinguish between `stop_reason` values and actual errors:
 
 ### Stop reasons (successful responses)
-
 - Part of the response body
 - Indicate why generation stopped normally
 - Response contains valid content
 
 ### Errors (failed requests)
-
 - HTTP status codes 4xx or 5xx
 - Indicate request processing failures
 - Response contains error details
@@ -677,7 +645,6 @@ except anthropic.APIStatusError as e:
 ## Streaming considerations
 
 When using streaming, `stop_reason` is:
-
 - `null` in the initial `message_start` event
 - Provided in the `message_delta` event
 - Not provided in any other events
@@ -704,7 +671,7 @@ with client.messages.stream(
 ### Handling tool use workflows
 
 <Tip>
-**Simpler with tool runner**: The example below shows manual tool handling. For most use cases, the [tool runner](/docs/en/agents-and-tools/tool-use/tool-runner) automatically handles tool execution with much less code.
+**Simpler with tool runner:** The following example shows manual tool handling. For most use cases, the [tool runner](/docs/en/agents-and-tools/tool-use/tool-runner) automatically handles tool execution with much less code.
 </Tip>
 
 ```python nocheck

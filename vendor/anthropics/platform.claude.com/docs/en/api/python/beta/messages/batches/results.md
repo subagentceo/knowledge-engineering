@@ -19,9 +19,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -74,13 +76,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaMessageBatchIndividualResponse: …`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `custom_id: str`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -92,8 +97,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `class BetaMessageBatchSucceededResult: …`
+
       - `message: BetaMessage`
+
         - `id: str`
 
           Unique object identifier.
@@ -103,6 +111,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `container: Optional[BetaContainer]`
 
           Information about the container used in the request (for the code execution tool)
+
           - `id: str`
 
             Identifier for the container used in this request
@@ -114,6 +123,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `skills: Optional[List[BetaSkill]]`
 
             Skills loaded in the container
+
             - `skill_id: str`
 
               Skill ID
@@ -121,6 +131,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: Literal["anthropic", "custom"]`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
               - `"anthropic"`
 
               - `"custom"`
@@ -138,7 +149,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -147,27 +158,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `class BetaTextBlock: …`
+
             - `citations: Optional[List[BetaTextCitation]]`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `class BetaCitationCharLocation: …`
+
                 - `cited_text: str`
 
                 - `document_index: int`
@@ -181,9 +192,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `start_char_index: int`
 
                 - `type: Literal["char_location"]`
+
                   - `"char_location"`
 
               - `class BetaCitationPageLocation: …`
+
                 - `cited_text: str`
 
                 - `document_index: int`
@@ -197,9 +210,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `start_page_number: int`
 
                 - `type: Literal["page_location"]`
+
                   - `"page_location"`
 
               - `class BetaCitationContentBlockLocation: …`
+
                 - `cited_text: str`
 
                   The full text of the cited block range, concatenated.
@@ -223,9 +238,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   0-based index of the first cited block in the source's `content` array.
 
                 - `type: Literal["content_block_location"]`
+
                   - `"content_block_location"`
 
               - `class BetaCitationsWebSearchResultLocation: …`
+
                 - `cited_text: str`
 
                 - `encrypted_index: str`
@@ -233,11 +250,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `title: Optional[str]`
 
                 - `type: Literal["web_search_result_location"]`
+
                   - `"web_search_result_location"`
 
                 - `url: str`
 
               - `class BetaCitationSearchResultLocation: …`
+
                 - `cited_text: str`
 
                   The full text of the cited block range, concatenated.
@@ -265,28 +284,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `title: Optional[str]`
 
                 - `type: Literal["search_result_location"]`
+
                   - `"search_result_location"`
 
             - `text: str`
 
             - `type: Literal["text"]`
+
               - `"text"`
 
           - `class BetaThinkingBlock: …`
+
             - `signature: str`
 
             - `thinking: str`
 
             - `type: Literal["thinking"]`
+
               - `"thinking"`
 
           - `class BetaRedactedThinkingBlock: …`
+
             - `data: str`
 
             - `type: Literal["redacted_thinking"]`
+
               - `"redacted_thinking"`
 
           - `class BetaToolUseBlock: …`
+
             - `id: str`
 
             - `input: Dict[str, object]`
@@ -294,37 +320,47 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `name: str`
 
             - `type: Literal["tool_use"]`
+
               - `"tool_use"`
 
             - `caller: Optional[Caller]`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
+
                 - `type: Literal["direct"]`
+
                   - `"direct"`
 
               - `class BetaServerToolCaller: …`
 
                 Tool invocation generated by a server-side tool.
+
                 - `tool_id: str`
 
                 - `type: Literal["code_execution_20250825"]`
+
                   - `"code_execution_20250825"`
 
               - `class BetaServerToolCaller20260120: …`
+
                 - `tool_id: str`
 
                 - `type: Literal["code_execution_20260120"]`
+
                   - `"code_execution_20260120"`
 
           - `class BetaServerToolUseBlock: …`
+
             - `id: str`
 
             - `input: Dict[str, object]`
 
             - `name: Literal["advisor", "web_search", "web_fetch", 5 more]`
+
               - `"advisor"`
 
               - `"web_search"`
@@ -342,11 +378,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `"tool_search_tool_bm25"`
 
             - `type: Literal["server_tool_use"]`
+
               - `"server_tool_use"`
 
             - `caller: Optional[Caller]`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -358,9 +396,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120: …`
 
           - `class BetaWebSearchToolResultBlock: …`
+
             - `content: BetaWebSearchToolResultBlockContent`
+
               - `class BetaWebSearchToolResultError: …`
+
                 - `error_code: BetaWebSearchToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -374,9 +416,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `"request_too_large"`
 
                 - `type: Literal["web_search_tool_result_error"]`
+
                   - `"web_search_tool_result_error"`
 
               - `List[BetaWebSearchResultBlock]`
+
                 - `encrypted_content: str`
 
                 - `page_age: Optional[str]`
@@ -384,6 +428,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `title: str`
 
                 - `type: Literal["web_search_result"]`
+
                   - `"web_search_result"`
 
                 - `url: str`
@@ -391,11 +436,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `tool_use_id: str`
 
             - `type: Literal["web_search_tool_result"]`
+
               - `"web_search_tool_result"`
 
             - `caller: Optional[Caller]`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -407,9 +454,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120: …`
 
           - `class BetaWebFetchToolResultBlock: …`
+
             - `content: Content`
+
               - `class BetaWebFetchToolResultErrorBlock: …`
+
                 - `error_code: BetaWebFetchToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"url_too_long"`
@@ -429,32 +480,43 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `"unavailable"`
 
                 - `type: Literal["web_fetch_tool_result_error"]`
+
                   - `"web_fetch_tool_result_error"`
 
               - `class BetaWebFetchBlock: …`
+
                 - `content: BetaDocumentBlock`
+
                   - `citations: Optional[BetaCitationConfig]`
 
                     Citation configuration for the document
+
                     - `enabled: bool`
 
                   - `source: Source`
+
                     - `class BetaBase64PDFSource: …`
+
                       - `data: str`
 
                       - `media_type: Literal["application/pdf"]`
+
                         - `"application/pdf"`
 
                       - `type: Literal["base64"]`
+
                         - `"base64"`
 
                     - `class BetaPlainTextSource: …`
+
                       - `data: str`
 
                       - `media_type: Literal["text/plain"]`
+
                         - `"text/plain"`
 
                       - `type: Literal["text"]`
+
                         - `"text"`
 
                   - `title: Optional[str]`
@@ -462,6 +524,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     The title of the document
 
                   - `type: Literal["document"]`
+
                     - `"document"`
 
                 - `retrieved_at: Optional[str]`
@@ -469,6 +532,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   ISO 8601 timestamp when the content was retrieved
 
                 - `type: Literal["web_fetch_result"]`
+
                   - `"web_fetch_result"`
 
                 - `url: str`
@@ -478,11 +542,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `tool_use_id: str`
 
             - `type: Literal["web_fetch_tool_result"]`
+
               - `"web_fetch_tool_result"`
 
             - `caller: Optional[Caller]`
 
               Tool invocation directly from the model.
+
               - `class BetaDirectCaller: …`
 
                 Tool invocation directly from the model.
@@ -494,9 +560,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class BetaServerToolCaller20260120: …`
 
           - `class BetaAdvisorToolResultBlock: …`
+
             - `content: Content`
+
               - `class BetaAdvisorToolResultError: …`
-                - `error_code: Literal["max_uses_exceeded", "prompt_too_long", "too_many_requests", 3 more]`
+
+                - `error_code: Literal["max_uses_exceeded", "prompt_too_long", "too_many_requests", 4 more]`
+
                   - `"max_uses_exceeded"`
 
                   - `"prompt_too_long"`
@@ -509,10 +579,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                   - `"execution_time_exceeded"`
 
+                  - `"model_not_found"`
+
                 - `type: Literal["advisor_tool_result_error"]`
+
                   - `"advisor_tool_result_error"`
 
               - `class BetaAdvisorResultBlock: …`
+
                 - `stop_reason: Optional[str]`
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -520,9 +594,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `text: str`
 
                 - `type: Literal["advisor_result"]`
+
                   - `"advisor_result"`
 
               - `class BetaAdvisorRedactedResultBlock: …`
+
                 - `encrypted_content: str`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -532,19 +608,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
                 - `type: Literal["advisor_redacted_result"]`
+
                   - `"advisor_redacted_result"`
 
             - `tool_use_id: str`
 
             - `type: Literal["advisor_tool_result"]`
+
               - `"advisor_tool_result"`
 
           - `class BetaCodeExecutionToolResultBlock: …`
+
             - `content: BetaCodeExecutionToolResultBlockContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `class BetaCodeExecutionToolResultError: …`
+
                 - `error_code: BetaCodeExecutionToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -554,13 +636,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `"execution_time_exceeded"`
 
                 - `type: Literal["code_execution_tool_result_error"]`
+
                   - `"code_execution_tool_result_error"`
 
               - `class BetaCodeExecutionResultBlock: …`
+
                 - `content: List[BetaCodeExecutionOutputBlock]`
+
                   - `file_id: str`
 
                   - `type: Literal["code_execution_output"]`
+
                     - `"code_execution_output"`
 
                 - `return_code: int`
@@ -570,12 +656,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `stdout: str`
 
                 - `type: Literal["code_execution_result"]`
+
                   - `"code_execution_result"`
 
               - `class BetaEncryptedCodeExecutionResultBlock: …`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `content: List[BetaCodeExecutionOutputBlock]`
+
                   - `file_id: str`
 
                   - `type: Literal["code_execution_output"]`
@@ -587,17 +676,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `stderr: str`
 
                 - `type: Literal["encrypted_code_execution_result"]`
+
                   - `"encrypted_code_execution_result"`
 
             - `tool_use_id: str`
 
             - `type: Literal["code_execution_tool_result"]`
+
               - `"code_execution_tool_result"`
 
           - `class BetaBashCodeExecutionToolResultBlock: …`
+
             - `content: Content`
+
               - `class BetaBashCodeExecutionToolResultError: …`
+
                 - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -609,13 +704,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `"output_file_too_large"`
 
                 - `type: Literal["bash_code_execution_tool_result_error"]`
+
                   - `"bash_code_execution_tool_result_error"`
 
               - `class BetaBashCodeExecutionResultBlock: …`
+
                 - `content: List[BetaBashCodeExecutionOutputBlock]`
+
                   - `file_id: str`
 
                   - `type: Literal["bash_code_execution_output"]`
+
                     - `"bash_code_execution_output"`
 
                 - `return_code: int`
@@ -625,17 +724,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `stdout: str`
 
                 - `type: Literal["bash_code_execution_result"]`
+
                   - `"bash_code_execution_result"`
 
             - `tool_use_id: str`
 
             - `type: Literal["bash_code_execution_tool_result"]`
+
               - `"bash_code_execution_tool_result"`
 
           - `class BetaTextEditorCodeExecutionToolResultBlock: …`
+
             - `content: Content`
+
               - `class BetaTextEditorCodeExecutionToolResultError: …`
+
                 - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", 2 more]`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -649,12 +754,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `error_message: Optional[str]`
 
                 - `type: Literal["text_editor_code_execution_tool_result_error"]`
+
                   - `"text_editor_code_execution_tool_result_error"`
 
               - `class BetaTextEditorCodeExecutionViewResultBlock: …`
+
                 - `content: str`
 
                 - `file_type: Literal["text", "image", "pdf"]`
+
                   - `"text"`
 
                   - `"image"`
@@ -668,15 +776,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `total_lines: Optional[int]`
 
                 - `type: Literal["text_editor_code_execution_view_result"]`
+
                   - `"text_editor_code_execution_view_result"`
 
               - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
+
                 - `is_file_update: bool`
 
                 - `type: Literal["text_editor_code_execution_create_result"]`
+
                   - `"text_editor_code_execution_create_result"`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
+
                 - `lines: Optional[List[str]]`
 
                 - `new_lines: Optional[int]`
@@ -688,17 +800,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `old_start: Optional[int]`
 
                 - `type: Literal["text_editor_code_execution_str_replace_result"]`
+
                   - `"text_editor_code_execution_str_replace_result"`
 
             - `tool_use_id: str`
 
             - `type: Literal["text_editor_code_execution_tool_result"]`
+
               - `"text_editor_code_execution_tool_result"`
 
           - `class BetaToolSearchToolResultBlock: …`
+
             - `content: Content`
+
               - `class BetaToolSearchToolResultError: …`
+
                 - `error_code: Literal["invalid_tool_input", "unavailable", "too_many_requests", "execution_time_exceeded"]`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -710,24 +828,31 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `error_message: Optional[str]`
 
                 - `type: Literal["tool_search_tool_result_error"]`
+
                   - `"tool_search_tool_result_error"`
 
               - `class BetaToolSearchToolSearchResultBlock: …`
+
                 - `tool_references: List[BetaToolReferenceBlock]`
+
                   - `tool_name: str`
 
                   - `type: Literal["tool_reference"]`
+
                     - `"tool_reference"`
 
                 - `type: Literal["tool_search_tool_search_result"]`
+
                   - `"tool_search_tool_search_result"`
 
             - `tool_use_id: str`
 
             - `type: Literal["tool_search_tool_result"]`
+
               - `"tool_search_tool_result"`
 
           - `class BetaMCPToolUseBlock: …`
+
             - `id: str`
 
             - `input: Dict[str, object]`
@@ -741,13 +866,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The name of the MCP server
 
             - `type: Literal["mcp_tool_use"]`
+
               - `"mcp_tool_use"`
 
           - `class BetaMCPToolResultBlock: …`
+
             - `content: Union[str, List[BetaTextBlock]]`
+
               - `str`
 
               - `List[BetaTextBlock]`
+
                 - `citations: Optional[List[BetaTextCitation]]`
 
                   Citations supporting the text block.
@@ -763,14 +892,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `tool_use_id: str`
 
             - `type: Literal["mcp_tool_result"]`
+
               - `"mcp_tool_result"`
 
           - `class BetaContainerUploadBlock: …`
 
             Response model for a file uploaded to the container.
+
             - `file_id: str`
 
             - `type: Literal["container_upload"]`
+
               - `"container_upload"`
 
           - `class BetaCompactionBlock: …`
@@ -780,6 +912,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
+
             - `content: Optional[str]`
 
               Summary of compacted content, or null if compaction failed
@@ -789,17 +922,162 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
             - `type: Literal["compaction"]`
+
               - `"compaction"`
+
+          - `class BetaFallbackBlock: …`
+
+            Marks the point in `content` where one model's output gives way to the next.
+
+            One block appears per hop where a preceding model actually ran this turn and
+            declined. A turn routed directly by the sticky decision has no such boundary
+            and carries no block — the signal for whether a fallback model served the
+            response is the presence of a `fallback_message` entry in
+            `usage.iterations`, not this block.
+
+            The block is treated like a server-tool content block for streaming: it
+            arrives via the standard `content_block_start` / `content_block_stop`
+            pair and carries no deltas.
+
+            - `from_: BetaFallbackInfo`
+
+              The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `Literal["claude-fable-5", "claude-mythos-5", "claude-opus-4-8", 17 more]`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
+                  - `claude-mythos-5` - Most capable model for cybersecurity and biology research
+                  - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
+                  - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
+                  - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-opus-4-6` - Frontier intelligence for long-running agents and coding
+                  - `claude-sonnet-4-6` - Best combination of speed and intelligence
+                  - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
+                  - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
+                  - `claude-opus-4-5` - Premium model combining maximum intelligence with practical performance
+                  - `claude-opus-4-5-20251101` - Premium model combining maximum intelligence with practical performance
+                  - `claude-sonnet-4-5` - High-performance model for agents and coding
+                  - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+                  - `claude-opus-4-1` - Deprecated: Will reach end-of-life on August 5, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-opus-4-1-20250805` - Deprecated: Will reach end-of-life on August 5, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-opus-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-opus-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-sonnet-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-sonnet-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+                  - `claude-3-haiku-20240307` - Deprecated: Will reach end-of-life on April 20th, 2026. Please migrate to claude-haiku-4-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+                  - `"claude-fable-5"`
+
+                    Next generation of intelligence for the hardest knowledge work and coding problems
+
+                  - `"claude-mythos-5"`
+
+                    Most capable model for cybersecurity and biology research
+
+                  - `"claude-opus-4-8"`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-opus-4-7"`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-mythos-preview"`
+
+                    New class of intelligence, strongest in coding and cybersecurity
+
+                  - `"claude-opus-4-6"`
+
+                    Frontier intelligence for long-running agents and coding
+
+                  - `"claude-sonnet-4-6"`
+
+                    Best combination of speed and intelligence
+
+                  - `"claude-haiku-4-5"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-haiku-4-5-20251001"`
+
+                    Fastest model with near-frontier intelligence
+
+                  - `"claude-opus-4-5"`
+
+                    Premium model combining maximum intelligence with practical performance
+
+                  - `"claude-opus-4-5-20251101"`
+
+                    Premium model combining maximum intelligence with practical performance
+
+                  - `"claude-sonnet-4-5"`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-sonnet-4-5-20250929"`
+
+                    High-performance model for agents and coding
+
+                  - `"claude-opus-4-1"`
+
+                    Exceptional model for specialized complex tasks
+
+                  - `"claude-opus-4-1-20250805"`
+
+                    Exceptional model for specialized complex tasks
+
+                  - `"claude-opus-4-0"`
+
+                    Powerful model for complex tasks
+
+                  - `"claude-opus-4-20250514"`
+
+                    Powerful model for complex tasks
+
+                  - `"claude-sonnet-4-0"`
+
+                    High-performance model with extended thinking
+
+                  - `"claude-sonnet-4-20250514"`
+
+                    High-performance model with extended thinking
+
+                  - `"claude-3-haiku-20240307"`
+
+                    Fast and cost-effective model
+
+                - `str`
+
+            - `to: BetaFallbackInfo`
+
+              The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+            - `type: Literal["fallback"]`
+
+              - `"fallback"`
 
         - `context_management: Optional[BetaContextManagementResponse]`
 
           Context management response.
 
           Information about context management strategies applied during the request.
+
           - `applied_edits: List[AppliedEdit]`
 
             List of context management edits that were applied.
+
             - `class BetaClearToolUses20250919EditResponse: …`
+
               - `cleared_input_tokens: int`
 
                 Number of input tokens cleared by this edit.
@@ -811,9 +1089,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type: Literal["clear_tool_uses_20250919"]`
 
                 The type of context management edit applied.
+
                 - `"clear_tool_uses_20250919"`
 
             - `class BetaClearThinking20251015EditResponse: …`
+
               - `cleared_input_tokens: int`
 
                 Number of input tokens cleared by this edit.
@@ -825,53 +1105,68 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type: Literal["clear_thinking_20251015"]`
 
                 The type of context management edit applied.
+
                 - `"clear_thinking_20251015"`
 
         - `diagnostics: Optional[BetaDiagnostics]`
 
           Response envelope for request-level diagnostics. Present (possibly
           null) whenever the caller supplied `diagnostics` on the request.
+
           - `cache_miss_reason: Optional[CacheMissReason]`
 
             Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
             - `class BetaCacheMissModelChanged: …`
+
               - `cache_missed_input_tokens: int`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
               - `type: Literal["model_changed"]`
+
                 - `"model_changed"`
 
             - `class BetaCacheMissSystemChanged: …`
+
               - `cache_missed_input_tokens: int`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
               - `type: Literal["system_changed"]`
+
                 - `"system_changed"`
 
             - `class BetaCacheMissToolsChanged: …`
+
               - `cache_missed_input_tokens: int`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
               - `type: Literal["tools_changed"]`
+
                 - `"tools_changed"`
 
             - `class BetaCacheMissMessagesChanged: …`
+
               - `cache_missed_input_tokens: int`
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
               - `type: Literal["messages_changed"]`
+
                 - `"messages_changed"`
 
             - `class BetaCacheMissPreviousMessageNotFound: …`
+
               - `type: Literal["previous_message_not_found"]`
+
                 - `"previous_message_not_found"`
 
             - `class BetaCacheMissUnavailable: …`
+
               - `type: Literal["unavailable"]`
+
                 - `"unavailable"`
 
         - `model: Model`
@@ -879,122 +1174,30 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-          - `Literal["claude-opus-4-8", "claude-opus-4-7", "claude-mythos-preview", 15 more]`
-
-            The model that will complete your prompt.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-            - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
-            - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
-            - `claude-mythos-preview` - New class of intelligence, strongest in coding and cybersecurity
-            - `claude-opus-4-6` - Frontier intelligence for long-running agents and coding
-            - `claude-sonnet-4-6` - Best combination of speed and intelligence
-            - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-            - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-            - `claude-opus-4-5` - Premium model combining maximum intelligence with practical performance
-            - `claude-opus-4-5-20251101` - Premium model combining maximum intelligence with practical performance
-            - `claude-sonnet-4-5` - High-performance model for agents and coding
-            - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
-            - `claude-opus-4-1` - Exceptional model for specialized complex tasks
-            - `claude-opus-4-1-20250805` - Exceptional model for specialized complex tasks
-            - `claude-opus-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-            - `claude-opus-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-            - `claude-sonnet-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-            - `claude-sonnet-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-            - `claude-3-haiku-20240307` - Deprecated: Will reach end-of-life on April 20th, 2026. Please migrate to claude-haiku-4-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-
-            - `"claude-opus-4-8"`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-mythos-preview"`
-
-              New class of intelligence, strongest in coding and cybersecurity
-
-            - `"claude-opus-4-6"`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-            - `"claude-opus-4-1"`
-
-              Exceptional model for specialized complex tasks
-
-            - `"claude-opus-4-1-20250805"`
-
-              Exceptional model for specialized complex tasks
-
-            - `"claude-opus-4-0"`
-
-              Powerful model for complex tasks
-
-            - `"claude-opus-4-20250514"`
-
-              Powerful model for complex tasks
-
-            - `"claude-sonnet-4-0"`
-
-              High-performance model with extended thinking
-
-            - `"claude-sonnet-4-20250514"`
-
-              High-performance model with extended thinking
-
-            - `"claude-3-haiku-20240307"`
-
-              Fast and cost-effective model
-
-          - `str`
 
         - `role: Literal["assistant"]`
 
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
+
           - `"assistant"`
 
         - `stop_details: Optional[BetaRefusalStopDetails]`
 
           Structured information about a refusal.
-          - `category: Optional[Literal["cyber", "bio"]]`
+
+          - `category: Optional[Literal["cyber", "bio", "reasoning_extraction"]]`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `"cyber"`
 
             - `"bio"`
+
+            - `"reasoning_extraction"`
 
           - `explanation: Optional[str]`
 
@@ -1002,7 +1205,57 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
+          - `fallback_credit_token: Optional[str]`
+
+            Opaque code that refunds the cache-miss cost when retrying this refused
+            request on the fallback model. Pass it as `fallback_credit_token` on the
+            retry request. Expires 5 minutes after the refusal.
+
+            The retry is sent either with the same request body (`system`, `messages`,
+            `tools`, and other render-shaping fields), or with the same body plus one
+            appended `assistant` message whose content is the partial text (with any
+            trailing whitespace stripped from the final text block) and paired
+            server-tool blocks from this refusal — which also authorizes that
+            appended turn as an assistant-prefill continuation on models that otherwise
+            disallow prefill. A token minted mid-server-tool-loop whose partial content
+            was continuable may only be redeemed the second way — if a same-body retry
+            is rejected with a 400 saying the token must be redeemed by continuing the
+            partial response, retry the second way instead. Either way: same workspace,
+            same platform; a mismatch is a 400. Resending a token for an already-warm
+            prefix is permitted but yields no additional credit.
+
+            `null` when the refused model isn't eligible for a fallback credit.
+
+          - `fallback_has_prefill_claim: Optional[bool]`
+
+            Whether the accompanying `fallback_credit_token` may be redeemed with the
+            appended-assistant retry form. Only set when `fallback_credit_token` is
+            present.
+
+            `true`: retry by resending the same request body plus one appended
+            `assistant` message whose content is this response's `content` with any
+            trailing whitespace stripped from the final text block and unpaired
+            `tool_use` blocks omitted (the same appended-turn shape described on
+            `fallback_credit_token`), with the token attached. `false`: retry by
+            resending the original request body unchanged, with the token attached —
+            the appended-assistant form is not available for this refusal (no
+            continuable partial content, or the request uses `output_format` or a
+            `tool_choice` that forces tool use). One exception: when the request used
+            `output_format` or a forced `tool_choice` and the refusal arrived after
+            server tools (including MCP connector tools) had already executed, the
+            token may not be redeemable by either retry form; if the exact-body retry
+            is then rejected with a 400 saying the token must be redeemed by
+            continuing the partial response, discard the token and retry without it.
+
+            Advisory: if an appended-assistant retry is rejected with a 400 despite
+            `true`, fall back to resending the original request body with the token.
+
+          - `recommended_model: Optional[str]`
+
+            The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
           - `type: Literal["refusal"]`
+
             - `"refusal"`
 
         - `stop_reason: Optional[BetaStopReason]`
@@ -1010,14 +1263,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `"end_turn"`
 
           - `"max_tokens"`
@@ -1045,6 +1300,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Object type.
 
           For Messages, this is always `"message"`.
+
           - `"message"`
 
         - `usage: BetaUsage`
@@ -1058,9 +1314,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `cache_creation: Optional[BetaCacheCreation]`
 
             Breakdown of cached tokens by TTL
+
             - `ephemeral_1h_input_tokens: int`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -1090,6 +1348,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -1097,6 +1356,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `class BetaMessageIterationUsage: …`
 
               Token usage for a sampling iteration.
+
               - `cache_creation: Optional[BetaCacheCreation]`
 
                 Breakdown of cached tokens by TTL
@@ -1113,6 +1373,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 The number of input tokens which were used.
 
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
               - `output_tokens: int`
 
                 The number of output tokens which were used.
@@ -1120,11 +1386,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type: Literal["message"]`
 
                 Usage for a sampling iteration
+
                 - `"message"`
 
             - `class BetaCompactionIterationUsage: …`
 
               Token usage for a compaction iteration.
+
               - `cache_creation: Optional[BetaCacheCreation]`
 
                 Breakdown of cached tokens by TTL
@@ -1148,11 +1416,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type: Literal["compaction"]`
 
                 Usage for a compaction iteration
+
                 - `"compaction"`
 
             - `class BetaAdvisorMessageIterationUsage: …`
 
               Token usage for an advisor sub-inference iteration.
+
               - `cache_creation: Optional[BetaCacheCreation]`
 
                 Breakdown of cached tokens by TTL
@@ -1182,13 +1452,55 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type: Literal["advisor_message"]`
 
                 Usage for an advisor sub-inference iteration
+
                 - `"advisor_message"`
+
+            - `class BetaFallbackMessageIterationUsage: …`
+
+              Token usage for the fallback-model attempt of a server-side fallback request.
+
+              Produced in place of a `message` entry for whichever hop served the
+              response. A declined hop produces the existing `message` entry. Whether
+              a fallback model served the response is signalled by the presence of this
+              entry in `usage.iterations`.
+
+              - `cache_creation: Optional[BetaCacheCreation]`
+
+                Breakdown of cached tokens by TTL
+
+              - `cache_creation_input_tokens: int`
+
+                The number of input tokens used to create the cache entry.
+
+              - `cache_read_input_tokens: int`
+
+                The number of input tokens read from the cache.
+
+              - `input_tokens: int`
+
+                The number of input tokens which were used.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `output_tokens: int`
+
+                The number of output tokens which were used.
+
+              - `type: Literal["fallback_message"]`
+
+                Usage for the fallback-model attempt that served the response
+
+                - `"fallback_message"`
 
           - `output_tokens: int`
 
             The number of output tokens which were used.
 
-          - `output_tokens_details: Optional[OutputTokensDetails]`
+          - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
             Breakdown of output tokens by category.
 
@@ -1196,6 +1508,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `thinking_tokens: int`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -1210,6 +1523,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `server_tool_use: Optional[BetaServerToolUsage]`
 
             The number of server tool requests.
+
             - `web_fetch_requests: int`
 
               The number of web fetch tool requests.
@@ -1221,6 +1535,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
             If the request used the priority, standard, or batch tier.
+
             - `"standard"`
 
             - `"priority"`
@@ -1230,84 +1545,113 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `speed: Optional[Literal["standard", "fast"]]`
 
             The inference speed mode used for this request.
+
             - `"standard"`
 
             - `"fast"`
 
       - `type: Literal["succeeded"]`
+
         - `"succeeded"`
 
     - `class BetaMessageBatchErroredResult: …`
+
       - `error: BetaErrorResponse`
+
         - `error: BetaError`
+
           - `class BetaInvalidRequestError: …`
+
             - `message: str`
 
             - `type: Literal["invalid_request_error"]`
+
               - `"invalid_request_error"`
 
           - `class BetaAuthenticationError: …`
+
             - `message: str`
 
             - `type: Literal["authentication_error"]`
+
               - `"authentication_error"`
 
           - `class BetaBillingError: …`
+
             - `message: str`
 
             - `type: Literal["billing_error"]`
+
               - `"billing_error"`
 
           - `class BetaPermissionError: …`
+
             - `message: str`
 
             - `type: Literal["permission_error"]`
+
               - `"permission_error"`
 
           - `class BetaNotFoundError: …`
+
             - `message: str`
 
             - `type: Literal["not_found_error"]`
+
               - `"not_found_error"`
 
           - `class BetaRateLimitError: …`
+
             - `message: str`
 
             - `type: Literal["rate_limit_error"]`
+
               - `"rate_limit_error"`
 
           - `class BetaGatewayTimeoutError: …`
+
             - `message: str`
 
             - `type: Literal["timeout_error"]`
+
               - `"timeout_error"`
 
           - `class BetaAPIError: …`
+
             - `message: str`
 
             - `type: Literal["api_error"]`
+
               - `"api_error"`
 
           - `class BetaOverloadedError: …`
+
             - `message: str`
 
             - `type: Literal["overloaded_error"]`
+
               - `"overloaded_error"`
 
         - `request_id: Optional[str]`
 
         - `type: Literal["error"]`
+
           - `"error"`
 
       - `type: Literal["errored"]`
+
         - `"errored"`
 
     - `class BetaMessageBatchCanceledResult: …`
+
       - `type: Literal["canceled"]`
+
         - `"canceled"`
 
     - `class BetaMessageBatchExpiredResult: …`
+
       - `type: Literal["expired"]`
+
         - `"expired"`
 
 ### Example

@@ -18,21 +18,21 @@ ATO-as-a-service
 
 ## Fraudsters Use Automation to Accelerate Attacks
 
-**Atlantis AIO** (also known as Atlantis-X) is a fraud-as-a-service [credential stuffing tool](https://www.globenewswire.com/en/news-release/2021/09/30/2306308/0/en/Report-Sift-Uncovers-and-Blocks-Fraud-Ring-Swarming-E-commerce-Merchants-with-Elaborate-Account-Takeover-Campaign.html), accessible via a simple link for $150 per month.
+**Atlantis AIO** (also known as Atlantis-X) is a fraud-as-a-service credential stuffing tool, accessible via a simple link for $150 per month.
 
--   [Step 1](#siftsteps1)
+*   Step 1
     
     A fraudster finds and clicks the Atlantis AIO link and pays the $150 monthly subscription fee. It’s common for users to sign up using cryptocurrency, adding a layer of anonymity to the transaction.
     
--   [Step 2](#siftsteps2)
+*   Step 2
     
     Behind the paywall, the fraudster enters the stolen or purchased account credentials into the Atlantis tool, which uses automation to rapidly verify if, and where, those credentials are accurate and active.
     
--   [Step 3](#siftsteps3)
+*   Step 3
     
     Login details can be entered individually or in bulk. Once credentials are either authenticated or proven defunct, the fraudster can plan the next phase of attack.
     
--   [Step 4](#siftsteps4)
+*   Step 4
     
     The fraudster takes the Atlantis-authenticated data to the related website or app, quickly and easily accessing the compromised account and any funds or additional identification details protected behind it.
     
@@ -53,27 +53,27 @@ Bots-as-a-service
 
 ## Mechanics of an Automated Scam
 
--   [Step 1](#siftsteps1)
+*   Step 1
     
     The fraudster joins a bot-as-a-service scam group on a deep web forum and pays for temporary use of the OTP bot.
     
--   [Step 2](#siftsteps2)
+*   Step 2
     
     The fraudster enters the victim’s phone number into the OTP bot.
     
--   [Step 3](#siftsteps3)
+*   Step 3
     
     The fraudster provides the bot with the caller ID for the site or app they want to spoof.
     
--   [Step 4](#siftsteps4)
+*   Step 4
     
     The bot calls or texts the victim, impersonates the business, and asks them to provide their OTP.
     
--   [Step 5](#siftsteps5)
+*   Step 5
     
     The fraudster receives the OTP to successfully log into the victim’s account.
     
--   [Step 6](#siftsteps5)
+*   Step 6
     
     The fraudster can now access and steal the victim’s payment information to make unauthorized purchases.
     
@@ -92,23 +92,23 @@ Fraud-as-a-service
 
 ## Mechanics of a Criminal Business Model
 
--   [Step 1](#siftsteps1)
+*   Step 1
     
     The fraudster steals e-gift card credentials via hacking, malware, or phishing.
     
--   [Step 2](#siftsteps2)
+*   Step 2
     
     The fraudster creates or joins a group on a deep web forum and cultivates a following.
     
--   [Step 3](#siftsteps3)
+*   Step 3
     
     The fraudster advertises the e-gift cards to other fraudulent buyers at a deep discount.
     
--   [Step 4](#siftsteps4)
+*   Step 4
     
     An opportunistic buyer agrees to purchase multiple e-gift cards at 50% off.
     
--   [Step 5](#siftsteps5)
+*   Step 5
     
     The fraudster earns a profit and the buyer makes purchases with the stolen e-gift cards.
     
@@ -123,23 +123,23 @@ B2B Digital Goods/Services
 
 Click through the timeline to see how the scam works.
 
--   [Step 1](#siftsteps1)
+*   Step 1
     
     Fraudster A has access to stolen or illicitly-obtained funds.
     
--   [Step 2](#siftsteps2)
+*   Step 2
     
     Fraudster B takes over bank, crypto wallet, and crypto exchange accounts.
     
--   [Step 3](#siftsteps3)
+*   Step 3
     
     Fraudster A solicits on Telegram for combined bank and crypto account access. Fraudster B responds with offer to work together.
     
--   [Step 4](#siftsteps4)
+*   Step 4
     
     Fraudster A loads the stolen funds into Fraudster B's bank account. Fraudster B transfers the funds into stolen crypto exchange account or wallet.
     
--   [Step 5](#siftsteps5)
+*   Step 5
     
     Fraudster B withdraws the funds from the crypto wallet to an offline wallet. Fraudsters split the profits.
     
@@ -156,15 +156,11 @@ Click through the timeline to see how the scam works.
 
 ## Additional Resources
 
-[
-
 ![digital-trust-index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 ### Q1 2025 Digital Trust Index
 
 Read the report
-
-](/index-reports-payment-fraud-q1-2025/)[
 
 ![Frame](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -172,12 +168,8 @@ Read the report
 
 Start learning
 
-](/trust-safety-university/)[
-
 ![industry-benchmarking-resource](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 ### Sift Fraud Industry Benchmarking Resource (FIBR)
 
 Explore data
-
-](/fibr-fraud-industry-benchmarking-resource/)

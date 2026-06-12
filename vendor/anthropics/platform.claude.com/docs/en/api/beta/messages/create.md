@@ -13,9 +13,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,7 +70,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -80,7 +84,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
 - `messages: array of BetaMessageParam`
 
@@ -95,16 +99,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -112,22 +116,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -135,20 +136,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
   There is a limit of 100,000 messages in a single request.
+
   - `content: string or array of BetaContentBlockParam`
+
     - `string`
 
     - `array of BetaContentBlockParam`
+
       - `BetaTextBlockParam object { text, type, cache_control, citations }`
+
         - `text: string`
 
         - `type: "text"`
+
           - `"text"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
+
             - `"ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -156,16 +164,20 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"`
 
             - `"1h"`
 
         - `citations: optional array of BetaTextCitationParam`
+
           - `BetaCitationCharLocationParam object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -177,9 +189,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `start_char_index: number`
 
             - `type: "char_location"`
+
               - `"char_location"`
 
           - `BetaCitationPageLocationParam object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -191,9 +205,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `start_page_number: number`
 
             - `type: "page_location"`
+
               - `"page_location"`
 
           - `BetaCitationContentBlockLocationParam object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -215,9 +231,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               0-based index of the first cited block in the source's `content` array.
 
             - `type: "content_block_location"`
+
               - `"content_block_location"`
 
           - `BetaCitationWebSearchResultLocationParam object { cited_text, encrypted_index, title, 2 more }`
+
             - `cited_text: string`
 
             - `encrypted_index: string`
@@ -225,11 +243,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `title: string`
 
             - `type: "web_search_result_location"`
+
               - `"web_search_result_location"`
 
             - `url: string`
 
           - `BetaCitationSearchResultLocationParam object { cited_text, end_block_index, search_result_index, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -257,14 +277,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `title: string`
 
             - `type: "search_result_location"`
+
               - `"search_result_location"`
 
       - `BetaImageBlockParam object { source, type, cache_control }`
+
         - `source: BetaBase64ImageSource or BetaURLImageSource or BetaFileImageSource`
+
           - `BetaBase64ImageSource object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
               - `"image/jpeg"`
 
               - `"image/png"`
@@ -274,21 +299,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"image/webp"`
 
             - `type: "base64"`
+
               - `"base64"`
 
           - `BetaURLImageSource object { type, url }`
+
             - `type: "url"`
+
               - `"url"`
 
             - `url: string`
 
           - `BetaFileImageSource object { file_id, type }`
+
             - `file_id: string`
 
             - `type: "file"`
+
               - `"file"`
 
         - `type: "image"`
+
           - `"image"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -296,50 +327,67 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaRequestDocumentBlock object { source, type, cache_control, 3 more }`
+
         - `source: BetaBase64PDFSource or BetaPlainTextSource or BetaContentBlockSource or 2 more`
+
           - `BetaBase64PDFSource object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "application/pdf"`
+
               - `"application/pdf"`
 
             - `type: "base64"`
+
               - `"base64"`
 
           - `BetaPlainTextSource object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "text/plain"`
+
               - `"text/plain"`
 
             - `type: "text"`
+
               - `"text"`
 
           - `BetaContentBlockSource object { content, type }`
+
             - `content: string or array of BetaContentBlockSourceContent`
+
               - `string`
 
               - `BetaContentBlockSourceContent = array of BetaContentBlockSourceContent`
+
                 - `BetaTextBlockParam object { text, type, cache_control, citations }`
 
                 - `BetaImageBlockParam object { source, type, cache_control }`
 
             - `type: "content"`
+
               - `"content"`
 
           - `BetaURLPDFSource object { type, url }`
+
             - `type: "url"`
+
               - `"url"`
 
             - `url: string`
 
           - `BetaFileDocumentSource object { file_id, type }`
+
             - `file_id: string`
 
             - `type: "file"`
+
               - `"file"`
 
         - `type: "document"`
+
           - `"document"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -347,6 +395,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
         - `citations: optional BetaCitationsConfigParam`
+
           - `enabled: optional boolean`
 
         - `context: optional string`
@@ -354,7 +403,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `title: optional string`
 
       - `BetaSearchResultBlockParam object { content, source, title, 3 more }`
+
         - `content: array of BetaTextBlockParam`
+
           - `text: string`
 
           - `type: "text"`
@@ -370,6 +421,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `title: string`
 
         - `type: "search_result"`
+
           - `"search_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -379,20 +431,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `citations: optional BetaCitationsConfigParam`
 
       - `BetaThinkingBlockParam object { signature, thinking, type }`
+
         - `signature: string`
 
         - `thinking: string`
 
         - `type: "thinking"`
+
           - `"thinking"`
 
       - `BetaRedactedThinkingBlockParam object { data, type }`
+
         - `data: string`
 
         - `type: "redacted_thinking"`
+
           - `"redacted_thinking"`
 
       - `BetaToolUseBlockParam object { id, input, name, 3 more }`
+
         - `id: string`
 
         - `input: map[unknown]`
@@ -400,6 +457,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `name: string`
 
         - `type: "tool_use"`
+
           - `"tool_use"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -409,30 +467,39 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `BetaDirectCaller object { type }`
 
             Tool invocation directly from the model.
+
             - `type: "direct"`
+
               - `"direct"`
 
           - `BetaServerToolCaller object { tool_id, type }`
 
             Tool invocation generated by a server-side tool.
+
             - `tool_id: string`
 
             - `type: "code_execution_20250825"`
+
               - `"code_execution_20250825"`
 
           - `BetaServerToolCaller20260120 object { tool_id, type }`
+
             - `tool_id: string`
 
             - `type: "code_execution_20260120"`
+
               - `"code_execution_20260120"`
 
       - `BetaToolResultBlockParam object { tool_use_id, type, cache_control, 2 more }`
+
         - `tool_use_id: string`
 
         - `type: "tool_result"`
+
           - `"tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -440,9 +507,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
         - `content: optional string or array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 2 more`
+
           - `string`
 
           - `array of BetaTextBlockParam or BetaImageBlockParam or BetaSearchResultBlockParam or 2 more`
+
             - `BetaTextBlockParam object { text, type, cache_control, citations }`
 
             - `BetaImageBlockParam object { source, type, cache_control }`
@@ -454,9 +523,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `BetaToolReferenceBlockParam object { tool_name, type, cache_control }`
 
               Tool reference block that can be included in tool_result content.
+
               - `tool_name: string`
 
               - `type: "tool_reference"`
+
                 - `"tool_reference"`
 
               - `cache_control: optional BetaCacheControlEphemeral`
@@ -466,11 +537,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `is_error: optional boolean`
 
       - `BetaServerToolUseBlockParam object { id, input, name, 3 more }`
+
         - `id: string`
 
         - `input: map[unknown]`
 
         - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
           - `"advisor"`
 
           - `"web_search"`
@@ -488,6 +561,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `"tool_search_tool_bm25"`
 
         - `type: "server_tool_use"`
+
           - `"server_tool_use"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -497,6 +571,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `BetaDirectCaller object { type }`
 
             Tool invocation directly from the model.
@@ -508,13 +583,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `BetaServerToolCaller20260120 object { tool_id, type }`
 
       - `BetaWebSearchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
         - `content: BetaWebSearchToolResultBlockParamContent`
+
           - `ResultBlock = array of BetaWebSearchResultBlockParam`
+
             - `encrypted_content: string`
 
             - `title: string`
 
             - `type: "web_search_result"`
+
               - `"web_search_result"`
 
             - `url: string`
@@ -522,7 +601,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `page_age: optional string`
 
           - `BetaWebSearchToolRequestError object { error_code, type }`
+
             - `error_code: BetaWebSearchToolResultErrorCode`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -536,11 +617,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"request_too_large"`
 
             - `type: "web_search_tool_result_error"`
+
               - `"web_search_tool_result_error"`
 
         - `tool_use_id: string`
 
         - `type: "web_search_tool_result"`
+
           - `"web_search_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -550,6 +633,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `BetaDirectCaller object { type }`
 
             Tool invocation directly from the model.
@@ -561,9 +645,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `BetaServerToolCaller20260120 object { tool_id, type }`
 
       - `BetaWebFetchToolResultBlockParam object { content, tool_use_id, type, 2 more }`
+
         - `content: BetaWebFetchToolResultErrorBlockParam or BetaWebFetchBlockParam`
+
           - `BetaWebFetchToolResultErrorBlockParam object { error_code, type }`
+
             - `error_code: BetaWebFetchToolResultErrorCode`
+
               - `"invalid_tool_input"`
 
               - `"url_too_long"`
@@ -583,12 +671,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"unavailable"`
 
             - `type: "web_fetch_tool_result_error"`
+
               - `"web_fetch_tool_result_error"`
 
           - `BetaWebFetchBlockParam object { content, type, url, retrieved_at }`
+
             - `content: BetaRequestDocumentBlock`
 
             - `type: "web_fetch_result"`
+
               - `"web_fetch_result"`
 
             - `url: string`
@@ -602,6 +693,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `tool_use_id: string`
 
         - `type: "web_fetch_tool_result"`
+
           - `"web_fetch_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -611,6 +703,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `BetaDirectCaller object { type }`
 
             Tool invocation directly from the model.
@@ -622,9 +715,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `BetaServerToolCaller20260120 object { tool_id, type }`
 
       - `BetaAdvisorToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
         - `content: BetaAdvisorToolResultErrorParam or BetaAdvisorResultBlockParam or BetaAdvisorRedactedResultBlockParam`
+
           - `BetaAdvisorToolResultErrorParam object { error_code, type }`
-            - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 3 more`
+
+            - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
+
               - `"max_uses_exceeded"`
 
               - `"prompt_too_long"`
@@ -637,23 +734,30 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
               - `"execution_time_exceeded"`
 
+              - `"model_not_found"`
+
             - `type: "advisor_tool_result_error"`
+
               - `"advisor_tool_result_error"`
 
           - `BetaAdvisorResultBlockParam object { text, type, stop_reason }`
+
             - `text: string`
 
             - `type: "advisor_result"`
+
               - `"advisor_result"`
 
             - `stop_reason: optional string`
 
           - `BetaAdvisorRedactedResultBlockParam object { encrypted_content, type, stop_reason }`
+
             - `encrypted_content: string`
 
               Opaque blob produced by a prior response; must be round-tripped verbatim.
 
             - `type: "advisor_redacted_result"`
+
               - `"advisor_redacted_result"`
 
             - `stop_reason: optional string`
@@ -661,6 +765,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `tool_use_id: string`
 
         - `type: "advisor_tool_result"`
+
           - `"advisor_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -668,11 +773,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
         - `content: BetaCodeExecutionToolResultBlockParamContent`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `BetaCodeExecutionToolResultErrorParam object { error_code, type }`
+
             - `error_code: BetaCodeExecutionToolResultErrorCode`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -682,13 +791,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"execution_time_exceeded"`
 
             - `type: "code_execution_tool_result_error"`
+
               - `"code_execution_tool_result_error"`
 
           - `BetaCodeExecutionResultBlockParam object { content, return_code, stderr, 2 more }`
+
             - `content: array of BetaCodeExecutionOutputBlockParam`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
+
                 - `"code_execution_output"`
 
             - `return_code: number`
@@ -698,12 +811,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `stdout: string`
 
             - `type: "code_execution_result"`
+
               - `"code_execution_result"`
 
           - `BetaEncryptedCodeExecutionResultBlockParam object { content, encrypted_stdout, return_code, 2 more }`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `content: array of BetaCodeExecutionOutputBlockParam`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
@@ -715,11 +831,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `stderr: string`
 
             - `type: "encrypted_code_execution_result"`
+
               - `"encrypted_code_execution_result"`
 
         - `tool_use_id: string`
 
         - `type: "code_execution_tool_result"`
+
           - `"code_execution_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -727,9 +845,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaBashCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
         - `content: BetaBashCodeExecutionToolResultErrorParam or BetaBashCodeExecutionResultBlockParam`
+
           - `BetaBashCodeExecutionToolResultErrorParam object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -741,13 +863,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"output_file_too_large"`
 
             - `type: "bash_code_execution_tool_result_error"`
+
               - `"bash_code_execution_tool_result_error"`
 
           - `BetaBashCodeExecutionResultBlockParam object { content, return_code, stderr, 2 more }`
+
             - `content: array of BetaBashCodeExecutionOutputBlockParam`
+
               - `file_id: string`
 
               - `type: "bash_code_execution_output"`
+
                 - `"bash_code_execution_output"`
 
             - `return_code: number`
@@ -757,11 +883,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `stdout: string`
 
             - `type: "bash_code_execution_result"`
+
               - `"bash_code_execution_result"`
 
         - `tool_use_id: string`
 
         - `type: "bash_code_execution_tool_result"`
+
           - `"bash_code_execution_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -769,9 +897,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaTextEditorCodeExecutionToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
         - `content: BetaTextEditorCodeExecutionToolResultErrorParam or BetaTextEditorCodeExecutionViewResultBlockParam or BetaTextEditorCodeExecutionCreateResultBlockParam or BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
           - `BetaTextEditorCodeExecutionToolResultErrorParam object { error_code, type, error_message }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -783,14 +915,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"file_not_found"`
 
             - `type: "text_editor_code_execution_tool_result_error"`
+
               - `"text_editor_code_execution_tool_result_error"`
 
             - `error_message: optional string`
 
           - `BetaTextEditorCodeExecutionViewResultBlockParam object { content, file_type, type, 3 more }`
+
             - `content: string`
 
             - `file_type: "text" or "image" or "pdf"`
+
               - `"text"`
 
               - `"image"`
@@ -798,6 +933,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"pdf"`
 
             - `type: "text_editor_code_execution_view_result"`
+
               - `"text_editor_code_execution_view_result"`
 
             - `num_lines: optional number`
@@ -807,13 +943,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `total_lines: optional number`
 
           - `BetaTextEditorCodeExecutionCreateResultBlockParam object { is_file_update, type }`
+
             - `is_file_update: boolean`
 
             - `type: "text_editor_code_execution_create_result"`
+
               - `"text_editor_code_execution_create_result"`
 
           - `BetaTextEditorCodeExecutionStrReplaceResultBlockParam object { type, lines, new_lines, 3 more }`
+
             - `type: "text_editor_code_execution_str_replace_result"`
+
               - `"text_editor_code_execution_str_replace_result"`
 
             - `lines: optional array of string`
@@ -829,6 +969,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `tool_use_id: string`
 
         - `type: "text_editor_code_execution_tool_result"`
+
           - `"text_editor_code_execution_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -836,9 +977,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaToolSearchToolResultBlockParam object { content, tool_use_id, type, cache_control }`
+
         - `content: BetaToolSearchToolResultErrorParam or BetaToolSearchToolSearchResultBlockParam`
-          - `BetaToolSearchToolResultErrorParam object { error_code, type }`
+
+          - `BetaToolSearchToolResultErrorParam object { error_code, type, error_message }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -848,10 +993,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"execution_time_exceeded"`
 
             - `type: "tool_search_tool_result_error"`
+
               - `"tool_search_tool_result_error"`
 
+            - `error_message: optional string`
+
           - `BetaToolSearchToolSearchResultBlockParam object { tool_references, type }`
+
             - `tool_references: array of BetaToolReferenceBlockParam`
+
               - `tool_name: string`
 
               - `type: "tool_reference"`
@@ -861,11 +1011,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 Create a cache control breakpoint at this content block.
 
             - `type: "tool_search_tool_search_result"`
+
               - `"tool_search_tool_search_result"`
 
         - `tool_use_id: string`
 
         - `type: "tool_search_tool_result"`
+
           - `"tool_search_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -873,6 +1025,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaMCPToolUseBlockParam object { id, input, name, 3 more }`
+
         - `id: string`
 
         - `input: map[unknown]`
@@ -884,6 +1037,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           The name of the MCP server
 
         - `type: "mcp_tool_use"`
+
           - `"mcp_tool_use"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -891,9 +1045,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
       - `BetaRequestMCPToolResultBlockParam object { tool_use_id, type, cache_control, 2 more }`
+
         - `tool_use_id: string`
 
         - `type: "mcp_tool_result"`
+
           - `"mcp_tool_result"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -901,9 +1057,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Create a cache control breakpoint at this content block.
 
         - `content: optional string or array of BetaTextBlockParam`
+
           - `string`
 
           - `BetaMCPToolResultBlockParamContent = array of BetaTextBlockParam`
+
             - `text: string`
 
             - `type: "text"`
@@ -920,9 +1078,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         A content block that represents a file to be uploaded to the container
         Files uploaded via this block will be available in the container's input directory.
+
         - `file_id: string`
 
         - `type: "container_upload"`
+
           - `"container_upload"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -938,7 +1098,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         When content is None, the block represents a failed compaction. The server
         treats these as no-ops. Empty string content is not allowed.
+
         - `type: "compaction"`
+
           - `"compaction"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
@@ -959,9 +1121,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
         Use this block to provide or update system-level instructions at a specific
         point in the conversation, rather than only via the top-level `system` parameter.
+
         - `content: array of BetaTextBlockParam`
 
           System instruction text blocks.
+
           - `text: string`
 
           - `type: "text"`
@@ -973,13 +1137,139 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `citations: optional array of BetaTextCitationParam`
 
         - `type: "mid_conv_system"`
+
           - `"mid_conv_system"`
 
         - `cache_control: optional BetaCacheControlEphemeral`
 
           Create a cache control breakpoint at this content block.
 
+      - `BetaFallbackBlockParam object { from, to, type }`
+
+        A `fallback` block echoed back from a prior response.
+
+        Accepted in `messages[].content` and never rendered into the prompt,
+        not validated against the request's `fallbacks` chain or top-level
+        `model`, and stripped before the sticky-routing cache key is computed.
+
+        Callers should echo the assistant turn verbatim — block included. The
+        block's position is load-bearing for thinking verification: the thinking
+        runs on either side of a fallback hop carry independently-rooted
+        verification hash chains, and this block is the only record of where one
+        chain ends and the next begins. When thinking runs flank the boundary,
+        omitting the block merges the runs into one contiguous span whose hashes
+        cannot verify (the request is rejected), and moving it into the middle of
+        a single run splits that run's chain and is likewise rejected; between
+        non-thinking blocks the block's placement has no verification effect.
+
+        - `from: BetaFallbackInfoParam`
+
+          Identifies one hop of a fallback transition.
+
+          - `model: Model`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more`
+
+              The model that will complete your prompt.
+
+              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `"claude-fable-5"`
+
+                Next generation of intelligence for the hardest knowledge work and coding problems
+
+              - `"claude-mythos-5"`
+
+                Most capable model for cybersecurity and biology research
+
+              - `"claude-opus-4-8"`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-opus-4-7"`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-mythos-preview"`
+
+                New class of intelligence, strongest in coding and cybersecurity
+
+              - `"claude-opus-4-6"`
+
+                Frontier intelligence for long-running agents and coding
+
+              - `"claude-sonnet-4-6"`
+
+                Best combination of speed and intelligence
+
+              - `"claude-haiku-4-5"`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-haiku-4-5-20251001"`
+
+                Fastest model with near-frontier intelligence
+
+              - `"claude-opus-4-5"`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-opus-4-5-20251101"`
+
+                Premium model combining maximum intelligence with practical performance
+
+              - `"claude-sonnet-4-5"`
+
+                High-performance model for agents and coding
+
+              - `"claude-sonnet-4-5-20250929"`
+
+                High-performance model for agents and coding
+
+              - `"claude-opus-4-1"`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-1-20250805"`
+
+                Exceptional model for specialized complex tasks
+
+              - `"claude-opus-4-0"`
+
+                Powerful model for complex tasks
+
+              - `"claude-opus-4-20250514"`
+
+                Powerful model for complex tasks
+
+              - `"claude-sonnet-4-0"`
+
+                High-performance model with extended thinking
+
+              - `"claude-sonnet-4-20250514"`
+
+                High-performance model with extended thinking
+
+              - `"claude-3-haiku-20240307"`
+
+                Fast and cost-effective model
+
+            - `string`
+
+        - `to: BetaFallbackInfoParam`
+
+          Identifies one hop of a fallback transition.
+
+        - `type: "fallback"`
+
+          - `"fallback"`
+
   - `role: "user" or "assistant" or "system"`
+
     - `"user"`
 
     - `"assistant"`
@@ -991,84 +1281,6 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   The model that will complete your prompt.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-  - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
-
-    The model that will complete your prompt.
-
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8"`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-opus-4-7"`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-mythos-preview"`
-
-      New class of intelligence, strongest in coding and cybersecurity
-
-    - `"claude-opus-4-6"`
-
-      Frontier intelligence for long-running agents and coding
-
-    - `"claude-sonnet-4-6"`
-
-      Best combination of speed and intelligence
-
-    - `"claude-haiku-4-5"`
-
-      Fastest model with near-frontier intelligence
-
-    - `"claude-haiku-4-5-20251001"`
-
-      Fastest model with near-frontier intelligence
-
-    - `"claude-opus-4-5"`
-
-      Premium model combining maximum intelligence with practical performance
-
-    - `"claude-opus-4-5-20251101"`
-
-      Premium model combining maximum intelligence with practical performance
-
-    - `"claude-sonnet-4-5"`
-
-      High-performance model for agents and coding
-
-    - `"claude-sonnet-4-5-20250929"`
-
-      High-performance model for agents and coding
-
-    - `"claude-opus-4-1"`
-
-      Exceptional model for specialized complex tasks
-
-    - `"claude-opus-4-1-20250805"`
-
-      Exceptional model for specialized complex tasks
-
-    - `"claude-opus-4-0"`
-
-      Powerful model for complex tasks
-
-    - `"claude-opus-4-20250514"`
-
-      Powerful model for complex tasks
-
-    - `"claude-sonnet-4-0"`
-
-      High-performance model with extended thinking
-
-    - `"claude-sonnet-4-20250514"`
-
-      High-performance model with extended thinking
-
-    - `"claude-3-haiku-20240307"`
-
-      Fast and cost-effective model
-
-  - `string`
 
 - `cache_control: optional BetaCacheControlEphemeral`
 
@@ -1077,9 +1289,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `container: optional BetaContainerParams or string`
 
   Container identifier for reuse across requests.
+
   - `BetaContainerParams object { id, skills }`
 
     Container parameters with skills to be loaded.
+
     - `id: optional string`
 
       Container id
@@ -1087,6 +1301,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `skills: optional array of BetaSkillParams`
 
       List of skills to load in the container
+
       - `skill_id: string`
 
         Skill ID
@@ -1094,6 +1309,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "anthropic" or "custom"`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
         - `"anthropic"`
 
         - `"custom"`
@@ -1109,17 +1325,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Context management configuration.
 
   This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
+
   - `edits: optional array of BetaClearToolUses20250919Edit or BetaClearThinking20251015Edit or BetaCompact20260112Edit`
 
     List of context management edits to apply
+
     - `BetaClearToolUses20250919Edit object { type, clear_at_least, clear_tool_inputs, 3 more }`
+
       - `type: "clear_tool_uses_20250919"`
+
         - `"clear_tool_uses_20250919"`
 
       - `clear_at_least: optional BetaInputTokensClearAtLeast`
 
         Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
+
         - `type: "input_tokens"`
+
           - `"input_tokens"`
 
         - `value: number`
@@ -1127,6 +1349,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `clear_tool_inputs: optional boolean or array of string`
 
         Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
+
         - `boolean`
 
         - `array of string`
@@ -1138,7 +1361,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `keep: optional BetaToolUsesKeep`
 
         Number of tool uses to retain in the conversation
+
         - `type: "tool_uses"`
+
           - `"tool_uses"`
 
         - `value: number`
@@ -1146,42 +1371,57 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `trigger: optional BetaInputTokensTrigger or BetaToolUsesTrigger`
 
         Condition that triggers the context management strategy
+
         - `BetaInputTokensTrigger object { type, value }`
+
           - `type: "input_tokens"`
+
             - `"input_tokens"`
 
           - `value: number`
 
         - `BetaToolUsesTrigger object { type, value }`
+
           - `type: "tool_uses"`
+
             - `"tool_uses"`
 
           - `value: number`
 
     - `BetaClearThinking20251015Edit object { type, keep }`
+
       - `type: "clear_thinking_20251015"`
+
         - `"clear_thinking_20251015"`
 
       - `keep: optional BetaThinkingTurns or BetaAllThinkingTurns or "all"`
 
         Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
+
         - `BetaThinkingTurns object { type, value }`
+
           - `type: "thinking_turns"`
+
             - `"thinking_turns"`
 
           - `value: number`
 
         - `BetaAllThinkingTurns object { type }`
+
           - `type: "all"`
+
             - `"all"`
 
         - `"all"`
+
           - `"all"`
 
     - `BetaCompact20260112Edit object { type, instructions, pause_after_compaction, trigger }`
 
       Automatically compact older context when reaching the configured trigger threshold.
+
       - `type: "compact_20260112"`
+
         - `"compact_20260112"`
 
       - `instructions: optional string`
@@ -1200,9 +1440,141 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Request-level diagnostics. Currently carries the previous response
   id for prompt-cache divergence reporting.
+
   - `previous_message_id: optional string`
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+- `fallback_credit_token: optional string`
+
+  The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+  When a preceding request was refused and returned a `fallback_credit_token`,
+  pass that code here on the retry to have the retry's cache-creation tokens
+  for the prefix that was warm on the refused model billed at the cache-read
+  rate. Must be redeemed by the same organization and workspace, with the same
+  request body (optionally extended by one appended `assistant` message whose
+  content is the partial text — with any trailing whitespace stripped from
+  the final text block — and paired server-tool blocks streamed before the
+  refusal; the appended-assistant form is not available for requests with
+  `output_format` set or forced `tool_choice`), on an eligible fallback
+  model, on the same platform,
+  and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+  mid-server-tool-loop whose partial content was continuable may only be
+  redeemed with the appended-assistant form — if an exact-body retry is
+  rejected with a 400 saying the token must be redeemed by continuing the
+  partial response, retry with the appended-assistant form instead.
+
+  When the appended-assistant form is used on a model that otherwise disallows
+  assistant-turn prefill, this token also authorizes that one prefill.
+
+- `fallbacks: optional array of BetaFallbackParam`
+
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
+
+  - `model: Model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+  - `max_tokens: optional number`
+
+  - `output_config: optional BetaOutputConfig`
+
+    - `effort: optional "low" or "medium" or "high" or 2 more`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
+
+    - `format: optional BetaJSONOutputFormat`
+
+      A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+      - `schema: map[unknown]`
+
+        The JSON schema of the format
+
+      - `type: "json_schema"`
+
+        - `"json_schema"`
+
+    - `task_budget: optional BetaTokenTaskBudget`
+
+      User-configurable total token budget across contexts.
+
+      - `total: number`
+
+        Total token budget across all contexts in the session.
+
+      - `type: "tokens"`
+
+        The budget type. Currently only 'tokens' is supported.
+
+        - `"tokens"`
+
+      - `remaining: optional number`
+
+        Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+  - `speed: optional "standard" or "fast"`
+
+    - `"standard"`
+
+    - `"fast"`
+
+  - `thinking: optional BetaThinkingConfigEnabled or BetaThinkingConfigDisabled or BetaThinkingConfigAdaptive`
+
+    - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
+
+      - `budget_tokens: number`
+
+        Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+        Must be ≥1024 and less than `max_tokens`.
+
+        See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
+      - `type: "enabled"`
+
+        - `"enabled"`
+
+      - `display: optional "summarized" or "omitted"`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `"summarized"`
+
+        - `"omitted"`
+
+    - `BetaThinkingConfigDisabled object { type }`
+
+      - `type: "disabled"`
+
+        - `"disabled"`
+
+    - `BetaThinkingConfigAdaptive object { type, display }`
+
+      - `type: "adaptive"`
+
+        - `"adaptive"`
+
+      - `display: optional "summarized" or "omitted"`
+
+        Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+        - `"summarized"`
+
+        - `"omitted"`
 
 - `inference_geo: optional string`
 
@@ -1211,9 +1583,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `mcp_servers: optional array of BetaRequestMCPServerURLDefinition`
 
   MCP servers to be utilized in this request
+
   - `name: string`
 
   - `type: "url"`
+
     - `"url"`
 
   - `url: string`
@@ -1221,6 +1595,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `authorization_token: optional string`
 
   - `tool_configuration: optional BetaRequestMCPServerToolConfiguration`
+
     - `allowed_tools: optional array of string`
 
     - `enabled: optional boolean`
@@ -1228,6 +1603,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `metadata: optional BetaMetadata`
 
   An object describing metadata about the request.
+
   - `user_id: optional string`
 
     An external identifier for the user who is associated with the request.
@@ -1237,44 +1613,6 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `output_config: optional BetaOutputConfig`
 
   Configuration options for the model's output, such as the output format.
-  - `effort: optional "low" or "medium" or "high" or 2 more`
-
-    All possible effort levels.
-    - `"low"`
-
-    - `"medium"`
-
-    - `"high"`
-
-    - `"xhigh"`
-
-    - `"max"`
-
-  - `format: optional BetaJSONOutputFormat`
-
-    A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-    - `schema: map[unknown]`
-
-      The JSON schema of the format
-
-    - `type: "json_schema"`
-      - `"json_schema"`
-
-  - `task_budget: optional BetaTokenTaskBudget`
-
-    User-configurable total token budget across contexts.
-    - `total: number`
-
-      Total token budget across all contexts in the session.
-
-    - `type: "tokens"`
-
-      The budget type. Currently only 'tokens' is supported.
-      - `"tokens"`
-
-    - `remaining: optional number`
-
-      Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
 - `output_format: optional BetaJSONOutputFormat`
 
@@ -1287,6 +1625,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Determines whether to use priority capacity (if available) or standard capacity for this request.
 
   Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+
   - `"auto"`
 
   - `"standard_only"`
@@ -1294,6 +1633,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 - `speed: optional "standard" or "fast"`
 
   The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
+
   - `"standard"`
 
   - `"fast"`
@@ -1317,9 +1657,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   System prompt.
 
   A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+
   - `string`
 
   - `array of BetaTextBlockParam`
+
     - `text: string`
 
     - `type: "text"`
@@ -1345,47 +1687,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
   See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
   - `BetaThinkingConfigEnabled object { budget_tokens, type, display }`
-    - `budget_tokens: number`
-
-      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
-
-      Must be ≥1024 and less than `max_tokens`.
-
-      See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
-
-    - `type: "enabled"`
-      - `"enabled"`
-
-    - `display: optional "summarized" or "omitted"`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-      - `"summarized"`
-
-      - `"omitted"`
 
   - `BetaThinkingConfigDisabled object { type }`
-    - `type: "disabled"`
-      - `"disabled"`
 
   - `BetaThinkingConfigAdaptive object { type, display }`
-    - `type: "adaptive"`
-      - `"adaptive"`
-
-    - `display: optional "summarized" or "omitted"`
-
-      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-      - `"summarized"`
-
-      - `"omitted"`
 
 - `tool_choice: optional BetaToolChoice`
 
   How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
   - `BetaToolChoiceAuto object { type, disable_parallel_tool_use }`
 
     The model will automatically decide whether to use tools.
+
     - `type: "auto"`
+
       - `"auto"`
 
     - `disable_parallel_tool_use: optional boolean`
@@ -1397,7 +1715,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `BetaToolChoiceAny object { type, disable_parallel_tool_use }`
 
     The model will use any available tools.
+
     - `type: "any"`
+
       - `"any"`
 
     - `disable_parallel_tool_use: optional boolean`
@@ -1409,11 +1729,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `BetaToolChoiceTool object { name, type, disable_parallel_tool_use }`
 
     The model will use the specified tool with `tool_choice.name`.
+
     - `name: string`
 
       The name of the tool to use.
 
     - `type: "tool"`
+
       - `"tool"`
 
     - `disable_parallel_tool_use: optional boolean`
@@ -1425,7 +1747,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `BetaToolChoiceNone object { type }`
 
     The model will not be allowed to use tools.
+
     - `type: "none"`
+
       - `"none"`
 
 - `tools: optional array of BetaToolUnion`
@@ -1437,9 +1761,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -1490,13 +1815,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
   See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+
   - `BetaTool object { input_schema, name, allowed_callers, 7 more }`
+
     - `input_schema: object { type, properties, required }`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
       This defines the shape of the `input` that your tool accepts and that the model will produce.
+
       - `type: "object"`
+
         - `"object"`
 
       - `properties: optional map[unknown]`
@@ -1510,6 +1839,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1541,20 +1871,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
     - `type: optional "custom"`
+
       - `"custom"`
 
   - `BetaToolBash20241022 object { name, type, allowed_callers, 4 more }`
+
     - `name: "bash"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"bash"`
 
     - `type: "bash_20241022"`
+
       - `"bash_20241022"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1576,17 +1911,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolBash20250124 object { name, type, allowed_callers, 4 more }`
+
     - `name: "bash"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"bash"`
 
     - `type: "bash_20250124"`
+
       - `"bash_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1608,17 +1947,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaCodeExecutionTool20250522 object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"code_execution"`
 
     - `type: "code_execution_20250522"`
+
       - `"code_execution_20250522"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1638,17 +1981,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaCodeExecutionTool20250825 object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"code_execution"`
 
     - `type: "code_execution_20250825"`
+
       - `"code_execution_20250825"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1670,17 +2017,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `BetaCodeExecutionTool20260120 object { name, type, allowed_callers, 3 more }`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
     - `name: "code_execution"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"code_execution"`
 
     - `type: "code_execution_20260120"`
+
       - `"code_execution_20260120"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1700,6 +2051,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20241022 object { display_height_px, display_width_px, name, 7 more }`
+
     - `display_height_px: number`
 
       The height of the display in pixels.
@@ -1713,12 +2065,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"computer"`
 
     - `type: "computer_20241022"`
+
       - `"computer_20241022"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1744,17 +2099,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaMemoryTool20250818 object { name, type, allowed_callers, 4 more }`
+
     - `name: "memory"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"memory"`
 
     - `type: "memory_20250818"`
+
       - `"memory_20250818"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1776,6 +2135,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20250124 object { display_height_px, display_width_px, name, 7 more }`
+
     - `display_height_px: number`
 
       The height of the display in pixels.
@@ -1789,12 +2149,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"computer"`
 
     - `type: "computer_20250124"`
+
       - `"computer_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1820,17 +2183,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20241022 object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_editor"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"str_replace_editor"`
 
     - `type: "text_editor_20241022"`
+
       - `"text_editor_20241022"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1852,6 +2219,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20251124 object { display_height_px, display_width_px, name, 8 more }`
+
     - `display_height_px: number`
 
       The height of the display in pixels.
@@ -1865,12 +2233,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"computer"`
 
     - `type: "computer_20251124"`
+
       - `"computer_20251124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1900,17 +2271,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250124 object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_editor"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"str_replace_editor"`
 
     - `type: "text_editor_20250124"`
+
       - `"text_editor_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1932,17 +2307,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250429 object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"str_replace_based_edit_tool"`
 
     - `type: "text_editor_20250429"`
+
       - `"text_editor_20250429"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -1964,17 +2343,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250728 object { name, type, allowed_callers, 5 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"str_replace_based_edit_tool"`
 
     - `type: "text_editor_20250728"`
+
       - `"text_editor_20250728"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2000,17 +2383,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaWebSearchTool20250305 object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"web_search"`
 
     - `type: "web_search_20250305"`
+
       - `"web_search_20250305"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2044,7 +2431,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `user_location: optional BetaUserLocation`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `type: "approximate"`
+
         - `"approximate"`
 
       - `city: optional string`
@@ -2064,17 +2453,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `BetaWebFetchTool20250910 object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"web_fetch"`
 
     - `type: "web_fetch_20250910"`
+
       - `"web_fetch_20250910"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2114,17 +2507,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaWebSearchTool20260209 object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"web_search"`
 
     - `type: "web_search_20260209"`
+
       - `"web_search_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2160,17 +2557,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Parameters for the user's location. Used to provide more relevant search results.
 
   - `BetaWebFetchTool20260209 object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"web_fetch"`
 
     - `type: "web_fetch_20260209"`
+
       - `"web_fetch_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2212,17 +2613,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `BetaWebFetchTool20260309 object { name, type, allowed_callers, 9 more }`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
+
     - `name: "web_fetch"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"web_fetch"`
 
     - `type: "web_fetch_20260309"`
+
       - `"web_fetch_20260309"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2265,7 +2670,8 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
-  - `BetaAdvisorTool20260301 object { model, name, type, 6 more }`
+  - `BetaAdvisorTool20260301 object { model, name, type, 7 more }`
+
     - `model: Model`
 
       The model that will complete your prompt.
@@ -2277,12 +2683,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"advisor"`
 
     - `type: "advisor_20260301"`
+
       - `"advisor_20260301"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2301,6 +2710,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+    - `max_tokens: optional number`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
     - `max_uses: optional number`
 
       Maximum number of times the tool can be used in the API request.
@@ -2310,19 +2723,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolSearchToolBm25_20251119 object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_bm25"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"tool_search_tool_bm25"`
 
     - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
       - `"tool_search_tool_bm25_20251119"`
 
       - `"tool_search_tool_bm25"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2342,19 +2759,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolSearchToolRegex20251119 object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_regex"`
 
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
       - `"tool_search_tool_regex"`
 
     - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
       - `"tool_search_tool_regex_20251119"`
 
       - `"tool_search_tool_regex"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -2379,11 +2800,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     Allows configuring enabled status and defer_loading for all tools
     from an MCP server, with optional per-tool overrides.
+
     - `mcp_server_name: string`
 
       Name of the MCP server to configure tools for
 
     - `type: "mcp_toolset"`
+
       - `"mcp_toolset"`
 
     - `cache_control: optional BetaCacheControlEphemeral`
@@ -2393,6 +2816,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `configs: optional map[BetaMCPToolConfig]`
 
       Configuration overrides for specific tools, keyed by tool name
+
       - `defer_loading: optional boolean`
 
       - `enabled: optional boolean`
@@ -2400,6 +2824,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `default_config: optional BetaMCPToolDefaultConfig`
 
       Default configuration applied to all tools from this server
+
       - `defer_loading: optional boolean`
 
       - `enabled: optional boolean`
@@ -2427,6 +2852,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Returns
 
 - `BetaMessage object { id, container, content, 9 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -2436,6 +2862,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `container: BetaContainer`
 
     Information about the container used in the request (for the code execution tool)
+
     - `id: string`
 
       Identifier for the container used in this request
@@ -2447,6 +2874,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `skills: array of BetaSkill`
 
       Skills loaded in the container
+
       - `skill_id: string`
 
         Skill ID
@@ -2454,6 +2882,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "anthropic" or "custom"`
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
         - `"anthropic"`
 
         - `"custom"`
@@ -2471,7 +2900,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -2480,27 +2909,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
     - `BetaTextBlock object { citations, text, type }`
+
       - `citations: array of BetaTextCitation`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `BetaCitationCharLocation object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -2514,9 +2943,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `start_char_index: number`
 
           - `type: "char_location"`
+
             - `"char_location"`
 
         - `BetaCitationPageLocation object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -2530,9 +2961,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `start_page_number: number`
 
           - `type: "page_location"`
+
             - `"page_location"`
 
         - `BetaCitationContentBlockLocation object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -2556,9 +2989,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             0-based index of the first cited block in the source's `content` array.
 
           - `type: "content_block_location"`
+
             - `"content_block_location"`
 
         - `BetaCitationsWebSearchResultLocation object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -2566,11 +3001,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string`
 
           - `type: "web_search_result_location"`
+
             - `"web_search_result_location"`
 
           - `url: string`
 
         - `BetaCitationSearchResultLocation object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -2598,28 +3035,35 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string`
 
           - `type: "search_result_location"`
+
             - `"search_result_location"`
 
       - `text: string`
 
       - `type: "text"`
+
         - `"text"`
 
     - `BetaThinkingBlock object { signature, thinking, type }`
+
       - `signature: string`
 
       - `thinking: string`
 
       - `type: "thinking"`
+
         - `"thinking"`
 
     - `BetaRedactedThinkingBlock object { data, type }`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
+
         - `"redacted_thinking"`
 
     - `BetaToolUseBlock object { id, input, name, 2 more }`
+
       - `id: string`
 
       - `input: map[unknown]`
@@ -2627,37 +3071,47 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `name: string`
 
       - `type: "tool_use"`
+
         - `"tool_use"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `BetaDirectCaller object { type }`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
+
             - `"direct"`
 
         - `BetaServerToolCaller object { tool_id, type }`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
+
             - `"code_execution_20250825"`
 
         - `BetaServerToolCaller20260120 object { tool_id, type }`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
+
             - `"code_execution_20260120"`
 
     - `BetaServerToolUseBlock object { id, input, name, 2 more }`
+
       - `id: string`
 
       - `input: map[unknown]`
 
       - `name: "advisor" or "web_search" or "web_fetch" or 5 more`
+
         - `"advisor"`
 
         - `"web_search"`
@@ -2675,11 +3129,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `"tool_search_tool_bm25"`
 
       - `type: "server_tool_use"`
+
         - `"server_tool_use"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `BetaDirectCaller object { type }`
 
           Tool invocation directly from the model.
@@ -2691,9 +3147,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `BetaServerToolCaller20260120 object { tool_id, type }`
 
     - `BetaWebSearchToolResultBlock object { content, tool_use_id, type, caller }`
+
       - `content: BetaWebSearchToolResultBlockContent`
+
         - `BetaWebSearchToolResultError object { error_code, type }`
+
           - `error_code: BetaWebSearchToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2707,9 +3167,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"request_too_large"`
 
           - `type: "web_search_tool_result_error"`
+
             - `"web_search_tool_result_error"`
 
         - `array of BetaWebSearchResultBlock`
+
           - `encrypted_content: string`
 
           - `page_age: string`
@@ -2717,6 +3179,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string`
 
           - `type: "web_search_result"`
+
             - `"web_search_result"`
 
           - `url: string`
@@ -2724,11 +3187,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `tool_use_id: string`
 
       - `type: "web_search_tool_result"`
+
         - `"web_search_tool_result"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `BetaDirectCaller object { type }`
 
           Tool invocation directly from the model.
@@ -2740,9 +3205,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `BetaServerToolCaller20260120 object { tool_id, type }`
 
     - `BetaWebFetchToolResultBlock object { content, tool_use_id, type, caller }`
+
       - `content: BetaWebFetchToolResultErrorBlock or BetaWebFetchBlock`
+
         - `BetaWebFetchToolResultErrorBlock object { error_code, type }`
+
           - `error_code: BetaWebFetchToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -2762,32 +3231,43 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"unavailable"`
 
           - `type: "web_fetch_tool_result_error"`
+
             - `"web_fetch_tool_result_error"`
 
         - `BetaWebFetchBlock object { content, retrieved_at, type, url }`
+
           - `content: BetaDocumentBlock`
+
             - `citations: BetaCitationConfig`
 
               Citation configuration for the document
+
               - `enabled: boolean`
 
             - `source: BetaBase64PDFSource or BetaPlainTextSource`
+
               - `BetaBase64PDFSource object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
+
                   - `"application/pdf"`
 
                 - `type: "base64"`
+
                   - `"base64"`
 
               - `BetaPlainTextSource object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
+
                   - `"text/plain"`
 
                 - `type: "text"`
+
                   - `"text"`
 
             - `title: string`
@@ -2795,6 +3275,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               The title of the document
 
             - `type: "document"`
+
               - `"document"`
 
           - `retrieved_at: string`
@@ -2802,6 +3283,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             ISO 8601 timestamp when the content was retrieved
 
           - `type: "web_fetch_result"`
+
             - `"web_fetch_result"`
 
           - `url: string`
@@ -2811,11 +3293,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `tool_use_id: string`
 
       - `type: "web_fetch_tool_result"`
+
         - `"web_fetch_tool_result"`
 
       - `caller: optional BetaDirectCaller or BetaServerToolCaller or BetaServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `BetaDirectCaller object { type }`
 
           Tool invocation directly from the model.
@@ -2827,9 +3311,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `BetaServerToolCaller20260120 object { tool_id, type }`
 
     - `BetaAdvisorToolResultBlock object { content, tool_use_id, type }`
+
       - `content: BetaAdvisorToolResultError or BetaAdvisorResultBlock or BetaAdvisorRedactedResultBlock`
+
         - `BetaAdvisorToolResultError object { error_code, type }`
-          - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 3 more`
+
+          - `error_code: "max_uses_exceeded" or "prompt_too_long" or "too_many_requests" or 4 more`
+
             - `"max_uses_exceeded"`
 
             - `"prompt_too_long"`
@@ -2842,10 +3330,14 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             - `"execution_time_exceeded"`
 
+            - `"model_not_found"`
+
           - `type: "advisor_tool_result_error"`
+
             - `"advisor_tool_result_error"`
 
         - `BetaAdvisorResultBlock object { stop_reason, text, type }`
+
           - `stop_reason: string`
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -2853,9 +3345,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `text: string`
 
           - `type: "advisor_result"`
+
             - `"advisor_result"`
 
         - `BetaAdvisorRedactedResultBlock object { encrypted_content, stop_reason, type }`
+
           - `encrypted_content: string`
 
             Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -2865,19 +3359,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
           - `type: "advisor_redacted_result"`
+
             - `"advisor_redacted_result"`
 
       - `tool_use_id: string`
 
       - `type: "advisor_tool_result"`
+
         - `"advisor_tool_result"`
 
     - `BetaCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
       - `content: BetaCodeExecutionToolResultBlockContent`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `BetaCodeExecutionToolResultError object { error_code, type }`
+
           - `error_code: BetaCodeExecutionToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2887,13 +3387,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"execution_time_exceeded"`
 
           - `type: "code_execution_tool_result_error"`
+
             - `"code_execution_tool_result_error"`
 
         - `BetaCodeExecutionResultBlock object { content, return_code, stderr, 2 more }`
+
           - `content: array of BetaCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
+
               - `"code_execution_output"`
 
           - `return_code: number`
@@ -2903,12 +3407,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stdout: string`
 
           - `type: "code_execution_result"`
+
             - `"code_execution_result"`
 
         - `BetaEncryptedCodeExecutionResultBlock object { content, encrypted_stdout, return_code, 2 more }`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: array of BetaCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -2920,17 +3427,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stderr: string`
 
           - `type: "encrypted_code_execution_result"`
+
             - `"encrypted_code_execution_result"`
 
       - `tool_use_id: string`
 
       - `type: "code_execution_tool_result"`
+
         - `"code_execution_tool_result"`
 
     - `BetaBashCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
       - `content: BetaBashCodeExecutionToolResultError or BetaBashCodeExecutionResultBlock`
+
         - `BetaBashCodeExecutionToolResultError object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2942,13 +3455,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"output_file_too_large"`
 
           - `type: "bash_code_execution_tool_result_error"`
+
             - `"bash_code_execution_tool_result_error"`
 
         - `BetaBashCodeExecutionResultBlock object { content, return_code, stderr, 2 more }`
+
           - `content: array of BetaBashCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
+
               - `"bash_code_execution_output"`
 
           - `return_code: number`
@@ -2958,17 +3475,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stdout: string`
 
           - `type: "bash_code_execution_result"`
+
             - `"bash_code_execution_result"`
 
       - `tool_use_id: string`
 
       - `type: "bash_code_execution_tool_result"`
+
         - `"bash_code_execution_tool_result"`
 
     - `BetaTextEditorCodeExecutionToolResultBlock object { content, tool_use_id, type }`
+
       - `content: BetaTextEditorCodeExecutionToolResultError or BetaTextEditorCodeExecutionViewResultBlock or BetaTextEditorCodeExecutionCreateResultBlock or BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
         - `BetaTextEditorCodeExecutionToolResultError object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2982,12 +3505,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `error_message: string`
 
           - `type: "text_editor_code_execution_tool_result_error"`
+
             - `"text_editor_code_execution_tool_result_error"`
 
         - `BetaTextEditorCodeExecutionViewResultBlock object { content, file_type, num_lines, 3 more }`
+
           - `content: string`
 
           - `file_type: "text" or "image" or "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -3001,15 +3527,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `total_lines: number`
 
           - `type: "text_editor_code_execution_view_result"`
+
             - `"text_editor_code_execution_view_result"`
 
         - `BetaTextEditorCodeExecutionCreateResultBlock object { is_file_update, type }`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
+
             - `"text_editor_code_execution_create_result"`
 
         - `BetaTextEditorCodeExecutionStrReplaceResultBlock object { lines, new_lines, new_start, 3 more }`
+
           - `lines: array of string`
 
           - `new_lines: number`
@@ -3021,17 +3551,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `old_start: number`
 
           - `type: "text_editor_code_execution_str_replace_result"`
+
             - `"text_editor_code_execution_str_replace_result"`
 
       - `tool_use_id: string`
 
       - `type: "text_editor_code_execution_tool_result"`
+
         - `"text_editor_code_execution_tool_result"`
 
     - `BetaToolSearchToolResultBlock object { content, tool_use_id, type }`
+
       - `content: BetaToolSearchToolResultError or BetaToolSearchToolSearchResultBlock`
+
         - `BetaToolSearchToolResultError object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -3043,24 +3579,31 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `error_message: string`
 
           - `type: "tool_search_tool_result_error"`
+
             - `"tool_search_tool_result_error"`
 
         - `BetaToolSearchToolSearchResultBlock object { tool_references, type }`
+
           - `tool_references: array of BetaToolReferenceBlock`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
+
               - `"tool_reference"`
 
           - `type: "tool_search_tool_search_result"`
+
             - `"tool_search_tool_search_result"`
 
       - `tool_use_id: string`
 
       - `type: "tool_search_tool_result"`
+
         - `"tool_search_tool_result"`
 
     - `BetaMCPToolUseBlock object { id, input, name, 2 more }`
+
       - `id: string`
 
       - `input: map[unknown]`
@@ -3074,13 +3617,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         The name of the MCP server
 
       - `type: "mcp_tool_use"`
+
         - `"mcp_tool_use"`
 
     - `BetaMCPToolResultBlock object { content, is_error, tool_use_id, type }`
+
       - `content: string or array of BetaTextBlock`
+
         - `string`
 
         - `BetaMCPToolResultBlockContent = array of BetaTextBlock`
+
           - `citations: array of BetaTextCitation`
 
             Citations supporting the text block.
@@ -3096,14 +3643,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `tool_use_id: string`
 
       - `type: "mcp_tool_result"`
+
         - `"mcp_tool_result"`
 
     - `BetaContainerUploadBlock object { file_id, type }`
 
       Response model for a file uploaded to the container.
+
       - `file_id: string`
 
       - `type: "container_upload"`
+
         - `"container_upload"`
 
     - `BetaCompactionBlock object { content, encrypted_content, type }`
@@ -3113,6 +3663,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When content is None, it indicates the compaction failed to produce a valid
       summary (e.g., malformed output from the model). Clients may round-trip
       compaction blocks with null content; the server treats them as no-ops.
+
       - `content: string`
 
         Summary of compacted content, or null if compaction failed
@@ -3122,17 +3673,141 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         Opaque metadata from prior compaction, to be round-tripped verbatim
 
       - `type: "compaction"`
+
         - `"compaction"`
+
+    - `BetaFallbackBlock object { from, to, type }`
+
+      Marks the point in `content` where one model's output gives way to the next.
+
+      One block appears per hop where a preceding model actually ran this turn and
+      declined. A turn routed directly by the sticky decision has no such boundary
+      and carries no block — the signal for whether a fallback model served the
+      response is the presence of a `fallback_message` entry in
+      `usage.iterations`, not this block.
+
+      The block is treated like a server-tool content block for streaming: it
+      arrives via the standard `content_block_start` / `content_block_stop`
+      pair and carries no deltas.
+
+      - `from: BetaFallbackInfo`
+
+        The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more`
+
+            The model that will complete your prompt.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `"claude-mythos-5"`
+
+              Most capable model for cybersecurity and biology research
+
+            - `"claude-opus-4-8"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-7"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-mythos-preview"`
+
+              New class of intelligence, strongest in coding and cybersecurity
+
+            - `"claude-opus-4-6"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+            - `"claude-opus-4-1"`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-1-20250805"`
+
+              Exceptional model for specialized complex tasks
+
+            - `"claude-opus-4-0"`
+
+              Powerful model for complex tasks
+
+            - `"claude-opus-4-20250514"`
+
+              Powerful model for complex tasks
+
+            - `"claude-sonnet-4-0"`
+
+              High-performance model with extended thinking
+
+            - `"claude-sonnet-4-20250514"`
+
+              High-performance model with extended thinking
+
+            - `"claude-3-haiku-20240307"`
+
+              Fast and cost-effective model
+
+          - `string`
+
+      - `to: BetaFallbackInfo`
+
+        The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+      - `type: "fallback"`
+
+        - `"fallback"`
 
   - `context_management: BetaContextManagementResponse`
 
     Context management response.
 
     Information about context management strategies applied during the request.
+
     - `applied_edits: array of BetaClearToolUses20250919EditResponse or BetaClearThinking20251015EditResponse`
 
       List of context management edits that were applied.
+
       - `BetaClearToolUses20250919EditResponse object { cleared_input_tokens, cleared_tool_uses, type }`
+
         - `cleared_input_tokens: number`
 
           Number of input tokens cleared by this edit.
@@ -3144,9 +3819,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `type: "clear_tool_uses_20250919"`
 
           The type of context management edit applied.
+
           - `"clear_tool_uses_20250919"`
 
       - `BetaClearThinking20251015EditResponse object { cleared_input_tokens, cleared_thinking_turns, type }`
+
         - `cleared_input_tokens: number`
 
           Number of input tokens cleared by this edit.
@@ -3158,53 +3835,68 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `type: "clear_thinking_20251015"`
 
           The type of context management edit applied.
+
           - `"clear_thinking_20251015"`
 
   - `diagnostics: BetaDiagnostics`
 
     Response envelope for request-level diagnostics. Present (possibly
     null) whenever the caller supplied `diagnostics` on the request.
+
     - `cache_miss_reason: BetaCacheMissModelChanged or BetaCacheMissSystemChanged or BetaCacheMissToolsChanged or 3 more`
 
       Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+
       - `BetaCacheMissModelChanged object { cache_missed_input_tokens, type }`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
         - `type: "model_changed"`
+
           - `"model_changed"`
 
       - `BetaCacheMissSystemChanged object { cache_missed_input_tokens, type }`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
         - `type: "system_changed"`
+
           - `"system_changed"`
 
       - `BetaCacheMissToolsChanged object { cache_missed_input_tokens, type }`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
         - `type: "tools_changed"`
+
           - `"tools_changed"`
 
       - `BetaCacheMissMessagesChanged object { cache_missed_input_tokens, type }`
+
         - `cache_missed_input_tokens: number`
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
         - `type: "messages_changed"`
+
           - `"messages_changed"`
 
       - `BetaCacheMissPreviousMessageNotFound object { type }`
+
         - `type: "previous_message_not_found"`
+
           - `"previous_message_not_found"`
 
       - `BetaCacheMissUnavailable object { type }`
+
         - `type: "unavailable"`
+
           - `"unavailable"`
 
   - `model: Model`
@@ -3212,103 +3904,30 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
-
-      The model that will complete your prompt.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-8"`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-opus-4-7"`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-mythos-preview"`
-
-        New class of intelligence, strongest in coding and cybersecurity
-
-      - `"claude-opus-4-6"`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-sonnet-4-6"`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-opus-4-5-20251101"`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-sonnet-4-5"`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"`
-
-        High-performance model for agents and coding
-
-      - `"claude-opus-4-1"`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-1-20250805"`
-
-        Exceptional model for specialized complex tasks
-
-      - `"claude-opus-4-0"`
-
-        Powerful model for complex tasks
-
-      - `"claude-opus-4-20250514"`
-
-        Powerful model for complex tasks
-
-      - `"claude-sonnet-4-0"`
-
-        High-performance model with extended thinking
-
-      - `"claude-sonnet-4-20250514"`
-
-        High-performance model with extended thinking
-
-      - `"claude-3-haiku-20240307"`
-
-        Fast and cost-effective model
-
-    - `string`
 
   - `role: "assistant"`
 
     Conversational role of the generated message.
 
     This will always be `"assistant"`.
+
     - `"assistant"`
 
   - `stop_details: BetaRefusalStopDetails`
 
     Structured information about a refusal.
-    - `category: "cyber" or "bio"`
+
+    - `category: "cyber" or "bio" or "reasoning_extraction"`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"`
 
       - `"bio"`
+
+      - `"reasoning_extraction"`
 
     - `explanation: string`
 
@@ -3316,7 +3935,57 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
+    - `fallback_credit_token: string`
+
+      Opaque code that refunds the cache-miss cost when retrying this refused
+      request on the fallback model. Pass it as `fallback_credit_token` on the
+      retry request. Expires 5 minutes after the refusal.
+
+      The retry is sent either with the same request body (`system`, `messages`,
+      `tools`, and other render-shaping fields), or with the same body plus one
+      appended `assistant` message whose content is the partial text (with any
+      trailing whitespace stripped from the final text block) and paired
+      server-tool blocks from this refusal — which also authorizes that
+      appended turn as an assistant-prefill continuation on models that otherwise
+      disallow prefill. A token minted mid-server-tool-loop whose partial content
+      was continuable may only be redeemed the second way — if a same-body retry
+      is rejected with a 400 saying the token must be redeemed by continuing the
+      partial response, retry the second way instead. Either way: same workspace,
+      same platform; a mismatch is a 400. Resending a token for an already-warm
+      prefix is permitted but yields no additional credit.
+
+      `null` when the refused model isn't eligible for a fallback credit.
+
+    - `fallback_has_prefill_claim: boolean`
+
+      Whether the accompanying `fallback_credit_token` may be redeemed with the
+      appended-assistant retry form. Only set when `fallback_credit_token` is
+      present.
+
+      `true`: retry by resending the same request body plus one appended
+      `assistant` message whose content is this response's `content` with any
+      trailing whitespace stripped from the final text block and unpaired
+      `tool_use` blocks omitted (the same appended-turn shape described on
+      `fallback_credit_token`), with the token attached. `false`: retry by
+      resending the original request body unchanged, with the token attached —
+      the appended-assistant form is not available for this refusal (no
+      continuable partial content, or the request uses `output_format` or a
+      `tool_choice` that forces tool use). One exception: when the request used
+      `output_format` or a forced `tool_choice` and the refusal arrived after
+      server tools (including MCP connector tools) had already executed, the
+      token may not be redeemable by either retry form; if the exact-body retry
+      is then rejected with a 400 saying the token must be redeemed by
+      continuing the partial response, discard the token and retry without it.
+
+      Advisory: if an appended-assistant retry is rejected with a 400 despite
+      `true`, fall back to resending the original request body with the token.
+
+    - `recommended_model: string`
+
+      The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
     - `type: "refusal"`
+
       - `"refusal"`
 
   - `stop_reason: BetaStopReason`
@@ -3324,14 +3993,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"`
 
     - `"max_tokens"`
@@ -3359,6 +4030,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Object type.
 
     For Messages, this is always `"message"`.
+
     - `"message"`
 
   - `usage: BetaUsage`
@@ -3372,9 +4044,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `cache_creation: BetaCacheCreation`
 
       Breakdown of cached tokens by TTL
+
       - `ephemeral_1h_input_tokens: number`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -3404,13 +4078,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Per-iteration token usage breakdown.
 
       Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
       - Calculate the true context window size from the last iteration
       - Understand token accumulation across server-side tool use loops
 
-      - `BetaMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 3 more }`
+      - `BetaMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
 
         Token usage for a sampling iteration.
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3427,6 +4103,12 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
           The number of input tokens which were used.
 
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
         - `output_tokens: number`
 
           The number of output tokens which were used.
@@ -3434,11 +4116,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `type: "message"`
 
           Usage for a sampling iteration
+
           - `"message"`
 
       - `BetaCompactionIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 3 more }`
 
         Token usage for a compaction iteration.
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3462,11 +4146,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `type: "compaction"`
 
           Usage for a compaction iteration
+
           - `"compaction"`
 
       - `BetaAdvisorMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
 
         Token usage for an advisor sub-inference iteration.
+
         - `cache_creation: BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
@@ -3496,13 +4182,55 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `type: "advisor_message"`
 
           Usage for an advisor sub-inference iteration
+
           - `"advisor_message"`
+
+      - `BetaFallbackMessageIterationUsage object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 4 more }`
+
+        Token usage for the fallback-model attempt of a server-side fallback request.
+
+        Produced in place of a `message` entry for whichever hop served the
+        response. A declined hop produces the existing `message` entry. Whether
+        a fallback model served the response is signalled by the presence of this
+        entry in `usage.iterations`.
+
+        - `cache_creation: BetaCacheCreation`
+
+          Breakdown of cached tokens by TTL
+
+        - `cache_creation_input_tokens: number`
+
+          The number of input tokens used to create the cache entry.
+
+        - `cache_read_input_tokens: number`
+
+          The number of input tokens read from the cache.
+
+        - `input_tokens: number`
+
+          The number of input tokens which were used.
+
+        - `model: Model`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `output_tokens: number`
+
+          The number of output tokens which were used.
+
+        - `type: "fallback_message"`
+
+          Usage for the fallback-model attempt that served the response
+
+          - `"fallback_message"`
 
     - `output_tokens: number`
 
       The number of output tokens which were used.
 
-    - `output_tokens_details: object { thinking_tokens }`
+    - `output_tokens_details: BetaOutputTokensDetails`
 
       Breakdown of output tokens by category.
 
@@ -3510,6 +4238,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `thinking_tokens: number`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -3524,6 +4253,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `server_tool_use: BetaServerToolUsage`
 
       The number of server tool requests.
+
       - `web_fetch_requests: number`
 
         The number of web fetch tool requests.
@@ -3535,6 +4265,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `service_tier: "standard" or "priority" or "batch"`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"`
 
       - `"priority"`
@@ -3544,6 +4275,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `speed: "standard" or "fast"`
 
       The inference speed mode used for this request.
+
       - `"standard"`
 
       - `"fast"`
@@ -3648,6 +4380,9 @@ curl https://api.anthropic.com/v1/messages \
   "stop_details": {
     "category": "cyber",
     "explanation": "explanation",
+    "fallback_credit_token": "fallback_credit_token",
+    "fallback_has_prefill_claim": true,
+    "recommended_model": "recommended_model",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -3671,6 +4406,7 @@ curl https://api.anthropic.com/v1/messages \
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
+        "model": "claude-fable-5",
         "output_tokens": 0,
         "type": "message"
       }

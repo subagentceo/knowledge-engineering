@@ -1,3 +1,6 @@
+# The Sift
+Fraud Intelligence Center
+
 # The Sift Fraud Intelligence Center
 
 Stay ahead of emerging threats with industry data, consumer trends, and practical guidance for smarter fraud prevention.
@@ -6,11 +9,11 @@ Stay ahead of emerging threats with industry data, consumer trends, and practica
 
 Overview
 
--   [Current Fraud Trends](#current-fraud-trends)
--   [Expert Insights](#expert-insights)
--   [Latest Reports & Research](#reports-and-research)
--   [Tools & Resources](#tools-and-resources)
--   [About This Center](#about-this-center)
+*   Current Fraud Trends
+*   Expert Insights
+*   Latest Reports & Research
+*   Tools & Resources
+*   About This Center
 
 ## Current Fraud Trends
 
@@ -22,7 +25,7 @@ Overview
 
 On behalf of Sift, Researchscape International polled 1,065 adults (aged 18+) across the United States via online survey in February 2026.
 
-[read the full report](/index-report-q1-2026/)
+read the full report
 
 ## Fraud's Impact on Customer Loyalty
 
@@ -44,8 +47,6 @@ Data represents responses to multiple surveys of U.S. adults conducted by Sift b
 
 Our Trust and Safety team uncovers the latest scams, discusses the future of fraud, and shares the biggest fraud threats facing digital businesses today.
 
-[
-
 ![2026-03 How to Build Modern Fraud Org\_Sift OG Image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20628'%3E%3C/svg%3E)
 
 webinar
@@ -54,11 +55,7 @@ How to Build and Scale a Modern Fraud Organization
 
 Listen now
 
-](/resources/webinars/how-to-build-and-scale-a-modern-fraud-organization/)
-
 You May Also Like
-
-[
 
 WEBINAR
 
@@ -66,23 +63,17 @@ WEBINAR
 
 Watch On-Demand
 
-](/resources/webinars/responsible-gambling-reinvented/)[
-
 WEBINAR
 
 Safeguarding Customer Loyalty with Smarter Fraud Prevention
 
 Watch On-Demand
 
-](/resources/webinars/safeguarding-customer-loyalty-with-smarter-fraud-prevention/)[
-
 Report
 
 Agentic AI Supercharges Fraud-as-a-Service
 
 Watch On-Demand
-
-](/resources/webinars/atos-in-2025-agentic-ai-supercharges-fraud-as-a-service/)
 
 ![Quotation-mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -92,12 +83,9 @@ Kevin Lee
 
 Field Chief Technology Officer
 
-## Latest Reports  
-and Research
+## Latest Reportsand Research
 
-[Explore our index reports](/resources/index-reports/)
-
-[
+Explore our index reports
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -107,10 +95,6 @@ Report
 
 Read the Report
 
-
-
-](/index-report-q1-2026/)[
-
 ![The Rising Impact of Chargebacks](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201346%201188'%3E%3C/svg%3E)
 
 Report
@@ -118,10 +102,6 @@ Report
 ### The Rising Impact of Chargebacks
 
 Read the Report
-
-
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -131,13 +111,7 @@ Report
 
 Read the Report
 
-
-
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ## Tools & Resources
-
-[
 
 ![latest-scams-fraud-tactics-uncovered-by-sift](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20812%20424'%3E%3C/svg%3E)
 
@@ -147,8 +121,6 @@ Fraud schemes
 
 Explore now
 
-](/fraud-schemes/)[
-
 ![fraud-industry-benchmarking-resource](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20812%20424'%3E%3C/svg%3E)
 
 FIBR
@@ -157,8 +129,6 @@ FIBR
 
 Discover data
 
-](/fibr-fraud-industry-benchmarking-resource/)[
-
 ![trust-and-safety-university](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20406%20212'%3E%3C/svg%3E)
 
 EDUCATION
@@ -166,8 +136,6 @@ EDUCATION
 ### Trust & Safety University
 
 START LEARNING
-
-](/resources/trust-safety-university/)
 
 ## About This Center
 

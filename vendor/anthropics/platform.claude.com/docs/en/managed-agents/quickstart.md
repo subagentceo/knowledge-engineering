@@ -12,16 +12,16 @@ This guide walks you through creating an agent, setting up an environment, start
 
 ## Core concepts
 
-| Concept         | Description                                                                                                                   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Agent**       | The model, system prompt, tools, MCP servers, and skills                                                                      |
+| Concept | Description |
+|---------|-------------|
+| **Agent** | The model, system prompt, tools, MCP servers, and skills |
 | **Environment** | Configuration for where sessions run: an Anthropic-managed cloud sandbox, or a self-hosted sandbox on your own infrastructure |
-| **Session**     | A running agent instance within an environment, performing a specific task and generating outputs                             |
-| **Events**      | Messages exchanged between your application and the agent (user turns, tool results, status updates)                          |
+| **Session** | A running agent instance within an environment, performing a specific task and generating outputs |
+| **Events** | Messages exchanged between your application and the agent (user turns, tool results, status updates) |
 
 ## Prerequisites
 
-- An Anthropic [Console account](/)
+- An Anthropic [Console account](https://platform.claude.com)
 - An [API key](/settings/keys)
 
 ## Install the CLI
@@ -39,7 +39,7 @@ brew install anthropics/tap/ant
 For Linux environments, download the release binary directly.
 
 ```bash nocheck
-VERSION=1.10.0
+VERSION=1.12.0
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/')
 curl -fsSL "https://github.com/anthropics/anthropic-cli/releases/download/v${VERSION}/ant_${VERSION}_${OS}_${ARCH}.tar.gz" \
@@ -51,7 +51,7 @@ You can find all releases on the [GitHub releases page](https://github.com/anthr
 </Tab>
 <Tab title="Go">
 
-You may also install the CLI from source using `go install`. Requires Go 1.22 or later.
+You may also install the CLI from source using `go install`. Requires Go 1.25 or later.
 
 ```bash
 go install github.com/anthropics/anthropic-cli/cmd/ant@latest
@@ -87,7 +87,7 @@ ant --version
   </Tab>
   <Tab title="Java">
     ```groovy Gradle
-    implementation("com.anthropic:anthropic-java:2.35.0")
+    implementation("com.anthropic:anthropic-java:2.40.0")
     ```
   </Tab>
   <Tab title="Go">
@@ -128,9 +128,10 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
   <Step title="Create an agent">
     Create an agent that defines the model, system prompt, and available tools.
 
+    
     <CodeGroup defaultLanguage="CLI">
-
-```bash
+    
+````bash
 set -euo pipefail
 
 agent=$(
@@ -155,17 +156,19 @@ AGENT_ID=$(jq -er '.id' <<<"$agent")
 AGENT_VERSION=$(jq -er '.version' <<<"$agent")
 
 echo "Agent ID: $AGENT_ID, version: $AGENT_VERSION"
-```
+````
 
-```bash
+    
+````bash
 ant beta:agents create \
   --name "Coding Assistant" \
   --model '{id: claude-opus-4-8}' \
   --system "You are a helpful coding assistant. Write clean, well-documented code." \
   --tool '{type: agent_toolset_20260401}'
-```
+````
 
-```python
+    
+````python
 from anthropic import Anthropic
 
 client = Anthropic()
@@ -180,9 +183,10 @@ agent = client.beta.agents.create(
 )
 
 print(f"Agent ID: {agent.id}, version: {agent.version}")
-```
+````
 
-```typescript
+    
+````typescript
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
@@ -190,15 +194,17 @@ const client = new Anthropic();
 const agent = await client.beta.agents.create({
   name: "Coding Assistant",
   model: "claude-opus-4-8",
-  system:
-    "You are a helpful coding assistant. Write clean, well-documented code.",
-  tools: [{ type: "agent_toolset_20260401" }],
+  system: "You are a helpful coding assistant. Write clean, well-documented code.",
+  tools: [
+    { type: "agent_toolset_20260401" },
+  ],
 });
 
 console.log(`Agent ID: ${agent.id}, version: ${agent.version}`);
-```
+````
 
-```csharp
+    
+````csharp
 using Anthropic;
 using Anthropic.Models.Beta.Agents;
 using Anthropic.Models.Beta.Environments;
@@ -222,9 +228,10 @@ var agent = await client.Beta.Agents.Create(new()
 });
 
 Console.WriteLine($"Agent ID: {agent.ID}, version: {agent.Version}");
-```
+````
 
-```go
+    
+````go
 package main
 
 import (
@@ -255,9 +262,10 @@ func main() {
 	}
 
 	fmt.Printf("Agent ID: %s, version: %d\n", agent.ID, agent.Version)
-```
+````
 
-```java
+    
+````java
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
 import com.anthropic.models.beta.agents.AgentCreateParams;
 import com.anthropic.models.beta.agents.BetaManagedAgentsAgentToolset20260401Params;
@@ -283,9 +291,10 @@ void main() {
         .build());
 
     IO.println("Agent ID: " + agent.id() + ", version: " + agent.version());
-```
+````
 
-```php
+    
+````php
 use Anthropic\Client;
 
 $client = new Client();
@@ -300,9 +309,10 @@ $agent = $client->beta->agents->create(
 );
 
 echo "Agent ID: {$agent->id}, version: {$agent->version}\n";
-```
+````
 
-```ruby
+    
+````ruby
 require "anthropic"
 
 client = Anthropic::Client.new
@@ -315,7 +325,7 @@ agent = client.beta.agents.create(
 )
 
 puts "Agent ID: #{agent.id}, version: #{agent.version}"
-```
+````
 
     </CodeGroup>
 
@@ -329,8 +339,8 @@ puts "Agent ID: #{agent.id}, version: #{agent.version}"
     An environment defines the sandbox where your agent runs.
 
     <CodeGroup defaultLanguage="CLI">
-
-```bash
+    
+````bash
 environment=$(
   curl -sS --fail-with-body https://api.anthropic.com/v1/environments \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -351,15 +361,17 @@ EOF
 ENVIRONMENT_ID=$(jq -er '.id' <<<"$environment")
 
 echo "Environment ID: $ENVIRONMENT_ID"
-```
+````
 
-```bash
+    
+````bash
 ant beta:environments create \
   --name "quickstart-env" \
   --config '{type: cloud, networking: {type: unrestricted}}'
-```
+````
 
-```python
+    
+````python
 environment = client.beta.environments.create(
     name="quickstart-env",
     config={
@@ -369,9 +381,10 @@ environment = client.beta.environments.create(
 )
 
 print(f"Environment ID: {environment.id}")
-```
+````
 
-```typescript
+    
+````typescript
 const environment = await client.beta.environments.create({
   name: "quickstart-env",
   config: {
@@ -381,9 +394,10 @@ const environment = await client.beta.environments.create({
 });
 
 console.log(`Environment ID: ${environment.id}`);
-```
+````
 
-```csharp
+    
+````csharp
 var environment = await client.Beta.Environments.Create(new()
 {
     Name = "quickstart-env",
@@ -391,9 +405,10 @@ var environment = await client.Beta.Environments.Create(new()
 });
 
 Console.WriteLine($"Environment ID: {environment.ID}");
-```
+````
 
-```go
+    
+````go
 environment, err := client.Beta.Environments.New(ctx, anthropic.BetaEnvironmentNewParams{
 	Name: "quickstart-env",
 	Config: anthropic.BetaEnvironmentNewParamsConfigUnion{
@@ -409,9 +424,10 @@ if err != nil {
 }
 
 fmt.Printf("Environment ID: %s\n", environment.ID)
-```
+````
 
-```java
+    
+````java
 var environment = client.beta().environments().create(EnvironmentCreateParams.builder()
     .name("quickstart-env")
     .config(BetaCloudConfigParams.builder()
@@ -420,40 +436,41 @@ var environment = client.beta().environments().create(EnvironmentCreateParams.bu
     .build());
 
 IO.println("Environment ID: " + environment.id());
-```
+````
 
-```php
+    
+````php
 $environment = $client->beta->environments->create(
     name: 'quickstart-env',
     config: ['type' => 'cloud', 'networking' => ['type' => 'unrestricted']],
 );
 
 echo "Environment ID: {$environment->id}\n";
-```
+````
 
-```ruby
+    
+````ruby
 environment = client.beta.environments.create(
   name: "quickstart-env",
   config: {type: "cloud", networking: {type: "unrestricted"}}
 )
 
 puts "Environment ID: #{environment.id}"
-```
+````
 
     </CodeGroup>
 
     Save the returned `environment.id`. You'll reference it in every session you create.
 
     <Tip>To run the sandbox on your own infrastructure instead of a cloud sandbox, see [Self-hosted sandboxes](/docs/en/managed-agents/self-hosted-sandboxes).</Tip>
-
   </Step>
 
   <Step title="Start a session">
     Create a session that references your agent and environment.
 
     <CodeGroup>
-
-```bash
+    
+````bash
 session=$(
   curl -sS --fail-with-body https://api.anthropic.com/v1/sessions \
     -H "x-api-key: $ANTHROPIC_API_KEY" \
@@ -472,9 +489,10 @@ EOF
 SESSION_ID=$(jq -er '.id' <<<"$session")
 
 echo "Session ID: $SESSION_ID"
-```
+````
 
-```python
+    
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
@@ -482,9 +500,10 @@ session = client.beta.sessions.create(
 )
 
 print(f"Session ID: {session.id}")
-```
+````
 
-```typescript
+    
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
@@ -492,9 +511,10 @@ const session = await client.beta.sessions.create({
 });
 
 console.log(`Session ID: ${session.id}`);
-```
+````
 
-```csharp
+    
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
@@ -503,9 +523,10 @@ var session = await client.Beta.Sessions.Create(new()
 });
 
 Console.WriteLine($"Session ID: {session.ID}");
-```
+````
 
-```go
+    
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent:         anthropic.BetaSessionNewParamsAgentUnion{OfString: anthropic.String(agent.ID)},
 	EnvironmentID: environment.ID,
@@ -516,9 +537,10 @@ if err != nil {
 }
 
 fmt.Printf("Session ID: %s\n", session.ID)
-```
+````
 
-```java
+    
+````java
 var session = client.beta().sessions().create(SessionCreateParams.builder()
     .agent(agent.id())
     .environmentId(environment.id())
@@ -526,9 +548,10 @@ var session = client.beta().sessions().create(SessionCreateParams.builder()
     .build());
 
 IO.println("Session ID: " + session.id());
-```
+````
 
-```php
+    
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
@@ -536,9 +559,10 @@ $session = $client->beta->sessions->create(
 );
 
 echo "Session ID: {$session->id}\n";
-```
+````
 
-```ruby
+    
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
@@ -546,18 +570,17 @@ session = client.beta.sessions.create(
 )
 
 puts "Session ID: #{session.id}"
-```
+````
 
     </CodeGroup>
-
   </Step>
 
   <Step title="Send a message and stream the response">
     Open a stream, send a user event, then process events as they arrive:
 
     <CodeGroup>
-
-```bash
+    
+````bash
 # Send the user message first; the API buffers events until the stream attaches
 curl -sS --fail-with-body \
   "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
@@ -605,9 +628,10 @@ done < <(
     -H "anthropic-beta: managed-agents-2026-04-01" \
     -H "Accept: text/event-stream"
 )
-```
+````
 
-```python
+    
+````python
 with client.beta.sessions.events.stream(session.id) as stream:
     # Send the user message after the stream opens
     client.beta.sessions.events.send(
@@ -636,9 +660,10 @@ with client.beta.sessions.events.stream(session.id) as stream:
             case "session.status_idle":
                 print("\n\nAgent finished.")
                 break
-```
+````
 
-```typescript
+    
+````typescript
 const stream = await client.beta.sessions.events.stream(session.id);
 
 // Send the user message after the stream opens
@@ -669,9 +694,10 @@ for await (const event of stream) {
     break;
   }
 }
-```
+````
 
-```csharp
+    
+````csharp
 var stream = client.Beta.Sessions.Events.StreamStreaming(session.ID);
 
 // Send the user message after the stream opens
@@ -714,9 +740,10 @@ await foreach (var ev in stream)
         break;
     }
 }
-```
+````
 
-```go
+    
+````go
 	stream := client.Beta.Sessions.Events.StreamEvents(ctx, session.ID, anthropic.BetaSessionEventStreamParams{})
 	defer stream.Close()
 
@@ -756,9 +783,10 @@ loop:
 	if err := stream.Err(); err != nil {
 		panic(err)
 	}
-```
+````
 
-```java
+    
+````java
 try (var stream = client.beta().sessions().events().streamStreaming(session.id())) {
     // Send the user message after the stream opens
     client.beta().sessions().events().send(session.id(), EventSendParams.builder()
@@ -780,9 +808,10 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
         }
     }
 }
-```
+````
 
-```php
+    
+````php
 $stream = $client->beta->sessions->events->streamStream($session->id);
 
 // Send the user message after the stream opens
@@ -810,9 +839,10 @@ foreach ($stream as $event) {
         break;
     }
 }
-```
+````
 
-```ruby
+    
+````ruby
 stream = client.beta.sessions.events.stream_events(session.id)
 
 # Send the user message after the stream opens
@@ -838,11 +868,11 @@ stream.each do |event|
     # ignore other event types
   end
 end
-```
+````
 
     </CodeGroup>
 
-    The agent will write a Python script, execute it in the sandbox, and verify the output file was created. Your output will look similar to this:
+    The agent writes a Python script, executes it in the sandbox, and verifies the output file was created. Your output looks similar to this:
 
     ```text
     I'll create a Python script that generates the first 20 Fibonacci numbers and saves them to a file.
@@ -854,7 +884,6 @@ end
 
     Agent finished.
     ```
-
   </Step>
 </Steps>
 
@@ -863,10 +892,10 @@ end
 When you send a user event, Claude Managed Agents:
 
 1. **Provisions a sandbox:** Your environment configuration determines how it's built.
-2. **Runs the agent loop:** Claude decides which tools to use based on your message
-3. **Executes tools:** File writes, bash commands, and other tool calls run inside the sandbox
-4. **Streams events:** You receive real-time updates as the agent works
-5. **Goes idle:** The agent emits a `session.status_idle` event when it has nothing more to do
+2. **Runs the agent loop:** Claude determines which tools to use based on your message.
+3. **Executes tools:** File writes, bash commands, and other tool calls run inside the sandbox.
+4. **Streams events:** You receive real-time updates as the agent works.
+5. **Goes idle:** The agent emits a `session.status_idle` event when it has nothing more to do.
 
 ## Next steps
 
@@ -880,7 +909,7 @@ When you send a user event, Claude Managed Agents:
   <Card title="Agent tools" icon="tool" href="/docs/en/managed-agents/tools">
     Enable specific tools for your agent
   </Card>
-  <Card title="Events and streaming" icon="lightning" href="/docs/en/managed-agents/events-and-streaming">
+  <Card title="Session event stream" icon="lightning" href="/docs/en/managed-agents/events-and-streaming">
     Handle events and steer the agent mid-execution
   </Card>
 </CardGroup>

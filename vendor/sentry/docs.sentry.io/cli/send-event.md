@@ -9,7 +9,7 @@ url: https://docs.sentry.io/cli/send-event/
 The `sentry-cli` tool can also be used for sending events. If you want to use it, you need to export the `SENTRY_DSN` environment variable and point it to the DSN of a project of yours:
 
 ```bash
-export SENTRY_DSN='___PUBLIC_DSN___'
+export SENTRY_DSN='https://<key>@o<orgId>.ingest.sentry.io/<projectId>'
 ```
 
 Once that is done, you can start using the `sentry-cli send-event` command.
@@ -105,7 +105,7 @@ Usage:
 
 ```bash
 #!/bin/bash
-export SENTRY_DSN='___PUBLIC_DSN___'
+export SENTRY_DSN='https://<key>@o<orgId>.ingest.sentry.io/<projectId>'
 eval "$(sentry-cli bash-hook)"
 # rest of the script goes here
 ```

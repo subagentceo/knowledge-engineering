@@ -22,7 +22,7 @@ Connect Cloudflare Worker's Virtual Private Cloud to your private clouds to buil
 
 - [Cloudflare Tunnel](https://developers.cloudflare.com/workers-vpc/configuration/tunnel/index.md): Set up Cloudflare Tunnel to connect your private network to Workers VPC.
 - [Hardware requirements](https://developers.cloudflare.com/workers-vpc/configuration/tunnel/hardware-requirements/index.md): Recommended CPU, memory, and scaling guidelines for cloudflared tunnel hosts.
-- [VPC Networks](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/index.md): Bind Workers to an entire tunnel or Cloudflare Mesh without pre-registering hosts.
+- [VPC Networks](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/index.md): Bind Workers to an entire Cloudflare Tunnel or Cloudflare Mesh without pre-registering hosts.
 - [VPC Services](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/index.md): Register private network resources as VPC Services that Workers can access through Cloudflare Tunnel.
 - [Configure with Terraform](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/terraform/index.md): Learn how to manage VPC Services using the Cloudflare Terraform provider.
 

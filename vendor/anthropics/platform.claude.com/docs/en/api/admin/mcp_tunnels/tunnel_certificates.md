@@ -22,6 +22,7 @@ holds at most two non-archived certificates.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Body Parameters
@@ -62,6 +63,7 @@ holds at most two non-archived certificates.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -70,7 +72,7 @@ holds at most two non-archived certificates.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "ca_certificate_pem": "-----BEGIN CERTIFICATE-----\\nMIIBexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexa\\n...illustrative placeholder, not a real certificate...\\n-----END CERTIFICATE-----\\n"
         }'
@@ -111,6 +113,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -144,6 +147,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -151,7 +155,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -203,11 +207,13 @@ Archived certificates are excluded unless `include_archived` is set.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
 
 - `data: array of object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -237,6 +243,7 @@ Archived certificates are excluded unless `include_archived` is set.
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 - `next_page: string`
@@ -248,7 +255,7 @@ Archived certificates are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -295,6 +302,7 @@ certificate is added.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -328,6 +336,7 @@ certificate is added.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -336,7 +345,7 @@ certificate is added.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -358,6 +367,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 ### Tunnel Certificate Create Response
 
 - `TunnelCertificateCreateResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -387,11 +397,13 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 ### Tunnel Certificate Retrieve Response
 
 - `TunnelCertificateRetrieveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -421,12 +433,15 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 ### Tunnel Certificate List Response
 
 - `TunnelCertificateListResponse object { data, next_page }`
+
   - `data: array of object { id, archived_at, created_at, 4 more }`
+
     - `id: string`
 
       ID of the Tunnel Certificate.
@@ -456,6 +471,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
     - `type: "tunnel_certificate"`
 
       Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
       - `"tunnel_certificate"`
 
   - `next_page: string`
@@ -465,6 +481,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 ### Tunnel Certificate Archive Response
 
 - `TunnelCertificateArchiveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -494,4 +511,5 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`

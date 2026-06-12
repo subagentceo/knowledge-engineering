@@ -2,6 +2,28 @@
 
 A twenty-minute summary of what's new in Claude Code: what shipped, why we built it, and how to get started.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+10:30AM – 11:00AM
+
+Speaker(s)
+
+Dickson Tsai
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

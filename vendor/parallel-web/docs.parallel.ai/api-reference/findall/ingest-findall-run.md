@@ -6,8 +6,6 @@
 
 > Transforms a natural language search objective into a structured FindAll spec.
 
-Note: Access to this endpoint requires the parallel-beta header.
-
 The generated specification serves as a suggested starting point and can be further
 customized by the user.
 
@@ -114,9 +112,6 @@ paths:
         spec.
 
 
-        Note: Access to this endpoint requires the parallel-beta header.
-
-
         The generated specification serves as a suggested starting point and can
         be further
 
@@ -130,6 +125,7 @@ paths:
             anyOf:
               - type: string
               - type: 'null'
+            deprecated: true
             title: Parallel-Beta
             x-stainless-override-schema:
               x-stainless-param: betas
@@ -138,6 +134,7 @@ paths:
               description: Optional header to specify the beta version(s) to enable.
               items:
                 $ref: '#/components/schemas/ParallelBeta'
+          deprecated: true
       requestBody:
         required: true
         content:

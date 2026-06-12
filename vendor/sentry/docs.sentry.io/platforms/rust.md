@@ -25,8 +25,6 @@ Using a framework? Check out the other SDKs we support in the left-hand dropdown
 
 To add Sentry to your Rust project, add a new dependency to your `Cargo.toml`:
 
-`Cargo.toml`
-
 ```toml
 [dependencies]
 sentry = "0.48.2"
@@ -38,10 +36,8 @@ The most convenient way to use this library is the `sentry::init` function, whic
 
 The `sentry::init` function returns a guard that when dropped, will flush Events that weren't yet sent to Sentry. It has a two-second deadline, so application shutdown may be slightly delayed as a result. Be sure to keep the guard or you won't be able to send events.
 
-`main.rs`
-
 ```rust
-let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
+let _guard = sentry::init(("https://<key>@o<orgId>.ingest.sentry.io/<projectId>", sentry::ClientOptions {
     release: sentry::release_name!(),
     // Capture user IPs and potentially sensitive headers when using HTTP server integrations
     // see https://docs.sentry.io/platforms/rust/data-management/data-collected for more info
@@ -56,13 +52,11 @@ let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
 
 In a multithreaded application, spawned threads should inherit the Hub from the main thread. In order for that to happen, the Sentry client must be initialized before starting an async runtime or spawning threads. This means you'll have to avoid using macros such as `#[tokio::main]` or `#[actix_web::main]`, because they start the runtime first. So rather than doing this:
 
-`main.rs`
-
 ```rust
 // WRONG
 #[tokio::main]
 async fn main() {
-let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
+let _guard = sentry::init(("https://<key>@o<orgId>.ingest.sentry.io/<projectId>", sentry::ClientOptions {
     release: sentry::release_name!(),
     // Capture user IPs and potentially sensitive headers when using HTTP server integrations
     // see https://docs.sentry.io/platforms/rust/data-management/data-collected for more info
@@ -76,12 +70,10 @@ let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
 
 Do this instead:
 
-`main.rs`
-
 ```rust
 // RIGHT
 fn main() {
-let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
+let _guard = sentry::init(("https://<key>@o<orgId>.ingest.sentry.io/<projectId>", sentry::ClientOptions {
     release: sentry::release_name!(),
     // Capture user IPs and potentially sensitive headers when using HTTP server integrations
     // see https://docs.sentry.io/platforms/rust/data-management/data-collected for more info
@@ -103,11 +95,9 @@ tokio::runtime::Builder::new_multi_thread()
 
 The quickest way to verify Sentry in your Rust application is to cause a panic:
 
-`main.rs`
-
 ```rust
 fn main() {
-    let _guard = sentry::init(("___PUBLIC_DSN___", sentry::ClientOptions {
+    let _guard = sentry::init(("https://<key>@o<orgId>.ingest.sentry.io/<projectId>", sentry::ClientOptions {
         release: sentry::release_name!(),
         // Capture user IPs and potentially sensitive headers when using HTTP server integrations
         // see https://docs.sentry.io/platforms/rust/data-management/data-collected for more info

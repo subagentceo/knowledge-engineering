@@ -50,8 +50,16 @@
 - [Smithery](https://docs.nimbleway.com/integrations/connectors/smithery.md): Connect any AI agent to Nimble web tools via the Smithery MCP registry
 - [Nimble MCP Docs ](https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md): Connect your AI tools to the Nimble documentation knowledge base via MCP
 - [Nimble MCP Server](https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md): Connect AI agents to Nimble's web data platform via the Model Context Protocol
-- [Databricks](https://docs.nimbleway.com/integrations/partnerships/databricks.md): Install Nimble MCP Server from the Databricks Marketplace and use it in agents, AI Playground, and notebooks
+- [Databricks](https://docs.nimbleway.com/integrations/partnerships/databricks.md): Bring Nimble's live web tools into the Databricks Lakehouse. Search, extract, map, crawl, and Web Search Agents run next to your Delta tables, agents, and Genie spaces.
+- [Data Enrichment](https://docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md): Call Nimble as SQL table functions in Databricks — live web search, page extraction, and Web Search Agents that land in governed Delta tables.
+- [Genie One](https://docs.nimbleway.com/integrations/partnerships/databricks/genie.md): Ask the live web in plain English from Databricks Genie One. Connect the Nimble MCP server and Genie answers with search, extraction, and Web Search Agents — with cited sources.
+- [Marketplace & MCP](https://docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md): Install Nimble MCP Server from the Databricks Marketplace, govern it with Unity AI Gateway, and test it in AI Playground and Databricks Assistant.
 - [Azure MCP Center](https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md): Install Nimble MCP from Azure MCP Center and use it in VS Code with GitHub Copilot Agent Mode
+- [Copilot Studio](https://docs.nimbleway.com/integrations/partnerships/microsoft/copilot-studio.md): Manually configure the Nimble MCP server as a tool in a Microsoft Copilot Studio agent
+- [Snowflake](https://docs.nimbleway.com/integrations/partnerships/snowflake.md): Bring Nimble's live web tools into Snowflake's Cortex AI stack. Search, extract, map, crawl, and Web Search Agents run alongside warehouse data.
+- [Cortex Agents](https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-agents.md): Call Nimble Search and Extract from Snowflake SQL, plus a pre-built Cortex Agent, without leaving your account
+- [Cortex Code](https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-code.md): Install Nimble MCP in Snowflake's native AI coding agent. One command, OAuth sign-in, full web data toolkit in every Cortex Code session.
+- [Data Enrichment](https://docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md): Enrich warehouse tables at scale with Nimble Web Search Agents using a SQL-native UDTF for Snowflake.
 - [AdsPower](https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md): Connect Nimble Proxy with AdsPower
 - [Android](https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md): Connect Nimble Proxy with Android
 - [FoxyProxy](https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md): Connect Nimble Proxy with FoxyProxy
@@ -118,7 +126,7 @@
 
 ## OpenAPI Specs
 
-- [openapi](https://docs.nimbleway.com/openapi.json)
+- [openapi](https://docs.nimbleway.com/api-reference/openapi.json)
 
 ## Optional
 

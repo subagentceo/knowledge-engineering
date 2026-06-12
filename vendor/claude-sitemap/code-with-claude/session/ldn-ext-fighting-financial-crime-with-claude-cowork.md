@@ -2,6 +2,28 @@
 
 Leveraging Claude Cowork to optimize high-stakes workflows and fight financial crime. In-house MCPs, MCP gateways, evals, deploying critical workflows in production for analyst teams.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+14:50 – 15:20
+
+Speaker(s)
+
+Stefano Amorelli
+
+Sr. Staff SWE (Applied AI),
+
+Qonto
+
 ## Watch recording
 
 Play videoPlay video

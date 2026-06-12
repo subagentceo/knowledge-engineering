@@ -2,6 +2,28 @@
 
 A live build from zero to deployed in thirty minutes. We'll build a feedback app spanning five roles and the full software lifecycle, using Claude and Google Cloud alongside subagents, MCP servers, and custom skills. You can test the finished app at the end of the session.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+16:05 – 16:35
+
+Speaker(s)
+
+Ivan Nardini
+
+Developer Relations Engineer (AI/ML),
+
+Google Cloud
+
 ## Watch recording
 
 Play videoPlay video

@@ -1,53 +1,93 @@
-# Model multipliers for annual plans staying on request-based billing
+# Model multipliers for annual plans on request-based billing (legacy)
 
-After June 1, 2026, model multipliers will change for Copilot Pro and Copilot Pro+ subscribers staying on annual plans under request-based billing.
+Model multipliers for Copilot Pro and Copilot Pro+ subscribers staying on annual plans under request-based billing.
 
-> \[!IMPORTANT] The model multiplier changes outlined in this article apply only to Copilot Pro and Copilot Pro+ subscribers who stay on their **existing annual plan** after June 1, 2026 and remain on the **premium request-based billing** model.
+> \[!IMPORTANT] On June 1, 2026, GitHub moved to usage-based billing. The model multipliers in this article apply only to Copilot Pro and Copilot Pro+ subscribers on an existing **annual plan** who remained on the legacy **premium request-based billing** model after June 1, 2026.
 >
-> If you choose to switch to monthly usage-based billing (with a prorated refund), these multiplier changes **do not apply** to you.
+> To learn more about these billing changes, including what your options are as an existing Copilot Pro and Copilot Pro+ subscriber on an annual plan, see [What changed with Copilot billing (legacy)](/en/copilot/reference/copilot-billing/request-based-billing-legacy/what-changed-with-billing).
 
-## What is changing with Copilot billing?
+Under the legacy premium request-based billing model, each model has a premium request multiplier, based on its complexity and resource usage. Your premium request allowance is deducted according to this multiplier.
 
-GitHub is changing how Copilot usage is measured and billed.
+Model multipliers are a concept specific to the legacy premium request-based billing system, and **do not apply** to GitHub's new usage-based billing model.
 
-Today, each model interaction costs one premium request unit (PRU), and a multiplier is applied based on which model you use—more powerful models use more premium requests. Model multipliers are a concept specific to the current request-based billing system.
-
-**Starting June 1, 2026**, GitHub is replacing request-based billing with usage-based billing, where the cost of an interaction depends on two things: the model and the number of tokens consumed.
-
-Under usage-based billing, each plan will come with an included allowance of GitHub AI Credits, with the option to set a budget for additional usage.
-
-Model multipliers **do not apply** to usage-based billing.
-
-## What are my options as a Copilot Pro and Copilot Pro+ user on an existing annual plan?
-
-If you're on an existing **annual plan** for Copilot Pro or Copilot Pro+, you will have the option to:
-
-* **Stay** on your existing annual plan under premium request-based billing. When your annual plan ends, you'll be automatically downgraded to Copilot Free.
-* **Cancel** your plan, receive a prorated refund, and optionally, re-subscribe to the equivalent monthly paid plan.
-* **Upgrade** to a monthly paid plan and receive prorated credits for the remaining value of the annual plan. For example, if you're on a Copilot Pro annual plan, you can upgrade to a monthly Copilot Pro+ plan.
-
-## What happens if I keep my annual plan?
-
-Your existing annual plan will continue to track your Copilot expenditure using premium requests, combined with the model multiplier, until the plan ends.
-
-In addition, if you keep your annual plan under request-based billing, you will experience changes to model multipliers starting **June 1, 2026**. The table below shows how the multipliers for each model will adjust.
-
-## Model multipliers for annual Copilot Pro and Copilot Pro+ subscribers
-
-The table below shows how the multipliers for each model will change on June 1, 2026.
-
-These new multipliers will **only apply** if you remain on an annual Copilot Pro and Copilot Pro+ under the premium request-based billing model *after* June 1, 2026.
+The models included with Copilot plans are subject to change.
 
 Model multipliers and costs are subject to change.
 
-> \[!IMPORTANT] GPT-5.5 is available at a promotional multiplier of 7.5x.
+> \[!NOTE] Users on legacy annual Copilot plans will not receive access to new models and features.
 
-| Model | Current multiplier | New multiplier |
-| ----- | -----------------: | -------------: |
-|       |                    |                |
+## Model multipliers
 
-## Next steps
+The following table shows the model multipliers per supported model.
 
-* To understand more about how usage-based billing works, see [Usage-based billing for individuals](/en/copilot/concepts/billing/usage-based-billing-for-individuals).
-* To learn more about model prices under usage-based billing, see [Models and pricing for GitHub Copilot](/en/copilot/reference/copilot-billing/models-and-pricing).
-* To compare how your expenditure will look under usage-based billing compared to request-based billing, see [Preparing for your move to usage-based billing](/en/copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing).
+> \[!NOTE]
+> The multiplier for these models are subject to change.
+>
+> * Claude Sonnet 4.6
+> * GPT-5.4 mini
+> * The multiplier for MAI-Code-1-Flash is a promotional rate.
+>
+> If you use auto model selection in Copilot Chat, Copilot CLI, or Copilot cloud agent, you qualify for a 10% discount. For example, if a model has a multiplier of 1x you'll be billed at 0.9x instead.
+
+| Model              | Multiplier |
+| ------------------ | ---------: |
+|                    |            |
+| Claude Haiku 4.5   |       0.33 |
+|                    |            |
+| Claude Opus 4.5    |         15 |
+|                    |            |
+| Claude Opus 4.6    |         27 |
+|                    |            |
+| Claude Opus 4.7    |         27 |
+|                    |            |
+| Claude Opus 4.8    |         27 |
+|                    |            |
+| Claude Sonnet 4.5  |          6 |
+|                    |            |
+| Claude Sonnet 4.6  |          9 |
+|                    |            |
+| Gemini 2.5 Pro     |          1 |
+|                    |            |
+| Gemini 3 Flash     |       0.33 |
+|                    |            |
+| Gemini 3 Pro       |          6 |
+|                    |            |
+| Gemini 3.1 Pro     |          6 |
+|                    |            |
+| Gemini 3.5 Flash   |         14 |
+|                    |            |
+| GPT-4o             |       0.33 |
+|                    |            |
+| GPT-4o mini        |       0.33 |
+|                    |            |
+| GPT-5.1            |          3 |
+|                    |            |
+| GPT-5.1-Codex      |          3 |
+|                    |            |
+| GPT-5.1-Codex-Mini |       0.33 |
+|                    |            |
+| GPT-5.1-Codex-Max  |          3 |
+|                    |            |
+| GPT-5.3-Codex      |          6 |
+|                    |            |
+| GPT-5.4            |          6 |
+|                    |            |
+| GPT-5.4 mini       |          6 |
+|                    |            |
+| GPT-5.5            |         57 |
+|                    |            |
+| GPT-5 mini         |       0.33 |
+|                    |            |
+| Raptor mini        |       0.33 |
+|                    |            |
+| MAI-Code-1-Flash   |       0.33 |
+|                    |            |
+
+### Model multiplier for Copilot code review
+
+Copilot code review has a model multiplier of 13. This means each time Copilot reviews a pull request or reviews code in your IDE, your monthly quota of Copilot premium requests is reduced by 13.
+
+## Further reading
+
+* To learn more about premium requests, see [Requests in GitHub Copilot (legacy)](/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+* To understand more about how the new usage-based billing model works, see [Usage-based billing for individuals](/en/copilot/concepts/billing/usage-based-billing-for-individuals).

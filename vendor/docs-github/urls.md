@@ -1,7 +1,6 @@
 ---
 vendor: docs-github
 llms_txt: https://docs.github.com/llms.txt
-last_crawled: 2026-05-17T00:05:15.806Z
 count: 52
 transform: github-article-body
 ---

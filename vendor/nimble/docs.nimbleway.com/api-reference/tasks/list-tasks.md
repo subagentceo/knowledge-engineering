@@ -10,7 +10,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json get /v1/tasks
+````yaml /api-reference/openapi.json get /v1/tasks
 openapi: 3.1.0
 info:
   title: Nimble SDK

@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Truth Data API
 
 To automatically send Truth Data to Arkose, please follow the steps below:
@@ -117,7 +121,7 @@ For the optional fields that accept string enums, Arkose improves our analysis b
 
     <tr>
       <td>
-        `session_create_time`
+        `session_create_timestamp`
       </td>
 
       <td>
@@ -135,7 +139,7 @@ For the optional fields that accept string enums, Arkose improves our analysis b
 
     <tr>
       <td>
-        `decision_time`
+        `decision_timestamp`
       </td>
 
       <td>

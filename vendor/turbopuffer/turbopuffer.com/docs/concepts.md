@@ -1,6 +1,6 @@
 # Concepts
 
-## Approximate Nearest Neighbor (ANN) Search
+## Approximate Nearest Neighbor (ANN)
 
 Most vector search applications benefit from trading off a small amount of
 search accuracy (recall) for a large gain in performance. turbopuffer uses
@@ -16,6 +16,12 @@ vector index and understand the clustering hierarchy, allowing them to work
 together for high-recall filtered vector searches. See the
 [native filtering blog post](/blog/native-filtering) for details on how
 attribute indexes enable high-recall filtered queries.
+
+## Branch
+
+A branch is an instant, copy-on-write clone of a namespace. Both namespaces are
+fully independent after creation — writes to one are never visible in the other.
+See the [branching guide](/docs/branching) for details and examples.
 
 ## Cache Hierarchy
 
@@ -144,11 +150,11 @@ namespaces generally provide better query performance. See the
 
 ## Primary Key
 
-The primary key in turbopuffer is the document ID, which uniquely identifies
-each document within a namespace. Document IDs can be unsigned 64-bit integers,
+The primary key in turbopuffer is the document id, which uniquely identifies
+each document within a namespace. Document ids can be unsigned 64-bit integers,
 128-bit UUIDs, or strings up to 64 bytes. The primary key is used to reference
 documents for updates, patches, and deletes. See the
-[write documentation](/docs/write) for details on document IDs.
+[write documentation](/docs/write) for details on document ids.
 
 ## Query
 
@@ -256,3 +262,12 @@ efficient retrieval. This design enables high write throughput (~10,000+
 vectors/sec) while maintaining durability guarantees. See the
 [architecture documentation](/docs/architecture) for more details on how WAL
 works.
+
+
+---
+
+This page: [/docs/concepts.md](https://turbopuffer.com/docs/concepts.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

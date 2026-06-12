@@ -130,7 +130,7 @@ Track new features, improvements, and updates to the Nimble SDK and Web Tools. W
 
   Nimble MCP Server is now available on the [Databricks Marketplace](https://marketplace.databricks.com/details/1fe5e521-e9ef-49d8-97c4-b8c0a448ce15/Nimble_Nimble-MCP-Agentic-Web-Search-Platform) as a one-click install. Creates a Unity Catalog connection that gives Databricks agents, AI Playground, and notebooks direct access to Nimble's search, extract, map, and crawl tools.
 
-  [View Documentation](/integrations/partnerships/databricks)
+  [View Documentation](/integrations/partnerships/databricks/marketplace-mcp)
 
   ### <Badge color="blue" shape="pill" icon="book-open-cover" iconType="sharp-solid">Documentation</Badge>
 

@@ -11,16 +11,28 @@
     "sha256": "65e6439af088234db20a883efd6de31b4049f48bd289afdb249e6f85d4fe7e9f",
     "lastStatus": 200
   },
+  "https://www.anthropic.com/careers/jobs": {
+    "sha256": "60891202382827ddeb87c05cddaef1732e9941b495aa2b851ee6e45a61fa3ef2",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/claude/fable": {
+    "sha256": "41674b97607921d79ca873a63913e4fc5cf26bc056e0cc889c11ba82f2b67fc9",
+    "lastStatus": 200
+  },
   "https://www.anthropic.com/claude/haiku": {
-    "sha256": "e770f944ee794790da3db3d5f7b6cd2ebbe5d06267b3ebffabb5b8a51213ab35",
+    "sha256": "8eca13443c6126a6cf2698c92eb0663786925dac9cdca25f59ccf5c85dc74cc5",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/claude/mythos": {
+    "sha256": "01ecbbc5d0cad881b1048a43f18d9ca6af8988bee9c7ca04d4e64dec8c5e6302",
     "lastStatus": 200
   },
   "https://www.anthropic.com/claude/opus": {
-    "sha256": "8acc4bd4109e96beac95c9b3db0293ab98d9e64916cda955ee3045d3bbbbfbab",
+    "sha256": "4cab11f7eee9060ed0dd3e4791b4d67c59ae2ac7c5b59d6d324f3e3a7594334b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/claude/sonnet": {
-    "sha256": "5366634ac10162a7e9369776877dd773a4f8d7f455073ba8dfc0d227c2a31269",
+    "sha256": "93fd6f03e1331685f73f82f0a9fde1afd0d8abe54afc889f806f83ee7104eff3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/company": {
@@ -116,7 +128,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/engineering/how-we-contain-claude": {
-    "sha256": "203d3b426c7c493b5662b9b7ad0560e81523f4b82d5b920f5ecd1e32747c71a1",
+    "sha256": "6f346a7dce0f1ccb27c119521b0d47c0660d23ab1f24e69d29a1d0e8836dca07",
     "lastStatus": 200
   },
   "https://www.anthropic.com/engineering/infrastructure-noise": {
@@ -140,7 +152,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/features/81k-interviews": {
-    "sha256": "fa75b6a9e56809a478a60e07ed824367ae1ff5349a01562d6fc2c9e4dec38f93",
+    "sha256": "9f82b684eb483a1c2cc2cc3eb9343be564a09df4b2297b0fb2f9efed36c010ef",
     "lastStatus": 200
   },
   "https://www.anthropic.com/features/claude-on-mars": {
@@ -152,7 +164,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/glasswing": {
-    "sha256": "07728230c61533b88b0bd7511efebb4cf00b9a00b7c9d02f6f2d67ec1c23e12b",
+    "sha256": "d4d7c2eff3f11a8885f059e848e0d84601f910f2feabe628253ee499b13917e6",
     "lastStatus": 200
   },
   "https://www.anthropic.com/learn/build-with-claude": {
@@ -168,403 +180,423 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/100k-context-windows": {
-    "sha256": "88a79e39b596464c5c7c5f49571cfdac3f7715264f49033de82d692e1c7338b1",
+    "sha256": "483b6277b32a37a90491316921643e08810c2d8d78fbfaf4d5f08d78388ebe3d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/3-5-models-and-computer-use": {
-    "sha256": "e596aede97a9c6203acf628f286b85bfa4b4b7abae1b1f4d05fe10e24054ea5d",
+    "sha256": "59b19788e376b6021d2693085df7601bf2b0baa134936fff1441c850b67bc491",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack": {
+    "sha256": "8fbd4b88b300705fb5fceef47462de23ff0f3d58e8f8e22b1f09266f7145b162",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/Introducing-code-with-claude": {
-    "sha256": "e8aa9058cff2ca42064e3bfd3bb4789719c985ae64ff5f0ccbbf9cf218701340",
+    "sha256": "eae59ed80787e3b6f1a68c89f9d9ee227bc6ebda9af769c0d6f27f27c36f2317",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/a-new-initiative-for-developing-third-party-model-evaluations": {
-    "sha256": "45bb1d5de788d37bc78483e830c0d4aad6b9d61f4466219ca8a994d5c79397f2",
+    "sha256": "e66478a60e1a532da743593a80320a34b37ae71a3af3d3991b2db1104209230d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/accelerating-scientific-research": {
-    "sha256": "8dffbc3e95bdc5a691cf240e4c39cffed493bdc2e1deeea4f5473cbb0ca6b412",
+    "sha256": "dad234fcb84de911a582df4bcaf681e2919b25a48a41b33dd80c85e5602ee821",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/accenture-aws-anthropic": {
-    "sha256": "8b86fe9c2f58761fdf4ad5694b07835044e23e66aa3d5cfe369cab5e7705755f",
+    "sha256": "a9f0ee14b02825e24593c718406b33199a68b0209d8fec54204962ce11ff193d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/acquires-vercept": {
-    "sha256": "fda5423d40931e1450e1e42dfebd2ec99a637ec93661f9dcccb794fc6b057179",
+    "sha256": "c9fd20bcb5b45b2538f9dc329e61a1fb63d341525be49280d395278b0efb955e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/activating-asl3-protections": {
-    "sha256": "eeccb56fed4d256767260ab7fa8a0e72b8a3f102756f7001e717f9bd93ce14d7",
+    "sha256": "bc6eb869ac39a92bfcf42917ecd17a7a3410aae41a8256eeb4eda64d7f252bb3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/advancing-claude-for-education": {
-    "sha256": "6e3dc8a2795e7dd5c9b73a02887b33241a2e4d461c4e6b290bee15686fe26cc1",
+    "sha256": "3afca722cf885512df947038830786a3752f32448bd6d2ce3b08304be61c06d5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/advancing-claude-for-financial-services": {
-    "sha256": "cd1dca61c28dfb3b10bd0e9cc296b4d0d3e1c2d203ab5067b77a3a4343d823e1",
+    "sha256": "95e4f7ba74309accedb7f3be66c528a953d878599a72518e1993e1709c61d7ac",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/ai-for-science-program": {
-    "sha256": "6ac536d2f4a45a1c629c8cf45276ba710607d598f5fd49067be06753e3d57360",
+    "sha256": "7f5f2090986991a3d9cf0885e9fb0e30ad7d3530b474b6e56e49efac048cfb97",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist": {
-    "sha256": "cd7ac8edba5384b970575f3e5b1e8b0b88fd11d454548e3374f06e89aee1d372",
+    "sha256": "521f11ff33ffd9de017de30389aa588f4f9df14c0a013e571ddf2c6db8ecf313",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy": {
-    "sha256": "24ebb786681633a549636af99c93cfeb5804989ba98a951eef61ff7209e25ac8",
+    "sha256": "367098b73d5156fa16fb3d54fbb4eb6c8b17485455de7e1de23119abdc57bb39",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-accenture-partnership": {
-    "sha256": "c7f28aeac089f7de9bd6fd98ac53bb72e35e0411c553d46852a2d80de91214b8",
+    "sha256": "85064b63c79533fafa493590de8e23c047cfebd20db78ea21b94ba7c56bbed0f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-achieves-iso-42001-certification-for-responsible-ai": {
-    "sha256": "44884e21b17cf63375ee05896562c4d880c08dca34792dbc586b323de12eb75d",
+    "sha256": "6816a7451ef28d54de482dda143d36e52e473e9ae581a71b2c99088b672a47e9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone": {
-    "sha256": "20df1fe9c41e68371a5611088f5877309bcc9cb394e55579b157fd1b1c554f4f",
+    "sha256": "c15b09e5174b1459d9dfb9f1345dd1da41b4577bb551055f6627f9a9b460449f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-acquires-stainless": {
-    "sha256": "e7ad518bca9196b935de8dc876f52b14bfda4cea3b9d97729b4903fc3e4d3f25",
+    "sha256": "94585969cb06852100a6b0b5431adcff093c76b323d504265ff03b556ed2dfcf",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-amazon": {
-    "sha256": "1b68cc1306c54e1013b31315cf9a7cc61ce09383b4c66645f5e7c0ecd511a1bb",
+    "sha256": "374176a795508dca03b8ff3de1bbd44a679fb773bcb7ec7593c7aec74d015d91",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-amazon-compute": {
-    "sha256": "cd82bf78cda690d28d12d3865d4d4b91d5c40de769959af31587bcae9c2e7143",
+    "sha256": "dd59b428ae11273f64fd75f9acb5141fd6c04ee0e2320988dc25b94278549565",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-amazon-trainium": {
-    "sha256": "ca938cc3c8bbeeb68213e7a29fdea35a1a81ace98cf387a4f4967ff20004fe39",
+    "sha256": "d94ead2e26665bed2d783044c55c242a3a3e349e9bedbae637c090f1460f039a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots": {
-    "sha256": "ec466c3ebfd447359e3ec55930c4685572fb83fdd8c576af21d86e0b3d1d5430",
+    "sha256": "e3983039c6c62a6c74b92b390a7273ca252544e42f829145ae8f1175f4e171d2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations": {
-    "sha256": "f5eb8f635aaa5cca00b9690bde89364658e8bf8fc40aa36eb62ae90a64088192",
+    "sha256": "e2bed3ffc5135acb457e57bcd845df9c09c85ca02c5dc9f0400a3c4205a16dab",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india": {
-    "sha256": "2586933a366797d2c70d5d38b608402115bd89d0890bea279424a952622e5a94",
+    "sha256": "8ffbfce13bab4be90e42200cb5c4413ba61bde47eed326af0bb7b9528426e4ea",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-bcg": {
-    "sha256": "22c4706769e2be86a35a41cca7409921ae5d630e80b36b8ee35826743ff99b6f",
+    "sha256": "20bcee1e293a9051b2c2159c7bf6151a711eb257f600475ca8ba0001c31e3ff0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-codepath-partnership": {
-    "sha256": "272566c9a56595138c0f89bfbe80ac5de515bb6ecf17d113faeccdbb30269957",
+    "sha256": "81cbfbfe88c05d65e7a3a649196d3556fccbb1a09e1c7039bf26eef8f820dba5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-economic-index-insights-from-claude-sonnet-3-7": {
-    "sha256": "3c47c94996408cf4930887cbbd417fd56d5f73e0a5bfcf40ca70b6ab569c80d1",
+    "sha256": "c2415840d45c417cf245196d61b052ceafce6c37c019ec9afcb99ba42469b559",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-education-report-how-educators-use-claude": {
-    "sha256": "92a5fae85569efb5df90fa8a900c4cdfd25130379c0e28f7f33c33f3deb95534",
+    "sha256": "31266e96e9667dc89e88a50596bb8ccfa46e4e6a949f4c7009250ebb012c54c4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude": {
-    "sha256": "501198770b5dec0bc3ed43beb8eddffd1022da32eb8103b8359eb8b3313fefa6",
+    "sha256": "e621c4d1453606e5cebc5bffddfbf2248a5aff5ec2447323dba4122dc3bd8f1a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of": {
-    "sha256": "81ca79dd687eed137dd85611085d886ea843b2396191b6d5796e5a0e31e7b89f",
+    "sha256": "5a7a0f24259ffe6790c9da1248280ab497fbc7d0267424112ea80281a5dc719e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-higher-education-initiatives": {
-    "sha256": "7307f8db673b30713cf9895375d0d17b08d43ef8b35e42c3d7275292ea599a48",
+    "sha256": "8aedc80ba9a42b47f9b662694b6d60f1c7afea1b2540abe7d012eac2b01a6226",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-infosys": {
-    "sha256": "ea5a423f9d999ba36ae1e068c32a8ae9bbed1097346d22b14d5f84123429ac4c",
+    "sha256": "be5cdfb2ceb7b67a2b359f6c8f59e61b47c41c5a127088d7baa11f8ca1b9c01c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure": {
-    "sha256": "f5c7ba0bad4fcad504b84ef94542f079a619a53bb7aec6b274640d16e426ac13",
+    "sha256": "f14ca904926629e48ea60c2a1c39a48191c6c0ee4c4403f1fcd7986ab58e51d9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-is-endorsing-sb-53": {
-    "sha256": "5e27daa21fa5dfc5c8359089d09ad4470afa45ae53f0242f63056f9975acd744",
+    "sha256": "10b2d9896dd6d877fe99f7d0da68223ae87275c36972de197e17cd5ea0309b8c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-kpmg": {
-    "sha256": "0b878e91c84d38f9650832e29c0f00775c455bf3bf57e4eee8186c56aad28d29",
+    "sha256": "b07a5cdfbdd4703568922b96bdc9cc90bae14a4c99c281e7f2102bc8e52639c2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-nec": {
-    "sha256": "c7d74e01a1b12f7f8e15c7bb387c2e9c6ac24f2376d5ba0d3640d6d514940bcd",
+    "sha256": "d892f9e9999c0584b447329a16a3476b491ac9a8797a506579ec74ff54f81dfb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-partners-with-allen-institute-and-howard-hughes-medical-institute": {
-    "sha256": "891a473a442a41a1ae5f53a8975eaf60454b5a9698520212670c26eaa4b8c1e2",
+    "sha256": "d6e3743345dec1accfce0e7cbdf163b607812d373a7dd5e94445a02b233a8e5b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-partners-with-google-cloud": {
-    "sha256": "ecd94754535cf9aeaf947dc109e870173a5f5877134f1db0bb4621187d56585d",
+    "sha256": "a525a390c0cace46051547533e8b3155eb0cf7eca63306690ba9ed66d0768451",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-partners-with-menlo-ventures-to-launch-anthology-fund": {
-    "sha256": "3c66283c146eac69d7459129268f77b97d3f67475da17014bc969ea89f912c67",
+    "sha256": "25668e6932f7c4bdba7f87d7933aaa75f827db4f0fc279e2d1a8b691cabc5a9d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-partners-with-the-university-of-chicago-s-becker-friedman-institute-on-ai-economic": {
-    "sha256": "e609164b1b1dd482f2a1e6aa54574ea5ea7137b81414734fdf28cec6fcf9cad5",
+    "sha256": "c5a05b6c11a22d4f99c1001eca4c020ffbfc666cc8956c195f3b5be675a5cfd2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-partners-with-u-s-national-labs-for-first-1-000-scientist-ai-jam": {
-    "sha256": "76fae07b98d3168e77b436373364a84926372b3a1a9e7cbacf00117aa0c7ce84",
+    "sha256": "64376ee743796c9ff0525d05b4d24577e3e4c906f40d71480e5902aace7001ab",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/anthropic-public-record": {
+    "sha256": "f0fddbd8a63353178d9574ab0947d539263504e2872bc3edf69415809cb4f0cc",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems": {
-    "sha256": "63c4648c9cc551ad39f77a5a785941e8a9d1e4ed02aec201eb4f790c6091c705",
+    "sha256": "9a9da0fd89d9cf980efcf13195a16848d433ea23836afa33add3fba22fb8485e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation": {
-    "sha256": "497ecb35013ecdd71c0303ab1aab4ec244e528b727099d04a86122d3f602ef81",
+    "sha256": "349eb2c723427ec3291adde1c29add8237ef25d3cd50703fd71c9834af51e04d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-raises-series-b-to-build-safe-reliable-ai": {
-    "sha256": "cbb6d4e8edeb7d8b7d0d08fae0233a0c97a56a098892fd1c6cc8891ef6ee6590",
+    "sha256": "cce96010345987c6bfafd1bd8303bc12aed761d6caa6eb79b5c6b17957b5a6f7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-raises-series-e-at-usd61-5b-post-money-valuation": {
-    "sha256": "12bf1f4a92aff369f40dd639c8f33534299d6e1485f8daa9fb3af25b4ae3de92",
+    "sha256": "e37aea3669ebe4d2ee9c58328e1a29c0219c25a6667b4a8bd21ee8d3ea732c59",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation": {
-    "sha256": "d199f589515fb13b8a1a6ca10b66399d2c9c27514823f64b0c161abfcf08fd36",
+    "sha256": "1dc217361dc49ebb81af4bb59fb1637ed94afa523962b8db6b60ff36b761fb6a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-rwanda-mou": {
-    "sha256": "90a2cc565586267d362d69706924036d65c296f1a0de2d646f2e9bc5c937e736",
+    "sha256": "5f2d4e5c643b80bc8461e30d18db3b7c3bcfaff865c78d9d295bb8396309a92d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-s-recommendations-ostp-u-s-ai-action-plan": {
-    "sha256": "4c2f588ae07477a8fcc1530b0f31025f1ff3eb2c465809feeb7c73e088ae7dc2",
+    "sha256": "fa7bcd54d0de324854c1a52bd4b2eb44d8e4ecd6cb3297ad1bc70204c41effb4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-s-response-to-governor-newsom-s-ai-working-group-draft-report": {
-    "sha256": "bc84f1fde9c39942b8f8b97dbb20f7d2aed0e6132860d0695dd74017e029ea79",
+    "sha256": "82c31bf23b3937a2c7c03cfe8e18a6168a67d6837e488b51a17676caa274d08b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-series-c": {
-    "sha256": "a0789fb09582b91fa5637160bdcd13e7b42095a3d1eab573cf516f541ae1ae2d",
+    "sha256": "c97d397f9121fda7e7fb47f54acff0d911e0015ab1322e60ba7947cde39af29a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-signs-cms-health-tech-ecosystem-pledge-to-advance-healthcare-interoperability": {
-    "sha256": "8db4516a04c094d42dae534722d55418d101bc0f47e5612ac1023c1a9ac6c6a8",
+    "sha256": "8303ae35d8e0df7457089cbc49bc66510a3e49d63bdec2d80e22fa0e3983da86",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education": {
-    "sha256": "9b7a7c7b99c5d4e680a57f8f51a1d6f717708fcb5f1795bcc201bac4b621bb6d",
+    "sha256": "22441b78a0471193ca5485a23e95c247cb707a15fadebb3c5d4d8487bb857263",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropic-teach-for-all": {
-    "sha256": "92b655cd1a8640a8faa1ba6a744cb206db8e3c5dc95c2e35379404e50f6202a4",
+    "sha256": "e939167614ef79c729169b855999324876941a52c4e7c70742faf7bfb0293fa2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/anthropics-responsible-scaling-policy": {
-    "sha256": "7489676a397bb2da2a449718cb42abfae5f738c7ed450118c2a5b42b340bb90b",
+    "sha256": "e64d37a1ec84cd112eb8c52584ab04ac3afe50e318056699f513e91d01636fd4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/apple-xcode-claude-agent-sdk": {
-    "sha256": "f9ab9c0d9eced1788ddce5da9ec117b70621af2630b9025a8c00fb354bb8c0e8",
+    "sha256": "753ad7753ed58c28f327619dd54e87274aac85f8dc2f74d6bbe83d603738fdd0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/australia-MOU": {
-    "sha256": "8b078ae590214b4bfbe921db80006b8e84627c5c09d0eaf7fad81e7b4d029c06",
+    "sha256": "a51efb7f3f89cfaba823e3be96c469c70c510b2f632540fba5cebae5f52f8b7c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/bengaluru-office-partnerships-across-india": {
-    "sha256": "00b26578a92929db29283d72c08633aeca7ec1758e8d6ad5e300096b23e6e37d",
+    "sha256": "14716130f84962774d39c4df5a24006afea4eadb8c961b6fa20da669980e65ad",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/build-ai-in-america": {
-    "sha256": "1e991dcd859c0f4207a3d416e7de9de3a440cfad66ddaa587c198b3e6d8c00e3",
+    "sha256": "de32fce39073cbaf779b4e3c25f953432254008c90f276d6c00724bf5a6c1050",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/building-safeguards-for-claude": {
-    "sha256": "a53444cba9337361734383e3e68e70d7a36f768b930b6d5873cc86f15dd2db8f",
+    "sha256": "c569c2c80bd6256c107f832d09b7305b7cd588cf0863d021fe53d942b24cbc23",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/challenges-in-red-teaming-ai-systems": {
-    "sha256": "ff286e8dd0061d32cf70d12bf9f87e9b72cfa8bf4665a1138e5a7974ca5a81d4",
+    "sha256": "f80aded271f9edc0c9d2916d7e4a490e300e7dc3014472f5a44a1815e756c257",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/charting-a-path-to-ai-accountability": {
-    "sha256": "b08980a900b961e2e8cd0839fc9afa4f413a7cfb35b15785f254d8ee93ee785b",
+    "sha256": "638dc1fd638653f469e50e1279cda9669186efdb42a1b6b082177155129f6b9b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/child-safety-principles": {
-    "sha256": "2df254d82baa9fa9fc0ed55e26f0fa8244cec1d34c0c115a336e45bbb9c07f86",
+    "sha256": "bf785abf37f80d0b1f372c1c7fa3ca25e63ad56c317092b0993b89e0e80a1921",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board": {
-    "sha256": "2c4b43dd323508384637cec783caf4a42a27a85035d359bbf42822204c21beb4",
+    "sha256": "eacd0592f52f24d3a2c3bd1bf44755eaed9183ea4137ad2bfb8eacb6ab6f60c7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/chris-olah-pope-leo-encyclical": {
-    "sha256": "4f1d65ab7b55ceea5a1ff9b267abbfba7d5584f7b2ffc8735945306e3b57badf",
+    "sha256": "2ecfe46457ab3f7d2228761b2932cc25426c522e1d4b8f7cf84444a859b91bde",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-2": {
-    "sha256": "63578cb5219e507b7e090da5edb077f94ba6901e2c60d4f4784d2e7280d0ed0e",
+    "sha256": "fb9d576e0aab406376ac07de210d2ea1a5d8faffcecad3da546872ea0eb561b1",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-2-1": {
-    "sha256": "b5d2c166d5380a3bf05bd14caf31e63a3ecbd716b9856fc4b9dcd5446aade452",
+    "sha256": "9a60f30cca20f00459b9e74f59de6bd2b22855f3bd93cd2a459e448472ca0e18",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-3-5-sonnet": {
-    "sha256": "b99ac5db173853f02edfc7643f6332c1e5b5ed73861f7ca8846c6c41bdd48a5c",
+    "sha256": "4e7e70a91da9d71daae987acd0bd7d92649163945e809bf9600350f364902b80",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-3-7-sonnet": {
-    "sha256": "3062d292304df367c3ab7bfc589266d48e3c06f82934f5cd46ff7d4567726b98",
+    "sha256": "7f18a2f31eed8723f715cd6dc4d833c489a4b73569036e3bdfedf5dea22d6c95",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-3-family": {
-    "sha256": "eeaaae87db5bafc87e0d5deca89e4d4e68902be2283921c5c554fc3045d18cf5",
+    "sha256": "394acae79be5a12c176f213f12710fba91f57e9e57b396f0068693d8ba7db21d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-3-haiku": {
-    "sha256": "8c596b7e63c3d8bc6d8c09c544566202bfcac5f5303c8678f6c7c12c01bce9f2",
+    "sha256": "9b4268677b66d75783a687eb054c9fb3a683c65738e47fbde353dc482c8f32ef",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-4": {
-    "sha256": "6845284f28d83a6e3ab224a69e6438bde684fc6c375e7639f9795b1db3dd13a6",
+    "sha256": "6c6e4bc25eaf2b08c62d131ed1ce90857f3409fae3de99b23679d953becd4e35",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-and-alexa-plus": {
-    "sha256": "7c3eab90a1ae5d318447637921dfe87366f08b526075c2f5b6f3f1f912153fd8",
+    "sha256": "cd1c82e4824e05fdcc1638088d8b338a1e25c4e725ae950aa81deffb31422d0b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-brazil": {
-    "sha256": "7dcfa14141e6733a8751001241402c773e7deb092b09ceb6bc33ba5c0e4af4cb",
+    "sha256": "a2f22e47d308abd5904a3126c6ab244c1e2d7eb77554f211432786bac6fb0823",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-code-on-team-and-enterprise": {
-    "sha256": "8e6547b2949ab63b0269088241171ccd3daf3f16c01dac6483fcb9bd84d7a06c",
+    "sha256": "038f499ad1959cefd307102f15aadfcd938edb3dc1521262f1f9e7506410d3de",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-code-security": {
-    "sha256": "baf093bef465d3811d95daf237c8d77247f274effe81c0cf3da57728d4f8e0be",
+    "sha256": "57baf08ee5fc6d2745ff8adacdf4740ee2bfa74fce0b059bdca38aa844bf3581",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/claude-corps": {
+    "sha256": "ae5962860269ea7fc00b1f09b4bc234a683e27b5571cb195e913a82d38ef450f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-design-anthropic-labs": {
-    "sha256": "fbe3a5fe474948c34244fb2e86d54912ae5ff17d5e00fbbeaa57e4951b216083",
+    "sha256": "b73f59052d4fac08ec4ab9debf2d846add46eebb1615a9ed52a09a444d6a40f4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-europe": {
-    "sha256": "38984609c0e0deeb1d7f753d8e3fd55739c05f235e135f265c615f023f0c4af8",
+    "sha256": "4b6f901b95f39201e03ff759c93234922d4a15700722b1177d70ccd2a9fa9889",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/claude-fable-5-mythos-5": {
+    "sha256": "7992ec7eb551124a67bfbc9fa3e8fd668ea646a938938199cdf3ea04fb3590e2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-for-creative-work": {
-    "sha256": "4b6a9ca359a54df8865ddbefefc343cf7bdbc84bdaee668f029a58bb024ff446",
+    "sha256": "1049f1a1773e7c5543917307e78646353108a6360044f2564101431583ad4c78",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-for-financial-services": {
-    "sha256": "ac9623a84e90aa3d78e9c1910ec914176d1f07518f3896a43f17c3187f8e07cb",
+    "sha256": "18fdfef16f449d33eb07a42922d473a4fdefa3b8e883ccfbb23b1e6c728ea231",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-for-life-sciences": {
-    "sha256": "5b3aa302c1000fb4b417e38b94f74432f28188d3a647cf4bcf649ea503ca20fc",
+    "sha256": "18a8185f0b46a5bf846e1c299880fc6dc4b268227d6cf574ac751ca36d9e453c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-for-nonprofits": {
-    "sha256": "de85b6e213fd8e38b8ea4941afa9aef4e8c92aa8dbfbfb49ea6949730abc5552",
+    "sha256": "b189ff837b7c95b26387135d4ab43d5aad60a4e18dfff27516f9a1de24c1325c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-for-small-business": {
-    "sha256": "e4600a4f2854494a69ae6b54a794b374ab0abf310bb399f791e42bb2911c36b9",
+    "sha256": "8dfd1e4e11e49c9672848f1a2aeb64f8f7714d5e7b2182cb506225308acd5877",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers": {
-    "sha256": "c97d9fd499176f78fecba412bd1a493c6170afcad0dd77a69d516db81a968c99",
+    "sha256": "4644034169ebe3751c7d4816c3597448085bf8ae0806afaf62bf08e9772a5d6e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-haiku-4-5": {
-    "sha256": "af1ce9fe6a1f720b42d59c12671ea3fffc2f1182f1323ac8a3e398508ecc6402",
+    "sha256": "33c6ef14b99ccfc7fdfa9a1481d00621fb05f2273fac961e3616e7bb2d1efc30",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-in-amazon-bedrock-fedramp-high": {
-    "sha256": "1fefe3df6562540c2c3b24bc91af3da51c03dd8bcc03a25f0e70ae6500bbc4ba",
+    "sha256": "e64e279dc2311519796e1b1bfb4c477f3ca4276168c51ae8e7ba548f024598b9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-in-microsoft-foundry": {
-    "sha256": "122e7d05bd6aab58442ab3599bb3961b32bcb5ee17b625f25854746e0f21ba4c",
+    "sha256": "a71dcf5b527225312a6f53e488a65aa9563057c84ae21d1ff8ba3636db8ac890",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-in-xcode": {
-    "sha256": "3969bf4adb187ec14b9a2ac3932f03ac716de5de3de02e990b1ff683ae53230a",
+    "sha256": "e7844009458dd5c020fa3e33be4f5bba1ab6f8ffe4ddd1e2dcd53168eed74423",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-is-a-space-to-think": {
-    "sha256": "8ee185c3628c73328847caa22b8876663761e4468ab4e2f80d9c315d45c55c77",
+    "sha256": "9b4d0be78ebdfb0750de2104c931297b5dfbb221ef42fc32ccdf65d3ce136362",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-new-constitution": {
-    "sha256": "84110749d2f702f96617ba5438bb5661fffeb8d0eccf8b3fe6917bdb2de8b769",
+    "sha256": "8630e686237e2461bbf999a89a8908e95a9e0e7a9237257036787aa99347e20a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-opus-4-1": {
-    "sha256": "37e3f8e6c0563249cb9f90e7d0f65cb94bd3e1f484f784070fa035698e1a74bf",
+    "sha256": "f4330abb94c7fc002e16541d81b69f4e574586114fbb0da53d59fce2887ce352",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-opus-4-5": {
-    "sha256": "9006f157c95eff45a86f7dcdf705d6e298fb7eef631a2f14b2f8db82e635bb45",
+    "sha256": "3313687e0e617ac35aaa4215a28bbf9a0ee1486ad3458c71267ead7530e32ef1",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-opus-4-6": {
-    "sha256": "2aa85ddc4498b7ab6d16b6a4bd448c9b4428aad435830a9502bf43ca53b64ada",
+    "sha256": "bdc5e56abbecaf3dcb659922d5146b9c80f69a0bfd07256a095c93adddfb0146",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-opus-4-7": {
-    "sha256": "94bc750f1d8cdb9785667cef86df9c1a5dfa4600f9f3be6cb1e6af131880dc1c",
+    "sha256": "750b5b7ac9f39dfab63b471cc5e5a6833953c50c594db0ef06cc66542bf569cb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-opus-4-8": {
-    "sha256": "7e4d0120d60bffa15ae35f8a7e4a2e4803504ae38080791d3ab64907d9fe2048",
+    "sha256": "6b9cc61ec43f4c7ada6c4321240881f622cd5f3021f0ccc398e7cf6b588ee93b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-partner-network": {
-    "sha256": "84fd9cf24d37339cbd552f88f2044197f327f9c05fc0e6fc511a21813eea9055",
+    "sha256": "34ef055b66919ca83d1911e3c1eb65dd0449db20e65206e6675528302b266155",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-pro": {
-    "sha256": "dee3cefaefd8e34975c06cf4c7f767da123629d2160e5334d3bf536c07b3dc5f",
+    "sha256": "162af77a8ba1cc0614147e92168deb049fbdf93f0d5489693569f725b400a4e9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-sonnet-4-5": {
-    "sha256": "451208464f008328d96bffff2f264a59adf09bf09780aa07a4073bebc7363dc6",
+    "sha256": "132bb235c9a70fdec9aa7dd0d24742ff45e53359c4a634eeb2e3250fa8d9334e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claude-sonnet-4-6": {
-    "sha256": "14eb1b38dc0a0da63194da207afbf9c776d4d86623ec99e436d97a59e5e70fff",
+    "sha256": "a1640bb61bf901f4d50dd7b8324e2b2291e0080eebaab962a5884fb93a87500e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/claudes-constitution": {
-    "sha256": "3a755fb5f834f4e42643ee10941d47e9ab956a685bae73826d56c5554db41517",
+    "sha256": "c90e5ec8e81d934d3902baf5a23a01af94f12dd5636afa2f9854284e3bfbbd76",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/cognizant-partnership": {
-    "sha256": "b0d0fbad2672a914ee2f93af8288f2bbf0d479c82b67a0add9f3f80756eb1a9f",
+    "sha256": "74c75a640f9ac68c403dc74978040ec20ea12263dc4eca7a8e4574f8853d7025",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/compliance-framework-SB53": {
-    "sha256": "f0da45cd0599c56cf014368493ce2c36b51238f8700664c367f3d8b1ad1af526",
+    "sha256": "3d6be275822d7d9e6a81d35a8d3a9ebfea95acaba1c64ce81e32eecd7466bb7b",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/confidential-draft-s1-sec": {
+    "sha256": "7e4f5e0aad58c21b5be01babbb0d2664e2985b29225bdc8d6bc28ad9a2ea5e07",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/contextual-retrieval": {
@@ -572,476 +604,488 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/core-views-on-ai-safety": {
-    "sha256": "b3272fee6d35e5d9a25241503a6864d142679340c8a9e32f0fdee925be2cb501",
+    "sha256": "c6b90e6efed2f7cc3aba661f3c81588e68b39321850cf5a1a768c5d44869adcb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/covering-electricity-price-increases": {
-    "sha256": "bff092c81ab367376e3d78bebf20c7787a4711a26966811eac9e478b49ba97f3",
+    "sha256": "8a215bfc31bbd07fcca49535c4229849d38666f61cc2122c6211c743ba2e0dfb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/deloitte-anthropic-partnership": {
-    "sha256": "222e4a02bf7d48ad7736fd1ecbd3219a0b3efacec71e88d4747dcb970ab890ba",
+    "sha256": "2690a8d457c14d05c24324e6b9ecd100e24d4d32b36bca8447d30050ee76502d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025": {
-    "sha256": "d2c77d00d77ea0ce43908ec09a721b471534afcb0b952ed84ee7c984d9f8283f",
+    "sha256": "96de94061fbfa8d99ad790e88685d7f41a34476fa90cb0c028e01be8f279a82e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks": {
-    "sha256": "8e0c3f660e389f6f763367f75f532e75b39545c1e8794042544ef317168044a0",
+    "sha256": "122cdefb835b3bc5960cdf4c54c3cb00eba877f62b15e093088c3faf3feb3028",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025": {
-    "sha256": "429eedb2791fd7ad8f8f0edd79ee7cd0d0c336abddf845344af542628d3c5ffa",
+    "sha256": "03c54122f41908a914d6943def8ed74d44c6a98e0c280ced900d8f11afe1dfa1",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/developing-computer-use": {
-    "sha256": "76f82989648928857ca6c9fba19d578c915e96552760840b87c04037e61d1501",
+    "sha256": "0d6e8063f4d6186ac82b628903ac2bb5955851a873e1a8738441c9327fa849d2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/developing-nuclear-safeguards-for-ai-through-public-private-partnership": {
-    "sha256": "6e0fe098dc673e688ab631faa802d83b11e49b1b2310cc5b04a9e4a36f457a37",
+    "sha256": "a179a129b12b14f160600cb77602642d72484c8ac33722e3292117b8719005c4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/disrupting-AI-espionage": {
-    "sha256": "ad62ccd4f6b6d5747d6fcf1e00a602001f863af040f1fe7c34c598bb3e7c57bc",
+    "sha256": "3b2104c8340b3383d7ba77b4f1e4e2cc65c34470a42dacdc12ac1d0327792168",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/donate-public-first-action": {
-    "sha256": "de5adec03b5dac2d11ea31449a460f3f79a3538b2ee701abf5f80ab0b209e72e",
+    "sha256": "a7c8387e0a8f8ffef98cf6a91bae05a08ef6edc10bf640e1560ce02908677d40",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation": {
-    "sha256": "bbb21cb6fb9d91b104d8f5c8310c05fa1ca8395499deadf1b7376428bd15b574",
+    "sha256": "13d8111d17bcd8df1a3b3f969c96d039b02a56e75550c3e7c35705b043c852bf",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/dxc-anthropic-alliance": {
+    "sha256": "b90beeda738de71b4c1dc7f2dba986599ece5bfdb62434d16b39f64916f79fdb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/economic-futures-uk-europe": {
-    "sha256": "1d70980b28fe4e74de9a3c59da616df0ec08e83df3cb0fca038afec5d997fe5e",
+    "sha256": "880aa15ec9bf9eb28a38d0635238085a53a1c58e7893e7081043e35846ea3bdf",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/election-safeguards-update": {
-    "sha256": "b0a58a4e122d5dfdc1f9c3bf83213bd1cd6bfcfa682bb53a3ed84687e7406e8b",
+    "sha256": "4ce93443517d15aba4baa5fbecee5df178b9cf1917cdadd78852f48bd08c14f3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/elections-ai-2024": {
-    "sha256": "dc7ebd3e129f10ec22dda989a8b7769e24d5a55a93a721eade6cbddceeed2128",
+    "sha256": "ed5d6c0ab90c3b59b81c4f386d1da3a46def8e8e4da6baca626b20babae9b576",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously": {
-    "sha256": "99d919f0fed8880e2e9770cfb4a4b54e8fd59500523d976a1ccd18e1e28cd652",
+    "sha256": "6ac2a8c5ad6f3dbfa8f04c516d868333bddfb52ec3282c270fa35191b96aef81",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/enterprise-ai-services-company": {
-    "sha256": "1f8e354ee6b8bfba6a9d059b4297a22bd3d9c4fb94d222dc12c406e3d5920fe5",
+    "sha256": "2b2f007199d3e0a60ca33423f0ef568b7dda56316cd732b677e536770e2ceaea",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/eu-code-practice": {
-    "sha256": "c535e85e3a6da10a9872be6d6ccb696edf22f19b98e5b1a63dd69d51ea62ab3c",
+    "sha256": "d25b5c8d57cf97dab0c7485801b1cb6ef7393daa5b4f5cf47b8a5bfb79fcacd8",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/expanded-legal-protections-api-improvements": {
-    "sha256": "dc51ff9ab48081012593edafd354cdaf52f16f4931a63f6424b7f38c8ec89a19",
+    "sha256": "bdcd75a337105314cae606baf39c8a8c6ab12084ceb32c7e4c56de4e66ef46d3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/expanding-access-to-claude-for-government": {
-    "sha256": "d2546305b8ff833043a95e5d403628edb1c9b571410c232952302d2ddc28d194",
+    "sha256": "d20a77309cee2bddd854af42e628e6d19ce852b71bda5962635536b5f1871e2f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/expanding-global-operations-to-india": {
-    "sha256": "8c5414713a1eb13217ea2a59caebf8385b47a65fbcc59d120c1775c3cdd9cd82",
+    "sha256": "62f4aafd643681261dd0c4ba60ade8b2858c887a422122765bee536a73a459c0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services": {
-    "sha256": "f05979a7edabe8777f26fc5afc22c248f5bfc4df424b9c32c885c9039860f6cb",
+    "sha256": "3d23a76fa79f11548549fa0c1347315497e84939f676abaf9461bc5aaf9dee0f",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/expanding-project-glasswing": {
+    "sha256": "e97998917d4f104fa78cdc947e5c9311d86851580814926f2b20ea154e6e0d2d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule": {
-    "sha256": "7439c18187f74e6f5a3ac3bea42ba8e25ec3da6f81c01ee3cc45b276d94a72b3",
+    "sha256": "e0daab29e229f24b1fad1ae2357a6b573a58739697031dcd19eafe7dcd43cc07",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/finance-agents": {
-    "sha256": "f1ae647d5e47201f94342dfb031a87e9fafc65bab56f3061638259353b367865",
+    "sha256": "fc973ee9521369935f79cdb28ac35ede13bdccbc50cde930253f58f81ee29a92",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/fine-tune-claude-3-haiku": {
-    "sha256": "200b5c148dcd741e4c6c569f5f0750692a25e05d4fb6b1c69ee9cad716fdcd62",
+    "sha256": "f158d6933c2bede444773df737c6223a7dd0a97493c8e1f005400bb7d5dd47ec",
     "lastStatus": 200,
-    "lastModified": "Sat, 30 May 2026 03:12:22 GMT"
+    "lastModified": "Fri, 12 Jun 2026 14:09:50 GMT"
   },
   "https://www.anthropic.com/news/frontier-model-security": {
-    "sha256": "e88701a7bf09d8fdf57617fad0b67d65a1cb085577d2bab226d01791e3668ed2",
+    "sha256": "a8cba28e5cdb741c4d064baefea64cf200158fbcc33a97d74cfe0ccb8350fc87",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety": {
-    "sha256": "654527522a3e331b41c17540fd0076b9525872545f2c8026295dffbf3a82e00f",
+    "sha256": "7cbb272011d6df1e87e63189bdc040b8307933c16ba3f9172d7baffafa9a01fb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/gates-foundation-partnership": {
-    "sha256": "dfedacf5622f2fe3e7e64a05f1bfa1a2915fd4bfa9de23ceb8ea89a19bef738f",
+    "sha256": "830c0decc23186213e1c374dd5ec2daf1f3c409b004f33c73e2625a162c6344b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/genesis-mission-partnership": {
-    "sha256": "a70799a4738f1036d8227b3c49658c1e938797ae20e4f736ec7c58863ec83964",
+    "sha256": "d702f245b4aacd773f456adf25a4dace57cec0bc6461bb4c6d621a31383cfbcf",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/github-copilot": {
-    "sha256": "2a01d159a39e803adcc6a0de56a8e3a8ecb01c4d595b4622cc819d9c0b870f7d",
+    "sha256": "abc6f3cec225b98f7eb56b695e09b958685aedfbbd88fbf617d9bf7f1a570664",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/golden-gate-claude": {
-    "sha256": "23d3937ffe60cfec5fde07f53182a2c76f2105dbb608a418e1f1cc27d8a9f341",
+    "sha256": "c873fd6b7f7e088b4d5e1c6b3a94d495c5424382b74211efa3478b93c66a24ee",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/google-broadcom-partnership-compute": {
-    "sha256": "8b95b7bd471d3e83ab9c22984c17ab3fb3f4ef8be9a9d2223f51ada67bab35dc",
+    "sha256": "7040495ec3e8a43e142358259ed92ad7696470f24dec3e4bb72d72ab877fe6e5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/google-vertex-general-availability": {
-    "sha256": "0930193e283b6ba3faa3711d7b8b5e369f1435edc1da6a2abe52e7490d1f850d",
+    "sha256": "b2df1f549996bd8fbbcb2f0839d14ef3de1a3eead17c3b041b402328565cd579",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/gov-UK-partnership": {
-    "sha256": "660a02d15306c1f299eff45ace8cace0f4b8202e21cf038c5115e34ecaed2072",
+    "sha256": "be56568406ff55dface77d4d37562c8c049090706b046e3e5c6959432108bc38",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/head-of-EMEA-new-roles": {
-    "sha256": "fcab8276c167f9529f3ba5f3eae1446244045e5bd2bb81fe3b38a14c40b6ec04",
+    "sha256": "3f381676f18412ca79989bcc5ee8e3a7c348d1642aa25154eff95acb94608dff",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/head-of-japan-hiring-plans": {
-    "sha256": "822916772801b7f802c8918e60c0ea8994402b1c50264dfd1c1e50781c1f0f86",
+    "sha256": "5fa0aaaac6f9ce482d60cbf743aad502cb0e6750db9b562c030ea9a99ebef12b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/healthcare-life-sciences": {
-    "sha256": "8bfa01a069a39d90d9bb3c25b42b21a0b8e2178370052582a9397da66025aea1",
+    "sha256": "a207da436fdc3d76841b3161c159e551f63a335bceda31cca43f92baa38d8ef2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/higher-limits-spacex": {
-    "sha256": "da63a51c590c9b2602f16ae71a2e97650be8ccea9923b99f5696d4d62c7ace1d",
+    "sha256": "94e477d05cef635d5b54703ce140f1cf6a3f2f81c87ac336299e698133aa77ae",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/how-people-use-claude-for-support-advice-and-companionship": {
-    "sha256": "5889178c0f7dddae2b05fd2e3ac9948df9558ae281bc1cb76440a3197b035c7a",
+    "sha256": "4072e2a3613ca0a2078a477a41c42bd0517da03228bd9ae53ee495d182de5c4c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-anthropic-labs": {
-    "sha256": "e6164c389ab1e75c943bf394d373fce7c9b390b2fd5146d9c9e8592b9b228dec",
+    "sha256": "f641927a2a1617cca570bbf1292485142b9fa5056b61b34b725f1e90ea040fcf",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-anthropic-transparency-hub": {
-    "sha256": "aad79c84240911452def491a195d6de46be792e79c918624da29698f20f0b436",
+    "sha256": "ceb7c616df4878e83efeb0240de863333e03126d9b0d9e0a8f597ed2ed47c19f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-claude": {
-    "sha256": "ded2a69d21145048c5da81531edfb25fe6c42851038bff00ba8f66cfc10aa614",
+    "sha256": "e07721d0c17bb590af6966047ed7c572eed9bc7c57624bb5d8b365059e435608",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-claude-for-education": {
-    "sha256": "8c1e591848ca440a0740700ed5b717aac62666d62d61a789fdcc6f5b3d3c7993",
+    "sha256": "975968ce385cc68ffea4415d79c3ef3310c76c62773a8f26f26b96c899ec99b3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-claude-to-canada": {
-    "sha256": "05959ddd126b87b6c4c37df45a123c615736056d826712fc7d7342130f1d04ad",
+    "sha256": "dee4a2a3beacd36267506203c75b83dca17668f1f8d64b34d16986a77a613d51",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-the-anthropic-economic-advisory-council": {
-    "sha256": "a63726096ebe96f4df919623bd8590bb729a4616d0859e4adf4c7a68ff870388",
+    "sha256": "18bae916a8c697c60f34ac67674a12062036fd35940d2f49bc961fe89d85d8d5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-the-anthropic-economic-futures-program": {
-    "sha256": "b72be2ebe2fa2ae20021c2d58529901605f80e95bba2a0db7ffe3b00505cc29d",
+    "sha256": "c00e74076a217f0b06794081f549378187891c9dd9a080622746ba609ac05446",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/introducing-the-anthropic-national-security-and-public-sector-advisory-council": {
-    "sha256": "4c607a1b6bac1fc8179771970b4dcfdac428af8bbba7034a778ac661155f8fbf",
+    "sha256": "281e2126c4fff9645dad788c792194b1bc888a5f292f61f0377a591d301f2f37",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/investing-in-energy-to-secure-america-s-ai-future": {
-    "sha256": "5cd797a7909fcf311a178fd5661f12d03f720d2d8071b23067cffc40583e36c1",
+    "sha256": "9887d544c146da6b6c0985c22ad629e46ce5f7055ba1157f95e6c81e99f9ae58",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/jay-kreps-appointed-to-board-of-directors": {
-    "sha256": "fee0875c5451ffb13bea2d5ca350ec75760d3abe074bc4c07757b9e7532213af",
+    "sha256": "f24381b740374448fe66555e72633a7e30391ddacf233d4b4e0f6f6e2671d71e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea": {
-    "sha256": "3b24927c6858e4d4cc92a2d31b97858e74de381ee7b2b882ea0c1a2f95e7cd85",
+    "sha256": "824713efa0ebac33309235c4152bbf899866fc72ca0848b0cfc59711f2cc286a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/krishna-rao-joins-anthropic": {
-    "sha256": "8bb2c5c31df78a7f141040a92e2e219078c72d1c7de6aa656c9e53c9c0bc8351",
+    "sha256": "d55206660b94aa77206331b9e5da0060f98a5c79ad4cf5f5498a7e715805ba16",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and": {
-    "sha256": "5d7df590edeb7c37c507923723fd2cb2aceecd6868efb91db266bf3f5ef630d0",
+    "sha256": "c4ed73a4fe2d54bf40677b4df4388fd3644bb17857504b8a49d659a831edffed",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/lyft-announcement": {
-    "sha256": "a60c32fe0417405169c2f4a6e1bf8f8ff7385fd3050310adea502518d1acda89",
+    "sha256": "23e4effb980c80c074314a7ac49f477ea87dab99a00836c158ff15d04ab1726a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/mariano-florentino-long-term-benefit-trust": {
-    "sha256": "26f999e75a30cf882b28d509a3a14618f1b948229875fba294a01d673913ecf8",
+    "sha256": "4a219a6505667570b13b6b76a5d1570a86a085e433a3bf17984b28fa1db3b146",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/maryland-partnership": {
-    "sha256": "1d3d46a2153081f331f74a7519d3783676d5a2d4a7f8c232fbec0ed1cbe27616",
+    "sha256": "1c07b2cd1afbd97d72e10d7e1e0e24e481a86457e3e531817f97ba13d2fa87db",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships": {
-    "sha256": "f417d229c9a5393429fcb5c30b153afd8f55a830437618328119ccb870797472",
+    "sha256": "a4cddce4d49abd68e1d236afceb5b28d46803afc501112f25aa1dc2150978177",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/mike-krieger-joins-anthropic": {
-    "sha256": "9f0f45614c5888142c57b01b24a83e876fc46062dd273ceb2821766ffef90450",
+    "sha256": "9abfd6e6ad3e1a66365bb40e65a3d49aceed317fe37112a874ea97ffcf917319",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/milan-office-opening": {
-    "sha256": "fa1991e15a0d5ab392f3283cf65a1a6135967af1fd0ee8efa5b45c0bcc48ee02",
+    "sha256": "ece27f5ce4d967335797396e1b020ae1fc0a13a703ae7a0b39df67af62daed7a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/model-context-protocol": {
-    "sha256": "56ced6817709d8abe51182012c425387c8dc30b867a611b6992ffcbb744cab73",
+    "sha256": "2833e58049ebea02682599625bdf8aac1d58af8fa6e7103eb3ed4d0386bdfbde",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/model-safety-bug-bounty": {
-    "sha256": "6b13fd56fa594d748a46ff30025b7157302bb8356ccd18dcf31a903f8c9dec4e",
+    "sha256": "752e87e70c7cac9b3c58413700ee898a5c7cb14ae00fd7f244c1bf86bdcc8676",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/mou-uk-government": {
-    "sha256": "021dce13be1be6f270c57abca4876b08e44ac7b3c2c26f90421284e8549c39a0",
+    "sha256": "27fb62791553ec8be9f028c7ff0b9aa8dddbb3240f1791f9a37d99fcb5955933",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/mozilla-firefox-security": {
-    "sha256": "3a13552db5258f8ce8dfe1e8ff89a8b311bef41593f3633138b98825de593a8e",
+    "sha256": "0064fd33fb44a55c4dc04e37a2484a6b8e2e717898e3db6e91260a8b3733d7e5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/narasimhan-board": {
-    "sha256": "b3fdab51aac8763bfffdc3aa9e416a6289adddf54c3abe2f5b00d6c2ce1ca555",
+    "sha256": "ef1da228d552e55a7c23d1cea099aca3554375de1929882225e7dce4bf3931c8",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/national-security-expert-richard-fontaine-appointed-to-anthropic-s-long-term-benefit-trust": {
-    "sha256": "d013724a3646d3cb86c76ba5efafaad40b577f4b08fd8d0ce764c9585db85505",
+    "sha256": "004cbb9e83054e1336094fef7dadd1fafb4147c923ed7037c5b9f8ab652c2065",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/new-offices-in-paris-and-munich-expand-european-presence": {
-    "sha256": "eebc6bd94b5344b367405e415c1f22190470be339df799b66480d139f3353c59",
+    "sha256": "e39bb3a0556e0c9fce02a6d73d2376eb2ff60656f725e2768e10cb493ee0a0ac",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/offering-expanded-claude-access-across-all-three-branches-of-government": {
-    "sha256": "5320b15d4ad0d85aa7bda2537b760e973800a44ec4d138ce79e9bf7d2dcf4ae5",
+    "sha256": "a9d60e0b05f69eda098bc8f27a3232b76c799c502266baedbd35563af8bfde6b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/opening-our-tokyo-office": {
-    "sha256": "5c55e1e24ca3355b568f50072870f54139cdf5fb1fd6bb3c22bc4965e72a9ce0",
+    "sha256": "0adca393769394525e5a82feb587cc34b27fc43eec735ed4dc42660713f6d88c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms": {
-    "sha256": "f85a85aea9a22b93af62250d88e40b8e366dd032c6fc4e5bf23171aad82178dc",
+    "sha256": "071b4e1891e4cdfee74fec4d699f21b538cf7197836dccc765f45cc6dd641e60",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents": {
-    "sha256": "d18fd757cac09760fd8f9fe26bfb69b048f834007afd7029f6e0bab7d78c5734",
+    "sha256": "6923078a37baa4b9884bcdc79b775bf348a2ad3ebbf67b8838b5139773b8f5ab",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/paris-ai-summit": {
-    "sha256": "e9c35b288b740ae6c510f14c51fad8b4081e66e4810ecbdf8b56aff6f560d026",
+    "sha256": "093e61268402567491e7a31ef90f1b2b248117acb070239a50913661950fba04",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/partnering-with-scale": {
-    "sha256": "d94963cc2b7742517736d1989ba0b798eca2e12f503edf3808f5600aba627ac7",
+    "sha256": "faf0b0489afd3ef4048a58e287ec947849cfd31126acd2dd603d83f8fd43ffce",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/paul-smith-to-join-anthropic": {
-    "sha256": "ed5e75c0c7cbfd63fc5e1be06729ab9d42b22d15b707322302d479beea785737",
+    "sha256": "5da5e0158f59a10e8c3b6b2eb321fea3674fb7b0105188f815142667fefb08ae",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/policy-recap-q4-2023": {
-    "sha256": "90e2df84886a8afc8aa66a6e8836d6ee46ee01f70a6a633a68bee77efe93c555",
+    "sha256": "9d96d0a42e7fb39aeb2ec912da4c1a5883f4385ba7a399a45cd5a1be8fc16754",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/political-even-handedness": {
-    "sha256": "8a99e25a509fb72f5c5dcb83b40f4c6459b3875e311c9e133e54d1c022370b50",
+    "sha256": "b9896dc535c20352989695364b5057bbad2af1255db195c2e558c536b65aaa7a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/preparing-for-global-elections-in-2024": {
-    "sha256": "e136ba6f0be578c1b8848bdbbd3b9bfe248a12b69ecf4abe20f3106f8b31965d",
+    "sha256": "29586ac4a18f0b16ba0eb1f1b63b64ffe831a1a538b557ec37a4012eae0ad04b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/projects": {
-    "sha256": "6e3bdf77675461246a0182ac24b4823fee02e513da7d802dd8942cf42a3edac4",
+    "sha256": "112f930564b05ca070ca5616158f81400410434c228e0af593fedc2b7cb775fd",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/prompt-engineering-for-business-performance": {
-    "sha256": "afd6b4d38d9948f5c4a6edde07117d00dac3a7f0e51bc04410ef939603fee8a3",
+    "sha256": "0c65445b2bf24603b6cf60870d5dbab1bae35d5a7abc3502c80dbcb5a51bf1c6",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/prompting-long-context": {
-    "sha256": "7a279f6508f1965db23e134fa87e2b6a1689e622b6a3a95035f931b85fd358aa",
+    "sha256": "b7e3dfb30b04add9952c55ff84309608835edcba1738ae46f462d967e333f3c5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/protecting-well-being-of-users": {
-    "sha256": "33c0c9ca0c225acf578d3f4601e7e1c012d3e761e3f4d318593cc5eb58113672",
+    "sha256": "f9735bfd7073f1ccce69de81a18fb4cfc2259f681063447e3d24038b936eb7f7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/pwc-expanded-partnership": {
-    "sha256": "a084e6d2c8ed0deda84b8ff3f58ac13a6da157fe410f7cb16c7cb632cc8193fc",
+    "sha256": "5a341824afc7eaa89ca80a932525df2f10d4764fa6587e77e32a691cd70dbbe9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/rahul-patil-joins-anthropic": {
-    "sha256": "085d0ba1ea017d7e7485d3979ea289bd4500aaa51cde7d71b891a62a423a4e21",
+    "sha256": "8bc7f06604859179a10118cd653c917617917ed4982a921c773597bb5228e325",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/reed-hastings": {
-    "sha256": "396062a9051c30286fd1d72a0855910a5b05a3a4e11a562d24f3b561f4386843",
+    "sha256": "3a9e97dc315589c54730d804c93c9588d1b88f371069e8ff4d427865bbafd1aa",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/reflections-on-our-responsible-scaling-policy": {
-    "sha256": "5129f3bd1e7cd8af9263140af48d7efa6f5088e9ffa3d836f12927a10d9a3ea7",
+    "sha256": "691aaa54c4673da6a6a13cbd42bb27c7cf8c69f180b89c8c8064972a9af401ac",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/releasing-claude-instant-1-2": {
-    "sha256": "56f0aea0f45c28edec96b430e46559665b1874794ae3595691cade436f920949",
+    "sha256": "36603c311efd945ff70f25c1b24e0bb4ff119e7e4294a8f68e9429f9c18f8b9c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/responsible-scaling-policy-v3": {
-    "sha256": "ee3317647797e807c4611db213258e0011f9d0ba743f39e041e34b964806443a",
+    "sha256": "ea9841cd965ce038c0ef1d12c5597ee7d28feb81a9c23f7548064d3d6485c808",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/rwandan-government-partnership-ai-education": {
-    "sha256": "c1601825a5713e5fc561e74c0d66c55c540400c1da78ee6e6cf8b969bb8ca9bd",
+    "sha256": "5f2bd6dc06c8ff6ee8925a585de3d24448b18f3239ac4301aa58a5546fb68486",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership": {
-    "sha256": "53fbac826f21e15369e4731b2c43b5e70ea77e8396b254e9a1d79694a5621a48",
+    "sha256": "4568b7fa28d3c8ff68c413ca6b8b98c3d894f2fc79604adbb443eee74c64e4c2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/salesforce-partnership": {
-    "sha256": "7b940b8aef9fe28f07d890713350db604dd9901709c707eb4ffcb7cc018eb7c0",
+    "sha256": "44b6d2082ce0c92d728b8ebd64f20e5596b92b4d77c503ad8fc46315d90097ee",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule": {
-    "sha256": "0b7de371abb8cede59679af837b3d57a45ef8311a0446db7414d8c7db9286253",
+    "sha256": "541b1d0df74b68c5c3d2115e2699fc0a58ac9caf78928e81f2e1e8ef5d02da69",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific": {
-    "sha256": "410663a8899d6564f744ebe2ece87fd8ab560e5640428e6c0644eb1ee5bae3d4",
+    "sha256": "13621100772d35d4317459f21ca38948b6808f4657ad4cd999182e18b83471d7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/series-h": {
-    "sha256": "d0065196a48934833f993537e8d1827c9083218e38558138a917121fd42a6990",
+    "sha256": "210ca763a5fa7478cdca3b57c541a62f8e8917152121990e083d4face4a0badb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/servicenow-anthropic-claude": {
-    "sha256": "cec31bea3244207e78a112795d6ad95ba105bc95793ef515dead247a57ea300e",
+    "sha256": "08c93c75474f21e65f9b862c2e44163963f35089c39afbf297b79ca3ea1fc926",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/news/services-track-partner-hub": {
+    "sha256": "779fa45b1354608ed1ae224a8a294ae801100601d30bab58178f3e511f1b35a8",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/skt-partnership-announcement": {
-    "sha256": "a219ce91d5bf1fcff1d7295690b101219b514215fd1f7b3942c2a3ac66490838",
+    "sha256": "0ecfe9d470a5120e849d4d3a43abc969038f299c2689e77c49871e3d37a1fb47",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/snowflake-anthropic-expanded-partnership": {
-    "sha256": "7e462f24817c64cc1c1e1bc3d71bbffd181d8946bc1984c59cd34f72e5232ff1",
+    "sha256": "6590a8ec8c2ce4fc6309b73930c79bcefb5cd391af72dacd98851b0567167d7f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/statement-comments-secretary-war": {
-    "sha256": "17058d8eb29ca405dfe0973a1f1842075da0c272bce5b023274ca0697da7b786",
+    "sha256": "b5d86c810b26f3e8b2763839718df4e514c1b81e25e2060f38c954831881dd49",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/statement-dario-amodei-american-ai-leadership": {
-    "sha256": "de3947b5cf1ead3b11d10ec85a025061225f9d6f956c6e1c79b8159801a6f4b9",
+    "sha256": "914976a49144d1f5ae22571c52f50f716128a7e7b1e224903d2ae8d495d84c25",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/statement-department-of-war": {
-    "sha256": "e2e64b188041f256c508a9fbcaa4b4b3766bd97f46405251096f348f695d2ea3",
+    "sha256": "6a1b29b9eda77cdec0d4ce09939860c0c1648dfa42a8736773a03d78211a3a3f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team": {
-    "sha256": "127444e357130e893b6b9b49f099761f5f060bb7b4394f028a5d013922fa24fd",
+    "sha256": "41eb9386473aed9bd96db6150f7148185985903bbcaf385ec3f7a00e29fd5606",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/strengthening-our-safeguards-through-collaboration-with-us-caisi-and-uk-aisi": {
-    "sha256": "66ace87cfc04ca5dfa0267ebe299b61409de9b7d04eb0d5d1cb91f00c7dc894c",
+    "sha256": "06d08d34c55980383f43c5f2b587092b211f7fba14f4b8e02634a69fd50d13a4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/sydney-fourth-office-asia-pacific": {
-    "sha256": "8f078e0dac74f674178c0f62828d9ae4248bd476ec85f19cbc0d59571d799d8f",
+    "sha256": "79f58a16e62ee9bc74ecc562dee73415cb67a9ae53baf7fdfb443dd28b8391d1",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks": {
-    "sha256": "9b992f505240b026f48b7ced07ad534a04624fe573bd8f1eb279cee038fa86c8",
+    "sha256": "d77e02aff7916954ffc1576ec26f518f3368ebf51d69baf7741911889bfd29b8",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/testing-our-safety-defenses-with-a-new-bug-bounty-program": {
-    "sha256": "f755665d2102b2c1c31c59dc2c936751233e91dd46933474f85719d58241754c",
+    "sha256": "908c2a78f24cf2da71ad9083987bc221e133fd9e0766d4cf4d1c2fb4f6b64b54",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/the-anthropic-economic-index": {
-    "sha256": "22a1ef0cfea454e586456797ef1e864bf60af0316baf61a65cd40fc8700a7c94",
+    "sha256": "1562d2a23a3de51022e6d5590278a6950f783926077915418e6c106105ca1ccd",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/the-anthropic-institute": {
-    "sha256": "77f69c6d6ebc0a7b8a1e07b596c2401d3b176458170b7b0aeb9c282ae89b5d88",
+    "sha256": "5b3d63c9654a9085cd92617feb781debe671e6258ab26f82b515bb9d70671363",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/the-case-for-targeted-regulation": {
-    "sha256": "1c82f5fa7e43ba785e8a51c626d8f0b59560e98a7d72ddd1fc688e6f64776aa7",
+    "sha256": "036801d0c081a5ebec27311bd2c5b18a8a3add55d6256f57db9ff71d593d2c25",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/the-long-term-benefit-trust": {
-    "sha256": "63564f648c6c6ca0ca0e9bf7893f89766d90601e4d28333d51805ef74b868b6a",
+    "sha256": "0fe93120784b11c2b75bedb3841559f67e7ddb1ffd419921c229df4eaf53c1ad",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/the-need-for-transparency-in-frontier-ai": {
-    "sha256": "4c669b078ff19918be5b1da790cc07dc39d862cc7d9a6947fe70374888e17482",
+    "sha256": "27cbe5942857fdc81218f1ea662cc8367d6855160558c4d7b134dd2ab2467ccb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/theo-hourmouzis-general-manager-australia-new-zealand": {
-    "sha256": "64d0d6e261575f71683b15b9cffc4faa043e569bcbef4b449050557a120f7d1b",
+    "sha256": "dcb5f210937395de509d40ee0873778e55d0550b4538acae808ff4aed3e63813",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/third-party-testing": {
-    "sha256": "a48a2dcb9e578b615efb04742cb71379b6b0bcaa29d274cd2d369dc51e9e568e",
+    "sha256": "44744050728e7cc267ac2a7a288162f180376b49c4b551e691181dd0c331e66c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan": {
-    "sha256": "e62850d335d886e9a8b5745c75fbc31333aaeee1662179bcec1b7a38cd3bc147",
+    "sha256": "d66dc011949c76b5a45630a9791195452da7ccec0ee172a140504533ab44cc59",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/uk-ai-safety-summit": {
-    "sha256": "2580be368a2930cdf07653e7f2d76557cb00c5702487293ce6804854dc4b97e3",
+    "sha256": "13953ebab97694bf704220e61d418a6819b2e92a816d8e121d2da31e42c2002a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/updates-to-our-consumer-terms": {
-    "sha256": "9f3f4b1f0f9c3619c039f6809695447b33c4069499be60d1fda547f967fde6a7",
+    "sha256": "4bcf4b272cae3455a3d6abd740299a45b61dd97e3cba24d37a78d92ee27d891b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/updating-our-usage-policy": {
-    "sha256": "ea4af6afddffadbc3ae118e4a27b2c24b7d8e95c4f2c95a4115ab5195ca086f2",
+    "sha256": "9422d72673b3d1280e66150e568facfbe7b0afa5acf60fded3458b850ea5a6de",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions": {
-    "sha256": "e389a474b8bf3c36154e3d648f770155bb99cd665d26e841410b19c80447c0e5",
+    "sha256": "19d5ef105e92beccfbdcde810eb9c1cc6c490b03c7e5f3c2ef2ebb1b615a2b1b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/us-elections-readiness": {
-    "sha256": "215f5b993dca450084b314b3ab2e0478a739b59aecfb9fdf5d7afe01425ad8ef",
+    "sha256": "c0bd927fef795bb11ccf586dd44dc13430193add61a657c67c607955e8820941",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/usage-policy-update": {
-    "sha256": "e5ebf5a9e81eb9eab133114f45100df9e197e93e49e783e67ba37674e670f55d",
+    "sha256": "862bedb90fdd9e6518023a906bee26a207af984af9f36510f53ad0a073b709f5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/where-stand-department-war": {
-    "sha256": "bf7ccbb94b8c79006fd2350e275faa5f886ac4df58e8f69b410a7c48f3d11cba",
+    "sha256": "2f40b09eb2a636f84d83216a85ba3be8fb0bea8bdf186b009448770fe4ac8657",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/widening-conversation-ai": {
-    "sha256": "0d2810369cda71506d6fa509391424e93c1c68ba93d0c7e4153af984ad92ead9",
+    "sha256": "2737c746d89d04cc7934b9fa80bfba883cbddd20033a5e622e64ab0080af493b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/zoom-partnership-and-investment": {
-    "sha256": "20d5302499a6cf2822de88d55884b013f9b8ddd7ab45126439e4d89948e26b9a",
+    "sha256": "d4686830737d60d89c8579fff7164d5ae9e347f48923e7ef23e0d8c81deb78a8",
     "lastStatus": 200
   },
   "https://www.anthropic.com/product/claude-code": {
@@ -1065,75 +1109,79 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/2028-ai-leadership": {
-    "sha256": "02eb1937133a53e2ea3641a22eaf304bbcfba38140e96bd3a15df787d567291b",
+    "sha256": "bbf4aa0891bbc974e1bbf38851589292770095527f447de2c4f730e81be11175",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/81k-economics": {
-    "sha256": "84467a709e87098458a2a8303f8a5f76c87c6aefc3ff9abb3a038a8899fa390c",
+    "sha256": "38ecddd35602a82636438ad728bfae4b4f3b642454fbaf1dab95ab87023b45d2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/AI-assistance-coding-skills": {
-    "sha256": "7b0713028fefed9d86c3639b2cb35d6c69cdad0f7f691d7f75ebfc107caa7f6f",
+    "sha256": "bdd2546a9917da3f14ad0e8760036f0899d0fdfd1e7e77e44ebc0c79a89f7c05",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/AI-fluency-index": {
-    "sha256": "4090d164ef337e9a19a8e54b49fed4b65a21b66e8b62e75233535919e7dcabb2",
+    "sha256": "f5a0c06eeb99214f7513ad1d0a78e396dc746265db0dc837eb6e96e4e1db5222",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench": {
-    "sha256": "73caa8f25baf7d6b88a07042bc8f746358a5d400772169d5ab51c9687608d8d3",
+    "sha256": "33fce3ab2efd1ef42dc732b3fb6a6388fde2a1bf43dfdf7be15e93d3f36d6b6a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/a-general-language-assistant-as-a-laboratory-for-alignment": {
-    "sha256": "d48291a502fbaa65080505b04b3ce713888d3385889305452d9833d1aee0dbc0",
+    "sha256": "dcb8ca2106f72c67d535a6e78989e45e8aefc68ab350eafcb1fd6c780205a49a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/a-mathematical-framework-for-transformer-circuits": {
-    "sha256": "24f27724bc97e7aed52dc0dadde01590a2029f028e485155a86d53b89faa3ff7",
+    "sha256": "8da5fd62079dff9b51d9088d9639c08dc058a50e9ba86ca53ffc3c491585d7f9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/agentic-misalignment": {
-    "sha256": "d3a57aedc43dd5dd8afa0e7e582c80ac967dd0583e01804420011d33dc9733f8",
+    "sha256": "b097c61ec595f1252e44eeaaed3f79f32f6ee624158f4cdcd74f547cf87a71e5",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/research/agents-in-biology": {
+    "sha256": "4f1be07c325f2bb9c547467c041b0b1ddbefc9146e36ed3ba958830808c4c8f6",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/alignment-faking": {
-    "sha256": "d70e2e748713b76060a651714d319883f48521a2c03d1e32e25e2c6ccda4833e",
+    "sha256": "25a775875bde495f0e16f218bc67837f869f46c8e66fcb4cf04981d76fbfbdd5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/anthropic-economic-index-january-2026-report": {
-    "sha256": "84aa6a190c7811e485b8c9dc86489612ca845a43c7ef088820daaea82f038650",
+    "sha256": "bf4afd5efd24d0d322a6330f08f78e7cb8ae3992aa4f262504952f8c9acb47d7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/anthropic-economic-index-september-2025-report": {
-    "sha256": "cb6078e2182e5d81fb7e75baa521e51d36a389717c8099ac0920987365c08efe",
+    "sha256": "b78b976054f5e6cb487b63f3f61fbb9b77f5f9a613eef24c05ece79a117dfd75",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/anthropic-institute-agenda": {
-    "sha256": "d7ac9158f6feb3bd90f4f8dc31d1b0ae6f94a2fde15632c6814903b0da16bae7",
+    "sha256": "7d53885db897fc5bb2b164d435d7ff0de33f95b9e4eb3dcaeae8d6907b41d416",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/anthropic-interviewer": {
-    "sha256": "b12809df8e5c9054920231f7d1fbb9f429f40ef73ba6d897d0ce265cda061780",
+    "sha256": "92b4587fde940fb663299f0a4677433ab592f112a95c57156389b0bf1afae4bd",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/assistant-axis": {
-    "sha256": "1ede6ebf644f4a4b1ce8e2547babc3573a8e63a685c99978b4540c2adb084ba9",
+    "sha256": "9ff61fe4e361224bebc6c994d6f315d78bd657df16f7f8fa48f0bbf7cff2c001",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/auditing-hidden-objectives": {
-    "sha256": "cf10c91e5f15f4ad05f40bfee90c26f28bff8246eeaaa4f78895dc95031c47e1",
+    "sha256": "6348e72dea9603dd28d6b3bfdb1670ded11739a6a3c6194834546005f1f5305f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/automated-alignment-researchers": {
-    "sha256": "315b8e2276e9a9195335fe26372eb398039f17cd5f7639bb0901e4ccd20eaf31",
+    "sha256": "4378626558cc47ffbf7700f0600e87858ea5c85c83b609940d5cc12b007c90a6",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/bloom": {
-    "sha256": "3a7ff0d0c9ed64d8f0560402d2a0565c5b0fa9e67dc39841203b085cdec261c2",
+    "sha256": "12e87338a630db1d1c63ebf5a7825dd6644dd6bdc4ff6e58ece425587c7ca3cf",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/building-ai-cyber-defenders": {
-    "sha256": "019bd82a2f37bd6b621d0ddf31ff2bf914849aa2487f961fb9267e9e48463f35",
+    "sha256": "8de36392c7c8928002e5de4d072d864ac0fda52383f681688db73d04b7dde0a7",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/building-effective-agents": {
@@ -1141,343 +1189,347 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-april-2024": {
-    "sha256": "f969043526dce35a71be99819c5988d86bc7a929926618aac27fc305abfd179d",
+    "sha256": "8105e7e355e753cb6a42568cdf7c3450838b8b02ec1e57584be98ca324863c37",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-august-2024": {
-    "sha256": "d20fb44a513510c0021948e903b4fc87a79051394ca7509979f4a99da05b4226",
+    "sha256": "9d0652e613d01932d0852ef325886a9eaa47a4a1fe0fc446e5ae41206048334f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-july-2024": {
-    "sha256": "6beb0bcdfcb3b14d79f5b36e64a5678814175d69184f656ed3ca5083c24eef61",
+    "sha256": "ce6725c027abf39ee458db43a0fbbc3293c2f5b2ccc61883d1df88ad075337b3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-june-2024": {
-    "sha256": "a813ea0116c5e7e6f027f9107f9b2d4f9121263e63703e46854111b17e9e3392",
+    "sha256": "53f7692e29556531a2478f34480468b667e78c74c5a0289e5a0a406605f2e732",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-may-2023": {
-    "sha256": "bb088154bb4cd6a5528d9f1d2e02b030549048657cf2da65a99eec8f7f1996fb",
+    "sha256": "4b31f2e34a5358a0e9ee871fad15d6e08737f667811947c54dee913f99cbb94e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/circuits-updates-sept-2024": {
-    "sha256": "466bdc0599d0e5ae92a5e7e74c118105d1b56ced4ed09b3d6025b23767f36ca9",
+    "sha256": "73a739c641c6d64732fa4d6bd1f363017db1c972ef183d609e8dc6ac7edcdc34",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/claude-character": {
-    "sha256": "5215116315e8bbfbedbeb1903d36c00a27712afeb7b99905a6e48d9d2867ed0d",
+    "sha256": "ee3e38e88be55ecb8492bdf0b37ca958447b2f40cad7a2d358aae342c1a2337b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/claude-personal-guidance": {
-    "sha256": "db9b9197bcbe8c765f580bf706f3be231665e251195e0d764d84639a6285433e",
+    "sha256": "e469d222bd2f31c15937902ae1e98597d247fedf4fb0be374a1cde33f636c4d3",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/clio": {
-    "sha256": "a6dc615ff81b368fe3838f2895031e4a62f3197fe6b06e19d0f10db445fe943f",
+    "sha256": "d53cddd4d0f7d1a9ba9c94a78a8b002820522ab5e19e1c2adc6b713517e49626",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/coding-agents-social-sciences": {
-    "sha256": "5e7ada4849daf987a6f23560dab15b768349c3665974ed4bf731c25dcc43fe61",
+    "sha256": "d74bd683f2d97555bd32406554e973f65f4b2bc00af3b8c399a79c26d022be7f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input": {
-    "sha256": "2d891ffb8b9d8ffa467b6905e7989471a7320331e1d2d095fd0d07f6ac1c9c65",
+    "sha256": "b701f1957845173e05b90f2f557078b698244fa8e78866f44a8ff9730ca4d560",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/confidential-inference-trusted-vms": {
-    "sha256": "3c195df7796d68a11e4190e6ef38165d1e8c1487a9b1f329e154d568321d31ae",
+    "sha256": "f38be54233694e9dfbb1b8beaa668d669ad11ab8ab05f274e3dddba52341817b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback": {
-    "sha256": "c6f29c83c4e390eba363e950d748786654f2ab231ab560979524ada28832b76d",
+    "sha256": "05d5aa0066b23e73ad9602ff2bc20a4bc390013c3d7f9ac01c4ed4edb3c2df13",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/constitutional-classifiers": {
-    "sha256": "9edfab63e149c4156406d2b6455a6c652df87abbc2e6f14893087135d0f3ff24",
+    "sha256": "407cc36ee9d1518d11652e13bc40a8f4759d0bef3c032dd7c95158689757ce51",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/crosscoder-model-diffing": {
-    "sha256": "b7f19c1a97cb7e4c059449c091796800558621e44e5ab057d0061a88954d7f69",
+    "sha256": "aaba603232a170163ae774a2708812beca579af2d8b05079c80e9fd8de633803",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/decomposing-language-models-into-understandable-components": {
-    "sha256": "fade97e260aba6b36eb5450aae1ad0c34d74c00970061c5a31faef572ab0511c",
+    "sha256": "f791508ec23bd3891f281e8382cc918f5d829630c2fe02d573df5be3af3b2084",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/deprecation-commitments": {
-    "sha256": "240d62cd66b1a7df2c84f29b897826e07f08fbed915fe104d16437b5502833b7",
+    "sha256": "4c473bd4b4c0ac2467226a94b4272db4f83873dc46dd8d54182eb657c944cefe",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/deprecation-updates-opus-3": {
-    "sha256": "1446a44814ad8bc985e4d2c48aaf75732cac378df8f5910ccd68594aa286eff4",
+    "sha256": "2f2dccb06d17e8d4bee46b6aa7da49a27251932045c7dcacc70d622f72da6ba0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/diff-tool": {
-    "sha256": "8bd989c026fb4ceec8dae9620f0fd0275815e5e142728953ffbd5d3cb91170a6",
+    "sha256": "2067a420bbeb5d820804809803f62596c618f6b99e177c5c13f8e504990f7420",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/discovering-language-model-behaviors-with-model-written-evaluations": {
-    "sha256": "f89a386c0cd8f6dc647b1c2fb89bf6bf4faf581c80524a8c9ae03d5898e6a9d1",
+    "sha256": "b76337c865f229a956c8cc59a209049b10dd7e41e5c146932aa5d57cc24ad206",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/disempowerment-patterns": {
-    "sha256": "693eea316a220a37f14b5a6d8d6fe3d0e0ff3a70ee6c5bab563384dcab8a6657",
+    "sha256": "21a8f298001e7350cb6bc7bad0e70e9521bf2b25372b0f19f5869c385d0bd02e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/distributed-representations-composition-superposition": {
-    "sha256": "72fc9f12af448c9ccb282692e6bc42bfa1a10e6c8d96607ff56c5e04a3705123",
+    "sha256": "28eb0fb97e0417e79eb48afe3b5e4d8e5b6341d0e43981219d33075918fab8dd",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/donating-open-source-petri": {
-    "sha256": "f740e81b7b2eecd74ff252517f742546c8b7818e9360796d41c2ff9f0e024308",
+    "sha256": "152bf61c83a73ab11e31be3268c6367e7a7cb862ea285c5bf3528de7cc12a26a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/economic-index-geography": {
-    "sha256": "bd500dadfbb41935b9dc23052986a977a79b11ffe086429358e57c37ca445c39",
+    "sha256": "d3fd332e48f0d9cc1d95895c4fb02439a411d41ed4368a7557cbc16114d39f14",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/economic-index-march-2026-report": {
-    "sha256": "b4fd6dd3233445fc154fb218dc58c2d4e4946f4b31e5797f3b3ba0c18b3e235b",
+    "sha256": "f29c8ee2816363f74d9b0fcaca348142dfa9e3a36e0a120534a847ce4d2a135a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/economic-index-primitives": {
-    "sha256": "b225e6523cf804c9616fc409ccefe8acc578bcc46e5d60846994cc85d4783920",
+    "sha256": "0edcde8a22d4248d5ce4eae75477869bb38e53ad4938a976c40a3cbc3a2f4c8b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/economic-index-survey-announcement": {
-    "sha256": "517d1787e2a6800799f7b0cdbad0e82a3dc1faf7ead23cc3eb2fe1d67a5c62fa",
+    "sha256": "021a6ba2055ca60740dc5fc72c13aa22dfb8f06748bee47de08fe883ff468f18",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/economic-policy-responses": {
-    "sha256": "eb374796e286509e999b514e58fb979251cecdd1c5e23d576b1760768a9e6e81",
+    "sha256": "2f0a7633a5d64d33f77c50f2896295ff9c2a68447048ed2435955a8af00a88c6",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/emergent-misalignment-reward-hacking": {
-    "sha256": "b399d5faa4386f43db8440e66276a13c478de0bb84cf50752f90909f522d7701",
+    "sha256": "38a2ad694fd4fc96f2d8af321f2c512727d2abdbae10901cce83802fc98fbf82",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/emotion-concepts-function": {
-    "sha256": "ac8667cc1cc09b02187d9e2cc5ecd46b1821d0812258c9e647a5116e5a123eb1",
+    "sha256": "cf0fdf017ed89f50a0d1ff404eb692f75f78f7f7ec82c300c94706694a1af81e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/end-subset-conversations": {
-    "sha256": "cbf9b6a1675e0e9164ce2351271f6fc05ad03f03930af5ca0791f0252325ca30",
+    "sha256": "6d5ad9cb5ae0054cdfd30308084f967e258811d6b1a82f5c69baa5f4992212d0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/engineering-challenges-interpretability": {
-    "sha256": "a0688eddaed96b8eac70c16e544c481e6ce607303288d6133fa64b1e73a67652",
+    "sha256": "142cf8cfef4954c3b1c00f83d00a0b5f6d6c501c047772e2e33993224a9d7ada",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/estimating-productivity-gains": {
-    "sha256": "e4369261232516ef21e3489c88fa98faf0d73235a420f87c03b5f7bdf1d6f079",
+    "sha256": "bb4d565c871cd3c540add6c95cbda6f11c242ff97ac91297103233e40934c11f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/evaluating-ai-systems": {
-    "sha256": "dce33435c986b37eab181a03c63fdd8d9f75b27ce147fa5d0bd29a56eb39ace7",
+    "sha256": "2f6d67112a8be58943f41a8d3be9071c61c52de202de668ee0cdddffaf98eb1d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions": {
-    "sha256": "3d3e3f3180c1f7b2a5117d04b74450e217233a2c4336609ed4b8f4338ae2263c",
+    "sha256": "ad7f0078f56436492b2aef385f2583bbf0e87eaf09ea9d911da788243882639a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/evaluating-feature-steering": {
-    "sha256": "1935c40cb4977dc7e424ff2ee9b884a24e2f80779c34ee9168b68c5f7db2eb58",
+    "sha256": "7ca504d74595ea2c60d67a5e7f54a505522fa8432a82b6cb834806535202178b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/exploring-model-welfare": {
-    "sha256": "eeadafb5216c469fb6b8c46d0222c8a3270272535777a1237b6dcd409df5cbb6",
+    "sha256": "b25f174ae70f1b15859d1fa236a48a0259faaaa7396e686cdbd4293ad6d44dad",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/features-as-classifiers": {
-    "sha256": "bfc6cb4bd2caf27d8db6e807ae2a60576ac01839ce674b7974ba5815c64e298e",
+    "sha256": "d3b8bc7c5f25a65950b265ea153b8776c2efb52c6592eb2e9edc77aa97f4e20c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/forecasting-rare-behaviors": {
-    "sha256": "5b97728b16c8f6e7a09ff3f781a92389ce990d218e125837dcdab08b0a96cc1f",
+    "sha256": "972adaf3c2c98cb68325b4d9f5313396e73948e4d33baa74c41fc11b1a5d837e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/glasswing-initial-update": {
-    "sha256": "677f398104cfbb2c67660cecc377055f76b676aef61dda154c0d3d7af1c1ea0c",
+    "sha256": "ef8a9205b39e0563d99453b07af1ee4e9512ecd4197993f67bb50e5f7a740f02",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic": {
-    "sha256": "5911a0c5cfd51ca3bba1260d7c51323f5e62293077950da04f34579d8774af98",
+    "sha256": "b7053c02f76112895919d870ec4190b5863b7fbc3b3e09ef951b4b494056e3fc",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/how-australia-uses-claude": {
-    "sha256": "a1c7f61b3614a75e84322a6c68933254be026c478f531aab8f24793cb57916fb",
+    "sha256": "6da2b76362ede40d487de65dce893a8fcbfbf26becad45f898eedfaf17a51857",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/impact-software-development": {
-    "sha256": "dbaf54941542066fedb971df427651004bca57efac1faccb19fcbbfbb6237d21",
+    "sha256": "3649fa44f70a27580472ef140b68af89ef17cc093b4b2430ff03b77d724fba96",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/in-context-learning-and-induction-heads": {
-    "sha256": "9221f1d8db490ef71c0ef21ab7340b51185e128b1fd761dcb877db4263985633",
+    "sha256": "dfbb1bcf253383589a1d16b08168f0c614bb862126f71585590e00710439ef1f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/india-brief-economic-index": {
-    "sha256": "68316c6602ba6019879b9f02aefce4068e0fa492c4ee4cf80eafcd9bcbaca3fe",
+    "sha256": "dee66d2929d5ee7c90dc311ba1baecc2ed627804a110afd6548524d92b1f2d77",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/influence-functions": {
-    "sha256": "401271242a0ea27786a57f986b6a4ac4936fccbe66a29047810b62a971e1c1f1",
+    "sha256": "d777e92e187e1189e60a2e75b15cb9e3ef392d56cdd9e34a7e7129435b1271f4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/interpretability-dreams": {
-    "sha256": "3fbb73c18c9b9bfe5b80e0448ddac2846440234566b5f565d4f28c19f51d0e9c",
+    "sha256": "c9e4b15dde96ec87d1c838a992c975ea9ccd2bbefb90ddcead64833a9793781b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/introducing-anthropic-science": {
-    "sha256": "86e4af78e69e041bfb996e85d68c582afa0b7e490580e32ebba6ee0115bc0b82",
+    "sha256": "fd9edd8465e2b1c8d4ffa903d14679b1c173f5a4b09007532b136228d9eebf10",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/introspection": {
-    "sha256": "53300b4f63a912df19bc25a1f7e195715a47d6cb017425db8ac87ee10806bdba",
+    "sha256": "68cb01906129469b3fcfdfd5ca80fcc68ca3b146298f91ddc7fbc19c572383a5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/labor-market-impacts": {
-    "sha256": "ae2e71443bb8319749d2e31ede78a8109af6cc1281a165c0ccd3bbed7bf6ed4c",
+    "sha256": "18aee5c2e8033ad69cd9ff40f1cb41345d4f0495bcb7276c30e4054007b57b84",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/language-models-mostly-know-what-they-know": {
-    "sha256": "6c96de0990c5cbf321f6df6e629f975b1aaa28c1e93108d2ae279071fd548f61",
+    "sha256": "a90ea6ba94409937f8cad8a597536affc6f3f65c761223ad17c4eb73f26a456e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/long-running-Claude": {
-    "sha256": "b92f87106cc973b5c0cc05a7af3338257d23b4869dc21d43ebfa26dcb33d4feb",
+    "sha256": "d8ed4dbe7d9743b114fb32820d6b9cb6178ed43e5ae860ea0dc694f50182662b",
+    "lastStatus": 200
+  },
+  "https://www.anthropic.com/research/making-claude-a-chemist": {
+    "sha256": "9bfbefe6ffa760fb0998f15b7ced5aa87b5fc2e988e6c8486ee0af8748f9be60",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/many-shot-jailbreaking": {
-    "sha256": "96c916023f3d857c10452dc5094b8c65068d166a4b4dcdfbf64fe4baab26bf9a",
+    "sha256": "abff24859dfe7716a1d5db6469c886cdad8b4831769e175da0e0252a1483204c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/mapping-mind-language-model": {
-    "sha256": "73a2bdb74a2151b4dfe4615ef46cc92ae8fd005ff30d0ce500cd2deb70cdfc19",
+    "sha256": "95440343d861978e36f5f70185b970407f8ec89014c198d64a609c0783f7950c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/measuring-agent-autonomy": {
-    "sha256": "71133c3a26cf7087966789e3026bfc288d080771f34ecd0c1cbfbe673bad6b48",
+    "sha256": "406eb500e1941fccc8f506a297b7ce62f307b91587b4edcf70892b5d451931f2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning": {
-    "sha256": "9a6e3dc665bde29813f5d0191ae8991732c7ee7b747aba7c7cd0a54e93a615b3",
+    "sha256": "c0497c0166989b0ff37a2d61365edc4bb3ccd487cfd8dc9dbd536e85db674456",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/measuring-model-persuasiveness": {
-    "sha256": "ef5db5f8a254aceede29591f5f410d15f2d22e150478674f89f8a5036265bc4a",
+    "sha256": "b906d3805732b5380b07593c9c75e0be6a80e8f9de99886a38071813924eeefd",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/measuring-progress-on-scalable-oversight-for-large-language-models": {
-    "sha256": "01e60bfa323b0b9a5619ce7afc5615ea2b4555a6a5fee763356577bd39df98b2",
+    "sha256": "98e054a8c8c46c7ded0bed138b3dbd7cd6e35ce8ed9079bf73b4d9165f7df2b5",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/natural-language-autoencoders": {
-    "sha256": "b79430a0a5b1e7118d1a49cd98bcf1a4b9fd384ef0d8d3d392335320fbd5071c",
+    "sha256": "6b852051cd8dcffa9a53f9d8172dfd0d507bb95c56a731b3d417acb5f20a1b7f",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/next-generation-constitutional-classifiers": {
-    "sha256": "acdcb8d8aa31eb2693c84adbd008505ab8cd29c5d146b76f1cb3f0f506de2913",
+    "sha256": "3798c82880ebb6b154dd80434e0eb111028da3b2c8caa506d02cb76897afd88d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/open-source-circuit-tracing": {
-    "sha256": "f4be95fd1e045f57c7311c0962cfc7d120a73fda6f15d1ef99a772b72eb35725",
+    "sha256": "e2bc1e3f7159d96207f8eeddef36601ab52ffce669c2e102ce56a7ed6a2f388b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/persona-selection-model": {
-    "sha256": "c829a0fbdc12d60b3e8f00a0aa893e1507b5761ac98e1652428fb3eca1369283",
+    "sha256": "b7aa92be027cb4ce8f00ff28232c1fc8b4bf08b94d6188eb9040234d0a919c64",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/persona-vectors": {
-    "sha256": "0e89e4cc4d9f2fc6a63006cd9b3bb5a9bfc4f439033f597a17f4fe861f139598",
+    "sha256": "946d0066c21fa5c2c2be2106b313e6ca5666afa4fa7206983a504bdd0dff2f19",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/petri-open-source-auditing": {
-    "sha256": "6e9bfe0cd20aa51428457e6baa2cd4ad00566c59da8a139f9c5f3c8a72a96fd5",
+    "sha256": "8d63b109990dd1274ad4b4a39a96e4c2e857d0e94a5ee745f851d19a67b30822",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/predictability-and-surprise-in-large-generative-models": {
-    "sha256": "69412e9d5c2af4a397bdde3503ceaa382b0415f6c28559c6a0f74ffec1f0116f",
+    "sha256": "2b5dcd8368313069662fd4920b63afd321f073bde804161fc7453e676f7531b9",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/privileged-bases-in-the-transformer-residual-stream": {
-    "sha256": "b75d92effcaf006e88d140bc3d4fe9383f5933a78cdee3bcd7d8585ae2971e8f",
+    "sha256": "ca2fdc87d986e496adc9def6af01fc55916b73038a6dd021c64e8aeeae86367d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/probes-catch-sleeper-agents": {
-    "sha256": "4b4afab1383cb2094409841cf61653d7e3d3b0b6abe933895852ffb327fb54c3",
+    "sha256": "5d844bc15b5385fbb1074e1f393e5252ab0e0448fa7dc34f622e79147b5f485c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/project-fetch-robot-dog": {
-    "sha256": "1d44078e741fcc4661ba239c49ac5258183c508f7f4c06595d493ea26eb925bc",
+    "sha256": "9cc0b1eff9b580cf4c0db401f037aab5c73f5f3f5bbb3f4212e6cfc30f2187bc",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/project-vend-1": {
-    "sha256": "8cc770cbf28934029afaed61d75cf4cddcd0079f401720d04b5ca42e39748f05",
+    "sha256": "5b6e7a598f92a446951ce244c1b4c9c6b79637a86a82ddc1110b560ca004990b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/project-vend-2": {
-    "sha256": "1a6f7bab028a15301bff974292bba1aa1a3c12e13e19a9753fc69973fe1cbeda",
+    "sha256": "431bc3363001e408975860761f12e66b04c2eac44d43547c266055472acdac33",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/prompt-injection-defenses": {
-    "sha256": "ae5539af51910f974dd26e8cf704aefb78dc9e29813629883a5954ba2da42bc6",
+    "sha256": "c0dcd280d0b91ce39c0628b6f5afdfdb8b527c6f07aa25b74d94aaf754217da2",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning": {
-    "sha256": "2487b9cc880fb297664951ffbf9528542aeef052fee891665618f298a4a60b11",
+    "sha256": "9d5831574374be801fc7290c6d9a5b026c0e57eb82d666bf3090c0bf1ba63b8d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/reasoning-models-dont-say-think": {
-    "sha256": "3f4a14ea77b02307963dbabb56789a2cdda378f26ea05bfce5f1cf4a55a5f3f9",
+    "sha256": "0bc7d3ca3ca0efdc475050455434397e05587982a3fcea9795f8759b8c6c9c7d",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned": {
-    "sha256": "6cbdb5843a8dbac1556f2d759abdc951d022323671850358fe17961e69f985ea",
+    "sha256": "608622f2e721d2cf555d8990f60ff19f6a8c7036c4c496e0c69c01e3ec355ade",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/reward-tampering": {
-    "sha256": "f4428bed383c81a16a76305448dbf0224e97aff8b77b5fb2b45533cdb2aa189d",
+    "sha256": "6cc99d5bd25db3d7f1bf92cc2ba4103c1b19fa55febf7d9d42ed9eaa700dc0ed",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/sabotage-evaluations": {
-    "sha256": "17726652747edefb6b8403c7a937806321dbe5364414c680495a738588a18c20",
+    "sha256": "e0bf389caa3f94f2aa4635ee5b91f84fe63b61e43ae618d38774e34774995e20",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data": {
-    "sha256": "e224e0811340746774e46f6501ebb8dead945d6c12e3ed65875fb86325b43aec",
+    "sha256": "10804a868311e00959924cdfdde67e9305b683d1643de42f1aae72898a7f1972",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/shade-arena-sabotage-monitoring": {
-    "sha256": "ec7ac56f1b58fcf8d14c8d682e1b8e8d1f13743588a27e4a3002f4d4b164710f",
+    "sha256": "ea562b6d8e79a84da3d8e1bf3c8f524517a2e2b37222370d47cf81f335481e12",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training": {
-    "sha256": "966794269eca47a870251171e2c9842b6c0507388bc79e718ea018e8bacb7879",
+    "sha256": "088b23ffd598cdaa7c39c1051d4ca7c33e81999e57d6e0b398353b4943172b57",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/small-samples-poison": {
-    "sha256": "8072f6cb35c8e1f2ff83724cb3b58a7c64085752c9225adb267909ab897be91f",
+    "sha256": "ac7834245efebab49c63a179af51dc0aae2c1ad8afd11158b84b7fa7acbe3caa",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/softmax-linear-units": {
-    "sha256": "06777bcecf90a2cbf813049af474d82d7b6cbb2be60bf9a244728c042237e9db",
+    "sha256": "2836a0451d7acd82b186623273075f66f19f980ec35b807753135c67a8843be4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/specific-versus-general-principles-for-constitutional-ai": {
-    "sha256": "6a18566137ac195e8e62e588883434f92e0d872ff8075ef387a4adc028d815ca",
+    "sha256": "4444dd482864228f0cae977becc2a3153d2a51be767b817fc37b3b46e88ac31b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/statistical-approach-to-model-evals": {
-    "sha256": "65a76205d040ee759c3b9bf529fa1d9f17379be75ac2bf9b659fc732d45f8778",
+    "sha256": "e42993ed9032129b5cebde635a1ca4c44ff8ee2ecfb1b1393a2711708dee692b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions": {
-    "sha256": "d5e20a7bab43af572963d1435ab5952bcd7837390b7997d4308cac1fbb8d4742",
+    "sha256": "25e0b8e5e5108ae5e43671a0d02013432b8d20f40a9c7188a3fd120d50eb33cb",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/superposition-memorization-and-double-descent": {
-    "sha256": "6d3710c54edd871144a77be13708b1824f910831d3db9edfc16a41fa38919c0f",
+    "sha256": "2b320699cf4a3ece4284e7b3477d8171f3f0e76f9985cf979da539116cee3f2c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/swe-bench-sonnet": {
@@ -1485,71 +1537,71 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/teaching-claude-why": {
-    "sha256": "6e92dbee2a7e7ad84f9a995139bd270f96d8d5cd611cea638d1bfad9313aa416",
+    "sha256": "722748afde1f376a1d0cd8d408b4e2f106da60d938222737ad9da1a4a62dc8af",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/team/alignment": {
-    "sha256": "66f5fcae61f9b008639aa6c2b77ffd84b3c81dd3692123fd038d8547cfd12e8f",
+    "sha256": "2279571806e860af782c978c706849d28b8df3c874d6e3444e15506a5e4afd14",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/team/economic-research": {
-    "sha256": "b1208bb42dff9a8ff994b471f29d85de0bcac65ec77f31247698d60e08094dbf",
+    "sha256": "fecb539401e4f6c144a28e91b3c94cbcf5a1f98681ae9654415dc75b2f2b4979",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/team/interpretability": {
-    "sha256": "8b118d9acf81f2965430e34dafd6cce217d7ba5767a3024e267b3fe8f2ceda5c",
+    "sha256": "2454d5b904d95acb0e11be632e4266ab4bddba292281102377c85daf5925d225",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/team/societal-impacts": {
-    "sha256": "eb72d2ff5bd31ae2e67327ab9e0059879271b6b9febe0a101283c7e3c87a588d",
+    "sha256": "e2807e732b40a24b5753b6034467a05ef051ca94538d1a4fc4d2ec1eddeaa727",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models": {
-    "sha256": "aa9e8fc8735dcb6af4069bf3004663a623d4fcc41c9463a11f0a7fb9a82cb257",
+    "sha256": "e9a097710ec07ecbb671084852fc0cc4b4964d89d0d138c79b60bb7773dc2b26",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models": {
-    "sha256": "5f24192fb13d992b9082c7acfd27415d7e6da6604e6b41e6f0f58dae4bcc1786",
+    "sha256": "c1b873ba1e1423cfeb7b4b17a223ded0880838bfeeda136ed82d56bdfa812a81",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/towards-monosemanticity-decomposing-language-models-with-dictionary-learning": {
-    "sha256": "586024125354c59f8b8d765aa9a903e5f91bd58503cd7ca8b6a2c0b67072fe91",
+    "sha256": "d1fb63fd4ffa34bba332e86ac2272b5473f1d2751573ac716eb0682f8a38b16a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models": {
-    "sha256": "3745ae2231ec4a2566e9f607c1d84ea542af92bd675b90cd6952c5ba4df32f40",
+    "sha256": "fdf9180493b1246dec37e47881a486bf5a8e74039598dce6ddb98ded81eef0f4",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/toy-models-of-superposition": {
-    "sha256": "38374018bfee3c464f5a93aac919238b078dbc9645477cd3f88b644315a984fa",
+    "sha256": "62e87e462b674edf5619604116a601c1295b10a59da305f3b28981da567b567e",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/tracing-thoughts-language-model": {
-    "sha256": "fb938b96a2ca21c2bac9713f39f63ba804495a1e64a7c68d2e55068e6f2cb074",
+    "sha256": "581d3aba08b8ba5f75246dc67f91ba0569349b63d79fd04d7ff935c66b33d142",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback": {
-    "sha256": "64025cc02f60616ebc2e4a64ef5c2fb90aea43622e66f629803ceba106b17016",
+    "sha256": "0bd388e8dc32653732ec98ec6209838e4045571a1e468e0f150ad31e8ba6e273",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/transformer-circuits": {
-    "sha256": "04429b431f338d31cae448aed83b2762878ed1b2fe075a7ddd9ef1f326c138e1",
+    "sha256": "a3266485e1f38fb3da1d82cb5d8282fa205741c075f778388609422ad26f8599",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/trustworthy-agents": {
-    "sha256": "43b8e8294e798fffc1c7c4534fe8164793399810d04384f299a8d73ce1bec778",
+    "sha256": "a22bea396ee2f9d0aa7d3e3c6c71a0aac33360d9b8988defd6f44c014313ead0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/values-wild": {
-    "sha256": "93a7460baf900262d20b3b15d88b90308deffa648260513a363c1de54c451335",
+    "sha256": "003e6de5d75f6c8327cde0db15931b0342569c6e2aec6d852f49c6baca986181",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/vibe-physics": {
-    "sha256": "5f841dc87bf868b443982876bcb1c26970b3e4f2d059c0024867f092c73879df",
+    "sha256": "f7e4703c8185208a950257b67285209d951c2314d7b303225c03436ce51b1f8c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/research/visible-extended-thinking": {
-    "sha256": "8c6fa8d3fd7b5f76da606d95784e4c6279612d761612813fb4976bb2749e19f8",
+    "sha256": "ddbf8fb2aea0da2ac2f1f04e8badb43ff9fbb2aadd62e407656ef235ce66fe31",
     "lastStatus": 200
   },
   "https://www.anthropic.com/responsible-disclosure-policy": {
@@ -1560,12 +1612,16 @@
     "sha256": "314fecf5cb00e88e815bd8403af8848247a868d577153121815af3d9c85168ad",
     "lastStatus": 200
   },
+  "https://www.anthropic.com/responsible-scaling-policy/roadmap": {
+    "sha256": "e359b6ff3744f1638df66a3a43105a9ae02360cb5bd436a47a098a6e8a4b5d48",
+    "lastStatus": 200
+  },
   "https://www.anthropic.com/responsible-scaling-policy/updates": {
     "sha256": "ac210cf9a0de14c609b6ae3a4195a49cc0b09b289ef7f5c62e692f26c127f09a",
     "lastStatus": 200
   },
   "https://www.anthropic.com/science": {
-    "sha256": "f441ee89daf2a03cb54069883693d19c58e346c6a5cafbd9698ac8d0450c0d56",
+    "sha256": "afb4bb03691446c57fed054eff10c2d6d7fd550b79a71fc2734c9287676a48f0",
     "lastStatus": 200
   },
   "https://www.anthropic.com/supported-countries": {
@@ -1573,11 +1629,11 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/system-cards": {
-    "sha256": "5ba3dd8f0ca6c25bede4f99c44aed84b838855c9aeaf212caf5c5a3852da7c99",
+    "sha256": "7d52d01169863ca9f703c8dfe247058ef4571093d6417a8affbeae8137ff0802",
     "lastStatus": 200
   },
   "https://www.anthropic.com/transparency": {
-    "sha256": "d9d998f4afcc08e6bc08226d0e568062035d55f4ccd6efdd5f9c4e7109cb712d",
+    "sha256": "fe5732bb1c3e51f9bfa15ed876695a40610010ab3b972bba982ccb2b50adaf6e",
     "lastStatus": 200
   }
 }

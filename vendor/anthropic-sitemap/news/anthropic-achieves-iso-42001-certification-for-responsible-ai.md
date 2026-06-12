@@ -12,10 +12,10 @@ We are excited to announce that Anthropic has achieved accredited certification 
 
 Achieving this certification underscores our commitment to AI safety and responsible development. It provides independent validation that we have implemented a comprehensive framework to identify, assess and mitigate potential risks associated with our AI systems. Key elements include:
 
-- Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
-- Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
-- Transparency measures to provide appropriate information to users and stakeholders;
-- Established roles, responsibilities and oversight to maintain responsible practices.
+*   Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
+*   Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
+*   Transparency measures to provide appropriate information to users and stakeholders;
+*   Established roles, responsibilities and oversight to maintain responsible practices.
 
 We're proud to be **one of the first frontier AI labs** to achieve this certification and hope it provides further assurance to our partners and the public of our strong commitment to AI safety.
 
@@ -29,20 +29,22 @@ As AI systems become increasingly powerful, safety and security are at the foref
 
 Information about our ISO certification is now available on our Trust Center. This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

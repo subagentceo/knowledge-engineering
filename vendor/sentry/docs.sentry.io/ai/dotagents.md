@@ -46,8 +46,6 @@ npx @sentry/dotagents install
 
 This creates an `agents.toml` at your project root:
 
-`agents.toml`
-
 ```toml
 version = 1
 gitignore = false
@@ -76,8 +74,6 @@ And a lockfile (`agents.lock`) that pins the exact commit and SHA-256 integrity 
 
 Skills can come from GitHub repos, pinned refs, non-GitHub git hosts, or local paths:
 
-`agents.toml`
-
 ```toml
 [[skills]]
 name = "find-bugs"
@@ -100,8 +96,6 @@ source = "path:./my-skills/local-skill"   # Local directory
 
 The `agents` field controls which tools dotagents configures. It handles skill symlinks, MCP config files, and hook config files for each agent:
 
-`agents.toml`
-
 ```toml
 agents = ["claude", "cursor"]
 ```
@@ -111,8 +105,6 @@ Supported agents: `claude`, `cursor`, `codex`, `vscode`, `opencode`.
 ## [MCP Servers](https://docs.sentry.io/ai/dotagents.md#mcp-servers)
 
 Declare MCP servers once in `agents.toml` and dotagents generates the correct config file for each agent during `install` and `sync`:
-
-`agents.toml`
 
 ```toml
 agents = ["claude", "cursor"]
@@ -136,8 +128,6 @@ Each server uses either `command` (stdio) or `url` (HTTP), not both. The `env` f
 ## [Hooks](https://docs.sentry.io/ai/dotagents.md#hooks)
 
 Declare hooks once in `agents.toml` and dotagents writes the correct hook config for each agent that supports them:
-
-`agents.toml`
 
 ```toml
 agents = ["claude"]

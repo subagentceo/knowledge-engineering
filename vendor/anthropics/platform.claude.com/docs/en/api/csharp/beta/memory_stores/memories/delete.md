@@ -9,6 +9,7 @@ Delete a memory
 ### Parameters
 
 - `MemoryDeleteParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -24,6 +25,7 @@ Delete a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -76,18 +78,22 @@ Delete a memory
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemory:`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `required string ID`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `required Type Type`
+
     - `"memory_deleted"MemoryDeleted`
 
 ### Example

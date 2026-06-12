@@ -10,7 +10,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json get /v1/domain-knowledge/driver
+````yaml /api-reference/openapi.json get /v1/domain-knowledge/driver
 openapi: 3.1.0
 info:
   title: Nimble SDK

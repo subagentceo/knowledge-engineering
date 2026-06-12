@@ -27,6 +27,7 @@ List Users
 ### Returns
 
 - `data: array of User`
+
   - `id: string`
 
     ID of the User.
@@ -46,6 +47,7 @@ List Users
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -61,6 +63,7 @@ List Users
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 - `first_id: string`
@@ -80,7 +83,7 @@ List Users
 ```http
 curl https://api.anthropic.com/v1/organizations/users \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

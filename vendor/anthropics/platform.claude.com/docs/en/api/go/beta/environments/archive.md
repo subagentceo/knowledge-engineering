@@ -11,12 +11,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 - `environmentID string`
 
 - `body BetaEnvironmentArchiveParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -69,16 +72,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `ID string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `ArchivedAt string`
 
@@ -87,23 +93,29 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Config BetaEnvironmentConfigUnion`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `type BetaCloudConfig struct{…}`
 
       `cloud` environment configuration.
+
       - `Networking BetaCloudConfigNetworkingUnion`
 
         Network configuration policy.
+
         - `type BetaUnrestrictedNetwork struct{…}`
 
           Unrestricted network access.
+
           - `Type Unrestricted`
 
             Network policy type
+
             - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
 
         - `type BetaLimitedNetwork struct{…}`
 
           Limited network access.
+
           - `AllowMCPServers bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -119,11 +131,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `Type Limited`
 
             Network policy type
+
             - `const LimitedLimited Limited = "limited"`
 
       - `Packages BetaPackages`
 
         Package manager configuration.
+
         - `Apt []string`
 
           Ubuntu/Debian packages to install
@@ -151,19 +165,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `Type BetaPackagesType`
 
           Package configuration type
+
           - `const BetaPackagesTypePackages BetaPackagesType = "packages"`
 
       - `Type Cloud`
 
         Environment type
+
         - `const CloudCloud Cloud = "cloud"`
 
     - `type BetaSelfHostedConfig struct{…}`
 
       Configuration for self-hosted environments.
+
       - `Type SelfHosted`
 
         Environment type
+
         - `const SelfHostedSelfHosted SelfHosted = "self_hosted"`
 
   - `CreatedAt string`
@@ -185,6 +203,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Type Environment`
 
     The type of object (always 'environment')
+
     - `const EnvironmentEnvironment Environment = "environment"`
 
   - `UpdatedAt string`
@@ -194,6 +213,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Scope BetaEnvironmentScope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `const BetaEnvironmentScopeOrganization BetaEnvironmentScope = "organization"`
 
     - `const BetaEnvironmentScopeAccount BetaEnvironmentScope = "account"`
@@ -239,16 +259,31 @@ func main() {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

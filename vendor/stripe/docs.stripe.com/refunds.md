@@ -117,7 +117,7 @@ If your platform uses [Connect with destination charges](https://docs.stripe.com
 
 Depending on the type of refund, you might be able to cancel a refund before it reaches the customer. Some card refunds support cancellation for a short period of time. The refund must not have been processed as a charge reversal. Only Dashboard cancellations are currently supported for card refunds.
 
-For some [payment methods](https://docs.stripe.com/payments/bank-transfers.md#refunds), Stripe reaches out to the customer to collect banking information before processing the refund. You can cancel these refunds while banking information hasn’t been collected. Both the API and Dashboard cancellations are supported for this type of refund.
+For some [payment methods](https://docs.stripe.com/payments/bank-transfers.md#refunds), Stripe reaches out to the customer to collect banking information [before processing the refund](https://docs.stripe.com/refunds.md#requires-action). You can cancel these refunds while banking information hasn’t been collected. Both the API and Dashboard cancellations are supported for this type of refund.
 
 Canceled refunds transition to a `canceled` status. As cancellations are a type of refund failure, the attributes `failure_reason` and `failure_balance_transaction` are included on the [Refund](https://docs.stripe.com/api.md#refund_object).
 
@@ -131,6 +131,33 @@ To cancel a refund using the Dashboard:
 1. Confirm the refund cancellation by selecting **Yes, cancel refund**.
 
 Alternatively, you can click a specific payment and cancel the refund from its details page.
+
+## Refunds that require action 
+
+For some payment methods without native refund support (for example, Konbini, PromptPay, Boleto, and bank transfers), Stripe needs to collect bank account details from your customer before it can process the refund. In these cases, the refund enters the `requires_action` status and Stripe emails your customer to request their bank information.
+
+When a refund has a status of `requires_action`, the [Refund](https://docs.stripe.com/api/refunds/object.md) object’s `next_action` property describes what the refund needs to continue processing. The `next_action` object contains these fields:
+
+- `next_action.type`: The type of next action (for example, `display_details`).
+- `next_action.display_details.email_sent`: Information about the email sent to the customer, including:
+  - `email_sent_at`: The timestamp when the email was sent.
+  - `email_sent_to`: The recipient’s email address.
+- `next_action.display_details.expires_at`: The timestamp when the refund request expires if the customer doesn’t respond.
+
+The refund status transitions as follows:
+
+| Event                                                                          | Refund status     |
+| ------------------------------------------------------------------------------ | ----------------- |
+| Refund is created and customer is emailed                                      | `requires_action` |
+| Customer submits bank account details, and Stripe begins processing the refund | `pending`         |
+| Refund is expected to arrive in customer’s bank                                | `succeeded`       |
+| Customer’s bank returns the funds back to Stripe                               | `requires_action` |
+| Customer doesn’t respond before the expiration threshold                       | `failed`          |
+| Refund is canceled while in `requires_action` state                            | `canceled`        |
+
+If the customer’s bank can’t successfully complete the transfer (for example, the account holder’s name doesn’t match or the bank account number has a typo), the funds are returned to Stripe and the refund transitions back to `requires_action`. In this case, Stripe emails the customer again to request corrected bank account details.
+
+You can [cancel a refund](https://docs.stripe.com/refunds.md#cancel-refund) while it’s in the `requires_action` state. For example, if you want to arrange an alternative way to return funds to the customer.
 
 ## Refund and reversal 
 

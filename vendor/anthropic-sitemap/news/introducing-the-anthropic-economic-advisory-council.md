@@ -18,36 +18,36 @@ As we shared in our latest Economic Index report today, AI is already shifting h
 
 The initial cohort of Council members are experts in their respective fields, drawing on extensive experience from the highest levels of government and world-leading research institutions. We look forward to expanding membership over time as our research advances. We’re honored to welcome the following members:
 
-- **Dr. Tyler Cowen,** Holbert L. Harris Chair of Economics at George Mason University and chairman and faculty director of the Mercatus Center at George Mason University. Cowen is co-author of the popular economics blog Marginal Revolution and co-founder of the online educational platform Marginal Revolution University.
-- **Dr. Oeindrila Dube**, Philip K. Pearson Professor of Global Conflict Studies at the University of Chicago. Dube also serves on the board of the Abdul Latif Jameel Poverty Action Lab (J-PAL), as a faculty research fellow at the NBER, and as co-director of the Socioeconomic Inequalities Initiative at the Becker Friedman Institute.
-- **Dr. John Horton,** associate professor at the MIT Sloan School of Management and a faculty research fellow at the NBER. Horton’s research is focused on issues in information systems, market design, labor economics, organizational economics, and the effects of AI on labor markets.
-- **Dr. Anton Korinek,** professor at the University of Virginia’s Department of Economics and Darden School of Business, as well as a visiting scholar at the Brookings Institution. Korinek is also a senior researcher at the Complexity Science Hub Vienna, a research associate at the NBER, and a research fellow at the CEPR.
-- **Dr. John List**, Kenneth Griffin Distinguished Service Professor of Economics at the University of Chicago. List served in the White House Council of Economic Advisers from 2002 to 2003 and is a Member of the American Academy of Arts and Sciences, a Fellow of the Econometric Society, and an editor of the Journal of Political Economy.
-- **Dr. Ioana Marinescu,** associate professor at the University of Pennsylvania School of Social Policy and Practice, with secondary appointments in the Economics Department and the Wharton School of Business (BEPP). Marinescu is also a research associate at the NBER and serves as an associate editor for the Quarterly Journal of Economics.
-- **Dr. Tomas J. Philipson,** former member and Acting Chairman of the White House Council of Economic Advisers from 2017 to 2020 and the Daniel Levin Professor of Public Policy Studies Emeritus at the University of Chicago. Philipson also co-founded Precision Health Economics and is an active advisor to and investor in multiple healthcare enterprises.
-- **Dr. Silvana Tenreyro, CBE,** professor of economics at the London School of Economics. A former President of the European Economic Association, Tenreyro also served as an external member of the Bank of England's Monetary Policy Committee from 2017 to 2023. She is a Fellow of the British Academy and the Econometric Society, and Honorary Foreign Member of the American Economic Association.
+*   **Dr. Tyler Cowen,** Holbert L. Harris Chair of Economics at George Mason University and chairman and faculty director of the Mercatus Center at George Mason University. Cowen is co-author of the popular economics blog Marginal Revolution and co-founder of the online educational platform Marginal Revolution University.
+*   **Dr. Oeindrila Dube**, Philip K. Pearson Professor of Global Conflict Studies at the University of Chicago. Dube also serves on the board of the Abdul Latif Jameel Poverty Action Lab (J-PAL), as a faculty research fellow at the NBER, and as co-director of the Socioeconomic Inequalities Initiative at the Becker Friedman Institute.
+*   **Dr. John Horton,** associate professor at the MIT Sloan School of Management and a faculty research fellow at the NBER. Horton’s research is focused on issues in information systems, market design, labor economics, organizational economics, and the effects of AI on labor markets.
+*   **Dr. Anton Korinek,** professor at the University of Virginia’s Department of Economics and Darden School of Business, as well as a visiting scholar at the Brookings Institution. Korinek is also a senior researcher at the Complexity Science Hub Vienna, a research associate at the NBER, and a research fellow at the CEPR.
+*   **Dr. John List**, Kenneth Griffin Distinguished Service Professor of Economics at the University of Chicago. List served in the White House Council of Economic Advisers from 2002 to 2003 and is a Member of the American Academy of Arts and Sciences, a Fellow of the Econometric Society, and an editor of the Journal of Political Economy.
+*   **Dr. Ioana Marinescu,** associate professor at the University of Pennsylvania School of Social Policy and Practice, with secondary appointments in the Economics Department and the Wharton School of Business (BEPP). Marinescu is also a research associate at the NBER and serves as an associate editor for the Quarterly Journal of Economics.
+*   **Dr. Tomas J. Philipson,** former member and Acting Chairman of the White House Council of Economic Advisers from 2017 to 2020 and the Daniel Levin Professor of Public Policy Studies Emeritus at the University of Chicago. Philipson also co-founded Precision Health Economics and is an active advisor to and investor in multiple healthcare enterprises.
+*   **Dr. Silvana Tenreyro, CBE,** professor of economics at the London School of Economics. A former President of the European Economic Association, Tenreyro also served as an external member of the Bank of England's Monetary Policy Committee from 2017 to 2023. She is a Fellow of the British Academy and the Econometric Society, and Honorary Foreign Member of the American Economic Association.
 
 **_Update on Friday, May 9, 2025:_**
 
 We’re proud to share the addition of two new members to the Anthropic Economic Advisory Council:
 
-- **Dr. Chiara Farronato,** Glenn and Mary Jane Creamer Associate Professor of Business Administration at Harvard Business School and co-Principal Investigator of the Platform Lab at the Digital Data Design Institute at Harvard (D^3). A fellow at the NBER and the CEPR, her research focuses on the growth and regulation of digital platforms.
-- **Dr. Pascual Restrepo**, Associate Professor of Economics at Yale University and a Faculty Research Fellow at the NBER. Restrepo’s research examines how technological change—particularly automation and artificial intelligence—affects labor markets, productivity, and inequality. His research combines empirical methods with macroeconomic and labor market theory.
+*   **Dr. Chiara Farronato,** Glenn and Mary Jane Creamer Associate Professor of Business Administration at Harvard Business School and co-Principal Investigator of the Platform Lab at the Digital Data Design Institute at Harvard (D^3). A fellow at the NBER and the CEPR, her research focuses on the growth and regulation of digital platforms.
+*   **Dr. Pascual Restrepo**, Associate Professor of Economics at Yale University and a Faculty Research Fellow at the NBER. Restrepo’s research examines how technological change—particularly automation and artificial intelligence—affects labor markets, productivity, and inequality. His research combines empirical methods with macroeconomic and labor market theory.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

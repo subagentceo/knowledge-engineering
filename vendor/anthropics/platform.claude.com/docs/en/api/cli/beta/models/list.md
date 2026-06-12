@@ -31,17 +31,25 @@ The Models API response can be used to determine which models are available for 
 ### Returns
 
 - `BetaListResponse_ModelInfo_: object { data, first_id, has_more, last_id }`
+
   - `data: array of BetaModelInfo`
+
     - `id: string`
 
       Unique model identifier.
 
+    - `allowed_fallback_models: array of string`
+
+      Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
     - `capabilities: object { batch, citations, code_execution, 6 more }`
 
       Model capability information.
+
       - `batch: object { supported }`
 
         Whether the model supports the Batch API.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -49,6 +57,7 @@ The Models API response can be used to determine which models are available for 
       - `citations: object { supported }`
 
         Whether the model supports citation generation.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -56,6 +65,7 @@ The Models API response can be used to determine which models are available for 
       - `code_execution: object { supported }`
 
         Whether the model supports code execution tools.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -63,9 +73,11 @@ The Models API response can be used to determine which models are available for 
       - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
 
         Context management support and available strategies.
+
         - `clear_thinking_20251015: object { supported }`
 
           Indicates whether a capability is supported.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -73,6 +85,7 @@ The Models API response can be used to determine which models are available for 
         - `clear_tool_uses_20250919: object { supported }`
 
           Indicates whether a capability is supported.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -80,6 +93,7 @@ The Models API response can be used to determine which models are available for 
         - `compact_20260112: object { supported }`
 
           Indicates whether a capability is supported.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -91,9 +105,11 @@ The Models API response can be used to determine which models are available for 
       - `effort: object { high, low, max, 3 more }`
 
         Effort (reasoning_effort) support and available levels.
+
         - `high: object { supported }`
 
           Whether the model supports high effort level.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -101,6 +117,7 @@ The Models API response can be used to determine which models are available for 
         - `low: object { supported }`
 
           Whether the model supports low effort level.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -108,6 +125,7 @@ The Models API response can be used to determine which models are available for 
         - `max: object { supported }`
 
           Whether the model supports max effort level.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -115,6 +133,7 @@ The Models API response can be used to determine which models are available for 
         - `medium: object { supported }`
 
           Whether the model supports medium effort level.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -126,6 +145,7 @@ The Models API response can be used to determine which models are available for 
         - `xhigh: object { supported }`
 
           Indicates whether a capability is supported.
+
           - `supported: boolean`
 
             Whether this capability is supported by the model.
@@ -133,6 +153,7 @@ The Models API response can be used to determine which models are available for 
       - `image_input: object { supported }`
 
         Whether the model accepts image content blocks.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -140,6 +161,7 @@ The Models API response can be used to determine which models are available for 
       - `pdf_input: object { supported }`
 
         Whether the model accepts PDF content blocks.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -147,6 +169,7 @@ The Models API response can be used to determine which models are available for 
       - `structured_outputs: object { supported }`
 
         Whether the model supports structured output / JSON mode / strict tool schemas.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -154,6 +177,7 @@ The Models API response can be used to determine which models are available for 
       - `thinking: object { supported, types }`
 
         Thinking capability and supported type configurations.
+
         - `supported: boolean`
 
           Whether this capability is supported by the model.
@@ -161,9 +185,11 @@ The Models API response can be used to determine which models are available for 
         - `types: object { adaptive, enabled }`
 
           Supported thinking type configurations.
+
           - `adaptive: object { supported }`
 
             Whether the model supports thinking with type 'adaptive' (auto).
+
             - `supported: boolean`
 
               Whether this capability is supported by the model.
@@ -171,6 +197,7 @@ The Models API response can be used to determine which models are available for 
           - `enabled: object { supported }`
 
             Whether the model supports thinking with type 'enabled'.
+
             - `supported: boolean`
 
               Whether this capability is supported by the model.
@@ -223,6 +250,9 @@ ant beta:models list \
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true

@@ -1,13 +1,13 @@
 # duckdb-skills
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  DuckDB Foundation
-
-- Installs
-
-  196
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    DuckDB Foundation
+    
+*   Installs
+    
+    368

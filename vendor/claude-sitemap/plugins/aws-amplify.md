@@ -1,10 +1,11 @@
 # aws-amplify
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  989
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    1151

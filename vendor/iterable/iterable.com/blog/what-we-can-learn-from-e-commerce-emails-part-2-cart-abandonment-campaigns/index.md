@@ -1,3 +1,5 @@
+# What We Can Learn From E-Commerce Emails, Part 2: Cart Abandonment Campaigns - Iterable
+
 ## What We Can Learn From E-Commerce Emails, Part 2: Cart Abandonment Campaigns
 
 **Published by**
@@ -6,9 +8,9 @@ May 3, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/Iterable_QuizImage_Options_V2_Q7.png)
 
-Last week, we kicked off our three-part blog series about the email marketing practices of leading e-commerce companies, based on the research from our [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/).
+Last week, we kicked off our three-part blog series about the email marketing practices of leading e-commerce companies, based on the research from our User Engagement Top 100 Report.
 
-In Part 1, we discussed winning [welcome email campaigns](https://iterable.com/blog/what-we-can-learn-from-e-commerce-emails-part-1-welcome-campaigns). Now that you’re experts at onboarding new users, the next step is to encourage them to go from inbox to checkout with a cart abandonment campaign.
+In Part 1, we discussed winning welcome email campaigns. Now that you’re experts at onboarding new users, the next step is to encourage them to go from inbox to checkout with a cart abandonment campaign.
 
 A successful cart recovery email gently reminds customers of the items left behind in their shopping carts with the intention of leading them back to your site to complete a purchase.
 
@@ -46,4 +48,4 @@ To conclude, here are our recommendations for optimizing your cart abandonment c
 
 Next week, we are going to finish this blog series with tips and tricks for blast email campaigns. So stay tuned!
 
-Like what you are reading and want to see more case studies? Download our [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/) on email marketing in e-commerce.
+Like what you are reading and want to see more case studies? Download our User Engagement Top 100 Report on email marketing in e-commerce.

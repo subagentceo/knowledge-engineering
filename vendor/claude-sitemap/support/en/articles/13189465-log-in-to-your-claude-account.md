@@ -1,6 +1,6 @@
 When you open Claude on a web browser ([claude.ai](http://claude.ai)), the desktop app, or a mobile app, you will see two different options for logging in to your Claude account.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1780164900&signature=8287d8dc6b6da9e2fcc7d64056645875d2eefee8962fd8b3f22fbfe5c88751e2&req=dSguFct%2Fm4lfXfMW1HO4zXg5BoKN5Ra9zWhrqpWiTMk1lWd4eXILzUOxABaa%0AWccRJ%2F0mDacxgWVZiLo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1781284500&amp;signature=be4b470cbbc638e77357868428d0c76a0d59615fa1b32482f7aacd3b72d55c5f&amp;req=dSguFct%2Fm4lfXfMW1HO4zXg5BoOO6xaxzWhrqpWiTMmtaDRylkfEDrdbK6%2FW%0Agf5TCj1%2BytIL7Ksa%2BNs%3D%0A)
 
 ## Continue with Google
 
@@ -8,7 +8,7 @@ Click “Continue with Google” if you want to use your Google account credenti
 
 ## Continue with email
 
-If you’d prefer to use your email address to log in, enter it in the field pictured above, and click “Continue with email.” This will send you an email with the subject line _“Secure link to log in to Claude.ai”_ and a login link.
+If you’d prefer to use your email address to log in, enter it in the field pictured above, and click “Continue with email.” This will send you an email with the subject line *“Secure link to log in to Claude.ai”* and a login link.
 
 ### Clicking the link on the same device
 

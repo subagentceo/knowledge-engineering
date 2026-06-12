@@ -456,7 +456,7 @@ Automate, customize, and execute your software development workflows right in yo
 
 * [Approving workflow runs from forks](/en/actions/how-tos/manage-workflow-runs/approve-runs-from-forks)
 
-  You can manually approve workflow runs that have been triggered by a contributor's pull request.
+  You can manually approve workflow runs triggered by a contributor's pull request.
 
 * [Using GitHub-hosted runners](/en/actions/how-tos/manage-runners/github-hosted-runners/use-github-hosted-runners)
 

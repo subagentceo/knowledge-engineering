@@ -2,6 +2,28 @@
 
 Claude Design lets you describe what you want in plain language and get production-quality outputs. Learn how a small team built a design tool that ships in your brand, from prompt to production.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+11:15 – 11:45
+
+Speaker(s)
+
+Dan Cary
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

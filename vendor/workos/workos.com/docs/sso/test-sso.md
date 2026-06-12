@@ -10,7 +10,7 @@ To confirm your Single Sign-On integration works correctly you can use the Test 
 
 Log into the [WorkOS Dashboard](https://dashboard.workos.com/) and navigate to the *Test SSO* page to get started with the Test IdP. This page outlines a number of different SSO scenarios you can follow and provides all the necessary information to complete the tests.
 
-![Test SSO WorkOs Dashboard](https://images.workoscdn.com/images/7b7407d7-dcc7-4fd4-859f-4ee4214d69c2.png?auto=format\&fit=clip\&q=80)
+![Test SSO WorkOS Dashboard](https://images.workoscdn.com/images/7b7407d7-dcc7-4fd4-859f-4ee4214d69c2.png?auto=format\&fit=clip\&q=80)
 
 ### Service provider-initiated SSO
 

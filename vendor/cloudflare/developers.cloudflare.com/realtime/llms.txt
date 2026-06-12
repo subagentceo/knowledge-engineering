@@ -15,8 +15,9 @@ RealtimeKit, SFU and TURN
 - [RealtimeKit](https://developers.cloudflare.com/realtime/realtimekit/index.md): Add live video and voice to web or mobile apps with RealtimeKit SDKs and APIs.
 - [AI](https://developers.cloudflare.com/realtime/realtimekit/ai/index.md): Add AI-powered transcription and summarization to RealtimeKit meetings.
 - [Summary](https://developers.cloudflare.com/realtime/realtimekit/ai/summary/index.md): Generate AI-powered meeting summaries from transcript data in RealtimeKit.
-- [Transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/index.md): Enable real-time and post-meeting speech-to-text transcription in RealtimeKit.
+- [Transcription](https://developers.cloudflare.com/realtime/realtimekit/ai/transcription/index.md): Turn on real-time and post-meeting speech-to-text transcription in RealtimeKit.
 - [Audio Only Calls](https://developers.cloudflare.com/realtime/realtimekit/audio-calls/index.md): Build audio-only experiences like voice rooms and support lines with RealtimeKit.
+- [Video resolution and simulcast](https://developers.cloudflare.com/realtime/realtimekit/best-practices/video-and-simulcast/index.md): Choose the right video resolution, simulcast settings, and frame rate for your RealtimeKit use case to optimize quality and bandwidth.
 - [Message Broadcast APIs](https://developers.cloudflare.com/realtime/realtimekit/broadcast-apis/index.md): Send custom broadcast messages to all participants in a RealtimeKit meeting.
 - [Storage and Broadcast](https://developers.cloudflare.com/realtime/realtimekit/collaborative-stores/index.md): Create real-time key-value stores and broadcast messages to participants in RealtimeKit.
 - [Concepts](https://developers.cloudflare.com/realtime/realtimekit/concepts/index.md): Core concepts and terminology for RealtimeKit including apps, meetings, participants, and presets.
@@ -68,7 +69,7 @@ RealtimeKit, SFU and TURN
 - [Third party licenses](https://developers.cloudflare.com/realtime/realtimekit/legal/3rdparty/index.md): Third-party license information for RealtimeKit web, mobile, and recording SDKs.
 - [Pricing](https://developers.cloudflare.com/realtime/realtimekit/pricing/index.md): RealtimeKit pricing for audio, video, recording, and transcription features.
 - [Quickstart](https://developers.cloudflare.com/realtime/realtimekit/quickstart/index.md): Set up RealtimeKit in your application with API tokens, SDK installation, and your first meeting.
-- [Recording](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/index.md): Record audio and video from RealtimeKit meetings using composite recording mode.
+- [Recording](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/index.md): Record RealtimeKit meetings as composite recordings or separate participant audio tracks.
 - [Add Watermark](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/add-watermark/index.md): Add a custom image watermark to RealtimeKit recordings with configurable position and size.
 - [Set Audio Configurations](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/configure-audio-codec/index.md): Configure audio codec format and channel settings for RealtimeKit recordings.
 - [Configure Video Settings](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/configure-codecs/index.md): Configure video codecs, resolution, and container formats for RealtimeKit recordings.
@@ -80,6 +81,7 @@ RealtimeKit, SFU and TURN
 - [Monitor Recording Status](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/monitor-status/index.md): Track RealtimeKit recording states from invocation through upload completion.
 - [Start Recording](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/start-recording/index.md): Start composite recording of a RealtimeKit meeting using the API, SDK, or auto-record flag.
 - [Stop Recording](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/stop-recording/index.md): Stop a RealtimeKit recording automatically or manually using the Stop Recording API.
+- [Track recording](https://developers.cloudflare.com/realtime/realtimekit/recording-guide/track-recording/index.md): Record separate audio tracks for selected RealtimeKit participants and download per-participant WebM files.
 - [Release Notes](https://developers.cloudflare.com/realtime/realtimekit/release-notes/index.md): Release notes and changelog for the RealtimeKit Web Core SDK.
 - [Android Core SDK](https://developers.cloudflare.com/realtime/realtimekit/release-notes/android-core/index.md): Release notes and changelog for the RealtimeKit Android Core SDK.
 - [Android UI Kit SDK](https://developers.cloudflare.com/realtime/realtimekit/release-notes/android-ui-kit/index.md): Release notes and changelog for the RealtimeKit Android UI Kit SDK.
@@ -697,6 +699,7 @@ RealtimeKit, SFU and TURN
 - [Add Custom Header](https://developers.cloudflare.com/realtime/realtimekit/ui-kit/custom-header/index.md): Add a custom header to your RealtimeKit meeting UI with individual components.
 - [Meeting Locale](https://developers.cloudflare.com/realtime/realtimekit/ui-kit/meeting-locale/index.md): Customize text and localize the RealtimeKit UI Kit meeting interface for different languages.
 - [State Management](https://developers.cloudflare.com/realtime/realtimekit/ui-kit/state-management/index.md): Manage and synchronize meeting state across RealtimeKit UI Kit components.
+- [Webhooks](https://developers.cloudflare.com/realtime/realtimekit/webhooks/index.md): Receive RealtimeKit events in your application through signed HTTP callbacks.
 
 ## Realtime SFU
 

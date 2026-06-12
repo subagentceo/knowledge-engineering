@@ -13,6 +13,7 @@ and contains the set of limiter values that apply to it.
 - `group_type: optional "model_group" or "batch" or "token_count" or 3 more`
 
   Filter by group type.
+
   - `"model_group"`
 
   - `"batch"`
@@ -38,9 +39,11 @@ and contains the set of limiter values that apply to it.
 - `data: array of object { group_type, limits, models, type }`
 
   Rate-limit entries for the organization, one per group.
+
   - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
     - `"model_group"`
 
     - `"batch"`
@@ -56,6 +59,7 @@ and contains the set of limiter values that apply to it.
   - `limits: array of object { type, value }`
 
     The limiter values that apply to this group.
+
     - `type: string`
 
       The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
@@ -71,6 +75,7 @@ and contains the set of limiter values that apply to it.
   - `type: "rate_limit"`
 
     Object type. Always `rate_limit` for organization rate-limit entries.
+
     - `"rate_limit"`
 
 - `next_page: string`
@@ -82,7 +87,7 @@ and contains the set of limiter values that apply to it.
 ```http
 curl https://api.anthropic.com/v1/organizations/rate_limits \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -98,7 +103,9 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
           "value": 0
         }
       ],
-      "models": ["string"],
+      "models": [
+        "string"
+      ],
       "type": "rate_limit"
     }
   ],

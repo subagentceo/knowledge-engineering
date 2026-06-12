@@ -9,6 +9,7 @@ Delete a memory store
 ### Parameters
 
 - `MemoryStoreDeleteParams parameters`
+
   - `required string memoryStoreID`
 
     Path parameter memory_store_id
@@ -16,6 +17,7 @@ Delete a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -68,18 +70,22 @@ Delete a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemoryStore:`
 
   Confirmation that a `memory_store` was deleted.
+
   - `required string ID`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `required Type Type`
+
     - `"memory_store_deleted"MemoryStoreDeleted`
 
 ### Example

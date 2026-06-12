@@ -31,6 +31,7 @@ Create Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -141,6 +142,7 @@ List Credentials
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -242,6 +244,7 @@ Get Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -348,6 +351,7 @@ Update Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -456,6 +460,7 @@ Delete Credential
 ### Returns
 
 - `ManagedAgentsDeletedCredential`
+
   - `string id`
 
     Unique identifier of the deleted credential.
@@ -514,6 +519,7 @@ Archive Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -608,6 +614,7 @@ Validate Credential
 ### Returns
 
 - `ManagedAgentsCredentialValidation`
+
   - `string credentialID`
 
     Unique identifier of the credential that was validated.
@@ -696,6 +703,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Credential
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -730,9 +738,26 @@ var_dump($betaManagedAgentsCredentialValidation);
 
     Human-readable name for the credential.
 
+### Beta Managed Agents Credential Networking Params
+
+- `ManagedAgentsCredentialNetworkingParams`
+
+  - `ManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+    - `Type type`
+
+  - `ManagedAgentsLimitedCredentialNetworkingParams`
+
+    - `list<string> allowedHosts`
+
+      Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `Type type`
+
 ### Beta Managed Agents Credential Validation
 
 - `ManagedAgentsCredentialValidation`
+
   - `string credentialID`
 
     Unique identifier of the credential that was validated.
@@ -766,6 +791,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Credential Validation Status
 
 - `ManagedAgentsCredentialValidationStatus`
+
   - `"valid"`
 
   - `"invalid"`
@@ -775,15 +801,83 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Deleted Credential
 
 - `ManagedAgentsDeletedCredential`
+
   - `string id`
 
     Unique identifier of the deleted credential.
 
   - `Type type`
 
+### Beta Managed Agents Environment Variable Auth Response
+
+- `ManagedAgentsEnvironmentVariableAuthResponse`
+
+  - `Networking networking`
+
+    Outbound hosts the secret value is substituted on.
+
+  - `string secretName`
+
+    Name of the environment variable.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Variable Create Params
+
+- `ManagedAgentsEnvironmentVariableCreateParams`
+
+  - `ManagedAgentsCredentialNetworkingParams networking`
+
+    Outbound hosts the secret value is substituted on.
+
+  - `string secretName`
+
+    Name of the environment variable. Immutable after create.
+
+  - `string secretValue`
+
+    Secret value. Write-only; never returned in responses.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Variable Update Params
+
+- `ManagedAgentsEnvironmentVariableUpdateParams`
+
+  - `Type type`
+
+  - `?ManagedAgentsCredentialNetworkingParams networking`
+
+    Updated networking scope. Full replacement.
+
+  - `?string secretValue`
+
+    Updated secret value.
+
+### Beta Managed Agents Limited Credential Networking Params
+
+- `ManagedAgentsLimitedCredentialNetworkingParams`
+
+  - `list<string> allowedHosts`
+
+    Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+  - `Type type`
+
+### Beta Managed Agents Limited Credential Networking Response
+
+- `ManagedAgentsLimitedCredentialNetworkingResponse`
+
+  - `list<string> allowedHosts`
+
+    Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+  - `Type type`
+
 ### Beta Managed Agents MCP OAuth Auth Response
 
 - `ManagedAgentsMCPOAuthAuthResponse`
+
   - `string mcpServerURL`
 
     URL of the MCP server this credential authenticates against.
@@ -801,6 +895,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Create Params
 
 - `ManagedAgentsMCPOAuthCreateParams`
+
   - `string accessToken`
 
     OAuth access token.
@@ -822,6 +917,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Params
 
 - `ManagedAgentsMCPOAuthRefreshParams`
+
   - `string clientID`
 
     OAuth client ID.
@@ -849,6 +945,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Response
 
 - `ManagedAgentsMCPOAuthRefreshResponse`
+
   - `string clientID`
 
     OAuth client ID.
@@ -872,6 +969,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Update Params
 
 - `ManagedAgentsMCPOAuthRefreshUpdateParams`
+
   - `?string refreshToken`
 
     Updated OAuth refresh token.
@@ -887,6 +985,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Update Params
 
 - `ManagedAgentsMCPOAuthUpdateParams`
+
   - `Type type`
 
   - `?string accessToken`
@@ -904,6 +1003,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP Probe
 
 - `ManagedAgentsMCPProbe`
+
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
     An HTTP response captured during a credential validation probe.
@@ -915,6 +1015,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Refresh HTTP Response
 
 - `ManagedAgentsRefreshHTTPResponse`
+
   - `string body`
 
     Response body. May be truncated and has sensitive values scrubbed.
@@ -934,6 +1035,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Refresh Object
 
 - `ManagedAgentsRefreshObject`
+
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
     An HTTP response captured during a credential validation probe.
@@ -945,6 +1047,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Auth Response
 
 - `ManagedAgentsStaticBearerAuthResponse`
+
   - `string mcpServerURL`
 
     URL of the MCP server this credential authenticates against.
@@ -954,6 +1057,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Create Params
 
 - `ManagedAgentsStaticBearerCreateParams`
+
   - `string token`
 
     Static bearer token value.
@@ -967,6 +1071,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Update Params
 
 - `ManagedAgentsStaticBearerUpdateParams`
+
   - `Type type`
 
   - `?string token`
@@ -976,6 +1081,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Basic Param
 
 - `ManagedAgentsTokenEndpointAuthBasicParam`
+
   - `string clientSecret`
 
     OAuth client secret.
@@ -985,11 +1091,13 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Basic Response
 
 - `ManagedAgentsTokenEndpointAuthBasicResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
 
 - `ManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
   - `Type type`
 
   - `?string clientSecret`
@@ -999,16 +1107,19 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth None Param
 
 - `ManagedAgentsTokenEndpointAuthNoneParam`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth None Response
 
 - `ManagedAgentsTokenEndpointAuthNoneResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
 
 - `ManagedAgentsTokenEndpointAuthPostParam`
+
   - `string clientSecret`
 
     OAuth client secret.
@@ -1018,13 +1129,27 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Post Response
 
 - `ManagedAgentsTokenEndpointAuthPostResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
 
 - `ManagedAgentsTokenEndpointAuthPostUpdateParam`
+
   - `Type type`
 
   - `?string clientSecret`
 
     Updated OAuth client secret.
+
+### Beta Managed Agents Unrestricted Credential Networking Params
+
+- `ManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+  - `Type type`
+
+### Beta Managed Agents Unrestricted Credential Networking Response
+
+- `ManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+  - `Type type`

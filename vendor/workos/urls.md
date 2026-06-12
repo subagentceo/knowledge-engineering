@@ -1,7 +1,6 @@
 ---
 vendor: workos
 llms_txt: https://workos.com/docs/llms.txt
-last_crawled: 2026-05-15T03:29:27.081Z
 count: 60
 transform: append-md-and-accept
 ---
@@ -12,10 +11,9 @@ transform: append-md-and-accept
 |---|---|
 | https://workos.com/docs/email | `vendor/workos/workos.com/docs/email.md` |
 | https://workos.com/docs/glossary | `vendor/workos/workos.com/docs/glossary.md` |
+| https://workos.com/docs/migrate-standalone-sso | `vendor/workos/workos.com/docs/migrate-standalone-sso.md` |
 | https://workos.com/docs/on-prem-deployment | `vendor/workos/workos.com/docs/on-prem-deployment.md` |
 | https://workos.com/docs/postman | `vendor/workos/workos.com/docs/postman.md` |
-| https://workos.com/docs/reference | `vendor/workos/workos.com/docs/reference.md` |
-| https://workos.com/docs/reference/admin-portal | `vendor/workos/workos.com/docs/reference/admin-portal.md` |
 | https://workos.com/docs/sdks/authkit-js | `vendor/workos/workos.com/docs/sdks/authkit-js.md` |
 | https://workos.com/docs/sdks/authkit-nextjs | `vendor/workos/workos.com/docs/sdks/authkit-nextjs.md` |
 | https://workos.com/docs/sdks/authkit-react | `vendor/workos/workos.com/docs/sdks/authkit-react.md` |
@@ -31,6 +29,7 @@ transform: append-md-and-accept
 | https://workos.com/docs/sdks/php | `vendor/workos/workos.com/docs/sdks/php.md` |
 | https://workos.com/docs/sdks/python | `vendor/workos/workos.com/docs/sdks/python.md` |
 | https://workos.com/docs/sdks/ruby | `vendor/workos/workos.com/docs/sdks/ruby.md` |
+| https://workos.com/docs/sdks/rust | `vendor/workos/workos.com/docs/sdks/rust.md` |
 | https://workos.com/docs/sso/attributes | `vendor/workos/workos.com/docs/sso/attributes.md` |
 | https://workos.com/docs/sso/domains | `vendor/workos/workos.com/docs/sso/domains.md` |
 | https://workos.com/docs/sso/example-apps | `vendor/workos/workos.com/docs/sso/example-apps.md` |

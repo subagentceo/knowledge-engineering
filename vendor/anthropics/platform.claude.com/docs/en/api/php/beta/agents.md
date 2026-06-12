@@ -16,11 +16,11 @@ Create Agent
 
 - `name: string`
 
-  Human-readable name for the agent. 1-256 characters.
+  Human-readable name for the agent.
 
 - `description?:optional string`
 
-  Description of what the agent does. Up to 2048 characters.
+  Description of what the agent does.
 
 - `mcpServers?:optional list<BetaManagedAgentsURLMCPServerParams>`
 
@@ -36,11 +36,11 @@ Create Agent
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
-  Skills available to the agent. Maximum 20.
+  Skills available to the agent.
 
 - `system?:optional string`
 
-  System prompt for the agent. Up to 100,000 characters.
+  System prompt for the agent.
 
 - `tools?:optional list<Tool>`
 
@@ -53,6 +53,7 @@ Create Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -252,6 +253,7 @@ List Agents
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -415,6 +417,7 @@ Get Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -565,7 +568,7 @@ Update Agent
 
 - `description?:optional string`
 
-  Description. Up to 2048 characters. Omit to preserve; send empty string or null to clear.
+  Description. Omit to preserve; send empty string or null to clear.
 
 - `mcpServers?:optional list<BetaManagedAgentsURLMCPServerParams>`
 
@@ -585,15 +588,15 @@ Update Agent
 
 - `name?:optional string`
 
-  Human-readable name. 1-256 characters. Omit to preserve. Cannot be cleared.
+  Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
-  Skills. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 20.
+  Skills. Full replacement. Omit to preserve; send empty array or null to clear.
 
 - `system?:optional string`
 
-  System prompt. Up to 100,000 characters. Omit to preserve; send empty string or null to clear.
+  System prompt. Omit to preserve; send empty string or null to clear.
 
 - `tools?:optional list<Tool>`
 
@@ -606,6 +609,7 @@ Update Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -789,6 +793,7 @@ Archive Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -924,6 +929,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -969,6 +975,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Reference
 
 - `BetaManagedAgentsAgentReference`
+
   - `string id`
 
   - `Type type`
@@ -978,6 +985,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Tool Config
 
 - `BetaManagedAgentsAgentToolConfig`
+
   - `bool enabled`
 
   - `Name name`
@@ -991,6 +999,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Tool Config Params
 
 - `BetaManagedAgentsAgentToolConfigParams`
+
   - `Name name`
 
     Built-in agent tool identifier.
@@ -1006,6 +1015,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset Default Config
 
 - `BetaManagedAgentsAgentToolsetDefaultConfig`
+
   - `bool enabled`
 
   - `PermissionPolicy permissionPolicy`
@@ -1015,6 +1025,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset Default Config Params
 
 - `BetaManagedAgentsAgentToolsetDefaultConfigParams`
+
   - `?bool enabled`
 
     Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -1026,6 +1037,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401
 
 - `BetaManagedAgentsAgentToolset20260401`
+
   - `list<BetaManagedAgentsAgentToolConfig> configs`
 
   - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
@@ -1037,6 +1049,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Bash Input
 
 - `BetaManagedAgentsAgentToolset20260401BashInput`
+
   - `?string command`
 
     Shell command to execute. Omit only when `restart` is true.
@@ -1055,6 +1068,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Edit Input
 
 - `BetaManagedAgentsAgentToolset20260401EditInput`
+
   - `string filePath`
 
     Path of the file to edit.
@@ -1075,6 +1089,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Glob Input
 
 - `BetaManagedAgentsAgentToolset20260401GlobInput`
+
   - `string pattern`
 
     Doublestar glob pattern (e.g. `**/*.go`). Absolute patterns
@@ -1089,6 +1104,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Grep Input
 
 - `BetaManagedAgentsAgentToolset20260401GrepInput`
+
   - `string pattern`
 
     Regular expression to search for.
@@ -1101,6 +1117,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Params
 
 - `BetaManagedAgentsAgentToolset20260401Params`
+
   - `Type type`
 
   - `?list<BetaManagedAgentsAgentToolConfigParams> configs`
@@ -1114,6 +1131,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Read Input
 
 - `BetaManagedAgentsAgentToolset20260401ReadInput`
+
   - `string filePath`
 
     Path of the file to read.
@@ -1127,6 +1145,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Write Input
 
 - `BetaManagedAgentsAgentToolset20260401WriteInput`
+
   - `string content`
 
     Full file contents to write.
@@ -1138,16 +1157,19 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Always Allow Policy
 
 - `BetaManagedAgentsAlwaysAllowPolicy`
+
   - `Type type`
 
 ### Beta Managed Agents Always Ask Policy
 
 - `BetaManagedAgentsAlwaysAskPolicy`
+
   - `Type type`
 
 ### Beta Managed Agents Anthropic Skill
 
 - `BetaManagedAgentsAnthropicSkill`
+
   - `string skillID`
 
   - `Type type`
@@ -1157,6 +1179,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Anthropic Skill Params
 
 - `BetaManagedAgentsAnthropicSkillParams`
+
   - `string skillID`
 
     Identifier of the Anthropic skill (e.g., "xlsx").
@@ -1170,6 +1193,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Skill
 
 - `BetaManagedAgentsCustomSkill`
+
   - `string skillID`
 
   - `Type type`
@@ -1179,6 +1203,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Skill Params
 
 - `BetaManagedAgentsCustomSkillParams`
+
   - `string skillID`
 
     Tagged ID of the custom skill (e.g., "skill_01XJ5...").
@@ -1192,6 +1217,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Tool
 
 - `BetaManagedAgentsCustomTool`
+
   - `string description`
 
   - `BetaManagedAgentsCustomToolInputSchema inputSchema`
@@ -1205,21 +1231,17 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Tool Input Schema
 
 - `BetaManagedAgentsCustomToolInputSchema`
+
+  - `"object" type`
+
   - `?array<string,mixed> properties`
 
-    JSON Schema properties defining the tool's input parameters.
-
   - `?list<string> required`
-
-    List of required property names.
-
-  - `?Type type`
-
-    Must be 'object' for tool input schemas.
 
 ### Beta Managed Agents Custom Tool Params
 
 - `BetaManagedAgentsCustomToolParams`
+
   - `string description`
 
     Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -1237,6 +1259,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Server URL Definition
 
 - `BetaManagedAgentsMCPServerURLDefinition`
+
   - `string name`
 
   - `Type type`
@@ -1246,6 +1269,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Tool Config
 
 - `BetaManagedAgentsMCPToolConfig`
+
   - `bool enabled`
 
   - `string name`
@@ -1257,6 +1281,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Tool Config Params
 
 - `BetaManagedAgentsMCPToolConfigParams`
+
   - `string name`
 
     Name of the MCP tool to configure. 1-128 characters.
@@ -1272,6 +1297,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset
 
 - `BetaManagedAgentsMCPToolset`
+
   - `list<BetaManagedAgentsMCPToolConfig> configs`
 
   - `BetaManagedAgentsMCPToolsetDefaultConfig defaultConfig`
@@ -1285,6 +1311,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Default Config
 
 - `BetaManagedAgentsMCPToolsetDefaultConfig`
+
   - `bool enabled`
 
   - `PermissionPolicy permissionPolicy`
@@ -1294,6 +1321,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Default Config Params
 
 - `BetaManagedAgentsMCPToolsetDefaultConfigParams`
+
   - `?bool enabled`
 
     Whether tools are enabled by default. Defaults to true if not specified.
@@ -1305,6 +1333,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Params
 
 - `BetaManagedAgentsMCPToolsetParams`
+
   - `string mcpServerName`
 
     Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
@@ -1322,6 +1351,15 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model
 
 - `BetaManagedAgentsModel`
+
+  - `"claude-fable-5"`
+
+    Next generation of intelligence for the hardest knowledge work and coding problems
+
+  - `"claude-opus-4-8"`
+
+    Frontier intelligence for long-running agents and coding
+
   - `"claude-opus-4-7"`
 
     Frontier intelligence for long-running agents and coding
@@ -1361,6 +1399,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model Config
 
 - `BetaManagedAgentsModelConfig`
+
   - `BetaManagedAgentsModel id`
 
     The model that will power your agent.
@@ -1374,6 +1413,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model Config Params
 
 - `BetaManagedAgentsModelConfigParams`
+
   - `BetaManagedAgentsModel id`
 
     The model that will power your agent.
@@ -1387,6 +1427,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Coordinator
 
 - `BetaManagedAgentsMultiagentCoordinator`
+
   - `list<BetaManagedAgentsAgentReference> agents`
 
     Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -1396,6 +1437,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Coordinator Params
 
 - `BetaManagedAgentsMultiagentCoordinatorParams`
+
   - `list<BetaManagedAgentsMultiagentRosterEntryParams> agents`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
@@ -1405,11 +1447,13 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Self Params
 
 - `BetaManagedAgentsMultiagentSelfParams`
+
   - `Type type`
 
 ### Beta Managed Agents Session Thread Agent
 
 - `BetaManagedAgentsSessionThreadAgent`
+
   - `string id`
 
   - `?string description`
@@ -1435,7 +1479,9 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Skill Params
 
 - `BetaManagedAgentsSkillParams`
+
   - `BetaManagedAgentsAnthropicSkillParams`
+
     - `string skillID`
 
       Identifier of the Anthropic skill (e.g., "xlsx").
@@ -1447,6 +1493,7 @@ var_dump($betaManagedAgentsAgent);
       Version to pin. Defaults to latest if omitted.
 
   - `BetaManagedAgentsCustomSkillParams`
+
     - `string skillID`
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
@@ -1460,6 +1507,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents URL MCP Server Params
 
 - `BetaManagedAgentsURLMCPServerParams`
+
   - `string name`
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
@@ -1499,6 +1547,7 @@ List Agent Versions
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`

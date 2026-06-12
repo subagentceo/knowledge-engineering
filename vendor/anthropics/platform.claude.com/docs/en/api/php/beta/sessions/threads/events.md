@@ -29,7 +29,9 @@ List Session Thread Events
 ### Returns
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -45,6 +47,7 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -60,6 +63,7 @@ List Session Thread Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -87,6 +91,7 @@ List Session Thread Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -114,6 +119,7 @@ List Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -137,6 +143,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -152,6 +159,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -163,6 +171,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -194,6 +203,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -217,6 +227,7 @@ List Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -244,6 +255,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -267,6 +279,7 @@ List Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -290,6 +303,7 @@ List Session Thread Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -313,6 +327,7 @@ List Session Thread Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -324,6 +339,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -339,6 +355,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -350,6 +367,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -361,6 +379,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -376,6 +395,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -387,6 +407,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -406,6 +427,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -425,6 +447,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -460,6 +483,7 @@ List Session Thread Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -471,6 +495,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -494,6 +519,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -513,6 +539,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -540,6 +567,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -551,6 +579,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -565,11 +594,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -584,7 +614,7 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -593,6 +623,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -607,11 +638,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -639,6 +671,7 @@ List Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -653,11 +686,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -679,6 +713,22 @@ List Session Thread Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -742,7 +792,9 @@ Stream Session Thread Events
 ### Returns
 
 - `ManagedAgentsStreamSessionThreadEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -758,6 +810,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -773,6 +826,7 @@ Stream Session Thread Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -800,6 +854,7 @@ Stream Session Thread Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -827,6 +882,7 @@ Stream Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -850,6 +906,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -865,6 +922,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -876,6 +934,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -907,6 +966,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -930,6 +990,7 @@ Stream Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -957,6 +1018,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -980,6 +1042,7 @@ Stream Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1003,6 +1066,7 @@ Stream Session Thread Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1026,6 +1090,7 @@ Stream Session Thread Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1037,6 +1102,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1052,6 +1118,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1063,6 +1130,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1074,6 +1142,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1089,6 +1158,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1100,6 +1170,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1119,6 +1190,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1138,6 +1210,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1173,6 +1246,7 @@ Stream Session Thread Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1184,6 +1258,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1207,6 +1282,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1226,6 +1302,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1253,6 +1330,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1264,6 +1342,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1278,11 +1357,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1297,7 +1377,7 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -1306,6 +1386,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1320,11 +1401,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1352,6 +1434,7 @@ Stream Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1366,11 +1449,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1392,6 +1476,22 @@ Stream Session Thread Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 

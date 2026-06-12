@@ -1,3 +1,5 @@
+# User Engagement Teardown: Wanelo Coordinates Growth Marketing Campaigns Across Channels - Iterable
+
 ## User Engagement Teardown: Wanelo Coordinates Growth Marketing Campaigns Across Channels
 
 **Published by**
@@ -14,8 +16,8 @@ The emails are well-designed and they seem to be coordinated with the push notif
 
 Check out the full teardown below to learn more. _(Note: if you can’t see the embedded SlideShare, make sure to turn off any ad blockers!)_
 
-[https://www.slideshare.net/slideshow/embed\_code/key/Bdib2tjlw0Z16P](https://www.slideshare.net/slideshow/embed_code/key/Bdib2tjlw0Z16P)
+https://www.slideshare.net/slideshow/embed_code/key/Bdib2tjlw0Z16P
 
-For more information on how to build a world-class user engagement campaigns, take a look at our recent [case studies](https://iterable.com/resources/case-studies?utm_source=blog&utm_medium=bottombanner&utm_campaign=learn).
+For more information on how to build a world-class user engagement campaigns, take a look at our recent case studies.
 
 _Note: Wanelo is not an Iterable customer._

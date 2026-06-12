@@ -40,24 +40,24 @@ The strategic window for strengthening American export controls is now. By stren
 
 Anthropic’s leaders have previously outlined our position on competition with China and export controls in the following pieces.  
 
-- “Trump Can Keep America’s AI Advantage,” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
-- “On DeepSeek and Export Controls,” Dario Amodei, darioamodei.com, January 2025“Anthropic's Dario Amodei on AI Competition,” China Talk Podcast, February 5, 2025
-- “DeepSeek means AI proliferation is guaranteed,” Jack Clark Import AI 397
+*   “Trump Can Keep America’s AI Advantage,” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
+*   “On DeepSeek and Export Controls,” Dario Amodei, darioamodei.com, January 2025“Anthropic's Dario Amodei on AI Competition,” China Talk Podcast, February 5, 2025
+*   “DeepSeek means AI proliferation is guaranteed,” Jack Clark Import AI 397
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -7,4 +7,4 @@ Amazon Elastic Container Registry (Amazon ECR) is a managed container image regi
 
 Amazon ECR has service endpoints in each supported Region. For more information, see [Amazon ECR endpoints](https://docs.aws.amazon.com/general/latest/gr/ecr.html) in the * AWS General Reference*.
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

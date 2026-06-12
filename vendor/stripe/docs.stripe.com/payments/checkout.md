@@ -8,18 +8,18 @@ Accept one-time and subscription payments from more than 125 local payment metho
 [Start building your checkout integration](https://docs.stripe.com/checkout/quickstart.md)
 ## Stripe Checkout 
 
-You can use three different payment UIs with the [Checkout Sessions API](https://docs.stripe.com/api/checkout/sessions.md). The following images highlight which aspects of the checkout UI Stripe hosts in each option.
+You can use three payment UIs with the Checkout Sessions API. The following images highlight which parts of the checkout UI Stripe hosts for each option. To build and manage these integrations, use [Checkout studio](https://docs.stripe.com/payments/checkout-studio.md).
 ![Full page](https://b.stripecdn.com/docs-statics-srv/assets/checkout-hosted-hover.6ee5a154986ffc216c034a47b7b0d65e.png)
 
-[Full page](https://docs.stripe.com/checkout/quickstart.md) Customers enter their payment details in a fully-featured payment page, either embedded on your site or via a redirect to a Stripe-hosted page.
+[Full page](https://docs.stripe.com/checkout/quickstart.md): Customers enter their payment details in a fully-featured payment page, either embedded on your site or via a redirect to a Stripe-hosted page.
 ![Embedded form](https://b.stripecdn.com/docs-statics-srv/assets/checkout-form-hover.31c41716c4857e5e01f77978530fc573.png)
 
-[Embedded form](https://docs.stripe.com/checkout/form/quickstart.md) Customers enter their payment details in an embedded form on your site without redirection.
+[Embedded form](https://docs.stripe.com/payments/checkout/how-checkout-works.md?payment-ui=checkout-form): Customers enter their payment details in an embedded form on your site without redirection.
 ![Elements](https://b.stripecdn.com/docs-statics-srv/assets/checkout-elements-hover.28148f5be39600e85ef4784ab9e873e7.png)
 
-[Elements](https://docs.stripe.com/payments/quickstart-checkout-sessions.md) Build a fully customized payment page using elements
+[Elements](https://docs.stripe.com/payments/quickstart-checkout-sessions.md): Build a fully customized payment page using elements
 
-| &nbsp;                           | [FULL PAGE](https://docs.stripe.com/payments/accept-a-payment.md?payment-ui=checkout&ui=stripe-hosted) (Recommended)                         | [EMBEDDED FORM](https://docs.stripe.com/checkout/form/quickstart.md) (Private preview)                                      | [ELEMENTS](https://docs.stripe.com/payments/accept-a-payment.md?payment-ui=elements&api-integration=checkout) |
+| &nbsp;                           | [FULL PAGE](https://docs.stripe.com/payments/accept-a-payment.md?payment-ui=checkout&ui=stripe-hosted) (Recommended)                         | [EMBEDDED FORM](https://docs.stripe.com/payments/checkout/how-checkout-works.md?payment-ui=checkout-form) (Private preview) | [ELEMENTS](https://docs.stripe.com/payments/accept-a-payment.md?payment-ui=elements&api-integration=checkout) |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | **API**                          | [Checkout Sessions](https://docs.stripe.com/api/checkout/sessions.md)                                                                        | [Checkout Sessions](https://docs.stripe.com/api/checkout/sessions.md)                                                       | [Checkout Sessions](https://docs.stripe.com/api/checkout/sessions.md)                                         |
 | **Feature list**                 | Built-in UI support for Billing, Tax, Adaptive Pricing, Stripe Managed Payments, Link, dynamic payment methods, Surcharging, Split-tender    | Built-in UI support for Billing, Tax, Adaptive Pricing, Stripe Managed Payments, Link, dynamic payment methods, Surcharging | Built-in UI support for Adaptive Pricing, Link, dynamic payment methods                                       |
@@ -62,9 +62,3 @@ You can use three different payment UIs with the [Checkout Sessions API](https:/
 [Migrate payment methods to the Dashboard](https://docs.stripe.com/payments/dashboard-payment-methods.md): Migrate the management of your payment methods to the Dashboard.
 
 [After the payment](https://docs.stripe.com/payments/checkout/after-the-payment.md): Customize the post-payment checkout process.
-
-## Sample projects
-
-[One-time payments](https://github.com/stripe-samples/checkout-one-time-payments)
-
-[Subscriptions](https://github.com/stripe-samples/checkout-single-subscription)

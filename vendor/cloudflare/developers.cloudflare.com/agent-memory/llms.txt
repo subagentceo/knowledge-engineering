@@ -1,0 +1,30 @@
+# Agent Memory
+
+Persistent AI-powered memory for agents and applications — automatically extract, classify, and recall knowledge from conversations
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/agent-memory/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+
+## Overview
+
+- [Agent Memory](https://developers.cloudflare.com/agent-memory/index.md): Persistent, scoped memory for agents that need to remember users, organizations, and domain-specific context across conversations.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/agent-memory/get-started/index.md): Add durable memory recall and ingestion to an agent.
+
+## api
+
+- [HTTP API](https://developers.cloudflare.com/agent-memory/api/http-api/index.md): Use Agent Memory from services that call the Cloudflare API directly.
+- [Workers API](https://developers.cloudflare.com/agent-memory/api/workers-api/index.md): Configure the Agent Memory binding and use memory profiles from Worker code.
+
+## concepts
+
+- [How Agent Memory works](https://developers.cloudflare.com/agent-memory/concepts/how-agent-memory-works/index.md): A high-level overview of how Agent Memory extracts, stores, and retrieves knowledge from conversations.
+- [Namespaces and profiles](https://developers.cloudflare.com/agent-memory/concepts/namespaces-profiles/index.md): How Agent Memory isolates memory storage using namespaces for applications and profiles for individual users or agents.
+
+## platform
+
+- [Limits](https://developers.cloudflare.com/agent-memory/platform/limits/index.md): Review Agent Memory platform limits, including message sizes, naming constraints, and API pagination limits.
+- [Pricing](https://developers.cloudflare.com/agent-memory/platform/pricing/index.md): Review Agent Memory pricing information.

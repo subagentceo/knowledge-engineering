@@ -15,12 +15,15 @@ The Models API response can be used to determine information about a specific mo
   Model identifier or alias.
 
 - `params: ModelRetrieveParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -73,11 +76,14 @@ The Models API response can be used to determine information about a specific mo
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ModelInfo`
+
   - `id: string`
 
     Unique model identifier.
@@ -85,9 +91,11 @@ The Models API response can be used to determine information about a specific mo
   - `capabilities: ModelCapabilities | null`
 
     Model capability information.
+
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -103,6 +111,7 @@ The Models API response can be used to determine information about a specific mo
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
@@ -122,6 +131,7 @@ The Models API response can be used to determine information about a specific mo
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -161,6 +171,7 @@ The Models API response can be used to determine information about a specific mo
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -168,6 +179,7 @@ The Models API response can be used to determine information about a specific mo
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -197,18 +209,19 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
+
     - `"model"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const modelInfo = await client.models.retrieve("model_id");
+const modelInfo = await client.models.retrieve('model_id');
 
 console.log(modelInfo.id);
 ```

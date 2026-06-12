@@ -34,7 +34,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1780164900&signature=d9cee6def0c88694f64430fdc76056968b787f253eec73f4851db5430b42a239&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7S%2FLsoOI9crMELaMZPwP4xBB%2BvpHRAOWUMnP%0ASa7EC5kajtDfgb23QVE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1781284500&amp;signature=eebb8bcfd91565879509317b7325bf154dd3aa9185245f0bc6e1ab9e1efdd0dd&amp;req=dSkmEMt%2BlYRYUfMW1HO4zV2J7S7IvIOE9crMELaMZPxrtSrB8wocMINABT7p%0AAYRAYNd0%2BkAf75zBX%2FE%3D%0A)
 
 ---
 
@@ -43,6 +43,8 @@ Type your prompt into the chat interface and click the submit button to start a 
 ### Which model am I talking to?
 
 The model you're currently chatting with is displayed either below your text input (on web and desktop) or at the top of your screen (on mobile). You can click on the model you're using to open the model selector and switch to another available model.
+
+You can also choose how much effort Claude puts into each response and whether it uses extended thinking. Learn more about **[changing the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678)**.
 
 ### Can I chat with Claude in different languages?
 
