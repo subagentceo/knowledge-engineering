@@ -12,9 +12,9 @@ Over half of the world’s population will vote this year with high profile elec
 
 Our global election work has three major components. These are:
 
-- Developing and enforcing policies around election issues;
-- Evaluating and testing how our models perform against election misuses;
-- Ensuring that when people ask Claude for information about where or how to vote, we point them to up-to-date, accurate information.
+*   Developing and enforcing policies around election issues;
+*   Evaluating and testing how our models perform against election misuses;
+*   Ensuring that when people ask Claude for information about where or how to vote, we point them to up-to-date, accurate information.
 
 ## Implementing and enforcing policies around election issues
 
@@ -26,14 +26,14 @@ We’ve also trained and deployed automated systems to detect and prevent misuse
 
 Since 2023, we’ve been carrying out targeted “red-teaming” of our systems, to test for ways that they might be used to violate our AUP. This ‘Policy Vulnerability Testing’ focuses on two areas:
 
-- Misinformation and bias. We examine how our AI system responds when presented with questions about candidates, issues and election administration;
-- Adversarial abuse. We test how our system responds to prompts that violate our Acceptable Use Policy (e.g., prompts that request information about tactics for voter suppression).
+*   Misinformation and bias. We examine how our AI system responds when presented with questions about candidates, issues and election administration;
+*   Adversarial abuse. We test how our system responds to prompts that violate our Acceptable Use Policy (e.g., prompts that request information about tactics for voter suppression).
 
 We’ve also built an in-house suite of technical evaluations to test our systems for a variety of election-related risks. These include ways of testing for:
 
-- Political parity in model responses across candidates and topics;
-- The degree to which our systems refuse to respond to harmful queries about the election;
-- How robust our systems are in preventing the production of disinformation and voter profiling and targeting tactics.
+*   Political parity in model responses across candidates and topics;
+*   The degree to which our systems refuse to respond to harmful queries about the election;
+*   How robust our systems are in preventing the production of disinformation and voter profiling and targeting tactics.
 
 These are quantitative tests, and we use them to evaluate the robustness of our systems and test how effective we are at intervening and mitigating the problems. We’ll have more to share about our evaluation suite in the coming months.
 
@@ -45,15 +45,15 @@ While generative AI systems have a broad range of positive uses, our own researc
 
 _How it will work:_
 
-If a US-based user asks for voting information, a pop-up will offer the user the option to be redirected to TurboVote, a resource from the nonpartisan organization Democracy Works.
-
+If a US-based user asks for voting information, a pop-up will offer the user the option to be redirected to TurboVote, a resource from the nonpartisan organization Democracy Works.  
+  
 The pop up will roll out over the next few weeks and we intend to use the insights from our TurboVote redirect to roll out similar solutions in other countries and regions.
 
 ## We expect to be surprised
 
 This post gives an overview of how we’re approaching the use of our systems in elections. However, the history of AI deployment has also been one full of surprises and unexpected effects. We expect that 2024 will see surprising uses of AI systems—uses that were not anticipated by their own developers.
 
-At Anthropic, we’re building methods to help us spot unanticipated uses of our systems as they emerge, and we’ll communicate openly and frankly about what we discover.
+At Anthropic, we’re building methods to help us spot unanticipated uses of our systems as they emerge, and we’ll communicate openly and frankly about what we discover.  
 
 **Update, May 28, 2024:** After making Claude available in Europe in May, we also implemented a pop-up intervention for EU-based users who ask Claude for voting information. The pop-up will offer the user the option to be redirected to the European Parliament’s nonpartisan elections website.
 
@@ -61,18 +61,18 @@ We also updated our Usage Policy to provide greater clarity on the definitions o
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

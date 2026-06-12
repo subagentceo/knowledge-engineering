@@ -18,19 +18,31 @@ It's very challenging to reason about the safety of neural networks without unde
 
 Some Interpretability researchers have deep backgrounds in machine learning – one member of the team is often described as having started mechanistic interpretability, while another was on the famous scaling laws paper. Other members joined after careers in astronomy, physics, mathematics, biology, data visualization, and more.
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F6c30d7fb336b69fc7756b9846ee88c8d0d5122da-1920x1080.png&w=3840&q=75)
+![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F77496fb929e6cb90088dee79f93835d043e5b4c2-1280x720.jpg&w=3840&q=75)
 
-## Tracing the thoughts of a large language model
+## Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-InterpretabilityMar 27, 2025
+InterpretabilityMay 7, 2026
 
-Circuit tracing lets us watch Claude think, uncovering a shared conceptual space where reasoning happens before being translated into language—suggesting the model can learn something in one language and apply it in another.
+AI models like Claude talk in words but think in numbers. In this study, we train Claude to translate its thoughts into human-readable text.
+
+InterpretabilityApr 2, 2026
+
+#### Emotion concepts and their function in a large language model
+
+All modern language models sometimes act like they have emotions. What’s behind these behaviors? Our interpretability team investigates.
+
+InterpretabilityJan 19, 2026
+
+#### The assistant axis: situating and stabilizing the character of large language models
+
+Who is the Assistant? We investigate the character that most modern language models inhabit when interacting with users.
 
 InterpretabilityOct 29, 2025
 
 #### Signs of introspection in large language models
 
-Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect—a step toward understanding what's actually happening inside these models.
+Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect.
 
 InterpretabilityAug 1, 2025
 
@@ -38,57 +50,42 @@ InterpretabilityAug 1, 2025
 
 AI models represent character traits as patterns of activations within their neural networks. By extracting "persona vectors" for traits like sycophancy or hallucination, we can monitor personality shifts and mitigate undesirable behaviors.
 
-InterpretabilitySep 14, 2022
-
-#### Toy Models of Superposition
-
-Neural networks pack many concepts into single neurons. This paper shows how and when models represent more features than they have dimensions.
-
 ## Publications
 
 Search
 
 DateCategoryTitle
 
-- May 7, 2026Interpretability
-
-  Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-- Apr 2, 2026Interpretability
-
-  Emotion concepts and their function in a large language model
-
-- Mar 13, 2026Interpretability
-
-  A “diff” tool for AI: Finding behavioral differences in new models
-
-- Jan 19, 2026Interpretability
-
-  The assistant axis: situating and stabilizing the character of large language models
-
-- Oct 29, 2025Interpretability
-
-  Signs of introspection in large language models
-
-- Aug 1, 2025Interpretability
-
-  Persona vectors: Monitoring and controlling character traits in language models
-
-- May 29, 2025Interpretability
-
-  Open-sourcing circuit tracing tools
-
-- Mar 27, 2025Interpretability
-
-  Tracing the thoughts of a large language model
-
-- Mar 13, 2025Alignment
-
-  Auditing language models for hidden objectives
-
-- Feb 20, 2025Interpretability
-
-  Insights on Crosscoder Model Diffing
+*   May 7, 2026Interpretability
+    
+    Natural Language Autoencoders: Turning Claude’s thoughts into text
+*   Apr 2, 2026Interpretability
+    
+    Emotion concepts and their function in a large language model
+*   Mar 13, 2026Interpretability
+    
+    A “diff” tool for AI: Finding behavioral differences in new models
+*   Jan 19, 2026Interpretability
+    
+    The assistant axis: situating and stabilizing the character of large language models
+*   Oct 29, 2025Interpretability
+    
+    Signs of introspection in large language models
+*   Aug 1, 2025Interpretability
+    
+    Persona vectors: Monitoring and controlling character traits in language models
+*   May 29, 2025Interpretability
+    
+    Open-sourcing circuit tracing tools
+*   Mar 27, 2025Interpretability
+    
+    Tracing the thoughts of a large language model
+*   Mar 13, 2025Alignment
+    
+    Auditing language models for hidden objectives
+*   Feb 20, 2025Interpretability
+    
+    Insights on Crosscoder Model Diffing
 
 See more
 

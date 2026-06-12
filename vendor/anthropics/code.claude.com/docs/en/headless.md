@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -25,9 +24,9 @@ This page covers using the Agent SDK via the CLI (`claude -p`). For the Python a
 
 Add the `-p` (or `--print`) flag to any `claude` command to run it non-interactively. All [CLI options](/en/cli-reference) work with `-p`, including:
 
-- `--continue` for [continuing conversations](#continue-conversations)
-- `--allowedTools` for [auto-approving tools](#auto-approve-tools)
-- `--output-format` for [structured output](#get-structured-output)
+* `--continue` for [continuing conversations](#continue-conversations)
+* `--allowedTools` for [auto-approving tools](#auto-approve-tools)
+* `--output-format` for [structured output](#get-structured-output)
 
 This example asks Claude a question about your codebase and prints the response:
 
@@ -62,6 +61,10 @@ Bare mode skips OAuth and keychain reads. Anthropic authentication must come fro
 <Note>
   `--bare` is the recommended mode for scripted and SDK calls, and will become the default for `-p` in a future release.
 </Note>
+
+### Background tasks at exit
+
+If Claude starts a [background Bash task](/en/tools-reference#bash-tool-behavior) during a `claude -p` run, for example a dev server or a watch build, that task is terminated about five seconds after Claude has returned its final result and stdin has closed. The grace period lets a task that finishes right after the result still deliver its output. Before v2.1.163, a never-exiting background process would hold the `claude -p` invocation open indefinitely.
 
 ## Examples
 
@@ -101,9 +104,9 @@ This `package.json` script pipes the diff against `main` into Claude and asks it
 
 Use `--output-format` to control how responses are returned:
 
-- `text` (default): plain text output
-- `json`: structured JSON with result, session ID, and metadata
-- `stream-json`: newline-delimited JSON for real-time streaming
+* `text` (default): plain text output
+* `json`: structured JSON with result, session ID, and metadata
+* `stream-json`: newline-delimited JSON for real-time streaming
 
 This example returns a project summary as JSON with session metadata, with the text result in the `result` field:
 
@@ -124,17 +127,16 @@ claude -p "Extract the main function names from auth.py" \
 <Tip>
   Use a tool like [jq](https://jqlang.github.io/jq/) to parse the response and extract specific fields:
 
-```bash theme={null}
-# Extract the text result
-claude -p "Summarize this project" --output-format json | jq -r '.result'
+  ```bash theme={null}
+  # Extract the text result
+  claude -p "Summarize this project" --output-format json | jq -r '.result'
 
-# Extract structured output
-claude -p "Extract function names from auth.py" \
-  --output-format json \
-  --json-schema '{"type":"object","properties":{"functions":{"type":"array","items":{"type":"string"}}},"required":["functions"]}' \
-  | jq '.structured_output'
-```
-
+  # Extract structured output
+  claude -p "Extract function names from auth.py" \
+    --output-format json \
+    --json-schema '{"type":"object","properties":{"functions":{"type":"array","items":{"type":"string"}}},"required":["functions"]}' \
+    | jq '.structured_output'
+  ```
 </Tip>
 
 ### Stream responses
@@ -154,17 +156,17 @@ claude -p "Write a poem" --output-format stream-json --verbose --include-partial
 
 When an API request fails with a retryable error, Claude Code emits a `system/api_retry` event before retrying. You can use this to surface retry progress or implement custom backoff logic.
 
-| Field            | Type            | Description                                                                                                                                                                              |
-| ---------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`           | `"system"`      | message type                                                                                                                                                                             |
-| `subtype`        | `"api_retry"`   | identifies this as a retry event                                                                                                                                                         |
-| `attempt`        | integer         | current attempt number, starting at 1                                                                                                                                                    |
-| `max_retries`    | integer         | total retries permitted                                                                                                                                                                  |
-| `retry_delay_ms` | integer         | milliseconds until the next attempt                                                                                                                                                      |
-| `error_status`   | integer or null | HTTP status code, or `null` for connection errors with no HTTP response                                                                                                                  |
-| `error`          | string          | error category: `authentication_failed`, `oauth_org_not_allowed`, `billing_error`, `rate_limit`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, or `unknown` |
-| `uuid`           | string          | unique event identifier                                                                                                                                                                  |
-| `session_id`     | string          | session the event belongs to                                                                                                                                                             |
+| Field            | Type            | Description                                                                                                                                                                                            |
+| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`           | `"system"`      | message type                                                                                                                                                                                           |
+| `subtype`        | `"api_retry"`   | identifies this as a retry event                                                                                                                                                                       |
+| `attempt`        | integer         | current attempt number, starting at 1                                                                                                                                                                  |
+| `max_retries`    | integer         | total retries permitted                                                                                                                                                                                |
+| `retry_delay_ms` | integer         | milliseconds until the next attempt                                                                                                                                                                    |
+| `error_status`   | integer or null | HTTP status code, or `null` for connection errors with no HTTP response                                                                                                                                |
+| `error`          | string          | error category: `authentication_failed`, `oauth_org_not_allowed`, `billing_error`, `rate_limit`, `overloaded`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, or `unknown` |
+| `uuid`           | string          | unique event identifier                                                                                                                                                                                |
+| `session_id`     | string          | session the event belongs to                                                                                                                                                                           |
 
 The `system/init` event reports session metadata including the model, tools, MCP servers, and loaded plugins. It is the first event in the stream unless [`CLAUDE_CODE_SYNC_PLUGIN_INSTALL`](/en/env-vars) is set, in which case `plugin_install` events precede it. Use the plugin fields to fail CI when a plugin did not load:
 
@@ -214,7 +216,7 @@ claude -p "Look at my staged changes and create an appropriate commit" \
 The `--allowedTools` flag uses [permission rule syntax](/en/settings#permission-rule-syntax). The trailing ` *` enables prefix matching, so `Bash(git diff *)` allows any command starting with `git diff`. The space before `*` is important: without it, `Bash(git diff*)` would also match `git diff-index`.
 
 <Note>
-  User-invoked [skills](/en/skills) like `/code-review` and [built-in commands](/en/commands) are only available in interactive mode. In `-p` mode, describe the task you want to accomplish instead.
+  User-invoked [skills](/en/skills) and custom commands work in `-p` mode: include `/skill-name` in the prompt string and Claude Code expands it before running. Built-in commands that open an interactive dialog, such as `/config` and `/login`, are not available in `-p` mode.
 </Note>
 
 ### Customize the system prompt
@@ -249,9 +251,11 @@ session_id=$(claude -p "Start a review" --output-format json | jq -r '.session_i
 claude -p "Continue that review" --resume "$session_id"
 ```
 
+Run both commands from the same directory: session ID lookup is scoped to the current project directory and its git worktrees. See [Resume a session](/en/sessions#resume-a-session) for the full scope rules.
+
 ## Next steps
 
-- [Agent SDK quickstart](/en/agent-sdk/quickstart): build your first agent with Python or TypeScript
-- [CLI reference](/en/cli-reference): all CLI flags and options
-- [GitHub Actions](/en/github-actions): use the Agent SDK in GitHub workflows
-- [GitLab CI/CD](/en/gitlab-ci-cd): use the Agent SDK in GitLab pipelines
+* [Agent SDK quickstart](/en/agent-sdk/quickstart): build your first agent with Python or TypeScript
+* [CLI reference](/en/cli-reference): all CLI flags and options
+* [GitHub Actions](/en/github-actions): use the Agent SDK in GitHub workflows
+* [GitLab CI/CD](/en/gitlab-ci-cd): use the Agent SDK in GitLab pipelines

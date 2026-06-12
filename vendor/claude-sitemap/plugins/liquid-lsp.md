@@ -1,13 +1,13 @@
 # liquid-lsp
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Shopify
-
-- Installs
-
-  914
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Shopify
+    
+*   Installs
+    
+    1071

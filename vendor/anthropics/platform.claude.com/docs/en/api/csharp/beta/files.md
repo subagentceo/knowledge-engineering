@@ -11,6 +11,7 @@ Upload File
 ### Parameters
 
 - `FileUploadParams parameters`
+
   - `required string file`
 
     Body param: The file to upload
@@ -18,6 +19,7 @@ Upload File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,11 +72,14 @@ Upload File
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class FileMetadata:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -110,6 +115,7 @@ Upload File
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -160,6 +166,7 @@ List Files
 ### Parameters
 
 - `FileListParams parameters`
+
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -181,6 +188,7 @@ List Files
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -233,14 +241,18 @@ List Files
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class FileListPageResponse:`
+
   - `required IReadOnlyList<FileMetadata> Data`
 
     List of file metadata objects.
+
     - `required string ID`
 
       Unique object identifier.
@@ -276,6 +288,7 @@ List Files
     - `BetaFileScope? Scope`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
+
       - `required string ID`
 
         The ID of the scoping resource (e.g., the session ID).
@@ -344,6 +357,7 @@ Download File
 ### Parameters
 
 - `FileDownloadParams parameters`
+
   - `required string fileID`
 
     ID of the File.
@@ -351,6 +365,7 @@ Download File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -403,7 +418,9 @@ Download File
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Example
 
@@ -426,6 +443,7 @@ Get File Metadata
 ### Parameters
 
 - `FileRetrieveMetadataParams parameters`
+
   - `required string fileID`
 
     ID of the File.
@@ -433,6 +451,7 @@ Get File Metadata
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -485,11 +504,14 @@ Get File Metadata
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class FileMetadata:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -525,6 +547,7 @@ Get File Metadata
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -572,6 +595,7 @@ Delete File
 ### Parameters
 
 - `FileDeleteParams parameters`
+
   - `required string fileID`
 
     ID of the File.
@@ -579,6 +603,7 @@ Delete File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -631,11 +656,14 @@ Delete File
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class DeletedFile:`
+
   - `required string ID`
 
     ID of the deleted file.
@@ -645,6 +673,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"FileDeleted`
 
 ### Example
@@ -671,6 +700,7 @@ Console.WriteLine(deletedFile);
 ### Beta File Scope
 
 - `class BetaFileScope:`
+
   - `required string ID`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -682,6 +712,7 @@ Console.WriteLine(deletedFile);
 ### Deleted File
 
 - `class DeletedFile:`
+
   - `required string ID`
 
     ID of the deleted file.
@@ -691,11 +722,13 @@ Console.WriteLine(deletedFile);
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"FileDeleted`
 
 ### File Metadata
 
 - `class FileMetadata:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -731,6 +764,7 @@ Console.WriteLine(deletedFile);
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).

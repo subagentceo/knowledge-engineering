@@ -2,13 +2,13 @@
 > Fetch the complete documentation index at: https://modelcontextprotocol.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# MCP Tasks
+# Tasks
 
 > Asynchronous task execution for long-running MCP operations
 
 The [experimental-ext-tasks repository](https://github.com/modelcontextprotocol/experimental-ext-tasks) contains the full specification and documentation for MCP Tasks.
 
-<Card title="modelcontextprotocol/experimental-ext-tasks" icon="github" href="https://github.com/modelcontextprotocol/experimental-ext-tasks">
+<Card title="modelcontextprotocol/ext-tasks" icon="github" href="https://github.com/modelcontextprotocol/ext-tasks">
   Full specification and documentation for MCP Tasks.
 </Card>
 
@@ -134,7 +134,7 @@ state does not change.
 
 ## Notifications
 
-Servers can push status updates via `notifications/tasks/status`. Clients opt
+Servers can push status updates via `notifications/tasks`. Clients opt
 into these through the `subscriptions/listen` mechanism. Each notification
 carries the full task state, eliminating the need for an extra `tasks/get`
 round-trip.
@@ -239,7 +239,7 @@ To return tasks from your server:
 ## Client support
 
 <Note>
-  MCP Tasks is an extension to the [core MCP specification](/specification). Host
+  MCP Tasks is an extension to the [core MCP specification](/specification/latest). Host
   support varies by client.
 </Note>
 

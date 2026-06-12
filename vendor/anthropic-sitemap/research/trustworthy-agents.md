@@ -22,10 +22,10 @@ Here’s an example of what we mean. If you were to ask Claude in Claude Cowork 
 
 How is Claude able to do this? An agent is built from four components, and each one is both a source of capability and a potential point of oversight:
 
-- **The model.** This is the “intelligence” that makes tasks possible. That intelligence is the product of our training process, which shapes both what the model knows and how it reasons and behaves.
-- **A harness.** This refers to the instructions, and the guardrails, that the model operates under. In our example above, the harness might tell Claude to flag anything over a hundred dollars, or to never submit expenses without user confirmation.
-- **Tools.** These are the services and applications the model can use, like your email, calendar, or expense software. Without tools, Claude can read the receipt but not file it.
-- **An environment.** This is where the agent runs—i.e., whether it’s set up in Claude Code, Claude Cowork, or some other product—and which files, websites, or systems it can access. The same agent on a corporate laptop inside a company network will have different data access, and different stakes, than it would on a personal phone.
+*   **The model.** This is the “intelligence” that makes tasks possible. That intelligence is the product of our training process, which shapes both what the model knows and how it reasons and behaves.
+*   **A harness.** This refers to the instructions, and the guardrails, that the model operates under. In our example above, the harness might tell Claude to flag anything over a hundred dollars, or to never submit expenses without user confirmation.
+*   **Tools.** These are the services and applications the model can use, like your email, calendar, or expense software. Without tools, Claude can read the receipt but not file it.
+*   **An environment.** This is where the agent runs—i.e., whether it’s set up in Claude Code, Claude Cowork, or some other product—and which files, websites, or systems it can access. The same agent on a corporate laptop inside a company network will have different data access, and different stakes, than it would on a personal phone.
 
 Most AI policy conversation today centers on the model, and understandably so. The model is where core capabilities come from, and as our most recent release showed, a single generation can meaningfully shift what agents are able to do. But agents’ behavior depends on all four layers working together. A well-trained model can still be exploited through a poorly configured harness, an overly permissive tool, or an exposed environment. This is why the safeguards we and others build need to account for them all.
 
@@ -73,20 +73,16 @@ Agents will reshape how people work, and whether that happens on a foundation th
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

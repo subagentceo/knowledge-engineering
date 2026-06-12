@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Edge API Request Parameters
 
 # Overview
@@ -105,7 +109,7 @@ These signals allow our systems to perform better analysis and provide effective
       </td>
 
       <td>
-        No
+        **Yes**
       </td>
 
       <td>
@@ -465,7 +469,7 @@ The POST request should include a JSON body structure as shown below:
   "required": [
     "private_key",
     "ip_address",
-		"workflow"
+    "workflow"
   ]
 }
 ```

@@ -1,13 +1,13 @@
 # logfire
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Pydantic
-
-- Installs
-
-  575
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Pydantic
+    
+*   Installs
+    
+    700

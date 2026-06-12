@@ -43,6 +43,7 @@ Access detailed logs with metadata from Cloudflare products
 - [Network Analytics Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/network_analytics_logs/index.md)
 - [Sinkhole HTTP Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/sinkhole_http_logs/index.md)
 - [SSH Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/ssh_logs/index.md)
+- [Turnstile Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/turnstile_events/index.md)
 - [WARP Config Changes](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/warp_config_changes/index.md)
 - [WARP Toggle Changes](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/warp_toggle_changes/index.md)
 - [Workers Trace Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/workers_trace_events/index.md)

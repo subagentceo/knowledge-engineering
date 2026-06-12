@@ -1,4 +1,4 @@
-**Important:** Styles have been migrated to skills. For more information on this change, refer to **[Styles are moving to skills](https://support.claude.com/en/articles/10181068-styles-are-moving-to-skills)**.
+**Important:** Styles are migrating to skills. For more information on this change, refer to **[Styles are moving to skills](https://support.claude.com/en/articles/10181068-styles-are-moving-to-skills)**.
 
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
 

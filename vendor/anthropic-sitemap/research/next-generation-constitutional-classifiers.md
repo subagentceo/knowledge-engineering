@@ -8,7 +8,7 @@ Jan 9, 2026
 
 Read the paper
 
-![Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](https://www-cdn.anthropic.com/images/4zrzovbb/website/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
+![Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F45fcb3d623c6983e268d91f0803f86f231044127-2000x1125.png&w=3840&q=75)
 
 Large language models remain vulnerable to jailbreaks—techniques that can circumvent safety guardrails and elicit harmful information. Over time, we’ve implemented a variety of protections that have made our models much less likely to assist with dangerous user queries—in particular relating to the production of chemical, biological, radiological, or nuclear weapons (CBRN). Nevertheless, no AI systems currently on the market have perfectly robust defenses.
 
@@ -26,8 +26,8 @@ We iterated on many different approaches, ultimately landing on an ensemble syst
 
 As models have grown to be more capable and robust to attacks, jailbreaks have also evolved to exploit previously unidentified vulnerabilities. Our Constitutional Classifiers approach demonstrated promising robustness against universal jailbreaks. But after conducting additional adversarial testing, we found that our classifiers remained vulnerable to two broad categories of attacks:
 
-- **Reconstruction attacks** break up harmful information into segments that appear benign, then reassemble them. For example, an attacker might embed a harmful query as a series of functions scattered throughout a codebase, then instruct the model to extract and respond to the hidden message.
-- **Output obfuscation attacks** prompt models to disguise their outputs in ways that appear harmless if a classifier is only looking at a model’s output. For example, during adversarial testing, attackers successfully instructed models to substitute possibly dangerous chemical names with innocuous alternatives (like referring to reagents as "food flavorings") or used metaphors and riddles in which harmful concepts are mapped onto anodyne concepts.
+*   **Reconstruction attacks** break up harmful information into segments that appear benign, then reassemble them. For example, an attacker might embed a harmful query as a series of functions scattered throughout a codebase, then instruct the model to extract and respond to the hidden message.
+*   **Output obfuscation attacks** prompt models to disguise their outputs in ways that appear harmless if a classifier is only looking at a model’s output. For example, during adversarial testing, attackers successfully instructed models to substitute possibly dangerous chemical names with innocuous alternatives (like referring to reagents as "food flavorings") or used metaphors and riddles in which harmful concepts are mapped onto anodyne concepts.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe054f2e8fda9d7ddda10d1e7a5aeb94d3074450c-3840x2264.png&w=3840&q=75)
 
@@ -63,20 +63,16 @@ For more details about the Constitutional Classifiers++ method, see the full pap
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

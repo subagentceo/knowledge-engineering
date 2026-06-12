@@ -4,6 +4,10 @@
 
 This documentation site provides guides, references, and examples for implementing WorkOS features in your applications.
 
+## Getting started
+
+- [Auth](https://workos.com/auth.md): Instructions for how agents can set up a new WorkOS account and start developing with the SDKs.
+
 ## Pricing
 
 - [Pricing](https://workos.com/pricing.md): WorkOS pricing details for AuthKit, SSO, Directory Sync, Audit Logs, Radar, and more.
@@ -15,6 +19,10 @@ This documentation site provides guides, references, and examples for implementi
 ## On prem deployment
 
 - [Using WorkOS with On-prem Customers](https://workos.com/docs/on-prem-deployment): Best practices for using WorkOS with on-prem customers.
+
+## Migrate standalone sso
+
+- [Migrate from the standalone SSO API](https://workos.com/docs/migrate-standalone-sso): Learn how to migrate your code from an existing WorkOS SSO integration.
 
 ## Glossary
 
@@ -69,12 +77,13 @@ This documentation site provides guides, references, and examples for implementi
 - [Identity Provider Role Assignment](https://workos.com/docs/sso/identity-provider-role-assignment): Learn how to map role data from identity providers to roles in your app with SSO.
 - [Example Apps](https://workos.com/docs/sso/example-apps): View sample Single Sign-On apps for each SDK.
 - [Domains](https://workos.com/docs/sso/domains): Understand how Organization domains are used with SSO.
-- [Profile Attributes](https://workos.com/docs/sso/attributes): Configure how attributes map from identity providers to SSO Profiles.
+- [IdP Attributes](https://workos.com/docs/sso/attributes): Configure how identity provider attributes map to SSO Profiles and Directory Users.
 - [Sign-In UX](https://workos.com/docs/sso/ux/sign-in): User experience considerations for Single Sign-On.
 - [SSO Session Lifecycle](https://workos.com/docs/sso/ux/sessions): Understanding SSO session statuses and their meaning.
 
 ## Sdks
 
+- [rust](https://workos.com/docs/sdks/rust)
 - [ruby](https://workos.com/docs/sdks/ruby)
 - [python](https://workos.com/docs/sdks/python)
 - [php](https://workos.com/docs/sdks/php)
@@ -118,6 +127,7 @@ This documentation site provides guides, references, and examples for implementi
 - [authkit - api-keys - create-for-organization](https://workos.com/docs/reference/authkit/api-keys/create-for-organization)
 - [authkit - api-keys - create-for-user](https://workos.com/docs/reference/authkit/api-keys/create-for-user)
 - [authkit - api-keys - delete](https://workos.com/docs/reference/authkit/api-keys/delete)
+- [authkit - api-keys - expire](https://workos.com/docs/reference/authkit/api-keys/expire)
 - [authkit - api-keys - list-for-organization](https://workos.com/docs/reference/authkit/api-keys/list-for-organization)
 - [authkit - api-keys - list-for-user](https://workos.com/docs/reference/authkit/api-keys/list-for-user)
 - [authkit - api-keys - validate](https://workos.com/docs/reference/authkit/api-keys/validate): Validate an API key and retrieve associated metadata.
@@ -188,7 +198,7 @@ This documentation site provides guides, references, and examples for implementi
 - [authkit - password-reset - get](https://workos.com/docs/reference/authkit/password-reset/get)
 - [authkit - password-reset - reset-password](https://workos.com/docs/reference/authkit/password-reset/reset-password)
 - [authkit - session](https://workos.com/docs/reference/authkit/session)
-- [authkit - session-helpers](https://workos.com/docs/reference/authkit/session-helpers): [object Object]
+- [authkit - session-helpers](https://workos.com/docs/reference/authkit/session-helpers)
 - [authkit - session-helpers - authenticate](https://workos.com/docs/reference/authkit/session-helpers/authenticate)
 - [authkit - session-helpers - get-logout-url](https://workos.com/docs/reference/authkit/session-helpers/get-logout-url)
 - [authkit - session-helpers - load-sealed-session](https://workos.com/docs/reference/authkit/session-helpers/load-sealed-session)
@@ -359,6 +369,7 @@ This documentation site provides guides, references, and examples for implementi
 - [vault - key - decrypt-data](https://workos.com/docs/reference/vault/key/decrypt-data)
 - [vault - key - decrypt-data-key](https://workos.com/docs/reference/vault/key/decrypt-data-key)
 - [vault - key - encrypt-data](https://workos.com/docs/reference/vault/key/encrypt-data)
+- [vault - key - rekey-data-key](https://workos.com/docs/reference/vault/key/rekey-data-key)
 - [vault - object](https://workos.com/docs/reference/vault/object)
 - [vault - object - create](https://workos.com/docs/reference/vault/object/create)
 - [vault - object - delete](https://workos.com/docs/reference/vault/object/delete)
@@ -422,19 +433,19 @@ This documentation site provides guides, references, and examples for implementi
 
 - [Providers](https://workos.com/docs/pipes/providers): Explore the third-party providers available for Pipes integrations.
 - [Pipes](https://workos.com/docs/pipes/index): Enable your customers to connect their third-party accounts to your application.
+- [Custom providers](https://workos.com/docs/pipes/custom-providers): Define your own OAuth provider in Pipes when the one you need isn't in the WorkOS catalog.
 
 ## Migrations
 
 - [Migrate from Supabase Auth](https://workos.com/docs/migrate/supabase): Learn how to migrate users from Supabase Auth.
 - [Migrate from Stytch](https://workos.com/docs/migrate/stytch): Learn how to migrate users and organizations from Stytch.
-- [Migrate from the standalone SSO API](https://workos.com/docs/migrate/standalone-sso): Learn how to migrate your code from an existing WorkOS SSO integration.
 - [Migrate from other services](https://workos.com/docs/migrate/other-services): Learn how to export and import users from your own data store.
 - [Migrate from Firebase](https://workos.com/docs/migrate/firebase): Learn how to migrate users to WorkOS from Firebase.
 - [Migrate from Descope](https://workos.com/docs/migrate/descope): Learn how to migrate users and organizations from Descope.
 - [Migrate from Clerk](https://workos.com/docs/migrate/clerk): Learn how to migrate users and organizations from Clerk.
 - [Migrate from Better Auth](https://workos.com/docs/migrate/better-auth): Learn how to migrate users and organizations from Better Auth.
 - [Migrate from AWS Cognito](https://workos.com/docs/migrate/aws-cognito): Learn how to migrate users to WorkOS from AWS Cognito.
-- [Migrate from Auth0](https://workos.com/docs/migrate/auth0): Learn how to migrate users and organizations from Auth0.
+- [Migrate from Auth0](https://workos.com/docs/migrate/auth0): Learn how to migrate users, organizations, and enterprise connections from Auth0.
 
 ## Multi-Factor Auth
 
@@ -624,6 +635,7 @@ This documentation site provides guides, references, and examples for implementi
 - [AI Installer & CLI](https://workos.com/docs/authkit/cli-installer): Integrate AuthKit with one command, manage resources, provision environments, and equip your coding agents — all from the WorkOS CLI.
 - [CLI Auth](https://workos.com/docs/authkit/cli-auth): Quickly add authentication to your command-line application.
 - [Branding](https://workos.com/docs/authkit/branding): Customize AuthKit to fit natively with your app’s unique design.
+- [Applications](https://workos.com/docs/authkit/applications): Manage authentication across every surface your product runs on with a shared identity layer.
 - [API Keys](https://workos.com/docs/authkit/api-keys): Provide secure, self-service API key management to your customers.
 - [Actions](https://workos.com/docs/authkit/actions): Customize authentication flows with your own logic.
 - [Standalone Connect](https://workos.com/docs/authkit/connect/standalone): Integrate Connect's OAuth API with your existing authentication stack.
@@ -644,7 +656,7 @@ This documentation site provides guides, references, and examples for implementi
 
 ## Admin Portal
 
-- [Bearer token rotation](https://workos.com/docs/admin-portal/token-rotation): Bearer token management for SCIM directories is moving to the Admin Portal, where IT admins will soon be able to rotate them.
+- [Bearer token rotation](https://workos.com/docs/admin-portal/token-rotation): Create and revoke SCIM bearer tokens from the WorkOS Dashboard or Admin Portal.
 - [Admin Portal](https://workos.com/docs/admin-portal/index): A first-class Single Sign-On and Directory Sync onboarding experience for IT contacts.
 - [Example Apps](https://workos.com/docs/admin-portal/example-apps): View sample Admin Portal apps for each SDK.
 - [Custom Branding](https://workos.com/docs/admin-portal/custom-branding): Use your own logo and colors in the Admin Portal.

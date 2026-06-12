@@ -18,10 +18,10 @@ We applaud the Administration's commitment to streamlining data center and energ
 
 The Plan’s recommendations to increase the federal government's adoption of AI also includes proposals that are closely aligned with Anthropic’s policy priorities and recommendations to the White House. These include:
 
-- Tasking the Office of Management and Budget (OMB) to address resource constraints, procurement limitations, and programmatic obstacles to federal AI adoption.
-- Launching a Request for Information (RFI) to identify federal regulations that impede AI innovation, with OMB coordinating reform efforts.
-- Updating federal procurement standards to remove barriers that prevent agencies from deploying AI systems.
-- Promoting AI adoption across defense and national security applications through public-private collaboration.
+*   Tasking the Office of Management and Budget (OMB) to address resource constraints, procurement limitations, and programmatic obstacles to federal AI adoption.
+*   Launching a Request for Information (RFI) to identify federal regulations that impede AI innovation, with OMB coordinating reform efforts.
+*   Updating federal procurement standards to remove barriers that prevent agencies from deploying AI systems.
+*   Promoting AI adoption across defense and national security applications through public-private collaboration.
 
 ## Democratizing AI’s benefits
 
@@ -65,18 +65,18 @@ For more details on our policy recommendations, see our full submission to OSTP,
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

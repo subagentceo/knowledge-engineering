@@ -9,6 +9,7 @@ List User Profiles
 ### Parameters
 
 - `UserProfileListParams parameters`
+
   - `Int limit`
 
     Query param: Query parameter for limit
@@ -16,6 +17,7 @@ List User Profiles
   - `Order order`
 
     Query param: Query parameter for order
+
     - `"asc"Asc`
 
     - `"desc"Desc`
@@ -27,6 +29,7 @@ List User Profiles
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -79,14 +82,18 @@ List User Profiles
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class UserProfileListPageResponse:`
+
   - `required IReadOnlyList<BetaUserProfile> Data`
 
     User profiles on this page.
+
     - `required string ID`
 
       Unique identifier for this user profile, prefixed `uprof_`.
@@ -102,6 +109,7 @@ List User Profiles
     - `required Relationship Relationship`
 
       How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
       - `"external"External`
 
       - `"resold"Resold`
@@ -111,9 +119,11 @@ List User Profiles
     - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
       Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
       - `required Status Status`
 
         Status of the trust grant.
+
         - `"active"Active`
 
         - `"pending"Pending`
@@ -123,6 +133,7 @@ List User Profiles
     - `required Type Type`
 
       Object type. Always `user_profile`.
+
       - `"user_profile"UserProfile`
 
     - `required DateTimeOffset UpdatedAt`

@@ -558,8 +558,7 @@ components:
           description: >-
             Optional upper bound on the total number of characters to include
             per url. Excerpts may contain fewer characters than this limit to
-            maximize relevance and token efficiency. Values below 1000 will be
-            automatically set to 1000.
+            maximize relevance and token efficiency.
       additionalProperties: false
       type: object
       title: V1ExcerptSettings

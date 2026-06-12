@@ -2,6 +2,32 @@
 
 Routines turn Claude Code into a proactive teammate that reads your repo and opens a PR before you've opened your laptop. You'll see one built end to end, learn the trigger, context, and steering decisions behind any routine, and leave one /schedule command away from your first.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+12:30 – 13:15
+
+Session type
+
+Workshop
+
+Speaker(s)
+
+Sid Bidasaria
+
+Member of Technical Staff, Claude Code,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

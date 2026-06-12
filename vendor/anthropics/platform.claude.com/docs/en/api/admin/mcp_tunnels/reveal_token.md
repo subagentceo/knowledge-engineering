@@ -20,6 +20,7 @@ access logs.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -36,6 +37,7 @@ access logs.
 - `type: "tunnel_token"`
 
   Object type. Always `tunnel_token` for Tunnel Tokens.
+
   - `"tunnel_token"`
 
 ### Example
@@ -44,7 +46,7 @@ access logs.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/reveal_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

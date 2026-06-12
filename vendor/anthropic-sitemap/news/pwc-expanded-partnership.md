@@ -12,11 +12,11 @@ Anthropic and PwC today announced an expansion of their strategic alliance, deep
 
 Key elements of the announcement:
 
-- PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals.
-- The companies are establishing a joint Center of Excellence and a program to train and certify 30,000 PwC professionals on Claude.
-- The collaboration focuses on three areas of highest leverage: agentic technology build, AI-native deal-making, and reinvention of the enterprise function.
-- PwC is launching a new finance business group (Office of the CFO) built on Claude as the first standalone business unit anchored in Anthropic's technology.
-- Claude is already running in production across professional sports operations, insurance underwriting, mainframe modernization, HR transformation, and cybersecurity—cutting delivery times by up to 70%.
+*   PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals.
+*   The companies are establishing a joint Center of Excellence and a program to train and certify 30,000 PwC professionals on Claude.
+*   The collaboration focuses on three areas of highest leverage: agentic technology build, AI-native deal-making, and reinvention of the enterprise function.
+*   PwC is launching a new finance business group (Office of the CFO) built on Claude as the first standalone business unit anchored in Anthropic's technology.
+*   Claude is already running in production across professional sports operations, insurance underwriting, mainframe modernization, HR transformation, and cybersecurity—cutting delivery times by up to 70%.
 
 "PwC has been leading AI's expansion into the parts of the economy where accuracy and reliability are non-negotiable—financial services, healthcare, life sciences, cybersecurity—and the results are clear. Insurance underwriting that took 10 weeks now takes 10 days. Security work that took hours now takes minutes. We're excited to put Claude in the hands of hundreds of thousands of people across PwC's workforce," said Dario Amodei, Co-founder and CEO, Anthropic.
 
@@ -26,9 +26,9 @@ Key elements of the announcement:
 
 The biggest gains for enterprises will come from AI systems that complete tasks end-to-end, run continuously, and let the most experienced professionals operate at a scale not previously possible. PwC and Anthropic are building them in production today, across PwC's global network. The expansion centers on three areas:
 
-- **Agentic technology build**. Engineering teams are using Claude Code to ship production software for major companies in weeks, not quarters. This includes a growing portfolio of agentic builds across financial services, pharma and life sciences, healthcare, and consumer markets.
-- **AI-native deal-making**. PwC is reinventing how it executes deals end-to-end — diligence, value creation, integration — with agents working alongside deal teams. For private equity sponsors and corporate acquirers, this compresses the path from thesis to value capture and changes the economics of what's worth doing.
-- **Reinvention of the enterprise function**. Where many are running pilots, PwC is running production—including building scalable AI-native operating models for finance, supply chain, HR, and the engineering function itself.
+*   **Agentic technology build**. Engineering teams are using Claude Code to ship production software for major companies in weeks, not quarters. This includes a growing portfolio of agentic builds across financial services, pharma and life sciences, healthcare, and consumer markets.
+*   **AI-native deal-making**. PwC is reinventing how it executes deals end-to-end — diligence, value creation, integration — with agents working alongside deal teams. For private equity sponsors and corporate acquirers, this compresses the path from thesis to value capture and changes the economics of what's worth doing.
+*   **Reinvention of the enterprise function**. Where many are running pilots, PwC is running production—including building scalable AI-native operating models for finance, supply chain, HR, and the engineering function itself.
 
 ## Office of the CFO
 
@@ -42,18 +42,18 @@ Across the production deployments below, clients are reporting delivery improvem
 
 Live deployments include:
 
-- **Professional sports operations**: PwC has leveraged Anthropic's portfolio of assets to reinvent digital fan engagement and an agentic-first sports management operation.
-- **Insurance underwriting**: Underwriting cycles compressed from ten weeks to ten days, opening lines of business that were not previously economically viable.
-- **Mainframe modernization**: A COBOL codebase four times larger than scoped, tracking on time and under budget.
-- **HR transformation**: A stalled program turned around with a working prototype in one week, full application in under two months, now running thousands of daily transactions.
-- **Cybersecurity**: Incident response accelerated from hours to minutes, with agentic vulnerability operations—code review, automated containment—closing exposure windows before adversaries can exploit them.
+*   **Professional sports operations**: PwC has leveraged Anthropic's portfolio of assets to reinvent digital fan engagement and an agentic-first sports management operation.
+*   **Insurance underwriting**: Underwriting cycles compressed from ten weeks to ten days, opening lines of business that were not previously economically viable.
+*   **Mainframe modernization**: A COBOL codebase four times larger than scoped, tracking on time and under budget.
+*   **HR transformation**: A stalled program turned around with a working prototype in one week, full application in under two months, now running thousands of daily transactions.
+*   **Cybersecurity**: Incident response accelerated from hours to minutes, with agentic vulnerability operations—code review, automated containment—closing exposure windows before adversaries can exploit them.
 
 PwC and Anthropic are helping clients design the future of operating models across the industries where the stakes are highest:
 
-- **Healthcare**: Agentic transformation across clinical operations, workforce productivity, and the administrative spine that connects systems and payers.
-- **Life sciences**: Compressing clinical development cycles, regulatory submissions, and safety case processing while meeting FDA and EMA standards.
-- **Financial services and private equity**: AI-native finance platforms, agentic deal execution, and portfolio-scale operating model deployment for sponsors moving from thesis to value.
-- **Consumer, industrial, and technology**: Function reinvention and agentic build across the industries where speed-to-market and operating efficiency define competitive position.
+*   **Healthcare**: Agentic transformation across clinical operations, workforce productivity, and the administrative spine that connects systems and payers.
+*   **Life sciences**: Compressing clinical development cycles, regulatory submissions, and safety case processing while meeting FDA and EMA standards.
+*   **Financial services and private equity**: AI-native finance platforms, agentic deal execution, and portfolio-scale operating model deployment for sponsors moving from thesis to value.
+*   **Consumer, industrial, and technology**: Function reinvention and agentic build across the industries where speed-to-market and operating efficiency define competitive position.
 
 ## Client story: Advocate Health
 
@@ -73,22 +73,22 @@ Claude is already available in ChatPwC—the firm's internal AI assistant—and 
 
 PwC clients can contact their account team to discuss deployment options. Enterprises can visit our Enterprise page to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
-Learn more here.
+Learn more here.  
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -9,6 +9,7 @@ Create a new environment with the specified configuration.
 ### Parameters
 
 - `EnvironmentCreateParams parameters`
+
   - `required string name`
 
     Body param: Human-readable name for the environment
@@ -16,12 +17,14 @@ Create a new environment with the specified configuration.
   - `Config? config`
 
     Body param: Environment configuration
+
     - `class BetaCloudConfigParams:`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonElement Type "cloud"constant`
 
         Environment type
@@ -29,9 +32,11 @@ Create a new environment with the specified configuration.
       - `Networking? Networking`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -42,6 +47,7 @@ Create a new environment with the specified configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `JsonElement Type "limited"constant`
 
             Network policy type
@@ -63,6 +69,7 @@ Create a new environment with the specified configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `IReadOnlyList<string>? Apt`
 
           Ubuntu/Debian packages to install
@@ -90,11 +97,13 @@ Create a new environment with the specified configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -110,6 +119,7 @@ Create a new environment with the specified configuration.
   - `Scope? scope`
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -117,6 +127,7 @@ Create a new environment with the specified configuration.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -169,16 +180,19 @@ Create a new environment with the specified configuration.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -187,15 +201,19 @@ Create a new environment with the specified configuration.
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -203,6 +221,7 @@ Create a new environment with the specified configuration.
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -222,6 +241,7 @@ Create a new environment with the specified configuration.
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -249,6 +269,7 @@ Create a new environment with the specified configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -258,6 +279,7 @@ Create a new environment with the specified configuration.
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -289,6 +311,7 @@ Create a new environment with the specified configuration.
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -313,16 +336,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

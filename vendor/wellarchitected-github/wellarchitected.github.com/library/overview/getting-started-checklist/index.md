@@ -1,6 +1,8 @@
-[Content Library](/library/)
+# Getting Started Checklist
 
-[Overview](/library/overview/)
+Libraries
+
+Overview
 
 Getting Started Checklist
 
@@ -8,7 +10,7 @@ Getting Started Checklist
 
 This checklist serves as a high-level guide for conducting a GitHub Well-Architected Assessment. It outlines the key areas to review and evaluate to ensure your organization’s GitHub usage aligns with the best practices and principles of the GitHub Well-Architected Framework.
 
-### Checklist Items[](#checklist-items)
+### Checklist Items
 
 1.  **Engage with an Expert:** Start by engaging with a GitHub or Partner expert to facilitate the assessment.
 2.  **Review the GitHub Well-Architected Framework:** Familiarize yourself with the five pillars of the framework: Productivity, Collaboration, Application Security, Governance, and Architecture.
@@ -19,8 +21,6 @@ This checklist serves as a high-level guide for conducting a GitHub Well-Archite
 
 Once you are familiar with the Getting Started checklist above, it is time to drill down on the checklists for each pillar:
 
-[⚙️ Productivity Checklist](/library/productivity/checklist) [👥 Collaboration Checklist](/library/collaboration/checklist) [🔒 Application Security Checklist](/library/application-security/checklist) [📜 Governance Checklist](/library/governance/checklist) [📐 Architecture Checklist](/library/architecture/checklist)
+Productivity Checklist Collaboration Checklist Application Security Checklist Governance Checklist Architecture Checklist
 
-Last updated on December 10, 2025
-
-[About the Assessment](/library/overview/about-the-assessment/ "About the Assessment")[Release notes](/library/overview/release-notes/ "Release notes")
+About the AssessmentRelease notes

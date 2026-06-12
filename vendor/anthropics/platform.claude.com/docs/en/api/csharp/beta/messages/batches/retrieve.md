@@ -11,6 +11,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchRetrieveParams parameters`
+
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -18,6 +19,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,11 +72,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaMessageBatch:`
+
   - `required string ID`
 
     Unique object identifier.
@@ -106,6 +111,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `required ProcessingStatus ProcessingStatus`
 
     Processing status of the Message Batch.
+
     - `"in_progress"InProgress`
 
     - `"canceling"Canceling`
@@ -117,6 +123,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `required Long Canceled`
 
       Number of requests in the Message Batch that have been canceled.

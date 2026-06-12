@@ -11,9 +11,11 @@ Upload File
 ### Parameters
 
 - `FileUploadParams params`
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Upload File
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `String file`
 
@@ -75,6 +79,7 @@ Upload File
 ### Returns
 
 - `class FileMetadata:`
+
   - `String id`
 
     Unique object identifier.
@@ -102,6 +107,7 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
+
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -111,6 +117,7 @@ Upload File
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -118,6 +125,7 @@ Upload File
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
+
       - `SESSION("session")`
 
 ### Example
@@ -174,6 +182,7 @@ List Files
 ### Parameters
 
 - `FileListParams params`
+
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -195,6 +204,7 @@ List Files
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -247,11 +257,14 @@ List Files
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class FileMetadata:`
+
   - `String id`
 
     Unique object identifier.
@@ -279,6 +292,7 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
+
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -288,6 +302,7 @@ List Files
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -295,6 +310,7 @@ List Files
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
+
       - `SESSION("session")`
 
 ### Example
@@ -354,6 +370,7 @@ Download File
 ### Parameters
 
 - `FileDownloadParams params`
+
   - `Optional<String> fileId`
 
     ID of the File.
@@ -361,6 +378,7 @@ Download File
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -413,7 +431,9 @@ Download File
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Example
 
@@ -447,6 +467,7 @@ Get File Metadata
 ### Parameters
 
 - `FileRetrieveMetadataParams params`
+
   - `Optional<String> fileId`
 
     ID of the File.
@@ -454,6 +475,7 @@ Get File Metadata
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -506,11 +528,14 @@ Get File Metadata
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class FileMetadata:`
+
   - `String id`
 
     Unique object identifier.
@@ -538,6 +563,7 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
+
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -547,6 +573,7 @@ Get File Metadata
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -554,6 +581,7 @@ Get File Metadata
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
+
       - `SESSION("session")`
 
 ### Example
@@ -606,6 +634,7 @@ Delete File
 ### Parameters
 
 - `FileDeleteParams params`
+
   - `Optional<String> fileId`
 
     ID of the File.
@@ -613,6 +642,7 @@ Delete File
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -665,11 +695,14 @@ Delete File
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class DeletedFile:`
+
   - `String id`
 
     ID of the deleted file.
@@ -679,6 +712,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `FILE_DELETED("file_deleted")`
 
 ### Example
@@ -716,6 +750,7 @@ public final class Main {
 ### Beta File Scope
 
 - `class BetaFileScope:`
+
   - `String id`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -723,11 +758,13 @@ public final class Main {
   - `JsonValue; type "session"constant`
 
     The type of scope (e.g., `"session"`).
+
     - `SESSION("session")`
 
 ### Deleted File
 
 - `class DeletedFile:`
+
   - `String id`
 
     ID of the deleted file.
@@ -737,11 +774,13 @@ public final class Main {
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `FILE_DELETED("file_deleted")`
 
 ### File Metadata
 
 - `class FileMetadata:`
+
   - `String id`
 
     Unique object identifier.
@@ -769,6 +808,7 @@ public final class Main {
     Object type.
 
     For files, this is always `"file"`.
+
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -778,6 +818,7 @@ public final class Main {
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -785,4 +826,5 @@ public final class Main {
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
+
       - `SESSION("session")`

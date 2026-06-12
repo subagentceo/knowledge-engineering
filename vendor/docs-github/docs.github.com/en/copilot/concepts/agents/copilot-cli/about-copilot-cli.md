@@ -49,6 +49,27 @@ Alternatively, you can use a script to output command-line options and pipe this
 > \[!CAUTION]
 > If you use an automatic approval option such as `--allow-all-tools`, Copilot has the same access as you do to files on your computer, and can run any shell commands that you can run, without getting your prior approval. See [Security considerations](#security-considerations), later in this article.
 
+## Running in a sandbox with cloud and local sandboxes for GitHub Copilot
+
+> \[!NOTE]
+> Cloud and local sandboxes for GitHub Copilot is in public preview and subject to change.
+
+Cloud and local sandboxes for GitHub Copilot provides isolated execution environments for Copilot CLI, both locally and in the cloud. For more information, see [About cloud and local sandboxes for GitHub Copilot](/en/copilot/concepts/about-cloud-and-local-sandboxes).
+
+### Local sandboxing
+
+You can enable local sandboxing inside a Copilot CLI session to restrict Copilot's access to your filesystem, network, and system capabilities. To enable it, run `/sandbox enable` inside a session.
+
+### Cloud sandboxing
+
+You can start a Copilot CLI session inside an isolated, cloud-hosted environment with cloud sandboxes. This is useful when you want to run code without affecting your local machine, keep a session's state between uses, continue a session from a different machine, or run multiple tasks in parallel. Cloud sandbox policies inherit from Copilot cloud agent policies, so existing security controls like firewall rules extend to cloud sandboxes without additional setup.
+
+To start a cloud-backed session, run:
+
+```bash copy
+copilot --cloud
+```
+
 ## Use cases for GitHub Copilot CLI
 
 The following sections provide examples of tasks you can complete with GitHub Copilot CLI.
@@ -276,7 +297,9 @@ You can control which tools Copilot CLI can use by responding to approval prompt
 
 ### Risk mitigation
 
-You can mitigate the risks associated with using the automatic approval options by running Copilot CLI in a restricted environment—such as a virtual machine, container, or dedicated system—with tightly controlled permissions and network access. This confines any potential damage that could occur when allowing Copilot to execute commands that you have not reviewed and verified.
+You can mitigate the risks associated with using the automatic approval options by running Copilot CLI in a sandboxed environment. Cloud and local sandboxes for GitHub Copilot provides a first-party solution for this, with local sandboxing to restrict access on your machine and cloud sandboxing for fully isolated execution. For more information, see [About cloud and local sandboxes for GitHub Copilot](/en/copilot/concepts/about-cloud-and-local-sandboxes).
+
+Alternatively, you can run Copilot CLI in a virtual machine, container, or dedicated system with tightly controlled permissions and network access.
 
 ### Known MCP server policy limitations
 
@@ -289,11 +312,19 @@ For more information about these policies, see [MCP server usage in your company
 
 ## Model usage
 
-The default model used by GitHub Copilot CLI is Claude Sonnet 4.5. GitHub reserves the right to change this model.
-
 You can change the model used by GitHub Copilot CLI by using the `/model` slash command or the `--model` command-line option. Enter this command, then select a model from the list.
 
-Each time you submit a prompt to Copilot in Copilot CLI's interactive interface, and each time you use Copilot CLI programmatically, your monthly quota of Copilot premium requests is reduced by one, multiplied by the multiplier shown in parentheses in the model list. For example, `Claude Sonnet 4.5 (1x)` indicates that with this model each time you submit a prompt your quota of premium requests is reduced by one. For information about premium requests, see [Requests in GitHub Copilot](/en/copilot/concepts/billing/copilot-requests).
+Each time you interact with Copilot in Copilot CLI's interactive interface, or use Copilot CLI programmatically, AI credits are consumed based on the number of tokens processed. The amount consumed per interaction varies depending on the model used. See [Models and pricing for GitHub Copilot](/en/copilot/reference/copilot-billing/models-and-pricing).
+
+### Models with extended capabilities
+
+The latest models support a 1 million token context window, so you can work across larger codebases, longer documents, and complex multi-file projects without losing context. After you select a supported model, you will be prompted to choose between the default context size or an extended (1 million token) context.
+
+In addition, these models also support configurable reasoning levels, which control the depth of the model's reasoning process before it generates a response.
+
+Choosing a larger context window or higher reasoning will impact AI credits consumption; more tokens will be consumed, so more credits will be used. For this reason, we recommend that you use the regular context window and regular reasoning by default, selecting the larger context window and higher reasoning for more complex tasks only.
+
+For a list of models that support these capabilities, see [Models with extended capabilities](/en/copilot/reference/ai-models/supported-models#models-with-extended-capabilities).
 
 ### Using your own model provider
 
@@ -324,4 +355,4 @@ If you have any feedback about GitHub Copilot CLI, please let us know by using t
 
 * [Installing GitHub Copilot CLI](/en/copilot/how-tos/set-up/install-copilot-cli)
 * [Using GitHub Copilot CLI](/en/copilot/how-tos/use-copilot-agents/use-copilot-cli)
-* [Responsible use of GitHub Copilot CLI](/en/enterprise-cloud@latest/copilot/responsible-use/copilot-cli)
+* [Application card: GitHub Copilot Agents](/en/enterprise-cloud@latest/copilot/responsible-use/copilot-cli)

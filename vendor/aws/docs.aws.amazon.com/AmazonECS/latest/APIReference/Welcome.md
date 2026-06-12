@@ -9,4 +9,4 @@ Amazon ECS makes it easy to launch and stop container-based applications with si
 
 You can use Amazon ECS to schedule the placement of containers across your cluster based on your resource needs, isolation policies, and availability requirements. With Amazon ECS, you don't need to operate your own cluster management and configuration management systems. You also don't need to worry about scaling your management infrastructure. 
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

@@ -11,9 +11,11 @@ Create a new environment with the specified configuration.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,7 +68,9 @@ Create a new environment with the specified configuration.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -77,26 +81,32 @@ Create a new environment with the specified configuration.
 - `config: optional BetaCloudConfigParams or BetaSelfHostedConfigParams`
 
   Environment configuration
+
   - `BetaCloudConfigParams object { type, networking, packages }`
 
     Request params for `cloud` environment configuration.
 
     Fields default to null; on update, omitted fields preserve the
     existing value.
+
     - `type: "cloud"`
 
       Environment type
+
       - `"cloud"`
 
     - `networking: optional BetaUnrestrictedNetwork or BetaLimitedNetworkParams`
 
       Network configuration policy. Omit on update to preserve the existing value.
+
       - `BetaUnrestrictedNetwork object { type }`
 
         Unrestricted network access.
+
         - `type: "unrestricted"`
 
           Network policy type
+
           - `"unrestricted"`
 
       - `BetaLimitedNetworkParams object { type, allow_mcp_servers, allow_package_managers, allowed_hosts }`
@@ -105,9 +115,11 @@ Create a new environment with the specified configuration.
 
         Fields default to null; on update, omitted fields preserve the
         existing value.
+
         - `type: "limited"`
 
           Network policy type
+
           - `"limited"`
 
         - `allow_mcp_servers: optional boolean`
@@ -127,6 +139,7 @@ Create a new environment with the specified configuration.
       Specify packages (and optionally their versions) available in this environment.
 
       When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
       - `apt: optional array of string`
 
         Ubuntu/Debian packages to install
@@ -154,14 +167,17 @@ Create a new environment with the specified configuration.
       - `type: optional "packages"`
 
         Package configuration type
+
         - `"packages"`
 
   - `BetaSelfHostedConfigParams object { type }`
 
     Request params for `self_hosted` environment configuration.
+
     - `type: "self_hosted"`
 
       Environment type
+
       - `"self_hosted"`
 
 - `description: optional string`
@@ -175,6 +191,7 @@ Create a new environment with the specified configuration.
 - `scope: optional "organization" or "account"`
 
   The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+
   - `"organization"`
 
   - `"account"`
@@ -184,9 +201,10 @@ Create a new environment with the specified configuration.
 - `BetaEnvironment object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -195,23 +213,29 @@ Create a new environment with the specified configuration.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -227,11 +251,13 @@ Create a new environment with the specified configuration.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -259,19 +285,23 @@ Create a new environment with the specified configuration.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -293,6 +323,7 @@ Create a new environment with the specified configuration.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -302,6 +333,7 @@ Create a new environment with the specified configuration.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -346,16 +378,31 @@ curl https://api.anthropic.com/v1/environments \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -395,9 +442,11 @@ List environments with pagination support.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -450,16 +499,19 @@ List environments with pagination support.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of BetaEnvironment`
 
   List of environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -468,23 +520,29 @@ List environments with pagination support.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -500,11 +558,13 @@ List environments with pagination support.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -532,19 +592,23 @@ List environments with pagination support.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -566,6 +630,7 @@ List environments with pagination support.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -575,6 +640,7 @@ List environments with pagination support.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -604,16 +670,31 @@ curl https://api.anthropic.com/v1/environments \
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -646,9 +727,11 @@ Retrieve a specific environment by ID.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -701,16 +784,19 @@ Retrieve a specific environment by ID.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaEnvironment object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -719,23 +805,29 @@ Retrieve a specific environment by ID.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -751,11 +843,13 @@ Retrieve a specific environment by ID.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -783,19 +877,23 @@ Retrieve a specific environment by ID.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -817,6 +915,7 @@ Retrieve a specific environment by ID.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -826,6 +925,7 @@ Retrieve a specific environment by ID.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -849,16 +949,31 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -888,9 +1003,11 @@ Update an existing environment's configuration.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -943,33 +1060,41 @@ Update an existing environment's configuration.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
 - `config: optional BetaCloudConfigParams or BetaSelfHostedConfigParams`
 
   Updated environment configuration
+
   - `BetaCloudConfigParams object { type, networking, packages }`
 
     Request params for `cloud` environment configuration.
 
     Fields default to null; on update, omitted fields preserve the
     existing value.
+
     - `type: "cloud"`
 
       Environment type
+
       - `"cloud"`
 
     - `networking: optional BetaUnrestrictedNetwork or BetaLimitedNetworkParams`
 
       Network configuration policy. Omit on update to preserve the existing value.
+
       - `BetaUnrestrictedNetwork object { type }`
 
         Unrestricted network access.
+
         - `type: "unrestricted"`
 
           Network policy type
+
           - `"unrestricted"`
 
       - `BetaLimitedNetworkParams object { type, allow_mcp_servers, allow_package_managers, allowed_hosts }`
@@ -978,9 +1103,11 @@ Update an existing environment's configuration.
 
         Fields default to null; on update, omitted fields preserve the
         existing value.
+
         - `type: "limited"`
 
           Network policy type
+
           - `"limited"`
 
         - `allow_mcp_servers: optional boolean`
@@ -1000,6 +1127,7 @@ Update an existing environment's configuration.
       Specify packages (and optionally their versions) available in this environment.
 
       When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
       - `apt: optional array of string`
 
         Ubuntu/Debian packages to install
@@ -1027,14 +1155,17 @@ Update an existing environment's configuration.
       - `type: optional "packages"`
 
         Package configuration type
+
         - `"packages"`
 
   - `BetaSelfHostedConfigParams object { type }`
 
     Request params for `self_hosted` environment configuration.
+
     - `type: "self_hosted"`
 
       Environment type
+
       - `"self_hosted"`
 
 - `description: optional string`
@@ -1052,6 +1183,7 @@ Update an existing environment's configuration.
 - `scope: optional "organization" or "account"`
 
   The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
   - `"organization"`
 
   - `"account"`
@@ -1061,9 +1193,10 @@ Update an existing environment's configuration.
 - `BetaEnvironment object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -1072,23 +1205,29 @@ Update an existing environment's configuration.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1104,11 +1243,13 @@ Update an existing environment's configuration.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -1136,19 +1277,23 @@ Update an existing environment's configuration.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -1170,6 +1315,7 @@ Update an existing environment's configuration.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -1179,6 +1325,7 @@ Update an existing environment's configuration.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -1206,16 +1353,31 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1245,9 +1407,11 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1300,13 +1464,16 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaEnvironmentDeleteResponse object { id, type }`
 
   Response after deleting an environment.
+
   - `id: string`
 
     Environment identifier
@@ -1314,6 +1481,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
   - `type: "environment_deleted"`
 
     The type of response
+
     - `"environment_deleted"`
 
 ### Example
@@ -1350,9 +1518,11 @@ Archive an environment by ID. Archived environments cannot be used to create new
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1405,16 +1575,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaEnvironment object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -1423,23 +1596,29 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1455,11 +1634,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -1487,19 +1668,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -1521,6 +1706,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -1530,6 +1716,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -1554,16 +1741,31 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1585,20 +1787,25 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaCloudConfig object { networking, packages, type }`
 
   `cloud` environment configuration.
+
   - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
     Network configuration policy.
+
     - `BetaUnrestrictedNetwork object { type }`
 
       Unrestricted network access.
+
       - `type: "unrestricted"`
 
         Network policy type
+
         - `"unrestricted"`
 
     - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
       Limited network access.
+
       - `allow_mcp_servers: boolean`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1614,11 +1821,13 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
       - `type: "limited"`
 
         Network policy type
+
         - `"limited"`
 
   - `packages: BetaPackages`
 
     Package manager configuration.
+
     - `apt: array of string`
 
       Ubuntu/Debian packages to install
@@ -1646,11 +1855,13 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
     - `type: optional "packages"`
 
       Package configuration type
+
       - `"packages"`
 
   - `type: "cloud"`
 
     Environment type
+
     - `"cloud"`
 
 ### Beta Cloud Config Params
@@ -1661,20 +1872,25 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `type: "cloud"`
 
     Environment type
+
     - `"cloud"`
 
   - `networking: optional BetaUnrestrictedNetwork or BetaLimitedNetworkParams`
 
     Network configuration policy. Omit on update to preserve the existing value.
+
     - `BetaUnrestrictedNetwork object { type }`
 
       Unrestricted network access.
+
       - `type: "unrestricted"`
 
         Network policy type
+
         - `"unrestricted"`
 
     - `BetaLimitedNetworkParams object { type, allow_mcp_servers, allow_package_managers, allowed_hosts }`
@@ -1683,9 +1899,11 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `type: "limited"`
 
         Network policy type
+
         - `"limited"`
 
       - `allow_mcp_servers: optional boolean`
@@ -1705,6 +1923,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
     Specify packages (and optionally their versions) available in this environment.
 
     When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
     - `apt: optional array of string`
 
       Ubuntu/Debian packages to install
@@ -1732,6 +1951,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
     - `type: optional "packages"`
 
       Package configuration type
+
       - `"packages"`
 
 ### Beta Environment
@@ -1739,9 +1959,10 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaEnvironment object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -1750,23 +1971,29 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1782,11 +2009,13 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -1814,19 +2043,23 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -1848,6 +2081,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -1857,6 +2091,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -1866,6 +2101,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaEnvironmentDeleteResponse object { id, type }`
 
   Response after deleting an environment.
+
   - `id: string`
 
     Environment identifier
@@ -1873,6 +2109,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `type: "environment_deleted"`
 
     The type of response
+
     - `"environment_deleted"`
 
 ### Beta Limited Network
@@ -1880,6 +2117,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
   Limited network access.
+
   - `allow_mcp_servers: boolean`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1895,6 +2133,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `type: "limited"`
 
     Network policy type
+
     - `"limited"`
 
 ### Beta Limited Network Params
@@ -1905,9 +2144,11 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `type: "limited"`
 
     Network policy type
+
     - `"limited"`
 
   - `allow_mcp_servers: optional boolean`
@@ -1927,6 +2168,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaPackages object { apt, cargo, gem, 4 more }`
 
   Packages (and their versions) available in this environment.
+
   - `apt: array of string`
 
     Ubuntu/Debian packages to install
@@ -1954,6 +2196,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `type: optional "packages"`
 
     Package configuration type
+
     - `"packages"`
 
 ### Beta Packages Params
@@ -1963,6 +2206,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   Specify packages (and optionally their versions) available in this environment.
 
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
   - `apt: optional array of string`
 
     Ubuntu/Debian packages to install
@@ -1990,6 +2234,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
   - `type: optional "packages"`
 
     Package configuration type
+
     - `"packages"`
 
 ### Beta Self Hosted Config
@@ -1997,9 +2242,11 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaSelfHostedConfig object { type }`
 
   Configuration for self-hosted environments.
+
   - `type: "self_hosted"`
 
     Environment type
+
     - `"self_hosted"`
 
 ### Beta Self Hosted Config Params
@@ -2007,9 +2254,11 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaSelfHostedConfigParams object { type }`
 
   Request params for `self_hosted` environment configuration.
+
   - `type: "self_hosted"`
 
     Environment type
+
     - `"self_hosted"`
 
 ### Beta Unrestricted Network
@@ -2017,9 +2266,11 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/archive \
 - `BetaUnrestrictedNetwork object { type }`
 
   Unrestricted network access.
+
   - `type: "unrestricted"`
 
     Network policy type
+
     - `"unrestricted"`
 
 # Work
@@ -2043,9 +2294,11 @@ Retrieve detailed information about a specific work item.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -2098,7 +2351,9 @@ Retrieve detailed information about a specific work item.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -2109,9 +2364,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2124,13 +2380,15 @@ Retrieve detailed information about a specific work item.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -2152,6 +2410,7 @@ Retrieve detailed information about a specific work item.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2173,6 +2432,7 @@ Retrieve detailed information about a specific work item.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -2235,9 +2495,11 @@ Long poll for work items in the queue.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -2290,7 +2552,9 @@ Long poll for work items in the queue.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 - `"Anthropic-Worker-ID": optional string`
 
@@ -2305,9 +2569,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2320,13 +2585,15 @@ Long poll for work items in the queue.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -2348,6 +2615,7 @@ Long poll for work items in the queue.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2369,6 +2637,7 @@ Long poll for work items in the queue.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -2423,9 +2692,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -2478,7 +2749,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -2489,9 +2762,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2504,13 +2778,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -2532,6 +2808,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2553,6 +2830,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -2618,9 +2896,11 @@ Record a heartbeat for a work item to maintain the lease.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -2673,13 +2953,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaSelfHostedWorkHeartbeatResponse object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -2691,6 +2974,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -2708,6 +2992,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `type: "work_heartbeat"`
 
     The type of response
+
     - `"work_heartbeat"`
 
 ### Example
@@ -2751,9 +3036,11 @@ Stop a work item, initiating graceful or forced shutdown.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -2806,7 +3093,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -2823,9 +3112,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2838,13 +3128,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -2866,6 +3158,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2887,6 +3180,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -2951,9 +3245,11 @@ List work items in an environment.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -3006,19 +3302,23 @@ List work items in an environment.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaSelfHostedWorkListResponse object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -3031,13 +3331,15 @@ List work items in an environment.
     - `data: BetaSessionWorkData`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
         Type of work data
+
         - `"session"`
 
     - `environment_id: string`
@@ -3059,6 +3361,7 @@ List work items in an environment.
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -3080,6 +3383,7 @@ List work items in an environment.
     - `type: "work"`
 
       The type of object (always 'work')
+
       - `"work"`
 
   - `next_page: string`
@@ -3143,9 +3447,11 @@ Update work item metadata with merge semantics.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -3198,7 +3504,9 @@ Update work item metadata with merge semantics.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -3215,9 +3523,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -3230,13 +3539,15 @@ Update work item metadata with merge semantics.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -3258,6 +3569,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -3279,6 +3591,7 @@ Update work item metadata with merge semantics.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -3335,9 +3648,11 @@ Get statistics about the work queue for an environment.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -3390,7 +3705,9 @@ Get statistics about the work queue for an environment.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -3399,6 +3716,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3414,6 +3732,7 @@ Get statistics about the work queue for an environment.
   - `type: "work_queue_stats"`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: number`
@@ -3452,9 +3771,10 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -3467,13 +3787,15 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -3495,6 +3817,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -3516,6 +3839,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -3523,6 +3847,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
 - `BetaSelfHostedWorkHeartbeatResponse object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -3534,6 +3859,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -3551,6 +3877,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `type: "work_heartbeat"`
 
     The type of response
+
     - `"work_heartbeat"`
 
 ### Beta Self Hosted Work List Response
@@ -3558,12 +3885,14 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
 - `BetaSelfHostedWorkListResponse object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -3576,13 +3905,15 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
     - `data: BetaSessionWorkData`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
         Type of work data
+
         - `"session"`
 
     - `environment_id: string`
@@ -3604,6 +3935,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -3625,6 +3957,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
     - `type: "work"`
 
       The type of object (always 'work')
+
       - `"work"`
 
   - `next_page: string`
@@ -3638,6 +3971,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3653,6 +3987,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
   - `type: "work_queue_stats"`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: number`
@@ -3664,6 +3999,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
 - `BetaSelfHostedWorkStopRequest object { force }`
 
   Request to stop a work item.
+
   - `force: optional boolean`
 
     If true, immediately stop work without graceful shutdown
@@ -3673,6 +4009,7 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
 - `BetaSelfHostedWorkUpdateRequest object { metadata }`
 
   Request to update work item metadata.
+
   - `metadata: map[string]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -3685,11 +4022,13 @@ curl https://api.anthropic.com/v1/environments/$ENVIRONMENT_ID/work/stats \
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `id: string`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `type: "session"`
 
     Type of work data
+
     - `"session"`

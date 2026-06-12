@@ -152,11 +152,10 @@ public class DocumentExample {
 **Comparison with prompt-based approaches**
 
 In comparison with prompt-based citations solutions, the citations feature has the following advantages:
-
 - **Cost savings:** If your prompt-based approach asks Claude to output direct quotes, you may see cost savings due to the fact that `cited_text` does not count towards your output tokens.
 - **Better citation reliability:** Because citations are parsed into the respective response formats mentioned above and `cited_text` is extracted, citations are guaranteed to contain valid pointers to the provided documents.
 - **Improved citation quality:** In evaluations, the citations feature was found to be significantly more likely to cite the most relevant quotes from documents as compared to purely prompt-based approaches.
-  </Tip>
+</Tip>
 
 ---
 
@@ -189,9 +188,9 @@ Integrate citations with Claude in these steps:
 <Tip>
   **Automatic chunking vs custom content**
 
-By default, plain text and PDF documents are automatically chunked into sentences. If you need more control over citation granularity (e.g., for bullet points or transcripts), use custom content documents instead. See [Document Types](#document-types) for more details.
+  By default, plain text and PDF documents are automatically chunked into sentences. If you need more control over citation granularity (e.g., for bullet points or transcripts), use custom content documents instead. See [Document Types](#document-types) for more details.
 
-For example, if you want Claude to be able to cite specific sentences from your RAG chunks, you should put each RAG chunk into a plain text document. Otherwise, if you do not want any further chunking to be done, or if you want to customize any additional chunking, you can put RAG chunks into custom content document(s).
+  For example, if you want Claude to be able to cite specific sentences from your RAG chunks, you should put each RAG chunk into a plain text document. Otherwise, if you do not want any further chunking to be done, or if you want to customize any additional chunking, you can put RAG chunks into custom content document(s).
 </Tip>
 
 ### Citable vs non-citable content
@@ -201,20 +200,17 @@ For example, if you want Claude to be able to cite specific sentences from your 
 - `title` is limited in length so you may find the `context` field to be useful in storing any document metadata as text or stringified json.
 
 ### Citation indices
-
 - Document indices are 0-indexed from the list of all document content blocks in the request (spanning across all messages).
 - Character indices are 0-indexed with exclusive end indices.
 - Page numbers are 1-indexed with exclusive end page numbers.
 - Content block indices are 0-indexed with exclusive end indices from the `content` list provided in the custom content document.
 
 ### Token costs
-
 - Enabling citations incurs a slight increase in input tokens due to system prompt additions and document chunking.
 - However, the citations feature is very efficient with output tokens. Under the hood, the model is outputting citations in a standardized format that are then parsed into cited text and document location indices. The `cited_text` field is provided for convenience and does not count towards output tokens.
 - When passed back in subsequent conversation turns, `cited_text` is also not counted towards input tokens.
 
 ### Feature compatibility
-
 Citations works in conjunction with other API features including [prompt caching](/docs/en/build-with-claude/prompt-caching), [token counting](/docs/en/build-with-claude/token-counting) and [batch processing](/docs/en/build-with-claude/batch-processing).
 
 <Warning>
@@ -332,8 +328,7 @@ const client = new Anthropic();
 
 // Long document content (e.g., technical documentation)
 const longDocument =
-  "This is a very long document with thousands of words..." +
-  " ... ".repeat(1000); // Minimum cacheable length
+  "This is a very long document with thousands of words..." + " ... ".repeat(1000); // Minimum cacheable length
 
 const response = await client.messages.create({
   model: "claude-opus-4-8",
@@ -347,25 +342,23 @@ const response = await client.messages.create({
           source: {
             type: "text",
             media_type: "text/plain",
-            data: longDocument,
+            data: longDocument
           },
           citations: { enabled: true },
-          cache_control: { type: "ephemeral" }, // Cache the document content
+          cache_control: { type: "ephemeral" } // Cache the document content
         },
         {
           type: "text",
-          text: "What does this document say about API features?",
-        },
-      ],
-    },
-  ],
+          text: "What does this document say about API features?"
+        }
+      ]
+    }
+  ]
 });
 ```
-
 </CodeGroup>
 
 In this example:
-
 - The document content is cached using `cache_control` on the document block
 - Citations are enabled on the document
 - Claude can generate responses with citations while benefiting from cached document content
@@ -377,11 +370,11 @@ In this example:
 
 Three document types are supported for citations. Documents can be provided directly in the message (base64, text, or URL) or uploaded via the [Files API](/docs/en/build-with-claude/files) and referenced by `file_id`:
 
-| Type           | Best for                                                        | Chunking               | Citation format               |
-| :------------- | :-------------------------------------------------------------- | :--------------------- | :---------------------------- |
-| Plain text     | Simple text documents, prose                                    | Sentence               | Character indices (0-indexed) |
-| PDF            | PDF files with text content                                     | Sentence               | Page numbers (1-indexed)      |
-| Custom content | Lists, transcripts, special formatting, more granular citations | No additional chunking | Block indices (0-indexed)     |
+| Type | Best for | Chunking | Citation format |
+| :--- | :--- | :--- | :--- |
+| Plain text | Simple text documents, prose | Sentence | Character indices (0-indexed) |
+| PDF | PDF files with text content | Sentence | Page numbers (1-indexed) |
+| Custom content | Lists, transcripts, special formatting, more granular citations | No additional chunking | Block indices (0-indexed) |
 
 <Note>
 .csv, .xlsx, .docx, .md, and .txt files are not supported as document blocks. Convert these to plain text and include directly in message content. See [Working with other file formats](/docs/en/build-with-claude/files#working-with-other-file-formats).
@@ -437,7 +430,7 @@ Plain text documents are automatically chunked into sentences. You can provide t
 
 ### PDF documents
 
-PDF documents can be provided as base64-encoded data or by `file_id`. PDF text is extracted and chunked into sentences. As image citations are not yet supported, PDFs that are scans of documents and do not contain extractable text will not be citable.
+PDF documents can be provided as base64-encoded data, a URL, or by `file_id`. PDF text is extracted and chunked into sentences. As image citations are not yet supported, PDFs that are scans of documents and do not contain extractable text will not be citable.
 
 <Tabs>
 <Tab title="Base64">
@@ -449,6 +442,17 @@ PDF documents can be provided as base64-encoded data or by `file_id`. PDF text i
         "media_type": "application/pdf",
         "data": base64_encoded_pdf_data,
     },
+    "title": "Document Title",  # optional
+    "context": "Context about the document that will not be cited from",  # optional
+    "citations": {"enabled": True},
+}
+```
+</Tab>
+<Tab title="URL">
+```python
+{
+    "type": "document",
+    "source": {"type": "url", "url": "https://example.com/document.pdf"},
     "title": "Document Title",  # optional
     "context": "Context about the document that will not be cited from",  # optional
     "citations": {"enabled": True},

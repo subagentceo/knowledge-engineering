@@ -2,6 +2,28 @@
 
 Adaptive thinking and effort controls give developers a new decision: how much should Claude reason for a given task? This session covers thinking budgets, effort levels, and the cost, latency, and quality tradeoffs involved.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+03:20PM – 03:50PM
+
+Speaker(s)
+
+Matt Bleifer
+
+Research Product,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

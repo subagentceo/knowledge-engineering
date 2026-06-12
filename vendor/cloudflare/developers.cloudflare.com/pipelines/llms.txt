@@ -40,11 +40,12 @@ Ingest real time data streams and load into R2
 ## platform
 
 - [Limits](https://developers.cloudflare.com/pipelines/platform/limits/index.md): Account-level limits for Cloudflare Pipelines streams, sinks, and pipelines during open beta.
-- [Pricing](https://developers.cloudflare.com/pipelines/platform/pricing/index.md): Cloudflare Pipelines pricing details and billing information during open beta.
+- [Pricing](https://developers.cloudflare.com/pipelines/platform/pricing/index.md): Cloudflare Pipelines pricing for SQL transforms, sinks, and free tier details.
 
 ## reference
 
 - [Legacy pipelines](https://developers.cloudflare.com/pipelines/reference/legacy-pipelines/index.md): Migration guide for pipelines created before September 2025 to the new Pipelines architecture.
+- [REST API](https://developers.cloudflare.com/api/resources/pipelines/index.md)
 - [Terraform](https://developers.cloudflare.com/pipelines/reference/terraform/index.md): Configure Pipelines and R2 Data Catalog with Terraform using the Cloudflare provider.
 - [Wrangler commands](https://developers.cloudflare.com/pipelines/reference/wrangler-commands/index.md): Wrangler CLI commands for managing Pipelines streams, sinks, and pipelines.
 

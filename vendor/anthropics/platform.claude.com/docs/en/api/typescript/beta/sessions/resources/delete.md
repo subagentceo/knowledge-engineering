@@ -11,6 +11,7 @@ Delete Session Resource
 - `resourceID: string`
 
 - `params: ResourceDeleteParams`
+
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -18,9 +19,11 @@ Delete Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -73,32 +76,35 @@ Delete Session Resource
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
+
   - `id: string`
 
   - `type: "session_resource_deleted"`
+
     - `"session_resource_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeleteSessionResource =
-  await client.beta.sessions.resources.delete(
-    "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-    { session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7" },
-  );
+const betaManagedAgentsDeleteSessionResource = await client.beta.sessions.resources.delete(
+  'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
+  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+);
 
 console.log(betaManagedAgentsDeleteSessionResource.id);
 ```

@@ -1,0 +1,102 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Payouts
+
+<img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/2827fdd8be3ad39ff50a5fe9b0a5d4d7a2dcf4aa7f1fc6a8406d451c1dd3d30d/assets/images/product-guides/voices/payouts-product-feature.png" alt="Payouts" />
+
+## Overview
+
+The [Payouts](https://elevenlabs.io/payouts) system allows you to earn rewards for sharing voices in the [Voice library](/docs/eleven-creative/voices/voice-library). ElevenLabs uses <a href="https://stripe.com/connect">Stripe Connect</a> to process reward payouts.
+
+## Account setup
+
+To set up your Payouts account:
+
+* Click on your profile icon in the top right corner and select ["Payouts"](https://elevenlabs.io/app/payouts).
+
+![Payouts overview](https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/a8a2f7f41a9d548644fbd90d54d416e1d1811c358c8a46f8b64f78b818af63d9/assets/images/product-guides/voices/payouts-overview.png)
+
+* Follow the prompts from Stripe Connect to complete the account setup.
+
+## Tracking usage and earnings
+
+* You can track the usage of your voices by going to ["My Voices"](https://elevenlabs.io/app/voice-lab), clicking "View" to open the detailed view for your voice, then clicking the sharing icon at the bottom. Once you have the Sharing Options open, click "View Metrics".
+* The rewards you earn are based on the options you selected when [sharing your voice in the Voice Library](/docs/eleven-creative/voices/voice-library#sharing-a-professional-voice-clone).
+* You can also see your all-time earnings and past payouts by going back to your Payouts page.
+
+## Reader app rewards
+
+* If your voice is marked as **[Studio Quality](/docs/eleven-creative/voices/voice-library#quality-1)** and you have activated the "Available in ElevenReader" toggle, your voice will made be available in the [ElevenReader app](https://elevenlabs.io/text-reader). Rewards for ElevenReader are reported separately – to view your Reader App rewards, check the "ElevenReader" box on your "View Metrics" screen.
+
+## Things to know
+
+* Rewards accumulate frequently throughout the day, but payouts typically happen once a week as long as you have an active paid subscription and your accrued payouts exceed the minimum threshold. In most cases this is \$10, but some countries may have a higher threshold.
+
+* You can see your past payouts by going to your [Payouts](https://elevenlabs.io/app/payouts) page in the sidebar.
+
+## Supported countries
+
+* Currently, Stripe Connect is not supported in all countries. We are constantly working to expand our reach for Payouts and plan to add availability in more countries when possible.
+
+- Argentina
+- Australia
+- Austria
+- Belgium
+- Bulgaria
+- Canada
+- Chile
+- Colombia
+- Croatia
+- Cyprus
+- Czech Republic
+- Denmark
+- Estonia
+- Finland
+- France
+- Germany
+- Greece
+- Hong Kong SAR
+- China
+- Hungary
+- Iceland
+- India
+- Indonesia
+- Ireland
+- Israel
+- Italy
+- Japan
+- Latvia
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Malaysia
+- Malta
+- Mexico
+- Monaco
+- Netherlands
+- New Zealand
+- Nigeria
+- Norway
+- Peru
+- Philippines
+- Poland
+- Portugal
+- Qatar
+- Romania
+- Saudi Arabia
+- Singapore
+- Slovakia
+- Slovenia
+- South Africa
+- South Korea
+- Spain
+- Sweden
+- Switzerland
+- Thailand
+- Taiwan
+- Turkey
+- United Arab Emirates
+- United Kingdom
+- United States
+- Uruguay
+- Vietnam

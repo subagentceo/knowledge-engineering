@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +7,13 @@
 > Learn about configuring Claude Code through Amazon Bedrock, including setup, IAM configuration, and troubleshooting.
 
 export const ContactSalesCard = ({surface}) => {
-const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-<line x1="5" y1="12" x2="19" y2="12" />
-<polyline points="12 5 19 12 12 19" />
-</svg>;
-const STYLES = `.cc-cs {
+  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>;
+  const STYLES = `
+.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,23 +56,24 @@ const STYLES = `.cc-cs {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}`;
-return <div className="cc-cs not-prose">
-<style>{STYLES}</style>
-<div className="cc-cs-card">
-<div className="cc-cs-text">
-<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-</div>
-<div className="cc-cs-actions">
-<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-View plans
-</a>
-<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-Contact sales {iconArrowRight()}
-</a>
-</div>
-</div>
-</div>;
+}
+`;
+  return <div className="cc-cs not-prose">
+      <style>{STYLES}</style>
+      <div className="cc-cs-card">
+        <div className="cc-cs-text">
+          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+        </div>
+        <div className="cc-cs-actions">
+          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+            View plans
+          </a>
+          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+            Contact sales {iconArrowRight()}
+          </a>
+        </div>
+      </div>
+    </div>;
 };
 
 <ContactSalesCard surface="bedrock" />
@@ -81,10 +82,10 @@ Contact sales {iconArrowRight()}
 
 Before configuring Claude Code with Bedrock, ensure you have:
 
-- An AWS account with Bedrock access enabled
-- Access to desired Claude models (for example, Claude Sonnet 4.6) in Bedrock
-- AWS CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
-- Appropriate IAM permissions
+* An AWS account with Bedrock access enabled
+* Access to desired Claude models (for example, Claude Sonnet 4.6) in Bedrock
+* AWS CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
+* Appropriate IAM permissions
 
 To sign in with your own Bedrock credentials, follow [Sign in with Bedrock](#sign-in-with-bedrock) below. To deploy Claude Code across a team, use the [manual setup](#set-up-manually) steps and [pin your model versions](#4-pin-model-versions) before rolling out.
 
@@ -171,8 +172,8 @@ Claude Code supports automatic credential refresh for AWS SSO and corporate iden
 
 These two settings have different trigger conditions:
 
-- **`awsAuthRefresh`**: runs only when Claude Code detects that your AWS credentials are expired, either locally based on their timestamp or when Bedrock returns a credential error, then retries the request with refreshed credentials.
-- **`awsCredentialExport`**: runs at session start and on each credential reload, even when the credentials in your AWS default credential provider chain are still valid. Use this when your Bedrock account requires cross-account credentials that differ from the ones the default provider chain would resolve.
+* **`awsAuthRefresh`**: runs only when Claude Code detects that your AWS credentials are expired, either locally based on their timestamp or when Bedrock returns a credential error, then retries the request with refreshed credentials.
+* **`awsCredentialExport`**: runs at session start and on each credential reload, even when the credentials in your AWS default credential provider chain are still valid. Use this when your Bedrock account requires cross-account credentials that differ from the ones the default provider chain would resolve.
 
 ##### Example configuration
 
@@ -221,14 +222,15 @@ export ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION=us-west-2
 
 When enabling Bedrock for Claude Code, keep the following in mind:
 
-- `AWS_REGION` is a required environment variable. Claude Code does not read from the `.aws` config file for this setting.
-- When using Bedrock, the `/logout` command is unavailable since authentication is handled through AWS credentials.
-- You can use settings files for environment variables like `AWS_PROFILE` that you don't want to leak to other processes. See [Settings](/en/settings) for more information.
+* `AWS_REGION` is a required environment variable. Claude Code does not read from the `.aws` config file for this setting.
+* When using Bedrock, the `/logout` command is unavailable since authentication is handled through AWS credentials.
+* The WebSearch tool is not available on Bedrock. See [WebSearch tool behavior](/en/tools-reference#websearch-tool-behavior).
+* You can use settings files for environment variables like `AWS_PROFILE` that you don't want to leak to other processes. See [Settings](/en/settings) for more information.
 
 ### 4. Pin model versions
 
 <Warning>
-  Pin specific model versions when deploying to multiple users. Without pinning, model aliases such as `sonnet` and `opus` resolve to the latest version, which may not yet be available in your Bedrock account when Anthropic releases an update. Claude Code [falls back](#startup-model-checks) to the previous version at startup when the latest is unavailable, but pinning lets you control when your users move to a new model.
+  Pin specific model versions when deploying to multiple users. Without pinning, model aliases such as `sonnet` and `opus` resolve to Claude Code's built-in default for Bedrock, which can lag the newest release and may not yet be available in your account. Claude Code [falls back](#startup-model-checks) to the previous version at startup when the default is unavailable, but pinning lets you control when your users move to a new model.
 </Warning>
 
 Set these environment variables to specific Bedrock model IDs.
@@ -468,13 +470,13 @@ If your network environment interferes with automatic browser-based SSO flows, u
 
 If you encounter region issues:
 
-- Check model availability: `aws bedrock list-inference-profiles --region your-region`
-- Switch to a supported region: `export AWS_REGION=us-east-1`
-- Consider using inference profiles for cross-region access
+* Check model availability: `aws bedrock list-inference-profiles --region your-region`
+* Switch to a supported region: `export AWS_REGION=us-east-1`
+* Consider using inference profiles for cross-region access
 
 If you receive an error "on-demand throughput isn't supported":
 
-- Specify the model as an [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) ID
+* Specify the model as an [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) ID
 
 Claude Code uses the Bedrock [Invoke API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) and does not support the Converse API.
 
@@ -488,9 +490,9 @@ A `400` that names the model ID means that model is not served on Mantle. Mantle
 
 ## Additional resources
 
-- [Bedrock documentation](https://docs.aws.amazon.com/bedrock/)
-- [Bedrock pricing](https://aws.amazon.com/bedrock/pricing/)
-- [Bedrock inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html)
-- [Bedrock token burndown and quotas](https://docs.aws.amazon.com/bedrock/latest/userguide/quotas-token-burndown.html)
-- [Claude Code on Amazon Bedrock: Quick Setup Guide](https://community.aws/content/2tXkZKrZzlrlu0KfH8gST5Dkppq/claude-code-on-amazon-bedrock-quick-setup-guide)
-- [Claude Code Monitoring Implementation (Bedrock)](https://github.com/aws-solutions-library-samples/guidance-for-claude-code-with-amazon-bedrock/blob/main/assets/docs/MONITORING.md)
+* [Bedrock documentation](https://docs.aws.amazon.com/bedrock/)
+* [Bedrock pricing](https://aws.amazon.com/bedrock/pricing/)
+* [Bedrock inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html)
+* [Bedrock token burndown and quotas](https://docs.aws.amazon.com/bedrock/latest/userguide/quotas-token-burndown.html)
+* [Claude Code on Amazon Bedrock: Quick Setup Guide](https://community.aws/content/2tXkZKrZzlrlu0KfH8gST5Dkppq/claude-code-on-amazon-bedrock-quick-setup-guide)
+* [Claude Code Monitoring Implementation (Bedrock)](https://github.com/aws-solutions-library-samples/guidance-for-claude-code-with-amazon-bedrock/blob/main/assets/docs/MONITORING.md)

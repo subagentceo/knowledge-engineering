@@ -17,7 +17,6 @@ Stop a running FindAll search when you have enough matches or need to control co
   curl -X POST \
     https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/cancel \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json"
   ```
 

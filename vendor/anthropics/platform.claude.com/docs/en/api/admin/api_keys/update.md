@@ -19,6 +19,7 @@ Update API Key
 - `status: optional "active" or "inactive" or "archived"`
 
   Status of the API key.
+
   - `"active"`
 
   - `"inactive"`
@@ -28,6 +29,7 @@ Update API Key
 ### Returns
 
 - `APIKey object { id, created_at, created_by, 6 more }`
+
   - `id: string`
 
     ID of the API key.
@@ -39,6 +41,7 @@ Update API Key
   - `created_by: object { id, type }`
 
     The ID and type of the actor that created the API key.
+
     - `id: string`
 
       ID of the actor that created the object.
@@ -62,6 +65,7 @@ Update API Key
   - `status: "active" or "inactive" or "archived" or "expired"`
 
     Status of the API key.
+
     - `"active"`
 
     - `"inactive"`
@@ -75,6 +79,7 @@ Update API Key
     Object type.
 
     For API Keys, this is always `"api_key"`.
+
     - `"api_key"`
 
   - `workspace_id: string`
@@ -87,7 +92,7 @@ Update API Key
 curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{}'
 ```
 

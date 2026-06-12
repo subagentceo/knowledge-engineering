@@ -8,7 +8,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json get /v1/agents/{agent_name}
+````yaml /api-reference/openapi.json get /v1/agents/{agent_name}
 openapi: 3.1.0
 info:
   title: Nimble SDK

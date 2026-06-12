@@ -1,10 +1,12 @@
-[Home](https://sift.com)/[Sifters Community](https://sift.com/community/)/SuperSifters
+# Elevate  Your Professional Brand with SuperSifters
+
+Home/Sifters Community/SuperSifters
 
 # Elevate Your Professional Brand with SuperSifters
 
 Sift’s Customer Advocacy Program, SuperSifters, highlights your success with Sift through a range of activities that promote your company’s commitment to trust and safety.
 
-[see sift in action](/demo/)
+see sift in action
 
 ![SuperSifters](https://sift.com/wp-content/uploads/2024/07/SuperSifters-Hero.png)
 

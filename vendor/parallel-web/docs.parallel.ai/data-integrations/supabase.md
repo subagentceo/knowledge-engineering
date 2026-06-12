@@ -36,7 +36,7 @@ The cookbook includes:
 The Edge Function uses the `parallel-web` SDK to call Parallel's Task API:
 
 ```typescript theme={"system"}
-import Parallel from "npm:parallel-web@0.2.4";
+import Parallel from "npm:parallel-web@1.0.1";
 
 const parallel = new Parallel({ apiKey: Deno.env.get("PARALLEL_API_KEY") });
 

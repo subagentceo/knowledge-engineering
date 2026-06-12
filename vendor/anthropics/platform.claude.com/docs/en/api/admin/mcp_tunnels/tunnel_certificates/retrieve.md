@@ -19,6 +19,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -52,6 +53,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -59,7 +61,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

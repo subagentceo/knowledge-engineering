@@ -15,6 +15,7 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: Literal["file"]`
+
   - `"file"`
 
 - `mount_path: Optional[str]`
@@ -24,9 +25,11 @@ Add Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -79,11 +82,14 @@ Add Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsFileResource: …`
+
   - `id: str`
 
   - `created_at: datetime`
@@ -95,6 +101,7 @@ Add Session Resource
   - `mount_path: str`
 
   - `type: Literal["file"]`
+
     - `"file"`
 
   - `updated_at: datetime`

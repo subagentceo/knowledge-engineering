@@ -1,15 +1,22 @@
 # Testing
 
+**Branch Latency** (constant-time regardless of namespace size)
+- p50: 440ms
+- p90: 557ms
+- p99: 1034ms
+
 In your tests and development environment we suggest hitting production
 turbopuffer for the best end to end testing. Since creating a namespace in
 turbopuffer is virtually free, you can create a namespace for each test with a
-random name, and simply delete it after the test. We recommend each developer
-has their own namespace for their dev namespaces.
+random name, and simply delete it after the test.
 
-In addition, to separate test and production, consider creating a separate
-organization in the dashboard. You can use
-[copy_from_namespace](/docs/backups) to copy production data into your test
-org for realistic development environments.
+For tests against real data, or to give each developer their own copy, use
+[branching](/docs/branching) to instantly clone a production namespace. Delete
+the branch when done — the source namespace is unaffected.
+
+To separate test and production infrastructure, consider creating a separate
+organization in the dashboard. For cross-region or cross-org copies, use
+[`copy_from_namespace`](/docs/backups).
 
 <!-- multilang -->
 ```python
@@ -24,7 +31,7 @@ import turbopuffer
 from turbopuffer.lib import namespace
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 # Create a namespace for each test, and always delete it afterwards
@@ -64,7 +71,7 @@ import { Namespace } from "@turbopuffer/turbopuffer/resources";
 import * as crypto from "crypto";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 describe("Turbopuffer namespace tests", () => {
@@ -126,8 +133,7 @@ import (
 // and ensures the namespace is deleted after f returns (even if it fails).
 func runTurbopufferTest(t *testing.T, f func(ctx context.Context, ns turbopuffer.Namespace)) {
 	ctx := context.Background()
-	// Pick the right region: https://turbopuffer.com/docs/regions
-	client := turbopuffer.NewClient(option.WithRegion("gcp-us-central1"))
+	client := turbopuffer.NewClient(option.WithRegion("gcp-us-central1")) // choose best region: https://turbopuffer.com/docs/regions
 
 	// Generate a random name for the test namespace.
 	name := fmt.Sprintf("test-%016x%016x", rand.Uint64(), rand.Uint64())
@@ -207,8 +213,7 @@ public class TpufTest {
     var rand = new Random();
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
     ns = tpuf.namespace(String.format("test-%016x%016x", rand.nextLong(), rand.nextLong()));
   }
@@ -241,6 +246,80 @@ public class TpufTest {
   }
 }
 ```
+```cs
+// TpufTest.cs
+
+// dotnet add package Turbopuffer
+// dotnet add package xunit
+//
+// Run with `dotnet test`.
+using System;
+using System.Threading.Tasks;
+using Turbopuffer;
+using Turbopuffer.Exceptions;
+using Turbopuffer.Models.Namespaces;
+using Turbopuffer.Services;
+using Xunit;
+
+public class TpufTest : IAsyncLifetime
+{
+    private readonly TurbopufferClient _tpuf = new()
+    {
+        // Pick the right region: https://turbopuffer.com/docs/regions
+        Region = "gcp-us-central1",
+    };
+
+    private INamespaceService _ns = null!;
+
+    // Create a namespace for each test, and always delete it afterwards.
+    public Task InitializeAsync()
+    {
+        _ns = _tpuf.Namespace($"test-{Guid.NewGuid():N}");
+        return Task.CompletedTask;
+    }
+
+    public async Task DisposeAsync()
+    {
+        try
+        {
+            await _ns.DeleteAll(new NamespaceDeleteAllParams());
+        }
+        catch (TurbopufferNotFoundException)
+        {
+            // If the namespace never got created, no cleanup is needed.
+        }
+        _tpuf.Dispose();
+    }
+
+    [Fact]
+    public async Task TestQuery()
+    {
+        await _ns.Write(
+            new NamespaceWriteParams
+            {
+                UpsertRows =
+                [
+                    new Row().Set("id", 1).Set("vector", new[] { 1.0f, 1.0f }),
+                    new Row().Set("id", 2).Set("vector", new[] { 2.0f, 2.0f }),
+                ],
+                DistanceMetric = DistanceMetric.CosineDistance,
+            }
+        );
+
+        var result = await _ns.Query(
+            new NamespaceQueryParams
+            {
+                RankBy = RankBy.Ann("vector", new[] { 1.1f, 1.1f }),
+                Limit = 10,
+            }
+        );
+        var rows = result.GetRows();
+
+        Assert.Equal(2, rows.Count);
+        Assert.Equal(1, rows[0].Get<int>("id"));
+    }
+}
+```
 ```ruby
 # tpuf_test.rb
 
@@ -254,7 +333,7 @@ class TestTpuf < Minitest::Test
   # Create a namespace for each test
   def setup
     tpuf = Turbopuffer::Client.new(
-      region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+      region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
     )
     @ns = tpuf.namespace("test-#{SecureRandom.alphanumeric(32)}")
   end
@@ -280,3 +359,12 @@ class TestTpuf < Minitest::Test
 end
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/testing.md](https://turbopuffer.com/docs/testing.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

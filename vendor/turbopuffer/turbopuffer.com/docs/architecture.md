@@ -1,13 +1,35 @@
 # Architecture
 
+- DRAM: 300GB/s
+- NVMe: 10GB/s
+- S3: <5GB/s
+
+- DRAM: ~100ns
+- NVMe: 100us
+- S3: ~100ms
+
+- DRAM: $2/GB-mo
+- SSD: $0.08/GB-mo
+- S3: $0.02/GB-mo
+
+**S3 GET LATENCY**
+- p50: 63ms
+- p99: 78ms
+- p999: 118ms
+
+**S3 PUT LATENCY**
+- p50: 100ms
+- p99: 195ms
+- p999: 274ms
+
 The API routes to a cluster of Rust binaries that access your
 database on object storage (see [regions](https://turbopuffer.com/docs/regions) for more on routing).
 
 After the first query, the namespace's documents are cached on NVMe SSD.
 Subsequent queries are routed to the same query node for cache locality, but any
 query node can serve queries from any namespace.  The first query to a namespace
-reads object storage directly and is slow (p50=343ms for 1M documents),
-but subsequent, cached queries to that node are faster (p50=8ms
+reads object storage directly and is slow (p50=874ms for 1M documents),
+but subsequent, cached queries to that node are faster (p50=14ms
 for 1M documents). Many use-cases can send a [pre-flight query to hint
 that the client will send latency-sensitive requests in the near future](/docs/warm-cache).
 
@@ -32,28 +54,37 @@ uses a write-ahead log (WAL) to ensure consistency. Every write adds
 a new file to the WAL directory inside the namespace's prefix. If a
 write returns successfully, data is guaranteed to be durably written
 to object storage. This means high write throughput (~10,000+
-vectors/sec), at the cost of high write latency (p50=285ms for 500kB).
+vectors/sec), at the cost of high write latency (p50=165ms for 500kB).
 
 Each namespace can currently write 1 WAL entry per second. Concurrent writes to
 the same namespace are batched into the same entry. If a new batch is started
 within one second of the previous one, it will take up to 1 second to commit.
 
 ```
-                               User Write            
-                                 ┌─────┐             
-                                 │█████│             
-             WAL                 │█████│             
- s3://tpuf/{namespace_id}/wal    └──┬──┘             
-                                    │                
-                                    │
-╔═══════════════════════════════════╬══════════════╗ 
-║┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌ ─│─ ┐           ║░
-║│█████│ │█████│ │█████│ │█████│    ▼              ║░
-║│█████│ │█████│ │█████│ │█████│ │     │           ║░
-║└─────┘ └─────┘ └─────┘ └─────┘  ─ ─ ─            ║░
-║  001     002     003     004     005             ║░
-╚══════════════════════════════════════════════════╝░
- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                              mem buffer
+                                              ┌──────┐
+            UPSERT/PATCH/DELETE               │░░░░░░│
+            ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ░ ─▶│░░░░░░│
+                                              │░░░░░░│
+                                              └──┬───┘
+WAL                                              │ group commit (<= 1/s)
+s3://tpuf/{namespace_id}/wal                     ▼
+╔═════════════════════════════════════════════════════════╗
+║┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐             ║░
+║│██████│ │██████│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│             ║░
+║│██████│ │██████│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│             ║░
+║│██████│ │██████│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│ │▓▓▓▓▓▓│             ║░
+║└──────┘ └──────┘ └──────┘ └──────┘ └──────┘             ║░
+║ 01.bin   02.bin ▲ 03.bin   04.bin   05.bin ▲ (06.bin)   ║░
+╚═════════════════│══════════════════════════│════════════╝░
+ ░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░ 
+                  │                          │ 
+             index cursor                CAS commit 
+                                           point
+
+█ indexed + committed   ▓ committed, unindexed   ░ written, not committed
+
+~10ms for consistent read
 ```
 
 After data is committed to the log, it is asynchronously indexed to
@@ -112,6 +143,20 @@ On a cold query, the centroid index is downloaded from object
 storage. Once the closest centroids are located, we simply fetch
 each cluster's offset in one, massive roundtrip to object storage.
 
+```
+ ┌ /{org_id}/{namespace}/index ─────────────────────────────────┐
+ │                                                              │
+ │  centroids.bin             ┌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┐      │
+ │  ▐█▐█▐█▐█▐█▐█▐█▐█          ╎  Namespace Config        ╎      │
+ │                            └╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┘      │
+ │                                                              │
+ │  ┌ clusters-1.bin ──────┐  ┌ clusters-2.bin ──────────┐      │
+ │  │ ▐█▐█▐█▐█ ▐█▐█ ▐█▐█▐█ │  │ ▐█▐█ ▐█▐█▐█▐█ ▐█▐█▐█▐█   │      │
+ │  └──────────────────────┘  └──────────────────────────┘      │
+ │                                                              │
+ └──────────────────────────────────────────────────────────────┘
+```
+
 In reality, there are more roundtrips required for turbopuffer to
 support consistent writes and work on large indexes. From first
 principles, each roundtrip to object storage takes ~100ms. The 3-4
@@ -119,8 +164,20 @@ required roundtrips for a cold query often take as little as ~400ms.
 
 When the namespace is cached in NVME/memory rather than fetched
 directly from object storage, the query time drops dramatically to
-p50=8. The roundtrip to object storage for consistency,
+p50=14. The roundtrip to object storage for consistency,
 which we can relax on request for eventually consistent sub 10ms queries.
+
+```
+  ┌──────────────┐  ┊  ┌──────────────────┐  ┊  ┌──────────────┐
+  │              │  ┊  │  Filter index    │  ┊  │              │
+  │  Metadata¹   │  ┊  ├──────────────────┤  ┊  │   Clusters   │
+  │              │  ┊  │  Centroid index  │  ┊  │              │
+  └──────────────┘  ┊  ├──────────────────┤  ┊  └──────────────┘
+                    ┊  │  Unindexed WAL   │  ┊
+                    ┊  └──────────────────┘  ┊
+  ────────────────────────────────────────────────────────────────▶
+    Roundtrip 1     ┊    Roundtrip 2²        ┊    Roundtrip 3
+```
 
 1. *Metadata is downloaded for the turbopuffer storage engine. The
 storage engine is optimized for minimizing roundtrips.*
@@ -131,3 +188,12 @@ But the query planner makes decisions about how to efficiently
 navigate the indexes. It needs to settle tradeoffs between
 additional roundtrips and fetching more data in an existing
 roundtrip.*
+
+
+---
+
+This page: [/docs/architecture.md](https://turbopuffer.com/docs/architecture.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

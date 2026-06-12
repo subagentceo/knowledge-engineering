@@ -9,6 +9,7 @@ Create Vault
 ### Parameters
 
 - `params BetaVaultNewParams`
+
   - `DisplayName param.Field[string]`
 
     Body param: Human-readable name for the vault. 1-255 characters.
@@ -20,9 +21,11 @@ Create Vault
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -75,13 +78,16 @@ Create Vault
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsVault struct{…}`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `ID string`
 
     Unique identifier for the vault.
@@ -103,6 +109,7 @@ Create Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `Type BetaManagedAgentsVaultType`
+
     - `const BetaManagedAgentsVaultTypeVault BetaManagedAgentsVaultType = "vault"`
 
   - `UpdatedAt Time`

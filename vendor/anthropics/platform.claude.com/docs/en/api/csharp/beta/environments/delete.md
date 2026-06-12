@@ -9,11 +9,13 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Parameters
 
 - `EnvironmentDeleteParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,13 +68,16 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
+
   - `required string ID`
 
     Environment identifier

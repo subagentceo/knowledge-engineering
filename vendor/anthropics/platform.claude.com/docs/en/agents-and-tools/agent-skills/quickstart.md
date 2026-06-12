@@ -40,29 +40,33 @@ curl --fail-with-body -sS "https://api.anthropic.com/v1/skills?source=anthropic"
   jq -r '.data[] | "\(.id): \(.display_title)"'
 ````
 
-```bash
+  
+````bash
 # List Anthropic-managed Skills
 ant beta:skills list --source anthropic
-```
+````
 
-```python
+  
+````python
 # List Anthropic-managed Skills
 skills = client.beta.skills.list(source="anthropic")
 
 for skill in skills.data:
     print(f"{skill.id}: {skill.display_title}")
-```
+````
 
-```typescript
+  
+````typescript
 // List Anthropic-managed Skills
 const skills = await client.beta.skills.list({ source: "anthropic" });
 
 for (const skill of skills.data) {
   console.log(`${skill.id}: ${skill.display_title}`);
 }
-```
+````
 
-```csharp
+  
+````csharp
 // List Anthropic-managed Skills
 var skills = await client.Beta.Skills.List(new SkillListParams { Source = "anthropic" });
 
@@ -70,9 +74,10 @@ foreach (var skill in skills.Items)
 {
     Console.WriteLine($"{skill.ID}: {skill.DisplayTitle}");
 }
-```
+````
 
-```go
+  
+````go
 // List Anthropic-managed Skills
 skills, err := client.Beta.Skills.List(ctx, anthropic.BetaSkillListParams{
 	Source: anthropic.String("anthropic"),
@@ -84,9 +89,10 @@ if err != nil {
 for _, skill := range skills.Data {
 	fmt.Printf("%s: %s\n", skill.ID, skill.DisplayTitle)
 }
-```
+````
 
-```java
+  
+````java
 // List Anthropic-managed Skills
 SkillListPage skills = client.beta().skills().list(
     SkillListParams.builder().source("anthropic").build()
@@ -95,25 +101,27 @@ SkillListPage skills = client.beta().skills().list(
 for (SkillListResponse skill : skills.data()) {
     IO.println(skill.id() + ": " + skill.displayTitle().orElse(""));
 }
-```
+````
 
-```php
+  
+````php
 // List Anthropic-managed Skills
 $skills = $client->beta->skills->list(source: 'anthropic');
 
 foreach ($skills->data as $skill) {
     echo "{$skill->id}: {$skill->displayTitle}\n";
 }
-```
+````
 
-```ruby
+  
+````ruby
 # List Anthropic-managed Skills
 skills = client.beta.skills.list(source: "anthropic")
 
 skills.data.each do |skill|
   puts "#{skill.id}: #{skill.display_title}"
 end
-```
+````
 
 </CodeGroup>
 
@@ -152,7 +160,8 @@ EOF
 jq -r '"stop_reason=\(.stop_reason), blocks=\(.content | length)"' <<<"$response"
 ````
 
-```bash
+  
+````bash
 # Create a message with the PowerPoint Skill
 response=$(ant beta:messages create --format json \
   --beta code-execution-2025-08-25 \
@@ -174,9 +183,10 @@ YAML
 )
 
 jq -r '"stop_reason=\(.stop_reason), blocks=\(.content | length)"' <<<"$response"
-```
+````
 
-```python
+  
+````python
 # Create a message with the PowerPoint Skill
 response = client.beta.messages.create(
     model="claude-opus-4-8",
@@ -195,9 +205,10 @@ response = client.beta.messages.create(
 )
 
 print(f"stop_reason={response.stop_reason}, blocks={len(response.content)}")
-```
+````
 
-```typescript
+  
+````typescript
 // Create a message with the PowerPoint Skill
 const response = await client.beta.messages.create({
   model: "claude-opus-4-8",
@@ -218,9 +229,10 @@ const response = await client.beta.messages.create({
 console.log(
   `stop_reason=${response.stop_reason}, blocks=${response.content.length}`,
 );
-```
+````
 
-```csharp
+  
+````csharp
 // Create a message with the PowerPoint Skill
 var response = await client.Beta.Messages.Create(new MessageCreateParams
 {
@@ -251,9 +263,10 @@ var response = await client.Beta.Messages.Create(new MessageCreateParams
 });
 
 Console.WriteLine($"stop_reason={response.StopReason?.Raw()}, blocks={response.Content.Count}");
-```
+````
 
-```go
+  
+````go
 // Create a message with the PowerPoint Skill
 response, err := client.Beta.Messages.New(ctx, anthropic.BetaMessageNewParams{
 	Model:     anthropic.ModelClaudeOpus4_8,
@@ -287,9 +300,10 @@ if err != nil {
 }
 
 fmt.Printf("stop_reason=%s, blocks=%d\n", response.StopReason, len(response.Content))
-```
+````
 
-```java
+  
+````java
 // Create a message with the PowerPoint Skill
 BetaMessage response = client.beta().messages().create(
     MessageCreateParams.builder()
@@ -317,9 +331,10 @@ IO.println(
     "stop_reason=" + response.stopReason().orElse(null)
         + ", blocks=" + response.content().size()
 );
-```
+````
 
-```php
+  
+````php
 // Create a message with the PowerPoint Skill
 $response = $client->beta->messages->create(
     model: 'claude-opus-4-8',
@@ -338,9 +353,10 @@ $response = $client->beta->messages->create(
 );
 
 printf("stop_reason=%s, blocks=%d\n", $response->stopReason, count($response->content));
-```
+````
 
-```ruby
+  
+````ruby
 # Create a message with the PowerPoint Skill
 response = client.beta.messages.create(
   model: "claude-opus-4-8",
@@ -359,7 +375,7 @@ response = client.beta.messages.create(
 )
 
 puts "stop_reason=#{response.stop_reason}, blocks=#{response.content.length}"
-```
+````
 
 </CodeGroup>
 
@@ -371,6 +387,10 @@ Let's break down what each part does:
 - **`version: "latest"`:** The Skill version set to the most recently published
 - **`tools`:** Enables code execution (required for Skills)
 - **Beta headers:** `code-execution-2025-08-25` and `skills-2025-10-02`
+
+<Note>
+The examples here use the `code_execution_20250825` tool version with its matching `code-execution-2025-08-25` beta header. Skills also work with the newer [code execution tool](/docs/en/agents-and-tools/tool-use/code-execution-tool) revisions (`code_execution_20260120` and later); any code execution tool version satisfies the Skills requirement. Whichever version you use, keep its tool `type` and beta header consistent with the code execution tool page, and always include `skills-2025-10-02`.
+</Note>
 
 When you make this request, Claude automatically matches your task to the relevant Skill. Since you asked for a presentation, Claude determines the PowerPoint Skill is relevant and loads its full instructions: the second level of progressive disclosure. Then Claude executes the Skill's code to create your presentation.
 
@@ -394,22 +414,19 @@ file_id=$(jq -r '
   ) // empty
 ' <<<"$response")
 
-if [[-n "$file_id"]]; then
-
-# Download the file and save it
-
-output_path="${TMPDIR:-/tmp}/renewable_energy.pptx"
+if [[ -n "$file_id" ]]; then
+  # Download the file and save it
+  output_path="${TMPDIR:-/tmp}/renewable_energy.pptx"
   curl --fail-with-body -sS "https://api.anthropic.com/v1/files/$file_id/content" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "anthropic-beta: files-api-2025-04-14" \
     -o "$output_path"
-echo "Presentation saved to $output_path"
+  echo "Presentation saved to $output_path"
 fi
+````
 
-`````
-
-
+  
 ````bash
 # Extract file ID from the code-execution tool result. The Skill might run
 # its work through either the Python or bash code-execution tool, so check
@@ -432,9 +449,10 @@ if [[ -n "$file_id" ]]; then
   ant beta:files download --file-id "$file_id" --output "$output_path"
   echo "Presentation saved to $output_path"
 fi
-`````
+````
 
-```python
+  
+````python
 # Extract file ID from the code-execution tool result. The Skill might run
 # its work through either the Python or bash code-execution tool, so check
 # both result types.
@@ -455,9 +473,10 @@ if file_id:
     file_content = client.beta.files.download(file_id=file_id)
     file_content.write_to_file(output_path)
     print(f"Presentation saved to {output_path}")
-```
+````
 
-```typescript
+  
+````typescript
 // Extract file ID from the code-execution tool result. The Skill might run
 // its work through either the Python or bash code-execution tool, so check
 // both result types.
@@ -485,9 +504,10 @@ if (fileId) {
   await fs.writeFile(outputPath, fileContent.body!);
   console.log(`Presentation saved to ${outputPath}`);
 }
-```
+````
 
-```csharp
+  
+````csharp
 // Extract the file ID from the code-execution tool result. The Skill might
 // run its work through either the Python or bash code-execution tool, so
 // check both result types.
@@ -522,9 +542,10 @@ if (fileId is not null)
     await source.CopyToAsync(destination);
     Console.WriteLine($"Presentation saved to {outputPath}");
 }
-```
+````
 
-```go
+  
+````go
 // Extract file ID from the code-execution tool result. The Skill might run
 // its work through either the Python or bash code-execution tool, so check
 // both result types.
@@ -564,9 +585,10 @@ if fileID != "" {
 	}
 	fmt.Printf("Presentation saved to %s\n", outputPath)
 }
-```
+````
 
-```java
+  
+````java
 // Extract file ID from the code-execution tool result. The Skill might run
 // its work through either the Python or bash code-execution tool, so check
 // both result types.
@@ -597,9 +619,10 @@ if (fileId != null) {
     }
     IO.println("Presentation saved to " + outputPath);
 }
-```
+````
 
-```php
+  
+````php
 // Extract file ID from the code-execution tool result. The Skill might run
 // its work through either the Python or bash code-execution tool, so check
 // both result types.
@@ -627,9 +650,10 @@ if ($fileId !== null) {
     file_put_contents($outputPath, $fileContent);
     echo "Presentation saved to {$outputPath}\n";
 }
-```
+````
 
-```ruby
+  
+````ruby
 # Extract file ID from the code-execution tool result. The Skill might run
 # its work through either the Python or bash code-execution tool, so check
 # both result types.
@@ -654,7 +678,7 @@ if file_id
   File.binwrite(output_path, file_content.read)
   puts "Presentation saved to #{output_path}"
 end
-```
+````
 
 </CodeGroup>
 
@@ -739,15 +763,15 @@ const response = await client.beta.messages.create({
   max_tokens: 16000,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }],
+    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }]
   },
   messages: [
     {
       role: "user",
-      content: "Create a quarterly sales tracking spreadsheet with sample data",
-    },
+      content: "Create a quarterly sales tracking spreadsheet with sample data"
+    }
   ],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
 });
 console.log(`stop_reason=${response.stop_reason}`);
 ```
@@ -933,7 +957,6 @@ response = client.beta.messages.create(
 
 puts "stop_reason=#{response.stop_reason}"
 ```
-
 </CodeGroup>
 
 ### Create a Word document
@@ -1009,15 +1032,15 @@ const response = await client.beta.messages.create({
   max_tokens: 16000,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "anthropic", skill_id: "docx", version: "latest" }],
+    skills: [{ type: "anthropic", skill_id: "docx", version: "latest" }]
   },
   messages: [
     {
       role: "user",
-      content: "Write a 2-page report on the benefits of renewable energy",
-    },
+      content: "Write a 2-page report on the benefits of renewable energy"
+    }
   ],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
 });
 console.log(`stop_reason=${response.stop_reason}`);
 ```
@@ -1203,7 +1226,6 @@ response = client.beta.messages.create(
 
 puts "stop_reason=#{response.stop_reason}"
 ```
-
 </CodeGroup>
 
 ### Generate a PDF
@@ -1279,15 +1301,15 @@ const response = await client.beta.messages.create({
   max_tokens: 16000,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "anthropic", skill_id: "pdf", version: "latest" }],
+    skills: [{ type: "anthropic", skill_id: "pdf", version: "latest" }]
   },
   messages: [
     {
       role: "user",
-      content: "Generate a PDF invoice template",
-    },
+      content: "Generate a PDF invoice template"
+    }
   ],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
 });
 console.log(`stop_reason=${response.stop_reason}`);
 ```
@@ -1473,7 +1495,6 @@ response = client.beta.messages.create(
 
 puts "stop_reason=#{response.stop_reason}"
 ```
-
 </CodeGroup>
 
 ## Next steps

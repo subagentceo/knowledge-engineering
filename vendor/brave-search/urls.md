@@ -1,7 +1,6 @@
 ---
 vendor: brave-search
 llms_txt: 
-last_crawled: 2026-05-15T04:38:01.383Z
 count: 4
 transform: html-extract
 ---

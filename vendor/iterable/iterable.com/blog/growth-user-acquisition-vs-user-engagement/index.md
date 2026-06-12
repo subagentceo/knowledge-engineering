@@ -1,3 +1,5 @@
+# Growth: User Acquisition vs. User Engagement - Iterable
+
 ## Growth: User Acquisition vs. User Engagement
 
 **Published by**
@@ -6,7 +8,7 @@ September 15, 2015
 
 ![](https://iterable.com/wp-content/uploads/2026/04/0c6a9-0o91ruryuyw3wzagi.png)
 
-In the first three posts in this series, we looked at the different [layers of the marketing tech stack](https://iterable.com/blog/growth-marketing-stack/), followed by detailed looks at [user acquisition and engagement](https://iterable.com/blog/marketing-stack-user-acquisition-and-engagement/) and the layers of the stack that [make acquisition/engagement easier or more effective](https://iterable.com/blog/marketing-stack-optimization-data-automation/).
+In the first three posts in this series, we looked at the different layers of the marketing tech stack, followed by detailed looks at user acquisition and engagement and the layers of the stack that make acquisition/engagement easier or more effective.
 
 In the third post, we also set the stage for a conversation about growth and how it relates to the marketing stack. As mentioned there, the key steps of growth marketing are:
 
@@ -28,8 +30,8 @@ We can think of the factors that drive an emphasis on acquisition vs. engagement
 
 **1) First, there is _market penetration_**. At the extremes, it’s easy to see how acquisition vs. engagement shakes out:
 
--   A brand new startup has to first acquire users before it can do anything about engagement
--   A dominant company that has almost full penetration (e.g., Facebook in the U.S.), will be almost entirely focused on engagement
+*   A brand new startup has to first acquire users before it can do anything about engagement
+*   A dominant company that has almost full penetration (e.g., Facebook in the U.S.), will be almost entirely focused on engagement
 
 Most companies are somewhere in the middle, having to both acquire and engage users in order to get the best results for their business. But their area of emphasis will often change as they grow.
 

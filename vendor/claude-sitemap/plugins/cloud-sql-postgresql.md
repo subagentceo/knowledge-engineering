@@ -1,13 +1,13 @@
 # cloud-sql-postgresql
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Google LLC
-
-- Installs
-
-  1137
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Google LLC
+    
+*   Installs
+    
+    1353

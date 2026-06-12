@@ -314,7 +314,7 @@ Our testing has identified edge scenarios where Claude for Excel can be manipula
 
 Users can approve all of Claude’s actions via a confirmation pop-up that appears when each tool is triggered:
 
-- External data fetching: WEBSERVICE, STOCKHISTORY, STOCKSERIES, TRANSLATE, and the CUBE\* functions
+- External data fetching: WEBSERVICE, STOCKHISTORY, STOCKSERIES, TRANSLATE, and the CUBE* functions
 
 - External imports: IMPORTDATA, IMPORTXML, IMPORTHTML, IMPORTFEED, FILTERXML
 
@@ -328,7 +328,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 
 - System information: REGISTER.ID, RTD, INFO
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1780164900&signature=3ab77a3734d39c14b867ac01c284408831db99880a891723dc064993761ea9c4&req=dSgjH819nIJeWfMW1HO4zYWKaOJqJN57qAsRdssXCyCrAJ6xI4r0Ojtoe0xE%0Ahaw%2B4iHRjd%2BZ%2BAl5uQw%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1781284500&amp;signature=562448f6d7c64dc53d559bdcf1cef22021dc7e325870382922f17b90091cdf80&amp;req=dSgjH819nIJeWfMW1HO4zYWKaONpKt53qAsRdssXCyC6FxHSx0KNW1bd9eoi%0An0WmJBGFb5biYe0nohE%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 

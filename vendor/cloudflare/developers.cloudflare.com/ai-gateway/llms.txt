@@ -46,6 +46,7 @@ Observe and control your AI applications
 - [Replicate](https://developers.cloudflare.com/ai-gateway/usage/providers/replicate/index.md): Route Replicate API requests through AI Gateway for observability and control.
 - [Google Vertex AI](https://developers.cloudflare.com/ai-gateway/usage/providers/vertex/index.md): Route Google Vertex AI requests through AI Gateway for observability and control.
 - [Workers AI](https://developers.cloudflare.com/ai-gateway/usage/providers/workersai/index.md): Route Workers AI requests through AI Gateway for analytics, caching, and rate limiting.
+- [REST API](https://developers.cloudflare.com/ai-gateway/usage/rest-api/index.md): Call third-party and Workers AI models through the Cloudflare API with AI Gateway features like logging, caching, and rate limiting.
 - [Universal Endpoint (Deprecated)](https://developers.cloudflare.com/ai-gateway/usage/universal/index.md): Route requests to any AI provider through a single AI Gateway endpoint with support for fallbacks and retries.
 - [WebSockets API](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/index.md): Use persistent WebSocket connections through AI Gateway for real-time and non-realtime AI interactions.
 - [Non-realtime WebSockets API](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/non-realtime-api/index.md): Establish persistent WebSocket connections for AI requests through AI Gateway without real-time streaming.
@@ -65,6 +66,7 @@ Observe and control your AI applications
 - [Supported model types](https://developers.cloudflare.com/ai-gateway/features/guardrails/supported-model-types/index.md): Review which AI model types AI Gateway Guardrails evaluates for text generation, embeddings, and unknown models.
 - [Usage considerations](https://developers.cloudflare.com/ai-gateway/features/guardrails/usage-considerations/index.md): Understand latency, availability, language support, and Workers AI usage when enabling AI Gateway Guardrails.
 - [Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/index.md): Control traffic to your AI Gateway with fixed or sliding rate limits to prevent excessive costs and suspicious activity.
+- [Spend limits](https://developers.cloudflare.com/ai-gateway/features/spend-limits/index.md): Set cost-based budgets on your AI Gateway to control spending by model, provider, or custom metadata dimensions like user or team.
 - [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/index.md): Use the Cloudflare billing to pay for and authenticate your inference requests.
 
 ## Integrations
@@ -72,6 +74,7 @@ Observe and control your AI applications
 - [Integrations](https://developers.cloudflare.com/ai-gateway/integrations/index.md): Connect AI Gateway with Workers bindings, Vercel AI SDK, and other platforms.
 - [Agents](https://developers.cloudflare.com/agents/index.md): Build AI-powered Agents on Cloudflare
 - [Set up Workers AI with AI Gateway](https://developers.cloudflare.com/ai-gateway/integrations/aig-workers-ai-binding/index.md): This guide will walk you through setting up and deploying a Workers AI project. You will use Workers, an AI Gateway binding, and a large language model (LLM) to deploy your first AI-powered application on the Cloudflare global network.
+- [Coding agents](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/index.md): Route coding agents such as Claude Code through AI Gateway for observability, caching, rate limiting, and cost tracking.
 - [Vercel AI SDK](https://developers.cloudflare.com/ai-gateway/integrations/vercel-ai-sdk/index.md): Route Vercel AI SDK requests through AI Gateway using the ai-gateway-provider package.
 - [Workers Bindings](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/index.md): Reference for the AI binding with AI Gateway. Call Workers AI and third-party models with env.AI.run(), access log IDs, and use gateway methods for feedback, logging, and URLs.
 
@@ -79,7 +82,6 @@ Observe and control your AI applications
 
 - [Tutorials](https://developers.cloudflare.com/ai-gateway/tutorials/index.md): Step-by-step AI Gateway tutorials for deploying Workers, connecting providers, and building AI applications.
 - [Create your first AI Gateway using Workers AI](https://developers.cloudflare.com/ai-gateway/tutorials/create-first-aig-workers/index.md): This tutorial guides you through creating your first AI Gateway using Workers AI on the Cloudflare dashboard.
-- [Deploy a Worker that connects to OpenAI via AI Gateway](https://developers.cloudflare.com/ai-gateway/tutorials/deploy-aig-worker/index.md): Learn how to deploy a Worker that makes calls to OpenAI through AI Gateway
 - [Use Pruna P-video through AI Gateway](https://developers.cloudflare.com/ai-gateway/tutorials/pruna-p-video/index.md): Learn how to call prunaai/p-video on Replicate through AI Gateway
 
 ## Changelog
@@ -131,7 +133,3 @@ Observe and control your AI applications
 - [Limits](https://developers.cloudflare.com/ai-gateway/reference/limits/index.md): Review AI Gateway limits for gateways, log storage, cache size, metadata entries, and Logpush jobs.
 - [Pricing](https://developers.cloudflare.com/ai-gateway/reference/pricing/index.md): Review AI Gateway pricing, including free core features, persistent log storage limits, and premium add-ons.
 - [Troubleshooting](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/index.md): Resolve common AI Gateway issues including authentication errors, missing logs, and provider connectivity problems.
-
-## Supported models
-
-- [Supported models](https://developers.cloudflare.com/ai-gateway/supported-models/index.md): Review the full list of AI models supported for unified billing through AI Gateway.

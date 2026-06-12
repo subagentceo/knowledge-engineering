@@ -33,11 +33,13 @@ Archived certificates are excluded unless `include_archived` is set.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
 
 - `data: array of object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -67,6 +69,7 @@ Archived certificates are excluded unless `include_archived` is set.
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 - `next_page: string`
@@ -78,7 +81,7 @@ Archived certificates are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

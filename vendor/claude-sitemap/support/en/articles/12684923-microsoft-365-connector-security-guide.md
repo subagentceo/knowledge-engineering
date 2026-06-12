@@ -26,13 +26,13 @@ Second, after the Owner enables the connector, a Microsoft Entra Global Administ
 
 You can selectively disable specific capabilities via Microsoft Entra Admin Center. For example:
 
-| **To restrict** | **Action**                                        | **Effect**                         |
-| --------------- | ------------------------------------------------- | ---------------------------------- |
-| All access      | Disable connector in Claude organization settings | Complete shutdown                  |
-| SharePoint only | Revoke Sites.Read.All permission in Entra         | Blocks SharePoint                  |
-| Email access    | Revoke Mail.Read permission in Entra              | Blocks Outlook                     |
-| Teams chat      | Revoke Chat.Read permission in Entra              | Blocks Teams                       |
-| OneDrive files  | Revoke Files.Read and/or Files.Read.All           | Blocks reading files from OneDrive |
+| **To restrict** | **Action** | **Effect** |
+| --- | --- | --- |
+| All access | Disable connector in Claude organization settings | Complete shutdown |
+| SharePoint only | Revoke Sites.Read.All permission in Entra | Blocks SharePoint |
+| Email access | Revoke Mail.Read permission in Entra | Blocks Outlook |
+| Teams chat | Revoke Chat.Read permission in Entra | Blocks Teams |
+| OneDrive files | Revoke Files.Read and/or Files.Read.All | Blocks reading files from OneDrive |
 
 Changes take effect immediately for all people in your organization. People can also choose to disable capabilities during a chat by selectively toggling off the connector's tools.
 
@@ -54,23 +54,23 @@ The connector fully supports your existing Entra (Azure AD) policies:
 
 - Users can only access Microsoft 365 data **they already have permission** for
 
-- SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using \*.Selected permissions) is not supported because the underlying search is tenant-wide.
+- SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide.
 
-- Users cannot bypass SharePoint sharing settings or folder permissions
+- Users cannot bypass SharePoint sharing settings or folder permissions.
 
-- Users cannot access other users' private files or emails
+- Users cannot access other users' private files or emails. Users can search shared mailboxes they've been granted delegate access to in Microsoft 365, including full access and folder-level delegation. Shared mailbox access is read-only and uses the `Mail.Read.Shared` permission.
 
-- Delegated permissions inherently respect Microsoft 365 data loss prevention (DLP) policies
+- Delegated permissions inherently respect Microsoft 365 data loss prevention (DLP) policies.
 
 **6. Token management**
 
 - Refresh tokens expire after 90 days of inactivity by default, requiring re-authentication. This can be customized in Microsoft Entra ID using a token lifetime policy.
 
-- Access tokens typically expire within 60-90 minutes per Microsoft Entra ID defaults and are automatically refreshed
+- Access tokens typically expire within 60-90 minutes per Microsoft Entra ID defaults and are automatically refreshed.
 
-- Admins or users can revoke access anytime via Microsoft Entra ID
+- Admins or users can revoke access anytime via Microsoft Entra ID.
 
-- The Microsoft 365 Connector never sees or stores passwords
+- The Microsoft 365 Connector never sees or stores passwords.
 
 ## Security architecture summary
 
@@ -110,15 +110,15 @@ The connector fully supports your existing Entra (Azure AD) policies:
 
 The connector provides **read-only** access to:
 
-| **Tool**                    | **Description**                       | **Required permission** |
-| --------------------------- | ------------------------------------- | ----------------------- |
-| `sharepoint_search`         | Search SharePoint documents and pages | Sites.Read.All          |
-| `sharepoint_folder_search`  | Find SharePoint folders by name       | Sites.Read.All          |
-| `outlook_email_search`      | Search email with sender/date filters | Mail.Read               |
-| `outlook_calendar_search`   | Search calendar events                | Calendars.Read          |
-| `find_meeting_availability` | Find available meeting times          | Calendars.Read          |
-| `chat_message_search`       | Search Teams chat messages            | Chat.Read               |
-| `read_resource`             | Read files, emails, or chat by URI    | Varies by resource type |
+| **Tool** | **Description** | **Required permission** |
+| --- | --- | --- |
+| `sharepoint_search` | Search SharePoint documents and pages | Sites.Read.All |
+| `sharepoint_folder_search` | Find SharePoint folders by name | Sites.Read.All |
+| `outlook_email_search` | Search email with sender/date filters | Mail.Read |
+| `outlook_calendar_search` | Search calendar events | Calendars.Read |
+| `find_meeting_availability` | Find available meeting times | Calendars.Read |
+| `chat_message_search` | Search Teams chat messages | Chat.Read |
+| `read_resource` | Read files, emails, or chat by URI | Varies by resource type |
 
 ## Permissions list
 

@@ -13,6 +13,7 @@ Get Invite
 ### Returns
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -32,6 +33,7 @@ Get Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -45,6 +47,7 @@ Get Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -58,6 +61,7 @@ Get Invite
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Example
@@ -65,7 +69,7 @@ Get Invite
 ```http
 curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

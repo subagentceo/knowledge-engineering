@@ -1,7 +1,6 @@
 ---
 vendor: aws
 llms_txt: https://docs.aws.amazon.com/llms.txt
-last_crawled: 2026-05-15T04:14:47.980Z
 count: 200
 transform: append-md-and-accept
 ---
@@ -11,6 +10,7 @@ transform: append-md-and-accept
 | URL | Local |
 |---|---|
 | https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.md` |
+| https://docs.aws.amazon.com/accounts/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/accounts/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.md | `vendor/aws/docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.md` |
 | https://docs.aws.amazon.com/acm/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/acm/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.md | `vendor/aws/docs.aws.amazon.com/acm/latest/userguide/acm-overview.md` |
@@ -48,7 +48,7 @@ transform: append-md-and-accept
 | https://docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/Welcome.md` |
 | https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/Welcome.md` |
 | https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.md` |
-| https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonS3/latest/API/Welcome.md` |
+| https://docs.aws.amazon.com/AmazonS3/latest/developerguide/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonS3/latest/developerguide/Welcome.md` |
 | https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.md | `vendor/aws/docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.md` |
 | https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md` |
 | https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/Welcome.md | `vendor/aws/docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/Welcome.md` |
@@ -144,13 +144,12 @@ transform: append-md-and-accept
 | https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.md | `vendor/aws/docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.md` |
 | https://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/awssupport/latest/user/getting-started.md | `vendor/aws/docs.aws.amazon.com/awssupport/latest/user/getting-started.md` |
-| https://docs.aws.amazon.com/b2bi/latest/APIReference/api-welcome.md | `vendor/aws/docs.aws.amazon.com/b2bi/latest/APIReference/api-welcome.md` |
+| https://docs.aws.amazon.com/b2bi/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/b2bi/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.md | `vendor/aws/docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.md` |
 | https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/batch/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.md | `vendor/aws/docs.aws.amazon.com/batch/latest/userguide/what-is-batch.md` |
 | https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/Welcome.md` |
-| https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.md | `vendor/aws/docs.aws.amazon.com/bedrock/latest/APIReference/welcome.md` |
 | https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.md | `vendor/aws/docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.md` |
 | https://docs.aws.amazon.com/bgw/v20210101/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/bgw/v20210101/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/billingconductor/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/billingconductor/latest/APIReference/Welcome.md` |
@@ -200,13 +199,13 @@ transform: append-md-and-accept
 | https://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/IAM/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.md | `vendor/aws/docs.aws.amazon.com/IAM/latest/UserGuide/introduction.md` |
 | https://docs.aws.amazon.com/IDR/latest/userguide/what-is-idr.md | `vendor/aws/docs.aws.amazon.com/IDR/latest/userguide/what-is-idr.md` |
+| https://docs.aws.amazon.com/MAP/latest/userguide/what-is-service.md | `vendor/aws/docs.aws.amazon.com/MAP/latest/userguide/what-is-service.md` |
 | https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/gsg-getting-started.md | `vendor/aws/docs.aws.amazon.com/Monitron/latest/getting-started-guide/gsg-getting-started.md` |
 | https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.md | `vendor/aws/docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.md` |
 | https://docs.aws.amazon.com/MSK/2.0/APIReference/welcome.md | `vendor/aws/docs.aws.amazon.com/MSK/2.0/APIReference/welcome.md` |
 | https://docs.aws.amazon.com/OAM/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/OAM/latest/APIReference/Welcome.md` |
-| https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/overview.md | `vendor/aws/docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/overview.md` |
+| https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/sign-up-for-aws.md | `vendor/aws/docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/sign-up-for-aws.md` |
 | https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.md | `vendor/aws/docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.md` |
-| https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/Route53/latest/APIReference/Welcome.md` |
 | https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.md | `vendor/aws/docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.md` |
 | https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.md | `vendor/aws/docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.md` |
 | https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.md | `vendor/aws/docs.aws.amazon.com/STS/latest/APIReference/Welcome.md` |

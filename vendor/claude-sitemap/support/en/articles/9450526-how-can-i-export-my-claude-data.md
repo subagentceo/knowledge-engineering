@@ -1,6 +1,6 @@
-Data exports are available to individual Claude users (free, Pro, and Max) with active accounts. Data exports include conversation data and the user data for your account.
+Data exports are available to individual Claude users (Free, Pro, and Max plans) with active accounts. Data exports include conversation data and the user data for your account.
 
-Individual Claude users can export user information and chat history from [Settings > Privacy](https://claude.ai/settings/data-privacy-controls) on the web app or Claude Desktop (it's not possible to run an export from Claude for iOS or Android).
+Individual Claude users can export user information and chat history from **[Settings > Privacy](https://claude.ai/settings/data-privacy-controls)** on the web app or Claude Desktop (it's not possible to run an export from Claude for iOS or Android).
 
 Follow these steps to export your data:
 
@@ -28,4 +28,6 @@ Please note:
 
 ## Can I import or migrate this data to another Claude account?
 
-We do not support migrating data between separate accounts at this time.
+Exported data can't be imported into another personal Claude account, and we don't support migrating data between personal accounts.
+
+If you're joining a Team or Enterprise organization, you don't need an export to bring your work with you—you can migrate your personal account directly into the organization's workspace. For details, see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)**.

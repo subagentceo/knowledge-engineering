@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -45,7 +44,7 @@ The `/loop` [bundled skill](/en/commands) is the quickest way to run a prompt on
 | Prompt only               | `/loop check the deploy`    | Your prompt runs at an [interval Claude chooses](#let-claude-choose-the-interval) each iteration              |
 | Interval only, or nothing | `/loop`                     | The [built-in maintenance prompt](#run-the-built-in-maintenance-prompt) runs, or your `loop.md` if one exists |
 
-You can also pass another command as the prompt, for example `/loop 20m /review-pr 1234`, to re-run a packaged workflow each iteration.
+You can also pass another command as the prompt, for example `/loop 20m /review-pr 1234`, to re-run a saved skill or command each iteration.
 
 ### Run on a fixed interval
 
@@ -81,9 +80,9 @@ A dynamically scheduled loop appears in your [scheduled task list](#manage-sched
 
 When you omit the prompt, Claude uses a built-in maintenance prompt instead of one you supply. On each iteration it works through the following, in order:
 
-- continue any unfinished work from the conversation
-- tend to the current branch's pull request: review comments, failed CI runs, merge conflicts
-- run cleanup passes such as bug hunts or simplification when nothing else is pending
+* continue any unfinished work from the conversation
+* tend to the current branch's pull request: review comments, failed CI runs, merge conflicts
+* run cleanup passes such as bug hunts or simplification when nothing else is pending
 
 Claude does not start new initiatives outside that scope, and irreversible actions such as pushing or deleting only proceed when they continue something the transcript already authorized.
 
@@ -175,8 +174,8 @@ All times are interpreted in your local timezone. A cron expression like `0 9 * 
 
 To avoid every session hitting the API at the same wall-clock moment, the scheduler adds a deterministic offset to fire times:
 
-- Recurring tasks fire up to 30 minutes after the scheduled time (or up to half the interval, for tasks that run more often than hourly). An hourly job scheduled for `:00` may fire anywhere up to `:30`.
-- One-shot tasks scheduled for the top or bottom of the hour fire up to 90 seconds early.
+* Recurring tasks fire up to 30 minutes after the scheduled time (or up to half the interval, for tasks that run more often than hourly). An hourly job scheduled for `:00` may fire anywhere up to `:30`.
+* One-shot tasks scheduled for the top or bottom of the hour fire up to 90 seconds early.
 
 The offset is derived from the task ID, so the same task always gets the same offset. If exact timing matters, pick a minute that is not `:00` or `:30`, for example `3 9 * * *` instead of `0 9 * * *`, and the one-shot jitter will not apply.
 
@@ -209,12 +208,12 @@ Set `CLAUDE_CODE_DISABLE_CRON=1` in your environment to disable the scheduler en
 
 Session-scoped scheduling has inherent constraints:
 
-- Tasks only fire while Claude Code is running and idle. Closing the terminal or letting the session exit stops them firing.
-- No catch-up for missed fires. If a task's scheduled time passes while Claude is busy on a long-running request, it fires once when Claude becomes idle, not once per missed interval.
-- Starting a fresh conversation clears all session-scoped tasks. Resuming with `claude --resume` or `claude --continue` restores tasks that have not expired: recurring tasks within seven days of creation, and one-shot tasks whose scheduled time has not yet passed. Background Bash and monitor tasks are never restored on resume.
+* Tasks only fire while Claude Code is running and idle. Closing the terminal or letting the session exit stops them firing.
+* No catch-up for missed fires. If a task's scheduled time passes while Claude is busy on a long-running request, it fires once when Claude becomes idle, not once per missed interval.
+* Starting a fresh conversation clears all session-scoped tasks. Resuming with `claude --resume` or `claude --continue` restores tasks that have not expired: recurring tasks within seven days of creation, and one-shot tasks whose scheduled time has not yet passed. Background Bash and monitor tasks are never restored on resume.
 
 For cron-driven automation that needs to run unattended:
 
-- [Routines](/en/routines): run on Anthropic-managed infrastructure on a schedule, via API call, or on GitHub events
-- [GitHub Actions](/en/github-actions): use a `schedule` trigger in CI
-- [Desktop scheduled tasks](/en/desktop-scheduled-tasks): run locally on your machine
+* [Routines](/en/routines): run on Anthropic-managed infrastructure on a schedule, via API call, or on GitHub events
+* [GitHub Actions](/en/github-actions): use a `schedule` trigger in CI
+* [Desktop scheduled tasks](/en/desktop-scheduled-tasks): run locally on your machine

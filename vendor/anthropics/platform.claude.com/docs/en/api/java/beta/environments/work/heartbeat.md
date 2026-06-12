@@ -11,6 +11,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Parameters
 
 - `WorkHeartbeatParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -26,6 +27,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -78,13 +80,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -96,6 +101,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `State state`
 
     Current state of the work item (active/stopping/stopped)
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -113,6 +119,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `JsonValue; type "work_heartbeat"constant`
 
     The type of response
+
     - `WORK_HEARTBEAT("work_heartbeat")`
 
 ### Example

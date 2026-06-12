@@ -7,11 +7,13 @@ Users with Standard seats on the Team plan can access the following:
 - **Increased usage:** More usage than the Pro plan per five-hour session, so every team member can get what they need from Claude.
 
 - **Option to purchase usage credits:** Prepay for usage credits, allowing team members to continue working after reaching limits.
+
   - Read more here: **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**
 
 - **Admin tools and billing management:** Manage access and billing in a centralized place.
 
 - **Advanced identity and access management:**
+
   - **Single-Sign-On (SSO) and Domain Capture:** Enhance authentication security and user experience.
 
   - **Just-in-Time Provisioning (JIT):** Streamline user authentication and manage access across your organization.
@@ -21,6 +23,7 @@ Users with Standard seats on the Team plan can access the following:
 - **Spend controls:** Set spending caps at organization and individual user levels.
 
 - **Enterprise search capabilities:** Dedicated search project for unified knowledge access.
+
   - Pre-configured with optimized search instructions
 
   - Automatic provisioning for all organization members
@@ -32,6 +35,7 @@ Users with Standard seats on the Team plan can access the following:
 - **Connectors for your workplace tools:** Connect Claude to Google Drive, Gmail, Google Calendar, GitHub, Microsoft 365, and Slack to search and retrieve context from your existing documents, emails, calendars, and team communications—without manual uploads.
 
 - **Everything in Pro, including:**
+
   - Access to all available models.
 
   - Access to Claude Code to delegate coding tasks from concept to completion directly from your terminal.
@@ -76,7 +80,7 @@ Prices shown are for US customers and exclude applicable taxes. Pricing, currenc
 
 For more details on billing, see **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
-Team plans support up to 150 seats. If your organization needs more than 150 seats, you can upgrade to the **[Enterprise plan](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)**. The flow for Team plans to upgrade to self-serve Enterprise isn't supported at this time, so if you are interested in upgrading, reach out to **[our Sales team](https://claude.com/contact-sales)**.
+Team plans support up to 150 seats. If your organization is on the Team plan and needs more than 150 seats, you can upgrade to the **[Enterprise plan](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)**. For more information, see **[Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)**.
 
 Price and plans are subject to change at Anthropic's discretion.
 
@@ -84,11 +88,13 @@ Price and plans are subject to change at Anthropic's discretion.
 
 ## Do Team plans have any usage limits?
 
-Yes. Usage limits differ between Standard and Premium seats.
+Yes. For both Standard and Premium seats, weekly limits reset at a fixed time each week that is assigned to your account. Your reset day and time stay the same regardless of when you start using Claude or when your subscription begins, and you receive your full weekly allowance each cycle. You can see your next reset time in **[Settings > Usage](https://claude.ai/new#settings/usage)**.
 
-**Standard seats:** Team plan Standard seats offer 1.25x more usage per session than the Pro plan and have a weekly usage limit that applies across all models and resets seven days after your session starts.
+Usage limits differ between Standard and Premium seats in the following ways:
 
-**Premium seats:** Team plan Premium seats offer 6.25x more usage per session than the Pro plan. Users assigned to these seats ​​also have two weekly usage limits: one that applies across all models and another for Sonnet models only. Both limits reset seven days after your session starts.
+**Standard seats:** Team plan Standard seats offer 1.25x more usage per session than the Pro plan and have a weekly usage limit that applies across all models.
+
+**Premium seats:** Team plan Premium seats offer 6.25x more usage per session than the Pro plan. Users assigned to these seats ​​also have two weekly usage limits: one that applies across all models and another for Sonnet models only.
 
 ### Do usage limits apply across the team or to individual members?
 

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -19,14 +18,14 @@ Claude Code combines a model that reasons about your code with [built-in tools](
 
 Extensions plug into different parts of the agentic loop:
 
-- **[CLAUDE.md](/en/memory)** adds persistent context Claude sees every session
-- **[Skills](/en/skills)** add reusable knowledge and invocable workflows
-- **[Code intelligence](/en/tools-reference#lsp-tool-behavior)** connects Claude to a language server for symbol-level navigation and live type errors
-- **[MCP](/en/mcp)** connects Claude to external services and tools
-- **[Subagents](/en/sub-agents)** run their own loops in isolated context, returning summaries
-- **[Agent teams](/en/agent-teams)** coordinate multiple independent sessions with shared tasks and peer-to-peer messaging
-- **[Hooks](/en/hooks-guide)** fire on lifecycle events and can run a script, HTTP request, prompt, or subagent
-- **[Plugins](/en/plugins)** and **[marketplaces](/en/plugin-marketplaces)** package and distribute these features
+* **[CLAUDE.md](/en/memory)** adds persistent context Claude sees every session
+* **[Skills](/en/skills)** add reusable knowledge and invocable workflows
+* **[Code intelligence](/en/tools-reference#lsp-tool-behavior)** connects Claude to a language server for symbol-level navigation and live type errors
+* **[MCP](/en/mcp)** connects Claude to external services and tools
+* **[Subagents](/en/sub-agents)** run their own loops in isolated context, returning summaries
+* **[Agent teams](/en/agent-teams)** coordinate multiple independent sessions with shared tasks and peer-to-peer messaging
+* **[Hooks](/en/hooks-guide)** fire on lifecycle events and can run a script, HTTP request, prompt, or subagent
+* **[Plugins](/en/plugins)** and **[marketplaces](/en/plugin-marketplaces)** package and distribute these features
 
 [Skills](/en/skills) are the most flexible extension. A skill is a markdown file containing knowledge, workflows, or instructions. You can invoke skills with a command like `/deploy`, or Claude can load them automatically when relevant. Skills can run in your current conversation or in an isolated context via subagents.
 
@@ -86,7 +85,6 @@ Some features can seem similar. Here's how to tell them apart.
     **Use a subagent** when you need context isolation or when your context window is getting full. The subagent might read dozens of files or run extensive searches, but your main conversation only receives a summary. Since subagent work doesn't consume your main context, this is also useful when you don't need the intermediate work to remain visible. Custom subagents can have their own instructions and can preload skills.
 
     **They can combine.** A subagent can preload specific skills (`skills:` field). A skill can run in isolated context using `context: fork`. See [Skills](/en/skills) for details.
-
   </Tab>
 
   <Tab title="CLAUDE.md vs Skill">
@@ -104,7 +102,6 @@ Some features can seem similar. Here's how to tell them apart.
     **Put it in a skill** if it's reference material Claude needs sometimes (API docs, style guides) or a workflow you trigger with `/<name>` (deploy, review, release).
 
     **Rule of thumb:** Keep CLAUDE.md under 200 lines. If it's growing, move reference content to skills or split into [`.claude/rules/`](/en/memory#organize-rules-with-claude/rules/) files.
-
   </Tab>
 
   <Tab title="CLAUDE.md vs Rules vs Skills">
@@ -121,7 +118,6 @@ Some features can seem similar. Here's how to tell them apart.
     **Use rules** to keep CLAUDE.md focused. Rules with [`paths` frontmatter](/en/memory#path-specific-rules) only load when Claude works with matching files, saving context.
 
     **Use skills** for content Claude only needs sometimes, like API documentation or a deployment checklist you trigger with `/<name>`.
-
   </Tab>
 
   <Tab title="Subagent vs Agent team">
@@ -147,7 +143,6 @@ Some features can seem similar. Here's how to tell them apart.
     <Note>
       Agent teams are experimental and disabled by default. See [agent teams](/en/agent-teams) for setup and current limitations.
     </Note>
-
   </Tab>
 
   <Tab title="MCP vs Skill">
@@ -166,7 +161,6 @@ Some features can seem similar. Here's how to tell them apart.
     **Skills** give Claude knowledge about how to use those tools effectively, plus workflows you can trigger with `/<name>`. A skill might include your team's database schema and query patterns, or a `/post-to-slack` workflow with your team's message formatting rules.
 
     Example: An MCP server connects Claude to your database. A skill teaches Claude your data model, common query patterns, and which tables to use for different tasks.
-
   </Tab>
 
   <Tab title="Hook vs Skill">
@@ -187,7 +181,6 @@ Some features can seem similar. Here's how to tell them apart.
     **Put guardrails in hooks.** An instruction like "never edit `.env`" in CLAUDE.md or a skill is a request, not a guarantee. A `PreToolUse` hook that blocks the edit is enforcement. If a rule must hold every time, make it a hook rather than a prompt instruction.
 
     **Hook output lands in context.** A `PostToolUse` hook that runs your linter feeds results back as text Claude reads; a `/fix-lint` skill tells Claude how to resolve them.
-
   </Tab>
 </Tabs>
 
@@ -195,10 +188,10 @@ Some features can seem similar. Here's how to tell them apart.
 
 Features can be defined at multiple levels: user-wide, per-project, via plugins, or through managed policies. You can also nest CLAUDE.md files in subdirectories or place skills in specific packages of a monorepo. When the same feature exists at multiple levels, here's how they layer:
 
-- **CLAUDE.md files** are additive: all levels contribute content to Claude's context simultaneously. Files from your working directory and above load at launch; subdirectories load as you work in them. When instructions conflict, Claude uses judgment to reconcile them, with more specific instructions typically taking precedence. See [how CLAUDE.md files load](/en/memory#how-claude-md-files-load).
-- **Skills and subagents** override by name: when the same name exists at multiple levels, one definition wins based on priority (managed > user > project for skills; managed > CLI flag > project > user > plugin for subagents). Plugin skills are [namespaced](/en/plugins#add-skills-to-your-plugin) to avoid conflicts. See [skill discovery](/en/skills#where-skills-live) and [subagent scope](/en/sub-agents#choose-the-subagent-scope).
-- **MCP servers** override by name: local > project > user. See [MCP scope](/en/mcp#scope-hierarchy-and-precedence).
-- **Hooks** merge: all registered hooks fire for their matching events regardless of source. See [hooks](/en/hooks).
+* **CLAUDE.md files** are additive: all levels contribute content to Claude's context simultaneously. Files from your working directory and above load at launch; subdirectories load as you work in them. When instructions conflict, Claude uses judgment to reconcile them, with more specific instructions typically taking precedence. See [how CLAUDE.md files load](/en/memory#how-claude-md-files-load).
+* **Skills and subagents** override by name: when the same name exists at multiple levels, one definition wins based on priority (managed > user > project for skills; managed > CLI flag > project > user > plugin for subagents). Plugin skills are [namespaced](/en/plugins#add-skills-to-your-plugin) to avoid conflicts. See [skill discovery](/en/skills#where-skills-live) and [subagent scope](/en/sub-agents#choose-the-subagent-scope).
+* **MCP servers** override by name: local > project > user. See [MCP scope](/en/mcp#scope-hierarchy-and-precedence).
+* **Hooks** merge: all registered hooks fire for their matching events regardless of source. See [hooks](/en/hooks).
 
 ### Combine features
 
@@ -247,7 +240,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **Inheritance:** Claude reads CLAUDE.md files from your working directory up to the root, and discovers nested ones in subdirectories as it accesses those files. See [How CLAUDE.md files load](/en/memory#how-claude-md-files-load) for details.
 
     <Tip>Keep CLAUDE.md under 200 lines. Move reference material to skills, which load on-demand.</Tip>
-
   </Tab>
 
   <Tab title="Skills">
@@ -264,7 +256,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **In subagents:** Skills work differently in subagents. Instead of on-demand loading, skills listed in the subagent's `skills` field are fully preloaded into its context at launch. Subagents can still discover and invoke unlisted project, user, and plugin skills through the Skill tool.
 
     <Tip>Use `disable-model-invocation: true` for skills with side effects. This saves context and ensures only you trigger them.</Tip>
-
   </Tab>
 
   <Tab title="MCP servers">
@@ -275,7 +266,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **Context cost:** [Tool search](/en/mcp#scale-with-mcp-tool-search) is on by default, so idle MCP tools consume minimal context.
 
     <Tip>Run `/mcp` to see connection status and token costs per server. Claude Code [reconnects to remote servers automatically](/en/mcp#automatic-reconnection) if they drop, and you can disconnect servers you're not actively using.</Tip>
-
   </Tab>
 
   <Tab title="Code intelligence">
@@ -286,7 +276,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **Context cost:** Low. Symbol lookups often replace broad file reads, so net context use can go down.
 
     <Tip>The LSP tool is inactive until you install a [code intelligence plugin](/en/discover-plugins#code-intelligence) for your language.</Tip>
-
   </Tab>
 
   <Tab title="Subagents">
@@ -302,7 +291,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **Context cost:** Isolated from main session. Subagents don't inherit your conversation history or invoked skills.
 
     <Tip>Use subagents for work that doesn't need your full conversation context. Their isolation prevents bloating your main session.</Tip>
-
   </Tab>
 
   <Tab title="Hooks">
@@ -313,7 +301,6 @@ Each feature loads at different points in your session. The tabs below explain w
     **Context cost:** Zero, unless the hook returns output that gets added as messages to your conversation.
 
     <Tip>Hooks are ideal for side effects (linting, logging) that don't need to affect Claude's context.</Tip>
-
   </Tab>
 </Tabs>
 
@@ -343,7 +330,7 @@ Each feature has its own guide with setup instructions, examples, and configurat
   </Card>
 
   <Card title="Hooks" icon="bolt" href="/en/hooks-guide">
-    Automate workflows with hooks
+    Automate actions with hooks
   </Card>
 
   <Card title="Plugins" icon="puzzle-piece" href="/en/plugins">

@@ -176,17 +176,21 @@ Yes. Claude can search any SharePoint sites and shared drives you have permissio
 
 Be specific in your prompts:
 
-- _"Search the Engineering team site in SharePoint for architecture documents."_
+- *"Search the Engineering team site in SharePoint for architecture documents."*
 
-- _"Find emails from the last week about the Q4 budget."_
+- *"Find emails from the last week about the Q4 budget."*
 
-- _"Show me Teams discussions with Sarah about the product roadmap."_
+- *"Show me Teams discussions with Sarah about the product roadmap."*
 
-- _"Find PowerPoint presentations in SharePoint about sales strategy."_
+- *"Find PowerPoint presentations in SharePoint about sales strategy."*
 
 ### Can I point my project at a specific Sharepoint site?
 
-No, Sites.Selected is not supported the Microsoft 365 connector cannot currently be configured to an allowlist of specific SharePoint sites ().
+No, `Sites.Selected` is not supported, so you can't scope the Microsoft 365 connector to an allowlist of specific SharePoint sites. The connector searches across all SharePoint content you already have permission to access.
+
+### Can Claude search shared mailboxes?
+
+Yes. Claude can search shared mailboxes you have delegate access to in Microsoft 365. This includes full access shared mailboxes and folder-level delegation, such as when you can see only the inbox of another mailbox. Access is read-only and follows your existing Microsoft 365 permissions: if you can open a shared mailbox in Outlook, Claude can search it.
 
 ### Can Claude search archived emails?
 
@@ -194,7 +198,7 @@ Yes. Claude can search any email you have access to in Outlook, including archiv
 
 ### Can Claude summarize long email threads?
 
-Yes. Try a prompt like _"Summarize the email thread about the vendor selection process."_ Claude will read the thread and provide a summary with key points and decisions.
+Yes. Try a prompt like *"Summarize the email thread about the vendor selection process."* Claude will read the thread and provide a summary with key points and decisions.
 
 ### Can Claude access private Teams channels?
 

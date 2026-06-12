@@ -29,9 +29,11 @@ List Files
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -84,13 +86,16 @@ List Files
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of FileMetadata`
 
   List of file metadata objects.
+
   - `id: string`
 
     Unique object identifier.
@@ -118,6 +123,7 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
+
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -127,6 +133,7 @@ List Files
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -134,6 +141,7 @@ List Files
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
       - `"session"`
 
 - `first_id: optional string`

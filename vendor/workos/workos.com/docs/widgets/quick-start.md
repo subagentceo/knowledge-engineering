@@ -41,6 +41,6 @@ function App({ children }) {
 
 ## CORS configuration
 
-Because WorkOS widgets issue client-side requests to WorkOS, it is necessary to configure your site as an allowed web origin. Adding this in the [Authentication section of the dashboard](https://dashboard.workos.com/environment/authentication/sessions) will prevent CORS issues when using the widget.
+Because WorkOS widgets issue client-side requests to WorkOS, it is necessary to configure your site as an allowed web origin. In the Applications page of the [WorkOS Dashboard](https://dashboard.workos.com/environment/applications), open your application. CORS can be configured within the Sessions tab. This will prevent CORS issues when using the widget.
 
-![CORS configuration](https://images.workoscdn.com/images/deb27664-e2e1-4c3b-afa1-e8ba2578c77c.png?auto=format\&fit=clip\&q=50)
+![CORS configuration](https://images.workoscdn.com/images/586fb07f-6839-4c5c-95c1-e1055a5b3ace.png?auto=format\&fit=clip\&q=80)

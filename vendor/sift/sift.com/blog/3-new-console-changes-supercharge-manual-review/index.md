@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# 3 New Console Changes to Supercharge Manual Review
+
+Home/Blog
 
 Table of Contents
 
@@ -26,21 +28,21 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
--   [](https://twitter.com/intent/tweet?text=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&picture=&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
--   [](/cdn-cgi/l/email-protection#1a25696f78707f796e27293f282a547f6d3f282a5975746975767f3f282a59727b747d7f693f282a6e753f282a496f6a7f6879727b687d7f3f282a577b746f7b763f282a487f6c737f6d3c392a29222178757e6327726e6e6a693f295b3f285c3f285c69737c6e347975773f285c7876757d3f285c2937747f6d377975746975767f3779727b747d7f6937696f6a7f6879727b687d7f37777b746f7b7637687f6c737f6d3f285c)
+*   
+*   
+*   
+*   
 
--   [Digital Trust](https://sift.com/blog/category/digital-trust/)
--   [Product News](https://sift.com/blog/category/product-news/)
+*   Digital Trust
+*   Product News
 
 # 3 New Console Changes to Supercharge Manual Review
 
-We built our Console to make fraud easier to understand and manual review more efficient. Earlier this month, we rolled out three new features…
+We built our Console to make fraud easier to understand and manual review more efficient. Earlier this month, we rolled out three…
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+Sift Trust and Safety Team
 
 Sep 12, 2018
 
@@ -70,84 +72,84 @@ We’ve made a number of other changes to the Console to help analysts work more
 
 We’ve made searching quicker with Lists that now auto-save as soon as you add or modify any criteria. No need to worry about losing the users you were investigating as you explore fraud patterns.
 
-We are proud to have helped customers significantly reduce manual review and are always investing in new ways to make analysts’ lives easier. If you have questions or feedback, reach out to us at [\[email protected\]](/cdn-cgi/l/email-protection#f685838686998482b6859f908285959f93989593d895999b).
+We are proud to have helped customers significantly reduce manual review and are always investing in new ways to make analysts’ lives easier. If you have questions or feedback, reach out to us at [email protected].
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
--   [](https://twitter.com/intent/tweet?text=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&picture=&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
--   [](/cdn-cgi/l/email-protection#6e511d1b0c040b0d1a535d4b5c5e200b194b5c5e2d01001d01020b4b5c5e2d060f00090b1d4b5c5e1a014b5c5e3d1b1e0b1c0d060f1c090b4b5c5e230f001b0f024b5c5e3c0b18070b19484d5e5d56550c010a1753061a1a1e1d4b5d2f4b5c284b5c281d07081a400d01034b5c280c0201094b5c285d43000b19430d01001d01020b430d060f00090b1d431d1b1e0b1c0d060f1c090b43030f001b0f02431c0b18070b194b5c28)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

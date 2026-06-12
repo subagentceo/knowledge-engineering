@@ -25,125 +25,106 @@ The request sends a `tools` array alongside the user message. When Claude decide
 # Ring 1: Single tool, single turn.
 
 # Define one tool as a JSON fragment. The input_schema is a JSON Schema
-
 # object describing the arguments Claude should pass when it calls this
-
 # tool. This schema includes nested objects (recurrence), arrays
-
 # (attendees), and optional fields, which is closer to real-world tools
-
 # than a flat string argument.
-
 TOOLS='[
-{
-"name": "create_calendar_event",
-"description": "Create a calendar event with attendees and optional recurrence.",
-"input_schema": {
-"type": "object",
-"properties": {
-"title": {"type": "string"},
-"start": {"type": "string", "format": "date-time"},
-"end": {"type": "string", "format": "date-time"},
-"attendees": {
-"type": "array",
-"items": {"type": "string", "format": "email"}
-},
-"recurrence": {
-"type": "object",
-"properties": {
-"frequency": {"enum": ["daily", "weekly", "monthly"]},
-"count": {"type": "integer", "minimum": 1}
-}
-}
-},
-"required": ["title", "start", "end"]
-}
-}
+  {
+    "name": "create_calendar_event",
+    "description": "Create a calendar event with attendees and optional recurrence.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "attendees": {
+          "type": "array",
+          "items": {"type": "string", "format": "email"}
+        },
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "frequency": {"enum": ["daily", "weekly", "monthly"]},
+            "count": {"type": "integer", "minimum": 1}
+          }
+        }
+      },
+      "required": ["title", "start", "end"]
+    }
+  }
 ]'
 
 USER_MSG="Schedule a 30-minute sync with alice@example.com and bob@example.com next Monday at 10am."
 
 # Send the user's request along with the tool definition. Claude decides
-
 # whether to call the tool based on the request and the tool description.
-
 RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
   -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "content-type: application/json" \
   -d "$(jq -n \
- --argjson tools "$TOOLS" \
+    --argjson tools "$TOOLS" \
     --arg msg "$USER_MSG" \
- '{
-model: "claude-opus-4-8",
-max_tokens: 1024,
-tools: $tools,
-tool_choice: {type: "auto", disable_parallel_tool_use: true},
-messages: [{role: "user", content: $msg}]
-}')")
+    '{
+      model: "claude-opus-4-8",
+      max_tokens: 1024,
+      tools: $tools,
+      tool_choice: {type: "auto", disable_parallel_tool_use: true},
+      messages: [{role: "user", content: $msg}]
+    }')")
 
 # When Claude calls a tool, the response has stop_reason "tool_use"
-
 # and the content array contains a tool_use block alongside any text.
-
 echo "stop_reason: $(echo "$RESPONSE" | jq -r '.stop_reason')"
 
 # Find the tool_use block. A response may contain text blocks before the
-
 # tool_use block, so filter by type rather than assuming position.
-
 TOOL_USE=$(echo "$RESPONSE" | jq '.content[] | select(.type == "tool_use")')
 TOOL_USE_ID=$(echo "$TOOL_USE" | jq -r '.id')
 echo "Tool: $(echo "$TOOL_USE" | jq -r '.name')"
 echo "Input: $(echo "$TOOL_USE" | jq -c '.input')"
 
 # Execute the tool. In a real system this would call your calendar API.
-
 # Here the result is hardcoded to keep the example self-contained.
-
 RESULT='{"event_id": "evt_123", "status": "created"}'
 
 # Send the result back. The tool_result block goes in a user message and
-
 # its tool_use_id must match the id from the tool_use block above. The
-
 # assistant's previous response is included so Claude has the full history.
-
 ASSISTANT_CONTENT=$(echo "$RESPONSE" | jq '.content')
 FOLLOWUP=$(curl -s https://api.anthropic.com/v1/messages \
   -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "content-type: application/json" \
   -d "$(jq -n \
- --argjson tools "$TOOLS" \
+    --argjson tools "$TOOLS" \
     --arg msg "$USER_MSG" \
- --argjson assistant "$ASSISTANT_CONTENT" \
+    --argjson assistant "$ASSISTANT_CONTENT" \
     --arg tool_use_id "$TOOL_USE_ID" \
- --arg result "$RESULT" \
- '{
-model: "claude-opus-4-8",
-max_tokens: 1024,
-tools: $tools,
-tool_choice: {type: "auto", disable_parallel_tool_use: true},
-messages: [
-{role: "user", content: $msg},
-{role: "assistant", content: $assistant},
-{role: "user", content: [
-{type: "tool_result", tool_use_id: $tool_use_id, content: $result}
-]}
-]
-}')")
+    --arg result "$RESULT" \
+    '{
+      model: "claude-opus-4-8",
+      max_tokens: 1024,
+      tools: $tools,
+      tool_choice: {type: "auto", disable_parallel_tool_use: true},
+      messages: [
+        {role: "user", content: $msg},
+        {role: "assistant", content: $assistant},
+        {role: "user", content: [
+          {type: "tool_result", tool_use_id: $tool_use_id, content: $result}
+        ]}
+      ]
+    }')")
 
 # With the tool result in hand, Claude produces a final natural-language
-
 # answer and stop_reason becomes "end_turn".
-
 echo "stop_reason: $(echo "$FOLLOWUP" | jq -r '.stop_reason')"
 echo "$FOLLOWUP" | jq -r '.content[] | select(.type == "text") | .text'
+````
 
-`````
-
-
+  
 ````bash
 #!/usr/bin/env bash
 # Ring 1: Single tool, single turn.
@@ -230,9 +211,10 @@ FOLLOWUP=$(call_api)
 # answer and stop_reason becomes "end_turn".
 echo "stop_reason: $(jq -r '.stop_reason' <<<"$FOLLOWUP")"
 jq -r '.content[] | select(.type == "text") | .text' <<<"$FOLLOWUP"
-`````
+````
 
-```python
+  
+````python
 # Ring 1: Single tool, single turn.
 
 import json
@@ -334,9 +316,10 @@ followup = client.messages.create(
 print(f"stop_reason: {followup.stop_reason}")
 final_text = next(block for block in followup.content if block.type == "text")
 print(final_text.text)
-```
+````
 
-```typescript
+  
+````typescript
 // Ring 1: Single tool, single turn.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -444,7 +427,7 @@ for (const block of followup.content) {
     console.log(block.text);
   }
 }
-```
+````
 
 </CodeGroup>
 
@@ -473,84 +456,80 @@ The other change is conversation history. Instead of rebuilding the `messages` a
 # Ring 2: The agentic loop.
 
 TOOLS='[
-{
-"name": "create_calendar_event",
-"description": "Create a calendar event with attendees and optional recurrence.",
-"input_schema": {
-"type": "object",
-"properties": {
-"title": {"type": "string"},
-"start": {"type": "string", "format": "date-time"},
-"end": {"type": "string", "format": "date-time"},
-"attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
-"recurrence": {
-"type": "object",
-"properties": {
-"frequency": {"enum": ["daily", "weekly", "monthly"]},
-"count": {"type": "integer", "minimum": 1}
-}
-}
-},
-"required": ["title", "start", "end"]
-}
-}
+  {
+    "name": "create_calendar_event",
+    "description": "Create a calendar event with attendees and optional recurrence.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "frequency": {"enum": ["daily", "weekly", "monthly"]},
+            "count": {"type": "integer", "minimum": 1}
+          }
+        }
+      },
+      "required": ["title", "start", "end"]
+    }
+  }
 ]'
 
 run_tool() {
-local name="$1"
+  local name="$1"
   local input="$2"
   if [ "$name" = "create_calendar_event" ]; then
-local title=$(echo "$input" | jq -r '.title')
-jq -n --arg title "$title" '{event_id: "evt_123", status: "created", title: $title}'
-else
-echo "{\"error\": \"Unknown tool: $name\"}"
-fi
+    local title=$(echo "$input" | jq -r '.title')
+    jq -n --arg title "$title" '{event_id: "evt_123", status: "created", title: $title}'
+  else
+    echo "{\"error\": \"Unknown tool: $name\"}"
+  fi
 }
 
 # Keep the full conversation history in a JSON array so each turn sees prior context.
-
 MESSAGES='[{"role": "user", "content": "Schedule a weekly team standup every Monday at 9am for the next 4 weeks. Invite the whole team: alice@example.com, bob@example.com, carol@example.com."}]'
 
 call_api() {
-curl -s https://api.anthropic.com/v1/messages \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
+  curl -s https://api.anthropic.com/v1/messages \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d "$(jq -n --argjson tools "$TOOLS" --argjson messages "$MESSAGES" \
- '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, tool_choice: {type: "auto", disable_parallel_tool_use: true}, messages: $messages}')"
+      '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, tool_choice: {type: "auto", disable_parallel_tool_use: true}, messages: $messages}')"
 }
 
 RESPONSE=$(call_api)
 
 # Loop until Claude stops asking for tools. Each iteration runs the requested
-
 # tool, appends the result to history, and asks Claude to continue.
-
 while [ "$(echo "$RESPONSE" | jq -r '.stop_reason')" = "tool_use" ]; do
-TOOL_USE=$(echo "$RESPONSE" | jq '.content[] | select(.type == "tool_use")')
-TOOL_NAME=$(echo "$TOOL_USE" | jq -r '.name')
-TOOL_INPUT=$(echo "$TOOL_USE" | jq -c '.input')
-TOOL_USE_ID=$(echo "$TOOL_USE" | jq -r '.id')
-RESULT=$(run_tool "$TOOL_NAME" "$TOOL_INPUT")
+  TOOL_USE=$(echo "$RESPONSE" | jq '.content[] | select(.type == "tool_use")')
+  TOOL_NAME=$(echo "$TOOL_USE" | jq -r '.name')
+  TOOL_INPUT=$(echo "$TOOL_USE" | jq -c '.input')
+  TOOL_USE_ID=$(echo "$TOOL_USE" | jq -r '.id')
+  RESULT=$(run_tool "$TOOL_NAME" "$TOOL_INPUT")
 
-ASSISTANT_CONTENT=$(echo "$RESPONSE" | jq '.content')
-MESSAGES=$(echo "$MESSAGES" | jq \
- --argjson assistant "$ASSISTANT_CONTENT" \
+  ASSISTANT_CONTENT=$(echo "$RESPONSE" | jq '.content')
+  MESSAGES=$(echo "$MESSAGES" | jq \
+    --argjson assistant "$ASSISTANT_CONTENT" \
     --arg tool_use_id "$TOOL_USE_ID" \
- --arg result "$RESULT" \
- '. + [
-{role: "assistant", content: $assistant},
-{role: "user", content: [{type: "tool_result", tool_use_id: $tool_use_id, content: $result}]}
-]')
+    --arg result "$RESULT" \
+    '. + [
+      {role: "assistant", content: $assistant},
+      {role: "user", content: [{type: "tool_result", tool_use_id: $tool_use_id, content: $result}]}
+    ]')
 
-RESPONSE=$(call_api)
+  RESPONSE=$(call_api)
 done
 
 echo "$RESPONSE" | jq -r '.content[] | select(.type == "text") | .text'
+````
 
-`````
-
-
+  
 ````bash
 #!/usr/bin/env bash
 # Ring 2: The agentic loop.
@@ -632,9 +611,10 @@ while [ "$(jq -r '.stop_reason' <<<"$RESPONSE")" = "tool_use" ]; do
 done
 
 jq -r '.content[] | select(.type == "text") | .text' <<<"$RESPONSE"
-`````
+````
 
-```python
+  
+````python
 # Ring 2: The agentic loop.
 
 import json
@@ -723,9 +703,10 @@ while response.stop_reason == "tool_use":
 
 final_text = next(block for block in response.content if block.type == "text")
 print(final_text.text)
-```
+````
 
-```typescript
+  
+````typescript
 // Ring 2: The agentic loop.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -790,10 +771,7 @@ while (response.stop_reason === "tool_use") {
   const toolUse = response.content.find(
     (block): block is Anthropic.ToolUseBlock => block.type === "tool_use",
   )!;
-  const result = runTool(
-    toolUse.name,
-    toolUse.input as Record<string, unknown>,
-  );
+  const result = runTool(toolUse.name, toolUse.input as Record<string, unknown>);
 
   messages.push({ role: "assistant", content: response.content });
   messages.push({
@@ -821,7 +799,7 @@ for (const block of response.content) {
     console.log(block.text);
   }
 }
-```
+````
 
 </CodeGroup>
 
@@ -846,91 +824,87 @@ When Claude has multiple independent tool calls to make, it may return several `
 # Ring 3: Multiple tools, parallel calls.
 
 TOOLS='[
-{
-"name": "create_calendar_event",
-"description": "Create a calendar event with attendees and optional recurrence.",
-"input_schema": {
-"type": "object",
-"properties": {
-"title": {"type": "string"},
-"start": {"type": "string", "format": "date-time"},
-"end": {"type": "string", "format": "date-time"},
-"attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
-"recurrence": {
-"type": "object",
-"properties": {
-"frequency": {"enum": ["daily", "weekly", "monthly"]},
-"count": {"type": "integer", "minimum": 1}
-}
-}
-},
-"required": ["title", "start", "end"]
-}
-},
-{
-"name": "list_calendar_events",
-"description": "List all calendar events on a given date.",
-"input_schema": {
-"type": "object",
-"properties": {"date": {"type": "string", "format": "date"}},
-"required": ["date"]
-}
-}
+  {
+    "name": "create_calendar_event",
+    "description": "Create a calendar event with attendees and optional recurrence.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "frequency": {"enum": ["daily", "weekly", "monthly"]},
+            "count": {"type": "integer", "minimum": 1}
+          }
+        }
+      },
+      "required": ["title", "start", "end"]
+    }
+  },
+  {
+    "name": "list_calendar_events",
+    "description": "List all calendar events on a given date.",
+    "input_schema": {
+      "type": "object",
+      "properties": {"date": {"type": "string", "format": "date"}},
+      "required": ["date"]
+    }
+  }
 ]'
 
 run_tool() {
-case "$1" in
+  case "$1" in
     create_calendar_event)
       jq -n --arg title "$(echo "$2" | jq -r '.title')" '{event_id: "evt_123", status: "created", title: $title}' ;;
-list_calendar_events)
-echo '{"events": [{"title": "Existing meeting", "start": "14:00", "end": "15:00"}]}' ;;
-\*)
-echo "{\"error\": \"Unknown tool: $1\"}" ;;
-esac
+    list_calendar_events)
+      echo '{"events": [{"title": "Existing meeting", "start": "14:00", "end": "15:00"}]}' ;;
+    *)
+      echo "{\"error\": \"Unknown tool: $1\"}" ;;
+  esac
 }
 
 MESSAGES='[{"role": "user", "content": "Check what I have next Monday, then schedule a planning session that avoids any conflicts."}]'
 
 call_api() {
-curl -s https://api.anthropic.com/v1/messages \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
+  curl -s https://api.anthropic.com/v1/messages \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d "$(jq -n --argjson tools "$TOOLS" --argjson messages "$MESSAGES" \
- '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, messages: $messages}')"
+      '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, messages: $messages}')"
 }
 
 RESPONSE=$(call_api)
 
 while [ "$(echo "$RESPONSE" | jq -r '.stop_reason')" = "tool_use" ]; do
-
-# A single response can contain multiple tool_use blocks. Process all of
-
-# them and return all results together in one user message.
-
-TOOL_RESULTS='[]'
-while read -r block; do
-NAME=$(echo "$block" | jq -r '.name')
-INPUT=$(echo "$block" | jq -c '.input')
-ID=$(echo "$block" | jq -r '.id')
-RESULT=$(run_tool "$NAME" "$INPUT")
+  # A single response can contain multiple tool_use blocks. Process all of
+  # them and return all results together in one user message.
+  TOOL_RESULTS='[]'
+  while read -r block; do
+    NAME=$(echo "$block" | jq -r '.name')
+    INPUT=$(echo "$block" | jq -c '.input')
+    ID=$(echo "$block" | jq -r '.id')
+    RESULT=$(run_tool "$NAME" "$INPUT")
     TOOL_RESULTS=$(echo "$TOOL_RESULTS" | jq --arg id "$ID" --arg result "$RESULT" \
       '. + [{type: "tool_result", tool_use_id: $id, content: $result}]')
   done < <(echo "$RESPONSE" | jq -c '.content[] | select(.type == "tool_use")')
 
-MESSAGES=$(echo "$MESSAGES" | jq \
- --argjson assistant "$(echo "$RESPONSE" | jq '.content')" \
- --argjson results "$TOOL_RESULTS" \
- '. + [{role: "assistant", content: $assistant}, {role: "user", content: $results}]')
+  MESSAGES=$(echo "$MESSAGES" | jq \
+    --argjson assistant "$(echo "$RESPONSE" | jq '.content')" \
+    --argjson results "$TOOL_RESULTS" \
+    '. + [{role: "assistant", content: $assistant}, {role: "user", content: $results}]')
 
-RESPONSE=$(call_api)
+  RESPONSE=$(call_api)
 done
 
 echo "$RESPONSE" | jq -r '.content[] | select(.type == "text") | .text'
+````
 
-`````
-
-
+  
 ````bash
 #!/usr/bin/env bash
 # Ring 3: Multiple tools, parallel calls.
@@ -1019,9 +993,10 @@ while [ "$(jq -r '.stop_reason' <<<"$RESPONSE")" = "tool_use" ]; do
 done
 
 jq -r '.content[] | select(.type == "text") | .text' <<<"$RESPONSE"
-`````
+````
 
-```python
+  
+````python
 # Ring 3: Multiple tools, parallel calls.
 
 import json
@@ -1118,9 +1093,10 @@ while response.stop_reason == "tool_use":
 
 final_text = next(block for block in response.content if block.type == "text")
 print(final_text.text)
-```
+````
 
-```typescript
+  
+````typescript
 // Ring 3: Multiple tools, parallel calls.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -1199,10 +1175,7 @@ while (response.stop_reason === "tool_use") {
   const toolResults: Anthropic.ToolResultBlockParam[] = [];
   for (const block of response.content) {
     if (block.type === "tool_use") {
-      const result = runTool(
-        block.name,
-        block.input as Record<string, unknown>,
-      );
+      const result = runTool(block.name, block.input as Record<string, unknown>);
       toolResults.push({
         type: "tool_result",
         tool_use_id: block.id,
@@ -1227,7 +1200,7 @@ for (const block of response.content) {
     console.log(block.text);
   }
 }
-```
+````
 
 </CodeGroup>
 
@@ -1250,76 +1223,76 @@ Tools fail. A calendar API might reject an event with too many attendees, or a d
 # Ring 4: Error handling.
 
 TOOLS='[
-{
-"name": "create_calendar_event",
-"description": "Create a calendar event with attendees and optional recurrence.",
-"input_schema": {
-"type": "object",
-"properties": {
-"title": {"type": "string"},
-"start": {"type": "string", "format": "date-time"},
-"end": {"type": "string", "format": "date-time"},
-"attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
-"recurrence": {
-"type": "object",
-"properties": {
-"frequency": {"enum": ["daily", "weekly", "monthly"]},
-"count": {"type": "integer", "minimum": 1}
-}
-}
-},
-"required": ["title", "start", "end"]
-}
-},
-{
-"name": "list_calendar_events",
-"description": "List all calendar events on a given date.",
-"input_schema": {
-"type": "object",
-"properties": {"date": {"type": "string", "format": "date"}},
-"required": ["date"]
-}
-}
+  {
+    "name": "create_calendar_event",
+    "description": "Create a calendar event with attendees and optional recurrence.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "title": {"type": "string"},
+        "start": {"type": "string", "format": "date-time"},
+        "end": {"type": "string", "format": "date-time"},
+        "attendees": {"type": "array", "items": {"type": "string", "format": "email"}},
+        "recurrence": {
+          "type": "object",
+          "properties": {
+            "frequency": {"enum": ["daily", "weekly", "monthly"]},
+            "count": {"type": "integer", "minimum": 1}
+          }
+        }
+      },
+      "required": ["title", "start", "end"]
+    }
+  },
+  {
+    "name": "list_calendar_events",
+    "description": "List all calendar events on a given date.",
+    "input_schema": {
+      "type": "object",
+      "properties": {"date": {"type": "string", "format": "date"}},
+      "required": ["date"]
+    }
+  }
 ]'
 
 run_tool() {
-case "$1" in
+  case "$1" in
     create_calendar_event)
       local count=$(echo "$2" | jq '.attendees | length // 0')
       if [ "$count" -gt 10 ]; then
-echo "ERROR: Too many attendees (max 10)"
-return 1
-fi
-jq -n --arg title "$(echo "$2" | jq -r '.title')" '{event_id: "evt_123", status: "created", title: $title}' ;;
-list_calendar_events)
-echo '{"events": [{"title": "Existing meeting", "start": "14:00", "end": "15:00"}]}' ;;
-\*)
-echo "ERROR: Unknown tool: $1"
-return 1 ;;
-esac
+        echo "ERROR: Too many attendees (max 10)"
+        return 1
+      fi
+      jq -n --arg title "$(echo "$2" | jq -r '.title')" '{event_id: "evt_123", status: "created", title: $title}' ;;
+    list_calendar_events)
+      echo '{"events": [{"title": "Existing meeting", "start": "14:00", "end": "15:00"}]}' ;;
+    *)
+      echo "ERROR: Unknown tool: $1"
+      return 1 ;;
+  esac
 }
 
-EMAILS=$(seq 0 14 | sed 's/.\*/user&@example.com/' | paste -sd, -)
+EMAILS=$(seq 0 14 | sed 's/.*/user&@example.com/' | paste -sd, -)
 MESSAGES="[{\"role\": \"user\", \"content\": \"Schedule an all-hands with everyone: $EMAILS\"}]"
 
 call_api() {
-curl -s https://api.anthropic.com/v1/messages \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
+  curl -s https://api.anthropic.com/v1/messages \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
     -H "anthropic-version: 2023-06-01" \
     -H "content-type: application/json" \
     -d "$(jq -n --argjson tools "$TOOLS" --argjson messages "$MESSAGES" \
- '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, messages: $messages}')"
+      '{model: "claude-opus-4-8", max_tokens: 1024, tools: $tools, messages: $messages}')"
 }
 
 RESPONSE=$(call_api)
 
 while [ "$(echo "$RESPONSE" | jq -r '.stop_reason')" = "tool_use" ]; do
-TOOL_RESULTS='[]'
-while read -r block; do
-NAME=$(echo "$block" | jq -r '.name')
-INPUT=$(echo "$block" | jq -c '.input')
-ID=$(echo "$block" | jq -r '.id')
-if OUTPUT=$(run_tool "$NAME" "$INPUT"); then
+  TOOL_RESULTS='[]'
+  while read -r block; do
+    NAME=$(echo "$block" | jq -r '.name')
+    INPUT=$(echo "$block" | jq -c '.input')
+    ID=$(echo "$block" | jq -r '.id')
+    if OUTPUT=$(run_tool "$NAME" "$INPUT"); then
       TOOL_RESULTS=$(echo "$TOOL_RESULTS" | jq --arg id "$ID" --arg result "$OUTPUT" \
         '. + [{type: "tool_result", tool_use_id: $id, content: $result}]')
     else
@@ -1329,19 +1302,18 @@ if OUTPUT=$(run_tool "$NAME" "$INPUT"); then
     fi
   done < <(echo "$RESPONSE" | jq -c '.content[] | select(.type == "tool_use")')
 
-MESSAGES=$(echo "$MESSAGES" | jq \
- --argjson assistant "$(echo "$RESPONSE" | jq '.content')" \
- --argjson results "$TOOL_RESULTS" \
- '. + [{role: "assistant", content: $assistant}, {role: "user", content: $results}]')
+  MESSAGES=$(echo "$MESSAGES" | jq \
+    --argjson assistant "$(echo "$RESPONSE" | jq '.content')" \
+    --argjson results "$TOOL_RESULTS" \
+    '. + [{role: "assistant", content: $assistant}, {role: "user", content: $results}]')
 
-RESPONSE=$(call_api)
+  RESPONSE=$(call_api)
 done
 
 echo "$RESPONSE" | jq -r '.content[] | select(.type == "text") | .text'
+````
 
-`````
-
-
+  
 ````bash
 #!/usr/bin/env bash
 # Ring 4: Error handling.
@@ -1443,9 +1415,10 @@ while [ "$(jq -r '.stop_reason' <<<"$RESPONSE")" = "tool_use" ]; do
 done
 
 jq -r '.content[] | select(.type == "text") | .text' <<<"$RESPONSE"
-`````
+````
 
-```python
+  
+````python
 # Ring 4: Error handling.
 
 import json
@@ -1549,9 +1522,10 @@ while response.stop_reason == "tool_use":
 
 final_text = next(block for block in response.content if block.type == "text")
 print(final_text.text)
-```
+````
 
-```typescript
+  
+````typescript
 // Ring 4: Error handling.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -1633,10 +1607,7 @@ while (response.stop_reason === "tool_use") {
   for (const block of response.content) {
     if (block.type === "tool_use") {
       try {
-        const result = runTool(
-          block.name,
-          block.input as Record<string, unknown>,
-        );
+        const result = runTool(block.name, block.input as Record<string, unknown>);
         toolResults.push({
           type: "tool_result",
           tool_use_id: block.id,
@@ -1670,7 +1641,7 @@ for (const block of response.content) {
     console.log(block.text);
   }
 }
-```
+````
 
 </CodeGroup>
 
@@ -1689,7 +1660,7 @@ Rings 2 through 4 wrote the same loop by hand: call the API, check `stop_reason`
 The Python SDK uses the `@beta_tool` decorator to infer the schema from type hints and the docstring. The TypeScript SDK uses `betaZodTool` with a Zod schema.
 
 <Note>
-Tool Runner is available in the Python, TypeScript, and Ruby SDKs. The cURL and CLI tabs show a note instead of code; keep the Ring 4 loop for curl- or CLI-based scripts.
+Tool Runner is available in all seven SDKs: Python, TypeScript, C#, Go, Java, PHP, and Ruby. This tutorial shows Python and TypeScript; see [Tool Runner](/docs/en/agents-and-tools/tool-use/tool-runner) for the other languages. The cURL and CLI tabs show a note instead of code; keep the Ring 4 loop for curl- or CLI-based scripts.
 </Note>
 
 <CodeGroup>
@@ -1699,16 +1670,12 @@ Tool Runner is available in the Python, TypeScript, and Ruby SDKs. The cURL and 
 # Ring 5: The Tool Runner SDK abstraction.
 
 # The Tool Runner SDK abstraction is available in the Python, TypeScript,
-
 # and Ruby SDKs. There is no equivalent for raw curl requests. Switch to
-
 # the Python or TypeScript tab to see Ring 5, or keep the Ring 4 loop as
-
 # your shell implementation.
+````
 
-`````
-
-
+  
 ````bash
 #!/usr/bin/env bash
 # Ring 5: The Tool Runner SDK abstraction.
@@ -1718,9 +1685,10 @@ set -euo pipefail
 # and Ruby SDKs. The ant CLI exposes the Messages API directly and has
 # no equivalent helper. Switch to the Python or TypeScript tab to see
 # Ring 5, or keep the Ring 4 loop as your CLI implementation.
-`````
+````
 
-```python
+  
+````python
 # Ring 5: The Tool Runner SDK abstraction.
 
 import json
@@ -1778,9 +1746,10 @@ final_message = client.beta.messages.tool_runner(
 for block in final_message.content:
     if block.type == "text":
         print(block.text)
-```
+````
 
-```typescript
+  
+````typescript
 // Ring 5: The Tool Runner SDK abstraction.
 
 import Anthropic from "@anthropic-ai/sdk";
@@ -1848,7 +1817,7 @@ for (const block of finalMessage.content) {
     console.log(block.text);
   }
 }
-```
+````
 
 </CodeGroup>
 

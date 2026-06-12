@@ -21,6 +21,11 @@ Amazon ECR provides the following features:
 + Repository creation templates allow you to define the settings for repositories created by Amazon ECR on your behalf during pull through cache, create on push, or replication actions. You can specify tag immutability, encryption configuration, repository policies, lifecycle policies, and resource tags for automatically created repositories. For more information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md).
 + Managed signing automatically generates cryptographic signatures when images are pushed to Amazon ECR, simplifying container image signing. For more information, see [Managed signing](managed-signing.md).
 
+## Sign up for an AWS account
+<a name="sign-up-for-aws"></a>
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com//accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.
+
 ## How to get started with Amazon ECR
 <a name="ecr-get-started"></a>
 

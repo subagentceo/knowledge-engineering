@@ -46,10 +46,10 @@ In the remainder of the post we explain the basic defection probe methodology, s
 
 For each defection detector experiment, we specify:
 
-- a **model**,
-- a residual stream **layer**,
-- a labeled **fit dataset**, used to pick the detector direction,
-- a labeled **test dataset**, used to evaluate the performance of the detector.
+*   a **model**,
+*   a residual stream **layer**,
+*   a labeled **fit dataset**, used to pick the detector direction,
+*   a labeled **test dataset**, used to evaluate the performance of the detector.
 
 Our main line of results use the Claude-2-equivalent chain-of-thought distilled code vulnerability sleeper agent model at the middle residual stream layer, though we also include results over a range of other models.
 
@@ -186,20 +186,16 @@ _Edited 29 April 2024:_ Added an expanded section on "Related work".
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

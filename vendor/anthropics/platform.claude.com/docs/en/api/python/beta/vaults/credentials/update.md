@@ -15,10 +15,13 @@ Update Credential
 - `auth: Optional[Auth]`
 
   Updated authentication details for a credential.
+
   - `class BetaManagedAgentsMCPOAuthUpdateParams: …`
 
     Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
     - `type: Literal["mcp_oauth"]`
+
       - `"mcp_oauth"`
 
     - `access_token: Optional[str]`
@@ -32,6 +35,7 @@ Update Credential
     - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshUpdateParams]`
 
       Parameters for updating OAuth refresh token configuration.
+
       - `refresh_token: Optional[str]`
 
         Updated OAuth refresh token.
@@ -43,10 +47,13 @@ Update Credential
       - `token_endpoint_auth: Optional[TokenEndpointAuth]`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
+
         - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam: …`
 
           Updated HTTP Basic authentication parameters for the token endpoint.
+
           - `type: Literal["client_secret_basic"]`
+
             - `"client_secret_basic"`
 
           - `client_secret: Optional[str]`
@@ -56,7 +63,9 @@ Update Credential
         - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam: …`
 
           Updated POST body authentication parameters for the token endpoint.
+
           - `type: Literal["client_secret_post"]`
+
             - `"client_secret_post"`
 
           - `client_secret: Optional[str]`
@@ -66,12 +75,50 @@ Update Credential
   - `class BetaManagedAgentsStaticBearerUpdateParams: …`
 
     Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
     - `type: Literal["static_bearer"]`
+
       - `"static_bearer"`
 
     - `token: Optional[str]`
 
       Updated static bearer token value.
+
+  - `class BetaManagedAgentsEnvironmentVariableUpdateParams: …`
+
+    Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+    - `type: Literal["environment_variable"]`
+
+      - `"environment_variable"`
+
+    - `networking: Optional[BetaManagedAgentsCredentialNetworkingParams]`
+
+      Updated networking scope. Full replacement.
+
+      - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams: …`
+
+        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+        - `type: Literal["unrestricted"]`
+
+          - `"unrestricted"`
+
+      - `class BetaManagedAgentsLimitedCredentialNetworkingParams: …`
+
+        Substitute the secret only on requests to the listed hosts.
+
+        - `allowed_hosts: List[str]`
+
+          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+        - `type: Literal["limited"]`
+
+          - `"limited"`
+
+    - `secret_value: Optional[str]`
+
+      Updated secret value.
 
 - `display_name: Optional[str]`
 
@@ -84,9 +131,11 @@ Update Credential
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -139,13 +188,16 @@ Update Credential
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsCredential: …`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: str`
 
     Unique identifier for the credential.
@@ -157,14 +209,17 @@ Update Credential
   - `auth: Auth`
 
     Authentication details for a credential.
+
     - `class BetaManagedAgentsMCPOAuthAuthResponse: …`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: str`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: Literal["mcp_oauth"]`
+
         - `"mcp_oauth"`
 
       - `expires_at: Optional[datetime]`
@@ -174,6 +229,7 @@ Update Credential
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: str`
 
           OAuth client ID.
@@ -185,22 +241,29 @@ Update Credential
         - `token_endpoint_auth: TokenEndpointAuth`
 
           Token endpoint requires no client authentication.
+
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse: …`
 
             Token endpoint requires no client authentication.
+
             - `type: Literal["none"]`
+
               - `"none"`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse: …`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: Literal["client_secret_basic"]`
+
               - `"client_secret_basic"`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse: …`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: Literal["client_secret_post"]`
+
               - `"client_secret_post"`
 
         - `resource: Optional[str]`
@@ -214,12 +277,50 @@ Update Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse: …`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: str`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: Literal["static_bearer"]`
+
         - `"static_bearer"`
+
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse: …`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: Networking`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse: …`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: Literal["unrestricted"]`
+
+            - `"unrestricted"`
+
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse: …`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: List[str]`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: Literal["limited"]`
+
+            - `"limited"`
+
+      - `secret_name: str`
+
+        Name of the environment variable.
+
+      - `type: Literal["environment_variable"]`
+
+        - `"environment_variable"`
 
   - `created_at: datetime`
 
@@ -230,6 +331,7 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: Literal["vault_credential"]`
+
     - `"vault_credential"`
 
   - `updated_at: datetime`

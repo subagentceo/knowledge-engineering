@@ -25,25 +25,25 @@ Claude for Education gives academic institutions secure, reliable AI access for 
 
 For example,
 
-- Students can draft literature reviews with proper citations, work through calculus problems with step-by-step guidance, and get feedback on thesis statements before final submission
-- Faculty can create rubrics aligned to specific learning outcomes, provide individualized feedback on student essays efficiently, and generate chemistry equations with varying difficulty levels
-- Administrative staff can analyze enrollment trends across departments, automate repetitive email responses to common inquiries, and convert dense policy documents into accessible FAQ formats—all from a familiar chat interface with enterprise-grade security and privacy controls
+*   Students can draft literature reviews with proper citations, work through calculus problems with step-by-step guidance, and get feedback on thesis statements before final submission
+*   Faculty can create rubrics aligned to specific learning outcomes, provide individualized feedback on student essays efficiently, and generate chemistry equations with varying difficulty levels
+*   Administrative staff can analyze enrollment trends across departments, automate repetitive email responses to common inquiries, and convert dense policy documents into accessible FAQ formats—all from a familiar chat interface with enterprise-grade security and privacy controls
 
 ## Learning mode
 
 Claude for Education introduces our new Learning mode, a feature that works within Projects (saved conversations where students can organize their work with Claude around specific assignments or topics). In Learning mode, Claude helps students develop their independent thinking by:
 
-- Guiding rather than answering: Asking "How would you approach this problem?" instead of providing immediate solutions
-- Using Socratic questioning: Prompting with "What evidence supports your conclusion?" to deepen understanding
-- Emphasizing core concepts: Highlighting fundamental principles behind specific problems
-- Providing useful templates: Offering structured formats for research papers, study guides, and outlines
+*   Guiding rather than answering: Asking "How would you approach this problem?" instead of providing immediate solutions
+*   Using Socratic questioning: Prompting with "What evidence supports your conclusion?" to deepen understanding
+*   Emphasizing core concepts: Highlighting fundamental principles behind specific problems
+*   Providing useful templates: Offering structured formats for research papers, study guides, and outlines
 
 ## Opportunities for students
 
 Today, we are also introducing two new student programs designed to nurture and empower our growing Claude student community:
 
-- **Claude Campus Ambassadors**: an opportunity for students to work directly with the Anthropic team to launch educational initiatives on their campus
-- **For student builders**: an opportunity for students who are building projects with Claude to apply for funding in the form of API credits
+*   **Claude Campus Ambassadors**: an opportunity for students to work directly with the Anthropic team to launch educational initiatives on their campus
+*   **For student builders**: an opportunity for students who are building projects with Claude to apply for funding in the form of API credits
 
 ## Campus wide partnerships: Northeastern University, LSE and Champlain College
 
@@ -63,8 +63,8 @@ Champlain College, a leader in career-focused learning, is adopting Claude campu
 
 We are also building partnerships with leading organizations to safely and reliably integrate Claude within higher education institutions' existing tools and workflows to help facilitate the use of trusted AI across academia. These partnerships include:
 
-- Internet2: A non-profit organization that provides a secure high-speed network, cloud solutions, research support, and identity and access management (IAM) tools built specifically for research and education. Their community includes higher education institutions, research organizations, government entities, corporations, and cultural organizations like museums and libraries. We're proud to join Internet2, the member-driven advanced technology community developing solutions and solving shared challenges to support research and education, and are working with members to complete a NET+ service evaluation.
-- Instructure: The educational technology company behind the leading education software Canvas, that provides technological solutions specifically designed for higher education institutions to provide learners at every stage with tools that make educators more effective and students more successful, both in school and beyond. Anthropic and Instructure are working together to increase equitable access to tools that support universities as they integrate AI into their teaching & learning.
+*   Internet2: A non-profit organization that provides a secure high-speed network, cloud solutions, research support, and identity and access management (IAM) tools built specifically for research and education. Their community includes higher education institutions, research organizations, government entities, corporations, and cultural organizations like museums and libraries. We're proud to join Internet2, the member-driven advanced technology community developing solutions and solving shared challenges to support research and education, and are working with members to complete a NET+ service evaluation.
+*   Instructure: The educational technology company behind the leading education software Canvas, that provides technological solutions specifically designed for higher education institutions to provide learners at every stage with tools that make educators more effective and students more successful, both in school and beyond. Anthropic and Instructure are working together to increase equitable access to tools that support universities as they integrate AI into their teaching & learning.
 
 ## Get started
 
@@ -72,18 +72,18 @@ To get started with Claude for Education and Learning mode, share your interest 
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

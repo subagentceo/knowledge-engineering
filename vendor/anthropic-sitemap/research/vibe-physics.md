@@ -12,12 +12,12 @@ _Can AI do theoretical physics? In this guest post, professor of physics Matthew
 
 ### Summary
 
-- I guided Claude Opus 4.5 through a real theoretical physics calculation, encapsulating the complexity of code and computations behind text prompts.
-- The result was a technically rigorous, impactful high-energy theoretical physics paper in two weeks instead of the usual year.
-- Over 110 separate drafts, 36M tokens, and 40+ hours of local CPU compute, Claude proved fast, indefatigable, and eager to please.
-- Claude is impressively capable, but also sloppy enough that I found domain expertise essential for evaluating its accuracy.
-- AI is not doing end-to-end science yet. But this project proves that I could create a set of prompts that can get Claude to do frontier science. This wasn’t true three months ago.
-- This may be the most important paper I’ve ever written—not for the physics, but for the method. There is no going back.
+*   I guided Claude Opus 4.5 through a real theoretical physics calculation, encapsulating the complexity of code and computations behind text prompts.
+*   The result was a technically rigorous, impactful high-energy theoretical physics paper in two weeks instead of the usual year.
+*   Over 110 separate drafts, 36M tokens, and 40+ hours of local CPU compute, Claude proved fast, indefatigable, and eager to please.
+*   Claude is impressively capable, but also sloppy enough that I found domain expertise essential for evaluating its accuracy.
+*   AI is not doing end-to-end science yet. But this project proves that I could create a set of prompts that can get Claude to do frontier science. This wasn’t true three months ago.
+*   This may be the most important paper I’ve ever written—not for the physics, but for the method. There is no going back.
 
 ### Who am I?
 
@@ -51,9 +51,9 @@ and out would pop the paper. We are not there yet, of course. I tried giving thi
 
 To go about this scientifically, I encapsulated all the work. The rules were strict:
 
-- Only give text prompts to Claude Code. No editing files directly.
-- Don’t cut and paste my own calculations into the chat.
-- But pasting Gemini or GPT calculations was OK, as long as they were only text-prompted.
+*   Only give text prompts to Claude Code. No editing files directly.
+*   Don’t cut and paste my own calculations into the chat.
+*   But pasting Gemini or GPT calculations was OK, as long as they were only text-prompted.
 
 My question was: is there a set of prompts, like instructions to a talented G2, that can guide an AI to produce a high-quality physics paper (one that is genuinely interesting and pushes the field forward)?
 
@@ -145,7 +145,7 @@ It was generating plausible-sounding justifications for answers it hadn’t actu
 
 The one-loop soft function calculation (one of the core ingredients in the paper) was supposed to be straightforward: set up the eikonal integrals, regulate in dimensional regularization, and extract the finite part. But Claude’s initial setup in the draft seemed off. When I asked it to start from scratch:
 
-> _I see the issue—line 317 and 371 just assert that soft radiation increases C linearly as δC ~ ω/Q without derivation. Let me verify my calculation very carefully from first principles. The soft contribution is definitely δC = (3/2)\_k_x^2_—quadratic in the out-of-plane direction, not linear!\_
+> _I see the issue—line 317 and 371 just assert that soft radiation increases C linearly as δC ~ ω/Q without derivation. Let me verify my calculation very carefully from first principles. The soft contribution is definitely δC = (3/2)_k_x^2_—quadratic in the out-of-plane direction, not linear!_
 
 It had been asserting a result without checking. Eventually, GPT solved the integral and Claude incorporated it. They needed each other, and I needed both of them.
 
@@ -177,26 +177,26 @@ Such recognition of integrity and responsibility is important. After all, it wou
 
 ### What Claude is good at
 
-- **Tireless iteration.** 110 paper versions. Hundreds of debug plots. No complaints.
-- **Basic calculus and algebra.** Setting up integrals, changing variables, expanding functions, checking factors.
-- **Code generation.** Python plots, Fortran interfaces, Mathematica notebooks—all working. No more Python version number conflicts, missing libraries, or syntax errors.
-- **Literature synthesis.** Combining results from multiple papers coherently and scouring the literature. Make sure to have Claude double check the authors, titles, and journals one by one in the bibliography.
+*   **Tireless iteration.** 110 paper versions. Hundreds of debug plots. No complaints.
+*   **Basic calculus and algebra.** Setting up integrals, changing variables, expanding functions, checking factors.
+*   **Code generation.** Python plots, Fortran interfaces, Mathematica notebooks—all working. No more Python version number conflicts, missing libraries, or syntax errors.
+*   **Literature synthesis.** Combining results from multiple papers coherently and scouring the literature. Make sure to have Claude double check the authors, titles, and journals one by one in the bibliography.
 
 ### What Claude is bad at
 
-- **Maintaining conventions.** When conventions are non-standard, it constantly reverts to textbook defaults even if you force it to write the conventions down and stick with them.
-- **Honest verification.** It says “verified” when it hasn’t actually checked. You have to call it out, insisting, “Did you honestly check everything?” or, “Go line by line and verify every step.” Skills and CLAUDE.md help with this a little, but not enough.
-- **Knowing when to stop.** It finds one error, thinks it’s satisfied the task, and stops looking. You need to repeat “Check again” until it finds nothing new.
-- **Keeping its eye on the prize.** It can only handle small steps and loses direction easily.
-- **Plot aesthetics.** Axis labels, legends, fonts, and colors all need micromanagement to be human-readable.
-- **Resisting pressure.** If I forced it to think deeply about something, after a while it would just give me the answer I seemed to want, even if it wasn’t justified.
+*   **Maintaining conventions.** When conventions are non-standard, it constantly reverts to textbook defaults even if you force it to write the conventions down and stick with them.
+*   **Honest verification.** It says “verified” when it hasn’t actually checked. You have to call it out, insisting, “Did you honestly check everything?” or, “Go line by line and verify every step.” Skills and CLAUDE.md help with this a little, but not enough.
+*   **Knowing when to stop.** It finds one error, thinks it’s satisfied the task, and stops looking. You need to repeat “Check again” until it finds nothing new.
+*   **Keeping its eye on the prize.** It can only handle small steps and loses direction easily.
+*   **Plot aesthetics.** Axis labels, legends, fonts, and colors all need micromanagement to be human-readable.
+*   **Resisting pressure.** If I forced it to think deeply about something, after a while it would just give me the answer I seemed to want, even if it wasn’t justified.
 
 ### The tricks that worked
 
-- **Cross-verification.** I had GPT check Claude’s work and vice versa. They caught each other’s errors. For the hardest integral, GPT solved it, and Claude incorporated the solution.
-- **Tree structure.** Instead of one long document, Claude maintained a hierarchy of task summaries. It works better with things it can look up than things it has to remember.
-- **Explicit honesty requirements.** In my CLAUDE.md config, I wrote, “NEVER use phrases like ‘this becomes’ or ‘for consistency’ to skip steps. Either show the calculation or say ‘I don’t know.’”
-- **Repeated queries.** Because Claude can stop looking after finding one error, you have to repeatedly ask until it finds no others.
+*   **Cross-verification.** I had GPT check Claude’s work and vice versa. They caught each other’s errors. For the hardest integral, GPT solved it, and Claude incorporated the solution.
+*   **Tree structure.** Instead of one long document, Claude maintained a hierarchy of task summaries. It works better with things it can look up than things it has to remember.
+*   **Explicit honesty requirements.** In my CLAUDE.md config, I wrote, “NEVER use phrases like ‘this becomes’ or ‘for consistency’ to skip steps. Either show the calculation or say ‘I don’t know.’”
+*   **Repeated queries.** Because Claude can stop looking after finding one error, you have to repeatedly ask until it finds no others.
 
 One final recommendation I’d give is to move away from the web-based LLMs. These have been around for a while, and are good. But for me the real phase transition was running Claude Code with access to files, terminal commands, agents, skills, memory etc. It makes a big difference.
 
@@ -266,21 +266,17 @@ _Matthew Schwartz is a professor of physics at Harvard University. The paper dis
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more
 

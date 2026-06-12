@@ -36,13 +36,23 @@ Boris Cherny
 
 Ami Vora
 
+, Anthropic
+
 Dianne Penn
+
+, Anthropic
 
 Angela Jiang
 
+, Anthropic
+
 Katelyn Lesse
 
+, Anthropic
+
 Cat Wu
+
+, Anthropic
 
 Watch recordingWatch recording
 
@@ -53,6 +63,8 @@ Play videoPlay video
 What's new in Claude Code
 
 Dickson Tsai
+
+, Anthropic
 
 Claude Code
 
@@ -66,6 +78,8 @@ Memory and dreaming for self-learning agents
 
 Mahesh Murag
 
+, Anthropic
+
 Claude Platform
 
 Watch recordingWatch recording
@@ -78,7 +92,11 @@ Caching, harnesses, and advisors: Building on Claude at GitHub scale
 
 Mario Rodriguez
 
+, GitHub
+
 Brad Abrams
+
+, Anthropic
 
 Claude Platform
 
@@ -92,6 +110,8 @@ The expanding toolkit
 
 Lucas Gonzalez
 
+, Anthropic
+
 Research
 
 Watch recordingWatch recording
@@ -104,7 +124,11 @@ How to get to production faster with Claude Managed Agents
 
 Jess Yan
 
+, Anthropic
+
 Lance Martin
+
+, Anthropic
 
 Claude Platform
 
@@ -118,9 +142,15 @@ A conversation with Dario Amodei & Daniela Amodei
 
 Dario Amodei
 
+, Anthropic
+
 Daniela Amodei
 
+, Anthropic
+
 Ami Vora
+
+, Anthropic
 
 Claude Platform
 
@@ -134,7 +164,11 @@ Live coding session with Boris Cherny and Jarred Sumner
 
 Boris Cherny
 
+, Anthropic
+
 Jarred Sumner
+
+, Anthropic
 
 Claude Code
 
@@ -147,6 +181,8 @@ Play videoPlay video
 Building with Claude Managed Agents and Asana AI teammates
 
 Arnab Bose
+
+, Asana
 
 Claude Platform
 

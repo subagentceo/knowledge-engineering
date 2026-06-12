@@ -7,7 +7,7 @@ Claude can interact with computer environments through the computer use tool, wh
 <Note>
 Computer use is in beta and requires a [beta header](/docs/en/api/beta-headers):
 - `"computer-use-2025-11-24"` for Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, and Claude Opus 4.5
-- `"computer-use-2025-01-24"` for Claude Sonnet 4.5, Claude Haiku 4.5, Claude Opus 4.1, Claude Sonnet 4 ([deprecated](/docs/en/about-claude/model-deprecations)), and Claude Opus 4 ([deprecated](/docs/en/about-claude/model-deprecations))
+- `"computer-use-2025-01-24"` for Claude Sonnet 4.5, Claude Haiku 4.5, Claude Opus 4.1 ([deprecated](/docs/en/about-claude/model-deprecations)), Claude Sonnet 4 ([deprecated](/docs/en/about-claude/model-deprecations)), and Claude Opus 4 ([deprecated](/docs/en/about-claude/model-deprecations))
 
 Reach out through the [feedback form](https://forms.gle/H6UFuXaaLywri9hz6) to share your feedback on this feature.
 </Note>
@@ -40,7 +40,7 @@ To minimize risks, consider taking precautions such as:
 2. Avoiding giving the model access to sensitive data, such as account login information, to prevent information theft.
 3. Limiting internet access to an allowlist of domains to reduce exposure to malicious content.
 4. Asking a human to confirm decisions that might result in meaningful real-world consequences and any tasks requiring affirmative consent, such as accepting cookies, completing financial transactions, or agreeing to terms of service.
-   </Warning>
+</Warning>
 
 In some circumstances, Claude will follow commands found in content even if it conflicts with the user's instructions. For example, Claude instructions on webpages or contained in images might override instructions or cause Claude to make mistakes. Take precautions to isolate Claude from sensitive data and actions to avoid risks related to prompt injection.
 
@@ -51,10 +51,9 @@ These precautions remain important even with the classifier defense layer in pla
 Inform end users of relevant risks and obtain their consent prior to enabling computer use in your own products.
 
 <Card
-title="Computer use reference implementation"
-icon="computer"
-href="https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo"
-
+  title="Computer use reference implementation"
+  icon="computer"
+  href="https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo"
 >
 
 Get started with the computer use reference implementation that includes a web interface, Docker container, example tool implementations, and an agent loop.
@@ -160,21 +159,19 @@ const response = await client.beta.messages.create({
       name: "computer",
       display_width_px: 1024,
       display_height_px: 768,
-      display_number: 1,
+      display_number: 1
     },
     {
       type: "text_editor_20250728",
-      name: "str_replace_based_edit_tool",
+      name: "str_replace_based_edit_tool"
     },
     {
       type: "bash_20250124",
-      name: "bash",
-    },
+      name: "bash"
+    }
   ],
-  messages: [
-    { role: "user", content: "Save a picture of a cat to my desktop." },
-  ],
-  betas: ["computer-use-2025-11-24"],
+  messages: [{ role: "user", content: "Save a picture of a cat to my desktop." }],
+  betas: ["computer-use-2025-11-24"]
 });
 
 console.log(response);
@@ -293,7 +290,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->beta->messages->create(
     maxTokens: 1024,
@@ -357,7 +354,6 @@ response = client.beta.messages.create(
 
 puts response
 ```
-
 </CodeGroup>
 
 <Note>
@@ -458,7 +454,7 @@ The agent loop is a stateful, multi-turn pattern that doesn't translate to a one
 
 <Tab title="Python">
 
-```python
+````python
 def sampling_loop(model, messages, max_iterations=10):
     """
     Run the computer-use agent loop until Claude stops requesting tools
@@ -485,13 +481,13 @@ def sampling_loop(model, messages, max_iterations=10):
         messages.append({"role": "user", "content": tool_results})
 
     return messages
-```
+````
 
 </Tab>
 
 <Tab title="TypeScript">
 
-```typescript
+````typescript
 async function samplingLoop(
   model: string,
   messages: Anthropic.Beta.BetaMessageParam[],
@@ -523,13 +519,13 @@ async function samplingLoop(
 
   return messages;
 }
-```
+````
 
 </Tab>
 
 <Tab title="C#">
 
-```csharp
+````csharp
 async Task<List<BetaMessageParam>> SamplingLoop(
     Model model,
     List<BetaMessageParam> messages,
@@ -575,13 +571,13 @@ async Task<List<BetaMessageParam>> SamplingLoop(
 
     return messages;
 }
-```
+````
 
 </Tab>
 
 <Tab title="Go">
 
-```go
+````go
 // samplingLoop runs the computer-use agent loop until Claude stops
 // requesting tools or the iteration limit is reached.
 func samplingLoop(ctx context.Context, model anthropic.Model, messages []anthropic.BetaMessageParam, maxIterations int) ([]anthropic.BetaMessageParam, error) {
@@ -615,13 +611,13 @@ func samplingLoop(ctx context.Context, model anthropic.Model, messages []anthrop
 	return messages, nil
 }
 
-```
+````
 
 </Tab>
 
 <Tab title="Java">
 
-```java
+````java
 /**
  * Run the computer-use agent loop until Claude stops requesting tools
  * or the iteration limit is reached.
@@ -657,13 +653,13 @@ List<BetaMessageParam> samplingLoop(Model model, List<BetaMessageParam> messages
     }
     return messages;
 }
-```
+````
 
 </Tab>
 
 <Tab title="PHP">
 
-```php
+````php
 /**
  * Run the computer-use agent loop until Claude stops requesting tools
  * or the iteration limit is reached.
@@ -696,13 +692,13 @@ function samplingLoop(string $model, array $messages, int $maxIterations = 10): 
 
     return $messages;
 }
-```
+````
 
 </Tab>
 
 <Tab title="Ruby">
 
-```ruby
+````ruby
 # Run the computer-use agent loop until Claude stops requesting tools
 # or the iteration limit is reached.
 def sampling_loop(model, messages, max_iterations: 10)
@@ -728,7 +724,7 @@ def sampling_loop(model, messages, max_iterations: 10)
 
   messages
 end
-```
+````
 
 </Tab>
 </Tabs>
@@ -746,7 +742,7 @@ Here are some tips on how to get the best quality outputs:
 3. Some UI elements (such as dropdowns and scrollbars) might be tricky for Claude to manipulate using mouse movements. If you experience this, try prompting the model to use keyboard shortcuts.
 4. For repeatable tasks or UI interactions, include example screenshots and tool calls of successful outcomes in your prompt.
 5. If you need the model to log in, provide it with the username and password in your prompt inside XML tags such as `<robot_credentials>`. Using computer use within applications that require login increases the risk of bad outcomes as a result of prompt injection. Review [Mitigate jailbreaks and prompt injections](/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks) before providing the model with login credentials.
-6. When constructing a user turn's `content` array, place the instruction text _before_ the screenshot image. Providing the target description before the image is processed improves click accuracy.
+6. When constructing a user turn's `content` array, place the instruction text *before* the screenshot image. Providing the target description before the image is processed improves click accuracy.
 7. When using `computer_20251124` with `enable_zoom: true` set, Claude zooms in on a region when asked about small text or specific UI elements that aren't legible at the screenshot's default resolution, such as file names in a sidebar, tab titles, status-bar text, line numbers, or button labels. If Claude isn't zooming when you expect, ask about a specific region or element rather than the screen as a whole.
 
 <Tip>
@@ -776,7 +772,6 @@ As with regular tool use, the user-provided `system_prompt` field is still respe
 The computer use tool supports these actions:
 
 **Basic actions (all versions)**
-
 - **screenshot:** Capture the current display
 - **left_click:** Click at coordinates `[x, y]`
 - **type:** Type text string
@@ -785,7 +780,6 @@ The computer use tool supports these actions:
 
 **Enhanced actions (`computer_20250124`)**
 Available on all models that support computer use:
-
 - **scroll:** Scroll in any direction with amount control
 - **left_click_drag:** Click and drag between coordinates
 - **right_click**, **middle_click:** Additional mouse buttons
@@ -796,7 +790,6 @@ Available on all models that support computer use:
 
 **Enhanced actions (`computer_20251124`)**
 Available in Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, and Claude Opus 4.5:
-
 - All actions from `computer_20250124`
 - **zoom:** View a specific region of the screen at full resolution. Requires `enable_zoom: true` in tool definition. Takes a `region` parameter with coordinates `[x1, y1, x2, y2]` defining top-left and bottom-right corners of the area to inspect.
 
@@ -902,14 +895,14 @@ The `text` parameter in click/scroll actions accepts modifier keys such as `shif
 
 ### Tool parameters
 
-| Parameter           | Required | Description                                                                                                                         |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `type`              | Yes      | Tool version (`computer_20251124` or `computer_20250124`)                                                                           |
-| `name`              | Yes      | Must be "computer"                                                                                                                  |
-| `display_width_px`  | Yes      | Display width in pixels                                                                                                             |
-| `display_height_px` | Yes      | Display height in pixels                                                                                                            |
-| `display_number`    | No       | Display number for X11 environments                                                                                                 |
-| `enable_zoom`       | No       | Enable zoom action (`computer_20251124` only). Set to `true` to allow Claude to zoom into specific screen regions. Default: `false` |
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| `type` | Yes | Tool version (`computer_20251124` or `computer_20250124`) |
+| `name` | Yes | Must be "computer" |
+| `display_width_px` | Yes | Display width in pixels |
+| `display_height_px` | Yes | Display height in pixels |
+| `display_number` | No | Display number for X11 environments |
+| `enable_zoom` | No | Enable zoom action (`computer_20251124` only). Set to `true` to allow Claude to zoom into specific screen regions. Default: `false` |
 
 <Note>
 **Important:** Your application must explicitly run the computer use tool; Claude cannot run it directly. You are responsible for implementing the screenshot capture, mouse movements, keyboard inputs, and other actions based on Claude's requests.
@@ -923,8 +916,8 @@ For combining computer use with extended thinking, see [Extended thinking](/docs
 For computer use specifically, internal benchmarking suggests these `effort` settings:
 
 - **Claude Opus 4.7:** use `high` as the default; use `low` for high-throughput or cost-sensitive workloads.
-- **Claude Sonnet 4.6 and Claude Opus 4.6:** use `medium` as the default (best accuracy-to-cost ratio). Avoid `max`, which adds token cost without improving accuracy on UI tasks. On these models, `low` uses _fewer_ output tokens than disabling thinking entirely (fewer mistakes mean fewer retries), making it a strong option for cost-sensitive loops.
-  </Tip>
+- **Claude Sonnet 4.6 and Claude Opus 4.6:** use `medium` as the default (best accuracy-to-cost ratio). Avoid `max`, which adds token cost without improving accuracy on UI tasks. On these models, `low` uses *fewer* output tokens than disabling thinking entirely (fewer mistakes mean fewer retries), making it a strong option for cost-sensitive loops.
+</Tip>
 
 ### Augmenting computer use with other tools
 
@@ -963,8 +956,8 @@ The computer use tool is implemented as a schema-less tool. When using this tool
     </Tab>
 
     <Tab title="Python">
-
-```python
+    
+````python
 def capture_screenshot():
     return "<screenshot data>"
 
@@ -987,13 +980,13 @@ def handle_computer_action(action_type, params):
         return type_text(params["text"])
     # Handle other actions as needed
     return f"unhandled action: {action_type}"
-```
+````
 
     </Tab>
 
     <Tab title="TypeScript">
-
-```typescript
+    
+````typescript
 function captureScreenshot(): string {
   return "<screenshot data>";
 }
@@ -1021,13 +1014,13 @@ function handleComputerAction(
   // Handle other actions as needed
   return `unhandled action: ${actionType}`;
 }
-```
+````
 
     </Tab>
 
     <Tab title="C#">
-
-```csharp
+    
+````csharp
 string CaptureScreenshot() => "<screenshot data>";
 
 string ClickAt(int x, int y) => $"clicked at ({x}, {y})";
@@ -1046,13 +1039,13 @@ string HandleComputerAction(string actionType, IReadOnlyDictionary<string, JsonE
         // Handle other actions as needed
         _ => $"unhandled action: {actionType}",
     };
-```
+````
 
     </Tab>
 
     <Tab title="Go">
-
-```go
+    
+````go
 func captureScreenshot() string {
 	return "<screenshot data>"
 }
@@ -1080,13 +1073,13 @@ func handleComputerAction(actionType string, params map[string]any) string {
 	}
 }
 
-```
+````
 
     </Tab>
 
     <Tab title="Java">
-
-```java
+    
+````java
 String captureScreenshot() {
     return "<screenshot data>";
 }
@@ -1113,13 +1106,13 @@ String handleComputerAction(String actionType, Map<String, JsonValue> params) {
         default -> "unhandled action: " + actionType;
     };
 }
-```
+````
 
     </Tab>
 
     <Tab title="PHP">
-
-```php
+    
+````php
 function captureScreenshot(): string
 {
     return '<screenshot data>';
@@ -1145,13 +1138,13 @@ function handleComputerAction(string $actionType, array $params): string
         default => "unhandled action: {$actionType}",
     };
 }
-```
+````
 
     </Tab>
 
     <Tab title="Ruby">
-
-```ruby
+    
+````ruby
 def capture_screenshot
   "<screenshot data>"
 end
@@ -1178,11 +1171,10 @@ def handle_computer_action(action_type, params)
     "unhandled action: #{action_type}"
   end
 end
-```
+````
 
     </Tab>
     </Tabs>
-
   </Step>
   <Step title="Process Claude's tool calls">
     Extract and run tool calls from Claude's responses:
@@ -1200,8 +1192,8 @@ end
     </Tab>
 
     <Tab title="Python">
-
-```python
+    
+````python
 def process_tool_calls(response):
     tool_results = []
     for block in response.content:
@@ -1216,13 +1208,13 @@ def process_tool_calls(response):
                 }
             )
     return tool_results
-```
+````
 
     </Tab>
 
     <Tab title="TypeScript">
-
-```typescript
+    
+````typescript
 function processToolCalls(
   response: Anthropic.Beta.BetaMessage,
 ): Anthropic.Beta.BetaToolResultBlockParam[] {
@@ -1241,13 +1233,13 @@ function processToolCalls(
   }
   return toolResults;
 }
-```
+````
 
     </Tab>
 
     <Tab title="C#">
-
-```csharp
+    
+````csharp
 List<BetaContentBlockParam> ProcessToolCalls(BetaMessage response)
 {
     List<BetaContentBlockParam> toolResults = [];
@@ -1262,13 +1254,13 @@ List<BetaContentBlockParam> ProcessToolCalls(BetaMessage response)
     }
     return toolResults;
 }
-```
+````
 
     </Tab>
 
     <Tab title="Go">
-
-```go
+    
+````go
 func processToolCalls(response *anthropic.BetaMessage) []anthropic.BetaContentBlockParamUnion {
 	var toolResults []anthropic.BetaContentBlockParamUnion
 	for _, block := range response.Content {
@@ -1283,13 +1275,13 @@ func processToolCalls(response *anthropic.BetaMessage) []anthropic.BetaContentBl
 	return toolResults
 }
 
-```
+````
 
     </Tab>
 
     <Tab title="Java">
-
-```java
+    
+````java
 List<BetaContentBlockParam> processToolCalls(BetaMessage response) {
     List<BetaContentBlockParam> toolResults = new ArrayList<>();
     for (BetaContentBlock block : response.content()) {
@@ -1308,13 +1300,13 @@ List<BetaContentBlockParam> processToolCalls(BetaMessage response) {
     }
     return toolResults;
 }
-```
+````
 
     </Tab>
 
     <Tab title="PHP">
-
-```php
+    
+````php
 function processToolCalls(BetaMessage $response): array
 {
     $toolResults = [];
@@ -1330,13 +1322,13 @@ function processToolCalls(BetaMessage $response): array
     }
     return $toolResults;
 }
-```
+````
 
     </Tab>
 
     <Tab title="Ruby">
-
-```ruby
+    
+````ruby
 def process_tool_calls(response)
   tool_results = []
   response.content.each do |block|
@@ -1352,11 +1344,10 @@ def process_tool_calls(response)
   end
   tool_results
 end
-```
+````
 
     </Tab>
     </Tabs>
-
   </Step>
   <Step title="Implement the agent loop">
     Create a loop that continues until Claude completes the task:
@@ -1374,8 +1365,8 @@ end
     </Tab>
 
     <Tab title="Python">
-
-```python
+    
+````python
 def sampling_loop(model, messages, max_iterations=10):
     """
     Run the computer-use agent loop until Claude stops requesting tools
@@ -1402,13 +1393,13 @@ def sampling_loop(model, messages, max_iterations=10):
         messages.append({"role": "user", "content": tool_results})
 
     return messages
-```
+````
 
     </Tab>
 
     <Tab title="TypeScript">
-
-```typescript
+    
+````typescript
 async function samplingLoop(
   model: string,
   messages: Anthropic.Beta.BetaMessageParam[],
@@ -1440,13 +1431,13 @@ async function samplingLoop(
 
   return messages;
 }
-```
+````
 
     </Tab>
 
     <Tab title="C#">
-
-```csharp
+    
+````csharp
 async Task<List<BetaMessageParam>> SamplingLoop(
     Model model,
     List<BetaMessageParam> messages,
@@ -1492,13 +1483,13 @@ async Task<List<BetaMessageParam>> SamplingLoop(
 
     return messages;
 }
-```
+````
 
     </Tab>
 
     <Tab title="Go">
-
-```go
+    
+````go
 // samplingLoop runs the computer-use agent loop until Claude stops
 // requesting tools or the iteration limit is reached.
 func samplingLoop(ctx context.Context, model anthropic.Model, messages []anthropic.BetaMessageParam, maxIterations int) ([]anthropic.BetaMessageParam, error) {
@@ -1532,13 +1523,13 @@ func samplingLoop(ctx context.Context, model anthropic.Model, messages []anthrop
 	return messages, nil
 }
 
-```
+````
 
     </Tab>
 
     <Tab title="Java">
-
-```java
+    
+````java
 /**
  * Run the computer-use agent loop until Claude stops requesting tools
  * or the iteration limit is reached.
@@ -1574,13 +1565,13 @@ List<BetaMessageParam> samplingLoop(Model model, List<BetaMessageParam> messages
     }
     return messages;
 }
-```
+````
 
     </Tab>
 
     <Tab title="PHP">
-
-```php
+    
+````php
 /**
  * Run the computer-use agent loop until Claude stops requesting tools
  * or the iteration limit is reached.
@@ -1613,13 +1604,13 @@ function samplingLoop(string $model, array $messages, int $maxIterations = 10): 
 
     return $messages;
 }
-```
+````
 
     </Tab>
 
     <Tab title="Ruby">
-
-```ruby
+    
+````ruby
 # Run the computer-use agent loop until Claude stops requesting tools
 # or the iteration limit is reached.
 def sampling_loop(model, messages, max_iterations: 10)
@@ -1645,11 +1636,10 @@ def sampling_loop(model, messages, max_iterations: 10)
 
   messages
 end
-```
+````
 
     </Tab>
     </Tabs>
-
   </Step>
 </Steps>
 
@@ -1746,41 +1736,43 @@ Coordinate scaling and screenshot resizing happen in your application code, not 
 ```python hidelines={1..7,-2..}
 screen_width, screen_height = 1512, 982
 
+
 def capture_and_resize(w, h): ...
 def perform_click(x, y): ...
 
+
 import math
 
+
 def get_scale_factor(width, height):
-"""Calculate scale factor to meet API constraints."""
-long_edge = max(width, height)
-total_pixels = width \* height
+    """Calculate scale factor to meet API constraints."""
+    long_edge = max(width, height)
+    total_pixels = width * height
 
     long_edge_scale = 1568 / long_edge
     total_pixels_scale = math.sqrt(1_150_000 / total_pixels)
 
     return min(1.0, long_edge_scale, total_pixels_scale)
 
-# When capturing screenshot
 
+# When capturing screenshot
 scale = get_scale_factor(screen_width, screen_height)
-scaled_width = int(screen_width _ scale)
-scaled_height = int(screen_height _ scale)
+scaled_width = int(screen_width * scale)
+scaled_height = int(screen_height * scale)
 
 # Resize image to scaled dimensions before sending to Claude
-
 screenshot = capture_and_resize(scaled_width, scaled_height)
 
-# When handling Claude's coordinates, scale them back up
 
+# When handling Claude's coordinates, scale them back up
 def execute_click(x, y):
-screen_x = x / scale
-screen_y = y / scale
-perform_click(screen_x, screen_y)
+    screen_x = x / scale
+    screen_y = y / scale
+    perform_click(screen_x, screen_y)
+
 
 print(f"scale={scale:.6f} scaled={scaled_width}x{scaled_height}")
-
-````
+```
 </Tab>
 
 <Tab title="TypeScript">
@@ -1820,8 +1812,7 @@ function executeClick(x: number, y: number): void {
 }
 
 console.log(`scale=${scale.toFixed(6)} scaled=${scaledWidth}x${scaledHeight}`);
-````
-
+```
 </Tab>
 
 <Tab title="C#">
@@ -1833,21 +1824,20 @@ void PerformClick(double x, double y) { }
 
 double GetScaleFactor(int width, int height)
 {
-// Calculate scale factor to meet API constraints.
-int longEdge = Math.Max(width, height);
-int totalPixels = width \* height;
+    // Calculate scale factor to meet API constraints.
+    int longEdge = Math.Max(width, height);
+    int totalPixels = width * height;
 
     double longEdgeScale = 1568.0 / longEdge;
     double totalPixelsScale = Math.Sqrt(1_150_000.0 / totalPixels);
 
     return Math.Min(1.0, Math.Min(longEdgeScale, totalPixelsScale));
-
 }
 
 // When capturing screenshot
 double scale = GetScaleFactor(screenWidth, screenHeight);
-int scaledWidth = (int)(screenWidth _ scale);
-int scaledHeight = (int)(screenHeight _ scale);
+int scaledWidth = (int)(screenWidth * scale);
+int scaledHeight = (int)(screenHeight * scale);
 
 // Resize image to scaled dimensions before sending to Claude
 var screenshot = CaptureAndResize(scaledWidth, scaledHeight);
@@ -1855,14 +1845,13 @@ var screenshot = CaptureAndResize(scaledWidth, scaledHeight);
 // When handling Claude's coordinates, scale them back up
 void ExecuteClick(int x, int y)
 {
-double screenX = x / scale;
-double screenY = y / scale;
-PerformClick(screenX, screenY);
+    double screenX = x / scale;
+    double screenY = y / scale;
+    PerformClick(screenX, screenY);
 }
 
 Console.WriteLine($"scale={scale:F6} scaled={scaledWidth}x{scaledHeight}");
-
-````
+```
 </Tab>
 
 <Tab title="Go">
@@ -1902,8 +1891,7 @@ func main() {
 	_, _ = screenshot, executeClick
 	fmt.Printf("scale=%.6f scaled=%dx%d\n", scale, scaledWidth, scaledHeight)
 }
-````
-
+```
 </Tab>
 
 <Tab title="Java">
@@ -1914,17 +1902,17 @@ static Object captureAndResize(int w, int h) { return null; }
 static void performClick(double x, double y) {}
 
 static double getScaleFactor(int width, int height) {
-return Math.min(
-1.0,
-Math.min(
-1568.0 / Math.max(width, height),
-Math.sqrt(1_150_000.0 / (width \* height))
-)
-);
+    return Math.min(
+        1.0,
+        Math.min(
+            1568.0 / Math.max(width, height),
+            Math.sqrt(1_150_000.0 / (width * height))
+        )
+    );
 }
 
 void main() {
-int screenWidth = 1512, screenHeight = 982;
+    int screenWidth = 1512, screenHeight = 982;
 
     // When capturing screenshot
     double scale = getScaleFactor(screenWidth, screenHeight);
@@ -1939,10 +1927,8 @@ int screenWidth = 1512, screenHeight = 982;
         (x, y) -> performClick(x / scale, y / scale);
 
     IO.println("scale=%.6f scaled=%dx%d".formatted(scale, scaledWidth, scaledHeight));
-
 }
-
-````
+```
 </Tab>
 
 <Tab title="PHP">
@@ -1976,8 +1962,7 @@ $screenshot = captureAndResize($scaledWidth, $scaledHeight);
 $executeClick = fn(int $x, int $y) => performClick($x / $scale, $y / $scale);
 
 printf("scale=%.6f scaled=%dx%d\n", $scale, $scaledWidth, $scaledHeight);
-````
-
+```
 </Tab>
 
 <Tab title="Ruby">
@@ -1986,28 +1971,24 @@ def capture_and_resize(w, h) = nil
 def perform_click(x, y) = nil
 
 def get_scale_factor(width, height)
-[1.0, 1568.0 / [width, height].max, Math.sqrt(1_150_000.0 / (width \* height))].min
+  [1.0, 1568.0 / [width, height].max, Math.sqrt(1_150_000.0 / (width * height))].min
 end
 
 screen_width, screen_height = 1512, 982
 
 # When capturing screenshot
-
 scale = get_scale_factor(screen_width, screen_height)
-scaled_width = (screen_width _ scale).to_i
-scaled_height = (screen_height _ scale).to_i
+scaled_width = (screen_width * scale).to_i
+scaled_height = (screen_height * scale).to_i
 
 # Resize image to scaled dimensions before sending to Claude
-
 screenshot = capture_and_resize(scaled_width, scaled_height)
 
 # When handling Claude's coordinates, scale them back up
-
 execute_click = ->(x, y) { perform_click(x / scale, y / scale) }
 
 puts format("scale=%.6f scaled=%dx%d", scale, scaled_width, scaled_height)
-
-````
+```
 </Tab>
 </Tabs>
 
@@ -2087,8 +2068,7 @@ def click_and_wait(x, y, wait_time=0.5):
 
 
 print("ok")
-````
-
+```
 </Tab>
 
 <Tab title="TypeScript">
@@ -2098,14 +2078,13 @@ import { setTimeout } from "node:timers/promises";
 function clickAt(x: number, y: number): void {}
 
 async function clickAndWait(x: number, y: number, waitMs = 500): Promise<void> {
-clickAt(x, y);
-await setTimeout(waitMs); // Allow UI to update
+  clickAt(x, y);
+  await setTimeout(waitMs); // Allow UI to update
 }
 
 await clickAndWait(100, 200);
 console.log("ok");
-
-````
+```
 </Tab>
 
 <Tab title="C#">
@@ -2120,8 +2099,7 @@ static void ClickAndWait(int x, int y, double waitSeconds = 0.5)
     ClickAt(x, y);
     Thread.Sleep(TimeSpan.FromSeconds(waitSeconds));  // Allow UI to update
 }
-````
-
+```
 </Tab>
 
 <Tab title="Go">
@@ -2129,26 +2107,25 @@ static void ClickAndWait(int x, int y, double waitSeconds = 0.5)
 package main
 
 import (
-"fmt"
-"time"
+	"fmt"
+	"time"
 )
 
 func clickAt(x, y int) {}
 
 func clickAndWaitFor(x, y int, wait time.Duration) {
-clickAt(x, y)
-time.Sleep(wait) // Allow UI to update
+	clickAt(x, y)
+	time.Sleep(wait) // Allow UI to update
 }
 
 func clickAndWait(x, y int) {
-clickAndWaitFor(x, y, 500\*time.Millisecond)
+	clickAndWaitFor(x, y, 500*time.Millisecond)
 }
 
 func main() {
-fmt.Println("ok")
+	fmt.Println("ok")
 }
-
-````
+```
 </Tab>
 
 <Tab title="Java">
@@ -2167,8 +2144,7 @@ void clickAndWait(int x, int y, long waitTimeMillis) throws InterruptedException
 void main() {
     IO.println("ok");
 }
-````
-
+```
 </Tab>
 
 <Tab title="PHP">
@@ -2180,12 +2156,11 @@ function clickAt(int $x, int $y): void {}
 function clickAndWait(int $x, int $y, float $waitSeconds = 0.5): void
 {
     clickAt($x, $y);
-    usleep((int) ($waitSeconds \* 1_000_000)); // Allow UI to update
+    usleep((int) ($waitSeconds * 1_000_000));  // Allow UI to update
 }
 
 echo "ok\n";
-
-````
+```
 </Tab>
 
 <Tab title="Ruby">
@@ -2198,8 +2173,7 @@ def click_and_wait(x, y, wait_time: 0.5)
 end
 
 puts "ok"
-````
-
+```
 </Tab>
 </Tabs>
 
@@ -2225,16 +2199,17 @@ This is application-side helper code with no API request. See the SDK tabs for t
 ```python hidelines={1,-3..}
 display_width, display_height = 1024, 768
 
+
 def validate_action(action_type, params):
-if action_type == "left_click":
-x, y = params.get("coordinate", (0, 0))
-if not (0 <= x < display_width and 0 <= y < display_height):
-return False, "Coordinates out of bounds"
-return True, None
+    if action_type == "left_click":
+        x, y = params.get("coordinate", (0, 0))
+        if not (0 <= x < display_width and 0 <= y < display_height):
+            return False, "Coordinates out of bounds"
+    return True, None
+
 
 print(validate_action("left_click", {"coordinate": (2000, 100)}))
-
-````
+```
 </Tab>
 
 <Tab title="TypeScript">
@@ -2257,8 +2232,7 @@ function validateAction(actionType: string, params: ActionParams): [boolean, str
 }
 
 console.log(validateAction("left_click", { coordinate: [2000, 100] }));
-````
-
+```
 </Tab>
 
 <Tab title="C#">
@@ -2272,19 +2246,18 @@ Console.WriteLine(ValidateAction("left_click", new Dictionary<string, JsonElemen
 
 static (bool IsValid, string? Error) ValidateAction(string actionType, IReadOnlyDictionary<string, JsonElement> parameters)
 {
-if (actionType == "left_click")
-{
-int x = parameters["coordinate"][0].GetInt32();
-int y = parameters["coordinate"][1].GetInt32();
-if (x is < 0 or >= DisplayWidth || y is < 0 or >= DisplayHeight)
-{
-return (false, "Coordinates out of bounds");
+    if (actionType == "left_click")
+    {
+        int x = parameters["coordinate"][0].GetInt32();
+        int y = parameters["coordinate"][1].GetInt32();
+        if (x is < 0 or >= DisplayWidth || y is < 0 or >= DisplayHeight)
+        {
+            return (false, "Coordinates out of bounds");
+        }
+    }
+    return (true, null);
 }
-}
-return (true, null);
-}
-
-````
+```
 </Tab>
 
 <Tab title="Go">
@@ -2316,8 +2289,7 @@ func main() {
 	ok, msg := validateAction("left_click", map[string]any{"coordinate": []any{2000.0, 100.0}})
 	fmt.Println(ok, msg)
 }
-````
-
+```
 </Tab>
 
 <Tab title="Java">
@@ -2330,22 +2302,21 @@ static final int DISPLAY_HEIGHT = 768;
 record Validation(boolean valid, String error) {}
 
 Validation validateAction(String actionType, Map<String, JsonValue> params) {
-if (actionType.equals("left_click")) {
-List<JsonValue> coord = (List<JsonValue>) params.get("coordinate").asArray().get();
-long x = ((Number) coord.get(0).asNumber().get()).longValue();
-long y = ((Number) coord.get(1).asNumber().get()).longValue();
-if (!(0 <= x && x < DISPLAY_WIDTH && 0 <= y && y < DISPLAY_HEIGHT)) {
-return new Validation(false, "Coordinates out of bounds");
-}
-}
-return new Validation(true, null);
+    if (actionType.equals("left_click")) {
+        List<JsonValue> coord = (List<JsonValue>) params.get("coordinate").asArray().get();
+        long x = ((Number) coord.get(0).asNumber().get()).longValue();
+        long y = ((Number) coord.get(1).asNumber().get()).longValue();
+        if (!(0 <= x && x < DISPLAY_WIDTH && 0 <= y && y < DISPLAY_HEIGHT)) {
+            return new Validation(false, "Coordinates out of bounds");
+        }
+    }
+    return new Validation(true, null);
 }
 
 void main() {
-IO.println(validateAction("left_click", Map.of("coordinate", JsonValue.from(List.of(2000, 100)))));
+    IO.println(validateAction("left_click", Map.of("coordinate", JsonValue.from(List.of(2000, 100)))));
 }
-
-````
+```
 </Tab>
 
 <Tab title="PHP">
@@ -2369,8 +2340,7 @@ function validateAction(string $actionType, array $params): array
 
 [$valid, $error] = validateAction('left_click', ['coordinate' => [2000, 100]]);
 echo ($valid ? 'true' : 'false') . ' ' . $error . "\n";
-````
-
+```
 </Tab>
 
 <Tab title="Ruby">
@@ -2379,18 +2349,17 @@ DISPLAY_WIDTH = 1024
 DISPLAY_HEIGHT = 768
 
 def validate_action(action_type, params)
-if action_type == "left_click"
-x, y = params.fetch(:coordinate, [0, 0])
-unless (0...DISPLAY_WIDTH).cover?(x) && (0...DISPLAY_HEIGHT).cover?(y)
-return [false, "Coordinates out of bounds"]
-end
-end
-[true, nil]
+  if action_type == "left_click"
+    x, y = params.fetch(:coordinate, [0, 0])
+    unless (0...DISPLAY_WIDTH).cover?(x) && (0...DISPLAY_HEIGHT).cover?(y)
+      return [false, "Coordinates out of bounds"]
+    end
+  end
+  [true, nil]
 end
 
 p validate_action("left_click", {coordinate: [2000, 100]})
-
-````
+```
 </Tab>
 </Tabs>
 
@@ -2422,8 +2391,7 @@ def log_action(action_type, params, result):
 
 
 print("ok")
-````
-
+```
 </Tab>
 
 <Tab title="TypeScript">
@@ -2437,8 +2405,7 @@ function logAction(actionType: string, params: unknown, result: unknown): void {
 }
 
 console.log("ok");
-
-````
+```
 </Tab>
 
 <Tab title="C#">
@@ -2450,8 +2417,7 @@ static void LogAction(string actionType, object? parameters, object? result)
 {
     Console.Error.WriteLine($"Action: {actionType}, Params: {parameters}, Result: {result}");
 }
-````
-
+```
 </Tab>
 
 <Tab title="Go">
@@ -2459,19 +2425,18 @@ static void LogAction(string actionType, object? parameters, object? result)
 package main
 
 import (
-"fmt"
-"log"
+	"fmt"
+	"log"
 )
 
 func logAction(actionType string, params map[string]any, result any) {
-log.Printf("Action: %s, Params: %v, Result: %v", actionType, params, result)
+	log.Printf("Action: %s, Params: %v, Result: %v", actionType, params, result)
 }
 
 func main() {
-fmt.Println("ok")
+	fmt.Println("ok")
 }
-
-````
+```
 </Tab>
 
 <Tab title="Java">
@@ -2487,8 +2452,7 @@ void logAction(String actionType, Object params, Object result) {
 void main() {
     IO.println("ok");
 }
-````
-
+```
 </Tab>
 
 <Tab title="PHP">
@@ -2501,13 +2465,12 @@ function logAction(string $actionType, array $params, mixed $result): void
         'Action: %s, Params: %s, Result: %s',
         $actionType,
         json_encode($params),
-json_encode($result),
-));
+        json_encode($result),
+    ));
 }
 
 echo "ok\n";
-
-````
+```
 </Tab>
 
 <Tab title="Ruby">
@@ -2521,8 +2484,7 @@ def log_action(action_type, params, result)
 end
 
 puts "ok"
-````
-
+```
 </Tab>
 </Tabs>
 
@@ -2566,7 +2528,6 @@ Computer use follows the standard [tool use pricing](/docs/en/agents-and-tools/t
 | Claude 4.x models | 735 tokens |
 
 **Additional token consumption**:
-
 - Screenshot images (see [Vision pricing](/docs/en/build-with-claude/vision))
 - Tool execution results returned to Claude
 

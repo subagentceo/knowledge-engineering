@@ -16,18 +16,18 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 
 The agent toolset includes the following tools. All are enabled by default when you include the toolset in your agent configuration.
 
-| Tool       | Name         | Description                                    |
-| ---------- | ------------ | ---------------------------------------------- |
-| Bash       | `bash`       | Execute bash commands in a shell session       |
-| Read       | `read`       | Read a file from the local filesystem          |
-| Write      | `write`      | Write a file to the local filesystem           |
-| Edit       | `edit`       | Perform string replacement in a file           |
-| Glob       | `glob`       | Fast file pattern matching using glob patterns |
-| Grep       | `grep`       | Text search using regex patterns               |
-| Web fetch  | `web_fetch`  | Fetch content from a URL                       |
-| Web search | `web_search` | Search the web for information                 |
+| Tool | Name | Description |
+|---|---|---|
+| Bash | `bash` | Execute bash commands in a shell session |
+| Read | `read` | Read a file from the local filesystem |
+| Write | `write` | Write a file to the local filesystem |
+| Edit | `edit` | Perform string replacement in a file |
+| Glob | `glob` | Fast file pattern matching using glob patterns |
+| Grep | `grep` | Text search using regex patterns |
+| Web fetch | `web_fetch` | Fetch content from a URL |
+| Web search | `web_search` | Search the web for information |
 
-When a tool output exceeds 100K tokens, it is automatically written to a file in the sandbox. The model receives a truncated preview with the file path and can read the full content from there.
+When a tool output exceeds 100,000 tokens, it is automatically written to a file in the sandbox. The model receives a truncated preview with the file path and can read the full content from there.
 
 ## Configuring the toolset
 
@@ -91,9 +91,9 @@ const agent = await client.beta.agents.create({
   tools: [
     {
       type: "agent_toolset_20260401",
-      configs: [{ name: "web_fetch", enabled: false }],
-    },
-  ],
+      configs: [{ name: "web_fetch", enabled: false }]
+    }
+  ]
 });
 ```
 
@@ -182,7 +182,6 @@ agent = client.beta.agents.create(
   ]
 )
 ```
-
 </CodeGroup>
 
 ### Disabling specific tools
@@ -219,7 +218,7 @@ To start with everything off and enable only what you need, set `default_config.
 
 In addition to built-in tools, you can define custom tools. Custom tools are analogous to [user-defined client tools](/docs/en/agents-and-tools/tool-use/how-tool-use-works#user-defined-tools-client-executed) in the Messages API.
 
-Custom tools allow you to extend Claude's capabilities to perform a wider variety of tasks. Each tool defines a contract: you specify what operations are available and what they return; Claude decides when and how to call them. The model never executes anything on its own. It emits a structured request, your code runs the operation, and the result flows back into the conversation.
+Custom tools allow you to extend Claude's capabilities to perform a wider variety of tasks. Each tool defines a contract: you specify what operations are available and what they return; Claude determines when and how to call them. The model never executes anything on its own. It emits a structured request, your code runs the operation, and the result flows back into the conversation.
 
 <CodeGroup defaultLanguage="CLI">
 ```bash curl
@@ -311,10 +310,10 @@ const agent = await client.beta.agents.create({
       input_schema: {
         type: "object",
         properties: { location: { type: "string", description: "City name" } },
-        required: ["location"],
-      },
-    },
-  ],
+        required: ["location"]
+      }
+    }
+  ]
 });
 ```
 
@@ -453,14 +452,13 @@ agent = client.beta.agents.create(
   ]
 )
 ```
-
 </CodeGroup>
 
-Once you've defined the tool at the agent level, the agent will invoke the tools through the course of a session. See [Session event stream](/docs/en/managed-agents/events-and-streaming#handling-custom-tool-calls) for the full flow.
+Once you've defined the tool at the agent level, the agent invokes the tools through the course of a session. See [Session event stream](/docs/en/managed-agents/events-and-streaming#handling-custom-tool-calls) for the full flow.
 
 ### Best practices for custom tool definitions
 
-- **Provide extremely detailed descriptions.** This is by far the most important factor in tool performance. Your descriptions should explain what the tool does, when it should be used (and when it shouldn't), what each parameter means and how it affects the tool's behavior, and any important caveats or limitations. The more context you can give Claude about your tools, the better it will be at deciding when and how to use them. Aim for at least 3-4 sentences per tool description, more if the tool is complex.
+- **Provide extremely detailed descriptions.** This is by far the most important factor in tool performance. Your descriptions should explain what the tool does, when it should be used (and when it shouldn't), what each parameter means and how it affects the tool's behavior, and any important caveats or limitations. The more context you can give Claude about your tools, the better it is at determining when and how to use them. Aim for at least 3-4 sentences per tool description, more if the tool is complex.
 - **Consolidate related operations into fewer tools.** Rather than creating a separate tool for every action (`create_pr`, `review_pr`, `merge_pr`), group them into a single tool with an `action` parameter. Fewer, more capable tools reduce selection ambiguity and make your tool surface easier for Claude to navigate.
-- **Use meaningful namespacing in tool names.** When your tools span multiple services or resources, prefix names with the resource (e.g., `db_query`, `storage_read`). This makes tool selection unambiguous as your library grows.
-- **Design tool responses to return only high-signal information.** Return semantic, stable identifiers (e.g., slugs or UUIDs) rather than opaque internal references, and include only the fields Claude needs to reason about its next step. Bloated responses waste context and make it harder for Claude to extract what matters.
+- **Use meaningful namespacing in tool names.** When your tools span multiple services or resources, prefix names with the resource (for example, `db_query` or `storage_read`). This makes tool selection unambiguous as your library grows.
+- **Design tool responses to return only high-signal information.** Return semantic, stable identifiers (for example, slugs or UUIDs) rather than opaque internal references, and include only the fields Claude needs to reason about its next step. Bloated responses waste context and make it harder for Claude to extract what matters.

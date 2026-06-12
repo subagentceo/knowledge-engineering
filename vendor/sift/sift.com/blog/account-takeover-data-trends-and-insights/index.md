@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# Account takeover data, trends, and insights
+
+Home/Blog
 
 Table of Contents
 
@@ -26,21 +28,21 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20trends%2C%20and%20insights&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FQ3-2022-Digital-Trust-Safety-Index_BLOG_PPThumbnail-cover-Image-1454x1044-1.jpg&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](/cdn-cgi/l/email-protection#a39cd0d6c1c9c6c0d79ee2c0c0ccd6cdd7869193d7c2c8c6ccd5c6d1869193c7c2d7c28691e0869193d7d1c6cdc7d08691e0869193c2cdc7869193cacdd0cac4cbd7d0858093909b98c1ccc7da9ecbd7d7d3d08690e28691e58691e5d0cac5d78dc0ccce8691e5c1cfccc48691e5c2c0c0ccd6cdd78ed7c2c8c6ccd5c6d18ec7c2d7c28ed7d1c6cdc7d08ec2cdc78ecacdd0cac4cbd7d08691e5)
+*   
+*   
+*   
+*   
 
--   [Account Takeover](https://sift.com/blog/category/ato/)
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Account Takeover
+*   Data & Insights
 
 # Account takeover data, trends, and insights
 
 Data from Sift’s latest quarterly Digital Trust & Safety Index reveals increasing ATO attacks targeting fintech and damaging consumer trust.
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/ballen/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Brittany Allen](https://sift.com/blog/author/ballen/)
+Brittany Allen
 
 Oct 25, 2022
 
@@ -54,88 +56,88 @@ So what’s behind this concerning trend? The escalation in ATO attacks can be l
 
 Consumers themselves are also reporting more frequent encounters with ATO, with over half unaware that their accounts had been hacked until they logged in, damaging trust in the brands they interact with and underscoring the need for better merchant-consumer communication. 
 
-The report also found that the continuing growth of the fintech industry means that it remains a key target for ATO. Even this year’s crypto downturn hasn’t deterred cybercriminals who are always looking for new opportunities to commit fraud, regardless of market conditions, as evidenced by Sift’s discovery of the latest iteration of the classic [cashout scam](/fraud-center/), this time targeting hacked bank accounts and forgotten crypto wallets. 
+The report also found that the continuing growth of the fintech industry means that it remains a key target for ATO. Even this year’s crypto downturn hasn’t deterred cybercriminals who are always looking for new opportunities to commit fraud, regardless of market conditions, as evidenced by Sift’s discovery of the latest iteration of the classic cashout scam, this time targeting hacked bank accounts and forgotten crypto wallets. 
 
-With [new research](https://www.globenewswire.com/en/news-release/2022/05/09/2438281/0/en/Insights-on-the-332-5-Bn-Fintech-Market-is-Expected-to-Grow-at-a-CAGR-of-over-19-8-During-2022-2028-Vantage-Market-Research.html#:~:text=The%20Fintech%20market%20was%20estimated,2028%3B%20based%20on%20primary%20research.) projecting cumulative merchant losses to online fraud to exceed $343B globally between 2023 and 2027, these new findings highlight the need for merchants to adopt an efficient and effective fraud prevention strategy, one that simultaneously promotes growth and builds consumer trust. The good news is that adopting a Digital Trust & Safety strategy—one that allows businesses to introduce friction dynamically—can stifle fraudsters without treating customers like criminals.
+With new research projecting cumulative merchant losses to online fraud to exceed $343B globally between 2023 and 2027, these new findings highlight the need for merchants to adopt an efficient and effective fraud prevention strategy, one that simultaneously promotes growth and builds consumer trust. The good news is that adopting a Digital Trust & Safety strategy—one that allows businesses to introduce friction dynamically—can stifle fraudsters without treating customers like criminals.
 
-The [below infographic](https://infogram.com/2022-or-q2-dtands-index-content-abuse-data-1hxr4zxw9q3no6y?live) illustrates key points from our Q3 Digital Trust & Safety Index: Account takeover data, trends, and insights. Explore the following infographic and download the [complete report](https://sift.com/wp-content/uploads/2025/03/Q3-2022_Digital-Trust-Safety-Index_ATO.pdf).
+The below infographic illustrates key points from our Q3 Digital Trust & Safety Index: Account takeover data, trends, and insights. Explore the following infographic and download the complete report.
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20trends%2C%20and%20insights&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FQ3-2022-Digital-Trust-Safety-Index_BLOG_PPThumbnail-cover-Image-1454x1044-1.jpg&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](/cdn-cgi/l/email-protection#ab94d8dec9c1cec8df96eac8c8c4dec5df8e999bdfcac0cec4ddced98e999bcfcadfca8e99e88e999bdfd9cec5cfd88e99e88e999bcac5cf8e999bc2c5d8c2ccc3dfd88d889b989390c9c4cfd296c3dfdfdbd88e98ea8e99ed8e99edd8c2cddf85c8c4c68e99edc9c7c4cc8e99edcac8c8c4dec5df86dfcac0cec4ddced986cfcadfca86dfd9cec5cfd886cac5cf86c2c5d8c2ccc3dfd88e99ed)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

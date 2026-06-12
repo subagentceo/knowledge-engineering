@@ -1,18 +1,20 @@
-[Home](https://sift.com)/[Platform Overview](https://sift.com/platform/)/Payment Protection
+# Prevent payment fraud to Drive More Revenue
+
+Home/Platform Overview/Payment Protection
 
 # Prevent payment fraud to Drive More Revenue
 
 Don’t let payment fraud hinder business growth. Get the only solution that helps you detect and prevent fraudulent transactions and manage risk in one place.
 
-[Watch the demo](https://player.vimeo.com/video/831963747?h=c26521217d&badge=0&autopause=0&player_id=0&app_id=58479)
+Watch the demo
 
 ![Payment-Protection-Hero](https://sift.com/wp-content/uploads/2025/01/Payment-Protection-Hero.webp)
 
 Overview
 
--   [Overview](#overview)
--   [Capabilities](#capabilities)
--   [Use Cases](#use-cases)
+*   Overview
+*   Capabilities
+*   Use Cases
 
 ![The-Sift-Platform-Offset-Circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20921'%3E%3C/svg%3E)
 
@@ -20,7 +22,7 @@ Overview
 
 Add smarter, more flexible fraud decisioning throughout the user journey. Sift adds crucial context to risk insights derived from our Global Data Network of 1T annual events.
 
-[Explore the platform](/platform/)
+Explore the platform
 
 ## One Solution Customized for Your Needs
 
@@ -52,7 +54,7 @@ Unlock business growth
 
 Instantly detect and block risky transactions, shut off fraudulent currency movement, and proactively prevent alternative payment abuse to protect your business down to every transaction.  
   
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![Mediamodifier-Design-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -66,9 +68,7 @@ Track business health, unblock trusted customers, and secure customer loyalty wi
 
 ## See how Sift Payment Protection works
 
-[Watch the demo](https://player.vimeo.com/video/831963747?h=c26521217d&badge=0&autopause=0&player_id=0&app_id=58479)
-
-[](https://player.vimeo.com/video/831963747?h=c26521217d&badge=0&autopause=0&player_id=0&app_id=58479)
+Watch the demo
 
 ## What our customers are saying about Payment Protection
 
@@ -84,7 +84,7 @@ John Page
 
 Merchant Processing Director at ChowNow
 
-[read customer story](/resources/case-studies/chownow/)
+read customer story
 
 ![Case-Study-ChowNow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20431'%3E%3C/svg%3E)
 
@@ -106,7 +106,7 @@ Joshua Hamman
 
 Director of Client Services at Paula’s Choice
 
-[read customer story](/resources/case-studies/paulas-choice-case-study/)
+read customer story
 
 ![Case-Study-Paulas-Choice](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -130,7 +130,7 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
@@ -138,4 +138,4 @@ Get Started
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

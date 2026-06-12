@@ -143,3 +143,12 @@ turbopuffer maintains System and Organization Controls (SOC) 2 Type 2
 compliance, with continuous auditing by an AICPA certified auditor. To receive
 a copy of our latest report, please contact us. For healthcare customers,
 turbopuffer can also provide a HIPAA compliant BAA.
+
+
+---
+
+This page: [/docs/byoc.md](https://turbopuffer.com/docs/byoc.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

@@ -148,7 +148,21 @@ If you follow the instructions in the [Quick Start guide](https://workos.com/doc
 
 ### Configure IdP-initiated SSO
 
-Additionally, since IdP-initiated flows do not generate a customized authorization URL the way SP-initiated flows do, there is no way to dynamically pass the `redirectURI` and `state` parameters to your application's callback. By default, users will be redirected to the default Redirect URI upon a successful login. However, IdP Administrators can customize the redirect destination by configuring a default `RelayState` in the IdP, and including a `redirect_uri` parameter in it. The URI must be specified in the format of a URL parameter: `redirect_uri=uri`, and the URI must be one of the Redirect URIs specified in your WorkOS [Dashboard](https://dashboard.workos.com). Any other values in the IdP’s `RelayState` will be ignored and discarded.
+Normally, IdP-initiated logins are sent to the default Redirect URI of your default application. To customize this, configure a `RelayState` in the IdP as URL parameters. Two parameters are supported:
+
+- `client_id` routes the user to a specific [application](https://workos.com/docs/authkit/applications)
+
+  ```text
+  client_id=client_123456789
+  ```
+
+- `redirect_uri` sends the user to an alternate Redirect URI from those configured in the [Applications](https://dashboard.workos.com/environment/applications) section of the WorkOS Dashboard. Open your application and go to the **Redirects** tab to manage these URIs.
+
+  ```text
+  redirect_uri=https://example.com/callback
+  ```
+
+Any other values in the `RelayState` are ignored.
 
 Your application will also be able to retrieve the [Profile object](https://workos.com/docs/reference/sso/profile) for the user upon successful authentication. If your IdP is unable to provide a `redirect_uri` in its default `RelayState`, or if you would like to generate a custom redirect URI for each user after they sign in, you can use the [Profile object](https://workos.com/docs/reference/sso/profile) to dynamically generate a redirect URI.
 

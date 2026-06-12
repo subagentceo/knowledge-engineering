@@ -6,8 +6,6 @@ url: https://docs.sentry.io/product/build-distribution/
 
 # Build Distribution
 
-This feature is available only if you're in the [Early Adopter program](https://docs.sentry.io/organization/early-adopter-features.md). Features available to Early Adopters are still in-progress and may have bugs. We recognize the irony.
-
 Build Distribution enables you to securely distribute app builds to your internal teams and beta testers. Upload builds from CI to streamline your distribution workflow, manage access control, and track installation analytics.
 
 ### [CI Integration](https://docs.sentry.io/product/build-distribution.md#ci-integration)

@@ -1,7 +1,6 @@
 ---
 vendor: opentelemetry
 llms_txt: https://opentelemetry.io/llms.txt
-last_crawled: 2026-05-15T04:14:50.872Z
 count: 13
 transform: append-md-and-accept
 ---

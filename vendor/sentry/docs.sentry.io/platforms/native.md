@@ -101,7 +101,7 @@ Configuration should happen as early as possible in your application's lifecycle
 
 int main(void) {
   sentry_options_t *options = sentry_options_new();
-  sentry_options_set_dsn(options, "___PUBLIC_DSN___");
+  sentry_options_set_dsn(options, "https://<key>@o<orgId>.ingest.sentry.io/<projectId>");
   // This is also the default-path. For further information and recommendations:
   // https://docs.sentry.io/platforms/native/configuration/options/#database-path
   sentry_options_set_database_path(options, ".sentry-native");

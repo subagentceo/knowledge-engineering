@@ -1,57 +1,57 @@
 # Types and Data Structures
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview​
 
 This document outlines some of the common types and data structures defined by OpenFeature and referenced elsewhere in this specification.
 
-### Boolean[​](#boolean "Direct link to Boolean")
+### Boolean​
 
 A logical true or false, as represented idiomatically in the implementation languages.
 
-### String[​](#string "Direct link to String")
+### String​
 
 A UTF-8 encoded string.
 
-### Number[​](#number "Direct link to Number")
+### Number​
 
 A numeric value of unspecified type or size. Implementation languages may further differentiate between integers, floating point numbers, and other specific numeric types and provide functionality as idioms dictate.
 
-### Structure[​](#structure "Direct link to Structure")
+### Structure​
 
 Structured data, presented however is idiomatic in the implementation language, such as JSON or YAML.
 
-### Datetime[​](#datetime "Direct link to Datetime")
+### Datetime​
 
 A language primitive for representing a date and time, optionally including timezone information. If no timezone is specified, the date and time will be treated as UTC.
 
-### Evaluation Details[​](#evaluation-details "Direct link to Evaluation Details")
+### Evaluation Details​
 
-A structure representing the result of the [flag evaluation process](/specification/glossary#evaluating-flag-values), and made available in the [detailed flag resolution functions](/specification/sections/flag-evaluation#14-detailed-flag-evaluation), containing the following fields:
+A structure representing the result of the flag evaluation process, and made available in the detailed flag resolution functions, containing the following fields:
 
--   flag key (string, required)
--   value (boolean | string | number | structure, required)
--   error code ([error code](#error-code), optional)
--   error message (string, optional)
--   reason (string, optional)
--   variant (string, optional)
--   flag metadata ([flag metadata](#flag-metadata))
+*   flag key (string, required)
+*   value (boolean | string | number | structure, required)
+*   error code (error code, optional)
+*   error message (string, optional)
+*   reason (string, optional)
+*   variant (string, optional)
+*   flag metadata (flag metadata)
 
 Note
 
 Some type systems feature useful constraints that can enhance the ergonomics of the `evaluation details` structure. For example, in the case of an unsuccessful evaluation, `error code`, `reason`, and `error message` will be set, and `variant` will not. If the type system of the implementation supports the expression of such constraints, consider defining them.
 
-### Resolution Details[​](#resolution-details "Direct link to Resolution Details")
+### Resolution Details​
 
-A structure which contains a subset of the fields defined in the `evaluation details`, representing the result of the provider's [flag resolution process](/specification/glossary#resolving-flag-values), including:
+A structure which contains a subset of the fields defined in the `evaluation details`, representing the result of the provider's flag resolution process, including:
 
--   value (boolean | string | number | structure, required)
--   error code ([error code](#error-code), optional)
--   error message (string, optional)
--   reason (string, optional)
--   variant (string, optional)
--   flag metadata ([flag metadata](#flag-metadata), optional)
+*   value (boolean | string | number | structure, required)
+*   error code (error code, optional)
+*   error message (string, optional)
+*   reason (string, optional)
+*   variant (string, optional)
+*   flag metadata (flag metadata, optional)
 
-#### Resolution Reason[​](#resolution-reason "Direct link to Resolution Reason")
+#### Resolution Reason​
 
 A set of pre-defined reasons is enumerated below:
 
@@ -67,7 +67,7 @@ DEFAULT
 
 The resolved value fell back to a pre-configured value (no dynamic evaluation occurred or dynamic evaluation yielded no result).
 
-TARGETING\_MATCH
+TARGETING_MATCH
 
 The resolved value was the result of a dynamic evaluation, such as a rule or specific user-targeting.
 
@@ -107,7 +107,7 @@ Note
 
 The `resolution details` structure is not exposed to the Application Author. It defines the data which Provider Authors must return when resolving the value of flags.
 
-### Error Code[​](#error-code "Direct link to Error Code")
+### Error Code​
 
 An enumerated error code represented idiomatically in the implementation language.
 
@@ -115,31 +115,31 @@ Error Code
 
 Explanation
 
-PROVIDER\_NOT\_READY
+PROVIDER_NOT_READY
 
 The value was resolved before the provider was initialized.
 
-FLAG\_NOT\_FOUND
+FLAG_NOT_FOUND
 
 The flag could not be found.
 
-PARSE\_ERROR
+PARSE_ERROR
 
 An error was encountered parsing data, such as a flag configuration.
 
-TYPE\_MISMATCH
+TYPE_MISMATCH
 
 The type of the flag value does not match the expected type.
 
-TARGETING\_KEY\_MISSING
+TARGETING_KEY_MISSING
 
 The provider requires a targeting key and one was not provided in the `evaluation context`.
 
-INVALID\_CONTEXT
+INVALID_CONTEXT
 
 The `evaluation context` does not meet provider requirements.
 
-PROVIDER\_FATAL
+PROVIDER_FATAL
 
 The provider has entered an irrecoverable error state.
 
@@ -147,24 +147,24 @@ GENERAL
 
 The error was for a reason not enumerated above.
 
-### Evaluation Context[​](#evaluation-context "Direct link to Evaluation Context")
+### Evaluation Context​
 
-See [evaluation context](/specification/sections/evaluation-context).
+See evaluation context.
 
-### Evaluation Options[​](#evaluation-options "Direct link to Evaluation Options")
+### Evaluation Options​
 
 A structure containing the following fields:
 
--   hooks (one or more [hooks](/specification/sections/hooks), optional)
--   hook hints ([hook hints structure](/specification/sections/hooks#42-hook-hints), optional)
+*   hooks (one or more hooks, optional)
+*   hook hints (hook hints structure, optional)
 
-### Flag Metadata[​](#flag-metadata "Direct link to Flag Metadata")
+### Flag Metadata​
 
 A structure which supports definition of arbitrary properties, with keys of type `string`, and values of type `boolean`, `string`, or `number`.
 
-This structure is populated by a provider for use by an [Application Author](/specification/glossary#application-author) via the [Evaluation API](/specification/glossary#evaluation-api) or an [Application Integrator](/specification/glossary#application-integrator) via [hooks](/specification/sections/hooks).
+This structure is populated by a provider for use by an Application Author via the Evaluation API or an Application Integrator via hooks.
 
-### Provider Status[​](#provider-status "Direct link to Provider Status")
+### Provider Status​
 
 An enumeration of possible provider states.
 
@@ -172,7 +172,7 @@ Status
 
 Explanation
 
-NOT\_READY
+NOT_READY
 
 The provider has not been initialized.
 
@@ -192,36 +192,36 @@ FATAL
 
 The provider has entered an irrecoverable error state.
 
-RECONCILING\*
+RECONCILING*
 
 The provider is reconciling its state with a context change.
 
-\* [static context (client-side) paradigm](/specification/glossary#static-context-paradigm) only
+* static context (client-side) paradigm only
 
-### Provider Event Details[​](#provider-event-details "Direct link to Provider Event Details")
+### Provider Event Details​
 
 A structure defining a provider event payload, including:
 
--   flags changed (string\[\], optional)
--   message (string, optional)
--   error code ([error code](#error-code), optional)
--   event metadata ([event metadata](#event-metadata))
+*   flags changed (string[], optional)
+*   message (string, optional)
+*   error code (error code, optional)
+*   event metadata (event metadata)
 
-### Event Details[​](#event-details "Direct link to Event Details")
+### Event Details​
 
 A structure defining an event payload, including:
 
--   provider name (string, required)
--   flags changed (string\[\], optional)
--   message (string, optional)
--   error code ([error code](#error-code), optional)
--   event metadata ([event metadata](#event-metadata))
+*   provider name (string, required)
+*   flags changed (string[], optional)
+*   message (string, optional)
+*   error code (error code, optional)
+*   event metadata (event metadata)
 
-### Event Metadata[​](#event-metadata "Direct link to Event Metadata")
+### Event Metadata​
 
 A structure supporting the addition of arbitrary event data. It supports definition of arbitrary properties, with keys of type `string`, and values of type `boolean`, `string`, or `number`.
 
-### Provider Events[​](#provider-events "Direct link to Provider Events")
+### Provider Events​
 
 An enumeration of provider events.
 
@@ -229,38 +229,38 @@ Event
 
 Explanation
 
-PROVIDER\_READY
+PROVIDER_READY
 
 The provider is ready to perform flag evaluations.
 
-PROVIDER\_ERROR
+PROVIDER_ERROR
 
 The provider signaled an error.
 
-PROVIDER\_CONFIGURATION\_CHANGED
+PROVIDER_CONFIGURATION_CHANGED
 
 A change was made to the backend flag configuration.
 
-PROVIDER\_STALE
+PROVIDER_STALE
 
 The provider's cached state is no longer valid and may not be up-to-date with the source of truth.
 
-PROVIDER\_RECONCILING\*
+PROVIDER_RECONCILING*
 
 The context associated with the provider has changed, and the provider has not yet reconciled its associated state.
 
-PROVIDER\_CONTEXT\_CHANGED\*
+PROVIDER_CONTEXT_CHANGED*
 
 The context associated with the provider has changed, and the provider has reconciled its associated state.
 
-\* [static context (client-side) paradigm](/specification/glossary#static-context-paradigm) only
+* static context (client-side) paradigm only
 
-### Handler Functions[​](#handler-functions "Direct link to Handler Functions")
+### Handler Functions​
 
 A function or method which can be associated with a `provider event`, and runs when that event occurs. It declares an `event details` parameter.
 
-### Tracking Event Details[​](#tracking-event-details "Direct link to Tracking Event Details")
+### Tracking Event Details​
 
 A structure which supports definition of arbitrary properties, including nested objects, similar to the `evaluation context` and object-typed flag values.
 
-See [tracking event details](/specification/sections/tracking#62-tracking-event-details), [evaluation context](#evaluation-context).
+See tracking event details, evaluation context.

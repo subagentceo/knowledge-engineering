@@ -9,6 +9,7 @@ List memory versions
 ### Parameters
 
 - `MemoryVersionListParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -52,6 +53,7 @@ List memory versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -104,16 +106,20 @@ List memory versions
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class MemoryVersionListPageResponse:`
 
   Response payload for [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
   - `IReadOnlyList<BetaManagedAgentsMemoryVersion> Data`
 
     One page of `memory_version` objects, ordered by `created_at` descending (newest first), with `id` as tiebreak.
+
     - `required string ID`
 
       Unique identifier for this version (a `memver_...` value).
@@ -133,6 +139,7 @@ List memory versions
     - `required BetaManagedAgentsMemoryVersionOperation Operation`
 
       The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
       - `"created"Created`
 
       - `"modified"Modified`
@@ -140,6 +147,7 @@ List memory versions
       - `"deleted"Deleted`
 
     - `required Type Type`
+
       - `"memory_version"MemoryVersion`
 
     - `string? Content`
@@ -157,30 +165,37 @@ List memory versions
     - `BetaManagedAgentsActor CreatedBy`
 
       Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
       - `class BetaManagedAgentsSessionActor:`
 
         Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
         - `required string SessionID`
 
           ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
         - `required Type Type`
+
           - `"session_actor"SessionActor`
 
       - `class BetaManagedAgentsApiActor:`
 
         Attribution for a write made directly via the public API (outside of any session).
+
         - `required string ApiKeyID`
 
           ID of the API key that performed the write. This identifies the key, not the secret.
 
         - `required Type Type`
+
           - `"api_actor"ApiActor`
 
       - `class BetaManagedAgentsUserActor:`
 
         Attribution for a write made by a human user through the Anthropic Console.
+
         - `required Type Type`
+
           - `"user_actor"UserActor`
 
         - `required string UserID`

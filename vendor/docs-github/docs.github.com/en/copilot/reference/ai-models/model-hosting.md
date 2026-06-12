@@ -10,10 +10,7 @@ GitHub Copilot can use a variety of AI models. This article explains how these m
 
 Used for:
 
-* GPT-4.1
 * GPT-5 mini
-* GPT-5.2
-* GPT-5.2-Codex
 * GPT-5.3-Codex
 * GPT-5.4
 * GPT-5.4 mini
@@ -33,7 +30,6 @@ All input requests and output responses processed by GitHub Copilot's models con
 Used for:
 
 * Raptor mini
-* Goldeneye
 
 These models are deployed on GitHub managed Azure OpenAI tenant.
 
@@ -43,11 +39,16 @@ Used for:
 
 * Claude Haiku 4.5
 * Claude Sonnet 4.5
+* Claude Sonnet 4.6
 * Claude Opus 4.5
 * Claude Opus 4.6
 * Claude Opus 4.6 (fast mode) (preview)
 * Claude Opus 4.7
-* Claude Sonnet 4.6
+* Claude Opus 4.8
+* Claude Fable 5
+
+> [!WARNING] 
+> When Claude Fable 5 is used, Anthropic retains data, including prompts and outputs, to operate safety classifiers that detect harmful use. Other Claude models in GitHub Copilot remain covered by GitHub's existing data retention agreements, as documented below. Enterprise and business users need to enable the Claude Fable 5 model to make it available for your organization. You can read more about Anthropic's data handling practices for this model under section F of their [Service Specific Terms](https://www.anthropic.com/legal/service-specific-terms).
 
 These models are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. GitHub has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
@@ -68,12 +69,17 @@ Used for:
 * Gemini 2.5 Pro
 * Gemini 3 Flash
 * Gemini 3.1 Pro
+* Gemini 3.5 Flash
 
 GitHub Copilot uses Gemini 3.1 Pro, Gemini 3 Flash, and Gemini 2.5 Pro hosted on Google Cloud Platform (GCP). When using Gemini models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance): _Gemini doesn't use your prompts, or its responses, as data to train its models._
 
 To provide better service quality and reduce latency, GitHub uses [prompt caching](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance#customer_data_retention_and_achieving_zero_data_retention).
 
 When using Gemini models, input prompts and output completions continue to run through GitHub Copilot's content filters for public code matching, when applied, along with those for harmful or offensive content.
+
+## Microsoft models
+
+MAI-Code-1-Flash is a first-party Microsoft model hosted on Azure in GitHub's tenant. 
 
 ## Inline suggestions
 

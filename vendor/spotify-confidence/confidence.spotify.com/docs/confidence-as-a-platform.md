@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Confidence as a Platform (APIs)
@@ -10,7 +10,7 @@ At the foundational level, Confidence provides a set of independent APIs for
 performing experimentation-related tasks. These APIs are modular and extensible,
 allowing you to build your own experimentation platform on top of Confidence.
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/overview.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=a3cb7d9bf5755dd387dd8e8ebb61846a" alt="Overview" width="1400" height="837" data-path="images/overview.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/overview.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=a83c1f2ae381a1ac6aa37a1c662ea912" alt="Overview" width="1400" height="837" data-path="images/overview.png" />
 
 The main APIs are:
 

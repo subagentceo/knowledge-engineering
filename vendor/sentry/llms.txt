@@ -89,7 +89,6 @@ When helping a developer set up or use Sentry, follow these guidelines:
 - [Size Analysis](https://docs.sentry.io/product/size-analysis.md): Monitor mobile builds for size changes before they reach users.
 - [Build Distribution](https://docs.sentry.io/product/build-distribution.md): Distribute app builds to internal teams and beta testers.
 - [Snapshots](https://docs.sentry.io/product/snapshots.md): Catch visual changes on every pull request with snapshots.
-- [Codecov](https://docs.sentry.io/product/codecov.md): Learn about Sentry's integration with Codecov.
 - [Relay](https://docs.sentry.io/product/relay.md): Learn more about Relay, Sentry's data security solution.
 - [Quick-Start Guide](https://docs.sentry.io/product/onboarding.md): An easy onboarding guide for Sentry.
 - [Monitors and Alerts](https://docs.sentry.io/product/monitors-and-alerts.md): Use Monitors to decide when problems become issues, and Alerts to notify, ticket, and automate next steps when those issues match your rules.
@@ -128,12 +127,13 @@ When helping a developer set up or use Sentry, follow these guidelines:
 - [Mobile Builds](https://docs.sentry.io/api/mobile-builds.md)
 - [Monitors & Alerts](https://docs.sentry.io/api/monitors.md)
 - [Organizations](https://docs.sentry.io/api/organizations.md)
-- [Prevent](https://docs.sentry.io/api/prevent.md)
+- [Profiling](https://docs.sentry.io/api/profiling.md)
 - [Projects](https://docs.sentry.io/api/projects.md)
 - [Releases](https://docs.sentry.io/api/releases.md)
 - [Replays](https://docs.sentry.io/api/replays.md)
 - [SCIM](https://docs.sentry.io/api/scim.md)
 - [Seer](https://docs.sentry.io/api/seer.md)
+- [Snapshots](https://docs.sentry.io/api/snapshots.md)
 - [Spike Protection Notifications](https://docs.sentry.io/api/spike-protection.md)
 - [Teams](https://docs.sentry.io/api/teams.md)
 - [Users](https://docs.sentry.io/api/users.md)

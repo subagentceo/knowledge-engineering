@@ -30,7 +30,7 @@ Control and interact with headless browser instances programmatically
 - [/pdf - Render PDF](https://developers.cloudflare.com/browser-run/quick-actions/pdf-endpoint/index.md): Generate a PDF from a webpage or custom HTML using the Browser Run /pdf endpoint.
 - [/scrape - Scrape HTML elements](https://developers.cloudflare.com/browser-run/quick-actions/scrape-endpoint/index.md): Extract structured data from specific webpage elements using the Browser Run /scrape endpoint.
 - [/screenshot - Capture screenshot](https://developers.cloudflare.com/browser-run/quick-actions/screenshot-endpoint/index.md): Capture a screenshot of a fully rendered webpage using the Browser Run /screenshot endpoint.
-- [/snapshot - Take a webpage snapshot](https://developers.cloudflare.com/browser-run/quick-actions/snapshot/index.md): Capture both HTML content and a screenshot of a webpage in a single Browser Run /snapshot request.
+- [/snapshot - Capture multiple page formats](https://developers.cloudflare.com/browser-run/quick-actions/snapshot/index.md): Capture HTML, screenshots, Markdown, and the accessibility tree from a webpage in a single Browser Run /snapshot request.
 
 ## Chrome DevTools Protocol (CDP)
 

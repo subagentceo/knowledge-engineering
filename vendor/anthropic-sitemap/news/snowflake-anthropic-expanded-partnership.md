@@ -24,10 +24,10 @@ By combining Claude's reasoning capabilities with Snowflake's governed data envi
 
 By bringing Claude directly to enterprise data in Snowflake, customers can gain insights from both structured and unstructured data, while maintaining rigorous security standards. Key benefits of the partnership include:
 
-- **Enterprise intelligence powered by Claude:** Claude Sonnet 4.5 powers Snowflake Intelligence, an enterprise intelligence agent that provides answers from structured and unstructured data using natural language.
-- **Multimodal analysis across all data types:** Through Snowflake Cortex AI Functions, customers can use Claude models—including Claude Opus 4.5, which Snowflake hosted on day one—to query text, images, audio, and traditional tabular data, all using SQL.
-- **Building custom multi-agent solutions:** Snowflake Cortex Agents enables customers to build production-ready data agents powered by Claude. These agents retrieve and reason over structured and unstructured data with built-in accuracy and efficiency.
-- **Built-in governance and observability:** Snowflake Horizon Catalog provides end-to-end governance and responsible AI controls, so teams in regulated industries can move AI agents from pilots to production with confidence.
+*   **Enterprise intelligence powered by Claude:** Claude Sonnet 4.5 powers Snowflake Intelligence, an enterprise intelligence agent that provides answers from structured and unstructured data using natural language.
+*   **Multimodal analysis across all data types:** Through Snowflake Cortex AI Functions, customers can use Claude models—including Claude Opus 4.5, which Snowflake hosted on day one—to query text, images, audio, and traditional tabular data, all using SQL.
+*   **Building custom multi-agent solutions:** Snowflake Cortex Agents enables customers to build production-ready data agents powered by Claude. These agents retrieve and reason over structured and unstructured data with built-in accuracy and efficiency.
+*   **Built-in governance and observability:** Snowflake Horizon Catalog provides end-to-end governance and responsible AI controls, so teams in regulated industries can move AI agents from pilots to production with confidence.
 
 ## Customers are already seeing results
 
@@ -47,18 +47,18 @@ Customers can get started with Claude on Snowflake through this quickstart guide
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -6,7 +6,7 @@ Societal Impacts
 
 Apr 30, 2026
 
-![How people ask Claude for personal guidance](https://www-cdn.anthropic.com/images/4zrzovbb/website/6380b3c2dc9e4011a3cd96fec382bd9197511e31-1000x1000.svg)
+![How people ask Claude for personal guidance](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa7e1a702a75c34915a5a4ac232d38272d38d0964-2000x1125.png&w=3840&q=75)
 
 People don’t just come to Claude for code reviews or meeting summaries. They ask whether to take the job, how to talk to their crush, if they should move halfway across the world. Using our privacy-preserving analysis tool on a random sample of 1 million claude.ai conversations, we found that roughly 6% were people coming to Claude for personal guidance—seeking not just information but perspective on what to do next.
 
@@ -42,9 +42,11 @@ Reaffirming a person’s one-sided perspective can create or worsen divides in r
 
 We used an automatic classifier which judged sycophancy by looking at whether Claude showed a willingness to push back, maintain positions when challenged, give praise proportional to the merit of ideas, and speak frankly regardless of what a person wants to hear. Most of the time in these situations, Claude expressed no sycophancy—only 9% of conversations included sycophantic behavior (Figure 2). But two domains were exceptions: we saw sycophantic behavior in 38% of conversations focused on spirituality, and 25% of conversations on relationships. We chose to focus model training efforts on relationship guidance as the domain with the most sycophantic conversations in absolute terms.
 
+  
+
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F70c11ed1d775f74fe6f16adfb1de9b77b6dd39d9-1920x1080.png&w=3840&q=75)
 
-Figure 2: Sycophantic behavior by guidance domain.
+Figure 2: Sycophantic behavior by guidance domain.  
 
 ## Improving Claude’s behavior in relationship guidance
 
@@ -57,6 +59,8 @@ To address this, we identified the different ways people push back in conversati
 We evaluated how much the new model has improved through a technique we call stress-testing. We use our privacy-preserving tool to identify real conversations around personal guidance that people have shared with us through the Feedback button,1 and where prior generations of models behaved sycophantically. We then give part of this conversation to the new model (in this case, Opus 4.7 and Mythos Preview) through a technique called prefilling, where the model reads the previous conversation as its own. Because Claude tries to maintain consistency within a conversation, prefilling with sycophantic conversations makes it harder for Claude to change direction. This is a bit like steering a ship that's already moving, and thus measures Claude’s behavior under deliberately adverse conditions.
 
 Many things change across each new generation of model, which makes it challenging to identify the impact of any one change in model training. However, in both Opus 4.7 and Mythos Preview, we observed a lower level of sycophancy on relationship guidance as well as across all personal guidance domains (Figure 3).
+
+  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4bb6cffa44936fb8cc6c9059bd057ef5f1695650-1920x880.png&w=3840&q=75)
 
@@ -97,23 +101,22 @@ Available here.
 ### Footnotes
 
 1.  At the bottom of every response on claude.ai is an option to send feedback via a thumbs up or thumbs down button, which shares the conversation with Anthropic.
+    
+
+  
 
 ## Related content
+
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
 
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

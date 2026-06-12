@@ -33,12 +33,16 @@ Sentry captures data by using an SDK within your application's runtime. These ar
 Install the **NuGet** package to add the Sentry dependency:
 
 ```shell
-dotnet add package Sentry -v 6.5.0
+dotnet add package Sentry -v 6.6.0
 ```
 
+*Other available variations of the above snippet: Package Manager*
+
 ```shell
-dotnet add package Sentry.Profiling -v 6.5.0
+dotnet add package Sentry.Profiling -v 6.6.0
 ```
+
+*Other available variations of the above snippet: Package Manager*
 
 ## [Configure](https://docs.sentry.io/platforms/dotnet.md#configure)
 
@@ -47,7 +51,7 @@ To capture all errors, even the one during the startup of your application, you 
 ```csharp
 SentrySdk.Init(options =>
 {
-    options.Dsn = "___PUBLIC_DSN___";
+    options.Dsn = "https://<key>@o<orgId>.ingest.sentry.io/<projectId>";
     options.Debug = true;
     // Adds request URL and headers, IP and name for users, etc.
     options.SendDefaultPii = true;
@@ -76,6 +80,8 @@ catch (Exception ex)
     SentrySdk.CaptureException(ex);
 }
 ```
+
+*Other available variations of the above snippet: fsharp*
 
 ## [Next Steps](https://docs.sentry.io/platforms/dotnet.md#next-steps)
 

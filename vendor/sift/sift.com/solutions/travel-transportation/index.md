@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Travel and Transportation
+# Secure Growth for Travel & Transportation
+
+Home/Solutions/Travel and Transportation
 
 # Secure Growth for Travel & Transportation
 
@@ -10,7 +12,7 @@ Sift has been one of the best companies I’ve ever dealt with.”
 
 —Mike Wilkins, Vice President, Trust & Safety at Turo
 
-[Speak to an Expert](/demo/)[Explore Industry Fraud Data](/fibr-fraud-industry-benchmarking-resource/)
+Speak to an ExpertExplore Industry Fraud Data
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,41 +36,41 @@ Payment fraud attack rate for transportation businesses in the Sift network
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Travel & Transportation Leaders Scale Securely with Sift
 
--   ![zip-car-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![zip-car-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![alaska-airlines-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![alaska-airlines-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![destinia-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![destinia-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![traveloka-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![traveloka-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![hopper-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hopper-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
 
--   ![zip-car-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![zip-car-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![alaska-airlines-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![alaska-airlines-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![destinia-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![destinia-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![traveloka-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![traveloka-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![hopper-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hopper-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
 
 ## Fraud Flocks to Travel Growth
@@ -81,13 +83,13 @@ As more travelers research and buy all aspects of their trips online, the onus i
 
 Of total revenue for travel and tourism will be generated through online sales by 2028
 
-[Source: Statista](https://www.statista.com/outlook/mmo/travel-tourism/worldwide)
+Source: Statista
 
 117%
 
 Increase in suspected digital fraud in the global travel industry between 2019 and 2022
 
-[Source: TransUnion](https://newsroom.transunion.com/transunion-report-finds-digital-fraud-attempts-spike-80-globally-from-pre-pandemic/)
+Source: TransUnion
 
 ## Grow Fearlessly with AI-Powered Solutions
 
@@ -97,7 +99,7 @@ Increase in suspected digital fraud in the global travel industry between 2019 a
 
 **Stay Ahead of Emerging Fraud**. Get complete visibility into fraud patterns and emerging abuse tactics. Make reliable, data-driven decisions that enable your business to outpace fraud and focus on growth.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![Travel\_Solutions Overview Circle@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -151,7 +153,7 @@ Sift’s commitment to long-term customer success empowers more than 700 custome
 
 ## Our Impact on Leading Brands
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Turo logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20244%2089'%3E%3C/svg%3E)
 
@@ -167,7 +169,7 @@ Mike Wilkins
 
 Vice President, Trust & Safety at Turo
 
-[read customer story](/resources/case-studies/)
+read customer story
 
 ![Case Study Turo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -189,7 +191,7 @@ Wayan Tresna Perdana
 
 Senior Product Manager, User Platform at Traveloka
 
-[read customer story](/resources/case-studies/traveloka/)
+read customer story
 
 ![case-study-traveloka](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -211,7 +213,7 @@ Gustavo Tonti
 
 Fraud manager at Destinia
 
-[read customer story](/resources/case-studies/destinia/)
+read customer story
 
 ![Case Study Destinia](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -231,8 +233,6 @@ Sift has the data and helps fight fraud across industries.
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![digital-goods-Services](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Digital Goods
@@ -240,8 +240,6 @@ Digital Goods
 Instant risk scoring for instant transactions.
 
 learn more
-
-](/solutions/digital-goods-services/)[
 
 ![Marketplace](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -251,8 +249,6 @@ Clearly see the complex collusion that comes from multi-party marketplaces.
 
 learn more
 
-](/solutions/marketplaces/)[
-
 ![ecommerce](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 E-commerce
@@ -261,8 +257,6 @@ Deliver physical goods to digital customers with confidence.
 
 learn more
 
-](/solutions/ecommerce/)[
-
 ![fintech-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Fintech
@@ -270,8 +264,6 @@ Fintech
 Reduce fraud in your fintech company by securing every transaction with Sift.
 
 learn more
-
-](/solutions/fintech/)
 
 ### Start Your Digital Risk Assessment
 
@@ -283,13 +275,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -299,8 +289,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -308,8 +296,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -319,13 +305,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

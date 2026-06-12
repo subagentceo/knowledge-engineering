@@ -20,6 +20,7 @@ holds at most two non-archived certificates.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Body Parameters
@@ -60,6 +61,7 @@ holds at most two non-archived certificates.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -68,7 +70,7 @@ holds at most two non-archived certificates.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "ca_certificate_pem": "-----BEGIN CERTIFICATE-----\\nMIIBexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexa\\n...illustrative placeholder, not a real certificate...\\n-----END CERTIFICATE-----\\n"
         }'

@@ -122,6 +122,7 @@ paths:
             anyOf:
               - type: string
               - type: 'null'
+            deprecated: true
             title: Parallel-Beta
             x-stainless-override-schema:
               x-stainless-param: betas
@@ -130,6 +131,7 @@ paths:
               description: Optional header to specify the beta version(s) to enable.
               items:
                 $ref: '#/components/schemas/ParallelBeta'
+          deprecated: true
       requestBody:
         required: true
         content:

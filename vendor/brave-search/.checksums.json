@@ -1,30 +1,26 @@
 {
   "https://brave.com/search/api/guides/": {
-    "sha256": "b0d17fff8c4dd133bd07c8f89c4091d7c90846a0d3c95484ef7730ad514a0f8b",
-    "etag": "W/\"6b6d77d03bc5daf5207385dea4936583\"",
-    "lastModified": "Fri, 08 May 2026 17:54:00 GMT",
-    "fetchedAt": "2026-05-15T04:38:01.017Z",
-    "lastStatus": 200
+    "sha256": "d6f22671c303084f02c0aee6b179e452a61a8bd194939d65fdc2bb9a05b52016",
+    "lastStatus": 200,
+    "etag": "W/\"21e29b9239a03b34660f969d49f2b34a\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
   },
   "https://brave.com/search/api/styles.min.fd51ef8255dcfe8c85e4c4e651ce33090b0ff321e0d8f5f63e70c7765cee6619.css": {
     "sha256": "6d4764f43ae522a49a9e267846cdaf957f502a3a15f096a5a1a870f6d7a40475",
+    "lastStatus": 304,
     "etag": "\"0b53a679ec765da0e47c0ad777a3ff6f\"",
-    "lastModified": "Thu, 19 Feb 2026 19:30:25 GMT",
-    "fetchedAt": "2026-05-15T04:38:01.017Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 19 Feb 2026 19:30:25 GMT"
   },
   "https://brave.com/search/api/tools/": {
-    "sha256": "fe2c46a949c38de649e55e8b20c28ccc5006aaed3d35ecef3b4129e0fd833f6f",
-    "etag": "W/\"3b19f7c85451f366ebf81800d740d370\"",
-    "lastModified": "Thu, 14 May 2026 23:25:43 GMT",
-    "fetchedAt": "2026-05-15T04:38:01.017Z",
-    "lastStatus": 200
+    "sha256": "847929e618189484dc5fb881a06356f96936896011faab08dcc5eed64b3ac615",
+    "lastStatus": 200,
+    "etag": "W/\"f8b330daf51a99a0dca5f1a6131994c8\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
   },
   "https://brave.com/search/api/use-cases/": {
-    "sha256": "52e5f3bf4dd8a891dcbf41a69ad022dbbb25b0fef359084d3ddf525da5315cf6",
-    "etag": "W/\"3b86d9c718dfea8962a468d4191886a9\"",
-    "lastModified": "Thu, 14 May 2026 17:27:07 GMT",
-    "fetchedAt": "2026-05-15T04:38:01.017Z",
-    "lastStatus": 200
+    "sha256": "c380e42f86e671a616ff95fc28b4f631c6061907b78987e615c0b3d527776f43",
+    "lastStatus": 200,
+    "etag": "W/\"6275a55fa0d82f0aa17ef4dfe87ca020\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
   }
 }

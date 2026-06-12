@@ -11,12 +11,15 @@ Delete Session
 - `sessionID: string`
 
 - `params: SessionDeleteParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -69,29 +72,33 @@ Delete Session
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeletedSession`
 
   Confirmation that a `session` has been permanently deleted.
+
   - `id: string`
 
   - `type: "session_deleted"`
+
     - `"session_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeletedSession = await client.beta.sessions.delete(
-  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  'sesn_011CZkZAtmR3yMPDzynEDxu7',
 );
 
 console.log(betaManagedAgentsDeletedSession.id);

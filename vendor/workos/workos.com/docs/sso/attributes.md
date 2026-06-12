@@ -1,8 +1,12 @@
-# Profile Attributes
+# IdP Attributes
 
 ## Introduction
 
-WorkOS automatically normalizes a standard set of attributes from identity providers (IdPs) into the [Single Sign-On (SSO) Profile](https://workos.com/docs/reference/sso/profile) object. More unique cases can be mapped by your customer's IT contact. In this guide, we’ll explain how to map data from identity providers to the SSO Profiles.
+The [IdP Attributes page](https://dashboard.workos.com/environment/identity-provider-attributes) in the WorkOS Dashboard is where you configure which attributes are collected from identity providers (IdPs) and how they map to [SSO Profile](https://workos.com/docs/reference/sso/profile) and [Directory User](https://workos.com/docs/reference/directory-sync/directory-user) objects.
+
+WorkOS automatically normalizes a standard set of attributes from identity providers into SSO Profiles. More unique cases can be mapped by your customer's IT contact. In this guide, you’ll learn how to configure standard, predefined, and custom attributes.
+
+> For Directory Sync-specific attribute details, see [User Attributes](https://workos.com/docs/directory-sync/attributes).
 
 ## Definitions
 
@@ -19,12 +23,15 @@ WorkOS automatically normalizes a standard set of attributes from identity provi
 
 Every SSO Profile comes with the following standard attributes. These are the core set of attributes that are common across all identity providers. These are structured fields with a guaranteed schema in the top-level SSO Profile payload.
 
-| Attribute    | Description                                                                                                            |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `idp_id`     | The user’s unique identifier, assigned by the identity provider. Different identity providers use different ID formats |
-| `email`      | The user’s email                                                                                                       |
-| `first_name` | The user’s first name                                                                                                  |
-| `last_name`  | The user’s last name                                                                                                   |
+| Attribute    | Type and description                                                                                                   | Status            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| `idp_id`     | The user’s unique identifier, assigned by the identity provider. Different identity providers use different ID formats | Strictly required |
+| `email`      | The user’s email                                                                                                       | Strictly required |
+| `first_name` | The user’s first name                                                                                                  | Configurable      |
+| `last_name`  | The user’s last name                                                                                                   | Configurable      |
+| `name`       | The user’s full name                                                                                                   | Configurable      |
+
+`idp_id` and `email` are always required for SSO Profiles. The `first_name`, `last_name`, and `name` attributes can be configured per environment. By default, `first_name` and `last_name` are enabled and required, while `name` is disabled and optional.
 
 ***
 

@@ -1,0 +1,61 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Instant Voice Cloning
+
+<img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/5771a77cc729af95301635acf8de5519cfb53f40a3f5d38e6af591a880907521/assets/images/product-guides/voices/voice-cloning/voice-cloning-product-feature.webp" alt="Voice cloning product feature" />
+
+## Creating an Instant Voice Clone
+
+When cloning a voice, it's important to consider what the AI has been trained on: which languages and what type of dataset. Read more about each individual model and their strengths on the [Models page](/docs/overview/models).
+
+## Guide
+
+If you are unsure about what is permissible from a legal standpoint, please consult the [Terms of
+Service](https://elevenlabs.io/terms-of-use) and our [AI Safety
+information](https://elevenlabs.io/safety) for more information.
+
+### Navigate to the Instant Voice Cloning page
+
+In the ElevenLabs dashboard, select the **Voices** section on the left, then click the **plus** icon.
+
+From the modal, select **Instant Voice Clone**.
+
+### Upload or record your audio
+
+Follow the on-screen instructions to upload or record your audio.
+
+### Confirm voice details
+
+<img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/b3b4b3b8361ca372638c9c315e69588dcc44520bfaa00a3455720d963894d8ed/assets/images/product-guides/voices/voice-cloning/voice-cloning-ivc-modal.jpg" alt="Voice cloning IVC modal" />
+
+Name and label your voice clone, confirm that you have the right and consent to clone the voice, then click **Save voice**.
+
+### Use your voice clone
+
+Under the **Voices** section in the dashboard, click the **My Voices** then click **Use voice** to begin using it.
+
+## Best practices
+
+#### Record at least 1 minute of audio
+
+Avoid recording more than 3 minutes, this will yield little improvement and can, in some cases, even be detrimental to the clone.
+
+How the audio was recorded is more important than the total length (total runtime) of the samples. The number of samples you use doesn't matter; it is the total combined length (total runtime) that is the important part.
+
+Approximately 1-2 minutes of clear audio without any reverb, artifacts, or background noise of any kind is recommended. When we speak of "audio or recording quality," we do not mean the codec, such as MP3 or WAV; we mean how the audio was captured. However, regarding audio codecs, using MP3 at 128 kbps and above is advised. Higher bitrates don't have a significant impact on the quality of the clone.
+
+#### Keep the audio consistent
+
+The AI will attempt to mimic everything it hears in the audio. This includes the speed of the person talking, the inflections, the accent, tonality, breathing pattern and strength, as well as noise and mouth clicks. Even noise and artefacts which can confuse it are factored in.
+
+Ensure that the voice maintains a consistent tone throughout, with a consistent performance. Also, make sure that the audio quality of the voice remains consistent across all the samples. Even if you only use a single sample, ensure that it remains consistent throughout the full sample. Feeding the AI audio that is very dynamic, meaning wide fluctuations in pitch and volume, will yield less predictable results.
+
+#### Replicate your performance
+
+Another important thing to keep in mind is that the AI will try to replicate the performance of the voice you provide. If you talk in a slow, monotone voice without much emotion, that is what the AI will mimic. On the other hand, if you talk quickly with much emotion, that is what the AI will try to replicate.
+
+It is crucial that the voice remains consistent throughout all the samples, not only in tone but also in performance. If there is too much variance, it might confuse the AI, leading to more varied output between generations.
+
+#### Find a good balance for the volume
+
+Find a good balance for the volume so the audio is neither too quiet nor too loud. The ideal would be between -23 dB and -18 dB RMS with a true peak of -3 dB.

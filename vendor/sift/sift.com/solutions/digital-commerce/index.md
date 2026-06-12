@@ -1,7 +1,8 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/E-Commerce Fraud Prevention
+# E-Commerce Fraud Prevention That's Easy, Effective, and Accurate
 
-# E-Commerce Fraud Prevention  
-That's Easy, Effective, and Accurate
+Home/Solutions/E-Commerce Fraud Prevention
+
+# E-Commerce Fraud PreventionThat's Easy, Effective, and Accurate
 
 Sift fuels secure e-commerce growth through identity trust. Our AI-powered fraud decisioning platform reduces risk and secures customer loyalty with deep, identity-level insights that help businesses deliver dynamic digital experiences.
 
@@ -17,86 +18,78 @@ Thanks, we’ll be in touch shortly to book your demo.
 
 While you're here, check out additional resources below:
 
-[
-
 ![book-frame](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 customer stories
-
-](/resources/case-studies/)[
 
 ![compare fraud rates](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 compare fraud rates
 
-](/fibr-fraud-industry-benchmarking-resource/)[
-
 ![return to homepage](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Explore Sift Events
-
-](/events/)
 
 ![bg-card](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20748%20408'%3E%3C/svg%3E)
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## E-Commerce Leaders Grow Fearlessly with Sift
 
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
-
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
-    
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
-    
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
-    
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
-    
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
--   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+    
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+    
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![paulas-choice-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+    
+*   ![harrys-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+    
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
 ## Give Customers Complete Confidence in Your Business
@@ -110,13 +103,13 @@ Shift from reactive fraud firedrills to proactive protection that delights trust
 Of purchases will be done  
 online by 2040
 
-[Source: Fundera](https://www.fundera.com/resources/brick-and-mortar-vs-online-statistics)
+Source: Fundera
 
 73%
 
 Of consumers use multiple channels to shop
 
-[Source: Fundera](https://www.fundera.com/resources/brick-and-mortar-vs-online-statistics)
+Source: Fundera
 
 ## Fight the Full Spectrum of Fraud with Identity-Level Context
 
@@ -152,9 +145,9 @@ Average Fraud Block Rate
 
 **Stop wasting revenue on review.** Pinpoint high-risk users in real time and apply the right level of friction. Confidently scale with adaptive protection that adjusts to changing user behaviors and fraud tactics.
 
-**Predict risk and growth with confidence.** Sift delivers decisions with dimension through [Identity Trust XD](/platform/). Cross-dimensional context and insights sharpen decisioning accuracy, speeding up and strengthening fraud operations.
+**Predict risk and growth with confidence.** Sift delivers decisions with dimension through Identity Trust XD. Cross-dimensional context and insights sharpen decisioning accuracy, speeding up and strengthening fraud operations.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![Quotation mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -174,7 +167,7 @@ RiskWatch
 
 RiskWatch allows fraud teams to set target block rates that adapt automatically in response to real-time changes in user behavior, fraud attacks, or other dramatic shifts, while capturing additional risky events as they occur. As fluctuations subside, block rates return to pre-incident thresholds.
 
-[Learn More](/blog/introducing-sift-riskwatch/)
+Learn More
 
 ![Quotation mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -190,7 +183,7 @@ Workflow Simulation
 
 Instantly identify and block risk at account creation with confidence using real-time AI-powered detection.
 
-[Learn More](/blog/introducing-workflow-simulation/)
+Learn More
 
 ![Quotation mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -250,7 +243,7 @@ Prevent revenue leakage by stopping malicious chargeback activity at the source.
 
 ## E-Commerce Succeeds with Sift
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![paulas-choice-logo-black](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
 
@@ -264,7 +257,7 @@ Joshua Hamman
 
 Director of Client Services at Paula’s Choice
 
-[read customer story](/resources/case-studies/paulas-choice-case-study/)
+read customer story
 
 ![Case-Study-Paulas-Choice](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -286,7 +279,7 @@ Kaity Reagle
 
 Trust and Safety Senior Associate at Harry’s
 
-[read customer story](/resources/case-studies/harrys/)
+read customer story
 
 ![Case-Study-GetYourGuide](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -306,8 +299,6 @@ Fight fraud at every touchpoint with Sift’s AI-powered technology and identity
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Account Creation
@@ -315,8 +306,6 @@ Account Creation
 Stop fraudsters before they get the chance to activate accounts.
 
 learn more
-
-](/solutions/account-creation/)[
 
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -326,8 +315,6 @@ Lock down loyal customers’ accounts and assets, and prevent valuable PII from 
 
 learn more
 
-](/solutions/ato/)[
-
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Payment Fraud
@@ -336,8 +323,6 @@ Cover key risk points and payment types no matter how fast or how far you scale.
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![chargeback-fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Chargeback Fraud
@@ -345,8 +330,6 @@ Chargeback Fraud
 Suffering from friendly fraud? Automatically challenge unjust chargebacks with AI-powered insights.
 
 learn more
-
-](/solutions/chargeback-fraud/)
 
 ### Start Your Digital Risk Assessment
 
@@ -358,13 +341,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Press-Release-Tile-Image-Color-Pills\_Blue](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3C/svg%3E)
 
@@ -374,8 +355,6 @@ Guide
 
 Get the Guide
 
-](/resources/ebooks/digital-commerce-evaluation-guide-for-online-fraud-solutions/)[
-
 ![Press-Release-Tile-Image-Color-Pills\_Blue](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3C/svg%3E)
 
 Ebook
@@ -383,8 +362,6 @@ Ebook
 #### Digital Commerce Evaluation Guide for Online Fraud Solutions
 
 Read the Ebook
-
-](/resources/ebooks/fraud-prevention-tactical-guide-e-commerce-operations/)[
 
 ![Press-Release-Tile-Image-Color-Pills\_Blue](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3C/svg%3E)
 
@@ -394,12 +371,10 @@ Fraud Data
 
 Explore Data
 
-](/fibr-fraud-industry-benchmarking-resource/)[](#)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

@@ -1,3 +1,5 @@
+# What We Can Learn From E-Commerce Emails, Part 1: Welcome Campaigns - Iterable
+
 ## What We Can Learn From E-Commerce Emails, Part 1: Welcome Campaigns
 
 **Published by**
@@ -6,9 +8,9 @@ April 25, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/Screen-Shot-2017-04-24-at-10.34.33-AM.png)
 
-Back in February, we released our first [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/) to examine how the leading e-retailers are implementing their email marketing campaigns.
+Back in February, we released our first User Engagement Top 100 Report to examine how the leading e-retailers are implementing their email marketing campaigns.
 
-We also published a [three-part blog post series](https://iterable.com/blog/email-marketing-in-e-commerce-part-1-welcome-campaigns) to introduce the industry statistics of how businesses are welcoming new users, recovering abandoned carts and sending engaging blasts.
+We also published a three-part blog post series to introduce the industry statistics of how businesses are welcoming new users, recovering abandoned carts and sending engaging blasts.
 
 To dive deeper into the email strategies of America’s top retailers, today we are launching another three-part blog series to demonstrate who is winning and losing at email marketing with real-life examples.
 
@@ -20,7 +22,7 @@ Tory Burch first offered a 10 percent-off promo code, followed by an introductio
 
 The high-end fashion retailer highlighted its visual aesthetic with eye-catching photography. With this welcome series that combines form and function, it’s probably safe to say that Tory Burch is right on track to increasing its user engagement.
 
-Unfortunately, not all e-commerce emails are as effective. Electronics company Newegg demonstrates that one of the common trends among online retailers is a disjointedness between transactional account confirmations (Fig. 2) and more vibrant triggered onboarding emails (Fig. 3). With the right [growth marketing platform](https://iterable.com), these messages could be easily combined.
+Unfortunately, not all e-commerce emails are as effective. Electronics company Newegg demonstrates that one of the common trends among online retailers is a disjointedness between transactional account confirmations (Fig. 2) and more vibrant triggered onboarding emails (Fig. 3). With the right growth marketing platform, these messages could be easily combined.
 
 ![](https://iterableblogimport.files.wordpress.com/2017/04/f9e74-1rw5oz0qcb7e89qqicegq3g.png)
 
@@ -46,4 +48,4 @@ To sum up, here are a few recommendations to optimize your email marketing strat
 
 Stay tuned for the next installment of this blog series, where we will discuss what makes an effective shopping cart abandonment email.
 
-To see more case studies from leading e-retailers, download our [User Engagement Top 100 Report](https://iterable.com/email-marketing-in-ecommerce/) on email marketing in e-commerce.
+To see more case studies from leading e-retailers, download our User Engagement Top 100 Report on email marketing in e-commerce.

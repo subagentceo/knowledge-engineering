@@ -52,7 +52,8 @@ EOF
 agent_id=$(jq -r '.id' <<<"$agent_response")
 ````
 
-```bash
+  
+````bash
 AGENT_ID=$(ant beta:agents create \
   --name "GitHub Assistant" \
   --model claude-opus-4-8 \
@@ -60,9 +61,10 @@ AGENT_ID=$(ant beta:agents create \
   --tool '{type: agent_toolset_20260401}' \
   --tool '{type: mcp_toolset, mcp_server_name: github}' \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 agent = client.beta.agents.create(
     name="GitHub Assistant",
     model="claude-opus-4-8",
@@ -78,9 +80,10 @@ agent = client.beta.agents.create(
         {"type": "mcp_toolset", "mcp_server_name": "github"},
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const agent = await client.beta.agents.create({
   name: "GitHub Assistant",
   model: "claude-opus-4-8",
@@ -96,9 +99,10 @@ const agent = await client.beta.agents.create({
     { type: "mcp_toolset", mcp_server_name: "github" },
   ],
 });
-```
+````
 
-```csharp
+  
+````csharp
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "GitHub Assistant",
@@ -116,9 +120,10 @@ var agent = await client.Beta.Agents.Create(new()
         new BetaManagedAgentsMcpToolsetParams { Type = "mcp_toolset", McpServerName = "github" },
     ],
 });
-```
+````
 
-```go
+  
+````go
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "GitHub Assistant",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
@@ -146,9 +151,10 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var agent = client.beta().agents().create(
     AgentCreateParams.builder()
         .name("GitHub Assistant")
@@ -173,9 +179,10 @@ var agent = client.beta().agents().create(
         )
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $agent = $client->beta->agents->create(
     name: 'GitHub Assistant',
     model: 'claude-opus-4-8',
@@ -196,9 +203,10 @@ $agent = $client->beta->agents->create(
         ),
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 agent = client.beta.agents.create(
   name: "GitHub Assistant",
   model: "claude-opus-4-8",
@@ -214,7 +222,7 @@ agent = client.beta.agents.create(
     {type: "mcp_toolset", mcp_server_name: "github"}
   ]
 )
-```
+````
 
 </CodeGroup>
 
@@ -226,11 +234,11 @@ The MCP toolset defaults to a permission policy of `always_ask`, which requires 
 
 Each entry in the `mcp_servers` array defines one connection.
 
-| Field  | Description                                                                                                                                                                                                                                  |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type` | Required. Must be `"url"`.                                                                                                                                                                                                                   |
+| Field | Description |
+| --- | --- |
+| `type` | Required. Must be `"url"`. |
 | `name` | Required. A unique name for this server within the agent (1–255 characters). Used as the `mcp_server_name` in the `tools` array and surfaced on MCP tool events in the [session event stream](/docs/en/managed-agents/events-and-streaming). |
-| `url`  | Required. The endpoint of the remote MCP server (up to 2048 characters).                                                                                                                                                                     |
+| `url` | Required. The endpoint of the remote MCP server (up to 2048 characters). |
 
 Constraints:
 
@@ -272,7 +280,7 @@ See [configuring the toolset](/docs/en/managed-agents/tools#configuring-the-tool
 
 ### MCP tool output handling
 
-When an MCP tool output exceeds 100k tokens, it is automatically written to a file in the sandbox. The model receives a truncated preview with the file path and can read the full content from there.
+When an MCP tool output exceeds 100,000 tokens, it is automatically written to a file in the sandbox. The model receives a truncated preview with the file path and can read the full content from there.
 
 ## Provide authentication at session creation
 
@@ -297,40 +305,45 @@ EOF
 session_id=$(jq -r '.id' <<<"$session_response")
 ````
 
-```bash
+  
+````bash
 SESSION_ID=$(ant beta:sessions create \
   --agent "$AGENT_ID" \
   --environment-id "$ENVIRONMENT_ID" \
   --vault-id "$VAULT_ID" \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
     vault_ids=[vault.id],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
   vault_ids: [vault.id],
 });
-```
+````
 
-```csharp
+  
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
     EnvironmentID = environment.ID,
     VaultIds = [vault.ID],
 });
-```
+````
 
-```go
+  
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent:         anthropic.BetaSessionNewParamsAgentUnion{OfString: anthropic.String(agent.ID)},
 	EnvironmentID: environment.ID,
@@ -339,9 +352,10 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var session = client.beta().sessions().create(
     SessionCreateParams.builder()
         .agent(agent.id())
@@ -349,23 +363,25 @@ var session = client.beta().sessions().create(
         .addVaultId(vault.id())
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
     vaultIDs: [$vault->id],
 );
-```
+````
 
-```ruby
+  
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
   vault_ids: [vault.id]
 )
-```
+````
 
 </CodeGroup>
 
@@ -375,15 +391,11 @@ Credentials are matched by URL, so the vault must contain a credential whose `mc
 
 Session creation does not validate MCP connectivity or credentials. If an MCP server is unreachable or rejects the supplied credential, the session still starts and interaction remains possible. A `session.error` event is emitted with the `mcp_server_name` of the affected server and a `retry_status`:
 
-| Error type                        | Meaning                                                                                           |
-| --------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `mcp_connection_failed_error`     | The MCP server could not be reached (network error, timeout, or non-authentication HTTP failure). |
-| `mcp_authentication_failed_error` | The MCP server was reached but rejected the credential from the attached vault.                   |
+| Error type | Meaning |
+| --- | --- |
+| `mcp_connection_failed_error` | The MCP server could not be reached (network error, timeout, or non-authentication HTTP failure). |
+| `mcp_authentication_failed_error` | The MCP server was reached but rejected the credential from the attached vault. |
 
 You can decide whether to block further interaction on this error, trigger a credential rotation, or let the session continue without the affected server's tools. The connection is retried on the next `session.status_idle` to `session.status_running` transition. See [Session event stream](/docs/en/managed-agents/events-and-streaming) for details on consuming `session.error` and other events.
 
-## Supported MCP server types
-
-Claude Managed Agents connects to [remote MCP servers](/docs/en/agents-and-tools/remote-mcp-servers) that expose an HTTP endpoint, or to private MCP servers through [MCP tunnels](/docs/en/agents-and-tools/mcp-tunnels/overview). The server must support the MCP protocol's streamable HTTP transport.
-
-For more information on MCP and building MCP servers, see the [MCP documentation](https://modelcontextprotocol.io).
+See [Supported MCP server types](/docs/en/managed-agents/reference#supported-mcp-server-types) in the reference for transport requirements.

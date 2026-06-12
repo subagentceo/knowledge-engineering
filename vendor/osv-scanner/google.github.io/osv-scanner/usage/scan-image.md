@@ -1,23 +1,25 @@
-1.  [Usage](/osv-scanner/usage/)
+# Container Image Scanning
+
+1.  Usage
 2.  Container Image Scanning
 
-# [](#container-image-scanning)Container Image Scanning
+# Container Image Scanning
 
 Table of contents
 
--   [Container Image Scanning](#container-image-scanning)
-    -   [Prerequisites](#prerequisites)
-    -   [Scanning Methods](#scanning-methods)
-        -   [Usage Notes](#usage-notes)
-    -   [Scanning targets](#scanning-targets)
-    -   [Output](#output)
-        -   [Detailed Output:](#detailed-output)
+*   Container Image Scanning
+    *   Prerequisites
+    *   Scanning Methods
+        *   Usage Notes
+    *   Scanning targets
+    *   Output
+        *   Detailed Output:
 
 OSV-Scanner analyzes container images by extracting package information and matching it against known vulnerabilities in the OSV.dev database. This helps identify potential security risks in your containerized applications.
 
-### [](#prerequisites)Prerequisites
+### Prerequisites
 
--   **Docker (Optional)**: If you want to scan images directly by name (e.g., my-image:latest) without exporting them first, the docker command-line tool must be installed and available in your system’s PATH. If you choose to scan exported image archives, Docker is not required.
+*   **Docker (Optional)**: If you want to scan images directly by name (e.g., my-image:latest) without exporting them first, the docker command-line tool must be installed and available in your system’s PATH. If you choose to scan exported image archives, Docker is not required.
 
 All image scanning is done with the `scan image` subcommand:
 
@@ -25,7 +27,7 @@ All image scanning is done with the `scan image` subcommand:
 osv-scanner scan image <image-name>:<tag>
 ```
 
-## [](#scanning-methods)Scanning Methods
+## Scanning Methods
 
 You can scan container images using two primary methods:
 
@@ -35,14 +37,14 @@ You can scan container images using two primary methods:
     osv-scanner scan image image-name:tag
     ```
     
-    -   **How it works:** OSV-Scanner uses `docker save` to export the image to a temporary archive, which is then analyzed. No container code is executed during the scan.
+    *   **How it works:** OSV-Scanner uses `docker save` to export the image to a temporary archive, which is then analyzed. No container code is executed during the scan.
 2.  **Scan from Exported Image Archive:** If you have already exported your container image as a Docker archive (`.tar` file), you can scan it directly using the `--archive` flag. This method does not require Docker to be installed.
     
     ```
     osv-scanner scan image --archive ./path/to/my-image.tar
     ```
     
-    -   **How to create an image archive:** You can create an image archive using the following commands:
+    *   **How to create an image archive:** You can create an image archive using the following commands:
         
         ```
         # Using Docker
@@ -55,20 +57,20 @@ You can scan container images using two primary methods:
         ```
         
 
-### [](#usage-notes)Usage Notes
+### Usage Notes
 
--   **No other scan targets:** When using `scan image`, you cannot specify other scan targets (e.g., directories or lockfiles).
+*   **No other scan targets:** When using `scan image`, you cannot specify other scan targets (e.g., directories or lockfiles).
     
--   **Configuration Flags:** All the global configuration flags available for the `scan` command (as described in the [Usage documentation](/osv-scanner/usage/)) can be used with the `scan image` subcommand. This includes flags for output format, verbosity, config files, and experimental features.
+*   **Configuration Flags:** All the global configuration flags available for the `scan` command (as described in the Usage documentation) can be used with the `scan image` subcommand. This includes flags for output format, verbosity, config files, and experimental features.
     
 
-## [](#scanning-targets)Scanning targets
+## Scanning targets
 
 OSV-Scanner scans for OS packages and build artifacts, including dependency information, on the given image, and attributes them to specific layers in the container.
 
-See [Supported Artifacts](/osv-scanner/supported-languages-and-lockfiles/#supported-artifacts) for details on what targets are scanned.
+See Supported Artifacts for details on what targets are scanned.
 
-## [](#output)Output
+## Output
 
 By default, OSV-Scanner provides a summarized output of the scan results, grouping vulnerabilities by package. This is designed to handle the large number of vulnerabilities often found in container images.
 
@@ -118,16 +120,16 @@ Filtered Vulnerabilities:
 ╰─────────────┴───────────┴───────────────────────┴─────────────────────┴────────────────╯
 ```
 
-### [](#detailed-output)Detailed Output:
+### Detailed Output:
 
 For a more detailed view of vulnerabilities, including individual **vulnerability details**, **base image identification**, and **layer specific filters**, use the HTML output format. You can enable it using:
 
--   `--format=html`: This will output the results to an HTML file.
+*   `--format=html`: This will output the results to an HTML file.
     
--   `--serve`: This will generate an HTML report and host it locally on `localhost:8000`.
+*   `--serve`: This will generate an HTML report and host it locally on `localhost:8000`.
     
 
-See the [Output documentation](/osv-scanner/output/) for more information on output formats.
+See the Output documentation for more information on output formats.
 
 **Sample HTML Output**:
 
@@ -135,4 +137,4 @@ See the [Output documentation](/osv-scanner/output/) for more information on out
 
 * * *
 
-This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.
+This site uses Just the Docs, a documentation theme for Jekyll.

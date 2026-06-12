@@ -15,26 +15,26 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 ## Programming languages
 
 | Language | Version | Package manager |
-| -------- | ------- | --------------- |
-| Python   | 3.12+   | pip, uv         |
-| Node.js  | 20+     | npm, yarn, pnpm |
-| Go       | 1.22+   | go modules      |
-| Rust     | 1.77+   | cargo           |
-| Java     | 21+     | maven, gradle   |
-| Ruby     | 3.3+    | bundler, gem    |
-| PHP      | 8.3+    | composer        |
-| C/C++    | GCC 13+ | make, cmake     |
+|----------|---------|-----------------|
+| Python | 3.12+ | pip, uv |
+| Node.js | 20+ | npm, yarn, pnpm |
+| Go | 1.22+ | go modules |
+| Rust | 1.77+ | cargo |
+| Java | 21+ | maven, gradle |
+| Ruby | 3.3+ | bundler, gem |
+| PHP | 8.3+ | composer |
+| C/C++ | GCC 13+ | make, cmake |
 
 ## Databases
 
-| Database          | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| SQLite            | Pre-installed, available immediately               |
+| Database | Description |
+|----------|-------------|
+| SQLite | Pre-installed, available immediately |
 | PostgreSQL client | `psql` client for connecting to external databases |
-| Redis client      | `redis-cli` for connecting to external instances   |
+| Redis client | `redis-cli` for connecting to external instances |
 
 <Note>
-Database servers (PostgreSQL, Redis, etc.) are not running in the sandbox by default. The sandbox includes client tools for connecting to external database instances. SQLite is fully available for local use.
+Database servers (such as PostgreSQL and Redis) are not running in the sandbox by default. The sandbox includes client tools for connecting to external database instances. SQLite is fully available for local use.
 </Note>
 
 ## Utilities
@@ -64,10 +64,10 @@ Database servers (PostgreSQL, Redis, etc.) are not running in the sandbox by def
 
 ## Sandbox specifications
 
-| Property         | Value                                              |
-| ---------------- | -------------------------------------------------- |
-| Operating system | Ubuntu 22.04 LTS                                   |
-| Architecture     | x86_64 (amd64)                                     |
-| Memory           | Up to 8 GB                                         |
-| Disk space       | Up to 10 GB                                        |
-| Network          | Disabled by default (enable in environment config) |
+| Property | Value |
+|----------|-------|
+| Operating system | Ubuntu 22.04 LTS |
+| Architecture | x86_64 (amd64) |
+| Memory | Up to 8 GB |
+| Disk space | Up to 10 GB |
+| Network | Disabled by default (enable in environment config) |

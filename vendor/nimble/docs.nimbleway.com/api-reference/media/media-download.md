@@ -8,7 +8,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json post /v1/media
+````yaml /api-reference/openapi.json post /v1/media
 openapi: 3.1.0
 info:
   title: Nimble SDK

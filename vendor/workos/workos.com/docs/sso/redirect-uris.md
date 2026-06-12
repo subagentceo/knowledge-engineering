@@ -10,11 +10,11 @@ With an Identity Provider (IdP) initiated login flow, the approach is similar bu
 
 In WorkOS Production Environments, the Redirect URI to your application cannot use HTTP or localhost, however, Redirect URIs that use HTTP and localhost are allowed in Sandbox Environments.
 
-There should be at least one redirect URI configured and selected as a default for a WorkOS Environment. This can be done from the [Redirects](https://dashboard.workos.com/redirects) page in the WorkOS dashboard. If you try to route the authorization flow to a Redirect URI that is not yet defined in the Dashboard it will result in an error and users will be unable to sign in, so it’s important to define them in the dashboard first.
+There should be at least one redirect URI configured and selected as a default for your application. In the [Applications](https://dashboard.workos.com/environment/applications) section of the WorkOS Dashboard, open your application and go to the **Redirects** tab to configure redirect URIs. If you try to route the authorization flow to a Redirect URI that is not yet defined for the application, it will result in an error and users will be unable to sign in, so it’s important to define them in the dashboard first.
 
 ![Dashboard Redirect URIs](https://images.workoscdn.com/images/6da31d23-c823-4557-8403-b38b2700e4d2.png?auto=format\&fit=clip\&q=50)
 
-The Redirect URI can also be included directly in the Get Authorization URL call as a redirect\_uri parameter. When the Redirect URI is set in this fashion, it will override the default Redirect URI that is set in the WorkOS Dashboard.
+The Redirect URI can also be included directly in the Get Authorization URL call as a redirect\_uri parameter. When the Redirect URI is set in this fashion, it will override the default redirect URI configured for your application.
 
 ***
 

@@ -11,6 +11,7 @@ Retrieve information about the organization associated with the authenticated AP
 ### Returns
 
 - `Organization object { id, name, type }`
+
   - `id: string`
 
     ID of the Organization.
@@ -24,6 +25,7 @@ Retrieve information about the organization associated with the authenticated AP
     Object type.
 
     For Organizations, this is always `"organization"`.
+
     - `"organization"`
 
 ### Example
@@ -31,7 +33,7 @@ Retrieve information about the organization associated with the authenticated AP
 ```http
 curl https://api.anthropic.com/v1/organizations/me \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -49,6 +51,7 @@ curl https://api.anthropic.com/v1/organizations/me \
 ### Organization
 
 - `Organization object { id, name, type }`
+
   - `id: string`
 
     ID of the Organization.
@@ -62,6 +65,7 @@ curl https://api.anthropic.com/v1/organizations/me \
     Object type.
 
     For Organizations, this is always `"organization"`.
+
     - `"organization"`
 
 # Invites
@@ -81,6 +85,7 @@ Create Invite
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   Role for the invited User. Cannot be "admin".
+
   - `"user"`
 
   - `"developer"`
@@ -92,6 +97,7 @@ Create Invite
 ### Returns
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -111,6 +117,7 @@ Create Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -124,6 +131,7 @@ Create Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -137,6 +145,7 @@ Create Invite
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Example
@@ -145,7 +154,7 @@ Create Invite
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "email": "user@emaildomain.com",
           "role": "user"
@@ -181,6 +190,7 @@ Get Invite
 ### Returns
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -200,6 +210,7 @@ Get Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -213,6 +224,7 @@ Get Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -226,6 +238,7 @@ Get Invite
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Example
@@ -233,7 +246,7 @@ Get Invite
 ```http
 curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -275,6 +288,7 @@ List Invites
 ### Returns
 
 - `data: array of Invite`
+
   - `id: string`
 
     ID of the Invite.
@@ -294,6 +308,7 @@ List Invites
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -307,6 +322,7 @@ List Invites
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -320,6 +336,7 @@ List Invites
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 - `first_id: string`
@@ -339,7 +356,7 @@ List Invites
 ```http
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -386,6 +403,7 @@ Delete Invite
   Deleted object type.
 
   For Invites, this is always `"invite_deleted"`.
+
   - `"invite_deleted"`
 
 ### Example
@@ -394,7 +412,7 @@ Delete Invite
 curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -411,6 +429,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
 ### Invite
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -430,6 +449,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -443,6 +463,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -456,11 +477,13 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Invite Delete Response
 
 - `InviteDeleteResponse object { id, type }`
+
   - `id: string`
 
     ID of the Invite.
@@ -470,6 +493,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     Deleted object type.
 
     For Invites, this is always `"invite_deleted"`.
+
     - `"invite_deleted"`
 
 # Users
@@ -489,6 +513,7 @@ Get User
 ### Returns
 
 - `User object { id, added_at, email, 3 more }`
+
   - `id: string`
 
     ID of the User.
@@ -508,6 +533,7 @@ Get User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -523,6 +549,7 @@ Get User
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 ### Example
@@ -530,7 +557,7 @@ Get User
 ```http
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -575,6 +602,7 @@ List Users
 ### Returns
 
 - `data: array of User`
+
   - `id: string`
 
     ID of the User.
@@ -594,6 +622,7 @@ List Users
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -609,6 +638,7 @@ List Users
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 - `first_id: string`
@@ -628,7 +658,7 @@ List Users
 ```http
 curl https://api.anthropic.com/v1/organizations/users \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -668,6 +698,7 @@ Update User
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   New role for the User. Cannot be "admin".
+
   - `"user"`
 
   - `"developer"`
@@ -679,6 +710,7 @@ Update User
 ### Returns
 
 - `User object { id, added_at, email, 3 more }`
+
   - `id: string`
 
     ID of the User.
@@ -698,6 +730,7 @@ Update User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -713,6 +746,7 @@ Update User
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 ### Example
@@ -721,7 +755,7 @@ Update User
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "role": "user"
         }'
@@ -763,6 +797,7 @@ Remove User
   Deleted object type.
 
   For Users, this is always `"user_deleted"`.
+
   - `"user_deleted"`
 
 ### Example
@@ -771,7 +806,7 @@ Remove User
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -788,6 +823,7 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 ### User
 
 - `User object { id, added_at, email, 3 more }`
+
   - `id: string`
 
     ID of the User.
@@ -807,6 +843,7 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -822,11 +859,13 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 ### User Delete Response
 
 - `UserDeleteResponse object { id, type }`
+
   - `id: string`
 
     ID of the User.
@@ -836,6 +875,7 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     Deleted object type.
 
     For Users, this is always `"user_deleted"`.
+
     - `"user_deleted"`
 
 # Workspaces
@@ -863,12 +903,15 @@ Create Workspace
 - `data_residency: optional object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
   Data residency configuration for the workspace. If omitted, defaults to workspace_geo=`"us"`, allowed_inference_geos=`"unrestricted"`, and default_inference_geo=`"global"`.
+
   - `allowed_inference_geos: optional array of string or "unrestricted"`
 
     Permitted inference geo values. Defaults to 'unrestricted' if omitted, which allows all geos. Use the string 'unrestricted' to allow all geos, or a list of specific geos.
+
     - `array of string`
 
     - `"unrestricted"`
+
       - `"unrestricted"`
 
   - `default_inference_geo: optional string`
@@ -879,13 +922,24 @@ Create Workspace
 
     Geographic region for workspace data storage. Immutable after creation. Defaults to 'us' if omitted.
 
+- `external_key_id: optional string`
+
+  ID of the customer-managed encryption key (CMEK) configuration to use for this
+  Workspace. Setting this field requires CMEK to be enabled for your
+  organization. When set, data stored for this Workspace is encrypted with the
+  referenced key. Create key configurations with the External Keys API. This
+  field is write-once: once a key is attached to a Workspace it cannot be
+  detached or replaced. To rotate key material, rotate the underlying key on
+  your cloud KMS; the `external_key_id` stays the same.
+
 - `tags: optional map[string]`
 
   User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
 ### Returns
 
-- `Workspace object { id, archived_at, created_at, 5 more }`
+- `Workspace object { id, archived_at, compartment_id, 7 more }`
+
   - `id: string`
 
     ID of the Workspace.
@@ -894,6 +948,15 @@ Create Workspace
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
 
+  - `compartment_id: string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK), reference this value in your cloud
+    provider's key configuration — an AWS KMS key-policy condition or an Azure Key
+    Vault tag — so the key is scoped to this compartment. See the CMEK integration
+    guide for the required key configuration, including the value used during key
+    validation.
+
   - `created_at: string`
 
     RFC 3339 datetime string indicating when the Workspace was created.
@@ -901,12 +964,15 @@ Create Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
+
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
       - `array of string`
 
       - `"unrestricted"`
+
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -921,6 +987,16 @@ Create Workspace
 
     Hex color code representing the Workspace in the Anthropic Console.
 
+  - `external_key_id: string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
   - `name: string`
 
     Name of the Workspace.
@@ -934,6 +1010,7 @@ Create Workspace
     Object type.
 
     For Workspaces, this is always `"workspace"`.
+
     - `"workspace"`
 
 ### Example
@@ -942,9 +1019,10 @@ Create Workspace
 curl https://api.anthropic.com/v1/organizations/workspaces \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "name": "x",
+          "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
           "tags": {
             "env": "prod",
             "team": "platform"
@@ -958,6 +1036,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
 {
   "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
   "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
@@ -965,6 +1044,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
     "workspace_geo": "workspace_geo"
   },
   "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
   "name": "Workspace Name",
   "tags": {
     "env": "prod",
@@ -988,7 +1068,8 @@ Get Workspace
 
 ### Returns
 
-- `Workspace object { id, archived_at, created_at, 5 more }`
+- `Workspace object { id, archived_at, compartment_id, 7 more }`
+
   - `id: string`
 
     ID of the Workspace.
@@ -997,6 +1078,15 @@ Get Workspace
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
 
+  - `compartment_id: string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK), reference this value in your cloud
+    provider's key configuration — an AWS KMS key-policy condition or an Azure Key
+    Vault tag — so the key is scoped to this compartment. See the CMEK integration
+    guide for the required key configuration, including the value used during key
+    validation.
+
   - `created_at: string`
 
     RFC 3339 datetime string indicating when the Workspace was created.
@@ -1004,12 +1094,15 @@ Get Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
+
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
       - `array of string`
 
       - `"unrestricted"`
+
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -1024,6 +1117,16 @@ Get Workspace
 
     Hex color code representing the Workspace in the Anthropic Console.
 
+  - `external_key_id: string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
   - `name: string`
 
     Name of the Workspace.
@@ -1037,6 +1140,7 @@ Get Workspace
     Object type.
 
     For Workspaces, this is always `"workspace"`.
+
     - `"workspace"`
 
 ### Example
@@ -1044,7 +1148,7 @@ Get Workspace
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1053,6 +1157,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
 {
   "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
   "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
@@ -1060,6 +1165,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     "workspace_geo": "workspace_geo"
   },
   "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
   "name": "Workspace Name",
   "tags": {
     "env": "prod",
@@ -1098,6 +1204,7 @@ List Workspaces
 ### Returns
 
 - `data: array of Workspace`
+
   - `id: string`
 
     ID of the Workspace.
@@ -1106,6 +1213,15 @@ List Workspaces
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
 
+  - `compartment_id: string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK), reference this value in your cloud
+    provider's key configuration — an AWS KMS key-policy condition or an Azure Key
+    Vault tag — so the key is scoped to this compartment. See the CMEK integration
+    guide for the required key configuration, including the value used during key
+    validation.
+
   - `created_at: string`
 
     RFC 3339 datetime string indicating when the Workspace was created.
@@ -1113,12 +1229,15 @@ List Workspaces
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
+
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
       - `array of string`
 
       - `"unrestricted"`
+
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -1133,6 +1252,16 @@ List Workspaces
 
     Hex color code representing the Workspace in the Anthropic Console.
 
+  - `external_key_id: string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
   - `name: string`
 
     Name of the Workspace.
@@ -1146,6 +1275,7 @@ List Workspaces
     Object type.
 
     For Workspaces, this is always `"workspace"`.
+
     - `"workspace"`
 
 - `first_id: string`
@@ -1165,7 +1295,7 @@ List Workspaces
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1176,6 +1306,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
     {
       "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
       "archived_at": "2024-11-01T23:59:27.427722Z",
+      "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
       "created_at": "2024-10-30T23:58:27.427722Z",
       "data_residency": {
         "allowed_inference_geos": "unrestricted",
@@ -1183,6 +1314,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
         "workspace_geo": "workspace_geo"
       },
       "display_color": "#6C5BB9",
+      "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
       "name": "Workspace Name",
       "tags": {
         "env": "prod",
@@ -1212,17 +1344,30 @@ Update Workspace
 - `data_residency: optional object { allowed_inference_geos, default_inference_geo }`
 
   Data residency configuration for the workspace.
+
   - `allowed_inference_geos: optional array of string or "unrestricted"`
 
     Permitted inference geo values. Use 'unrestricted' to allow all geos, or a list of specific geos.
+
     - `array of string`
 
     - `"unrestricted"`
+
       - `"unrestricted"`
 
   - `default_inference_geo: optional string`
 
     Default inference geo applied when requests omit the parameter. Must be a member of allowed_inference_geos unless allowed_inference_geos is `"unrestricted"`.
+
+- `external_key_id: optional string`
+
+  ID of the customer-managed encryption key (CMEK) configuration to use for this
+  Workspace. Setting this field requires CMEK to be enabled for your
+  organization. When set, data stored for this Workspace is encrypted with the
+  referenced key. Create key configurations with the External Keys API. This
+  field is write-once: once a key is attached to a Workspace it cannot be
+  detached or replaced. To rotate key material, rotate the underlying key on
+  your cloud KMS; the `external_key_id` stays the same.
 
 - `name: optional string`
 
@@ -1234,7 +1379,8 @@ Update Workspace
 
 ### Returns
 
-- `Workspace object { id, archived_at, created_at, 5 more }`
+- `Workspace object { id, archived_at, compartment_id, 7 more }`
+
   - `id: string`
 
     ID of the Workspace.
@@ -1243,6 +1389,15 @@ Update Workspace
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
 
+  - `compartment_id: string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK), reference this value in your cloud
+    provider's key configuration — an AWS KMS key-policy condition or an Azure Key
+    Vault tag — so the key is scoped to this compartment. See the CMEK integration
+    guide for the required key configuration, including the value used during key
+    validation.
+
   - `created_at: string`
 
     RFC 3339 datetime string indicating when the Workspace was created.
@@ -1250,12 +1405,15 @@ Update Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
+
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
       - `array of string`
 
       - `"unrestricted"`
+
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -1270,6 +1428,16 @@ Update Workspace
 
     Hex color code representing the Workspace in the Anthropic Console.
 
+  - `external_key_id: string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
   - `name: string`
 
     Name of the Workspace.
@@ -1283,6 +1451,7 @@ Update Workspace
     Object type.
 
     For Workspaces, this is always `"workspace"`.
+
     - `"workspace"`
 
 ### Example
@@ -1291,8 +1460,9 @@ Update Workspace
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
+          "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
           "tags": {
             "env": "prod",
             "team": "platform"
@@ -1306,6 +1476,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
 {
   "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
   "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
@@ -1313,6 +1484,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     "workspace_geo": "workspace_geo"
   },
   "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
   "name": "Workspace Name",
   "tags": {
     "env": "prod",
@@ -1334,7 +1506,8 @@ Archive Workspace
 
 ### Returns
 
-- `Workspace object { id, archived_at, created_at, 5 more }`
+- `Workspace object { id, archived_at, compartment_id, 7 more }`
+
   - `id: string`
 
     ID of the Workspace.
@@ -1343,6 +1516,15 @@ Archive Workspace
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
 
+  - `compartment_id: string`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK), reference this value in your cloud
+    provider's key configuration — an AWS KMS key-policy condition or an Azure Key
+    Vault tag — so the key is scoped to this compartment. See the CMEK integration
+    guide for the required key configuration, including the value used during key
+    validation.
+
   - `created_at: string`
 
     RFC 3339 datetime string indicating when the Workspace was created.
@@ -1350,12 +1532,15 @@ Archive Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
+
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+
       - `array of string`
 
       - `"unrestricted"`
+
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -1370,6 +1555,16 @@ Archive Workspace
 
     Hex color code representing the Workspace in the Anthropic Console.
 
+  - `external_key_id: string`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
   - `name: string`
 
     Name of the Workspace.
@@ -1383,6 +1578,7 @@ Archive Workspace
     Object type.
 
     For Workspaces, this is always `"workspace"`.
+
     - `"workspace"`
 
 ### Example
@@ -1391,7 +1587,7 @@ Archive Workspace
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1400,6 +1596,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive
 {
   "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
   "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
   "created_at": "2024-10-30T23:58:27.427722Z",
   "data_residency": {
     "allowed_inference_geos": "unrestricted",
@@ -1407,6 +1604,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive
     "workspace_geo": "workspace_geo"
   },
   "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
   "name": "Workspace Name",
   "tags": {
     "env": "prod",
@@ -1439,6 +1637,7 @@ Create Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
 
   Role of the new Workspace Member. Cannot be "workspace_billing".
+
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -1450,11 +1649,13 @@ Create Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -1468,6 +1669,7 @@ Create Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -1484,7 +1686,7 @@ Create Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
           "workspace_role": "workspace_user"
@@ -1521,11 +1723,13 @@ Get Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -1539,6 +1743,7 @@ Get Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -1554,7 +1759,7 @@ Get Workspace Member
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1599,11 +1804,13 @@ List Workspace Members
 ### Returns
 
 - `data: array of WorkspaceMember`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -1617,6 +1824,7 @@ List Workspace Members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -1644,7 +1852,7 @@ List Workspace Members
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1686,6 +1894,7 @@ Update Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
   New workspace role for the User.
+
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -1699,11 +1908,13 @@ Update Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -1717,6 +1928,7 @@ Update Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -1733,7 +1945,7 @@ Update Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "workspace_role": "workspace_user"
         }'
@@ -1773,6 +1985,7 @@ Delete Workspace Member
   Deleted object type.
 
   For Workspace Members, this is always `"workspace_member_deleted"`.
+
   - `"workspace_member_deleted"`
 
 - `user_id: string`
@@ -1789,7 +2002,7 @@ Delete Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1807,11 +2020,13 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 ### Workspace Member
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -1825,6 +2040,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -1838,11 +2054,13 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 ### Member Delete Response
 
 - `MemberDeleteResponse object { type, user_id, workspace_id }`
+
   - `type: "workspace_member_deleted"`
 
     Deleted object type.
 
     For Workspace Members, this is always `"workspace_member_deleted"`.
+
     - `"workspace_member_deleted"`
 
   - `user_id: string`
@@ -1876,6 +2094,7 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `group_type: optional "model_group" or "batch" or "token_count" or 3 more`
 
   Filter by group type.
+
   - `"model_group"`
 
   - `"batch"`
@@ -1897,9 +2116,11 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `data: array of object { group_type, limits, models, type }`
 
   Rate-limit entries for the workspace, one per group that has at least one override.
+
   - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
     - `"model_group"`
 
     - `"batch"`
@@ -1915,6 +2136,7 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `limits: array of object { org_limit, type, value }`
 
     The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
+
     - `org_limit: number`
 
       The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -1934,6 +2156,7 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `type: "workspace_rate_limit"`
 
     Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
     - `"workspace_rate_limit"`
 
 - `next_page: string`
@@ -1945,7 +2168,7 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_limits \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -1962,7 +2185,9 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
           "value": 0
         }
       ],
-      "models": ["string"],
+      "models": [
+        "string"
+      ],
       "type": "workspace_rate_limit"
     }
   ],
@@ -1975,12 +2200,15 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
 ### Rate Limit List Response
 
 - `RateLimitListResponse object { data, next_page }`
+
   - `data: array of object { group_type, limits, models, type }`
 
     Rate-limit entries for the workspace, one per group that has at least one override.
+
     - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
       The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
       - `"model_group"`
 
       - `"batch"`
@@ -1996,6 +2224,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `limits: array of object { org_limit, type, value }`
 
       The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
+
       - `org_limit: number`
 
         The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -2015,11 +2244,14 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `type: "workspace_rate_limit"`
 
       Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
       - `"workspace_rate_limit"`
 
   - `next_page: string`
 
     Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+# Service Accounts
 
 # API Keys
 
@@ -2038,6 +2270,7 @@ Get API Key
 ### Returns
 
 - `APIKey object { id, created_at, created_by, 6 more }`
+
   - `id: string`
 
     ID of the API key.
@@ -2049,6 +2282,7 @@ Get API Key
   - `created_by: object { id, type }`
 
     The ID and type of the actor that created the API key.
+
     - `id: string`
 
       ID of the actor that created the object.
@@ -2072,6 +2306,7 @@ Get API Key
   - `status: "active" or "inactive" or "archived" or "expired"`
 
     Status of the API key.
+
     - `"active"`
 
     - `"inactive"`
@@ -2085,6 +2320,7 @@ Get API Key
     Object type.
 
     For API Keys, this is always `"api_key"`.
+
     - `"api_key"`
 
   - `workspace_id: string`
@@ -2096,7 +2332,7 @@ Get API Key
 ```http
 curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -2147,6 +2383,7 @@ List API Keys
 - `status: optional "active" or "inactive" or "archived" or "expired"`
 
   Filter by API key status.
+
   - `"active"`
 
   - `"inactive"`
@@ -2162,6 +2399,7 @@ List API Keys
 ### Returns
 
 - `data: array of APIKey`
+
   - `id: string`
 
     ID of the API key.
@@ -2173,6 +2411,7 @@ List API Keys
   - `created_by: object { id, type }`
 
     The ID and type of the actor that created the API key.
+
     - `id: string`
 
       ID of the actor that created the object.
@@ -2196,6 +2435,7 @@ List API Keys
   - `status: "active" or "inactive" or "archived" or "expired"`
 
     Status of the API key.
+
     - `"active"`
 
     - `"inactive"`
@@ -2209,6 +2449,7 @@ List API Keys
     Object type.
 
     For API Keys, this is always `"api_key"`.
+
     - `"api_key"`
 
   - `workspace_id: string`
@@ -2232,7 +2473,7 @@ List API Keys
 ```http
 curl https://api.anthropic.com/v1/organizations/api_keys \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -2282,6 +2523,7 @@ Update API Key
 - `status: optional "active" or "inactive" or "archived"`
 
   Status of the API key.
+
   - `"active"`
 
   - `"inactive"`
@@ -2291,6 +2533,7 @@ Update API Key
 ### Returns
 
 - `APIKey object { id, created_at, created_by, 6 more }`
+
   - `id: string`
 
     ID of the API key.
@@ -2302,6 +2545,7 @@ Update API Key
   - `created_by: object { id, type }`
 
     The ID and type of the actor that created the API key.
+
     - `id: string`
 
       ID of the actor that created the object.
@@ -2325,6 +2569,7 @@ Update API Key
   - `status: "active" or "inactive" or "archived" or "expired"`
 
     Status of the API key.
+
     - `"active"`
 
     - `"inactive"`
@@ -2338,6 +2583,7 @@ Update API Key
     Object type.
 
     For API Keys, this is always `"api_key"`.
+
     - `"api_key"`
 
   - `workspace_id: string`
@@ -2350,7 +2596,7 @@ Update API Key
 curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{}'
 ```
 
@@ -2372,6 +2618,1100 @@ curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
   "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
 }
 ```
+
+# External Keys
+
+## Create External Key
+
+**post** `/v1/organizations/external_keys`
+
+Create an external key config owned by the caller's organization.
+
+### Body Parameters
+
+- `display_name: string`
+
+  Human-friendly display name.
+
+- `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+  KMS provider identity and auth coordinates.
+
+  - `Aws object { kms_arn, role_arn, type, region }`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key.
+
+    - `role_arn: string`
+
+      IAM role ARN that Anthropic assumes to access the KMS key.
+
+    - `type: "aws"`
+
+      - `"aws"`
+
+    - `region: optional string`
+
+      AWS region. Derived from kms_arn if omitted.
+
+  - `Gcp object { key_name, type }`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+    - `type: "gcp"`
+
+      - `"gcp"`
+
+  - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `type: "azure"`
+
+      - `"azure"`
+
+    - `vault_uri: string`
+
+      Key Vault URI.
+
+    - `client_id: optional string`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+- `geo: optional "us"`
+
+  Data residency geo. Only `us` is supported.
+
+  - `"us"`
+
+### Returns
+
+- `id: string`
+
+  Tagged ID of the external key config.
+
+- `created_at: string`
+
+- `display_name: string`
+
+  Human-friendly display name.
+
+- `geo: string`
+
+  Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+- `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+  KMS provider identity and auth coordinates.
+
+  - `Aws object { kms_arn, role_arn, type, region }`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key.
+
+    - `role_arn: string`
+
+      IAM role ARN that Anthropic assumes to access the KMS key.
+
+    - `type: "aws"`
+
+      - `"aws"`
+
+    - `region: optional string`
+
+      AWS region. Derived from kms_arn if omitted.
+
+  - `Gcp object { key_name, type }`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+    - `type: "gcp"`
+
+      - `"gcp"`
+
+  - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `type: "azure"`
+
+      - `"azure"`
+
+    - `vault_uri: string`
+
+      Key Vault URI.
+
+    - `client_id: optional string`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+- `type: "external_key"`
+
+  - `"external_key"`
+
+- `updated_at: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -d '{
+          "display_name": "x",
+          "provider_config": {
+            "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+            "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
+            "type": "aws"
+          }
+        }'
+```
+
+#### Response
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
+    "type": "aws",
+    "region": "us-east-1"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## List External Keys
+
+**get** `/v1/organizations/external_keys`
+
+List external key configs in the caller's organization.
+
+Results are ordered by creation time (newest first). Use the
+`next_page` cursor from the response to fetch subsequent pages.
+
+### Query Parameters
+
+- `limit: optional number`
+
+  Number of results per page.
+
+- `page: optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+### Returns
+
+- `data: array of object { id, created_at, display_name, 4 more }`
+
+  - `id: string`
+
+    Tagged ID of the external key config.
+
+  - `created_at: string`
+
+  - `display_name: string`
+
+    Human-friendly display name.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+    KMS provider identity and auth coordinates.
+
+    - `Aws object { kms_arn, role_arn, type, region }`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key.
+
+      - `role_arn: string`
+
+        IAM role ARN that Anthropic assumes to access the KMS key.
+
+      - `type: "aws"`
+
+        - `"aws"`
+
+      - `region: optional string`
+
+        AWS region. Derived from kms_arn if omitted.
+
+    - `Gcp object { key_name, type }`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+      - `type: "gcp"`
+
+        - `"gcp"`
+
+    - `Azure object { key_name, tenant_id, type, 2 more }`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `type: "azure"`
+
+        - `"azure"`
+
+      - `vault_uri: string`
+
+        Key Vault URI.
+
+      - `client_id: optional string`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `type: "external_key"`
+
+    - `"external_key"`
+
+  - `updated_at: string`
+
+- `next_page: string`
+
+  Opaque cursor for the next page, or null if no more results. Pass as `?page=` to fetch the next page.
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "prod-us-key",
+      "geo": "us",
+      "provider_config": {
+        "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
+        "type": "aws",
+        "region": "us-east-1"
+      },
+      "type": "external_key",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get External Key
+
+**get** `/v1/organizations/external_keys/{external_key_id}`
+
+Retrieve a single external key config in the caller's organization by ID.
+
+### Path Parameters
+
+- `external_key_id: string`
+
+  ID of the External Key.
+
+### Returns
+
+- `id: string`
+
+  Tagged ID of the external key config.
+
+- `created_at: string`
+
+- `display_name: string`
+
+  Human-friendly display name.
+
+- `geo: string`
+
+  Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+- `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+  KMS provider identity and auth coordinates.
+
+  - `Aws object { kms_arn, role_arn, type, region }`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key.
+
+    - `role_arn: string`
+
+      IAM role ARN that Anthropic assumes to access the KMS key.
+
+    - `type: "aws"`
+
+      - `"aws"`
+
+    - `region: optional string`
+
+      AWS region. Derived from kms_arn if omitted.
+
+  - `Gcp object { key_name, type }`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+    - `type: "gcp"`
+
+      - `"gcp"`
+
+  - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `type: "azure"`
+
+      - `"azure"`
+
+    - `vault_uri: string`
+
+      Key Vault URI.
+
+    - `client_id: optional string`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+- `type: "external_key"`
+
+  - `"external_key"`
+
+- `updated_at: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
+    "type": "aws",
+    "region": "us-east-1"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Update External Key
+
+**post** `/v1/organizations/external_keys/{external_key_id}`
+
+Partially update an external key config. Omitted fields are left unchanged.
+
+`display_name` is always editable. `geo` and `provider_config` cannot
+be changed once any workspace references this config, because previously
+encrypted data requires the original key identity to decrypt.
+
+### Path Parameters
+
+- `external_key_id: string`
+
+  ID of the External Key to update.
+
+### Body Parameters
+
+- `display_name: optional string`
+
+  Human-friendly display name.
+
+- `geo: optional "us"`
+
+  Data residency geo. Only `us` is supported.
+
+  - `"us"`
+
+- `provider_config: optional object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+  KMS provider identity and auth coordinates.
+
+  - `Aws object { kms_arn, role_arn, type, region }`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key.
+
+    - `role_arn: string`
+
+      IAM role ARN that Anthropic assumes to access the KMS key.
+
+    - `type: "aws"`
+
+      - `"aws"`
+
+    - `region: optional string`
+
+      AWS region. Derived from kms_arn if omitted.
+
+  - `Gcp object { key_name, type }`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+    - `type: "gcp"`
+
+      - `"gcp"`
+
+  - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `type: "azure"`
+
+      - `"azure"`
+
+    - `vault_uri: string`
+
+      Key Vault URI.
+
+    - `client_id: optional string`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+### Returns
+
+- `id: string`
+
+  Tagged ID of the external key config.
+
+- `created_at: string`
+
+- `display_name: string`
+
+  Human-friendly display name.
+
+- `geo: string`
+
+  Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+- `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+  KMS provider identity and auth coordinates.
+
+  - `Aws object { kms_arn, role_arn, type, region }`
+
+    - `kms_arn: string`
+
+      Full ARN of the AWS KMS key.
+
+    - `role_arn: string`
+
+      IAM role ARN that Anthropic assumes to access the KMS key.
+
+    - `type: "aws"`
+
+      - `"aws"`
+
+    - `region: optional string`
+
+      AWS region. Derived from kms_arn if omitted.
+
+  - `Gcp object { key_name, type }`
+
+    - `key_name: string`
+
+      Full resource name of the Cloud KMS key.
+
+    - `type: "gcp"`
+
+      - `"gcp"`
+
+  - `Azure object { key_name, tenant_id, type, 2 more }`
+
+    - `key_name: string`
+
+      Name of the key within the vault.
+
+    - `tenant_id: string`
+
+      Azure AD tenant ID.
+
+    - `type: "azure"`
+
+      - `"azure"`
+
+    - `vault_uri: string`
+
+      Key Vault URI.
+
+    - `client_id: optional string`
+
+      Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+- `type: "external_key"`
+
+  - `"external_key"`
+
+- `updated_at: string`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -H 'Content-Type: application/json' \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -d '{}'
+```
+
+#### Response
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek",
+    "type": "aws",
+    "region": "us-east-1"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Delete External Key
+
+**delete** `/v1/organizations/external_keys/{external_key_id}`
+
+Delete an external key config.
+
+The request is rejected if any workspace still references this config.
+
+### Path Parameters
+
+- `external_key_id: string`
+
+  ID of the External Key to delete.
+
+### Returns
+
+- `id: string`
+
+  ID of the deleted External Key.
+
+- `type: "external_key_deleted"`
+
+  - `"external_key_deleted"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
+    -X DELETE \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "id": "ekey_01AbCdEfGhIjKlMnOpQrStUv",
+  "type": "external_key_deleted"
+}
+```
+
+## Validate External Key
+
+**post** `/v1/organizations/external_keys/{external_key_id}/validate`
+
+Validate an external key config against the customer's KMS.
+
+Anthropic performs an encrypt/decrypt roundtrip against the configured
+KMS key and waits up to 30 seconds for the result. The response status is
+`success` if the roundtrip succeeded, or `failure` with an error
+message if it failed or timed out.
+
+### Path Parameters
+
+- `external_key_id: string`
+
+  ID of the External Key to validate.
+
+### Returns
+
+- `error: string`
+
+  Error message when status is `failure`. Null otherwise.
+
+- `status: "success" or "failure"`
+
+  `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+  - `"success"`
+
+  - `"failure"`
+
+- `type: "external_key_validation"`
+
+  - `"external_key_validation"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/validate \
+    -X POST \
+    -H 'anthropic-version: 2023-06-01' \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+```
+
+#### Response
+
+```json
+{
+  "error": null,
+  "status": "success",
+  "type": "external_key_validation"
+}
+```
+
+## Domain Types
+
+### External Key Create Response
+
+- `ExternalKeyCreateResponse object { id, created_at, display_name, 4 more }`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `id: string`
+
+    Tagged ID of the external key config.
+
+  - `created_at: string`
+
+  - `display_name: string`
+
+    Human-friendly display name.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+    KMS provider identity and auth coordinates.
+
+    - `Aws object { kms_arn, role_arn, type, region }`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key.
+
+      - `role_arn: string`
+
+        IAM role ARN that Anthropic assumes to access the KMS key.
+
+      - `type: "aws"`
+
+        - `"aws"`
+
+      - `region: optional string`
+
+        AWS region. Derived from kms_arn if omitted.
+
+    - `Gcp object { key_name, type }`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+      - `type: "gcp"`
+
+        - `"gcp"`
+
+    - `Azure object { key_name, tenant_id, type, 2 more }`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `type: "azure"`
+
+        - `"azure"`
+
+      - `vault_uri: string`
+
+        Key Vault URI.
+
+      - `client_id: optional string`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `type: "external_key"`
+
+    - `"external_key"`
+
+  - `updated_at: string`
+
+### External Key List Response
+
+- `ExternalKeyListResponse object { data, next_page }`
+
+  Opaque-cursor page of external keys, ordered by creation time (newest first).
+
+  - `data: array of object { id, created_at, display_name, 4 more }`
+
+    - `id: string`
+
+      Tagged ID of the external key config.
+
+    - `created_at: string`
+
+    - `display_name: string`
+
+      Human-friendly display name.
+
+    - `geo: string`
+
+      Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+    - `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+      KMS provider identity and auth coordinates.
+
+      - `Aws object { kms_arn, role_arn, type, region }`
+
+        - `kms_arn: string`
+
+          Full ARN of the AWS KMS key.
+
+        - `role_arn: string`
+
+          IAM role ARN that Anthropic assumes to access the KMS key.
+
+        - `type: "aws"`
+
+          - `"aws"`
+
+        - `region: optional string`
+
+          AWS region. Derived from kms_arn if omitted.
+
+      - `Gcp object { key_name, type }`
+
+        - `key_name: string`
+
+          Full resource name of the Cloud KMS key.
+
+        - `type: "gcp"`
+
+          - `"gcp"`
+
+      - `Azure object { key_name, tenant_id, type, 2 more }`
+
+        - `key_name: string`
+
+          Name of the key within the vault.
+
+        - `tenant_id: string`
+
+          Azure AD tenant ID.
+
+        - `type: "azure"`
+
+          - `"azure"`
+
+        - `vault_uri: string`
+
+          Key Vault URI.
+
+        - `client_id: optional string`
+
+          Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+    - `type: "external_key"`
+
+      - `"external_key"`
+
+    - `updated_at: string`
+
+  - `next_page: string`
+
+    Opaque cursor for the next page, or null if no more results. Pass as `?page=` to fetch the next page.
+
+### External Key Retrieve Response
+
+- `ExternalKeyRetrieveResponse object { id, created_at, display_name, 4 more }`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `id: string`
+
+    Tagged ID of the external key config.
+
+  - `created_at: string`
+
+  - `display_name: string`
+
+    Human-friendly display name.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+    KMS provider identity and auth coordinates.
+
+    - `Aws object { kms_arn, role_arn, type, region }`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key.
+
+      - `role_arn: string`
+
+        IAM role ARN that Anthropic assumes to access the KMS key.
+
+      - `type: "aws"`
+
+        - `"aws"`
+
+      - `region: optional string`
+
+        AWS region. Derived from kms_arn if omitted.
+
+    - `Gcp object { key_name, type }`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+      - `type: "gcp"`
+
+        - `"gcp"`
+
+    - `Azure object { key_name, tenant_id, type, 2 more }`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `type: "azure"`
+
+        - `"azure"`
+
+      - `vault_uri: string`
+
+        Key Vault URI.
+
+      - `client_id: optional string`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `type: "external_key"`
+
+    - `"external_key"`
+
+  - `updated_at: string`
+
+### External Key Update Response
+
+- `ExternalKeyUpdateResponse object { id, created_at, display_name, 4 more }`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `id: string`
+
+    Tagged ID of the external key config.
+
+  - `created_at: string`
+
+  - `display_name: string`
+
+    Human-friendly display name.
+
+  - `geo: string`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `provider_config: object { kms_arn, role_arn, type, region }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+
+    KMS provider identity and auth coordinates.
+
+    - `Aws object { kms_arn, role_arn, type, region }`
+
+      - `kms_arn: string`
+
+        Full ARN of the AWS KMS key.
+
+      - `role_arn: string`
+
+        IAM role ARN that Anthropic assumes to access the KMS key.
+
+      - `type: "aws"`
+
+        - `"aws"`
+
+      - `region: optional string`
+
+        AWS region. Derived from kms_arn if omitted.
+
+    - `Gcp object { key_name, type }`
+
+      - `key_name: string`
+
+        Full resource name of the Cloud KMS key.
+
+      - `type: "gcp"`
+
+        - `"gcp"`
+
+    - `Azure object { key_name, tenant_id, type, 2 more }`
+
+      - `key_name: string`
+
+        Name of the key within the vault.
+
+      - `tenant_id: string`
+
+        Azure AD tenant ID.
+
+      - `type: "azure"`
+
+        - `"azure"`
+
+      - `vault_uri: string`
+
+        Key Vault URI.
+
+      - `client_id: optional string`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multi-tenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `type: "external_key"`
+
+    - `"external_key"`
+
+  - `updated_at: string`
+
+### External Key Delete Response
+
+- `ExternalKeyDeleteResponse object { id, type }`
+
+  - `id: string`
+
+    ID of the deleted External Key.
+
+  - `type: "external_key_deleted"`
+
+    - `"external_key_deleted"`
+
+### External Key Validate Response
+
+- `ExternalKeyValidateResponse object { error, status, type }`
+
+  Result of a validation roundtrip against the customer's KMS.
+
+  HTTP 200 for both outcomes — the operation completed; `status` says
+  whether the key works.
+
+  - `error: string`
+
+    Error message when status is `failure`. Null otherwise.
+
+  - `status: "success" or "failure"`
+
+    `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+    - `"success"`
+
+    - `"failure"`
+
+  - `type: "external_key_validation"`
+
+    - `"external_key_validation"`
 
 # Usage Report
 
@@ -2399,6 +3739,7 @@ Get Messages Usage Report
 - `bucket_width: optional "1d" or "1m" or "1h"`
 
   Time granularity of the response data.
+
   - `"1d"`
 
   - `"1m"`
@@ -2408,6 +3749,7 @@ Get Messages Usage Report
 - `context_window: optional array of "0-200k" or "200k-1M"`
 
   Restrict usage returned to the specified context window(s).
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -2419,6 +3761,7 @@ Get Messages Usage Report
 - `group_by: optional array of "api_key_id" or "workspace_id" or "model" or 6 more`
 
   Group by any subset of the available options. Grouping by `speed` requires the `fast-mode-2026-02-01` beta header.
+
   - `"api_key_id"`
 
   - `"workspace_id"`
@@ -2440,6 +3783,7 @@ Get Messages Usage Report
 - `inference_geos: optional array of "global" or "us" or "not_available"`
 
   Restrict usage returned to the specified inference geo(s). Use `not_available` for models that do not support specifying `inference_geo`.
+
   - `"global"`
 
   - `"us"`
@@ -2470,6 +3814,7 @@ Get Messages Usage Report
 - `service_tiers: optional array of "standard" or "batch" or "priority" or 3 more`
 
   Restrict usage returned to the specified service tier(s).
+
   - `"standard"`
 
   - `"batch"`
@@ -2486,6 +3831,7 @@ Get Messages Usage Report
 
   Restrict usage returned to the specified speed(s) (Claude Code research preview).
   Requires the `fast-mode-2026-02-01` beta header.
+
   - `"standard"`
 
   - `"fast"`
@@ -2505,14 +3851,17 @@ Get Messages Usage Report
 ### Returns
 
 - `MessagesUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
     - `results: array of object { account_id, api_key_id, cache_creation, 10 more }`
 
-      List of usage items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+      List of usage items for this time bucket.  There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `account_id: string`
 
         ID of the user account that made the request. `null` if not grouping by account or for non-OAuth requests.
@@ -2524,6 +3873,7 @@ Get Messages Usage Report
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         The number of input tokens for cache creation.
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -2539,6 +3889,7 @@ Get Messages Usage Report
       - `context_window: "0-200k" or "200k-1M"`
 
         Context window used. `null` if not grouping by context window.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -2559,6 +3910,7 @@ Get Messages Usage Report
       - `server_tool_use: object { web_search_requests }`
 
         Server-side tool usage metrics.
+
         - `web_search_requests: number`
 
           The number of web search requests made.
@@ -2570,6 +3922,7 @@ Get Messages Usage Report
       - `service_tier: "standard" or "batch" or "priority" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
+
         - `"standard"`
 
         - `"batch"`
@@ -2607,7 +3960,7 @@ Get Messages Usage Report
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/messages \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -2671,31 +4024,39 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ### Returns
 
 - `ClaudeCodeUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { actor, core_metrics, customer_type, 6 more }`
 
     List of Claude Code usage records for the requested date.
+
     - `actor: object { email_address, type }  or object { api_key_name, type }`
 
       The user or API key that performed the Claude Code actions.
+
       - `UserActor object { email_address, type }`
+
         - `email_address: string`
 
           Email address of the user who performed Claude Code actions.
 
         - `type: "user_actor"`
+
           - `"user_actor"`
 
       - `APIActor object { api_key_name, type }`
+
         - `api_key_name: string`
 
           Name of the API key used to perform Claude Code actions.
 
         - `type: "api_actor"`
+
           - `"api_actor"`
 
     - `core_metrics: object { commits_by_claude_code, lines_of_code, num_sessions, pull_requests_by_claude_code }`
 
       Core productivity metrics measuring Claude Code usage and impact.
+
       - `commits_by_claude_code: number`
 
         Number of git commits created through Claude Code's commit functionality.
@@ -2703,6 +4064,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `lines_of_code: object { added, removed }`
 
         Statistics on code changes made through Claude Code.
+
         - `added: number`
 
           Total number of lines of code added across all files by Claude Code.
@@ -2722,6 +4084,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `customer_type: "api" or "subscription"`
 
       Type of customer account (api for API customers, subscription for Pro/Team customers).
+
       - `"api"`
 
       - `"subscription"`
@@ -2733,9 +4096,11 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
       Token usage and cost breakdown by AI model used.
+
       - `estimated_cost: object { amount, currency }`
 
         Estimated cost for using this model
+
         - `amount: number`
 
           Estimated cost amount in minor currency units (e.g., cents for USD).
@@ -2751,6 +4116,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `tokens: object { cache_creation, cache_read, input, output }`
 
         Token usage breakdown for this model
+
         - `cache_creation: number`
 
           Number of cache creation tokens consumed by this model.
@@ -2778,6 +4144,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `tool_actions: map[object { accepted, rejected } ]`
 
       Breakdown of tool action acceptance and rejection rates by tool type.
+
       - `accepted: number`
 
         Number of tool action proposals that the user accepted.
@@ -2789,6 +4156,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `subscription_type: optional "enterprise" or "team"`
 
       Subscription tier for subscription customers. `null` for API customers.
+
       - `"enterprise"`
 
       - `"team"`
@@ -2806,7 +4174,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -2891,31 +4259,39 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 ### Claude Code Usage Report
 
 - `ClaudeCodeUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { actor, core_metrics, customer_type, 6 more }`
 
     List of Claude Code usage records for the requested date.
+
     - `actor: object { email_address, type }  or object { api_key_name, type }`
 
       The user or API key that performed the Claude Code actions.
+
       - `UserActor object { email_address, type }`
+
         - `email_address: string`
 
           Email address of the user who performed Claude Code actions.
 
         - `type: "user_actor"`
+
           - `"user_actor"`
 
       - `APIActor object { api_key_name, type }`
+
         - `api_key_name: string`
 
           Name of the API key used to perform Claude Code actions.
 
         - `type: "api_actor"`
+
           - `"api_actor"`
 
     - `core_metrics: object { commits_by_claude_code, lines_of_code, num_sessions, pull_requests_by_claude_code }`
 
       Core productivity metrics measuring Claude Code usage and impact.
+
       - `commits_by_claude_code: number`
 
         Number of git commits created through Claude Code's commit functionality.
@@ -2923,6 +4299,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `lines_of_code: object { added, removed }`
 
         Statistics on code changes made through Claude Code.
+
         - `added: number`
 
           Total number of lines of code added across all files by Claude Code.
@@ -2942,6 +4319,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `customer_type: "api" or "subscription"`
 
       Type of customer account (api for API customers, subscription for Pro/Team customers).
+
       - `"api"`
 
       - `"subscription"`
@@ -2953,9 +4331,11 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
       Token usage and cost breakdown by AI model used.
+
       - `estimated_cost: object { amount, currency }`
 
         Estimated cost for using this model
+
         - `amount: number`
 
           Estimated cost amount in minor currency units (e.g., cents for USD).
@@ -2971,6 +4351,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `tokens: object { cache_creation, cache_read, input, output }`
 
         Token usage breakdown for this model
+
         - `cache_creation: number`
 
           Number of cache creation tokens consumed by this model.
@@ -2998,6 +4379,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `tool_actions: map[object { accepted, rejected } ]`
 
       Breakdown of tool action acceptance and rejection rates by tool type.
+
       - `accepted: number`
 
         Number of tool action proposals that the user accepted.
@@ -3009,6 +4391,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `subscription_type: optional "enterprise" or "team"`
 
       Subscription tier for subscription customers. `null` for API customers.
+
       - `"enterprise"`
 
       - `"team"`
@@ -3024,14 +4407,17 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 ### Messages Usage Report
 
 - `MessagesUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
     - `results: array of object { account_id, api_key_id, cache_creation, 10 more }`
 
-      List of usage items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+      List of usage items for this time bucket.  There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `account_id: string`
 
         ID of the user account that made the request. `null` if not grouping by account or for non-OAuth requests.
@@ -3043,6 +4429,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         The number of input tokens for cache creation.
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -3058,6 +4445,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `context_window: "0-200k" or "200k-1M"`
 
         Context window used. `null` if not grouping by context window.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -3078,6 +4466,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `server_tool_use: object { web_search_requests }`
 
         Server-side tool usage metrics.
+
         - `web_search_requests: number`
 
           The number of web search requests made.
@@ -3089,6 +4478,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `service_tier: "standard" or "batch" or "priority" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
+
         - `"standard"`
 
         - `"batch"`
@@ -3139,6 +4529,7 @@ Get Cost Report
 - `bucket_width: optional "1d"`
 
   Time granularity of the response data.
+
   - `"1d"`
 
 - `ending_at: optional string`
@@ -3148,6 +4539,7 @@ Get Cost Report
 - `group_by: optional array of "workspace_id" or "description"`
 
   Group by any subset of the available options.
+
   - `"workspace_id"`
 
   - `"description"`
@@ -3171,7 +4563,9 @@ Get Cost Report
 ### Returns
 
 - `CostReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
@@ -3179,6 +4573,7 @@ Get Cost Report
     - `results: array of object { amount, context_window, cost_type, 7 more }`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `amount: string`
 
         Cost amount in lowest currency units (e.g. cents) as a decimal string. For example, `"123.45"` in `"USD"` represents `$1.23`.
@@ -3186,6 +4581,7 @@ Get Cost Report
       - `context_window: "0-200k" or "200k-1M"`
 
         Input context window used. `null` if not grouping by description or for non-token costs.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -3193,6 +4589,7 @@ Get Cost Report
       - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
 
         Type of cost. `null` if not grouping by description.
+
         - `"tokens"`
 
         - `"web_search"`
@@ -3221,6 +4618,7 @@ Get Cost Report
       - `service_tier: "standard" or "batch"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
+
         - `"standard"`
 
         - `"batch"`
@@ -3228,6 +4626,7 @@ Get Cost Report
       - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
+
         - `"uncached_input_tokens"`
 
         - `"output_tokens"`
@@ -3259,7 +4658,7 @@ Get Cost Report
 ```http
 curl https://api.anthropic.com/v1/organizations/cost_report \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3296,7 +4695,9 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 ### Cost Report
 
 - `CostReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
@@ -3304,6 +4705,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
     - `results: array of object { amount, context_window, cost_type, 7 more }`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `amount: string`
 
         Cost amount in lowest currency units (e.g. cents) as a decimal string. For example, `"123.45"` in `"USD"` represents `$1.23`.
@@ -3311,6 +4713,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `context_window: "0-200k" or "200k-1M"`
 
         Input context window used. `null` if not grouping by description or for non-token costs.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -3318,6 +4721,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
 
         Type of cost. `null` if not grouping by description.
+
         - `"tokens"`
 
         - `"web_search"`
@@ -3346,6 +4750,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `service_tier: "standard" or "batch"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
+
         - `"standard"`
 
         - `"batch"`
@@ -3353,6 +4758,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
+
         - `"uncached_input_tokens"`
 
         - `"output_tokens"`
@@ -3396,6 +4802,7 @@ and contains the set of limiter values that apply to it.
 - `group_type: optional "model_group" or "batch" or "token_count" or 3 more`
 
   Filter by group type.
+
   - `"model_group"`
 
   - `"batch"`
@@ -3421,9 +4828,11 @@ and contains the set of limiter values that apply to it.
 - `data: array of object { group_type, limits, models, type }`
 
   Rate-limit entries for the organization, one per group.
+
   - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
     - `"model_group"`
 
     - `"batch"`
@@ -3439,6 +4848,7 @@ and contains the set of limiter values that apply to it.
   - `limits: array of object { type, value }`
 
     The limiter values that apply to this group.
+
     - `type: string`
 
       The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
@@ -3454,6 +4864,7 @@ and contains the set of limiter values that apply to it.
   - `type: "rate_limit"`
 
     Object type. Always `rate_limit` for organization rate-limit entries.
+
     - `"rate_limit"`
 
 - `next_page: string`
@@ -3465,7 +4876,7 @@ and contains the set of limiter values that apply to it.
 ```http
 curl https://api.anthropic.com/v1/organizations/rate_limits \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3481,7 +4892,9 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
           "value": 0
         }
       ],
-      "models": ["string"],
+      "models": [
+        "string"
+      ],
       "type": "rate_limit"
     }
   ],
@@ -3494,12 +4907,15 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
 ### Rate Limit List Response
 
 - `RateLimitListResponse object { data, next_page }`
+
   - `data: array of object { group_type, limits, models, type }`
 
     Rate-limit entries for the organization, one per group.
+
     - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
       The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
       - `"model_group"`
 
       - `"batch"`
@@ -3515,6 +4931,7 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
     - `limits: array of object { type, value }`
 
       The limiter values that apply to this group.
+
       - `type: string`
 
         The limiter type (for example, `requests_per_minute` or `input_tokens_per_minute`).
@@ -3530,11 +4947,22 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
     - `type: "rate_limit"`
 
       Object type. Always `rate_limit` for organization rate-limit entries.
+
       - `"rate_limit"`
 
   - `next_page: string`
 
     Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+
+# Service Accounts
+
+# Workspaces
+
+# Federation Issuers
+
+# Federation Rules
+
+# Workspaces
 
 # MCP Tunnels
 
@@ -3555,6 +4983,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -3585,6 +5014,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 - `type: "tunnel"`
 
   Object type. Always `tunnel` for Tunnels.
+
   - `"tunnel"`
 
 - `workspace_id: string`
@@ -3597,7 +5027,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3650,11 +5080,13 @@ archived tunnels are excluded unless `include_archived` is set.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
 
 - `data: array of object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel.
@@ -3681,6 +5113,7 @@ archived tunnels are excluded unless `include_archived` is set.
   - `type: "tunnel"`
 
     Object type. Always `tunnel` for Tunnels.
+
     - `"tunnel"`
 
   - `workspace_id: string`
@@ -3697,7 +5130,7 @@ archived tunnels are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3741,6 +5174,7 @@ access logs.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -3757,6 +5191,7 @@ access logs.
 - `type: "tunnel_token"`
 
   Object type. Always `tunnel_token` for Tunnel Tokens.
+
   - `"tunnel_token"`
 
 ### Example
@@ -3765,7 +5200,7 @@ access logs.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/reveal_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3799,6 +5234,7 @@ restarted after rotation must use the new value. An optional
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Body Parameters
@@ -3821,6 +5257,7 @@ restarted after rotation must use the new value. An optional
 - `type: "tunnel_token"`
 
   Object type. Always `tunnel_token` for Tunnel Tokens.
+
   - `"tunnel_token"`
 
 ### Example
@@ -3829,7 +5266,7 @@ restarted after rotation must use the new value. An optional
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/rotate_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3864,6 +5301,7 @@ tunnel returns the existing record unchanged.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -3894,6 +5332,7 @@ tunnel returns the existing record unchanged.
 - `type: "tunnel"`
 
   Object type. Always `tunnel` for Tunnels.
+
   - `"tunnel"`
 
 - `workspace_id: string`
@@ -3907,7 +5346,7 @@ tunnel returns the existing record unchanged.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -3929,6 +5368,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
 ### MCP Tunnel Retrieve Response
 
 - `MCPTunnelRetrieveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel.
@@ -3955,6 +5395,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
   - `type: "tunnel"`
 
     Object type. Always `tunnel` for Tunnels.
+
     - `"tunnel"`
 
   - `workspace_id: string`
@@ -3965,7 +5406,9 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
 ### MCP Tunnel List Response
 
 - `MCPTunnelListResponse object { data, next_page }`
+
   - `data: array of object { id, archived_at, created_at, 4 more }`
+
     - `id: string`
 
       ID of the Tunnel.
@@ -3992,6 +5435,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
     - `type: "tunnel"`
 
       Object type. Always `tunnel` for Tunnels.
+
       - `"tunnel"`
 
     - `workspace_id: string`
@@ -4006,6 +5450,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
 ### MCP Tunnel Reveal Token Response
 
 - `MCPTunnelRevealTokenResponse object { id, tunnel_token, type }`
+
   - `id: string`
 
     Stable identifier for the current token value. Changes when the token is
@@ -4018,11 +5463,13 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
   - `type: "tunnel_token"`
 
     Object type. Always `tunnel_token` for Tunnel Tokens.
+
     - `"tunnel_token"`
 
 ### MCP Tunnel Rotate Token Response
 
 - `MCPTunnelRotateTokenResponse object { id, tunnel_token, type }`
+
   - `id: string`
 
     Stable identifier for the current token value. Changes when the token is
@@ -4035,11 +5482,13 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
   - `type: "tunnel_token"`
 
     Object type. Always `tunnel_token` for Tunnel Tokens.
+
     - `"tunnel_token"`
 
 ### MCP Tunnel Archive Response
 
 - `MCPTunnelArchiveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel.
@@ -4066,6 +5515,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/archive \
   - `type: "tunnel"`
 
     Object type. Always `tunnel` for Tunnels.
+
     - `"tunnel"`
 
   - `workspace_id: string`
@@ -4097,6 +5547,7 @@ holds at most two non-archived certificates.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Body Parameters
@@ -4137,6 +5588,7 @@ holds at most two non-archived certificates.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -4145,7 +5597,7 @@ holds at most two non-archived certificates.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "ca_certificate_pem": "-----BEGIN CERTIFICATE-----\\nMIIBexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexampleEXAMPLEexa\\n...illustrative placeholder, not a real certificate...\\n-----END CERTIFICATE-----\\n"
         }'
@@ -4186,6 +5638,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -4219,6 +5672,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -4226,7 +5680,7 @@ Retrieve a single certificate registered on a tunnel by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -4278,11 +5732,13 @@ Archived certificates are excluded unless `include_archived` is set.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
 
 - `data: array of object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -4312,6 +5768,7 @@ Archived certificates are excluded unless `include_archived` is set.
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 - `next_page: string`
@@ -4323,7 +5780,7 @@ Archived certificates are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -4370,6 +5827,7 @@ certificate is added.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -4403,6 +5861,7 @@ certificate is added.
 - `type: "tunnel_certificate"`
 
   Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
   - `"tunnel_certificate"`
 
 ### Example
@@ -4411,7 +5870,7 @@ certificate is added.
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/$CERTIFICATE_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -4433,6 +5892,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 ### Tunnel Certificate Create Response
 
 - `TunnelCertificateCreateResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -4462,11 +5922,13 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 ### Tunnel Certificate Retrieve Response
 
 - `TunnelCertificateRetrieveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -4496,12 +5958,15 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`
 
 ### Tunnel Certificate List Response
 
 - `TunnelCertificateListResponse object { data, next_page }`
+
   - `data: array of object { id, archived_at, created_at, 4 more }`
+
     - `id: string`
 
       ID of the Tunnel Certificate.
@@ -4531,6 +5996,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
     - `type: "tunnel_certificate"`
 
       Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
       - `"tunnel_certificate"`
 
   - `next_page: string`
@@ -4540,6 +6006,7 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
 ### Tunnel Certificate Archive Response
 
 - `TunnelCertificateArchiveResponse object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel Certificate.
@@ -4569,4 +6036,5 @@ curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/certificates/
   - `type: "tunnel_certificate"`
 
     Object type. Always `tunnel_certificate` for Tunnel Certificates.
+
     - `"tunnel_certificate"`

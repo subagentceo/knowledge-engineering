@@ -16,13 +16,13 @@ In order to mint new analytics API keys, you must be a Primary Owner within your
 
 Some more details that might be helpful:
 
-- You can _enable/disable_ access to the public API anytime. If you disable access by toggling the switch off, all requests will be denied.
+- You can *enable/disable* access to the public API anytime. If you disable access by toggling the switch off, all requests will be denied.
 
-- You’ll need a key with the `read:analytics` scope in order to access the API. You can create multiple keys for your organization, but rate limits apply at the _organization_ level, not the _key_ level. See the “Rate limiting” section below.
+- You’ll need a key with the `read:analytics` scope in order to access the API. You can create multiple keys for your organization, but rate limits apply at the *organization* level, not the *key* level. See the “Rate limiting” section below.
 
-- As always, _we strongly recommend handling API keys securely_: _never_ share these keys publicly - they are secret, and should be shared securely.
+- As always, *we strongly recommend handling API keys securely*: *never* share these keys publicly - they are secret, and should be shared securely.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1780164900&signature=144f7bab710331c06450f3916193e6fbde59e2c803c4fb1733697d3e20778e8e&req=diAiFc97mIRZX%2FMW1HO4zXfNT1kBdBLSFbDaBcaxqj6x9VnDW4qTSOUIfwUz%0Ag%2FQ2Qv4EKoPdmfaBHGY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1781284500&amp;signature=0115845091f06155e643f7651dbf436dd8525931d778d607e18f2d6f56835f12&amp;req=diAiFc97mIRZX%2FMW1HO4zXfNT1gCehLeFbDaBcaxqj6QSLd%2BsYO4R3%2BIPydk%0AMX1rtoV65ARw4U3l2T8%3D%0A)
 
 ## Base URL
 
@@ -60,15 +60,15 @@ When there are no more results, `next_page` will be `null` in the response.
 
 All endpoints return standard HTTP error codes:
 
-| **Code** | **Meaning**                                                                                                                                                                                                                                        |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 400      | A query parameter is invalid. Common causes include an invalid date, a date before 1/1/26 (first availability), a date that is today or in the future, or (on cost and usage endpoints) a page cursor that doesn't match current query parameters. |
-| 401      | Missing or invalid API key (cost and usage endpoints).                                                                                                                                                                                             |
-| 404      | The API key is missing, invalid, or does not have the `read:analytics` scope.                                                                                                                                                                      |
-| 410      | The page cursor is no longer valid. Restart pagination from the first page.                                                                                                                                                                        |
-| 429      | Rate limit exceeded. Too many requests.                                                                                                                                                                                                            |
-| 500      | Internal error (cost and usage endpoints).                                                                                                                                                                                                         |
-| 504      | Request timed out.                                                                                                                                                                                                                                 |
+| **Code** | **Meaning** |
+| --- | --- |
+| 400 | A query parameter is invalid. Common causes include an invalid date, a date before 1/1/26 (first availability), a date that is today or in the future, or (on cost and usage endpoints) a page cursor that doesn't match current query parameters. |
+| 401 | Missing or invalid API key (cost and usage endpoints). |
+| 404 | The API key is missing, invalid, or does not have the `read:analytics` scope. |
+| 410 | The page cursor is no longer valid. Restart pagination from the first page. |
+| 429 | Rate limit exceeded. Too many requests. |
+| 500 | Internal error (cost and usage endpoints). |
+| 504 | Request timed out. |
 
 ## Rate limiting
 
@@ -86,39 +86,39 @@ Returns per-user engagement metrics for a single day. Each item in the response 
 
 **Query parameters**
 
-| **Field** | **Type** | **Required** | **Description**                                                                         |
-| --------- | -------- | ------------ | --------------------------------------------------------------------------------------- |
-| `date`    | string   | Yes          | The date to retrieve metrics for, in YYYY-MM-DD format.                                 |
-| `limit`   | integer  | No           | Number of records per page (default: 20, max: 1000).                                    |
-| `page`    | string   | No           | Cursor token from a previous response's `next_page` field for retrieving the next page. |
+| **Field** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `date` | string | Yes | The date to retrieve metrics for, in YYYY-MM-DD format. |
+| `limit` | integer | No | Number of records per page (default: 20, max: 1000). |
+| `page` | string | No | Cursor token from a previous response's `next_page` field for retrieving the next page. |
 
 **Response fields (per user)**
 
-| **Field**                                                      | **Description**                                                                                                                          |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `user.id`                                                      | Unique identifier for the user.                                                                                                          |
-| `user.email_address`                                           | The user's email address.                                                                                                                |
-| `chat_metrics.distinct_conversation_count`                     | Number of distinct conversations, specifically within Claude.ai.                                                                         |
-| `chat_metrics.message_count`                                   | Total messages sent, specifically within Claude.ai.                                                                                      |
-| `chat_metrics.distinct_projects_created_count`                 | Number of distinct projects created, specifically within Claude.ai.                                                                      |
-| `chat_metrics.distinct_projects_used_count`                    | Number of distinct projects used, specifically within Claude.ai.                                                                         |
-| `chat_metrics.distinct_files_uploaded_count`                   | Number of distinct files uploaded, specifically within Claude.ai.                                                                        |
-| `chat_metrics.distinct_artifacts_created_count`                | Number of distinct artifacts created, specifically within Claude.ai.                                                                     |
-| `chat_metrics.distinct_shared_artifacts_viewed_count`          | Number of distinct shared artifacts viewed, specifically within Claude.ai.                                                               |
-| `chat_metrics.thinking_message_count`                          | Number of thinking (extended) messages, specifically within Claude.ai.                                                                   |
-| `chat_metrics.distinct_skills_used_count`                      | Number of distinct skills used, specifically within Claude.ai.                                                                           |
-| `chat_metrics.connectors_used_count`                           | Total number of connectors invoked, specifically within Claude.ai.                                                                       |
-| `chat_metrics.shared_conversations_viewed_count`               | Number of shared conversations viewed, specifically within Claude.ai.                                                                    |
-| `claude_code_metrics.core_metrics.commit_count`                | Number of git commits made via Claude Code.                                                                                              |
-| `claude_code_metrics.core_metrics.pull_request_count`          | Number of pull requests created via Claude Code.                                                                                         |
-| `claude_code_metrics.core_metrics.lines_of_code.added_count`   | Total lines of code added.                                                                                                               |
-| `claude_code_metrics.core_metrics.lines_of_code.removed_count` | Total lines of code removed.                                                                                                             |
-| `claude_code_metrics.core_metrics.distinct_session_count`      | Number of distinct Claude Code sessions.                                                                                                 |
-| `claude_code_metrics.tool_actions.edit_tool`                   | Accepted and rejected counts for the Edit tool.                                                                                          |
-| `claude_code_metrics.tool_actions.multi_edit_tool`             | Accepted and rejected counts for the Multi-Edit tool.                                                                                    |
-| `claude_code_metrics.tool_actions.write_tool`                  | Accepted and rejected counts for the Write tool.                                                                                         |
-| `claude_code_metrics.tool_actions.notebook_edit_tool`          | Accepted and rejected counts for the Notebook Edit tool.                                                                                 |
-| `web_search_count`                                             | Total of web search tool invocations. This applies to both [claude.ai](http://claude.ai) and claude code usage within your organization. |
+| **Field** | **Description** |
+| --- | --- |
+| `user.id` | Unique identifier for the user. |
+| `user.email_address` | The user's email address. |
+| `chat_metrics.distinct_conversation_count` | Number of distinct conversations, specifically within Claude.ai. |
+| `chat_metrics.message_count` | Total messages sent, specifically within Claude.ai. |
+| `chat_metrics.distinct_projects_created_count` | Number of distinct projects created, specifically within Claude.ai. |
+| `chat_metrics.distinct_projects_used_count` | Number of distinct projects used, specifically within Claude.ai. |
+| `chat_metrics.distinct_files_uploaded_count` | Number of distinct files uploaded, specifically within Claude.ai. |
+| `chat_metrics.distinct_artifacts_created_count` | Number of distinct artifacts created, specifically within Claude.ai. |
+| `chat_metrics.distinct_shared_artifacts_viewed_count` | Number of distinct shared artifacts viewed, specifically within Claude.ai. |
+| `chat_metrics.thinking_message_count` | Number of thinking (extended) messages, specifically within Claude.ai. |
+| `chat_metrics.distinct_skills_used_count` | Number of distinct skills used, specifically within Claude.ai. |
+| `chat_metrics.connectors_used_count` | Total number of connectors invoked, specifically within Claude.ai. |
+| `chat_metrics.shared_conversations_viewed_count` | Number of shared conversations viewed, specifically within Claude.ai. |
+| `claude_code_metrics.core_metrics.commit_count` | Number of git commits made via Claude Code. |
+| `claude_code_metrics.core_metrics.pull_request_count` | Number of pull requests created via Claude Code. |
+| `claude_code_metrics.core_metrics.lines_of_code.added_count` | Total lines of code added. |
+| `claude_code_metrics.core_metrics.lines_of_code.removed_count` | Total lines of code removed. |
+| `claude_code_metrics.core_metrics.distinct_session_count` | Number of distinct Claude Code sessions. |
+| `claude_code_metrics.tool_actions.edit_tool` | Accepted and rejected counts for the Edit tool. |
+| `claude_code_metrics.tool_actions.multi_edit_tool` | Accepted and rejected counts for the Multi-Edit tool. |
+| `claude_code_metrics.tool_actions.write_tool` | Accepted and rejected counts for the Write tool. |
+| `claude_code_metrics.tool_actions.notebook_edit_tool` | Accepted and rejected counts for the Notebook Edit tool. |
+| `web_search_count` | Total of web search tool invocations. This applies to both [claude.ai](http://claude.ai) and claude code usage within your organization. |
 
 **Office Agent metrics (per user)**
 
@@ -126,31 +126,31 @@ Each user record also includes an `office_metrics` object with per-product break
 
 The office_metrics object contains four keys: `excel`, `powerpoint`, `word`, and `outlook`. Each key contains the same six fields:
 
-| **Field**                                                 | **Description**                                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `office_metrics.[product].distinct_session_count*`        | Number of distinct Office Agent sessions.                                         |
-| `office_metrics.[product].message_count`                  | Number of messages sent (one per completed agent turn).                           |
-| `office_metrics.[product].skills_used_count`              | Total skill invocations. A single skill used five times counts as five.           |
-| `office_metrics.[product].distinct_skills_used_count`     | Number of distinct skills used.                                                   |
-| `office_metrics.[product].connectors_used_count`          | Total connector invocations. A single connector used three times counts as three. |
-| `office_metrics.[product].distinct_connectors_used_count` | Number of distinct connectors used.                                               |
+| **Field** | **Description** |
+| --- | --- |
+| `office_metrics.[product].distinct_session_count*` | Number of distinct Office Agent sessions. |
+| `office_metrics.[product].message_count` | Number of messages sent (one per completed agent turn). |
+| `office_metrics.[product].skills_used_count` | Total skill invocations. A single skill used five times counts as five. |
+| `office_metrics.[product].distinct_skills_used_count` | Number of distinct skills used. |
+| `office_metrics.[product].connectors_used_count` | Total connector invocations. A single connector used three times counts as three. |
+| `office_metrics.[product].distinct_connectors_used_count` | Number of distinct connectors used. |
 
-**\*Note:** Where `[product]` is one of `excel`, `powerpoint`, `word`, or `outlook`.
+***Note:** Where `[product]` is one of `excel`, `powerpoint`, `word`, or `outlook`.
 
 **Claude Cowork metrics (per user)**
 
 Each user record also includes a `cowork_metrics` object with per-user Cowork engagement. This block is always present on every record—organizations without Cowork usage see all-zero values rather than null.
 
-| **Field**                                       | **Description**                                                                   |
-| ----------------------------------------------- | --------------------------------------------------------------------------------- |
-| `cowork_metrics.distinct_session_count`         | Number of distinct Cowork sessions.                                               |
-| `cowork_metrics.message_count`                  | Total user messages sent in Cowork.                                               |
-| `cowork_metrics.action_count`                   | Successful tool calls (Bash, Read, Edit, etc.)                                    |
-| `cowork_metrics.dispatch_turn_count`            | Completed agent turns in Dispatch (background agent) sessions.                    |
-| `cowork_metrics.skills_used_count`              | Total skill invocations. A single skill used five times counts as five.           |
-| `cowork_metrics.distinct_skills_used_count`     | Number of distinct skills used.                                                   |
-| `cowork_metrics.connectors_used_count`          | Total connector invocations. A single connector used three times counts as three. |
-| `cowork_metrics.distinct_connectors_used_count` | Number of distinct connectors used.                                               |
+| **Field** | **Description** |
+| --- | --- |
+| `cowork_metrics.distinct_session_count` | Number of distinct Cowork sessions. |
+| `cowork_metrics.message_count` | Total user messages sent in Cowork. |
+| `cowork_metrics.action_count` | Successful tool calls (Bash, Read, Edit, etc.) |
+| `cowork_metrics.dispatch_turn_count` | Completed agent turns in Dispatch (background agent) sessions. |
+| `cowork_metrics.skills_used_count` | Total skill invocations. A single skill used five times counts as five. |
+| `cowork_metrics.distinct_skills_used_count` | Number of distinct skills used. |
+| `cowork_metrics.connectors_used_count` | Total connector invocations. A single connector used three times counts as three. |
+| `cowork_metrics.distinct_connectors_used_count` | Number of distinct connectors used. |
 
 **Example request**
 
@@ -175,25 +175,25 @@ Returns a high-level summary of engagement and seat utilization **per-day** for 
 
 **Query parameters**
 
-| **Field**       | **Type** | **Required** | **Description**                                                                                                                                                               |
-| --------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `starting_date` | string   | Yes          | The starting date to retrieve data for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
-| `ending_date`   | string   | No           | The optional ending date to retrieve data for, in YYYY-MM-DD format. This is _exclusive_.                                                                                     |
+| **Field** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `starting_date` | string | Yes | The starting date to retrieve data for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
+| `ending_date` | string | No | The optional ending date to retrieve data for, in YYYY-MM-DD format. This is *exclusive*. |
 
 **Response fields**
 
-| **Field**                          | **Description**                                                                                                                                                                        |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `starting_date`                    | First day for which metrics are aggregated, interpreted as a UTC date. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
-| `ending_date`                      | Last day (exclusive) for which metrics are aggregated, interpreted as a UTC date                                                                                                       |
-| `daily_active_user_count`          | Number of users active on the specified date (based on token consumption).                                                                                                             |
-| `weekly_active_user_count`         | Number of users active within the 7-day rolling window ending on the specified date.                                                                                                   |
-| `monthly_active_user_count`        | Number of users active within the 30-day rolling window ending on the specified date.                                                                                                  |
-| `assigned_seat_count`              | Total number of seats currently assigned in your organization.                                                                                                                         |
-| `pending_invite_count`             | Number of pending invitations that have not yet been accepted.                                                                                                                         |
-| `cowork_daily_active_user_count`   | Number of users with ≥1 Cowork session that day                                                                                                                                        |
-| `cowork_weekly_active_user_count`  | Number of users with ≥1 Cowork session in a rolling 7-day period.                                                                                                                      |
-| `cowork_monthly_active_user_count` | Number of users with ≥1 Cowork session in a rolling 30-day period.                                                                                                                     |
+| **Field** | **Description** |
+| --- | --- |
+| `starting_date` | First day for which metrics are aggregated, interpreted as a UTC date. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
+| `ending_date` | Last day (exclusive) for which metrics are aggregated, interpreted as a UTC date |
+| `daily_active_user_count` | Number of users active on the specified date (based on token consumption). |
+| `weekly_active_user_count` | Number of users active within the 7-day rolling window ending on the specified date. |
+| `monthly_active_user_count` | Number of users active within the 30-day rolling window ending on the specified date. |
+| `assigned_seat_count` | Total number of seats currently assigned in your organization. |
+| `pending_invite_count` | Number of pending invitations that have not yet been accepted. |
+| `cowork_daily_active_user_count` | Number of users with ≥1 Cowork session that day |
+| `cowork_weekly_active_user_count` | Number of users with ≥1 Cowork session in a rolling 7-day period. |
+| `cowork_monthly_active_user_count` | Number of users with ≥1 Cowork session in a rolling 30-day period. |
 
 **Note:** The rolling windows for weekly and monthly counts look backward from the specified date (inclusive). If data is incomplete for some days within the window (for example, if the date is less than 30 days in the past), the monthly count may undercount activity.
 
@@ -212,23 +212,23 @@ Returns usage data broken down by chat project for a given date. Projects are sp
 
 **Query parameters**
 
-| **Field** | **Type** | **Required** | **Description**                                                                                                                                                         |
-| --------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date`    | string   | Yes          | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
-| `limit`   | integer  | No           | Number of records per page (default: 100, max: 1000).                                                                                                                   |
-| `page`    | string   | No           | Cursor token from a previous response's `next_page` field for retrieving the next page.                                                                                 |
+| **Field** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `date` | string | Yes | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
+| `limit` | integer | No | Number of records per page (default: 100, max: 1000). |
+| `page` | string | No | Cursor token from a previous response's `next_page` field for retrieving the next page. |
 
 **Response fields (per project)**
 
-| **Field**                     | **Description**                                                      |
-| ----------------------------- | -------------------------------------------------------------------- |
-| `project_name`                | The name of the project.                                             |
-| `project_id`                  | The tagged project id, i.e. “`claude_proj_{ID}`”                     |
-| `distinct_user_count`         | Number of unique users who used this project on the given date.      |
-| `distinct_conversation_count` | Number of conversations in this project on the given date.           |
-| `message_count`               | Total number of messages sent within this project on the given date. |
-| `created_at`                  | The project creation timestamp.                                      |
-| `created_by`                  | `{id, email_address}` of the user who created the project.           |
+| **Field** | **Description** |
+| --- | --- |
+| `project_name` | The name of the project. |
+| `project_id` | The tagged project id, i.e. “`claude_proj_{ID}`” |
+| `distinct_user_count` | Number of unique users who used this project on the given date. |
+| `distinct_conversation_count` | Number of conversations in this project on the given date. |
+| `message_count` | Total number of messages sent within this project on the given date. |
+| `created_at` | The project creation timestamp. |
+| `created_by` | `{id, email_address}` of the user who created the project. |
 
 **Example request**
 
@@ -245,38 +245,38 @@ Returns skill usage data across both Claude (chat) and Claude Code within your o
 
 **Query parameters**
 
-| **Field** | **Type** | **Required** | **Description**                                                                                                                                                         |
-| --------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date`    | string   | Yes          | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
-| `limit`   | integer  | No           | Number of records per page (default: 100, max: 1000).                                                                                                                   |
-| `page`    | string   | No           | Cursor token from a previous response's `next_page` field for retrieving the next page.                                                                                 |
+| **Field** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `date` | string | Yes | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
+| `limit` | integer | No | Number of records per page (default: 100, max: 1000). |
+| `page` | string | No | Cursor token from a previous response's `next_page` field for retrieving the next page. |
 
 **Response fields (per skill)**
 
-| **Field**                                               | **Description**                                                                               |
-| ------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `skill_name`                                            | The name of the skill.                                                                        |
-| `distinct_user_count`                                   | Number of unique users who used this skill on the given date.                                 |
-| `chat_metrics.distinct_conversation_skill_used_count`   | Number of distinct conversations in which the skill was used at least once, in chat.          |
+| **Field** | **Description** |
+| --- | --- |
+| `skill_name` | The name of the skill. |
+| `distinct_user_count` | Number of unique users who used this skill on the given date. |
+| `chat_metrics.distinct_conversation_skill_used_count` | Number of distinct conversations in which the skill was used at least once, in chat. |
 | `claude_code_metrics.distinct_session_skill_used_count` | Number of distinct remote sessions in which the skill was used at least once, in Claude Code. |
 
 **Office Agent metrics (per skill)**
 
 Each skill record also includes an `office_metrics` object that reports how many Office Agent sessions used the skill, broken down by product. This block is always present—organizations without Office Agent usage see all-zero values.
 
-| **Field**                                                     | **Description**                                                                      |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `office_metrics.excel.distinct_session_skill_used_count`      | Number of distinct Office Agent sessions in Excel in which this skill was used.      |
+| **Field** | **Description** |
+| --- | --- |
+| `office_metrics.excel.distinct_session_skill_used_count` | Number of distinct Office Agent sessions in Excel in which this skill was used. |
 | `office_metrics.powerpoint.distinct_session_skill_used_count` | Number of distinct Office Agent sessions in PowerPoint in which this skill was used. |
-| `office_metrics.word.distinct_session_skill_used_count`       | Number of distinct Office Agent sessions in Word in which this skill was used.       |
-| `office_metrics.outlook.distinct_session_skill_used_count`    | Number of distinct Office Agent sessions in Outlook in which this skill was used.    |
+| `office_metrics.word.distinct_session_skill_used_count` | Number of distinct Office Agent sessions in Word in which this skill was used. |
+| `office_metrics.outlook.distinct_session_skill_used_count` | Number of distinct Office Agent sessions in Outlook in which this skill was used. |
 
 **Claude Cowork metrics (per skill)**
 
 Each skill record also includes a `cowork_metrics` object that reports how many Cowork sessions used the skill. This block is always present—organizations without Cowork usage see all-zero values.
 
 | `cowork_metrics.distinct_session_skill_used_count` | Number of distinct Cowork sessions in which this skill was used at least once. |
-| -------------------------------------------------- | ------------------------------------------------------------------------------ |
+| --- | --- |
 
 **Example request**
 
@@ -293,38 +293,38 @@ Returns MCP/connector usage data across both Claude (chat) and Claude Code withi
 
 **Query parameters**
 
-| **Field** | **Type** | **Required** | **Description**                                                                                                                                                         |
-| --------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `date`    | string   | Yes          | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
-| `limit`   | integer  | No           | Number of records per page (default: 100, max: 1000).                                                                                                                   |
-| `page`    | string   | No           | Cursor token from a previous response's `next_page` field for retrieving the next page.                                                                                 |
+| **Field** | **Type** | **Required** | **Description** |
+| --- | --- | --- | --- |
+| `date` | string | Yes | The date to retrieve metrics for, in YYYY-MM-DD format. There is a three-day delay in data availability, so the most recent data you can access is from three days ago. |
+| `limit` | integer | No | Number of records per page (default: 100, max: 1000). |
+| `page` | string | No | Cursor token from a previous response's `next_page` field for retrieving the next page. |
 
 **Response fields (per connector)**
 
-| **Field**                                                   | **Description**                                                                                   |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `connector_name`                                            | The normalized name of the connector.                                                             |
-| `distinct_user_count`                                       | Number of unique users who used this connector on the given date.                                 |
-| `chat_metrics.distinct_conversation_connector_used_count`   | Number of distinct conversations in which the connector was used at least once, in chat.          |
+| **Field** | **Description** |
+| --- | --- |
+| `connector_name` | The normalized name of the connector. |
+| `distinct_user_count` | Number of unique users who used this connector on the given date. |
+| `chat_metrics.distinct_conversation_connector_used_count` | Number of distinct conversations in which the connector was used at least once, in chat. |
 | `claude_code_metrics.distinct_session_connector_used_count` | Number of distinct remote sessions in which the connector was used at least once, in Claude Code. |
 
 **Office Agent metrics (per connector)**
 
 Each connector record also includes an office_metrics object that reports how many Office Agent sessions used the connector, broken down by product. This block is always present—organizations without Office Agent usage see all-zero values.
 
-| **Field**                                                         | **Description**                                                                          |
-| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `office_metrics.excel.distinct_session_connector_used_count`      | Number of distinct Office Agent sessions in Excel in which this connector was used.      |
+| **Field** | **Description** |
+| --- | --- |
+| `office_metrics.excel.distinct_session_connector_used_count` | Number of distinct Office Agent sessions in Excel in which this connector was used. |
 | `office_metrics.powerpoint.distinct_session_connector_used_count` | Number of distinct Office Agent sessions in PowerPoint in which this connector was used. |
-| `office_metrics.word.distinct_session_connector_used_count`       | Number of distinct Office Agent sessions in Word in which this connector was used.       |
-| `office_metrics.outlook.distinct_session_connector_used_count`    | Number of distinct Office Agent sessions in Outlook in which this connector was used.    |
+| `office_metrics.word.distinct_session_connector_used_count` | Number of distinct Office Agent sessions in Word in which this connector was used. |
+| `office_metrics.outlook.distinct_session_connector_used_count` | Number of distinct Office Agent sessions in Outlook in which this connector was used. |
 
 **Claude Cowork metrics (per connector)**
 
 Each connector record also includes a `cowork_metrics` object that reports how many Cowork sessions used the connector. This block is always present—organizations without Cowork usage see all-zero values.
 
-| **Field**                                              | **Description**                                                                    |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Field** | **Description** |
+| --- | --- |
 | `cowork_metrics.distinct_session_connector_used_count` | Number of distinct Cowork sessions in which this connector was used at least once. |
 
 **Example request**
@@ -344,10 +344,10 @@ The cost and usage endpoints give your organization programmatic access to token
 
 There are four endpoints in two shapes:
 
-| **Shape**                                                  | **Endpoints**                           | **Returns**                                                                  |
-| ---------------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------- |
-| **Per-user** (one row per user, sorted)                    | `user_usage_report`, `user_cost_report` | Users ranked by tokens or spend across a date range.                         |
-| **Bucketed** (one row per time bucket, optionally grouped) | `usage_report`, `cost_report`           | Usage or cost over time, broken down by product, model, or other dimensions. |
+| **Shape** | **Endpoints** | **Returns** |
+| --- | --- | --- |
+| **Per-user** (one row per user, sorted) | `user_usage_report`, `user_cost_report` | Users ranked by tokens or spend across a date range. |
+| **Bucketed** (one row per time bucket, optionally grouped) | `usage_report`, `cost_report` | Usage or cost over time, broken down by product, model, or other dimensions. |
 
 Use the **per-user** endpoints to answer "who are my top spenders?" Use the **bucketed** endpoints to answer "how is usage trending day over day, broken down by product?"
 
@@ -390,13 +390,13 @@ Each per-user result row identifies the user who generated the usage.
 }
 ```
 
-| **Field** | **Type**       | **Description**                                          |
-| --------- | -------------- | -------------------------------------------------------- |
-| `type`    | string         | Always "user_actor".                                     |
-| `user_id` | string         | The user's ID. Same value accepted by `user_ids[]`.      |
-| `name`    | string or null | The user's name. “Deleted User” if the user was deleted. |
-| `email`   | string or null | The user's email address. Null when user deleted.        |
-| `deleted` | boolean        | True if the account has been deleted.                    |
+| **Field** | **Type** | **Description** |
+| --- | --- | --- |
+| `type` | string | Always "user_actor". |
+| `user_id` | string | The user's ID. Same value accepted by `user_ids[]`. |
+| `name` | string or null | The user's name. “Deleted User” if the user was deleted. |
+| `email` | string or null | The user's email address. Null when user deleted. |
+| `deleted` | boolean | True if the account has been deleted. |
 
 ### 6. Per-user token usage
 
@@ -406,46 +406,46 @@ Returns per-user **token usage** across a date range, sorted by the chosen token
 
 **Query parameters**
 
-| **Field**               | **Type**                                                                               | **Required** | **Default**             | **Description**                                                                                                                                            |
-| ----------------------- | -------------------------------------------------------------------------------------- | ------------ | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `starting_at`           | RFC 3339 datetime                                                                      | Yes          | —                       | Start of range, inclusive. Floored to the start of the hour in UTC. Must be within the last 365 days.                                                      |
-| `ending_at`             | RFC 3339 datetime                                                                      | No           | now                     | End of range, exclusive. The range may span at most 31 days.                                                                                               |
-| `products[]`            | one or more of chat, claude_code, cowork, office_agent, claude_in_chrome,claude_design | No           | all seat-based products | Seat-based product surfaces only. Repeat the parameter for multiple values.                                                                                |
-| `models[]`              | string, max 100 entries                                                                | No           | all                     | Filter to specific model names (e.g., `claude-opus-4-6`, `claude-sonnet-4-6`, `claude-haiku-4-5-20251001`).                                                |
-| `user_ids[]`            | string, max 100 entries                                                                | No           | all                     | Filter to specific users. Useful for looking up a known set of users without paginating the whole organization.                                            |
-| `context_windows[]`     | one or more of 0-200k, 200k-1M                                                         | No           | all                     | Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.                                             |
-| `inference_geos[]`      | one or more of global, us, not_available                                               | No           | all                     | Filter to specific inference regions. not_available matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values. |
-| `speeds[]`              | one or more of fast, standard                                                          | No           | all                     | Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.                                                            |
-| `group_by[]`            | one or more of product, model, context_window, inference_geo, speed                    | No           | none                    | Break each user's row out by the given dimensions. With dimensions present, one user may span several rows.                                                |
-| `order_by`              | total_tokens, output_tokens, uncached_input_tokens                                     | No           | total_tokens            | Metric to sort by.                                                                                                                                         |
-| `exclude_deleted_users` | boolean                                                                                | No           | false                   | When true, rows for deleted users are omitted.                                                                                                             |
-| `order`                 | desc, asc                                                                              | No           | desc                    | Sort direction.                                                                                                                                            |
-| `limit`                 | integer 1–1000                                                                         | No           | 20                      | Rows per page.                                                                                                                                             |
-| `page`                  | opaque cursor string                                                                   | No           | —                       | The `next_page` value from a previous response.                                                                                                            |
+| **Field** | **Type** | **Required** | **Default** | **Description** |
+| --- | --- | --- | --- | --- |
+| `starting_at` | RFC 3339 datetime | Yes | — | Start of range, inclusive. Floored to the start of the hour in UTC. Must be within the last 365 days. |
+| `ending_at` | RFC 3339 datetime | No | now | End of range, exclusive. The range may span at most 31 days. |
+| `products[]` | one or more of chat, claude_code, cowork, office_agent, claude_in_chrome,claude_design | No | all seat-based products | Seat-based product surfaces only. Repeat the parameter for multiple values. |
+| `models[]` | string, max 100 entries | No | all | Filter to specific model names (e.g., `claude-opus-4-6`, `claude-sonnet-4-6`, `claude-haiku-4-5-20251001`). |
+| `user_ids[]` | string, max 100 entries | No | all | Filter to specific users. Useful for looking up a known set of users without paginating the whole organization. |
+| `context_windows[]` | one or more of 0-200k, 200k-1M | No | all | Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values. |
+| `inference_geos[]` | one or more of global, us, not_available | No | all | Filter to specific inference regions. not_available matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values. |
+| `speeds[]` | one or more of fast, standard | No | all | Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values. |
+| `group_by[]` | one or more of product, model, context_window, inference_geo, speed | No | none | Break each user's row out by the given dimensions. With dimensions present, one user may span several rows. |
+| `order_by` | total_tokens, output_tokens, uncached_input_tokens | No | total_tokens | Metric to sort by. |
+| `exclude_deleted_users` | boolean | No | false | When true, rows for deleted users are omitted. |
+| `order` | desc, asc | No | desc | Sort direction. |
+| `limit` | integer 1–1000 | No | 20 | Rows per page. |
+| `page` | opaque cursor string | No | — | The `next_page` value from a previous response. |
 
 **Response fields**
 
-| **Field**                                         | **Description**                                                                                    |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `organization_id`                                 | ID of the organization the API key belongs to.                                                     |
-| `data`                                            | Array of entries, sorted by `order_by` in order direction.                                         |
-| `data[].actor`                                    | The Actor object for the user who generated the usage.                                             |
-| `data[].product`                                  | When `group_by[]` includes product, the product surface. Otherwise null.                           |
-| `data[].model`                                    | When `group_by[]` includes model, the model name. Otherwise null.                                  |
-| `data[].context_window`                           | When `group_by[]` includes `context_window`, the context tier (0-200k or 200k-1M). Otherwise null. |
-| `data[].inference_geo`                            | When `group_by[]` includes `inference_geo`, the inference region. Otherwise null.                  |
-| `data[].speed`                                    | When `group_by[]` includes `speed: fast` or `standard`. Otherwise null.                            |
-| `data[].uncached_input_tokens`                    | Input tokens that were not served from the prompt cache.                                           |
-| `data[].cache_creation.ephemeral_5m_input_tokens` | Tokens written to the 5-minute prompt cache.                                                       |
-| `data[].cache_creation.ephemeral_1h_input_tokens` | Tokens written to the 1-hour prompt cache.                                                         |
-| `data[].cache_read_input_tokens`                  | Input tokens served from the prompt cache.                                                         |
-| `data[].output_tokens`                            | Output tokens generated.                                                                           |
-| `data[].total_tokens`                             | Sum of all token components above. The default `order_by=total_tokens` sorts on this value.        |
-| `data[].server_tool_use.web_search_requests`      | Number of web search tool calls.                                                                   |
-| `data[].requests`                                 | Number of API requests                                                                             |
-| `has_more`                                        | Whether another page exists.                                                                       |
-| `next_page`                                       | Opaque cursor for the next page; null when `has_more` is false.                                    |
-| `data_refreshed_at`                               | Timestamp of the data export this response was served from.                                        |
+| **Field** | **Description** |
+| --- | --- |
+| `organization_id` | ID of the organization the API key belongs to. |
+| `data` | Array of entries, sorted by `order_by` in order direction. |
+| `data[].actor` | The Actor object for the user who generated the usage. |
+| `data[].product` | When `group_by[]` includes product, the product surface. Otherwise null. |
+| `data[].model` | When `group_by[]` includes model, the model name. Otherwise null. |
+| `data[].context_window` | When `group_by[]` includes `context_window`, the context tier (0-200k or 200k-1M). Otherwise null. |
+| `data[].inference_geo` | When `group_by[]` includes `inference_geo`, the inference region. Otherwise null. |
+| `data[].speed` | When `group_by[]` includes `speed: fast` or `standard`. Otherwise null. |
+| `data[].uncached_input_tokens` | Input tokens that were not served from the prompt cache. |
+| `data[].cache_creation.ephemeral_5m_input_tokens` | Tokens written to the 5-minute prompt cache. |
+| `data[].cache_creation.ephemeral_1h_input_tokens` | Tokens written to the 1-hour prompt cache. |
+| `data[].cache_read_input_tokens` | Input tokens served from the prompt cache. |
+| `data[].output_tokens` | Output tokens generated. |
+| `data[].total_tokens` | Sum of all token components above. The default `order_by=total_tokens` sorts on this value. |
+| `data[].server_tool_use.web_search_requests` | Number of web search tool calls. |
+| `data[].requests` | Number of API requests |
+| `has_more` | Whether another page exists. |
+| `next_page` | Opaque cursor for the next page; null when `has_more` is false. |
+| `data_refreshed_at` | Timestamp of the data export this response was served from. |
 
 **Example request**
 
@@ -465,30 +465,30 @@ Returns per-user **USD cost** across a date range, sorted by discounted or list-
 
 Same as `user_usage_report`, with these differences:
 
-| **Field**    | **Type**                                                                                   | **Required** | **Default** | **Description**                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------ | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `order_by`   | amount, list_amount                                                                        | No           | amount      | Metric to sort by.                                                                                                                                                                   |
-| `group_by[]` | one or more of product, model, context_window, inference_geo, speed, cost_type, token_type | No           | none        | Break each user's row out by the given dimensions. `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type. |
+| **Field** | **Type** | **Required** | **Default** | **Description** |
+| --- | --- | --- | --- | --- |
+| `order_by` | amount, list_amount | No | amount | Metric to sort by. |
+| `group_by[]` | one or more of product, model, context_window, inference_geo, speed, cost_type, token_type | No | none | Break each user's row out by the given dimensions. `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type. |
 
 All other parameters (`starting_at`, `ending_at`, `products[]`, `models[]`, `user_ids[]`, `order`, `limit`, `page`) are identical.
 
 **Response fields**
 
-| **Field**                                                                                       | **Description**                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `organization_id`                                                                               | ID of the organization the API key belongs to.                                                                                                                                                                                                                  |
-| `data`                                                                                          | Array of entries, sorted by `order_by` in order direction.                                                                                                                                                                                                      |
-| `data[].actor`                                                                                  | The Actor object for the user who generated the cost.                                                                                                                                                                                                           |
-| `data[].product, data[].model`, `data[].context_window`, `data[].inference_geo`, `data[].speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null.                                                                                                                                                                          |
-| `data[].currency`                                                                               | Always "USD".                                                                                                                                                                                                                                                   |
-| `data[].amount`                                                                                 | Amount in fractional cents —raw consumption cost after negotiated discounts. For example, "41280.000000" is $412.80. The value is summed across all products in the `products[]` filter.                                                                        |
-| `data[].list_amount`                                                                            | List-price amount (pre-discount) in fractional cents, same format.                                                                                                                                                                                              |
-| `data[].cost_type`                                                                              | When `group_by[]` includes `cost_type:` one of `tokens`, `web_search`, `code_execution`. null when not set.                                                                                                                                                     |
-| `data[].token_type`                                                                             | When `group_by[]` includes `token_type:` one of `uncached_input_tokens`, `output_tokens`, `cache_read_input_tokens`, `cache_creation.ephemeral_5m_input_tokens`, `cache_creation.ephemeral_1h_input_tokens`. Only non-null on rows where `cost_type` is tokens. |
-| `data[].requests`                                                                               | Number of API requests                                                                                                                                                                                                                                          |
-| `has_more`                                                                                      | Whether another page exists.                                                                                                                                                                                                                                    |
-| `next_page`                                                                                     | Opaque cursor for the next page.                                                                                                                                                                                                                                |
-| `data_refreshed_at`                                                                             | Timestamp of the data export this response was served from.                                                                                                                                                                                                     |
+| **Field** | **Description** |
+| --- | --- |
+| `organization_id` | ID of the organization the API key belongs to. |
+| `data` | Array of entries, sorted by `order_by` in order direction. |
+| `data[].actor` | The Actor object for the user who generated the cost. |
+| `data[].product, data[].model`, `data[].context_window`, `data[].inference_geo`, `data[].speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null. |
+| `data[].currency` | Always "USD". |
+| `data[].amount` | Amount in fractional cents —raw consumption cost after negotiated discounts. For example, "41280.000000" is $412.80. The value is summed across all products in the `products[]` filter. |
+| `data[].list_amount` | List-price amount (pre-discount) in fractional cents, same format. |
+| `data[].cost_type` | When `group_by[]` includes `cost_type:` one of `tokens`, `web_search`, `code_execution`. null when not set. |
+| `data[].token_type` | When `group_by[]` includes `token_type:` one of `uncached_input_tokens`, `output_tokens`, `cache_read_input_tokens`, `cache_creation.ephemeral_5m_input_tokens`, `cache_creation.ephemeral_1h_input_tokens`. Only non-null on rows where `cost_type` is tokens. |
+| `data[].requests` | Number of API requests |
+| `has_more` | Whether another page exists. |
+| `next_page` | Opaque cursor for the next page. |
+| `data_refreshed_at` | Timestamp of the data export this response was served from. |
 
 **Parsing amounts**
 
@@ -510,40 +510,40 @@ Returns **token usage over time**, bucketed by minute, hour, or day, optionally 
 
 **Query parameters**
 
-| **Field**           | **Type**                                                                               | **Required** | **Default** | **Description**                                                                                                                                              |
-| ------------------- | -------------------------------------------------------------------------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `starting_at`       | RFC 3339 datetime                                                                      | Yes          | —           | Start of range, inclusive. Must be within the last 365 days. Floored to the nearest `bucket_width` boundary in UTC.                                          |
-| `ending_at`         | RFC 3339 datetime                                                                      | No           | now         | End of range, exclusive. The range may span at most 31 days. Floored to the nearest `bucket_width` boundary in UTC.                                          |
-| `bucket_width`      | 1m, 1h, 1d                                                                             | No           | 1d          | Time bucket granularity: minute, hour, or day.                                                                                                               |
-| `group_by[]`        | one or more of product, model, context_window, inference_geo, speed                    | No           | none        | Dimensions to break down within each bucket. Omit for a single aggregate per bucket.                                                                         |
-| `products[]`        | one or more of chat, claude_code, cowork, office_agent, claude_in_chrome,claude_design | No           | all         | Filter to specific product surfaces.                                                                                                                         |
-| `models[]`          | string, max 100 entries                                                                | No           | all         | Filter to specific model names.                                                                                                                              |
-| `context_windows[]` | one or more of 0-200k, 200k-1M                                                         | No           | all         | Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.                                               |
-| `inference_geos[]`  | one or more of global, us, not_available                                               | No           | all         | Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values. |
-| `speeds[]`          | one or more of fast, standard                                                          | No           | all         | Filter to fast or standard inference mode.                                                                                                                   |
-| `user_ids[]`        | string, max 100 entries                                                                | No           | all         | Filter to specific users.                                                                                                                                    |
-| `limit`             | integer                                                                                | No           | varies      | Buckets per page. Default and maximum vary by bucket_width: 1d → 7 (max 31); 1h → 24 (max 168); 1m → 60 (max 256).                                           |
-| `page`              | opaque cursor string                                                                   | No           | —           | The `next_page` value from a previous response.                                                                                                              |
+| **Field** | **Type** | **Required** | **Default** | **Description** |
+| --- | --- | --- | --- | --- |
+| `starting_at` | RFC 3339 datetime | Yes | — | Start of range, inclusive. Must be within the last 365 days. Floored to the nearest `bucket_width` boundary in UTC. |
+| `ending_at` | RFC 3339 datetime | No | now | End of range, exclusive. The range may span at most 31 days. Floored to the nearest `bucket_width` boundary in UTC. |
+| `bucket_width` | 1m, 1h, 1d | No | 1d | Time bucket granularity: minute, hour, or day. |
+| `group_by[]` | one or more of product, model, context_window, inference_geo, speed | No | none | Dimensions to break down within each bucket. Omit for a single aggregate per bucket. |
+| `products[]` | one or more of chat, claude_code, cowork, office_agent, claude_in_chrome,claude_design | No | all | Filter to specific product surfaces. |
+| `models[]` | string, max 100 entries | No | all | Filter to specific model names. |
+| `context_windows[]` | one or more of 0-200k, 200k-1M | No | all | Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values. |
+| `inference_geos[]` | one or more of global, us, not_available | No | all | Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values. |
+| `speeds[]` | one or more of fast, standard | No | all | Filter to fast or standard inference mode. |
+| `user_ids[]` | string, max 100 entries | No | all | Filter to specific users. |
+| `limit` | integer | No | varies | Buckets per page. Default and maximum vary by bucket_width: 1d → 7 (max 31); 1h → 24 (max 168); 1m → 60 (max 256). |
+| `page` | opaque cursor string | No | — | The `next_page` value from a previous response. |
 
 **Response fields**
 
-| **Field**                                                                   | **Description**                                                                                                                |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `organization_id`                                                           | ID of the organization the API key belongs to.                                                                                 |
-| `data`                                                                      | Array of entries, one per time bucket.                                                                                         |
-| `data[].starting_at`                                                        | Bucket start.                                                                                                                  |
-| `data[].ending_at`                                                          | Bucket end.                                                                                                                    |
-| `data[].results`                                                            | Array of entries, one per group within the bucket. A single entry with all dimension fields null when `group_by[]` is omitted. |
-| `data[].results[].product, .model, .context_window, .inference_geo, .speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null.                                         |
-| `data[].results[].uncached_input_tokens`                                    | Input tokens that were not served from the prompt cache.                                                                       |
-| `data[].results[].cache_creation.ephemeral_5m_input_tokens`                 | Tokens written to the 5-minute prompt cache.                                                                                   |
-| `data[].results[].cache_creation.ephemeral_1h_input_tokens`                 | Tokens written to the 1-hour prompt cache.                                                                                     |
-| `data[].results[].cache_read_input_tokens`                                  | Input tokens served from the prompt cache.                                                                                     |
-| `data[].results[].output_tokens`                                            | Output tokens generated.                                                                                                       |
-| `data[].results[].server_tool_use.web_search_requests`                      | Number of web search tool calls.                                                                                               |
-| `has_more`                                                                  | Whether more buckets exist.                                                                                                    |
-| `next_page`                                                                 | Opaque cursor for the next page.                                                                                               |
-| `data_refreshed_at`                                                         | Timestamp of the data export this response was served from.                                                                    |
+| **Field** | **Description** |
+| --- | --- |
+| `organization_id` | ID of the organization the API key belongs to. |
+| `data` | Array of entries, one per time bucket. |
+| `data[].starting_at` | Bucket start. |
+| `data[].ending_at` | Bucket end. |
+| `data[].results` | Array of entries, one per group within the bucket. A single entry with all dimension fields null when `group_by[]` is omitted. |
+| `data[].results[].product, .model, .context_window, .inference_geo, .speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null. |
+| `data[].results[].uncached_input_tokens` | Input tokens that were not served from the prompt cache. |
+| `data[].results[].cache_creation.ephemeral_5m_input_tokens` | Tokens written to the 5-minute prompt cache. |
+| `data[].results[].cache_creation.ephemeral_1h_input_tokens` | Tokens written to the 1-hour prompt cache. |
+| `data[].results[].cache_read_input_tokens` | Input tokens served from the prompt cache. |
+| `data[].results[].output_tokens` | Output tokens generated. |
+| `data[].results[].server_tool_use.web_search_requests` | Number of web search tool calls. |
+| `has_more` | Whether more buckets exist. |
+| `next_page` | Opaque cursor for the next page. |
+| `data_refreshed_at` | Timestamp of the data export this response was served from. |
 
 **Example request**
 
@@ -565,22 +565,22 @@ Same as `usage_report` (`bucket_width`, `group_by[]`, `filters`, `limit`, `page`
 
 **Response fields**
 
-| **Field**                                                                   | **Description**                                                                                                                                           |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `organization_id`                                                           | ID of the organization the API key belongs to.                                                                                                            |
-| `data`                                                                      | Array of entries, one per time bucket.                                                                                                                    |
-| `data[].starting_at`                                                        | Bucket start.                                                                                                                                             |
-| `data[].ending_at`                                                          | Bucket end.                                                                                                                                               |
-| `data[].results`                                                            | Array of entries, one per group within the bucket.                                                                                                        |
-| `data[].results[].product, .model, .context_window, .inference_geo, .speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null.                                                                    |
-| `data[].results[].cost_type`                                                | When `group_by[]` includes `cost_type: tokens`, `web_search`, or `code_execution`. null when not set.                                                     |
-| `data[].results[].token_type`                                               | When `group_by[]` includes `token_type:` one of the token types listed under endpoint 7. Cost endpoint only — `token_type` is rejected on `usage_report`. |
-| `data[].results[].currency`                                                 | Always "USD".                                                                                                                                             |
-| `data[].results[].amount`                                                   | Amount in fractional cents — raw consumption cost after negotiated discounts.                                                                             |
-| `data[].results[].list_amount`                                              | List-price amount (pre-discount) in fractional cents.                                                                                                     |
-| `has_more`                                                                  | Whether more buckets exist.                                                                                                                               |
-| `next_page`                                                                 | Opaque cursor for the next page.                                                                                                                          |
-| `data_refreshed_at`                                                         | Timestamp of the data export this response was served from.                                                                                               |
+| **Field** | **Description** |
+| --- | --- |
+| `organization_id` | ID of the organization the API key belongs to. |
+| `data` | Array of entries, one per time bucket. |
+| `data[].starting_at` | Bucket start. |
+| `data[].ending_at` | Bucket end. |
+| `data[].results` | Array of entries, one per group within the bucket. |
+| `data[].results[].product, .model, .context_window, .inference_geo, .speed` | When the corresponding `group_by[]` value is set, the dimension value. Otherwise null. |
+| `data[].results[].cost_type` | When `group_by[]` includes `cost_type: tokens`, `web_search`, or `code_execution`. null when not set. |
+| `data[].results[].token_type` | When `group_by[]` includes `token_type:` one of the token types listed under endpoint 7. Cost endpoint only — `token_type` is rejected on `usage_report`. |
+| `data[].results[].currency` | Always "USD". |
+| `data[].results[].amount` | Amount in fractional cents — raw consumption cost after negotiated discounts. |
+| `data[].results[].list_amount` | List-price amount (pre-discount) in fractional cents. |
+| `has_more` | Whether more buckets exist. |
+| `next_page` | Opaque cursor for the next page. |
+| `data_refreshed_at` | Timestamp of the data export this response was served from. |
 
 **Example request**
 

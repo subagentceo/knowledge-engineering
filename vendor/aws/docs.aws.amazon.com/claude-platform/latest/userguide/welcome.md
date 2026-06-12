@@ -13,7 +13,7 @@ The Anthropic SDKs support Claude Platform on AWS. For per-language client avail
 ## How the platform integration works
 <a name="_how_the_platform_integration_works"></a>
 
-Claude models run on Anthropic-managed infrastructure. This is a commercial integration for billing and access through AWS. Both Anthropic and AWS act as independent data processors. Use of Claude Platform on AWS is governed by the [AWS Service Terms](https://aws.amazon.com/service-terms/) and is subject to Anthropic’s Commercial Terms of Service, Data Processing Addendum, Usage Policy, and other agreements with Anthropic governing your use of their services.
+Claude models run on Anthropic-managed infrastructure. This is a commercial integration for billing and access through AWS. Both Anthropic and AWS act as independent data processors. The [AWS Service Terms](https://aws.amazon.com/service-terms/) govern Claude Platform on AWS. Anthropic’s Commercial Terms of Service, Data Processing Addendum, and Usage Policy also apply.
 
 Note the following operational characteristics. Data may not reside in AWS. Inference may route to Anthropic’s primary cloud. Subservices may change without notice. Set the `inference_geo` parameter per request to pin inference to a specific geography. See [Data residency](data-residency.md) for details.
 

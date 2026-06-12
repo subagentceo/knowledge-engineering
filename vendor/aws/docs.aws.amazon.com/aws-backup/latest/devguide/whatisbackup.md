@@ -99,6 +99,11 @@ Backup vaults offer encryption and resource-based access policies that let you d
 
 You can use AWS Backup Vault Lock to prevent anyone (including you) from deleting backups or altering their retention period. AWS Backup Vault Lock helps you enforce a *write-once-read-many* (WORM) model and add another layer of defense to your defense in depth. To get started, see [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html).
 
+## AWS Backup and native service backups
+<a name="native-backup-coexistence"></a>
+
+The relationship between AWS Backup and native service backup mechanisms varies by service. In some cases, AWS Backup uses the same underlying backup infrastructure as the native service (for example, Amazon RDS continuous backups). In other cases, AWS Backup operates as a separate backup layer (for example, DynamoDB). Understanding this relationship helps you avoid unintended duplicate costs. Consult the service-specific pages in this guide for details on how AWS Backup interacts with each service's native backup capabilities.
+
 ## Getting started
 <a name="what-is-backup-getstarted"></a>
 

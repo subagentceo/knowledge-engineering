@@ -1,7 +1,6 @@
 ---
 vendor: nimble
 llms_txt: https://docs.nimbleway.com/llms.txt
-last_crawled: 2026-05-15T04:15:08.141Z
 count: 60
 transform: append-md-and-accept
 ---
@@ -59,14 +58,14 @@ transform: append-md-and-accept
 | https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md | `vendor/nimble/docs.nimbleway.com/integrations/mcp-server/mcp-docs.md` |
 | https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md | `vendor/nimble/docs.nimbleway.com/integrations/mcp-server/mcp-server.md` |
 | https://docs.nimbleway.com/integrations/partnerships/databricks.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks.md` |
+| https://docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md` |
+| https://docs.nimbleway.com/integrations/partnerships/databricks/genie.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/genie.md` |
+| https://docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md` |
 | https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md` |
+| https://docs.nimbleway.com/integrations/partnerships/microsoft/copilot-studio.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/microsoft/copilot-studio.md` |
+| https://docs.nimbleway.com/integrations/partnerships/snowflake.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/snowflake.md` |
+| https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-agents.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/snowflake/cortex-agents.md` |
+| https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-code.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/snowflake/cortex-code.md` |
+| https://docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md` |
 | https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md` |
 | https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/android.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/ios.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/ios.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/macos.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/macos.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md` |
-| https://docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md` |

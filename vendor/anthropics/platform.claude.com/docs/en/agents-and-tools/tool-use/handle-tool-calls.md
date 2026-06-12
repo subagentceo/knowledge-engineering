@@ -60,7 +60,6 @@ When you receive a tool use response for a client tool, you should:
 - In the user message containing tool results, the tool_result blocks must come FIRST in the content array. Any text must come AFTER all tool results.
 
 For example, this will cause a 400 error:
-
 ```json
 {
   "role": "user",
@@ -72,7 +71,6 @@ For example, this will cause a 400 error:
 ```
 
 This is correct:
-
 ```json
 {
   "role": "user",
@@ -85,6 +83,10 @@ This is correct:
 
 If you receive an error like "tool_use ids were found without tool_result blocks immediately after", check that your tool results are formatted correctly.
 </Note>
+
+<Warning>
+Tool results often carry content from sources outside your control: web pages, inbound email, user uploads, third-party APIs. Treat that content as untrusted: an attacker who can influence it may embed instructions that try to redirect Claude (indirect prompt injection). Keep untrusted content inside `tool_result` blocks rather than `system` prompts or plain user `text` blocks, and see [Mitigate jailbreaks and prompt injections](/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks#indirect-prompt-injection) for further hardening.
+</Warning>
 
 <section title="Example of successful tool result">
 
@@ -248,7 +250,6 @@ To eliminate invalid tool calls entirely, use [strict tool use](/docs/en/agents-
 When server tools encounter errors (for example, network issues with Web Search), Claude will transparently handle these errors and attempt to provide an alternative response or explanation to the user. Unlike client tools, you do not need to handle `is_error` results for server tools.
 
 For web search specifically, possible error codes include:
-
 - `too_many_requests`: Rate limit exceeded
 - `invalid_input`: Invalid search query parameter
 - `max_uses_exceeded`: Maximum web search tool uses exceeded

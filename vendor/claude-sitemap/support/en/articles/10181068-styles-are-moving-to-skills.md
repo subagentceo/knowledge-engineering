@@ -2,7 +2,7 @@ Styles in Claude are becoming skills. This article explains what's changing, how
 
 ## What's changing
 
-**Your custom styles will become skills.** Any custom styles you've created will be migrated to skills automatically. You don't need to take any action—your styles will be available as skills in your account when the migration runs. If you have more than 30 skills after the migration, the overflow skills will be disabled to prevent your prompt from bloating.
+**Your custom styles will become skills.** Any custom styles you've created will be migrated to skills automatically. After the migration runs, your styles will be available as skills in your account. These skills will be disabled by default, so go to **[Customize > Skills](http://claude.ai/customize/skills)** to enable any of the migrated styles you want to use.
 
 **Most default styles are being removed.** The Concise, Explanatory, and Formal default styles will no longer be available after the migration. The Learning style is being preserved as a skill (see **[The Learning skill](#h_87710ea950)** below).
 

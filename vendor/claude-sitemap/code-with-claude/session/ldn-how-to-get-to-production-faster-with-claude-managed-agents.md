@@ -2,6 +2,34 @@
 
 Building agents used to mean spending development cycles on secure infrastructure, state management, permissioning, and reworking your agent loops for every model upgrade. Managed Agents, on the Claude Platform, now handles that layer for you. This session covers the fundamentals of building and deploying a production-grade agent at scale and you'll also get to hear from industry leaders on the future of agentic infrastructure
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+12:00 – 12:30
+
+Speaker(s)
+
+Michael Cohen
+
+Member of Technical Staff,
+
+Anthropic
+
+Harrison Stall
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

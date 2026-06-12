@@ -13,3 +13,7 @@ Protocol for live media
 ## Background
 
 - [Background](https://developers.cloudflare.com/moq/about/index.md): How the IETF MoQ working group developed a standardized protocol for efficient, low-latency media delivery over QUIC.
+
+## MoQ Feature Matrix
+
+- [MoQ Feature Matrix](https://developers.cloudflare.com/moq/feature-matrix/index.md)

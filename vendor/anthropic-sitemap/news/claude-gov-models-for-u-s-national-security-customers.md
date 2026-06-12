@@ -14,27 +14,29 @@ Claude Gov models were built based on direct feedback from our government custom
 
 U.S. national security customers may choose to use our AI systems for a wide range of applications from strategic planning and operational support to intelligence analysis and threat assessment. Claude Gov models deliver enhanced performance for critical government needs and specialized tasks. This includes:
 
-- Improved handling of classified materials, as the models refuse less when engaging with classified information
-- Greater understanding of documents and information within the intelligence and defense contexts
-- Enhanced proficiency in languages and dialects critical to national security operations
-- Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
+*   Improved handling of classified materials, as the models refuse less when engaging with classified information
+*   Greater understanding of documents and information within the intelligence and defense contexts
+*   Enhanced proficiency in languages and dialects critical to national security operations
+*   Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
 
 This builds on our commitment to bring responsible and safe AI solutions to our U.S. national security customers, with custom models that are built to address the unique needs of classified environments. To learn more about the Claude Gov models and see how they can support your agency's mission, you can reach our public sector team at pubsec@anthropic.com.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Introducing Claude Opus 4.8
+### Introducing Claude Corps
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Claude Fable 5 and Claude Mythos 5
 
-We're opening a new office in Milan, our sixth in Europe.
+Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

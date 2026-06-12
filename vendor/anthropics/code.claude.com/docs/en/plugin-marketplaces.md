@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -52,7 +51,6 @@ This example creates a marketplace with one plugin: a `quality-review` skill for
 
     Be concise and actionable.
     ```
-
   </Step>
 
   <Step title="Create the plugin manifest">
@@ -69,7 +67,6 @@ This example creates a marketplace with one plugin: a `quality-review` skill for
     <Note>
       Setting `version` means users only receive updates when you change this field, so bump it on every release. If you omit `version` and host this marketplace in git, every commit automatically counts as a new version. See [Version resolution](#version-resolution-and-release-channels) to choose the right approach.
     </Note>
-
   </Step>
 
   <Step title="Create the marketplace file">
@@ -90,7 +87,6 @@ This example creates a marketplace with one plugin: a `quality-review` skill for
       ]
     }
     ```
-
   </Step>
 
   <Step title="Add and install">
@@ -100,7 +96,6 @@ This example creates a marketplace with one plugin: a `quality-review` skill for
     /plugin marketplace add ./my-marketplace
     /plugin install quality-review-plugin@my-plugins
     ```
-
   </Step>
 
   <Step title="Try it out">
@@ -109,7 +104,6 @@ This example creates a marketplace with one plugin: a `quality-review` skill for
     ```shell theme={null}
     /quality-review-plugin:quality-review
     ```
-
   </Step>
 </Steps>
 
@@ -118,7 +112,7 @@ To learn more about what plugins can do, including hooks, agents, MCP servers, a
 <Note>
   **How plugins are installed**: When users install a plugin, Claude Code copies the plugin directory to a cache location. This means plugins can't reference files outside their directory using paths like `../shared-utils`, because those files won't be copied.
 
-If you need to share files across plugins, use symlinks. See [Plugin caching and file resolution](/en/plugins-reference#plugin-caching-and-file-resolution) for details.
+  If you need to share files across plugins, use symlinks. See [Plugin caching and file resolution](/en/plugins-reference#plugin-caching-and-file-resolution) for details.
 </Note>
 
 ## Create the marketplace file
@@ -167,7 +161,7 @@ Each plugin entry needs at minimum a `name` and `source` (where to fetch it from
 | `plugins` | array  | List of available plugins                                                                                                                                                                                                                                                                                                                                                                                                             | See below      |
 
 <Note>
-  **Reserved names**: The following marketplace names are reserved for official Anthropic use and cannot be used by third-party marketplaces: `claude-code-marketplace`, `claude-code-plugins`, `claude-plugins-official`, `anthropic-marketplace`, `anthropic-plugins`, `agent-skills`, `anthropic-agent-skills`, `knowledge-work-plugins`, `life-sciences`, `claude-for-legal`, `claude-for-financial-services`, `financial-services-plugins`. Names that impersonate official marketplaces, such as `official-claude-plugins` or `anthropic-tools-v2`, are also blocked.
+  **Reserved names**: The following marketplace names are reserved for official Anthropic use and cannot be used by third-party marketplaces: `claude-code-marketplace`, `claude-code-plugins`, `claude-plugins-official`, `claude-plugins-community`, `claude-community`, `anthropic-marketplace`, `anthropic-plugins`, `agent-skills`, `anthropic-agent-skills`, `knowledge-work-plugins`, `life-sciences`, `claude-for-legal`, `claude-for-financial-services`, `financial-services-plugins`. Names that impersonate official marketplaces, such as `official-claude-plugins` or `anthropic-tools-v2`, are also blocked.
 </Note>
 
 ### Owner fields
@@ -206,7 +200,7 @@ Each plugin entry in the `plugins` array describes a plugin and where to find it
 
 | Field            | Type    | Description                                                                                                                                                                                                                                                                                                                                    |
 | :--------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName`    | string  | {/_ min-version: 2.1.143 _/}Human-readable name shown in UI surfaces. Falls back to `name` when omitted. May contain spaces and any casing. Not used for namespacing or lookup. Requires Claude Code v2.1.143 or later.                                                                                                                        |
+| `displayName`    | string  | {/* min-version: 2.1.143 */}Human-readable name shown in UI surfaces. Falls back to `name` when omitted. May contain spaces and any casing. Not used for namespacing or lookup. Requires Claude Code v2.1.143 or later.                                                                                                                        |
 | `description`    | string  | Brief plugin description                                                                                                                                                                                                                                                                                                                       |
 | `version`        | string  | Plugin version. If set (here or in `plugin.json`), the plugin is pinned to this string and users only receive updates when it changes. Omit to fall back to the git commit SHA. See [Version resolution](#version-resolution-and-release-channels).                                                                                            |
 | `author`         | object  | Plugin author information (`name` required, `email` optional)                                                                                                                                                                                                                                                                                  |
@@ -217,7 +211,7 @@ Each plugin entry in the `plugins` array describes a plugin and where to find it
 | `category`       | string  | Plugin category for organization                                                                                                                                                                                                                                                                                                               |
 | `tags`           | array   | Tags for searchability                                                                                                                                                                                                                                                                                                                         |
 | `strict`         | boolean | Controls whether `plugin.json` is the authority for component definitions (default: true). See [Strict mode](#strict-mode) below.                                                                                                                                                                                                              |
-| `defaultEnabled` | boolean | {/_ min-version: 2.1.154 _/}Whether the plugin is enabled after install (default: true). Set to `false` to install the plugin disabled until the user opts in. Takes precedence over the same field in the plugin's `plugin.json`. See [Default enablement](/en/plugins-reference#default-enablement). Requires Claude Code v2.1.154 or later. |
+| `defaultEnabled` | boolean | {/* min-version: 2.1.154 */}Whether the plugin is enabled after install (default: true). Set to `false` to install the plugin disabled until the user opts in. Takes precedence over the same field in the plugin's `plugin.json`. See [Default enablement](/en/plugins-reference#default-enablement). Requires Claude Code v2.1.154 or later. |
 
 **Component configuration fields:**
 
@@ -247,11 +241,13 @@ Once a plugin is cloned or copied into the local machine, it is copied into the 
 <Note>
   **Marketplace sources vs plugin sources**: These are different concepts that control different things.
 
-- **Marketplace source** — where to fetch the `marketplace.json` catalog itself. Set when users run `/plugin marketplace add` or in `extraKnownMarketplaces` settings. Supports `ref` (branch/tag) but not `sha`.
-- **Plugin source** — where to fetch an individual plugin listed in the marketplace. Set in the `source` field of each plugin entry inside `marketplace.json`. Supports both `ref` (branch/tag) and `sha` (exact commit).
+  * **Marketplace source** — where to fetch the `marketplace.json` catalog itself. Set when users run `/plugin marketplace add` or in `extraKnownMarketplaces` settings. Supports `ref` (branch/tag) but not `sha`.
+  * **Plugin source** — where to fetch an individual plugin listed in the marketplace. Set in the `source` field of each plugin entry inside `marketplace.json`. Supports both `ref` (branch/tag) and `sha` (exact commit).
 
-For example, a marketplace hosted at `acme-corp/plugin-catalog` (marketplace source) can list a plugin fetched from `acme-corp/code-formatter` (plugin source). The marketplace source and plugin source point to different repositories and are pinned independently.
+  For example, a marketplace hosted at `acme-corp/plugin-catalog` (marketplace source) can list a plugin fetched from `acme-corp/code-formatter` (plugin source). The marketplace source and plugin source point to different repositories and are pinned independently.
 </Note>
+
+The git-based source types below are `github`, `url`, and `git-subdir`. When both `ref` and `sha` are set on any of them, the `sha` is the effective pin. Claude Code fetches and checks out the pinned commit directly, so installation succeeds even if the branch or tag named by `ref` has since been deleted upstream, as long as the commit is still reachable from the repository.
 
 ### Relative paths
 
@@ -473,9 +469,9 @@ This example shows a plugin entry using many of the optional fields, including c
 
 Key things to notice:
 
-- **`commands` and `agents`**: You can specify multiple directories or individual files. Paths are relative to the plugin root.
-- **`${CLAUDE_PLUGIN_ROOT}`**: use this variable in hooks and MCP server configs to reference files within the plugin's installation directory. This is necessary because plugins are copied to a cache location when installed. For dependencies or state that should survive plugin updates, use [`${CLAUDE_PLUGIN_DATA}`](/en/plugins-reference#persistent-data-directory) instead.
-- **`strict: false`**: Since this is set to false, the plugin doesn't need its own `plugin.json`. The marketplace entry defines everything. See [Strict mode](#strict-mode) below.
+* **`commands` and `agents`**: You can specify multiple directories or individual files. Paths are relative to the plugin root.
+* **`${CLAUDE_PLUGIN_ROOT}`**: use this variable in hooks and MCP server configs to reference files within the plugin's installation directory. This is necessary because plugins are copied to a cache location when installed. For dependencies or state that should survive plugin updates, use [`${CLAUDE_PLUGIN_DATA}`](/en/plugins-reference#persistent-data-directory) instead.
+* **`strict: false`**: Since this is set to false, the plugin doesn't need its own `plugin.json`. The marketplace entry defines everything. See [Strict mode](#strict-mode) below.
 
 ### Strict mode
 
@@ -488,8 +484,8 @@ The `strict` field controls whether `plugin.json` is the authority for component
 
 **When to use each mode:**
 
-- **`strict: true`**: the plugin has its own `plugin.json` and manages its own components. The marketplace entry can add extra skills or hooks on top. This is the default and works for most plugins.
-- **`strict: false`**: the marketplace operator wants full control. The plugin repo provides raw files, and the marketplace entry defines which of those files are exposed as skills, agents, hooks, etc. Useful when the marketplace restructures or curates a plugin's components differently than the plugin author intended.
+* **`strict: true`**: the plugin has its own `plugin.json` and manages its own components. The marketplace entry can add extra skills or hooks on top. This is the default and works for most plugins.
+* **`strict: false`**: the marketplace operator wants full control. The plugin repo provides raw files, and the marketplace entry defines which of those files are exposed as skills, agents, hooks, etc. Useful when the marketplace restructures or curates a plugin's components differently than the plugin author intended.
 
 ## Host and distribute marketplaces
 
@@ -608,11 +604,11 @@ At startup, Claude Code registers marketplaces found in the seed's `known_market
 
 Behavior details:
 
-- **Read-only**: the seed directory is never written to. Auto-updates are disabled for seed marketplaces since git pull would fail on a read-only filesystem.
-- **Seed entries take precedence**: marketplaces declared in the seed overwrite any matching entries in the user's configuration on each startup. To opt out of a seed plugin, use `/plugin disable` rather than removing the marketplace.
-- **Path resolution**: Claude Code locates marketplace content by probing `$CLAUDE_CODE_PLUGIN_SEED_DIR/marketplaces/<name>/` at runtime, not by trusting paths stored inside the seed's JSON. This means the seed works correctly even when mounted at a different path than where it was built.
-- **Mutation is blocked**: running `/plugin marketplace remove` or `/plugin marketplace update` against a seed-managed marketplace fails with guidance to ask your administrator to update the seed image.
-- **Composes with settings**: if `extraKnownMarketplaces` or `enabledPlugins` declare a marketplace that already exists in the seed, Claude Code uses the seed copy instead of cloning.
+* **Read-only**: the seed directory is never written to. Auto-updates are disabled for seed marketplaces since git pull would fail on a read-only filesystem.
+* **Seed entries take precedence**: marketplaces declared in the seed overwrite any matching entries in the user's configuration on each startup. To opt out of a seed plugin, use `/plugin disable` rather than removing the marketplace.
+* **Path resolution**: Claude Code locates marketplace content by probing `$CLAUDE_CODE_PLUGIN_SEED_DIR/marketplaces/<name>/` at runtime, not by trusting paths stored inside the seed's JSON. This means the seed works correctly even when mounted at a different path than where it was built.
+* **Mutation is blocked**: running `/plugin marketplace remove` or `/plugin marketplace update` against a seed-managed marketplace fails with guidance to ask your administrator to update the seed image.
+* **Composes with settings**: if `extraKnownMarketplaces` or `enabledPlugins` declare a marketplace that already exists in the seed, Claude Code uses the seed copy instead of cloning.
 
 ### Managed marketplace restrictions
 
@@ -696,10 +692,10 @@ Restrictions are checked before any network or filesystem operation. The check r
 
 The allowlist uses exact matching for most source types. For a marketplace to be allowed, all specified fields must match exactly:
 
-- For GitHub sources: `repo` is required, and `ref` or `path` must also match if specified in the allowlist
-- For URL sources: the full URL must match exactly
-- For `hostPattern` sources: the marketplace host is matched against the regex pattern
-- For `pathPattern` sources: the marketplace's filesystem path is matched against the regex pattern
+* For GitHub sources: `repo` is required, and `ref` or `path` must also match if specified in the allowlist
+* For URL sources: the full URL must match exactly
+* For `hostPattern` sources: the marketplace host is matched against the regex pattern
+* For `pathPattern` sources: the marketplace's filesystem path is matched against the regex pattern
 
 Exact matching does not normalize URLs: a trailing slash, `.git` suffix, or `ssh://` versus `https://` form are treated as different values. If your organization's marketplace can be cloned by more than one URL form, prefer a `hostPattern` entry over a literal URL so all forms match.
 
@@ -722,7 +718,7 @@ For the git-based source types `github`, `url`, `git-subdir`, and relative paths
 <Warning>
   Setting `version` pins the plugin. If `plugin.json` declares `"version": "1.0.0"`, pushing new commits without changing that string does nothing for existing users, because Claude Code sees the same version and keeps the cached copy. Bump the field on every release, or omit it to use the commit SHA.
 
-Avoid setting `version` in both `plugin.json` and the marketplace entry. The `plugin.json` value always wins silently, so a stale manifest version can mask a version you set in `marketplace.json`.
+  Avoid setting `version` in both `plugin.json` and the marketplace entry. The `plugin.json` value always wins silently, so a stale manifest version can mask a version you set in `marketplace.json`.
 </Warning>
 
 #### Set up release channels
@@ -847,7 +843,7 @@ claude plugin marketplace add <source> [options]
 
 **Arguments:**
 
-- `<source>`: GitHub `owner/repo` shorthand, git URL, remote URL to a `marketplace.json` file, or local directory path. To pin to a branch or tag, append `@ref` to the GitHub shorthand or `#ref` to a git URL
+* `<source>`: GitHub `owner/repo` shorthand, git URL, remote URL to a `marketplace.json` file, or local directory path. To pin to a branch or tag, append `@ref` to the GitHub shorthand or `#ref` to a git URL
 
 **Options:**
 
@@ -924,7 +920,7 @@ claude plugin marketplace remove <name> [options]
 
 **Arguments:**
 
-- `<name>`: marketplace name to remove, as shown by `claude plugin marketplace list`. This is the `name` from `marketplace.json`, not the source you passed to `add`
+* `<name>`: marketplace name to remove, as shown by `claude plugin marketplace list`. This is the `name` from `marketplace.json`, not the source you passed to `add`
 
 **Options:**
 
@@ -946,7 +942,7 @@ claude plugin marketplace update [name]
 
 **Arguments:**
 
-- `[name]`: marketplace name to update, as shown by `claude plugin marketplace list`. Updates all marketplaces if omitted
+* `[name]`: marketplace name to update, as shown by `claude plugin marketplace list`. Updates all marketplaces if omitted
 
 Both `remove` and `update` fail when run against a seed-managed marketplace, which is read-only. When updating all marketplaces, seed-managed entries are skipped and other marketplaces still update. To change seed-provided plugins, ask your administrator to update the seed image. See [Pre-populate plugins for containers](#pre-populate-plugins-for-containers).
 
@@ -958,10 +954,10 @@ Both `remove` and `update` fail when run against a seed-managed marketplace, whi
 
 **Solutions**:
 
-- Verify the marketplace URL is accessible
-- Check that `.claude-plugin/marketplace.json` exists at the specified path
-- Ensure JSON syntax is valid using `claude plugin validate` or `/plugin validate`. To check skill, agent, and command frontmatter, run the command against each plugin directory
-- For private repositories, confirm you have access permissions
+* Verify the marketplace URL is accessible
+* Check that `.claude-plugin/marketplace.json` exists at the specified path
+* Ensure JSON syntax is valid using `claude plugin validate` or `/plugin validate`. To check skill, agent, and command frontmatter, run the command against each plugin directory
+* For private repositories, confirm you have access permissions
 
 ### Marketplace validation errors
 
@@ -980,9 +976,9 @@ To validate an individual plugin's `plugin.json` and its skill, agent, command, 
 
 **Warnings** (non-blocking):
 
-- `Marketplace has no plugins defined`: add at least one plugin to the `plugins` array
-- `No marketplace description provided`: add a top-level `description` to help users understand your marketplace
-- `Plugin name "x" is not kebab-case`: the plugin name contains uppercase letters, spaces, or special characters. Rename to lowercase letters, digits, and hyphens only (for example, `my-plugin`). Claude Code accepts other forms, but the Claude.ai marketplace sync rejects them.
+* `Marketplace has no plugins defined`: add at least one plugin to the `plugins` array
+* `No marketplace description provided`: add a top-level `description` to help users understand your marketplace
+* `Plugin name "x" is not kebab-case`: the plugin name contains uppercase letters, spaces, or special characters. Rename to lowercase letters, digits, and hyphens only (for example, `my-plugin`). Claude Code accepts other forms, but the Claude.ai marketplace sync rejects them.
 
 ### Plugin installation failures
 
@@ -990,10 +986,11 @@ To validate an individual plugin's `plugin.json` and its skill, agent, command, 
 
 **Solutions**:
 
-- Verify plugin source URLs are accessible
-- Check that plugin directories contain required files
-- For GitHub sources, ensure repositories are public or you have access
-- Test plugin sources manually by cloning/downloading
+* Verify plugin source URLs are accessible
+* Check that plugin directories contain required files
+* For GitHub sources, ensure repositories are public or you have access
+* Test plugin sources manually by cloning/downloading
+* If the source pins both `ref` and `sha`, a deleted upstream branch or tag does not block installation. If the install still fails, confirm the pinned commit still exists in the repository
 
 ### Private repository authentication fails
 
@@ -1003,17 +1000,17 @@ To validate an individual plugin's `plugin.json` and its skill, agent, command, 
 
 For manual installation and updates:
 
-- Verify you're authenticated with your git provider (for example, run `gh auth status` for GitHub)
-- Check that your credential helper is configured correctly: `git config --global credential.helper`
-- Try cloning the repository manually to verify your credentials work
+* Verify you're authenticated with your git provider (for example, run `gh auth status` for GitHub)
+* Check that your credential helper is configured correctly: `git config --global credential.helper`
+* Try cloning the repository manually to verify your credentials work
 
 For background auto-updates:
 
-- Set the appropriate token in your environment: `echo $GITHUB_TOKEN`
-- Check that the token has the required permissions (read access to the repository)
-- For GitHub, ensure the token has the `repo` scope for private repositories
-- For GitLab, ensure the token has at least `read_repository` scope
-- Verify the token hasn't expired
+* Set the appropriate token in your environment: `echo $GITHUB_TOKEN`
+* Check that the token has the required permissions (read access to the repository)
+* For GitHub, ensure the token has the `repo` scope for private repositories
+* For GitLab, ensure the token has at least `read_repository` scope
+* Verify the token hasn't expired
 
 ### Marketplace updates fail in offline environments
 
@@ -1049,14 +1046,11 @@ export CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS=300000  # 5 minutes
 
 **Solutions**:
 
-- **Use external sources**: Change plugin entries to use GitHub, npm, or git URL sources instead of relative paths:
+* **Use external sources**: Change plugin entries to use GitHub, npm, or git URL sources instead of relative paths:
   ```json theme={null}
-  {
-    "name": "my-plugin",
-    "source": { "source": "github", "repo": "owner/repo" }
-  }
+  { "name": "my-plugin", "source": { "source": "github", "repo": "owner/repo" } }
   ```
-- **Use a Git-based marketplace**: Host your marketplace in a Git repository and add it with the git URL. Git-based marketplaces clone the entire repository, making relative paths work correctly.
+* **Use a Git-based marketplace**: Host your marketplace in a Git repository and add it with the git URL. Git-based marketplaces clone the entire repository, making relative paths work correctly.
 
 ### Files not found after installation
 
@@ -1070,8 +1064,8 @@ For additional debugging tools and common issues, see [Debugging and development
 
 ## See also
 
-- [Discover and install prebuilt plugins](/en/discover-plugins) - Installing plugins from existing marketplaces
-- [Plugins](/en/plugins) - Creating your own plugins
-- [Plugins reference](/en/plugins-reference) - Complete technical specifications and schemas
-- [Plugin settings](/en/settings#plugin-settings) - Plugin configuration options
-- [strictKnownMarketplaces reference](/en/settings#strictknownmarketplaces) - Managed marketplace restrictions
+* [Discover and install prebuilt plugins](/en/discover-plugins) - Installing plugins from existing marketplaces
+* [Plugins](/en/plugins) - Creating your own plugins
+* [Plugins reference](/en/plugins-reference) - Complete technical specifications and schemas
+* [Plugin settings](/en/settings#plugin-settings) - Plugin configuration options
+* [strictKnownMarketplaces reference](/en/settings#strictknownmarketplaces) - Managed marketplace restrictions

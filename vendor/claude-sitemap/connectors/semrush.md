@@ -1,17 +1,17 @@
 # Semrush
 
-Access the world's most comprehensive marketing dataset: 27.9B keywords, traffic analytics, market intelligence, and brand visibility data, all through natural language. Get structured, analysis-ready answers instantly. Built for analysts, strategists, and growth teams.
+Semrush data helps you plan and improve SEO, uncover competitor strategies, find keyword opportunities, research backlinks, audit websites, and reveal paid tactics.
 
-You can use Semrush to:
+Use Semrush in Claude:
 
-**Find content opportunities:**  
-"Propose new articles for [domain] based on high-impact keywords I'm not ranking for."
+**Find keyword opportunities:**  
+"Find keyword opportunities for [your topic] with search volume over 1,000 and low difficulty. Group them by intent."
 
-**Diagnose traffic behaviour:**  
-"Why did traffic drop for [domain] last month? Suggest a recovery plan."
+**Surface competitor gaps:**  
+"Find keywords where [competitor] ranks in the top 5 but we do not appear at all. Prioritize by volume."
 
-**Understand competitors:**  
-"Identify fastest-growing competitors in my niche and what is driving their growth."
+**Audit a site:**  
+"Run a technical SEO audit on [domain] and list the top issues blocking crawlability or indexation."
 
-**Spot emerging opportunities:**  
-"Map demand trends in [industry] and propose 3 strategic product bets."
+**Uncover paid gaps:**  
+"Find high-intent keywords in [niche] with good search volume that competitors are running ads on but we are not."

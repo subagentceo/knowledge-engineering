@@ -139,7 +139,7 @@ The Twilio MCP server is available as a [Figma Make Connector](https://help.figm
 
 ### Replit
 
-Replit support for the Twilio MCP server is planned for a future release.
+The Twilio MCP server is available as a Replit MCP connector. See the [Replit MCP overview](https://docs.replit.com/references/mcp/overview) for setup instructions.
 
 ### Verify your connection
 

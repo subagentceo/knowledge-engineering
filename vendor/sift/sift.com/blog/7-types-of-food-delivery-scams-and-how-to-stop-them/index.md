@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# 7 types of food delivery scams and how to stop them
+
+Home/Blog
 
 Table of Contents
 
@@ -26,22 +28,22 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F&title=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them)
--   [](https://twitter.com/intent/tweet?text=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them&url=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FSift_Blog_1454x1044_4.jpg&title=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them)
--   [](/cdn-cgi/l/email-protection#625d111700080701165f55475052161b1207114750520d04475052040d0d0647505206070e0b1407101b4750521101030f11475052030c064750520a0d15475052160d47505211160d12475052160a070f444152515a59000d061b5f0a16161211475123475024475024110b04164c010d0f475024000e0d05475024554f161b1207114f0d044f040d0d064f06070e0b1407101b4f1101030f114f030c064f0a0d154f160d4f11160d124f160a070f475024)
+*   
+*   
+*   
+*   
 
--   [Account Takeover](https://sift.com/blog/category/ato/)
--   [Chargebacks](https://sift.com/blog/category/chargebacks/)
--   [Payment Fraud](https://sift.com/blog/category/payment-fraud/)
+*   Account Takeover
+*   Chargebacks
+*   Payment Fraud
 
 # 7 types of food delivery scams and how to stop them
 
 Protect your business from fraud using these actionable tips to prevent common food delivery scams.
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+Sift Trust and Safety Team
 
 Jan 31, 2024
 
@@ -49,29 +51,29 @@ Jan 31, 2024
 
 ![Press-Release-Tile-Image-Color-Pills\_Blue](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
-## **The rise of common food delivery scams** 
+## The rise of common food delivery scams
 
-Business is booming for online food delivery services and apps, meal kit providers, and grocery options. The market is predicted to achieve [$353.30 billion in revenue in 2024](https://www.statista.com./outlook/dmo/online-food-delivery/united-states?currency=usd), a dramatic increase on the [$221.65 billion in revenue in 2022](https://www.statista.com/topics/3294/online-food-delivery-services-in-the-us/#topicOverview). However, as demand rises, so does the risk of your business and customers falling victim to common food delivery scams. 
+Business is booming for online food delivery services and apps, meal kit providers, and grocery options. The market is predicted to achieve $353.30 billion in revenue in 2024, a dramatic increase on the $221.65 billion in revenue in 2022. However, as demand rises, so does the risk of your business and customers falling victim to common food delivery scams. 
 
-## **What are food delivery scams?** 
+## What are food delivery scams?
 
-Fraudsters mainly use food delivery scams to order food from restaurants or other businesses and get away without paying for their meals. This often leaves your business to cover the cost of the food, delivery, and even [chargeback](https://sift.com/sift-edu/fraud-basics/all-about-chargebacks) fees. Some bad actors also take the opportunity to steal the payment information of trusted customers to use themselves or sell on the dark web. 
+Fraudsters mainly use food delivery scams to order food from restaurants or other businesses and get away without paying for their meals. This often leaves your business to cover the cost of the food, delivery, and even chargeback fees. Some bad actors also take the opportunity to steal the payment information of trusted customers to use themselves or sell on the dark web. 
 
-## **What are the 7 most common types of food delivery scams?**
+## What are the 7 most common types of food delivery scams?
 
 Food fraudsters continually come up with new ways to deceive businesses, but almost all their scams fall into the following categories:
 
 1.  First-party fraud
 
-Also known as **friendly fraud**, this involves a customer using their own details to pay for an order and then claiming the charge was unauthorized after delivery is made. Nearly [1 in 4 (23%) consumers who have filed chargebacks](https://www.globenewswire.com/news-release/2022/12/15/2574874/0/en/Report-Nearly-1-in-4-Consumers-Who-File-Chargebacks-Admit-to-Friendly-Fraud.html) admit the claim was fraudulent.
+Also known as **friendly fraud**, this involves a customer using their own details to pay for an order and then claiming the charge was unauthorized after delivery is made. Nearly 1 in 4 (23%) consumers who have filed chargebacks admit the claim was fraudulent.
 
 2.  Phishing emails, websites, and apps
 
-These are messages or emails with links that lure customers into using [fake food delivery websites](https://www.kaspersky.com/resource-center/preemptive-safety/scam-websites) or [apps](https://www.kaspersky.com/resource-center/preemptive-safety/identifying-and-avoiding-fake-apps). Customers are tricked into believing the service is genuine and enter their payment information, which scammers use to pay for their own orders or sell to others. Research by Sift found that nearly [20% of customers have been](https://pages.sift.com/rs/526-PCC-974/images/Sift-2023-Q2-Ebook-Index-Report.pdf) victims of phishing.
+These are messages or emails with links that lure customers into using fake food delivery websites or apps. Customers are tricked into believing the service is genuine and enter their payment information, which scammers use to pay for their own orders or sell to others. Research by Sift found that nearly 20% of customers have been victims of phishing.
 
 3.  Account takeovers
 
-In an account takeover attack (ATO), fraudsters [steal logins](https://www.nbcboston.com/investigations/consumer/this-could-be-hard-to-stomach-but-criminals-are-targeting-food-ordering-apps/2694325/) through phishing, data breaches, malware, or keylogging software. As the name suggests, they [take over user accounts](https://sift.com/blog/how-to-prevent-account-takeovers-ato-prevention-in-2023/) and place orders for themselves. In the first quarter of 2023, [the rate of ATOs rose 427%](https://pages.sift.com/rs/526-PCC-974/images/Sift-2023-Q2-Ebook-Index-Report.pdf) compared to all of 2022.
+In an account takeover attack (ATO), fraudsters steal logins through phishing, data breaches, malware, or keylogging software. As the name suggests, they take over user accounts and place orders for themselves. In the first quarter of 2023, the rate of ATOs rose 427% compared to all of 2022.
 
 4.  CNP fraud
 
@@ -83,27 +85,27 @@ In this case, the scammer isn’t an anonymous hacker but one of your own delive
 
 6.  Fraud-as-a-service
 
-Bad actors advertise heavy discounts of up to 75% off food and beverage deliveries in places like [Telegram forums](https://sift.com/blog/telegram-fraud-scheme/). A ‘customer’ sends their order to the scammer, who purchases it using stolen payment information. The customer then pays the scammer using cryptocurrency and waits for their delivery.
+Bad actors advertise heavy discounts of up to 75% off food and beverage deliveries in places like Telegram forums. A ‘customer’ sends their order to the scammer, who purchases it using stolen payment information. The customer then pays the scammer using cryptocurrency and waits for their delivery.
 
 7.  Promo abuse
 
 Some customers may create fake accounts to exploit special offers, discounts, or free trials multiple times. They can also receive rewards for referrals to fake accounts. Another method of promo abuse involves customers using counterfeit vouchers or working out how to generate promo codes, costing businesses money and blocking trusted customers from using genuine codes.
 
-## **Why is it important to prevent food delivery fraud?**
+## Why is it important to prevent food delivery fraud?
 
 Food delivery scams cost you money on lost inventory, but you can also suffer knock-on effects that damage your business in other ways.
 
-If a bank or payment company authorizes a chargeback, you’re out of pocket for the order, as well as liable for any chargeback fees or administrative costs, made worse by the upswing in [chargeback fraud](https://sift.com/solutions/chargeback-fraud/) rates. You might even lose access to your account.
+If a bank or payment company authorizes a chargeback, you’re out of pocket for the order, as well as liable for any chargeback fees or administrative costs, made worse by the upswing in chargeback fraud rates. You might even lose access to your account.
 
 You must also devote time and resources to investigating the event, dealing with the legitimate card owner or payment provider, and processing the paperwork. 
 
-[More than half of consumers (54%) believe they shouldn’t be liable](https://pages.sift.com/rs/526-PCC-974/images/Sift-2023-Q2-Ebook-Index-Report.pdf) if their payment information is used for fraud without their knowledge. A defrauded customer may hold the restaurant or delivery app responsible for their losses and leave negative feedback on social media or review sites, hurting your reputation and deterring potential customers. 
+More than half of consumers (54%) believe they shouldn’t be liable if their payment information is used for fraud without their knowledge. A defrauded customer may hold the restaurant or delivery app responsible for their losses and leave negative feedback on social media or review sites, hurting your reputation and deterring potential customers. 
 
 DoorDash used Sift to tackle food delivery fraud, prevent thousands of dollars in daily losses, and increase risk review efficiency by 2x to 3x, all without impacting trusted users. 
 
-**[Explore Case Studies.](/resources/case-studies/)**
+**Explore Case Studies.**
 
-## **How to prevent common food delivery scams**
+## How to prevent common food delivery scams
 
 The food delivery business runs on high-speed, low-volume transactions, which is perfect for fraudsters. Unfortunately, this environment also leaves little time for manual checks, such as spotting unusually large or expensive orders. Fraud prevention measures are necessary to prevent common food delivery scams, but if the measures are badly implemented, they can damage the experience for trusted customers. The most effective way to detect and prevent fraud is with technology and automation. 
 
@@ -115,7 +117,7 @@ You should require complex and unique passwords that contain a mixture of number
 
 ### Require 2FA or MFA
 
-In two-factor authentication (2FA) and multi-factor authentication (MFA), users must provide multiple forms of identification before accessing accounts. Passwords can be stolen or guessed, but 2FA and MFA mean scammers also need a victim’s phone, security key, or biometric information before they can log in. Enabling 2FA provides more robust security, and MFA can block [99% of account takeover attempts](https://www.microsoft.com/en-us/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/).
+In two-factor authentication (2FA) and multi-factor authentication (MFA), users must provide multiple forms of identification before accessing accounts. Passwords can be stolen or guessed, but 2FA and MFA mean scammers also need a victim’s phone, security key, or biometric information before they can log in. Enabling 2FA provides more robust security, and MFA can block 99% of account takeover attempts.
 
 ### Alert users to account changes
 
@@ -133,98 +135,98 @@ Fraud prevention software can identify the location of login attempts and spot i
 
 Publicly known stolen logins are recorded in breached credentials databases. Check your user credentials against these frequently to identify compromised accounts and request password changes or multi-factor authentication. 
 
-### Regularly review and update your security 
+### Regularly review and update your security
 
 Fraudsters are always looking for weaknesses, and as soon as you close one gap in your defenses, they move on to another. That’s why it’s crucial to ensure you keep your software up-to-date and frequently reassess your security procedures. You should also consider investing in a comprehensive fraud prevention platform with automated real-time protection.
 
 ## How Sift can help you prevent food scams
 
-Sift’s [Digital Trust & Safety Platform](https://sift.com/products/digital-trust-safety-platform) uses cutting-edge technology and trillions of data points to help you stop fraud proactively and secure each step of your customer’s journey. 
+Sift’s Digital Trust & Safety Platform uses cutting-edge technology and trillions of data points to help you stop fraud proactively and secure each step of your customer’s journey. 
 
-Using machine learning, Sift can automatically block fraudsters from making transactions with [Dynamic Friction](https://sift.com/dynamic-friction) while eliminating false positives and allowing your trusted customers a seamless experience.
+Using machine learning, Sift can automatically block fraudsters from making transactions with Dynamic Friction while eliminating false positives and allowing your trusted customers a seamless experience.
 
 With machine learning automation, you can grow faster by eliminating manual checks, increasing volume securely, and serving customers with the speed they expect.
 
 Whether you have thousands of customers or millions, Sift scales as your business grows. You can easily provide new features without compromising your security and onboard new users quickly with low friction.
 
-[Discover more about how Sift can help you accelerate growth, enhance customer experiences, and eliminate fraud.](/solutions/food-delivery/) 
+Discover more about how Sift can help you accelerate growth, enhance customer experiences, and eliminate fraud. 
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F&title=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them)
--   [](https://twitter.com/intent/tweet?text=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them&url=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F7-types-of-food-delivery-scams-and-how-to-stop-them%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FSift_Blog_1454x1044_4.jpg&title=7%20types%20of%20food%20delivery%20scams%20and%20how%20to%20stop%20them)
--   [](/cdn-cgi/l/email-protection#7b44080e19111e180f464c5e494b0f020b1e085e494b141d5e494b1d14141f5e494b1f1e17120d1e09025e494b08181a16085e494b1a151f5e494b13140c5e494b0f145e494b080f140b5e494b0f131e165d584b48434019141f0246130f0f0b085e483a5e493d5e493d08121d0f551814165e493d1917141c5e493d4c560f020b1e0856141d561d14141f561f1e17120d1e09025608181a1608561a151f5613140c560f1456080f140b560f131e165e493d)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

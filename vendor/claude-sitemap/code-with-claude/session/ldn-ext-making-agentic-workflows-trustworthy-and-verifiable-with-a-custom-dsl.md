@@ -2,6 +2,28 @@
 
 System design of agentic research assistant built unconventionally: one component outputs plan in custom Turing-incomplete programming language, another interprets it, quiver of models executes concrete tasks. Architectural choices as concrete instantiations of company values.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+14:05 – 14:35
+
+Speaker(s)
+
+James Brady
+
+Head of Engineering,
+
+Elicit
+
 ## Watch recording
 
 Play videoPlay video

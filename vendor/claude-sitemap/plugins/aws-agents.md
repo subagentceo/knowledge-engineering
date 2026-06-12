@@ -1,13 +1,13 @@
 # aws-agents
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Amazon Web Services
-
-- Installs
-
-  685
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Amazon Web Services
+    
+*   Installs
+    
+    913

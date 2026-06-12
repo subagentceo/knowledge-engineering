@@ -80,9 +80,9 @@ To share a skill:
 
 4. Choose who to share with:
 
-- **Specific people:** Enter names or emails to share directly. The skill appears in each recipient's skills list, grayed out until they enable it.
+  - **Specific people:** Enter names or emails to share directly. The skill appears in each recipient's skills list, grayed out until they enable it.
 
-- **Entire organization:** The skill is published to your organization's directory, where anyone can find and install it.
+  - **Entire organization:** The skill is published to your organization's directory, where anyone can find and install it.
 
 5. Click "Share."
 
@@ -162,7 +162,7 @@ To remove a custom skill you've uploaded:
 
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1780164900&signature=1b9283bee8204857f3bdf4417f5fef8cba8acc2e60dfa76d6cac148cd5bf2eca&req=diEnE8p3nINYWvMW1HO4zSOgDyspxOKkH%2BdCnFXB0uj45mKaEGVbdwjvFC9E%0Aj9%2Fu%0A)
+  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1781284500&amp;signature=edb7cd8616a8df6ba374c580222081db3ef0785420367810efb53a68b9f3c9e6&amp;req=diEnE8p3nINYWvMW1HO4zSOgDyoqyuKoH%2BdCnFXB0ujhCa9HQCN074psI3%2FV%0AApV%2F%0A)
 
 5. Click "Delete" in the confirmation prompt.
 

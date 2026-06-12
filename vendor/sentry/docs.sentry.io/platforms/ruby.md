@@ -26,15 +26,11 @@ Error Monitoring\[ ]Tracing\[ ]Profiling\[ ]Logs
 
 Add the `sentry-ruby` gem to your `Gemfile`:
 
-`Gemfile`
-
 ```ruby
 gem "sentry-ruby"
 ```
 
 Add the `sentry-ruby` and `stackprof` gems to your `Gemfile`:
-
-`Gemfile`
 
 ```ruby
 gem "stackprof"
@@ -49,7 +45,7 @@ Configuration should happen as early as possible in your application's lifecycle
 require 'sentry-ruby'
 
 Sentry.init do |config|
-  config.dsn = '___PUBLIC_DSN___'
+  config.dsn = 'https://<key>@o<orgId>.ingest.sentry.io/<projectId>'
 
   # get breadcrumbs from logs
   config.breadcrumbs_logger = [:sentry_logger, :http_logger]

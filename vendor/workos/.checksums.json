@@ -1,422 +1,374 @@
 {
   "https://workos.com/docs/email": {
     "sha256": "57cd2a63607dae024560c155a7c0feb06f51021b8d4f2aef358d0d51632a4dcb",
+    "lastStatus": 304,
     "etag": "\"12bg39el4nx8qg\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/glossary": {
     "sha256": "20d65046dc51790f5eb8d38f6c858fc8c2f3457e844571ea7dbb6ed7d0dae560",
+    "lastStatus": 304,
     "etag": "\"v9va16nx58666\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
+  },
+  "https://workos.com/docs/migrate-standalone-sso": {
+    "sha256": "654452d5bf5d8b4c378ea5941994caddc939b8c2284b937de349e68934c18ca1",
+    "lastStatus": 200,
+    "etag": "\"10fdti6xigx7cm\"",
+    "lastModified": "Mon, 08 Jun 2026 20:54:56 GMT"
   },
   "https://workos.com/docs/on-prem-deployment": {
     "sha256": "1a45a6010f026cae7315f3b99f3f6f6a25108b94b436c54a172b2a0315e94f48",
+    "lastStatus": 304,
     "etag": "\"yl9nb79pzf5kp\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/postman": {
     "sha256": "1cd9a9ec2103da6d11ad354297ee755707b549141dc93bb3cbbd6830ecee3cdb",
+    "lastStatus": 304,
     "etag": "\"179rypacw8h4wc\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/reference": {
     "sha256": "c5242226a01517d7948c4a4ddfacd2f3d245b434761477f5d68352e9e382d45e",
+    "lastStatus": 200,
     "etag": "\"noh8u95ofrmm\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/reference/admin-portal": {
     "sha256": "5afe888255d9f75052500503a03b790c1ffdcb1131ca569259ea316b374e12f1",
+    "lastStatus": 200,
     "etag": "\"14vn4za3imi9y\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-js": {
     "sha256": "f88aed4bbb5512c08b99aa148292904f101df074d1e814e79f42ab354fdf16f4",
+    "lastStatus": 304,
     "etag": "\"10fuiivfn5e93\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-nextjs": {
     "sha256": "9789f6421a9a8011bf501f17f1cc7102fa6700ee29825d2e9ede391f21f3cf93",
+    "lastStatus": 304,
     "etag": "\"a2bt79ke6d99\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-react": {
     "sha256": "b2061d8f17cfa7dc50b1b718b34d53f9c5519080181781d70499b3baf3e8f0ff",
+    "lastStatus": 304,
     "etag": "\"5h9ae6akrd8t\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-react-router": {
     "sha256": "eaebb8e5c58679b36ac9637d0cac7ddd78c9806dbedb5dd35b195a78b58b82eb",
+    "lastStatus": 304,
     "etag": "\"gacldplraz90\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-remix": {
     "sha256": "c2d6f40931bd41d613f4b98bf54597a87b9634dadcc79f37e4aa0b4c3f584f0f",
+    "lastStatus": 304,
     "etag": "\"189682mmci88c\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/authkit-tanstack-start": {
     "sha256": "eb01359645aeda046ba40718c86c21d98ed728e2e9eecf46d3164d47cd186d00",
+    "lastStatus": 304,
     "etag": "\"7qyr74gmb293\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/dotnet": {
     "sha256": "21e6fa6abd5fc9a9177a2d00972ba427a4ad5099095e7dbb3de5d7e997e51368",
+    "lastStatus": 304,
     "etag": "\"worf0s78iz21\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/elixir": {
     "sha256": "4fc619c25b57b2b9df3d3364a69b5edd33001f034dccaf66c691f3f5450ef141",
+    "lastStatus": 304,
     "etag": "\"tgsv6trfan2f\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/go": {
     "sha256": "a2706475d7f55934b156e17e3a7579d3a38c201e26569f2c9172830b9c1667ea",
+    "lastStatus": 304,
     "etag": "\"7pphl8ac7n2i\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/java": {
     "sha256": "6aaaac63ef6aee532df5780af12c7a3c04eff520c3c2fe934d2e2ecbe8ce14f3",
+    "lastStatus": 304,
     "etag": "\"huh4bxlqya72\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/laravel": {
     "sha256": "300c1b285b44874fd0a83ccea28791e1f291324efd0e221983c1e5cab35cd2cd",
+    "lastStatus": 304,
     "etag": "\"ntav709dkc2j\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/node": {
     "sha256": "dddf13865ea5ad8983b099a2e44b843569e5999bd6ffd5a9d8056940b4e547cb",
+    "lastStatus": 304,
     "etag": "\"azu3sa6i563a\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/php": {
     "sha256": "8f2e765a8682704a08036b793a5a5ea1e0fd9a85dbf3696bafdea29c9fc0ef18",
+    "lastStatus": 304,
     "etag": "\"99khx00jlk2b\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/python": {
     "sha256": "1f6b1b21e97e9d93db1c2ed7906a0d50a0b61f38fe1f0902cf0daadeec414327",
+    "lastStatus": 304,
     "etag": "\"nmrsyjw3o1v\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sdks/ruby": {
     "sha256": "fcb7eb099448f0a778b71aae72a0ec74b6326209517718fb83ccd2b99257abb4",
+    "lastStatus": 304,
     "etag": "\"i3h220d0yb2t\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
+  },
+  "https://workos.com/docs/sdks/rust": {
+    "sha256": "690d7d4dd87609102985486e55d0d533dc2806fcab568f27b2c10245c5b1d34d",
+    "lastStatus": 200,
+    "etag": "\"ikgy18zw1s1m\"",
+    "lastModified": "Mon, 08 Jun 2026 20:54:56 GMT"
   },
   "https://workos.com/docs/sso/attributes": {
-    "sha256": "65b94399223552789683f2cfb10ece17b476b35464572a0071cebac33f358d88",
-    "etag": "\"2nn2konpxr74b\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "50e9289e3f67d284719ac4fc02648a63c8572b66b1385b7cef296ad18737e312",
+    "lastStatus": 200,
+    "etag": "\"89dtn5ru4a7ur\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/domains": {
     "sha256": "77407276e65e0d5481300f40ae8f909357203080bcf19a99886c21f5a2f53c59",
+    "lastStatus": 304,
     "etag": "\"cctcy5wqp05ej\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/example-apps": {
     "sha256": "26d52e4c1a63752a5d54ec879cbf3abb883ccec57230ce7bdf96a4c82ff856d7",
+    "lastStatus": 304,
     "etag": "\"az9vmexwz93h\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/identity-provider-role-assignment": {
     "sha256": "5dfb7878260932cbb3c3ed8600367184455b3cc70b35e9f32c0f89dc517d12c7",
+    "lastStatus": 304,
     "etag": "\"8pt17seay95b4\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/index": {
-    "sha256": "93fe92b1a85d48c4618e3653a694e74129147535ada09245ac042df74e91d940",
-    "etag": "\"k96bnduowui7q\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "a91a8f54c9a06a8528edffacb8cab6f6700db363ad112102187a903ac9406ac5",
+    "lastStatus": 200,
+    "etag": "\"7vilw2nv4mi9k\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/it-team-faq": {
     "sha256": "11cafed14665bc5fc9d3995786eed4b2c094871648c298c49de69727f340092d",
+    "lastStatus": 304,
     "etag": "\"17dquit8ane1am\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/jit-provisioning": {
     "sha256": "85220f820db89719725bfec4d83fdb5b0a15678740978d9b182d31f51ad5f252",
+    "lastStatus": 304,
     "etag": "\"fm134hw6ma5ll\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/launch-checklist": {
-    "sha256": "a6f41ee88d85bfdb02d2aa2c830c0e957c19637ddcb5ea3bbcb61a55e618dad8",
-    "etag": "\"rejch8o9lc3t5\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "4f29f4b37a46b05ecb6cf2e76501f24f0f605bbd614acfb152749283fe48a661",
+    "lastStatus": 200,
+    "etag": "\"121i1ct7yqe3t2\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/login-flows": {
-    "sha256": "b3b8cd4ab4645e786cf5ff3bf9ccfef55b29085eec87b961c115110ba18a59ce",
-    "etag": "\"fzkjxpbm83apt\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "ff26194c494f912b570905686fb4b9ae01a7f788d0f6621f0571c879967c3658",
+    "lastStatus": 200,
+    "etag": "\"4g031a8h97ape\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/redirect-uris": {
-    "sha256": "1aadcfdef1956c6888d7e81779f63038ebe48ea97b4619eb2b74fc51badd7f90",
-    "etag": "\"8gr58yx1j42zt\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "0a1a895dc93172ef4a9378a70c3f5b61a20df722951867cecc75b5f36e48da62",
+    "lastStatus": 200,
+    "etag": "\"10ekh1x80nl321\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/saml-security": {
     "sha256": "f9f0e6f7f2b39147fd874aea9599117824c7e04e8b2e1b41a82fb0d54f00912f",
+    "lastStatus": 304,
     "etag": "\"13smifh44v754r\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/sign-in-consent": {
     "sha256": "19e9bb6da932ec24749584dbdd709c06ad175b810e459ad957c283e7c45e8e94",
+    "lastStatus": 304,
     "etag": "\"vqjvc6e5bh2vm\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/signing-certificates": {
-    "sha256": "a483b9263e0c2cc0225b352cedaf73e0701d92ec6ab62d54795453bc3b16812e",
-    "etag": "\"15oasg8c8ik8fh\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "8b47b47264f5c72b95e8a26adbe8bcb4c580a3c02f9d94dad1f52a589c15a3cc",
+    "lastStatus": 200,
+    "etag": "\"r5mg5yryhg8fh\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/sso/single-logout": {
     "sha256": "199cdf53726bde1639b3c1c4a77222a7814f240bdcb58551a6add36ca683b190",
+    "lastStatus": 304,
     "etag": "\"ffu0i71y3u1uk\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/test-sso": {
-    "sha256": "c4d9717b0602d5b7313ce461a5ba8a7cd9b57e2be67701b872ba056036e3e5ac",
-    "etag": "\"i1pl8dbvc13sl\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "e92dc8580d7b60089b46ad3b5ee19a62c08fca3b049cfc167823edcdb4ad5d33",
+    "lastStatus": 200,
+    "etag": "\"2t7sv2vsod3sl\"",
+    "lastModified": "Mon, 08 Jun 2026 20:54:56 GMT"
   },
   "https://workos.com/docs/sso/ux/sessions": {
     "sha256": "50844e8ea9e6e45f8a4e1666e7471ff9e9092075ed76b3b5e100cc67e4e937ce",
+    "lastStatus": 304,
     "etag": "\"qt89paj62n3w2\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/sso/ux/sign-in": {
     "sha256": "3514f6990f7be177f5c88f54fefd04b039c9972ca514177cc23ac12e7d51a360",
+    "lastStatus": 304,
     "etag": "\"150ykquqb9s1qi\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/vault/byok": {
     "sha256": "afa7600ffae00015c6874b99fcb7eaf5c6917ec4ec2dfb49ac725b206cfb51fd",
+    "lastStatus": 304,
     "etag": "\"m4oommve0347n\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/vault/index": {
     "sha256": "230e868c2005010c014b2bb868d949f2f32b42d1a557c6a5c26e1ceee6772d00",
+    "lastStatus": 304,
     "etag": "\"gbmdxjbbtd2fj\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/vault/key-context": {
     "sha256": "82a9256bc2b8cc52f77b568e52b71689862efa60d335f0a1f02c1e15b440a0e2",
+    "lastStatus": 304,
     "etag": "\"jk2tqqqlfu1up\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/vault/quick-start": {
     "sha256": "8a797457352eafbee22a73ec973cc7ed795b41896a0e1dedb3fdac2ac71524f6",
+    "lastStatus": 304,
     "etag": "\"8bx2v6lkre5k5\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/admin-portal-domain-verification": {
     "sha256": "f1d4c121aa3a80295cb1414f195c3b5feaee7194b430778143d5ea9f9f60811b",
+    "lastStatus": 304,
     "etag": "\"100ainti7upoo\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/admin-portal-sso-connection": {
     "sha256": "09dd96a886ae49243c0c3a42582b011006a43602080a316fb0a2a6bf2cf84fb3",
+    "lastStatus": 304,
     "etag": "\"lqph0zjeuynh\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/api-keys": {
     "sha256": "72100b7f79f0c82d66e488297f39b5ec1e652ebde53ee85ee4f3947e554bd19b",
+    "lastStatus": 304,
     "etag": "\"3rq5k618vj2em\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/audit-log-streaming": {
     "sha256": "46dc81801db83eecd4cf4b1cf474b88c64d0db2048e452d27770bb58fa1619d0",
+    "lastStatus": 304,
     "etag": "\"9oqo04wsybsd\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/directory-sync": {
     "sha256": "d2989368f640bc1adbb65d8da6b2b30f4870c75837a5bd26c1ceb3e12691e2bc",
+    "lastStatus": 304,
     "etag": "\"abtna7yvy7n5\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/index": {
     "sha256": "675269158c876d84d19dd4d90ea2a5df4c755360982ff7d99545fbf979bbe19b",
+    "lastStatus": 304,
     "etag": "\"dh6spg1ib7a5\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/localization": {
     "sha256": "9e30a70b51e15e035847f1b464b09b44fb34cc76e4b9ff1f59a0e67cf6e1f5f2",
+    "lastStatus": 304,
     "etag": "\"pf6m1qyumb2qh\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/organization-switcher": {
     "sha256": "34a34c6459fc1272d571af2f58c10f5216993a9bb8a8300465f65dcbd99a6f67",
+    "lastStatus": 304,
     "etag": "\"u1r9akksau3cd\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/pipes": {
     "sha256": "b0cea12f6351cab2e4b0021208d1f8b7bb90f073ebc0c8d08ca314899c1d8f17",
+    "lastStatus": 304,
     "etag": "\"y6oryodz1xzj\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/quick-start": {
-    "sha256": "68591433085a053c50dde2418534e63d2f605731fcca87be98f4b3f88172cc84",
-    "etag": "\"s5tc5ewf6d1pb\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "d1d72a7e151d4e44f4d96a829bd4d38f5be261722bcf6b337465aec080d623f5",
+    "lastStatus": 200,
+    "etag": "\"14q8sh5j0g91qv\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/widgets/styling/css-customization": {
     "sha256": "b33c2eeee26e24c3b24eccd97516d5f175e3c48ba1543e98b4e49396b62a774b",
+    "lastStatus": 304,
     "etag": "\"d7fgumkz130v\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/styling/index": {
     "sha256": "f1c36d26e02ed9a494b8d57900dff69ee942cd5c217a6c66f84580c3593eb885",
+    "lastStatus": 304,
     "etag": "\"11kx3plj93616q\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/styling/theme-customization": {
     "sha256": "8a233724f8d656f3ba6c109c06143d374e07932827e2864ea079e7aa9a30cf46",
+    "lastStatus": 304,
     "etag": "\"1dljy96xp2i7\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/tokens": {
     "sha256": "093d7fdf81791c329e81eb05b8b94899e8a1fa8af3dac92bd2699ffbc5bd7b34",
+    "lastStatus": 304,
     "etag": "\"iby5c72ml6vb\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/user-management": {
     "sha256": "7c9b8e8929821d8341cd30995f53e4a00e9caafb25d3978bece00b67ab0c8c9e",
+    "lastStatus": 304,
     "etag": "\"fpzhhvzfwp11w\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/user-profile": {
-    "sha256": "c0ec52206dd35a78e8832b77886a2f05324ad8e6a46a8e4ab61151346c0451fb",
-    "etag": "\"hk4m0dnhbd11b\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "sha256": "9213cd5f5d42795447c45800aee84a557e473303f21b730cc9560e91a82cc333",
+    "lastStatus": 200,
+    "etag": "\"9mullo6b2q12i\"",
+    "lastModified": "Wed, 10 Jun 2026 22:43:34 GMT"
   },
   "https://workos.com/docs/widgets/user-security": {
     "sha256": "cbd3c757343364fe0703c8dca61d7dc4bb81bd672962b93f56cad04d88516b72",
+    "lastStatus": 304,
     "etag": "\"bphuryqqgg107\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   },
   "https://workos.com/docs/widgets/user-sessions": {
     "sha256": "db5aeec266d5e31d0ba0d670fadd24c78377964d84296f0cb7ff1611108012b2",
+    "lastStatus": 304,
     "etag": "\"luogqtxfqz15r\"",
-    "lastModified": "Thu, 07 May 2026 22:25:29 GMT",
-    "fetchedAt": "2026-05-15T03:29:25.779Z",
-    "lastStatus": 200
+    "lastModified": "Thu, 07 May 2026 22:25:29 GMT"
   }
 }

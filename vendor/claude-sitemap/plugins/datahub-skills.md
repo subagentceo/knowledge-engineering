@@ -1,13 +1,13 @@
 # datahub-skills
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  DataHub
-
-- Installs
-
-  110
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    DataHub
+    
+*   Installs
+    
+    203

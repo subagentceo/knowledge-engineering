@@ -26,6 +26,8 @@ Unreal Engine SDK builds on top of other Sentry SDKs and extends them with Unrea
 
 * [Release health](https://docs.sentry.io/platforms/unreal/configuration/releases.md) to keep track of crash free users and sessions
 
+* [Session Replay](https://docs.sentry.io/platforms/unreal/session-replay.md) (experimental) to attach gameplay video to crash reports on Windows, macOS, Linux, and Xbox, and native session replay on Android
+
 * [Structured Logging](https://docs.sentry.io/platforms/unreal/logs.md) to capture and send log messages with additional context
 
 * [Metrics](https://docs.sentry.io/platforms/unreal/metrics.md) to track counters, gauges, and distributions
@@ -64,7 +66,7 @@ The minimum configuration required is the [DSN](https://docs.sentry.io/product/s
 
 ```json
 {
-  "public-dsn": "___PUBLIC_DSN___"
+  "public-dsn": "https://<key>@o<orgId>.ingest.sentry.io/<projectId>"
 }
 ```
 
@@ -124,6 +126,7 @@ If you set a limit per issue, as in the example above, a limit of 5, Sentry will
 - [Enriching Events](https://docs.sentry.io/platforms/unreal/enriching-events.md)
 - [Data Management](https://docs.sentry.io/platforms/unreal/data-management.md)
 - [Tracing](https://docs.sentry.io/platforms/unreal/tracing.md)
+- [Session Replay](https://docs.sentry.io/platforms/unreal/session-replay.md)
 - [Logs](https://docs.sentry.io/platforms/unreal/logs.md)
 - [Application Metrics](https://docs.sentry.io/platforms/unreal/metrics.md)
 - [User Feedback](https://docs.sentry.io/platforms/unreal/user-feedback.md)

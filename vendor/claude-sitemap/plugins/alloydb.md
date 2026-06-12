@@ -1,13 +1,13 @@
 # alloydb
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Google LLC
-
-- Installs
-
-  463
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Google LLC
+    
+*   Installs
+    
+    553

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -7,10 +6,10 @@
 
 > Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research.
 
-{/_ plan-availability: feature=workflows plans=pro,max,team,enterprise providers=all _/}
+{/* plan-availability: feature=workflows plans=pro,max,team,enterprise providers=all */}
 
 <Note>
-  Dynamic workflows are in research preview. They require Claude Code v2.1.154 or later and are available on all paid plans, with Anthropic API access, and on Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry. On Pro, turn them on from the Dynamic workflows row in `/config`.
+  Dynamic workflows require Claude Code v2.1.154 or later and are available on all paid plans, with Anthropic API access, and on Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry. On Pro, turn them on from the Dynamic workflows row in `/config`.
 </Note>
 
 A dynamic workflow is a JavaScript script that orchestrates [subagents](/en/sub-agents) at scale. Claude writes the script for the task you describe, and a runtime executes it in the background while your session stays responsive.
@@ -19,25 +18,25 @@ Reach for a workflow when a task needs more agents than one conversation can coo
 
 This page covers how to:
 
-- Decide [when to use a workflow](#when-to-use-a-workflow) instead of subagents or skills
-- [Run a bundled workflow](#run-a-bundled-workflow) with `/deep-research`
-- [Have Claude write a workflow](#have-claude-write-a-workflow) for your task and save it
-- Understand [how a workflow runs](#how-a-workflow-runs) and [manage runs](#manage-runs)
+* Decide [when to use a workflow](#when-to-use-a-workflow) instead of subagents or skills
+* [Run a bundled workflow](#run-a-bundled-workflow) with `/deep-research`
+* [Have Claude write a workflow](#have-claude-write-a-workflow) for your task and save it
+* Understand [how a workflow runs](#how-a-workflow-runs) and [manage runs](#manage-runs)
 
 ## When to use a workflow
 
-[Subagents](/en/sub-agents), [skills](/en/skills), and workflows can all run a multi-step task. The difference is who holds the plan:
+[Subagents](/en/sub-agents), [skills](/en/skills), [agent teams](/en/agent-teams), and workflows can all run a multi-step task. The difference is who holds the plan:
 
-|                                 | Subagents                      | Skills                       | Workflows                            |
-| :------------------------------ | :----------------------------- | :--------------------------- | :----------------------------------- |
-| What it is                      | A worker Claude spawns         | Instructions Claude follows  | A script the runtime executes        |
-| Who decides what runs next      | Claude, turn by turn           | Claude, following the prompt | The script                           |
-| Where intermediate results live | Claude's context window        | Claude's context window      | Script variables                     |
-| What's repeatable               | The worker definition          | The instructions             | The orchestration itself             |
-| Scale                           | A few delegated tasks per turn | Same as subagents            | Dozens to hundreds of agents per run |
-| Interruption                    | Restarts the turn              | Restarts the turn            | Resumable in the same session        |
+|                                 | Subagents                      | Skills                       | Agent teams                            | Workflows                            |
+| :------------------------------ | :----------------------------- | :--------------------------- | :------------------------------------- | :----------------------------------- |
+| What it is                      | A worker Claude spawns         | Instructions Claude follows  | A lead agent supervising peer sessions | A script the runtime executes        |
+| Who decides what runs next      | Claude, turn by turn           | Claude, following the prompt | The lead agent, turn by turn           | The script                           |
+| Where intermediate results live | Claude's context window        | Claude's context window      | A shared task list                     | Script variables                     |
+| What's repeatable               | The worker definition          | The instructions             | The team definition                    | The orchestration itself             |
+| Scale                           | A few delegated tasks per turn | Same as subagents            | A handful of long-running peers        | Dozens to hundreds of agents per run |
+| Interruption                    | Restarts the turn              | Restarts the turn            | Teammates keep running                 | Resumable in the same session        |
 
-A workflow moves the plan into code. With subagents and skills, Claude is the orchestrator: it decides turn by turn what to spawn next, and every result lands in Claude's context. A workflow script holds the loop, the branching, and the intermediate results itself, so Claude's context holds only the final answer.
+A workflow moves the plan into code. With subagents, skills, and agent teams, Claude is the orchestrator: it decides turn by turn what to spawn or assign next, and every result lands in a context window. A workflow script holds the loop, the branching, and the intermediate results itself, so Claude's context holds only the final answer.
 
 Moving the plan into code also lets a workflow apply a repeatable quality pattern, not just run more agents: it can have independent agents adversarially review each other's findings before they're reported, or draft a plan from several angles and weigh them against each other, so you get a more trustworthy result than a single pass.
 
@@ -52,7 +51,6 @@ The quickest way to see a workflow in action is to run `/deep-research`, the [bu
     ```text theme={null}
     /deep-research What changed in the Node.js permission model between v20 and v22?
     ```
-
   </Step>
 
   <Step title="Allow workflows">
@@ -69,7 +67,6 @@ The quickest way to see a workflow in action is to run `/deep-research`, the [bu
     The view shows each phase with its agent count, token total, and elapsed time. Drill into any phase to see its agents and what each one found. See [Watch the run](#watch-the-run) for the full set of controls.
 
     You can also watch from the task panel below the input box: a one-line progress summary appears there while the run is going. Press the down arrow to focus it, then Enter to expand.
-
   </Step>
 
   <Step title="Read the report">
@@ -114,24 +111,24 @@ The progress view shows each phase with its agent counts, token totals, and elap
 
 You can have Claude write a workflow for your task in two ways:
 
-- [Ask for a workflow](#ask-for-a-workflow-in-your-prompt) in your prompt with the word `workflow`, and Claude writes one for the task.
-- [Let Claude decide with ultracode](#let-claude-decide-with-ultracode): set `/effort ultracode` and Claude plans a workflow for every substantive task in the session.
+* [Ask for a workflow](#ask-for-a-workflow-in-your-prompt) in your prompt, either in your own words or by including the keyword `ultracode`, and Claude writes one for the task.
+* [Let Claude decide with ultracode](#let-claude-decide-with-ultracode): set `/effort ultracode` and Claude plans a workflow for every substantive task in the session.
 
 You can also run a workflow command that already exists: a [bundled workflow](#bundled-workflows) like `/deep-research`, or one you've [saved](#save-the-workflow-for-reuse).
 
 ### Ask for a workflow in your prompt
 
-To run a single task as a workflow without changing the session's effort level, include the word `workflow` anywhere in your prompt.
+To run a single task as a workflow without changing the session's effort level, include the keyword `ultracode` in your prompt. Asking in your own words, for example "use a workflow" or "run a workflow", also works: Claude treats a direct request as the same opt-in. Before v2.1.160 the literal trigger keyword was `workflow`; natural-language requests work in both versions.
 
 ```text theme={null}
-Run a workflow to audit every API endpoint under src/routes/ for missing auth checks
+ultracode: audit every API endpoint under src/routes/ for missing auth checks
 ```
 
-Claude Code highlights the word in your input and Claude writes a workflow script for the task instead of working through it turn by turn.
+Claude Code highlights the keyword in your input and Claude writes a workflow script for the task instead of working through it turn by turn. If you didn't mean to start a workflow, press `Option+W` on macOS or `Alt+W` on Windows and Linux to dismiss the highlight for this prompt, or press backspace while the cursor is right after the highlighted keyword. To stop the keyword from triggering at all, turn off Ultracode keyword trigger in `/config`.
 
 If the run does what you wanted, you can [save it as a command](#save-the-workflow-for-reuse) afterward.
 
-If Claude Code highlights the word when you didn't mean to trigger one, press `alt+w` to ignore it for this prompt, or press backspace while the cursor is right after the highlighted word. To stop the word from triggering at all, turn off Workflow keyword trigger in `/config`.
+If you already have an orchestrator built another way, such as a folder of subagent prompts or a skill that fans work out, you can point Claude at it and ask for a workflow that does the same thing.
 
 ### Let Claude decide with ultracode
 
@@ -149,10 +146,10 @@ Ultracode lasts for the current session and resets when you start a new one. Dro
 
 In the CLI, the per-run prompt shows the planned phases and these options:
 
-- **Yes, run it**: start the run
-- **Yes, and don't ask again for `<name>` in `<path>`**: start, and skip this prompt for this workflow in this project from now on
-- **View raw script**: read the script before deciding
-- **No**: cancel
+* **Yes, run it**: start the run
+* **Yes, and don't ask again for `<name>` in `<path>`**: start, and skip this prompt for this workflow in this project from now on
+* **View raw script**: read the script before deciding
+* **No**: cancel
 
 `Ctrl+G` opens the script in your editor. `Tab` lets you adjust the prompt before the run starts.
 
@@ -178,16 +175,30 @@ When Claude writes a workflow for a task you'll repeat, you can save that run's 
 
 Run `/workflows`, select the run you want to keep, and press `s`. In the save dialog, Tab toggles between the two save locations:
 
-- `.claude/workflows/` in your project: shared with everyone who clones the repo
-- `~/.claude/workflows/` in your home directory: available in every project, visible only to you
+* `.claude/workflows/` in your project: shared with everyone who clones the repo
+* `~/.claude/workflows/` in your home directory: available in every project, visible only to you
 
 Press Enter to save. The workflow runs as `/<name>` in future sessions from either location.
 
 If a project workflow and a personal workflow share a name, the project one runs.
 
+### Pass input to a saved workflow
+
+A saved workflow can accept input through the `args` parameter. The script reads it as a global named `args`. Use this to supply a research question, a list of target paths, or a configuration object at invocation time instead of editing the script for each run.
+
+The following prompt runs a saved workflow with a list of issue numbers:
+
+```text theme={null}
+> Run /triage-issues on issues 1024, 1025, and 1030
+```
+
+Claude passes the list as structured data, so the script can call array and object methods on `args` directly without parsing it first. If `args` is omitted, the global is `undefined` inside the script.
+
 ## How a workflow runs
 
 The workflow runtime executes the script in an isolated environment, separate from your conversation. Intermediate results stay in script variables instead of landing in Claude's context.
+
+Every run writes its script to a file under your session's directory in `~/.claude/projects/`. Claude receives the path when the run starts, so you can ask for it. You can open that file to read the orchestration Claude wrote, diff it against a previous run's script, or edit it and ask Claude to relaunch from the edited version.
 
 The runtime tracks each agent's result as the run progresses, which is what makes a run [resumable](#resume-after-a-pause) within the same session.
 
@@ -214,12 +225,14 @@ Resume works within the same Claude Code session. If you exit Claude Code while 
 
 ### Cost
 
-A workflow spawns many agents, so a single run can use meaningfully more tokens than working through the same task in conversation. Runs count toward your plan's usage and rate limits like any other session. You can stop a running workflow from `/workflows` at any time without losing completed work.
+A workflow spawns many agents, so a single run can use meaningfully more tokens than working through the same task in conversation. Runs count toward your plan's usage and rate limits like any other session.
+
+To gauge the spend before committing to a large task, run the workflow on a small slice first: one directory instead of the whole repo, or a narrow question instead of a broad one. The `/workflows` view shows each agent's token usage as the run progresses, and you can stop the run there at any time without losing completed work. The runtime's [agent caps](#behavior-and-limits) limit how many agents a single run can spawn, which bounds the cost of a runaway script.
 
 Every agent in a workflow uses your session's model unless the script routes a stage to a different one. To control the model cost:
 
-- Check `/model` before a large run if you usually switch to a smaller model for routine work
-- Ask Claude to use a smaller model for stages that don't need the strongest one when you describe the task
+* Check `/model` before a large run if you usually switch to a smaller model for routine work
+* Ask Claude to use a smaller model for stages that don't need the strongest one when you describe the task
 
 ### Turn workflows off
 
@@ -227,16 +240,16 @@ Workflows are available in the CLI, the Desktop app, the IDE extensions, [non-in
 
 To turn workflows off for yourself:
 
-- Toggle Dynamic workflows off in `/config`. Persists across sessions.
-- Set `"disableWorkflows": true` in `~/.claude/settings.json`. Persists across sessions.
-- Set `CLAUDE_CODE_DISABLE_WORKFLOWS=1`. Read at startup, so it applies wherever you set it.
+* Toggle Dynamic workflows off in `/config`. Persists across sessions.
+* Set `"disableWorkflows": true` in `~/.claude/settings.json`. Persists across sessions.
+* Set `CLAUDE_CODE_DISABLE_WORKFLOWS=1`. Read at startup, so it applies wherever you set it.
 
 To turn workflows off for your whole organization, set `"disableWorkflows": true` in [managed settings](/en/server-managed-settings), or use the toggle on the [Claude Code admin settings](https://claude.ai/admin-settings/claude-code) page.
 
-When workflows are disabled, the bundled workflow commands are unavailable, the `workflow` keyword no longer triggers a run, and `ultracode` is removed from the `/effort` menu.
+When workflows are disabled, the bundled workflow commands are unavailable, the `ultracode` keyword no longer triggers a run, and `ultracode` is removed from the `/effort` menu.
 
 ## Related resources
 
-- [Run agents in parallel](/en/agents): compare subagents, agent view, agent teams, and workflows
-- [Create custom subagents](/en/sub-agents): the worker primitive workflows orchestrate
-- [Manage costs](/en/costs): how multi-agent runs count toward usage limits
+* [Run agents in parallel](/en/agents): compare subagents, agent view, agent teams, and workflows
+* [Create custom subagents](/en/sub-agents): the worker primitive workflows orchestrate
+* [Manage costs](/en/costs): how multi-agent runs count toward usage limits

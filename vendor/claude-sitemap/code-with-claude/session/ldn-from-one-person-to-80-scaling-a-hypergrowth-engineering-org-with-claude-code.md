@@ -2,6 +2,34 @@
 
 Base44 went from one engineer to hyper-growth — getting acquired by Wix, absorbing a wave of new engineers, then shipping faster than any reasonable hiring plan could carry. Claude Code is what kept the team moving through three different bottlenecks: ramping new engineers, compressing the experiment-and-validate cycle, and keeping the lights on as the surface area grew. This talk goes deep on the patterns at each phase — and on the "elegant simplicity" principle that kept the architecture intentionally boring so Claude Code could keep up at every step.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+12:00 – 12:30
+
+Speaker(s)
+
+Gabriel Grinberg
+
+AI Engineering Manager,
+
+Base44
+
+Yoav Orlev
+
+Head of Product,
+
+Base44
+
 ## Watch recording
 
 Play videoPlay video

@@ -21,6 +21,7 @@ Create Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
 
   Role of the new Workspace Member. Cannot be "workspace_billing".
+
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -32,11 +33,13 @@ Create Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -50,6 +53,7 @@ Create Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -66,7 +70,7 @@ Create Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
           "workspace_role": "workspace_user"
@@ -103,11 +107,13 @@ Get Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -121,6 +127,7 @@ Get Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -136,7 +143,7 @@ Get Workspace Member
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -181,11 +188,13 @@ List Workspace Members
 ### Returns
 
 - `data: array of WorkspaceMember`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -199,6 +208,7 @@ List Workspace Members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -226,7 +236,7 @@ List Workspace Members
 ```http
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -268,6 +278,7 @@ Update Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
   New workspace role for the User.
+
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -281,11 +292,13 @@ Update Workspace Member
 ### Returns
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -299,6 +312,7 @@ Update Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -315,7 +329,7 @@ Update Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "workspace_role": "workspace_user"
         }'
@@ -355,6 +369,7 @@ Delete Workspace Member
   Deleted object type.
 
   For Workspace Members, this is always `"workspace_member_deleted"`.
+
   - `"workspace_member_deleted"`
 
 - `user_id: string`
@@ -371,7 +386,7 @@ Delete Workspace Member
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members/$USER_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -389,11 +404,13 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 ### Workspace Member
 
 - `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
+
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
+
     - `"workspace_member"`
 
   - `user_id: string`
@@ -407,6 +424,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
+
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -420,11 +438,13 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 ### Member Delete Response
 
 - `MemberDeleteResponse object { type, user_id, workspace_id }`
+
   - `type: "workspace_member_deleted"`
 
     Deleted object type.
 
     For Workspace Members, this is always `"workspace_member_deleted"`.
+
     - `"workspace_member_deleted"`
 
   - `user_id: string`

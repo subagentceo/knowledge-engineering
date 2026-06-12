@@ -12,7 +12,13 @@ Incident Detection and Response offers the following key features:
 + **Reduced potential for failure**: After resolution, the IMEs provide you with a post-incident review (upon request). And, AWS experts work with you to apply lessons learned to improve the incident response plan and runbooks. You can also leverage AWS Resilience Hub for continuous resiliency tracking on your workloads.
 
 **Topics**
++ [Sign up for an AWS account](#sign-up-for-aws)
 + [Terms of use](idr-prod-terms.md)
 + [Architecture](idr-arch.md)
 + [Roles and responsibilities](idr-raci.md)
 + [Region availability](idr-availability.md)
+
+## Sign up for an AWS account
+<a name="sign-up-for-aws"></a>
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](https://docs.aws.amazon.com//accounts/latest/reference/getting-started.html) in the *AWS Account Management Reference Guide*.

@@ -38,29 +38,29 @@ This partnership is intended to extend beyond today's capabilities to bring the 
 
 This partnership is strengthened by both companies using each other's products:
 
-- **Salesforce is deploying Claude Code across its global engineering organization to augment developer workflows and increase productivity.** With Claude Code, Salesforce engineers can build, fix, and ship projects faster while maintaining full transparency and control. Through the Slack MCP server integration, Salesforce engineering teams will use Claude Code to document code in Slack canvases, read specifications from Slack channels, and pull context from discussions directly into their development workflow.
-- **Anthropic uses Claude directly in Slack** to summarize conversation threads, surface key insights, and guide the internal sales team—showing the kind of workflows this partnership will bring to customers.
+*   **Salesforce is deploying Claude Code across its global engineering organization to augment developer workflows and increase productivity.** With Claude Code, Salesforce engineers can build, fix, and ship projects faster while maintaining full transparency and control. Through the Slack MCP server integration, Salesforce engineering teams will use Claude Code to document code in Slack canvases, read specifications from Slack channels, and pull context from discussions directly into their development workflow.
+*   **Anthropic uses Claude directly in Slack** to summarize conversation threads, surface key insights, and guide the internal sales team—showing the kind of workflows this partnership will bring to customers.
 
 **Availability**
 
-- Agentforce powered by Anthropic is available today for select customers.
-- Claude and Slack bi-directional integrations are available today.
-- The new collaboration on regulated industry solutions and the Agentforce 360 integration for Claude are currently under development, with more details on availability to be shared in the coming months.
+*   Agentforce powered by Anthropic is available today for select customers.
+*   Claude and Slack bi-directional integrations are available today.
+*   The new collaboration on regulated industry solutions and the Agentforce 360 integration for Claude are currently under development, with more details on availability to be shared in the coming months.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -1,7 +1,7 @@
 > This page location: Troubleshooting > Latency and timeouts
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers strategies for managing connection latencies and timeouts in Neon, including the impact of the _Scale to zero_ feature and how to check the status of a compute resource.
+> Summary: Connection latency in Neon is primarily caused by cold starts when a compute wakes from Scale to zero, typically adding a few hundred milliseconds. Options for reducing cold-start delays include disabling scale-to-zero, tuning the suspend timeout, co-locating the application and database in the same region, and adding retry logic with exponential backoff. Also covers the `sslnegotiation=direct` parameter, which shortens SSL handshake time on Neon's proxy layer regardless of the underlying database version.
 
 # Connection latency and timeouts
 

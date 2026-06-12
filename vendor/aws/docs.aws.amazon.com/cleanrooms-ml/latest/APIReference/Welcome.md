@@ -13,4 +13,4 @@ To learn more about SQL commands, functions, and conditions supported in AWS Cle
 
 
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

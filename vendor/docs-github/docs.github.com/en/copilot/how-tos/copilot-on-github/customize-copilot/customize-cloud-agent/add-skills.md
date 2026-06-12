@@ -3,7 +3,7 @@
 You can modify Copilot's behavior and abilities when it works on particular tasks.
 
 > \[!NOTE]
-> Agent skills work with Copilot cloud agent, the GitHub Copilot CLI, and agent mode in Visual Studio Code.
+> Agent skills work with Copilot cloud agent, Copilot code review, the GitHub Copilot CLI, the GitHub Copilot app, and agent mode in Visual Studio Code.
 
 Agent skills are folders of instructions, scripts, and resources that Copilot can load when relevant to improve its performance in specialized tasks. For more information, see [About agent skills](/en/copilot/concepts/agents/about-agent-skills).
 
@@ -233,6 +233,11 @@ gh skill publish
 When performing tasks, Copilot will decide when to use your skills based on your prompt and the skill's description.
 
 When Copilot chooses to use a skill, the `SKILL.md` file will be injected in the agent's context, giving the agent access to your instructions. It can then follow those instructions and use any scripts or examples you may have included in the skill's directory.
+
+For Copilot code review on GitHub, keep the following in mind:
+
+* If you want to ensure that Copilot code review will read and use a skill, use a review-focused skill directory name such as `code-review`.
+* Existing skills within the `.github/skills` directory can also be used by Copilot code review automatically when they are relevant to the review.
 
 ## Skills versus custom instructions
 

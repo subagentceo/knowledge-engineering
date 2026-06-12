@@ -11,7 +11,7 @@
 </div>
 
 <Note>
-  **Timeline**: Both APIs are currently available. Include the `parallel-beta: "findall-2025-09-15"` header to use V1 API. Without this header, requests default to V0 API.
+  **Timeline**: V1 is now the default for the FindAll API. Requests no longer need the `parallel-beta: "findall-2025-09-15"` header — requests without it use V1. The header is still accepted for backwards compatibility but no longer changes behavior. Existing V0 runs remain retrievable by their original run IDs.
 </Note>
 
 ## Why Migrate to V1?
@@ -41,14 +41,13 @@ V1 delivers significant improvements across pricing, performance, and capabiliti
 
 V0 used a nested `findall_spec` object. V1 flattens this structure:
 
-| **Concept**         | **V0 API**                               | **V1 API**                            |
-| ------------------- | ---------------------------------------- | ------------------------------------- |
-| **Required Header** | None                                     | `parallel-beta: "findall-2025-09-15"` |
-| **Search Goal**     | `query`                                  | `objective`                           |
-| **Entity Type**     | `findall_spec.name`                      | `entity_type`                         |
-| **Filter Criteria** | `findall_spec.columns` (type=constraint) | `match_conditions`                    |
-| **Model Selection** | `processor`                              | `generator`                           |
-| **Max Results**     | `result_limit` (max: 200)                | `match_limit` (max: 1,000)            |
+| **Concept**         | **V0 API**                               | **V1 API**                 |
+| ------------------- | ---------------------------------------- | -------------------------- |
+| **Search Goal**     | `query`                                  | `objective`                |
+| **Entity Type**     | `findall_spec.name`                      | `entity_type`              |
+| **Filter Criteria** | `findall_spec.columns` (type=constraint) | `match_conditions`         |
+| **Model Selection** | `processor`                              | `generator`                |
+| **Max Results**     | `result_limit` (max: 200)                | `match_limit` (max: 1,000) |
 
 ### Response Structure
 
@@ -135,8 +134,7 @@ This example shows the complete workflow migration, including enrichments:
   API_KEY = "your_api_key"
   BASE_URL = "https://api.parallel.ai"
   headers = {
-      "x-api-key": API_KEY,
-      "parallel-beta": "findall-2025-09-15"
+      "x-api-key": API_KEY
   }
 
   # Step 1: Ingest objective
@@ -206,7 +204,6 @@ Complete these steps to migrate from V0 to V1:
 
 ### Core Changes
 
-* Add `parallel-beta: "findall-2025-09-15"` header to all requests
 * Change ingest parameter: `query` → `objective`
 * Flatten run request: extract `objective`, `entity_type`, `match_conditions` from `findall_spec`
 * Rename: `result_limit` → `match_limit`, `processor` → `generator`

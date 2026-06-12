@@ -20,7 +20,7 @@ Future models and features will not be compatible with Text Completions. See our
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
-- `--model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -38,9 +38,9 @@ Future models and features will not be compatible with Text Completions. See our
 
   ```
   "
-
+  
   Human: {userQuestion}
-
+  
   Assistant:"
   ```
 
@@ -89,6 +89,7 @@ Future models and features will not be compatible with Text Completions. See our
 ### Returns
 
 - `completion: object { id, completion, model, 2 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -99,11 +100,20 @@ Future models and features will not be compatible with Text Completions. See our
 
     The resulting completion up to and excluding the stop sequences.
 
-  - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"`
 
       Frontier intelligence for long-running agents and coding
@@ -181,8 +191,9 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 
@@ -196,7 +207,7 @@ Future models and features will not be compatible with Text Completions. See our
 ant completions create \
   --api-key my-anthropic-api-key \
   --max-tokens-to-sample 256 \
-  --model claude-opus-4-8 \
+  --model claude-fable-5 \
   --prompt '
 
 Human: Hello, world!
@@ -221,6 +232,7 @@ Assistant:'
 ### Completion
 
 - `completion: object { id, completion, model, 2 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -231,11 +243,20 @@ Assistant:'
 
     The resulting completion up to and excluding the stop sequences.
 
-  - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"`
 
       Frontier intelligence for long-running agents and coding
@@ -313,8 +334,9 @@ Assistant:'
     The reason that we stopped.
 
     This may be one the following values:
-    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 

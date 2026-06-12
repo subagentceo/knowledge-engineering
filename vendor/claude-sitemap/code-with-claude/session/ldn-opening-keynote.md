@@ -1,5 +1,51 @@
 # Opening keynote
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+09:00 – 10:00
+
+Speaker(s)
+
+Angela Jiang
+
+Head of Product, Claude Platform,
+
+Anthropic
+
+Boris Cherny
+
+Head of Claude Code,
+
+Anthropic
+
+Cat Wu
+
+Head of Product, Claude Code,
+
+Anthropic
+
+Katelyn Lesse
+
+Head of Engineering, Claude Platform,
+
+Anthropic
+
+Lisa Crofoot
+
+Research Product Management Lead,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

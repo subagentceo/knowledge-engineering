@@ -11,6 +11,7 @@ List Session Thread Events
 - `threadID string`
 
 - `params BetaSessionThreadEventListParams`
+
   - `SessionID param.Field[string]`
 
     Path param: Path parameter session_id
@@ -26,9 +27,11 @@ List Session Thread Events
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -81,16 +84,20 @@ List Session Thread Events
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsSessionEventUnion interface{…}`
 
   Union type for all event types in a session.
+
   - `type BetaManagedAgentsUserMessageEvent struct{…}`
 
     A user message event in the session conversation.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -98,25 +105,31 @@ List Session Thread Events
     - `Content []BetaManagedAgentsUserMessageEventContentUnion`
 
       Array of content blocks comprising the user message.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
+
         - `Text string`
 
           The text content.
 
         - `Type BetaManagedAgentsTextBlockType`
+
           - `const BetaManagedAgentsTextBlockTypeText BetaManagedAgentsTextBlockType = "text"`
 
       - `type BetaManagedAgentsImageBlock struct{…}`
 
         Image content specified directly as base64 data or as a reference via a URL.
+
         - `Source BetaManagedAgentsImageBlockSourceUnion`
 
           Union type for image source variants.
+
           - `type BetaManagedAgentsBase64ImageSource struct{…}`
 
             Base64-encoded image data.
+
             - `Data string`
 
               Base64-encoded image data.
@@ -126,12 +139,15 @@ List Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `Type BetaManagedAgentsBase64ImageSourceType`
+
               - `const BetaManagedAgentsBase64ImageSourceTypeBase64 BetaManagedAgentsBase64ImageSourceType = "base64"`
 
           - `type BetaManagedAgentsURLImageSource struct{…}`
 
             Image referenced by URL.
+
             - `Type BetaManagedAgentsURLImageSourceType`
+
               - `const BetaManagedAgentsURLImageSourceTypeURL BetaManagedAgentsURLImageSourceType = "url"`
 
             - `URL string`
@@ -141,25 +157,31 @@ List Session Thread Events
           - `type BetaManagedAgentsFileImageSource struct{…}`
 
             Image referenced by file ID.
+
             - `FileID string`
 
               ID of a previously uploaded file.
 
             - `Type BetaManagedAgentsFileImageSourceType`
+
               - `const BetaManagedAgentsFileImageSourceTypeFile BetaManagedAgentsFileImageSourceType = "file"`
 
         - `Type BetaManagedAgentsImageBlockType`
+
           - `const BetaManagedAgentsImageBlockTypeImage BetaManagedAgentsImageBlockType = "image"`
 
       - `type BetaManagedAgentsDocumentBlock struct{…}`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
         - `Source BetaManagedAgentsDocumentBlockSourceUnion`
 
           Union type for document source variants.
+
           - `type BetaManagedAgentsBase64DocumentSource struct{…}`
 
             Base64-encoded document data.
+
             - `Data string`
 
               Base64-encoded document data.
@@ -169,11 +191,13 @@ List Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `Type BetaManagedAgentsBase64DocumentSourceType`
+
               - `const BetaManagedAgentsBase64DocumentSourceTypeBase64 BetaManagedAgentsBase64DocumentSourceType = "base64"`
 
           - `type BetaManagedAgentsPlainTextDocumentSource struct{…}`
 
             Plain text document content.
+
             - `Data string`
 
               The plain text content.
@@ -181,15 +205,19 @@ List Session Thread Events
             - `MediaType BetaManagedAgentsPlainTextDocumentSourceMediaType`
 
               MIME type of the text content. Must be "text/plain".
+
               - `const BetaManagedAgentsPlainTextDocumentSourceMediaTypeTextPlain BetaManagedAgentsPlainTextDocumentSourceMediaType = "text/plain"`
 
             - `Type BetaManagedAgentsPlainTextDocumentSourceType`
+
               - `const BetaManagedAgentsPlainTextDocumentSourceTypeText BetaManagedAgentsPlainTextDocumentSourceType = "text"`
 
           - `type BetaManagedAgentsURLDocumentSource struct{…}`
 
             Document referenced by URL.
+
             - `Type BetaManagedAgentsURLDocumentSourceType`
+
               - `const BetaManagedAgentsURLDocumentSourceTypeURL BetaManagedAgentsURLDocumentSourceType = "url"`
 
             - `URL string`
@@ -199,14 +227,17 @@ List Session Thread Events
           - `type BetaManagedAgentsFileDocumentSource struct{…}`
 
             Document referenced by file ID.
+
             - `FileID string`
 
               ID of a previously uploaded file.
 
             - `Type BetaManagedAgentsFileDocumentSourceType`
+
               - `const BetaManagedAgentsFileDocumentSourceTypeFile BetaManagedAgentsFileDocumentSourceType = "file"`
 
         - `Type BetaManagedAgentsDocumentBlockType`
+
           - `const BetaManagedAgentsDocumentBlockTypeDocument BetaManagedAgentsDocumentBlockType = "document"`
 
         - `Context string`
@@ -218,6 +249,7 @@ List Session Thread Events
           The title of the document.
 
     - `Type BetaManagedAgentsUserMessageEventType`
+
       - `const BetaManagedAgentsUserMessageEventTypeUserMessage BetaManagedAgentsUserMessageEventType = "user.message"`
 
     - `ProcessedAt Time`
@@ -227,11 +259,13 @@ List Session Thread Events
   - `type BetaManagedAgentsUserInterruptEvent struct{…}`
 
     An interrupt event that pauses agent execution and returns control to the user.
+
     - `ID string`
 
       Unique identifier for this event.
 
     - `Type BetaManagedAgentsUserInterruptEventType`
+
       - `const BetaManagedAgentsUserInterruptEventTypeUserInterrupt BetaManagedAgentsUserInterruptEventType = "user.interrupt"`
 
     - `ProcessedAt Time`
@@ -245,6 +279,7 @@ List Session Thread Events
   - `type BetaManagedAgentsUserToolConfirmationEvent struct{…}`
 
     A tool confirmation event that approves or denies a pending tool execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -252,6 +287,7 @@ List Session Thread Events
     - `Result BetaManagedAgentsUserToolConfirmationEventResult`
 
       UserToolConfirmationResult enum
+
       - `const BetaManagedAgentsUserToolConfirmationEventResultAllow BetaManagedAgentsUserToolConfirmationEventResult = "allow"`
 
       - `const BetaManagedAgentsUserToolConfirmationEventResultDeny BetaManagedAgentsUserToolConfirmationEventResult = "deny"`
@@ -261,6 +297,7 @@ List Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `Type BetaManagedAgentsUserToolConfirmationEventType`
+
       - `const BetaManagedAgentsUserToolConfirmationEventTypeUserToolConfirmation BetaManagedAgentsUserToolConfirmationEventType = "user.tool_confirmation"`
 
     - `DenyMessage string`
@@ -278,6 +315,7 @@ List Session Thread Events
   - `type BetaManagedAgentsUserCustomToolResultEvent struct{…}`
 
     Event sent by the client providing the result of a custom tool execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -287,11 +325,13 @@ List Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `Type BetaManagedAgentsUserCustomToolResultEventType`
+
       - `const BetaManagedAgentsUserCustomToolResultEventTypeUserCustomToolResult BetaManagedAgentsUserCustomToolResultEventType = "user.custom_tool_result"`
 
     - `Content []BetaManagedAgentsUserCustomToolResultEventContentUnion`
 
       The result content returned by the tool.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -307,9 +347,11 @@ List Session Thread Events
       - `type BetaManagedAgentsSearchResultBlock struct{…}`
 
         A block containing a web search result.
+
         - `Citations BetaManagedAgentsSearchResultCitations`
 
           Citation settings for a search result.
+
           - `Enabled bool`
 
             Whether citations are enabled for this search result.
@@ -317,11 +359,13 @@ List Session Thread Events
         - `Content []BetaManagedAgentsSearchResultContent`
 
           Array of text content blocks from the search result.
+
           - `Text string`
 
             The text content.
 
           - `Type BetaManagedAgentsSearchResultContentType`
+
             - `const BetaManagedAgentsSearchResultContentTypeText BetaManagedAgentsSearchResultContentType = "text"`
 
         - `Source string`
@@ -333,6 +377,7 @@ List Session Thread Events
           The title of the search result.
 
         - `Type BetaManagedAgentsSearchResultBlockType`
+
           - `const BetaManagedAgentsSearchResultBlockTypeSearchResult BetaManagedAgentsSearchResultBlockType = "search_result"`
 
     - `IsError bool`
@@ -350,6 +395,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentCustomToolUseEvent struct{…}`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -367,6 +413,7 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentCustomToolUseEventType`
+
       - `const BetaManagedAgentsAgentCustomToolUseEventTypeAgentCustomToolUse BetaManagedAgentsAgentCustomToolUseEventType = "agent.custom_tool_use"`
 
     - `SessionThreadID string`
@@ -376,6 +423,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentMessageEvent struct{…}`
 
     An agent response event in the session conversation.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -383,6 +431,7 @@ List Session Thread Events
     - `Content []BetaManagedAgentsTextBlock`
 
       Array of text blocks comprising the agent response.
+
       - `Text string`
 
         The text content.
@@ -394,11 +443,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentMessageEventType`
+
       - `const BetaManagedAgentsAgentMessageEventTypeAgentMessage BetaManagedAgentsAgentMessageEventType = "agent.message"`
 
   - `type BetaManagedAgentsAgentThinkingEvent struct{…}`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -408,11 +459,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentThinkingEventType`
+
       - `const BetaManagedAgentsAgentThinkingEventTypeAgentThinking BetaManagedAgentsAgentThinkingEventType = "agent.thinking"`
 
   - `type BetaManagedAgentsAgentMCPToolUseEvent struct{…}`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -434,11 +487,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentMCPToolUseEventType`
+
       - `const BetaManagedAgentsAgentMCPToolUseEventTypeAgentMCPToolUse BetaManagedAgentsAgentMCPToolUseEventType = "agent.mcp_tool_use"`
 
     - `EvaluatedPermission BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission`
 
       AgentEvaluatedPermission enum
+
       - `const BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermissionAllow BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission = "allow"`
 
       - `const BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermissionAsk BetaManagedAgentsAgentMCPToolUseEventEvaluatedPermission = "ask"`
@@ -452,6 +507,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentMCPToolResultEvent struct{…}`
 
     Event representing the result of an MCP tool execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -465,11 +521,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentMCPToolResultEventType`
+
       - `const BetaManagedAgentsAgentMCPToolResultEventTypeAgentMCPToolResult BetaManagedAgentsAgentMCPToolResultEventType = "agent.mcp_tool_result"`
 
     - `Content []BetaManagedAgentsAgentMCPToolResultEventContentUnion`
 
       The result content returned by the tool.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -493,6 +551,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentToolUseEvent struct{…}`
 
     Event emitted when the agent invokes a built-in agent tool.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -510,11 +569,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentToolUseEventType`
+
       - `const BetaManagedAgentsAgentToolUseEventTypeAgentToolUse BetaManagedAgentsAgentToolUseEventType = "agent.tool_use"`
 
     - `EvaluatedPermission BetaManagedAgentsAgentToolUseEventEvaluatedPermission`
 
       AgentEvaluatedPermission enum
+
       - `const BetaManagedAgentsAgentToolUseEventEvaluatedPermissionAllow BetaManagedAgentsAgentToolUseEventEvaluatedPermission = "allow"`
 
       - `const BetaManagedAgentsAgentToolUseEventEvaluatedPermissionAsk BetaManagedAgentsAgentToolUseEventEvaluatedPermission = "ask"`
@@ -528,6 +589,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentToolResultEvent struct{…}`
 
     Event representing the result of an agent tool execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -541,11 +603,13 @@ List Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `Type BetaManagedAgentsAgentToolResultEventType`
+
       - `const BetaManagedAgentsAgentToolResultEventTypeAgentToolResult BetaManagedAgentsAgentToolResultEventType = "agent.tool_result"`
 
     - `Content []BetaManagedAgentsAgentToolResultEventContentUnion`
 
       The result content returned by the tool.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -569,6 +633,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentThreadMessageReceivedEvent struct{…}`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -576,6 +641,7 @@ List Session Thread Events
     - `Content []BetaManagedAgentsAgentThreadMessageReceivedEventContentUnion`
 
       Message content blocks.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -597,6 +663,7 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentThreadMessageReceivedEventType`
+
       - `const BetaManagedAgentsAgentThreadMessageReceivedEventTypeAgentThreadMessageReceived BetaManagedAgentsAgentThreadMessageReceivedEventType = "agent.thread_message_received"`
 
     - `FromAgentName string`
@@ -606,6 +673,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentThreadMessageSentEvent struct{…}`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -613,6 +681,7 @@ List Session Thread Events
     - `Content []BetaManagedAgentsAgentThreadMessageSentEventContentUnion`
 
       Message content blocks.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -634,6 +703,7 @@ List Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `Type BetaManagedAgentsAgentThreadMessageSentEventType`
+
       - `const BetaManagedAgentsAgentThreadMessageSentEventTypeAgentThreadMessageSent BetaManagedAgentsAgentThreadMessageSentEventType = "agent.thread_message_sent"`
 
     - `ToAgentName string`
@@ -643,6 +713,7 @@ List Session Thread Events
   - `type BetaManagedAgentsAgentThreadContextCompactedEvent struct{…}`
 
     Indicates that context compaction (summarization) occurred during the session.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -652,11 +723,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsAgentThreadContextCompactedEventType`
+
       - `const BetaManagedAgentsAgentThreadContextCompactedEventTypeAgentThreadContextCompacted BetaManagedAgentsAgentThreadContextCompactedEventType = "agent.thread_context_compacted"`
 
   - `type BetaManagedAgentsSessionErrorEvent struct{…}`
 
     An error event indicating a problem occurred during session execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -664,9 +737,11 @@ List Session Thread Events
     - `Error BetaManagedAgentsSessionErrorEventErrorUnion`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
       - `type BetaManagedAgentsUnknownError struct{…}`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
+
         - `Message string`
 
           Human-readable error description.
@@ -674,30 +749,39 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsUnknownErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
             - `Type BetaManagedAgentsRetryStatusRetryingType`
+
               - `const BetaManagedAgentsRetryStatusRetryingTypeRetrying BetaManagedAgentsRetryStatusRetryingType = "retrying"`
 
           - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
             - `Type BetaManagedAgentsRetryStatusExhaustedType`
+
               - `const BetaManagedAgentsRetryStatusExhaustedTypeExhausted BetaManagedAgentsRetryStatusExhaustedType = "exhausted"`
 
           - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
 
             The session encountered a terminal error and will transition to `terminated` state.
+
             - `Type BetaManagedAgentsRetryStatusTerminalType`
+
               - `const BetaManagedAgentsRetryStatusTerminalTypeTerminal BetaManagedAgentsRetryStatusTerminalType = "terminal"`
 
         - `Type BetaManagedAgentsUnknownErrorType`
+
           - `const BetaManagedAgentsUnknownErrorTypeUnknownError BetaManagedAgentsUnknownErrorType = "unknown_error"`
 
       - `type BetaManagedAgentsModelOverloadedError struct{…}`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
+
         - `Message string`
 
           Human-readable error description.
@@ -705,6 +789,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsModelOverloadedErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -718,11 +803,13 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsModelOverloadedErrorType`
+
           - `const BetaManagedAgentsModelOverloadedErrorTypeModelOverloadedError BetaManagedAgentsModelOverloadedErrorType = "model_overloaded_error"`
 
       - `type BetaManagedAgentsModelRateLimitedError struct{…}`
 
         The model request was rate-limited.
+
         - `Message string`
 
           Human-readable error description.
@@ -730,6 +817,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsModelRateLimitedErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -743,11 +831,13 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsModelRateLimitedErrorType`
+
           - `const BetaManagedAgentsModelRateLimitedErrorTypeModelRateLimitedError BetaManagedAgentsModelRateLimitedErrorType = "model_rate_limited_error"`
 
       - `type BetaManagedAgentsModelRequestFailedError struct{…}`
 
         A model request failed for a reason other than overload or rate-limiting.
+
         - `Message string`
 
           Human-readable error description.
@@ -755,6 +845,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsModelRequestFailedErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -768,11 +859,13 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsModelRequestFailedErrorType`
+
           - `const BetaManagedAgentsModelRequestFailedErrorTypeModelRequestFailedError BetaManagedAgentsModelRequestFailedErrorType = "model_request_failed_error"`
 
       - `type BetaManagedAgentsMCPConnectionFailedError struct{…}`
 
         Failed to connect to an MCP server.
+
         - `MCPServerName string`
 
           Name of the MCP server that failed to connect.
@@ -784,6 +877,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsMCPConnectionFailedErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -797,11 +891,13 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsMCPConnectionFailedErrorType`
+
           - `const BetaManagedAgentsMCPConnectionFailedErrorTypeMCPConnectionFailedError BetaManagedAgentsMCPConnectionFailedErrorType = "mcp_connection_failed_error"`
 
       - `type BetaManagedAgentsMCPAuthenticationFailedError struct{…}`
 
         Authentication to an MCP server failed.
+
         - `MCPServerName string`
 
           Name of the MCP server that failed authentication.
@@ -813,6 +909,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsMCPAuthenticationFailedErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -826,11 +923,13 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsMCPAuthenticationFailedErrorType`
+
           - `const BetaManagedAgentsMCPAuthenticationFailedErrorTypeMCPAuthenticationFailedError BetaManagedAgentsMCPAuthenticationFailedErrorType = "mcp_authentication_failed_error"`
 
       - `type BetaManagedAgentsBillingError struct{…}`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
+
         - `Message string`
 
           Human-readable error description.
@@ -838,6 +937,7 @@ List Session Thread Events
         - `RetryStatus BetaManagedAgentsBillingErrorRetryStatusUnion`
 
           What the client should do next in response to this error.
+
           - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
@@ -851,18 +951,57 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `Type BetaManagedAgentsBillingErrorType`
+
           - `const BetaManagedAgentsBillingErrorTypeBillingError BetaManagedAgentsBillingErrorType = "billing_error"`
+
+      - `type BetaManagedAgentsCredentialHostUnreachableError struct{…}`
+
+        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
+
+        - `CredentialID string`
+
+          ID of the affected credential.
+
+        - `Message string`
+
+          Human-readable error description.
+
+        - `RetryStatus BetaManagedAgentsCredentialHostUnreachableErrorRetryStatusUnion`
+
+          What the client should do next in response to this error.
+
+          - `type BetaManagedAgentsRetryStatusRetrying struct{…}`
+
+            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
+
+          - `type BetaManagedAgentsRetryStatusExhausted struct{…}`
+
+            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
+
+          - `type BetaManagedAgentsRetryStatusTerminal struct{…}`
+
+            The session encountered a terminal error and will transition to `terminated` state.
+
+        - `Type BetaManagedAgentsCredentialHostUnreachableErrorType`
+
+          - `const BetaManagedAgentsCredentialHostUnreachableErrorTypeCredentialHostUnreachableError BetaManagedAgentsCredentialHostUnreachableErrorType = "credential_host_unreachable_error"`
+
+        - `VaultID string`
+
+          ID of the vault containing the affected credential.
 
     - `ProcessedAt Time`
 
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionErrorEventType`
+
       - `const BetaManagedAgentsSessionErrorEventTypeSessionError BetaManagedAgentsSessionErrorEventType = "session.error"`
 
   - `type BetaManagedAgentsSessionStatusRescheduledEvent struct{…}`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -872,11 +1011,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionStatusRescheduledEventType`
+
       - `const BetaManagedAgentsSessionStatusRescheduledEventTypeSessionStatusRescheduled BetaManagedAgentsSessionStatusRescheduledEventType = "session.status_rescheduled"`
 
   - `type BetaManagedAgentsSessionStatusRunningEvent struct{…}`
 
     Indicates the session is actively running and the agent is working.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -886,11 +1027,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionStatusRunningEventType`
+
       - `const BetaManagedAgentsSessionStatusRunningEventTypeSessionStatusRunning BetaManagedAgentsSessionStatusRunningEventType = "session.status_running"`
 
   - `type BetaManagedAgentsSessionStatusIdleEvent struct{…}`
 
     Indicates the agent has paused and is awaiting user input.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -902,34 +1045,43 @@ List Session Thread Events
     - `StopReason BetaManagedAgentsSessionStatusIdleEventStopReasonUnion`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
         The agent completed its turn naturally and is ready for the next user message.
+
         - `Type BetaManagedAgentsSessionEndTurnType`
+
           - `const BetaManagedAgentsSessionEndTurnTypeEndTurn BetaManagedAgentsSessionEndTurnType = "end_turn"`
 
       - `type BetaManagedAgentsSessionRequiresAction struct{…}`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
+
         - `EventIDs []string`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `Type BetaManagedAgentsSessionRequiresActionType`
+
           - `const BetaManagedAgentsSessionRequiresActionTypeRequiresAction BetaManagedAgentsSessionRequiresActionType = "requires_action"`
 
       - `type BetaManagedAgentsSessionRetriesExhausted struct{…}`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
+
         - `Type BetaManagedAgentsSessionRetriesExhaustedType`
+
           - `const BetaManagedAgentsSessionRetriesExhaustedTypeRetriesExhausted BetaManagedAgentsSessionRetriesExhaustedType = "retries_exhausted"`
 
     - `Type BetaManagedAgentsSessionStatusIdleEventType`
+
       - `const BetaManagedAgentsSessionStatusIdleEventTypeSessionStatusIdle BetaManagedAgentsSessionStatusIdleEventType = "session.status_idle"`
 
   - `type BetaManagedAgentsSessionStatusTerminatedEvent struct{…}`
 
     Indicates the session has terminated, either due to an error or completion.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -939,11 +1091,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionStatusTerminatedEventType`
+
       - `const BetaManagedAgentsSessionStatusTerminatedEventTypeSessionStatusTerminated BetaManagedAgentsSessionStatusTerminatedEventType = "session.status_terminated"`
 
   - `type BetaManagedAgentsSessionThreadCreatedEvent struct{…}`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -961,11 +1115,13 @@ List Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `Type BetaManagedAgentsSessionThreadCreatedEventType`
+
       - `const BetaManagedAgentsSessionThreadCreatedEventTypeSessionThreadCreated BetaManagedAgentsSessionThreadCreatedEventType = "session.thread_created"`
 
   - `type BetaManagedAgentsSpanOutcomeEvaluationStartEvent struct{…}`
 
     Emitted when an outcome evaluation cycle begins.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -983,11 +1139,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSpanOutcomeEvaluationStartEventType`
+
       - `const BetaManagedAgentsSpanOutcomeEvaluationStartEventTypeSpanOutcomeEvaluationStart BetaManagedAgentsSpanOutcomeEvaluationStartEventType = "span.outcome_evaluation_start"`
 
   - `type BetaManagedAgentsSpanOutcomeEvaluationEndEvent struct{…}`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1017,11 +1175,13 @@ List Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `Type BetaManagedAgentsSpanOutcomeEvaluationEndEventType`
+
       - `const BetaManagedAgentsSpanOutcomeEvaluationEndEventTypeSpanOutcomeEvaluationEnd BetaManagedAgentsSpanOutcomeEvaluationEndEventType = "span.outcome_evaluation_end"`
 
     - `Usage BetaManagedAgentsSpanModelUsage`
 
       Token usage for a single model request.
+
       - `CacheCreationInputTokens int64`
 
         Tokens used to create prompt cache in this request.
@@ -1041,6 +1201,7 @@ List Session Thread Events
       - `Speed BetaManagedAgentsSpanModelUsageSpeed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `const BetaManagedAgentsSpanModelUsageSpeedStandard BetaManagedAgentsSpanModelUsageSpeed = "standard"`
 
         - `const BetaManagedAgentsSpanModelUsageSpeedFast BetaManagedAgentsSpanModelUsageSpeed = "fast"`
@@ -1048,6 +1209,7 @@ List Session Thread Events
   - `type BetaManagedAgentsSpanModelRequestStartEvent struct{…}`
 
     Emitted when a model request is initiated by the agent.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1057,11 +1219,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSpanModelRequestStartEventType`
+
       - `const BetaManagedAgentsSpanModelRequestStartEventTypeSpanModelRequestStart BetaManagedAgentsSpanModelRequestStartEventType = "span.model_request_start"`
 
   - `type BetaManagedAgentsSpanModelRequestEndEvent struct{…}`
 
     Emitted when a model request completes.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1083,11 +1247,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSpanModelRequestEndEventType`
+
       - `const BetaManagedAgentsSpanModelRequestEndEventTypeSpanModelRequestEnd BetaManagedAgentsSpanModelRequestEndEventType = "span.model_request_end"`
 
   - `type BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent struct{…}`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1105,11 +1271,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSpanOutcomeEvaluationOngoingEventType`
+
       - `const BetaManagedAgentsSpanOutcomeEvaluationOngoingEventTypeSpanOutcomeEvaluationOngoing BetaManagedAgentsSpanOutcomeEvaluationOngoingEventType = "span.outcome_evaluation_ongoing"`
 
   - `type BetaManagedAgentsUserDefineOutcomeEvent struct{…}`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1133,32 +1301,39 @@ List Session Thread Events
     - `Rubric BetaManagedAgentsUserDefineOutcomeEventRubricUnion`
 
       Rubric for grading the quality of an outcome.
+
       - `type BetaManagedAgentsFileRubric struct{…}`
 
         Rubric referenced by a file uploaded via the Files API.
+
         - `FileID string`
 
           ID of the rubric file.
 
         - `Type BetaManagedAgentsFileRubricType`
+
           - `const BetaManagedAgentsFileRubricTypeFile BetaManagedAgentsFileRubricType = "file"`
 
       - `type BetaManagedAgentsTextRubric struct{…}`
 
         Rubric content provided inline as text.
+
         - `Content string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `Type BetaManagedAgentsTextRubricType`
+
           - `const BetaManagedAgentsTextRubricTypeText BetaManagedAgentsTextRubricType = "text"`
 
     - `Type BetaManagedAgentsUserDefineOutcomeEventType`
+
       - `const BetaManagedAgentsUserDefineOutcomeEventTypeUserDefineOutcome BetaManagedAgentsUserDefineOutcomeEventType = "user.define_outcome"`
 
   - `type BetaManagedAgentsSessionDeletedEvent struct{…}`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1168,11 +1343,13 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionDeletedEventType`
+
       - `const BetaManagedAgentsSessionDeletedEventTypeSessionDeleted BetaManagedAgentsSessionDeletedEventType = "session.deleted"`
 
   - `type BetaManagedAgentsSessionThreadStatusRunningEvent struct{…}`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1187,14 +1364,16 @@ List Session Thread Events
 
     - `SessionThreadID string`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type BetaManagedAgentsSessionThreadStatusRunningEventType`
+
       - `const BetaManagedAgentsSessionThreadStatusRunningEventTypeSessionThreadStatusRunning BetaManagedAgentsSessionThreadStatusRunningEventType = "session.thread_status_running"`
 
   - `type BetaManagedAgentsSessionThreadStatusIdleEvent struct{…}`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1209,11 +1388,12 @@ List Session Thread Events
 
     - `SessionThreadID string`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason BetaManagedAgentsSessionThreadStatusIdleEventStopReasonUnion`
 
       The agent completed its turn naturally and is ready for the next user message.
+
       - `type BetaManagedAgentsSessionEndTurn struct{…}`
 
         The agent completed its turn naturally and is ready for the next user message.
@@ -1227,11 +1407,13 @@ List Session Thread Events
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
     - `Type BetaManagedAgentsSessionThreadStatusIdleEventType`
+
       - `const BetaManagedAgentsSessionThreadStatusIdleEventTypeSessionThreadStatusIdle BetaManagedAgentsSessionThreadStatusIdleEventType = "session.thread_status_idle"`
 
   - `type BetaManagedAgentsSessionThreadStatusTerminatedEvent struct{…}`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1246,14 +1428,16 @@ List Session Thread Events
 
     - `SessionThreadID string`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type BetaManagedAgentsSessionThreadStatusTerminatedEventType`
+
       - `const BetaManagedAgentsSessionThreadStatusTerminatedEventTypeSessionThreadStatusTerminated BetaManagedAgentsSessionThreadStatusTerminatedEventType = "session.thread_status_terminated"`
 
   - `type BetaManagedAgentsUserToolResultEvent struct{…}`
 
     Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1263,11 +1447,13 @@ List Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `Type BetaManagedAgentsUserToolResultEventType`
+
       - `const BetaManagedAgentsUserToolResultEventTypeUserToolResult BetaManagedAgentsUserToolResultEventType = "user.tool_result"`
 
     - `Content []BetaManagedAgentsUserToolResultEventContentUnion`
 
       The result content returned by the tool.
+
       - `type BetaManagedAgentsTextBlock struct{…}`
 
         Regular text content.
@@ -1299,6 +1485,7 @@ List Session Thread Events
   - `type BetaManagedAgentsSessionThreadStatusRescheduledEvent struct{…}`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1313,14 +1500,16 @@ List Session Thread Events
 
     - `SessionThreadID string`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type BetaManagedAgentsSessionThreadStatusRescheduledEventType`
+
       - `const BetaManagedAgentsSessionThreadStatusRescheduledEventTypeSessionThreadStatusRescheduled BetaManagedAgentsSessionThreadStatusRescheduledEventType = "session.thread_status_rescheduled"`
 
   - `type BetaManagedAgentsSessionUpdatedEvent struct{…}`
 
     Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+
     - `ID string`
 
       Unique identifier for this event.
@@ -1330,19 +1519,23 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `Type BetaManagedAgentsSessionUpdatedEventType`
+
       - `const BetaManagedAgentsSessionUpdatedEventTypeSessionUpdated BetaManagedAgentsSessionUpdatedEventType = "session.updated"`
 
     - `Agent BetaManagedAgentsSessionAgent`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
       - `ID string`
 
       - `Description string`
 
       - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
         - `Name string`
 
         - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
           - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
         - `URL string`
@@ -1350,16 +1543,27 @@ List Session Thread Events
       - `Model BetaManagedAgentsModelConfig`
 
         Model identifier and configuration.
+
         - `ID BetaManagedAgentsModel`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
           - `type BetaManagedAgentsModel string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+              Frontier intelligence for long-running agents and coding
+
             - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
               Frontier intelligence for long-running agents and coding
@@ -1401,6 +1605,7 @@ List Session Thread Events
         - `Speed BetaManagedAgentsModelConfigSpeed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
           - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
           - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
@@ -1408,14 +1613,17 @@ List Session Thread Events
       - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
 
         Resolved coordinator topology with full agent definitions for each roster member.
+
         - `Agents []BetaManagedAgentsSessionThreadAgent`
 
           Full `agent` definitions the coordinator may spawn as session threads.
+
           - `ID string`
 
           - `Description string`
 
           - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
             - `Name string`
 
             - `Type BetaManagedAgentsMCPServerURLDefinitionType`
@@ -1429,12 +1637,15 @@ List Session Thread Events
           - `Name string`
 
           - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
+
             - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
               A resolved Anthropic-managed skill.
+
               - `SkillID string`
 
               - `Type BetaManagedAgentsAnthropicSkillType`
+
                 - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
 
               - `Version string`
@@ -1442,9 +1653,11 @@ List Session Thread Events
             - `type BetaManagedAgentsCustomSkill struct{…}`
 
               A resolved user-created custom skill.
+
               - `SkillID string`
 
               - `Type BetaManagedAgentsCustomSkillType`
+
                 - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
               - `Version string`
@@ -1452,13 +1665,17 @@ List Session Thread Events
           - `System string`
 
           - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
+
             - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+
               - `Configs []BetaManagedAgentsAgentToolConfig`
+
                 - `Enabled bool`
 
                 - `Name BetaManagedAgentsAgentToolConfigName`
 
                   Built-in agent tool identifier.
+
                   - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
 
                   - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
@@ -1478,26 +1695,33 @@ List Session Thread Events
                 - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
 
                   Permission policy for tool execution.
+
                   - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                     Tool calls are automatically approved without user confirmation.
+
                     - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
                       - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
                   - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
                     Tool calls require user confirmation before execution.
+
                     - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
                       - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
               - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
                 Resolved default configuration for agent tools.
+
                 - `Enabled bool`
 
                 - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
 
                   Permission policy for tool execution.
+
                   - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1507,10 +1731,13 @@ List Session Thread Events
                     Tool calls require user confirmation before execution.
 
               - `Type BetaManagedAgentsAgentToolset20260401Type`
+
                 - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
             - `type BetaManagedAgentsMCPToolset struct{…}`
+
               - `Configs []BetaManagedAgentsMCPToolConfig`
+
                 - `Enabled bool`
 
                 - `Name string`
@@ -1518,6 +1745,7 @@ List Session Thread Events
                 - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
 
                   Permission policy for tool execution.
+
                   - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1529,11 +1757,13 @@ List Session Thread Events
               - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
+
                 - `Enabled bool`
 
                 - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
 
                   Permission policy for tool execution.
+
                   - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                     Tool calls are automatically approved without user confirmation.
@@ -1545,45 +1775,47 @@ List Session Thread Events
               - `MCPServerName string`
 
               - `Type BetaManagedAgentsMCPToolsetType`
+
                 - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
 
             - `type BetaManagedAgentsCustomTool struct{…}`
 
               A custom tool as returned in API responses.
+
               - `Description string`
 
               - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
                 JSON Schema for custom tool input parameters.
+
+                - `Type Object`
+
+                  - `const ObjectObject Object = "object"`
+
                 - `Properties map[string, any]`
 
-                  JSON Schema properties defining the tool's input parameters.
-
                 - `Required []string`
-
-                  List of required property names.
-
-                - `Type BetaManagedAgentsCustomToolInputSchemaType`
-
-                  Must be 'object' for tool input schemas.
-                  - `const BetaManagedAgentsCustomToolInputSchemaTypeObject BetaManagedAgentsCustomToolInputSchemaType = "object"`
 
               - `Name string`
 
               - `Type BetaManagedAgentsCustomToolType`
+
                 - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
 
           - `Type BetaManagedAgentsSessionThreadAgentType`
+
             - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
 
           - `Version int64`
 
         - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
+
           - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
 
       - `Name string`
 
       - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
+
         - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
           A resolved Anthropic-managed skill.
@@ -1595,6 +1827,7 @@ List Session Thread Events
       - `System string`
 
       - `Tools []BetaManagedAgentsSessionAgentToolUnion`
+
         - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
         - `type BetaManagedAgentsMCPToolset struct{…}`
@@ -1604,6 +1837,7 @@ List Session Thread Events
           A custom tool as returned in API responses.
 
       - `Type BetaManagedAgentsSessionAgentType`
+
         - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
 
       - `Version int64`
@@ -1615,6 +1849,34 @@ List Session Thread Events
     - `Title string`
 
       The session's new title. Present only when the update changed it.
+
+  - `type BetaManagedAgentsSystemMessageEvent struct{…}`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `ID string`
+
+      Unique identifier for this event.
+
+    - `Content []BetaManagedAgentsSystemContentBlock`
+
+      System content blocks. Text-only.
+
+      - `Text string`
+
+        The text content.
+
+      - `Type BetaManagedAgentsSystemContentBlockType`
+
+        - `const BetaManagedAgentsSystemContentBlockTypeText BetaManagedAgentsSystemContentBlockType = "text"`
+
+    - `Type BetaManagedAgentsSystemMessageEventType`
+
+      - `const BetaManagedAgentsSystemMessageEventTypeSystemMessage BetaManagedAgentsSystemMessageEventType = "system.message"`
+
+    - `ProcessedAt Time`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 

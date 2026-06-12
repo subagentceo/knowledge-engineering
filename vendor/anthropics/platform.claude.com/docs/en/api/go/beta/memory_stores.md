@@ -11,6 +11,7 @@ Create a memory store
 ### Parameters
 
 - `params BetaMemoryStoreNewParams`
+
   - `Name param.Field[string]`
 
     Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
@@ -26,9 +27,11 @@ Create a memory store
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -81,13 +84,16 @@ Create a memory store
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -101,6 +107,7 @@ Create a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -174,6 +181,7 @@ List memory stores
 ### Parameters
 
 - `params BetaMemoryStoreListParams`
+
   - `CreatedAtGte param.Field[Time]`
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
@@ -197,9 +205,11 @@ List memory stores
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -252,13 +262,16 @@ List memory stores
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -272,6 +285,7 @@ List memory stores
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -352,12 +366,15 @@ Retrieve a memory store
 - `memoryStoreID string`
 
 - `query BetaMemoryStoreGetParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -410,13 +427,16 @@ Retrieve a memory store
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -430,6 +450,7 @@ Retrieve a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -509,6 +530,7 @@ Update a memory store
 - `memoryStoreID string`
 
 - `params BetaMemoryStoreUpdateParams`
+
   - `Description param.Field[string]`
 
     Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
@@ -524,9 +546,11 @@ Update a memory store
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -579,13 +603,16 @@ Update a memory store
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -599,6 +626,7 @@ Update a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -678,12 +706,15 @@ Delete a memory store
 - `memoryStoreID string`
 
 - `body BetaMemoryStoreDeleteParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -736,18 +767,22 @@ Delete a memory store
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsDeletedMemoryStore struct{…}`
 
   Confirmation that a `memory_store` was deleted.
+
   - `ID string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `Type BetaManagedAgentsDeletedMemoryStoreType`
+
     - `const BetaManagedAgentsDeletedMemoryStoreTypeMemoryStoreDeleted BetaManagedAgentsDeletedMemoryStoreType = "memory_store_deleted"`
 
 ### Example
@@ -803,12 +838,15 @@ Archive a memory store
 - `memoryStoreID string`
 
 - `body BetaMemoryStoreArchiveParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -861,13 +899,16 @@ Archive a memory store
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -881,6 +922,7 @@ Archive a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -954,11 +996,13 @@ func main() {
 - `type BetaManagedAgentsDeletedMemoryStore struct{…}`
 
   Confirmation that a `memory_store` was deleted.
+
   - `ID string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `Type BetaManagedAgentsDeletedMemoryStoreType`
+
     - `const BetaManagedAgentsDeletedMemoryStoreTypeMemoryStoreDeleted BetaManagedAgentsDeletedMemoryStoreType = "memory_store_deleted"`
 
 ### Beta Managed Agents Memory Store
@@ -966,6 +1010,7 @@ func main() {
 - `type BetaManagedAgentsMemoryStore struct{…}`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `ID string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -979,6 +1024,7 @@ func main() {
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `Type BetaManagedAgentsMemoryStoreType`
+
     - `const BetaManagedAgentsMemoryStoreTypeMemoryStore BetaManagedAgentsMemoryStoreType = "memory_store"`
 
   - `UpdatedAt Time`
@@ -1012,6 +1058,7 @@ Create a memory
 - `memoryStoreID string`
 
 - `params BetaMemoryStoreMemoryNewParams`
+
   - `Content param.Field[string]`
 
     Body param: UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -1027,9 +1074,11 @@ Create a memory
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1082,13 +1131,16 @@ Create a memory
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemory struct{…}`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `ID string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1118,6 +1170,7 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type BetaManagedAgentsMemoryType`
+
     - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
   - `UpdatedAt Time`
@@ -1190,6 +1243,7 @@ List memories
 - `memoryStoreID string`
 
 - `params BetaMemoryStoreMemoryListParams`
+
   - `Depth param.Field[int64]`
 
     Query param: Query parameter for depth
@@ -1201,6 +1255,7 @@ List memories
   - `Order param.Field[BetaMemoryStoreMemoryListParamsOrder]`
 
     Query param: Query parameter for order
+
     - `const BetaMemoryStoreMemoryListParamsOrderAsc BetaMemoryStoreMemoryListParamsOrder = "asc"`
 
     - `const BetaMemoryStoreMemoryListParamsOrderDesc BetaMemoryStoreMemoryListParamsOrder = "desc"`
@@ -1224,9 +1279,11 @@ List memories
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1279,16 +1336,20 @@ List memories
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryListItemUnion interface{…}`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
   - `type BetaManagedAgentsMemory struct{…}`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
     - `ID string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1318,6 +1379,7 @@ List memories
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `Type BetaManagedAgentsMemoryType`
+
       - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
     - `UpdatedAt Time`
@@ -1331,11 +1393,13 @@ List memories
   - `type BetaManagedAgentsMemoryPrefix struct{…}`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
     - `Path string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `Type BetaManagedAgentsMemoryPrefixType`
+
       - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
 
 ### Example
@@ -1404,6 +1468,7 @@ Retrieve a memory
 - `memoryID string`
 
 - `params BetaMemoryStoreMemoryGetParams`
+
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -1415,9 +1480,11 @@ Retrieve a memory
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1470,13 +1537,16 @@ Retrieve a memory
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemory struct{…}`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `ID string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1506,6 +1576,7 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type BetaManagedAgentsMemoryType`
+
     - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
   - `UpdatedAt Time`
@@ -1577,6 +1648,7 @@ Update a memory
 - `memoryID string`
 
 - `params BetaMemoryStoreMemoryUpdateParams`
+
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -1600,9 +1672,11 @@ Update a memory
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1655,13 +1729,16 @@ Update a memory
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemory struct{…}`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `ID string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1691,6 +1768,7 @@ Update a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type BetaManagedAgentsMemoryType`
+
     - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
   - `UpdatedAt Time`
@@ -1762,6 +1840,7 @@ Delete a memory
 - `memoryID string`
 
 - `params BetaMemoryStoreMemoryDeleteParams`
+
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -1773,9 +1852,11 @@ Delete a memory
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1828,18 +1909,22 @@ Delete a memory
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsDeletedMemory struct{…}`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `ID string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `Type BetaManagedAgentsDeletedMemoryType`
+
     - `const BetaManagedAgentsDeletedMemoryTypeMemoryDeleted BetaManagedAgentsDeletedMemoryType = "memory_deleted"`
 
 ### Example
@@ -1887,7 +1972,9 @@ func main() {
 ### Beta Managed Agents Conflict Error
 
 - `type BetaManagedAgentsConflictError struct{…}`
+
   - `Type BetaManagedAgentsConflictErrorType`
+
     - `const BetaManagedAgentsConflictErrorTypeConflictError BetaManagedAgentsConflictErrorType = "conflict_error"`
 
   - `Message string`
@@ -1897,7 +1984,9 @@ func main() {
 - `type BetaManagedAgentsContentSha256Precondition struct{…}`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `Type BetaManagedAgentsContentSha256PreconditionType`
+
     - `const BetaManagedAgentsContentSha256PreconditionTypeContentSha256 BetaManagedAgentsContentSha256PreconditionType = "content_sha256"`
 
   - `ContentSha256 string`
@@ -1909,78 +1998,103 @@ func main() {
 - `type BetaManagedAgentsDeletedMemory struct{…}`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `ID string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `Type BetaManagedAgentsDeletedMemoryType`
+
     - `const BetaManagedAgentsDeletedMemoryTypeMemoryDeleted BetaManagedAgentsDeletedMemoryType = "memory_deleted"`
 
 ### Beta Managed Agents Error
 
 - `type BetaManagedAgentsErrorUnion interface{…}`
+
   - `type BetaInvalidRequestError struct{…}`
+
     - `Message string`
 
     - `Type InvalidRequestError`
+
       - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
   - `type BetaAuthenticationError struct{…}`
+
     - `Message string`
 
     - `Type AuthenticationError`
+
       - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
   - `type BetaBillingError struct{…}`
+
     - `Message string`
 
     - `Type BillingError`
+
       - `const BillingErrorBillingError BillingError = "billing_error"`
 
   - `type BetaPermissionError struct{…}`
+
     - `Message string`
 
     - `Type PermissionError`
+
       - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
   - `type BetaNotFoundError struct{…}`
+
     - `Message string`
 
     - `Type NotFoundError`
+
       - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
   - `type BetaRateLimitError struct{…}`
+
     - `Message string`
 
     - `Type RateLimitError`
+
       - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
   - `type BetaGatewayTimeoutError struct{…}`
+
     - `Message string`
 
     - `Type TimeoutError`
+
       - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
   - `type BetaAPIError struct{…}`
+
     - `Message string`
 
     - `Type APIError`
+
       - `const APIErrorAPIError APIError = "api_error"`
 
   - `type BetaOverloadedError struct{…}`
+
     - `Message string`
 
     - `Type OverloadedError`
+
       - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
   - `type BetaManagedAgentsMemoryPreconditionFailedError struct{…}`
+
     - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
+
       - `const BetaManagedAgentsMemoryPreconditionFailedErrorTypeMemoryPreconditionFailedError BetaManagedAgentsMemoryPreconditionFailedErrorType = "memory_precondition_failed_error"`
 
     - `Message string`
 
   - `type BetaManagedAgentsMemoryPathConflictError struct{…}`
+
     - `Type BetaManagedAgentsMemoryPathConflictErrorType`
+
       - `const BetaManagedAgentsMemoryPathConflictErrorTypeMemoryPathConflictError BetaManagedAgentsMemoryPathConflictErrorType = "memory_path_conflict_error"`
 
     - `ConflictingMemoryID string`
@@ -1990,7 +2104,9 @@ func main() {
     - `Message string`
 
   - `type BetaManagedAgentsConflictError struct{…}`
+
     - `Type BetaManagedAgentsConflictErrorType`
+
       - `const BetaManagedAgentsConflictErrorTypeConflictError BetaManagedAgentsConflictErrorType = "conflict_error"`
 
     - `Message string`
@@ -2000,6 +2116,7 @@ func main() {
 - `type BetaManagedAgentsMemory struct{…}`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `ID string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -2029,6 +2146,7 @@ func main() {
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type BetaManagedAgentsMemoryType`
+
     - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
   - `UpdatedAt Time`
@@ -2044,9 +2162,11 @@ func main() {
 - `type BetaManagedAgentsMemoryListItemUnion interface{…}`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
   - `type BetaManagedAgentsMemory struct{…}`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
     - `ID string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -2076,6 +2196,7 @@ func main() {
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `Type BetaManagedAgentsMemoryType`
+
       - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
     - `UpdatedAt Time`
@@ -2089,17 +2210,21 @@ func main() {
   - `type BetaManagedAgentsMemoryPrefix struct{…}`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
     - `Path string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `Type BetaManagedAgentsMemoryPrefixType`
+
       - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `type BetaManagedAgentsMemoryPathConflictError struct{…}`
+
   - `Type BetaManagedAgentsMemoryPathConflictErrorType`
+
     - `const BetaManagedAgentsMemoryPathConflictErrorTypeMemoryPathConflictError BetaManagedAgentsMemoryPathConflictErrorType = "memory_path_conflict_error"`
 
   - `ConflictingMemoryID string`
@@ -2111,7 +2236,9 @@ func main() {
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `type BetaManagedAgentsMemoryPreconditionFailedError struct{…}`
+
   - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
+
     - `const BetaManagedAgentsMemoryPreconditionFailedErrorTypeMemoryPreconditionFailedError BetaManagedAgentsMemoryPreconditionFailedErrorType = "memory_precondition_failed_error"`
 
   - `Message string`
@@ -2121,11 +2248,13 @@ func main() {
 - `type BetaManagedAgentsMemoryPrefix struct{…}`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
   - `Path string`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `Type BetaManagedAgentsMemoryPrefixType`
+
     - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
 
 ### Beta Managed Agents Memory View
@@ -2133,6 +2262,7 @@ func main() {
 - `type BetaManagedAgentsMemoryView string`
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
   - `const BetaManagedAgentsMemoryViewBasic BetaManagedAgentsMemoryView = "basic"`
 
   - `const BetaManagedAgentsMemoryViewFull BetaManagedAgentsMemoryView = "full"`
@@ -2142,7 +2272,9 @@ func main() {
 - `type BetaManagedAgentsPrecondition struct{…}`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `Type BetaManagedAgentsPreconditionType`
+
     - `const BetaManagedAgentsPreconditionTypeContentSha256 BetaManagedAgentsPreconditionType = "content_sha256"`
 
   - `ContentSha256 string`
@@ -2164,6 +2296,7 @@ List memory versions
 - `memoryStoreID string`
 
 - `params BetaMemoryStoreMemoryVersionListParams`
+
   - `APIKeyID param.Field[string]`
 
     Query param: Query parameter for api_key_id
@@ -2203,9 +2336,11 @@ List memory versions
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -2258,13 +2393,16 @@ List memory versions
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryVersion struct{…}`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `ID string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2284,6 +2422,7 @@ List memory versions
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
     - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -2291,6 +2430,7 @@ List memory versions
     - `const BetaManagedAgentsMemoryVersionOperationDeleted BetaManagedAgentsMemoryVersionOperation = "deleted"`
 
   - `Type BetaManagedAgentsMemoryVersionType`
+
     - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
 
   - `Content string`
@@ -2308,30 +2448,37 @@ List memory versions
   - `CreatedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `type BetaManagedAgentsSessionActor struct{…}`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `SessionID string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `Type BetaManagedAgentsSessionActorType`
+
         - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `APIKeyID string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `Type BetaManagedAgentsAPIActorType`
+
         - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `Type BetaManagedAgentsUserActorType`
+
         - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
       - `UserID string`
@@ -2425,6 +2572,7 @@ Retrieve a memory version
 - `memoryVersionID string`
 
 - `params BetaMemoryStoreMemoryVersionGetParams`
+
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -2436,9 +2584,11 @@ Retrieve a memory version
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -2491,13 +2641,16 @@ Retrieve a memory version
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryVersion struct{…}`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `ID string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2517,6 +2670,7 @@ Retrieve a memory version
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
     - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -2524,6 +2678,7 @@ Retrieve a memory version
     - `const BetaManagedAgentsMemoryVersionOperationDeleted BetaManagedAgentsMemoryVersionOperation = "deleted"`
 
   - `Type BetaManagedAgentsMemoryVersionType`
+
     - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
 
   - `Content string`
@@ -2541,30 +2696,37 @@ Retrieve a memory version
   - `CreatedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `type BetaManagedAgentsSessionActor struct{…}`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `SessionID string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `Type BetaManagedAgentsSessionActorType`
+
         - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `APIKeyID string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `Type BetaManagedAgentsAPIActorType`
+
         - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `Type BetaManagedAgentsUserActorType`
+
         - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
       - `UserID string`
@@ -2653,6 +2815,7 @@ Redact a memory version
 - `memoryVersionID string`
 
 - `params BetaMemoryStoreMemoryVersionRedactParams`
+
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -2660,9 +2823,11 @@ Redact a memory version
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -2715,13 +2880,16 @@ Redact a memory version
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsMemoryVersion struct{…}`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `ID string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2741,6 +2909,7 @@ Redact a memory version
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
     - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -2748,6 +2917,7 @@ Redact a memory version
     - `const BetaManagedAgentsMemoryVersionOperationDeleted BetaManagedAgentsMemoryVersionOperation = "deleted"`
 
   - `Type BetaManagedAgentsMemoryVersionType`
+
     - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
 
   - `Content string`
@@ -2765,30 +2935,37 @@ Redact a memory version
   - `CreatedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `type BetaManagedAgentsSessionActor struct{…}`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `SessionID string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `Type BetaManagedAgentsSessionActorType`
+
         - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `APIKeyID string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `Type BetaManagedAgentsAPIActorType`
+
         - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `Type BetaManagedAgentsUserActorType`
+
         - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
       - `UserID string`
@@ -2871,30 +3048,37 @@ func main() {
 - `type BetaManagedAgentsActorUnion interface{…}`
 
   Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
   - `type BetaManagedAgentsSessionActor struct{…}`
 
     Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
     - `SessionID string`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
     - `Type BetaManagedAgentsSessionActorType`
+
       - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
   - `type BetaManagedAgentsAPIActor struct{…}`
 
     Attribution for a write made directly via the public API (outside of any session).
+
     - `APIKeyID string`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
 
     - `Type BetaManagedAgentsAPIActorType`
+
       - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
   - `type BetaManagedAgentsUserActor struct{…}`
 
     Attribution for a write made by a human user through the Anthropic Console.
+
     - `Type BetaManagedAgentsUserActorType`
+
       - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
     - `UserID string`
@@ -2906,11 +3090,13 @@ func main() {
 - `type BetaManagedAgentsAPIActor struct{…}`
 
   Attribution for a write made directly via the public API (outside of any session).
+
   - `APIKeyID string`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
 
   - `Type BetaManagedAgentsAPIActorType`
+
     - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
 ### Beta Managed Agents Memory Version
@@ -2918,6 +3104,7 @@ func main() {
 - `type BetaManagedAgentsMemoryVersion struct{…}`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `ID string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2937,6 +3124,7 @@ func main() {
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
     - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -2944,6 +3132,7 @@ func main() {
     - `const BetaManagedAgentsMemoryVersionOperationDeleted BetaManagedAgentsMemoryVersionOperation = "deleted"`
 
   - `Type BetaManagedAgentsMemoryVersionType`
+
     - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
 
   - `Content string`
@@ -2961,30 +3150,37 @@ func main() {
   - `CreatedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `type BetaManagedAgentsSessionActor struct{…}`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `SessionID string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `Type BetaManagedAgentsSessionActorType`
+
         - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `APIKeyID string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `Type BetaManagedAgentsAPIActorType`
+
         - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `Type BetaManagedAgentsUserActorType`
+
         - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
       - `UserID string`
@@ -3008,6 +3204,7 @@ func main() {
 - `type BetaManagedAgentsMemoryVersionOperation string`
 
   The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
   - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
   - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -3019,11 +3216,13 @@ func main() {
 - `type BetaManagedAgentsSessionActor struct{…}`
 
   Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
   - `SessionID string`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
   - `Type BetaManagedAgentsSessionActorType`
+
     - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
 ### Beta Managed Agents User Actor
@@ -3031,7 +3230,9 @@ func main() {
 - `type BetaManagedAgentsUserActor struct{…}`
 
   Attribution for a write made by a human user through the Anthropic Console.
+
   - `Type BetaManagedAgentsUserActorType`
+
     - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
   - `UserID string`

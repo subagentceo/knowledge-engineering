@@ -8,7 +8,7 @@ Let Claude dynamically determine when and how much to use extended thinking with
 This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-claude/api-and-data-retention). When your organization has a ZDR arrangement, data sent through this feature is not stored after the API response is returned.
 </Note>
 
-Adaptive thinking is the recommended way to use [extended thinking](/docs/en/build-with-claude/extended-thinking) with Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6, and is the default mode on [Claude Mythos Preview](https://anthropic.com/glasswing) (where it auto-applies whenever `thinking` is unset). Instead of manually setting a thinking token budget, adaptive thinking lets Claude dynamically determine when and how much to use extended thinking based on the complexity of each request. On Claude Opus 4.8 and Claude Opus 4.7, adaptive thinking is the **only** supported thinking mode; manual `thinking: {type: "enabled", budget_tokens: N}` is no longer accepted.
+Adaptive thinking is the recommended way to use [extended thinking](/docs/en/build-with-claude/extended-thinking) with Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. On Claude Fable 5 and [Claude Mythos 5](https://anthropic.com/glasswing), thinking is always enabled and cannot be disabled; adaptive thinking is the only thinking mode. On [Claude Mythos Preview](https://anthropic.com/glasswing), adaptive thinking is the default mode and auto-applies whenever `thinking` is unset. Instead of manually setting a thinking token budget, adaptive thinking lets Claude dynamically determine when and how much to use extended thinking based on the complexity of each request. On Claude Opus 4.8 and Claude Opus 4.7, adaptive thinking is the **only** supported thinking mode; manual `thinking: {type: "enabled", budget_tokens: N}` is no longer accepted.
 
 <Tip>
 Adaptive thinking can drive better performance than extended thinking with a fixed `budget_tokens` for many workloads, especially bimodal tasks and long-horizon agentic workflows. No beta header is required.
@@ -20,6 +20,7 @@ If your workload requires predictable latency or precise control over thinking c
 
 Adaptive thinking is supported on the following models:
 
+- Claude Fable 5 (`claude-fable-5`) and Claude Mythos 5 (`claude-mythos-5`), adaptive thinking is always on; `thinking: {type: "disabled"}` is not supported
 - Claude Mythos Preview (claude-mythos-preview), adaptive thinking is the default; `thinking: {type: "disabled"}` is not supported
 - Claude Opus 4.8 (claude-opus-4-8), adaptive thinking is the only supported thinking mode. Thinking is off unless you explicitly set `thinking: {type: "adaptive"}` in your request; manual `thinking: {type: "enabled"}` is rejected with a 400 error.
 - Claude Opus 4.7 (claude-opus-4-7), adaptive thinking is the only supported thinking mode. Thinking is off unless you explicitly set `thinking: {type: "adaptive"}` in your request; manual `thinking: {type: "enabled"}` is rejected with a 400 error.
@@ -110,14 +111,14 @@ const response = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 16000,
   thinking: {
-    type: "adaptive",
+    type: "adaptive"
   },
   messages: [
     {
       role: "user",
-      content: "Explain why the sum of two even numbers is always even.",
-    },
-  ],
+      content: "Explain why the sum of two even numbers is always even."
+    }
+  ]
 });
 
 for (const block of response.content) {
@@ -248,7 +249,7 @@ public class ExtendedThinkingExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 16000,
@@ -299,20 +300,19 @@ message.content.each do |block|
   end
 end
 ```
-
 </CodeGroup>
 
 ## Adaptive thinking with the effort parameter
 
 You can combine adaptive thinking with the [effort parameter](/docs/en/build-with-claude/effort) to guide how much thinking Claude does. The effort level acts as soft guidance for Claude's thinking allocation:
 
-| Effort level     | Thinking behavior                                                                                                                                                         |
-| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `max`            | Claude always thinks with no constraints on thinking depth. Available on Claude Opus 4.8, Claude Mythos Preview, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. |
-| `xhigh`          | Claude always thinks deeply with extended exploration. Available on Claude Opus 4.8 and Claude Opus 4.7.                                                                  |
-| `high` (default) | Claude almost always thinks. Provides deep reasoning on complex tasks.                                                                                                    |
-| `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                                                 |
-| `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                                                      |
+| Effort level | Thinking behavior |
+|:-------------|:------------------|
+| `max` | Claude always thinks with no constraints on thinking depth. Available on Claude Fable 5, Claude Mythos 5, Claude Mythos Preview, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. |
+| `xhigh` | Claude always thinks deeply with extended exploration. Available on Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, and Claude Opus 4.7. |
+| `high` (default) | Claude almost always thinks. Provides deep reasoning on complex tasks. |
+| `medium` | Claude uses moderate thinking. May skip thinking for very simple queries. |
+| `low` | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most. |
 
 <CodeGroup>
 ```bash cURL
@@ -379,17 +379,17 @@ const response = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 16000,
   thinking: {
-    type: "adaptive",
+    type: "adaptive"
   },
   output_config: {
-    effort: "medium",
+    effort: "medium"
   },
   messages: [
     {
       role: "user",
-      content: "What is the capital of France?",
-    },
-  ],
+      content: "What is the capital of France?"
+    }
+  ]
 });
 
 for (const block of response.content) {
@@ -496,7 +496,7 @@ public class Main {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 16000,
@@ -532,7 +532,6 @@ message = client.messages.create(
 
 puts message.content.first.text
 ```
-
 </CodeGroup>
 
 ## Streaming with adaptive thinking
@@ -583,12 +582,7 @@ const stream = await client.messages.stream({
   model: "claude-opus-4-8",
   max_tokens: 16000,
   thinking: { type: "adaptive" },
-  messages: [
-    {
-      role: "user",
-      content: "What is the greatest common divisor of 1071 and 462?",
-    },
-  ],
+  messages: [{ role: "user", content: "What is the greatest common divisor of 1071 and 462?" }]
 });
 
 for await (const event of stream) {
@@ -725,7 +719,7 @@ public class StreamingThinkingExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $stream = $client->messages->createStream(
     maxTokens: 16000,
@@ -772,26 +766,24 @@ stream.each do |event|
   end
 end
 ```
-
 </CodeGroup>
 
 ## Adaptive vs manual vs disabled thinking
 
-| Mode         | Config                                                 | Availability                                                                                                                              | When to use                                                                          |
-| :----------- | :----------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| **Adaptive** | `thinking: {type: "adaptive"}`                         | Claude Mythos Preview (default), Claude Opus 4.8 (only mode), Opus 4.7 (only mode), Opus 4.6, Sonnet 4.6                                  | Claude determines when and how much to use extended thinking. Use `effort` to guide. |
-| **Manual**   | `thinking: {type: "enabled", budget_tokens: N}`        | All models except Claude Opus 4.8 and Claude Opus 4.7 (rejected). Deprecated on Opus 4.6 and Sonnet 4.6 (consider adaptive mode instead). | When you need precise control over thinking token spend.                             |
-| **Disabled** | Omit `thinking` parameter or pass `{type: "disabled"}` | All models except Claude Mythos Preview                                                                                                   | When you don't need extended thinking and want the lowest latency.                   |
+| Mode | Config | Availability | When to use |
+|:-----|:-------|:-------------|:------------|
+| **Adaptive** | `thinking: {type: "adaptive"}` | Claude Fable 5 (always on), Claude Mythos 5 (always on), Claude Mythos Preview (default), Claude Opus 4.8 (only mode), Opus 4.7 (only mode), Opus 4.6, Sonnet 4.6 | Claude determines when and how much to use extended thinking. Use `effort` to guide. |
+| **Manual** | `thinking: {type: "enabled", budget_tokens: N}` | All models except Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, and Claude Opus 4.7 (rejected with a 400 error). Deprecated on Opus 4.6 and Sonnet 4.6 (consider adaptive mode instead). | When you need precise control over thinking token spend. |
+| **Disabled** | Omit `thinking` parameter or pass `{type: "disabled"}` | All models except Claude Fable 5, Claude Mythos 5, and Claude Mythos Preview | When you don't need extended thinking and want the lowest latency. |
 
 <Note>
-Adaptive thinking is available on Claude Mythos Preview, Claude Opus 4.8, Claude Opus 4.7, Opus 4.6, and Sonnet 4.6. On Mythos Preview, adaptive thinking is the default and applies automatically whenever `thinking` is unset. On Claude Opus 4.8, adaptive thinking is the only supported mode; thinking is off unless you explicitly set `thinking: {type: "adaptive"}`, and manual `type: "enabled"` with `budget_tokens` is rejected with a 400 error. On Claude Opus 4.7, adaptive thinking is the only supported mode and `type: "enabled"` with `budget_tokens` is rejected. Older models only support `type: "enabled"` with `budget_tokens`. On Opus 4.6 and Sonnet 4.6, `type: "enabled"` with `budget_tokens` is still functional but deprecated.
+Adaptive thinking is available on Claude Fable 5, Claude Mythos 5, Claude Mythos Preview, Claude Opus 4.8, Claude Opus 4.7, Opus 4.6, and Sonnet 4.6. On Claude Fable 5 and Claude Mythos 5, adaptive thinking is always on: it applies whenever `thinking` is unset and cannot be disabled. On Mythos Preview, adaptive thinking is the default and applies automatically whenever `thinking` is unset. On Claude Opus 4.8, adaptive thinking is the only supported mode; thinking is off unless you explicitly set `thinking: {type: "adaptive"}`, and manual `type: "enabled"` with `budget_tokens` is rejected with a 400 error. On Claude Opus 4.7, adaptive thinking is the only supported mode and `type: "enabled"` with `budget_tokens` is rejected. Older models only support `type: "enabled"` with `budget_tokens`. On Opus 4.6 and Sonnet 4.6, `type: "enabled"` with `budget_tokens` is still functional but deprecated.
 
 **Interleaved thinking availability by mode:**
-
-- **Adaptive mode:** Interleaved thinking is automatically enabled on Claude Mythos Preview, Claude Opus 4.8, Claude Opus 4.7, Opus 4.6, and Sonnet 4.6. On Mythos Preview, Claude Opus 4.8, and Opus 4.7, inter-tool reasoning always lives inside thinking blocks.
-- **Manual mode on Sonnet 4.6:** Interleaved thinking works via the `interleaved-thinking-2025-05-14` beta header.
+- **Adaptive mode:** Interleaved thinking is automatically enabled on Claude Fable 5, Claude Mythos 5, Claude Mythos Preview, Claude Opus 4.8, Claude Opus 4.7, Opus 4.6, and Sonnet 4.6. On Claude Fable 5, Claude Mythos 5, Mythos Preview, Claude Opus 4.8, and Opus 4.7, inter-tool reasoning always lives inside thinking blocks.
+- **Manual mode on Sonnet 4.6:** Interleaved thinking works through the `interleaved-thinking-2025-05-14` beta header.
 - **Manual mode on Opus 4.6:** Interleaved thinking is not available. If your agentic workflow requires thinking between tool calls on Opus 4.6, use adaptive mode.
-  </Note>
+</Note>
 
 ## Important considerations
 
@@ -839,7 +831,7 @@ The following concepts apply to all models that support extended thinking, regar
 
 ### Summarized thinking
 
-With extended thinking enabled, the Messages API for Claude 4 models returns a summary of Claude's full thinking process. Summarized thinking provides the full intelligence benefits of extended thinking, while preventing misuse. This is the default behavior on Claude 4 models when the `display` field on the thinking configuration is unset or set to `"summarized"`. On Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing), `display` defaults to `"omitted"` instead, so you must set `display: "summarized"` explicitly to receive summarized thinking.
+With extended thinking enabled, the Messages API for Claude 4 models returns a summary of Claude's full thinking process. Summarized thinking provides the full intelligence benefits of extended thinking, while preventing misuse. This is the default behavior on Claude 4 models when the `display` field on the thinking configuration is unset or set to `"summarized"`. On Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing), `display` defaults to `"omitted"` instead, so you must set `display: "summarized"` explicitly to receive summarized thinking.
 
 Here are some important considerations for summarized thinking:
 
@@ -859,7 +851,7 @@ In rare cases where you need access to full thinking output for Claude 4 models,
 The `display` field on the thinking configuration controls how thinking content is returned in API responses. It accepts two values:
 
 - `"summarized"`: Thinking blocks contain summarized thinking text. See [Summarized thinking](#summarized-thinking) for details. This is the default on Claude Opus 4.6, Claude Sonnet 4.6, and earlier Claude 4 models.
-- `"omitted"`: Thinking blocks are returned with an empty `thinking` field. The `signature` field still carries the encrypted full thinking for multi-turn continuity (see [Thinking encryption](#thinking-encryption)). This is the default on Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing).
+- `"omitted"`: Thinking blocks are returned with an empty `thinking` field. The `signature` field still carries the encrypted full thinking for multi-turn continuity (see [Thinking encryption](#thinking-encryption)). This is the default on Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing).
 
 Setting `display: "omitted"` is useful when your application doesn't surface thinking content to users. The primary benefit is **faster time-to-first-text-token when streaming:** The server skips streaming thinking tokens entirely and delivers only the signature, so the final text response begins streaming sooner.
 
@@ -875,7 +867,14 @@ The `signature` field is identical whether `display` is `"summarized"` or `"omit
 </Note>
 
 <Note>
-On Claude Opus 4.8 and Claude Opus 4.7, `thinking.display` defaults to `"omitted"`. Thinking blocks still appear in the response stream, but their `thinking` field is empty unless you explicitly opt in. This is a silent change from Claude Opus 4.6, where the default was `"summarized"`. To restore summarized thinking text on Claude Opus 4.8 and Claude Opus 4.7, set `thinking.display` to `"summarized"` explicitly:
+The `display` setting controls visibility only. Under every setting, thinking happens and is billed the same.
+
+The default for `thinking.display` depends on the model:
+
+- **Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing):** the default is `"omitted"`. Thinking blocks still appear in the response stream, but their `thinking` field is empty unless you explicitly opt in. This is a silent change from Claude Opus 4.6, where the default was `"summarized"`.
+- **Claude Opus 4.6:** the default is `"summarized"`. The readable summary appears without opting in.
+
+To receive summarized thinking text on models where the default is `"omitted"`, set `thinking.display` to `"summarized"` explicitly:
 
 ```python
 thinking = {
@@ -883,7 +882,6 @@ thinking = {
     "display": "summarized",
 }
 ```
-
 </Note>
 
 For code examples and streaming behavior with `display: "omitted"`, see [Controlling thinking display](/docs/en/build-with-claude/extended-thinking#controlling-thinking-display) on the extended thinking page. The examples there use `type: "enabled"`; with adaptive thinking, use:
@@ -903,18 +901,36 @@ If sending back thinking blocks, pass everything back as you received it for con
 </Note>
 
 Here are some important considerations on thinking encryption:
-
 - When [streaming responses](/docs/en/build-with-claude/extended-thinking#streaming-thinking), the signature is added via a `signature_delta` inside a `content_block_delta` event just before the `content_block_stop` event.
 - `signature` values are significantly longer in Claude 4 models than in previous models.
 - The `signature` field is an opaque field and should not be interpreted or parsed.
 - `signature` values are compatible across platforms (Claude APIs, [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock), and [Vertex AI](/docs/en/build-with-claude/claude-on-vertex-ai)). Values generated on one platform will be compatible with another.
+
+### Thinking output on Claude Fable 5 and Claude Mythos 5 \{#thinking-output-on-claude-fable-5-and-claude-mythos-5}
+
+On Claude Fable 5 and Claude Mythos 5, the raw chain of thought is never returned. The thinking blocks you receive are regular `thinking` blocks, not `redacted_thinking`. The `thinking.display` setting works the same as on other models:
+
+- `"summarized"` returns a readable summary of the reasoning.
+- `"omitted"` (the default on these models) still includes `thinking` blocks in responses, but their `thinking` field is an empty string.
+
+For the response shape of thinking blocks, see the [Messages API reference](/docs/en/api/messages/create).
+
+When continuing a conversation on the same model, pass each thinking block back to the API exactly as received, including blocks whose `thinking` field is empty. Don't edit or reconstruct them. Reading the summary text for display is fine: the API rejects blocks whose content has been modified, not blocks you have read.
+
+When you switch models, for example after a [classifier refusal fallback](/docs/en/build-with-claude/refusals-and-fallback), strip `thinking` and `redacted_thinking` blocks from prior assistant turns. Thinking blocks are tied to the model that produced them. Other models silently ignore them rather than rejecting the request, but ignored blocks still add input tokens.
+
+Two exceptions, covered in [Fallback credit](/docs/en/build-with-claude/fallback-credit):
+
+- Fallback-credit retries must echo the refused request body unchanged.
+- `fallback` blocks from a mid-output fallback stay where they appeared.
+
+To get visibility into the model's reasoning, read the `thinking` blocks described in this section rather than prompting for reasoning in the response text. On Claude Fable 5, a request that attempts to elicit the model's internal reasoning as part of the response text can be refused with `stop_details.category: "reasoning_extraction"`. See [Refusal categories](/docs/en/build-with-claude/refusals-and-fallback#refusal-response) for the field reference and handling guidance.
 
 ### Pricing
 
 For complete pricing information including base rates, cache writes, cache hits, and output tokens, see the [pricing page](/docs/en/about-claude/pricing).
 
 The thinking process incurs charges for:
-
 - Tokens used during thinking (output tokens)
 - Thinking blocks from prior assistant turns kept in context: only the last turn on earlier Opus/Sonnet models and all Haiku models; all turns by default on Opus 4.5+ and Sonnet 4.6+ (input tokens)
 - Standard text output tokens
@@ -924,14 +940,12 @@ When extended thinking is enabled, a specialized system prompt is automatically 
 </Note>
 
 When using summarized thinking:
-
 - **Input tokens:** Tokens in your original request (excludes thinking tokens from previous turns)
 - **Output tokens (billed):** The original thinking tokens that Claude generated internally
 - **Output tokens (visible):** The summarized thinking tokens you see in the response
 - **No charge:** Tokens used to generate the summary
 
 When using `display: "omitted"`:
-
 - **Input tokens:** Tokens in your original request (same as summarized)
 - **Output tokens (billed):** The original thinking tokens that Claude generated internally (same as summarized)
 - **Output tokens (visible):** Zero thinking tokens (the `thinking` field is empty)

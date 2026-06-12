@@ -7,6 +7,7 @@ Retrieve information about the organization associated with the authenticated AP
 ### Returns
 
 - `Organization object { id, name, type }`
+
   - `id: string`
 
     ID of the Organization.
@@ -20,6 +21,7 @@ Retrieve information about the organization associated with the authenticated AP
     Object type.
 
     For Organizations, this is always `"organization"`.
+
     - `"organization"`
 
 ### Example
@@ -27,7 +29,7 @@ Retrieve information about the organization associated with the authenticated AP
 ```http
 curl https://api.anthropic.com/v1/organizations/me \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

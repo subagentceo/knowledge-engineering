@@ -17,9 +17,11 @@ Upload File
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -72,11 +74,14 @@ Upload File
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class FileMetadata`
+
   - `id: String`
 
     Unique object identifier.
@@ -104,6 +109,7 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
+
     - `:file`
 
   - `downloadable: bool`
@@ -113,6 +119,7 @@ Upload File
   - `scope: BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: String`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -120,6 +127,7 @@ Upload File
     - `type: :session`
 
       The type of scope (e.g., `"session"`).
+
       - `:session`
 
 ### Example
@@ -183,9 +191,11 @@ List Files
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -238,11 +248,14 @@ List Files
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class FileMetadata`
+
   - `id: String`
 
     Unique object identifier.
@@ -270,6 +283,7 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
+
     - `:file`
 
   - `downloadable: bool`
@@ -279,6 +293,7 @@ List Files
   - `scope: BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: String`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -286,6 +301,7 @@ List Files
     - `type: :session`
 
       The type of scope (e.g., `"session"`).
+
       - `:session`
 
 ### Example
@@ -342,9 +358,11 @@ Download File
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -397,7 +415,9 @@ Download File
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -432,9 +452,11 @@ Get File Metadata
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -487,11 +509,14 @@ Get File Metadata
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class FileMetadata`
+
   - `id: String`
 
     Unique object identifier.
@@ -519,6 +544,7 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
+
     - `:file`
 
   - `downloadable: bool`
@@ -528,6 +554,7 @@ Get File Metadata
   - `scope: BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: String`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -535,6 +562,7 @@ Get File Metadata
     - `type: :session`
 
       The type of scope (e.g., `"session"`).
+
       - `:session`
 
 ### Example
@@ -584,9 +612,11 @@ Delete File
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -639,11 +669,14 @@ Delete File
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class DeletedFile`
+
   - `id: String`
 
     ID of the deleted file.
@@ -653,6 +686,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `:file_deleted`
 
 ### Example
@@ -681,6 +715,7 @@ puts(deleted_file)
 ### Beta File Scope
 
 - `class BetaFileScope`
+
   - `id: String`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -688,11 +723,13 @@ puts(deleted_file)
   - `type: :session`
 
     The type of scope (e.g., `"session"`).
+
     - `:session`
 
 ### Deleted File
 
 - `class DeletedFile`
+
   - `id: String`
 
     ID of the deleted file.
@@ -702,11 +739,13 @@ puts(deleted_file)
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `:file_deleted`
 
 ### File Metadata
 
 - `class FileMetadata`
+
   - `id: String`
 
     Unique object identifier.
@@ -734,6 +773,7 @@ puts(deleted_file)
     Object type.
 
     For files, this is always `"file"`.
+
     - `:file`
 
   - `downloadable: bool`
@@ -743,6 +783,7 @@ puts(deleted_file)
   - `scope: BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: String`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -750,4 +791,5 @@ puts(deleted_file)
     - `type: :session`
 
       The type of scope (e.g., `"session"`).
+
       - `:session`

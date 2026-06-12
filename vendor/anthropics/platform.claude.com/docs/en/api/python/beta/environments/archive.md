@@ -13,9 +13,11 @@ Archive an environment by ID. Archived environments cannot be used to create new
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,16 +70,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaEnvironment: …`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: str`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: Optional[str]`
 
@@ -86,23 +91,29 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `config: Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig: …`
 
       `cloud` environment configuration.
+
       - `networking: Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork: …`
 
           Unrestricted network access.
+
           - `type: Literal["unrestricted"]`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `class BetaLimitedNetwork: …`
 
           Limited network access.
+
           - `allow_mcp_servers: bool`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -118,11 +129,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `type: Literal["limited"]`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: List[str]`
 
           Ubuntu/Debian packages to install
@@ -150,19 +163,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `type: Optional[Literal["packages"]]`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: Literal["cloud"]`
 
         Environment type
+
         - `"cloud"`
 
     - `class BetaSelfHostedConfig: …`
 
       Configuration for self-hosted environments.
+
       - `type: Literal["self_hosted"]`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: str`
@@ -184,6 +201,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `type: Literal["environment"]`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: str`
@@ -193,6 +211,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `scope: Optional[Literal["organization", "account"]]`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -222,16 +241,31 @@ print(beta_environment.id)
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

@@ -23,9 +23,11 @@ List Session Threads
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -78,13 +80,16 @@ List Session Threads
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: optional array of BetaManagedAgentsSessionThread`
 
   Threads in the session, primary first then children in spawn order.
+
   - `id: string`
 
     Unique identifier for this thread.
@@ -92,14 +97,17 @@ List Session Threads
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
       - `name: string`
 
       - `type: "url"`
+
         - `"url"`
 
       - `url: string`
@@ -107,16 +115,27 @@ List Session Threads
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more`
+
+        - `"claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
+
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -158,6 +177,7 @@ List Session Threads
       - `speed: optional "standard" or "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"`
 
         - `"fast"`
@@ -165,12 +185,15 @@ List Session Threads
     - `name: string`
 
     - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
       - `BetaManagedAgentsAnthropicSkill object { skill_id, type, version }`
 
         A resolved Anthropic-managed skill.
+
         - `skill_id: string`
 
         - `type: "anthropic"`
+
           - `"anthropic"`
 
         - `version: string`
@@ -178,9 +201,11 @@ List Session Threads
       - `BetaManagedAgentsCustomSkill object { skill_id, type, version }`
 
         A resolved user-created custom skill.
+
         - `skill_id: string`
 
         - `type: "custom"`
+
           - `"custom"`
 
         - `version: string`
@@ -188,13 +213,17 @@ List Session Threads
     - `system: string`
 
     - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
       - `BetaManagedAgentsAgentToolset20260401 object { configs, default_config, type }`
+
         - `configs: array of BetaManagedAgentsAgentToolConfig`
+
           - `enabled: boolean`
 
           - `name: "bash" or "edit" or "read" or 5 more`
 
             Built-in agent tool identifier.
+
             - `"bash"`
 
             - `"edit"`
@@ -214,26 +243,33 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
+
             - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
               Tool calls are automatically approved without user confirmation.
+
               - `type: "always_allow"`
+
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy object { type }`
 
               Tool calls require user confirmation before execution.
+
               - `type: "always_ask"`
+
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
+
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
+
             - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
               Tool calls are automatically approved without user confirmation.
@@ -243,10 +279,13 @@ List Session Threads
               Tool calls require user confirmation before execution.
 
         - `type: "agent_toolset_20260401"`
+
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset object { configs, default_config, mcp_server_name, type }`
+
         - `configs: array of BetaManagedAgentsMCPToolConfig`
+
           - `enabled: boolean`
 
           - `name: string`
@@ -254,6 +293,7 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
+
             - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
               Tool calls are automatically approved without user confirmation.
@@ -265,11 +305,13 @@ List Session Threads
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
+
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
+
             - `BetaManagedAgentsAlwaysAllowPolicy object { type }`
 
               Tool calls are automatically approved without user confirmation.
@@ -281,35 +323,35 @@ List Session Threads
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
+
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool object { description, input_schema, name, type }`
 
         A custom tool as returned in API responses.
+
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
+
+          - `type: "object"`
+
+            - `"object"`
+
           - `properties: optional map[unknown]`
 
-            JSON Schema properties defining the tool's input parameters.
-
           - `required: optional array of string`
-
-            List of required property names.
-
-          - `type: optional "object"`
-
-            Must be 'object' for tool input schemas.
-            - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
+
           - `"custom"`
 
     - `type: "agent"`
+
       - `"agent"`
 
     - `version: number`
@@ -333,6 +375,7 @@ List Session Threads
   - `stats: BetaManagedAgentsSessionThreadStats`
 
     Timing statistics for a session thread.
+
     - `active_seconds: optional number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -348,6 +391,7 @@ List Session Threads
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
+
     - `"running"`
 
     - `"idle"`
@@ -357,6 +401,7 @@ List Session Threads
     - `"terminated"`
 
   - `type: "session_thread"`
+
     - `"session_thread"`
 
   - `updated_at: string`
@@ -366,9 +411,11 @@ List Session Threads
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
     Cumulative token usage for a session thread across all turns.
+
     - `cache_creation: optional BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `ephemeral_1h_input_tokens: optional number`
 
         Tokens used to create 1-hour ephemeral cache entries.

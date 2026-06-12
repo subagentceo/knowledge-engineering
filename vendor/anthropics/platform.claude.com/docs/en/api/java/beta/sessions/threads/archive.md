@@ -9,6 +9,7 @@ Archive Session Thread
 ### Parameters
 
 - `ThreadArchiveParams params`
+
   - `String sessionId`
 
   - `Optional<String> threadId`
@@ -16,6 +17,7 @@ Archive Session Thread
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,13 +70,16 @@ Archive Session Thread
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaManagedAgentsSessionThread:`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+
   - `String id`
 
     Unique identifier for this thread.
@@ -82,14 +87,17 @@ Archive Session Thread
   - `BetaManagedAgentsSessionThreadAgent agent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
     - `String id`
 
     - `Optional<String> description`
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
+
       - `String name`
 
       - `Type type`
+
         - `URL("url")`
 
       - `String url`
@@ -97,11 +105,21 @@ Archive Session Thread
     - `BetaManagedAgentsModelConfig model`
 
       Model identifier and configuration.
+
       - `BetaManagedAgentsModel id`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `CLAUDE_FABLE_5("claude-fable-5")`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+          Frontier intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
           Frontier intelligence for long-running agents and coding
@@ -141,6 +159,7 @@ Archive Session Thread
       - `Optional<Speed> speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `STANDARD("standard")`
 
         - `FAST("fast")`
@@ -148,12 +167,15 @@ Archive Session Thread
     - `String name`
 
     - `List<Skill> skills`
+
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
+
         - `String skillId`
 
         - `Type type`
+
           - `ANTHROPIC("anthropic")`
 
         - `String version`
@@ -161,9 +183,11 @@ Archive Session Thread
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
+
         - `String skillId`
 
         - `Type type`
+
           - `CUSTOM("custom")`
 
         - `String version`
@@ -171,13 +195,17 @@ Archive Session Thread
     - `Optional<String> system`
 
     - `List<Tool> tools`
+
       - `class BetaManagedAgentsAgentToolset20260401:`
+
         - `List<BetaManagedAgentsAgentToolConfig> configs`
+
           - `boolean enabled`
 
           - `Name name`
 
             Built-in agent tool identifier.
+
             - `BASH("bash")`
 
             - `EDIT("edit")`
@@ -197,26 +225,33 @@ Archive Session Thread
           - `PermissionPolicy permissionPolicy`
 
             Permission policy for tool execution.
+
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
+
               - `Type type`
+
                 - `ALWAYS_ALLOW("always_allow")`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
+
               - `Type type`
+
                 - `ALWAYS_ASK("always_ask")`
 
         - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
           Resolved default configuration for agent tools.
+
           - `boolean enabled`
 
           - `PermissionPolicy permissionPolicy`
 
             Permission policy for tool execution.
+
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
@@ -226,10 +261,13 @@ Archive Session Thread
               Tool calls require user confirmation before execution.
 
         - `Type type`
+
           - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
       - `class BetaManagedAgentsMcpToolset:`
+
         - `List<BetaManagedAgentsMcpToolConfig> configs`
+
           - `boolean enabled`
 
           - `String name`
@@ -237,6 +275,7 @@ Archive Session Thread
           - `PermissionPolicy permissionPolicy`
 
             Permission policy for tool execution.
+
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
@@ -248,11 +287,13 @@ Archive Session Thread
         - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
+
           - `boolean enabled`
 
           - `PermissionPolicy permissionPolicy`
 
             Permission policy for tool execution.
+
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
@@ -264,35 +305,35 @@ Archive Session Thread
         - `String mcpServerName`
 
         - `Type type`
+
           - `MCP_TOOLSET("mcp_toolset")`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
+
         - `String description`
 
         - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
           JSON Schema for custom tool input parameters.
+
+          - `JsonValue; type "object"constant`
+
+            - `OBJECT("object")`
+
           - `Optional<Properties> properties`
 
-            JSON Schema properties defining the tool's input parameters.
-
           - `Optional<List<String>> required`
-
-            List of required property names.
-
-          - `Optional<Type> type`
-
-            Must be 'object' for tool input schemas.
-            - `OBJECT("object")`
 
         - `String name`
 
         - `Type type`
+
           - `CUSTOM("custom")`
 
     - `Type type`
+
       - `AGENT("agent")`
 
     - `long version`
@@ -316,6 +357,7 @@ Archive Session Thread
   - `Optional<BetaManagedAgentsSessionThreadStats> stats`
 
     Timing statistics for a session thread.
+
     - `Optional<Double> activeSeconds`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -331,6 +373,7 @@ Archive Session Thread
   - `BetaManagedAgentsSessionThreadStatus status`
 
     SessionThreadStatus enum
+
     - `RUNNING("running")`
 
     - `IDLE("idle")`
@@ -340,6 +383,7 @@ Archive Session Thread
     - `TERMINATED("terminated")`
 
   - `Type type`
+
     - `SESSION_THREAD("session_thread")`
 
   - `LocalDateTime updatedAt`
@@ -349,9 +393,11 @@ Archive Session Thread
   - `Optional<BetaManagedAgentsSessionThreadUsage> usage`
 
     Cumulative token usage for a session thread across all turns.
+
     - `Optional<BetaManagedAgentsCacheCreationUsage> cacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `Optional<Long> ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.

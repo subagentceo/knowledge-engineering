@@ -21,24 +21,48 @@ These operations may need to be performed unpredictably to react to shifting wor
 
 ## Configuring manual approval for your cluster
 
-By default all control plane operations are automatically approved, but if you would like to make one or more operations require manual approval, you can edit the `tpuf-ctl-cluster-controller-config-*` ConfigMap found in the `tpuf-ctl-cluster` namespace of your cluster.
-This ConfigMap defines a `controller_config.yaml` file with the following syntax:
+By default all control plane operations are automatically approved. If you'd like one or more operations to require manual approval instead, set `approvals` in your Helm `values.yaml`:
 
-```
-apiVersion: v1
-data:
-  controller_config.yaml: |-
-    vendor_url: https://tpuf-ctl-vendor.vercel.app/heartbeat/gcp-us-central1
+```yaml
+control_plane:
+  additional_config:
     approvals:
       upgrade: auto  # can set to `manual`, but weakly discouraged
-
       restart: auto  # can set to `manual`, but strongly discouraged
       scale:   auto  # can set to `manual`, but strongly discouraged
       reindex: auto  # can set to `manual`, but strongly discouraged
       compact: auto  # can set to `manual`, but strongly discouraged
       gc:      auto  # can set to `manual`, but strongly discouraged
-kind: ConfigMap
 ```
+
+Any operation you omit keeps its default of `auto`.
+
+## Restricting upgrades to a maintenance window
+
+By default, the control plane applies new turbopuffer versions as soon as they're available. If you'd rather upgrades land only during predictable off-hours, configure a `maintenance_window`. Only upgrades are gated by the window — routine operations (restarting pods, scaling, reindex, compaction, gc) still run whenever they're needed.
+
+Add the window to your Helm `values.yaml`:
+
+```yaml
+control_plane:
+  additional_config:
+    maintenance_window:
+      schedule: "0 2 * * *"  # 5-field cron in UTC: opens every day at 02:00
+      duration: "8h"         # how long the window stays open (default: "8h")
+```
+
+- `schedule` is a standard 5-field cron expression evaluated in UTC, and defines when each window opens.
+- `duration` is how long the window stays open after each trigger. It accepts compound values such as `4h`, `30m`, or `10h5m`, and defaults to `8h`. The example above keeps the window open every day from 02:00 to 10:00 UTC.
+
+When an upgrade becomes available outside the window, the control plane holds it rather than applying it immediately. The operation waits in the `AWAITING_MAINTENANCE_WINDOW` state — annotated with the next window's start and end — and is applied automatically the next time the window opens:
+
+```text
+$ kubectl get turbopufferoperations -n turbopuffer --sort-by=.metadata.creationTimestamp
+NAME               APPROVED   STATE                         AGE   DETAILS
+qjh4uts8557qxly3   true       AWAITING_MAINTENANCE_WINDOW   3m    Upgrade to 46bea73f769ed2e4...
+```
+
+The window doesn't apply to upgrades configured for [external execution](#configuring-external-execution-for-upgrades), since your own tooling controls when those roll out. If an upgrade also requires manual approval, the window applies after you approve it.
 
 ## Configuring external execution for upgrades
 
@@ -108,7 +132,7 @@ locals {
 
 When turbopuffer proposes a modification to your cluster, the agent will create an associated Kubernetes resource for this operation:
 
-```
+```text
 $ kubectl get turbopufferoperations -n turbopuffer --sort-by=.metadata.creationTimestamp
 NAME               APPROVED   STATE               AGE     DETAILS
 qjh4uts8557qxly3   true       SUCCESS             7m58s   Upgrade to 46bea73f769ed2e4...
@@ -120,8 +144,17 @@ pnblpzmh5gp5fwsy   true       SUCCESS             7m46s   Upgrade to 32c17141536
 
 You can approve an operation by editing the Kubernetes configuration, for example, we approve `0a8n5w41jyj8i35v` by running:
 
-```
+```text
 kubectl patch turbopufferoperation -n turbopuffer 0a8n5w41jyj8i35v --type=merge -p '{"spec": {"approved": true}}'
 ```
 
 Custom Resource Definition transitions are generally logged by your cloud provider's Kubernetes cluster, so your standard audit logging tools should support turbopuffer's operations.
+
+
+---
+
+This page: [/docs/byoc/control-plane.md](https://turbopuffer.com/docs/byoc/control-plane.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

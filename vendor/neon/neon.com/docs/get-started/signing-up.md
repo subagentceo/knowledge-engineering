@@ -1,11 +1,11 @@
-> This page location: Start with Neon > 1 - Basics
+> This page location: Start with Neon > Tour the Neon Console
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Step-by-step guide for signing up and learning the basics of database branching with Neon, including how to view and modify data, create isolated database copies, and reset branches to production.
+> Summary: The Neon Console tour walks first-time users through sign-up, querying with the SQL Editor and AI assistant, editing rows in the Tables view, enabling Neon Auth, and creating an isolated development branch with the Neon CLI. Choose this page to understand the object hierarchy (project, branch, database, compute) and how branching isolates schema and data from production before you connect an application stack.
 
-# Learn the basics
+# Tour the Neon Console
 
-Sign up for free and learn the basics of database branching with Neon
+Sign up and explore Neon's core features — the SQL Editor, branching, the Tables view, and Neon Auth
 
 **What you will learn:**
 
@@ -18,6 +18,7 @@ Sign up for free and learn the basics of database branching with Neon
 - [About branching](https://neon.com/docs/introduction/branching)
 - [Branching workflows](https://neon.com/docs/get-started/workflow-primer)
 - [Connect Neon to your stack](https://neon.com/docs/get-started/connect-neon)
+- [Neon Auth](https://neon.com/docs/auth/overview)
 
 This tutorial walks you through your first steps using Neon as your Postgres database. You'll explore the Neon object hierarchy and learn how database branching can simplify your development workflow.
 
@@ -127,6 +128,19 @@ Now that you have some data to play with, let's take a look at it on the **Table
 
 For a detailed guide on how to interact with your data using the **Tables** page, visit [Managing your data with interactive tables](https://neon.com/docs/guides/tables).
 
+## Set up Neon Auth
+
+Neon includes **managed authentication**, so your app's users live in your Postgres database and branch with the rest of your data.
+
+From the Neon Console sidebar, open the **Auth** page and toggle Neon Auth on for your project. You'll get:
+
+- A sign-up / sign-in flow ready to wire up to any framework
+- Users and sessions stored in your own Postgres database — query the `neon_auth.users_sync` table directly alongside your application data
+- Branch-aware auth: every preview or development branch you create gets its own isolated copy of users and sessions
+- OAuth providers, email and password, magic links, and more, all configurable from the console
+
+For framework-specific setup, see the [Neon Auth quickstarts](https://neon.com/docs/auth/overview) (Next.js, React, TanStack Router) or open the **Auth** tab in the console and follow the prompts.
+
 ## Working with your development branch
 
 Let's create a `development` branch and learn how to use the Neon CLI to manage branches and make schema changes in your development environment.
@@ -195,7 +209,7 @@ Let's create a `development` branch and learn how to use the Neon CLI to manage 
 
    This command shows your existing branches, including the `production` branch and the `development` branch you just created.
 
-   **Tip:** To avoid specifying `--project-id` with each command, use `neon set-context` to set your default project and organization. See [set-context](https://neon.com/docs/reference/cli-set-context) for details.
+   **Tip:** To avoid specifying `--project-id` with each command, use `neon set-context` to set your default project and organization. See [set-context](https://neon.com/docs/cli/set-context) for details.
 
 ## Make some sample schema changes
 
@@ -353,10 +367,13 @@ Make sure that your development team is always working from the latest schema an
 - **Working with sensitive data?** Neon supports [schema-only branching](https://neon.com/docs/guides/branching-schema-only) to create branches with just the database structure, without copying production data.
 - **Need automatic cleanup?** Set branches to automatically [expire and be deleted](https://neon.com/docs/guides/branch-expiration) after a specified time period, perfect for temporary test branches or time-limited preview environments.
 
+## What's next
+
+Building an app with users? [Set up Neon Auth](https://neon.com/docs/auth/overview) for managed sign-up, sessions, and OAuth. Identity lives in Postgres and branches with your data, so you can test full login flows on preview branches without touching production.
+
 ---
 
 ## Related docs (Start with Neon)
 
-- [2 - Connect](https://neon.com/docs/get-started/connect-neon)
-- [3 - Branching](https://neon.com/docs/get-started/workflow-primer)
-- [4 - Setup Neon Auth](https://neon.com/docs/auth/overview)
+- [One-command setup](https://neon.com/docs/get-started/with-an-agent)
+- [Build a full backend](https://neon.com/docs/get-started/full-backend-quickstart)

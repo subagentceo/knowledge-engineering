@@ -32,8 +32,10 @@ Compaction is in beta. Include the [beta header](/docs/en/api/beta-headers) `com
 
 Compaction is supported on the following models:
 
+- Claude Fable 5 (`claude-fable-5`)
+- [Claude Mythos 5](https://anthropic.com/glasswing) (`claude-mythos-5`)
 - [Claude Mythos Preview](https://anthropic.com/glasswing) (claude-mythos-preview)
-- <NextOpus /> (<NextOpusId />)
+- Claude Opus 4.8 (claude-opus-4-8)
 - Claude Opus 4.7 (claude-opus-4-7)
 - Claude Opus 4.6 (claude-opus-4-6)
 - Claude Sonnet 4.6 (claude-sonnet-4-6)
@@ -120,7 +122,7 @@ import Anthropic from "@anthropic-ai/sdk";
 const client = new Anthropic();
 
 const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
-  { role: "user", content: "Help me build a website" },
+  { role: "user", content: "Help me build a website" }
 ];
 
 const response = await client.beta.messages.create({
@@ -131,16 +133,16 @@ const response = await client.beta.messages.create({
   context_management: {
     edits: [
       {
-        type: "compact_20260112",
-      },
-    ],
-  },
+        type: "compact_20260112"
+      }
+    ]
+  }
 });
 
 // Append the response (including any compaction block) to continue the conversation
 messages.push({
   role: "assistant",
-  content: response.content,
+  content: response.content
 });
 ```
 
@@ -188,7 +190,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -265,7 +266,7 @@ public class CompactionExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $messages = [
     ['role' => 'user', 'content' => 'Help me build a website']
@@ -313,17 +314,16 @@ messages << { role: "assistant", content: response.content }
 
 puts response
 ```
-
 </CodeGroup>
 
 ## Parameters
 
-| Parameter                | Type    | Default        | Description                                                                        |
-| :----------------------- | :------ | :------------- | :--------------------------------------------------------------------------------- |
-| `type`                   | string  | Required       | Must be `"compact_20260112"`                                                       |
-| `trigger`                | object  | 150,000 tokens | When to trigger compaction. Must be at least 50,000 tokens.                        |
-| `pause_after_compaction` | boolean | `false`        | Whether to pause after generating the compaction summary                           |
-| `instructions`           | string  | `null`         | Custom summarization prompt. Completely replaces the default prompt when provided. |
+| Parameter | Type | Default | Description |
+|:----------|:-----|:--------|:------------|
+| `type` | string | Required | Must be `"compact_20260112"` |
+| `trigger` | object | 150,000 tokens | When to trigger compaction. Must be at least 50,000 tokens. |
+| `pause_after_compaction` | boolean | `false` | Whether to pause after generating the compaction summary |
+| `instructions` | string | `null` | Custom summarization prompt. Completely replaces the default prompt when provided. |
 
 ### Trigger configuration
 
@@ -384,11 +384,11 @@ const response = await client.beta.messages.create({
         type: "compact_20260112",
         trigger: {
           type: "input_tokens",
-          value: 150000,
-        },
-      },
-    ],
-  },
+          value: 150000
+        }
+      }
+    ]
+  }
 });
 ```
 
@@ -426,7 +426,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -500,7 +499,7 @@ public class CompactionExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [['role' => 'user', 'content' => 'Hello, Claude']];
 
 $message = $client->beta->messages->create(
@@ -549,7 +548,6 @@ response = client.beta.messages.create(
 )
 puts response
 ```
-
 </CodeGroup>
 
 ### Custom summarization instructions
@@ -616,10 +614,10 @@ const response = await client.beta.messages.create({
       {
         type: "compact_20260112",
         instructions:
-          "Focus on preserving code snippets, variable names, and technical decisions.",
-      },
-    ],
-  },
+          "Focus on preserving code snippets, variable names, and technical decisions."
+      }
+    ]
+  }
 });
 ```
 
@@ -660,7 +658,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -735,7 +732,7 @@ public class CompactionExample {
 <?php
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->beta->messages->create(
     maxTokens: 4096,
@@ -786,7 +783,6 @@ response = client.beta.messages.create(
 
 puts response
 ```
-
 </CodeGroup>
 
 ### Pausing after compaction
@@ -811,32 +807,27 @@ context_management:
 YAML
 
 # Check if compaction triggered a pause
-
 if grep -q '"stop_reason":"compaction"' resp.json; then
+  # Response contains only the compaction block
+  RESP=$(cat resp.json)
+  CONTENT="${RESP#*\"content\":}"
+  printf '%s' "${CONTENT%\}}" > content.json
 
-# Response contains only the compaction block
-
-RESP=$(cat resp.json)
-  CONTENT="${RESP#\*\"content\":}"
-printf '%s' "${CONTENT%\}}" > content.json
-
-# Continue the request
-
-ant beta:messages create --beta compact-2026-01-12 <<YAML > /dev/null
+  # Continue the request
+  ant beta:messages create --beta compact-2026-01-12 <<YAML > /dev/null
 model: claude-opus-4-8
 max_tokens: 4096
 messages:
-
-- role: user
-  content: "Hello, Claude"
-- role: assistant
-  content: $(cat content.json)
-  context_management:
-  edits: - type: compact_20260112
-  YAML
-  fi
-
-````
+  - role: user
+    content: "Hello, Claude"
+  - role: assistant
+    content: $(cat content.json)
+context_management:
+  edits:
+    - type: compact_20260112
+YAML
+fi
+```
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -866,14 +857,14 @@ if response.stop_reason == "compaction":
         messages=messages,
         context_management={"edits": [{"type": "compact_20260112"}]},
     )
-````
+```
 
 ```typescript TypeScript hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
-  { role: "user", content: "Hello, Claude" },
+  { role: "user", content: "Hello, Claude" }
 ];
 
 let response = await client.beta.messages.create({
@@ -885,10 +876,10 @@ let response = await client.beta.messages.create({
     edits: [
       {
         type: "compact_20260112",
-        pause_after_compaction: true,
-      },
-    ],
-  },
+        pause_after_compaction: true
+      }
+    ]
+  }
 });
 
 // Check if compaction triggered a pause
@@ -896,7 +887,7 @@ if (response.stop_reason === "compaction") {
   // Response contains only the compaction block
   messages.push({
     role: "assistant",
-    content: response.content,
+    content: response.content
   });
 
   // Continue the request
@@ -906,8 +897,8 @@ if (response.stop_reason === "compaction") {
     max_tokens: 4096,
     messages,
     context_management: {
-      edits: [{ type: "compact_20260112" }],
-    },
+      edits: [{ type: "compact_20260112" }]
+    }
   });
 }
 ```
@@ -974,7 +965,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -1083,13 +1073,12 @@ public class CompactionPauseExample {
 }
 ```
 
-```php PHP nocheck hidelines={1..4}
+```php PHP hidelines={1..4}
 <?php
 
 use Anthropic\Client;
 
-// The PHP SDK does not yet expose a typed constant for the `compaction` stop reason; compare the string value directly.
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [['role' => 'user', 'content' => 'Hello, Claude']];
 
 $response = $client->beta->messages->create(
@@ -1166,7 +1155,6 @@ end
 
 puts response
 ```
-
 </CodeGroup>
 
 #### Enforcing a total token budget
@@ -1252,25 +1240,22 @@ context_management:
 YAML
 
 # After receiving a response with a compaction block, append it as the
-
 # assistant turn and continue the conversation
-
 ant beta:messages create --beta compact-2026-01-12 <<YAML
 model: claude-opus-4-8
 max_tokens: 4096
 messages:
-
-- role: user
-  content: Hello, Claude
-- role: assistant
-  content: $(cat content.json)
-- role: user
-  content: Now add error handling
-  context_management:
-  edits: - type: compact_20260112
-  YAML
-
-````
+  - role: user
+    content: Hello, Claude
+  - role: assistant
+    content: $(cat content.json)
+  - role: user
+    content: Now add error handling
+context_management:
+  edits:
+    - type: compact_20260112
+YAML
+```
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -1297,7 +1282,7 @@ response = client.beta.messages.create(
     messages=messages,
     context_management={"edits": [{"type": "compact_20260112"}]},
 )
-````
+```
 
 ```typescript TypeScript hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
@@ -1312,14 +1297,14 @@ const response = await client.beta.messages.create({
   max_tokens: 4096,
   messages,
   context_management: {
-    edits: [{ type: "compact_20260112" }],
-  },
+    edits: [{ type: "compact_20260112" }]
+  }
 });
 
 // After receiving a response with a compaction block
 messages.push({
   role: "assistant",
-  content: response.content,
+  content: response.content
 });
 
 // Continue the conversation
@@ -1331,8 +1316,8 @@ const nextResponse = await client.beta.messages.create({
   max_tokens: 4096,
   messages,
   context_management: {
-    edits: [{ type: "compact_20260112" }],
-  },
+    edits: [{ type: "compact_20260112" }]
+  }
 });
 ```
 
@@ -1391,7 +1376,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -1495,7 +1479,7 @@ public class CompactionExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $messages = [
     ['role' => 'user', 'content' => 'Help me build a web scraper']
@@ -1563,7 +1547,6 @@ next_response = client.beta.messages.create(
 
 puts next_response.content
 ```
-
 </CodeGroup>
 
 When the API receives a `compaction` block, all content blocks before it are ignored. You can either:
@@ -1634,8 +1617,8 @@ const stream = await client.beta.messages.stream({
   max_tokens: 4096,
   messages,
   context_management: {
-    edits: [{ type: "compact_20260112" }],
-  },
+    edits: [{ type: "compact_20260112" }]
+  }
 });
 
 for await (const event of stream) {
@@ -1647,9 +1630,7 @@ for await (const event of stream) {
     }
   } else if (event.type === "content_block_delta") {
     if (event.delta.type === "compaction_delta") {
-      console.log(
-        `Compaction complete: ${event.delta.content?.length ?? 0} chars`,
-      );
+      console.log(`Compaction complete: ${event.delta.content?.length ?? 0} chars`);
     } else if (event.delta.type === "text_delta") {
       process.stdout.write(event.delta.text);
     }
@@ -1660,7 +1641,7 @@ for await (const event of stream) {
 const message = await stream.finalMessage();
 messages.push({
   role: "assistant",
-  content: message.content,
+  content: message.content
 });
 ```
 
@@ -1718,7 +1699,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -1822,7 +1802,7 @@ public class CompactionStreamingExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [['role' => 'user', 'content' => 'Hello, Claude']];
 
 $stream = $client->beta->messages->createStream(
@@ -1887,7 +1867,6 @@ stream.each do |event|
   end
 end
 ```
-
 </CodeGroup>
 
 ### Prompt caching
@@ -1976,13 +1955,13 @@ const response = await client.beta.messages.create({
     {
       type: "text",
       text: "You are a helpful coding assistant...",
-      cache_control: { type: "ephemeral" }, // Cache the system prompt separately
-    },
+      cache_control: { type: "ephemeral" } // Cache the system prompt separately
+    }
   ],
   messages,
   context_management: {
-    edits: [{ type: "compact_20260112" }],
-  },
+    edits: [{ type: "compact_20260112" }]
+  }
 });
 ```
 
@@ -2024,7 +2003,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -2104,7 +2082,7 @@ public class CompactionExample {
 <?php
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->beta->messages->create(
     maxTokens: 4096,
@@ -2155,7 +2133,6 @@ response = client.beta.messages.create(
 )
 puts response
 ```
-
 </CodeGroup>
 
 This approach is particularly beneficial for long system prompts, as they remain cached even across multiple compaction events throughout a conversation.
@@ -2216,18 +2193,17 @@ context_management:
 YAML
 
 CURRENT=$(ant beta:messages count-tokens \
- --beta compact-2026-01-12 \
- --transform input_tokens --raw-output < request.yaml)
+  --beta compact-2026-01-12 \
+  --transform input_tokens --raw-output < request.yaml)
 
 ORIGINAL=$(ant beta:messages count-tokens \
- --beta compact-2026-01-12 \
- --transform context_management.original_input_tokens \
- --raw-output < request.yaml)
+  --beta compact-2026-01-12 \
+  --transform context_management.original_input_tokens \
+  --raw-output < request.yaml)
 
 printf 'Current tokens: %s\n' "$CURRENT"
 printf 'Original tokens: %s\n' "$ORIGINAL"
-
-````
+```
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -2243,17 +2219,14 @@ count_response = client.beta.messages.count_tokens(
 
 print(f"Current tokens: {count_response.input_tokens}")
 print(f"Original tokens: {count_response.context_management.original_input_tokens}")
-````
+```
 
 ```typescript TypeScript hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
-  {
-    role: "user",
-    content: "Summarize the key points of our conversation so far.",
-  },
+  { role: "user", content: "Summarize the key points of our conversation so far." }
 ];
 
 const countResponse = await client.beta.messages.countTokens({
@@ -2261,14 +2234,12 @@ const countResponse = await client.beta.messages.countTokens({
   model: "claude-opus-4-8",
   messages,
   context_management: {
-    edits: [{ type: "compact_20260112" }],
-  },
+    edits: [{ type: "compact_20260112" }]
+  }
 });
 
 console.log(`Current tokens: ${countResponse.input_tokens}`);
-console.log(
-  `Original tokens: ${countResponse.context_management!.original_input_tokens}`,
-);
+console.log(`Original tokens: ${countResponse.context_management!.original_input_tokens}`);
 ```
 
 ```csharp C# hidelines={1..13,-2..}
@@ -2302,7 +2273,6 @@ class Program
     }
 }
 ```
-
 ```go Go hidelines={1..11,-1}
 package main
 
@@ -2370,7 +2340,7 @@ public class Main {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [['role' => 'user', 'content' => 'Hello, Claude']];
 
 $countResponse = $client->beta->messages->countTokens(
@@ -2406,7 +2376,6 @@ count_response = client.beta.messages.count_tokens(
 puts "Current tokens: #{count_response.input_tokens}"
 puts "Original tokens: #{count_response.context_management.original_input_tokens}"
 ```
-
 </CodeGroup>
 
 ## Examples
@@ -2493,10 +2462,10 @@ async function chat(userMessage: string): Promise<string> {
       edits: [
         {
           type: "compact_20260112",
-          trigger: { type: "input_tokens", value: 100000 },
-        },
-      ],
-    },
+          trigger: { type: "input_tokens", value: 100000 }
+        }
+      ]
+    }
   });
 
   // Append response (compaction blocks are automatically included)
@@ -2569,7 +2538,6 @@ public class Program
     }
 }
 ```
-
 ```go Go
 package main
 
@@ -2683,7 +2651,7 @@ public class CompactionExample {
 <?php
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [];
 
 function chat($client, &$messages, $userMessage) {
@@ -2752,7 +2720,6 @@ puts chat(client, messages, "Help me build a Python web scraper")
 puts chat(client, messages, "Add support for JavaScript-rendered pages")
 puts chat(client, messages, "Now add rate limiting and error handling")
 ```
-
 </CodeGroup>
 
 Here's an example that uses `pause_after_compaction` to preserve the prior exchange and the current user message (three messages total) verbatim instead of summarizing them:
@@ -2869,10 +2836,10 @@ async function chat(userMessage: string): Promise<string> {
         {
           type: "compact_20260112",
           trigger: { type: "input_tokens", value: 100000 },
-          pause_after_compaction: true,
-        },
-      ],
-    },
+          pause_after_compaction: true
+        }
+      ]
+    }
   });
 
   // Check if compaction occurred and paused
@@ -2882,13 +2849,12 @@ async function chat(userMessage: string): Promise<string> {
 
     // Preserve the prior exchange + current user message (3 messages)
     // by including them after the compaction block
-    const preservedMessages =
-      messages.length >= 3 ? messages.slice(-3) : [...messages];
+    const preservedMessages = messages.length >= 3 ? messages.slice(-3) : [...messages];
 
     // Build new message list: compaction + preserved messages
     const messagesAfterCompaction: Anthropic.Beta.BetaMessageParam[] = [
       { role: "assistant", content: [compactionBlock] },
-      ...preservedMessages,
+      ...preservedMessages
     ];
 
     // Continue the request with the compacted context + preserved messages
@@ -2898,8 +2864,8 @@ async function chat(userMessage: string): Promise<string> {
       max_tokens: 4096,
       messages: messagesAfterCompaction,
       context_management: {
-        edits: [{ type: "compact_20260112" }],
-      },
+        edits: [{ type: "compact_20260112" }]
+      }
     });
 
     // Update our message list to reflect the compaction
@@ -3009,7 +2975,6 @@ public class CompactionExample
     }
 }
 ```
-
 ```go Go
 package main
 
@@ -3188,13 +3153,12 @@ public class CompactionExample {
 }
 ```
 
-```php PHP nocheck hidelines={1..4}
+```php PHP hidelines={1..4}
 <?php
 
 use Anthropic\Client;
 
-// The PHP SDK does not yet expose a typed constant for the `compaction` stop reason; compare the string value directly.
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 $messages = [];
 
 function chat($client, &$messages, $userMessage) {
@@ -3313,7 +3277,6 @@ puts chat(client, messages, "Help me build a Python web scraper")
 puts chat(client, messages, "Add support for JavaScript-rendered pages")
 puts chat(client, messages, "Now add rate limiting and error handling")
 ```
-
 </CodeGroup>
 
 ## Current limitations

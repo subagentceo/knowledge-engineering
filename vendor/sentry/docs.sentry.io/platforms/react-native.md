@@ -37,7 +37,7 @@ The following tasks will be performed by the Sentry Wizard
 * Wrap the *Bundle React Native code and images* Xcode project build phase script to upload generated source maps and collect bundled node modules.
 * Add *Upload Debug Symbols to Sentry* Xcode project build phase.
 * Run `pod install`.
-* Store build credentials in **ios/sentry.properties**, **android/sentry.properties** and **env.local**.
+* Store build credentials in **ios/sentry.properties**, **android/sentry.properties** and **.env.local**.
 * Configure Sentry for the supplied DSN in your **layout.tsx**/\_*App.tsx*\_file.
 
 If you're using Expo, [read our docs](https://docs.sentry.io/platforms/react-native/manual-setup/expo.md) to learn how to add Sentry to your Expo project. This SDK will work for both managed and bare projects.
@@ -48,13 +48,11 @@ Error Monitoring\[ ]Tracing\[ ]Profiling\[ ]Session Replay\[ ]Logs
 
 To capture all errors, initialize the Sentry React Native SDK as soon as possible.
 
-`App.js`
-
 ```javascript
 import * as Sentry from "@sentry/react-native";
 
 Sentry.init({
-  dsn: "___PUBLIC_DSN___",
+  dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
   // Adds more context data to events (IP address, cookies, user, etc.)
   // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
   sendDefaultPii: true,
@@ -88,8 +86,6 @@ Sentry.init({
 
 To automatically instrument your app with [touch event tracking](https://docs.sentry.io/platforms/react-native/configuration/touchevents.md) and [automatic tracing](https://docs.sentry.io/platforms/react-native/tracing/instrumentation/automatic-instrumentation.md), wrap it with `Sentry.wrap`:
 
-`App.js`
-
 ```javascript
 export default Sentry.wrap(App);
 ```
@@ -100,8 +96,16 @@ This is not required if your app does not have a single parent "App" component.
 
 Verify that your app is sending events to Sentry by adding the following snippet, which includes an intentional error. You should see the error reported in Sentry within a few minutes.
 
+**Throw Error**
+
 ```javascript
 throw new Error("My first Sentry error!");
+```
+
+**Native Crash**
+
+```javascript
+Sentry.nativeCrash();
 ```
 
 Alternatively, you can use the [Sentry Playground](https://docs.sentry.io/platforms/react-native/manual-setup/playground.md) to interactively test your SDK setup with multiple error scenarios.

@@ -15,9 +15,11 @@ Add Session Resource
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -70,7 +72,9 @@ Add Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -79,6 +83,7 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: "file"`
+
   - `"file"`
 
 - `mount_path: optional string`
@@ -88,6 +93,7 @@ Add Session Resource
 ### Returns
 
 - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -99,6 +105,7 @@ Add Session Resource
   - `mount_path: string`
 
   - `type: "file"`
+
     - `"file"`
 
   - `updated_at: string`
@@ -158,9 +165,11 @@ List Session Resources
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -213,14 +222,18 @@ List Session Resources
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of BetaManagedAgentsSessionResource`
 
   Resources for the session, ordered by `created_at`.
+
   - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -230,6 +243,7 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -239,23 +253,29 @@ List Session Resources
     - `url: string`
 
     - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
       - `BetaManagedAgentsBranchCheckout object { name, type }`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -267,6 +287,7 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -276,16 +297,19 @@ List Session Resources
   - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -366,9 +390,11 @@ Get Session Resource
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -421,11 +447,14 @@ Get Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -435,6 +464,7 @@ Get Session Resource
   - `mount_path: string`
 
   - `type: "github_repository"`
+
     - `"github_repository"`
 
   - `updated_at: string`
@@ -444,23 +474,29 @@ Get Session Resource
   - `url: string`
 
   - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
     - `BetaManagedAgentsBranchCheckout object { name, type }`
+
       - `name: string`
 
         Branch name to check out.
 
       - `type: "branch"`
+
         - `"branch"`
 
     - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
       - `sha: string`
 
         Full commit SHA to check out.
 
       - `type: "commit"`
+
         - `"commit"`
 
 - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -472,6 +508,7 @@ Get Session Resource
   - `mount_path: string`
 
   - `type: "file"`
+
     - `"file"`
 
   - `updated_at: string`
@@ -481,16 +518,19 @@ Get Session Resource
 - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
   A memory store attached to an agent session.
+
   - `memory_store_id: string`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `type: "memory_store"`
+
     - `"memory_store"`
 
   - `access: optional "read_write" or "read_only"`
 
     Access mode for an attached memory store.
+
     - `"read_write"`
 
     - `"read_only"`
@@ -554,9 +594,11 @@ Update Session Resource
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -609,7 +651,9 @@ Update Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -620,6 +664,7 @@ Update Session Resource
 ### Returns
 
 - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -629,6 +674,7 @@ Update Session Resource
   - `mount_path: string`
 
   - `type: "github_repository"`
+
     - `"github_repository"`
 
   - `updated_at: string`
@@ -638,23 +684,29 @@ Update Session Resource
   - `url: string`
 
   - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
     - `BetaManagedAgentsBranchCheckout object { name, type }`
+
       - `name: string`
 
         Branch name to check out.
 
       - `type: "branch"`
+
         - `"branch"`
 
     - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
       - `sha: string`
 
         Full commit SHA to check out.
 
       - `type: "commit"`
+
         - `"commit"`
 
 - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -666,6 +718,7 @@ Update Session Resource
   - `mount_path: string`
 
   - `type: "file"`
+
     - `"file"`
 
   - `updated_at: string`
@@ -675,16 +728,19 @@ Update Session Resource
 - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
   A memory store attached to an agent session.
+
   - `memory_store_id: string`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `type: "memory_store"`
+
     - `"memory_store"`
 
   - `access: optional "read_write" or "read_only"`
 
     Access mode for an attached memory store.
+
     - `"read_write"`
 
     - `"read_only"`
@@ -752,9 +808,11 @@ Delete Session Resource
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -807,16 +865,20 @@ Delete Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeleteSessionResource object { id, type }`
 
   Confirmation of resource deletion.
+
   - `id: string`
 
   - `type: "session_resource_deleted"`
+
     - `"session_resource_deleted"`
 
 ### Example
@@ -845,14 +907,17 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 - `BetaManagedAgentsDeleteSessionResource object { id, type }`
 
   Confirmation of resource deletion.
+
   - `id: string`
 
   - `type: "session_resource_deleted"`
+
     - `"session_resource_deleted"`
 
 ### Beta Managed Agents File Resource
 
 - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -864,6 +929,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `mount_path: string`
 
   - `type: "file"`
+
     - `"file"`
 
   - `updated_at: string`
@@ -873,6 +939,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 ### Beta Managed Agents GitHub Repository Resource
 
 - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
   - `id: string`
 
   - `created_at: string`
@@ -882,6 +949,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `mount_path: string`
 
   - `type: "github_repository"`
+
     - `"github_repository"`
 
   - `updated_at: string`
@@ -891,20 +959,25 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `url: string`
 
   - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
     - `BetaManagedAgentsBranchCheckout object { name, type }`
+
       - `name: string`
 
         Branch name to check out.
 
       - `type: "branch"`
+
         - `"branch"`
 
     - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
       - `sha: string`
 
         Full commit SHA to check out.
 
       - `type: "commit"`
+
         - `"commit"`
 
 ### Beta Managed Agents Memory Store Resource
@@ -912,16 +985,19 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
   A memory store attached to an agent session.
+
   - `memory_store_id: string`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `type: "memory_store"`
+
     - `"memory_store"`
 
   - `access: optional "read_write" or "read_only"`
 
     Access mode for an attached memory store.
+
     - `"read_write"`
 
     - `"read_only"`
@@ -947,7 +1023,9 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
+
   - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -957,6 +1035,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -966,23 +1045,29 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `url: string`
 
     - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
       - `BetaManagedAgentsBranchCheckout object { name, type }`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -994,6 +1079,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -1003,16 +1089,19 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -1038,7 +1127,9 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
+
   - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -1048,6 +1139,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -1057,23 +1149,29 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `url: string`
 
     - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
       - `BetaManagedAgentsBranchCheckout object { name, type }`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -1085,6 +1183,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -1094,16 +1193,19 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -1129,7 +1231,9 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource or BetaManagedAgentsFileResource or BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
+
   - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -1139,6 +1243,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -1148,23 +1253,29 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `url: string`
 
     - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
       - `BetaManagedAgentsBranchCheckout object { name, type }`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -1176,6 +1287,7 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -1185,16 +1297,19 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
   - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`

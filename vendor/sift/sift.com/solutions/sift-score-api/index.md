@@ -1,10 +1,12 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Sift Score API
+# Critical Global Context for Internally-Built Risk Models
+
+Home/Solutions/Sift Score API
 
 # Critical Global Context for Internally-Built Risk Models
 
 The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console.
 
-[Demo](/demo/)
+Demo
 
 ![Sift Score API Solution Page Hero](https://sift.com/wp-content/uploads/2025/03/Sift-Score-API-Solution-Page-Hero-835x1024.png)
 
@@ -20,9 +22,9 @@ The Sift Score API adds critical external context to internally-built risk model
 
 The Sift Score API is a modular fraud intelligence solution that delivers real-time risk scores derived from over 1 trillion annual events and 16,000+ fraud signals accumulated over 13 years. It delivers:
 
--   **A fraud risk score (0-100)** to assess transaction legitimacy
--   **The top 20 risk signals** explaining why an action was flagged
--   **Seamless API integration** into internal fraud models and decision engines
+*   **A fraud risk score (0-100)** to assess transaction legitimacy
+*   **The top 20 risk signals** explaining why an action was flagged
+*   **Seamless API integration** into internal fraud models and decision engines
 
 ## How Does it Work?
 
@@ -52,8 +54,6 @@ From account creation to chargeback mitigation, Sift is your go-to partner in fi
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Account Takeover
@@ -61,8 +61,6 @@ Account Takeover
 Make trusted users untouchable with bulletproof account protection.
 
 learn more
-
-](/solutions/ato/)[
 
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -72,8 +70,6 @@ Keep transactions and transfers secure across users, no matter the size, sum, or
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![Policy Abuse](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Policy Abuse
@@ -81,8 +77,6 @@ Policy Abuse
 Protect return policies, promo offers, and customer perks from misuse.
 
 learn more
-
-](/solutions/policy-abuse/)[
 
 ![Content Scams](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -92,13 +86,9 @@ Stop spam, scams, and phishing schemes from undercutting trust and revenue.
 
 learn more
 
-](/solutions/content-scams/)
-
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -108,8 +98,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -117,8 +105,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -128,12 +114,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

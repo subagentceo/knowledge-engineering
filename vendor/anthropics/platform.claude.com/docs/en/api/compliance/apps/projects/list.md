@@ -8,6 +8,7 @@ are sorted chronologically (time ascending) by created_at.
 ### Query Parameters
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter projects created after this time (RFC 3339 format)
@@ -49,6 +50,7 @@ are sorted chronologically (time ascending) by created_at.
 - `data: array of object { id, created_at, deleted_at, 6 more }`
 
   List of projects sorted by creation date ascending
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -83,7 +85,12 @@ are sorted chronologically (time ascending) by created_at.
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)

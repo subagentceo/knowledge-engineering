@@ -1,13 +1,13 @@
 # aws-core
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Amazon Web Services
-
-- Installs
-
-  1173
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Amazon Web Services
+    
+*   Installs
+    
+    1619

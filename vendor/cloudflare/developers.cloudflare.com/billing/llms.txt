@@ -10,41 +10,33 @@ Manage billing, plans, and subscriptions for your account
 
 - [Billing](https://developers.cloudflare.com/billing/index.md): Manage billing and subscriptions for your account.
 
-## Threshold billing
+## Get started
 
-- [Threshold billing](https://developers.cloudflare.com/billing/threshold-billing/index.md): Understand threshold-based billing for Cloudflare services.
-
-## get-started
-
+- [Get started](https://developers.cloudflare.com/billing/get-started/index.md): Set up billing for your Cloudflare account.
 - [Create billing profile](https://developers.cloudflare.com/billing/get-started/create-billing-profile/index.md): Add a payment method to your Cloudflare account.
 - [Update billing information](https://developers.cloudflare.com/billing/get-started/update-billing-info/index.md): Update payment methods, billing address, or tax IDs.
 
-## manage
+## Manage
 
+- [Manage](https://developers.cloudflare.com/billing/manage/index.md): Manage subscriptions, invoices, and usage.
 - [Monitor billable usage](https://developers.cloudflare.com/billing/manage/billable-usage/index.md): Track daily usage-based costs across products.
 - [Budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/index.md): Get notified when spend crosses a dollar threshold.
-- [Cancel Cloudflare subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/index.md): Cancel Cloudflare subscriptions
+- [Cancel Cloudflare subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/index.md): Cancel Cloudflare plans, add-ons, or subscriptions before the next billing period.
 - [Change domain plan](https://developers.cloudflare.com/billing/manage/change-plan/index.md): Upgrade or downgrade a domain's Cloudflare plan.
 - [Invoices](https://developers.cloudflare.com/billing/manage/invoices/index.md): View, download, and manage Cloudflare invoices.
 - [Optimize costs](https://developers.cloudflare.com/billing/manage/optimize-costs/index.md): Strategies for reducing usage-based charges across Cloudflare products.
 - [Pay an outstanding balance](https://developers.cloudflare.com/billing/manage/pay-invoices-overdue-balances/index.md): Resolve unpaid invoices and overdue balances.
 
-## payment-methods
+## Payment methods
 
-- [Backup payment method auto-retry](https://developers.cloudflare.com/billing/payment-methods/backup-payment-method-auto-retry/index.md): How Cloudflare retries failed payments using backup methods.
+- [Payment methods](https://developers.cloudflare.com/billing/payment-methods/index.md): Payment methods available for Cloudflare services.
+- [Additional payment method auto-retry](https://developers.cloudflare.com/billing/payment-methods/additional-payment-method-auto-retry/index.md): How Cloudflare retries failed payments using additional payment methods on file.
 - [Instant Bank Payments via Link](https://developers.cloudflare.com/billing/payment-methods/instant-bank-payments-link/index.md): Understand Instant Bank Payments via Link for Cloudflare services.
+- [Stablecoin payments](https://developers.cloudflare.com/billing/payment-methods/stablecoin-payments/index.md): Pay for Cloudflare services with USDC stablecoin at the checkout.
 
-## troubleshoot
+## Understand
 
-- [Billing error reference](https://developers.cloudflare.com/billing/troubleshoot/error-reference/index.md): Common billing error messages and solutions.
-- [Resolve "cannot remove payment method"](https://developers.cloudflare.com/billing/troubleshoot/resolve-cannot-remove-payment-method/index.md): Fix errors when removing a payment method.
-- [Resolve "you cannot modify this subscription"](https://developers.cloudflare.com/billing/troubleshoot/resolve-you-cannot-modify-this-subscription/index.md): Fix errors when modifying a cancelled subscription.
-- [Resolve the zone cannot be upgraded error](https://developers.cloudflare.com/billing/troubleshoot/resolve-zone-cannot-be-upgraded/index.md): Fix errors when upgrading a zone or subscription.
-- [Resolve a payment failure](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-failed-payments/index.md): Fix failed payment and declined card errors.
-- [Troubleshoot invoices](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-invoices/index.md): Resolve common invoice discrepancies.
-
-## understand
-
+- [Understand](https://developers.cloudflare.com/billing/understand/index.md): Understand how Cloudflare billing works.
 - [Billing permissions](https://developers.cloudflare.com/billing/understand/billing-permissions/index.md): Who can view and manage billing on your Cloudflare account.
 - [Billing policy](https://developers.cloudflare.com/billing/understand/billing-policy/index.md): Review refund policy, payment methods, and billing terms.
 - [Billing FAQ](https://developers.cloudflare.com/billing/understand/faq/index.md): Answers to common billing questions.
@@ -53,3 +45,17 @@ Manage billing, plans, and subscriptions for your account
 - [Preview services](https://developers.cloudflare.com/billing/understand/preview-services/index.md): Try contracted products for 30 days before purchasing.
 - [Sales tax](https://developers.cloudflare.com/billing/understand/sales-tax/index.md): Understand Cloudflare sales tax by region.
 - [Usage-based billing](https://developers.cloudflare.com/billing/understand/usage-based-billing/index.md): Products that bill based on metered consumption.
+
+## Troubleshoot
+
+- [Troubleshoot](https://developers.cloudflare.com/billing/troubleshoot/index.md): Troubleshoot common Cloudflare billing issues.
+- [Billing error reference](https://developers.cloudflare.com/billing/troubleshoot/error-reference/index.md): Common billing error messages and solutions.
+- [Resolve "cannot remove payment method"](https://developers.cloudflare.com/billing/troubleshoot/resolve-cannot-remove-payment-method/index.md): Fix errors when removing a payment method.
+- [Resolve "you cannot modify this subscription"](https://developers.cloudflare.com/billing/troubleshoot/resolve-you-cannot-modify-this-subscription/index.md): Fix errors when modifying a canceled subscription.
+- [Resolve the zone cannot be upgraded error](https://developers.cloudflare.com/billing/troubleshoot/resolve-zone-cannot-be-upgraded/index.md): Fix errors when upgrading a zone or subscription.
+- [Resolve a payment failure](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-failed-payments/index.md): Fix failed payment and declined card errors.
+- [Troubleshoot invoices](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-invoices/index.md): Resolve common invoice discrepancies.
+
+## Threshold billing
+
+- [Threshold billing](https://developers.cloudflare.com/billing/threshold-billing/index.md): Understand threshold-based billing for Cloudflare services.

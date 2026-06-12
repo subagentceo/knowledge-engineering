@@ -11,6 +11,7 @@ Archive Credential
 - `credentialID string`
 
 - `params BetaVaultCredentialArchiveParams`
+
   - `VaultID param.Field[string]`
 
     Path param: Path parameter vault_id
@@ -18,9 +19,11 @@ Archive Credential
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -73,13 +76,16 @@ Archive Credential
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsCredential struct{…}`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `ID string`
 
     Unique identifier for the credential.
@@ -91,14 +97,17 @@ Archive Credential
   - `Auth BetaManagedAgentsCredentialAuthUnion`
 
     Authentication details for a credential.
+
     - `type BetaManagedAgentsMCPOAuthAuthResponse struct{…}`
 
       OAuth credential details for an MCP server.
+
       - `MCPServerURL string`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type BetaManagedAgentsMCPOAuthAuthResponseType`
+
         - `const BetaManagedAgentsMCPOAuthAuthResponseTypeMCPOAuth BetaManagedAgentsMCPOAuthAuthResponseType = "mcp_oauth"`
 
       - `ExpiresAt Time`
@@ -108,6 +117,7 @@ Archive Credential
       - `Refresh BetaManagedAgentsMCPOAuthRefreshResponse`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `ClientID string`
 
           OAuth client ID.
@@ -119,22 +129,29 @@ Archive Credential
         - `TokenEndpointAuth BetaManagedAgentsMCPOAuthRefreshResponseTokenEndpointAuthUnion`
 
           Token endpoint requires no client authentication.
+
           - `type BetaManagedAgentsTokenEndpointAuthNoneResponse struct{…}`
 
             Token endpoint requires no client authentication.
+
             - `Type BetaManagedAgentsTokenEndpointAuthNoneResponseType`
+
               - `const BetaManagedAgentsTokenEndpointAuthNoneResponseTypeNone BetaManagedAgentsTokenEndpointAuthNoneResponseType = "none"`
 
           - `type BetaManagedAgentsTokenEndpointAuthBasicResponse struct{…}`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `Type BetaManagedAgentsTokenEndpointAuthBasicResponseType`
+
               - `const BetaManagedAgentsTokenEndpointAuthBasicResponseTypeClientSecretBasic BetaManagedAgentsTokenEndpointAuthBasicResponseType = "client_secret_basic"`
 
           - `type BetaManagedAgentsTokenEndpointAuthPostResponse struct{…}`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `Type BetaManagedAgentsTokenEndpointAuthPostResponseType`
+
               - `const BetaManagedAgentsTokenEndpointAuthPostResponseTypeClientSecretPost BetaManagedAgentsTokenEndpointAuthPostResponseType = "client_secret_post"`
 
         - `Resource string`
@@ -148,12 +165,50 @@ Archive Credential
     - `type BetaManagedAgentsStaticBearerAuthResponse struct{…}`
 
       Static bearer token credential details for an MCP server.
+
       - `MCPServerURL string`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type BetaManagedAgentsStaticBearerAuthResponseType`
+
         - `const BetaManagedAgentsStaticBearerAuthResponseTypeStaticBearer BetaManagedAgentsStaticBearerAuthResponseType = "static_bearer"`
+
+    - `type BetaManagedAgentsEnvironmentVariableAuthResponse struct{…}`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `Networking BetaManagedAgentsEnvironmentVariableAuthResponseNetworkingUnion`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `type BetaManagedAgentsUnrestrictedCredentialNetworkingResponse struct{…}`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `Type BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType`
+
+            - `const BetaManagedAgentsUnrestrictedCredentialNetworkingResponseTypeUnrestricted BetaManagedAgentsUnrestrictedCredentialNetworkingResponseType = "unrestricted"`
+
+        - `type BetaManagedAgentsLimitedCredentialNetworkingResponse struct{…}`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `AllowedHosts []string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `Type BetaManagedAgentsLimitedCredentialNetworkingResponseType`
+
+            - `const BetaManagedAgentsLimitedCredentialNetworkingResponseTypeLimited BetaManagedAgentsLimitedCredentialNetworkingResponseType = "limited"`
+
+      - `SecretName string`
+
+        Name of the environment variable.
+
+      - `Type BetaManagedAgentsEnvironmentVariableAuthResponseType`
+
+        - `const BetaManagedAgentsEnvironmentVariableAuthResponseTypeEnvironmentVariable BetaManagedAgentsEnvironmentVariableAuthResponseType = "environment_variable"`
 
   - `CreatedAt Time`
 
@@ -164,6 +219,7 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type BetaManagedAgentsCredentialType`
+
     - `const BetaManagedAgentsCredentialTypeVaultCredential BetaManagedAgentsCredentialType = "vault_credential"`
 
   - `UpdatedAt Time`

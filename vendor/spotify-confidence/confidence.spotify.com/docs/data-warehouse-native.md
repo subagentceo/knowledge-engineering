@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Warehouse-Native Confidence
@@ -31,7 +31,7 @@ Confidence read and write to your data warehouse.
 You can use only a subset of these services.
 In that case, only the relevant parts of the diagram apply.
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/warehouse-overview.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=97fce8f4378e0545d8f114ca01ea3b41" alt="Overview of how Confidence connects to your data warehouse" width="3406" height="2078" data-path="images/warehouse-overview.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/warehouse-overview.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=9f6e9ab67bf57f0e931edce16632f385" alt="Overview of how Confidence connects to your data warehouse" width="3406" height="2078" data-path="images/warehouse-overview.png" />
 
 ## Queries in Your Data Warehouse
 

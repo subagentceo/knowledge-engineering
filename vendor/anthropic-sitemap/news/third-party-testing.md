@@ -20,15 +20,15 @@ Developing a third-party testing regime for the AI systems of today seems to giv
 
 **An effective third-party testing regime will:**
 
-- Give people and institutions more trust in AI systems
-- Be precisely scoped, such that passing its tests is not so great a burden that small companies are disadvantaged by them
-- Be applied only to a narrow set of the most computationally-intensive, large-scale systems; if implemented correctly, the vast majority of AI systems would not be within the scope of such a testing regime
-- Provide a means for countries and groups of countries to coordinate with one another via developing shared standards and experimenting with Mutual Recognition agreements
+*   Give people and institutions more trust in AI systems
+*   Be precisely scoped, such that passing its tests is not so great a burden that small companies are disadvantaged by them
+*   Be applied only to a narrow set of the most computationally-intensive, large-scale systems; if implemented correctly, the vast majority of AI systems would not be within the scope of such a testing regime
+*   Provide a means for countries and groups of countries to coordinate with one another via developing shared standards and experimenting with Mutual Recognition agreements
 
 **Such a regime will have the following key ingredients [1]:**
 
-- Effective and broadly-trusted tests for measuring the behavior and potential misuses of a given AI system
-- Trusted and legitimate third-parties who can administer these tests and audit company testing procedures
+*   Effective and broadly-trusted tests for measuring the behavior and potential misuses of a given AI system
+*   Trusted and legitimate third-parties who can administer these tests and audit company testing procedures
 
 ## Why we need an effective testing regime
 
@@ -46,20 +46,20 @@ However, although Anthropic is investing in our RSP (and other organizations are
 
 A robust third-party testing regime can help identify and prevent the potential risks of AI systems. It will require:
 
-- A shared understanding across industry, government, and academia of what an AI safety testing framework looks like - what it should and shouldn’t include
-- An initial period where companies complete practice runs of implementing such testing, sometimes with third-party oversight, to make sure the tests work, are feasible to run, and can be validated by a third party
-- A two-stage testing regime: there should be a very fast, automated testing stage that companies apply to their systems. This stage should cover a wide area and be biased towards avoiding false negatives. If this stage spots potential problems, there should be a more thorough secondary test, likely using expert human-led elicitation
-- Increased resources to the parts of government that will oversee and validate tests - building and analyzing tests is detailed, expensive, technical work, so governments will need to find a way to fund the entities that do this
-- A carefully scoped set of mandated tests - we’ll need specific, legally mandated tests where it becomes clear there are poor incentives for industry self-governance, and the benefits of public safety from government oversight outweigh the regulatory burdens. We should ensure this is a well scoped, small set of tests, or else we’ll create regulatory burdens and increase the possibility of regulatory capture
-- An effective balance of the assurance of safety with ease of administration of these tests
+*   A shared understanding across industry, government, and academia of what an AI safety testing framework looks like - what it should and shouldn’t include
+*   An initial period where companies complete practice runs of implementing such testing, sometimes with third-party oversight, to make sure the tests work, are feasible to run, and can be validated by a third party
+*   A two-stage testing regime: there should be a very fast, automated testing stage that companies apply to their systems. This stage should cover a wide area and be biased towards avoiding false negatives. If this stage spots potential problems, there should be a more thorough secondary test, likely using expert human-led elicitation
+*   Increased resources to the parts of government that will oversee and validate tests - building and analyzing tests is detailed, expensive, technical work, so governments will need to find a way to fund the entities that do this
+*   A carefully scoped set of mandated tests - we’ll need specific, legally mandated tests where it becomes clear there are poor incentives for industry self-governance, and the benefits of public safety from government oversight outweigh the regulatory burdens. We should ensure this is a well scoped, small set of tests, or else we’ll create regulatory burdens and increase the possibility of regulatory capture
+*   An effective balance of the assurance of safety with ease of administration of these tests
 
 When it comes to tests, we can already identify one area today where testing by third-parties seems helpful and draws on the natural strengths of governments: **national security risks**. We should identify a set of AI capabilities that, if misused, could compromise national security, then test our systems for these capabilities. Such capabilities might include the ability to meaningfully speed up the creation of bioweapons or to carry out complex cyberattacks. (If systems are capable of this, then that would lead to us changing how we deployed the model - e.g, remove certain capabilities from broadly deployed models and/or gate certain model capabilities behind ‘know your customer’ regimes, and ensuring relevant government agencies were aware we had systems with these capabilities.) We expect there are several areas where society will ultimately demand there be legitimate, third-party testing approaches, and national security is just one of them.
 
 When it comes to the third party doing the testing, there will be a multitude of them and the tests will be carried out for different reasons, which we outline here:
 
-- **Private companies:** Companies may subcontract other companies to build tests and evaluations for their systems, as we have done with firms like Gryphon Scientific. We can also imagine companies doing tests for other companies where the tests are mandated by law but not carried out by government agencies, similar to how accounting firms audit the books of private companies.
-- **Universities:** Today, many researchers at many academic institutions have free or subsidized access to models developed by AI labs; in the future, we could imagine some of these research institutions administering their own testing initiatives, some of which may be supervised or elevated via government bodies.
-- **Governments:** Some tests (we suspect, a relatively small number) may be mandated by law and carried out by government actors - for instance, for testing for national security misuses of AI systems. Here, government agencies may carry out the tests directly.
+*   **Private companies:** Companies may subcontract other companies to build tests and evaluations for their systems, as we have done with firms like Gryphon Scientific. We can also imagine companies doing tests for other companies where the tests are mandated by law but not carried out by government agencies, similar to how accounting firms audit the books of private companies.
+*   **Universities:** Today, many researchers at many academic institutions have free or subsidized access to models developed by AI labs; in the future, we could imagine some of these research institutions administering their own testing initiatives, some of which may be supervised or elevated via government bodies.
+*   **Governments:** Some tests (we suspect, a relatively small number) may be mandated by law and carried out by government actors - for instance, for testing for national security misuses of AI systems. Here, government agencies may carry out the tests directly.
 
 Ultimately, we expect that third-party testing will be accomplished by a diverse ecosystem of different organizations, similar to how product safety is achieved in other parts of the economy today. Because broadly commercialized, general purpose AI is a relatively new technology, we don’t think the structure of this ecosystem is clear today and it will become clearer through all the actors above running different testing experiments. We need to start working on this testing regime today, because it will take a long time to build.
 
@@ -69,11 +69,11 @@ We believe that we - and other participants in AI development - will need to run
 
 In the future, Anthropic will carry out the following activities to support governments in the development of effective third-party testing regimes:
 
-- Prototyping a testing regime via implementing our RSP and sharing what we learn
-- Testing third-party assessment of our systems via contractors and government partners
-- Deepening our frontier red teaming work to give us and the broader sector a clearer sense of the risks of AI systems and their mitigations
-- Advocating for governments to fund the agencies and organizations that could help to develop an effective third-party testing regime (e.g, in the United States, NIST, the US AI Safety Institute, the National AI Research Resource, the usage of DoE supercomputers for AI testing, and so on)
-- Encouraging governments to build their own ‘National Research Clouds’ (like the National AI Research Resource in the US) so that they can a) develop independent capacity in academia and government to build, study, and test frontier AI systems, and b) work on the science of evaluating AI systems, including those developed by private companies like Anthropic
+*   Prototyping a testing regime via implementing our RSP and sharing what we learn
+*   Testing third-party assessment of our systems via contractors and government partners
+*   Deepening our frontier red teaming work to give us and the broader sector a clearer sense of the risks of AI systems and their mitigations
+*   Advocating for governments to fund the agencies and organizations that could help to develop an effective third-party testing regime (e.g, in the United States, NIST, the US AI Safety Institute, the National AI Research Resource, the usage of DoE supercomputers for AI testing, and so on)
+*   Encouraging governments to build their own ‘National Research Clouds’ (like the National AI Research Resource in the US) so that they can a) develop independent capacity in academia and government to build, study, and test frontier AI systems, and b) work on the science of evaluating AI systems, including those developed by private companies like Anthropic
 
 Developing a testing regime and associated policy interventions based on the insights of industry, government, and academia is the best way to avoid societal harm—whether deliberate or accidental—from AI systems.
 
@@ -83,33 +83,40 @@ Our overarching policy goal is to have appropriate oversight of the AI sector. W
 
 **Greater funding for AI testing and evaluation in government**
 
-- Effective testing and evaluation procedures are a necessary prerequisite of any effective form of AI policy. We think that governments should stand up and support institutions that develop AI evaluations, as well as bringing together industry, academia, and other stakeholders to agree on standards for the safety of AI systems. In the US, we specifically advocate for greater funding for NIST.
+*   Effective testing and evaluation procedures are a necessary prerequisite of any effective form of AI policy. We think that governments should stand up and support institutions that develop AI evaluations, as well as bringing together industry, academia, and other stakeholders to agree on standards for the safety of AI systems. In the US, we specifically advocate for greater funding for NIST.
 
 **Support greater evaluation of AI systems through public sector infrastructure for doing AI research**
 
-- We urgently need to increase the number and breadth of people working to test and evaluate AI systems, for both current and future risks. It’s therefore crucial that governments create experimental infrastructure to help academic researchers test out and evaluate frontier AI systems, and develop their own frontier systems for beneficial purposes. For more information, see our support for a US national research cloud via the CREATE AI Act, and our written Senate testimony.
+*   We urgently need to increase the number and breadth of people working to test and evaluate AI systems, for both current and future risks. It’s therefore crucial that governments create experimental infrastructure to help academic researchers test out and evaluate frontier AI systems, and develop their own frontier systems for beneficial purposes. For more information, see our support for a US national research cloud via the CREATE AI Act, and our written Senate testimony.
 
 **Developing tests for specific, national security-relevant capabilities**
 
-- We should know if AI systems can be used in ways that strengthen or (if fielded by another entity) weaken national security. Whereas the private sector and academia can develop the vast majority of tests, some testing and evaluation questions relate to national security capabilities which are classified, so only certain governments are able to effectively evaluate them. Therefore, we want to support US Government efforts to develop ways of testing AI systems for national security-relevant capabilities. We will also continue our own work to better understand the capabilities of our own systems.
+*   We should know if AI systems can be used in ways that strengthen or (if fielded by another entity) weaken national security. Whereas the private sector and academia can develop the vast majority of tests, some testing and evaluation questions relate to national security capabilities which are classified, so only certain governments are able to effectively evaluate them. Therefore, we want to support US Government efforts to develop ways of testing AI systems for national security-relevant capabilities. We will also continue our own work to better understand the capabilities of our own systems.
 
 **Scenario planning and test development for increasingly advanced systems**
 
-- Our Responsible Scaling Policy is designed to frontload work about evaluating and testing future, hypothetical capabilities of AI systems. This is to ensure we have the relevant tests to better assess and minimize accident and misuse risks from increasingly powerful AI systems. But we don’t claim that our RSP delineates all the tests that need to be run on increasingly powerful models. As AI advances driven by growing computational power increase, a broader set of actors should work to anticipate the future capabilities of AI systems, and develop tests for them.
+*   Our Responsible Scaling Policy is designed to frontload work about evaluating and testing future, hypothetical capabilities of AI systems. This is to ensure we have the relevant tests to better assess and minimize accident and misuse risks from increasingly powerful AI systems. But we don’t claim that our RSP delineates all the tests that need to be run on increasingly powerful models. As AI advances driven by growing computational power increase, a broader set of actors should work to anticipate the future capabilities of AI systems, and develop tests for them.
 
 ## Aspects of AI policy we believe are important to discuss
 
 While developing our policy approach, we’ve also found ourselves returning again and again to a few specific issues such as openly accessible models and regulatory capture. We’ve outlined our current policy thinking below but recognize these are complicated issues where people often disagree.
 
-- **Openly-disseminated and/or open-source models:** Science moves forward largely due to a culture of openness and transparency around research. This is especially true in AI, where much of the currently-unfolding revolution is built on the open publication of research and models like the Transformer, BERT, Vision Transformers, and so on. There is also a long history of open source and openly accessible systems increasing the robustness of the security environment by helping a greater number of people experiment with technologies and identify their potential weaknesses.
-  We believe that the vast majority of AI systems today (perhaps even all of them) are safe to openly disseminate and will be safe to broadly disseminate in the future. However, we believe in the future it may be hard to reconcile a culture of full open dissemination of frontier AI systems with a culture of societal safety.
-  If — and ‘if’ is a key and unresolved point — increasingly capable AI models can lead to detrimental effects, or hold the possibility of catastrophic accidents, then we’ll need to adjust the norms of what is openly disseminated at the frontier.
-  Specifically, we’ll need to ensure that AI developers release their systems in a way that provides strong guarantees for safety - for example, if we were to discover a meaningful misuse of our model, we might put in place classifiers to detect and block attempts to elicit that misuse, or we might gate the ability to finetune a system behind a ‘know your customer’ rule along with contractual obligations to not finetune towards a specific misuse. By comparison, if someone wanted to openly release the weights of a model which was capable of the same misuse, they would need to both harden the model against that misuse (e.g, via RLHF or RLAIF training) and find a way to make this model resilient to attempts to fine-tune it onto a dataset that would enable this misuse. We will also need to experiment with disclosure processes, similar to how the security community has developed norms around pre-notification of disclosures of zero days.
-  Though what we’ve described is inherently very costly we also believe it is necessary - we must do everything we can to avoid AI systems enabling significant misuses or causing major accidents. But carrying out any restrictions on the open dissemination of AI systems depends on there being broad agreement on what unacceptable misuses of AI systems or system behaviors are.
-  _Anthropic is not an impartial actor here_ - we are a company that primarily develops proprietary systems, and we don’t have the legitimacy to make claims here about what should or shouldn’t be acceptable in openly disseminated systems. Therefore, to resolve questions of open source models we need legitimate third parties to develop testing and evaluation approaches that are broadly accepted as legitimate, we need these third parties (or other trusted entities) to define a narrow and serious set of misuses of AI systems as well as adverse AI system behaviors, and we will need to apply these tests to models that are both controlled (e.g., via API) or openly disseminated (e.g., via the weights being released).
-  Third party testing of openly disseminated and closed proprietary models can generate the essential information we need to understand the safety properties of the AI landscape [2]. If we don’t do this, then you could end up in a situation where either a proprietary model or openly accessible model directly enables a serious misuse or causes a major AI accident - and if that happens, there could be significant harm to people and also likely adverse regulations applied to the AI sector.
-- **Regulatory capture:** Any form of policy can suffer regulatory capture by a sufficiently motivated and well-resourced actor: for example, a well-capitalized AI company. Some of the ideas we discuss above about openly accessible models are the kinds of things which themselves are prone to regulatory capture. It’s important that the AI ecosystem remains robust and competitive - AI is a complicated field and humanity’s best chance at getting it right likely comes from there being a diverse, broad set of actors engaged in its development and oversight.
-  We generally advocate for third-party testing and measurement initiatives because they seem like the kind of policy infrastructure that helps us to identify and prevent concrete harms as well as building capacity that exists independently of large companies. Therefore, we think that focusing on the development of third-party testing capacity can reduce the risk of regulatory capture and create a level playing field for developers. Conversely, industry-led consortia might have a tendency to favor approaches that involve high compliance costs on the parts of companies regardless of their scale - an approach that inherently advantages larger businesses which can spend more money on policy compliance.
+*   **Openly-disseminated and/or open-source models:** Science moves forward largely due to a culture of openness and transparency around research. This is especially true in AI, where much of the currently-unfolding revolution is built on the open publication of research and models like the Transformer, BERT, Vision Transformers, and so on. There is also a long history of open source and openly accessible systems increasing the robustness of the security environment by helping a greater number of people experiment with technologies and identify their potential weaknesses.  
+      
+    We believe that the vast majority of AI systems today (perhaps even all of them) are safe to openly disseminate and will be safe to broadly disseminate in the future. However, we believe in the future it may be hard to reconcile a culture of full open dissemination of frontier AI systems with a culture of societal safety.  
+      
+    If — and ‘if’ is a key and unresolved point — increasingly capable AI models can lead to detrimental effects, or hold the possibility of catastrophic accidents, then we’ll need to adjust the norms of what is openly disseminated at the frontier.  
+      
+    Specifically, we’ll need to ensure that AI developers release their systems in a way that provides strong guarantees for safety - for example, if we were to discover a meaningful misuse of our model, we might put in place classifiers to detect and block attempts to elicit that misuse, or we might gate the ability to finetune a system behind a ‘know your customer’ rule along with contractual obligations to not finetune towards a specific misuse. By comparison, if someone wanted to openly release the weights of a model which was capable of the same misuse, they would need to both harden the model against that misuse (e.g, via RLHF or RLAIF training) and find a way to make this model resilient to attempts to fine-tune it onto a dataset that would enable this misuse. We will also need to experiment with disclosure processes, similar to how the security community has developed norms around pre-notification of disclosures of zero days.  
+      
+    Though what we’ve described is inherently very costly we also believe it is necessary - we must do everything we can to avoid AI systems enabling significant misuses or causing major accidents. But carrying out any restrictions on the open dissemination of AI systems depends on there being broad agreement on what unacceptable misuses of AI systems or system behaviors are.  
+      
+    _Anthropic is not an impartial actor here_ - we are a company that primarily develops proprietary systems, and we don’t have the legitimacy to make claims here about what should or shouldn’t be acceptable in openly disseminated systems. Therefore, to resolve questions of open source models we need legitimate third parties to develop testing and evaluation approaches that are broadly accepted as legitimate, we need these third parties (or other trusted entities) to define a narrow and serious set of misuses of AI systems as well as adverse AI system behaviors, and we will need to apply these tests to models that are both controlled (e.g., via API) or openly disseminated (e.g., via the weights being released).  
+      
+    Third party testing of openly disseminated and closed proprietary models can generate the essential information we need to understand the safety properties of the AI landscape [2]. If we don’t do this, then you could end up in a situation where either a proprietary model or openly accessible model directly enables a serious misuse or causes a major AI accident - and if that happens, there could be significant harm to people and also likely adverse regulations applied to the AI sector.
+*   **Regulatory capture:** Any form of policy can suffer regulatory capture by a sufficiently motivated and well-resourced actor: for example, a well-capitalized AI company. Some of the ideas we discuss above about openly accessible models are the kinds of things which themselves are prone to regulatory capture. It’s important that the AI ecosystem remains robust and competitive - AI is a complicated field and humanity’s best chance at getting it right likely comes from there being a diverse, broad set of actors engaged in its development and oversight.  
+      
+    We generally advocate for third-party testing and measurement initiatives because they seem like the kind of policy infrastructure that helps us to identify and prevent concrete harms as well as building capacity that exists independently of large companies. Therefore, we think that focusing on the development of third-party testing capacity can reduce the risk of regulatory capture and create a level playing field for developers. Conversely, industry-led consortia might have a tendency to favor approaches that involve high compliance costs on the parts of companies regardless of their scale - an approach that inherently advantages larger businesses which can spend more money on policy compliance.
 
 ## Why we’re being careful in what we advocate for in AI policy
 
@@ -129,18 +136,18 @@ We believe that building out a third-party testing ecosystem is one of the best 
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

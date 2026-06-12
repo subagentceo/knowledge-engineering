@@ -11,6 +11,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchRetrieveParams params`
+
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -18,6 +19,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -70,11 +72,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaMessageBatch:`
+
   - `String id`
 
     Unique object identifier.
@@ -106,6 +111,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus processingStatus`
 
     Processing status of the Message Batch.
+
     - `IN_PROGRESS("in_progress")`
 
     - `CANCELING("canceling")`
@@ -117,6 +123,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `long canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -156,6 +163,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
+
     - `MESSAGE_BATCH("message_batch")`
 
 ### Example

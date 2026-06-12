@@ -9,7 +9,7 @@ This guide walks you through the process of setting up and making API calls to C
 Regional availability: At launch, Claude is available as a Global Standard deployment type in Foundry resources. Pricing for Claude in the Microsoft Marketplace uses Anthropic's standard API pricing. Visit [Pricing](https://claude.com/pricing#api) for details.
 
 <Note>
-Foundry is supported by the C#, Java, PHP, Python, and TypeScript SDKs. The Go and Ruby SDKs do not currently support Microsoft Foundry. For available SDK platform integrations, see [Client SDKs](/docs/en/api/client-sdks).
+Foundry is supported by the C#, Java, PHP, Python, and TypeScript SDKs. The Go and Ruby SDKs do not currently support Microsoft Foundry.
 </Note>
 
 ## Preview
@@ -26,7 +26,7 @@ Before you begin, ensure you have:
 
 ## Install an SDK
 
-Anthropic's [client SDKs](/docs/en/api/client-sdks) support Foundry through a platform-specific package or client class.
+Anthropic's [client SDKs](/docs/en/cli-sdks-libraries/overview) support Foundry through a platform-specific package or client class.
 
 <Tabs>
 <Tab title="Python">
@@ -51,7 +51,7 @@ dotnet add package Anthropic.Foundry
 <Tabs>
 <Tab title="Gradle">
 ```kotlin
-implementation("com.anthropic:anthropic-java-foundry:2.35.0")
+implementation("com.anthropic:anthropic-java-foundry:2.40.0")
 ```
 </Tab>
 <Tab title="Maven">
@@ -59,7 +59,7 @@ implementation("com.anthropic:anthropic-java-foundry:2.35.0")
 <dependency>
     <groupId>com.anthropic</groupId>
     <artifactId>anthropic-java-foundry</artifactId>
-    <version>2.35.0</version>
+    <version>2.40.0</version>
 </dependency>
 ```
 </Tab>
@@ -147,7 +147,6 @@ curl https://{resource}.services.ai.azure.com/anthropic/v1/messages \
     ]
   }'
 ```
-
 </Tab>
 
 <Tab title="CLI">
@@ -163,7 +162,6 @@ ant messages create \
   --message '{role: user, content: "Hello!"}' \
   --transform content
 ```
-
 </Tab>
 
 <Tab title="Python">
@@ -184,7 +182,6 @@ message = client.messages.create(
 )
 print(message.content)
 ```
-
 </Tab>
 
 <Tab title="TypeScript">
@@ -194,17 +191,16 @@ import AnthropicFoundry from "@anthropic-ai/foundry-sdk";
 
 const client = new AnthropicFoundry({
   apiKey: process.env.ANTHROPIC_FOUNDRY_API_KEY,
-  resource: "example-resource", // your resource name
+  resource: "example-resource" // your resource name
 });
 
 const message = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello!" }],
+  messages: [{ role: "user", content: "Hello!" }]
 });
 console.log(message.content);
 ```
-
 </Tab>
 
 <Tab title="C#">
@@ -233,7 +229,6 @@ Console.WriteLine(
         .OfType<TextBlock>()
         .Select(textBlock => textBlock.Text)));
 ```
-
 </Tab>
 
 <Tab title="Java">
@@ -261,7 +256,6 @@ void main() {
         .forEach(textBlock -> System.out.println(textBlock.text()));
 }
 ```
-
 </Tab>
 
 <Tab title="PHP">
@@ -285,7 +279,6 @@ $message = $client->messages->create(
 );
 echo $message->content[0]->text;
 ```
-
 </Tab>
 
 <Tab title="Ruby">
@@ -329,7 +322,6 @@ curl https://{resource}.services.ai.azure.com/anthropic/v1/messages \
     ]
   }'
 ```
-
 </Tab>
 
 <Tab title="Python">
@@ -358,40 +350,35 @@ message = client.messages.create(
 )
 print(message.content)
 ```
-
 </Tab>
 
 <Tab title="TypeScript">
 
 ```typescript nocheck
 import AnthropicFoundry from "@anthropic-ai/foundry-sdk";
-import {
-  DefaultAzureCredential,
-  getBearerTokenProvider,
-} from "@azure/identity";
+import { DefaultAzureCredential, getBearerTokenProvider } from "@azure/identity";
 
 // Get Entra ID token using token provider pattern
 const credential = new DefaultAzureCredential();
 const tokenProvider = getBearerTokenProvider(
   credential,
-  "https://cognitiveservices.azure.com/.default",
+  "https://cognitiveservices.azure.com/.default"
 );
 
 // Create client with Entra ID authentication
 const client = new AnthropicFoundry({
   resource: "example-resource", // your resource name
-  azureADTokenProvider: tokenProvider, // Use token provider for Entra ID auth
+  azureADTokenProvider: tokenProvider // Use token provider for Entra ID auth
 });
 
 // Make request
 const message = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello!" }],
+  messages: [{ role: "user", content: "Hello!" }]
 });
 console.log(message.content);
 ```
-
 </Tab>
 
 <Tab title="C#">
@@ -421,7 +408,6 @@ Console.WriteLine(
         .OfType<TextBlock>()
         .Select(textBlock => textBlock.Text)));
 ```
-
 </Tab>
 
 <Tab title="Java">
@@ -459,7 +445,6 @@ void main() {
         .forEach(textBlock -> System.out.println(textBlock.text()));
 }
 ```
-
 </Tab>
 
 <Tab title="PHP">
@@ -488,7 +473,6 @@ $message = $client->messages->create(
 );
 echo $message->content[0]->text;
 ```
-
 </Tab>
 
 <Tab title="Ruby">
@@ -512,7 +496,7 @@ Claude in Foundry supports most of Claude's powerful features. You can find all 
 
 ### Context window
 
-Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](/docs/en/build-with-claude/context-windows) on Microsoft Foundry. Other Claude models, including Claude Opus 4.8 and Sonnet 4.5, have a 200k-token context window.
+Claude Fable 5, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](/docs/en/build-with-claude/context-windows) on Microsoft Foundry. Other Claude models, including Claude Opus 4.8 and Sonnet 4.5, have a 200k-token context window.
 
 ### Features not supported
 
@@ -520,6 +504,7 @@ Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context
 - Compliance API
 - Models API
 - Message Batches API
+- Server-side fallback (the [`fallbacks` parameter](/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback); use the [client-side fallback pattern](/docs/en/build-with-claude/refusals-and-fallback#client-side-fallback) instead)
 
 ## API responses
 
@@ -529,18 +514,21 @@ For details on response headers specific to Foundry, see [Correlation request ID
 
 ## API model IDs and deployments
 
-The following Claude models are available through Foundry. The latest generation models (Claude Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6, and Haiku 4.5) offer the most advanced capabilities:
+Lifecycle terms (Deprecated, Retired) are defined in [Model deprecations](/docs/en/about-claude/model-deprecations). Microsoft Foundry follows the Claude API lifecycle schedule.
 
-| Model             | Default deployment name |
-| :---------------- | :---------------------- |
-| Claude Opus 4.8   | claude-opus-4-8         |
-| Claude Opus 4.7   | claude-opus-4-7         |
-| Claude Opus 4.6   | claude-opus-4-6         |
-| Claude Opus 4.5   | claude-opus-4-5         |
-| Claude Opus 4.1   | claude-opus-4-1         |
-| Claude Sonnet 4.6 | claude-sonnet-4-6       |
-| Claude Sonnet 4.5 | claude-sonnet-4-5       |
-| Claude Haiku 4.5  | claude-haiku-4-5        |
+The following Claude models are available through Foundry. The latest generation models (Claude Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6, and Haiku 4.5) offer the most advanced capabilities:
+
+| Model             | Default deployment name     |
+| :---------------- | :-------------------------- |
+| Claude Fable 5    | claude-fable-5 |
+| Claude Opus 4.8   | claude-opus-4-8 |
+| Claude Opus 4.7   | claude-opus-4-7           |
+| Claude Opus 4.6   | claude-opus-4-6           |
+| Claude Opus 4.5   | claude-opus-4-5           |
+| Claude Opus 4.1 <br /><small>Deprecated. Retiring August 5, 2026.</small> | claude-opus-4-1           |
+| Claude Sonnet 4.6 | claude-sonnet-4-6         |
+| Claude Sonnet 4.5 | claude-sonnet-4-5         |
+| Claude Haiku 4.5  | claude-haiku-4-5          |
 
 By default, deployment names match the model IDs shown in the preceding table. However, you can create custom deployments with different names in the Foundry portal to manage different configurations, versions, or rate limits. Use the deployment name (not necessarily the model ID) in your API requests.
 

@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Chargeback Fraud
+# Change  Chargebacks  into Growth
+
+Home/Solutions/Chargeback Fraud
 
 # Change Chargebacks into Growth
 
@@ -10,7 +12,7 @@ Transform chargeback operations into your revenue retention center with Sift.
 
 —Taylor Snyder - Manager of Risk & Compliance at Doxo
 
-[COMPARE DISPUTE RATES](/fibr-fraud-industry-benchmarking-resource/?fraud-type=chargeback)
+COMPARE DISPUTE RATES
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -28,10 +30,10 @@ Lower chargeback rates compared to industry averages
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Expand Fearlessly & Keep Chargebacks in Check
 
@@ -43,13 +45,13 @@ $100B
 
 Estimated cost of credit card chargebacks in 2023
 
-[Merchant Fraud Journal](https://www.newswire.com/news/merchant-fraud-journal-releases-chargebacks-consumer-survey-report-2022-21837006)
+Merchant Fraud Journal
 
 367%
 
 Increase in chargeback values for select verticals in 2023
 
-[Sift](/index-reports-disputes-q4-2023/)
+Sift
 
 ## Combat Chargeback Fraud With Confidence
 
@@ -59,7 +61,7 @@ Increase in chargeback values for select verticals in 2023
 
 **Protect more revenue**. Create effective responses and maintain healthy win rates with an intelligent workspace and expert guidance. Build even stronger protection with inquiries that block potential chargebacks, and alerts that keep dispute rates low.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![ChargebackFraud\_Solutions Overview Circle@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -121,7 +123,7 @@ Improve chargeback rates by 70% compared to industry averages with Sift’s AI-f
 
 ## AI-fueled Data and Decisioning Accelerates Secure Growth
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Doxo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
 
@@ -137,7 +139,7 @@ Taylor Snyder
 
 Manager of Risk & Compliance at doxo
 
-[read customer story](/resources/case-studies/doxo-case-study/)
+read customer story
 
 ![Case-Study-Uphold](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20431'%3E%3C/svg%3E)
 
@@ -159,7 +161,7 @@ Joe Lawrence
 
 Director of Operations Taptap Send
 
-[read customer story](/resources/case-studies/taptap-send-case-study/)
+read customer story
 
 ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -181,7 +183,7 @@ John Page
 
 Merchant Processing Director ChowNow
 
-[read customer story](/resources/case-studies/chownow/)
+read customer story
 
 ![chownow\_logo-white@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -201,8 +203,6 @@ Challenges reveal opportunities for growth with AI-fueled detection and analysis
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Payment Fraud
@@ -210,8 +210,6 @@ Payment Fraud
 Keep transactions and transfers secure across users, no matter the size, sum, or scale.
 
 learn more
-
-](/solutions/payment-fraud/)[
 
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -221,8 +219,6 @@ Make new users untouchable from the second they sign up.
 
 learn more
 
-](/solutions/account-creation/)[
-
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Account Takeover
@@ -231,8 +227,6 @@ Make trusted users untouchable with bulletproof account protection.
 
 learn more
 
-](/solutions/ato/)[
-
 ![Content Scams](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Content Abuse
@@ -240,8 +234,6 @@ Content Abuse
 Beat fraudsters at their own game and shut down abusive content at the source.
 
 learn more
-
-](/solutions/content-scams/)
 
 ### Start Your Digital Risk Assessment
 
@@ -253,13 +245,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -269,8 +259,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -278,8 +266,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -289,13 +275,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

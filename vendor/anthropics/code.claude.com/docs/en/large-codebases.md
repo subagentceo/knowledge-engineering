@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -76,8 +75,8 @@ Claude Code loads every [CLAUDE.md](/en/memory) file from your working directory
 
 A common split is two levels:
 
-- **Root `CLAUDE.md`**: instructions that apply everywhere, such as coding standards, commit conventions, and repository layout
-- **Per-subdirectory `CLAUDE.md`**: conventions specific to that area's stack. In a monorepo that's one per package. In a large single tree it's one per subsystem such as `src/db/` or `src/api/`
+* **Root `CLAUDE.md`**: instructions that apply everywhere, such as coding standards, commit conventions, and repository layout
+* **Per-subdirectory `CLAUDE.md`**: conventions specific to that area's stack. In a monorepo that's one per package. In a large single tree it's one per subsystem such as `src/db/` or `src/api/`
 
 Commit these files to the repository so teammates inherit them. Each directory's owner typically maintains its file.
 
@@ -112,9 +111,9 @@ When you start Claude from `packages/api/`, it loads both `packages/api/CLAUDE.m
 
 A few ways to keep the files current as the codebase and models change:
 
-- **Review in pull requests**: treat CLAUDE.md edits like any other documentation change so conventions track the code
-- **Revisit after major model releases**: instructions that worked around an older model's limitation may become overhead once a newer model handles the case on its own. For example, a rule that forces single-file refactors can be deleted once the limitation is gone
-- **Add a Stop hook that proposes updates**: a [`Stop` hook](/en/hooks#stop) receives the path to the session transcript when Claude finishes responding, so a script can review the session and propose CLAUDE.md updates while the gap it exposed is fresh
+* **Review in pull requests**: treat CLAUDE.md edits like any other documentation change so conventions track the code
+* **Revisit after major model releases**: instructions that worked around an older model's limitation may become overhead once a newer model handles the case on its own. For example, a rule that forces single-file refactors can be deleted once the limitation is gone
+* **Add a Stop hook that proposes updates**: a [`Stop` hook](/en/hooks#stop) receives the path to the session transcript when Claude finishes responding, so a script can review the session and propose CLAUDE.md updates while the gap it exposed is fresh
 
 For more on how CLAUDE.md files load and interact, see [Memory and project instructions](/en/memory).
 
@@ -135,7 +134,7 @@ When you start Claude from the repository root, each subdirectory's CLAUDE.md lo
 
 Use this for directories you never work in, such as other teams' packages, legacy code, or vendored subtrees. The exclusion list is static, not a per-task switch. To focus on one package today and another tomorrow, [start Claude from that package's directory](#choose-where-to-start-claude) instead of editing exclusions.
 
-If you only want these exclusions for yourself, put the setting in `.claude/settings.local.json`, which is gitignored and not committed. Patterns use glob syntax matched against absolute file paths, so start relative-style patterns with `**/` to match anywhere in the tree. The example below excludes packages owned by other teams:
+If you only want these exclusions for yourself, put the setting in `.claude/settings.local.json`. Claude Code gitignores that file when it creates it; since you're creating it by hand here, add it to your gitignore. Patterns use glob syntax matched against absolute file paths, so start relative-style patterns with `**/` to match anywhere in the tree. The example below excludes packages owned by other teams:
 
 ```json .claude/settings.local.json theme={null}
 {
@@ -150,9 +149,9 @@ This skips every CLAUDE.md and rules file under those packages. The root CLAUDE.
 
 These patterns cover other common cases:
 
-- `"**/packages/*/CLAUDE.md"`: excludes every package's CLAUDE.md while keeping the root
-- `"**/packages/web/**"`: excludes everything under the web package, including rules
-- `"/home/user/monorepo/legacy/CLAUDE.md"`: excludes one specific file by absolute path
+* `"**/packages/*/CLAUDE.md"`: excludes every package's CLAUDE.md while keeping the root
+* `"**/packages/web/**"`: excludes everything under the web package, including rules
+* `"/home/user/monorepo/legacy/CLAUDE.md"`: excludes one specific file by absolute path
 
 Managed policy CLAUDE.md files cannot be excluded, so organization-wide instructions always apply. You can set `claudeMdExcludes` at any [settings scope](/en/settings#configuration-scopes): user, project, local, or managed. Arrays merge across scopes, so a team can set project-level defaults while individuals add local overrides.
 
@@ -216,7 +215,11 @@ If everyone working in this directory needs the same paths, commit the setting t
 ```json .claude/settings.json theme={null}
 {
   "worktree": {
-    "sparsePaths": [".claude", "packages/api", "packages/shared"]
+    "sparsePaths": [
+      ".claude",
+      "packages/api",
+      "packages/shared"
+    ]
   }
 }
 ```
@@ -232,8 +235,14 @@ To avoid duplicating large directories like `node_modules` across worktrees, pai
 ```json .claude/settings.json theme={null}
 {
   "worktree": {
-    "sparsePaths": [".claude", "packages/api", "packages/shared"],
-    "symlinkDirectories": ["node_modules"]
+    "sparsePaths": [
+      ".claude",
+      "packages/api",
+      "packages/shared"
+    ],
+    "symlinkDirectories": [
+      "node_modules"
+    ]
   }
 }
 ```
@@ -257,7 +266,10 @@ The `additionalDirectories` setting in `.claude/settings.json` gives Claude acce
 ```json .claude/settings.json theme={null}
 {
   "permissions": {
-    "additionalDirectories": ["../shared", "../web"]
+    "additionalDirectories": [
+      "../shared",
+      "../web"
+    ]
   }
 }
 ```
@@ -342,9 +354,9 @@ With skills spread across many directories, the list Claude chooses from can gro
 
 Which skills are in scope depends on where you start Claude:
 
-- **From a subdirectory such as `packages/api/`**: skills from that directory, every parent up to the repository root, and the user and enterprise levels
-- **From the repository root**: skills from every subdirectory Claude touches during the session, which can accumulate into the hundreds
-- **After adding a sibling with [`--add-dir`](#grant-access-across-packages-or-repositories)**: that sibling's skills load too. The `additionalDirectories` setting grants file access only and does not load skills
+* **From a subdirectory such as `packages/api/`**: skills from that directory, every parent up to the repository root, and the user and enterprise levels
+* **From the repository root**: skills from every subdirectory Claude touches during the session, which can accumulate into the hundreds
+* **After adding a sibling with [`--add-dir`](#grant-access-across-packages-or-repositories)**: that sibling's skills load too. The `additionalDirectories` setting grants file access only and does not load skills
 
 Names always load, but [descriptions are shortened when there are many](/en/skills#skill-descriptions-are-cut-short), which can strip the keywords Claude uses to decide whether a skill applies. Keep descriptions short and lead with words a request would contain, like "writing or modifying tests in `packages/api/`".
 
@@ -358,9 +370,9 @@ Per-directory CLAUDE.md files can become hard to govern as the codebase grows. C
 
 Move conventions and reference content out of always-loaded CLAUDE.md and into mechanisms that load on demand:
 
-- [Skills](/en/skills): reference material Claude loads only when relevant to the task
-- [Plugins](/en/plugins): versioned bundles of skills, hooks, and commands that a platform team owns centrally
-- [MCP servers](/en/mcp): if your organization already runs a code search or RAG index over the repository, expose it as an MCP tool so Claude queries it instead of reading files directly
+* [Skills](/en/skills): reference material Claude loads only when relevant to the task
+* [Plugins](/en/plugins): versioned bundles of skills, hooks, and commands that a platform team owns centrally
+* [MCP servers](/en/mcp): if your organization already runs a code search or RAG index over the repository, expose it as an MCP tool so Claude queries it instead of reading files directly
 
 See [server-managed or endpoint-managed settings](/en/server-managed-settings#choose-between-server-managed-and-endpoint-managed-settings) for how platform teams can enforce these centrally.
 
@@ -368,7 +380,7 @@ See [server-managed or endpoint-managed settings](/en/server-managed-settings#ch
 
 Once conventions live in plugins, a teammate starting Claude in an unfamiliar part of the tree has no signal about which plugin that area's owners maintain. A [`SessionStart` hook](/en/hooks#sessionstart) can close that gap, since anything the hook prints to stdout is added to Claude's context before the first prompt.
 
-For example, you can write a script that reads the launch directory from the [hook input](/en/hooks#common-input-fields), looks it up in a path-to-plugin map committed to the repository, and prints the recommendation for Claude to relay in its first reply. See [Automate workflows with hooks](/en/hooks-guide) to write and register the hook.
+For example, you can write a script that reads the launch directory from the [hook input](/en/hooks#common-input-fields), looks it up in a path-to-plugin map committed to the repository, and prints the recommendation for Claude to relay in its first reply. See [Automate actions with hooks](/en/hooks-guide) to write and register the hook.
 
 ## Put it together
 
@@ -379,12 +391,23 @@ The example commits `worktree`, `additionalDirectories`, and the `Read` deny rul
 ```json packages/api/.claude/settings.json theme={null}
 {
   "worktree": {
-    "sparsePaths": [".claude", "packages/api", "packages/shared"],
-    "symlinkDirectories": ["node_modules"]
+    "sparsePaths": [
+      ".claude",
+      "packages/api",
+      "packages/shared"
+    ],
+    "symlinkDirectories": [
+      "node_modules"
+    ]
   },
   "permissions": {
-    "additionalDirectories": ["../shared"],
-    "deny": ["Read(./**/dist/**)", "Read(./**/build/**)"]
+    "additionalDirectories": [
+      "../shared"
+    ],
+    "deny": [
+      "Read(./**/dist/**)",
+      "Read(./**/build/**)"
+    ]
   }
 }
 ```
@@ -396,7 +419,10 @@ The `additionalDirectories` entry applies when you start Claude from `packages/a
 ```json .claude/settings.json theme={null}
 {
   "permissions": {
-    "deny": ["Read(./**/dist/**)", "Read(./**/build/**)"]
+    "deny": [
+      "Read(./**/dist/**)",
+      "Read(./**/build/**)"
+    ]
   }
 }
 ```
@@ -421,11 +447,11 @@ monorepo/
 
 With this setup, starting Claude from `packages/api/`:
 
-- Loads the root CLAUDE.md and `packages/api/CLAUDE.md`, skips `packages/web/CLAUDE.md`
-- Can read and edit files in `packages/api/` and `packages/shared/`
-- Skips reads of build output under `dist/` and `build/` in `packages/api/`
-- Has the api-testing skill available on demand
-- Creates worktrees containing `.claude/`, `packages/api/`, `packages/shared/`, and root-level files, with the deny rules applied across the worktree from the root settings file
+* Loads the root CLAUDE.md and `packages/api/CLAUDE.md`, skips `packages/web/CLAUDE.md`
+* Can read and edit files in `packages/api/` and `packages/shared/`
+* Skips reads of build output under `dist/` and `build/` in `packages/api/`
+* Has the api-testing skill available on demand
+* Creates worktrees containing `.claude/`, `packages/api/`, `packages/shared/`, and root-level files, with the deny rules applied across the worktree from the root settings file
 
 ## Scope and plan changes that span packages
 
@@ -433,13 +459,13 @@ The configuration above controls what Claude sees. When a single change touches 
 
 Two techniques help keep a cross-package change consistent:
 
-- **Give Claude the whole change in one session**: handing over the shared edit and its call sites together keeps the decisions behind each edit consistent, rather than re-deriving them per package
-- **Save the plan to a file before editing**: [plan first](/en/best-practices#explore-first-then-plan-then-code) and ask Claude to write the plan to a markdown file in the repository. A long cross-package session [compacts its context](/en/context-window#what-survives-compaction) along the way, and the saved plan survives where conversation history may not
+* **Give Claude the whole change in one session**: handing over the shared edit and its call sites together keeps the decisions behind each edit consistent, rather than re-deriving them per package
+* **Save the plan to a file before editing**: [plan first](/en/best-practices#explore-first-then-plan-then-code) and ask Claude to write the plan to a markdown file in the repository. A long cross-package session [compacts its context](/en/context-window#what-survives-compaction) along the way, and the saved plan survives where conversation history may not
 
 ## Next steps
 
 Once this configuration is in place, you can refine it:
 
-- Use [hooks](/en/hooks-guide) to run per-directory linters or type-checkers after Claude edits files
-- Review [Manage costs effectively](/en/costs) to understand how codebase size affects token usage and how to set spend limits before a wider rollout
-- Read [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) on the Claude blog for organizational rollout patterns and ownership models that sit above the per-repository configuration on this page
+* Use [hooks](/en/hooks-guide) to run per-directory linters or type-checkers after Claude edits files
+* Review [Manage costs effectively](/en/costs) to understand how codebase size affects token usage and how to set spend limits before a wider rollout
+* Read [How Claude Code works in large codebases](https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start) on the Claude blog for organizational rollout patterns and ownership models that sit above the per-repository configuration on this page

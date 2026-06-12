@@ -1,7 +1,7 @@
 > This page location: Connect to Neon > Passwordless auth
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of Neon's passwordless authentication feature for connecting to the database using `psql`, detailing the command to initiate the connection and the steps to authenticate via a web link.
+> Summary: Neon's passwordless auth lets you connect to Postgres via `psql` without a password. Run `psql -h pg.neon.tech` and confirm your identity through a browser link to authenticate quickly without storing or typing credentials. Passwordless auth connects to the first database on the branch; switching databases with `\c` restarts the authentication flow.
 
 # Passwordless auth
 

@@ -1,7 +1,6 @@
 ---
 vendor: osv-scanner
 llms_txt: 
-last_crawled: 2026-05-16T05:40:33.364Z
 count: 18
 transform: html-extract
 ---

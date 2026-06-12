@@ -13,6 +13,7 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `ModelListParams parameters`
+
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -30,6 +31,7 @@ The Models API response can be used to determine which models are available for 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -82,12 +84,16 @@ The Models API response can be used to determine which models are available for 
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class ModelListPageResponse:`
+
   - `required IReadOnlyList<ModelInfo> Data`
+
     - `required string ID`
 
       Unique model identifier.
@@ -95,9 +101,11 @@ The Models API response can be used to determine which models are available for 
     - `required ModelCapabilities? Capabilities`
 
       Model capability information.
+
       - `required CapabilitySupport Batch`
 
         Whether the model supports the Batch API.
+
         - `required Boolean Supported`
 
           Whether this capability is supported by the model.
@@ -113,6 +121,7 @@ The Models API response can be used to determine which models are available for 
       - `required ContextManagementCapability ContextManagement`
 
         Context management support and available strategies.
+
         - `required CapabilitySupport? ClearThinking20251015`
 
           Indicates whether a capability is supported.
@@ -132,6 +141,7 @@ The Models API response can be used to determine which models are available for 
       - `required EffortCapability Effort`
 
         Effort (reasoning_effort) support and available levels.
+
         - `required CapabilitySupport High`
 
           Whether the model supports high effort level.
@@ -171,6 +181,7 @@ The Models API response can be used to determine which models are available for 
       - `required ThinkingCapability Thinking`
 
         Thinking capability and supported type configurations.
+
         - `required Boolean Supported`
 
           Whether this capability is supported by the model.
@@ -178,6 +189,7 @@ The Models API response can be used to determine which models are available for 
         - `required ThinkingTypes Types`
 
           Supported thinking type configurations.
+
           - `required CapabilitySupport Adaptive`
 
             Whether the model supports thinking with type 'adaptive' (auto).
@@ -326,6 +338,7 @@ The Models API response can be used to determine information about a specific mo
 ### Parameters
 
 - `ModelRetrieveParams parameters`
+
   - `required string modelID`
 
     Model identifier or alias.
@@ -333,6 +346,7 @@ The Models API response can be used to determine information about a specific mo
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -385,11 +399,14 @@ The Models API response can be used to determine information about a specific mo
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class ModelInfo:`
+
   - `required string ID`
 
     Unique model identifier.
@@ -397,9 +414,11 @@ The Models API response can be used to determine information about a specific mo
   - `required ModelCapabilities? Capabilities`
 
     Model capability information.
+
     - `required CapabilitySupport Batch`
 
       Whether the model supports the Batch API.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -415,6 +434,7 @@ The Models API response can be used to determine information about a specific mo
     - `required ContextManagementCapability ContextManagement`
 
       Context management support and available strategies.
+
       - `required CapabilitySupport? ClearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -434,6 +454,7 @@ The Models API response can be used to determine information about a specific mo
     - `required EffortCapability Effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `required CapabilitySupport High`
 
         Whether the model supports high effort level.
@@ -473,6 +494,7 @@ The Models API response can be used to determine information about a specific mo
     - `required ThinkingCapability Thinking`
 
       Thinking capability and supported type configurations.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -480,6 +502,7 @@ The Models API response can be used to determine information about a specific mo
       - `required ThinkingTypes Types`
 
         Supported thinking type configurations.
+
         - `required CapabilitySupport Adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -601,6 +624,7 @@ Console.WriteLine(modelInfo);
 - `class CapabilitySupport:`
 
   Indicates whether a capability is supported.
+
   - `required Boolean Supported`
 
     Whether this capability is supported by the model.
@@ -610,9 +634,11 @@ Console.WriteLine(modelInfo);
 - `class ContextManagementCapability:`
 
   Context management capability details.
+
   - `required CapabilitySupport? ClearThinking20251015`
 
     Indicates whether a capability is supported.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -634,9 +660,11 @@ Console.WriteLine(modelInfo);
 - `class EffortCapability:`
 
   Effort (reasoning_effort) capability details.
+
   - `required CapabilitySupport High`
 
     Whether the model supports high effort level.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -666,9 +694,11 @@ Console.WriteLine(modelInfo);
 - `class ModelCapabilities:`
 
   Model capability information.
+
   - `required CapabilitySupport Batch`
 
     Whether the model supports the Batch API.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -684,6 +714,7 @@ Console.WriteLine(modelInfo);
   - `required ContextManagementCapability ContextManagement`
 
     Context management support and available strategies.
+
     - `required CapabilitySupport? ClearThinking20251015`
 
       Indicates whether a capability is supported.
@@ -703,6 +734,7 @@ Console.WriteLine(modelInfo);
   - `required EffortCapability Effort`
 
     Effort (reasoning_effort) support and available levels.
+
     - `required CapabilitySupport High`
 
       Whether the model supports high effort level.
@@ -742,6 +774,7 @@ Console.WriteLine(modelInfo);
   - `required ThinkingCapability Thinking`
 
     Thinking capability and supported type configurations.
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.
@@ -749,6 +782,7 @@ Console.WriteLine(modelInfo);
     - `required ThinkingTypes Types`
 
       Supported thinking type configurations.
+
       - `required CapabilitySupport Adaptive`
 
         Whether the model supports thinking with type 'adaptive' (auto).
@@ -760,6 +794,7 @@ Console.WriteLine(modelInfo);
 ### Model Info
 
 - `class ModelInfo:`
+
   - `required string ID`
 
     Unique model identifier.
@@ -767,9 +802,11 @@ Console.WriteLine(modelInfo);
   - `required ModelCapabilities? Capabilities`
 
     Model capability information.
+
     - `required CapabilitySupport Batch`
 
       Whether the model supports the Batch API.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -785,6 +822,7 @@ Console.WriteLine(modelInfo);
     - `required ContextManagementCapability ContextManagement`
 
       Context management support and available strategies.
+
       - `required CapabilitySupport? ClearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -804,6 +842,7 @@ Console.WriteLine(modelInfo);
     - `required EffortCapability Effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `required CapabilitySupport High`
 
         Whether the model supports high effort level.
@@ -843,6 +882,7 @@ Console.WriteLine(modelInfo);
     - `required ThinkingCapability Thinking`
 
       Thinking capability and supported type configurations.
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -850,6 +890,7 @@ Console.WriteLine(modelInfo);
       - `required ThinkingTypes Types`
 
         Supported thinking type configurations.
+
         - `required CapabilitySupport Adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -885,6 +926,7 @@ Console.WriteLine(modelInfo);
 - `class ThinkingCapability:`
 
   Thinking capability details.
+
   - `required Boolean Supported`
 
     Whether this capability is supported by the model.
@@ -892,9 +934,11 @@ Console.WriteLine(modelInfo);
   - `required ThinkingTypes Types`
 
     Supported thinking type configurations.
+
     - `required CapabilitySupport Adaptive`
 
       Whether the model supports thinking with type 'adaptive' (auto).
+
       - `required Boolean Supported`
 
         Whether this capability is supported by the model.
@@ -908,9 +952,11 @@ Console.WriteLine(modelInfo);
 - `class ThinkingTypes:`
 
   Supported thinking type configurations.
+
   - `required CapabilitySupport Adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).
+
     - `required Boolean Supported`
 
       Whether this capability is supported by the model.

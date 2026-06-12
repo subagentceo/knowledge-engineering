@@ -2,6 +2,40 @@
 
 A conversation with Dario Amodei & Daniela Amodei moderated by Ami Vora.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+01:00PM – 01:30PM
+
+Speaker(s)
+
+Dario Amodei
+
+CEO and Co-Founder,
+
+Anthropic
+
+Daniela Amodei
+
+President,
+
+Anthropic
+
+Ami Vora
+
+Chief Product Officer,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

@@ -1,3 +1,5 @@
+# A Day in the Life of an Email Marketer - Iterable
+
 ## A Day in the Life of an Email Marketer
 
 **Published by**
@@ -6,15 +8,15 @@ March 27, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/aee5b-1lq2utbplsvhuzpsmoarbuq.png)
 
-When done flawlessly, emails look like they just send themselves. Beautiful imagery, personalized copy, [delighted and engaged users](https://iterable.com/), and no hiccups on the backend.
+When done flawlessly, emails look like they just send themselves. Beautiful imagery, personalized copy, delighted and engaged users, and no hiccups on the backend.
 
 Of course, to achieve this utopian vision, email marketers work tirelessly behind the scenes so customers can easily go from inbox to checkout.
 
-[![](https://cdn-images-1.medium.com/max/600/0*6PBJkinLma95TDP0.)](https://www.linkedin.com/in/silva-yousefian-29581531/)
+![](https://cdn-images-1.medium.com/max/600/0*6PBJkinLma95TDP0.)
 
-[![](https://iterableblogimport.files.wordpress.com/2017/03/36393-16cz4q9tm0tfqkwkudo9wcq.png)](https://www.creativelive.com/)
+![](https://iterableblogimport.files.wordpress.com/2017/03/36393-16cz4q9tm0tfqkwkudo9wcq.png)
 
-[Silva Yousefian](https://www.linkedin.com/in/silva-yousefian-29581531) is one of those crusaders. She’s an email marketing manager at [CreativeLive](https://www.creativelive.com/), an online education platform and Iterable customer that broadcasts live classes to an international audience for free.
+Silva Yousefian is one of those crusaders. She’s an email marketing manager at CreativeLive, an online education platform and Iterable customer that broadcasts live classes to an international audience for free.
 
 Prior to CreativeLive, she worked at OrderUp, a food delivery service, and Wall Street Daily, a publisher of financial news.
 
@@ -58,7 +60,7 @@ _**As an email marketer, you’re frequently approached by salespeople of market
 
 I get a lot of emails from salespeople trying to get on the phone with me, and I appreciate them being consistent and persistent, but if I don’t respond in a couple weeks, I’m not interested and I’m not going to be interested. As an email marketer, I know that there are certain tactics to get someone’s attention, but it’s irritating.
 
-One time, at my last company, we were talking to a company, and they refused to give a price point unless we could commit \[to a deeper conversation\], which I thought was so bizarre. Being vague and not answering specific questions are big mistakes.
+One time, at my last company, we were talking to a company, and they refused to give a price point unless we could commit [to a deeper conversation], which I thought was so bizarre. Being vague and not answering specific questions are big mistakes.
 
 _**Besides Iterable, what are the other tools in your marketing toolkit?**_
 
@@ -74,10 +76,10 @@ It’s really intuitive and easy to use. Iterable gave us the capabilities we ne
 
 Also, the support: the ability to chat with someone at any time and get an answer right away is amazing.
 
-Another thing I was impressed with was the [subscriber Segmentation interface](https://iterable.com/product/) because it allows us to build out the equivalent of advanced SQL queries without having to write code.
+Another thing I was impressed with was the subscriber Segmentation interface because it allows us to build out the equivalent of advanced SQL queries without having to write code.
 
 Our engineers are not dedicated to emails, and they constantly tell us that they don’t have the bandwidth to help with emails.
 
 With Iterable, it’s a lot easier to do it ourselves than having to ask the data team to do it for us.
 
-We take great pride in enabling email marketers like Silva to build more sophisticated campaigns and better engage their users. To learn how CreativeLive and other businesses are accelerating their growth by using the Iterable Growth Marketing Platform, contact us to [request a demo](https://pages.iterable.com/demo/).
+We take great pride in enabling email marketers like Silva to build more sophisticated campaigns and better engage their users. To learn how CreativeLive and other businesses are accelerating their growth by using the Iterable Growth Marketing Platform, contact us to request a demo.

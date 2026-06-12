@@ -51,7 +51,9 @@ List Events
 ### Returns
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -67,6 +69,7 @@ List Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -82,6 +85,7 @@ List Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -109,6 +113,7 @@ List Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -136,6 +141,7 @@ List Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -159,6 +165,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -174,6 +181,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -185,6 +193,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -216,6 +225,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -239,6 +249,7 @@ List Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -266,6 +277,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -289,6 +301,7 @@ List Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -312,6 +325,7 @@ List Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -335,6 +349,7 @@ List Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -346,6 +361,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -361,6 +377,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -372,6 +389,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -383,6 +401,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -398,6 +417,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -409,6 +429,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -428,6 +449,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -447,6 +469,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -482,6 +505,7 @@ List Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -493,6 +517,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -516,6 +541,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -535,6 +561,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -562,6 +589,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -573,6 +601,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -587,11 +616,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -606,7 +636,7 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -615,6 +645,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -629,11 +660,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -661,6 +693,7 @@ List Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -675,11 +708,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -701,6 +735,22 @@ List Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -782,6 +832,7 @@ Send Events
 ### Returns
 
 - `ManagedAgentsSendSessionEvents`
+
   - `?list<Data> data`
 
     Sent events
@@ -848,7 +899,9 @@ Stream Events
 ### Returns
 
 - `ManagedAgentsStreamSessionEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -864,6 +917,7 @@ Stream Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -879,6 +933,7 @@ Stream Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -906,6 +961,7 @@ Stream Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -933,6 +989,7 @@ Stream Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -956,6 +1013,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -971,6 +1029,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -982,6 +1041,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1013,6 +1073,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1036,6 +1097,7 @@ Stream Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1063,6 +1125,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1086,6 +1149,7 @@ Stream Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1109,6 +1173,7 @@ Stream Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1132,6 +1197,7 @@ Stream Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1143,6 +1209,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1158,6 +1225,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1169,6 +1237,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1180,6 +1249,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1195,6 +1265,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1206,6 +1277,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1225,6 +1297,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1244,6 +1317,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1279,6 +1353,7 @@ Stream Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1290,6 +1365,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1313,6 +1389,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1332,6 +1409,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1359,6 +1437,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1370,6 +1449,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1384,11 +1464,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1403,7 +1484,7 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -1412,6 +1493,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1426,11 +1508,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1458,6 +1541,7 @@ Stream Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1472,11 +1556,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -1498,6 +1583,22 @@ Stream Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -1540,6 +1641,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Custom Tool Use Event
 
 - `ManagedAgentsAgentCustomToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1565,6 +1667,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent MCP Tool Result Event
 
 - `ManagedAgentsAgentMCPToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1590,6 +1693,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent MCP Tool Use Event
 
 - `ManagedAgentsAgentMCPToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1623,6 +1727,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Message Event
 
 - `ManagedAgentsAgentMessageEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1640,6 +1745,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thinking Event
 
 - `ManagedAgentsAgentThinkingEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1653,6 +1759,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Context Compacted Event
 
 - `ManagedAgentsAgentThreadContextCompactedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1666,6 +1773,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Message Received Event
 
 - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1691,6 +1799,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Message Sent Event
 
 - `ManagedAgentsAgentThreadMessageSentEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1716,6 +1825,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Tool Result Event
 
 - `ManagedAgentsAgentToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1741,6 +1851,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Tool Use Event
 
 - `ManagedAgentsAgentToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -1770,6 +1881,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Base64 Document Source
 
 - `ManagedAgentsBase64DocumentSource`
+
   - `string data`
 
     Base64-encoded document data.
@@ -1783,6 +1895,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Base64 Image Source
 
 - `ManagedAgentsBase64ImageSource`
+
   - `string data`
 
     Base64-encoded image data.
@@ -1796,6 +1909,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Billing Error
 
 - `ManagedAgentsBillingError`
+
   - `string message`
 
     Human-readable error description.
@@ -1806,9 +1920,32 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `Type type`
 
+### Beta Managed Agents Credential Host Unreachable Error
+
+- `ManagedAgentsCredentialHostUnreachableError`
+
+  - `string credentialID`
+
+    ID of the affected credential.
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `RetryStatus retryStatus`
+
+    What the client should do next in response to this error.
+
+  - `Type type`
+
+  - `string vaultID`
+
+    ID of the vault containing the affected credential.
+
 ### Beta Managed Agents Document Block
 
 - `ManagedAgentsDocumentBlock`
+
   - `Source source`
 
     Union type for document source variants.
@@ -1826,7 +1963,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Event Params
 
 - `ManagedAgentsEventParams`
+
   - `ManagedAgentsUserMessageEventParams`
+
     - `list<Content> content`
 
       Array of content blocks for the user message.
@@ -1834,6 +1973,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserInterruptEventParams`
+
     - `Type type`
 
     - `?string sessionThreadID`
@@ -1841,6 +1981,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEventParams`
+
     - `Result result`
 
       UserToolConfirmationResult enum
@@ -1856,6 +1997,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
   - `ManagedAgentsUserCustomToolResultEventParams`
+
     - `string customToolUseID`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -1871,6 +2013,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsUserDefineOutcomeEventParams`
+
     - `string description`
 
       What the agent should produce. This is the task specification.
@@ -1886,6 +2029,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Eval→revision cycles before giving up. Default 3, max 20.
 
   - `ManagedAgentsUserToolResultEventParams`
+
     - `string toolUseID`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -1900,9 +2044,18 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
+  - `ManagedAgentsSystemMessageEventParams`
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks to append. Text-only.
+
+    - `Type type`
+
 ### Beta Managed Agents File Document Source
 
 - `ManagedAgentsFileDocumentSource`
+
   - `string fileID`
 
     ID of a previously uploaded file.
@@ -1912,6 +2065,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Image Source
 
 - `ManagedAgentsFileImageSource`
+
   - `string fileID`
 
     ID of a previously uploaded file.
@@ -1921,6 +2075,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Rubric
 
 - `ManagedAgentsFileRubric`
+
   - `string fileID`
 
     ID of the rubric file.
@@ -1930,6 +2085,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Rubric Params
 
 - `ManagedAgentsFileRubricParams`
+
   - `string fileID`
 
     ID of the rubric file.
@@ -1939,6 +2095,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Image Block
 
 - `ManagedAgentsImageBlock`
+
   - `Source source`
 
     Union type for image source variants.
@@ -1948,6 +2105,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents MCP Authentication Failed Error
 
 - `ManagedAgentsMCPAuthenticationFailedError`
+
   - `string mcpServerName`
 
     Name of the MCP server that failed authentication.
@@ -1965,6 +2123,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents MCP Connection Failed Error
 
 - `ManagedAgentsMCPConnectionFailedError`
+
   - `string mcpServerName`
 
     Name of the MCP server that failed to connect.
@@ -1982,6 +2141,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Overloaded Error
 
 - `ManagedAgentsModelOverloadedError`
+
   - `string message`
 
     Human-readable error description.
@@ -1995,6 +2155,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Rate Limited Error
 
 - `ManagedAgentsModelRateLimitedError`
+
   - `string message`
 
     Human-readable error description.
@@ -2008,6 +2169,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Request Failed Error
 
 - `ManagedAgentsModelRequestFailedError`
+
   - `string message`
 
     Human-readable error description.
@@ -2021,6 +2183,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Plain Text Document Source
 
 - `ManagedAgentsPlainTextDocumentSource`
+
   - `string data`
 
     The plain text content.
@@ -2034,21 +2197,25 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Retry Status Exhausted
 
 - `ManagedAgentsRetryStatusExhausted`
+
   - `Type type`
 
 ### Beta Managed Agents Retry Status Retrying
 
 - `ManagedAgentsRetryStatusRetrying`
+
   - `Type type`
 
 ### Beta Managed Agents Retry Status Terminal
 
 - `ManagedAgentsRetryStatusTerminal`
+
   - `Type type`
 
 ### Beta Managed Agents Search Result Block
 
 - `ManagedAgentsSearchResultBlock`
+
   - `ManagedAgentsSearchResultCitations citations`
 
     Citation settings for a search result.
@@ -2070,6 +2237,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Search Result Citations
 
 - `ManagedAgentsSearchResultCitations`
+
   - `bool enabled`
 
     Whether citations are enabled for this search result.
@@ -2077,6 +2245,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Search Result Content
 
 - `ManagedAgentsSearchResultContent`
+
   - `string text`
 
     The text content.
@@ -2086,6 +2255,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Send Session Events
 
 - `ManagedAgentsSendSessionEvents`
+
   - `?list<Data> data`
 
     Sent events
@@ -2093,6 +2263,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Deleted Event
 
 - `ManagedAgentsSessionDeletedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2106,11 +2277,13 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session End Turn
 
 - `ManagedAgentsSessionEndTurn`
+
   - `Type type`
 
 ### Beta Managed Agents Session Error Event
 
 - `ManagedAgentsSessionErrorEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2128,7 +2301,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Event
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2144,6 +2319,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2159,6 +2335,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2186,6 +2363,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2213,6 +2391,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2236,6 +2415,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2251,6 +2431,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2262,6 +2443,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2293,6 +2475,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2316,6 +2499,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2343,6 +2527,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2366,6 +2551,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2389,6 +2575,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2412,6 +2599,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2423,6 +2611,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2438,6 +2627,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2449,6 +2639,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2460,6 +2651,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2475,6 +2667,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2486,6 +2679,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2505,6 +2699,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2524,6 +2719,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2559,6 +2755,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2570,6 +2767,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2593,6 +2791,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2612,6 +2811,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2639,6 +2839,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2650,6 +2851,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2664,11 +2866,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2683,7 +2886,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -2692,6 +2895,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2706,11 +2910,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2738,6 +2943,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2752,11 +2958,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -2779,9 +2986,26 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
+
 ### Beta Managed Agents Session Requires Action
 
 - `ManagedAgentsSessionRequiresAction`
+
   - `list<string> eventIDs`
 
     The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
@@ -2791,11 +3015,13 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Retries Exhausted
 
 - `ManagedAgentsSessionRetriesExhausted`
+
   - `Type type`
 
 ### Beta Managed Agents Session Status Idle Event
 
 - `ManagedAgentsSessionStatusIdleEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2813,6 +3039,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Rescheduled Event
 
 - `ManagedAgentsSessionStatusRescheduledEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2826,6 +3053,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Running Event
 
 - `ManagedAgentsSessionStatusRunningEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2839,6 +3067,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Terminated Event
 
 - `ManagedAgentsSessionStatusTerminatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2852,6 +3081,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Created Event
 
 - `ManagedAgentsSessionThreadCreatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2873,6 +3103,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Status Idle Event
 
 - `ManagedAgentsSessionThreadStatusIdleEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2887,7 +3118,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that went idle.
+    Public sthr_ ID of the thread that went idle.
 
   - `StopReason stopReason`
 
@@ -2898,6 +3129,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Status Rescheduled Event
 
 - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2912,13 +3144,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that is retrying.
+    Public sthr_ ID of the thread that is retrying.
 
   - `Type type`
 
 ### Beta Managed Agents Session Thread Status Running Event
 
 - `ManagedAgentsSessionThreadStatusRunningEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2933,13 +3166,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that started running.
+    Public sthr_ ID of the thread that started running.
 
   - `Type type`
 
 ### Beta Managed Agents Session Thread Status Terminated Event
 
 - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2954,13 +3188,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that terminated.
+    Public sthr_ ID of the thread that terminated.
 
   - `Type type`
 
 ### Beta Managed Agents Span Model Request End Event
 
 - `ManagedAgentsSpanModelRequestEndEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2986,6 +3221,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Model Request Start Event
 
 - `ManagedAgentsSpanModelRequestStartEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -2999,6 +3235,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Model Usage
 
 - `ManagedAgentsSpanModelUsage`
+
   - `int cacheCreationInputTokens`
 
     Tokens used to create prompt cache in this request.
@@ -3022,6 +3259,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation End Event
 
 - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3059,6 +3297,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation Ongoing Event
 
 - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3080,6 +3319,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation Start Event
 
 - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3101,7 +3341,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Stream Session Events
 
 - `ManagedAgentsStreamSessionEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3117,6 +3359,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3132,6 +3375,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3159,6 +3403,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3186,6 +3431,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3209,6 +3455,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3224,6 +3471,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3235,6 +3483,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3266,6 +3515,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3289,6 +3539,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3316,6 +3567,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3339,6 +3591,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3362,6 +3615,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3385,6 +3639,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3396,6 +3651,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3411,6 +3667,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3422,6 +3679,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3433,6 +3691,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3448,6 +3707,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3459,6 +3719,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3478,6 +3739,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3497,6 +3759,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3532,6 +3795,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3543,6 +3807,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3566,6 +3831,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3585,6 +3851,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3612,6 +3879,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3623,6 +3891,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3637,11 +3906,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3656,7 +3926,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -3665,6 +3935,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3679,11 +3950,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3711,6 +3983,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3725,11 +3998,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -3752,9 +4026,36 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
+
+### Beta Managed Agents System Message Event Params
+
+- `ManagedAgentsSystemMessageEventParams`
+
+  - `list<BetaManagedAgentsSystemContentBlock> content`
+
+    System content blocks to append. Text-only.
+
+  - `Type type`
+
 ### Beta Managed Agents Text Block
 
 - `ManagedAgentsTextBlock`
+
   - `string text`
 
     The text content.
@@ -3764,6 +4065,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Text Rubric
 
 - `ManagedAgentsTextRubric`
+
   - `string content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text.
@@ -3773,6 +4075,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Text Rubric Params
 
 - `ManagedAgentsTextRubricParams`
+
   - `string content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
@@ -3782,6 +4085,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Unknown Error
 
 - `ManagedAgentsUnknownError`
+
   - `string message`
 
     Human-readable error description.
@@ -3795,6 +4099,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents URL Document Source
 
 - `ManagedAgentsURLDocumentSource`
+
   - `Type type`
 
   - `string url`
@@ -3804,6 +4109,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents URL Image Source
 
 - `ManagedAgentsURLImageSource`
+
   - `Type type`
 
   - `string url`
@@ -3813,6 +4119,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Custom Tool Result Event
 
 - `ManagedAgentsUserCustomToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3842,6 +4149,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Custom Tool Result Event Params
 
 - `ManagedAgentsUserCustomToolResultEventParams`
+
   - `string customToolUseID`
 
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -3859,6 +4167,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Define Outcome Event
 
 - `ManagedAgentsUserDefineOutcomeEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3888,6 +4197,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Define Outcome Event Params
 
 - `ManagedAgentsUserDefineOutcomeEventParams`
+
   - `string description`
 
     What the agent should produce. This is the task specification.
@@ -3905,6 +4215,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Interrupt Event
 
 - `ManagedAgentsUserInterruptEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3922,6 +4233,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Interrupt Event Params
 
 - `ManagedAgentsUserInterruptEventParams`
+
   - `Type type`
 
   - `?string sessionThreadID`
@@ -3931,6 +4243,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Message Event
 
 - `ManagedAgentsUserMessageEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3948,6 +4261,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Message Event Params
 
 - `ManagedAgentsUserMessageEventParams`
+
   - `list<Content> content`
 
     Array of content blocks for the user message.
@@ -3957,6 +4271,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Confirmation Event
 
 - `ManagedAgentsUserToolConfirmationEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -3986,6 +4301,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Confirmation Event Params
 
 - `ManagedAgentsUserToolConfirmationEventParams`
+
   - `Result result`
 
     UserToolConfirmationResult enum
@@ -4003,6 +4319,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Result Event Params
 
 - `ManagedAgentsUserToolResultEventParams`
+
   - `string toolUseID`
 
     The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.

@@ -1,7 +1,5 @@
 # Export documents
 
-Export documents
-
 To export all documents in a namespace, use the [query](/docs/query) API to page
 through documents by advancing a filter on the `id` attribute.
 
@@ -19,7 +17,7 @@ documents).
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'export-example-py')
@@ -43,7 +41,7 @@ while True:
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`export-example-ts`);
@@ -78,8 +76,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("export-example-go")
@@ -94,7 +91,7 @@ func main() {
 		result, err := ns.Query(
 			ctx,
 			turbopuffer.NamespaceQueryParams{
-				RankBy:  turbopuffer.NewRankByAttribute("id", turbopuffer.RankByAttributeOrderAsc),
+				RankBy: turbopuffer.NewRankByAttribute("id", turbopuffer.RankByAttributeOrderAsc),
 				Limit: turbopuffer.LimitParam{
 					Total: 10_000,
 				},
@@ -127,8 +124,7 @@ public class Export {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("export-example-java");
@@ -155,11 +151,54 @@ public class Export {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Text.Json;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("export-example-csharp");
+
+JsonElement? lastId = null;
+while (true)
+{
+    var queryParams = new NamespaceQueryParams
+    {
+        RankBy = RankBy.Attribute("id", RankByAttributeOrder.ASC),
+        Limit = 10_000,
+    };
+    if (lastId != null)
+    {
+        queryParams = queryParams with { Filters = Filter.Gt("id", lastId) };
+    }
+    var result = await ns.Query(queryParams);
+    var rows = result.GetRows();
+
+    // Do something with the page of results.
+    foreach (var row in rows)
+    {
+        Console.WriteLine(row);
+    }
+
+    if (rows.Count < 10_000)
+    {
+        break;
+    }
+    lastId = rows[^1]["id"];
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("export-example-rb")
@@ -181,3 +220,12 @@ loop do
 end
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/export.md](https://turbopuffer.com/docs/export.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

@@ -33,9 +33,14 @@ The Models API response can be used to determine which models are available for 
 ### Returns
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -89,6 +94,9 @@ var_dump($page);
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true
@@ -186,9 +194,14 @@ The Models API response can be used to determine information about a specific mo
 ### Returns
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -237,6 +250,9 @@ var_dump($betaModelInfo);
 ```json
 {
   "id": "claude-opus-4-6",
+  "allowed_fallback_models": [
+    "string"
+  ],
   "capabilities": {
     "batch": {
       "supported": true
@@ -311,6 +327,7 @@ var_dump($betaModelInfo);
 ### Beta Capability Support
 
 - `BetaCapabilitySupport`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -318,6 +335,7 @@ var_dump($betaModelInfo);
 ### Beta Context Management Capability
 
 - `BetaContextManagementCapability`
+
   - `?BetaCapabilitySupport clearThinking20251015`
 
     Indicates whether a capability is supported.
@@ -337,6 +355,7 @@ var_dump($betaModelInfo);
 ### Beta Effort Capability
 
 - `BetaEffortCapability`
+
   - `BetaCapabilitySupport high`
 
     Whether the model supports high effort level.
@@ -364,6 +383,7 @@ var_dump($betaModelInfo);
 ### Beta Model Capabilities
 
 - `BetaModelCapabilities`
+
   - `BetaCapabilitySupport batch`
 
     Whether the model supports the Batch API.
@@ -403,9 +423,14 @@ var_dump($betaModelInfo);
 ### Beta Model Info
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -436,6 +461,7 @@ var_dump($betaModelInfo);
 ### Beta Thinking Capability
 
 - `BetaThinkingCapability`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -447,6 +473,7 @@ var_dump($betaModelInfo);
 ### Beta Thinking Types
 
 - `BetaThinkingTypes`
+
   - `BetaCapabilitySupport adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).

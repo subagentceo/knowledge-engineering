@@ -22,31 +22,39 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ### Returns
 
 - `ClaudeCodeUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { actor, core_metrics, customer_type, 6 more }`
 
     List of Claude Code usage records for the requested date.
+
     - `actor: object { email_address, type }  or object { api_key_name, type }`
 
       The user or API key that performed the Claude Code actions.
+
       - `UserActor object { email_address, type }`
+
         - `email_address: string`
 
           Email address of the user who performed Claude Code actions.
 
         - `type: "user_actor"`
+
           - `"user_actor"`
 
       - `APIActor object { api_key_name, type }`
+
         - `api_key_name: string`
 
           Name of the API key used to perform Claude Code actions.
 
         - `type: "api_actor"`
+
           - `"api_actor"`
 
     - `core_metrics: object { commits_by_claude_code, lines_of_code, num_sessions, pull_requests_by_claude_code }`
 
       Core productivity metrics measuring Claude Code usage and impact.
+
       - `commits_by_claude_code: number`
 
         Number of git commits created through Claude Code's commit functionality.
@@ -54,6 +62,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `lines_of_code: object { added, removed }`
 
         Statistics on code changes made through Claude Code.
+
         - `added: number`
 
           Total number of lines of code added across all files by Claude Code.
@@ -73,6 +82,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `customer_type: "api" or "subscription"`
 
       Type of customer account (api for API customers, subscription for Pro/Team customers).
+
       - `"api"`
 
       - `"subscription"`
@@ -84,9 +94,11 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
       Token usage and cost breakdown by AI model used.
+
       - `estimated_cost: object { amount, currency }`
 
         Estimated cost for using this model
+
         - `amount: number`
 
           Estimated cost amount in minor currency units (e.g., cents for USD).
@@ -102,6 +114,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `tokens: object { cache_creation, cache_read, input, output }`
 
         Token usage breakdown for this model
+
         - `cache_creation: number`
 
           Number of cache creation tokens consumed by this model.
@@ -129,6 +142,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `tool_actions: map[object { accepted, rejected } ]`
 
       Breakdown of tool action acceptance and rejection rates by tool type.
+
       - `accepted: number`
 
         Number of tool action proposals that the user accepted.
@@ -140,6 +154,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `subscription_type: optional "enterprise" or "team"`
 
       Subscription tier for subscription customers. `null` for API customers.
+
       - `"enterprise"`
 
       - `"team"`
@@ -157,7 +172,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

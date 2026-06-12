@@ -24,16 +24,14 @@ To begin monitoring your recurring, scheduled job:
 The Sentry CLI uses your Monitor's project DSN to authorize check-ins. To set it up, export the `SENTRY_DSN` environment variable:
 
 ```bash
-export SENTRY_DSN=___PUBLIC_DSN___
+export SENTRY_DSN=https://<key>@o<orgId>.ingest.sentry.io/<projectId>
 ```
 
 Alternatively, you can add it to your `~/.sentryclirc` config:
 
-`~/.sentryclirc`
-
 ```ini
 [auth]
-dsn = ___PUBLIC_DSN___
+dsn = https://<key>@o<orgId>.ingest.sentry.io/<projectId>
 ```
 
 Learn more about the CLI's [configuration file](https://docs.sentry.io/cli/configuration.md#configuration-file).
@@ -51,6 +49,8 @@ Usage examples:
 ```bash
 sentry-cli monitors run my-monitor-slug -- python path/to/file.py
 ```
+
+*Other available variations of the above snippet: Node.JS*
 
 ### [Creating or Updating a Monitor Through a Check-In (Optional)](https://docs.sentry.io/cli/crons.md#creating-or-updating-a-monitor-through-a-check-in-optional)
 
@@ -73,6 +73,8 @@ Below are some usage examples:
 ```bash
 sentry-cli monitors run -s "* * * * *" -- my-command
 ```
+
+*Other available variations of the above snippet: Every Hour (+ Optional Arguments)*
 
 ### [Specifying Monitor Environments (Optional)](https://docs.sentry.io/cli/crons.md#specifying-monitor-environments-optional)
 

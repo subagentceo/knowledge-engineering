@@ -36,19 +36,19 @@ You can create an Auth Token from this page in one of the following three ways:
 
   ```ini
   [auth]
-  token=___ORG_AUTH_TOKEN___
+  token=<your-sentry-auth-token>
   ```
 
 * export it as an environment variable:
 
   ```bash
-  export SENTRY_AUTH_TOKEN=___ORG_AUTH_TOKEN___
+  export SENTRY_AUTH_TOKEN=<your-sentry-auth-token>
   ```
 
 * pass it as a parameter when you invoke `sentry-cli`:
 
   ```bash
-  $ sentry-cli login --auth-token ___ORG_AUTH_TOKEN___
+  $ sentry-cli login --auth-token <your-sentry-auth-token>
   ```
 
 ## [Configuration File](https://docs.sentry.io/cli/configuration.md#configuration-file)

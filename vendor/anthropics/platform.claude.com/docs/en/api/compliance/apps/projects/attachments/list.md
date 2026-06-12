@@ -13,12 +13,6 @@ GET /v1/compliance/apps/chats/files/{claude_file_id}/content endpoint.
 The text content of attached project documents can be fetched using the
 GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
 
-Returns:
-List of project attachments with pagination info
-
-Raises:
-NotFoundException: If project doesn't exist or project_id format is invalid
-
 ### Path Parameters
 
 - `project_id: string`
@@ -44,9 +38,11 @@ NotFoundException: If project doesn't exist or project_id format is invalid
 - `data: array of object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   List of attachments sorted chronologically by created_at, tie break by id
+
   - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
+
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -66,11 +62,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
+
       - `"project_file"`
 
   - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
+
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -86,11 +84,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
+
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
+
       - `"project_doc"`
 
 - `has_more: boolean`

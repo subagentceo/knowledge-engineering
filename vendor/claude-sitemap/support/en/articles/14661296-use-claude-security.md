@@ -1,6 +1,6 @@
 ## Overview
 
-Claude Security is a capability built into Claude.ai that scans codebases for security vulnerabilities and suggests targeted patches for human review. It helps teams find and fix issues that traditional methods often miss.
+Claude Security is a capability built into Claude.ai that scans codebases for security vulnerabilities and suggests targeted patches for human review. It helps teams find and fix issues that traditional methods often miss. Learn more **[about Claude security](https://claude.com/product/claude-security)**.
 
 Claude Security is now available in public beta for users on Enterprise plans.
 
@@ -40,11 +40,11 @@ Finding falls into these example categories below.
 
 Severity is assigned per finding based on exploitability in your codebase, not the category itself—so the same category can land at different severities in different repos.
 
-| **Severity** | **Criteria**                                                                                                                | **Typical example**                                                       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| High         | Exploitable by an unauthenticated remote attacker against a default deployment, with no meaningful preconditions            | Unauthenticated command injection in a public API endpoint                |
-| Medium       | Exploitable behind authentication, or needs 1–2 realistic preconditions (specific role, known identifier, user interaction) | SQL injection behind auth requiring knowledge of table schema             |
-| Low          | Needs 3+ preconditions, local-only access, or lacks a concrete demonstrated attack path                                     | Timing side-channel requiring network proximity and thousands of requests |
+| **Severity** | **Criteria** | **Typical example** |
+| --- | --- | --- |
+| High | Exploitable by an unauthenticated remote attacker against a default deployment, with no meaningful preconditions | Unauthenticated command injection in a public API endpoint |
+| Medium | Exploitable behind authentication, or needs 1–2 realistic preconditions (specific role, known identifier, user interaction) | SQL injection behind auth requiring knowledge of table schema |
+| Low | Needs 3+ preconditions, local-only access, or lacks a concrete demonstrated attack path | Timing side-channel requiring network proximity and thousands of requests |
 
 ## Finding structure
 
@@ -75,6 +75,7 @@ Each finding contains the following fields:
 - Date created — date the finding was created
 
 - Shown only if the finding was dismissed:
+
   - Dismissal reason
 
   - Dismissal note — optional

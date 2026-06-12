@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# A Day in the Life of a Senior Software Engineer at Sift Science
+
+Home/Blog
 
 Explore AI Summary
 
@@ -24,20 +26,20 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-6.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#cbf4b8bea9a1aea8bff68aeef9fb8faab2eef9fba2a5eef9fbbfa3aeeef9fb87a2adaeeef9fba4adeef9fbaaeef9fb98aea5a2a4b9eef9fb98a4adbfbcaab9aeeef9fb8ea5aca2a5aeaeb9eef9fbaabfeef9fb98a2adbfeef9fb98a8a2aea5a8aeede8fbf8f3f0a9a4afb2f6a3bfbfbbb8eef88aeef98deef98db8a2adbfe5a8a4a6eef98da9a7a4aceef98dafaab2e6a7a2adaee6b8aea5a2a4b9e6b8a4adbfbcaab9aee6aea5aca2a5aeaeb9e6b8a2adbfe6b8a8a2aea5a8aeeef98d)
+*   
+*   
+*   
+*   
 
--   [Company](https://sift.com/blog/category/company/)
+*   Company
 
 # A Day in the Life of a Senior Software Engineer at Sift Science
 
 _In this series, we sit down with Sifties to find out what a typical day in their role is like, how they overcome any challenges…_
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+Sift Trust and Safety Team
 
 May 9, 2018
 
@@ -87,80 +89,80 @@ Sift has a great set of passionate and smart engineers and businesspeople. At th
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-6.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#88b7fbfdeae2edebfcb5c9adbab8cce9f1adbab8e1e6adbab8fce0edadbab8c4e1eeedadbab8e7eeadbab8e9adbab8dbede6e1e7faadbab8dbe7eefcffe9faedadbab8cde6efe1e6ededfaadbab8e9fcadbab8dbe1eefcadbab8dbebe1ede6ebedaeabb8bbb0b3eae7ecf1b5e0fcfcf8fbadbbc9adbaceadbacefbe1eefca6ebe7e5adbaceeae4e7efadbaceece9f1a5e4e1eeeda5fbede6e1e7faa5fbe7eefcffe9faeda5ede6efe1e6ededfaa5fbe1eefca5fbebe1ede6ebedadbace)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

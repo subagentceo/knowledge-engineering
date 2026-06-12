@@ -57,6 +57,13 @@ Learn about using Cloudflare and features that span across Cloudflare products
 - [Remove a domain](https://developers.cloudflare.com/fundamentals/manage-domains/remove-domain/index.md): Remove a domain from your Cloudflare account, including required steps for DNS, subscriptions, and registrar settings.
 - [Star domains](https://developers.cloudflare.com/fundamentals/manage-domains/star-zones/index.md): Star up to ten frequently used domains per account in the Cloudflare dashboard for quick access.
 
+## OAuth Applications on Cloudflare
+
+- [OAuth Applications on Cloudflare](https://developers.cloudflare.com/fundamentals/oauth/index.md): Create and integrate with Cloudflare using OAuth
+- [Authorizing an application](https://developers.cloudflare.com/fundamentals/oauth/authorizing-an-application/index.md): Learn more about what it means to authorize a third-party application on Cloudflare
+- [Create your OAuth client](https://developers.cloudflare.com/fundamentals/oauth/create-an-oauth-client/index.md): Create an OAuth client that can access Cloudflare API resources on behalf of users.
+- [Integrate your OAuth client with Cloudflare](https://developers.cloudflare.com/fundamentals/oauth/integrate-with-cloudflare/index.md): After registering an application, use these endpoints to integrate your OAuth client with Cloudflare.
+
 ## account
 
 - [Add abuse contact](https://developers.cloudflare.com/fundamentals/account/account-security/abuse-contact/index.md): Set an abuse contact email address on your Cloudflare account to receive communications about potential abuse on your websites.

@@ -36,15 +36,14 @@ are made via your private endpoints.
 
 ## Setup
 
-1. [ ] Provide [turbopuffer support](/contact/support) with:
-   - [ ] Your AWS account ID or your GCP project ID
-   - [ ] The [region](/docs/regions) you want to establish a private connections to
-2. [ ] Wait for turbopuffer to authorize connections from your cloud account
-3. [ ] Establish a private network connection to the service name provided by turbopuffer support
-    - **AWS:** [Create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html)
-    - **GCP:** [Create a Private Service Connect endpoint](https://cloud.google.com/vpc/docs/create-manage-private-service-connect-interfaces)
-
-4. [ ] Set the `base_url` in your client to the private endpoint for your region (see table below)
+1. Provide [turbopuffer support](/contact/support) with:
+   - Your AWS account id or your GCP project id
+   - The [region](/docs/regions) you want to establish a private connection to
+2. Wait for turbopuffer to authorize connections from your cloud account
+3. Establish a private network connection to the service name provided by turbopuffer support
+   - **AWS:** [Create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html)
+   - **GCP:** [Create a Private Service Connect endpoint](https://cloud.google.com/vpc/docs/create-manage-private-service-connect-interfaces)
+4. Set the `base_url` in your client to the private endpoint for your region (see table below)
 
 | Region | Private Endpoint |
 | --- | --- |
@@ -67,3 +66,12 @@ are made via your private endpoints.
 | gcp-europe-west1 | https://<endpoint name>.psc.gcp-europe-west1.turbopuffer.com |
 | gcp-asia-southeast1 | https://<endpoint name>.psc.gcp-asia-southeast1.turbopuffer.com |
 | gcp-asia-northeast3 | https://<endpoint name>.psc.gcp-asia-northeast3.turbopuffer.com |
+
+
+---
+
+This page: [/docs/private-networking.md](https://turbopuffer.com/docs/private-networking.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

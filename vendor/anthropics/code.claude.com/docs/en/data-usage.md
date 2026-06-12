@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -30,9 +29,9 @@ When you see the "How is Claude doing this session?" prompt in Claude Code, resp
 
 After the rating prompt, you may see a separate follow-up asking "Can Anthropic look at your session transcript to help us improve Claude Code?". This is an optional second step distinct from the rating:
 
-- **Yes**: uploads your conversation transcript, any subagent transcripts, and the raw session log file from disk to Anthropic. Known API key and token patterns are redacted before upload. Source code, file contents, and other conversation content are uploaded as-is. Shared transcripts are retained for up to 6 months.
-- **No**: declines without sending anything
-- **Don't ask again**: declines and stops this follow-up from appearing in future sessions
+* **Yes**: uploads your conversation transcript, any subagent transcripts, and the raw session log file from disk to Anthropic. Known API key and token patterns are redacted before upload. Source code, file contents, and other conversation content are uploaded as-is. Shared transcripts are retained for up to 6 months.
+* **No**: declines without sending anything
+* **Don't ask again**: declines and stops this follow-up from appearing in future sessions
 
 Nothing is uploaded unless you explicitly select **Yes**. Organizations with [zero data retention](/en/zero-data-retention), or where product feedback is disabled by organization policy, or where `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` is set, never see this follow-up. Your responses to this survey, including session transcripts submitted after the rating prompt, do not impact your data training preferences and cannot be used to train our AI models.
 
@@ -44,15 +43,15 @@ Anthropic retains Claude Code data based on your account type and preferences.
 
 **Consumer users (Free, Pro, and Max plans)**:
 
-- Users who allow data use for model improvement: 5-year retention period to support model development and safety improvements
-- Users who don't allow data use for model improvement: 30-day retention period
-- Privacy settings can be changed at any time at [claude.ai/settings/data-privacy-controls](https://claude.ai/settings/data-privacy-controls).
+* Users who allow data use for model improvement: 5-year retention period to support model development and safety improvements
+* Users who don't allow data use for model improvement: 30-day retention period
+* Privacy settings can be changed at any time at [claude.ai/settings/data-privacy-controls](https://claude.ai/settings/data-privacy-controls).
 
 **Commercial users (Team, Enterprise, and API)**:
 
-- Standard: 30-day retention period
-- [Zero data retention](/en/zero-data-retention): available for Claude Code on Claude for Enterprise. ZDR is enabled on a per-organization basis; each new organization must have ZDR enabled separately by your account team
-- Local caching: Claude Code clients store session transcripts locally in plaintext under `~/.claude/projects/` for 30 days by default to enable session resumption. Adjust the period with `cleanupPeriodDays`. See [application data](/en/claude-directory#application-data) for what's stored and how to clear it.
+* Standard: 30-day retention period
+* [Zero data retention](/en/zero-data-retention): available to qualified accounts for Claude Code on Claude for Enterprise. ZDR is not included in the standard Enterprise plan; it is enabled on a per-organization basis by your account team after confirming eligibility
+* Local caching: Claude Code clients store session transcripts locally in plaintext under `~/.claude/projects/` for 30 days by default to enable session resumption. Adjust the period with `cleanupPeriodDays`. See [application data](/en/claude-directory#application-data) for what's stored and how to clear it.
 
 You can delete individual Claude Code on the web sessions at any time. Deleting a session permanently removes the session's event data. For instructions on how to delete sessions, see [Delete sessions](/en/claude-code-on-the-web#delete-sessions).
 
@@ -68,7 +67,7 @@ For all first party users, you can learn more about what data is logged for [loc
 
 The diagram below shows how Claude Code connects to external services during installation and normal operation. Solid lines indicate required connections, while dashed lines represent optional or user-initiated data flows.
 
-<img src="https://mintcdn.com/claude-code/RcOyXc06Ja8cuvMZ/images/claude-code-data-flow.svg?fit=max&auto=format&n=RcOyXc06Ja8cuvMZ&q=85&s=b5be40abf333defe984993af89546c19" alt="Diagram showing Claude Code's external connections: install/update connects to the distribution server, and user requests connect to Anthropic services including Console auth, public-api, and optionally metrics, Sentry, and bug reporting" width="720" height="520" data-path="images/claude-code-data-flow.svg" />
+<img src="https://mintcdn.com/claude-code/ikqp3_70mqIahteV/images/claude-code-data-flow.svg?fit=max&auto=format&n=ikqp3_70mqIahteV&q=85&s=5b1131530bdfdd415700a0cb4d4070c4" alt="Diagram showing Claude Code's external connections: install/update connects to the distribution server, and user requests connect to Anthropic services including Console auth, public-api, and optionally metrics and Sentry. Feedback sent with /feedback goes to Google Cloud Storage and optionally creates a GitHub issue" width="720" height="520" data-path="images/claude-code-data-flow.svg" />
 
 Claude Code runs locally. To interact with the LLM, Claude Code sends data over the network. This data includes all user prompts and model outputs, encrypted in transit via TLS 1.2+. Claude Code is compatible with most popular VPNs and LLM proxies.
 
@@ -87,10 +86,10 @@ Claude Code is built on Anthropic's APIs. For details on API security controls, 
 
 When using [Claude Code on the web](/en/claude-code-on-the-web), sessions run in Anthropic-managed virtual machines instead of locally. In cloud environments:
 
-- **Code and data storage:** Your repository is cloned to an isolated VM. Code and session data are subject to the retention and usage policies for your account type (see Data retention section above)
-- **Credentials:** GitHub authentication is handled through a secure proxy; your GitHub credentials never enter the sandbox
-- **Network traffic:** All outbound traffic goes through a security proxy for audit logging and abuse prevention
-- **Session data:** Prompts, code changes, and outputs follow the same data policies as local Claude Code usage
+* **Code and data storage:** Your repository is cloned to an isolated VM. Code and session data are subject to the retention and usage policies for your account type (see Data retention section above)
+* **Credentials:** GitHub authentication is handled through a secure proxy; your GitHub credentials never enter the sandbox
+* **Network traffic:** All outbound traffic goes through a security proxy for audit logging and abuse prevention
+* **Session data:** Prompts, code changes, and outputs follow the same data policies as local Claude Code usage
 
 For security details about cloud execution, see [Security](/en/security#cloud-execution-security).
 
@@ -100,7 +99,7 @@ Claude Code connects from users' machines to Anthropic to log operational metric
 
 Claude Code connects from users' machines to Sentry for operational error logging. The data is encrypted in transit using TLS and at rest using 256-bit AES encryption. Read more in the [Sentry security documentation](https://sentry.io/security/). To opt out of error logging, set the `DISABLE_ERROR_REPORTING` environment variable.
 
-When you run the `/feedback` command, a copy of your conversation history including code is sent to Anthropic. Before submitting, you choose how much history to include: the current session only, which is the default, or also other sessions from the same project over the last 24 hours or 7 days. The data is encrypted in transit via TLS. Optionally, a GitHub issue is created in the public repository. To opt out, set the `DISABLE_FEEDBACK_COMMAND` environment variable to `1`.
+When you run the `/feedback` command, a copy of your conversation history including code is sent to Anthropic. Before submitting, you choose how much history to include: the current session only, which is the default, or also other sessions from the same project over the last 24 hours or 7 days. The data is encrypted in transit via TLS and stored in Google Cloud Storage, which encrypts stored data at rest by default. Optionally, a GitHub issue is created in the public repository. To opt out, set the `DISABLE_FEEDBACK_COMMAND` environment variable to `1`.
 
 When you use a third-party provider such as Bedrock or Vertex, or have no Anthropic credentials configured, `/feedback` writes the report to a local archive under `~/.claude/feedback-bundles/` instead of sending it to Anthropic. Known API key and token patterns are redacted before the archive is written. Nothing leaves your machine until you send that file to your Anthropic account representative or attach it to a support request.
 

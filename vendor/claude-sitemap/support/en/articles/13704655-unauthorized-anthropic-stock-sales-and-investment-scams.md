@@ -18,15 +18,11 @@ Invest at your own risk: if someone offers you a way to participate, even on an 
 
 ### Unauthorized firms
 
-We are aware of individuals or investment firms purportedly offering access to Anthropic financing rounds, or offering to purchase your Anthropic shares in violation of our transfer restrictions. To be clear, the following firms are _not_ authorized to buy or sell Anthropic shares:
+We are aware of individuals or investment firms purportedly offering access to Anthropic financing rounds, or offering to purchase your Anthropic shares in violation of our transfer restrictions. To be clear, the following firms are *not* authorized to buy or sell Anthropic shares:
 
 - Open Door Partners
 
 - Unicorns Exchange
-
-- Pachamama
-
-- Upmarket
 
 **Any sale or transfer of Anthropic stock, or any interest in Anthropic stock, offered by these firms is void and will not be recognized on our books and records.**
 
@@ -68,4 +64,4 @@ If you believe you have been targeted by a stock scam:
 
 ---
 
-_This article is intended to provide general information about Anthropic's stock transfer restrictions and to warn about potential investment scams. It does not constitute legal or financial advice._
+*This article is intended to provide general information about Anthropic's stock transfer restrictions and to warn about potential investment scams. It does not constitute legal or financial advice.*

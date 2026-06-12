@@ -37,6 +37,11 @@ export const PanelHeader = ({panelId}) => {
       filename: "findall-quickstart",
       viewDocsHref: "/findall-api/findall-quickstart",
       viewDocsLabel: "View findall docs"
+    },
+    "entity-search": {
+      filename: "entity-search-quickstart",
+      viewDocsHref: "/findall-api/entity-search",
+      viewDocsLabel: "View entity search docs"
     }
   };
   const meta = META[panelId];
@@ -70,6 +75,25 @@ export const PanelHeader = ({panelId}) => {
         </button>
       </div>
     </div>;
+};
+
+export const OnboardingCopyButton = () => {
+  const [copied, setCopied] = useState(false);
+  const prompt = 'Use curl to read parallel.ai/agents.md and perform the setup to install Parallel';
+  const copy = () => {
+    if (typeof navigator === 'undefined' || !navigator.clipboard) return;
+    navigator.clipboard.writeText(prompt).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1400);
+    });
+  };
+  return <button type="button" onClick={copy} className="inline-flex items-center gap-1.5 rounded-md border border-[#e5e5e5] dark:border-[#2a2a2a] bg-white/95 dark:bg-[#1a1a1a]/95 px-2 py-1 text-[12px] font-medium text-[#181818] dark:text-gray-200 transition hover:border-[#FB631B] hover:text-[#FB631B]">
+      <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.2" aria-hidden="true">
+        <rect x="3.5" y="3.5" width="6" height="6" rx="0.8" />
+        <path d="M2 7.5V3.2A1.2 1.2 0 0 1 3.2 2h4.3" strokeLinecap="round" />
+      </svg>
+      {copied ? 'Copied' : 'Copy'}
+    </button>;
 };
 
 export const MCPInstallSection = () => {
@@ -192,6 +216,10 @@ export const ExampleButtons = () => {
     id: 'findall',
     title: 'Generate web dataset',
     tagline: 'Build a fresh dataset from a brief'
+  }, {
+    id: 'entity-search',
+    title: 'Entity search',
+    tagline: 'Fast people and company lookup'
   }];
   const handleClick = id => {
     if (typeof document === 'undefined') return;
@@ -230,6 +258,34 @@ export const ExampleButtons = () => {
 <div className="px-2 sm:px-6 md:px-12 lg:px-16 xl:px-20">
   <div className="min-h-[260px]">
     <MCPInstallSection />
+  </div>
+
+  <div className="pt-2 pb-8 agent-onboarding-prompt">
+    <h2 className="text-2xl sm:text-3xl tracking-tight font-bold text-gray-900 dark:text-gray-200 mb-1">
+      Onboard your Agent
+    </h2>
+
+    <p className="text-base text-gray-600 dark:text-gray-400 mb-4">
+      Set up the Parallel CLI by pasting this prompt to your agent.
+    </p>
+
+    <div className="relative">
+      <div className="absolute right-3 top-1/2 -translate-y-1/2 z-10">
+        <OnboardingCopyButton />
+      </div>
+
+      <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-[#2a2a2a] bg-[#fafafa] dark:bg-[#111111] px-4 py-4 pr-20">
+        <code style={{ background: 'transparent', padding: 0, border: 0, boxShadow: 'none', color: 'inherit' }} className="whitespace-pre-wrap break-words text-gray-900 dark:text-gray-100">
+          Use curl to read{' '}
+
+          <a href="https://parallel.ai/agents.md" target="_blank" rel="noopener noreferrer">
+            parallel.ai/agents.md
+          </a>
+
+          {' '}and perform the setup to install Parallel
+        </code>
+      </div>
+    </div>
   </div>
 
   <div className="pt-4 pb-12">
@@ -277,8 +333,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -368,6 +424,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -389,8 +446,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -473,6 +530,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -494,8 +552,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -533,7 +591,7 @@ export const ExampleButtons = () => {
               - Methods are camelCase (`client.taskRun.create`), but body/response fields stay snake_case (`task_run.run_id`, `result.output.basis`). Mixed casing is load-bearing — don't let your linter normalize it.
               - **For `pro` runs (<10 min, blocking is fine):** Python's `api_timeout=3600` has no TS equivalent. Use `{ timeout: 25 }` (per-request seconds) inside a poll loop, retrying ~144 times for a 1-hour budget. `catch` generic errors and rethrow on the last iteration. See the TypeScript tab at [/task-api/examples/task-deep-research](https://docs.parallel.ai/task-api/examples/task-deep-research).
               - Strict-flow note: `let runResult` isn't proven defined after the poll loop, so reference it as `runResult!` (or guard with `if (!runResult) throw ...`) when accessing `.output.content` / `.output.basis`.
-              - **For `ultra` / `ultra8x` runs (up to 2hr), don't poll — use webhooks.** Blocking an HTTP connection for hours is not the design. Register a webhook at create time: `client.beta.taskRun.create({ webhook: { url, event_types: ["task_run.status"] }, betas: ["webhook-2025-08-12"] })`. See [/task-api/webhooks](https://docs.parallel.ai/task-api/webhooks).
+              - **For `ultra` / `ultra8x` runs (up to 2hr), don't poll — use webhooks.** Blocking an HTTP connection for hours is not the design. Register a webhook at create time: `client.taskRun.create({ webhook: { url, event_types: ["task_run.status"] } })`. See [/task-api/webhooks](https://docs.parallel.ai/task-api/webhooks).
 
               ## Links
 
@@ -551,6 +609,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -572,8 +631,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -653,6 +712,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -683,8 +743,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -756,6 +816,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -777,8 +838,8 @@ export const ExampleButtons = () => {
               ## Setup
 
               ```bash
-              pip install "parallel-web>=0.5.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
-              # or: npm install parallel-web             # TypeScript SDK
+              pip install "parallel-web>=1.0.1"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.1"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
 
               # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
               export PARALLEL_API_KEY="your-api-key"
@@ -831,7 +892,6 @@ export const ExampleButtons = () => {
               - Import: `import Parallel from "parallel-web"` (default export).
               - Methods live under `client.beta.findall.*` (four-deep). Request/response fields stay snake_case: `entity_type`, `match_conditions`, `match_limit`, `findall_id`, `status.is_active`, `candidate.name` / `.url` / `.description`.
               - `retrieve()` and `result()` take a **positional string** id, not an object param: `await client.beta.findall.retrieve(findallId)`.
-              - The `parallel-beta: findall-2025-09-15` header is set automatically by the SDK — don't add it manually.
               - **Prefer SSE over polling** for production: `const stream = await client.beta.findall.events(findallId); for await (const event of stream) { ... }`. Events are a discriminated union keyed on `event.type` (`"findall.candidate.matched"` carries `event.candidate`; `"findall.status"` carries the run status; terminal states set `status.is_active: false` — break the loop there). Full shape at [/findall-api/features/findall-sse](https://docs.parallel.ai/findall-api/features/findall-sse).
 
               ## Links
@@ -850,6 +910,80 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
+              ````
+            </div>
+          </div>
+
+          <div id="panel-entity-search" className="example-panel" style={{ display: 'none' }}>
+            <PanelHeader panelId="entity-search" />
+
+            <div className="bg-white dark:bg-[#0e0e0e] p-2">
+              ````markdown theme={"system"}
+              # Parallel Entity Search — Setup Prompt
+
+              You're integrating **Parallel Entity Search** (beta): a fast, synchronous people-and-company search. Describe the people or companies you want in plain language and get back a ranked, structured set of matches in seconds.
+
+              ## When to use it
+
+              Use Entity Search for real-time, human-in-the-loop, and latency-sensitive workflows — producing a candidate set of people or companies to evaluate, enrich, or pass into deeper research. It's part of FindAll and is distinct from the Search API (which retrieves pages and excerpts across the whole web). For comprehensive, verified, enriched list building, use FindAll instead.
+
+              ## Setup
+
+              ```bash
+              pip install "parallel-web>=1.0.0"    # Python SDK — package is "parallel-web", import as `from parallel import Parallel`
+              npm install "parallel-web@^1.0.0"    # TypeScript SDK — package is "parallel-web", import as `import Parallel from "parallel-web"`
+
+              # Treat PARALLEL_API_KEY like a password — load from .env or a secrets manager, don't commit it.
+              export PARALLEL_API_KEY="your-api-key"
+              ```
+
+              ## Example (Python — adapt to my codebase's language)
+
+              ```python
+              from parallel import Parallel
+
+              client = Parallel()  # reads PARALLEL_API_KEY from env
+
+              # entity_type is "people" or "companies".
+              # objective is a natural-language description of the people or companies you want.
+              # match_limit must be between 5 and 1000 (default 100).
+              response = client.beta.findall.entity_search(
+                  entity_type="companies",
+                  objective="AI startups that raised Series A in 2024",
+                  match_limit=100,
+              )
+
+              # Synchronous — results come back in the response. No polling, streaming, or webhooks.
+              for entity in response.entities:
+                  print(f"{entity.name}: {entity.url}")
+                  print(f"  {entity.description}")
+              ```
+
+              ## TypeScript notes
+
+              - Import: `import Parallel from "parallel-web"` (default export).
+              - Methods live under `client.beta.findall.*`. The call is `client.beta.findall.entitySearch({ ... })` (camelCase method); request/response fields stay snake_case: `entity_type`, `objective`, `match_limit`, `entity_set_id`, `entity.name` / `.url` / `.description`.
+              - Synchronous — results are returned directly in the response; there's nothing to poll.
+
+              ## Links
+
+              - [Entity Search](https://docs.parallel.ai/findall-api/entity-search)
+              - [FindAll Quickstart](https://docs.parallel.ai/findall-api/findall-quickstart) — comprehensive, asynchronous entity discovery
+              - [OpenAPI Spec](https://docs.parallel.ai/public-openapi.json) — machine-readable schema
+              - [Python SDK (PyPI)](https://pypi.org/project/parallel-web/) · [TypeScript SDK (npm)](https://www.npmjs.com/package/parallel-web)
+              - [Cookbook](https://github.com/parallel-web/parallel-cookbook) · [Platform (get API key)](https://platform.parallel.ai)
+
+              ## Other Parallel APIs
+
+              | API | Shape | Use when |
+              |-----|-------|----------|
+              | **Search** | One round-trip; natural-language objective + keyword queries → LLM-optimized excerpts | The model needs current facts or specific entities to ground a response |
+              | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
+              | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
+              | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
+              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>

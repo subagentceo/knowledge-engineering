@@ -338,6 +338,10 @@ Create integrations, retrieve data, and automate your workflows with the GitHub 
 
   Use the REST API to interact with GitHub Classroom.
 
+* [REST API endpoints for code quality](/en/rest/code-quality/code-quality)
+
+  Use the REST API to manage a code quality configuration.
+
 * [REST API endpoints for code scanning alert dismissal requests](/en/alert-dismissal-requests)
 
   Use the REST API to interact with code scanning alert dismissal requests from a repository.
@@ -757,10 +761,6 @@ Create integrations, retrieve data, and automate your workflows with the GitHub 
 * [REST API endpoints for Project views](/en/rest/projects/views)
 
   Use the REST API to manage Project views
-
-* [REST API endpoints for Projects (classic)](/en/projects-classic)
-
-  Use the REST API to create, list, update, delete and customize projects (classic).
 
 * [REST API endpoints for pull requests](/en/rest/pulls/pulls)
 

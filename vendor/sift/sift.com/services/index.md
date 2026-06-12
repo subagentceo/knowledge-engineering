@@ -1,10 +1,12 @@
-[Home](https://sift.com)/Professional Services
+# Serving Our Customers at Every  Stage
+
+Home/Professional Services
 
 # Serving Our Customers at Every Stage
 
 Sift’s Professional Services support and propel your business forward with expert assistance, ranging from dedicated Customer Success Managers to comprehensive Managed Services.
 
-[Managed Services Overview](https://sift.com/wp-content/uploads/2025/02/Sift-Managed-Services-one-pager.pdf)
+Managed Services Overview
 
 ![Services](https://sift.com/wp-content/uploads/2024/02/Services.png)
 
@@ -20,9 +22,9 @@ MODEL TRAINING
 
 Our Standard Package, PLUS:
 
--   Monthly Model Labeling
--   Monthly Model Feedback
--   Monthly Model Training
+*   Monthly Model Labeling
+*   Monthly Model Feedback
+*   Monthly Model Training
 
 2
 
@@ -32,10 +34,10 @@ PREMIUM
 
 Our Standard Package, PLUS:
 
--   Quarterly Workflow Auditing
--   Monthly Model Labeling, Tuning, Feedback & Training
--   Biannual Account Optimization Through a Deep-Dive Analysis of Anomalous Behavior
--   Biannual Strategic Business Review
+*   Quarterly Workflow Auditing
+*   Monthly Model Labeling, Tuning, Feedback & Training
+*   Biannual Account Optimization Through a Deep-Dive Analysis of Anomalous Behavior
+*   Biannual Strategic Business Review
 
 3
 
@@ -45,37 +47,37 @@ PREMIER
 
 Our Standard Package, PLUS:
 
--   Quarterly Account Optimization
--   Quarterly Strategic Business Review
--   Annual Integration Review
--   Monthly Workflow Auditing
--   Weekly Model Tuning, Labeling, Feedback & Training
+*   Quarterly Account Optimization
+*   Quarterly Strategic Business Review
+*   Annual Integration Review
+*   Monthly Workflow Auditing
+*   Weekly Model Tuning, Labeling, Feedback & Training
 
--   ![Group](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20131%2022'%3E%3C/svg%3E)
+*   ![Group](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20131%2022'%3E%3C/svg%3E)
     
--   ![yelp-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![yelp-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![Harry's logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20408%2072'%3E%3C/svg%3E)
+*   ![Harry's logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20408%2072'%3E%3C/svg%3E)
     
--   ![Patreon logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20418%2059'%3E%3C/svg%3E)
+*   ![Patreon logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20418%2059'%3E%3C/svg%3E)
     
--   ![paula](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![paula](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![zillow-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![zillow-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
 
--   ![Group](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20131%2022'%3E%3C/svg%3E)
+*   ![Group](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20131%2022'%3E%3C/svg%3E)
     
--   ![yelp-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![yelp-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![Harry's logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20408%2072'%3E%3C/svg%3E)
+*   ![Harry's logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20408%2072'%3E%3C/svg%3E)
     
--   ![Patreon logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20418%2059'%3E%3C/svg%3E)
+*   ![Patreon logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20418%2059'%3E%3C/svg%3E)
     
--   ![paula](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![paula](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![zillow-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![zillow-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)

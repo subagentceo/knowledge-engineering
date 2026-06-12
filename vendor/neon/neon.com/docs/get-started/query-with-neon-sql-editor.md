@@ -1,7 +1,7 @@
 > This page location: Connect to Neon > Neon SQL Editor
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the use of Neon's SQL Editor for executing queries on databases within the Neon Console, including features like query history, saving queries, and utilizing Explain and Analyze functions.
+> Summary: The Neon SQL Editor is a browser-based query interface built into the Neon Console that runs SQL against any database branch without installing a client. Use it to run EXPLAIN and EXPLAIN ANALYZE, query historical data with Time Travel, and generate SQL from natural language. Query history entries are capped at 9 KB. AI features are rate-limited, and results export as CSV, JSON, or XLSX.
 
 # Query with Neon's SQL Editor
 

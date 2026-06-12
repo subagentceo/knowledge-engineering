@@ -11,6 +11,8 @@ All API requests should be made to the `/api/0/` prefix, and will return JSON as
 curl -i https://sentry.io/api/0/
 ```
 
+*Other available variations of the above snippet: http*
+
 ## [HTTP Verbs](https://docs.sentry.io/api/requests.md#http-verbs)
 
 Sentry makes an attempt to stick to appropriate HTTP verbs, but we always prioritize usability over correctness.

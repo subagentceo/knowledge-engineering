@@ -1,4 +1,4 @@
-_Please Note: Our response times are currently longer than normal due to our recent launch and an increase in email volume. We will reply to your appeal/email as soon as we can and we ask for your patience in the meantime._
+*Please Note: Our response times are currently longer than normal due to our recent launch and an increase in email volume. We will reply to your appeal/email as soon as we can and we ask for your patience in the meantime.*
 
 ## Appeals
 
@@ -12,7 +12,7 @@ As part of our safety process, we may ban an account for a variety of reasons:
 
 If you feel your account has been wrongly suspended or terminated, please fill out the appeal form linked below with your account information so our Safeguards team can further investigate why your account was disabled.
 
-[Submit an appeal](https://claude.ai/form/account-ban-appeals)
+[Submit an appeal](https://claude.ai/restricted)
 
 ## Warnings
 

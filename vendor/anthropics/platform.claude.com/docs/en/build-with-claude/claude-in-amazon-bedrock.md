@@ -12,7 +12,7 @@ This page covers Claude in Amazon Bedrock, which serves Claude through the Messa
 
 ## Access
 
-Claude Opus 4.8, Claude Opus 4.7, and Claude Haiku 4.5 are open to all Amazon Bedrock customers. Claude Mythos Preview requires an invitation; see [Project Glasswing](https://anthropic.com/glasswing). For region availability, see [Regions](#regions).
+Claude Fable 5, Claude Opus 4.8, Claude Opus 4.7, and Claude Haiku 4.5 are open to all Amazon Bedrock customers. Claude Mythos Preview requires an invitation; see [Project Glasswing](https://anthropic.com/glasswing). For region availability, see [Regions](#regions).
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Use the `aws-bedrock-token-generator` CLI to mint a bearer token. Pass it in the
 
 ## Install an SDK
 
-Anthropic's [client SDKs](/docs/en/api/client-sdks) support Claude in Amazon Bedrock through a Bedrock-specific package or module.
+Anthropic's [client SDKs](/docs/en/cli-sdks-libraries/overview) support Claude in Amazon Bedrock through a Bedrock-specific package or module.
 
 <Tabs>
 <Tab title="Python">
@@ -99,7 +99,7 @@ go get github.com/anthropics/anthropic-sdk-go/bedrock
 <Tabs>
 <Tab title="Gradle">
 ```kotlin
-implementation("com.anthropic:anthropic-java-bedrock:2.35.0")
+implementation("com.anthropic:anthropic-java-bedrock:2.40.0")
 ```
 </Tab>
 <Tab title="Maven">
@@ -107,7 +107,7 @@ implementation("com.anthropic:anthropic-java-bedrock:2.35.0")
 <dependency>
     <groupId>com.anthropic</groupId>
     <artifactId>anthropic-java-bedrock</artifactId>
-    <version>2.35.0</version>
+    <version>2.40.0</version>
 </dependency>
 ```
 </Tab>
@@ -153,7 +153,6 @@ curl https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages \
     ]
   }'
 ```
-
 </Tab>
 
 <Tab title="CLI">
@@ -175,7 +174,6 @@ message = client.messages.create(
 
 print(message.content[0].text)
 ```
-
 </Tab>
 
 <Tab title="TypeScript">
@@ -184,13 +182,13 @@ print(message.content[0].text)
 import { AnthropicBedrockMantle } from "@anthropic-ai/bedrock-sdk";
 
 const client = new AnthropicBedrockMantle({
-  awsRegion: "us-east-1",
+  awsRegion: "us-east-1"
 });
 
 const message = await client.messages.create({
   model: "anthropic.claude-opus-4-8",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }],
+  messages: [{ role: "user", content: "Hello, Claude" }]
 });
 
 const block = message.content[0];
@@ -198,7 +196,6 @@ if (block.type === "text") {
   console.log(block.text);
 }
 ```
-
 </Tab>
 
 <Tab title="C#">
@@ -219,7 +216,6 @@ var message = await client.Messages.Create(new()
 if (message.Content[0].Value is TextBlock block)
     Console.WriteLine(block.Text);
 ```
-
 </Tab>
 
 <Tab title="Go">
@@ -257,7 +253,6 @@ func main() {
 	fmt.Println(message.Content[0].Text)
 }
 ```
-
 </Tab>
 
 <Tab title="Java">
@@ -285,7 +280,6 @@ void main() {
     IO.println(message.content().getFirst().asText().text());
 }
 ```
-
 </Tab>
 
 <Tab title="PHP">
@@ -307,7 +301,6 @@ $message = $client->messages->create(
 
 echo $message->content[0]->text;
 ```
-
 </Tab>
 
 <Tab title="Ruby">
@@ -325,7 +318,6 @@ message = client.messages.create(
 
 puts message.content[0].text
 ```
-
 </Tab>
 </Tabs>
 
@@ -337,12 +329,13 @@ You can also use the standard `Anthropic` client: set `base_url` to `https://bed
 
 Model IDs in Claude in Amazon Bedrock carry an `anthropic.` provider prefix. Model capabilities and behaviors are documented on the [Models overview](/docs/en/about-claude/models/overview) page.
 
-| Model                 | Model ID                        | Access                                                                 |
-| --------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| Claude Opus 4.8       | anthropic.claude-opus-4-8       | Open                                                                   |
-| Claude Opus 4.7       | anthropic.claude-opus-4-7       | Open                                                                   |
-| Claude Haiku 4.5      | anthropic.claude-haiku-4-5      | Open                                                                   |
-| Claude Mythos Preview | anthropic.claude-mythos-preview | Invitation only ([Project Glasswing](https://anthropic.com/glasswing)) |
+| Model                 | Model ID                          | Access                                                                     |
+| --------------------- | --------------------------------- | -------------------------------------------------------------------------- |
+| Claude Fable 5        | anthropic.claude-fable-5 | Open                                                                       |
+| Claude Opus 4.8       | anthropic.claude-opus-4-8 | Open                                                                       |
+| Claude Opus 4.7       | anthropic.claude-opus-4-7       | Open                                                                       |
+| Claude Haiku 4.5      | anthropic.claude-haiku-4-5      | Open                                                                       |
+| Claude Mythos Preview | anthropic.claude-mythos-preview | Invitation only ([Project Glasswing](https://anthropic.com/glasswing))     |
 
 <Tip>
 Upgrading to a newer Claude model? In Claude Code, run `/claude-api migrate` to apply model ID swaps and breaking parameter changes across your codebase. The skill detects which cloud platform your code targets and adjusts model ID formats and feature changes for that platform. See [Migrating to a newer Claude model](/docs/en/agents-and-tools/agent-skills/claude-api-skill#migrating-to-a-newer-claude-model).
@@ -368,6 +361,7 @@ For the full feature list with Amazon Bedrock availability, see [Features overvi
 - Agent infrastructure (Agent Skills, MCP connector, programmatic tool calling)
 - API endpoints (Message Batches, Models, Admin, Compliance, Usage and Cost)
 - Claude Managed Agents
+- Server-side fallback (the [`fallbacks` parameter](/docs/en/build-with-claude/refusals-and-fallback#server-side-fallback); use the [client-side fallback pattern](/docs/en/build-with-claude/refusals-and-fallback#client-side-fallback) instead)
 
 ## Regions
 
@@ -376,36 +370,36 @@ Claude in Amazon Bedrock is available in the following AWS regions. Amazon Bedro
 - **Global:** dynamic routing across all available regions for maximum availability. No pricing premium.
 - **Regional:** the endpoint resolves to the single AWS region you specify, for data-residency requirements. Regional endpoints carry a 10% pricing premium over global endpoints. To route across multiple regions within a geography, use an [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) (US, EU, JP, or AU). Regions marked **In-region only** in the table support direct single-region routing without an inference profile.
 
-The global endpoint is available for Claude Opus 4.8, Claude Opus 4.7, and Claude Haiku 4.5. Claude Mythos Preview is regional only and is available in `us-east-1`.
+The global endpoint is available for Claude Fable 5, Claude Opus 4.8, Claude Opus 4.7, and Claude Haiku 4.5. Claude Mythos Preview is regional only and is available in `us-east-1`.
 
-| AWS region       | Location                  | Endpoint types             |
-| ---------------- | ------------------------- | -------------------------- |
-| `af-south-1`     | Africa (Cape Town)        | Global                     |
+| AWS region       | Location                  | Endpoint types       |
+| ---------------- | ------------------------- | -------------------- |
+| `af-south-1`     | Africa (Cape Town)        | Global               |
 | `ap-northeast-1` | Asia Pacific (Tokyo)      | Global, JP, In-region only |
-| `ap-northeast-2` | Asia Pacific (Seoul)      | Global                     |
-| `ap-northeast-3` | Asia Pacific (Osaka)      | Global, JP                 |
-| `ap-south-1`     | Asia Pacific (Mumbai)     | Global                     |
-| `ap-south-2`     | Asia Pacific (Hyderabad)  | Global                     |
-| `ap-southeast-1` | Asia Pacific (Singapore)  | Global                     |
-| `ap-southeast-2` | Asia Pacific (Sydney)     | Global, AU                 |
-| `ap-southeast-3` | Asia Pacific (Jakarta)    | Global                     |
+| `ap-northeast-2` | Asia Pacific (Seoul)      | Global               |
+| `ap-northeast-3` | Asia Pacific (Osaka)      | Global, JP           |
+| `ap-south-1`     | Asia Pacific (Mumbai)     | Global               |
+| `ap-south-2`     | Asia Pacific (Hyderabad)  | Global               |
+| `ap-southeast-1` | Asia Pacific (Singapore)  | Global               |
+| `ap-southeast-2` | Asia Pacific (Sydney)     | Global, AU           |
+| `ap-southeast-3` | Asia Pacific (Jakarta)    | Global               |
 | `ap-southeast-4` | Asia Pacific (Melbourne)  | Global, AU, In-region only |
-| `ca-central-1`   | Canada (Central)          | Global, US                 |
-| `ca-west-1`      | Canada West (Calgary)     | Global                     |
-| `eu-central-1`   | Europe (Frankfurt)        | Global, EU                 |
-| `eu-central-2`   | Europe (Zurich)           | Global, EU                 |
+| `ca-central-1`   | Canada (Central)          | Global, US           |
+| `ca-west-1`      | Canada West (Calgary)     | Global               |
+| `eu-central-1`   | Europe (Frankfurt)        | Global, EU           |
+| `eu-central-2`   | Europe (Zurich)           | Global, EU           |
 | `eu-north-1`     | Europe (Stockholm)        | Global, EU, In-region only |
-| `eu-south-1`     | Europe (Milan)            | Global, EU                 |
-| `eu-south-2`     | Europe (Spain)            | Global, EU                 |
+| `eu-south-1`     | Europe (Milan)            | Global, EU           |
+| `eu-south-2`     | Europe (Spain)            | Global, EU           |
 | `eu-west-1`      | Europe (Ireland)          | Global, EU, In-region only |
-| `eu-west-2`      | Europe (London)           | Global, EU                 |
-| `eu-west-3`      | Europe (Paris)            | Global, EU                 |
-| `il-central-1`   | Israel (Tel Aviv)         | Global                     |
-| `me-central-1`   | Middle East (UAE)         | Global                     |
-| `sa-east-1`      | South America (São Paulo) | Global                     |
+| `eu-west-2`      | Europe (London)           | Global, EU           |
+| `eu-west-3`      | Europe (Paris)            | Global, EU           |
+| `il-central-1`   | Israel (Tel Aviv)         | Global               |
+| `me-central-1`   | Middle East (UAE)         | Global               |
+| `sa-east-1`      | South America (São Paulo) | Global               |
 | `us-east-1`      | US East (N. Virginia)     | Global, US, In-region only |
 | `us-east-2`      | US East (Ohio)            | Global, US, In-region only |
-| `us-west-1`      | US West (N. California)   | Global, US                 |
+| `us-west-1`      | US West (N. California)   | Global, US           |
 | `us-west-2`      | US West (Oregon)          | Global, US, In-region only |
 
 ## Quotas

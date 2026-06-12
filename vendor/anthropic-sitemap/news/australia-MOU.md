@@ -24,7 +24,7 @@ The Garvan Institute of Medical Research will use Claude to accelerate genomic d
 
 Finally, the Curtin Institute for Data Science, Australia’s largest university-based data science research institute, will use Claude to scale their collaboration with academics, and in research projects across health sciences, the humanities, business, law, science, and engineering.
 
-On Monday, we also announced that we are launching our first deep tech startup API credit program for VC-backed startups working on drug discovery, materials science, climate modeling, and medical diagnostics—areas where AI can have a profound impact. Eligible companies will receive up to USD$50,000 (about AUD$72,000) in API credits to build with Claude, along with resources and community support, as we build our local team.
+On Monday, we also announced that we are launching our first deep tech startup API credit program for VC-backed startups working on drug discovery, materials science, climate modeling, and medical diagnostics—areas where AI can have a profound impact. Eligible companies will receive up to USD$50,000 (about AUD$72,000) in API credits to build with Claude, along with resources and community support, as we build our local team.  
 
 These investments reflect the advanced work Australian researchers and startups are already doing with Claude, and directly contribute to supporting the goals outlined in Australia’s National AI Plan.
 
@@ -32,18 +32,18 @@ The visit to Australia marks the beginning of long-term collaboration and invest
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

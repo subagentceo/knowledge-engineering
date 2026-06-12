@@ -9,6 +9,7 @@ List Session Resources
 ### Parameters
 
 - `ResourceListParams params`
+
   - `Optional<String> sessionId`
 
   - `Optional<Long> limit`
@@ -22,6 +23,7 @@ List Session Resources
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -74,14 +76,18 @@ List Session Resources
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaManagedAgentsSessionResource: A class that can be one of several variants.union`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource:`
+
     - `String id`
 
     - `LocalDateTime createdAt`
@@ -91,6 +97,7 @@ List Session Resources
     - `String mountPath`
 
     - `Type type`
+
       - `GITHUB_REPOSITORY("github_repository")`
 
     - `LocalDateTime updatedAt`
@@ -100,23 +107,29 @@ List Session Resources
     - `String url`
 
     - `Optional<Checkout> checkout`
+
       - `class BetaManagedAgentsBranchCheckout:`
+
         - `String name`
 
           Branch name to check out.
 
         - `Type type`
+
           - `BRANCH("branch")`
 
       - `class BetaManagedAgentsCommitCheckout:`
+
         - `String sha`
 
           Full commit SHA to check out.
 
         - `Type type`
+
           - `COMMIT("commit")`
 
   - `class BetaManagedAgentsFileResource:`
+
     - `String id`
 
     - `LocalDateTime createdAt`
@@ -128,6 +141,7 @@ List Session Resources
     - `String mountPath`
 
     - `Type type`
+
       - `FILE("file")`
 
     - `LocalDateTime updatedAt`
@@ -137,16 +151,19 @@ List Session Resources
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
+
     - `String memoryStoreId`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
+
       - `MEMORY_STORE("memory_store")`
 
     - `Optional<Access> access`
 
       Access mode for an attached memory store.
+
       - `READ_WRITE("read_write")`
 
       - `READ_ONLY("read_only")`

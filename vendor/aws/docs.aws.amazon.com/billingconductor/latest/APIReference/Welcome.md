@@ -7,4 +7,4 @@
 
 This documentation shows how you can configure Billing Conductor by using its API. For more information about using the [Billing Conductor](https://console.aws.amazon.com/billingconductor/) user interface, see the [AWS Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

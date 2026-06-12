@@ -8,7 +8,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json get /v1/crawl
+````yaml /api-reference/openapi.json get /v1/crawl
 openapi: 3.1.0
 info:
   title: Nimble SDK

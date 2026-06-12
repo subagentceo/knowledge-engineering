@@ -17,6 +17,7 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: Literal["file"]`
+
   - `"file"`
 
 - `mount_path: Optional[str]`
@@ -26,9 +27,11 @@ Add Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -81,11 +84,14 @@ Add Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsFileResource: …`
+
   - `id: str`
 
   - `created_at: datetime`
@@ -97,6 +103,7 @@ Add Session Resource
   - `mount_path: str`
 
   - `type: Literal["file"]`
+
     - `"file"`
 
   - `updated_at: datetime`
@@ -156,9 +163,11 @@ List Session Resources
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -211,14 +220,18 @@ List Session Resources
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsSessionResource`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -228,6 +241,7 @@ List Session Resources
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -237,23 +251,29 @@ List Session Resources
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -265,6 +285,7 @@ List Session Resources
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -274,16 +295,19 @@ List Session Resources
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -367,9 +391,11 @@ Get Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -422,14 +448,18 @@ Get Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceRetrieveResponse`
 
   The requested session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -439,6 +469,7 @@ Get Session Resource
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -448,23 +479,29 @@ Get Session Resource
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -476,6 +513,7 @@ Get Session Resource
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -485,16 +523,19 @@ Get Session Resource
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -569,9 +610,11 @@ Update Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -624,14 +667,18 @@ Update Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceUpdateResponse`
 
   The updated session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -641,6 +688,7 @@ Update Session Resource
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -650,23 +698,29 @@ Update Session Resource
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -678,6 +732,7 @@ Update Session Resource
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -687,16 +742,19 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -768,9 +826,11 @@ Delete Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -823,16 +883,20 @@ Delete Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource: …`
 
   Confirmation of resource deletion.
+
   - `id: str`
 
   - `type: Literal["session_resource_deleted"]`
+
     - `"session_resource_deleted"`
 
 ### Example
@@ -867,14 +931,17 @@ print(beta_managed_agents_delete_session_resource.id)
 - `class BetaManagedAgentsDeleteSessionResource: …`
 
   Confirmation of resource deletion.
+
   - `id: str`
 
   - `type: Literal["session_resource_deleted"]`
+
     - `"session_resource_deleted"`
 
 ### Beta Managed Agents File Resource
 
 - `class BetaManagedAgentsFileResource: …`
+
   - `id: str`
 
   - `created_at: datetime`
@@ -886,6 +953,7 @@ print(beta_managed_agents_delete_session_resource.id)
   - `mount_path: str`
 
   - `type: Literal["file"]`
+
     - `"file"`
 
   - `updated_at: datetime`
@@ -895,6 +963,7 @@ print(beta_managed_agents_delete_session_resource.id)
 ### Beta Managed Agents GitHub Repository Resource
 
 - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
   - `id: str`
 
   - `created_at: datetime`
@@ -904,6 +973,7 @@ print(beta_managed_agents_delete_session_resource.id)
   - `mount_path: str`
 
   - `type: Literal["github_repository"]`
+
     - `"github_repository"`
 
   - `updated_at: datetime`
@@ -913,20 +983,25 @@ print(beta_managed_agents_delete_session_resource.id)
   - `url: str`
 
   - `checkout: Optional[Checkout]`
+
     - `class BetaManagedAgentsBranchCheckout: …`
+
       - `name: str`
 
         Branch name to check out.
 
       - `type: Literal["branch"]`
+
         - `"branch"`
 
     - `class BetaManagedAgentsCommitCheckout: …`
+
       - `sha: str`
 
         Full commit SHA to check out.
 
       - `type: Literal["commit"]`
+
         - `"commit"`
 
 ### Beta Managed Agents Memory Store Resource
@@ -934,16 +1009,19 @@ print(beta_managed_agents_delete_session_resource.id)
 - `class BetaManagedAgentsMemoryStoreResource: …`
 
   A memory store attached to an agent session.
+
   - `memory_store_id: str`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `type: Literal["memory_store"]`
+
     - `"memory_store"`
 
   - `access: Optional[Literal["read_write", "read_only"]]`
 
     Access mode for an attached memory store.
+
     - `"read_write"`
 
     - `"read_only"`
@@ -969,7 +1047,9 @@ print(beta_managed_agents_delete_session_resource.id)
 - `BetaManagedAgentsSessionResource`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -979,6 +1059,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -988,23 +1069,29 @@ print(beta_managed_agents_delete_session_resource.id)
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -1016,6 +1103,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -1025,16 +1113,19 @@ print(beta_managed_agents_delete_session_resource.id)
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -1060,7 +1151,9 @@ print(beta_managed_agents_delete_session_resource.id)
 - `ResourceRetrieveResponse`
 
   The requested session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -1070,6 +1163,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -1079,23 +1173,29 @@ print(beta_managed_agents_delete_session_resource.id)
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -1107,6 +1207,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -1116,16 +1217,19 @@ print(beta_managed_agents_delete_session_resource.id)
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -1151,7 +1255,9 @@ print(beta_managed_agents_delete_session_resource.id)
 - `ResourceUpdateResponse`
 
   The updated session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -1161,6 +1267,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -1170,23 +1277,29 @@ print(beta_managed_agents_delete_session_resource.id)
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -1198,6 +1311,7 @@ print(beta_managed_agents_delete_session_resource.id)
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -1207,16 +1321,19 @@ print(beta_managed_agents_delete_session_resource.id)
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`

@@ -1,6 +1,6 @@
 # Versioning
 
-Each major release, such as [Acacia](https://docs.stripe.com/changelog/acacia.md), includes changes that aren’t [backward-compatible](https://docs.stripe.com/upgrades.md#what-changes-does-stripe-consider-to-be-backward-compatible) with previous releases. Upgrading to a new major release can require updates to existing code. Each monthly release includes only backward-compatible changes, and uses the same name as the last major release. You can safely upgrade to a new monthly release without breaking any existing code. The current version is 2026-04-22.dahlia. For information on all API versions, view our [API changelog](https://docs.stripe.com/changelog.md).
+Each major release, such as [Acacia](https://docs.stripe.com/changelog/acacia.md), includes changes that aren’t [backward-compatible](https://docs.stripe.com/upgrades.md#what-changes-does-stripe-consider-to-be-backward-compatible) with previous releases. Upgrading to a new major release can require updates to existing code. Each monthly release includes only backward-compatible changes, and uses the same name as the last major release. You can safely upgrade to a new monthly release without breaking any existing code. The current version is 2026-05-27.dahlia. For information on all API versions, view our [API changelog](https://docs.stripe.com/changelog.md).
 
 By default, requests made with curl use your Stripe account’s default API version (controlled in [Workbench](https://dashboard.stripe.com/workbench)) unless you override it by setting the `Stripe-Version` header.
 

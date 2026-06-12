@@ -12,7 +12,7 @@ Structured outputs constrain Claude's responses to follow a specific schema, ens
 You can use these features independently or together in the same request.
 
 <Note>
-Structured outputs are generally available on the Claude API for Claude Opus 4.8, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5. On Amazon Bedrock, structured outputs are generally available for Claude Opus 4.8, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5; Claude Opus 4.7 and Claude Mythos Preview are available through [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) (the Messages-API Bedrock endpoint). Structured outputs are available on [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws) and in beta on [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry). On [Vertex AI](/docs/en/build-with-claude/claude-on-vertex-ai), structured outputs are generally available for Claude Opus 4.8, Claude Mythos Preview, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5.
+Structured outputs are generally available on the Claude API for Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5. On Amazon Bedrock, structured outputs are generally available for Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5; Claude Opus 4.7 and Claude Mythos Preview are available through [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) (the Messages-API Bedrock endpoint). Structured outputs are available on [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws) and in beta on [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry). On [Vertex AI](/docs/en/build-with-claude/claude-on-vertex-ai), structured outputs are generally available for Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, Claude Mythos Preview, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 4.5, Claude Opus 4.5, and Claude Haiku 4.5.
 </Note>
 
 <Note>
@@ -26,14 +26,12 @@ This feature qualifies for [Zero Data Retention (ZDR)](/docs/en/build-with-claud
 ## Why use structured outputs
 
 Without structured outputs, Claude can generate malformed JSON responses or invalid tool inputs that break your applications. Even with careful prompting, you may encounter:
-
 - Parsing errors from invalid JSON syntax
 - Missing required fields
 - Inconsistent data types
 - Schema violations requiring error handling and retries
 
 Structured outputs guarantee schema-compliant responses through constrained decoding:
-
 - **Always valid:** No more `JSON.parse()` errors
 - **Type safe:** Guaranteed field types and required fields
 - **Reliable:** No retries needed for schema violations
@@ -157,8 +155,8 @@ const response = await client.messages.create({
     {
       role: "user",
       content:
-        "Extract the key information from this email: John Smith (john@example.com) is interested in our Enterprise plan and wants to schedule a demo for next Tuesday at 2pm.",
-    },
+        "Extract the key information from this email: John Smith (john@example.com) is interested in our Enterprise plan and wants to schedule a demo for next Tuesday at 2pm."
+    }
   ],
   output_config: {
     format: {
@@ -169,13 +167,13 @@ const response = await client.messages.create({
           name: { type: "string" },
           email: { type: "string" },
           plan_interest: { type: "string" },
-          demo_requested: { type: "boolean" },
+          demo_requested: { type: "boolean" }
         },
         required: ["name", "email", "plan_interest", "demo_requested"],
-        additionalProperties: false,
-      },
-    },
-  },
+        additionalProperties: false
+      }
+    }
+  }
 });
 
 for (const block of response.content) {
@@ -414,7 +412,9 @@ Instead of writing raw JSON schemas, you can use familiar schema definition tool
 - **Java:** Plain Java classes with automatic schema derivation through `outputConfig(Class<T>)`
 - **Ruby:** `Anthropic::BaseModel` classes with `output_config: {format: Model}`
 - **PHP:** Classes implementing `StructuredOutputModel` with `outputConfig: ['format' => MyClass::class]`
-- **CLI**, **C#**, **Go:** Raw JSON schemas passed through `output_config`
+- **C#:** Plain C# classes with the generic `Create<T>()` overload, which derives the schema automatically
+- **Go:** Go structs reflected into JSON schemas automatically on the beta API, or raw JSON schemas through `output_config`
+- **CLI:** Raw JSON schemas passed through `output_config`
 
 <CodeGroup>
 
@@ -485,7 +485,7 @@ const ContactInfoSchema = z.object({
   name: z.string(),
   email: z.string(),
   plan_interest: z.string(),
-  demo_requested: z.boolean(),
+  demo_requested: z.boolean()
 });
 
 const client = new Anthropic();
@@ -497,10 +497,10 @@ const response = await client.messages.parse({
     {
       role: "user",
       content:
-        "Extract the key information from this email: John Smith (john@example.com) is interested in our Enterprise plan and wants to schedule a demo for next Tuesday at 2pm.",
-    },
+        "Extract the key information from this email: John Smith (john@example.com) is interested in our Enterprise plan and wants to schedule a demo for next Tuesday at 2pm."
+    }
   ],
-  output_config: { format: zodOutputFormat(ContactInfoSchema) },
+  output_config: { format: zodOutputFormat(ContactInfoSchema) }
 });
 
 // Automatically parsed and validated
@@ -822,7 +822,7 @@ import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 const ContactInfo = z.object({
   name: z.string(),
   email: z.string(),
-  planInterest: z.string(),
+  planInterest: z.string()
 });
 
 const client = new Anthropic();
@@ -833,11 +833,10 @@ const response = await client.messages.parse({
   messages: [
     {
       role: "user",
-      content:
-        "Extract contact info: John Smith, john@example.com, interested in the Pro plan",
-    },
+      content: "Extract contact info: John Smith, john@example.com, interested in the Pro plan"
+    }
   ],
-  output_config: { format: zodOutputFormat(ContactInfo) },
+  output_config: { format: zodOutputFormat(ContactInfo) }
 });
 
 // Guaranteed type-safe
@@ -862,9 +861,8 @@ const response = await client.messages.parse({
   messages: [
     {
       role: "user",
-      content:
-        "Extract contact info: John Smith, john@example.com, interested in the Pro plan",
-    },
+      content: "Extract contact info: John Smith, john@example.com, interested in the Pro plan"
+    }
   ],
   output_config: {
     format: jsonSchemaOutputFormat({
@@ -872,12 +870,12 @@ const response = await client.messages.parse({
       properties: {
         name: { type: "string" },
         email: { type: "string" },
-        planInterest: { type: "string" },
+        planInterest: { type: "string" }
       },
       required: ["name", "email", "planInterest"],
-      additionalProperties: false,
-    } as const),
-  },
+      additionalProperties: false
+    } as const)
+  }
 });
 
 // response.parsed_output is typed as { name: string; email: string; planInterest: string } | null
@@ -891,9 +889,9 @@ console.log(response.parsed_output!.email);
 </Tab>
 <Tab title="C#">
 
-**Raw JSON schemas through `OutputConfig`**
+**JSON schemas through `OutputConfig`**
 
-The C# SDK uses raw JSON schemas built programmatically with `JsonSerializer.SerializeToElement`. Deserialize the response JSON with `JsonSerializer.Deserialize`.
+The C# SDK accepts raw JSON schemas built programmatically with `JsonSerializer.SerializeToElement`, as shown here, or derives the schema from a plain C# class with the generic `Create<T>()` overload. Deserialize the response JSON with `JsonSerializer.Deserialize`.
 
 ```csharp
 using System.Text.Json;
@@ -944,7 +942,7 @@ if (response.Content[0].TryPickText(out var textBlock))
 
 **Raw JSON schemas through `OutputConfigParam`**
 
-The Go SDK works with raw JSON schemas. Define a Go struct with json tags, generate the JSON schema (for example, using `invopop/jsonschema`), and unmarshal the response text into your struct.
+The Go SDK works with raw JSON schemas. Define a Go struct with json tags, generate the JSON schema (for example, using `invopop/jsonschema`), and unmarshal the response text into your struct. On the beta API, passing a struct as the output format schema reflects it into a JSON schema automatically.
 
 ```go hidelines={1..2,4..7,26..28,-1}
 package main
@@ -1006,7 +1004,7 @@ func main() {
 </Tab>
 <Tab title="Java">
 
-Java examples on this page use [JDK 25 compact source file](https://openjdk.org/jeps/512) syntax; see the [Java SDK requirements](/docs/en/api/sdks/java#requirements) for the substitution on earlier JDKs.
+Java examples on this page use [JDK 25 compact source file](https://openjdk.org/jeps/512) syntax; see the [Java SDK requirements](/docs/en/cli-sdks-libraries/sdks/java#requirements) for the substitution on earlier JDKs.
 
 **`outputConfig(Class<T>)` method**
 
@@ -1388,15 +1386,15 @@ if ($contact instanceof ContactInfo) {
 
 The SDK maps native PHP 8 property types to JSON Schema:
 
-| PHP type                                   | JSON Schema                        |
-| ------------------------------------------ | ---------------------------------- |
-| `string`                                   | `"string"`                         |
-| `int`                                      | `"integer"`                        |
-| `float`                                    | `"number"`                         |
-| `bool`                                     | `"boolean"`                        |
-| `array`                                    | `"array"` (see the following note) |
-| `?type` (nullable)                         | Optional field                     |
-| Class implementing `StructuredOutputModel` | Nested object                      |
+| PHP type | JSON Schema |
+|---|---|
+| `string` | `"string"` |
+| `int` | `"integer"` |
+| `float` | `"number"` |
+| `bool` | `"boolean"` |
+| `array` | `"array"` (see the following note) |
+| `?type` (nullable) | Optional field |
+| Class implementing `StructuredOutputModel` | Nested object |
 
 For `array` properties, the SDK adds an `items` schema only when the element type is a nested `StructuredOutputModel`, declared with `#[Constrained(itemClass: MyModel::class)]` or a `/** @var MyModel[] */` docblock. Arrays of scalars (`string[]`, `int[]`) emit an unconstrained `{"type":"array"}`.
 
@@ -1546,7 +1544,7 @@ message.parsed_output
 
 #### How SDK transformation works
 
-The Python, TypeScript, Ruby, and PHP SDKs automatically transform schemas with unsupported features:
+The Python, TypeScript, Ruby, and PHP SDKs automatically transform schemas with unsupported features. The C# and Go SDKs apply the same transformations when the schema is derived from a native type (`Create<T>()` in C#; struct reflection or `BetaJSONSchemaOutputFormat()` on the Go beta API). The transformation steps:
 
 1. **Remove unsupported constraints** (for example, `minimum`, `maximum`, `minLength`, `maxLength`)
 2. **Update descriptions** with constraint info (for example, "Must be at least 100"), when the constraint is not directly supported with structured outputs
@@ -1632,7 +1630,7 @@ const InvoiceSchema = z.object({
   date: z.string(),
   total_amount: z.number(),
   line_items: z.array(z.record(z.string(), z.any())),
-  customer_name: z.string(),
+  customer_name: z.string()
 });
 
 const invoiceText = "Invoice #12345, Date: 2024-01-15, Total: $500.00";
@@ -1640,9 +1638,7 @@ const response = await client.messages.parse({
   model: "claude-opus-4-8",
   max_tokens: 4096,
   output_config: { format: zodOutputFormat(InvoiceSchema) },
-  messages: [
-    { role: "user", content: `Extract invoice data from: ${invoiceText}` },
-  ],
+  messages: [{ role: "user", content: `Extract invoice data from: ${invoiceText}` }]
 });
 console.log(response.parsed_output);
 ```
@@ -1966,7 +1962,7 @@ const ClassificationSchema = z.object({
   category: z.string(),
   confidence: z.number(),
   tags: z.array(z.string()),
-  sentiment: z.string(),
+  sentiment: z.string()
 });
 
 const feedbackText = "Great product, but the delivery was slow.";
@@ -1974,9 +1970,7 @@ const response = await client.messages.parse({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   output_config: { format: zodOutputFormat(ClassificationSchema) },
-  messages: [
-    { role: "user", content: `Classify this feedback: ${feedbackText}` },
-  ],
+  messages: [{ role: "user", content: `Classify this feedback: ${feedbackText}` }]
 });
 
 console.log(response.parsed_output);
@@ -2260,14 +2254,14 @@ const APIResponseSchema = z.object({
   status: z.string(),
   data: z.record(z.string(), z.any()),
   errors: z.array(z.record(z.string(), z.any())).optional(),
-  metadata: z.record(z.string(), z.any()),
+  metadata: z.record(z.string(), z.any())
 });
 
 const response = await client.messages.parse({
   model: "claude-opus-4-8",
   max_tokens: 1024,
   output_config: { format: zodOutputFormat(APIResponseSchema) },
-  messages: [{ role: "user", content: "Process this request..." }],
+  messages: [{ role: "user", content: "Process this request..." }]
 });
 
 console.log(response.parsed_output);
@@ -2635,12 +2629,7 @@ const client = new Anthropic();
 const response = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [
-    {
-      role: "user",
-      content: "Help me plan a trip to Paris departing May 15, 2026",
-    },
-  ],
+  messages: [{ role: "user", content: "Help me plan a trip to Paris departing May 15, 2026" }],
   // JSON outputs: structured response format
   output_config: {
     format: {
@@ -2649,31 +2638,30 @@ const response = await client.messages.create({
         type: "object",
         properties: {
           summary: { type: "string" },
-          next_steps: { type: "array", items: { type: "string" } },
+          next_steps: { type: "array", items: { type: "string" } }
         },
         required: ["summary", "next_steps"],
-        additionalProperties: false,
-      },
-    },
+        additionalProperties: false
+      }
+    }
   },
   // Strict tool use: guaranteed tool parameters
   tools: [
     {
       name: "search_flights",
-      description:
-        "Search for available flights to a destination on a specific date",
+      description: "Search for available flights to a destination on a specific date",
       strict: true,
       input_schema: {
         type: "object",
         properties: {
           destination: { type: "string" },
-          date: { type: "string", format: "date" },
+          date: { type: "string", format: "date" }
         },
         required: ["destination", "date"],
-        additionalProperties: false,
-      },
-    },
-  ],
+        additionalProperties: false
+      }
+    }
+  ]
 });
 
 // Claude may call the tool first (tool_use) or respond with JSON (text)
@@ -3013,14 +3001,12 @@ If you use an unsupported feature, you'll receive a 400 error with details.
 <section title="Pattern support (regex)">
 
 **Supported regex features:**
-
 - Full matching (`^...$`) and partial matching
 - Quantifiers: `*`, `+`, `?`, simple `{n,m}` cases
 - Character classes: `[]`, `.`, `\d`, `\w`, `\s`
 - Groups: `(...)`
 
 **NOT supported:**
-
 - Backreferences to groups (for example, `\1`, `\2`)
 - Lookahead/lookbehind assertions (for example, `(?=...)`, `(?!...)`)
 - Word boundaries: `\b`, `\B`
@@ -3031,7 +3017,7 @@ Simple regex patterns work well. Complex patterns may result in 400 errors.
 </section>
 
 <Tip>
-The Python, TypeScript, Ruby, and PHP SDKs can automatically transform schemas with unsupported features by removing them and adding constraints to field descriptions. See [SDK-specific methods](#sdk-specific-methods) for details.
+The Python, TypeScript, Ruby, and PHP SDKs can automatically transform schemas with unsupported features by removing them and adding constraints to field descriptions. The C# and Go SDKs do the same when the schema is derived from a native type. See [SDK-specific methods](#sdk-specific-methods) for details.
 </Tip>
 
 ### Property ordering
@@ -3103,11 +3089,11 @@ Structured outputs work by compiling your JSON schemas into a grammar that const
 
 The following limits apply to all requests with `output_config.format` or `strict: true`:
 
-| Limit                       | Value | Description                                                                                                                                                                                              |
-| --------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Strict tools per request    | 20    | Maximum number of tools with `strict: true`. Non-strict tools don't count toward this limit.                                                                                                             |
-| Optional parameters         | 24    | Total optional parameters across all strict tool schemas and JSON output schemas. Each parameter not listed in `required` counts toward this limit.                                                      |
-| Parameters with union types | 16    | Total parameters that use `anyOf` or type arrays (for example, `"type": ["string", "null"]`) across all strict schemas. These are especially expensive because they create exponential compilation cost. |
+| Limit | Value | Description |
+|-------|-------|-------------|
+| Strict tools per request | 20 | Maximum number of tools with `strict: true`. Non-strict tools don't count toward this limit. |
+| Optional parameters | 24 | Total optional parameters across all strict tool schemas and JSON output schemas. Each parameter not listed in `required` counts toward this limit. |
+| Parameters with union types | 16 | Total parameters that use `anyOf` or type arrays (for example, `"type": ["string", "null"]`) across all strict schemas. These are especially expensive because they create exponential compilation cost. |
 
 <Note>
 These limits apply to the combined total across all strict schemas in a single request. For example, if you have 4 strict tools with 6 optional parameters each, you'll reach the 24-parameter limit even though no single tool seems complex.
@@ -3144,14 +3130,12 @@ For ZDR and HIPAA eligibility across all features, see [API and data retention](
 ## Feature compatibility
 
 **Works with:**
-
 - **[Batch processing](/docs/en/build-with-claude/batch-processing):** Process structured outputs at scale with 50% discount
 - **[Token counting](/docs/en/build-with-claude/token-counting):** Count tokens without compilation
 - **[Streaming](/docs/en/build-with-claude/streaming):** Stream structured outputs like normal responses
 - **Combined usage:** Use JSON outputs (`output_config.format`) and strict tool use (`strict: true`) together in the same request
 
 **Incompatible with:**
-
 - **[Citations](/docs/en/build-with-claude/citations):** Citations require interleaving citation blocks with text, which conflicts with strict JSON schema constraints. Returns 400 error if citations enabled with `output_config.format`.
 - **Message Prefilling:** Incompatible with JSON outputs
 

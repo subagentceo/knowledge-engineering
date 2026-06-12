@@ -46,8 +46,7 @@ Get the schema from a completed FindAll run to reuse its `entity_type`, `match_c
 <CodeGroup>
   ```bash cURL theme={"system"}
   curl -X GET "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/schema" \
-    -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15"
+    -H "x-api-key: $PARALLEL_API_KEY"
   ```
 
   ```python Python theme={"system"}
@@ -106,7 +105,6 @@ Use the retrieved schema to create a new FindAll run, adding an `exclude_list` p
   ```bash cURL theme={"system"}
   curl -X POST "https://api.parallel.ai/v1beta/findall/runs" \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json" \
     -d '{
       "objective": "Find all portfolio companies of Khosla Ventures founded after 2020",
@@ -256,8 +254,7 @@ To construct the `exclude_list` from previous runs, retrieve the matched candida
 
 ```bash cURL theme={"system"}
 curl -X GET "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/result" \
-  -H "x-api-key: $PARALLEL_API_KEY" \
-  -H "parallel-beta: findall-2025-09-15"
+  -H "x-api-key: $PARALLEL_API_KEY"
 ```
 
 Extract the `name` and `url` fields from each matched candidate:
@@ -300,7 +297,6 @@ Here's a complete example showing how to set up a weekly FindAll job:
   BASE_URL = "https://api.parallel.ai/v1beta"
   HEADERS = {
       "x-api-key": PARALLEL_API_KEY,
-      "parallel-beta": "findall-2025-09-15",
       "Content-Type": "application/json"
   }
 
@@ -396,7 +392,6 @@ Here's a complete example showing how to set up a weekly FindAll job:
   const BASE_URL = 'https://api.parallel.ai/v1beta';
   const HEADERS = {
     'x-api-key': PARALLEL_API_KEY,
-    'parallel-beta': 'findall-2025-09-15',
     'Content-Type': 'application/json',
   };
 

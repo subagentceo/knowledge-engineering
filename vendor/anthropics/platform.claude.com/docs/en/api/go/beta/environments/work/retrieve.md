@@ -13,6 +13,7 @@ Retrieve detailed information about a specific work item.
 - `workID string`
 
 - `params BetaEnvironmentWorkGetParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -20,9 +21,11 @@ Retrieve detailed information about a specific work item.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -75,7 +78,9 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -86,9 +91,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -101,13 +107,15 @@ Retrieve detailed information about a specific work item.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -129,6 +137,7 @@ Retrieve detailed information about a specific work item.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -150,6 +159,7 @@ Retrieve detailed information about a specific work item.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example

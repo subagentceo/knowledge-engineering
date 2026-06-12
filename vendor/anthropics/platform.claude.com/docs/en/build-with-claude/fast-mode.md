@@ -4,7 +4,7 @@ Higher output speed for supported Claude Opus models, delivering significantly f
 
 ---
 
-Fast mode provides significantly faster output token generation for <NextOpus />, Claude Opus 4.7, and Claude Opus 4.6 at premium pricing. Set `speed: "fast"` in your API request to opt in. Fast mode delivers up to 2.5x higher output tokens per second from the same model.
+Fast mode provides significantly faster output token generation for Claude Opus 4.8, Claude Opus 4.7, and Claude Opus 4.6 at premium pricing. Set `speed: "fast"` in your API request to opt in. Fast mode delivers up to 2.5x higher output tokens per second from the same model.
 
 <Note>
 Fast mode is in research preview. Contact your account manager to request access. If you do not have an account manager, [join the waitlist](https://claude.com/fast-mode) for fast mode.
@@ -18,23 +18,23 @@ This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-cla
 
 Fast mode is supported on the following models:
 
-- <NextOpus /> (<NextOpusId />)
+- Claude Opus 4.8 (claude-opus-4-8)
 - Claude Opus 4.7 (claude-opus-4-7)
 - Claude Opus 4.6 (claude-opus-4-6)
 
 <Note>
-Fast mode for <NextOpus /> launches as a research preview on the Claude API, including Claude Managed Agents, only. It is not available on third-party platforms, including Vertex AI, Amazon Bedrock, and Microsoft Foundry.
+Fast mode for Claude Opus 4.8 launches as a research preview on the Claude API, including Claude Managed Agents, only. It is not available on third-party platforms, including Vertex AI, Amazon Bedrock, and Microsoft Foundry.
 </Note>
 
 <Warning>
-Fast mode for Claude Opus 4.6 is deprecated as of the <NextOpus /> launch and will be removed approximately 30 days later. After removal, requests to `claude-opus-4-6` with `speed: "fast"` will fall back to standard speed at standard pricing rather than return an error. Migrate to fast mode for <NextOpus /> or Claude Opus 4.7 to keep the speedup.
+Fast mode for Claude Opus 4.6 is deprecated as of the Claude Opus 4.8 launch and will be removed approximately 30 days later. After removal, requests to `claude-opus-4-6` with `speed: "fast"` will fall back to standard speed at standard pricing rather than return an error. Migrate to fast mode for Claude Opus 4.8 or Claude Opus 4.7 to keep the speedup.
 </Warning>
 
 ## How fast mode works
 
 Fast mode runs the same model with a faster inference configuration. There is no change to intelligence or capabilities.
 
-- On <NextOpus />, Claude Opus 4.7, and Claude Opus 4.6, up to 2.5x higher output tokens per second compared to standard speed
+- Up to 2.5x higher output tokens per second compared to standard speed
 - Speed benefits are focused on output tokens per second (OTPS), not time to first token (TTFT)
 - Same model weights and behavior (not a different model)
 
@@ -102,14 +102,13 @@ const response = await client.beta.messages.create({
   messages: [
     {
       role: "user",
-      content: "Refactor this module to use dependency injection",
-    },
-  ],
+      content: "Refactor this module to use dependency injection"
+    }
+  ]
 });
 
 const textBlock = response.content.find(
-  (block): block is Anthropic.Beta.Messages.BetaTextBlock =>
-    block.type === "text",
+  (block): block is Anthropic.Beta.Messages.BetaTextBlock => block.type === "text"
 );
 console.log(textBlock?.text);
 ```
@@ -230,10 +229,10 @@ puts response.content[0].text
 
 Fast mode is priced at a per-model multiplier on standard rates across the full context window, including requests over 200k input tokens. The following table shows fast mode pricing for each supported model:
 
-| Model                             | Input      | Output      |
-| :-------------------------------- | :--------- | :---------- |
+| Model | Input | Output |
+|:------|:------|:-------|
 | Claude Opus 4.6 / Claude Opus 4.7 | $30 / MTok | $150 / MTok |
-| <NextOpus />                      | $10 / MTok | $50 / MTok  |
+| Claude Opus 4.8 | $10 / MTok | $50 / MTok |
 
 Fast mode pricing stacks with other pricing modifiers:
 
@@ -248,14 +247,14 @@ Fast mode has a dedicated rate limit that is separate from standard Opus rate li
 
 The response includes headers that indicate your fast mode rate limit status:
 
-| Header                                   | Description                                       |
-| :--------------------------------------- | :------------------------------------------------ |
-| `anthropic-fast-input-tokens-limit`      | Maximum fast mode input tokens per minute         |
-| `anthropic-fast-input-tokens-remaining`  | Remaining fast mode input tokens                  |
-| `anthropic-fast-input-tokens-reset`      | Time when the fast mode input token limit resets  |
-| `anthropic-fast-output-tokens-limit`     | Maximum fast mode output tokens per minute        |
-| `anthropic-fast-output-tokens-remaining` | Remaining fast mode output tokens                 |
-| `anthropic-fast-output-tokens-reset`     | Time when the fast mode output token limit resets |
+| Header | Description |
+|:-------|:------------|
+| `anthropic-fast-input-tokens-limit` | Maximum fast mode input tokens per minute |
+| `anthropic-fast-input-tokens-remaining` | Remaining fast mode input tokens |
+| `anthropic-fast-input-tokens-reset` | Time when the fast mode input token limit resets |
+| `anthropic-fast-output-tokens-limit` | Maximum fast mode output tokens per minute |
+| `anthropic-fast-output-tokens-remaining` | Remaining fast mode output tokens |
+| `anthropic-fast-output-tokens-reset` | Time when the fast mode output token limit resets |
 
 For tier-specific rate limits, see the [rate limits page](/docs/en/api/rate-limits).
 
@@ -308,7 +307,7 @@ const response = await client.beta.messages.create({
   max_tokens: 1024,
   speed: "fast",
   betas: ["fast-mode-2026-02-01"],
-  messages: [{ role: "user", content: "Hello" }],
+  messages: [{ role: "user", content: "Hello" }]
 });
 
 console.log(response.usage.speed); // "fast" or "standard"
@@ -415,7 +414,6 @@ response = client.beta.messages.create(
 
 puts(response.usage.speed)  # "fast" or "standard"
 ```
-
 </CodeGroup>
 
 ```json Output hidelines={5..8}
@@ -483,17 +481,15 @@ create_message_with_fast_fallback() {
 }
 
 MESSAGE=$(
-create_message_with_fast_fallback fast <<'YAML'
+  create_message_with_fast_fallback fast <<'YAML'
 model: claude-opus-4-8
 max_tokens: 1024
 messages:
-
-- role: user
-  content: Hello
-  YAML
-  )
-
-````
+  - role: user
+    content: Hello
+YAML
+)
+```
 
 ```python Python nocheck hidelines={1..2}
 import anthropic
@@ -532,7 +528,7 @@ message = create_message_with_fast_fallback(
     speed="fast",
     max_retries=0,
 )
-````
+```
 
 ```typescript TypeScript hidelines={1..3,-1}
 import Anthropic from "@anthropic-ai/sdk";
@@ -541,12 +537,12 @@ const client = new Anthropic();
   async function createMessageWithFastFallback(
     params: Anthropic.Beta.MessageCreateParams,
     requestOptions?: Anthropic.RequestOptions,
-    maxAttempts: number = 3,
+    maxAttempts: number = 3
   ): Promise<Anthropic.Beta.Messages.BetaMessage> {
     try {
       return (await client.beta.messages.create(
         params,
-        requestOptions,
+        requestOptions
       )) as Anthropic.Beta.Messages.BetaMessage;
     } catch (e) {
       if (e instanceof Anthropic.RateLimitError && params.speed === "fast") {
@@ -558,11 +554,7 @@ const client = new Anthropic();
         e instanceof Anthropic.APIConnectionError
       ) {
         if (maxAttempts > 1) {
-          return createMessageWithFastFallback(
-            params,
-            undefined,
-            maxAttempts - 1,
-          );
+          return createMessageWithFastFallback(params, undefined, maxAttempts - 1);
         }
       }
       throw e;
@@ -575,9 +567,9 @@ const client = new Anthropic();
       max_tokens: 1024,
       messages: [{ role: "user", content: "Hello" }],
       betas: ["fast-mode-2026-02-01"],
-      speed: "fast",
+      speed: "fast"
     },
-    { maxRetries: 0 },
+    { maxRetries: 0 }
   );
 })();
 ```
@@ -819,13 +811,12 @@ message = create_message_with_fast_fallback(
   request_options: { max_retries: 0 }
 )
 ```
-
 </CodeGroup>
 
 ## Considerations
 
 - **Prompt caching:** Switching between fast and standard speed invalidates the prompt cache. Requests at different speeds do not share cached prefixes.
-- **Supported models:** Fast mode is supported on <NextOpus />, Claude Opus 4.7, and Claude Opus 4.6. Sending `speed: "fast"` with an unsupported model returns an error.
+- **Supported models:** Fast mode is supported on Claude Opus 4.8, Claude Opus 4.7, and Claude Opus 4.6. Sending `speed: "fast"` with an unsupported model returns an error.
 - **TTFT:** Fast mode's benefits are focused on output tokens per second (OTPS), not time to first token (TTFT).
 - **Batch API:** Fast mode is not available with the [Batch API](/docs/en/build-with-claude/batch-processing).
 - **Priority Tier:** Fast mode is not available with [Priority Tier](/docs/en/api/service-tiers).

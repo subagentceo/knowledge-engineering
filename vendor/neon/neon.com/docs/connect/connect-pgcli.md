@@ -1,7 +1,7 @@
 > This page location: Clients & tools > pgcli
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: How to connect to Neon using the `pgcli` client, including obtaining a connection string from the Project Dashboard and executing queries with enhanced features like autocompletion and query history.
+> Summary: pgcli is an interactive Postgres CLI with syntax highlighting, autocompletion, multi-line editing, query history, and named queries. It connects to Neon using a standard connection string available from the Project Dashboard. Choose pgcli over psql when you want a richer terminal experience for ad-hoc querying.
 
 # Connect with pgcli
 

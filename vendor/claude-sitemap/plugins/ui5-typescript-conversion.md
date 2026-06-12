@@ -1,10 +1,11 @@
 # UI5 TypeScript Conversion
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  1267
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    1411

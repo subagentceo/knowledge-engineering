@@ -11,12 +11,15 @@ Get User Profile
 - `userProfileID string`
 
 - `query BetaUserProfileGetParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -69,11 +72,14 @@ Get User Profile
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaUserProfile struct{…}`
+
   - `ID string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -89,6 +95,7 @@ Get User Profile
   - `Relationship BetaUserProfileRelationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `const BetaUserProfileRelationshipExternal BetaUserProfileRelationship = "external"`
 
     - `const BetaUserProfileRelationshipResold BetaUserProfileRelationship = "resold"`
@@ -98,9 +105,11 @@ Get User Profile
   - `TrustGrants map[string, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status BetaUserProfileTrustGrantStatus`
 
       Status of the trust grant.
+
       - `const BetaUserProfileTrustGrantStatusActive BetaUserProfileTrustGrantStatus = "active"`
 
       - `const BetaUserProfileTrustGrantStatusPending BetaUserProfileTrustGrantStatus = "pending"`
@@ -110,6 +119,7 @@ Get User Profile
   - `Type BetaUserProfileType`
 
     Object type. Always `user_profile`.
+
     - `const BetaUserProfileTypeUserProfile BetaUserProfileType = "user_profile"`
 
   - `UpdatedAt Time`

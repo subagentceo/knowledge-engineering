@@ -25,9 +25,11 @@ Create Skill
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -80,11 +82,14 @@ Create Skill
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class SkillCreateResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -112,8 +117,9 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -179,15 +185,18 @@ List Skills
   Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-  - `"custom"`: only return user-created skills
-  - `"anthropic"`: only return Anthropic-created skills
+
+  * `"custom"`: only return user-created skills
+  * `"anthropic"`: only return Anthropic-created skills
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -240,11 +249,14 @@ List Skills
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class SkillListResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -272,8 +284,9 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -338,9 +351,11 @@ Get Skill
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -393,11 +408,14 @@ Get Skill
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class SkillRetrieveResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -425,8 +443,9 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -486,9 +505,11 @@ Delete Skill
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -541,11 +562,14 @@ Delete Skill
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class SkillDeleteResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -587,6 +611,7 @@ print(skill.id)
 ### Skill Create Response
 
 - `class SkillCreateResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -614,8 +639,9 @@ print(skill.id)
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -630,6 +656,7 @@ print(skill.id)
 ### Skill List Response
 
 - `class SkillListResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -657,8 +684,9 @@ print(skill.id)
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -673,6 +701,7 @@ print(skill.id)
 ### Skill Retrieve Response
 
 - `class SkillRetrieveResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -700,8 +729,9 @@ print(skill.id)
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: str`
 
@@ -716,6 +746,7 @@ print(skill.id)
 ### Skill Delete Response
 
 - `class SkillDeleteResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill.
@@ -755,9 +786,11 @@ Create Skill Version
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -810,11 +843,14 @@ Create Skill Version
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionCreateResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -918,9 +954,11 @@ List Skill Versions
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -973,11 +1011,14 @@ List Skill Versions
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionListResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -1084,9 +1125,11 @@ Download a skill version's content as a zip archive.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1139,7 +1182,9 @@ Download a skill version's content as a zip archive.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1188,9 +1233,11 @@ Get Skill Version
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1243,11 +1290,14 @@ Get Skill Version
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionRetrieveResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -1348,9 +1398,11 @@ Delete Skill Version
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1403,11 +1455,14 @@ Delete Skill Version
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionDeleteResponse: …`
+
   - `id: str`
 
     Version identifier for the skill.
@@ -1450,6 +1505,7 @@ print(version.id)
 ### Version Create Response
 
 - `class VersionCreateResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -1497,6 +1553,7 @@ print(version.id)
 ### Version List Response
 
 - `class VersionListResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -1544,6 +1601,7 @@ print(version.id)
 ### Version Retrieve Response
 
 - `class VersionRetrieveResponse: …`
+
   - `id: str`
 
     Unique identifier for the skill version.
@@ -1591,6 +1649,7 @@ print(version.id)
 ### Version Delete Response
 
 - `class VersionDeleteResponse: …`
+
   - `id: str`
 
     Version identifier for the skill.

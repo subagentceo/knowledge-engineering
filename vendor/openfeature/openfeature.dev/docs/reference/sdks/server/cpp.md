@@ -1,28 +1,28 @@
 # OpenFeature C++ SDK
 
-[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.2.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.2.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.0.1&color=blue&style=for-the-badge)](https://github.com/open-feature/cpp-sdk/releases/tag/v0.0.1)  
-[![CII Best Practices](https://www.bestpractices.dev/projects/11271/badge)](https://www.bestpractices.dev/en/projects/11271)
+![Specification](https://img.shields.io/static/v1?label=specification&message=v0.2.0&color=yellow&style=for-the-badge)![Release](https://img.shields.io/static/v1?label=release&message=v0.0.1&color=blue&style=for-the-badge)  
+![CII Best Practices](https://www.bestpractices.dev/projects/11271/badge)
 
-## Quick start[​](#quick-start "Direct link to Quick start")
+## Quick start​
 
-### Requirements[​](#requirements "Direct link to Requirements")
+### Requirements​
 
--   C++17 or newer (due to the usage of `std::optional`, `std::any`, `std::variant`, and `std::string_view`)
--   [Bazel](https://bazel.build/) build system
+*   C++17 or newer (due to the usage of `std::optional`, `std::any`, `std::variant`, and `std::string_view`)
+*   Bazel build system
 
-### Install[​](#install "Direct link to Install")
+### Install​
 
 To use the OpenFeature C++ SDK in your Bazel project, add the dependency to your `MODULE.bazel` file or your `WORKSPACE` (depending on your Bazel configuration).
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage​
 
 ```
 void example() {  // flags defined in memory  std::unordered_map<std::string, std::any> my_flags = {      {"v2_enabled", true}  };  // configure a provider  openfeature::OpenFeatureAPI& api = openfeature::OpenFeatureAPI::GetInstance();  api.SetProviderAndWait(std::make_shared<openfeature::InMemoryProvider>(my_flags));  // create a client  std::shared_ptr<openfeature::Client> client = api.GetClient();  // get a bool flag value  bool flag_value = client->GetBooleanValue("v2_enabled", false);}
 ```
 
-### API Reference[​](#api-reference "Direct link to API Reference")
+### API Reference​
 
-## Features[​](#features "Direct link to Features")
+## Features​
 
 Status
 
@@ -32,73 +32,73 @@ Description
 
 ⚠️
 
-[Providers](#providers)
+Providers
 
 Integrate with a commercial, open source, or in-house feature management tool.
 
 ✅
 
-[Targeting](#targeting)
+Targeting
 
-Contextually-aware flag evaluation using [evaluation context](/docs/reference/concepts/evaluation-context).
+Contextually-aware flag evaluation using evaluation context.
 
 ❌
 
-[Hooks](#hooks)
+Hooks
 
 Add functionality to various stages of the flag evaluation life-cycle.
 
 ❌
 
-[Logging](#logging)
+Logging
 
 Integrate with popular logging packages.
 
 ✅
 
-[Domains](#domains)
+Domains
 
 Logically bind clients with providers.
 
 ❌
 
-[Eventing](#eventing)
+Eventing
 
 React to state changes in the provider or flag management system.
 
 ❌
 
-[Tracking](#tracking)
+Tracking
 
 Associate user-actions with flag evaluations for the purposes of experimentation.
 
 ❌
 
-[Transaction Context Propagation](#transaction-context-propagation)
+Transaction Context Propagation
 
-Set a specific [evaluation context](/docs/reference/concepts/evaluation-context) for a transaction (e.g. an HTTP request or a thread)
+Set a specific evaluation context for a transaction (e.g. an HTTP request or a thread)
 
 ✅
 
-[Shutdown](#shutdown)
+Shutdown
 
 Gracefully clean up a provider during application shutdown.
 
 ✅
 
-[Extending](#extending)
+Extending
 
 Extend OpenFeature with custom providers and hooks.
 
 Implemented: ✅ | In-progress: ⚠️ | Not implemented yet: ❌
 
-### Providers[​](#providers "Direct link to Providers")
+### Providers​
 
-[Providers](/docs/reference/concepts/provider) are an abstraction between a flag management system and the OpenFeature SDK. Look [here](/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Provider&instant_search%5BrefinementList%5D%5Btechnology%5D%5B0%5D=cpp) for a complete list of available providers. If the provider you're looking for hasn't been created yet, see the [develop a provider](#develop-a-provider) section to learn how to build it yourself.
+Providers are an abstraction between a flag management system and the OpenFeature SDK. Look here for a complete list of available providers. If the provider you're looking for hasn't been created yet, see the develop a provider section to learn how to build it yourself.
 
 Once you've added a provider as a dependency, it can be registered with OpenFeature like this:
 
-#### Synchronous[​](#synchronous "Direct link to Synchronous")
+#### Synchronous​
 
 To register a provider in a blocking manner to ensure it is ready before further actions are taken, use the `SetProviderAndWait` method:
 
@@ -106,7 +106,7 @@ To register a provider in a blocking manner to ensure it is ready before further
 openfeature::OpenFeatureAPI& api = openfeature::OpenFeatureAPI::GetInstance();api.SetProviderAndWait(std::make_shared<MyProvider>());
 ```
 
-#### Asynchronous[​](#asynchronous "Direct link to Asynchronous")
+#### Asynchronous​
 
 To register a provider in a non-blocking manner, use the `SetProvider` method:
 
@@ -114,25 +114,25 @@ To register a provider in a non-blocking manner, use the `SetProvider` method:
 openfeature::OpenFeatureAPI::GetInstance().SetProvider(std::make_shared<MyProvider>());
 ```
 
-In some situations, it may be beneficial to register multiple providers in the same application. This is possible using [domains](#domains), which is covered in more detail below.
+In some situations, it may be beneficial to register multiple providers in the same application. This is possible using domains, which is covered in more detail below.
 
-### Targeting[​](#targeting "Direct link to Targeting")
+### Targeting​
 
-Sometimes, the value of a flag must consider some dynamic criteria about the application or user, such as the user's location, IP, email address, or the server's location. In OpenFeature, we refer to this as [targeting](/specification/glossary#targeting). If the flag management system you're using supports targeting, you can provide the input data using the [evaluation context](/docs/reference/concepts/evaluation-context).
+Sometimes, the value of a flag must consider some dynamic criteria about the application or user, such as the user's location, IP, email address, or the server's location. In OpenFeature, we refer to this as targeting. If the flag management system you're using supports targeting, you can provide the input data using the evaluation context.
 
 ```
 openfeature::OpenFeatureAPI& api = openfeature::OpenFeatureAPI::GetInstance();// Set a global evaluation contextopenfeature::EvaluationContext global_ctx = openfeature::EvaluationContext::Builder()    .WithAttribute("region", "us-east-1")    .build();api.SetEvaluationContext(global_ctx);// Set a client-level evaluation contextstd::shared_ptr<openfeature::Client> client = api.GetClient();openfeature::EvaluationContext client_ctx = openfeature::EvaluationContext::Builder()    .WithAttribute("app_version", "1.0.5")    .build();client->SetEvaluationContext(client_ctx);// Provide an invocation-level evaluation contextopenfeature::EvaluationContext req_ctx = openfeature::EvaluationContext::Builder()    .WithTargetingKey("session-id-12345")    .WithAttribute("email", "user@example.com")    .build();bool flag_value = client->GetBooleanValue("some-flag", false, req_ctx);
 ```
 
-### Hooks[​](#hooks "Direct link to Hooks")
+### Hooks​
 
-[Hooks](/docs/reference/concepts/hooks) allow for custom logic to be added at well-defined points of the flag evaluation life-cycle. Look [here](/ecosystem/?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Hook&instant_search%5BrefinementList%5D%5Btechnology%5D%5B0%5D=cpp) for a complete list of available hooks. If the hook you're looking for hasn't been created yet, see the [develop a hook](#develop-a-hook) section to learn how to build it yourself.
+Hooks allow for custom logic to be added at well-defined points of the flag evaluation life-cycle. Look here for a complete list of available hooks. If the hook you're looking for hasn't been created yet, see the develop a hook section to learn how to build it yourself.
 
 Once you've added a hook as a dependency, it can be registered at the global, client, or flag invocation level.
 
-### Logging[​](#logging "Direct link to Logging")
+### Logging​
 
-### Domains[​](#domains "Direct link to Domains")
+### Domains​
 
 Clients can be assigned to a domain. A domain is a logical identifier which can be used to associate clients with a particular provider. If a domain has no associated provider, the default provider is used.
 
@@ -140,23 +140,23 @@ Clients can be assigned to a domain. A domain is a logical identifier which can 
 openfeature::OpenFeatureAPI& api = openfeature::OpenFeatureAPI::GetInstance();// registering the default providerapi.SetProvider(std::make_shared<LocalProvider>());// registering a provider to a domainapi.SetProvider("my-domain", std::make_shared<CachedProvider>());// A client bound to the default providerstd::shared_ptr<openfeature::Client> client_default = api.GetClient();// A client bound to the CachedProvider providerstd::shared_ptr<openfeature::Client> domain_scoped_client = api.GetClient("my-domain");
 ```
 
-### Eventing[​](#eventing "Direct link to Eventing")
+### Eventing​
 
 Events allow you to react to state changes in the provider or underlying flag management system, such as flag definition changes, provider readiness, or error conditions. Initialization events (`PROVIDER_READY` on success, `PROVIDER_ERROR` on failure) are dispatched for every provider. Some providers support additional events, such as `PROVIDER_CONFIGURATION_CHANGED`.
 
 Please refer to the documentation of the provider you're using to see what events are supported.
 
-### Tracking[​](#tracking "Direct link to Tracking")
+### Tracking​
 
-The tracking API allows you to use OpenFeature abstractions and objects to associate user actions with feature flag evaluations. This is essential for robust experimentation powered by feature flags. For example, a flag enhancing the appearance of a UI component might drive user engagement to a new feature; to test this hypothesis, telemetry collected by a [hook](#hooks) or [provider](#providers) can be associated with telemetry reported in the client's `track` function.
+The tracking API allows you to use OpenFeature abstractions and objects to associate user actions with feature flag evaluations. This is essential for robust experimentation powered by feature flags. For example, a flag enhancing the appearance of a UI component might drive user engagement to a new feature; to test this hypothesis, telemetry collected by a hook or provider can be associated with telemetry reported in the client's `track` function.
 
 Note that some providers may not support tracking; check the documentation for your provider for more information.
 
-### Transaction Context Propagation[​](#transaction-context-propagation "Direct link to Transaction Context Propagation")
+### Transaction Context Propagation​
 
 Transaction context is a container for transaction-specific evaluation context (e.g. user id, user agent, IP). Transaction context can be set where specific data is available (e.g. an auth service or request handler) and by using the transaction context propagator it will automatically be applied to all flag evaluations within a transaction (e.g. a request or thread).
 
-### Shutdown[​](#shutdown "Direct link to Shutdown")
+### Shutdown​
 
 The OpenFeature API provides a close function to perform a cleanup of all registered providers. This should only be called when your application is in the process of shutting down.
 
@@ -164,20 +164,20 @@ The OpenFeature API provides a close function to perform a cleanup of all regist
 // shut down all providersopenfeature::OpenFeatureAPI::GetInstance().Shutdown();
 ```
 
-## Extending[​](#extending "Direct link to Extending")
+## Extending​
 
-### Develop a provider[​](#develop-a-provider "Direct link to Develop a provider")
+### Develop a provider​
 
-To develop a provider, you need to create a new project and include the OpenFeature SDK as a dependency. This can be a new repository or included in [the existing contrib repository](https://github.com/open-feature/cpp-sdk-contrib) available under the OpenFeature organization. You’ll then need to write the provider by implementing the `FeatureProvider` interface exported by the OpenFeature SDK.
+To develop a provider, you need to create a new project and include the OpenFeature SDK as a dependency. This can be a new repository or included in the existing contrib repository available under the OpenFeature organization. You’ll then need to write the provider by implementing the `FeatureProvider` interface exported by the OpenFeature SDK.
 
 ```
 #include "openfeature/provider.h"class MyProvider : public openfeature::FeatureProvider { public:  openfeature::Metadata GetMetadata() const override {    return {"My Provider"};  }  absl::Status Init(const openfeature::EvaluationContext& ctx) override {    // start up your provider    return absl::OkStatus();  }  absl::Status Shutdown() override {    // shut down your provider    return absl::OkStatus();  }  std::unique_ptr<openfeature::BoolResolutionDetails> GetBooleanEvaluation(      std::string_view key, bool default_value,      const openfeature::EvaluationContext& ctx) override {      // resolve a boolean flag value      }  std::unique_ptr<openfeature::StringResolutionDetails> GetStringEvaluation(      std::string_view flag, std::string_view default_value,      const openfeature::EvaluationContext& ctx) override {        // resolve a string flag value      }  std::unique_ptr<openfeature::IntResolutionDetails> GetIntegerEvaluation(      std::string_view flag, int64_t default_value,      const openfeature::EvaluationContext& ctx) override {        // resolve a int flag value      }  std::unique_ptr<openfeature::DoubleResolutionDetails> GetDoubleEvaluation(      std::string_view flag, double default_value,      const openfeature::EvaluationContext& ctx) override {        // resolve a double flag value      }  std::unique_ptr<openfeature::ObjectResolutionDetails> GetObjectEvaluation(      std::string_view flag, Value default_value,      const openfeature::EvaluationContext& ctx) override {        // resolve a object flag value      }};
 ```
 
-> Built a new provider? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=provider&projects=&template=document-provider.yaml&title=%5BProvider%5D%3A+) so we can add it to the docs!
+> Built a new provider? Let us know so we can add it to the docs!
 
-### Develop a hook[​](#develop-a-hook "Direct link to Develop a hook")
+### Develop a hook​
 
-To develop a hook, you need to create a new project and include the OpenFeature SDK as a dependency. This can be a new repository or included in [the existing contrib repository](https://github.com/open-feature/cpp-sdk-contrib) available under the OpenFeature organization. Implement your own hook by conforming to the `Hook interface`. To satisfy the interface, all methods (`Before`/`After`/`Finally`/`Error`) need to be defined. To avoid defining empty functions, make use of the `UnimplementedHook` struct (which already implements all the empty functions).
+To develop a hook, you need to create a new project and include the OpenFeature SDK as a dependency. This can be a new repository or included in the existing contrib repository available under the OpenFeature organization. Implement your own hook by conforming to the `Hook interface`. To satisfy the interface, all methods (`Before`/`After`/`Finally`/`Error`) need to be defined. To avoid defining empty functions, make use of the `UnimplementedHook` struct (which already implements all the empty functions).
 
-> Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
+> Built a new hook? Let us know so we can add it to the docs!

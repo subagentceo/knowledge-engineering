@@ -11,6 +11,7 @@ Create a new environment with the specified configuration.
 ### Parameters
 
 - `EnvironmentCreateParams parameters`
+
   - `required string name`
 
     Body param: Human-readable name for the environment
@@ -18,12 +19,14 @@ Create a new environment with the specified configuration.
   - `Config? config`
 
     Body param: Environment configuration
+
     - `class BetaCloudConfigParams:`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonElement Type "cloud"constant`
 
         Environment type
@@ -31,9 +34,11 @@ Create a new environment with the specified configuration.
       - `Networking? Networking`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -44,6 +49,7 @@ Create a new environment with the specified configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `JsonElement Type "limited"constant`
 
             Network policy type
@@ -65,6 +71,7 @@ Create a new environment with the specified configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `IReadOnlyList<string>? Apt`
 
           Ubuntu/Debian packages to install
@@ -92,11 +99,13 @@ Create a new environment with the specified configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -112,6 +121,7 @@ Create a new environment with the specified configuration.
   - `Scope? scope`
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -119,6 +129,7 @@ Create a new environment with the specified configuration.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -171,16 +182,19 @@ Create a new environment with the specified configuration.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -189,15 +203,19 @@ Create a new environment with the specified configuration.
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -205,6 +223,7 @@ Create a new environment with the specified configuration.
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -224,6 +243,7 @@ Create a new environment with the specified configuration.
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -251,6 +271,7 @@ Create a new environment with the specified configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -260,6 +281,7 @@ Create a new environment with the specified configuration.
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -291,6 +313,7 @@ Create a new environment with the specified configuration.
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -315,16 +338,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -350,6 +388,7 @@ List environments with pagination support.
 ### Parameters
 
 - `EnvironmentListParams parameters`
+
   - `Boolean includeArchived`
 
     Query param: Include archived environments in the response
@@ -365,6 +404,7 @@ List environments with pagination support.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -417,7 +457,9 @@ List environments with pagination support.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -427,12 +469,14 @@ List environments with pagination support.
 
   This response model uses opaque cursor-based pagination. Use the `page`
   query parameter with the value from `next_page` to fetch the next page.
+
   - `required IReadOnlyList<BetaEnvironment> Data`
 
     List of environments.
+
     - `required string ID`
 
-      Environment identifier (e.g., 'env\_...')
+      Environment identifier (e.g., 'env_...')
 
     - `required string? ArchivedAt`
 
@@ -441,15 +485,19 @@ List environments with pagination support.
     - `required Config Config`
 
       Environment configuration (either Anthropic Cloud or self-hosted)
+
       - `class BetaCloudConfig:`
 
         `cloud` environment configuration.
+
         - `required Networking Networking`
 
           Network configuration policy.
+
           - `class BetaUnrestrictedNetwork:`
 
             Unrestricted network access.
+
             - `JsonElement Type "unrestricted"constant`
 
               Network policy type
@@ -457,6 +505,7 @@ List environments with pagination support.
           - `class BetaLimitedNetwork:`
 
             Limited network access.
+
             - `required Boolean AllowMcpServers`
 
               Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -476,6 +525,7 @@ List environments with pagination support.
         - `required BetaPackages Packages`
 
           Package manager configuration.
+
           - `required IReadOnlyList<string> Apt`
 
             Ubuntu/Debian packages to install
@@ -503,6 +553,7 @@ List environments with pagination support.
           - `Type Type`
 
             Package configuration type
+
             - `"packages"Packages`
 
         - `JsonElement Type "cloud"constant`
@@ -512,6 +563,7 @@ List environments with pagination support.
       - `class BetaSelfHostedConfig:`
 
         Configuration for self-hosted environments.
+
         - `JsonElement Type "self_hosted"constant`
 
           Environment type
@@ -543,6 +595,7 @@ List environments with pagination support.
     - `Scope Scope`
 
       The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
       - `"organization"Organization`
 
       - `"account"Account`
@@ -575,16 +628,31 @@ await foreach (var item in page.Paginate())
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -613,11 +681,13 @@ Retrieve a specific environment by ID.
 ### Parameters
 
 - `EnvironmentRetrieveParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -670,16 +740,19 @@ Retrieve a specific environment by ID.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -688,15 +761,19 @@ Retrieve a specific environment by ID.
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -704,6 +781,7 @@ Retrieve a specific environment by ID.
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -723,6 +801,7 @@ Retrieve a specific environment by ID.
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -750,6 +829,7 @@ Retrieve a specific environment by ID.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -759,6 +839,7 @@ Retrieve a specific environment by ID.
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -790,6 +871,7 @@ Retrieve a specific environment by ID.
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -817,16 +899,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -852,6 +949,7 @@ Update an existing environment's configuration.
 ### Parameters
 
 - `EnvironmentUpdateParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -859,12 +957,14 @@ Update an existing environment's configuration.
   - `Config? config`
 
     Body param: Updated environment configuration
+
     - `class BetaCloudConfigParams:`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonElement Type "cloud"constant`
 
         Environment type
@@ -872,9 +972,11 @@ Update an existing environment's configuration.
       - `Networking? Networking`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -885,6 +987,7 @@ Update an existing environment's configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `JsonElement Type "limited"constant`
 
             Network policy type
@@ -906,6 +1009,7 @@ Update an existing environment's configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `IReadOnlyList<string>? Apt`
 
           Ubuntu/Debian packages to install
@@ -933,11 +1037,13 @@ Update an existing environment's configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -957,6 +1063,7 @@ Update an existing environment's configuration.
   - `Scope? scope`
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -964,6 +1071,7 @@ Update an existing environment's configuration.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1016,16 +1124,19 @@ Update an existing environment's configuration.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -1034,15 +1145,19 @@ Update an existing environment's configuration.
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -1050,6 +1165,7 @@ Update an existing environment's configuration.
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1069,6 +1185,7 @@ Update an existing environment's configuration.
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -1096,6 +1213,7 @@ Update an existing environment's configuration.
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -1105,6 +1223,7 @@ Update an existing environment's configuration.
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -1136,6 +1255,7 @@ Update an existing environment's configuration.
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -1163,16 +1283,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1198,11 +1333,13 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Parameters
 
 - `EnvironmentDeleteParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1255,13 +1392,16 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
+
   - `required string ID`
 
     Environment identifier
@@ -1303,11 +1443,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 ### Parameters
 
 - `EnvironmentArchiveParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1360,16 +1502,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -1378,15 +1523,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -1394,6 +1543,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1413,6 +1563,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -1440,6 +1591,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -1449,6 +1601,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -1480,6 +1633,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -1507,16 +1661,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1538,12 +1707,15 @@ Console.WriteLine(betaEnvironment);
 - `class BetaCloudConfig:`
 
   `cloud` environment configuration.
+
   - `required Networking Networking`
 
     Network configuration policy.
+
     - `class BetaUnrestrictedNetwork:`
 
       Unrestricted network access.
+
       - `JsonElement Type "unrestricted"constant`
 
         Network policy type
@@ -1551,6 +1723,7 @@ Console.WriteLine(betaEnvironment);
     - `class BetaLimitedNetwork:`
 
       Limited network access.
+
       - `required Boolean AllowMcpServers`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1570,6 +1743,7 @@ Console.WriteLine(betaEnvironment);
   - `required BetaPackages Packages`
 
     Package manager configuration.
+
     - `required IReadOnlyList<string> Apt`
 
       Ubuntu/Debian packages to install
@@ -1597,6 +1771,7 @@ Console.WriteLine(betaEnvironment);
     - `Type Type`
 
       Package configuration type
+
       - `"packages"Packages`
 
   - `JsonElement Type "cloud"constant`
@@ -1611,6 +1786,7 @@ Console.WriteLine(betaEnvironment);
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `JsonElement Type "cloud"constant`
 
     Environment type
@@ -1618,9 +1794,11 @@ Console.WriteLine(betaEnvironment);
   - `Networking? Networking`
 
     Network configuration policy. Omit on update to preserve the existing value.
+
     - `class BetaUnrestrictedNetwork:`
 
       Unrestricted network access.
+
       - `JsonElement Type "unrestricted"constant`
 
         Network policy type
@@ -1631,6 +1809,7 @@ Console.WriteLine(betaEnvironment);
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonElement Type "limited"constant`
 
         Network policy type
@@ -1652,6 +1831,7 @@ Console.WriteLine(betaEnvironment);
     Specify packages (and optionally their versions) available in this environment.
 
     When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
     - `IReadOnlyList<string>? Apt`
 
       Ubuntu/Debian packages to install
@@ -1679,6 +1859,7 @@ Console.WriteLine(betaEnvironment);
     - `Type Type`
 
       Package configuration type
+
       - `"packages"Packages`
 
 ### Beta Environment
@@ -1686,9 +1867,10 @@ Console.WriteLine(betaEnvironment);
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -1697,15 +1879,19 @@ Console.WriteLine(betaEnvironment);
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -1713,6 +1899,7 @@ Console.WriteLine(betaEnvironment);
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1732,6 +1919,7 @@ Console.WriteLine(betaEnvironment);
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -1759,6 +1947,7 @@ Console.WriteLine(betaEnvironment);
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -1768,6 +1957,7 @@ Console.WriteLine(betaEnvironment);
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -1799,6 +1989,7 @@ Console.WriteLine(betaEnvironment);
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -1808,6 +1999,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
+
   - `required string ID`
 
     Environment identifier
@@ -1821,6 +2013,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaLimitedNetwork:`
 
   Limited network access.
+
   - `required Boolean AllowMcpServers`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1845,6 +2038,7 @@ Console.WriteLine(betaEnvironment);
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `JsonElement Type "limited"constant`
 
     Network policy type
@@ -1866,6 +2060,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaPackages:`
 
   Packages (and their versions) available in this environment.
+
   - `required IReadOnlyList<string> Apt`
 
     Ubuntu/Debian packages to install
@@ -1893,6 +2088,7 @@ Console.WriteLine(betaEnvironment);
   - `Type Type`
 
     Package configuration type
+
     - `"packages"Packages`
 
 ### Beta Packages Params
@@ -1902,6 +2098,7 @@ Console.WriteLine(betaEnvironment);
   Specify packages (and optionally their versions) available in this environment.
 
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
   - `IReadOnlyList<string>? Apt`
 
     Ubuntu/Debian packages to install
@@ -1929,6 +2126,7 @@ Console.WriteLine(betaEnvironment);
   - `Type Type`
 
     Package configuration type
+
     - `"packages"Packages`
 
 ### Beta Self Hosted Config
@@ -1936,6 +2134,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaSelfHostedConfig:`
 
   Configuration for self-hosted environments.
+
   - `JsonElement Type "self_hosted"constant`
 
     Environment type
@@ -1945,6 +2144,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaSelfHostedConfigParams:`
 
   Request params for `self_hosted` environment configuration.
+
   - `JsonElement Type "self_hosted"constant`
 
     Environment type
@@ -1954,6 +2154,7 @@ Console.WriteLine(betaEnvironment);
 - `class BetaUnrestrictedNetwork:`
 
   Unrestricted network access.
+
   - `JsonElement Type "unrestricted"constant`
 
     Network policy type
@@ -1973,6 +2174,7 @@ Retrieve detailed information about a specific work item.
 ### Parameters
 
 - `WorkRetrieveParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -1984,6 +2186,7 @@ Retrieve detailed information about a specific work item.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2036,7 +2239,9 @@ Retrieve detailed information about a specific work item.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -2047,9 +2252,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -2062,9 +2268,10 @@ Retrieve detailed information about a specific work item.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -2089,6 +2296,7 @@ Retrieve detailed information about a specific work item.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -2162,6 +2370,7 @@ Long poll for work items in the queue.
 ### Parameters
 
 - `WorkPollParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -2177,6 +2386,7 @@ Long poll for work items in the queue.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2229,7 +2439,9 @@ Long poll for work items in the queue.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
   - `string anthropicWorkerID`
 
@@ -2244,9 +2456,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -2259,9 +2472,10 @@ Long poll for work items in the queue.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -2286,6 +2500,7 @@ Long poll for work items in the queue.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -2358,6 +2573,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Parameters
 
 - `WorkAckParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -2369,6 +2585,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2421,7 +2638,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -2432,9 +2651,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -2447,9 +2667,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -2474,6 +2695,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -2547,6 +2769,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Parameters
 
 - `WorkHeartbeatParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -2566,6 +2789,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2618,13 +2842,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -2636,6 +2863,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `required State State`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -2693,6 +2921,7 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Parameters
 
 - `WorkStopParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -2708,6 +2937,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2760,7 +2990,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -2771,9 +3003,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -2786,9 +3019,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -2813,6 +3047,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -2886,6 +3121,7 @@ List work items in an environment.
 ### Parameters
 
 - `WorkListParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -2901,6 +3137,7 @@ List work items in an environment.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2953,19 +3190,23 @@ List work items in an environment.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `required IReadOnlyList<BetaSelfHostedWork> Data`
 
     List of work items
+
     - `required string ID`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `required string? AcknowledgedAt`
 
@@ -2978,9 +3219,10 @@ List work items in an environment.
     - `required BetaSessionWorkData Data`
 
       The actual work to be performed
+
       - `required string ID`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonElement Type "session"constant`
 
@@ -3005,6 +3247,7 @@ List work items in an environment.
     - `required State State`
 
       Current state of the work item
+
       - `"queued"Queued`
 
       - `"starting"Starting`
@@ -3088,6 +3331,7 @@ Update work item metadata with merge semantics.
 ### Parameters
 
 - `WorkUpdateParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -3103,6 +3347,7 @@ Update work item metadata with merge semantics.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -3155,7 +3400,9 @@ Update work item metadata with merge semantics.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -3166,9 +3413,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -3181,9 +3429,10 @@ Update work item metadata with merge semantics.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -3208,6 +3457,7 @@ Update work item metadata with merge semantics.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -3280,11 +3530,13 @@ Get statistics about the work queue for an environment.
 ### Parameters
 
 - `WorkStatsParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -3337,7 +3589,9 @@ Get statistics about the work queue for an environment.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -3346,6 +3600,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `required Long Depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3402,9 +3657,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -3417,9 +3673,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -3444,6 +3701,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -3471,6 +3729,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -3482,6 +3741,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required State State`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -3505,12 +3765,14 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `required IReadOnlyList<BetaSelfHostedWork> Data`
 
     List of work items
+
     - `required string ID`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `required string? AcknowledgedAt`
 
@@ -3523,9 +3785,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
     - `required BetaSessionWorkData Data`
 
       The actual work to be performed
+
       - `required string ID`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonElement Type "session"constant`
 
@@ -3550,6 +3813,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
     - `required State State`
 
       Current state of the work item
+
       - `"queued"Queued`
 
       - `"starting"Starting`
@@ -3583,6 +3847,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `required Long Depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3608,6 +3873,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkStopRequest:`
 
   Request to stop a work item.
+
   - `Boolean Force`
 
     If true, immediately stop work without graceful shutdown
@@ -3617,6 +3883,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkUpdateRequest:`
 
   Request to update work item metadata.
+
   - `required IReadOnlyDictionary<string, string> Metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -3629,9 +3896,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `required string ID`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `JsonElement Type "session"constant`
 

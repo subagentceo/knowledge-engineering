@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Money Movement
+# Stay a Step Ahead of Money Movement Fraud
+
+Home/Solutions/Money Movement
 
 # Stay a Step Ahead of Money Movement Fraud
 
@@ -10,7 +12,7 @@ When money moves, fraudsters hustle. Monitor transactions, protect user accounts
 
 —Nate Spanier, Director of Operations, Remitly
 
-[See Sift in Action](/demo/)[Dive into Payment Fraud Data](/fibr-fraud-industry-benchmarking-resource/)
+See Sift in ActionDive into Payment Fraud Data
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,10 +36,10 @@ People used neobanking in 2023
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## New Growth = A Feeding Frenzy for Fraudsters
 
@@ -65,7 +67,7 @@ Innovate into new spaces with secure, winning user experiences that shift growth
 
 **Win with a Singular, Streamlined User Experience**. Confidently place trust in transactions and users, and keep trust and safety teams free to focus on optimizing how customers connect with your business.
 
-**Building an Internal Risk Engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an Internal Risk Engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![MoneyMovement\_Solutions-Overview-Circle@2x-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -125,7 +127,7 @@ Unlock conversion for trusted users and block risky ones with Sift’s 0.1% ATO 
 
 ## Our Impact on Customers Success Across Industries
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -141,7 +143,7 @@ Nate Spanier
 
 Director of Operations at Remitly
 
-[read customer story](/resources/case-studies/taptap-send-case-study/)
+read customer story
 
 ![case-Study-TapTap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -163,7 +165,7 @@ Derrick Liew
 
 Senior Financial Accountant at CoinJar
 
-[read customer story](/resources/case-studies/coinjar-case-study/)
+read customer story
 
 ![harry](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -185,7 +187,7 @@ Yan Pritzker
 
 Co-founder & CTOat Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -205,8 +207,6 @@ Fight fraud at every touchpoint with Sift’s AI-led technology and identity-lev
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Account Creation
@@ -214,8 +214,6 @@ Account Creation
 Make new users untouchable from the second they sign up.
 
 learn more
-
-](/solutions/account-creation/)[
 
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -225,8 +223,6 @@ Make trusted users untouchable with bulletproof account protection.
 
 learn more
 
-](/solutions/ato/)[
-
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Payment Fraud
@@ -235,8 +231,6 @@ Keep transactions and transfers secure across users, no matter the size, sum, or
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![Dispute Management](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Chargeback Fraud
@@ -244,8 +238,6 @@ Chargeback Fraud
 Quit leaking your bottom line to friendly fraud and mitigate more chargebacks with intelligent automation.
 
 learn more
-
-](/solutions/chargeback-fraud/)
 
 ### Start Your Digital Risk Assessment
 
@@ -257,13 +249,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -273,8 +263,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -282,8 +270,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -293,13 +279,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

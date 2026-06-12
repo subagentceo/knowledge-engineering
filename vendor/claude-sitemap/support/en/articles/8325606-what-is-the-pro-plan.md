@@ -12,17 +12,13 @@ The benefits of the Pro plan are:
 
 - Early access to new features that help you get the most out of Claude.
 
-- Ability to choose another model with the **[model selector](https://support.claude.com/en/articles/8664678-how-can-i-change-the-model-version-that-i-m-chatting-with)**.
-
-- Access to **[projects and knowledge bases](https://support.claude.com/en/articles/9517075-what-are-projects)**.
-
 - **[Claude Code access](https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan)**
 
 - **[Cowork access](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)**
 
 Learn how to **[sign up for the Pro plan](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)**.
 
-**Note:** The Pro plan does not include API usage through the Claude Console. If you're interested in both enhanced Claude features and the Claude API, you'll need to **[set up Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)** to pay for API usage separately.
+**Note:**  The Pro plan does not include API usage through the Claude Console. If you're interested in both enhanced Claude features and the Claude API, you'll need to **[set up Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)** to pay for API usage separately.
 
 ---
 
@@ -48,7 +44,7 @@ We occasionally run limited-time promotions, but we don't have any standing disc
 
 Yes. During peak hours, the Pro plan offers at least five times the usage per session compared to our free service. The number of messages you can send will vary based on message length, including the length of files you attach, the length of your current conversation, and the model or feature you use. Your session-based usage limit will reset every five hours.
 
-Pro plans also have a weekly usage limit that applies across all models and resets seven days after your session starts.
+Pro plans also have a weekly usage limit that applies across all models. Weekly limits reset at a fixed time each week that is assigned to your account. Your reset day and time stay the same regardless of when you start using Claude or when your subscription begins, and you receive your full weekly allowance each cycle. You can see your next reset time in **[Settings > Usage](https://claude.ai/new#settings/usage)**.
 
 In addition, to manage capacity and ensure fair access to all users, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion.
 

@@ -15,6 +15,7 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: :file`
+
   - `:file`
 
 - `mount_path: String`
@@ -24,9 +25,11 @@ Add Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -79,11 +82,14 @@ Add Session Resource
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsFileResource`
+
   - `id: String`
 
   - `created_at: Time`
@@ -95,6 +101,7 @@ Add Session Resource
   - `mount_path: String`
 
   - `type: :file`
+
     - `:file`
 
   - `updated_at: Time`

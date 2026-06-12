@@ -32,16 +32,16 @@ As always, your feedback helps us improve, especially as we continue to release 
 
 **Data sources**
 
-- OpenAI: o3 launch post, o3 system card
-- Gemini: 2.5 Pro model card
-- Claude: Sonnet 3.7 launch post, Claude 4 launch post
+*   OpenAI: o3 launch post, o3 system card
+*   Gemini: 2.5 Pro model card
+*   Claude: Sonnet 3.7 launch post, Claude 4 launch post
 
 **Benchmark reporting**
 
 Claude models are hybrid reasoning models. The benchmarks reported in this blog post show the highest scores achieved with or without extended thinking. We’ve noted below for each result whether extended thinking was used:
 
-- No extended thinking: SWE-bench Verified, Terminal-Bench
-- The following benchmarks were reported with extended thinking (up to 64K tokens): TAU-bench, GPQA Diamond, MMMLU, MMMU, AIME
+*   No extended thinking: SWE-bench Verified, Terminal-Bench
+*   The following benchmarks were reported with extended thinking (up to 64K tokens): TAU-bench, GPQA Diamond, MMMLU, MMMU, AIME
 
 **TAU-bench methodology**
 
@@ -53,18 +53,18 @@ For the Claude 4 family of models, we continue to use the same simple scaffold t
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

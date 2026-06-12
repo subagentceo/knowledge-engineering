@@ -8,7 +8,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json post /v1/agents/batch
+````yaml /api-reference/openapi.json post /v1/agents/batch
 openapi: 3.1.0
 info:
   title: Nimble SDK

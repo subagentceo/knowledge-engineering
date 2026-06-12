@@ -24,9 +24,9 @@ It's important to note that this method is not a silver bullet. A single diff ca
 
 Among the thousands of candidates our tool flagged, we've identified and validated several concepts that act like switches for specific model behaviors.1 For example, we discovered:
 
-- A **“Chinese Communist Party Alignment” feature** found in the Qwen3-8B and DeepSeek-R1-0528-Qwen3-8B models. This controls pro-government censorship and propaganda in these Chinese-developed models, and is absent in the American models we compared them against.
-- An **“American Exceptionalism” feature** found in Meta’s Llama-3.1-8B-Instruct. It controls the model’s tendency to generate assertions of US superiority, a control absent in the Chinese model it was compared against.
-- A **“Copyright Refusal Mechanism” feature** exclusive to OpenAI’s GPT-OSS-20B. It controls the model’s tendency to refuse to provide copyrighted material, a behavior absent in the model it was compared against.
+*   A **“Chinese Communist Party Alignment” feature** found in the Qwen3-8B and DeepSeek-R1-0528-Qwen3-8B models. This controls pro-government censorship and propaganda in these Chinese-developed models, and is absent in the American models we compared them against.
+*   An **“American Exceptionalism” feature** found in Meta’s Llama-3.1-8B-Instruct. It controls the model’s tendency to generate assertions of US superiority, a control absent in the Chinese model it was compared against.
+*   A **“Copyright Refusal Mechanism” feature** exclusive to OpenAI’s GPT-OSS-20B. It controls the model’s tendency to refuse to provide copyrighted material, a behavior absent in the model it was compared against.
 
 To be clear, while our method identifies these model-exclusive features, it does not determine their origin. Such behaviors could be the result of deliberate training decisions on the part of the model developers, or they could emerge indirectly and unintentionally from the data the model was trained on. (We focused on open-source language models in this research as this was an Anthropic Fellows project.)
 
@@ -71,7 +71,7 @@ In Llama, we found a feature for “American exceptionalism.” When we amplify 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa847656473341a884b836bf05618c1fa3bc64675-4584x2835.png&w=3840&q=75)
 
 **Left:** On a prompt about Tiananmen Square, suppressing the Qwen-exclusive “CCP alignment” feature uncensors the model. Amplifying it causes the model to output highly pro-government statements.  
-**Right:** Amplifying the Llama-exclusive “American exceptionalism” feature causes the model to generate text aligned with narratives of American superiority. Suppressing it has no notable effect, so we omit it from the figure.
+**Right:** Amplifying the Llama-exclusive “American exceptionalism” feature causes the model to generate text aligned with narratives of American superiority. Suppressing it has no notable effect, so we omit it from the figure.  
 
 ### GPT-OSS-20B vs DeepSeek-R1-0528-Qwen3-8B
 
@@ -110,20 +110,16 @@ This post was authored by Thomas Jiralerspong (Anthropic Fellows Program) and Tr
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

@@ -20,9 +20,9 @@ Claude 3.5 Sonnet v1 and Claude 3 Haiku are now available, alongside Amazon Bedr
 
 With Claude in Amazon Bedrock, federal agencies can now:
 
-- Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
-- Build AI agents that process controlled unclassified information
-- Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
+*   Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
+*   Build AI agents that process controlled unclassified information
+*   Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
 
 ## Accelerating government AI adoption
 
@@ -38,18 +38,18 @@ Contact our public sector team for guidance on implementing Claude in your feder
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
