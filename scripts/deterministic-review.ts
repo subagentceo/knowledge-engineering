@@ -18,7 +18,8 @@ import {
 function git(...args: string[]): string {
   return execFileSync("git", args, {
     encoding: "utf8",
-    maxBuffer: 64 * 1024 * 1024,
+    // Vendor crawl PRs can carry >64 MiB diffs (PR #465 hit 67 MB).
+    maxBuffer: 1024 * 1024 * 1024,
     stdio: ["ignore", "pipe", "ignore"],
   });
 }
