@@ -11,6 +11,17 @@ import { CitationsTable, loadCitations } from "./citations.js";
 import { loadTableSemantics, renderWarehouse } from "./warehouse.js";
 import { loadVendorStats, renderServiceStatus } from "./service-status.js";
 import { loadMemories, renderMemoryBrowser } from "./memory-browser.js";
+import { loadCacheStats, renderCacheStatus } from "./cache-status.js";
+
+async function hydrateCacheStatus(): Promise<void> {
+  const root = document.getElementById("cache-status") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    renderCacheStatus(root, await loadCacheStats());
+  } catch (err) {
+    root.textContent = `failed to load cache stats: ${(err as Error).message}`;
+  }
+}
 
 async function hydrateMemoryBrowser(): Promise<void> {
   const root = document.getElementById("memory-browser") as HTMLDivElement | null;
@@ -60,6 +71,7 @@ async function main(): Promise<void> {
   void hydrateCitations();
   void hydrateWarehouse();
   void hydrateServiceStatus();
+  void hydrateCacheStatus();
   void hydrateMemoryBrowser();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
