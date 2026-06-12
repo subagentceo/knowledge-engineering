@@ -411,6 +411,22 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const hasHtmlIndex = (cfg.html_index_sources?.length ?? 0) > 0;
   const hasSitemap = (cfg.sitemap_xml_sources?.length ?? 0) > 0;
   if (llms === null && !hasHtmlIndex && !hasSitemap) {
+    // Vendors with zero discovery sources are static mirrors maintained
+    // out-of-band (e.g. commonmark's spec.txt from the study clone) —
+    // skipping them is success, not failure.
+    if (cfg.llms_txt_candidates.length === 0) {
+      console.log(`[${vendor}] static mirror (no discovery sources) — skipped`);
+      return {
+        vendor,
+        llms_txt_url: "",
+        pagesFetched: 0,
+        pagesSkipped: 0,
+        pagesUnchanged: 0,
+        preflight304: 0,
+        preflight200: 0,
+        failures: [],
+      };
+    }
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
     return {
       vendor,
