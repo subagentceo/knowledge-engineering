@@ -22,6 +22,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
 import { DurableStore, PROMOTE_AFTER_HITS } from "../src/cache/durable-store.js";
+import { detachCacheEventSink, flushCacheEvents, initCacheEvents } from "../src/cache/events.js";
 import { CslItem } from "../src/lib/csl.js";
 import { CSL_ITEMS_DDL } from "./ingest-citations.js";
 
@@ -45,6 +46,9 @@ async function main(): Promise<void> {
     const store = new DurableStore(pool);
     await store.init();
     await pool.query(readFileSync(resolve(REPO_ROOT, "data", "models", "alloydb_events_ddl.sql"), "utf8"));
+    // KAN-4 follow-up: without an attached sink the L3 set/promote
+    // events buffer in-process and drop — the warehouse never fills.
+    await initCacheEvents(pool);
     const agentId = process.env.KE_AGENT_ID ?? "warm-semantic-cache";
     const promoted = await store.persistVolatile(
       items.map((item) => ({
@@ -84,7 +88,10 @@ async function main(): Promise<void> {
       );
     }
     console.log(`csl_items: upserted ${items.length} rows`);
+    const flushed = await flushCacheEvents();
+    console.log(`events_cache_access: flushed ${flushed} event(s)`);
   } finally {
+    detachCacheEventSink();
     await pool.end();
   }
 }
