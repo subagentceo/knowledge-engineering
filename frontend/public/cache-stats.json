@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-06-12T00:00:00.000Z",
+  "tiers": [
+    { "tier": "L1", "hits": 0, "misses": 0, "promotions": 0, "hit_ratio": 0 },
+    { "tier": "L2", "hits": 0, "misses": 0, "promotions": 0, "hit_ratio": 0 },
+    { "tier": "L3", "hits": 0, "misses": 0, "promotions": 0, "hit_ratio": 0 }
+  ],
+  "hottest_keys": []
+}
