@@ -1,11 +1,110 @@
 ---
 vendor: gcp
 llms_txt: 
-count: 0
-transform: append-md-and-accept
+count: 99
+transform: html-extract
 ---
 
 # gcp URL index
 
 | URL | Local |
 |---|---|
+| https://docs.cloud.google.com/bigquery/docs/analytics-hub-audit-logging | `vendor/gcp/docs.cloud.google.com/bigquery/docs/analytics-hub-audit-logging.md` |
+| https://docs.cloud.google.com/bigquery/docs/connections-with-network-attachment | `vendor/gcp/docs.cloud.google.com/bigquery/docs/connections-with-network-attachment.md` |
+| https://docs.cloud.google.com/bigquery/docs/console-video-learning | `vendor/gcp/docs.cloud.google.com/bigquery/docs/console-video-learning.md` |
+| https://docs.cloud.google.com/bigquery/docs/entity-resolution-setup | `vendor/gcp/docs.cloud.google.com/bigquery/docs/entity-resolution-setup.md` |
+| https://docs.cloud.google.com/bigquery/docs/information-schema-capacity-commitment-changes | `vendor/gcp/docs.cloud.google.com/bigquery/docs/information-schema-capacity-commitment-changes.md` |
+| https://docs.cloud.google.com/bigquery/docs/input-feature-types | `vendor/gcp/docs.cloud.google.com/bigquery/docs/input-feature-types.md` |
+| https://docs.cloud.google.com/bigquery/docs/object-table-introduction | `vendor/gcp/docs.cloud.google.com/bigquery/docs/object-table-introduction.md` |
+| https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/mcp/tools_list/create_transfer_config | `vendor/gcp/docs.cloud.google.com/bigquery/docs/reference/datatransfer/mcp/tools_list/create_transfer_config.md` |
+| https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest/v1/projects.locations | `vendor/gcp/docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest/v1/projects.locations` |
+| https://docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-regression-model | `vendor/gcp/docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-regression-model.md` |
+| https://docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-update-connection | `vendor/gcp/docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-update-connection.md` |
+| https://docs.cloud.google.com/bigquery/docs/search-index | `vendor/gcp/docs.cloud.google.com/bigquery/docs/search-index.md` |
+| https://docs.cloud.google.com/bigquery/docs/write-api-batch | `vendor/gcp/docs.cloud.google.com/bigquery/docs/write-api-batch.md` |
+| https://docs.cloud.google.com/compute/docs/api/prereqs | `vendor/gcp/docs.cloud.google.com/compute/docs/api/prereqs.md` |
+| https://docs.cloud.google.com/compute/docs/disks/use-storage-pool-capacity | `vendor/gcp/docs.cloud.google.com/compute/docs/disks/use-storage-pool-capacity.md` |
+| https://docs.cloud.google.com/compute/docs/instance-groups/apply-machine-type-recommendations-managed-instance-groups | `vendor/gcp/docs.cloud.google.com/compute/docs/instance-groups/apply-machine-type-recommendations-managed-instance-groups.md` |
+| https://docs.cloud.google.com/compute/docs/instance-groups/delete-mig | `vendor/gcp/docs.cloud.google.com/compute/docs/instance-groups/delete-mig.md` |
+| https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms | `vendor/gcp/docs.cloud.google.com/compute/docs/instances/about-flex-start-vms.md` |
+| https://docs.cloud.google.com/compute/docs/instances/windows/generating-credentials | `vendor/gcp/docs.cloud.google.com/compute/docs/instances/windows/generating-credentials.md` |
+| https://docs.cloud.google.com/compute/docs/ip-addresses | `vendor/gcp/docs.cloud.google.com/compute/docs/ip-addresses.md` |
+| https://docs.cloud.google.com/compute/docs/nodes/updating-vm-tenancy | `vendor/gcp/docs.cloud.google.com/compute/docs/nodes/updating-vm-tenancy.md` |
+| https://docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/Operation | `vendor/gcp/docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/Operation.md` |
+| https://docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/RolloutState | `vendor/gcp/docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/RolloutState.md` |
+| https://docs.cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments/list | `vendor/gcp/docs.cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments/list.md` |
+| https://docs.cloud.google.com/compute/docs/osconfig/rest/v1beta/projects.guestPolicies/list | `vendor/gcp/docs.cloud.google.com/compute/docs/osconfig/rest/v1beta/projects.guestPolicies/list.md` |
+| https://docs.cloud.google.com/compute/docs/oslogin/rest/v1beta/users.sshPublicKey/create | `vendor/gcp/docs.cloud.google.com/compute/docs/oslogin/rest/v1beta/users.sshPublicKey/create.md` |
+| https://docs.cloud.google.com/compute/docs/reference/mcp/tools_list/get_commitment_basic_info | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/mcp/tools_list/get_commitment_basic_info.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/backendServices/insert | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/backendServices/insert.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/globalAddresses/move | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/globalAddresses/move.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/instances/addResourcePolicies | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/instances/addResourcePolicies.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/instances/removeResourcePolicies | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/instances/removeResourcePolicies.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/networkAttachments/setIamPolicy | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/networkAttachments/setIamPolicy.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/networkEdgeSecurityServices | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/networkEdgeSecurityServices.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/regionCompositeHealthChecks/testIamPermissions | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/regionCompositeHealthChecks/testIamPermissions.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/regionDisks/delete | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/regionDisks/delete.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/beta/reservationSubBlocks/reportFaulty | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/beta/reservationSubBlocks/reportFaulty.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/v1/disks/updateKmsKey | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/v1/disks/updateKmsKey.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers/applyUpdatesToInstances | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers/applyUpdatesToInstances.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroups | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroups.md` |
+| https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/reportHostAsFaulty | `vendor/gcp/docs.cloud.google.com/compute/docs/reference/rest/v1/instances/reportHostAsFaulty.md` |
+| https://docs.cloud.google.com/compute/docs/samples/compute-instances-create-from-image | `vendor/gcp/docs.cloud.google.com/compute/docs/samples/compute-instances-create-from-image.md` |
+| https://docs.cloud.google.com/compute/docs/security-bulletins | `vendor/gcp/docs.cloud.google.com/compute/docs/security-bulletins.md` |
+| https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshoot-operation-limits | `vendor/gcp/docs.cloud.google.com/compute/docs/troubleshooting/troubleshoot-operation-limits.md` |
+| https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh-errors | `vendor/gcp/docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh-errors.md` |
+| https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bigquery-to-mongodb | `vendor/gcp/docs.cloud.google.com/dataflow/docs/guides/templates/provided/bigquery-to-mongodb.md` |
+| https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/dlp-text-to-bigquery | `vendor/gcp/docs.cloud.google.com/dataflow/docs/guides/templates/provided/dlp-text-to-bigquery.md` |
+| https://docs.cloud.google.com/functions/docs/reference/rest/v1/projects.locations | `vendor/gcp/docs.cloud.google.com/functions/docs/reference/rest/v1/projects.locations` |
+| https://docs.cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions/redirectFunctionUpgradeTraffic | `vendor/gcp/docs.cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions/redirectFunctionUpgradeTraffic.md` |
+| https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.oauthClients/patch | `vendor/gcp/docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.oauthClients/patch.md` |
+| https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities | `vendor/gcp/docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities` |
+| https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts.keys/create | `vendor/gcp/docs.cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts.keys/create.md` |
+| https://docs.cloud.google.com/iam/docs/reference/rest/v3beta/organizations.locations.accessPolicies | `vendor/gcp/docs.cloud.google.com/iam/docs/reference/rest/v3beta/organizations.locations.accessPolicies` |
+| https://docs.cloud.google.com/iam/docs/resolve-permission-errors | `vendor/gcp/docs.cloud.google.com/iam/docs/resolve-permission-errors.md` |
+| https://docs.cloud.google.com/iam/docs/roles-permissions/apigeeregistry | `vendor/gcp/docs.cloud.google.com/iam/docs/roles-permissions/apigeeregistry.md` |
+| https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsecuritycompliance | `vendor/gcp/docs.cloud.google.com/iam/docs/roles-permissions/cloudsecuritycompliance.md` |
+| https://docs.cloud.google.com/iam/docs/roles-permissions/commercebusinessenablement | `vendor/gcp/docs.cloud.google.com/iam/docs/roles-permissions/commercebusinessenablement.md` |
+| https://docs.cloud.google.com/iam/docs/workforce-console-learn-more | `vendor/gcp/docs.cloud.google.com/iam/docs/workforce-console-learn-more.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gpus | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/concepts/gpus.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/how-to/autopilot-hostport | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/how-to/autopilot-hostport.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/how-to/sole-tenancy | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/how-to/sole-tenancy.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/workloadallowlist | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/reference/crds/workloadallowlist.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters/setMaintenancePolicy | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters/setMaintenancePolicy.md` |
+| https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/integrate-model-armor-guardrails | `vendor/gcp/docs.cloud.google.com/kubernetes-engine/docs/tutorials/integrate-model-armor-guardrails.md` |
+| https://docs.cloud.google.com/run/docs/configuring/services/cpu | `vendor/gcp/docs.cloud.google.com/run/docs/configuring/services/cpu.md` |
+| https://docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-ruby-service | `vendor/gcp/docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-ruby-service.md` |
+| https://docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-nextjs-service | `vendor/gcp/docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-nextjs-service.md` |
+| https://docs.cloud.google.com/run/docs/runtimes/go | `vendor/gcp/docs.cloud.google.com/run/docs/runtimes/go.md` |
+| https://docs.cloud.google.com/spanner/docs/graph/work-with-paths | `vendor/gcp/docs.cloud.google.com/spanner/docs/graph/work-with-paths.md` |
+| https://docs.cloud.google.com/spanner/docs/reference/graph-algorithms/traversal/shortest-paths | `vendor/gcp/docs.cloud.google.com/spanner/docs/reference/graph-algorithms/traversal/shortest-paths.md` |
+| https://docs.cloud.google.com/spanner/docs/reference/rest/v1/projects.instances.databases/getIamPolicy | `vendor/gcp/docs.cloud.google.com/spanner/docs/reference/rest/v1/projects.instances.databases/getIamPolicy.md` |
+| https://docs.cloud.google.com/spanner/docs/reference/rest/v1/StructType | `vendor/gcp/docs.cloud.google.com/spanner/docs/reference/rest/v1/StructType.md` |
+| https://docs.cloud.google.com/spanner/docs/samples/spanner-query-data | `vendor/gcp/docs.cloud.google.com/spanner/docs/samples/spanner-query-data.md` |
+| https://docs.cloud.google.com/spanner/docs/set-default-time-zone | `vendor/gcp/docs.cloud.google.com/spanner/docs/set-default-time-zone.md` |
+| https://docs.cloud.google.com/spanner/docs/shared-responsibility-model | `vendor/gcp/docs.cloud.google.com/spanner/docs/shared-responsibility-model.md` |
+| https://docs.cloud.google.com/spanner/docs/working-with-jsonb | `vendor/gcp/docs.cloud.google.com/spanner/docs/working-with-jsonb.md` |
+| https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/insert | `vendor/gcp/docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/insert.md` |
+| https://docs.cloud.google.com/sql/docs/mysql/create-edit-iam-instances | `vendor/gcp/docs.cloud.google.com/sql/docs/mysql/create-edit-iam-instances.md` |
+| https://docs.cloud.google.com/sql/docs/mysql/model-endpoint-overview | `vendor/gcp/docs.cloud.google.com/sql/docs/mysql/model-endpoint-overview.md` |
+| https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-enterprise-plus-instance-clone-parent-tag | `vendor/gcp/docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-enterprise-plus-instance-clone-parent-tag.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/MySqlSyncConfig | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/MySqlSyncConfig.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/SqlBackupKind | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/SqlBackupKind.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/users/update | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/users/update.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/best-practices | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/best-practices.md` |
+| https://docs.cloud.google.com/sql/docs/postgres/reference/mcp/databaseinsights/mcp/tools_list/get_query_metrics | `vendor/gcp/docs.cloud.google.com/sql/docs/postgres/reference/mcp/databaseinsights/mcp/tools_list/get_query_metrics.md` |
+| https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/sslCerts/delete | `vendor/gcp/docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/sslCerts/delete.md` |
+| https://docs.cloud.google.com/sql/docs/sqlserver/configure-ha | `vendor/gcp/docs.cloud.google.com/sql/docs/sqlserver/configure-ha.md` |
+| https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview | `vendor/gcp/docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview.md` |
+| https://docs.cloud.google.com/sql/docs/sqlserver/reference/mcp | `vendor/gcp/docs.cloud.google.com/sql/docs/sqlserver/reference/mcp.md` |
+| https://docs.cloud.google.com/sql/docs/sqlserver/replication/manage-replicas | `vendor/gcp/docs.cloud.google.com/sql/docs/sqlserver/replication/manage-replicas.md` |
+| https://docs.cloud.google.com/storage/docs/autoclass | `vendor/gcp/docs.cloud.google.com/storage/docs/autoclass.md` |
+| https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/caching | `vendor/gcp/docs.cloud.google.com/storage/docs/cloud-storage-fuse/caching.md` |
+| https://docs.cloud.google.com/storage/docs/json_api/v1/intelligenceConfig/folders.locations/updateIntelligenceConfig | `vendor/gcp/docs.cloud.google.com/storage/docs/json_api/v1/intelligenceConfig/folders.locations/updateIntelligenceConfig.md` |
+| https://docs.cloud.google.com/storage/docs/json_api/v1/objectAccessControls/list | `vendor/gcp/docs.cloud.google.com/storage/docs/json_api/v1/objectAccessControls/list.md` |
+| https://docs.cloud.google.com/storage/docs/using-cross-bucket-replication | `vendor/gcp/docs.cloud.google.com/storage/docs/using-cross-bucket-replication.md` |
+| https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/Shared.Types/GetLocationRequest | `vendor/gcp/docs.cloud.google.com/vpc/docs/multicast/reference/rest/Shared.Types/GetLocationRequest.md` |
+| https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/v1beta1/projects.locations.multicastDomainActivations/list | `vendor/gcp/docs.cloud.google.com/vpc/docs/multicast/reference/rest/v1beta1/projects.locations.multicastDomainActivations/list.md` |
+| https://docs.cloud.google.com/vpc/docs/reference/vpcaccess/rest/v1/projects.locations.connectors/patch | `vendor/gcp/docs.cloud.google.com/vpc/docs/reference/vpcaccess/rest/v1/projects.locations.connectors/patch.md` |

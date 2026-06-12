@@ -1,1 +1,497 @@
-{}
+{
+  "https://docs.cloud.google.com/bigquery/docs/analytics-hub-audit-logging": {
+    "sha256": "0c9935a8126b4ae1bea3f8aca415aafe3a7d4544eb335b4e28ff9eb55e39364d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/connections-with-network-attachment": {
+    "sha256": "ab78226a459ec2af8ff469cc21bca7273f395a1b53abca552896b7ca787bf65b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/console-video-learning": {
+    "sha256": "cbd2ad82b8dae02649d0f87a3f3f462dcf75beff2d3401f6027d8dcad6d6cd18",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/entity-resolution-setup": {
+    "sha256": "145bf4c58e8a32dc6f33180293982ea728d9f98d6dd22c7c38b8d23fefe90dec",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/information-schema-capacity-commitment-changes": {
+    "sha256": "ed4006f3e2fdac8ab39c67706334418ab029b12245ec2d98f5a8234ed95b4652",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/input-feature-types": {
+    "sha256": "aa07cf28a51e2bbb8778f12e019194161ed25a00740351e674ec1ac86006164c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/object-table-introduction": {
+    "sha256": "dacc44df156c728659a0409852b3e51acab5d65bc40304c9f455afb8f8ba86dc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/mcp/tools_list/create_transfer_config": {
+    "sha256": "93c08397ece64e4d8d29092e10fc082e278af63a5fe6b7fd36e6be86405b5c79",
+    "lastStatus": 200,
+    "lastModified": "Wed, 25 Mar 2026 00:42:03 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest/v1/projects.locations": {
+    "sha256": "8cf28a4894bf60a393095e957d8eb2dd4fee5a746ab633d30ea9d76f9cb1b8f6",
+    "lastStatus": 200,
+    "lastModified": "Wed, 02 Jul 2025 21:44:20 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-regression-model": {
+    "sha256": "5892141c737b998336befb899578977bd80a80f388931bba0cae76f9938fedb1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/samples/bigqueryconnection-update-connection": {
+    "sha256": "73d2a77d958ce29365cb524981c96d355c74b577d0978e41cc4e7011e95451d7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/search-index": {
+    "sha256": "8fbeb0194b8af631fe16c66ade28291004eec15ac2ef7d35579964c46c144fc6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/bigquery/docs/write-api-batch": {
+    "sha256": "198f8a7b449f8e0518b34fe6d193fd75ba67015caa704286b8dee1d1d0da4e8b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/api/prereqs": {
+    "sha256": "02eb3617cae5a43c8f5526c1149f61f63e78cb4fba14cdeb08c543868c3895ed",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/disks/use-storage-pool-capacity": {
+    "sha256": "e0eff0c4b561814dd675629af5fcca7780ee13f22b3a7fcccc914e5342a99f3c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/instance-groups/apply-machine-type-recommendations-managed-instance-groups": {
+    "sha256": "c9a0f089fd90b047008301582776cd603baabf91ba5309e9ee69a94b261fed26",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/instance-groups/delete-mig": {
+    "sha256": "eb95ce4e7593f4bd2b578db618a60005da10598ba782f32d4b52d70bb5f47a8c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms": {
+    "sha256": "67586d027504603b82eb47a1da5562663f94c896a798861507743ffe538fc62a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/instances/windows/generating-credentials": {
+    "sha256": "75de600fb90bfbfc50646a4c30b677372f7ab4684efbec0ca332a7f2ae5038a8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/ip-addresses": {
+    "sha256": "0158a2a0fee1b309013a8497ae69d0fcd54c36b6548f9f38b0fa14a50a6416b5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/nodes/updating-vm-tenancy": {
+    "sha256": "f680c4a53d3bc211ac046fbd7f21b1e37498143fffeed0a086a01f0c7bd9446e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/Operation": {
+    "sha256": "c327816f08ff272990efd32a06b3ce2363902afe9730579c54bfa04d7fc4e738",
+    "lastStatus": 200,
+    "lastModified": "Mon, 28 Jul 2025 21:32:24 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/osconfig/rest/Shared.Types/RolloutState": {
+    "sha256": "39141eb3bfb377ec0d1c5562d82f76d5e6cc766ea63aea5402a8eb781e8c664e",
+    "lastStatus": 200,
+    "lastModified": "Mon, 28 Jul 2025 21:32:24 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments/list": {
+    "sha256": "6ac92f396c2ccac2b822fb75191a0697897268ea57302b0f770d4d21afbfc3a6",
+    "lastStatus": 200,
+    "lastModified": "Mon, 28 Jul 2025 21:32:24 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/osconfig/rest/v1beta/projects.guestPolicies/list": {
+    "sha256": "61516e993bd6caae67d9b8a7aabfe814f9c86196aab2178a94823578c741073e",
+    "lastStatus": 200,
+    "lastModified": "Mon, 28 Jul 2025 21:32:24 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/oslogin/rest/v1beta/users.sshPublicKey/create": {
+    "sha256": "8fd25e082b1672b934591651b84d33040da0cb235b33a6a8a018104cdc9122d5",
+    "lastStatus": 200,
+    "lastModified": "Mon, 28 Jul 2025 21:32:24 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/mcp/tools_list/get_commitment_basic_info": {
+    "sha256": "5d97827f5f19dd58918f76d2364354435edce584d3e8d8a4cbcf17f6fce9c834",
+    "lastStatus": 200,
+    "lastModified": "Thu, 23 Apr 2026 14:05:20 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/backendServices/insert": {
+    "sha256": "0468a29752d5a50a32a136b8e20fc83bb046209e511d9e362a4d712afb15d25b",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/globalAddresses/move": {
+    "sha256": "dd0a3e8358c7bdef0d1f07103bc97e0d573079eea230a4f6e795e214172b008f",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/instances/addResourcePolicies": {
+    "sha256": "d9bb25c4e9380a9b53cbc95ef49133230ba556c8eca8030fe1890fbc22c8eb6b",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/instances/removeResourcePolicies": {
+    "sha256": "1081a3f71620d8a2e51cbaa0c75ebd34a055f4525e2da7487020504aa50157b5",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/networkAttachments/setIamPolicy": {
+    "sha256": "75aa2ddf17931ccba88bd317c2e09baba9b7e5dd422c56610408e652db4c5a58",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Sep 2025 06:26:45 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/networkEdgeSecurityServices": {
+    "sha256": "a5cc5b16acc758ce503be84e5838e4f022d6233234f755f3a860b4609a0cd8d5",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/regionCompositeHealthChecks/testIamPermissions": {
+    "sha256": "10b0cc9d89d972e1034385d1a11e0b591a1b28ec754d912fe714ad5bb15ff363",
+    "lastStatus": 200,
+    "lastModified": "Thu, 30 Oct 2025 16:08:37 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/regionDisks/delete": {
+    "sha256": "fd3b3b42e4fe167da166473e4487a6d9691f038a7c46c77ae1bde3aaf6440ff8",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/beta/reservationSubBlocks/reportFaulty": {
+    "sha256": "7bfaf46830bd49ea0e5bd5b7fa5a69afb35037dfed9519837d34ac444fbd1ceb",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/v1/disks/updateKmsKey": {
+    "sha256": "4a1a5468bf4d3eac8b819ef1bbb985a0d5576d57160ba2f5568b5bcd69602441",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers/applyUpdatesToInstances": {
+    "sha256": "6d7f6c0e28186db3219b790fc3b8cd22e4e96b2903f8316a40a51a54cb9b423e",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroups": {
+    "sha256": "4b2cc61ca70c384c3385e9c5040c7b092e45ef70bcb35a93e712d6c2c379af1f",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/reference/rest/v1/instances/reportHostAsFaulty": {
+    "sha256": "0e4c615c3bec39e313019ea34036e669373b0620afd60a6e4ee25159658f8484",
+    "lastStatus": 200,
+    "lastModified": "Wed, 13 May 2026 15:28:30 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/samples/compute-instances-create-from-image": {
+    "sha256": "db883c3612726ba135442e713dc1828dc04ca755dddea96da97bdbb853e75727",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/security-bulletins": {
+    "sha256": "a709ae4fab71f5763a06cfed901f5b5327745ab2f511c44f59ecaab1fda22844",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshoot-operation-limits": {
+    "sha256": "21f0b2fcad4361c043e30e17c165d6604ffcdc196ba2ede6de60e696d9a354ba",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh-errors": {
+    "sha256": "93a0e441c3ea41e7a0c53e0cf5d567c327c30ef9a6412b5872a98441ad7a806b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bigquery-to-mongodb": {
+    "sha256": "0e5107af1197910262944512b5ced1d3db2625d7243700288945866c95cc7193",
+    "lastStatus": 200,
+    "lastModified": "Thu, 12 Feb 2026 00:34:03 GMT"
+  },
+  "https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/dlp-text-to-bigquery": {
+    "sha256": "162337ea768625a05720d7d7d9d8da5430f539e4458e9c13fff6f60d1ed65df4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/functions/docs/reference/rest/v1/projects.locations": {
+    "sha256": "39c9ae8940fad37ff83cdc0e800daafcb362ffe21f3bb37325cb3fa275783ec6",
+    "lastStatus": 200,
+    "lastModified": "Wed, 01 Oct 2025 16:45:47 GMT"
+  },
+  "https://docs.cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions/redirectFunctionUpgradeTraffic": {
+    "sha256": "e608bd67bf7b33ba9678377a378f50ad41634bc83103180a334a2d6e2637ca2b",
+    "lastStatus": 200,
+    "lastModified": "Wed, 01 Oct 2025 16:45:47 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.oauthClients/patch": {
+    "sha256": "514b45fb2e30995958b74909cb68c86fac8fbcad52b20167eff36c453a0d9188",
+    "lastStatus": 200,
+    "lastModified": "Wed, 21 May 2025 01:07:30 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.locations.workloadIdentityPools.namespaces.managedIdentities": {
+    "sha256": "312b3faf6ec09cd34177608dd21007a7df2c42bfcab957caf1a4a6b267eb9aa3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 25 Sep 2025 19:10:10 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/reference/rest/v1/projects.serviceAccounts.keys/create": {
+    "sha256": "560291ee592f37d44f4100e79c80f1cf760f3b42be8d857fbed7450c1b5c669c",
+    "lastStatus": 200,
+    "lastModified": "Wed, 21 May 2025 01:07:30 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/reference/rest/v3beta/organizations.locations.accessPolicies": {
+    "sha256": "500b97f5c02c295d2799b46730ff0aa490c2d4ed1e42028f8f0f1ae485da0881",
+    "lastStatus": 200,
+    "lastModified": "Wed, 12 Nov 2025 19:42:46 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/resolve-permission-errors": {
+    "sha256": "951373b4e4b8d01866e3fda1fabea144cad3a9692f01bf0e8f00fe423283d62a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/roles-permissions/apigeeregistry": {
+    "sha256": "98b05390667a67fcdf0dbb89d6dd4ba9a00cfffd42d0a359a21fd5bc732a78a9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/roles-permissions/cloudsecuritycompliance": {
+    "sha256": "5fb16318dfdb4744d346e9b856a145799ea080c71c602664c085a18678b390fe",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/roles-permissions/commercebusinessenablement": {
+    "sha256": "c704e40474a996afc8627df6efebabe2ff8cf33707661a8bb1ffc2a6dbcb39b1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/iam/docs/workforce-console-learn-more": {
+    "sha256": "0692c2295c99f119cbe7612df62d85337b8bd17c34958032286f88e1a8202c98",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 20:03:31 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gpus": {
+    "sha256": "bf979b68161c2a9c597144b25287a6b381646d9761b24ea0157e66d3889d9a45",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 19:25:40 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/autopilot-hostport": {
+    "sha256": "d764e83003155d5e3faa5c6deffa19fea2e45a9cd39aeb42742d651d5f9c465f",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 10:21:32 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dws-flex-start-training": {
+    "sha256": "b77214d1030e5b4d63bd54feaefd6f3b83fcc0dffee83397c6566ac53a069c15",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/how-to/sole-tenancy": {
+    "sha256": "d88269b327d583a5aa983a58929783d9061ea5bd2f2ab0ee5c64a26347a72da2",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/reference/crds/workloadallowlist": {
+    "sha256": "d609cd7c20aaab2f103ea205ca82208eb062325024314f0d1d92aad63ab50f4d",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters/setMaintenancePolicy": {
+    "sha256": "5d51ce8c13368bfbe93238dc6d5e6d75f2e389caa3c96ad3f0f4c013fdad52eb",
+    "lastStatus": 200,
+    "lastModified": "Wed, 15 Apr 2026 18:45:38 GMT"
+  },
+  "https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/integrate-model-armor-guardrails": {
+    "sha256": "1814ec2dcb23de7b049f116ed4f29249fae32f76672c929234a0d9f36cd66785",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/run/docs/configuring/services/cpu": {
+    "sha256": "8dcf5e4794a1bba131773fc5b5467420f59cb85231851a884248732e6e26e8ac",
+    "lastStatus": 200,
+    "lastModified": "Thu, 11 Jun 2026 21:03:47 GMT"
+  },
+  "https://docs.cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-ruby-service": {
+    "sha256": "c04fbb4344446e4bcd346ebe88f2a8f6759016019c8f03f748d8c8fa7b81a256",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/run/docs/quickstarts/frameworks/deploy-nextjs-service": {
+    "sha256": "6d958204decb0ecc949d30af8160d6ec3acb505c98738a582ef1209f02523f8b",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/run/docs/runtimes/go": {
+    "sha256": "ed3806422b1ec1fe35d92dd59b5d578d9440771579d98c0c49474d554230e965",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/graph/work-with-paths": {
+    "sha256": "620d0980f94974a23d1e8d173e67abe8e82b1bd0a52fd581b15ac5780280a3ee",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/reference/graph-algorithms/traversal/shortest-paths": {
+    "sha256": "041e1aaab20188ccdb90fdb455046fe7754bfd768d47c9c62f408207fa5361ba",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/reference/rest/v1/StructType": {
+    "sha256": "b07982f7d8b1fc17014508acda6ac59b8723054870d4a947e17136dd3a47efaa",
+    "lastStatus": 200,
+    "lastModified": "Fri, 30 May 2025 02:20:31 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/reference/rest/v1/projects.instances.databases/getIamPolicy": {
+    "sha256": "082ad3060fbe76720e0fc1f9f59816c823f6b79ae5d06263940799bb9c80ea7d",
+    "lastStatus": 200,
+    "lastModified": "Fri, 12 Dec 2025 16:29:42 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/samples/spanner-query-data": {
+    "sha256": "7e1887c67f6677a7220385d6eaf895e2f1e1fce8f99c73c8738aa2c04ba10c79",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/set-default-time-zone": {
+    "sha256": "dae30b7d0426c5e04f1de1e460a7f39ceb67fd12be539396eda1f6f07d7715aa",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/shared-responsibility-model": {
+    "sha256": "ddce380521f7b753226f67ab13987913ef088d177cd51b6a11fb96ae6bd3544d",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/spanner/docs/working-with-jsonb": {
+    "sha256": "f69573b302de1aa2f9c09db3f01ffa378ad7aee9d40f78fa138a63bc533a7939",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/mysql/admin-api/rest/v1/instances/insert": {
+    "sha256": "e1d364a81ca0cb91066a5551176651c34ab14172e88d81ed2f1f9cc365c4c142",
+    "lastStatus": 200,
+    "lastModified": "Fri, 24 Oct 2025 16:27:34 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/mysql/create-edit-iam-instances": {
+    "sha256": "e585572c29b8d0aa26572dce3b5a39bddb1528e2b02940bd5f79901ea21ad68d",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/mysql/model-endpoint-overview": {
+    "sha256": "3967fa9d4e798b0f78a6d6f78ce38d87a37100ebff60eff7f6a884d83227972e",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-enterprise-plus-instance-clone-parent-tag": {
+    "sha256": "e797a5865a6e9b483c9ac2b03c4a89db6120eb8937954aa83f9f755b9c7a8893",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/MySqlSyncConfig": {
+    "sha256": "b00efc3baee2e521803f97ccaaddf5b76a1ae16779b4f94a9200b22a563b022d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 23 Oct 2025 17:05:21 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/SqlBackupKind": {
+    "sha256": "2323cf89abc2ef6c35eeacd454e407a1d76e1569426a5cfd3bfa2d02191ae3fd",
+    "lastStatus": 200,
+    "lastModified": "Fri, 30 May 2025 02:59:54 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances": {
+    "sha256": "c83eaade9cbecca48b50f7ed8658ca5756ada1923c9dea6725264f74df0bd832",
+    "lastStatus": 200,
+    "lastModified": "Tue, 19 May 2026 18:58:02 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/users/update": {
+    "sha256": "564041e7755ac2625c4f866765768259355d5b9cd60185ce5d050db7e0095006",
+    "lastStatus": 200,
+    "lastModified": "Tue, 03 Feb 2026 00:11:27 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/best-practices": {
+    "sha256": "561b779bb9998c1a7879ceacd650add1361a6cd31f59f367d007ddbf5c71b189",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/postgres/reference/mcp/databaseinsights/mcp/tools_list/get_query_metrics": {
+    "sha256": "2b6e1fd4d187aae91104d13250c989343d4d4cc7a2a5d081b1d3ab1c4583ea52",
+    "lastStatus": 200,
+    "lastModified": "Thu, 16 Apr 2026 15:50:03 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1/sslCerts/delete": {
+    "sha256": "348c2618e94a629b25f250fb53d89dc6b61f401ff47038db49542323a8abd3ab",
+    "lastStatus": 200,
+    "lastModified": "Thu, 23 Oct 2025 15:41:16 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/sqlserver/configure-ha": {
+    "sha256": "c2f1a96c7bed6fe430165cb05828f090f3e0f5bdc0c68a5d24021aa04e61b024",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview": {
+    "sha256": "3313bf969705dcdceb17984de8abdad732d0c7a0d731c77824fbb1ec3103f22d",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/sqlserver/reference/mcp": {
+    "sha256": "174e9ceb01c726fa09402d9e7d9612c1b3eb1a5cc6efe0ac9035c4d760703328",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/sql/docs/sqlserver/replication/manage-replicas": {
+    "sha256": "3312ccee054189f1dd022023e770b34afbee157bda3c831f71d8a34cec5e511c",
+    "lastStatus": 200,
+    "lastModified": "Wed, 10 Jun 2026 17:06:42 GMT"
+  },
+  "https://docs.cloud.google.com/storage/docs/autoclass": {
+    "sha256": "4c811243e2f7fb0d6f071698f7d484f7fcee0417fe72fde967e3219dda963eb6",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/caching": {
+    "sha256": "2d5bd48d10e791c0c5daef0400e6144ccd9b54fa78c2bf5a30933600ed4411ff",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/storage/docs/json_api/v1/intelligenceConfig/folders.locations/updateIntelligenceConfig": {
+    "sha256": "fc6dea26d84760780982deb6a7796b4c068ab37f635fd1be84033645a8210e4a",
+    "lastStatus": 200,
+    "lastModified": "Mon, 19 May 2025 21:37:24 GMT"
+  },
+  "https://docs.cloud.google.com/storage/docs/json_api/v1/objectAccessControls/list": {
+    "sha256": "4aa16e040ec574b89f9483fa2ef1bf3bcbe5cba11a3fb1f85745fb0762ed9b1f",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/storage/docs/using-cross-bucket-replication": {
+    "sha256": "7b499ba29dd4af539ad148a8b42abed84262c45892bc588107a0606c3114bcdb",
+    "lastStatus": 200,
+    "lastModified": "Tue, 09 Jun 2026 16:51:21 GMT"
+  },
+  "https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/Shared.Types/GetLocationRequest": {
+    "sha256": "03ecfee0acc8d2edd08a70dce0af75a222a8708ccd85e6d633deb1caf583432c",
+    "lastStatus": 200,
+    "lastModified": "Wed, 23 Jul 2025 15:43:22 GMT"
+  },
+  "https://docs.cloud.google.com/vpc/docs/multicast/reference/rest/v1beta1/projects.locations.multicastDomainActivations/list": {
+    "sha256": "720e46b0938ce379064997309bed4fe9e33330f2008cf143a2072ee1e4071c52",
+    "lastStatus": 200,
+    "lastModified": "Mon, 22 Dec 2025 17:04:44 GMT"
+  },
+  "https://docs.cloud.google.com/vpc/docs/reference/vpcaccess/rest/v1/projects.locations.connectors/patch": {
+    "sha256": "5e8bcc2a4172c7867d0b28f868439fb31eda70a7c33a94e8b9a8a515f6eb69fb",
+    "lastStatus": 200,
+    "lastModified": "Sat, 30 May 2026 08:00:58 GMT"
+  }
+}
