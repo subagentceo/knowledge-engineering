@@ -25,12 +25,14 @@ export function findApiKeyIntroductions(diffText: string): ReviewFinding[] {
       currentFile = fileHeader[1] ?? "";
       continue;
     }
-    if (!line.startsWith("+") || line.startsWith("+++")) continue;
+    if (!line.startsWith("+") || line.startsWith("++")) continue;
     // Docs/mirrors mention the key as prose; test files use it as a fixture
     // (the env-sanitizer and this module's own tests assert rejection).
     if (/^(docs|vendor|seeds)\//.test(currentFile) || currentFile.endsWith(".md")) continue;
     if (/\.test\.[cm]?[jt]s$/.test(currentFile)) continue;
-    if (/ANTHROPIC_API_KEY\s*[:=]/.test(line)) {
+    // Match direct assignment (=) or YAML key-value (: followed by whitespace).
+    // Excludes bash default-expansion ${VAR:-} where :- is not an assignment.
+    if (/ANTHROPIC_API_KEY\s*=|ANTHROPIC_API_KEY\s*:\s/.test(line)) {
       findings.push({
         rule: "oauth-only (OSEC1)",
         detail: `${currentFile}: added line wires ANTHROPIC_API_KEY — the chassis is OAuth-only and fails closed on this key`,
