@@ -3,11 +3,12 @@
 // Phase 0f. Discovers test files (anything matching *.test.ts or *.spec.ts
 // under src/, scripts/, or infra/) and asserts each one carries at least one
 // `@cite path/under/<root>/...` header that resolves to a real file under
-// one of the canonical citation roots: vendor/, seeds/, rubrics/.
+// one of the canonical citation roots: vendor/, seeds/, rubrics/, data/models/.
 //
-// vendor/  — external doc mirrors (Anthropic / Cloudflare / Neon / etc.)
-// seeds/   — operator-facing canonical artifacts (prompts, posture XML)
-// rubrics/ — per-phase outcome rubrics
+// vendor/      — external doc mirrors (Anthropic / Cloudflare / Neon / etc.)
+// seeds/       — operator-facing canonical artifacts (prompts, posture XML)
+// rubrics/     — per-phase outcome rubrics
+// data/models/ — semver'd warehouse table contracts (table-semantics YAML)
 //
 // Fails closed when:
 //   - a test file has no @cite header
@@ -28,7 +29,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..", "..");
-const CITATION_ROOTS = ["vendor", "seeds", "rubrics"] as const;
+const CITATION_ROOTS = ["vendor", "seeds", "rubrics", "data/models"] as const;
 const CITATION_ROOT_PATHS = CITATION_ROOTS.map((r) => resolve(REPO_ROOT, r));
 
 const TEST_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".mjs"]);
