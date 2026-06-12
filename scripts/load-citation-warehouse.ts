@@ -28,6 +28,7 @@ const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
+const CACHE_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_cache_ddl.sql");
 const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
 const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
@@ -167,6 +168,43 @@ async function main(): Promise<void> {
       ) + "\n",
     );
     console.log(`semantics: wrote frontend/public/memories.json (${memories.rowCount} memories)`);
+
+    // KAN-7: dim_cache_key — SCD II catalog of tiered-cache keys seen in
+    // semantic_cache (L3) and the events_cache_access stream.
+    await pool.query(readFileSync(CACHE_DDL_PATH, "utf8"));
+    await pool.query(`
+      WITH observed AS (
+        SELECT key AS cache_key,
+               NULLIF(split_part(key, ':', 2), '') AS lane,
+               source_path
+        FROM semantic_cache
+        UNION
+        SELECT e.cache_key, e.lane, NULL
+        FROM dw.events_cache_access e
+        WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
+      )
+      UPDATE dw.dim_cache_key d
+      SET row_effective_to = NOW(), is_current = FALSE
+      FROM observed o
+      WHERE d.cache_key = o.cache_key AND d.is_current
+        AND d.source_path IS DISTINCT FROM o.source_path`);
+    const dimCache = await pool.query(`
+      WITH observed AS (
+        SELECT key AS cache_key,
+               NULLIF(split_part(key, ':', 2), '') AS lane,
+               source_path
+        FROM semantic_cache
+        UNION
+        SELECT e.cache_key, e.lane, NULL
+        FROM dw.events_cache_access e
+        WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
+      )
+      INSERT INTO dw.dim_cache_key (cache_key, lane, source_path)
+      SELECT o.cache_key, o.lane, o.source_path
+      FROM observed o
+      WHERE NOT EXISTS (
+        SELECT 1 FROM dw.dim_cache_key d WHERE d.cache_key = o.cache_key AND d.is_current)`);
+    console.log(`dim_cache_key: ${dimCache.rowCount} new SCD-II rows`);
 
     // B14: rpt refreshes (load_type: full) + static feeds
     await pool.query("BEGIN");
