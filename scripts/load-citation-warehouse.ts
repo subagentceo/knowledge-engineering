@@ -206,6 +206,27 @@ async function main(): Promise<void> {
         SELECT 1 FROM dw.dim_cache_key d WHERE d.cache_key = o.cache_key AND d.is_current)`);
     console.log(`dim_cache_key: ${dimCache.rowCount} new SCD-II rows`);
 
+    // KAN-8: fact_cache_hits — idempotent per-day rollup of the access
+    // event stream onto the conformed cache-key dimension.
+    const factCache = await pool.query(`
+      INSERT INTO dw.fact_cache_hits (cache_key_sk, tier, date_key, hits, misses, promotions)
+      SELECT d.surrogate_key,
+             e.tier,
+             (EXTRACT(YEAR FROM e.occurred_at) * 10000
+              + EXTRACT(MONTH FROM e.occurred_at) * 100
+              + EXTRACT(DAY FROM e.occurred_at))::integer AS date_key,
+             COUNT(*) FILTER (WHERE e.op = 'hit'),
+             COUNT(*) FILTER (WHERE e.op = 'miss'),
+             COUNT(*) FILTER (WHERE e.op = 'promote')
+      FROM dw.events_cache_access e
+      JOIN dw.dim_cache_key d ON d.cache_key = e.cache_key AND d.is_current
+      GROUP BY 1, 2, 3
+      ON CONFLICT (cache_key_sk, tier, date_key) DO UPDATE
+        SET hits = EXCLUDED.hits,
+            misses = EXCLUDED.misses,
+            promotions = EXCLUDED.promotions`);
+    console.log(`fact_cache_hits: upserted ${factCache.rowCount} rows (grain: key × tier × day)`);
+
     // B14: rpt refreshes (load_type: full) + static feeds
     await pool.query("BEGIN");
     await pool.query("TRUNCATE dw.rpt_citations_by_team");

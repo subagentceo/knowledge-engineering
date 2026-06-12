@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per cache key per tier per day (cache_key_sk × tier × date_key)
+
+metadata:
+  name: fact_cache_hits
+  labels:
+    lane: semantic-cache
+    feeds: dreams L2 warming (KAN-9) + cache-stats.json (KAN-10)
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: rolled up by every dw:load run; idempotent per day
+  data_start_date: "2026-06-12"
+  allowed_operations:
+    - read
+    - append
+  description: >-
+    Daily rollup of dw.events_cache_access keyed on the conformed
+    dim_cache_key dimension. One row per key × tier × day carrying hit,
+    miss and promotion counts — the input for dreams-driven L2 warming
+    and the per-tier hit-ratio feed on subagentknowledge.com.
+  load_type: incremental
+  columns:
+    - name: cache_key_sk
+      kind: dimension
+      sql_type: bigint
+      description: FK → dw.dim_cache_key.surrogate_key (current row at rollup time)
+    - name: tier
+      kind: dimension
+      sql_type: text
+      description: cache tier — L1, L2 or L3
+    - name: date_key
+      kind: time_dimension
+      sql_type: integer
+      description: FK-style YYYYMMDD of the rolled-up day
+    - name: hits
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: hit events for the day
+    - name: misses
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: miss events for the day
+    - name: promotions
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: promote events for the day
