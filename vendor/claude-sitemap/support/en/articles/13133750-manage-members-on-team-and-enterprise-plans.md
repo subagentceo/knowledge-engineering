@@ -22,9 +22,9 @@ Admins and above can add members by following these steps:
 
 4. Set the role and permissions for the member.
 
-5. **Note:** On Enterprise plans, you can also select “Custom roles” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+  1. **Note:** On Enterprise plans, you can also select “Custom roles” as a member’s role. Members set to this role have their access controlled through group memberships and custom roles. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
 
-6. Click “Add members.”
+5. Click “Add members.”
 
 This sends an email invitation to the person. The invitation expires after 21 days, so you'll need to re-invite them if they don't accept within that time period.
 

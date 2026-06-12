@@ -18,17 +18,18 @@ When enforcing SSO on your Education account, there are two distinct categories 
 
 1. Users with existing Free/Pro/Team accounts who ARE added to your SSO application
 
-- These users will maintain access to their existing Free/Pro/Team accounts
+  - These users will maintain access to their existing Free/Pro/Team accounts
 
-- They will have the ability to toggle between the Education account and their previous accounts by clicking the profile icon with their initials in the bottom left corner
-  ​
+  - They will have the ability to toggle between the Education account and their previous accounts by clicking the profile icon with their initials in the bottom left corner
+​
 
 2. Users with existing Free/Pro/Team accounts who are NOT added to your SSO application
 
-- If "Enforce SSO for Claude.ai" is NOT enabled: These users can still access their existing accounts using the "Continue with email" option
+  - If "Enforce SSO for Claude.ai" is NOT enabled: These users can still access their existing accounts using the "Continue with email" option
 
-- If "Enforce SSO for Claude.ai" IS enabled: These users will be unable to access their existing Free/Pro/Team accounts
-  - Please note, these accounts are not deleted, but can no longer be accessed as the user is unable to login via SSO.
+  - If "Enforce SSO for Claude.ai" IS enabled: These users will be unable to access their existing Free/Pro/Team accounts
+
+    - Please note, these accounts are not deleted, but can no longer be accessed as the user is unable to login via SSO.
 
 ## Enable and use Education features
 

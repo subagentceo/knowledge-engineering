@@ -36,8 +36,8 @@ This approach minimizes deployment risk but requires coordination across multipl
 
 Many development teams are moving beyond reactive profiling tools toward proactive performance engineering with AI coding assistants like Claude. These tools analyze functions instantly, identify algorithmic bottlenecks, and provide ways to improve your code. You can work with Claude in two ways:
 
-- **Claude.ai**: Free web interface. Paste slow functions, get complexity analysis and optimization recommendations. Any browser, no setup required.
-- **Claude Code**: Agentic terminal coding tool that integrates with your development environment. Analyzes project-wide performance patterns, directly implements optimizations across multiple files. Install with npm.
+*   **Claude.ai**: Free web interface. Paste slow functions, get complexity analysis and optimization recommendations. Any browser, no setup required.
+*   **Claude Code**: Agentic terminal coding tool that integrates with your development environment. Analyzes project-wide performance patterns, directly implements optimizations across multiple files. Install with npm.
 
 ## Start with Claude.ai
 
@@ -57,9 +57,9 @@ Claude: "I see two main bottlenecks here: 1. The nested loop creates O(n²) comp
 
 Typical questions that work well:
 
-- "Why are my code functions slow with large datasets?"
-- "Can you rewrite my code to be more efficient?"
-- "What's wrong with this algorithm performance-wise?"
+*   "Why are my code functions slow with large datasets?"
+*   "Can you rewrite my code to be more efficient?"
+*   "What's wrong with this algorithm performance-wise?"
 
 ### Understand why your code is slow
 
@@ -127,9 +127,9 @@ Ramp uses Claude Code to accelerate delivery across hundreds of services.
 
 Results:
 
-- **1M+ lines of AI-suggested code** in 30 days
-- **80% reduction in incident triage time**
-- **50% weekly active usage** across engineering teams
+*   **1M+ lines of AI-suggested code** in 30 days
+*   **80% reduction in incident triage time**
+*   **50% weekly active usage** across engineering teams
 
 > "When we discovered Claude Code, our teams immediately recognized its potential and integrated it into our workflows"
 

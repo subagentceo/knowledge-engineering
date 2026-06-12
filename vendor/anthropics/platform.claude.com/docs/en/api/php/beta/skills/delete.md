@@ -21,6 +21,7 @@ Delete Skill
 ### Returns
 
 - `SkillDeleteResponse`
+
   - `string id`
 
     Unique identifier for the skill.

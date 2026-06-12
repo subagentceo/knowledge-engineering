@@ -19,6 +19,7 @@ Get File Metadata
 ### Returns
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -54,6 +55,7 @@ Get File Metadata
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).

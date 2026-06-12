@@ -1,6 +1,6 @@
 This article provides important information about your Claude for Work account associated with your organization's Claude for Work plan (Team or Enterprise plans). It includes details about data access and control that were shared with you when your Claude for Work plan account was set up.
 
-_This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.claude.com/en/collections/10663362-consumers)._
+*This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see [here](https://privacy.claude.com/en/collections/10663362-consumers).*
 
 ## Account Management
 

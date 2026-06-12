@@ -4,11 +4,11 @@ Biomni enables researchers to automate complex biomedical workflows—from liter
 
 **Key results with Claude**
 
-- Completes wearable bioinformatics analysis in 35 minutes versus 3 weeks for human experts (800x faster)
-- Achieves human-level performance on LAB-bench DbQA and SeqQA benchmarks
-- Designs cloning experiments validated as equivalent to a 5+ year expert work in blind testing
-- Automates joint analysis of large-scale scRNA-seq and scATAC-seq data to generate novel hypotheses
-- Reaches state-of-the-art performance on Humanity's Last Exam and 8 biomedical tasks
+*   Completes wearable bioinformatics analysis in 35 minutes versus 3 weeks for human experts (800x faster)
+*   Achieves human-level performance on LAB-bench DbQA and SeqQA benchmarks
+*   Designs cloning experiments validated as equivalent to a 5+ year expert work in blind testing
+*   Automates joint analysis of large-scale scRNA-seq and scATAC-seq data to generate novel hypotheses
+*   Reaches state-of-the-art performance on Humanity's Last Exam and 8 biomedical tasks
 
 ## Biomedical research hits the complexity ceiling
 
@@ -30,11 +30,11 @@ Finally, Claude demonstrated true scientific reasoning capabilities—synthesizi
 
 Biomni leverages Claude through their generalist agent architecture:
 
-- **Unified environment access**: Connects to 150 tools, 59 databases, and 106 software packages curated from 2,500+ papers
-- **Dynamic workflow composition**: Creates input-specific, biologically meaningful step-by-step plans on the fly without predefined templates
-- **Multi-modal data processing**: Analyzes genomics, proteomics, imaging, and clinical data simultaneously
-- **Protocol generation**: Designs detailed experimental procedures matching expert standards
-- **Cross-domain synthesis**: Identifies connections between disparate research areas to generate novel hypotheses
+*   **Unified environment access**: Connects to 150 tools, 59 databases, and 106 software packages curated from 2,500+ papers
+*   **Dynamic workflow composition**: Creates input-specific, biologically meaningful step-by-step plans on the fly without predefined templates
+*   **Multi-modal data processing**: Analyzes genomics, proteomics, imaging, and clinical data simultaneously
+*   **Protocol generation**: Designs detailed experimental procedures matching expert standards
+*   **Cross-domain synthesis**: Identifies connections between disparate research areas to generate novel hypotheses
 
 ## Transforming how science gets done
 

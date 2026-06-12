@@ -4,10 +4,10 @@
 
 ## With Claude Agent SDK, Spotify:
 
-- Saves up to 90% of engineering time on complex code migrations
-- Merged 650+ agent-generated pull requests into production per month
-- Automates fleet-wide transformations that were previously too complex to script
-- Enables hundreds of engineers to trigger autonomous code changes via Slack
+*   Saves up to 90% of engineering time on complex code migrations
+*   Merged 650+ agent-generated pull requests into production per month
+*   Automates fleet-wide transformations that were previously too complex to script
+*   Enables hundreds of engineers to trigger autonomous code changes via Slack
 
 ## The opportunity
 

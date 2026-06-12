@@ -4,9 +4,9 @@ Cox Automotive, the world's largest automotive services and technology provider,
 
 With Claude, Cox Automotive is delivering client and consumer benefits, including:
 
-- More than doubling consumer lead responses and test drive appointments through the VinSolutions CRM platform.
-- Achieving 80% positive feedback from sellers using AI-generated listings descriptions.
-- Reducing dealer website content creation time through managed services platform, achieving same-day deliverables for blog posts and landing pages while also maintaining SEO performance and generating more than 9,000 client deliverables to date.
+*   More than doubling consumer lead responses and test drive appointments through the VinSolutions CRM platform.
+*   Achieving 80% positive feedback from sellers using AI-generated listings descriptions.
+*   Reducing dealer website content creation time through managed services platform, achieving same-day deliverables for blog posts and landing pages while also maintaining SEO performance and generating more than 9,000 client deliverables to date.
 
 ## Meeting modern automotive industry challenges
 
@@ -28,9 +28,9 @@ As a long-time AWS customer, Cox Automotive also found that accessing Claude mod
 
 Cox Automotive is currently leveraging Claude to enhance three key products:
 
-- **VinSolutions CRM** transforms dealer-consumer communications by generating personalized emails and texts based on real consumer shopping interests. The system verifies vehicle information against Cox Automotive's proprietary database, ensuring accuracy while driving more engaging dealer-consumer interactions that lead to appointments and sales.
-- **Autotrader Private Seller Exchange (PSX)** powers consumer peer-to-peer vehicle sales by automatically generating compelling used vehicle listing descriptions. The system combines seller input with verified vehicle data, while maintaining human review and editing to ensure quality and accuracy. enabling private parties to market their vehicles more effectively while maintaining marketplace trust.
-- **Dealer.com managed services** creates SEO-optimized blog posts and landing pages for dealer websites that previously took multiple days to produce manually. This content maintains each dealership's unique voice and can be tailored for specific audiences, leveraging Cox Automotive's deep vehicle knowledge for technical accuracy. Through these enhancements, Cox Automotive clients are getting high-quality marketing content online faster than before.
+*   **VinSolutions CRM** transforms dealer-consumer communications by generating personalized emails and texts based on real consumer shopping interests. The system verifies vehicle information against Cox Automotive's proprietary database, ensuring accuracy while driving more engaging dealer-consumer interactions that lead to appointments and sales.
+*   **Autotrader Private Seller Exchange (PSX)** powers consumer peer-to-peer vehicle sales by automatically generating compelling used vehicle listing descriptions. The system combines seller input with verified vehicle data, while maintaining human review and editing to ensure quality and accuracy. enabling private parties to market their vehicles more effectively while maintaining marketplace trust.
+*   **Dealer.com managed services** creates SEO-optimized blog posts and landing pages for dealer websites that previously took multiple days to produce manually. This content maintains each dealership's unique voice and can be tailored for specific audiences, leveraging Cox Automotive's deep vehicle knowledge for technical accuracy. Through these enhancements, Cox Automotive clients are getting high-quality marketing content online faster than before.
 
 Additionally, Cox Automotive is using Claude to improve its own internal data governance processes. Leveraging sparse metadata as a starting point, the system generates comprehensive descriptions of datasets within their enterprise data platform. This enhanced data foundation enables teams across Cox Automotive to better understand and utilize data assets, reducing friction and creating a flywheel effect for powering further AI applications.
 

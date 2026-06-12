@@ -4,9 +4,9 @@ Presien is a physical AI company that runs its own computer vision models direct
 
 ## With Claude, Presien achieved:
 
-- Over 70% reduction in critical safety events within the first three months of deployment
-- Safety managers shifted from hours of daily video review to starting each day with an AI-generated risk briefing, enabling them to act immediately on issues
-- 24/7 autonomous monitoring across thousands of machines and millions of data points, with no manual review required
-- Compliance monitoring moved from periodic manual checks to continuous, policy-aware analysis
-- Supervisor briefings generated from real incidents observed hours earlier, replacing generic templates
-- MCP server integration built in weeks on top of Presien's existing data infrastructure
+*   Over 70% reduction in critical safety events within the first three months of deployment
+*   Safety managers shifted from hours of daily video review to starting each day with an AI-generated risk briefing, enabling them to act immediately on issues
+*   24/7 autonomous monitoring across thousands of machines and millions of data points, with no manual review required
+*   Compliance monitoring moved from periodic manual checks to continuous, policy-aware analysis
+*   Supervisor briefings generated from real incidents observed hours earlier, replacing generic templates
+*   MCP server integration built in weeks on top of Presien's existing data infrastructure

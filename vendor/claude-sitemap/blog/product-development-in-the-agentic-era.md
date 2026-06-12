@@ -24,9 +24,9 @@ Now I spin up bespoke agents for any "job to be done." Building one is simple: I
 
 Examples of these agents include:
 
-- **Adoption analytics.** An agent with persistent access to our internal databases and skills for understanding our data schemas runs queries to surface interesting outliers and patterns. With memory of prior runs, it can build on prior findings and continuously advance its perspective.
-- **Developer sentiment monitoring.** An agent with the pre-built web search tool and guidance on focus areas scans a specific list of domains for the latest developer feedback, reporting back on common themes. Since there is so much content to analyze, it fans out research to multiple agents in parallel, waits for results, and synthesizes findings. 
-- **Demo building.** An agent with access to demo GitHub repos, branding assets, and an event deck turns prebuilt templates into a polished demo tailored to the relevant audience, such as a conference or customer meeting.
+*   **Adoption analytics.** An agent with persistent access to our internal databases and skills for understanding our data schemas runs queries to surface interesting outliers and patterns. With memory of prior runs, it can build on prior findings and continuously advance its perspective.
+*   **Developer sentiment monitoring.** An agent with the pre-built web search tool and guidance on focus areas scans a specific list of domains for the latest developer feedback, reporting back on common themes. Since there is so much content to analyze, it fans out research to multiple agents in parallel, waits for results, and synthesizes findings. 
+*   **Demo building.** An agent with access to demo GitHub repos, branding assets, and an event deck turns prebuilt templates into a polished demo tailored to the relevant audience, such as a conference or customer meeting.
 
 Managed Agents sessions run in the cloud, so I can walk away and come back to find the work done. Processes that could never scale because every launch has its own quirks are now easy to automate using Managed Agents, and every agent run feels energizing instead of tedious.
 
@@ -36,4 +36,4 @@ A year ago, all of this kind of work would've crawled along in cross-functional 
 
 If you're a product manager and you haven't built an agent yet, that's where I'd start this week. The experiments and tools you've always wished existed are a single prompt and a few API calls away.
 
-_Learn more in_ _our docs\_\_._
+_Learn more in_ _our docs__._

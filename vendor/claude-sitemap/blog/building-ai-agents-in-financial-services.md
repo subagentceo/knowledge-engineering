@@ -26,8 +26,8 @@ AI-powered financial agents are already delivering real-world results in areas s
 
 Customer service operations are a natural starting point because this area has already proven successful. Financial institutions implementing AI-powered customer service are seeing measurable improvements:
 
-- Multilingual virtual assistants now handle hundreds of millions of interactions annually, serving millions of users across different language groups.
-- Customer service agents automate routine tasks like balance inquiries and card replacements, reducing wait times while delivering 24/7 responses and suggesting relevant products, turning support interactions into opportunities to actually help people manage their finances.
+*   Multilingual virtual assistants now handle hundreds of millions of interactions annually, serving millions of users across different language groups.
+*   Customer service agents automate routine tasks like balance inquiries and card replacements, reducing wait times while delivering 24/7 responses and suggesting relevant products, turning support interactions into opportunities to actually help people manage their finances.
 
 Intuit TurboTax, for example, built an AI financial assistant powered by Claude that generates clear and accurate tax explanations for millions of customers. The agentic implementation was so successful that the AI-powered experiences achieved higher customer ratings compared to non-Claude experiences in the previous tax season. 
 
@@ -43,9 +43,9 @@ For Brex, a modern financial platform, Claude powers their AI anomaly detection,
 
 AI agents deliver tangible benefits right where your teams need them most. When implemented thoughtfully, these tools don't replace your workforce but rather amplify what they can accomplish and let them focus on the high-value work that requires their knowledge and expertise. Here's how financial services organizations like Block and Campfire are doing this:
 
-- Design teams turn ideas into working prototypes without coding barriers
-- Operations teams automate case ticket closure
-- Accounting teams query financial data through natural language, perform flux analyses, and access audit support
+*   Design teams turn ideas into working prototypes without coding barriers
+*   Operations teams automate case ticket closure
+*   Accounting teams query financial data through natural language, perform flux analyses, and access audit support
 
 ## Unique challenges in financial services
 
@@ -59,10 +59,10 @@ Financial institutions typically run on decades-old core banking systems that we
 
 Legacy system integration often shows up in:
 
-- Core banking platform incompatibilities across vendors
-- Departmental data silos requiring cross-system orchestration
-- Legacy mainframe integration challenges
-- Real-time synchronization needs for time-sensitive trading decisions
+*   Core banking platform incompatibilities across vendors
+*   Departmental data silos requiring cross-system orchestration
+*   Legacy mainframe integration challenges
+*   Real-time synchronization needs for time-sensitive trading decisions
 
 When tackling these challenges, teams need to make practical decisions about integration approaches. The first consideration involves connectivity: does the AI agent have direct integration capabilities with the necessary systems? If not, teams face two practical options: building custom connectors (typically through APIs or MCP approaches) or implementing middleware systems to bridge these communication gaps.
 
@@ -74,9 +74,9 @@ A single transaction might trigger compliance requirements from multiple regulat
 
 Some regulatory considerations that need to be part of your agent architecture include:
 
-- SOC 2 and PCI DSS compliance for AI data processing workflows
-- Evidence-based validation of risk assessment accuracy
-- Documentation requirements for AI decision audit trails
+*   SOC 2 and PCI DSS compliance for AI data processing workflows
+*   Evidence-based validation of risk assessment accuracy
+*   Documentation requirements for AI decision audit trails
 
 Ensure you build observability and traceability into the agentic solutions from day one. You'll want it simply from a troubleshooting perspective, but you'll definitely need it from a regulatory one.
 
@@ -86,10 +86,10 @@ Unlike other industries where decisions can be reviewed later, financial agents 
 
 Implementation requires:
 
-- Transparent reasoning that financial professionals can validate and explain to clients
-- Clear escalation pathways for complex or ambiguous financial situations
-- Override capabilities allowing advisors to reject AI recommendations when client circumstances warrant
-- Fail-safe defaults that prioritize customer protection over operational efficiency
+*   Transparent reasoning that financial professionals can validate and explain to clients
+*   Clear escalation pathways for complex or ambiguous financial situations
+*   Override capabilities allowing advisors to reject AI recommendations when client circumstances warrant
+*   Fail-safe defaults that prioritize customer protection over operational efficiency
 
 Identify which actions will require human-in-the-loop authorization, either from a risk or regulatory perspective. For high-risk actions, consider how the system, agentic or otherwise, can fail in a known safe state.
 
@@ -143,10 +143,10 @@ At this stage, your organization has an augmented workforce, refined core capabi
 
 The observability and human-in-the-loop mechanisms you built for simpler use cases become even more critical as complexity increases. More than ever, your implementation needs:
 
-- **Comprehensive audit trails** that track every agent decision and data source used, enabling review and regulatory compliance
-- **Real-time monitoring systems** that detect when agents encounter edge cases or uncertain scenarios requiring human judgment
-- **Escalation protocols** that automatically route complex cases to appropriate specialists based on clear criteria
-- **Performance metrics** that measure not just technical accuracy but business outcomes and workflow integration success
+*   **Comprehensive audit trails** that track every agent decision and data source used, enabling review and regulatory compliance
+*   **Real-time monitoring systems** that detect when agents encounter edge cases or uncertain scenarios requiring human judgment
+*   **Escalation protocols** that automatically route complex cases to appropriate specialists based on clear criteria
+*   **Performance metrics** that measure not just technical accuracy but business outcomes and workflow integration success
 
 ## Taking action
 

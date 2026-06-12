@@ -19,6 +19,7 @@ Delete Credential
 ### Returns
 
 - `ManagedAgentsDeletedCredential`
+
   - `string id`
 
     Unique identifier of the deleted credential.

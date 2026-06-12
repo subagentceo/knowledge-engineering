@@ -17,6 +17,7 @@ response would exceed 1,000 organizations.
 - `data: array of object { created_at, name, uuid }`
 
   List of organizations sorted by creation date, ascending
+
   - `created_at: string`
 
     Organization creation time (RFC 3339 format)

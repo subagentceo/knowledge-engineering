@@ -37,9 +37,10 @@ Create a new environment with the specified configuration.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -125,16 +126,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -178,9 +194,10 @@ List environments with pagination support.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -249,16 +266,31 @@ var_dump($page);
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -295,9 +327,10 @@ Retrieve a specific environment by ID.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -361,16 +394,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -424,9 +472,10 @@ Update an existing environment's configuration.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -513,16 +562,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -556,6 +620,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Returns
 
 - `BetaEnvironmentDeleteResponse`
+
   - `string id`
 
     Environment identifier
@@ -608,9 +673,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -674,16 +740,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -703,6 +784,7 @@ var_dump($betaEnvironment);
 ### Beta Cloud Config
 
 - `BetaCloudConfig`
+
   - `Networking networking`
 
     Network configuration policy.
@@ -718,6 +800,7 @@ var_dump($betaEnvironment);
 ### Beta Cloud Config Params
 
 - `BetaCloudConfigParams`
+
   - `"cloud" type`
 
     Environment type
@@ -735,9 +818,10 @@ var_dump($betaEnvironment);
 ### Beta Environment
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -778,6 +862,7 @@ var_dump($betaEnvironment);
 ### Beta Environment Delete Response
 
 - `BetaEnvironmentDeleteResponse`
+
   - `string id`
 
     Environment identifier
@@ -789,6 +874,7 @@ var_dump($betaEnvironment);
 ### Beta Limited Network
 
 - `BetaLimitedNetwork`
+
   - `bool allowMCPServers`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -808,6 +894,7 @@ var_dump($betaEnvironment);
 ### Beta Limited Network Params
 
 - `BetaLimitedNetworkParams`
+
   - `"limited" type`
 
     Network policy type
@@ -827,6 +914,7 @@ var_dump($betaEnvironment);
 ### Beta Packages
 
 - `BetaPackages`
+
   - `list<string> apt`
 
     Ubuntu/Debian packages to install
@@ -858,6 +946,7 @@ var_dump($betaEnvironment);
 ### Beta Packages Params
 
 - `BetaPackagesParams`
+
   - `?list<string> apt`
 
     Ubuntu/Debian packages to install
@@ -889,6 +978,7 @@ var_dump($betaEnvironment);
 ### Beta Self Hosted Config
 
 - `BetaSelfHostedConfig`
+
   - `"self_hosted" type`
 
     Environment type
@@ -896,6 +986,7 @@ var_dump($betaEnvironment);
 ### Beta Self Hosted Config Params
 
 - `BetaSelfHostedConfigParams`
+
   - `"self_hosted" type`
 
     Environment type
@@ -903,6 +994,7 @@ var_dump($betaEnvironment);
 ### Beta Unrestricted Network
 
 - `BetaUnrestrictedNetwork`
+
   - `"unrestricted" type`
 
     Network policy type
@@ -932,9 +1024,10 @@ Retrieve detailed information about a specific work item.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1055,9 +1148,10 @@ Long poll for work items in the queue.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1170,9 +1264,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1291,6 +1386,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Returns
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1374,9 +1470,10 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1494,9 +1591,10 @@ List work items in an environment.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1617,9 +1715,10 @@ Update work item metadata with merge semantics.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1727,6 +1826,7 @@ Get statistics about the work queue for an environment.
 ### Returns
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1780,9 +1880,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -1831,6 +1932,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Heartbeat Response
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1854,6 +1956,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work List Response
 
 - `SelfHostedWorkListResponse`
+
   - `list<SelfHostedWork> data`
 
     List of work items
@@ -1865,6 +1968,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Queue Stats
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1888,6 +1992,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Stop Request
 
 - `SelfHostedWorkStopRequest`
+
   - `?bool force`
 
     If true, immediately stop work without graceful shutdown
@@ -1895,6 +2000,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Update Request
 
 - `SelfHostedWorkUpdateRequest`
+
   - `array<string,string> metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1902,9 +2008,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Session Work Data
 
 - `SessionWorkData`
+
   - `string id`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `"session" type`
 

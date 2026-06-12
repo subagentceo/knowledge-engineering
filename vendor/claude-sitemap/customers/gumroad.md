@@ -2,9 +2,9 @@
 
 Gumroad, an e-commerce platform for digital creators, uses Claude to empower every team member to have a meaningful impact on its product. With Claude, Gumroad has seen improved customer support, faster feature shipping, and the creation of a "just fix it" culture across the company.
 
-- 300% increase in new features shipped to production
-- 4x faster feature deployment
-- Significant reduction in context switching for engineers to answer customer support tickets
+*   300% increase in new features shipped to production
+*   4x faster feature deployment
+*   Significant reduction in context switching for engineers to answer customer support tickets
 
 ## Enhancing agility in a remote-first culture
 
@@ -34,12 +34,12 @@ Since adopting Claude, Gumroad's customer support team doesn't just address quer
 
 The following feature developments were led by the customer support team's new capabilities:
 
-- Keyboard shortcuts for replying to tickets streamline response times
-- Sorting functionality based on creator earnings will improve user experience
-- Removal of assigned tickets from the "all" queue, enhancing workflow efficiency
-- Implementation of support ticket analytics, which provides valuable insights
-- Holistic updates to help documentation for comprehensive user guidance
-- Improved purchase lookup for quicker issue resolution
+*   Keyboard shortcuts for replying to tickets streamline response times
+*   Sorting functionality based on creator earnings will improve user experience
+*   Removal of assigned tickets from the "all" queue, enhancing workflow efficiency
+*   Implementation of support ticket analytics, which provides valuable insights
+*   Holistic updates to help documentation for comprehensive user guidance
+*   Improved purchase lookup for quicker issue resolution
 
 Kaushik adds, "Claude has effectively promoted us customer supporters at Gumroad. Just months ago, we primarily answered creators' questions after they reached out. Now, not only do we resolve queries faster but also actively improve the platform by shipping features and squashing bugs."
 

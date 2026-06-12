@@ -4,9 +4,9 @@ Vanta, a leading trust management platform, uses Claude to automate compliance r
 
 With Claude, Vanta:
 
-- Accelerated implementation timeframe from weeks to just a few days
-- Expanded internal developer adoption of AI tools by 113% in just 2 months
-- Gained competitive advantage with remediation instructions that customers describe as "the bees knees"
+*   Accelerated implementation timeframe from weeks to just a few days
+*   Expanded internal developer adoption of AI tools by 113% in just 2 months
+*   Gained competitive advantage with remediation instructions that customers describe as "the bees knees"
 
 ## Making compliance intuitive and actionable
 

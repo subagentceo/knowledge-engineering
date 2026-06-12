@@ -10,10 +10,10 @@ For information on adding and removing members from your organization, see **[Ma
 
 Team plans offer two seat types:
 
-| **Seat type** | **What's included**                                 |
-| ------------- | --------------------------------------------------- |
-| Standard      | Base features, usage limits, and Claude Code access |
-| Premium       | Everything in Standard, plus higher usage limits    |
+| **Seat type** | **What's included** |
+| --- | --- |
+| Standard | Base features, usage limits, and Claude Code access |
+| Premium | Everything in Standard, plus higher usage limits |
 
 Organizations can mix and match seat types based on team needs. Assign Premium seats to power users who need more capacity, while keeping other team members on Standard seats.
 

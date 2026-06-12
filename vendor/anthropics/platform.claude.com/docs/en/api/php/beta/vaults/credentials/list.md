@@ -29,6 +29,7 @@ List Credentials
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.

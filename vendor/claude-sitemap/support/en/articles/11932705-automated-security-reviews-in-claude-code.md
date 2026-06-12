@@ -91,6 +91,7 @@ Both the /security-review command and GitHub action check for common vulnerabili
 To start using automated security reviews:
 
 - **For the /security-review command**: Update Claude Code to the latest version (run), then run `/security-review` in your project directory.
+
   - Claude Code automatically keeps itself up to date to ensure you have the latest features and security fixes, but you can also run `claude update` to update manually.
 
 - **For the GitHub actions**: Visit our[documentation](https://github.com/anthropics/claude-code-security-review) for installation and configuration instructions.

@@ -4,10 +4,10 @@ The new Claude Android app brings the power of Claude—including our most power
 
 The Claude Android app works just like Claude on iOS and the web, meaning you get access to:
 
-- **Multi-platform support:** Pick up and continue conversations with Claude across web, iOS, and Android apps
-- **Vision capabilities:** Take new pictures or upload files for real-time image analysis
-- **Multilingual processing:** Real-time language translation to help communicate or translate aspects of the world around you
-- **Advanced reasoning:** Claude can help you tackle complex problems, like analyzing contracts while traveling or conducting market research to prepare for a meeting
+*   **Multi-platform support:** Pick up and continue conversations with Claude across web, iOS, and Android apps
+*   **Vision capabilities:** Take new pictures or upload files for real-time image analysis
+*   **Multilingual processing:** Real-time language translation to help communicate or translate aspects of the world around you
+*   **Advanced reasoning:** Claude can help you tackle complex problems, like analyzing contracts while traveling or conducting market research to prepare for a meeting
 
 ![Four examples of use cases on Android devices](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95d9557ab1dfc1937fe0c_34257284089523699c49cba5e11a3d448a27d74d-3840x2160.png)
 

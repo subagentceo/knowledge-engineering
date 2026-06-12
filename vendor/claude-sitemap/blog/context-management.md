@@ -20,16 +20,16 @@ Claude Sonnet 4.5 enhances both capabilities with built-in context awareness—t
 
 Together, these updates create a system that improves agent performance:
 
-- Enable longer conversations by automatically removing stale tool results from context
-- Boost accuracy by saving critical information to memory—and bring that learning across successive agentic sessions
+*   Enable longer conversations by automatically removing stale tool results from context
+*   Boost accuracy by saving critical information to memory—and bring that learning across successive agentic sessions
 
 ## Building long-running agents
 
 Claude Sonnet 4.5 is the best model in the world for building agents. These features unlock new possibilities for long-running agents—processing entire codebases, analyzing hundreds of documents, or maintaining extensive tool interaction histories. Context management builds on this foundation, ensuring agents can leverage this expanded capacity efficiently while still handling workflows that extend beyond any fixed limit. Use cases include:
 
-- **Coding:** Context editing clears old file reads and test results while memory preserves debugging insights and architectural decisions, enabling agents to work on large codebases without losing progress.
-- **Research:** Memory stores key findings while context editing removes old search results, building knowledge bases that improve performance over time.
-- **Data processing:** Agents store intermediate results in memory while context editing clears raw data, handling workflows that would otherwise exceed token limits.
+*   **Coding:** Context editing clears old file reads and test results while memory preserves debugging insights and architectural decisions, enabling agents to work on large codebases without losing progress.
+*   **Research:** Memory stores key findings while context editing removes old search results, building knowledge bases that improve performance over time.
+*   **Data processing:** Agents store intermediate results in memory while context editing clears raw data, handling workflows that would otherwise exceed token limits.
 
 ## Performance improvements with context management
 

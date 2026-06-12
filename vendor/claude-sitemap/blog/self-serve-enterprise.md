@@ -10,10 +10,10 @@ Claude also works with the tools your teams already use. Connect to Microsoft 36
 
 Claude Enterprise includes the security and administrative controls organizations need to deploy AI at scale:
 
-- Manage user access with single sign-on (SSO) and domain capture, and automate provisioning through SCIM. 
-- Audit logs and a Compliance API give your security and compliance teams visibility into how Claude is being used, and administrators can manage permissions across the organization.
-- Administrators can set custom data retention policies and track team activity, feature adoption, and spend through usage analytics
-- Anthropic does not train models on Claude Enterprise content by default.
+*   Manage user access with single sign-on (SSO) and domain capture, and automate provisioning through SCIM. 
+*   Audit logs and a Compliance API give your security and compliance teams visibility into how Claude is being used, and administrators can manage permissions across the organization.
+*   Administrators can set custom data retention policies and track team activity, feature adoption, and spend through usage analytics
+*   Anthropic does not train models on Claude Enterprise content by default.
 
 ## How organizations use Claude Enterprise
 

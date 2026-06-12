@@ -22,8 +22,8 @@ Key Resources:
 
 - Begin thinking through use cases considering some of your biggest challenges as well as repetitive tasks that can be streamlined
 
-| Implementation Tips:<br><br> Ask Claude for help. If you are not sure where to start, describe your goals, role, or challenges to Claude and ask what Claude can help you with<br>Save prompts that work well. When you craft a prompt that produces great results, save it to reuse and adapt for similar future tasks. You can either select the star next to the chat or maintain your own ongoing document of prompts.<br>Iterate and refine. Treat your first prompt as a starting point. Ask Claude to adjust tone, length, format, or focus based on what you actually need. |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation Tips:<br><br>  Ask Claude for help. If you are not sure where to start, describe your goals, role, or challenges to Claude and ask what Claude can help you with<br>Save prompts that work well. When you craft a prompt that produces great results, save it to reuse and adapt for similar future tasks. You can either select the star next to the chat or maintain your own ongoing document of prompts.<br>Iterate and refine. Treat your first prompt as a starting point. Ask Claude to adjust tone, length, format, or focus based on what you actually need. |
+| --- |
 
 ---
 
@@ -45,8 +45,8 @@ Key Resources:
 
 - Explore the use case library and try out one of the nonprofit use cases that is applicable to your work.
 
-| Implementation Tips:<br><br> Look at the prompts within the use case library and leverage them as a starting place. Treat it as a template to understand how to format and organize information in a prompt.<br>Upload relevant documents to your project so Claude understands your organization's context, past work, and priorities.<br>Turn on memory (go to settings>capabilities) to allow Claude to remember relevant context for chats and projects. |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Implementation Tips:<br><br>  Look at the prompts within the use case library and leverage them as a starting place. Treat it as a template to understand how to format and organize information in a prompt.<br>Upload relevant documents to your project so Claude understands your organization's context, past work, and priorities.<br>Turn on memory (go to settings>capabilities) to allow Claude to remember relevant context for chats and projects. |
+| --- |
 
 ---
 
@@ -68,8 +68,8 @@ Key Resources:
 
 - Enable code execution and file sharing (in capabilities) and create or augment either a spreadsheet or slide deck.
 
-| Implementation Tips:<br><br> Celebrate both wins and lessons learned. Sharing what didn't work well is just as valuable as success stories—it helps everyone learn faster.<br>Establish quality checks. Claude is a powerful collaborator, but always review outputs for accuracy and alignment with your organization's standards.<br>Chain complex requests together. Break large projects into sequential prompts where each builds on the previous output—draft outline, then expand sections, then refine language. |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Implementation Tips:<br><br>  Celebrate both wins and lessons learned. Sharing what didn't work well is just as valuable as success stories—it helps everyone learn faster.<br>Establish quality checks. Claude is a powerful collaborator, but always review outputs for accuracy and alignment with your organization's standards.<br>Chain complex requests together. Break large projects into sequential prompts where each builds on the previous output—draft outline, then expand sections, then refine language. |
+| --- |
 
 ---
 

@@ -72,11 +72,12 @@ Another dimension we can prompt for is designs inspired by well-known themes and
 
 ```javascript
 <always_use_rpg_theme>
-  Always design with RPG aesthetic: - Fantasy-inspired color palettes with rich,
-  dramatic tones - Ornate borders and decorative frame elements - Parchment
-  textures, leather-bound styling, and weathered materials - Epic, adventurous
-  atmosphere with dramatic lighting - Medieval-inspired serif typography with
-  embellished headers
+Always design with RPG aesthetic:
+- Fantasy-inspired color palettes with rich, dramatic tones
+- Ornate borders and decorative frame elements
+- Parchment textures, leather-bound styling, and weathered materials
+- Epic, adventurous atmosphere with dramatic lighting
+- Medieval-inspired serif typography with embellished headers
 </always_use_rpg_theme>
 ```
 
@@ -94,7 +95,7 @@ Bringing this all together, we developed a ~400 token prompt – compact enough 
 
 ```plaintext
 <frontend_aesthetics>
-You tend to converge toward generic, "on distribution" outputs. In frontend design,this creates what users call the "AI slop" aesthetic. Avoid this: make creative,distinctive frontends that surprise and delight.
+You tend to converge toward generic, "on distribution" outputs. In frontend design,this creates what users call the "AI slop" aesthetic. Avoid this: make creative,distinctive frontends that surprise and delight. 
 
 Focus on:
 - Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.
@@ -202,7 +203,7 @@ This pattern extends beyond frontend work. Any domain where Claude produces gene
 
 For frontend development, this means Claude can generate distinctive interfaces without per-request prompt engineering. To get started, explore our frontend design cookbook or try out our new frontend design plugin in Claude Code.
 
-**Feeling inspired? To create your own frontend skills, check out our** **skill-creator\*\***.\*\*
+**Feeling inspired? To create your own frontend skills, check out our** **skill-creator****.**
 
 ‍
 

@@ -2,8 +2,8 @@
 
 Analyze multi-channel marketing, financial, sales, e-commerce, and other business data within Claude by connecting to your Coupler.io data flows — query marketing, sales, and finance metrics from hundreds of sources. Fetch and transform raw data from platforms like Google Ads, Facebook, HubSpot, and Salesforce into actionable intelligence for smarter, faster decision-making with accurate, up-to-date business information.
 
-You can use the Coupler.io connector to:
-
+You can use the Coupler.io connector to:  
+  
 Analyze customer acquisition costs:  
 "What's our overall customer acquisition cost across all paid channels this quarter compared to last quarter? I need this for the board meeting"
 

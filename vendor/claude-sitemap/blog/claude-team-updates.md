@@ -4,8 +4,8 @@ Today, we're making the Claude Team plan more accessible for growing teams. Weâ€
 
 ## Lower pricing
 
-- Standard seats are now $20 per month with annual discount, or $25 per month billed monthly
-- Premium seats are now $100 per month with a new annual discount, or $125 per month billed monthly
+*   Standard seats are now $20 per month with annual discount, or $25 per month billed monthly
+*   Premium seats are now $100 per month with a new annual discount, or $125 per month billed monthly
 
 Every Team seat includes more usage than the Pro plan, and premium seats include five times the usage of standard seats. If power users need even more, admins can purchase additional capacity for their team.
 

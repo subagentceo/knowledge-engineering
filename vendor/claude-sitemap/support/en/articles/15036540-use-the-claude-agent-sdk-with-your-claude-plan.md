@@ -10,17 +10,17 @@ To support Agent SDK use, eligible Pro, Max, Team, and Enterprise plan users can
 
 ## Monthly credit by plan
 
-| **Plan**                                | **Monthly credit** |
-| --------------------------------------- | ------------------ |
-| Pro                                     | $20                |
-| Max 5x                                  | $100               |
-| Max 20x                                 | $200               |
-| Team (Standard seats)                   | $20                |
-| Team (Premium seats)                    | $100               |
-| Enterprise (usage-based)                | $20                |
-| Enterprise (seat-based Premium seats\*) | $200               |
+| **Plan** | **Monthly credit** |
+| --- | --- |
+| Pro | $20 |
+| Max 5x | $100 |
+| Max 20x | $200 |
+| Team (Standard seats) | $20 |
+| Team (Premium seats) | $100 |
+| Enterprise (usage-based) | $20 |
+| Enterprise (seat-based Premium seats*) | $200 |
 
-\*Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
+*Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
 
 ---
 

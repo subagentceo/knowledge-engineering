@@ -6,10 +6,10 @@ Kodif, a customer support automation platform founded by a former Uber engineeri
 
 With Claude, Kodif:
 
-- Automates 65% of Dollar Shave Club's support tickets
-- Achieves 90% automation for Trust Wallet's crypto support
-- Automates 75% of tickets for Halo Collar
-- Drives increased revenue through intelligent cancellation flows
+*   Automates 65% of Dollar Shave Club's support tickets
+*   Achieves 90% automation for Trust Wallet's crypto support
+*   Automates 75% of tickets for Halo Collar
+*   Drives increased revenue through intelligent cancellation flows
 
 ## From cost center to strategic asset
 

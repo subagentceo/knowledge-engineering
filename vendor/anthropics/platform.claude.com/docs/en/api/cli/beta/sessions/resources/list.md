@@ -29,10 +29,13 @@ List Session Resources
 - `BetaManagedAgentsListSessionResources: object { data, next_page }`
 
   Paginated list of resources attached to a session.
+
   - `data: array of BetaManagedAgentsSessionResource`
 
     Resources for the session, ordered by `created_at`.
+
     - `beta_managed_agents_github_repository_resource: object { id, created_at, mount_path, 4 more }`
+
       - `id: string`
 
       - `created_at: string`
@@ -42,6 +45,7 @@ List Session Resources
       - `mount_path: string`
 
       - `type: "github_repository"`
+
         - `"github_repository"`
 
       - `updated_at: string`
@@ -51,23 +55,29 @@ List Session Resources
       - `url: string`
 
       - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
         - `beta_managed_agents_branch_checkout: object { name, type }`
+
           - `name: string`
 
             Branch name to check out.
 
           - `type: "branch"`
+
             - `"branch"`
 
         - `beta_managed_agents_commit_checkout: object { sha, type }`
+
           - `sha: string`
 
             Full commit SHA to check out.
 
           - `type: "commit"`
+
             - `"commit"`
 
     - `beta_managed_agents_file_resource: object { id, created_at, file_id, 3 more }`
+
       - `id: string`
 
       - `created_at: string`
@@ -79,6 +89,7 @@ List Session Resources
       - `mount_path: string`
 
       - `type: "file"`
+
         - `"file"`
 
       - `updated_at: string`
@@ -88,16 +99,19 @@ List Session Resources
     - `beta_managed_agents_memory_store_resource: object { memory_store_id, type, access, 4 more }`
 
       A memory store attached to an agent session.
+
       - `memory_store_id: string`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: "memory_store"`
+
         - `"memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
         Access mode for an attached memory store.
+
         - `"read_write"`
 
         - `"read_only"`

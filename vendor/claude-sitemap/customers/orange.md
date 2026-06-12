@@ -4,12 +4,12 @@ Orange, a leading manga startup, uses Claude to deliver English-translated digit
 
 With Claude, Orange:
 
-- Achieves 5-7x efficiency improvements over existing processes
-- Increased delivery capacity from 5 to 50 books per month—a 10x improvement
-- Reduced generation time from over 10 hours to under 2 hours per manga volume
-- Maintains 50-75% adoption rate of Claude-generated translations
-- Successfully translates complex elements like onomatopoeia and specialized expressions
-- Enables translators to focus on creative and nuanced aspects of localization
+*   Achieves 5-7x efficiency improvements over existing processes
+*   Increased delivery capacity from 5 to 50 books per month—a 10x improvement
+*   Reduced generation time from over 10 hours to under 2 hours per manga volume
+*   Maintains 50-75% adoption rate of Claude-generated translations
+*   Successfully translates complex elements like onomatopoeia and specialized expressions
+*   Enables translators to focus on creative and nuanced aspects of localization
 
 ## Meeting global demand for translated manga
 
@@ -29,11 +29,11 @@ The support experience also set Anthropic apart. Kuroda said, "The sales, suppor
 
 Orange's technical implementation combines multiple AI technologies with Claude at its core:
 
-- Translation agent model powered by Claude for core translation tasks
-- Integration with inpainting technology to handle visual elements
-- Direct image input capabilities with Claude 3.5 Sonnet, eliminating the need for intermediate processing steps
-- Quality assurance automation to streamline the review process
-- Uses Claude for coding development and internal tool creation
+*   Translation agent model powered by Claude for core translation tasks
+*   Integration with inpainting technology to handle visual elements
+*   Direct image input capabilities with Claude 3.5 Sonnet, eliminating the need for intermediate processing steps
+*   Quality assurance automation to streamline the review process
+*   Uses Claude for coding development and internal tool creation
 
 The migration to Claude 3.5 Sonnet brought significant improvements. Kuroda said, "It's now faster and cheaper, provides more concise expressions, closer to the style of manga." The ability to process images directly has streamlined their workflow by eliminating intermediate steps. Orange streamlines localization by applying translations to images, eliminating the need for multiple design or translation tools. This simplifies workflows by integrating translation into the design process, reducing intermediary steps and making localization more efficient.
 

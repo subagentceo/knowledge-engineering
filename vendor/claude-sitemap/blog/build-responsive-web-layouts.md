@@ -48,13 +48,10 @@ Modern CSS frameworks like Bootstrap and Tailwind provide responsive class syste
 
 ```htmlbars
 1<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-  2
-  <div class="card">...</div>
-  3
-  <div class="card">...</div>
-  4
-  <div class="card">...</div>
-  5</div>
+2  <div class="card">...</div>
+3  <div class="card">...</div>
+4  <div class="card">...</div>
+5</div>
 ```
 
 ‍
@@ -75,8 +72,8 @@ This debugging process is iterative and can be tedious. Each fix requires re-tes
 
 You can integrate AI into your responsive design workflow for immediate layout generation and systematic refactoring. Claude works in two ways depending on your needs:
 
-- ‍**Claude.ai\*\***:** Browser-based interface where you paste layout requirements and receive complete responsive HTML/CSS with proper viewport configuration and media queries. Accessible from any browser, no installation required. Good for learning responsive patterns and generating boilerplate.**‍\*\*
-- **Claude Code\*\***:\*\* Command-line tool that analyzes existing stylesheets across your codebase, identifies viewport-specific issues, and implements fixes directly in your files. Requires npm installation and API access. Built for refactoring responsive layouts in large codebases.
+*   ‍**Claude.ai****:** Browser-based interface where you paste layout requirements and receive complete responsive HTML/CSS with proper viewport configuration and media queries. Accessible from any browser, no installation required. Good for learning responsive patterns and generating boilerplate.**‍**
+*   **Claude Code****:** Command-line tool that analyzes existing stylesheets across your codebase, identifies viewport-specific issues, and implements fixes directly in your files. Requires npm installation and API access. Built for refactoring responsive layouts in large codebases.
 
 ### Start with Claude.ai
 
@@ -88,9 +85,9 @@ The Claude.ai web interface lets you describe layout requirements and receive wo
 
 Common layout generation requests:
 
-- "Create a three-column card layout that becomes single-column on mobile"
-- "Build a navigation that collapses to hamburger menu under 768px"
-- "Generate a dashboard with responsive sidebar that hides on tablets"
+*   "Create a three-column card layout that becomes single-column on mobile"
+*   "Build a navigation that collapses to hamburger menu under 768px"
+*   "Generate a dashboard with responsive sidebar that hides on tablets"
 
 These requests provide working examples that demonstrate responsive techniques you can adapt to your projects.
 
@@ -100,44 +97,41 @@ Claude.ai returns semantic HTML5 with responsive CSS that handles multiple viewp
 
 ```htmlbars
 1<head>
-  2
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  3
-  <style>
-    4    .header {
-    5      position: fixed;
-    6      top: 0;
-    7      width: 100%;
-    8      background: #fff;
-    9      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    10      z-index: 100;
-    11    }
-    12
-    13    .feature-grid {
-    14      display: grid;
-    15      grid-template-columns: 1fr;
-    16      gap: 2rem;
-    17      padding: 2rem 1rem;
-    18    }
-    19
-    20    /* Tablet and up: 2 columns */
-    21    @media (min-width: 768px) {
-    22      .feature-grid {
-    23        grid-template-columns: repeat(2, 1fr);
-    24        padding: 3rem 2rem;
-    25      }
-    26    }
-    27
-    28    /* Desktop: 3 columns */
-    29    @media (min-width: 1024px) {
-    30      .feature-grid {
-    31        grid-template-columns: repeat(3, 1fr);
-    32        padding: 4rem 2rem;
-    33      }
-    34    }
-    35
-  </style>
-  36</head>
+2  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+3  <style>
+4    .header {
+5      position: fixed;
+6      top: 0;
+7      width: 100%;
+8      background: #fff;
+9      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+10      z-index: 100;
+11    }
+12
+13    .feature-grid {
+14      display: grid;
+15      grid-template-columns: 1fr;
+16      gap: 2rem;
+17      padding: 2rem 1rem;
+18    }
+19
+20    /* Tablet and up: 2 columns */
+21    @media (min-width: 768px) {
+22      .feature-grid {
+23        grid-template-columns: repeat(2, 1fr);
+24        padding: 3rem 2rem;
+25      }
+26    }
+27
+28    /* Desktop: 3 columns */
+29    @media (min-width: 1024px) {
+30      .feature-grid {
+31        grid-template-columns: repeat(3, 1fr);
+32        padding: 4rem 2rem;
+33      }
+34    }
+35  </style>
+36</head>
 ```
 
 ‍

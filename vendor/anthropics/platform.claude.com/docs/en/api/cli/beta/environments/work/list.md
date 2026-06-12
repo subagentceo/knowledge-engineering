@@ -31,12 +31,14 @@ List work items in an environment.
 - `beta_self_hosted_work_list_response: object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -49,9 +51,10 @@ List work items in an environment.
     - `data: object { id, type }`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
@@ -76,6 +79,7 @@ List work items in an environment.
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`

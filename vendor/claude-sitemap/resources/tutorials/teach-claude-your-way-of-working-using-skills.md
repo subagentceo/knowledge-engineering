@@ -13,9 +13,9 @@ You have tasks where you've figured out what works—a way of structuring report
 
 ​**Skills solve this.** Package your approach once, and Claude applies it automatically in any chat
 
-**Before skills*:*** You ask Claude to create a quarterly business review. Claude can already build presentations, but making them match your standards means explaining your preferences each time. You could document guidelines in a Project, but they don't automatically apply when you need them.
+**Before skills_:_** You ask Claude to create a quarterly business review. Claude can already build presentations, but making them match your standards means explaining your preferences each time. You could document guidelines in a Project, but they don't automatically apply when you need them.
 
-‍**With skills*:*** After creating a QBR skill, you ask for the same presentation. Just by mentioning a task related to an existing skill’s name or purpose, Claude can recognize it. In this case, Claude will load your QBR skill. In Claude’s thinking you’ll see “Reading QBR skill”. It automatically applies your brand guidelines and preferred structure, generating a deck that matches your standards from the start.
+‍**With skills_:_** After creating a QBR skill, you ask for the same presentation. Just by mentioning a task related to an existing skill’s name or purpose, Claude can recognize it. In this case, Claude will load your QBR skill. In Claude’s thinking you’ll see “Reading QBR skill”. It automatically applies your brand guidelines and preferred structure, generating a deck that matches your standards from the start.
 
 ## Where Skills fit into how you work with Claude
 
@@ -49,26 +49,26 @@ Skills range from simple formatting rules to complete workflows that pull data f
 
 While working with Claude, you've figured out how something should be done, and find yourself explaining it to Claude multiple times. When you want Claude to follow that refined approach automatically rather than you explaining it fresh each time, that's a good skill opportunity.
 
-- _`Weekly team update skill`_: structures updates with wins, blockers, and priorities in the format that keeps meetings focused*‍*
-- _`Customer feedback analysis skill`_: categorizes responses, identifies patterns, surfaces priority requests—your framework for making feedback actionable*‍*
-- _`Sales call prep skill`_: researches accounts, summarizes recent interactions, and generates talking points for effective calls*‍*
-- _`Research synthesis skill`_: evaluates sources, extracts key findings, identifies contradictions, and organizes by theme
+*   _`Weekly team update skill`_: structures updates with wins, blockers, and priorities in the format that keeps meetings focused_‍_
+*   _`Customer feedback analysis skill`_: categorizes responses, identifies patterns, surfaces priority requests—your framework for making feedback actionable_‍_
+*   _`Sales call prep skill`_: researches accounts, summarizes recent interactions, and generates talking points for effective calls_‍_
+*   _`Research synthesis skill`_: evaluates sources, extracts key findings, identifies contradictions, and organizes by theme
 
 #### Quality depends on having specific materials
 
 Some work needs specific examples, templates, domain knowledge, or assets to meet your standards. Skills become powerful for packaging everything together so quality is consistent.
 
-- _`Brand compliance skill`_: bundles logo files, color codes, approved fonts, and layout templates for consistent company standards*‍*
-- _`Technical documentation skill`_: references notation guides, terminology standards, and uses diagram templates for documentation consistency*‍*
-- _`Legal contract skill`_: checks against standard terms, validates regulatory requirements, applies clause libraries and approval checklists
+*   _`Brand compliance skill`_: bundles logo files, color codes, approved fonts, and layout templates for consistent company standards_‍_
+*   _`Technical documentation skill`_: references notation guides, terminology standards, and uses diagram templates for documentation consistency_‍_
+*   _`Legal contract skill`_: checks against standard terms, validates regulatory requirements, applies clause libraries and approval checklists
 
 #### Setup normally requires assembling multiple pieces
 
 Even occasional work might require gathering multiple files or tools, explaining how they work together, coordinating different requirements.  Skills eliminate the setup burden—package everything once and have it available whenever that situation arises.
 
-- _`Product launch skill`:_ follows your messaging framework, generate contracts from your templates, creates tasks in project tracker*‍*
-- _`Market analysis skill`:_ combines research frameworks, competitive benchmarks, and regulatory context into evaluations*‍*
-- _`Board presentation skill`:_ pulls financial data, operational metrics, and strategic updates into quarterly reviews
+*   _`Product launch skill`:_ follows your messaging framework, generate contracts from your templates, creates tasks in project tracker_‍_
+*   _`Market analysis skill`:_ combines research frameworks, competitive benchmarks, and regulatory context into evaluations_‍_
+*   _`Board presentation skill`:_ pulls financial data, operational metrics, and strategic updates into quarterly reviews
 
 ## Ready to create a skill?
 
@@ -82,11 +82,11 @@ You also don’t have to be technical to start creating skills. Try creating ski
 
 #### Getting started
 
-- Help Center: Using Skills - Setup and troubleshooting ‍
-- How to create a skill with Claude - Build your first Skill with Claude's guidance
+*   Help Center: Using Skills - Setup and troubleshooting ‍
+*   How to create a skill with Claude - Build your first Skill with Claude's guidance
 
 #### Going deeper
 
-- Skill authoring best practices - Learn the principles behind effective Skills‍
-- Agent skills overview - Understand how Skills work under the hood‍
-- Skill cookbooks - Working examples you can adapt
+*   Skill authoring best practices - Learn the principles behind effective Skills‍
+*   Agent skills overview - Understand how Skills work under the hood‍
+*   Skill cookbooks - Working examples you can adapt

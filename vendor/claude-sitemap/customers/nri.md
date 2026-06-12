@@ -4,9 +4,9 @@ Nomura Research Institute (NRI), a leading Japanese consulting and IT solutions 
 
 Key results:
 
-- 50% reduction in review times for complex Japanese business documents containing specialized terminology
-- Top performance in internal benchmarks using Claude 3.5 Sonnet
-- Significant time savings for clients while expanding AI usage across departments
+*   50% reduction in review times for complex Japanese business documents containing specialized terminology
+*   Top performance in internal benchmarks using Claude 3.5 Sonnet
+*   Significant time savings for clients while expanding AI usage across departments
 
 ## Meeting Japan's business challenges with AI
 
@@ -32,10 +32,10 @@ This capability proved valuable for Japanese business documents with distinctive
 
 NRI implemented their Claude solution in Amazon Bedrock, becoming the first company in Japan to obtain the AWS Generative AI Competency and the only one providing Gen AI-specific consulting and system integration services. Their document review system works by:
 
-- Using prompts with complex Japanese documents containing specialized terminology (such as financial documents) and checklists to identify issues and suggest corrections
-- Storing past review examples in a database for few-shot examples in prompts
-- Matching human reviewer accuracy in identifying document issues
-- Filtering out common AI mistakes, like suggesting non-substantive changes
+*   Using prompts with complex Japanese documents containing specialized terminology (such as financial documents) and checklists to identify issues and suggest corrections
+*   Storing past review examples in a database for few-shot examples in prompts
+*   Matching human reviewer accuracy in identifying document issues
+*   Filtering out common AI mistakes, like suggesting non-substantive changes
 
 ## Delivering measurable business impact across industries
 

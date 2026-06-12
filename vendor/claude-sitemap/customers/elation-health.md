@@ -4,9 +4,9 @@ Elation Health is a clinical electronic health record (EHR) and billing platform
 
 ## With Claude, Elation Health:
 
-- Reduced median time to first insight by 61% for chart review
-- Doubled usage of the product’s Clinical Insights feature after migrating to Claude
-- Simplified prompt engineering by removing workarounds needed for other model providers
+*   Reduced median time to first insight by 61% for chart review
+*   Doubled usage of the product’s Clinical Insights feature after migrating to Claude
+*   Simplified prompt engineering by removing workarounds needed for other model providers
 
 ## The problem
 

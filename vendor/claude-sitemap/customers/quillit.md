@@ -4,10 +4,10 @@ Quillit ®, a product developed by Civicom ®, uses Claude to transform the qual
 
 With Claude, Quillit:
 
-- Reduces report writing time by up to 80% for clients
-- Achieves 89-98% citation accuracy with Claude 3.5, up from 60-70% with previous models
-- Processes more interview data simultaneously with Claude's expanded context window
-- Implemented their MVP in 3 months, with new features added every 1-2 months
+*   Reduces report writing time by up to 80% for clients
+*   Achieves 89-98% citation accuracy with Claude 3.5, up from 60-70% with previous models
+*   Processes more interview data simultaneously with Claude's expanded context window
+*   Implemented their MVP in 3 months, with new features added every 1-2 months
 
 ## Streamlining the qualitative research process
 
@@ -29,11 +29,11 @@ The implementation process was also straightforward. Quillit's team quickly lear
 
 Quillit harnesses Claude for key aspects of the qualitative research process:
 
-- **Summarizing interview transcripts**: Quickly distilling key points from lengthy conversations
-- **Querying qualitative data**: Enabling researchers to ask specific questions about their data
-- **Generating contextual citations**: Creating precise references to transcripts and video recordings
-- **Conversation threading**: Allowing researchers to explore specific insights
-- **Research overview**: Providing a birds-eye view of all research questions and responses across all interviews
+*   **Summarizing interview transcripts**: Quickly distilling key points from lengthy conversations
+*   **Querying qualitative data**: Enabling researchers to ask specific questions about their data
+*   **Generating contextual citations**: Creating precise references to transcripts and video recordings
+*   **Conversation threading**: Allowing researchers to explore specific insights
+*   **Research overview**: Providing a birds-eye view of all research questions and responses across all interviews
 
 This approach allows researchers to gain deeper insights in significantly less time.
 

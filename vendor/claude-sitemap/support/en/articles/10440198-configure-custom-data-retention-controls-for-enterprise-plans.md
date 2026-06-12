@@ -1,6 +1,6 @@
 This feature is available to Enterprise plan customers. To set custom retention periods for your organization, you must have either a Primary Owner or Owner role.
 
-_This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**._
+*This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see **[here](https://privacy.claude.com/en/collections/10663362-consumers)**.*
 
 Custom data retention controls allow organizations to manage how long Claude stores conversation and project data. This article explains how to set up and manage data retention periods for your organization.
 
@@ -11,6 +11,7 @@ Data retention is based on the last observed activity:
 - **For chats:** Retention period starts from the time of the last message in the conversation.
 
 - **For projects:** Retention period starts from the time the project was last updated (this includes chat creation or project knowledge base modifications).
+
   - Note that your custom data retention periods set for projects will supersede your custom retention periods for any chats.
 
 The minimum retention period is 30 days, and each month is counted as 30 days. For example, a three-month retention period equals 90 days.

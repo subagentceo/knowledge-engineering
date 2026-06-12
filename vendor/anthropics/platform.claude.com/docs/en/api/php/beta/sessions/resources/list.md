@@ -25,7 +25,9 @@ List Session Resources
 ### Returns
 
 - `ManagedAgentsSessionResource`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -45,6 +47,7 @@ List Session Resources
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -62,9 +65,10 @@ List Session Resources
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 

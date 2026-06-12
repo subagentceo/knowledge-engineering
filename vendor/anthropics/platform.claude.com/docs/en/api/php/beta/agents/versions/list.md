@@ -25,6 +25,7 @@ List Agent Versions
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`

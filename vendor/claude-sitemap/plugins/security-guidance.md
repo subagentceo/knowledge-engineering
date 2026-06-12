@@ -8,6 +8,6 @@ The plugin detects eight major vulnerability categories including command inject
 
 **Example warnings you might see:**
 
-- Suggestions to use execFileNoThrow() instead of child_process.exec() to prevent shell injection
-- Alerts about XSS risks when using innerHTML or dangerouslySetInnerHTML
-- Warnings about GitHub Actions injection when editing workflow files
+*   Suggestions to use execFileNoThrow() instead of child_process.exec() to prevent shell injection
+*   Alerts about XSS risks when using innerHTML or dangerouslySetInnerHTML
+*   Warnings about GitHub Actions injection when editing workflow files

@@ -10,7 +10,7 @@ It stays current as our SDKs change. When a new model is released or the API gai
 
 Anywhere the skill is available, ask Claude to:
 
-- **"Improve my cache hit rate."** The skill applies prompt caching rules many developers miss.
-- **"Add context compaction to my agent."** It walks you through the compaction primitives and agent patterns in our docs.
-- **"Upgrade me to the latest Claude model."** Claude reviews your code and walks you through updating model names, prompts, and effort settings for a new model like Opus 4.7. In Claude Code, you can also run this directly with `/claude-api migrate.`**‍**
-- **"Build a deep research agent for my industry."** Claude walks you through configuring Claude Managed Agents, so long-running research is a few prompts, not a custom project. In Claude Code, you can also run this directly with `/claude-api managed-agents-onboard`.
+*   **"Improve my cache hit rate."** The skill applies prompt caching rules many developers miss.
+*   **"Add context compaction to my agent."** It walks you through the compaction primitives and agent patterns in our docs.
+*   **"Upgrade me to the latest Claude model."** Claude reviews your code and walks you through updating model names, prompts, and effort settings for a new model like Opus 4.7. In Claude Code, you can also run this directly with `/claude-api migrate.`**‍**
+*   **"Build a deep research agent for my industry."** Claude walks you through configuring Claude Managed Agents, so long-running research is a few prompts, not a custom project. In Claude Code, you can also run this directly with `/claude-api managed-agents-onboard`.

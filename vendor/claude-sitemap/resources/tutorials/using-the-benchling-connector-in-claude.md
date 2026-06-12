@@ -14,11 +14,11 @@ When Claude sends a query to Benchling, it can search across the full breadth of
 
 ## Who should use the Benchling integration
 
-- **Bench Scientists & Research Associates** - want to quickly find and summarize the right data, whether from Benchling or external sources, and use it to decide on next steps in their experiments.
-- **Team Leads & Project Managers** - need concise summaries of ongoing work and alignment with external findings to guide project planning.
-- **Computational Biologists & Informatics Teams** - want to ask governance questions and assemble curated datasets from Benchling that can be used for deeper analysis or shared across teams.
-- **Program Leads** - need automatically generated reports that combine Benchling study results with external context or public data, giving them a clear view of progress and next steps.
-- **R&D Leaders & Executives** - require portfolio-level insights to spot trends across programs and benchmark against public industry data.
+*   **Bench Scientists & Research Associates** - want to quickly find and summarize the right data, whether from Benchling or external sources, and use it to decide on next steps in their experiments.
+*   **Team Leads & Project Managers** - need concise summaries of ongoing work and alignment with external findings to guide project planning.
+*   **Computational Biologists & Informatics Teams** - want to ask governance questions and assemble curated datasets from Benchling that can be used for deeper analysis or shared across teams.
+*   **Program Leads** - need automatically generated reports that combine Benchling study results with external context or public data, giving them a clear view of progress and next steps.
+*   **R&D Leaders & Executives** - require portfolio-level insights to spot trends across programs and benchmark against public industry data.
 
 ‍
 
@@ -26,9 +26,9 @@ When Claude sends a query to Benchling, it can search across the full breadth of
 
 Benchling customers who meet the following criteria:
 
-- Benchling AI (Deep Research) enabled in your tenant
-- API access (V3 APIs, including AI Agents endpoint)
-- Benchling remote MCP enabled for your tenant
+*   Benchling AI (Deep Research) enabled in your tenant
+*   API access (V3 APIs, including AI Agents endpoint)
+*   Benchling remote MCP enabled for your tenant
 
 No additional setup is required beyond connecting Claude to the Benchling connector and authenticating with your Benchling login credentials.
 
@@ -62,7 +62,7 @@ Technical details of the Benchling integration can be found in Benchling’s MCP
 
 ## Example use cases
 
-- **Cross-Source Comparison:** _“Compare the IC50 results from my last two Benchling experiments with recent PubMed articles on AAV stability.”_
-- **Insight Summarization:** _“Summarize the key findings from Benchling experiments and highlight how they align with external literature trends.”_
-- **Recommendations:** _“Based on our last three in vivo results in Benchling and recent FDA guidance, what should we test next?”_
-- **Portfolio Insights:** _“Aggregate results from our top five Benchling programs and highlight which ones are showing the strongest early efficacy signals compared with industry benchmarks.”_
+*   **Cross-Source Comparison:** _“Compare the IC50 results from my last two Benchling experiments with recent PubMed articles on AAV stability.”_
+*   **Insight Summarization:** _“Summarize the key findings from Benchling experiments and highlight how they align with external literature trends.”_
+*   **Recommendations:** _“Based on our last three in vivo results in Benchling and recent FDA guidance, what should we test next?”_
+*   **Portfolio Insights:** _“Aggregate results from our top five Benchling programs and highlight which ones are showing the strongest early efficacy signals compared with industry benchmarks.”_

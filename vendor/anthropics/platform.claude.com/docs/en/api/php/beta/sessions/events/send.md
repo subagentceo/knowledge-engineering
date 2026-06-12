@@ -21,6 +21,7 @@ Send Events
 ### Returns
 
 - `ManagedAgentsSendSessionEvents`
+
   - `?list<Data> data`
 
     Sent events

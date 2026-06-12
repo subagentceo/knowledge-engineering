@@ -21,6 +21,7 @@ Upload File
 ### Returns
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -56,6 +57,7 @@ Upload File
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -125,9 +127,11 @@ List Files
 ### Returns
 
 - `BetaFileListResponse: object { data, first_id, has_more, last_id }`
+
   - `data: array of FileMetadata`
 
     List of file metadata objects.
+
     - `id: string`
 
       Unique object identifier.
@@ -163,6 +167,7 @@ List Files
     - `scope: optional object { id, type }`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
+
       - `id: string`
 
         The ID of the scoping resource (e.g., the session ID).
@@ -266,6 +271,7 @@ Get File Metadata
 ### Returns
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -301,6 +307,7 @@ Get File Metadata
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -356,6 +363,7 @@ Delete File
 ### Returns
 
 - `deleted_file: object { id, type }`
+
   - `id: string`
 
     ID of the deleted file.
@@ -365,6 +373,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"`
 
 ### Example
@@ -389,6 +398,7 @@ ant beta:files delete \
 ### Beta File Scope
 
 - `beta_file_scope: object { id, type }`
+
   - `id: string`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -400,6 +410,7 @@ ant beta:files delete \
 ### Deleted File
 
 - `deleted_file: object { id, type }`
+
   - `id: string`
 
     ID of the deleted file.
@@ -409,11 +420,13 @@ ant beta:files delete \
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"`
 
 ### File Metadata
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -449,6 +462,7 @@ ant beta:files delete \
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).

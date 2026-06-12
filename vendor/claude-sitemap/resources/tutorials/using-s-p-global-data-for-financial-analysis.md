@@ -8,35 +8,35 @@ The Kensho LLM-ready API integration provides Claude with access to S&P Global�
 
 The integration with Kensho’s LLM-ready API enables Claude to access multiple dimensions of S&P Global’s financial and market data:
 
-- **Company Identification and Information:** Retrieve company profiles using tickers, ISINs, or CUSIPs, including industry classifications, employee counts, headquarters locations, and operating status.
+*   **Company Identification and Information:** Retrieve company profiles using tickers, ISINs, or CUSIPs, including industry classifications, employee counts, headquarters locations, and operating status.
 
-- **Historical Price and Market Data:** Access OHLC prices, volumes, market cap, and enterprise value at daily, weekly, monthly, or yearly frequencies, with adjusted prices for accurate return calculations.
+*   **Historical Price and Market Data:** Access OHLC prices, volumes, market cap, and enterprise value at daily, weekly, monthly, or yearly frequencies, with adjusted prices for accurate return calculations.
 
-- **Financial Statement Access:** Pull complete balance sheets, income statements, and cash flow statements for annual, quarterly, LTM, or YTD periods with customizable date ranges.
+*   **Financial Statement Access:** Pull complete balance sheets, income statements, and cash flow statements for annual, quarterly, LTM, or YTD periods with customizable date ranges.
 
-- **Granular Financial Metrics:** Extract specific line items from 200+ available metrics including revenue, EBITDA, R&D expense, and calculated ratios like debt-to-equity.
+*   **Granular Financial Metrics:** Extract specific line items from 200+ available metrics including revenue, EBITDA, R&D expense, and calculated ratios like debt-to-equity.
 
-- **Segment Performance Data:** Access business unit and geographic breakdowns showing how revenue and operating income distribute across divisions (availability varies by company).
+*   **Segment Performance Data:** Access business unit and geographic breakdowns showing how revenue and operating income distribute across divisions (availability varies by company).
 
-- **Business Relationship Mapping:** Identify supplier relationships, customer dependencies, and strategic partnerships from SEC filings to assess operational risks.
+*   **Business Relationship Mapping:** Identify supplier relationships, customer dependencies, and strategic partnerships from SEC filings to assess operational risks.
 
-- **Competitor Intelligence:** Retrieve competitor lists from multiple sources including SEC filings, self-identification, and third-party analysis.
+*   **Competitor Intelligence:** Retrieve competitor lists from multiple sources including SEC filings, self-identification, and third-party analysis.
 
-- **Time Period Management:** Determine latest reporting periods and calculate historical quarters for consistent comparisons across companies with different fiscal years.
+*   **Time Period Management:** Determine latest reporting periods and calculate historical quarters for consistent comparisons across companies with different fiscal years.
 
 ### How Claude Uses S&P Global Data
 
 Claude applies Kensho's capabilities to support comprehensive financial analysis leveraging S&P Global data:
 
-- **Cross-Identifier Lookups:** Automatically handles tickers, ISINs, or CUSIPs, useful for international portfolios or fixed income securities.
+*   **Cross-Identifier Lookups:** Automatically handles tickers, ISINs, or CUSIPs, useful for international portfolios or fixed income securities.
 
-- **Multi-Period Analysis:** Constructs time series by pulling data across periods, calculating growth rates and identifying trend changes.
+*   **Multi-Period Analysis:** Constructs time series by pulling data across periods, calculating growth rates and identifying trend changes.
 
-- **Statement Reconciliation:** Combines data from different statements to calculate derived metrics and verify consistency.
+*   **Statement Reconciliation:** Combines data from different statements to calculate derived metrics and verify consistency.
 
-- **Peer Group Construction:** Retrieves identical metrics across companies for true apples-to-apples comparisons.
+*   **Peer Group Construction:** Retrieves identical metrics across companies for true apples-to-apples comparisons.
 
-- **Relationship Network Analysis:** Maps business ecosystems to reveal concentration risks and strategic positioning not apparent from financials alone.
+*   **Relationship Network Analysis:** Maps business ecosystems to reveal concentration risks and strategic positioning not apparent from financials alone.
 
 ## Setting Up the Kensho Integration
 
@@ -122,20 +122,20 @@ Business relationship mapping through Kensho provides insights into operational 
 
 ## Tips for Using S&P Global Data
 
-- Use any identifier format (ticker, ISIN, CUSIP) - Claude handles conversion automatically
+*   Use any identifier format (ticker, ISIN, CUSIP) - Claude handles conversion automatically
 
-- Request specific date ranges to manage data volume and focus analysis
+*   Request specific date ranges to manage data volume and focus analysis
 
-- Combine market data with fundamentals for comprehensive analysis
+*   Combine market data with fundamentals for comprehensive analysis
 
-- Check data availability periods using the latest reporting period function
+*   Check data availability periods using the latest reporting period function
 
-- Note that segment data availability varies by company reporting practices
+*   Note that segment data availability varies by company reporting practices
 
-- Be specific about which financial statement items you need from the 200+ available metrics
+*   Be specific about which financial statement items you need from the 200+ available metrics
 
-- Consider using LTM periods for companies with significant seasonality
+*   Consider using LTM periods for companies with significant seasonality
 
-- Remember that business relationship data comes from disclosed sources and may not capture all partnerships
+*   Remember that business relationship data comes from disclosed sources and may not capture all partnerships
 
 ‍

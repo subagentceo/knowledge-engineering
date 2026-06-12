@@ -10,8 +10,8 @@ claude
 
 ## What you need
 
-- **Download the Claude** **desktop** **and** **mobile** **apps.** Dispatch and computer use work on both Windows and Mac.
-- **A Pro or Max plan.** Dispatch is a research preview for paid users.
+*   **Download the Claude** **desktop** **and** **mobile** **apps.** Dispatch and computer use work on both Windows and Mac.
+*   **A Pro or Max plan.** Dispatch is a research preview for paid users.
 
 ## The set-up
 
@@ -24,10 +24,10 @@ claude
 
 Dispatch is useful because of the Claude instance running on your machine, with access to the same things you reach for when you're sitting at your desk. What that covers:
 
-- **Computer files**— Claude can read what's on your Desktop, in Documents, in Downloads. When you finish setup, you’ll see the standard permission dialogs for each folder. Say yes to the ones you're comfortable with.
-- **Your connected apps and tools** — Gmail, Slack, Calendar, Drive, or any connector you have linked in Claude Cowork. These are direct connections; Claude pulls your unread messages or your next meeting in seconds without touching your screen.
-- **Web pages in your browser** — with Claude in Chrome installed, Claude can work inside hard to reach pages: your company's dashboard, a vendor portal, a web app without a dedicated connector. Claude clicks and navigates inside its own tab while you're free to use other tabs or apps.
-- **Other apps and services on your computer** — With computer use, Dispatch can directly control your computer. If your task needs a native app (PowerPoint to export a file, Keynote to edit a slide, some internal tool your team built years ago with no API), Claude opens the app and works in it directly: clicks, types, navigates menus.
+*   **Computer files**— Claude can read what's on your Desktop, in Documents, in Downloads. When you finish setup, you’ll see the standard permission dialogs for each folder. Say yes to the ones you're comfortable with.
+*   **Your connected apps and tools** — Gmail, Slack, Calendar, Drive, or any connector you have linked in Claude Cowork. These are direct connections; Claude pulls your unread messages or your next meeting in seconds without touching your screen.
+*   **Web pages in your browser** — with Claude in Chrome installed, Claude can work inside hard to reach pages: your company's dashboard, a vendor portal, a web app without a dedicated connector. Claude clicks and navigates inside its own tab while you're free to use other tabs or apps.
+*   **Other apps and services on your computer** — With computer use, Dispatch can directly control your computer. If your task needs a native app (PowerPoint to export a file, Keynote to edit a slide, some internal tool your team built years ago with no API), Claude opens the app and works in it directly: clicks, types, navigates menus.
 
 Mail
 
@@ -45,7 +45,7 @@ Dash
 
 dashboard
 
-_File**Edit**View_
+_File__Edit__View_
 
 _claude_
 
@@ -125,7 +125,7 @@ Not every app has a connector. For desktop apps, PDF editors, and internal tools
 
 4.  **Check on long-running work on your computer from your phone**
 
-If your computer is awake waiting on a job that runs for hours, you don't have to wait there with it. Message Dispatch from wherever you are and Claude checks whether it's done, starts the next step, and tells you if something needs your input. For instance, you could tell Claude, ‘w*hen the video export on my computer finishes, start the next one in the queue’.*
+If your computer is awake waiting on a job that runs for hours, you don't have to wait there with it. Message Dispatch from wherever you are and Claude checks whether it's done, starts the next step, and tells you if something needs your input. For instance, you could tell Claude, ‘w_hen the video export on my computer finishes, start the next one in the queue’._
 
 ## What to expect
 
@@ -133,15 +133,15 @@ This feature is a research preview, and is still being actively developed. A few
 
 ‍
 
-- **Your computer has to be awake with the Claude app open.** Dispatch runs on your machine. If your computer goes to sleep or you close the Claude app, Claude can't receive or work on tasks until it wakes back up. The keep-awake setting helps counter this.
-- **Computer use needs your screen while Claude works.** Your screen is in use for that stretch, but you can stop it at any point.
-- **Working through your screen takes longer than a direct connection.** A connector pulls from your tools; Claude clicking through your browser or apps with Claude in Chrome or computer use may take more time.
-- **Memory stays on this machine.** Dispatch remembers what you've worked on, stored locally as files on your computer. If you use Claude on two computers, each one has its own memory.
+*   **Your computer has to be awake with the Claude app open.** Dispatch runs on your machine. If your computer goes to sleep or you close the Claude app, Claude can't receive or work on tasks until it wakes back up. The keep-awake setting helps counter this.
+*   **Computer use needs your screen while Claude works.** Your screen is in use for that stretch, but you can stop it at any point.
+*   **Working through your screen takes longer than a direct connection.** A connector pulls from your tools; Claude clicking through your browser or apps with Claude in Chrome or computer use may take more time.
+*   **Memory stays on this machine.** Dispatch remembers what you've worked on, stored locally as files on your computer. If you use Claude on two computers, each one has its own memory.
 
 ## Learn more
 
-- Using Dispatch in Claude Cowork
-- Using computer use in Dispatch
-- Using Claude Cowork safely 
+*   Using Dispatch in Claude Cowork
+*   Using computer use in Dispatch
+*   Using Claude Cowork safely 
 
 ‍

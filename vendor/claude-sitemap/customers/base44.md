@@ -4,11 +4,11 @@ Base44 makes app creation accessible to people who don't write code. The platfor
 
 ## With Claude, Base44 reached:
 
-- **2M+ users in months:** Base44, with Claude as its creative center for planning and UI, grew to 2+ million users globally in under 6 months.**‍**
-- **7x growth in one quarter**: User base expanded sevenfold from June to September 2025 with 1000+ paying subscribers joining daily **‍**
-- **Scalability of product development:** Claude enabled a very small team to build and maintain a much broader surface area of functionality (features, fixes, and iterations) than would otherwise have been feasible at that stage.**‍**
-- **Hours instead of weeks**: Time from idea to working app reduced from multi-day development cycles to same-day deployment with Claude's "first draft" capability.**‍**
-- **Community-validated model choice**: When given the option to choose their AI model, Base44's community consistently recommends Claude—particularly for UI design and app scaffolding.
+*   **2M+ users in months:** Base44, with Claude as its creative center for planning and UI, grew to 2+ million users globally in under 6 months.**‍**
+*   **7x growth in one quarter**: User base expanded sevenfold from June to September 2025 with 1000+ paying subscribers joining daily **‍**
+*   **Scalability of product development:** Claude enabled a very small team to build and maintain a much broader surface area of functionality (features, fixes, and iterations) than would otherwise have been feasible at that stage.**‍**
+*   **Hours instead of weeks**: Time from idea to working app reduced from multi-day development cycles to same-day deployment with Claude's "first draft" capability.**‍**
+*   **Community-validated model choice**: When given the option to choose their AI model, Base44's community consistently recommends Claude—particularly for UI design and app scaffolding.
 
 ## The problem
 
@@ -40,11 +40,11 @@ Base44 integrated Claude via API in just a few hours, immediately slotting it in
 
 Claude now enables users of Base44 to: 
 
-- **Convert descriptions into functional applications**: Prompts like "build me an inventory tracker for my bakery" become working apps with proper data models and user flows 
-- **Produce polished, intuitive interfaces**: Creates professional designs that feel ready to use without redesign
-- **Enable rapid iteration**: Helps users refine and debug their apps through natural conversation
-- **Generate clean, modular code**: Writes production-ready code that properly uses hooks, context, and providers
-- **Handle meta-tasks**: Assists with writing product requirements and breaking down complex features
+*   **Convert descriptions into functional applications**: Prompts like "build me an inventory tracker for my bakery" become working apps with proper data models and user flows 
+*   **Produce polished, intuitive interfaces**: Creates professional designs that feel ready to use without redesign
+*   **Enable rapid iteration**: Helps users refine and debug their apps through natural conversation
+*   **Generate clean, modular code**: Writes production-ready code that properly uses hooks, context, and providers
+*   **Handle meta-tasks**: Assists with writing product requirements and breaking down complex features
 
 Beyond individual app creation, teams use Claude for planning and documentation. "I describe all my ideas to Claude and ask it to help me with prompts in Base44," explained another user, showing how Claude supports the entire development workflow, not just code generation.
 

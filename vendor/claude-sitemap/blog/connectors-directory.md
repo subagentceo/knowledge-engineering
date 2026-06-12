@@ -12,10 +12,10 @@ You might ask Claude to _"write release notes for our latest features"_ and get 
 
 Here are some ways you could use Claude with connected tools:
 
-- **Ship faster:** Turn Claude discussions into organized Notion roadmaps
-- **Create designs:** Transform creative briefs into Canva social media posts
-- **Improved design to code:** Turn Figma files into production-ready code
-- **Manage payments:** Access Stripe customer data and payment information
+*   **Ship faster:** Turn Claude discussions into organized Notion roadmaps
+*   **Create designs:** Transform creative briefs into Canva social media posts
+*   **Improved design to code:** Turn Figma files into production-ready code
+*   **Manage payments:** Access Stripe customer data and payment information
 
 ### Getting started
 

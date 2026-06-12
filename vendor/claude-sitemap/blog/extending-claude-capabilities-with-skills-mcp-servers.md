@@ -1,7 +1,7 @@
 # Extending Claude’s capabilities with skills and MCP servers
 
-**_Update:_** _We've published_ _Agent Skills_ _as an open standard for cross-platform portability. (December 18, 2025)_
-
+**_Update:_** _We've published_ _Agent Skills_ _as an open standard for cross-platform portability. (December 18, 2025)_  
+  
 Since launching Skills, two of the biggest questions we’ve heard from customers are: "How do skills and MCP work together? When should I use one versus the other?"
 
 Model Context Protocol (MCP) connects Claude to third-party tools, and skills teach Claude how to use them well. When you combine both, you can build agents that follow your team’s workflows, not generic processes that require constant correction.
@@ -16,16 +16,16 @@ You walk into a hardware store looking to fix a broken cabinet. The store has ev
 
 MCP is like having access to the aisles. Skills, meanwhile, are like an employee's expertise. All the inventory in the world won't help if you don't know which items you need or how to use them. A skill is like the helpful employee who walks you through the repair process, points you to the right supplies, and shows you proper technique.
 
-Put more concretely, an MCP server gives Claude access to your external systems, services, and platforms, while skills provide the context Claude needs to use those connections effectively, teaching Claude what to do now that it has this access.
-
+Put more concretely, an MCP server gives Claude access to your external systems, services, and platforms, while skills provide the context Claude needs to use those connections effectively, teaching Claude what to do now that it has this access.  
+  
 Without the context that skills provide, Claude has to guess at what you want. With a skill, Claude can follow your playbook instead. 
 
 ## Why skills and MCP work well together
 
 MCP handles connectivity: secure, standardized access to external systems. Whether you're connecting to GitHub, Salesforce, Notion, or your own internal APIs, MCP servers give Claude the ability to reach your tools and data.
 
-Skills handle expertise: the domain knowledge and workflow logic that turn raw tool access into reliable outcomes. A skill knows when to query your CRM, what to look for in the results, how to format the output, and which edge cases require different handling.
-
+Skills handle expertise: the domain knowledge and workflow logic that turn raw tool access into reliable outcomes. A skill knows when to query your CRM, what to look for in the results, how to format the output, and which edge cases require different handling.  
+  
 This separation keeps the architecture composable. A single skill can orchestrate multiple MCP servers, while a single MCP server can support dozens of different skills. Add a new connection, and existing skills can incorporate it. Refine a skill, and it works across all your connected tools.
 
 #### When you combine skills and MCP, you get:
@@ -40,7 +40,7 @@ Over time, teams build up collections of interrelated skills and connections tha
 
 **Further reading**: Tim O'Reilly on what MCP and skills mean for open source AI
 
-![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6945b3dfa8f134d0104e4e23_How%20Skills%20and%20MCP%20work%20together%20-%20v3B%402x%20(2).png>)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6945b3dfa8f134d0104e4e23_How%20Skills%20and%20MCP%20work%20together%20-%20v3B%402x%20\(2\).png)
 
 How skills and MCP work together: MCP provides tool access, skills provide workflow logic.
 
@@ -50,8 +50,8 @@ MCP servers may contain instructions in the form of tool usage hints and prompts
 
 The rule of thumb: MCP instructions cover how to use the server and its tools correctly. Skill instructions cover how to use them for a given process or in a multiserver workflow. 
 
-For example, a Salesforce MCP server might specify query syntax and API formats. A skill would specify which records to check first, how to cross-reference them against Slack conversations for recent context, and how to structure the output for your team's pipeline review.
-
+For example, a Salesforce MCP server might specify query syntax and API formats. A skill would specify which records to check first, how to cross-reference them against Slack conversations for recent context, and how to structure the output for your team's pipeline review.  
+  
 When combining MCP servers and skills, watch for conflicting instructions. If your MCP server says to return JSON and your skill says to format as markdown tables, Claude has to guess which one is right. Let MCP handle connectivity, and let skills handle presentation, sequencing, and workflow logic. 
 
 **Further reading:** Learn how skills use progressive disclosure to load context on-demand and programmatic tool calling to orchestrate MCP tools efficiently.
@@ -101,19 +101,19 @@ Meeting prep is tedious. You need to pull context from multiple places, such as 
 
 Skills capture the knowledge that would otherwise live in your head, or that gets re-explained every time someone new joins the team. They work best for:
 
-- **Multi-step workflows involving tools**: Meeting prep that pulls from multiple sources, then creates structured documents
-- **Processes where consistency matters**: Quarterly financial analyses that must follow the same methodology every time, compliance reviews with mandatory checkpoints
-- **Domain expertise you want to capture and share**: Research methodologies, code review standards, writing guidelines
-- **Workflows that should survive when team members leave**: Institutional knowledge encoded in reusable instructions
+*   **Multi-step workflows involving tools**: Meeting prep that pulls from multiple sources, then creates structured documents
+*   **Processes where consistency matters**: Quarterly financial analyses that must follow the same methodology every time, compliance reviews with mandatory checkpoints
+*   **Domain expertise you want to capture and share**: Research methodologies, code review standards, writing guidelines
+*   **Workflows that should survive when team members leave**: Institutional knowledge encoded in reusable instructions
 
 #### What to use MCP servers for
 
 MCP extends what Claude can access and use. Use an MCP when you need:
 
-- **Real-time data access**: Searching Notion pages, reading Slack messages, querying databases
-- **Actions in external systems**: Creating GitHub issues, updating project management tools, sending notifications
-- **File operations**: Reading from and writing to Google Drive, accessing local filesystems
-- **API integrations**: Connecting to services that don't have native Claude support
+*   **Real-time data access**: Searching Notion pages, reading Slack messages, querying databases
+*   **Actions in external systems**: Creating GitHub issues, updating project management tools, sending notifications
+*   **File operations**: Reading from and writing to Google Drive, accessing local filesystems
+*   **API integrations**: Connecting to services that don't have native Claude support
 
 If you're explaining _how_ to do something, that's a skill. If you need Claude to _access_ something, that's MCP.
 
@@ -181,27 +181,27 @@ Ready to build with skills _and_ MCP? Here's how to start:
 
 **With skills:**
 
-- Enable skills in Settings → Capabilities on claude.ai
-- Browse the skills library for pre-built examples
-- Read the skills documentation
+*   Enable skills in Settings → Capabilities on claude.ai
+*   Browse the skills library for pre-built examples
+*   Read the skills documentation
 
 **With MCP:**
 
-- Browse MCP servers for your tools
-- Read the MCP documentation
-- Build your own server with the MCP quick start
+*   Browse MCP servers for your tools
+*   Read the MCP documentation
+*   Build your own server with the MCP quick start
 
 **Combine both:**
 
-- Connect an MCP server, then add a skill that uses it
+*   Connect an MCP server, then add a skill that uses it
 
 ## Related articles
 
 Explore more insights on building with Claude's agentic capabilities.
 
-- Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
-- Improving frontend design through Skills
-- Equipping agents for the real world with Agent Skills
+*   Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+*   Improving frontend design through Skills
+*   Equipping agents for the real world with Agent Skills
 
 ‍
 

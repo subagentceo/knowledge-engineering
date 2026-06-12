@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,10 +10,10 @@ A [development container](https://containers.dev/), or dev container, lets you d
 
 This page covers [installing Claude Code in a dev container](#add-claude-code-to-your-dev-container) and the configuration topics that follow. Each topic is self-contained, so jump to the ones that match what you need to set up:
 
-- [Persist authentication and settings across rebuilds](#persist-authentication-and-settings-across-rebuilds)
-- [Enforce organization policy](#enforce-organization-policy)
-- [Restrict network egress](#restrict-network-egress)
-- [Run without permission prompts](#run-without-permission-prompts)
+* [Persist authentication and settings across rebuilds](#persist-authentication-and-settings-across-rebuilds)
+* [Enforce organization policy](#enforce-organization-policy)
+* [Restrict network egress](#restrict-network-egress)
+* [Run without permission prompts](#run-without-permission-prompts)
 
 <Warning>
   While the dev container provides substantial protections, no system is completely immune to all attacks.
@@ -28,9 +27,9 @@ This page covers [installing Claude Code in a dev container](#add-claude-code-to
 
   <img src="https://mintcdn.com/claude-code/YvJyjZfd9yMihr0i/images/devcontainer-architecture-dark.svg?fit=max&auto=format&n=YvJyjZfd9yMihr0i&q=85&s=ef00c8e25b1ea7a3a152895f1488831b" className="hidden dark:block" alt="Diagram showing an editor on the host connecting to a Docker dev container. Claude Code, the terminal, and build tools run inside the container. The host repository is bind-mounted into the container as the workspace." width="640" height="300" data-path="images/devcontainer-architecture-dark.svg" />
 
-A dev container runs as a Docker container, either on your machine or on a cloud host such as GitHub Codespaces. An editor that supports the Dev Containers spec, such as VS Code, GitHub Codespaces, a JetBrains IDE, or Cursor, connects to that container: you browse and edit files in the editor as usual, but the integrated terminal, language servers, and build tools all run inside the container rather than on your host. Editors without dev container support, such as plain Vim, are not part of this workflow.
+  A dev container runs as a Docker container, either on your machine or on a cloud host such as GitHub Codespaces. An editor that supports the Dev Containers spec, such as VS Code, GitHub Codespaces, a JetBrains IDE, or Cursor, connects to that container: you browse and edit files in the editor as usual, but the integrated terminal, language servers, and build tools all run inside the container rather than on your host. Editors without dev container support, such as plain Vim, are not part of this workflow.
 
-Claude Code runs inside the container, so it sees the same files, dependencies, and tools as the rest of your project's toolchain. In VS Code you can use either the [Claude Code extension panel](/en/vs-code) or run `claude` in the integrated terminal; both run inside the container and share the same `~/.claude` configuration.
+  Claude Code runs inside the container, so it sees the same files, dependencies, and tools as the rest of your project's toolchain. In VS Code you can use either the [Claude Code extension panel](/en/vs-code) or run `claude` in the integrated terminal; both run inside the container and share the same `~/.claude` configuration.
 </Accordion>
 
 ## Add Claude Code to your dev container
@@ -63,14 +62,12 @@ When you open the container in VS Code or Codespaces, the feature also adds the 
     ```
 
     Replace the `image` line with your project's base image or remove it if your existing file uses a Dockerfile.
-
   </Step>
 
   <Step title="Rebuild the container">
     Open the VS Code Command Palette with `Cmd+Shift+P` on Mac or `Ctrl+Shift+P` on Windows and Linux, and run **Dev Containers: Rebuild Container**.
 
     For other tools, follow that tool's rebuild action: see [rebuilding in GitHub Codespaces](https://docs.github.com/en/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace), the [Dev Containers CLI](https://github.com/devcontainers/cli), or your IDE's dev container documentation.
-
   </Step>
 
   <Step title="Sign in to Claude Code">
@@ -80,8 +77,8 @@ When you open the container in VS Code or Codespaces, the feature also adds the 
 
 What you see at the authentication prompt depends on your provider:
 
-- **Anthropic**: sign in through a browser with your Claude or Anthropic Console account
-- **[Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations)**: Claude Code uses your cloud provider credentials, with no browser prompt
+* **Anthropic**: sign in through a browser with your Claude or Anthropic Console account
+* **[Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations)**: Claude Code uses your cloud provider credentials, with no browser prompt
 
 For cloud providers, pass credentials into the container as environment variables through `containerEnv`, a Codespaces secret, or your cloud's workload identity rather than mounting credential files from the host. See [Amazon Bedrock](/en/amazon-bedrock), [Google Vertex AI](/en/google-vertex-ai), or [Microsoft Foundry](/en/microsoft-foundry) for the credential chain Claude Code reads.
 
@@ -187,12 +184,12 @@ The reference configuration consists of three files. None of them are required w
 
 Once Claude Code is running in your dev container, the pages below cover the rest of an organization rollout: choosing an authentication path, delivering managed policy outside the repository, monitoring usage, and understanding what Claude Code stores and sends.
 
-- [Set up Claude Code for your organization](/en/admin-setup): choose an authentication provider, decide how policy reaches devices, and plan the rollout
-- [Server-managed settings](/en/server-managed-settings): deliver managed policy from the Claude.ai admin console so engineers cannot bypass it by editing repository files
-- [Monitor usage and audit activity](/en/monitoring-usage): export OpenTelemetry metrics and review what your team is running
-- [Network access requirements](/en/network-config#network-access-requirements): the full domain allowlist for proxies and firewalls
-- [Telemetry services and opt-out](/en/data-usage#telemetry-services): what Claude Code sends by default and the environment variables that disable it
-- [Explore the `.claude` directory](/en/claude-directory): what the volume mount holds, including credentials, settings, and session history
-- [Sandbox environments](/en/sandbox-environments): compare dev containers with the built-in Bash sandbox, custom containers, and VMs
-- [Security model](/en/security): how Claude Code's permission system, sandboxing, and prompt-injection protections fit together
-- [Permission modes](/en/permission-modes): the full range from plan mode to auto mode to bypass, and when to use each
+* [Set up Claude Code for your organization](/en/admin-setup): choose an authentication provider, decide how policy reaches devices, and plan the rollout
+* [Server-managed settings](/en/server-managed-settings): deliver managed policy from the Claude.ai admin console so engineers cannot bypass it by editing repository files
+* [Monitor usage and audit activity](/en/monitoring-usage): export OpenTelemetry metrics and review what your team is running
+* [Network access requirements](/en/network-config#network-access-requirements): the full domain allowlist for proxies and firewalls
+* [Telemetry services and opt-out](/en/data-usage#telemetry-services): what Claude Code sends by default and the environment variables that disable it
+* [Explore the `.claude` directory](/en/claude-directory): what the volume mount holds, including credentials, settings, and session history
+* [Sandbox environments](/en/sandbox-environments): compare dev containers with the built-in Bash sandbox, custom containers, and VMs
+* [Security model](/en/security): how Claude Code's permission system, sandboxing, and prompt-injection protections fit together
+* [Permission modes](/en/permission-modes): the full range from plan mode to auto mode to bypass, and when to use each

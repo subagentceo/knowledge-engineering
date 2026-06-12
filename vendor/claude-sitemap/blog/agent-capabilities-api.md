@@ -18,11 +18,11 @@ With the code execution tool, Claude can load datasets, generate exploratory cha
 
 Key use cases include:
 
-- **Financial modeling**: Generate financial projections, analyze investment portfolios, and calculate complex financial metrics.
-- **Scientific computing**: Execute simulations, process experimental data, and analyze research datasets.
-- **Business intelligence**: Create automated reports, analyze sales data, and generate performance dashboards.
-- **Document processing**: Extract and transform data across formats, generate formatted reports, and automate document workflows.
-- **Statistical analysis**: Perform regression analysis, hypothesis testing, and predictive modeling on datasets.
+*   **Financial modeling**: Generate financial projections, analyze investment portfolios, and calculate complex financial metrics.
+*   **Scientific computing**: Execute simulations, process experimental data, and analyze research datasets.
+*   **Business intelligence**: Create automated reports, analyze sales data, and generate performance dashboards.
+*   **Document processing**: Extract and transform data across formats, generate formatted reports, and automate document workflows.
+*   **Statistical analysis**: Perform regression analysis, hypothesis testing, and predictive modeling on datasets.
 
 Organizations receive 50 free hours of usage with the code execution tool per day, then pay $0.05 per hour per container for additional usage. Explore the documentation to learn more about pricing.
 
@@ -34,12 +34,12 @@ Previously, connecting to MCP servers required building your own client harness 
 
 When Claude receives a request with MCP servers configured, it automatically:
 
-- Connects to the specified MCP servers
-- Retrieves available tools
-- Reasons about what tool to call and what arguments to pass
-- Executes tool calls agentically until a sufficient result is achieved
-- Manages authentication and error handling
-- Returns the enhanced response with integrated data
+*   Connects to the specified MCP servers
+*   Retrieves available tools
+*   Reasons about what tool to call and what arguments to pass
+*   Executes tool calls agentically until a sufficient result is achieved
+*   Manages authentication and error handling
+*   Returns the enhanced response with integrated data
 
 The growing ecosystem of remote MCP servers means you can easily add capabilities to your AI applications without building one-off integrations. You can integrate with any remote MCP server, including those from Zapier and Asana. See more remote MCP servers in our documentation.
 

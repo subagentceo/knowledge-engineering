@@ -4,12 +4,12 @@ Athena Intelligence is a startup that pairs an AI-native workspace with an auton
 
 ## With Claude, Athena Intelligence:
 
-- Deploys production enterprise workflows in 4–8 weeks, compared to the 6–12 month industry standard
-- Runs 10,000+ autonomous workflows weekly across its customer base
-- Over 100k assets (email, pptx, xlsx, docx, etc.) created or edited every month across customers 
-- Compresses multi-step analyst workflows from days to hours
-- Fully automated 400 monthly legal memos at a top-tier law firm, reducing 2–3 days of manual work to an overnight process
-- Onboards new departments in hours after initial deployment, using natural language configuration instead of custom model training
+*   Deploys production enterprise workflows in 4–8 weeks, compared to the 6–12 month industry standard
+*   Runs 10,000+ autonomous workflows weekly across its customer base
+*   Over 100k assets (email, pptx, xlsx, docx, etc.) created or edited every month across customers 
+*   Compresses multi-step analyst workflows from days to hours
+*   Fully automated 400 monthly legal memos at a top-tier law firm, reducing 2–3 days of manual work to an overnight process
+*   Onboards new departments in hours after initial deployment, using natural language configuration instead of custom model training
 
 ## The challenge: Knowledge worker overload meets messy enterprise data
 

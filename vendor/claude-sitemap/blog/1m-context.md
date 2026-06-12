@@ -1,6 +1,6 @@
 # Claude Sonnet 4 now supports 1M tokens of context
 
-***Update:*** *Now available on Google Cloud's Vertex AI (Aug 26, 2025)*
+**_Update:_** _Now available on Google Cloud's Vertex AI (Aug 26, 2025)_
 
 Claude Sonnet 4 now supports up to 1 million tokens of context on the Anthropic API—a 5x increase that lets you process entire codebases with over 75,000 lines of code or dozens of research papers in a single request.
 
@@ -10,9 +10,9 @@ Long context support for Sonnet 4 is now in public beta on the Claude Developer 
 
 With longer context, developers can run more comprehensive and data-intensive use cases with Claude, including:
 
-- **Large-scale code analysis:** Load entire codebases including source files, tests, and documentation. Claude can understand project architecture, identify cross-file dependencies, and suggest improvements that account for the complete system design.
-- **Document synthesis:** Process extensive document sets like legal contracts, research papers, or technical specifications. Analyze relationships across hundreds of documents while maintaining full context.
-- **Context-aware agents:** Build agents that maintain context across hundreds of tool calls and multi-step workflows. Include complete API documentation, tool definitions, and interaction histories without losing coherence.
+*   **Large-scale code analysis:** Load entire codebases including source files, tests, and documentation. Claude can understand project architecture, identify cross-file dependencies, and suggest improvements that account for the complete system design.
+*   **Document synthesis:** Process extensive document sets like legal contracts, research papers, or technical specifications. Analyze relationships across hundreds of documents while maintaining full context.
+*   **Context-aware agents:** Build agents that maintain context across hundreds of tool calls and multi-step workflows. Include complete API documentation, tool definitions, and interaction histories without losing coherence.
 
 ### API pricing
 

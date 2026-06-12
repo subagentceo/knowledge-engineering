@@ -4,8 +4,8 @@ Satispay is Italy's leading independent payment network, with 6 million consumer
 
 ## With Claude, Satispay:
 
-- Generates over 75% of code committed to Satispay's repositories each month
-- Achieved 10x faster modernization of the core transaction service, safely completing a Java 8 to Java 21 and major Spring upgrade in under four days against a four-week estimate
-- Cut data transformation lambdas from three to five days to under an hour
-- Completed an 18-month code update roadmap in 7 months
-- Saw over 90% Claude Code adoption across engineering, with full rollout in 30 days managed  by IT support
+*   Generates over 75% of code committed to Satispay's repositories each month
+*   Achieved 10x faster modernization of the core transaction service, safely completing a Java 8 to Java 21 and major Spring upgrade in under four days against a four-week estimate
+*   Cut data transformation lambdas from three to five days to under an hour
+*   Completed an 18-month code update roadmap in 7 months
+*   Saw over 90% Claude Code adoption across engineering, with full rollout in 30 days managed  by IT support

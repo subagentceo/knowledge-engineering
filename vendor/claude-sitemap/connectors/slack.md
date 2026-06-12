@@ -2,8 +2,8 @@
 
 Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before you post.  
 ‍  
-You can use Slack in Claude to:
-
+You can use Slack in Claude to:  
+  
 Create and share canvases:  
 "Create a canvas in Slack and share it to #acme-project"
 

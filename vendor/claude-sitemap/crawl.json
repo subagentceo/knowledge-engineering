@@ -71,5 +71,5 @@
     "https://cdn.prod.website-files.com/"
   ],
   "llms_txt": "https://www.claude.com/llms.txt",
-  "incremental": false
+  "incremental": true
 }

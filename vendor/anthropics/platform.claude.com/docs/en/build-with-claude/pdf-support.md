@@ -9,7 +9,6 @@ This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-cla
 </Note>
 
 You can ask Claude about any text, pictures, charts, and tables in PDFs you provide. Some sample use cases:
-
 - Analyzing financial reports and understanding charts/tables
 - Extracting key information from legal documents
 - Translation assistance for documents
@@ -18,14 +17,13 @@ You can ask Claude about any text, pictures, charts, and tables in PDFs you prov
 ## Before you begin
 
 ### Check PDF requirements
-
 Claude works with any standard PDF. Ensure your request size meets these requirements:
 
-| Requirement               | Limit                                                                        |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| Maximum request size      | 32&nbsp;MB ([varies by platform](/docs/en/api/overview#request-size-limits)) |
-| Maximum pages per request | 600 (100 for models with a 200k-token context window)                        |
-| Format                    | Standard PDF (no passwords/encryption)                                       |
+| Requirement | Limit |
+|------------|--------|
+| Maximum request size | 32&nbsp;MB ([varies by platform](/docs/en/api/overview#request-size-limits)) |
+| Maximum pages per request | 600 (100 for models with a 200k-token context window) |
+| Format | Standard PDF (no passwords/encryption) |
 
 Both limits are on the entire request payload, including any other content sent alongside PDFs. For large PDFs, consider uploading with the [Files API](#option-3-files-api) and referencing by `file_id` to keep request payloads small.
 
@@ -79,12 +77,11 @@ This is a known constraint with the Converse API. For applications that require 
 For non-PDF files like .csv, .xlsx, .docx, .md, or .txt files, see [Working with other file formats](/docs/en/build-with-claude/files#working-with-other-file-formats).
 </Note>
 
----
+***
 
 ## Process PDFs with Claude
 
 ### Send your first PDF request
-
 Let's start with a simple example using the Messages API. You can provide PDFs to Claude in three ways:
 
 1. As a URL reference to a PDF hosted online
@@ -238,7 +235,6 @@ The simplest approach is to reference a PDF directly from a URL:
       }
     }
     ```
-
 </CodeGroup>
 
 #### Option 2: Base64-encoded PDF document
@@ -470,32 +466,30 @@ curl -X POST https://api.anthropic.com/v1/files \
   -F "file=@document.pdf"
 
 # Then use the returned file_id in your message
-
 curl https://api.anthropic.com/v1/messages \
- -H "content-type: application/json" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: files-api-2025-04-14" \
- -d '{
-"model": "claude-opus-4-8",
-"max_tokens": 1024,
-"messages": [{
-"role": "user",
-"content": [{
-"type": "document",
-"source": {
-"type": "file",
-"file_id": "file_abc123"
-}
-},
-{
-"type": "text",
-"text": "What are the key findings in this document?"
-}]
-}]
-}'
-
-````
+  -H "content-type: application/json" \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: files-api-2025-04-14" \
+  -d '{
+    "model": "claude-opus-4-8",
+    "max_tokens": 1024,
+    "messages": [{
+      "role": "user",
+      "content": [{
+        "type": "document",
+        "source": {
+          "type": "file",
+          "file_id": "file_abc123"
+        }
+      },
+      {
+        "type": "text",
+        "text": "What are the key findings in this document?"
+      }]
+    }]
+  }'
+```
 
 ```bash CLI nocheck hidelines={1..2}
 cd "$(mktemp -d)"
@@ -521,7 +515,7 @@ messages:
       - type: text
         text: What are the key findings in this document?
 YAML
-````
+```
 
 ```python Python nocheck hidelines={1..2}
 import anthropic
@@ -563,8 +557,8 @@ const anthropic = new Anthropic();
 // Upload the PDF file
 const fileUpload = await anthropic.beta.files.upload({
   file: await toFile(fs.createReadStream("document.pdf"), undefined, {
-    type: "application/pdf",
-  }),
+    type: "application/pdf"
+  })
 });
 
 // Use the uploaded file in a message
@@ -580,16 +574,16 @@ const response = await anthropic.beta.messages.create({
           type: "document",
           source: {
             type: "file",
-            file_id: fileUpload.id,
-          },
+            file_id: fileUpload.id
+          }
         },
         {
           type: "text",
-          text: "What are the key findings in this document?",
-        },
-      ],
-    },
-  ],
+          text: "What are the key findings in this document?"
+        }
+      ]
+    }
+  ]
 });
 
 console.log(response);
@@ -651,39 +645,40 @@ public class PdfFilesExample {
   }
 }
 ```
-
 </CodeGroup>
 
 ### How PDF support works
-
 When you send a PDF to Claude, the following steps occur:
 <Steps>
-<Step title="The system extracts the contents of the document."> - The system converts each page of the document into an image. - The text from each page is extracted and provided alongside each page's image.
-</Step>
-<Step title="Claude analyzes both the text and images to better understand the document."> - Documents are provided as a combination of text and images for analysis. - This allows users to ask for insights on visual elements of a PDF, such as charts, diagrams, and other non-textual content.
-</Step>
-<Step title="Claude responds, referencing the PDF's contents if relevant.">
-Claude can reference both textual and visual content when it responds. You can further improve performance by integrating PDF support with: - **Prompt caching**: To improve performance for repeated analysis. - **Batch processing**: For high-volume document processing. - **Tool use**: To extract specific information from documents for use as tool inputs.
-</Step>
+  <Step title="The system extracts the contents of the document.">
+    - The system converts each page of the document into an image.
+    - The text from each page is extracted and provided alongside each page's image.
+  </Step>
+  <Step title="Claude analyzes both the text and images to better understand the document.">
+    - Documents are provided as a combination of text and images for analysis.
+    - This allows users to ask for insights on visual elements of a PDF, such as charts, diagrams, and other non-textual content.
+  </Step>
+  <Step title="Claude responds, referencing the PDF's contents if relevant.">
+    Claude can reference both textual and visual content when it responds. You can further improve performance by integrating PDF support with:
+    - **Prompt caching**: To improve performance for repeated analysis.
+    - **Batch processing**: For high-volume document processing.
+    - **Tool use**: To extract specific information from documents for use as tool inputs.
+  </Step>
 </Steps>
 
 ### Estimate your costs
-
 The token count of a PDF file depends on the total text extracted from the document as well as the number of pages:
-
 - Text token costs: Each page typically uses 1,500-3,000 tokens per page depending on content density. Standard API pricing applies with no additional PDF fees.
 - Image token costs: Since each page is converted into an image, the same [image-based cost calculations](/docs/en/build-with-claude/vision#evaluate-image-size) are applied.
 
 You can use [token counting](/docs/en/build-with-claude/token-counting) to estimate costs for your specific PDFs.
 
----
+***
 
 ## Optimize PDF processing
 
 ### Improve performance
-
 Follow these best practices for optimal results:
-
 - Place PDFs before text in your requests
 - Use standard fonts
 - Ensure text is clear and legible
@@ -693,14 +688,11 @@ Follow these best practices for optimal results:
 - Enable prompt caching for repeated analysis
 
 ### Scale your implementation
-
 For high-volume processing, consider these approaches:
 
 #### Use prompt caching
-
 Cache PDFs to improve performance on repeated queries:
 <CodeGroup>
-
 ```bash cURL hidelines={1..2}
 cd "$(mktemp -d)"
 curl -s "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf" | base64 | tr -d '\n' > pdf_base64.txt
@@ -735,7 +727,6 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -d @request.json
 ```
-
 ```bash CLI hidelines={1..2}
 cd "$(mktemp -d)"
 curl -sSo document.pdf https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf
@@ -806,18 +797,18 @@ const response = await anthropic.messages.create({
           source: {
             media_type: "application/pdf",
             type: "base64",
-            data: pdfBase64,
+            data: pdfBase64
           },
-          cache_control: { type: "ephemeral" },
+          cache_control: { type: "ephemeral" }
         },
         {
           type: "text",
-          text: "Which model has the highest human preference win rates across each use-case?",
-        },
+          text: "Which model has the highest human preference win rates across each use-case?"
+        }
       ],
-      role: "user",
-    },
-  ],
+      role: "user"
+    }
+  ]
 });
 console.log(response);
 ```
@@ -874,14 +865,11 @@ public class MessagesDocumentExample {
   }
 }
 ```
-
 </CodeGroup>
 
 #### Process document batches
-
 Use the Message Batches API for high-volume workflows:
 <CodeGroup>
-
 ```bash cURL hidelines={1..2}
 cd "$(mktemp -d)"
 curl -s "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf" | base64 | tr -d '\n' > pdf_base64.txt
@@ -952,7 +940,6 @@ curl https://api.anthropic.com/v1/messages/batches \
   -H "anthropic-version: 2023-06-01" \
   -d @request.json
 ```
-
 ```bash CLI hidelines={1..2}
 cd "$(mktemp -d)"
 curl -sSo document.pdf https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf
@@ -1049,19 +1036,19 @@ const response = await anthropic.messages.batches.create({
                 source: {
                   media_type: "application/pdf",
                   type: "base64",
-                  data: pdfBase64,
-                },
+                  data: pdfBase64
+                }
               },
               {
                 type: "text",
-                text: "Which model has the highest human preference win rates across each use-case?",
-              },
+                text: "Which model has the highest human preference win rates across each use-case?"
+              }
             ],
-            role: "user",
-          },
+            role: "user"
+          }
         ],
-        model: "claude-opus-4-8",
-      },
+        model: "claude-opus-4-8"
+      }
     },
     {
       custom_id: "my-second-request",
@@ -1075,21 +1062,21 @@ const response = await anthropic.messages.batches.create({
                 source: {
                   media_type: "application/pdf",
                   type: "base64",
-                  data: pdfBase64,
-                },
+                  data: pdfBase64
+                }
               },
               {
                 type: "text",
-                text: "Extract 5 key insights from this document.",
-              },
+                text: "Extract 5 key insights from this document."
+              }
             ],
-            role: "user",
-          },
+            role: "user"
+          }
         ],
-        model: "claude-opus-4-8",
-      },
-    },
-  ],
+        model: "claude-opus-4-8"
+      }
+    }
+  ]
 });
 console.log(response);
 ```
@@ -1173,7 +1160,6 @@ public class MessagesBatchDocumentExample {
   }
 }
 ```
-
 </CodeGroup>
 
 ## Next steps
@@ -1187,14 +1173,11 @@ public class MessagesBatchDocumentExample {
     Explore practical examples of PDF processing in the cookbook recipe.
   </Card>
 
-<Card
-title="View API reference"
-icon="code"
-href="/docs/en/api/messages/create"
-
->
-
+  <Card
+    title="View API reference"
+    icon="code"
+    href="/docs/en/api/messages/create"
+  >
     See complete API documentation for PDF support.
-
   </Card>
 </CardGroup>

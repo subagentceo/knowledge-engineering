@@ -36,15 +36,15 @@ Economic Futures Research Awards will offer grants between $10,000 and $50,000 f
 
 ### What we fund
 
-- Original empirical research using econometric methods, data analysis, or novel data collection
-- Studies examining AI's labor market effects, productivity impacts, or distributional consequences
-- Research that can be completed within 6 months
+*   Original empirical research using econometric methods, data analysis, or novel data collection
+*   Studies examining AI's labor market effects, productivity impacts, or distributional consequences
+*   Research that can be completed within 6 months
 
 ### What's included
 
-- Research funding ($10,000 - $50,000) for data access, hiring assistants, or other direct research costs.
-- $5,000 in Claude API credits for computational analysis
-- Consultation on analyzing Anthropic Economic Index data
+*   Research funding ($10,000 - $50,000) for data access, hiring assistants, or other direct research costs.
+*   $5,000 in Claude API credits for computational analysis
+*   Consultation on analyzing Anthropic Economic Index data
 
 ### Who should apply
 
@@ -60,28 +60,28 @@ Anthropic, in collaboration with the McCourt School of Public Policy at Georgeto
 
 ### What we’re looking for
 
-- Concrete policy recommendations based on empirical evidence, with clear implementation pathways
-- Proposals addressing productivity adaptation, labor transitions, fiscal policy, or social insurance
-- 2-3 page briefs outlining specific policy levers and stakeholder engagement strategies
-- Ideas that could be adopted by governments or organizations within 18 months
+*   Concrete policy recommendations based on empirical evidence, with clear implementation pathways
+*   Proposals addressing productivity adaptation, labor transitions, fiscal policy, or social insurance
+*   2-3 page briefs outlining specific policy levers and stakeholder engagement strategies
+*   Ideas that could be adopted by governments or organizations within 18 months
 
 ### What’s included
 
-- Invitation to present at Economic Futures symposia in the U.S. and Europe
-- Travel, accommodation, and honorarium for symposium participation
-- Direct access to policymakers, researchers, and industry leaders
-- Follow-on opportunities to support implementation
+*   Invitation to present at Economic Futures symposia in the U.S. and Europe
+*   Travel, accommodation, and honorarium for symposium participation
+*   Direct access to policymakers, researchers, and industry leaders
+*   Follow-on opportunities to support implementation
 
 ### Who should apply
 
 We encourage researchers, policy practitioners, and economists focused on applied policy work to apply. Timeline:
 
-- DC application deadline: July 25, 2025
-- London application deadline: September 12, 2025
-- Notifications: Mid-August (DC), mid-September (London)
-- Symposia events:
-  - McCourt School of Public Policy, Georgetown University, Washington, D.C. - September 2025
-  - Data Science Institute at The London School of Economics and Political Science (LSE), London - November 2025
+*   DC application deadline: July 25, 2025
+*   London application deadline: September 12, 2025
+*   Notifications: Mid-August (DC), mid-September (London)
+*   Symposia events:
+    *   McCourt School of Public Policy, Georgetown University, Washington, D.C. - September 2025
+    *   Data Science Institute at The London School of Economics and Political Science (LSE), London - November 2025
 
 ## Strategic partnerships with research institutions
 
@@ -92,6 +92,8 @@ We are eager to partner with independent research institutions to grow the AI ec
 We are interested in generating research and policy responses to the topics below. If you have a compelling research or policy proposal that is not included in the list below, we still encourage you to apply.
 
 ## Understanding economic impacts
+
+  
 
 ### Labor market transitions
 

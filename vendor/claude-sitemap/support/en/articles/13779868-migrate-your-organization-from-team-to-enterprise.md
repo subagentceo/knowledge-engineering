@@ -28,9 +28,9 @@ You can migrate from a Team plan to a self-serve Enterprise plan by following th
 
 5. Your payment information will be saved from previous Team plan payments, but you can click the pencil icon to change it if needed.
 
-6. We only support credit card payments for self-serve Enterprise plans. For more information, see **[Self-serve vs. sales-assisted Enterprise](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan#h_3058c781c5)**.
+  1. We only support credit card payments for self-serve Enterprise plans. For more information, see **[Self-serve vs. sales-assisted Enterprise](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan#h_3058c781c5)**.
 
-7. Review your order summary and click "Confirm upgrade."
+6. Review your order summary and click "Confirm upgrade."
 
 **Important:** Migrating an organization from Team to Enterprise via this pathway is not reversible. Please ensure that an Enterprise plan is the right fit for your organization before initiating this change.
 

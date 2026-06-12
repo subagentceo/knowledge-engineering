@@ -43,14 +43,14 @@ To learn more about the Claude Partner Network, visit anthropic.com/partners.
 
 Read more
 
-### Introducing Claude Corps
+### TCS and Anthropic partner to bring Claude to regulated industries
 
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
+We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
 
 Read more
 
-### Claude Fable 5 and Claude Mythos 5
+### Introducing Claude Corps
 
-Our next generation of intelligence for the hardest knowledge work and coding problems.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

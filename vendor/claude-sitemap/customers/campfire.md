@@ -4,10 +4,10 @@ Campfire, a modern accounting software provider for high-growth tech companies, 
 
 With Claude, Campfire achieved:
 
-- 3-day monthly reduction in customer close time
-- 90% reduction in bank reconciliation time
-- 50% reduction in reporting time
-- Streamlined integration of data analysis and automated task execution
+*   3-day monthly reduction in customer close time
+*   90% reduction in bank reconciliation time
+*   50% reduction in reporting time
+*   Streamlined integration of data analysis and automated task execution
 
 ## Making accounting work strategic not tedious
 
@@ -23,9 +23,9 @@ The engineering team at Campfire, led by CTO Paul Nichols, leveraged Claude's fi
 
 Campfire integrated Claude to power key capabilities in their platform:
 
-- Ember AI chat interface enables natural language queries of financial data, audit support, and flux analyses with detailed commentary. Ember explains logic and reasoning, shows its work, and provides source data—a critical requirement for accounting professionals.
-- Automated bank reconciliation that parses bank statements and identifies discrepancies.
-- Intelligent data integration merges external data with Campfire records for tasks like budget vs. actual analysis.
+*   Ember AI chat interface enables natural language queries of financial data, audit support, and flux analyses with detailed commentary. Ember explains logic and reasoning, shows its work, and provides source data—a critical requirement for accounting professionals.
+*   Automated bank reconciliation that parses bank statements and identifies discrepancies.
+*   Intelligent data integration merges external data with Campfire records for tasks like budget vs. actual analysis.
 
 ## Delivering measurable impact for accounting teams
 

@@ -59,7 +59,9 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
   "created_at": "created_at",
   "description": "description",
   "name": "name",
-  "roles": ["string"],
+  "roles": [
+    "string"
+  ],
   "source_type": "source_type",
   "updated_at": "updated_at"
 }

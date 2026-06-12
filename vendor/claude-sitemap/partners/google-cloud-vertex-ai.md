@@ -90,7 +90,7 @@ Training and resources
 
 ### Complimentary certification course
 
-Learn to deploy Claude on Google Cloud from setup to production. Build agents, implement tool use, and set up RAG. Earn a certificate upon completion.
+Learn to deploy Claude on Google Cloud from setup to production. Build agents, implement tool use, and set up RAG. Earn a certificate upon completion.  
 
 Start learning
 
@@ -98,7 +98,7 @@ Start learningStart learning
 
 ### Hands-on tutorial
 
-See how to connect Claude to BigQuery through Cloud API Registry. Build an agent that discovers datasets, reads schemas, and runs SQL queries using natural language.
+See how to connect Claude to BigQuery through Cloud API Registry. Build an agent that discovers datasets, reads schemas, and runs SQL queries using natural language.  
 
 View tutorial
 
@@ -106,7 +106,7 @@ View tutorialView tutorial
 
 ### Webinars and events
 
-Explore our webinar library for on-demand sessions and upcoming events from Anthropic and Google Cloud experts.
+Explore our webinar library for on-demand sessions and upcoming events from Anthropic and Google Cloud experts.  
 
 Explore webinars
 

@@ -15,6 +15,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch object { id, archived_at, cancel_initiated_at, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -46,6 +47,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" or "canceling" or "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -57,6 +59,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -96,6 +99,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
+
     - `"message_batch"`
 
 ### Example

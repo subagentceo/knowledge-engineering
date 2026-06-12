@@ -14,9 +14,9 @@ The new contribution metrics in Claude Code help you measure this impact in your
 
 By integrating with GitHub, contribution metrics surface the following data points:
 
-- **Pull requests merged**: Track PRs created with and without Claude Code assistance
-- **Code committed**: See lines of code committed to your repositories with and without Claude Code assistance
-- **Per-user contribution data**: Identify adoption patterns across your team
+*   **Pull requests merged**: Track PRs created with and without Claude Code assistance
+*   **Code committed**: See lines of code committed to your repositories with and without Claude Code assistance
+*   **Per-user contribution data**: Identify adoption patterns across your team
 
 Contribution data is calculated by matching Claude Code session activity with GitHub commits and PRs. We calculate this conservatively, and only code where we have high confidence in Claude Code's involvement is counted as assisted.
 

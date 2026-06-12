@@ -17,7 +17,9 @@
     "https://platform.claude.com/docs/en/",
     "https://claude.com/docs/"
   ],
-  "deny_prefixes": [],
+  "deny_prefixes": [
+    "https://platform.claude.com/docs/en/api/terraform/"
+  ],
   "page_cap": 1700,
   "llms_txt": "https://code.claude.com/llms.txt",
   "html_index_sources": [
@@ -38,5 +40,6 @@
       "link_regex": "href=\"(/docs/en/test-and-evaluate/strengthen-guardrails[^\"#?]*)\""
     }
   ],
-  "incremental": false
+  "incremental": true,
+  "_terraform_note": "2026-06-12: terraform beta agent pages return HTTP 200 with a literal Not-Found body; denied until the namespace ships for real."
 }

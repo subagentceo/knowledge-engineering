@@ -8,15 +8,15 @@ Key capabilities include vulnerability scanning, provenance verification, and cu
 
 **How to use:** Once installed and authenticated, interact with Claude Code in natural language as usual. Relevant requests are routed through JFrog for action. Try prompts like:
 
-- "Is it safe to upgrade to package-name version X.Y.Z?"
-- "Show me curation audit events from the last 7 days"
-- "Which build produced artifact-name in repo-name?"
-- "Which MCP am I allowed to install?"
-- "Provision a new project and create a local NPM repository for it."
+*   "Is it safe to upgrade to package-name version X.Y.Z?"
+*   "Show me curation audit events from the last 7 days"
+*   "Which build produced artifact-name in repo-name?"
+*   "Which MCP am I allowed to install?"
+*   "Provision a new project and create a local NPM repository for it."
 
 You can also orchestrate multi-step workflows, such as:
 
-- "Show me available repositories, download package-name from repo-name, and check it for vulnerabilities."
+*   "Show me available repositories, download package-name from repo-name, and check it for vulnerabilities."
 
 **Install in Claude Code:** `claude plugin install jfrog@claude-plugins-official`  
 **Made by:** JFrog

@@ -10,24 +10,24 @@ The Aiera integration relies upon Claude’s ability to use remote connectors.
 
 The Aiera integration enables Claude to access comprehensive earnings intelligence and corporate communications in real-time.
 
-- **Earnings Call Access:** Retrieve full transcripts from earnings calls with searchable content, including management presentations, Q&A sessions, and analyst questions. Access historical calls and monitor upcoming scheduled events across companies and sectors.**‍**
-- **SEC Filing Retrieval:** Search and analyze SEC filings including 10-K annual reports, 10-Q quarterly filings, and 8-K material event disclosures. Filter by company, filing type, and date ranges to track regulatory communications.**‍**
-- **Company Document Discovery:** Access press releases, investor presentations, and other corporate publications. Search by keywords, categories, and date ranges to monitor company announcements and strategic communications.**‍**
-- **Expert Insights Integration:** Leverage Third Bridge expert interview transcripts for qualitative market intelligence and industry perspectives that supplement quantitative earnings data.**‍**
-- **Event Calendar Tracking:** Monitor upcoming earnings calls and corporate events across watchlists, market indexes, and sectors. Plan analysis around confirmed and estimated event dates.**‍**
-- **Source-Linked Transcripts:** Every insight includes direct links to original source documents and transcripts, providing complete transparency and enabling verification of quoted material.**‍**
-- **Flexible Search Parameters:** Query by company ticker, watchlist, market index, sector, or custom search terms. Paginate through large result sets and filter by event type for precise discovery.
+*   **Earnings Call Access:** Retrieve full transcripts from earnings calls with searchable content, including management presentations, Q&A sessions, and analyst questions. Access historical calls and monitor upcoming scheduled events across companies and sectors.**‍**
+*   **SEC Filing Retrieval:** Search and analyze SEC filings including 10-K annual reports, 10-Q quarterly filings, and 8-K material event disclosures. Filter by company, filing type, and date ranges to track regulatory communications.**‍**
+*   **Company Document Discovery:** Access press releases, investor presentations, and other corporate publications. Search by keywords, categories, and date ranges to monitor company announcements and strategic communications.**‍**
+*   **Expert Insights Integration:** Leverage Third Bridge expert interview transcripts for qualitative market intelligence and industry perspectives that supplement quantitative earnings data.**‍**
+*   **Event Calendar Tracking:** Monitor upcoming earnings calls and corporate events across watchlists, market indexes, and sectors. Plan analysis around confirmed and estimated event dates.**‍**
+*   **Source-Linked Transcripts:** Every insight includes direct links to original source documents and transcripts, providing complete transparency and enabling verification of quoted material.**‍**
+*   **Flexible Search Parameters:** Query by company ticker, watchlist, market index, sector, or custom search terms. Paginate through large result sets and filter by event type for precise discovery.
 
 ## How Claude Uses Aiera Data
 
 Claude applies Aiera’s intelligence platform to support real-time market analysis and due diligence workflows.
 
-- **Post-Earnings Analysis:** Immediately following earnings releases, retrieve full call transcripts to analyze management commentary, extract key metrics discussed, and identify forward-looking statements. Compare current quarter commentary to prior periods.**‍**
-- **Analyst Question Analysis:** Extract and categorize questions from sell-side analysts during Q&A sessions to understand market concerns, identify emerging themes, and gauge sentiment on specific business drivers.**‍**
-- **Management Tone Assessment:** Analyze management language across multiple quarters to detect shifts in confidence levels, strategic priorities, or responses to competitive pressures.**‍**
-- **Cross-Company Theme Detection:** Search transcripts across multiple companies for mentions of specific topics like supply chain, pricing power, or regulatory changes to build sector-wide perspectives on emerging trends.**‍**
-- **Filing Monitoring:** Track 8-K filings for material events like management changes, acquisitions, or contract wins. Monitor 10-Q/10-K filings for MD&A sections discussing business outlook and risk factors.**‍**
-- **Event-Driven Research:** When news breaks or markets move, quickly pull relevant corporate communications to understand company positioning and official statements on developing situations.
+*   **Post-Earnings Analysis:** Immediately following earnings releases, retrieve full call transcripts to analyze management commentary, extract key metrics discussed, and identify forward-looking statements. Compare current quarter commentary to prior periods.**‍**
+*   **Analyst Question Analysis:** Extract and categorize questions from sell-side analysts during Q&A sessions to understand market concerns, identify emerging themes, and gauge sentiment on specific business drivers.**‍**
+*   **Management Tone Assessment:** Analyze management language across multiple quarters to detect shifts in confidence levels, strategic priorities, or responses to competitive pressures.**‍**
+*   **Cross-Company Theme Detection:** Search transcripts across multiple companies for mentions of specific topics like supply chain, pricing power, or regulatory changes to build sector-wide perspectives on emerging trends.**‍**
+*   **Filing Monitoring:** Track 8-K filings for material events like management changes, acquisitions, or contract wins. Monitor 10-Q/10-K filings for MD&A sections discussing business outlook and risk factors.**‍**
+*   **Event-Driven Research:** When news breaks or markets move, quickly pull relevant corporate communications to understand company positioning and official statements on developing situations.
 
 ## Setting Up Aiera Integration
 
@@ -121,10 +121,10 @@ Example input prompt:
 
 ## Tips for Using Aiera
 
-- Use specific Bloomberg tickers (NFLX US, AAPL US) for precise company identification
-- Define clear date ranges to focus on relevant time periods
-- Request specific event types (earnings calls vs. conferences) to narrow results
-- Set include_transcripts=false when you only need event metadata to speed up responses
-- Leverage watchlist and index filters for portfolio-specific monitoring
-- Search strategically by combining keywords with date and company filters
-- Consider pagination for large result sets - start with smaller page sizes for testing
+*   Use specific Bloomberg tickers (NFLX US, AAPL US) for precise company identification
+*   Define clear date ranges to focus on relevant time periods
+*   Request specific event types (earnings calls vs. conferences) to narrow results
+*   Set include_transcripts=false when you only need event metadata to speed up responses
+*   Leverage watchlist and index filters for portfolio-specific monitoring
+*   Search strategically by combining keywords with date and company filters
+*   Consider pagination for large result sets - start with smaller page sizes for testing

@@ -4,9 +4,9 @@ Snowflake enables enterprises to use Claude and gain improved insights from both
 
 With Claude, Snowflake:
 
-- Enables greater than 90% accuracy on complex text-to-SQL tasks based on internal benchmarks
-- Enhances delivery of data in natural language for 10,000+ global enterprises
-- Accelerates time-to-insight with Claude running on Snowflake’s governed customer data
+*   Enables greater than 90% accuracy on complex text-to-SQL tasks based on internal benchmarks
+*   Enhances delivery of data in natural language for 10,000+ global enterprises
+*   Accelerates time-to-insight with Claude running on Snowflake’s governed customer data
 
 ## Addressing enterprise data challenges
 
@@ -24,11 +24,11 @@ Snowflake's customers can use the Cortex AI platform to interact with their data
 
 With Cortex Analyst, Snowflake enables its customers to:
 
-- Obtain real-time insights from both structured and unstructured data
-- Convert natural language queries to SQL on complex databases
-- Enterprise-scale conversational analytics with built-in governance controls
-- Cross-region inference enabling global deployment and access
-- Deployment of sophisticated AI applications in days instead of months
+*   Obtain real-time insights from both structured and unstructured data
+*   Convert natural language queries to SQL on complex databases
+*   Enterprise-scale conversational analytics with built-in governance controls
+*   Cross-region inference enabling global deployment and access
+*   Deployment of sophisticated AI applications in days instead of months
 
 ## Delivering measurable impact
 
