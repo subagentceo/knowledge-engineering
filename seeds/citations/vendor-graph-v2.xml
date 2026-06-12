@@ -71,7 +71,7 @@
       <github_org_name>googleapis</github_org_name>
       <primary_docs>https://cloud.google.com/docs</primary_docs>
       <llms_txt>n/a</llms_txt>
-      <sitemap_xml>https://cloud.google.com/sitemap.xml</sitemap_xml>
+      <sitemap_xml>https://docs.cloud.google.com/sitemap.xml</sitemap_xml>
     </links>
   </entity>
 

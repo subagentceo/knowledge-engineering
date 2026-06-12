@@ -10,5 +10,6 @@
   ],
   "deny_prefixes": [],
   "page_cap": 60,
-  "llms_txt": "https://confidence.spotify.com/llms.txt"
+  "llms_txt": "https://confidence.spotify.com/llms.txt",
+  "note": "2026-06-12: confidence.spotify.com gated the .md endpoints behind auth (GET <page>.md now 307s to /login). The 16 checksum-matched pages remain verifiable; the other 44 cannot be refreshed until Spotify reopens the markdown surface or the transform moves to html. Upstream regression \u2014 mirror intentionally stale."
 }
