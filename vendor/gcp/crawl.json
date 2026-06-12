@@ -25,5 +25,6 @@
   "sitemap_xml_sources": [
     "https://docs.cloud.google.com/sitemap.xml"
   ],
-  "note": "docs.cloud.google.com serves <page>.md as an HTML viewer page, not raw markdown (validateBody rejected all 100 in the 2026-06-12 retry) \u2014 GCP exposes no raw .md surface. Transform switched to html-extract against the docs host sitemap/allowlist."
+  "note": "docs.cloud.google.com serves <page>.md as an HTML viewer page, not raw markdown (validateBody rejected all 100 in the 2026-06-12 retry) \u2014 GCP exposes no raw .md surface. Transform switched to html-extract against the docs host sitemap/allowlist.",
+  "strip_query_params": true
 }

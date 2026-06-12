@@ -89,6 +89,8 @@ export interface CrawlConfig {
   transform: TransformName;
   allow_prefixes: string[];
   deny_prefixes?: string[];
+  /** Strip ?query from collected links before allowlist+dedupe (locale-variant sitemaps). */
+  strip_query_params?: boolean;
   /**
    * Exact-URL allow list. Bypasses the prefix-allow gate for individual
    * URLs (e.g. bare-index `/pricing` when only `/pricing/` is in
@@ -546,7 +548,13 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     }
   }
 
-  const urls = Array.from(collectedUrls);
+  let urls = Array.from(collectedUrls);
+  // Locale-variant sitemaps (gcp's ?hl=pt-br etc.) collapse to the
+  // canonical query-less URL before allowlisting, so one English page
+  // wins over N translations of it.
+  if (cfg.strip_query_params === true) {
+    urls = [...new Set(urls.map((u) => u.split("?")[0] ?? u))];
+  }
   const effectiveCap = cfg.page_cap > 0 ? cfg.page_cap : Infinity;
   const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, effectiveCap);
   console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
