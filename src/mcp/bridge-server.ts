@@ -32,6 +32,7 @@ import { registerGraphQL } from "./lanes/graphql-lane.js";
 import { registerCodeMode } from "./lanes/code-mode-lane.js";
 import { registerCitations } from "./lanes/citations.js";
 import { registerRepoMail } from "./lanes/mailbox.js";
+import { registerCacheStats } from "./lanes/cache-stats-lane.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -53,5 +54,6 @@ registerGraphQL(server);
 registerCodeMode(server);
 registerCitations(server);
 registerRepoMail(server);
+registerCacheStats(server);
 
 await server.connect(new StdioServerTransport());
