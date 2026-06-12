@@ -1,13 +1,13 @@
 # appwrite
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Appwrite
-
-- Installs
-
-  133
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Appwrite
+    
+*   Installs
+    
+    244

@@ -367,7 +367,7 @@ Checking for errors helps catch improperly configured webhooks or malformed requ
 Test your secured endpoint by using the Stripe CLI, which sends the proper signature header in each test event.
 
 // This is a public sample test API key.
-// Don’t submit any personally identifiable information in requests made with this key.
+// Don't submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
 // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
 const stripe = require('stripe')('<<YOUR_SECRET_KEY>>');
@@ -429,7 +429,7 @@ app.listen(4242, () => console.log('Running on port 4242'));
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "stripe": "^21.0.1"
+    "stripe": "^22.2.0"
   }
 }
 {
@@ -442,7 +442,7 @@ app.listen(4242, () => console.log('Running on port 4242'));
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^3.4.0",
-    "stripe": "21.0.1"
+    "stripe": "22.2.0"
   },
   "devDependencies": {
     "concurrently": "4.1.2"
@@ -475,7 +475,7 @@ app.listen(4242, () => console.log('Running on port 4242'));
 }
 require 'stripe'
 \# This is a public sample test API key.
-# Don’t submit any personally identifiable information in requests made with this key.
+# Don't submit any personally identifiable information in requests made with this key.
 # Sign in to see your own test API key embedded in code samples.
 \# Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
 client = Stripe::StripeClient.new('<<YOUR_SECRET_KEY>>')
@@ -528,7 +528,7 @@ post '/webhook' do
   status 200
 import stripe
 \# This is a public sample test API key.
-# Don’t submit any personally identifiable information in requests made with this key.
+# Don't submit any personally identifiable information in requests made with this key.
 # Sign in to see your own test API key embedded in code samples.
 \# Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
 client = stripe.StripeClient('<<YOUR_SECRET_KEY>>')
@@ -579,7 +579,7 @@ itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 requests==2.32.5
-stripe==15.0.0
+stripe==15.2.0
 toml==0.10.2
 Werkzeug==3.1.5
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
@@ -636,7 +636,7 @@ http_response_code(200);
 // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
 $stripeSecretKey = '<<YOUR_SECRET_KEY>>';
       // This is a public sample test API key.
-      // Don’t submit any personally identifiable information in requests made with this key.
+      // Don't submit any personally identifiable information in requests made with this key.
       // Sign in to see your own test API key embedded in code samples.
       // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
       services.AddSingleton(new StripeClient("<<YOUR_SECRET_KEY>>"));
@@ -676,7 +676,7 @@ $stripeSecretKey = '<<YOUR_SECRET_KEY>>';
   "github.com/stripe/stripe-go/v85"
   "github.com/stripe/stripe-go/v85/webhook"
   // This is a public sample test API key.
-  // Don’t submit any personally identifiable information in requests made with this key.
+  // Don't submit any personally identifiable information in requests made with this key.
   // Sign in to see your own test API key embedded in code samples.
   // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
   sc = stripe.NewClient("<<YOUR_SECRET_KEY>>")
@@ -727,9 +727,9 @@ $stripeSecretKey = '<<YOUR_SECRET_KEY>>';
     fmt.Fprintf(os.Stderr, "Unhandled event type: %s\n", event.Type)
   }
   w.WriteHeader(http.StatusOK)
-require github.com/stripe/stripe-go/v85 v85.0.0
+require github.com/stripe/stripe-go/v85 v85.2.0
         // This is a public sample test API key.
-        // Don’t submit any personally identifiable information in requests made with this key.
+        // Don't submit any personally identifiable information in requests made with this key.
         // Sign in to see your own test API key embedded in code samples.
         // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
         StripeClient client = new StripeClient("<<YOUR_SECRET_KEY>>");

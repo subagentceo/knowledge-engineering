@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -56,11 +55,13 @@ The installer downloads from `downloads.claude.ai`. Verify you can reach it:
 curl -sI https://downloads.claude.ai/claude-code-releases/latest
 ```
 
+In PowerShell, run `curl.exe -sI` instead. PowerShell aliases `curl` to `Invoke-WebRequest`, which rejects the `-sI` flags.
+
 An `HTTP/2 200` line means you reached the server. If you see no output, `Could not resolve host`, or a connection timeout, your network is blocking the connection. Common causes:
 
-- Corporate firewalls or proxies blocking `downloads.claude.ai`
-- Regional network restrictions: try a VPN or alternative network
-- TLS/SSL issues: update your system's CA certificates, or check if `HTTPS_PROXY` is configured
+* Corporate firewalls or proxies blocking `downloads.claude.ai`
+* Regional network restrictions: try a VPN or alternative network
+* TLS/SSL issues: update your system's CA certificates, or check if `HTTPS_PROXY` is configured
 
 If you're behind a corporate proxy, set `HTTPS_PROXY` and `HTTP_PROXY` to your proxy's address before installing. Ask your IT team for the proxy URL if you don't know it, or check your browser's proxy settings.
 
@@ -87,6 +88,10 @@ This example sets both proxy variables, then runs the installer through your pro
 ### Verify your PATH
 
 If installation succeeded but you get a `command not found` or `not recognized` error when running `claude`, the install directory isn't in your PATH. Your shell searches for programs in directories listed in PATH, and the installer places `claude` at `~/.local/bin/claude` on macOS/Linux or `%USERPROFILE%\.local\bin\claude.exe` on Windows.
+
+<Note>
+  The [VS Code extension](/en/vs-code) does not place `claude` at this location. It bundles a private copy of the CLI inside the extension directory for its own chat panel and does not add it to PATH. If you have only installed the extension, `~/.local/bin/claude` will not exist. Run the [standalone install](/en/setup) to use `claude` from a terminal, then continue below.
+</Note>
 
 Check if the install directory is in your PATH by listing your PATH entries and filtering for `local/bin`:
 
@@ -121,7 +126,6 @@ Check if the install directory is in your PATH by listing your PATH entries and 
     ```bash theme={null}
     claude --version
     ```
-
   </Tab>
 
   <Tab title="Windows PowerShell">
@@ -143,7 +147,6 @@ Check if the install directory is in your PATH by listing your PATH entries and 
     ```powershell theme={null}
     claude --version
     ```
-
   </Tab>
 
   <Tab title="Windows CMD">
@@ -158,7 +161,6 @@ Check if the install directory is in your PATH by listing your PATH entries and 
     ```batch theme={null}
     claude --version
     ```
-
   </Tab>
 </Tabs>
 
@@ -182,6 +184,8 @@ Multiple Claude Code installations can cause version mismatches or unexpected be
     ls -la ~/.local/bin/claude
     ```
 
+    If either `ls` command prints `No such file or directory`, that's not an error. It means nothing is installed at that location, so move on to the next check.
+
     ```bash theme={null}
     ls -la ~/.claude/local/
     ```
@@ -189,7 +193,6 @@ Multiple Claude Code installations can cause version mismatches or unexpected be
     ```bash theme={null}
     npm -g ls @anthropic-ai/claude-code 2>/dev/null
     ```
-
   </Tab>
 
   <Tab title="Windows PowerShell">
@@ -204,7 +207,6 @@ Multiple Claude Code installations can cause version mismatches or unexpected be
     ```powershell theme={null}
     Test-Path "$env:USERPROFILE\.local\bin\claude.exe"
     ```
-
   </Tab>
 </Tabs>
 
@@ -355,11 +357,9 @@ The `curl ... | bash` command downloads the script and pipes it to Bash for exec
 **Solutions:**
 
 1. **Check network stability**: Claude Code binaries are hosted at `downloads.claude.ai`. Test that you can reach it:
-
    ```bash theme={null}
    curl -sI https://downloads.claude.ai/claude-code-releases/latest
    ```
-
    An `HTTP/2 200` line means you reached the server and the original failure was likely intermittent; retry the install command. If you see `Could not resolve host` or a connection timeout, your network is blocking the download.
 
 2. **Try an alternative install method**:
@@ -393,24 +393,19 @@ Errors like `curl: (35) TLS connect error`, `schannel: next InitializeSecurityCo
    On macOS, the system curl uses the Keychain trust store; updating macOS itself updates the root certificates.
 
 2. **On Windows, enable TLS 1.2** in PowerShell before running the installer:
-
    ```powershell theme={null}
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    irm https://claude.ai/install.ps1 | iex
    ```
 
 3. **Check for proxy or firewall interference**: corporate proxies that perform TLS inspection can cause these errors, including `unable to get local issuer certificate` and `SELF_SIGNED_CERT_IN_CHAIN`. For the install step, point curl at your corporate CA bundle with `--cacert`:
-
    ```bash theme={null}
    curl --cacert /path/to/corporate-ca.pem -fsSL https://claude.ai/install.sh | bash
    ```
-
    For Claude Code itself once installed, set `NODE_EXTRA_CA_CERTS` so API requests trust the same bundle:
-
    ```bash theme={null}
    export NODE_EXTRA_CA_CERTS=/path/to/corporate-ca.pem
    ```
-
    Ask your IT team for the certificate file if you don't have it. You can also try on a direct connection to confirm the proxy is the cause.
 
 4. **On Windows, bypass certificate revocation checks** if you see `CRYPT_E_NO_REVOCATION_CHECK (0x80092012)` or `CRYPT_E_REVOCATION_OFFLINE (0x80092013)`. These mean curl reached the server but your network blocks the certificate revocation lookup, which is common behind corporate firewalls. Add `--ssl-revoke-best-effort` to the install command:
@@ -426,13 +421,11 @@ The installer couldn't reach the download server. This typically means `download
 **Solutions:**
 
 1. **Test connectivity directly**:
-
    ```bash theme={null}
    curl -sI https://downloads.claude.ai/claude-code-releases/latest
    ```
 
 2. **If behind a proxy**, set `HTTPS_PROXY` so the installer can route through it. See [proxy configuration](/en/network-config#proxy-configuration) for details.
-
    ```bash theme={null}
    export HTTPS_PROXY=http://proxy.example.com:8080
    curl -fsSL https://claude.ai/install.sh | bash
@@ -456,7 +449,7 @@ The installer couldn't reach the download server. This typically means `download
 
 If you see `'irm' is not recognized`, `The token '&&' is not valid`, or `'bash' is not recognized as the name of a cmdlet`, you copied the install command for a different shell or operating system.
 
-- **`irm` not recognized**: you're in CMD, not PowerShell. You have two options:
+* **`irm` not recognized**: you're in CMD, not PowerShell. You have two options:
 
   Open PowerShell by searching for "PowerShell" in the Start menu, then run the original install command:
 
@@ -470,13 +463,12 @@ If you see `'irm' is not recognized`, `The token '&&' is not valid`, or `'bash' 
   curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
   ```
 
-- **`&&` not valid**: you're in PowerShell but ran the CMD installer command. Use the PowerShell installer:
-
+* **`&&` not valid**: you're in PowerShell but ran the CMD installer command. Use the PowerShell installer:
   ```powershell theme={null}
   irm https://claude.ai/install.ps1 | iex
   ```
 
-- **`bash` not recognized**: you ran the macOS/Linux installer on Windows. Use the PowerShell installer instead:
+* **`bash` not recognized**: you ran the macOS/Linux installer on Windows. Use the PowerShell installer instead:
   ```powershell theme={null}
   irm https://claude.ai/install.ps1 | iex
   ```
@@ -534,7 +526,6 @@ When installing Claude Code in a Docker container, installing as root into `/` c
 **Solutions:**
 
 1. **Set a working directory** before running the installer. When run from `/`, the installer scans the entire filesystem, which causes excessive memory usage. Setting `WORKDIR` limits the scan to a small directory:
-
    ```dockerfile theme={null}
    WORKDIR /tmp
    RUN curl -fsSL https://claude.ai/install.sh | bash
@@ -571,6 +562,10 @@ Git for Windows is optional. Claude Code uses the [PowerShell tool](/en/tools-re
 
 If your Git is installed somewhere else, find the path by running `where.exe git` in PowerShell and use the `bin\bash.exe` path from that directory.
 
+**If the path is correct and the file exists** but Claude Code still reports it as not found, endpoint security software such as AppLocker, Group Policy software restriction policies, or EDR agents may be interfering. On versions before v2.1.116, Claude Code spawned a child process (`cmd.exe`) to verify the path, which these policies can block — a common signal is that `cmd.exe /c dir "C:\Program Files\Git\bin\bash.exe"` works when you run it directly in PowerShell but fails silently when launched by `claude.exe`.
+
+Claude Code v2.1.116 and later check the filesystem directly, so update first. If the error persists on a current version, ask your IT team to allowlist `claude.exe` and the processes it spawns, including `cmd.exe` and `bash.exe`, in your endpoint protection policy.
+
 ### Claude Code does not support 32-bit Windows
 
 Windows includes two PowerShell entries in the Start menu: `Windows PowerShell` and `Windows PowerShell (x86)`. The x86 entry runs as a 32-bit process and triggers this error even on a 64-bit machine. To check which case you're in, run this in the same window that produced the error:
@@ -596,11 +591,9 @@ This can happen on glibc-based systems that have musl cross-compilation packages
 **Solutions:**
 
 1. **Check which libc your system uses**:
-
    ```bash theme={null}
    ldd --version 2>&1 | head -1
    ```
-
    Output mentioning `GNU libc` or `GLIBC` means glibc. Output mentioning `musl` means musl.
 
 2. **If you're on glibc but got the musl binary**, remove the installation and reinstall. You can also manually download the correct binary using the manifest at `https://downloads.claude.ai/claude-code-releases/{VERSION}/manifest.json`. File a [GitHub issue](https://github.com/anthropics/claude-code/issues) with the output of `ldd --version` and `ls /lib/libc.musl*`.
@@ -713,9 +706,9 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 The `@anthropic-ai/claude-code` npm package pulls in the native binary through a per-platform optional dependency such as `@anthropic-ai/claude-code-darwin-arm64`. If running `claude` after install prints `Could not find native binary package "@anthropic-ai/claude-code-<platform>"`, check the following causes:
 
-- **Optional dependencies are disabled.** Remove `--omit=optional` from your npm install command, `--no-optional` from pnpm, or `--ignore-optional` from yarn, and check that `.npmrc` does not set `optional=false`. Then reinstall. The native binary is delivered only as an optional dependency, so there is no JavaScript fallback if it is skipped.
-- **Unsupported platform.** Prebuilt binaries are published for `darwin-arm64`, `darwin-x64`, `linux-x64`, `linux-arm64`, `linux-x64-musl`, `linux-arm64-musl`, `win32-x64`, and `win32-arm64`. Claude Code does not ship a binary for other platforms; see the [system requirements](/en/setup#system-requirements).
-- **Corporate npm mirror is missing the platform packages.** Ensure your registry mirrors all eight `@anthropic-ai/claude-code-*` platform packages in addition to the meta package.
+* **Optional dependencies are disabled.** Remove `--omit=optional` from your npm install command, `--no-optional` from pnpm, or `--ignore-optional` from yarn, and check that `.npmrc` does not set `optional=false`. Then reinstall. The native binary is delivered only as an optional dependency, so there is no JavaScript fallback if it is skipped.
+* **Unsupported platform.** Prebuilt binaries are published for `darwin-arm64`, `darwin-x64`, `linux-x64`, `linux-arm64`, `linux-x64-musl`, `linux-arm64-musl`, `win32-x64`, and `win32-arm64`. Claude Code does not ship a binary for other platforms; see the [system requirements](/en/setup#system-requirements).
+* **Corporate npm mirror is missing the platform packages.** Ensure your registry mirrors all eight `@anthropic-ai/claude-code-*` platform packages in addition to the meta package.
 
 Installing with `--ignore-scripts` does not trigger this error. The postinstall step that links the binary into place is skipped, so Claude Code falls back to a wrapper that locates and spawns the platform binary on each launch. This works but starts more slowly; reinstall with scripts enabled for direct execution.
 
@@ -739,17 +732,17 @@ If you see `OAuth error: Invalid code. Please make sure the full code was copied
 
 **Solutions:**
 
-- Press Enter to retry and complete the login quickly after the browser opens
-- Type `c` to copy the full URL if the browser doesn't open automatically
-- If using a remote/SSH session, the browser may open on the wrong machine. Copy the URL displayed in the terminal and open it in your local browser instead.
+* Press Enter to retry and complete the login quickly after the browser opens
+* Type `c` to copy the full URL if the browser doesn't open automatically
+* If using a remote/SSH session, the browser may open on the wrong machine. Copy the URL displayed in the terminal and open it in your local browser instead.
 
 ### 403 Forbidden after login
 
 If you see `API Error: 403 {"error":{"type":"forbidden","message":"Request not allowed"}}` after logging in:
 
-- **Claude Pro/Max users**: verify your subscription is active at [claude.ai/settings](https://claude.ai/settings)
-- **Anthropic Console users**: confirm your account has the "Claude Code" or "Developer" role. Admins assign this in the Anthropic Console under Settings → Members.
-- **Behind a proxy**: corporate proxies can interfere with API requests. See [network configuration](/en/network-config) for proxy setup.
+* **Claude Pro/Max users**: verify your subscription is active at [claude.ai/settings](https://claude.ai/settings)
+* **Anthropic Console users**: confirm your account has the "Claude Code" or "Developer" role. Admins assign this in the Anthropic Console under Settings → Members.
+* **Behind a proxy**: corporate proxies can interfere with API requests. See [network configuration](/en/network-config) for proxy setup.
 
 ### This organization has been disabled with an active subscription
 

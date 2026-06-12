@@ -7,7 +7,9 @@ Custom agents allow you to tailor Copilot's expertise for specific tasks. For a 
 > \[!NOTE]
 > Custom agents are in public preview for JetBrains IDEs, Eclipse, and Xcode, and subject to change.
 
-## Creating a custom agent profile in Visual Studio Code
+<div class="ghd-tool vscode">
+
+## Creating a custom agent profile
 
 1. Open GitHub Copilot Chat in Visual Studio Code.
 2. From the agents dropdown at the bottom of the chat view, click **Configure Custom Agents...**, then click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-plus" aria-label="Plus button" role="img"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg> Create new custom agent**.
@@ -21,7 +23,17 @@ Custom agents allow you to tailor Copilot's expertise for specific tasks. For a 
 
 To update an agent profile, select **Configure Custom Agents** from the agents dropdown, and then click on an agent from the list to modify it. For more information on custom agents in VS Code, see [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents).
 
-## Creating a custom agent profile in JetBrains IDEs
+</div>
+
+<!-- --------------------- -->
+
+<!-- JetBrains -->
+
+<!-- --------------------- -->
+
+<div class="ghd-tool jetbrains">
+
+## Creating a custom agent profile
 
 1. Open the GitHub Copilot Chat window in your JetBrains IDE.
 2. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then in the settings window, under "Chat Agents", click **Workspace**.
@@ -32,7 +44,17 @@ To update an agent profile, select **Configure Custom Agents** from the agents d
 
 To update an agent profile, select **Configure Custom Agents** from the agents dropdown, and then click <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pencil" aria-label="The pencil icon" role="img"><path d="M11.013 1.427a1.75 1.75 0 0 1 2.474 0l1.086 1.086a1.75 1.75 0 0 1 0 2.474l-8.61 8.61c-.21.21-.47.364-.756.445l-3.251.93a.75.75 0 0 1-.927-.928l.929-3.25c.081-.286.235-.547.445-.758l8.61-8.61Zm.176 4.823L9.75 4.81l-6.286 6.287a.253.253 0 0 0-.064.108l-.558 1.953 1.953-.558a.253.253 0 0 0 .108-.064Zm1.238-3.763a.25.25 0 0 0-.354 0L10.811 3.75l1.439 1.44 1.263-1.263a.25.25 0 0 0 0-.354Z"></path></svg> next to the agent you want to modify.
 
-## Creating a custom agent profile in Eclipse
+</div>
+
+<!-- --------------------- -->
+
+<!-- Eclipse -->
+
+<!-- --------------------- -->
+
+<div class="ghd-tool eclipse">
+
+## Creating a custom agent profile
 
 1. Open the GitHub Copilot Chat window in Eclipse.
 2. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then click **Add...**.
@@ -43,7 +65,17 @@ To update an agent profile, select **Configure Custom Agents** from the agents d
 
 To update an agent profile, select **Configure Agents...** from the agents dropdown, and then select the agent you want to modify and click **Edit**.
 
-## Creating a custom agent profile in Xcode
+</div>
+
+<!-- --------------------- -->
+
+<!-- XCode -->
+
+<!-- --------------------- -->
+
+<div class="ghd-tool xcode">
+
+## Creating a custom agent profile
 
 1. Open the GitHub Copilot Chat window in Xcode.
 2. From the agents dropdown at the bottom of the chat view, click **<svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-plus" aria-label="Plus button" role="img"><path d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 0 1 0 1.5H8.5v4.25a.75.75 0 0 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2Z"></path></svg> Create an agent**.
@@ -52,6 +84,8 @@ To update an agent profile, select **Configure Agents...** from the agents dropd
    * You can use the **Customize Agent** button within the file editor to open a dialog, where you can select the AI model for the agent to use, select available tools (including built-in and MCP server tools), and configure the `handoffs` property for transitioning between custom agents. Click **Apply** to add selected options to the agent profile.
 
 To update an agent profile, from the agents dropdown, click the pencil icon next to the agent you want to modify.
+
+</div>
 
 ## Configuring an agent profile
 
@@ -130,9 +164,9 @@ For more information on using Copilot cloud agent, see [Starting GitHub Copilot 
 
 ### Using custom agents in your IDE
 
-You can also use your custom agent profiles directly in supported IDEs, including Visual Studio Code, JetBrains IDEs, Eclipse, and Xcode. You can switch between custom agents using the agent dropdown in the Chat window, allowing you to access specialized configurations for different tasks like planning, code editing, or research.
+You can also use your custom agent profiles directly in supported IDEs. You can switch between custom agents using the agent dropdown in the Chat window, allowing you to access specialized configurations for different tasks like planning, code editing, or research.
 
-Note that some properties may function differently, or be ignored, between the GitHub.com and IDE environments. For more information on supported properties, see [Custom agents configuration](/en/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties).
+Some properties may function differently between the GitHub.com and IDE environments. For more information on supported properties, see [Custom agents configuration](/en/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties).
 
 For more information on custom agents in VS Code specifically, see [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents) in the VS Code documentation.
 

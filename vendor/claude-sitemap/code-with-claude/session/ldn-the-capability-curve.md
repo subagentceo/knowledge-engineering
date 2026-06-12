@@ -2,6 +2,28 @@
 
 Frontier models are getting more capable, fast. Where the curve is going, and what it means for developers building on Claude.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+15:20 – 15:50
+
+Speaker(s)
+
+Jeremy Hadfield
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

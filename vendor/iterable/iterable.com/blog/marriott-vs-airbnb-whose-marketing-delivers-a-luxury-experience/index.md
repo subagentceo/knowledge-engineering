@@ -1,3 +1,5 @@
+# Marriott vs. Airbnb: Whose Marketing Delivers a Luxury Experience? - Iterable
+
 ## Marriott vs. Airbnb: Whose Marketing Delivers a Luxury Experience?
 
 **Published by**
@@ -10,7 +12,7 @@ The weather is heating up and so is the competition between travel and hospitali
 
 When it comes to lodging, travelers often choose to book a hotel room, but leaders of the sharing economy have increased the demand for short-term home rentals.
 
-If you’ve ever wondered how omni-channel marketing strategies differ between a long-standing brand like [Marriott](https://marriott.com) and an industry disruptor like [Airbnb](https://airbnb.com), then you’ll love our latest [User Engagement Teardown](https://iterable.com/user-engagement-teardowns/).
+If you’ve ever wondered how omni-channel marketing strategies differ between a long-standing brand like Marriott and an industry disruptor like Airbnb, then you’ll love our latest User Engagement Teardown.
 
 We analyzed how these two household names are messaging consumers across email and mobile as two critical pieces of their omni-channel marketing program.
 
@@ -20,8 +22,8 @@ After analyzing the content of all messages received, we identified what these b
 
 Take a look at the teardown below to learn who is the host with the most when it comes to user engagement. _(Note: if you can’t see the embedded SlideShare, make sure to turn off any ad blockers!)_
 
-[https://www.slideshare.net/Iterable/marriott-vs-airbnb-user-engagement-teardown](https://www.slideshare.net/Iterable/marriott-vs-airbnb-user-engagement-teardown)
+https://www.slideshare.net/Iterable/marriott-vs-airbnb-user-engagement-teardown
 
-You can see our past comparative omni-channel teardowns (including Uber vs. Lyft and Indeed vs. Angellist) on our [User Engagement Teardowns](https://iterable.com/user-engagement-teardowns/) page.
+You can see our past comparative omni-channel teardowns (including Uber vs. Lyft and Indeed vs. Angellist) on our User Engagement Teardowns page.
 
 _Note: Marriott and Airbnb are not Iterable customers._

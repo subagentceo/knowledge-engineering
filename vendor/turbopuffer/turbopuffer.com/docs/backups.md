@@ -1,5 +1,9 @@
 # Cross-Region Backups
 
+**Copy Throughput** (Measured with a 1GB namespace. Cross-region may be 20-35% slower depending on distance.)
+- same-region: 72 MB/s
+- cross-region: 50 MB/s
+
 ```
   ┌─aws-us-east-1 (source)─────┐              ┌─aws-us-west-2 (dest)───┐
   │                            │░             │                        │░
@@ -14,10 +18,14 @@
 ```
 
 turbopuffer supports efficient namespace copies across [regions](/docs/regions) via
-[copy_from_namespace](/docs/write#param-copy_from_namespace) for geo-redundancy,
+[`copy_from_namespace`](/docs/write#param-copy_from_namespace) for geo-redundancy,
 disaster recovery, and accidental deletion protection. We don't currently offer automated backups. Historically,
 customers have rebuilt from their primary data source when needed, but
 cross-region copies are now often a better option.
+
+[Branching](/docs/branching) provides constant-time namespace snapshots, but
+shares underlying storage with the source namespace. Use `copy_from_namespace`
+for full data isolation.
 
 Copies are performed entirely server-side, so there's no data transfer through
 your infrastructure. They're billed at up to a 75% write discount and create fully
@@ -29,7 +37,7 @@ across cloud providers (e.g., AWS to GCP).
 
 ## CMEK encryption
 
-To encrypt the backup with a [customer managed encryption key (CMEK)](/docs/cmek), specify an
+To encrypt the backup with a [customer managed encryption key (CMEK)](/docs/encryption), specify an
 encryption key in the [`encryption` parameter](/docs/write#param-encryption).
 The key must be available in the destination region.
 
@@ -373,6 +381,96 @@ public class BackupNamespaces {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models;
+using Turbopuffer.Models.Namespaces;
+
+// Configuration
+const string SOURCE_REGION = "gcp-us-central1";
+const string BACKUP_REGION = "gcp-us-west1";
+const string SOURCE_PREFIX = "fts-"; // Back up all namespaces starting with "fts-"
+const string BACKUP_PREFIX = "backup-"; // Backup namespaces will be "backup-{name}-{date}"
+const int RETENTION_DAYS = 7;
+
+using var sourceClient = new TurbopufferClient { Region = SOURCE_REGION };
+using var backupClient = new TurbopufferClient { Region = BACKUP_REGION };
+
+var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(); // Unix epoch seconds
+var startTime = DateTimeOffset.UtcNow;
+
+// Step 1: Back up each namespace matching the source prefix
+Console.WriteLine("Starting backups...");
+int namespaceCount = 0;
+
+var namespaces = await sourceClient.Namespaces(
+    new ClientNamespacesParams { Prefix = SOURCE_PREFIX }
+);
+
+await foreach (var ns in namespaces.Paginate())
+{
+    namespaceCount++;
+    var backupName = $"{BACKUP_PREFIX}{ns.ID}-{timestamp:D10}";
+    Console.WriteLine($"  Backing up: {ns.ID}");
+
+    var backupNs = backupClient.Namespace(backupName);
+    await backupNs.CopyFrom(
+        new NamespaceCopyFromParams
+        {
+            SourceNamespace = ns.ID,
+            SourceRegion = SOURCE_REGION,
+            // if backing up to a different organization, include source_api_key:
+            // SourceApiKey = "<source-org-api-key>",
+        }
+    );
+}
+
+// Step 2: Delete old backups beyond the retention period (after successful backup)
+Console.WriteLine("Cleaning up old backups...");
+var cutoff = DateTimeOffset.UtcNow.ToUnixTimeSeconds() - RETENTION_DAYS * 86400L;
+int deleted = 0;
+
+var backups = await backupClient.Namespaces(
+    new ClientNamespacesParams { Prefix = BACKUP_PREFIX }
+);
+
+await foreach (var ns in backups.Paginate())
+{
+    // Safety check: only delete namespaces that match our backup prefix
+    if (BACKUP_PREFIX.Length == 0 || !ns.ID.StartsWith(BACKUP_PREFIX))
+    {
+        throw new InvalidOperationException(
+            $"Refusing to delete namespace that doesn't match backup prefix: {ns.ID}"
+        );
+    }
+
+    // Extract timestamp from backup namespace name (e.g., "backup-prod-users-1234567890")
+    var name = ns.ID;
+    if (name.Length >= 10)
+    {
+        if (long.TryParse(name.Substring(name.Length - 10), out var backupTime))
+        {
+            if (backupTime < cutoff)
+            {
+                Console.WriteLine($"  Deleting: {ns.ID}");
+                await backupClient.Namespace(ns.ID).DeleteAll(new NamespaceDeleteAllParams());
+                deleted++;
+            }
+        }
+        else
+        {
+            Console.Error.WriteLine($"  Skipping {ns.ID}: invalid timestamp format");
+        }
+    }
+}
+
+var elapsed = (DateTimeOffset.UtcNow - startTime).TotalSeconds;
+Console.WriteLine(
+    $"Done: backed up {namespaceCount} namespaces, deleted {deleted} old backups in {elapsed:F1}s"
+);
+```
 ```ruby
 require "turbopuffer"
 
@@ -671,6 +769,75 @@ public class RecoverNamespace {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models;
+using Turbopuffer.Models.Namespaces;
+
+// Configuration
+const string SOURCE_REGION = "gcp-us-central1";
+const string BACKUP_REGION = "gcp-us-west1";
+const string BACKUP_PREFIX = "backup-";
+
+using var sourceClient = new TurbopufferClient { Region = SOURCE_REGION };
+using var backupClient = new TurbopufferClient { Region = BACKUP_REGION };
+
+// Find the latest backup timestamp (last 10 chars = Unix epoch seconds)
+var backupTimestamps = new SortedSet<long>();
+
+var backupsForTimestamps = await backupClient.Namespaces(
+    new ClientNamespacesParams { Prefix = BACKUP_PREFIX }
+);
+await foreach (var ns in backupsForTimestamps.Paginate())
+{
+    var name = ns.ID;
+    if (name.Length >= 10)
+    {
+        if (long.TryParse(name.Substring(name.Length - 10), out var ts))
+        {
+            backupTimestamps.Add(ts);
+        }
+        // Skip invalid timestamps
+    }
+}
+
+var latestTimestamp = backupTimestamps.Max;
+var latestSuffix = $"{latestTimestamp:D10}";
+Console.WriteLine($"Recovering from backup timestamp: {latestTimestamp}");
+
+var startTime = DateTimeOffset.UtcNow;
+int recovered = 0;
+
+var backups = await backupClient.Namespaces(
+    new ClientNamespacesParams { Prefix = BACKUP_PREFIX }
+);
+await foreach (var ns in backups.Paginate())
+{
+    if (!ns.ID.EndsWith(latestSuffix)) continue;
+    var originalName = ns.ID.Substring(
+        BACKUP_PREFIX.Length,
+        ns.ID.Length - 11 - BACKUP_PREFIX.Length
+    ); // -11 for "-" + 10 digits
+    var recoveredName = "recovered-csharp-" + originalName + "";
+    Console.WriteLine($"  {ns.ID} -> {recoveredName}");
+    await sourceClient
+        .Namespace(recoveredName)
+        .CopyFrom(
+            new NamespaceCopyFromParams
+            {
+                SourceNamespace = ns.ID,
+                SourceRegion = BACKUP_REGION,
+            }
+        );
+    recovered++;
+}
+
+var elapsed = (DateTimeOffset.UtcNow - startTime).TotalSeconds;
+Console.WriteLine($"Done: recovered {recovered} namespaces in {elapsed:F1}s");
+```
 ```ruby
 require "turbopuffer"
 
@@ -718,3 +885,12 @@ puts "Done: recovered #{recovered} namespaces in #{(Time.now - start_time).round
 <!-- /multilang -->
 
 For more details on `copy_from_namespace`, see the [write documentation](/docs/write#param-copy_from_namespace).
+
+
+---
+
+This page: [/docs/backups.md](https://turbopuffer.com/docs/backups.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

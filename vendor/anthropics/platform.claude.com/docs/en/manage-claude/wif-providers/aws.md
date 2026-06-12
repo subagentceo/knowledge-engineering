@@ -64,7 +64,9 @@ python3 -c "import boto3; print(boto3.client('iam').get_outbound_web_identity_fe
 
 ### Configure Anthropic
 
-Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federation#set-up-federation) to register a federation issuer, create an Anthropic service account, and create a federation rule in the Claude Console. Use these STS-specific values.
+In the Claude Console, open **Settings → Workload identity**, click **Connect workload**, and select the **AWS** tile. The wizard walks you through registering the issuer, creating a service account, and creating a federation rule.
+
+The wizard creates these resources for you. Use the following values whether you enter them in the wizard or send them to the [Admin API](/docs/en/manage-claude/wif-admin-api):
 
 **Federation issuer:** Register the per-account STS issuer URL you copied in the prior step. It exposes a public JWKS endpoint, so use discovery mode.
 
@@ -72,7 +74,7 @@ Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federati
 {
   "name": "aws-sts",
   "issuer_url": "https://<uuid>.tokens.sts.global.api.aws",
-  "jwks_source": "discovery"
+  "jwks": { "type": "discovery" }
 }
 ```
 
@@ -188,8 +190,8 @@ async function getStsWebIdentityToken(): Promise<string> {
     new GetWebIdentityTokenCommand({
       Audience: ["https://api.anthropic.com"],
       SigningAlgorithm: "RS256",
-      DurationSeconds: 900,
-    }),
+      DurationSeconds: 900
+    })
   );
   return out.WebIdentityToken!;
 }
@@ -202,14 +204,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch,
-  }),
+    fetch
+  })
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from AWS" }],
+  messages: [{ role: "user", content: "Hello from AWS" }]
 });
 for (const block of message.content) {
   if (block.type === "text") {
@@ -486,7 +488,6 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
     ```
 
     The output looks like `https://oidc.eks.us-west-2.amazonaws.com/id/6FA42E7BFDE8549CB...`. You'll register this URL as a federation issuer in the next section.
-
   </Step>
 
   <Step title="Create the service account and project an Anthropic-audience token">
@@ -537,7 +538,6 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
               mountPath: /var/run/secrets/anthropic.com
               readOnly: true
     ```
-
   </Step>
 
   <Step title="Note the token's claim shape">
@@ -558,13 +558,14 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
     ```
 
     The `serviceAccountToken` projection sets `aud` to `https://api.anthropic.com`. The separate IRSA-injected token at `AWS_WEB_IDENTITY_TOKEN_FILE` carries `aud: sts.amazonaws.com` and is for AWS API calls, not this exchange.
-
   </Step>
 </Steps>
 
 ### Configure Anthropic
 
-Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federation#set-up-federation) to register a federation issuer, create an Anthropic service account, and create a federation rule in the Claude Console. Use these EKS-specific values.
+In the Claude Console, open **Settings → Workload identity**, click **Connect workload**, and select the **AWS** tile. The wizard walks you through registering the issuer, creating a service account, and creating a federation rule.
+
+The wizard creates these resources for you. Use the following values whether you enter them in the wizard or send them to the [Admin API](/docs/en/manage-claude/wif-admin-api):
 
 **Federation issuer:** EKS issuers expose a public JWKS endpoint, so use discovery mode. The issuer URL must exactly match the token's `iss` claim. Register one issuer per cluster.
 
@@ -572,7 +573,7 @@ Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federati
 {
   "name": "prod-eks-uswest2",
   "issuer_url": "https://oidc.eks.us-west-2.amazonaws.com/id/6FA42E7BFDE8549CB...",
-  "jwks_source": "discovery"
+  "jwks": { "type": "discovery" }
 }
 ```
 
@@ -664,22 +665,20 @@ import { identityTokenFromFile } from "@anthropic-ai/sdk/lib/credentials/identit
 
 const client = new Anthropic({
   credentials: oidcFederationProvider({
-    identityTokenProvider: identityTokenFromFile(
-      process.env.ANTHROPIC_IDENTITY_TOKEN_FILE!,
-    ),
+    identityTokenProvider: identityTokenFromFile(process.env.ANTHROPIC_IDENTITY_TOKEN_FILE!),
     federationRuleId: process.env.ANTHROPIC_FEDERATION_RULE_ID!,
     organizationId: process.env.ANTHROPIC_ORGANIZATION_ID!,
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch,
-  }),
+    fetch
+  })
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from EKS" }],
+  messages: [{ role: "user", content: "Hello from EKS" }]
 });
 for (const block of message.content) {
   if (block.type === "text") {
@@ -854,7 +853,7 @@ A `subject_prefix` of `arn:aws:iam::123456789012:role/*` matches every IAM role 
 Lock the rule's `match` block to the narrowest scope that fits your use case:
 
 - **Pin the full role ARN:** Use `subject_prefix: "arn:aws:iam::<account>:role/<role-name>"` with no trailing `*` so other roles in the account do not match.
-- **Pin the account ID:** Match the `aws_account` field of the token's `https://sts.amazonaws.com/` claim via the `claims` map or a CEL `condition` as a defense-in-depth check against a misconfigured prefix.
+- **Pin the account ID:** Match the `aws_account` field of the token's `https://sts.amazonaws.com/` claim with the `claims` map or a CEL `condition` as a defense-in-depth check against a misconfigured prefix.
 - **Pin namespace and service account on EKS:** Use the exact `system:serviceaccount:<namespace>:<name>` value with no `*` after the `system:serviceaccount:` prefix.
 - **Use a separate rule per environment:** Create distinct rules for production, staging, and development workloads rather than widening one prefix to cover them all.
 

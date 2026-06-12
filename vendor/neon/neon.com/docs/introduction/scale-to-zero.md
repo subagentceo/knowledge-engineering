@@ -1,7 +1,7 @@
 > This page location: Scale to zero
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of Neon's Scale to Zero feature, which automatically suspends inactive Postgres databases after 5 minutes to minimize costs, allowing for efficient resource management in development and production environments.
+> Summary: Scale to Zero suspends inactive Neon Postgres computes after 5 minutes and reactivates them in milliseconds on the next query, so you pay only for active compute time. Use this feature for development, test, or intermittently active production databases where always-on compute is unnecessary. Free plan users cannot disable it, but paid plan users can. Very large computes remain always active and are not eligible for scale to zero.
 
 # Scale to Zero
 

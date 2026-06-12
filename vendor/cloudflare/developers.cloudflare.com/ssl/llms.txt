@@ -26,7 +26,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 - [Certificate Signing Requests (CSRs)](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/certificate-signing-requests/index.md): Generate CSRs for use with custom certificates.
 - [Certificate Transparency Monitoring](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/certificate-transparency-monitoring/index.md): Certificate Transparency (CT) Monitoring is an opt-in feature in public beta that aims at improving security by allowing you to double-check any SSL/TLS certificates issued for your domain.
 - [Cipher suites](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/index.md): Control which encryption algorithms are used in TLS connections to your domain.
-- [Compliance standards](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/compliance-status/index.md): Cipher suite compliance with FIPS 140-2, PCI DSS, and other standards.
+- [Compliance standards](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/compliance-status/index.md): Cipher suite compliance with FIPS 140-3, PCI DSS, and other standards.
 - [Customize cipher suites](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/customize-cipher-suites/index.md): Restrict which cipher suites Cloudflare uses for edge connections.
 - [Customize cipher suites via API](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/customize-cipher-suites/api/index.md): Select allowed cipher suites for your zone using the API.
 - [Customize cipher suites via dashboard](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/cipher-suites/customize-cipher-suites/dashboard/index.md): Select allowed cipher suites for your zone in the dashboard.
@@ -57,7 +57,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 - [Bundle methodologies](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/bundling-methodologies/index.md): Certificate chain bundling options for custom certificates.
 - [Remove key file password](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/remove-file-key-password/index.md): Remove the password from a private key file before uploading.
 - [Renewal and expiration](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/renewing/index.md): Learn how renewal and expiration work when using Cloudflare Custom SSL certificates.
-- [Troubleshooting](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/troubleshooting/index.md): Troubleshoot issues with Client certificates
+- [Troubleshooting](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/troubleshooting/index.md): Troubleshoot issues with custom certificates.
 - [Manage custom certificates](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/uploading/index.md): Upload, update, and delete custom certificates.
 - [ECH Protocol](https://developers.cloudflare.com/ssl/edge-certificates/ech/index.md): Encrypt the SNI field with Encrypted Client Hello for improved privacy.
 - [Enforce HTTPS connections](https://developers.cloudflare.com/ssl/edge-certificates/encrypt-visitor-traffic/index.md): Force all visitor traffic to use HTTPS connections.
@@ -116,7 +116,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 ## Post-quantum cryptography (PQC)
 
 - [Post-quantum cryptography (PQC)](https://developers.cloudflare.com/ssl/post-quantum-cryptography/index.md): Get an overview of how Cloudflare is deploying post-quantum cryptography to protect you against harvest now, decrypt later.
-- [Post-quantum cryptography in Cloudflare One](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-and-zero-trust/index.md): Use post-quantum cryptography with Cloudflare One Client and Cloudflare Tunnel.
+- [Post-quantum cryptography in Cloudflare One](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-and-zero-trust/index.md): Use post-quantum cryptography with Cloudflare One on-ramps and off-ramps.
 - [PQC in Cloudflare products](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-cloudflare-products/index.md): Track which Cloudflare products support post-quantum key agreement and post-quantum signatures.
 - [PQC support](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-support/index.md): Consider information about post-quantum cryptography at Cloudflare - deployed key agreements, signatures, and software support.
 - [Post-quantum between Cloudflare and origin servers](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-to-origin/index.md): Learn about post-quantum cryptography in connections from Cloudflare to your origin servers.
@@ -124,6 +124,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 ## Troubleshooting
 
 - [Troubleshooting](https://developers.cloudflare.com/ssl/troubleshooting/index.md): Troubleshoot common SSL/TLS errors and configuration issues.
+- [ERR_SSL_PROTOCOL_ERROR](https://developers.cloudflare.com/ssl/troubleshooting/err-ssl-protocol-error/index.md): Learn how to troubleshoot ERR_SSL_PROTOCOL_ERROR and similar SSL/TLS protocol errors when using Cloudflare.
 - [General SSL errors](https://developers.cloudflare.com/ssl/troubleshooting/general-ssl-errors/index.md): Learn how to troubleshoot various SSL/TLS errors with Cloudflare.
 - [Mixed content errors](https://developers.cloudflare.com/ssl/troubleshooting/mixed-content-errors/index.md): Fix mixed content errors caused by HTTP resources on HTTPS pages.
 - [ERR_TOO_MANY_REDIRECTS](https://developers.cloudflare.com/ssl/troubleshooting/too-many-redirects/index.md): Learn how to troubleshoot ERR_TOO_MANY_REDIRECTS when using Cloudflare SSL/TLS.

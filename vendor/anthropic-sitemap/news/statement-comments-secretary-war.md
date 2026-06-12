@@ -26,8 +26,8 @@ Secretary Hegseth has implied this designation would restrict anyone who does bu
 
 In practice, this means:
 
-- **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
-- **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
+*   **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
+*   **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
 
 Our sales and support teams are standing by to answer any questions you may have.
 
@@ -35,18 +35,18 @@ We are deeply grateful to our users, and to the industry peers, policymakers, ve
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

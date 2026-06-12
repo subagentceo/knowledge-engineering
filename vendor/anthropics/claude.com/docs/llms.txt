@@ -7,6 +7,7 @@
 - [Directory connectors vs custom connectors](https://claude.com/docs/connectors/building/directory-vs-custom.md): Understand the difference between directory-listed and custom connectors
 - [Building custom connectors](https://claude.com/docs/connectors/building/index.md): Build your own MCP servers to connect Claude to your tools and data
 - [Lazy authentication for MCP servers](https://claude.com/docs/connectors/building/lazy-authentication.md): Let users call public tools immediately and defer OAuth until a protected tool is actually invoked.
+- [Managing your directory listing](https://claude.com/docs/connectors/building/managing-your-listing.md): Track submissions, monitor server health and usage metrics, and edit your Connectors Directory listing
 - [Model Context Protocol (MCP)](https://claude.com/docs/connectors/building/mcp.md): Understanding the open standard powering Claude's connectors
 - [Building cross-platform MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/cross-compatibility.md): Build MCP Apps that work with both Claude and ChatGPT using a single codebase
 - [Design guidelines](https://claude.com/docs/connectors/building/mcp-apps/design-guidelines.md): Visual and interaction design guidelines for MCP Apps in Claude
@@ -34,9 +35,11 @@
 - [Slack integration](https://claude.com/docs/connectors/slack/index.md): Use Claude directly in Slack and connect your workspace
 - [Deploy Cowork on 3P with Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock.md): Set up AWS, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Amazon Bedrock
 - [Sign in with AWS for Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock-aws-sign-in.md): Configure per-user AWS IAM Identity Center authentication for Amazon Bedrock instead of distributing a bearer token or requiring the AWS CLI
+- [Per-user configuration with a bootstrap server](https://claude.com/docs/cowork/3p/bootstrap.md): Host an HTTPS endpoint that returns each user's configuration so credentials, models, and policy can be administered per user without per-device MDM
 - [Code tab](https://claude.com/docs/cowork/3p/code.md): How Cowork on 3P configuration applies to the embedded Claude Code engine
 - [Configuration reference](https://claude.com/docs/cowork/3p/configuration.md): Every managed-configuration key Cowork on 3P supports, what it controls, and recommended security profiles
 - [Connect to Microsoft 365](https://claude.com/docs/cowork/3p/connectors-m365.md): Give Claude access to your organization's Outlook, OneDrive, SharePoint, and Teams data through a connector you register in your own Microsoft Entra tenant.
+- [Write a credential helper](https://claude.com/docs/cowork/3p/credential-helper.md): Supply Cowork on 3P with a short-lived inference token by running an executable you provide
 - [User identity and local data](https://claude.com/docs/cowork/3p/data-storage.md): How Cowork on 3P identifies users and where it stores conversations, settings, and credentials on disk
 - [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions.md): Extend Cowork on 3P with connectors, organization plugins, skills, and hooks for administrators and end users
 - [Features on 3P](https://claude.com/docs/cowork/3p/feature-matrix.md): Feature comparison between Claude Enterprise and Cowork on third-party (3P)
@@ -51,6 +54,8 @@
 - [Deploy Cowork on 3P with Google Cloud's Vertex AI](https://claude.com/docs/cowork/3p/vertex.md): Set up Google Cloud, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Vertex AI
 - [Sign in with Google for Google Cloud's Vertex AI](https://claude.com/docs/cowork/3p/vertex-google-sign-in.md): Configure per-user Google authentication for Google Cloud's Vertex AI instead of distributing a shared service-account key
 - [Web search and web fetch](https://claude.com/docs/cowork/3p/web-tools.md): How Cowork on 3P reaches the internet, which providers support search, and how to control or disable web access
+- [Changelog](https://claude.com/docs/cowork/changelog.md): Release notes for Claude Desktop
+- [Write a credential helper](https://claude.com/docs/cowork/guide/credential-helper.md): Supply Claude with a short-lived API token by running an executable you provide.
 - [Run tasks in the background with Dispatch](https://claude.com/docs/cowork/guide/dispatch.md): Assign work to a Dispatch agent that plans, runs, and reports on tasks while you do something else, on this computer or from your phone.
 - [Install plugins](https://claude.com/docs/cowork/guide/plugins.md): Add packaged skills, connectors, and agents to Cowork from the plugin marketplace or a file.
 - [Organize work with projects](https://claude.com/docs/cowork/guide/projects.md): Group folders, instructions, and context into a Cowork project so Claude starts each session with the right setup.

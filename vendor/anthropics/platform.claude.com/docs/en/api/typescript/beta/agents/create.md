@@ -9,15 +9,27 @@ Create Agent
 ### Parameters
 
 - `params: AgentCreateParams`
+
   - `model: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
 
     Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
-    - `BetaManagedAgentsModel = "claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more | (string & {})`
+
+    - `BetaManagedAgentsModel = "claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more | (string & {})`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+
+      - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
+
         - `"claude-opus-4-7"`
 
           Frontier intelligence for long-running agents and coding
@@ -59,6 +71,7 @@ Create Agent
     - `BetaManagedAgentsModelConfigParams`
 
       An object that defines additional configuration control over model use
+
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
@@ -68,26 +81,29 @@ Create Agent
       - `speed?: "standard" | "fast" | null`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"`
 
         - `"fast"`
 
   - `name: string`
 
-    Body param: Human-readable name for the agent. 1-256 characters.
+    Body param: Human-readable name for the agent.
 
   - `description?: string | null`
 
-    Body param: Description of what the agent does. Up to 2048 characters.
+    Body param: Description of what the agent does.
 
   - `mcp_servers?: Array<BetaManagedAgentsURLMCPServerParams>`
 
     Body param: MCP servers this agent connects to. Maximum 20. Names must be unique within the array.
+
     - `name: string`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     - `type: "url"`
+
       - `"url"`
 
     - `url: string`
@@ -101,19 +117,23 @@ Create Agent
   - `multiagent?: BetaManagedAgentsMultiagentParams | null`
 
     Body param: A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
+
     - `agents: Array<BetaManagedAgentsMultiagentRosterEntryParams>`
 
       Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
+
       - `string`
 
       - `BetaManagedAgentsAgentParams`
 
         Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
         - `id: string`
 
           The `agent` ID.
 
         - `type: "agent"`
+
           - `"agent"`
 
         - `version?: number`
@@ -123,23 +143,29 @@ Create Agent
       - `BetaManagedAgentsMultiagentSelfParams`
 
         Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
+
         - `type: "self"`
+
           - `"self"`
 
     - `type: "coordinator"`
+
       - `"coordinator"`
 
   - `skills?: Array<BetaManagedAgentsSkillParams>`
 
-    Body param: Skills available to the agent. Maximum 20.
+    Body param: Skills available to the agent.
+
     - `BetaManagedAgentsAnthropicSkillParams`
 
       An Anthropic-managed skill.
+
       - `skill_id: string`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
       - `type: "anthropic"`
+
         - `"anthropic"`
 
       - `version?: string | null`
@@ -149,11 +175,13 @@ Create Agent
     - `BetaManagedAgentsCustomSkillParams`
 
       A user-created custom skill.
+
       - `skill_id: string`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
       - `type: "custom"`
+
         - `"custom"`
 
       - `version?: string | null`
@@ -162,23 +190,28 @@ Create Agent
 
   - `system?: string | null`
 
-    Body param: System prompt for the agent. Up to 100,000 characters.
+    Body param: System prompt for the agent.
 
   - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams>`
 
     Body param: Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
+
     - `BetaManagedAgentsAgentToolset20260401Params`
 
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
       - `type: "agent_toolset_20260401"`
+
         - `"agent_toolset_20260401"`
 
       - `configs?: Array<BetaManagedAgentsAgentToolConfigParams>`
 
         Per-tool configuration overrides.
+
         - `name: "bash" | "edit" | "read" | 5 more`
 
           Built-in agent tool identifier.
+
           - `"bash"`
 
           - `"edit"`
@@ -202,21 +235,27 @@ Create Agent
         - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
+
             - `type: "always_allow"`
+
               - `"always_allow"`
 
           - `BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
             - `type: "always_ask"`
+
               - `"always_ask"`
 
       - `default_config?: BetaManagedAgentsAgentToolsetDefaultConfigParams | null`
 
         Default configuration for all tools in a toolset.
+
         - `enabled?: boolean | null`
 
           Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -224,6 +263,7 @@ Create Agent
         - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -235,16 +275,19 @@ Create Agent
     - `BetaManagedAgentsMCPToolsetParams`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
       - `mcp_server_name: string`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       - `type: "mcp_toolset"`
+
         - `"mcp_toolset"`
 
       - `configs?: Array<BetaManagedAgentsMCPToolConfigParams>`
 
         Per-tool configuration overrides.
+
         - `name: string`
 
           Name of the MCP tool to configure. 1-128 characters.
@@ -256,6 +299,7 @@ Create Agent
         - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -267,6 +311,7 @@ Create Agent
       - `default_config?: BetaManagedAgentsMCPToolsetDefaultConfigParams | null`
 
         Default configuration for all tools from an MCP server.
+
         - `enabled?: boolean | null`
 
           Whether tools are enabled by default. Defaults to true if not specified.
@@ -274,6 +319,7 @@ Create Agent
         - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -285,6 +331,7 @@ Create Agent
     - `BetaManagedAgentsCustomToolParams`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
       - `description: string`
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -292,32 +339,31 @@ Create Agent
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+          - `"object"`
+
         - `properties?: Record<string, unknown> | null`
 
-          JSON Schema properties defining the tool's input parameters.
-
-        - `required?: Array<string>`
-
-          List of required property names.
-
-        - `type?: "object"`
-
-          Must be 'object' for tool input schemas.
-          - `"object"`
+        - `required?: Array<string> | null`
 
       - `name: string`
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
       - `type: "custom"`
+
         - `"custom"`
 
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -370,13 +416,16 @@ Create Agent
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsAgent`
 
   A Managed Agents `agent`.
+
   - `id: string`
 
   - `archived_at: string | null`
@@ -390,9 +439,11 @@ Create Agent
   - `description: string | null`
 
   - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
     - `name: string`
 
     - `type: "url"`
+
       - `"url"`
 
     - `url: string`
@@ -402,12 +453,23 @@ Create Agent
   - `model: BetaManagedAgentsModelConfig`
 
     Model identifier and configuration.
+
     - `id: BetaManagedAgentsModel`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+
+      - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
+
         - `"claude-opus-4-7"`
 
           Frontier intelligence for long-running agents and coding
@@ -449,6 +511,7 @@ Create Agent
     - `speed?: "standard" | "fast"`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
       - `"standard"`
 
       - `"fast"`
@@ -456,28 +519,35 @@ Create Agent
   - `multiagent: BetaManagedAgentsMultiagent | null`
 
     Resolved coordinator topology with a concrete agent roster.
+
     - `agents: Array<BetaManagedAgentsAgentReference>`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
+
       - `id: string`
 
       - `type: "agent"`
+
         - `"agent"`
 
       - `version: number`
 
     - `type: "coordinator"`
+
       - `"coordinator"`
 
   - `name: string`
 
   - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
     - `BetaManagedAgentsAnthropicSkill`
 
       A resolved Anthropic-managed skill.
+
       - `skill_id: string`
 
       - `type: "anthropic"`
+
         - `"anthropic"`
 
       - `version: string`
@@ -485,9 +555,11 @@ Create Agent
     - `BetaManagedAgentsCustomSkill`
 
       A resolved user-created custom skill.
+
       - `skill_id: string`
 
       - `type: "custom"`
+
         - `"custom"`
 
       - `version: string`
@@ -495,13 +567,17 @@ Create Agent
   - `system: string | null`
 
   - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
     - `BetaManagedAgentsAgentToolset20260401`
+
       - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
         - `enabled: boolean`
 
         - `name: "bash" | "edit" | "read" | 5 more`
 
           Built-in agent tool identifier.
+
           - `"bash"`
 
           - `"edit"`
@@ -521,26 +597,33 @@ Create Agent
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
+
             - `type: "always_allow"`
+
               - `"always_allow"`
 
           - `BetaManagedAgentsAlwaysAskPolicy`
 
             Tool calls require user confirmation before execution.
+
             - `type: "always_ask"`
+
               - `"always_ask"`
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
         Resolved default configuration for agent tools.
+
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -550,10 +633,13 @@ Create Agent
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
+
         - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
+
       - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
         - `enabled: boolean`
 
         - `name: string`
@@ -561,6 +647,7 @@ Create Agent
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -572,11 +659,13 @@ Create Agent
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
+
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
+
           - `BetaManagedAgentsAlwaysAllowPolicy`
 
             Tool calls are automatically approved without user confirmation.
@@ -588,35 +677,35 @@ Create Agent
       - `mcp_server_name: string`
 
       - `type: "mcp_toolset"`
+
         - `"mcp_toolset"`
 
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
+
       - `description: string`
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `type: "object"`
+
+          - `"object"`
+
         - `properties?: Record<string, unknown> | null`
 
-          JSON Schema properties defining the tool's input parameters.
-
-        - `required?: Array<string>`
-
-          List of required property names.
-
-        - `type?: "object"`
-
-          Must be 'object' for tool input schemas.
-          - `"object"`
+        - `required?: Array<string> | null`
 
       - `name: string`
 
       - `type: "custom"`
+
         - `"custom"`
 
   - `type: "agent"`
+
     - `"agent"`
 
   - `updated_at: string`
@@ -630,15 +719,15 @@ Create Agent
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsAgent = await client.beta.agents.create({
-  model: "claude-sonnet-4-6",
-  name: "My First Agent",
+  model: 'claude-sonnet-4-6',
+  name: 'My First Agent',
 });
 
 console.log(betaManagedAgentsAgent.id);

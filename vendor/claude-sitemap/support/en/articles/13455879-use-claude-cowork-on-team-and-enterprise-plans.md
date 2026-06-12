@@ -2,19 +2,21 @@ This article explains important limitations and considerations for Team and Ente
 
 ## Availability
 
-Claude Cowork is available as a research preview for paid plans (Pro, Max, Team, Enterprise) on:
+Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 
 - **Claude Desktop for macOS**
+
   - **[Click here](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)** to download
 
 - **Claude Desktop for Windows**
+
   - **Windows users:** Cowork requires the latest version of Claude for Windows. Download or update at **[claude.com/download](https://claude.com/download)**.
 
 ---
 
 ## Admin controls
 
-Claude Cowork will be on by default when the research preview launches, but organization owners can manually disable it.
+Claude Cowork is on by default, but organization owners can manually disable it.
 
 **How to enable or disable Cowork:**
 

@@ -302,12 +302,11 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Logging options](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-policies/logging-options/index.md): Logging options in Cloudflare One.
 - [DLP profiles](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-profiles/index.md): DLP profiles in Cloudflare One.
 - [Profile settings](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-profiles/advanced-settings/index.md): Reference information for Profile settings in Cloudflare One.
-- [Integration profiles](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-profiles/integration-profiles/index.md): How Integration profiles works in Cloudflare One.
+- [Integration profiles](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-profiles/integration-profiles/index.md): How integration profiles work in Cloudflare One.
 - [Predefined profiles](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-profiles/predefined-profiles/index.md): Reference information for Predefined profiles in Cloudflare One.
 - [DLP settings](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/dlp-settings/index.md): Configure account-level DLP settings.
 - [Scan SaaS apps](https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/casb-dlp/index.md): Scan SaaS apps for Cloudflare One.
-- [Scan for sensitive data](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/saas-apps-dlp/index.md): How Scan for sensitive data works in Cloudflare One.
-- [Troubleshoot DLP](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/troubleshoot-dlp/index.md): Troubleshoot Troubleshoot DLP issues in Cloudflare One.
+- [Troubleshoot DLP](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/troubleshoot-dlp/index.md): Troubleshoot common DLP issues in Cloudflare One.
 
 ## Remote browser isolation
 
@@ -465,6 +464,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Centrify](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/centrify/index.md): Centrify in Zero Trust integrations.
 - [Centrify (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/centrify-saml/index.md): Learn how to integrate Centrify as a SAML identity provider with Cloudflare One.
 - [Citrix ADC (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/citrixadc-saml/index.md): Citrix ADC (SAML) in Zero Trust integrations.
+- [Cloudflare as identity provider](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/cloudflare/index.md): Use Cloudflare as an identity provider for Access policies, allowing authentication based on Cloudflare account membership.
 - [Microsoft Entra ID](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/entra-id/index.md): Microsoft Entra ID in Zero Trust integrations.
 - [Facebook](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/facebook-login/index.md): Facebook in Zero Trust integrations.
 - [Generic OIDC](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/index.md): Generic OIDC in Zero Trust integrations.
@@ -472,6 +472,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [GitHub](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/github/index.md): GitHub in Zero Trust integrations.
 - [Google](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google/index.md): Google in Zero Trust integrations.
 - [Google Workspace](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace/index.md): Google Workspace in Zero Trust integrations.
+- [IdP federation](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/idp-federation/index.md): Share an identity provider across multiple Cloudflare accounts in your organization using IdP federation.
 - [JumpCloud (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/jumpcloud-saml/index.md): JumpCloud (SAML) in Zero Trust integrations.
 - [Keycloak (SAML)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/keycloak/index.md): Keycloak (SAML) in Zero Trust integrations.
 - [LinkedIn](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/linkedin/index.md): LinkedIn in Zero Trust integrations.
@@ -501,7 +502,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Cloudflare Mesh](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/index.md): How Cloudflare Mesh works in Zero Trust networking.
 - [Connect client devices](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/client-devices/index.md): Connect client devices in Zero Trust networking.
 - [Get started](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/get-started/index.md): Get started in Zero Trust networking.
-- [High availability](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/high-availability/index.md): High availability in Zero Trust networking.
+- [High availability](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/high-availability/index.md): High availability for Cloudflare Mesh nodes.
 - [Routes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/routes/index.md): Routes in Zero Trust networking.
 - [Tips and best practices](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/tips/index.md): Reference information for Tips and best practices in Zero Trust networking.
 - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/index.md): How Cloudflare Tunnel works in Zero Trust networking.
@@ -617,7 +618,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Update tunnel health checks frequency](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/common-settings/update-tunnel-health-checks-frequency/index.md): Update tunnel health checks frequency in Zero Trust networking.
 - [Configure Cloudflare source IPs (beta)](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/index.md): Configure the Cloudflare source IP range used when you receive traffic from Cloudflare services sent to your Cloudflare One private networks.
 - [Configure routes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-routes/index.md): Cloudflare WAN uses a static configuration to route your traffic through anycast tunnels from Cloudflare's global network to your locations. If you are connected through CNI with Dataplane v2, you also have access to BGP peering (beta). Learn how to configure routing.
-- [Configure tunnel endpoints](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-tunnel-endpoints/index.md): Cloudflare recommends two tunnels for each ISP and network location router combination, one per Cloudflare endpoint. Learn how to configure IPsec or GRE tunnels.
+- [Configure tunnel endpoints](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/configure-tunnel-endpoints/index.md): Learn how to configure IPsec or GRE tunnels for Cloudflare WAN.
 - [Run traceroute](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/how-to/traceroute/index.md): Learn what settings you need to change to perform a useful `traceroute` to an endpoint behind a Cloudflare Tunnel.
 - [Alibaba Cloud VPN Gateway](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/third-party/alibaba-cloud/index.md): Integrate Alibaba Cloud VPN Gateway with Zero Trust networking.
 - [Aruba EdgeConnect Enterprise](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/third-party/aruba-edgeconnect/index.md): Integrate Aruba EdgeConnect Enterprise with Zero Trust networking.
@@ -666,6 +667,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [WARP](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-one-client/index.md): Use the Cloudflare One Client as an on-ramp to Cloudflare WAN and route traffic from user devices with the Cloudflare One Client installed to any network connected with Cloudflare Tunnel or IP-layer tunnels (anycast GRE, IPsec, or CNI).
 - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-tunnel/index.md): Reference information for Cloudflare Tunnel in Zero Trust networking.
 - [Secure WAN traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/security-services/index.md): Which security services apply to WAN traffic and when to use them.
+- [Granular permissions for Tunnels and Mesh nodes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/granular-permissions/index.md): Scope Cloudflare member permissions to individual Cloudflare Tunnel instances and Cloudflare Mesh nodes.
 - [DNS over HTTPS (DoH)](https://developers.cloudflare.com/cloudflare-one/networks/resolvers-and-proxies/dns/dns-over-https/index.md): DNS over HTTPS (DoH) in Zero Trust networking.
 - [DNS over TLS (DoT)](https://developers.cloudflare.com/cloudflare-one/networks/resolvers-and-proxies/dns/dns-over-tls/index.md): DNS over TLS (DoT) in Zero Trust networking.
 - [Locations](https://developers.cloudflare.com/cloudflare-one/networks/resolvers-and-proxies/dns/locations/index.md): Locations in Zero Trust networking.
@@ -711,6 +713,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 
 - [Application Library](https://developers.cloudflare.com/cloudflare-one/team-and-resources/app-library/index.md): Application Library in Zero Trust.
 - [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/index.md): How Cloudflare One Client works in Zero Trust.
+- [Business Continuity Guide](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/business-continuity/index.md): Build a business continuity strategy for the Cloudflare One Client using available disconnection mechanisms and decision guidance for service degradation scenarios.
 - [Configure the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/index.md): Configure the Cloudflare One Client resources and guides for Zero Trust.
 - [Client sessions](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/client-sessions/index.md): Client sessions in Zero Trust.
 - [Device IPs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-ips/index.md): Device IPs in Zero Trust.
@@ -724,7 +727,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Split Tunnels](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/index.md): Split Tunnels in Zero Trust.
 - [Device client settings](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/index.md): Reference information for Device client settings in Zero Trust.
 - [Captive portal detection](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/captive-portals/index.md): How Captive portal detection works in Zero Trust.
-- [External Emergency Disconnect](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/external-disconnect/index.md): External Emergency Disconnect in Zero Trust.
+- [Emergency Disconnect](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/emergency-disconnect/index.md): Configure emergency disconnect for Cloudflare One Clients using external endpoints or local signal files independently from Cloudflare infrastructure.
 - [Deploy the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/index.md): Deploy the Cloudflare One Client resources and guides for Zero Trust.
 - [Device enrollment permissions](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/device-enrollment/index.md): Device enrollment permissions in Zero Trust.
 - [Cloudflare One Client with firewall](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/index.md): Reference information for Cloudflare One Client with firewall in Zero Trust.
@@ -742,6 +745,7 @@ Replace legacy security perimeters with Cloudflare's network to protect your org
 - [Register the Cloudflare One Client with minimal user interaction](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/protocol-handler/index.md): Register the Cloudflare One Client with minimal user interaction in Zero Trust.
 - [Switch between Zero Trust organizations](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/switch-organizations/index.md): Switch between Zero Trust organizations in Zero Trust.
 - [Multiple users on a Windows device](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/windows-multiuser/index.md): How Multiple users on a Windows device works in Zero Trust.
+- [Block internet access until user authenticates](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/windows-no-auth-no-internet/index.md): Block internet access on a Windows device until the user authenticates with the Cloudflare One Client.
 - [Connect the Cloudflare One Client before Windows login](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/windows-prelogin/index.md): Connect the Cloudflare One Client before Windows login in Zero Trust.
 - [Cloudflare One Client with legacy VPNs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/vpn/index.md): Reference information for Cloudflare One Client with legacy VPNs in Zero Trust.
 - [Download Cloudflare One Client stable releases](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/index.md): Reference information for Download Cloudflare One Client stable releases in Zero Trust.

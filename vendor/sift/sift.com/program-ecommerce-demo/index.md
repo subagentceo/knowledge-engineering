@@ -1,4 +1,6 @@
-[Home](https://sift.com)/E-Commerce Fraud Protection | Demo
+# Free Demo | Fuel E-Commerce Growth Through Identity Trust
+
+Home/E-Commerce Fraud Protection | Demo
 
 # Free Demo | Fuel E-Commerce Growth Through Identity Trust
 
@@ -16,8 +18,6 @@
 
 **Book a free demo to see Sift in action and get your e-commerce fraud questions answered.**
 
-[
-
 ![chats-fill](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Talk to An Expert
@@ -25,8 +25,6 @@ Talk to An Expert
 See Sift in action and get a free demo of the platform.
 
 request demo
-
-](/contact-us)[
 
 ![help-support](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -36,17 +34,13 @@ Access the Sift Help Center and get in touch with our Support Team.
 
 get support
 
-](https://siftscience.my.site.com/CustomerService/s/contactsupport)[
-
 ![media-inquiries](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Media Inquiries
 
-Contact our press team: \[email protected\].
+Contact our press team: [email protected].
 
 explore newsroom
-
-](/company/newsroom)[
 
 ![investors](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -56,8 +50,6 @@ Learn about our investors.
 
 explore investors
 
-](/investors)
-
 Digital Commerce Leaders Stop More Fraud with Sift
 
 Thank you, we will be in contact soon.
@@ -66,35 +58,35 @@ Thank you, we will be in contact soon.
 
 Our deep investments in AI-powered user insights and a data network scoring 1 trillion events per year enable more than 700 customers to grow fearlessly.
 
--   ![harry's](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![harry's](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![eaze](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![eaze](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![poshmark-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![poshmark-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![Paula's Choice logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![Paula's Choice logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
 
--   ![harry's](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![harry's](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![evarlane](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![eaze](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![eaze](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![poshmark-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![poshmark-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![Paula's Choice logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
+*   ![Paula's Choice logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20450%2068'%3E%3C/svg%3E)
     
 
 ## Accelerating Secure Growth with AI-fueled Data and Decisioning
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Smartproxy-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%2053'%3E%3C/svg%3E)
 
@@ -110,7 +102,7 @@ Lukas Marcinkevicius
 
 Payments and Risk Lead at Smartproxy
 
-[read customer story](/resources/case-studies/smartproxy-case-study/)
+read customer story
 
 ![Smartproxy](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -132,7 +124,7 @@ Yan Pritzker
 
 Co-founder & CTO Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![case-study-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -154,7 +146,7 @@ Sift helps us detect more ATO than our rules-based system could, and the console
 
 Sr. Product Manager - User Platform Traveloka
 
-[read customer story](/resources/case-studies/traveloka/)
+read customer story
 
 ![case-study-traveloka](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -170,75 +162,76 @@ More orders accepted
 
 ## The Leader in AI-Powered Fraud Decisioning
 
--   ![Risk-BasedAuthentication(RBA)\_MostImplementable\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestResults\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestRelationship\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestRelationship\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_MostImplementable\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_Leader\_Small-Business\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_Leader\_Enterprise\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestUsability\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestResults\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestRelationship\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_MostImplementable\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_MomentumLeader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-commerceFraudProtection\_Leader\_Europe\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-commerceFraudProtection\_HighPerformer\_Asia\_HighPerformer](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-commerceFraudProtection\_BestUsability\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-commerceFraudProtection\_BestResults\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-commerceFraudProtection\_BestRelationship\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![E-Commerce\_Leader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![Risk-BasedAuthentication(RBA)\_MostImplementable\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestResults\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestRelationship\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![Risk-BasedAuthentication(RBA)\_BestRelationship\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_MostImplementable\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_Leader\_Small-Business\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_Leader\_Enterprise\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestUsability\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestResults\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![FraudDetection\_BestRelationship\_Enterprise\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_MostImplementable\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_MomentumLeader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_Leader\_Europe\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_HighPerformer\_Asia\_HighPerformer](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_BestUsability\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_BestResults\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![E-commerceFraudProtection\_BestRelationship\_Mid-Market\_Total](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![E-Commerce\_Leader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
+    
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
+    
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
+    
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
+    
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)

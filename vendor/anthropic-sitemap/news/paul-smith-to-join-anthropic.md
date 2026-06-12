@@ -18,18 +18,20 @@ AI is fundamentally restructuring how businesses create and capture value. Paul'
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Introducing Claude Opus 4.8
+### Introducing Claude Corps
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Claude Fable 5 and Claude Mythos 5
 
-We're opening a new office in Milan, our sixth in Europe.
+Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

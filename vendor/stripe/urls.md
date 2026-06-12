@@ -1,7 +1,6 @@
 ---
 vendor: stripe
 llms_txt: https://docs.stripe.com/llms.txt
-last_crawled: 2026-05-15T03:29:21.463Z
 count: 60
 transform: append-md-and-accept
 ---

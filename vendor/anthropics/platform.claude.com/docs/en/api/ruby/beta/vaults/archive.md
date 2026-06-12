@@ -13,9 +13,11 @@ Archive Vault
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -68,13 +70,16 @@ Archive Vault
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: String`
 
     Unique identifier for the vault.
@@ -96,6 +101,7 @@ Archive Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: :vault`
+
     - `:vault`
 
   - `updated_at: Time`

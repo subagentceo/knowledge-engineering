@@ -5,19 +5,19 @@ Access chat content, file attachments, and projects for claude.ai organizations 
 ---
 
 <Note>
-  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  To enable the Compliance API, see [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 :
     the chat/file/project endpoints read claude.ai content, so unlike the rest of
     the Compliance API they really are Claude Enterprise-only. */}
 <Note>
-  The endpoints on this page retrieve and delete claude.ai content, which is available only to organizations on the Claude Enterprise plan. The Compliance API is enabled on request. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  The endpoints on this page retrieve and delete claude.ai content and are available only to Claude Enterprise organizations, which have self-service access to the Compliance API. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 
 <Check>
   **Required scope:** `read:compliance_user_data` on the Compliance Access Key. The delete endpoints also require `delete:compliance_user_data`.
 
-**Prerequisite:** To list chats, at least one user ID from [List organization users](/docs/en/manage-claude/compliance-org-data#list-organization-users). The other endpoints on this page take resource IDs directly.
+  **Prerequisite:** To list chats, at least one user ID from [List organization users](/docs/en/manage-claude/compliance-org-data#list-organization-users). The other endpoints on this page take resource IDs directly.
 </Check>
 
 The endpoints on this page expose claude.ai chat content, file uploads, projects, and project attachments to compliance reviewers. They support eDiscovery (electronic discovery) exports, data loss prevention (DLP) enforcement, and account-deletion responses. Content is retained for as long as your organization's retention policy allows. Chats that a user has soft-deleted in claude.ai remain visible through the Compliance API with `deleted_at` populated; chats that have been hard-deleted (through the Compliance API itself, or after the organization's retention window expires) are not retrievable.
@@ -80,10 +80,9 @@ To pull the actual chat content, attached files, and inline artifacts (structure
 chat_id="claude_chat_01H5CWunD7RpVJ5bHa8RCkja"
 
 curl --fail-with-body -sS \
- "https://api.anthropic.com/v1/compliance/apps/chats/$chat_id/messages" \
- --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
-
-````
+  "https://api.anthropic.com/v1/compliance/apps/chats/$chat_id/messages" \
+  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
+```
 </CodeGroup>
 
 The messages endpoint returns the chat's metadata plus a `chat_messages` array sorted by `created_at`. When `limit` is omitted, the full message set is returned in one response; pass `limit`, `after_id`, or `before_id` to page through very long chats. The endpoint also accepts `created_at.*` and `updated_at.*` range bounds (`gt`, `gte`, `lt`, `lte`) and an `order` parameter (`asc` or `desc`). See [Get chat messages](/docs/en/api/compliance/apps/chats/messages/list) for the full parameter list. For user messages, `created_at` is when the message was sent; for assistant messages, it is when Claude finished generating the message. Each message carries its text content and, when present, any uploaded files (typically on user messages), any tool-generated files, and any artifacts the assistant produced or updated (typically on assistant messages):
@@ -153,7 +152,7 @@ The messages endpoint returns the chat's metadata plus a `chat_messages` array s
   "first_id": "eyJtc2dfdXVpZCI6ICIwZjcwYjA2Ni0uLi4ifQ==",
   "last_id": "eyJtc2dfdXVpZCI6ICJhNGUwYjE3Mi0uLi4ifQ=="
 }
-````
+```
 
 `files`, `generated_files`, and `artifacts` can each be `null` on a given message. `files` are binary uploads (PDFs, images, spreadsheets) the user attached to the message. `generated_files` are binary files the assistant created during the conversation through tool use (for example, PDFs, spreadsheets, or slide decks). `artifacts` are versioned documents (for example, code or markdown) the assistant generated or updated in its response; an artifact can be revised across multiple assistant turns in the same chat, and each revision appears as a new `version_id` under the same artifact `id`. Pass each entry's `id` (or `version_id` for artifacts) to the matching content endpoint in [Retrieve files and artifacts](#retrieve-files-and-artifacts) to download it.
 
@@ -163,16 +162,16 @@ Files and artifacts are downloaded by ID, not listed independently. The IDs come
 
 Pick the endpoint that matches your ID type and the data you need. The same file content endpoint serves both chat files and project files.
 
-| You have                       | You want                                | Use this endpoint                                                                               |
-| ------------------------------ | --------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `claude_file_*` ID             | The file's binary content               | [Download file content](/docs/en/api/compliance/apps/chats/files/download)                      |
-| `claude_file_*` ID             | The file's metadata only                | [Get file metadata](/docs/en/api/compliance/apps/chats/files/retrieve)                          |
-| `claude_gen_file_*` ID         | A tool-generated file's binary content  | [Download a Claude-generated file](/docs/en/api/compliance/apps/chats/generated_files/download) |
-| `claude_gen_file_*` ID         | A tool-generated file's metadata only   | [Get generated-file metadata](/docs/en/api/compliance/apps/chats/generated_files/retrieve)      |
-| `claude_artifact_version_*` ID | One artifact version's text             | [Download artifact content](/docs/en/api/compliance/apps/artifacts/download)                    |
-| `claude_artifact_version_*` ID | The artifact version's metadata only    | [Get artifact metadata](/docs/en/api/compliance/apps/artifacts/retrieve)                        |
-| `claude_proj_doc_*` ID         | A project document's plain-text content | [Get project document content](/docs/en/api/compliance/apps/projects/documents/retrieve)        |
-| `claude_proj_doc_*` ID         | A project document's metadata only      | [Get project document metadata](/docs/en/api/compliance/apps/projects/documents/metadata)       |
+| You have | You want | Use this endpoint |
+| --- | --- | --- |
+| `claude_file_*` ID | The file's binary content | [Download file content](/docs/en/api/compliance/apps/chats/files/download) |
+| `claude_file_*` ID | The file's metadata only | [Get file metadata](/docs/en/api/compliance/apps/chats/files/retrieve) |
+| `claude_gen_file_*` ID | A tool-generated file's binary content | [Download a Claude-generated file](/docs/en/api/compliance/apps/chats/generated_files/download) |
+| `claude_gen_file_*` ID | A tool-generated file's metadata only | [Get generated-file metadata](/docs/en/api/compliance/apps/chats/generated_files/retrieve) |
+| `claude_artifact_version_*` ID | One artifact version's text | [Download artifact content](/docs/en/api/compliance/apps/artifacts/download) |
+| `claude_artifact_version_*` ID | The artifact version's metadata only | [Get artifact metadata](/docs/en/api/compliance/apps/artifacts/retrieve) |
+| `claude_proj_doc_*` ID | A project document's plain-text content | [Get project document content](/docs/en/api/compliance/apps/projects/documents/retrieve) |
+| `claude_proj_doc_*` ID | A project document's metadata only | [Get project document metadata](/docs/en/api/compliance/apps/projects/documents/metadata) |
 
 The file content endpoint streams the original upload as a chunked binary response with these headers:
 
@@ -186,13 +185,12 @@ The file content endpoint streams the original upload as a chunked binary respon
 file_id="claude_file_01UaT9wBcDfGhJkLmNpQrSv7"
 
 curl --fail-with-body -sS -OJ \
- --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
   "https://api.anthropic.com/v1/compliance/apps/chats/files/$file_id/content"
-
-````
+```
 </CodeGroup>
 
-The `-OJ` flags tell curl to save the response under the filename from `Content-Disposition`, which is the original filename the user uploaded.
+The `-OJ` flags tell curl to save the response under the file name from `Content-Disposition`, which is the original file name the user uploaded.
 
 The artifact content endpoint returns the text body of one artifact version. Pass the `version_id` from one of the entries in an assistant message's `artifacts` array, not the artifact's stable `id`. Each new version of an artifact has its own `version_id`, and the Compliance API serves the exact bytes of that version.
 
@@ -222,8 +220,7 @@ project_id="claude_proj_01KGp4eZNug9ri4kE35RSppq"
 curl --fail-with-body -sS -G \
   "https://api.anthropic.com/v1/compliance/apps/projects/$project_id/attachments" \
   --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
-````
-
+```
 </CodeGroup>
 
 ```json Response
@@ -277,10 +274,9 @@ The following request deletes one chat. The same pattern applies to the other de
 chat_id="claude_chat_01H5CWunD7RpVJ5bHa8RCkja"
 
 curl --fail-with-body -sS -X DELETE \
- "https://api.anthropic.com/v1/compliance/apps/chats/$chat_id" \
- --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
-
-````
+  "https://api.anthropic.com/v1/compliance/apps/chats/$chat_id" \
+  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
+```
 </CodeGroup>
 
 ```json Response
@@ -288,7 +284,7 @@ curl --fail-with-body -sS -X DELETE \
   "id": "claude_chat_01H5CWunD7RpVJ5bHa8RCkja",
   "type": "claude_chat_deleted"
 }
-````
+```
 
 Each successful delete returns a small confirmation envelope with an `id` and a `type` discriminator. The chat endpoint returns `claude_chat_deleted`; check the `type` field before treating the delete as confirmed. See the response schema on each delete endpoint's [API reference](/docs/en/api/compliance/apps) page for the exact `type` value the other endpoints return.
 
@@ -313,7 +309,7 @@ To resolve, list the project's chats with `GET /v1/compliance/apps/chats?user_id
   <Card title="API reference" href="/docs/en/api/compliance/apps">
     The full request and response schema for every chat, file, project, and artifact endpoint.
   </Card>
-  <Card title="List organizations, users, roles, and groups" href="/docs/en/manage-claude/compliance-org-data">
+  <Card title="List organizations, users, roles, groups, and settings" href="/docs/en/manage-claude/compliance-org-data">
     Enumerate the people and teams associated with the chats and projects on this page.
   </Card>
 </CardGroup>

@@ -23,9 +23,11 @@ List environments with pagination support.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -78,16 +80,19 @@ List environments with pagination support.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of BetaEnvironment`
 
   List of environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -96,23 +101,29 @@ List environments with pagination support.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `BetaCloudConfig object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `BetaUnrestrictedNetwork object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
+
             - `"unrestricted"`
 
         - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -128,11 +139,13 @@ List environments with pagination support.
           - `type: "limited"`
 
             Network policy type
+
             - `"limited"`
 
       - `packages: BetaPackages`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -160,19 +173,23 @@ List environments with pagination support.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
 
         Environment type
+
         - `"cloud"`
 
     - `BetaSelfHostedConfig object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
+
         - `"self_hosted"`
 
   - `created_at: string`
@@ -194,6 +211,7 @@ List environments with pagination support.
   - `type: "environment"`
 
     The type of object (always 'environment')
+
     - `"environment"`
 
   - `updated_at: string`
@@ -203,6 +221,7 @@ List environments with pagination support.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -232,16 +251,31 @@ curl https://api.anthropic.com/v1/environments \
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"

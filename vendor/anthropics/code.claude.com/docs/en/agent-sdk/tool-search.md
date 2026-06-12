@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,8 +10,8 @@ Tool search enables your agent to work with hundreds or thousands of tools by dy
 
 This approach solves two challenges as tool libraries scale:
 
-- **Context efficiency:** Tool definitions can consume large portions of the context window (50 tools can use 10-20K tokens), leaving less room for actual work.
-- **Tool selection accuracy:** Tool selection accuracy degrades with more than 30-50 tools loaded at once.
+* **Context efficiency:** Tool definitions can consume large portions of the context window (50 tools can use 10-20K tokens), leaving less room for actual work.
+* **Tool selection accuracy:** Tool selection accuracy degrades with more than 30-50 tools loaded at once.
 
 Tool search is enabled by default. This page covers [how it works](#how-tool-search-works), how to [configure it](#configure-tool-search), and how to [optimize tool discovery](#optimize-tool-discovery).
 
@@ -25,7 +24,7 @@ Tool search adds one extra round-trip the first time Claude discovers a tool (th
 For details on the underlying API mechanism, see [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool).
 
 <Note>
-  Tool search requires Claude Sonnet 4 or later, or Claude Opus 4 or later. Haiku models do not support tool search.
+  Tool search is supported on every Claude model except Haiku.
 </Note>
 
 ## Configure tool search
@@ -48,61 +47,59 @@ Set the value in the `env` option on `query()`. This example connects to a remot
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-for await (const message of query({
-prompt: "Find and run the appropriate database query",
-options: {
-mcpServers: {
-"enterprise-tools": {
-// Connect to a remote MCP server
-type: "http",
-url: "https://tools.example.com/mcp"
-}
-},
-allowedTools: ["mcp__enterprise-tools__*"], // Wildcard pre-approves all tools from this server
-env: {
-ENABLE_TOOL_SEARCH: "auto:5" // Activate tool search when tools exceed 5% of context
-}
-}
-})) {
-if (message.type === "result" && message.subtype === "success") {
-console.log(message.result);
-}
-}
+  for await (const message of query({
+    prompt: "Find and run the appropriate database query",
+    options: {
+      mcpServers: {
+        "enterprise-tools": {
+          // Connect to a remote MCP server
+          type: "http",
+          url: "https://tools.example.com/mcp"
+        }
+      },
+      allowedTools: ["mcp__enterprise-tools__*"], // Wildcard pre-approves all tools from this server
+      env: {
+        ENABLE_TOOL_SEARCH: "auto:5" // Activate tool search when tools exceed 5% of context
+      }
+    }
+  })) {
+    if (message.type === "result" && message.subtype === "success") {
+      console.log(message.result);
+    }
+  }
+  ```
 
-````
-
-```python Python theme={null}
-import asyncio
-from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
-
-
-async def main():
-    options = ClaudeAgentOptions(
-        mcp_servers={
-            "enterprise-tools": {
-                "type": "http",
-                "url": "https://tools.example.com/mcp",
-            }
-        },
-        allowed_tools=[
-            "mcp__enterprise-tools__*"
-        ],  # Wildcard pre-approves all tools from this server
-        env={
-            "ENABLE_TOOL_SEARCH": "auto:5"  # Activate tool search when tools exceed 5% of context
-        },
-    )
-
-    async for message in query(
-        prompt="Find and run the appropriate database query",
-        options=options,
-    ):
-        if isinstance(message, ResultMessage) and message.subtype == "success":
-            print(message.result)
+  ```python Python theme={null}
+  import asyncio
+  from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
 
 
-asyncio.run(main())
-````
+  async def main():
+      options = ClaudeAgentOptions(
+          mcp_servers={
+              "enterprise-tools": {
+                  "type": "http",
+                  "url": "https://tools.example.com/mcp",
+              }
+          },
+          allowed_tools=[
+              "mcp__enterprise-tools__*"
+          ],  # Wildcard pre-approves all tools from this server
+          env={
+              "ENABLE_TOOL_SEARCH": "auto:5"  # Activate tool search when tools exceed 5% of context
+          },
+      )
 
+      async for message in query(
+          prompt="Find and run the appropriate database query",
+          options=options,
+      ):
+          if isinstance(message, ResultMessage) and message.subtype == "success":
+              print(message.result)
+
+
+  asyncio.run(main())
+  ```
 </CodeGroup>
 
 Setting `ENABLE_TOOL_SEARCH` to `"false"` disables tool search and loads all tool definitions into context on every turn. This removes the search round-trip, which can be faster when the tool set is small (fewer than \~10 tools) and the definitions fit comfortably in the context window.
@@ -119,14 +116,14 @@ You can search for tools to interact with Slack, GitHub, and Jira.
 
 ## Limits
 
-- **Maximum tools:** 10,000 tools in your catalog
-- **Search results:** Returns 3-5 most relevant tools per search
-- **Model support:** Claude Sonnet 4 and later, Claude Opus 4 and later (no Haiku)
+* **Maximum tools:** 10,000 tools in your catalog
+* **Search results:** Returns 3-5 most relevant tools per search
+* **Model support:** every Claude model except Haiku
 
 ## Related documentation
 
-- [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool): Full API documentation for tool search, including custom implementations
-- [Connect MCP servers](/en/agent-sdk/mcp): Connect to external tools via MCP servers
-- [Custom tools](/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
-- [TypeScript SDK reference](/en/agent-sdk/typescript): Full API reference
-- [Python SDK reference](/en/agent-sdk/python): Full API reference
+* [Tool search in the API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool): Full API documentation for tool search, including custom implementations
+* [Connect MCP servers](/en/agent-sdk/mcp): Connect to external tools via MCP servers
+* [Custom tools](/en/agent-sdk/custom-tools): Build your own tools with SDK MCP servers
+* [TypeScript SDK reference](/en/agent-sdk/typescript): Full API reference
+* [Python SDK reference](/en/agent-sdk/python): Full API reference

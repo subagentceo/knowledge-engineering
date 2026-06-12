@@ -9,6 +9,7 @@ Delete File
 ### Parameters
 
 - `FileDeleteParams params`
+
   - `Optional<String> fileId`
 
     ID of the File.
@@ -16,6 +17,7 @@ Delete File
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,11 +70,14 @@ Delete File
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class DeletedFile:`
+
   - `String id`
 
     ID of the deleted file.
@@ -82,6 +87,7 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `FILE_DELETED("file_deleted")`
 
 ### Example

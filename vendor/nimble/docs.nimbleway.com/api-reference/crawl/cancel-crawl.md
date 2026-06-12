@@ -8,7 +8,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json delete /v1/crawl/{id}
+````yaml /api-reference/openapi.json delete /v1/crawl/{id}
 openapi: 3.1.0
 info:
   title: Nimble SDK

@@ -22,7 +22,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
 - `--message: array of MessageParam`
 
@@ -37,16 +37,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -54,22 +54,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -78,7 +75,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
   The model that will complete your prompt.
 
@@ -153,9 +150,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -226,6 +224,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Returns
 
 - `message: object { id, container, content, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -235,6 +234,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `container: object { id, expires_at }`
 
     Information about the container used in the request (for the code execution tool)
+
     - `id: string`
 
       Identifier for the container used in this request
@@ -252,7 +252,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -261,27 +261,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
     - `text_block: object { citations, text, type }`
+
       - `citations: array of TextCitation`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -297,6 +297,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "char_location"`
 
         - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -312,6 +313,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "page_location"`
 
         - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -337,6 +339,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "content_block_location"`
 
         - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -348,6 +351,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `url: string`
 
         - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -381,6 +385,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "text"`
 
     - `thinking_block: object { signature, thinking, type }`
+
       - `signature: string`
 
       - `thinking: string`
@@ -388,29 +393,35 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "thinking"`
 
     - `redacted_thinking_block: object { data, type }`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
 
     - `tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
 
         - `server_tool_caller: object { tool_id, type }`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
 
         - `server_tool_caller_20260120: object { tool_id, type }`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
@@ -422,11 +433,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "tool_use"`
 
     - `server_tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -440,6 +453,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `input: map[unknown]`
 
       - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
         - `"web_search"`
 
         - `"web_fetch"`
@@ -457,9 +471,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "server_tool_use"`
 
     - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -471,8 +487,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
         - `web_search_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -488,6 +507,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "web_search_tool_result_error"`
 
         - `union_member_1: array of WebSearchResultBlock`
+
           - `encrypted_content: string`
 
           - `page_age: string`
@@ -503,9 +523,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "web_search_tool_result"`
 
     - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -517,8 +539,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
         - `web_fetch_tool_result_error_block: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -540,14 +565,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "web_fetch_tool_result_error"`
 
         - `web_fetch_block: object { content, retrieved_at, type, url }`
+
           - `content: object { citations, source, title, type }`
+
             - `citations: object { enabled }`
 
               Citation configuration for the document
+
               - `enabled: boolean`
 
             - `source: Base64PDFSource or PlainTextSource`
+
               - `base64_pdf_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
@@ -555,6 +585,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `type: "base64"`
 
               - `plain_text_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
@@ -582,11 +613,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "web_fetch_tool_result"`
 
     - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -598,7 +633,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "code_execution_tool_result_error"`
 
         - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -614,7 +651,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -632,9 +671,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "code_execution_tool_result"`
 
     - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
         - `bash_code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -648,7 +691,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "bash_code_execution_tool_result_error"`
 
         - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of BashCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
@@ -666,9 +711,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "bash_code_execution_tool_result"`
 
     - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
         - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -684,9 +733,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "text_editor_code_execution_tool_result_error"`
 
         - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
           - `content: string`
 
           - `file_type: "text" or "image" or "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -702,11 +753,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "text_editor_code_execution_view_result"`
 
         - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
 
         - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
           - `lines: array of string`
 
           - `new_lines: number`
@@ -724,9 +777,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `type: "text_editor_code_execution_tool_result"`
 
     - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
         - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -740,7 +797,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `type: "tool_search_tool_result_error"`
 
         - `tool_search_tool_search_result_block: object { tool_references, type }`
+
           - `tool_references: array of ToolReferenceBlock`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
@@ -754,15 +813,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `container_upload_block: object { file_id, type }`
 
       Response model for a file uploaded to the container.
+
       - `file_id: string`
 
       - `type: "container_upload"`
 
-  - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"`
 
       Frontier intelligence for long-running agents and coding
@@ -844,14 +913,18 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `stop_details: object { category, explanation, type }`
 
     Structured information about a refusal.
-    - `category: "cyber" or "bio"`
+
+    - `category: "cyber" or "bio" or "reasoning_extraction"`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"`
 
       - `"bio"`
+
+      - `"reasoning_extraction"`
 
     - `explanation: string`
 
@@ -866,14 +939,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"`
 
     - `"max_tokens"`
@@ -909,9 +984,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
       Breakdown of cached tokens by TTL
+
       - `ephemeral_1h_input_tokens: number`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -948,6 +1025,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `thinking_tokens: number`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -962,6 +1040,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
       The number of server tool requests.
+
       - `web_fetch_requests: number`
 
         The number of web fetch tool requests.
@@ -973,6 +1052,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `service_tier: "standard" or "priority" or "batch"`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"`
 
       - `"priority"`
@@ -1074,16 +1154,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -1091,22 +1171,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -1115,7 +1192,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+- `--model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
   The model that will complete your prompt.
 
@@ -1156,9 +1233,10 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -1213,6 +1291,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 ### Returns
 
 - `message_tokens_count: object { input_tokens }`
+
   - `input_tokens: number`
 
     The total number of tokens across the provided list of messages, system prompt, and tools.
@@ -1239,9 +1318,11 @@ ant messages count-tokens \
 ### Base64 Image Source
 
 - `base64_image_source: object { data, media_type, type }`
+
   - `data: string`
 
   - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
     - `"image/jpeg"`
 
     - `"image/png"`
@@ -1255,6 +1336,7 @@ ant messages count-tokens \
 ### Base64 PDF Source
 
 - `base64_pdf_source: object { data, media_type, type }`
+
   - `data: string`
 
   - `media_type: "application/pdf"`
@@ -1264,6 +1346,7 @@ ant messages count-tokens \
 ### Bash Code Execution Output Block
 
 - `bash_code_execution_output_block: object { file_id, type }`
+
   - `file_id: string`
 
   - `type: "bash_code_execution_output"`
@@ -1271,6 +1354,7 @@ ant messages count-tokens \
 ### Bash Code Execution Output Block Param
 
 - `bash_code_execution_output_block_param: object { file_id, type }`
+
   - `file_id: string`
 
   - `type: "bash_code_execution_output"`
@@ -1278,7 +1362,9 @@ ant messages count-tokens \
 ### Bash Code Execution Result Block
 
 - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
   - `content: array of BashCodeExecutionOutputBlock`
+
     - `file_id: string`
 
     - `type: "bash_code_execution_output"`
@@ -1294,7 +1380,9 @@ ant messages count-tokens \
 ### Bash Code Execution Result Block Param
 
 - `bash_code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
   - `content: array of BashCodeExecutionOutputBlockParam`
+
     - `file_id: string`
 
     - `type: "bash_code_execution_output"`
@@ -1310,9 +1398,13 @@ ant messages count-tokens \
 ### Bash Code Execution Tool Result Block
 
 - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
   - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
     - `bash_code_execution_tool_result_error: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -1326,7 +1418,9 @@ ant messages count-tokens \
       - `type: "bash_code_execution_tool_result_error"`
 
     - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
       - `content: array of BashCodeExecutionOutputBlock`
+
         - `file_id: string`
 
         - `type: "bash_code_execution_output"`
@@ -1346,9 +1440,13 @@ ant messages count-tokens \
 ### Bash Code Execution Tool Result Block Param
 
 - `bash_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
   - `content: BashCodeExecutionToolResultErrorParam or BashCodeExecutionResultBlockParam`
+
     - `bash_code_execution_tool_result_error_param: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -1362,7 +1460,9 @@ ant messages count-tokens \
       - `type: "bash_code_execution_tool_result_error"`
 
     - `bash_code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
       - `content: array of BashCodeExecutionOutputBlockParam`
+
         - `file_id: string`
 
         - `type: "bash_code_execution_output"`
@@ -1382,6 +1482,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -1389,10 +1490,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -1400,7 +1503,9 @@ ant messages count-tokens \
 ### Bash Code Execution Tool Result Error
 
 - `bash_code_execution_tool_result_error: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -1416,6 +1521,7 @@ ant messages count-tokens \
 ### Bash Code Execution Tool Result Error Code
 
 - `bash_code_execution_tool_result_error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -1429,7 +1535,9 @@ ant messages count-tokens \
 ### Bash Code Execution Tool Result Error Param
 
 - `bash_code_execution_tool_result_error_param: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -1445,6 +1553,7 @@ ant messages count-tokens \
 ### Cache Control Ephemeral
 
 - `cache_control_ephemeral: object { type, ttl }`
+
   - `type: "ephemeral"`
 
   - `ttl: optional "5m" or "1h"`
@@ -1452,10 +1561,12 @@ ant messages count-tokens \
     The time-to-live for the cache control breakpoint.
 
     This may be one the following values:
+
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
     Defaults to `5m`.
+
     - `"5m"`
 
     - `"1h"`
@@ -1463,6 +1574,7 @@ ant messages count-tokens \
 ### Cache Creation
 
 - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
+
   - `ephemeral_1h_input_tokens: number`
 
     The number of input tokens used to create the 1 hour cache entry.
@@ -1474,6 +1586,7 @@ ant messages count-tokens \
 ### Citation Char Location
 
 - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
   - `cited_text: string`
 
   - `document_index: number`
@@ -1491,6 +1604,7 @@ ant messages count-tokens \
 ### Citation Char Location Param
 
 - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
   - `cited_text: string`
 
   - `document_index: number`
@@ -1506,6 +1620,7 @@ ant messages count-tokens \
 ### Citation Content Block Location
 
 - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
   - `cited_text: string`
 
     The full text of the cited block range, concatenated.
@@ -1533,6 +1648,7 @@ ant messages count-tokens \
 ### Citation Content Block Location Param
 
 - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
   - `cited_text: string`
 
     The full text of the cited block range, concatenated.
@@ -1558,6 +1674,7 @@ ant messages count-tokens \
 ### Citation Page Location
 
 - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
   - `cited_text: string`
 
   - `document_index: number`
@@ -1575,6 +1692,7 @@ ant messages count-tokens \
 ### Citation Page Location Param
 
 - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
   - `cited_text: string`
 
   - `document_index: number`
@@ -1590,6 +1708,7 @@ ant messages count-tokens \
 ### Citation Search Result Location Param
 
 - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
   - `cited_text: string`
 
     The full text of the cited block range, concatenated.
@@ -1621,6 +1740,7 @@ ant messages count-tokens \
 ### Citation Web Search Result Location Param
 
 - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
   - `cited_text: string`
 
   - `encrypted_index: string`
@@ -1634,18 +1754,23 @@ ant messages count-tokens \
 ### Citations Config
 
 - `citations_config: object { enabled }`
+
   - `enabled: boolean`
 
 ### Citations Config Param
 
 - `citations_config_param: object { enabled }`
+
   - `enabled: optional boolean`
 
 ### Citations Delta
 
 - `citations_delta: object { citation, type }`
+
   - `citation: CitationCharLocation or CitationPageLocation or CitationContentBlockLocation or 2 more`
+
     - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -1661,6 +1786,7 @@ ant messages count-tokens \
       - `type: "char_location"`
 
     - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -1676,6 +1802,7 @@ ant messages count-tokens \
       - `type: "page_location"`
 
     - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -1701,6 +1828,7 @@ ant messages count-tokens \
       - `type: "content_block_location"`
 
     - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
       - `cited_text: string`
 
       - `encrypted_index: string`
@@ -1712,6 +1840,7 @@ ant messages count-tokens \
       - `url: string`
 
     - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -1745,6 +1874,7 @@ ant messages count-tokens \
 ### Citations Search Result Location
 
 - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
   - `cited_text: string`
 
     The full text of the cited block range, concatenated.
@@ -1776,6 +1906,7 @@ ant messages count-tokens \
 ### Citations Web Search Result Location
 
 - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
   - `cited_text: string`
 
   - `encrypted_index: string`
@@ -1789,6 +1920,7 @@ ant messages count-tokens \
 ### Code Execution Output Block
 
 - `code_execution_output_block: object { file_id, type }`
+
   - `file_id: string`
 
   - `type: "code_execution_output"`
@@ -1796,6 +1928,7 @@ ant messages count-tokens \
 ### Code Execution Output Block Param
 
 - `code_execution_output_block_param: object { file_id, type }`
+
   - `file_id: string`
 
   - `type: "code_execution_output"`
@@ -1803,7 +1936,9 @@ ant messages count-tokens \
 ### Code Execution Result Block
 
 - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
   - `content: array of CodeExecutionOutputBlock`
+
     - `file_id: string`
 
     - `type: "code_execution_output"`
@@ -1819,7 +1954,9 @@ ant messages count-tokens \
 ### Code Execution Result Block Param
 
 - `code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
   - `content: array of CodeExecutionOutputBlockParam`
+
     - `file_id: string`
 
     - `type: "code_execution_output"`
@@ -1835,6 +1972,7 @@ ant messages count-tokens \
 ### Code Execution Tool 20250522
 
 - `code_execution_tool_20250522: object { name, type, allowed_callers, 3 more }`
+
   - `name: "code_execution"`
 
     Name of the tool.
@@ -1844,6 +1982,7 @@ ant messages count-tokens \
   - `type: "code_execution_20250522"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -1853,6 +1992,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -1860,10 +2000,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -1879,6 +2021,7 @@ ant messages count-tokens \
 ### Code Execution Tool 20250825
 
 - `code_execution_tool_20250825: object { name, type, allowed_callers, 3 more }`
+
   - `name: "code_execution"`
 
     Name of the tool.
@@ -1888,6 +2031,7 @@ ant messages count-tokens \
   - `type: "code_execution_20250825"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -1897,6 +2041,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -1904,10 +2049,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -1925,6 +2072,7 @@ ant messages count-tokens \
 - `code_execution_tool_20260120: object { name, type, allowed_callers, 3 more }`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
   - `name: "code_execution"`
 
     Name of the tool.
@@ -1934,6 +2082,7 @@ ant messages count-tokens \
   - `type: "code_execution_20260120"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -1943,6 +2092,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -1950,10 +2100,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -1969,11 +2121,15 @@ ant messages count-tokens \
 ### Code Execution Tool Result Block
 
 - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
   - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `code_execution_tool_result_error: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -1985,7 +2141,9 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result_error"`
 
     - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
       - `content: array of CodeExecutionOutputBlock`
+
         - `file_id: string`
 
         - `type: "code_execution_output"`
@@ -2001,7 +2159,9 @@ ant messages count-tokens \
     - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `content: array of CodeExecutionOutputBlock`
+
         - `file_id: string`
 
         - `type: "code_execution_output"`
@@ -2023,8 +2183,11 @@ ant messages count-tokens \
 - `code_execution_tool_result_block_content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `code_execution_tool_result_error: object { error_code, type }`
+
     - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
       - `"invalid_tool_input"`
 
       - `"unavailable"`
@@ -2036,7 +2199,9 @@ ant messages count-tokens \
     - `type: "code_execution_tool_result_error"`
 
   - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
     - `content: array of CodeExecutionOutputBlock`
+
       - `file_id: string`
 
       - `type: "code_execution_output"`
@@ -2052,7 +2217,9 @@ ant messages count-tokens \
   - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `content: array of CodeExecutionOutputBlock`
+
       - `file_id: string`
 
       - `type: "code_execution_output"`
@@ -2068,11 +2235,15 @@ ant messages count-tokens \
 ### Code Execution Tool Result Block Param
 
 - `code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
   - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `code_execution_tool_result_error_param: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -2084,7 +2255,9 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result_error"`
 
     - `code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
       - `content: array of CodeExecutionOutputBlockParam`
+
         - `file_id: string`
 
         - `type: "code_execution_output"`
@@ -2100,7 +2273,9 @@ ant messages count-tokens \
     - `encrypted_code_execution_result_block_param: object { content, encrypted_stdout, return_code, 2 more }`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `content: array of CodeExecutionOutputBlockParam`
+
         - `file_id: string`
 
         - `type: "code_execution_output"`
@@ -2120,6 +2295,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -2127,10 +2303,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -2140,8 +2318,11 @@ ant messages count-tokens \
 - `code_execution_tool_result_block_param_content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `code_execution_tool_result_error_param: object { error_code, type }`
+
     - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
       - `"invalid_tool_input"`
 
       - `"unavailable"`
@@ -2153,7 +2334,9 @@ ant messages count-tokens \
     - `type: "code_execution_tool_result_error"`
 
   - `code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
     - `content: array of CodeExecutionOutputBlockParam`
+
       - `file_id: string`
 
       - `type: "code_execution_output"`
@@ -2169,7 +2352,9 @@ ant messages count-tokens \
   - `encrypted_code_execution_result_block_param: object { content, encrypted_stdout, return_code, 2 more }`
 
     Code execution result with encrypted stdout for PFC + web_search results.
+
     - `content: array of CodeExecutionOutputBlockParam`
+
       - `file_id: string`
 
       - `type: "code_execution_output"`
@@ -2185,7 +2370,9 @@ ant messages count-tokens \
 ### Code Execution Tool Result Error
 
 - `code_execution_tool_result_error: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -2199,6 +2386,7 @@ ant messages count-tokens \
 ### Code Execution Tool Result Error Code
 
 - `code_execution_tool_result_error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -2210,7 +2398,9 @@ ant messages count-tokens \
 ### Code Execution Tool Result Error Param
 
 - `code_execution_tool_result_error_param: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -2226,6 +2416,7 @@ ant messages count-tokens \
 - `container: object { id, expires_at }`
 
   Information about the container used in the request (for the code execution tool)
+
   - `id: string`
 
     Identifier for the container used in this request
@@ -2239,6 +2430,7 @@ ant messages count-tokens \
 - `container_upload_block: object { file_id, type }`
 
   Response model for a file uploaded to the container.
+
   - `file_id: string`
 
   - `type: "container_upload"`
@@ -2249,6 +2441,7 @@ ant messages count-tokens \
 
   A content block that represents a file to be uploaded to the container
   Files uploaded via this block will be available in the container's input directory.
+
   - `file_id: string`
 
   - `type: "container_upload"`
@@ -2256,6 +2449,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -2263,10 +2457,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -2276,13 +2472,17 @@ ant messages count-tokens \
 - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
   Response model for a file uploaded to the container.
+
   - `text_block: object { citations, text, type }`
+
     - `citations: array of TextCitation`
 
       Citations supporting the text block.
 
       The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
       - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -2298,6 +2498,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -2313,6 +2514,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -2338,6 +2540,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -2349,6 +2552,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -2382,6 +2586,7 @@ ant messages count-tokens \
     - `type: "text"`
 
   - `thinking_block: object { signature, thinking, type }`
+
     - `signature: string`
 
     - `thinking: string`
@@ -2389,29 +2594,35 @@ ant messages count-tokens \
     - `type: "thinking"`
 
   - `redacted_thinking_block: object { data, type }`
+
     - `data: string`
 
     - `type: "redacted_thinking"`
 
   - `tool_use_block: object { id, caller, input, 2 more }`
+
     - `id: string`
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
+
         - `type: "direct"`
 
       - `server_tool_caller: object { tool_id, type }`
 
         Tool invocation generated by a server-side tool.
+
         - `tool_id: string`
 
         - `type: "code_execution_20250825"`
 
       - `server_tool_caller_20260120: object { tool_id, type }`
+
         - `tool_id: string`
 
         - `type: "code_execution_20260120"`
@@ -2423,11 +2634,13 @@ ant messages count-tokens \
     - `type: "tool_use"`
 
   - `server_tool_use_block: object { id, caller, input, 2 more }`
+
     - `id: string`
 
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -2441,6 +2654,7 @@ ant messages count-tokens \
     - `input: map[unknown]`
 
     - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
       - `"web_search"`
 
       - `"web_fetch"`
@@ -2458,9 +2672,11 @@ ant messages count-tokens \
     - `type: "server_tool_use"`
 
   - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -2472,8 +2688,11 @@ ant messages count-tokens \
       - `server_tool_caller_20260120: object { tool_id, type }`
 
     - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
       - `web_search_tool_result_error: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -2489,6 +2708,7 @@ ant messages count-tokens \
         - `type: "web_search_tool_result_error"`
 
       - `union_member_1: array of WebSearchResultBlock`
+
         - `encrypted_content: string`
 
         - `page_age: string`
@@ -2504,9 +2724,11 @@ ant messages count-tokens \
     - `type: "web_search_tool_result"`
 
   - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
     - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -2518,8 +2740,11 @@ ant messages count-tokens \
       - `server_tool_caller_20260120: object { tool_id, type }`
 
     - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
       - `web_fetch_tool_result_error_block: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
           - `"invalid_tool_input"`
 
           - `"url_too_long"`
@@ -2541,14 +2766,19 @@ ant messages count-tokens \
         - `type: "web_fetch_tool_result_error"`
 
       - `web_fetch_block: object { content, retrieved_at, type, url }`
+
         - `content: object { citations, source, title, type }`
+
           - `citations: object { enabled }`
 
             Citation configuration for the document
+
             - `enabled: boolean`
 
           - `source: Base64PDFSource or PlainTextSource`
+
             - `base64_pdf_source: object { data, media_type, type }`
+
               - `data: string`
 
               - `media_type: "application/pdf"`
@@ -2556,6 +2786,7 @@ ant messages count-tokens \
               - `type: "base64"`
 
             - `plain_text_source: object { data, media_type, type }`
+
               - `data: string`
 
               - `media_type: "text/plain"`
@@ -2583,11 +2814,15 @@ ant messages count-tokens \
     - `type: "web_fetch_tool_result"`
 
   - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
     - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `code_execution_tool_result_error: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -2599,7 +2834,9 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result_error"`
 
       - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
         - `content: array of CodeExecutionOutputBlock`
+
           - `file_id: string`
 
           - `type: "code_execution_output"`
@@ -2615,7 +2852,9 @@ ant messages count-tokens \
       - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `content: array of CodeExecutionOutputBlock`
+
           - `file_id: string`
 
           - `type: "code_execution_output"`
@@ -2633,9 +2872,13 @@ ant messages count-tokens \
     - `type: "code_execution_tool_result"`
 
   - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
     - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
       - `bash_code_execution_tool_result_error: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -2649,7 +2892,9 @@ ant messages count-tokens \
         - `type: "bash_code_execution_tool_result_error"`
 
       - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
         - `content: array of BashCodeExecutionOutputBlock`
+
           - `file_id: string`
 
           - `type: "bash_code_execution_output"`
@@ -2667,9 +2912,13 @@ ant messages count-tokens \
     - `type: "bash_code_execution_tool_result"`
 
   - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
     - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
       - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -2685,9 +2934,11 @@ ant messages count-tokens \
         - `type: "text_editor_code_execution_tool_result_error"`
 
       - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
         - `content: string`
 
         - `file_type: "text" or "image" or "pdf"`
+
           - `"text"`
 
           - `"image"`
@@ -2703,11 +2954,13 @@ ant messages count-tokens \
         - `type: "text_editor_code_execution_view_result"`
 
       - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
         - `is_file_update: boolean`
 
         - `type: "text_editor_code_execution_create_result"`
 
       - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
         - `lines: array of string`
 
         - `new_lines: number`
@@ -2725,9 +2978,13 @@ ant messages count-tokens \
     - `type: "text_editor_code_execution_tool_result"`
 
   - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
     - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
       - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -2741,7 +2998,9 @@ ant messages count-tokens \
         - `type: "tool_search_tool_result_error"`
 
       - `tool_search_tool_search_result_block: object { tool_references, type }`
+
         - `tool_references: array of ToolReferenceBlock`
+
           - `tool_name: string`
 
           - `type: "tool_reference"`
@@ -2755,6 +3014,7 @@ ant messages count-tokens \
   - `container_upload_block: object { file_id, type }`
 
     Response model for a file uploaded to the container.
+
     - `file_id: string`
 
     - `type: "container_upload"`
@@ -2764,7 +3024,9 @@ ant messages count-tokens \
 - `content_block_param: TextBlockParam or ImageBlockParam or DocumentBlockParam or 14 more`
 
   Regular text content.
+
   - `text_block_param: object { text, type, cache_control, citations }`
+
     - `text: string`
 
     - `type: "text"`
@@ -2772,6 +3034,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -2779,16 +3042,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
 
     - `citations: optional array of TextCitationParam`
+
       - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -2802,6 +3069,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -2815,6 +3083,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -2838,6 +3107,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -2849,6 +3119,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -2878,11 +3149,15 @@ ant messages count-tokens \
         - `type: "search_result_location"`
 
   - `image_block_param: object { source, type, cache_control }`
+
     - `source: Base64ImageSource or URLImageSource`
+
       - `base64_image_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
           - `"image/jpeg"`
 
           - `"image/png"`
@@ -2894,6 +3169,7 @@ ant messages count-tokens \
         - `type: "base64"`
 
       - `url_image_source: object { type, url }`
+
         - `type: "url"`
 
         - `url: string`
@@ -2903,6 +3179,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -2910,14 +3187,18 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
   - `document_block_param: object { source, type, cache_control, 3 more }`
+
     - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
       - `base64_pdf_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "application/pdf"`
@@ -2925,6 +3206,7 @@ ant messages count-tokens \
         - `type: "base64"`
 
       - `plain_text_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "text/plain"`
@@ -2932,11 +3214,15 @@ ant messages count-tokens \
         - `type: "text"`
 
       - `content_block_source: object { content, type }`
+
         - `content: string or array of ContentBlockSourceContent`
+
           - `union_member_0: string`
 
           - `content_block_source_content: array of ContentBlockSourceContent`
+
             - `text_block_param: object { text, type, cache_control, citations }`
+
               - `text: string`
 
               - `type: "text"`
@@ -2948,6 +3234,7 @@ ant messages count-tokens \
               - `citations: optional array of TextCitationParam`
 
             - `image_block_param: object { source, type, cache_control }`
+
               - `source: Base64ImageSource or URLImageSource`
 
               - `type: "image"`
@@ -2959,6 +3246,7 @@ ant messages count-tokens \
         - `type: "content"`
 
       - `url_pdf_source: object { type, url }`
+
         - `type: "url"`
 
         - `url: string`
@@ -2968,6 +3256,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -2975,12 +3264,14 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
     - `citations: optional object { enabled }`
+
       - `enabled: optional boolean`
 
     - `context: optional string`
@@ -2988,7 +3279,9 @@ ant messages count-tokens \
     - `title: optional string`
 
   - `search_result_block_param: object { content, source, title, 3 more }`
+
     - `content: array of TextBlockParam`
+
       - `text: string`
 
       - `type: "text"`
@@ -3008,6 +3301,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3015,15 +3309,18 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
     - `citations: optional object { enabled }`
+
       - `enabled: optional boolean`
 
   - `thinking_block_param: object { signature, thinking, type }`
+
     - `signature: string`
 
     - `thinking: string`
@@ -3031,11 +3328,13 @@ ant messages count-tokens \
     - `type: "thinking"`
 
   - `redacted_thinking_block_param: object { data, type }`
+
     - `data: string`
 
     - `type: "redacted_thinking"`
 
   - `tool_use_block_param: object { id, input, name, 3 more }`
+
     - `id: string`
 
     - `input: map[unknown]`
@@ -3047,6 +3346,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3054,6 +3354,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3062,24 +3363,29 @@ ant messages count-tokens \
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
+
         - `type: "direct"`
 
       - `server_tool_caller: object { tool_id, type }`
 
         Tool invocation generated by a server-side tool.
+
         - `tool_id: string`
 
         - `type: "code_execution_20250825"`
 
       - `server_tool_caller_20260120: object { tool_id, type }`
+
         - `tool_id: string`
 
         - `type: "code_execution_20260120"`
 
   - `tool_result_block_param: object { tool_use_id, type, cache_control, 2 more }`
+
     - `tool_use_id: string`
 
     - `type: "tool_result"`
@@ -3087,6 +3393,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3094,13 +3401,16 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
     - `content: optional array of TextBlockParam or ImageBlockParam or SearchResultBlockParam or 2 more`
+
       - `text_block_param: object { text, type, cache_control, citations }`
+
         - `text: string`
 
         - `type: "text"`
@@ -3112,6 +3422,7 @@ ant messages count-tokens \
         - `citations: optional array of TextCitationParam`
 
       - `image_block_param: object { source, type, cache_control }`
+
         - `source: Base64ImageSource or URLImageSource`
 
         - `type: "image"`
@@ -3121,6 +3432,7 @@ ant messages count-tokens \
           Create a cache control breakpoint at this content block.
 
       - `search_result_block_param: object { content, source, title, 3 more }`
+
         - `content: array of TextBlockParam`
 
         - `source: string`
@@ -3136,6 +3448,7 @@ ant messages count-tokens \
         - `citations: optional object { enabled }`
 
       - `document_block_param: object { source, type, cache_control, 3 more }`
+
         - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
 
         - `type: "document"`
@@ -3153,6 +3466,7 @@ ant messages count-tokens \
       - `tool_reference_block_param: object { tool_name, type, cache_control }`
 
         Tool reference block that can be included in tool_result content.
+
         - `tool_name: string`
 
         - `type: "tool_reference"`
@@ -3160,6 +3474,7 @@ ant messages count-tokens \
         - `cache_control: optional object { type, ttl }`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -3167,6 +3482,7 @@ ant messages count-tokens \
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
@@ -3175,11 +3491,13 @@ ant messages count-tokens \
     - `is_error: optional boolean`
 
   - `server_tool_use_block_param: object { id, input, name, 3 more }`
+
     - `id: string`
 
     - `input: map[unknown]`
 
     - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
       - `"web_search"`
 
       - `"web_fetch"`
@@ -3199,6 +3517,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3206,6 +3525,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3214,6 +3534,7 @@ ant messages count-tokens \
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -3225,8 +3546,11 @@ ant messages count-tokens \
       - `server_tool_caller_20260120: object { tool_id, type }`
 
   - `web_search_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
     - `content: array of WebSearchResultBlockParam or WebSearchToolRequestError`
+
       - `web_search_tool_result_block_item: array of WebSearchResultBlockParam`
+
         - `encrypted_content: string`
 
         - `title: string`
@@ -3238,7 +3562,9 @@ ant messages count-tokens \
         - `page_age: optional string`
 
       - `web_search_tool_request_error: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -3260,6 +3586,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3267,6 +3594,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3275,6 +3603,7 @@ ant messages count-tokens \
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -3286,9 +3615,13 @@ ant messages count-tokens \
       - `server_tool_caller_20260120: object { tool_id, type }`
 
   - `web_fetch_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
     - `content: WebFetchToolResultErrorBlockParam or WebFetchBlockParam`
+
       - `web_fetch_tool_result_error_block_param: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
           - `"invalid_tool_input"`
 
           - `"url_too_long"`
@@ -3310,7 +3643,9 @@ ant messages count-tokens \
         - `type: "web_fetch_tool_result_error"`
 
       - `web_fetch_block_param: object { content, type, url, retrieved_at }`
+
         - `content: object { source, type, cache_control, 3 more }`
+
           - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
 
           - `type: "document"`
@@ -3342,6 +3677,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3349,6 +3685,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3357,6 +3694,7 @@ ant messages count-tokens \
     - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
       Tool invocation directly from the model.
+
       - `direct_caller: object { type }`
 
         Tool invocation directly from the model.
@@ -3368,11 +3706,15 @@ ant messages count-tokens \
       - `server_tool_caller_20260120: object { tool_id, type }`
 
   - `code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
     - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
 
       Code execution result with encrypted stdout for PFC + web_search results.
+
       - `code_execution_tool_result_error_param: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -3384,7 +3726,9 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result_error"`
 
       - `code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
         - `content: array of CodeExecutionOutputBlockParam`
+
           - `file_id: string`
 
           - `type: "code_execution_output"`
@@ -3400,7 +3744,9 @@ ant messages count-tokens \
       - `encrypted_code_execution_result_block_param: object { content, encrypted_stdout, return_code, 2 more }`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `content: array of CodeExecutionOutputBlockParam`
+
           - `file_id: string`
 
           - `type: "code_execution_output"`
@@ -3420,6 +3766,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3427,15 +3774,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
   - `bash_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
     - `content: BashCodeExecutionToolResultErrorParam or BashCodeExecutionResultBlockParam`
+
       - `bash_code_execution_tool_result_error_param: object { error_code, type }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -3449,7 +3801,9 @@ ant messages count-tokens \
         - `type: "bash_code_execution_tool_result_error"`
 
       - `bash_code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
         - `content: array of BashCodeExecutionOutputBlockParam`
+
           - `file_id: string`
 
           - `type: "bash_code_execution_output"`
@@ -3469,6 +3823,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3476,15 +3831,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
   - `text_editor_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
     - `content: TextEditorCodeExecutionToolResultErrorParam or TextEditorCodeExecutionViewResultBlockParam or TextEditorCodeExecutionCreateResultBlockParam or TextEditorCodeExecutionStrReplaceResultBlockParam`
+
       - `text_editor_code_execution_tool_result_error_param: object { error_code, type, error_message }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -3500,9 +3860,11 @@ ant messages count-tokens \
         - `error_message: optional string`
 
       - `text_editor_code_execution_view_result_block_param: object { content, file_type, type, 3 more }`
+
         - `content: string`
 
         - `file_type: "text" or "image" or "pdf"`
+
           - `"text"`
 
           - `"image"`
@@ -3518,11 +3880,13 @@ ant messages count-tokens \
         - `total_lines: optional number`
 
       - `text_editor_code_execution_create_result_block_param: object { is_file_update, type }`
+
         - `is_file_update: boolean`
 
         - `type: "text_editor_code_execution_create_result"`
 
       - `text_editor_code_execution_str_replace_result_block_param: object { type, lines, new_lines, 3 more }`
+
         - `type: "text_editor_code_execution_str_replace_result"`
 
         - `lines: optional array of string`
@@ -3542,6 +3906,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3549,15 +3914,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
   - `tool_search_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
     - `content: ToolSearchToolResultErrorParam or ToolSearchToolSearchResultBlockParam`
-      - `tool_search_tool_result_error_param: object { error_code, type }`
+
+      - `tool_search_tool_result_error_param: object { error_code, type, error_message }`
+
         - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
           - `"invalid_tool_input"`
 
           - `"unavailable"`
@@ -3568,8 +3938,12 @@ ant messages count-tokens \
 
         - `type: "tool_search_tool_result_error"`
 
+        - `error_message: optional string`
+
       - `tool_search_tool_search_result_block_param: object { tool_references, type }`
+
         - `tool_references: array of ToolReferenceBlockParam`
+
           - `tool_name: string`
 
           - `type: "tool_reference"`
@@ -3587,6 +3961,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3594,6 +3969,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3603,6 +3979,7 @@ ant messages count-tokens \
 
     A content block that represents a file to be uploaded to the container
     Files uploaded via this block will be available in the container's input directory.
+
     - `file_id: string`
 
     - `type: "container_upload"`
@@ -3610,6 +3987,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3617,6 +3995,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3628,9 +4007,11 @@ ant messages count-tokens \
 
     Use this block to provide or update system-level instructions at a specific
     point in the conversation, rather than only via the top-level `system` parameter.
+
     - `content: array of TextBlockParam`
 
       System instruction text blocks.
+
       - `text: string`
 
       - `type: "text"`
@@ -3646,6 +4027,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3653,6 +4035,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3661,11 +4044,15 @@ ant messages count-tokens \
 ### Content Block Source
 
 - `content_block_source: object { content, type }`
+
   - `content: string or array of ContentBlockSourceContent`
+
     - `union_member_0: string`
 
     - `content_block_source_content: array of ContentBlockSourceContent`
+
       - `text_block_param: object { text, type, cache_control, citations }`
+
         - `text: string`
 
         - `type: "text"`
@@ -3673,6 +4060,7 @@ ant messages count-tokens \
         - `cache_control: optional object { type, ttl }`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -3680,16 +4068,20 @@ ant messages count-tokens \
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"`
 
             - `"1h"`
 
         - `citations: optional array of TextCitationParam`
+
           - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -3703,6 +4095,7 @@ ant messages count-tokens \
             - `type: "char_location"`
 
           - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -3716,6 +4109,7 @@ ant messages count-tokens \
             - `type: "page_location"`
 
           - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -3739,6 +4133,7 @@ ant messages count-tokens \
             - `type: "content_block_location"`
 
           - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
             - `cited_text: string`
 
             - `encrypted_index: string`
@@ -3750,6 +4145,7 @@ ant messages count-tokens \
             - `url: string`
 
           - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -3779,11 +4175,15 @@ ant messages count-tokens \
             - `type: "search_result_location"`
 
       - `image_block_param: object { source, type, cache_control }`
+
         - `source: Base64ImageSource or URLImageSource`
+
           - `base64_image_source: object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
               - `"image/jpeg"`
 
               - `"image/png"`
@@ -3795,6 +4195,7 @@ ant messages count-tokens \
             - `type: "base64"`
 
           - `url_image_source: object { type, url }`
+
             - `type: "url"`
 
             - `url: string`
@@ -3804,6 +4205,7 @@ ant messages count-tokens \
         - `cache_control: optional object { type, ttl }`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -3811,6 +4213,7 @@ ant messages count-tokens \
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
@@ -3821,7 +4224,9 @@ ant messages count-tokens \
 ### Content Block Source Content
 
 - `content_block_source_content: TextBlockParam or ImageBlockParam`
+
   - `text_block_param: object { text, type, cache_control, citations }`
+
     - `text: string`
 
     - `type: "text"`
@@ -3829,6 +4234,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3836,16 +4242,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
 
     - `citations: optional array of TextCitationParam`
+
       - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -3859,6 +4269,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -3872,6 +4283,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -3895,6 +4307,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -3906,6 +4319,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -3935,11 +4349,15 @@ ant messages count-tokens \
         - `type: "search_result_location"`
 
   - `image_block_param: object { source, type, cache_control }`
+
     - `source: Base64ImageSource or URLImageSource`
+
       - `base64_image_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
           - `"image/jpeg"`
 
           - `"image/png"`
@@ -3951,6 +4369,7 @@ ant messages count-tokens \
         - `type: "base64"`
 
       - `url_image_source: object { type, url }`
+
         - `type: "url"`
 
         - `url: string`
@@ -3960,6 +4379,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -3967,6 +4387,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -3977,18 +4398,23 @@ ant messages count-tokens \
 - `direct_caller: object { type }`
 
   Tool invocation directly from the model.
+
   - `type: "direct"`
 
 ### Document Block
 
 - `document_block: object { citations, source, title, type }`
+
   - `citations: object { enabled }`
 
     Citation configuration for the document
+
     - `enabled: boolean`
 
   - `source: Base64PDFSource or PlainTextSource`
+
     - `base64_pdf_source: object { data, media_type, type }`
+
       - `data: string`
 
       - `media_type: "application/pdf"`
@@ -3996,6 +4422,7 @@ ant messages count-tokens \
       - `type: "base64"`
 
     - `plain_text_source: object { data, media_type, type }`
+
       - `data: string`
 
       - `media_type: "text/plain"`
@@ -4011,8 +4438,11 @@ ant messages count-tokens \
 ### Document Block Param
 
 - `document_block_param: object { source, type, cache_control, 3 more }`
+
   - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
     - `base64_pdf_source: object { data, media_type, type }`
+
       - `data: string`
 
       - `media_type: "application/pdf"`
@@ -4020,6 +4450,7 @@ ant messages count-tokens \
       - `type: "base64"`
 
     - `plain_text_source: object { data, media_type, type }`
+
       - `data: string`
 
       - `media_type: "text/plain"`
@@ -4027,11 +4458,15 @@ ant messages count-tokens \
       - `type: "text"`
 
     - `content_block_source: object { content, type }`
+
       - `content: string or array of ContentBlockSourceContent`
+
         - `union_member_0: string`
 
         - `content_block_source_content: array of ContentBlockSourceContent`
+
           - `text_block_param: object { text, type, cache_control, citations }`
+
             - `text: string`
 
             - `type: "text"`
@@ -4039,6 +4474,7 @@ ant messages count-tokens \
             - `cache_control: optional object { type, ttl }`
 
               Create a cache control breakpoint at this content block.
+
               - `type: "ephemeral"`
 
               - `ttl: optional "5m" or "1h"`
@@ -4046,16 +4482,20 @@ ant messages count-tokens \
                 The time-to-live for the cache control breakpoint.
 
                 This may be one the following values:
+
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
                 Defaults to `5m`.
+
                 - `"5m"`
 
                 - `"1h"`
 
             - `citations: optional array of TextCitationParam`
+
               - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -4069,6 +4509,7 @@ ant messages count-tokens \
                 - `type: "char_location"`
 
               - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -4082,6 +4523,7 @@ ant messages count-tokens \
                 - `type: "page_location"`
 
               - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -4105,6 +4547,7 @@ ant messages count-tokens \
                 - `type: "content_block_location"`
 
               - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
                 - `cited_text: string`
 
                 - `encrypted_index: string`
@@ -4116,6 +4559,7 @@ ant messages count-tokens \
                 - `url: string`
 
               - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -4145,11 +4589,15 @@ ant messages count-tokens \
                 - `type: "search_result_location"`
 
           - `image_block_param: object { source, type, cache_control }`
+
             - `source: Base64ImageSource or URLImageSource`
+
               - `base64_image_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
                   - `"image/jpeg"`
 
                   - `"image/png"`
@@ -4161,6 +4609,7 @@ ant messages count-tokens \
                 - `type: "base64"`
 
               - `url_image_source: object { type, url }`
+
                 - `type: "url"`
 
                 - `url: string`
@@ -4170,6 +4619,7 @@ ant messages count-tokens \
             - `cache_control: optional object { type, ttl }`
 
               Create a cache control breakpoint at this content block.
+
               - `type: "ephemeral"`
 
               - `ttl: optional "5m" or "1h"`
@@ -4177,6 +4627,7 @@ ant messages count-tokens \
                 The time-to-live for the cache control breakpoint.
 
                 This may be one the following values:
+
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
@@ -4185,6 +4636,7 @@ ant messages count-tokens \
       - `type: "content"`
 
     - `url_pdf_source: object { type, url }`
+
       - `type: "url"`
 
       - `url: string`
@@ -4194,6 +4646,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -4201,12 +4654,14 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
 
   - `citations: optional object { enabled }`
+
     - `enabled: optional boolean`
 
   - `context: optional string`
@@ -4218,7 +4673,9 @@ ant messages count-tokens \
 - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `content: array of CodeExecutionOutputBlock`
+
     - `file_id: string`
 
     - `type: "code_execution_output"`
@@ -4236,7 +4693,9 @@ ant messages count-tokens \
 - `encrypted_code_execution_result_block_param: object { content, encrypted_stdout, return_code, 2 more }`
 
   Code execution result with encrypted stdout for PFC + web_search results.
+
   - `content: array of CodeExecutionOutputBlockParam`
+
     - `file_id: string`
 
     - `type: "code_execution_output"`
@@ -4252,11 +4711,15 @@ ant messages count-tokens \
 ### Image Block Param
 
 - `image_block_param: object { source, type, cache_control }`
+
   - `source: Base64ImageSource or URLImageSource`
+
     - `base64_image_source: object { data, media_type, type }`
+
       - `data: string`
 
       - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
         - `"image/jpeg"`
 
         - `"image/png"`
@@ -4268,6 +4731,7 @@ ant messages count-tokens \
       - `type: "base64"`
 
     - `url_image_source: object { type, url }`
+
       - `type: "url"`
 
       - `url: string`
@@ -4277,6 +4741,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -4284,10 +4749,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -4295,6 +4762,7 @@ ant messages count-tokens \
 ### Input JSON Delta
 
 - `input_json_delta: object { partial_json, type }`
+
   - `partial_json: string`
 
   - `type: "input_json_delta"`
@@ -4302,6 +4770,7 @@ ant messages count-tokens \
 ### JSON Output Format
 
 - `json_output_format: object { schema, type }`
+
   - `schema: map[unknown]`
 
     The JSON schema of the format
@@ -4311,6 +4780,7 @@ ant messages count-tokens \
 ### Memory Tool 20250818
 
 - `memory_tool_20250818: object { name, type, allowed_callers, 4 more }`
+
   - `name: "memory"`
 
     Name of the tool.
@@ -4320,6 +4790,7 @@ ant messages count-tokens \
   - `type: "memory_20250818"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -4329,6 +4800,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -4336,10 +4808,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -4357,6 +4831,7 @@ ant messages count-tokens \
 ### Message
 
 - `message: object { id, container, content, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -4366,6 +4841,7 @@ ant messages count-tokens \
   - `container: object { id, expires_at }`
 
     Information about the container used in the request (for the code execution tool)
+
     - `id: string`
 
       Identifier for the container used in this request
@@ -4383,7 +4859,7 @@ ant messages count-tokens \
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -4392,27 +4868,27 @@ ant messages count-tokens \
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
     - `text_block: object { citations, text, type }`
+
       - `citations: array of TextCitation`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -4428,6 +4904,7 @@ ant messages count-tokens \
           - `type: "char_location"`
 
         - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -4443,6 +4920,7 @@ ant messages count-tokens \
           - `type: "page_location"`
 
         - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -4468,6 +4946,7 @@ ant messages count-tokens \
           - `type: "content_block_location"`
 
         - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -4479,6 +4958,7 @@ ant messages count-tokens \
           - `url: string`
 
         - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -4512,6 +4992,7 @@ ant messages count-tokens \
       - `type: "text"`
 
     - `thinking_block: object { signature, thinking, type }`
+
       - `signature: string`
 
       - `thinking: string`
@@ -4519,29 +5000,35 @@ ant messages count-tokens \
       - `type: "thinking"`
 
     - `redacted_thinking_block: object { data, type }`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
 
     - `tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
 
         - `server_tool_caller: object { tool_id, type }`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
 
         - `server_tool_caller_20260120: object { tool_id, type }`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
@@ -4553,11 +5040,13 @@ ant messages count-tokens \
       - `type: "tool_use"`
 
     - `server_tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -4571,6 +5060,7 @@ ant messages count-tokens \
       - `input: map[unknown]`
 
       - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
         - `"web_search"`
 
         - `"web_fetch"`
@@ -4588,9 +5078,11 @@ ant messages count-tokens \
       - `type: "server_tool_use"`
 
     - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -4602,8 +5094,11 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
         - `web_search_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -4619,6 +5114,7 @@ ant messages count-tokens \
           - `type: "web_search_tool_result_error"`
 
         - `union_member_1: array of WebSearchResultBlock`
+
           - `encrypted_content: string`
 
           - `page_age: string`
@@ -4634,9 +5130,11 @@ ant messages count-tokens \
       - `type: "web_search_tool_result"`
 
     - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -4648,8 +5146,11 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
         - `web_fetch_tool_result_error_block: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -4671,14 +5172,19 @@ ant messages count-tokens \
           - `type: "web_fetch_tool_result_error"`
 
         - `web_fetch_block: object { content, retrieved_at, type, url }`
+
           - `content: object { citations, source, title, type }`
+
             - `citations: object { enabled }`
 
               Citation configuration for the document
+
               - `enabled: boolean`
 
             - `source: Base64PDFSource or PlainTextSource`
+
               - `base64_pdf_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
@@ -4686,6 +5192,7 @@ ant messages count-tokens \
                 - `type: "base64"`
 
               - `plain_text_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
@@ -4713,11 +5220,15 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result"`
 
     - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -4729,7 +5240,9 @@ ant messages count-tokens \
           - `type: "code_execution_tool_result_error"`
 
         - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -4745,7 +5258,9 @@ ant messages count-tokens \
         - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -4763,9 +5278,13 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result"`
 
     - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
         - `bash_code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -4779,7 +5298,9 @@ ant messages count-tokens \
           - `type: "bash_code_execution_tool_result_error"`
 
         - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of BashCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
@@ -4797,9 +5318,13 @@ ant messages count-tokens \
       - `type: "bash_code_execution_tool_result"`
 
     - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
         - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -4815,9 +5340,11 @@ ant messages count-tokens \
           - `type: "text_editor_code_execution_tool_result_error"`
 
         - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
           - `content: string`
 
           - `file_type: "text" or "image" or "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -4833,11 +5360,13 @@ ant messages count-tokens \
           - `type: "text_editor_code_execution_view_result"`
 
         - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
 
         - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
           - `lines: array of string`
 
           - `new_lines: number`
@@ -4855,9 +5384,13 @@ ant messages count-tokens \
       - `type: "text_editor_code_execution_tool_result"`
 
     - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
         - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -4871,7 +5404,9 @@ ant messages count-tokens \
           - `type: "tool_search_tool_result_error"`
 
         - `tool_search_tool_search_result_block: object { tool_references, type }`
+
           - `tool_references: array of ToolReferenceBlock`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
@@ -4885,15 +5420,25 @@ ant messages count-tokens \
     - `container_upload_block: object { file_id, type }`
 
       Response model for a file uploaded to the container.
+
       - `file_id: string`
 
       - `type: "container_upload"`
 
-  - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+  - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5"`
+
+      Next generation of intelligence for the hardest knowledge work and coding problems
+
+    - `"claude-mythos-5"`
+
+      Most capable model for cybersecurity and biology research
+
     - `"claude-opus-4-8"`
 
       Frontier intelligence for long-running agents and coding
@@ -4975,14 +5520,18 @@ ant messages count-tokens \
   - `stop_details: object { category, explanation, type }`
 
     Structured information about a refusal.
-    - `category: "cyber" or "bio"`
+
+    - `category: "cyber" or "bio" or "reasoning_extraction"`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"`
 
       - `"bio"`
+
+      - `"reasoning_extraction"`
 
     - `explanation: string`
 
@@ -4997,14 +5546,16 @@ ant messages count-tokens \
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"`
 
     - `"max_tokens"`
@@ -5040,9 +5591,11 @@ ant messages count-tokens \
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
       Breakdown of cached tokens by TTL
+
       - `ephemeral_1h_input_tokens: number`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -5079,6 +5632,7 @@ ant messages count-tokens \
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `thinking_tokens: number`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -5093,6 +5647,7 @@ ant messages count-tokens \
     - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
       The number of server tool requests.
+
       - `web_fetch_requests: number`
 
         The number of web fetch tool requests.
@@ -5104,6 +5659,7 @@ ant messages count-tokens \
     - `service_tier: "standard" or "priority" or "batch"`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"`
 
       - `"priority"`
@@ -5115,12 +5671,15 @@ ant messages count-tokens \
 - `message_count_tokens_tool: Tool or ToolBash20250124 or CodeExecutionTool20250522 or 13 more`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
   - `tool: object { input_schema, name, allowed_callers, 7 more }`
+
     - `input_schema: object { type, properties, required }`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
       This defines the shape of the `input` that your tool accepts and that the model will produce.
+
       - `type: "object"`
 
       - `properties: optional map[unknown]`
@@ -5134,6 +5693,7 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5143,6 +5703,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5150,10 +5711,12 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
@@ -5179,9 +5742,11 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
     - `type: optional "custom"`
+
       - `"custom"`
 
   - `tool_bash_20250124: object { name, type, allowed_callers, 4 more }`
+
     - `name: "bash"`
 
       Name of the tool.
@@ -5191,6 +5756,7 @@ ant messages count-tokens \
     - `type: "bash_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5200,6 +5766,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5207,6 +5774,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5223,6 +5791,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `code_execution_tool_20250522: object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -5232,6 +5801,7 @@ ant messages count-tokens \
     - `type: "code_execution_20250522"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5241,6 +5811,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5248,6 +5819,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5262,6 +5834,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `code_execution_tool_20250825: object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -5271,6 +5844,7 @@ ant messages count-tokens \
     - `type: "code_execution_20250825"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5280,6 +5854,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5287,6 +5862,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5303,6 +5879,7 @@ ant messages count-tokens \
   - `code_execution_tool_20260120: object { name, type, allowed_callers, 3 more }`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -5312,6 +5889,7 @@ ant messages count-tokens \
     - `type: "code_execution_20260120"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5321,6 +5899,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5328,6 +5907,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5342,6 +5922,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `memory_tool_20250818: object { name, type, allowed_callers, 4 more }`
+
     - `name: "memory"`
 
       Name of the tool.
@@ -5351,6 +5932,7 @@ ant messages count-tokens \
     - `type: "memory_20250818"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5360,6 +5942,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5367,6 +5950,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5383,6 +5967,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250124: object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_editor"`
 
       Name of the tool.
@@ -5392,6 +5977,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5401,6 +5987,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5408,6 +5995,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5424,6 +6012,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250429: object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
@@ -5433,6 +6022,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250429"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5442,6 +6032,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5449,6 +6040,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5465,6 +6057,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250728: object { name, type, allowed_callers, 5 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
@@ -5474,6 +6067,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250728"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5483,6 +6077,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5490,6 +6085,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5510,6 +6106,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `web_search_tool_20250305: object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
@@ -5519,6 +6116,7 @@ ant messages count-tokens \
     - `type: "web_search_20250305"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5536,6 +6134,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5543,6 +6142,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5563,6 +6163,7 @@ ant messages count-tokens \
     - `user_location: optional object { type, city, country, 2 more }`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `type: "approximate"`
 
       - `city: optional string`
@@ -5582,6 +6183,7 @@ ant messages count-tokens \
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `web_fetch_tool_20250910: object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -5591,6 +6193,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20250910"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5608,6 +6211,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5615,6 +6219,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5623,6 +6228,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -5642,6 +6248,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `web_search_tool_20260209: object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
@@ -5651,6 +6258,7 @@ ant messages count-tokens \
     - `type: "web_search_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5668,6 +6276,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5675,6 +6284,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5695,6 +6305,7 @@ ant messages count-tokens \
     - `user_location: optional object { type, city, country, 2 more }`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `type: "approximate"`
 
       - `city: optional string`
@@ -5714,6 +6325,7 @@ ant messages count-tokens \
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `web_fetch_tool_20260209: object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -5723,6 +6335,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5740,6 +6353,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5747,6 +6361,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5755,6 +6370,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -5776,6 +6392,7 @@ ant messages count-tokens \
   - `web_fetch_tool_20260309: object { name, type, allowed_callers, 9 more }`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -5785,6 +6402,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20260309"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5802,6 +6420,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5809,6 +6428,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5817,6 +6437,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -5840,6 +6461,7 @@ ant messages count-tokens \
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
   - `tool_search_tool_bm25_20251119: object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_bm25"`
 
       Name of the tool.
@@ -5847,11 +6469,13 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
       - `"tool_search_tool_bm25_20251119"`
 
       - `"tool_search_tool_bm25"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5861,6 +6485,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5868,6 +6493,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5882,6 +6508,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_search_tool_regex_20251119: object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_regex"`
 
       Name of the tool.
@@ -5889,11 +6516,13 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
       - `"tool_search_tool_regex_20251119"`
 
       - `"tool_search_tool_regex"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -5903,6 +6532,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -5910,6 +6540,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -5926,6 +6557,7 @@ ant messages count-tokens \
 ### Message Delta Usage
 
 - `message_delta_usage: object { cache_creation_input_tokens, cache_read_input_tokens, input_tokens, 3 more }`
+
   - `cache_creation_input_tokens: number`
 
     The cumulative number of input tokens used to create the cache entry.
@@ -5950,6 +6582,7 @@ ant messages count-tokens \
     This object provides a read-only decomposition for observability — for example,
     how many of the billed output tokens were spent on internal reasoning that may
     have been summarized before being returned to you.
+
     - `thinking_tokens: number`
 
       Number of output tokens the model generated as internal reasoning, including
@@ -5964,6 +6597,7 @@ ant messages count-tokens \
   - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
     The number of server tool requests.
+
     - `web_fetch_requests: number`
 
       The number of web fetch tool requests.
@@ -5975,8 +6609,11 @@ ant messages count-tokens \
 ### Message Param
 
 - `message_param: object { content, role }`
+
   - `content: array of ContentBlockParam`
+
     - `text_block_param: object { text, type, cache_control, citations }`
+
       - `text: string`
 
       - `type: "text"`
@@ -5984,6 +6621,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -5991,16 +6629,20 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
+
           - `"5m"`
 
           - `"1h"`
 
       - `citations: optional array of TextCitationParam`
+
         - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -6014,6 +6656,7 @@ ant messages count-tokens \
           - `type: "char_location"`
 
         - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -6027,6 +6670,7 @@ ant messages count-tokens \
           - `type: "page_location"`
 
         - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -6050,6 +6694,7 @@ ant messages count-tokens \
           - `type: "content_block_location"`
 
         - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -6061,6 +6706,7 @@ ant messages count-tokens \
           - `url: string`
 
         - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -6090,11 +6736,15 @@ ant messages count-tokens \
           - `type: "search_result_location"`
 
     - `image_block_param: object { source, type, cache_control }`
+
       - `source: Base64ImageSource or URLImageSource`
+
         - `base64_image_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
             - `"image/jpeg"`
 
             - `"image/png"`
@@ -6106,6 +6756,7 @@ ant messages count-tokens \
           - `type: "base64"`
 
         - `url_image_source: object { type, url }`
+
           - `type: "url"`
 
           - `url: string`
@@ -6115,6 +6766,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6122,14 +6774,18 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
     - `document_block_param: object { source, type, cache_control, 3 more }`
+
       - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
         - `base64_pdf_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "application/pdf"`
@@ -6137,6 +6793,7 @@ ant messages count-tokens \
           - `type: "base64"`
 
         - `plain_text_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "text/plain"`
@@ -6144,11 +6801,15 @@ ant messages count-tokens \
           - `type: "text"`
 
         - `content_block_source: object { content, type }`
+
           - `content: string or array of ContentBlockSourceContent`
+
             - `union_member_0: string`
 
             - `content_block_source_content: array of ContentBlockSourceContent`
+
               - `text_block_param: object { text, type, cache_control, citations }`
+
                 - `text: string`
 
                 - `type: "text"`
@@ -6160,6 +6821,7 @@ ant messages count-tokens \
                 - `citations: optional array of TextCitationParam`
 
               - `image_block_param: object { source, type, cache_control }`
+
                 - `source: Base64ImageSource or URLImageSource`
 
                 - `type: "image"`
@@ -6171,6 +6833,7 @@ ant messages count-tokens \
           - `type: "content"`
 
         - `url_pdf_source: object { type, url }`
+
           - `type: "url"`
 
           - `url: string`
@@ -6180,6 +6843,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6187,12 +6851,14 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `citations: optional object { enabled }`
+
         - `enabled: optional boolean`
 
       - `context: optional string`
@@ -6200,7 +6866,9 @@ ant messages count-tokens \
       - `title: optional string`
 
     - `search_result_block_param: object { content, source, title, 3 more }`
+
       - `content: array of TextBlockParam`
+
         - `text: string`
 
         - `type: "text"`
@@ -6220,6 +6888,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6227,15 +6896,18 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `citations: optional object { enabled }`
+
         - `enabled: optional boolean`
 
     - `thinking_block_param: object { signature, thinking, type }`
+
       - `signature: string`
 
       - `thinking: string`
@@ -6243,11 +6915,13 @@ ant messages count-tokens \
       - `type: "thinking"`
 
     - `redacted_thinking_block_param: object { data, type }`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
 
     - `tool_use_block_param: object { id, input, name, 3 more }`
+
       - `id: string`
 
       - `input: map[unknown]`
@@ -6259,6 +6933,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6266,6 +6941,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6274,24 +6950,29 @@ ant messages count-tokens \
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
 
         - `server_tool_caller: object { tool_id, type }`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
 
         - `server_tool_caller_20260120: object { tool_id, type }`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
 
     - `tool_result_block_param: object { tool_use_id, type, cache_control, 2 more }`
+
       - `tool_use_id: string`
 
       - `type: "tool_result"`
@@ -6299,6 +6980,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6306,13 +6988,16 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `content: optional array of TextBlockParam or ImageBlockParam or SearchResultBlockParam or 2 more`
+
         - `text_block_param: object { text, type, cache_control, citations }`
+
           - `text: string`
 
           - `type: "text"`
@@ -6324,6 +7009,7 @@ ant messages count-tokens \
           - `citations: optional array of TextCitationParam`
 
         - `image_block_param: object { source, type, cache_control }`
+
           - `source: Base64ImageSource or URLImageSource`
 
           - `type: "image"`
@@ -6333,6 +7019,7 @@ ant messages count-tokens \
             Create a cache control breakpoint at this content block.
 
         - `search_result_block_param: object { content, source, title, 3 more }`
+
           - `content: array of TextBlockParam`
 
           - `source: string`
@@ -6348,6 +7035,7 @@ ant messages count-tokens \
           - `citations: optional object { enabled }`
 
         - `document_block_param: object { source, type, cache_control, 3 more }`
+
           - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
 
           - `type: "document"`
@@ -6365,6 +7053,7 @@ ant messages count-tokens \
         - `tool_reference_block_param: object { tool_name, type, cache_control }`
 
           Tool reference block that can be included in tool_result content.
+
           - `tool_name: string`
 
           - `type: "tool_reference"`
@@ -6372,6 +7061,7 @@ ant messages count-tokens \
           - `cache_control: optional object { type, ttl }`
 
             Create a cache control breakpoint at this content block.
+
             - `type: "ephemeral"`
 
             - `ttl: optional "5m" or "1h"`
@@ -6379,6 +7069,7 @@ ant messages count-tokens \
               The time-to-live for the cache control breakpoint.
 
               This may be one the following values:
+
               - `5m`: 5 minutes
               - `1h`: 1 hour
 
@@ -6387,11 +7078,13 @@ ant messages count-tokens \
       - `is_error: optional boolean`
 
     - `server_tool_use_block_param: object { id, input, name, 3 more }`
+
       - `id: string`
 
       - `input: map[unknown]`
 
       - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
         - `"web_search"`
 
         - `"web_fetch"`
@@ -6411,6 +7104,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6418,6 +7112,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6426,6 +7121,7 @@ ant messages count-tokens \
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -6437,8 +7133,11 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
     - `web_search_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
       - `content: array of WebSearchResultBlockParam or WebSearchToolRequestError`
+
         - `web_search_tool_result_block_item: array of WebSearchResultBlockParam`
+
           - `encrypted_content: string`
 
           - `title: string`
@@ -6450,7 +7149,9 @@ ant messages count-tokens \
           - `page_age: optional string`
 
         - `web_search_tool_request_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -6472,6 +7173,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6479,6 +7181,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6487,6 +7190,7 @@ ant messages count-tokens \
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -6498,9 +7202,13 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
     - `web_fetch_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
       - `content: WebFetchToolResultErrorBlockParam or WebFetchBlockParam`
+
         - `web_fetch_tool_result_error_block_param: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -6522,7 +7230,9 @@ ant messages count-tokens \
           - `type: "web_fetch_tool_result_error"`
 
         - `web_fetch_block_param: object { content, type, url, retrieved_at }`
+
           - `content: object { source, type, cache_control, 3 more }`
+
             - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
 
             - `type: "document"`
@@ -6554,6 +7264,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6561,6 +7272,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6569,6 +7281,7 @@ ant messages count-tokens \
       - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -6580,11 +7293,15 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
     - `code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
       - `content: CodeExecutionToolResultErrorParam or CodeExecutionResultBlockParam or EncryptedCodeExecutionResultBlockParam`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `code_execution_tool_result_error_param: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -6596,7 +7313,9 @@ ant messages count-tokens \
           - `type: "code_execution_tool_result_error"`
 
         - `code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
           - `content: array of CodeExecutionOutputBlockParam`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -6612,7 +7331,9 @@ ant messages count-tokens \
         - `encrypted_code_execution_result_block_param: object { content, encrypted_stdout, return_code, 2 more }`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: array of CodeExecutionOutputBlockParam`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -6632,6 +7353,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6639,15 +7361,20 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
     - `bash_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
       - `content: BashCodeExecutionToolResultErrorParam or BashCodeExecutionResultBlockParam`
+
         - `bash_code_execution_tool_result_error_param: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -6661,7 +7388,9 @@ ant messages count-tokens \
           - `type: "bash_code_execution_tool_result_error"`
 
         - `bash_code_execution_result_block_param: object { content, return_code, stderr, 2 more }`
+
           - `content: array of BashCodeExecutionOutputBlockParam`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
@@ -6681,6 +7410,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6688,15 +7418,20 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
     - `text_editor_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
       - `content: TextEditorCodeExecutionToolResultErrorParam or TextEditorCodeExecutionViewResultBlockParam or TextEditorCodeExecutionCreateResultBlockParam or TextEditorCodeExecutionStrReplaceResultBlockParam`
+
         - `text_editor_code_execution_tool_result_error_param: object { error_code, type, error_message }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -6712,9 +7447,11 @@ ant messages count-tokens \
           - `error_message: optional string`
 
         - `text_editor_code_execution_view_result_block_param: object { content, file_type, type, 3 more }`
+
           - `content: string`
 
           - `file_type: "text" or "image" or "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -6730,11 +7467,13 @@ ant messages count-tokens \
           - `total_lines: optional number`
 
         - `text_editor_code_execution_create_result_block_param: object { is_file_update, type }`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
 
         - `text_editor_code_execution_str_replace_result_block_param: object { type, lines, new_lines, 3 more }`
+
           - `type: "text_editor_code_execution_str_replace_result"`
 
           - `lines: optional array of string`
@@ -6754,6 +7493,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6761,15 +7501,20 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
     - `tool_search_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
       - `content: ToolSearchToolResultErrorParam or ToolSearchToolSearchResultBlockParam`
-        - `tool_search_tool_result_error_param: object { error_code, type }`
+
+        - `tool_search_tool_result_error_param: object { error_code, type, error_message }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -6780,8 +7525,12 @@ ant messages count-tokens \
 
           - `type: "tool_search_tool_result_error"`
 
+          - `error_message: optional string`
+
         - `tool_search_tool_search_result_block_param: object { tool_references, type }`
+
           - `tool_references: array of ToolReferenceBlockParam`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
@@ -6799,6 +7548,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6806,6 +7556,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6815,6 +7566,7 @@ ant messages count-tokens \
 
       A content block that represents a file to be uploaded to the container
       Files uploaded via this block will be available in the container's input directory.
+
       - `file_id: string`
 
       - `type: "container_upload"`
@@ -6822,6 +7574,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6829,6 +7582,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -6840,9 +7594,11 @@ ant messages count-tokens \
 
       Use this block to provide or update system-level instructions at a specific
       point in the conversation, rather than only via the top-level `system` parameter.
+
       - `content: array of TextBlockParam`
 
         System instruction text blocks.
+
         - `text: string`
 
         - `type: "text"`
@@ -6858,6 +7614,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -6865,12 +7622,14 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
   - `role: "user" or "assistant" or "system"`
+
     - `"user"`
 
     - `"assistant"`
@@ -6880,6 +7639,7 @@ ant messages count-tokens \
 ### Message Tokens Count
 
 - `message_tokens_count: object { input_tokens }`
+
   - `input_tokens: number`
 
     The total number of tokens across the provided list of messages, system prompt, and tools.
@@ -6887,6 +7647,7 @@ ant messages count-tokens \
 ### Metadata
 
 - `metadata: object { user_id }`
+
   - `user_id: optional string`
 
     An external identifier for the user who is associated with the request.
@@ -6901,9 +7662,11 @@ ant messages count-tokens \
 
   Use this block to provide or update system-level instructions at a specific
   point in the conversation, rather than only via the top-level `system` parameter.
+
   - `content: array of TextBlockParam`
 
     System instruction text blocks.
+
     - `text: string`
 
     - `type: "text"`
@@ -6911,6 +7674,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -6918,16 +7682,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
 
     - `citations: optional array of TextCitationParam`
+
       - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -6941,6 +7709,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -6954,6 +7723,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -6977,6 +7747,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -6988,6 +7759,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -7021,6 +7793,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -7028,6 +7801,7 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
@@ -7036,9 +7810,11 @@ ant messages count-tokens \
 ### Output Config
 
 - `output_config: object { effort, format }`
+
   - `effort: optional "low" or "medium" or "high" or 2 more`
 
     All possible effort levels.
+
     - `"low"`
 
     - `"medium"`
@@ -7052,15 +7828,32 @@ ant messages count-tokens \
   - `format: optional object { schema, type }`
 
     A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
     - `schema: map[unknown]`
 
       The JSON schema of the format
 
     - `type: "json_schema"`
 
+### Output Tokens Details
+
+- `output_tokens_details: object { thinking_tokens }`
+
+  - `thinking_tokens: number`
+
+    Number of output tokens the model generated as internal reasoning, including
+    the thinking-block delimiter tokens.
+
+    Reflects the raw reasoning the model produced, not the (possibly shorter)
+    summarized thinking text returned in the response body. Computed by
+    re-tokenizing the raw reasoning text, so it may differ from the model's exact
+    generation count by a small number of tokens. Always ≤ `output_tokens`;
+    `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
 ### Plain Text Source
 
 - `plain_text_source: object { data, media_type, type }`
+
   - `data: string`
 
   - `media_type: "text/plain"`
@@ -7070,19 +7863,25 @@ ant messages count-tokens \
 ### Raw Content Block Delta
 
 - `raw_content_block_delta: TextDelta or InputJSONDelta or CitationsDelta or 2 more`
+
   - `text_delta: object { text, type }`
+
     - `text: string`
 
     - `type: "text_delta"`
 
   - `input_json_delta: object { partial_json, type }`
+
     - `partial_json: string`
 
     - `type: "input_json_delta"`
 
   - `citations_delta: object { citation, type }`
+
     - `citation: CitationCharLocation or CitationPageLocation or CitationContentBlockLocation or 2 more`
+
       - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -7098,6 +7897,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -7113,6 +7913,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -7138,6 +7939,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -7149,6 +7951,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -7180,11 +7983,13 @@ ant messages count-tokens \
     - `type: "citations_delta"`
 
   - `thinking_delta: object { thinking, type }`
+
     - `thinking: string`
 
     - `type: "thinking_delta"`
 
   - `signature_delta: object { signature, type }`
+
     - `signature: string`
 
     - `type: "signature_delta"`
@@ -7192,20 +7997,27 @@ ant messages count-tokens \
 ### Raw Content Block Delta Event
 
 - `raw_content_block_delta_event: object { delta, index, type }`
+
   - `delta: TextDelta or InputJSONDelta or CitationsDelta or 2 more`
+
     - `text_delta: object { text, type }`
+
       - `text: string`
 
       - `type: "text_delta"`
 
     - `input_json_delta: object { partial_json, type }`
+
       - `partial_json: string`
 
       - `type: "input_json_delta"`
 
     - `citations_delta: object { citation, type }`
+
       - `citation: CitationCharLocation or CitationPageLocation or CitationContentBlockLocation or 2 more`
+
         - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -7221,6 +8033,7 @@ ant messages count-tokens \
           - `type: "char_location"`
 
         - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -7236,6 +8049,7 @@ ant messages count-tokens \
           - `type: "page_location"`
 
         - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -7261,6 +8075,7 @@ ant messages count-tokens \
           - `type: "content_block_location"`
 
         - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -7272,6 +8087,7 @@ ant messages count-tokens \
           - `url: string`
 
         - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -7303,11 +8119,13 @@ ant messages count-tokens \
       - `type: "citations_delta"`
 
     - `thinking_delta: object { thinking, type }`
+
       - `thinking: string`
 
       - `type: "thinking_delta"`
 
     - `signature_delta: object { signature, type }`
+
       - `signature: string`
 
       - `type: "signature_delta"`
@@ -7319,16 +8137,21 @@ ant messages count-tokens \
 ### Raw Content Block Start Event
 
 - `raw_content_block_start_event: object { content_block, index, type }`
+
   - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
     Response model for a file uploaded to the container.
+
     - `text_block: object { citations, text, type }`
+
       - `citations: array of TextCitation`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -7344,6 +8167,7 @@ ant messages count-tokens \
           - `type: "char_location"`
 
         - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -7359,6 +8183,7 @@ ant messages count-tokens \
           - `type: "page_location"`
 
         - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -7384,6 +8209,7 @@ ant messages count-tokens \
           - `type: "content_block_location"`
 
         - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -7395,6 +8221,7 @@ ant messages count-tokens \
           - `url: string`
 
         - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -7428,6 +8255,7 @@ ant messages count-tokens \
       - `type: "text"`
 
     - `thinking_block: object { signature, thinking, type }`
+
       - `signature: string`
 
       - `thinking: string`
@@ -7435,29 +8263,35 @@ ant messages count-tokens \
       - `type: "thinking"`
 
     - `redacted_thinking_block: object { data, type }`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
 
     - `tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
 
         - `server_tool_caller: object { tool_id, type }`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
 
         - `server_tool_caller_20260120: object { tool_id, type }`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
@@ -7469,11 +8303,13 @@ ant messages count-tokens \
       - `type: "tool_use"`
 
     - `server_tool_use_block: object { id, caller, input, 2 more }`
+
       - `id: string`
 
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -7487,6 +8323,7 @@ ant messages count-tokens \
       - `input: map[unknown]`
 
       - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
         - `"web_search"`
 
         - `"web_fetch"`
@@ -7504,9 +8341,11 @@ ant messages count-tokens \
       - `type: "server_tool_use"`
 
     - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -7518,8 +8357,11 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
         - `web_search_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -7535,6 +8377,7 @@ ant messages count-tokens \
           - `type: "web_search_tool_result_error"`
 
         - `union_member_1: array of WebSearchResultBlock`
+
           - `encrypted_content: string`
 
           - `page_age: string`
@@ -7550,9 +8393,11 @@ ant messages count-tokens \
       - `type: "web_search_tool_result"`
 
     - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
       - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `direct_caller: object { type }`
 
           Tool invocation directly from the model.
@@ -7564,8 +8409,11 @@ ant messages count-tokens \
         - `server_tool_caller_20260120: object { tool_id, type }`
 
       - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
         - `web_fetch_tool_result_error_block: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -7587,14 +8435,19 @@ ant messages count-tokens \
           - `type: "web_fetch_tool_result_error"`
 
         - `web_fetch_block: object { content, retrieved_at, type, url }`
+
           - `content: object { citations, source, title, type }`
+
             - `citations: object { enabled }`
 
               Citation configuration for the document
+
               - `enabled: boolean`
 
             - `source: Base64PDFSource or PlainTextSource`
+
               - `base64_pdf_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
@@ -7602,6 +8455,7 @@ ant messages count-tokens \
                 - `type: "base64"`
 
               - `plain_text_source: object { data, media_type, type }`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
@@ -7629,11 +8483,15 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result"`
 
     - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -7645,7 +8503,9 @@ ant messages count-tokens \
           - `type: "code_execution_tool_result_error"`
 
         - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -7661,7 +8521,9 @@ ant messages count-tokens \
         - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: array of CodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -7679,9 +8541,13 @@ ant messages count-tokens \
       - `type: "code_execution_tool_result"`
 
     - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
         - `bash_code_execution_tool_result_error: object { error_code, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -7695,7 +8561,9 @@ ant messages count-tokens \
           - `type: "bash_code_execution_tool_result_error"`
 
         - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
           - `content: array of BashCodeExecutionOutputBlock`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
@@ -7713,9 +8581,13 @@ ant messages count-tokens \
       - `type: "bash_code_execution_tool_result"`
 
     - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
         - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -7731,9 +8603,11 @@ ant messages count-tokens \
           - `type: "text_editor_code_execution_tool_result_error"`
 
         - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
           - `content: string`
 
           - `file_type: "text" or "image" or "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -7749,11 +8623,13 @@ ant messages count-tokens \
           - `type: "text_editor_code_execution_view_result"`
 
         - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
 
         - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
           - `lines: array of string`
 
           - `new_lines: number`
@@ -7771,9 +8647,13 @@ ant messages count-tokens \
       - `type: "text_editor_code_execution_tool_result"`
 
     - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
       - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
         - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
           - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -7787,7 +8667,9 @@ ant messages count-tokens \
           - `type: "tool_search_tool_result_error"`
 
         - `tool_search_tool_search_result_block: object { tool_references, type }`
+
           - `tool_references: array of ToolReferenceBlock`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
@@ -7801,6 +8683,7 @@ ant messages count-tokens \
     - `container_upload_block: object { file_id, type }`
 
       Response model for a file uploaded to the container.
+
       - `file_id: string`
 
       - `type: "container_upload"`
@@ -7812,6 +8695,7 @@ ant messages count-tokens \
 ### Raw Content Block Stop Event
 
 - `raw_content_block_stop_event: object { index, type }`
+
   - `index: number`
 
   - `type: "content_block_stop"`
@@ -7819,10 +8703,13 @@ ant messages count-tokens \
 ### Raw Message Delta Event
 
 - `raw_message_delta_event: object { delta, type, usage }`
+
   - `delta: object { container, stop_details, stop_reason, stop_sequence }`
+
     - `container: object { id, expires_at }`
 
       Information about the container used in the request (for the code execution tool)
+
       - `id: string`
 
         Identifier for the container used in this request
@@ -7834,14 +8721,18 @@ ant messages count-tokens \
     - `stop_details: object { category, explanation, type }`
 
       Structured information about a refusal.
-      - `category: "cyber" or "bio"`
+
+      - `category: "cyber" or "bio" or "reasoning_extraction"`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"`
 
         - `"bio"`
+
+        - `"reasoning_extraction"`
 
       - `explanation: string`
 
@@ -7852,6 +8743,7 @@ ant messages count-tokens \
       - `type: "refusal"`
 
     - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+
       - `"end_turn"`
 
       - `"max_tokens"`
@@ -7879,6 +8771,7 @@ ant messages count-tokens \
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `cache_creation_input_tokens: number`
 
       The cumulative number of input tokens used to create the cache entry.
@@ -7903,6 +8796,7 @@ ant messages count-tokens \
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `thinking_tokens: number`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -7917,6 +8811,7 @@ ant messages count-tokens \
     - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
       The number of server tool requests.
+
       - `web_fetch_requests: number`
 
         The number of web fetch tool requests.
@@ -7928,7 +8823,9 @@ ant messages count-tokens \
 ### Raw Message Start Event
 
 - `raw_message_start_event: object { message, type }`
+
   - `message: object { id, container, content, 7 more }`
+
     - `id: string`
 
       Unique object identifier.
@@ -7938,6 +8835,7 @@ ant messages count-tokens \
     - `container: object { id, expires_at }`
 
       Information about the container used in the request (for the code execution tool)
+
       - `id: string`
 
         Identifier for the container used in this request
@@ -7955,7 +8853,7 @@ ant messages count-tokens \
       Example:
 
       ```json
-      [{ "type": "text", "text": "Hi, I'm Claude." }]
+      [{"type": "text", "text": "Hi, I'm Claude."}]
       ```
 
       If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -7964,27 +8862,27 @@ ant messages count-tokens \
 
       ```json
       [
-        {
-          "role": "user",
-          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-        },
-        { "role": "assistant", "content": "The best answer is (" }
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("}
       ]
       ```
 
       Then the response `content` might be:
 
       ```json
-      [{ "type": "text", "text": "B)" }]
+      [{"type": "text", "text": "B)"}]
       ```
 
       - `text_block: object { citations, text, type }`
+
         - `citations: array of TextCitation`
 
           Citations supporting the text block.
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
           - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -8000,6 +8898,7 @@ ant messages count-tokens \
             - `type: "char_location"`
 
           - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -8015,6 +8914,7 @@ ant messages count-tokens \
             - `type: "page_location"`
 
           - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -8040,6 +8940,7 @@ ant messages count-tokens \
             - `type: "content_block_location"`
 
           - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
             - `cited_text: string`
 
             - `encrypted_index: string`
@@ -8051,6 +8952,7 @@ ant messages count-tokens \
             - `url: string`
 
           - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -8084,6 +8986,7 @@ ant messages count-tokens \
         - `type: "text"`
 
       - `thinking_block: object { signature, thinking, type }`
+
         - `signature: string`
 
         - `thinking: string`
@@ -8091,29 +8994,35 @@ ant messages count-tokens \
         - `type: "thinking"`
 
       - `redacted_thinking_block: object { data, type }`
+
         - `data: string`
 
         - `type: "redacted_thinking"`
 
       - `tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
+
             - `type: "direct"`
 
           - `server_tool_caller: object { tool_id, type }`
 
             Tool invocation generated by a server-side tool.
+
             - `tool_id: string`
 
             - `type: "code_execution_20250825"`
 
           - `server_tool_caller_20260120: object { tool_id, type }`
+
             - `tool_id: string`
 
             - `type: "code_execution_20260120"`
@@ -8125,11 +9034,13 @@ ant messages count-tokens \
         - `type: "tool_use"`
 
       - `server_tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -8143,6 +9054,7 @@ ant messages count-tokens \
         - `input: map[unknown]`
 
         - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
           - `"web_search"`
 
           - `"web_fetch"`
@@ -8160,9 +9072,11 @@ ant messages count-tokens \
         - `type: "server_tool_use"`
 
       - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -8174,8 +9088,11 @@ ant messages count-tokens \
           - `server_tool_caller_20260120: object { tool_id, type }`
 
         - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
           - `web_search_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -8191,6 +9108,7 @@ ant messages count-tokens \
             - `type: "web_search_tool_result_error"`
 
           - `union_member_1: array of WebSearchResultBlock`
+
             - `encrypted_content: string`
 
             - `page_age: string`
@@ -8206,9 +9124,11 @@ ant messages count-tokens \
         - `type: "web_search_tool_result"`
 
       - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -8220,8 +9140,11 @@ ant messages count-tokens \
           - `server_tool_caller_20260120: object { tool_id, type }`
 
         - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
           - `web_fetch_tool_result_error_block: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
               - `"invalid_tool_input"`
 
               - `"url_too_long"`
@@ -8243,14 +9166,19 @@ ant messages count-tokens \
             - `type: "web_fetch_tool_result_error"`
 
           - `web_fetch_block: object { content, retrieved_at, type, url }`
+
             - `content: object { citations, source, title, type }`
+
               - `citations: object { enabled }`
 
                 Citation configuration for the document
+
                 - `enabled: boolean`
 
               - `source: Base64PDFSource or PlainTextSource`
+
                 - `base64_pdf_source: object { data, media_type, type }`
+
                   - `data: string`
 
                   - `media_type: "application/pdf"`
@@ -8258,6 +9186,7 @@ ant messages count-tokens \
                   - `type: "base64"`
 
                 - `plain_text_source: object { data, media_type, type }`
+
                   - `data: string`
 
                   - `media_type: "text/plain"`
@@ -8285,11 +9214,15 @@ ant messages count-tokens \
         - `type: "web_fetch_tool_result"`
 
       - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `code_execution_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -8301,7 +9234,9 @@ ant messages count-tokens \
             - `type: "code_execution_tool_result_error"`
 
           - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
             - `content: array of CodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
@@ -8317,7 +9252,9 @@ ant messages count-tokens \
           - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `content: array of CodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
@@ -8335,9 +9272,13 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result"`
 
       - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
           - `bash_code_execution_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -8351,7 +9292,9 @@ ant messages count-tokens \
             - `type: "bash_code_execution_tool_result_error"`
 
           - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
             - `content: array of BashCodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "bash_code_execution_output"`
@@ -8369,9 +9312,13 @@ ant messages count-tokens \
         - `type: "bash_code_execution_tool_result"`
 
       - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
           - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -8387,9 +9334,11 @@ ant messages count-tokens \
             - `type: "text_editor_code_execution_tool_result_error"`
 
           - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
             - `content: string`
 
             - `file_type: "text" or "image" or "pdf"`
+
               - `"text"`
 
               - `"image"`
@@ -8405,11 +9354,13 @@ ant messages count-tokens \
             - `type: "text_editor_code_execution_view_result"`
 
           - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
             - `is_file_update: boolean`
 
             - `type: "text_editor_code_execution_create_result"`
 
           - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
             - `lines: array of string`
 
             - `new_lines: number`
@@ -8427,9 +9378,13 @@ ant messages count-tokens \
         - `type: "text_editor_code_execution_tool_result"`
 
       - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
           - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -8443,7 +9398,9 @@ ant messages count-tokens \
             - `type: "tool_search_tool_result_error"`
 
           - `tool_search_tool_search_result_block: object { tool_references, type }`
+
             - `tool_references: array of ToolReferenceBlock`
+
               - `tool_name: string`
 
               - `type: "tool_reference"`
@@ -8457,15 +9414,25 @@ ant messages count-tokens \
       - `container_upload_block: object { file_id, type }`
 
         Response model for a file uploaded to the container.
+
         - `file_id: string`
 
         - `type: "container_upload"`
 
-    - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -8547,14 +9514,18 @@ ant messages count-tokens \
     - `stop_details: object { category, explanation, type }`
 
       Structured information about a refusal.
-      - `category: "cyber" or "bio"`
+
+      - `category: "cyber" or "bio" or "reasoning_extraction"`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"`
 
         - `"bio"`
+
+        - `"reasoning_extraction"`
 
       - `explanation: string`
 
@@ -8569,14 +9540,16 @@ ant messages count-tokens \
       The reason that we stopped.
 
       This may be one the following values:
-      - `"end_turn"`: the model reached a natural stopping point
-      - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-      - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-      - `"tool_use"`: the model invoked one or more tools
-      - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-      - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+      * `"end_turn"`: the model reached a natural stopping point
+      * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+      * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+      * `"tool_use"`: the model invoked one or more tools
+      * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+      * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
       - `"end_turn"`
 
       - `"max_tokens"`
@@ -8612,9 +9585,11 @@ ant messages count-tokens \
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         Breakdown of cached tokens by TTL
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -8651,6 +9626,7 @@ ant messages count-tokens \
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
+
         - `thinking_tokens: number`
 
           Number of output tokens the model generated as internal reasoning, including
@@ -8665,6 +9641,7 @@ ant messages count-tokens \
       - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
         The number of server tool requests.
+
         - `web_fetch_requests: number`
 
           The number of web fetch tool requests.
@@ -8676,6 +9653,7 @@ ant messages count-tokens \
       - `service_tier: "standard" or "priority" or "batch"`
 
         If the request used the priority, standard, or batch tier.
+
         - `"standard"`
 
         - `"priority"`
@@ -8687,13 +9665,17 @@ ant messages count-tokens \
 ### Raw Message Stop Event
 
 - `raw_message_stop_event: object { type }`
+
   - `type: "message_stop"`
 
 ### Raw Message Stream Event
 
 - `raw_message_stream_event: RawMessageStartEvent or RawMessageDeltaEvent or RawMessageStopEvent or 3 more`
+
   - `raw_message_start_event: object { message, type }`
+
     - `message: object { id, container, content, 7 more }`
+
       - `id: string`
 
         Unique object identifier.
@@ -8703,6 +9685,7 @@ ant messages count-tokens \
       - `container: object { id, expires_at }`
 
         Information about the container used in the request (for the code execution tool)
+
         - `id: string`
 
           Identifier for the container used in this request
@@ -8720,7 +9703,7 @@ ant messages count-tokens \
         Example:
 
         ```json
-        [{ "type": "text", "text": "Hi, I'm Claude." }]
+        [{"type": "text", "text": "Hi, I'm Claude."}]
         ```
 
         If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -8729,27 +9712,27 @@ ant messages count-tokens \
 
         ```json
         [
-          {
-            "role": "user",
-            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-          },
-          { "role": "assistant", "content": "The best answer is (" }
+          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+          {"role": "assistant", "content": "The best answer is ("}
         ]
         ```
 
         Then the response `content` might be:
 
         ```json
-        [{ "type": "text", "text": "B)" }]
+        [{"type": "text", "text": "B)"}]
         ```
 
         - `text_block: object { citations, text, type }`
+
           - `citations: array of TextCitation`
 
             Citations supporting the text block.
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
             - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
               - `document_index: number`
@@ -8765,6 +9748,7 @@ ant messages count-tokens \
               - `type: "char_location"`
 
             - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
               - `document_index: number`
@@ -8780,6 +9764,7 @@ ant messages count-tokens \
               - `type: "page_location"`
 
             - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
                 The full text of the cited block range, concatenated.
@@ -8805,6 +9790,7 @@ ant messages count-tokens \
               - `type: "content_block_location"`
 
             - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
               - `cited_text: string`
 
               - `encrypted_index: string`
@@ -8816,6 +9802,7 @@ ant messages count-tokens \
               - `url: string`
 
             - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
               - `cited_text: string`
 
                 The full text of the cited block range, concatenated.
@@ -8849,6 +9836,7 @@ ant messages count-tokens \
           - `type: "text"`
 
         - `thinking_block: object { signature, thinking, type }`
+
           - `signature: string`
 
           - `thinking: string`
@@ -8856,29 +9844,35 @@ ant messages count-tokens \
           - `type: "thinking"`
 
         - `redacted_thinking_block: object { data, type }`
+
           - `data: string`
 
           - `type: "redacted_thinking"`
 
         - `tool_use_block: object { id, caller, input, 2 more }`
+
           - `id: string`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
+
               - `type: "direct"`
 
             - `server_tool_caller: object { tool_id, type }`
 
               Tool invocation generated by a server-side tool.
+
               - `tool_id: string`
 
               - `type: "code_execution_20250825"`
 
             - `server_tool_caller_20260120: object { tool_id, type }`
+
               - `tool_id: string`
 
               - `type: "code_execution_20260120"`
@@ -8890,11 +9884,13 @@ ant messages count-tokens \
           - `type: "tool_use"`
 
         - `server_tool_use_block: object { id, caller, input, 2 more }`
+
           - `id: string`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -8908,6 +9904,7 @@ ant messages count-tokens \
           - `input: map[unknown]`
 
           - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
             - `"web_search"`
 
             - `"web_fetch"`
@@ -8925,9 +9922,11 @@ ant messages count-tokens \
           - `type: "server_tool_use"`
 
         - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -8939,8 +9938,11 @@ ant messages count-tokens \
             - `server_tool_caller_20260120: object { tool_id, type }`
 
           - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
             - `web_search_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -8956,6 +9958,7 @@ ant messages count-tokens \
               - `type: "web_search_tool_result_error"`
 
             - `union_member_1: array of WebSearchResultBlock`
+
               - `encrypted_content: string`
 
               - `page_age: string`
@@ -8971,9 +9974,11 @@ ant messages count-tokens \
           - `type: "web_search_tool_result"`
 
         - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -8985,8 +9990,11 @@ ant messages count-tokens \
             - `server_tool_caller_20260120: object { tool_id, type }`
 
           - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
             - `web_fetch_tool_result_error_block: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
                 - `"invalid_tool_input"`
 
                 - `"url_too_long"`
@@ -9008,14 +10016,19 @@ ant messages count-tokens \
               - `type: "web_fetch_tool_result_error"`
 
             - `web_fetch_block: object { content, retrieved_at, type, url }`
+
               - `content: object { citations, source, title, type }`
+
                 - `citations: object { enabled }`
 
                   Citation configuration for the document
+
                   - `enabled: boolean`
 
                 - `source: Base64PDFSource or PlainTextSource`
+
                   - `base64_pdf_source: object { data, media_type, type }`
+
                     - `data: string`
 
                     - `media_type: "application/pdf"`
@@ -9023,6 +10036,7 @@ ant messages count-tokens \
                     - `type: "base64"`
 
                   - `plain_text_source: object { data, media_type, type }`
+
                     - `data: string`
 
                     - `media_type: "text/plain"`
@@ -9050,11 +10064,15 @@ ant messages count-tokens \
           - `type: "web_fetch_tool_result"`
 
         - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `code_execution_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -9066,7 +10084,9 @@ ant messages count-tokens \
               - `type: "code_execution_tool_result_error"`
 
             - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
               - `content: array of CodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "code_execution_output"`
@@ -9082,7 +10102,9 @@ ant messages count-tokens \
             - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `content: array of CodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "code_execution_output"`
@@ -9100,9 +10122,13 @@ ant messages count-tokens \
           - `type: "code_execution_tool_result"`
 
         - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
             - `bash_code_execution_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -9116,7 +10142,9 @@ ant messages count-tokens \
               - `type: "bash_code_execution_tool_result_error"`
 
             - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
               - `content: array of BashCodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "bash_code_execution_output"`
@@ -9134,9 +10162,13 @@ ant messages count-tokens \
           - `type: "bash_code_execution_tool_result"`
 
         - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
             - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -9152,9 +10184,11 @@ ant messages count-tokens \
               - `type: "text_editor_code_execution_tool_result_error"`
 
             - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
               - `content: string`
 
               - `file_type: "text" or "image" or "pdf"`
+
                 - `"text"`
 
                 - `"image"`
@@ -9170,11 +10204,13 @@ ant messages count-tokens \
               - `type: "text_editor_code_execution_view_result"`
 
             - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
               - `is_file_update: boolean`
 
               - `type: "text_editor_code_execution_create_result"`
 
             - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
               - `lines: array of string`
 
               - `new_lines: number`
@@ -9192,9 +10228,13 @@ ant messages count-tokens \
           - `type: "text_editor_code_execution_tool_result"`
 
         - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
             - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -9208,7 +10248,9 @@ ant messages count-tokens \
               - `type: "tool_search_tool_result_error"`
 
             - `tool_search_tool_search_result_block: object { tool_references, type }`
+
               - `tool_references: array of ToolReferenceBlock`
+
                 - `tool_name: string`
 
                 - `type: "tool_reference"`
@@ -9222,15 +10264,25 @@ ant messages count-tokens \
         - `container_upload_block: object { file_id, type }`
 
           Response model for a file uploaded to the container.
+
           - `file_id: string`
 
           - `type: "container_upload"`
 
-      - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"`
 
           Frontier intelligence for long-running agents and coding
@@ -9312,14 +10364,18 @@ ant messages count-tokens \
       - `stop_details: object { category, explanation, type }`
 
         Structured information about a refusal.
-        - `category: "cyber" or "bio"`
+
+        - `category: "cyber" or "bio" or "reasoning_extraction"`
 
           The policy category that triggered the refusal.
 
           `null` when the refusal doesn't map to a named category.
+
           - `"cyber"`
 
           - `"bio"`
+
+          - `"reasoning_extraction"`
 
         - `explanation: string`
 
@@ -9334,14 +10390,16 @@ ant messages count-tokens \
         The reason that we stopped.
 
         This may be one the following values:
-        - `"end_turn"`: the model reached a natural stopping point
-        - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-        - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-        - `"tool_use"`: the model invoked one or more tools
-        - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-        - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+        * `"end_turn"`: the model reached a natural stopping point
+        * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+        * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+        * `"tool_use"`: the model invoked one or more tools
+        * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+        * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
         - `"end_turn"`
 
         - `"max_tokens"`
@@ -9377,9 +10435,11 @@ ant messages count-tokens \
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
         - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
           Breakdown of cached tokens by TTL
+
           - `ephemeral_1h_input_tokens: number`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -9416,6 +10476,7 @@ ant messages count-tokens \
           This object provides a read-only decomposition for observability — for example,
           how many of the billed output tokens were spent on internal reasoning that may
           have been summarized before being returned to you.
+
           - `thinking_tokens: number`
 
             Number of output tokens the model generated as internal reasoning, including
@@ -9430,6 +10491,7 @@ ant messages count-tokens \
         - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
           The number of server tool requests.
+
           - `web_fetch_requests: number`
 
             The number of web fetch tool requests.
@@ -9441,6 +10503,7 @@ ant messages count-tokens \
         - `service_tier: "standard" or "priority" or "batch"`
 
           If the request used the priority, standard, or batch tier.
+
           - `"standard"`
 
           - `"priority"`
@@ -9450,10 +10513,13 @@ ant messages count-tokens \
     - `type: "message_start"`
 
   - `raw_message_delta_event: object { delta, type, usage }`
+
     - `delta: object { container, stop_details, stop_reason, stop_sequence }`
+
       - `container: object { id, expires_at }`
 
         Information about the container used in the request (for the code execution tool)
+
         - `id: string`
 
           Identifier for the container used in this request
@@ -9465,7 +10531,8 @@ ant messages count-tokens \
       - `stop_details: object { category, explanation, type }`
 
         Structured information about a refusal.
-        - `category: "cyber" or "bio"`
+
+        - `category: "cyber" or "bio" or "reasoning_extraction"`
 
           The policy category that triggered the refusal.
 
@@ -9480,6 +10547,7 @@ ant messages count-tokens \
         - `type: "refusal"`
 
       - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+
         - `"end_turn"`
 
         - `"max_tokens"`
@@ -9507,6 +10575,7 @@ ant messages count-tokens \
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `cache_creation_input_tokens: number`
 
         The cumulative number of input tokens used to create the cache entry.
@@ -9531,6 +10600,7 @@ ant messages count-tokens \
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
+
         - `thinking_tokens: number`
 
           Number of output tokens the model generated as internal reasoning, including
@@ -9545,6 +10615,7 @@ ant messages count-tokens \
       - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
         The number of server tool requests.
+
         - `web_fetch_requests: number`
 
           The number of web fetch tool requests.
@@ -9554,13 +10625,17 @@ ant messages count-tokens \
           The number of web search tool requests.
 
   - `raw_message_stop_event: object { type }`
+
     - `type: "message_stop"`
 
   - `raw_content_block_start_event: object { content_block, index, type }`
+
     - `content_block: TextBlock or ThinkingBlock or RedactedThinkingBlock or 9 more`
 
       Response model for a file uploaded to the container.
+
       - `text_block: object { citations, text, type }`
+
         - `citations: array of TextCitation`
 
           Citations supporting the text block.
@@ -9572,6 +10647,7 @@ ant messages count-tokens \
         - `type: "text"`
 
       - `thinking_block: object { signature, thinking, type }`
+
         - `signature: string`
 
         - `thinking: string`
@@ -9579,11 +10655,13 @@ ant messages count-tokens \
         - `type: "thinking"`
 
       - `redacted_thinking_block: object { data, type }`
+
         - `data: string`
 
         - `type: "redacted_thinking"`
 
       - `tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
@@ -9597,6 +10675,7 @@ ant messages count-tokens \
         - `type: "tool_use"`
 
       - `server_tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
@@ -9610,6 +10689,7 @@ ant messages count-tokens \
         - `type: "server_tool_use"`
 
       - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
@@ -9621,6 +10701,7 @@ ant messages count-tokens \
         - `type: "web_search_tool_result"`
 
       - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
@@ -9632,6 +10713,7 @@ ant messages count-tokens \
         - `type: "web_fetch_tool_result"`
 
       - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
@@ -9641,6 +10723,7 @@ ant messages count-tokens \
         - `type: "code_execution_tool_result"`
 
       - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
 
         - `tool_use_id: string`
@@ -9648,6 +10731,7 @@ ant messages count-tokens \
         - `type: "bash_code_execution_tool_result"`
 
       - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
 
         - `tool_use_id: string`
@@ -9655,6 +10739,7 @@ ant messages count-tokens \
         - `type: "text_editor_code_execution_tool_result"`
 
       - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
 
         - `tool_use_id: string`
@@ -9664,6 +10749,7 @@ ant messages count-tokens \
       - `container_upload_block: object { file_id, type }`
 
         Response model for a file uploaded to the container.
+
         - `file_id: string`
 
         - `type: "container_upload"`
@@ -9673,20 +10759,27 @@ ant messages count-tokens \
     - `type: "content_block_start"`
 
   - `raw_content_block_delta_event: object { delta, index, type }`
+
     - `delta: TextDelta or InputJSONDelta or CitationsDelta or 2 more`
+
       - `text_delta: object { text, type }`
+
         - `text: string`
 
         - `type: "text_delta"`
 
       - `input_json_delta: object { partial_json, type }`
+
         - `partial_json: string`
 
         - `type: "input_json_delta"`
 
       - `citations_delta: object { citation, type }`
+
         - `citation: CitationCharLocation or CitationPageLocation or CitationContentBlockLocation or 2 more`
+
           - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -9702,6 +10795,7 @@ ant messages count-tokens \
             - `type: "char_location"`
 
           - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -9717,6 +10811,7 @@ ant messages count-tokens \
             - `type: "page_location"`
 
           - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -9742,6 +10837,7 @@ ant messages count-tokens \
             - `type: "content_block_location"`
 
           - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
             - `cited_text: string`
 
             - `encrypted_index: string`
@@ -9753,6 +10849,7 @@ ant messages count-tokens \
             - `url: string`
 
           - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -9784,11 +10881,13 @@ ant messages count-tokens \
         - `type: "citations_delta"`
 
       - `thinking_delta: object { thinking, type }`
+
         - `thinking: string`
 
         - `type: "thinking_delta"`
 
       - `signature_delta: object { signature, type }`
+
         - `signature: string`
 
         - `type: "signature_delta"`
@@ -9798,6 +10897,7 @@ ant messages count-tokens \
     - `type: "content_block_delta"`
 
   - `raw_content_block_stop_event: object { index, type }`
+
     - `index: number`
 
     - `type: "content_block_stop"`
@@ -9805,6 +10905,7 @@ ant messages count-tokens \
 ### Redacted Thinking Block
 
 - `redacted_thinking_block: object { data, type }`
+
   - `data: string`
 
   - `type: "redacted_thinking"`
@@ -9812,6 +10913,7 @@ ant messages count-tokens \
 ### Redacted Thinking Block Param
 
 - `redacted_thinking_block_param: object { data, type }`
+
   - `data: string`
 
   - `type: "redacted_thinking"`
@@ -9821,14 +10923,18 @@ ant messages count-tokens \
 - `refusal_stop_details: object { category, explanation, type }`
 
   Structured information about a refusal.
-  - `category: "cyber" or "bio"`
+
+  - `category: "cyber" or "bio" or "reasoning_extraction"`
 
     The policy category that triggered the refusal.
 
     `null` when the refusal doesn't map to a named category.
+
     - `"cyber"`
 
     - `"bio"`
+
+    - `"reasoning_extraction"`
 
   - `explanation: string`
 
@@ -9841,7 +10947,9 @@ ant messages count-tokens \
 ### Search Result Block Param
 
 - `search_result_block_param: object { content, source, title, 3 more }`
+
   - `content: array of TextBlockParam`
+
     - `text: string`
 
     - `type: "text"`
@@ -9849,6 +10957,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -9856,16 +10965,20 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
 
     - `citations: optional array of TextCitationParam`
+
       - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -9879,6 +10992,7 @@ ant messages count-tokens \
         - `type: "char_location"`
 
       - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
         - `document_index: number`
@@ -9892,6 +11006,7 @@ ant messages count-tokens \
         - `type: "page_location"`
 
       - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -9915,6 +11030,7 @@ ant messages count-tokens \
         - `type: "content_block_location"`
 
       - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
         - `cited_text: string`
 
         - `encrypted_index: string`
@@ -9926,6 +11042,7 @@ ant messages count-tokens \
         - `url: string`
 
       - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
         - `cited_text: string`
 
           The full text of the cited block range, concatenated.
@@ -9963,6 +11080,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -9970,12 +11088,14 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
 
   - `citations: optional object { enabled }`
+
     - `enabled: optional boolean`
 
 ### Server Tool Caller
@@ -9983,6 +11103,7 @@ ant messages count-tokens \
 - `server_tool_caller: object { tool_id, type }`
 
   Tool invocation generated by a server-side tool.
+
   - `tool_id: string`
 
   - `type: "code_execution_20250825"`
@@ -9990,6 +11111,7 @@ ant messages count-tokens \
 ### Server Tool Caller 20260120
 
 - `server_tool_caller_20260120: object { tool_id, type }`
+
   - `tool_id: string`
 
   - `type: "code_execution_20260120"`
@@ -9997,6 +11119,7 @@ ant messages count-tokens \
 ### Server Tool Usage
 
 - `server_tool_usage: object { web_fetch_requests, web_search_requests }`
+
   - `web_fetch_requests: number`
 
     The number of web fetch tool requests.
@@ -10008,24 +11131,29 @@ ant messages count-tokens \
 ### Server Tool Use Block
 
 - `server_tool_use_block: object { id, caller, input, 2 more }`
+
   - `id: string`
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -10033,6 +11161,7 @@ ant messages count-tokens \
   - `input: map[unknown]`
 
   - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
     - `"web_search"`
 
     - `"web_fetch"`
@@ -10052,11 +11181,13 @@ ant messages count-tokens \
 ### Server Tool Use Block Param
 
 - `server_tool_use_block_param: object { id, input, name, 3 more }`
+
   - `id: string`
 
   - `input: map[unknown]`
 
   - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
     - `"web_search"`
 
     - `"web_fetch"`
@@ -10076,6 +11207,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -10083,10 +11215,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -10094,19 +11228,23 @@ ant messages count-tokens \
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -10114,6 +11252,7 @@ ant messages count-tokens \
 ### Signature Delta
 
 - `signature_delta: object { signature, type }`
+
   - `signature: string`
 
   - `type: "signature_delta"`
@@ -10121,6 +11260,7 @@ ant messages count-tokens \
 ### Stop Reason
 
 - `stop_reason: "end_turn" or "max_tokens" or "stop_sequence" or 3 more`
+
   - `"end_turn"`
 
   - `"max_tokens"`
@@ -10136,12 +11276,15 @@ ant messages count-tokens \
 ### Text Block
 
 - `text_block: object { citations, text, type }`
+
   - `citations: array of TextCitation`
 
     Citations supporting the text block.
 
     The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
     - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -10157,6 +11300,7 @@ ant messages count-tokens \
       - `type: "char_location"`
 
     - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -10172,6 +11316,7 @@ ant messages count-tokens \
       - `type: "page_location"`
 
     - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -10197,6 +11342,7 @@ ant messages count-tokens \
       - `type: "content_block_location"`
 
     - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
       - `cited_text: string`
 
       - `encrypted_index: string`
@@ -10208,6 +11354,7 @@ ant messages count-tokens \
       - `url: string`
 
     - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -10243,6 +11390,7 @@ ant messages count-tokens \
 ### Text Block Param
 
 - `text_block_param: object { text, type, cache_control, citations }`
+
   - `text: string`
 
   - `type: "text"`
@@ -10250,6 +11398,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -10257,16 +11406,20 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
 
   - `citations: optional array of TextCitationParam`
+
     - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -10280,6 +11433,7 @@ ant messages count-tokens \
       - `type: "char_location"`
 
     - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
       - `cited_text: string`
 
       - `document_index: number`
@@ -10293,6 +11447,7 @@ ant messages count-tokens \
       - `type: "page_location"`
 
     - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -10316,6 +11471,7 @@ ant messages count-tokens \
       - `type: "content_block_location"`
 
     - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
       - `cited_text: string`
 
       - `encrypted_index: string`
@@ -10327,6 +11483,7 @@ ant messages count-tokens \
       - `url: string`
 
     - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
       - `cited_text: string`
 
         The full text of the cited block range, concatenated.
@@ -10358,7 +11515,9 @@ ant messages count-tokens \
 ### Text Citation
 
 - `text_citation: CitationCharLocation or CitationPageLocation or CitationContentBlockLocation or 2 more`
+
   - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
     - `cited_text: string`
 
     - `document_index: number`
@@ -10374,6 +11533,7 @@ ant messages count-tokens \
     - `type: "char_location"`
 
   - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
     - `cited_text: string`
 
     - `document_index: number`
@@ -10389,6 +11549,7 @@ ant messages count-tokens \
     - `type: "page_location"`
 
   - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
     - `cited_text: string`
 
       The full text of the cited block range, concatenated.
@@ -10414,6 +11575,7 @@ ant messages count-tokens \
     - `type: "content_block_location"`
 
   - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
     - `cited_text: string`
 
     - `encrypted_index: string`
@@ -10425,6 +11587,7 @@ ant messages count-tokens \
     - `url: string`
 
   - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
     - `cited_text: string`
 
       The full text of the cited block range, concatenated.
@@ -10456,7 +11619,9 @@ ant messages count-tokens \
 ### Text Citation Param
 
 - `text_citation_param: CitationCharLocationParam or CitationPageLocationParam or CitationContentBlockLocationParam or 2 more`
+
   - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
     - `cited_text: string`
 
     - `document_index: number`
@@ -10470,6 +11635,7 @@ ant messages count-tokens \
     - `type: "char_location"`
 
   - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
     - `cited_text: string`
 
     - `document_index: number`
@@ -10483,6 +11649,7 @@ ant messages count-tokens \
     - `type: "page_location"`
 
   - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
     - `cited_text: string`
 
       The full text of the cited block range, concatenated.
@@ -10506,6 +11673,7 @@ ant messages count-tokens \
     - `type: "content_block_location"`
 
   - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
     - `cited_text: string`
 
     - `encrypted_index: string`
@@ -10517,6 +11685,7 @@ ant messages count-tokens \
     - `url: string`
 
   - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
     - `cited_text: string`
 
       The full text of the cited block range, concatenated.
@@ -10548,6 +11717,7 @@ ant messages count-tokens \
 ### Text Delta
 
 - `text_delta: object { text, type }`
+
   - `text: string`
 
   - `type: "text_delta"`
@@ -10555,6 +11725,7 @@ ant messages count-tokens \
 ### Text Editor Code Execution Create Result Block
 
 - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
   - `is_file_update: boolean`
 
   - `type: "text_editor_code_execution_create_result"`
@@ -10562,6 +11733,7 @@ ant messages count-tokens \
 ### Text Editor Code Execution Create Result Block Param
 
 - `text_editor_code_execution_create_result_block_param: object { is_file_update, type }`
+
   - `is_file_update: boolean`
 
   - `type: "text_editor_code_execution_create_result"`
@@ -10569,6 +11741,7 @@ ant messages count-tokens \
 ### Text Editor Code Execution Str Replace Result Block
 
 - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
   - `lines: array of string`
 
   - `new_lines: number`
@@ -10584,6 +11757,7 @@ ant messages count-tokens \
 ### Text Editor Code Execution Str Replace Result Block Param
 
 - `text_editor_code_execution_str_replace_result_block_param: object { type, lines, new_lines, 3 more }`
+
   - `type: "text_editor_code_execution_str_replace_result"`
 
   - `lines: optional array of string`
@@ -10599,9 +11773,13 @@ ant messages count-tokens \
 ### Text Editor Code Execution Tool Result Block
 
 - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
   - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
     - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -10617,9 +11795,11 @@ ant messages count-tokens \
       - `type: "text_editor_code_execution_tool_result_error"`
 
     - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
       - `content: string`
 
       - `file_type: "text" or "image" or "pdf"`
+
         - `"text"`
 
         - `"image"`
@@ -10635,11 +11815,13 @@ ant messages count-tokens \
       - `type: "text_editor_code_execution_view_result"`
 
     - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
       - `is_file_update: boolean`
 
       - `type: "text_editor_code_execution_create_result"`
 
     - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
       - `lines: array of string`
 
       - `new_lines: number`
@@ -10659,9 +11841,13 @@ ant messages count-tokens \
 ### Text Editor Code Execution Tool Result Block Param
 
 - `text_editor_code_execution_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
   - `content: TextEditorCodeExecutionToolResultErrorParam or TextEditorCodeExecutionViewResultBlockParam or TextEditorCodeExecutionCreateResultBlockParam or TextEditorCodeExecutionStrReplaceResultBlockParam`
+
     - `text_editor_code_execution_tool_result_error_param: object { error_code, type, error_message }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -10677,9 +11863,11 @@ ant messages count-tokens \
       - `error_message: optional string`
 
     - `text_editor_code_execution_view_result_block_param: object { content, file_type, type, 3 more }`
+
       - `content: string`
 
       - `file_type: "text" or "image" or "pdf"`
+
         - `"text"`
 
         - `"image"`
@@ -10695,11 +11883,13 @@ ant messages count-tokens \
       - `total_lines: optional number`
 
     - `text_editor_code_execution_create_result_block_param: object { is_file_update, type }`
+
       - `is_file_update: boolean`
 
       - `type: "text_editor_code_execution_create_result"`
 
     - `text_editor_code_execution_str_replace_result_block_param: object { type, lines, new_lines, 3 more }`
+
       - `type: "text_editor_code_execution_str_replace_result"`
 
       - `lines: optional array of string`
@@ -10719,6 +11909,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -10726,10 +11917,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -10737,7 +11930,9 @@ ant messages count-tokens \
 ### Text Editor Code Execution Tool Result Error
 
 - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -10755,6 +11950,7 @@ ant messages count-tokens \
 ### Text Editor Code Execution Tool Result Error Code
 
 - `text_editor_code_execution_tool_result_error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -10768,7 +11964,9 @@ ant messages count-tokens \
 ### Text Editor Code Execution Tool Result Error Param
 
 - `text_editor_code_execution_tool_result_error_param: object { error_code, type, error_message }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -10786,9 +11984,11 @@ ant messages count-tokens \
 ### Text Editor Code Execution View Result Block
 
 - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
   - `content: string`
 
   - `file_type: "text" or "image" or "pdf"`
+
     - `"text"`
 
     - `"image"`
@@ -10806,9 +12006,11 @@ ant messages count-tokens \
 ### Text Editor Code Execution View Result Block Param
 
 - `text_editor_code_execution_view_result_block_param: object { content, file_type, type, 3 more }`
+
   - `content: string`
 
   - `file_type: "text" or "image" or "pdf"`
+
     - `"text"`
 
     - `"image"`
@@ -10826,6 +12028,7 @@ ant messages count-tokens \
 ### Thinking Block
 
 - `thinking_block: object { signature, thinking, type }`
+
   - `signature: string`
 
   - `thinking: string`
@@ -10835,6 +12038,7 @@ ant messages count-tokens \
 ### Thinking Block Param
 
 - `thinking_block_param: object { signature, thinking, type }`
+
   - `signature: string`
 
   - `thinking: string`
@@ -10844,11 +12048,13 @@ ant messages count-tokens \
 ### Thinking Config Adaptive
 
 - `thinking_config_adaptive: object { type, display }`
+
   - `type: "adaptive"`
 
   - `display: optional "summarized" or "omitted"`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
     - `"summarized"`
 
     - `"omitted"`
@@ -10856,11 +12062,13 @@ ant messages count-tokens \
 ### Thinking Config Disabled
 
 - `thinking_config_disabled: object { type }`
+
   - `type: "disabled"`
 
 ### Thinking Config Enabled
 
 - `thinking_config_enabled: object { budget_tokens, type, display }`
+
   - `budget_tokens: number`
 
     Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -10874,6 +12082,7 @@ ant messages count-tokens \
   - `display: optional "summarized" or "omitted"`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
     - `"summarized"`
 
     - `"omitted"`
@@ -10887,7 +12096,9 @@ ant messages count-tokens \
   When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
   See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
   - `thinking_config_enabled: object { budget_tokens, type, display }`
+
     - `budget_tokens: number`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -10901,19 +12112,23 @@ ant messages count-tokens \
     - `display: optional "summarized" or "omitted"`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
       - `"summarized"`
 
       - `"omitted"`
 
   - `thinking_config_disabled: object { type }`
+
     - `type: "disabled"`
 
   - `thinking_config_adaptive: object { type, display }`
+
     - `type: "adaptive"`
 
     - `display: optional "summarized" or "omitted"`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
       - `"summarized"`
 
       - `"omitted"`
@@ -10921,6 +12136,7 @@ ant messages count-tokens \
 ### Thinking Delta
 
 - `thinking_delta: object { thinking, type }`
+
   - `thinking: string`
 
   - `type: "thinking_delta"`
@@ -10928,11 +12144,13 @@ ant messages count-tokens \
 ### Tool
 
 - `tool: object { input_schema, name, allowed_callers, 7 more }`
+
   - `input_schema: object { type, properties, required }`
 
     [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
     This defines the shape of the `input` that your tool accepts and that the model will produce.
+
     - `type: "object"`
 
     - `properties: optional map[unknown]`
@@ -10946,6 +12164,7 @@ ant messages count-tokens \
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -10955,6 +12174,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -10962,10 +12182,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -10991,11 +12213,13 @@ ant messages count-tokens \
     When true, guarantees schema validation on tool names and inputs
 
   - `type: optional "custom"`
+
     - `"custom"`
 
 ### Tool Bash 20250124
 
 - `tool_bash_20250124: object { name, type, allowed_callers, 4 more }`
+
   - `name: "bash"`
 
     Name of the tool.
@@ -11005,6 +12229,7 @@ ant messages count-tokens \
   - `type: "bash_20250124"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11014,6 +12239,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11021,10 +12247,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11044,9 +12272,11 @@ ant messages count-tokens \
 - `tool_choice: ToolChoiceAuto or ToolChoiceAny or ToolChoiceTool or ToolChoiceNone`
 
   How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
   - `tool_choice_auto: object { type, disable_parallel_tool_use }`
 
     The model will automatically decide whether to use tools.
+
     - `type: "auto"`
 
     - `disable_parallel_tool_use: optional boolean`
@@ -11058,6 +12288,7 @@ ant messages count-tokens \
   - `tool_choice_any: object { type, disable_parallel_tool_use }`
 
     The model will use any available tools.
+
     - `type: "any"`
 
     - `disable_parallel_tool_use: optional boolean`
@@ -11069,6 +12300,7 @@ ant messages count-tokens \
   - `tool_choice_tool: object { name, type, disable_parallel_tool_use }`
 
     The model will use the specified tool with `tool_choice.name`.
+
     - `name: string`
 
       The name of the tool to use.
@@ -11084,6 +12316,7 @@ ant messages count-tokens \
   - `tool_choice_none: object { type }`
 
     The model will not be allowed to use tools.
+
     - `type: "none"`
 
 ### Tool Choice Any
@@ -11091,6 +12324,7 @@ ant messages count-tokens \
 - `tool_choice_any: object { type, disable_parallel_tool_use }`
 
   The model will use any available tools.
+
   - `type: "any"`
 
   - `disable_parallel_tool_use: optional boolean`
@@ -11104,6 +12338,7 @@ ant messages count-tokens \
 - `tool_choice_auto: object { type, disable_parallel_tool_use }`
 
   The model will automatically decide whether to use tools.
+
   - `type: "auto"`
 
   - `disable_parallel_tool_use: optional boolean`
@@ -11117,6 +12352,7 @@ ant messages count-tokens \
 - `tool_choice_none: object { type }`
 
   The model will not be allowed to use tools.
+
   - `type: "none"`
 
 ### Tool Choice Tool
@@ -11124,6 +12360,7 @@ ant messages count-tokens \
 - `tool_choice_tool: object { name, type, disable_parallel_tool_use }`
 
   The model will use the specified tool with `tool_choice.name`.
+
   - `name: string`
 
     The name of the tool to use.
@@ -11139,6 +12376,7 @@ ant messages count-tokens \
 ### Tool Reference Block
 
 - `tool_reference_block: object { tool_name, type }`
+
   - `tool_name: string`
 
   - `type: "tool_reference"`
@@ -11148,6 +12386,7 @@ ant messages count-tokens \
 - `tool_reference_block_param: object { tool_name, type, cache_control }`
 
   Tool reference block that can be included in tool_result content.
+
   - `tool_name: string`
 
   - `type: "tool_reference"`
@@ -11155,6 +12394,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11162,10 +12402,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11173,6 +12415,7 @@ ant messages count-tokens \
 ### Tool Result Block Param
 
 - `tool_result_block_param: object { tool_use_id, type, cache_control, 2 more }`
+
   - `tool_use_id: string`
 
   - `type: "tool_result"`
@@ -11180,6 +12423,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11187,16 +12431,20 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
 
   - `content: optional array of TextBlockParam or ImageBlockParam or SearchResultBlockParam or 2 more`
+
     - `text_block_param: object { text, type, cache_control, citations }`
+
       - `text: string`
 
       - `type: "text"`
@@ -11204,6 +12452,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -11211,13 +12460,16 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `citations: optional array of TextCitationParam`
+
         - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -11231,6 +12483,7 @@ ant messages count-tokens \
           - `type: "char_location"`
 
         - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -11244,6 +12497,7 @@ ant messages count-tokens \
           - `type: "page_location"`
 
         - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -11267,6 +12521,7 @@ ant messages count-tokens \
           - `type: "content_block_location"`
 
         - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -11278,6 +12533,7 @@ ant messages count-tokens \
           - `url: string`
 
         - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -11307,11 +12563,15 @@ ant messages count-tokens \
           - `type: "search_result_location"`
 
     - `image_block_param: object { source, type, cache_control }`
+
       - `source: Base64ImageSource or URLImageSource`
+
         - `base64_image_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
             - `"image/jpeg"`
 
             - `"image/png"`
@@ -11323,6 +12583,7 @@ ant messages count-tokens \
           - `type: "base64"`
 
         - `url_image_source: object { type, url }`
+
           - `type: "url"`
 
           - `url: string`
@@ -11332,6 +12593,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -11339,13 +12601,16 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
     - `search_result_block_param: object { content, source, title, 3 more }`
+
       - `content: array of TextBlockParam`
+
         - `text: string`
 
         - `type: "text"`
@@ -11365,6 +12630,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -11372,17 +12638,22 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `citations: optional object { enabled }`
+
         - `enabled: optional boolean`
 
     - `document_block_param: object { source, type, cache_control, 3 more }`
+
       - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
         - `base64_pdf_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "application/pdf"`
@@ -11390,6 +12661,7 @@ ant messages count-tokens \
           - `type: "base64"`
 
         - `plain_text_source: object { data, media_type, type }`
+
           - `data: string`
 
           - `media_type: "text/plain"`
@@ -11397,11 +12669,15 @@ ant messages count-tokens \
           - `type: "text"`
 
         - `content_block_source: object { content, type }`
+
           - `content: string or array of ContentBlockSourceContent`
+
             - `union_member_0: string`
 
             - `content_block_source_content: array of ContentBlockSourceContent`
+
               - `text_block_param: object { text, type, cache_control, citations }`
+
                 - `text: string`
 
                 - `type: "text"`
@@ -11413,6 +12689,7 @@ ant messages count-tokens \
                 - `citations: optional array of TextCitationParam`
 
               - `image_block_param: object { source, type, cache_control }`
+
                 - `source: Base64ImageSource or URLImageSource`
 
                 - `type: "image"`
@@ -11424,6 +12701,7 @@ ant messages count-tokens \
           - `type: "content"`
 
         - `url_pdf_source: object { type, url }`
+
           - `type: "url"`
 
           - `url: string`
@@ -11433,6 +12711,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -11440,12 +12719,14 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
           Defaults to `5m`.
 
       - `citations: optional object { enabled }`
+
         - `enabled: optional boolean`
 
       - `context: optional string`
@@ -11455,6 +12736,7 @@ ant messages count-tokens \
     - `tool_reference_block_param: object { tool_name, type, cache_control }`
 
       Tool reference block that can be included in tool_result content.
+
       - `tool_name: string`
 
       - `type: "tool_reference"`
@@ -11462,6 +12744,7 @@ ant messages count-tokens \
       - `cache_control: optional object { type, ttl }`
 
         Create a cache control breakpoint at this content block.
+
         - `type: "ephemeral"`
 
         - `ttl: optional "5m" or "1h"`
@@ -11469,6 +12752,7 @@ ant messages count-tokens \
           The time-to-live for the cache control breakpoint.
 
           This may be one the following values:
+
           - `5m`: 5 minutes
           - `1h`: 1 hour
 
@@ -11479,6 +12763,7 @@ ant messages count-tokens \
 ### Tool Search Tool Bm25 20251119
 
 - `tool_search_tool_bm25_20251119: object { name, type, allowed_callers, 3 more }`
+
   - `name: "tool_search_tool_bm25"`
 
     Name of the tool.
@@ -11486,11 +12771,13 @@ ant messages count-tokens \
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
     - `"tool_search_tool_bm25_20251119"`
 
     - `"tool_search_tool_bm25"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11500,6 +12787,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11507,10 +12795,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11526,6 +12816,7 @@ ant messages count-tokens \
 ### Tool Search Tool Regex 20251119
 
 - `tool_search_tool_regex_20251119: object { name, type, allowed_callers, 3 more }`
+
   - `name: "tool_search_tool_regex"`
 
     Name of the tool.
@@ -11533,11 +12824,13 @@ ant messages count-tokens \
     This is how the tool will be called by the model and in `tool_use` blocks.
 
   - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
     - `"tool_search_tool_regex_20251119"`
 
     - `"tool_search_tool_regex"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11547,6 +12840,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11554,10 +12848,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11573,9 +12869,13 @@ ant messages count-tokens \
 ### Tool Search Tool Result Block
 
 - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
   - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
     - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -11589,7 +12889,9 @@ ant messages count-tokens \
       - `type: "tool_search_tool_result_error"`
 
     - `tool_search_tool_search_result_block: object { tool_references, type }`
+
       - `tool_references: array of ToolReferenceBlock`
+
         - `tool_name: string`
 
         - `type: "tool_reference"`
@@ -11603,9 +12905,13 @@ ant messages count-tokens \
 ### Tool Search Tool Result Block Param
 
 - `tool_search_tool_result_block_param: object { content, tool_use_id, type, cache_control }`
+
   - `content: ToolSearchToolResultErrorParam or ToolSearchToolSearchResultBlockParam`
-    - `tool_search_tool_result_error_param: object { error_code, type }`
+
+    - `tool_search_tool_result_error_param: object { error_code, type, error_message }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -11616,8 +12922,12 @@ ant messages count-tokens \
 
       - `type: "tool_search_tool_result_error"`
 
+      - `error_message: optional string`
+
     - `tool_search_tool_search_result_block_param: object { tool_references, type }`
+
       - `tool_references: array of ToolReferenceBlockParam`
+
         - `tool_name: string`
 
         - `type: "tool_reference"`
@@ -11625,6 +12935,7 @@ ant messages count-tokens \
         - `cache_control: optional object { type, ttl }`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -11632,10 +12943,12 @@ ant messages count-tokens \
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
+
             - `"5m"`
 
             - `"1h"`
@@ -11649,6 +12962,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11656,6 +12970,7 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
@@ -11664,7 +12979,9 @@ ant messages count-tokens \
 ### Tool Search Tool Result Error
 
 - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -11680,6 +12997,7 @@ ant messages count-tokens \
 ### Tool Search Tool Result Error Code
 
 - `tool_search_tool_result_error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -11690,8 +13008,10 @@ ant messages count-tokens \
 
 ### Tool Search Tool Result Error Param
 
-- `tool_search_tool_result_error_param: object { error_code, type }`
+- `tool_search_tool_result_error_param: object { error_code, type, error_message }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -11702,10 +13022,14 @@ ant messages count-tokens \
 
   - `type: "tool_search_tool_result_error"`
 
+  - `error_message: optional string`
+
 ### Tool Search Tool Search Result Block
 
 - `tool_search_tool_search_result_block: object { tool_references, type }`
+
   - `tool_references: array of ToolReferenceBlock`
+
     - `tool_name: string`
 
     - `type: "tool_reference"`
@@ -11715,7 +13039,9 @@ ant messages count-tokens \
 ### Tool Search Tool Search Result Block Param
 
 - `tool_search_tool_search_result_block_param: object { tool_references, type }`
+
   - `tool_references: array of ToolReferenceBlockParam`
+
     - `tool_name: string`
 
     - `type: "tool_reference"`
@@ -11723,6 +13049,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -11730,10 +13057,12 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
@@ -11743,6 +13072,7 @@ ant messages count-tokens \
 ### Tool Text Editor 20250124
 
 - `tool_text_editor_20250124: object { name, type, allowed_callers, 4 more }`
+
   - `name: "str_replace_editor"`
 
     Name of the tool.
@@ -11752,6 +13082,7 @@ ant messages count-tokens \
   - `type: "text_editor_20250124"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11761,6 +13092,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11768,10 +13100,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11789,6 +13123,7 @@ ant messages count-tokens \
 ### Tool Text Editor 20250429
 
 - `tool_text_editor_20250429: object { name, type, allowed_callers, 4 more }`
+
   - `name: "str_replace_based_edit_tool"`
 
     Name of the tool.
@@ -11798,6 +13133,7 @@ ant messages count-tokens \
   - `type: "text_editor_20250429"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11807,6 +13143,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11814,10 +13151,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11835,6 +13174,7 @@ ant messages count-tokens \
 ### Tool Text Editor 20250728
 
 - `tool_text_editor_20250728: object { name, type, allowed_callers, 5 more }`
+
   - `name: "str_replace_based_edit_tool"`
 
     Name of the tool.
@@ -11844,6 +13184,7 @@ ant messages count-tokens \
   - `type: "text_editor_20250728"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -11853,6 +13194,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -11860,10 +13202,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -11887,12 +13231,15 @@ ant messages count-tokens \
 - `tool_union: Tool or ToolBash20250124 or CodeExecutionTool20250522 or 13 more`
 
   Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
   - `tool: object { input_schema, name, allowed_callers, 7 more }`
+
     - `input_schema: object { type, properties, required }`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
       This defines the shape of the `input` that your tool accepts and that the model will produce.
+
       - `type: "object"`
 
       - `properties: optional map[unknown]`
@@ -11906,6 +13253,7 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -11915,6 +13263,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -11922,10 +13271,12 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
+
         - `"5m"`
 
         - `"1h"`
@@ -11951,9 +13302,11 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
     - `type: optional "custom"`
+
       - `"custom"`
 
   - `tool_bash_20250124: object { name, type, allowed_callers, 4 more }`
+
     - `name: "bash"`
 
       Name of the tool.
@@ -11963,6 +13316,7 @@ ant messages count-tokens \
     - `type: "bash_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -11972,6 +13326,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -11979,6 +13334,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -11995,6 +13351,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `code_execution_tool_20250522: object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -12004,6 +13361,7 @@ ant messages count-tokens \
     - `type: "code_execution_20250522"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12013,6 +13371,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12020,6 +13379,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12034,6 +13394,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `code_execution_tool_20250825: object { name, type, allowed_callers, 3 more }`
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -12043,6 +13404,7 @@ ant messages count-tokens \
     - `type: "code_execution_20250825"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12052,6 +13414,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12059,6 +13422,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12075,6 +13439,7 @@ ant messages count-tokens \
   - `code_execution_tool_20260120: object { name, type, allowed_callers, 3 more }`
 
     Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
     - `name: "code_execution"`
 
       Name of the tool.
@@ -12084,6 +13449,7 @@ ant messages count-tokens \
     - `type: "code_execution_20260120"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12093,6 +13459,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12100,6 +13467,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12114,6 +13482,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `memory_tool_20250818: object { name, type, allowed_callers, 4 more }`
+
     - `name: "memory"`
 
       Name of the tool.
@@ -12123,6 +13492,7 @@ ant messages count-tokens \
     - `type: "memory_20250818"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12132,6 +13502,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12139,6 +13510,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12155,6 +13527,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250124: object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_editor"`
 
       Name of the tool.
@@ -12164,6 +13537,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250124"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12173,6 +13547,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12180,6 +13555,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12196,6 +13572,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250429: object { name, type, allowed_callers, 4 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
@@ -12205,6 +13582,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250429"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12214,6 +13592,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12221,6 +13600,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12237,6 +13617,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_text_editor_20250728: object { name, type, allowed_callers, 5 more }`
+
     - `name: "str_replace_based_edit_tool"`
 
       Name of the tool.
@@ -12246,6 +13627,7 @@ ant messages count-tokens \
     - `type: "text_editor_20250728"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12255,6 +13637,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12262,6 +13645,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12282,6 +13666,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `web_search_tool_20250305: object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
@@ -12291,6 +13676,7 @@ ant messages count-tokens \
     - `type: "web_search_20250305"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12308,6 +13694,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12315,6 +13702,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12335,6 +13723,7 @@ ant messages count-tokens \
     - `user_location: optional object { type, city, country, 2 more }`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `type: "approximate"`
 
       - `city: optional string`
@@ -12354,6 +13743,7 @@ ant messages count-tokens \
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `web_fetch_tool_20250910: object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -12363,6 +13753,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20250910"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12380,6 +13771,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12387,6 +13779,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12395,6 +13788,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -12414,6 +13808,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `web_search_tool_20260209: object { name, type, allowed_callers, 7 more }`
+
     - `name: "web_search"`
 
       Name of the tool.
@@ -12423,6 +13818,7 @@ ant messages count-tokens \
     - `type: "web_search_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12440,6 +13836,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12447,6 +13844,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12467,6 +13865,7 @@ ant messages count-tokens \
     - `user_location: optional object { type, city, country, 2 more }`
 
       Parameters for the user's location. Used to provide more relevant search results.
+
       - `type: "approximate"`
 
       - `city: optional string`
@@ -12486,6 +13885,7 @@ ant messages count-tokens \
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
   - `web_fetch_tool_20260209: object { name, type, allowed_callers, 8 more }`
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -12495,6 +13895,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20260209"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12512,6 +13913,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12519,6 +13921,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12527,6 +13930,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -12548,6 +13952,7 @@ ant messages count-tokens \
   - `web_fetch_tool_20260309: object { name, type, allowed_callers, 9 more }`
 
     Web fetch tool with use_cache parameter for bypassing cached content.
+
     - `name: "web_fetch"`
 
       Name of the tool.
@@ -12557,6 +13962,7 @@ ant messages count-tokens \
     - `type: "web_fetch_20260309"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12574,6 +13980,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12581,6 +13988,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12589,6 +13997,7 @@ ant messages count-tokens \
     - `citations: optional object { enabled }`
 
       Citations configuration for fetched documents. Citations are disabled by default.
+
       - `enabled: optional boolean`
 
     - `defer_loading: optional boolean`
@@ -12612,6 +14021,7 @@ ant messages count-tokens \
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
   - `tool_search_tool_bm25_20251119: object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_bm25"`
 
       Name of the tool.
@@ -12619,11 +14029,13 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `type: "tool_search_tool_bm25_20251119" or "tool_search_tool_bm25"`
+
       - `"tool_search_tool_bm25_20251119"`
 
       - `"tool_search_tool_bm25"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12633,6 +14045,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12640,6 +14053,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12654,6 +14068,7 @@ ant messages count-tokens \
       When true, guarantees schema validation on tool names and inputs
 
   - `tool_search_tool_regex_20251119: object { name, type, allowed_callers, 3 more }`
+
     - `name: "tool_search_tool_regex"`
 
       Name of the tool.
@@ -12661,11 +14076,13 @@ ant messages count-tokens \
       This is how the tool will be called by the model and in `tool_use` blocks.
 
     - `type: "tool_search_tool_regex_20251119" or "tool_search_tool_regex"`
+
       - `"tool_search_tool_regex_20251119"`
 
       - `"tool_search_tool_regex"`
 
     - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
       - `"direct"`
 
       - `"code_execution_20250825"`
@@ -12675,6 +14092,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -12682,6 +14100,7 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
@@ -12698,24 +14117,29 @@ ant messages count-tokens \
 ### Tool Use Block
 
 - `tool_use_block: object { id, caller, input, 2 more }`
+
   - `id: string`
 
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -12729,6 +14153,7 @@ ant messages count-tokens \
 ### Tool Use Block Param
 
 - `tool_use_block_param: object { id, input, name, 3 more }`
+
   - `id: string`
 
   - `input: map[unknown]`
@@ -12740,6 +14165,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -12747,10 +14173,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -12758,19 +14186,23 @@ ant messages count-tokens \
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -12778,6 +14210,7 @@ ant messages count-tokens \
 ### URL Image Source
 
 - `url_image_source: object { type, url }`
+
   - `type: "url"`
 
   - `url: string`
@@ -12785,6 +14218,7 @@ ant messages count-tokens \
 ### URL PDF Source
 
 - `url_pdf_source: object { type, url }`
+
   - `type: "url"`
 
   - `url: string`
@@ -12792,9 +14226,11 @@ ant messages count-tokens \
 ### Usage
 
 - `usage: object { cache_creation, cache_creation_input_tokens, cache_read_input_tokens, 6 more }`
+
   - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
     Breakdown of cached tokens by TTL
+
     - `ephemeral_1h_input_tokens: number`
 
       The number of input tokens used to create the 1 hour cache entry.
@@ -12831,6 +14267,7 @@ ant messages count-tokens \
     This object provides a read-only decomposition for observability — for example,
     how many of the billed output tokens were spent on internal reasoning that may
     have been summarized before being returned to you.
+
     - `thinking_tokens: number`
 
       Number of output tokens the model generated as internal reasoning, including
@@ -12845,6 +14282,7 @@ ant messages count-tokens \
   - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
     The number of server tool requests.
+
     - `web_fetch_requests: number`
 
       The number of web fetch tool requests.
@@ -12856,6 +14294,7 @@ ant messages count-tokens \
   - `service_tier: "standard" or "priority" or "batch"`
 
     If the request used the priority, standard, or batch tier.
+
     - `"standard"`
 
     - `"priority"`
@@ -12865,6 +14304,7 @@ ant messages count-tokens \
 ### User Location
 
 - `user_location: object { type, city, country, 2 more }`
+
   - `type: "approximate"`
 
   - `city: optional string`
@@ -12886,14 +14326,19 @@ ant messages count-tokens \
 ### Web Fetch Block
 
 - `web_fetch_block: object { content, retrieved_at, type, url }`
+
   - `content: object { citations, source, title, type }`
+
     - `citations: object { enabled }`
 
       Citation configuration for the document
+
       - `enabled: boolean`
 
     - `source: Base64PDFSource or PlainTextSource`
+
       - `base64_pdf_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "application/pdf"`
@@ -12901,6 +14346,7 @@ ant messages count-tokens \
         - `type: "base64"`
 
       - `plain_text_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "text/plain"`
@@ -12926,9 +14372,13 @@ ant messages count-tokens \
 ### Web Fetch Block Param
 
 - `web_fetch_block_param: object { content, type, url, retrieved_at }`
+
   - `content: object { source, type, cache_control, 3 more }`
+
     - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
       - `base64_pdf_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "application/pdf"`
@@ -12936,6 +14386,7 @@ ant messages count-tokens \
         - `type: "base64"`
 
       - `plain_text_source: object { data, media_type, type }`
+
         - `data: string`
 
         - `media_type: "text/plain"`
@@ -12943,11 +14394,15 @@ ant messages count-tokens \
         - `type: "text"`
 
       - `content_block_source: object { content, type }`
+
         - `content: string or array of ContentBlockSourceContent`
+
           - `union_member_0: string`
 
           - `content_block_source_content: array of ContentBlockSourceContent`
+
             - `text_block_param: object { text, type, cache_control, citations }`
+
               - `text: string`
 
               - `type: "text"`
@@ -12955,6 +14410,7 @@ ant messages count-tokens \
               - `cache_control: optional object { type, ttl }`
 
                 Create a cache control breakpoint at this content block.
+
                 - `type: "ephemeral"`
 
                 - `ttl: optional "5m" or "1h"`
@@ -12962,16 +14418,20 @@ ant messages count-tokens \
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
+
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
                   Defaults to `5m`.
+
                   - `"5m"`
 
                   - `"1h"`
 
               - `citations: optional array of TextCitationParam`
+
                 - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                   - `cited_text: string`
 
                   - `document_index: number`
@@ -12985,6 +14445,7 @@ ant messages count-tokens \
                   - `type: "char_location"`
 
                 - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                   - `cited_text: string`
 
                   - `document_index: number`
@@ -12998,6 +14459,7 @@ ant messages count-tokens \
                   - `type: "page_location"`
 
                 - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                   - `cited_text: string`
 
                     The full text of the cited block range, concatenated.
@@ -13021,6 +14483,7 @@ ant messages count-tokens \
                   - `type: "content_block_location"`
 
                 - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
                   - `cited_text: string`
 
                   - `encrypted_index: string`
@@ -13032,6 +14495,7 @@ ant messages count-tokens \
                   - `url: string`
 
                 - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
                   - `cited_text: string`
 
                     The full text of the cited block range, concatenated.
@@ -13061,11 +14525,15 @@ ant messages count-tokens \
                   - `type: "search_result_location"`
 
             - `image_block_param: object { source, type, cache_control }`
+
               - `source: Base64ImageSource or URLImageSource`
+
                 - `base64_image_source: object { data, media_type, type }`
+
                   - `data: string`
 
                   - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
                     - `"image/jpeg"`
 
                     - `"image/png"`
@@ -13077,6 +14545,7 @@ ant messages count-tokens \
                   - `type: "base64"`
 
                 - `url_image_source: object { type, url }`
+
                   - `type: "url"`
 
                   - `url: string`
@@ -13086,6 +14555,7 @@ ant messages count-tokens \
               - `cache_control: optional object { type, ttl }`
 
                 Create a cache control breakpoint at this content block.
+
                 - `type: "ephemeral"`
 
                 - `ttl: optional "5m" or "1h"`
@@ -13093,6 +14563,7 @@ ant messages count-tokens \
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
+
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
@@ -13101,6 +14572,7 @@ ant messages count-tokens \
         - `type: "content"`
 
       - `url_pdf_source: object { type, url }`
+
         - `type: "url"`
 
         - `url: string`
@@ -13110,6 +14582,7 @@ ant messages count-tokens \
     - `cache_control: optional object { type, ttl }`
 
       Create a cache control breakpoint at this content block.
+
       - `type: "ephemeral"`
 
       - `ttl: optional "5m" or "1h"`
@@ -13117,12 +14590,14 @@ ant messages count-tokens \
         The time-to-live for the cache control breakpoint.
 
         This may be one the following values:
+
         - `5m`: 5 minutes
         - `1h`: 1 hour
 
         Defaults to `5m`.
 
     - `citations: optional object { enabled }`
+
       - `enabled: optional boolean`
 
     - `context: optional string`
@@ -13142,6 +14617,7 @@ ant messages count-tokens \
 ### Web Fetch Tool 20250910
 
 - `web_fetch_tool_20250910: object { name, type, allowed_callers, 8 more }`
+
   - `name: "web_fetch"`
 
     Name of the tool.
@@ -13151,6 +14627,7 @@ ant messages count-tokens \
   - `type: "web_fetch_20250910"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -13168,6 +14645,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13175,10 +14653,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -13186,6 +14666,7 @@ ant messages count-tokens \
   - `citations: optional object { enabled }`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `enabled: optional boolean`
 
   - `defer_loading: optional boolean`
@@ -13207,6 +14688,7 @@ ant messages count-tokens \
 ### Web Fetch Tool 20260209
 
 - `web_fetch_tool_20260209: object { name, type, allowed_callers, 8 more }`
+
   - `name: "web_fetch"`
 
     Name of the tool.
@@ -13216,6 +14698,7 @@ ant messages count-tokens \
   - `type: "web_fetch_20260209"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -13233,6 +14716,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13240,10 +14724,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -13251,6 +14737,7 @@ ant messages count-tokens \
   - `citations: optional object { enabled }`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `enabled: optional boolean`
 
   - `defer_loading: optional boolean`
@@ -13274,6 +14761,7 @@ ant messages count-tokens \
 - `web_fetch_tool_20260309: object { name, type, allowed_callers, 9 more }`
 
   Web fetch tool with use_cache parameter for bypassing cached content.
+
   - `name: "web_fetch"`
 
     Name of the tool.
@@ -13283,6 +14771,7 @@ ant messages count-tokens \
   - `type: "web_fetch_20260309"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -13300,6 +14789,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13307,10 +14797,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -13318,6 +14810,7 @@ ant messages count-tokens \
   - `citations: optional object { enabled }`
 
     Citations configuration for fetched documents. Citations are disabled by default.
+
     - `enabled: optional boolean`
 
   - `defer_loading: optional boolean`
@@ -13343,29 +14836,37 @@ ant messages count-tokens \
 ### Web Fetch Tool Result Block
 
 - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
 
   - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
     - `web_fetch_tool_result_error_block: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
         - `"invalid_tool_input"`
 
         - `"url_too_long"`
@@ -13387,14 +14888,19 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result_error"`
 
     - `web_fetch_block: object { content, retrieved_at, type, url }`
+
       - `content: object { citations, source, title, type }`
+
         - `citations: object { enabled }`
 
           Citation configuration for the document
+
           - `enabled: boolean`
 
         - `source: Base64PDFSource or PlainTextSource`
+
           - `base64_pdf_source: object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "application/pdf"`
@@ -13402,6 +14908,7 @@ ant messages count-tokens \
             - `type: "base64"`
 
           - `plain_text_source: object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "text/plain"`
@@ -13431,9 +14938,13 @@ ant messages count-tokens \
 ### Web Fetch Tool Result Block Param
 
 - `web_fetch_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
   - `content: WebFetchToolResultErrorBlockParam or WebFetchBlockParam`
+
     - `web_fetch_tool_result_error_block_param: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
         - `"invalid_tool_input"`
 
         - `"url_too_long"`
@@ -13455,9 +14966,13 @@ ant messages count-tokens \
       - `type: "web_fetch_tool_result_error"`
 
     - `web_fetch_block_param: object { content, type, url, retrieved_at }`
+
       - `content: object { source, type, cache_control, 3 more }`
+
         - `source: Base64PDFSource or PlainTextSource or ContentBlockSource or URLPDFSource`
+
           - `base64_pdf_source: object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "application/pdf"`
@@ -13465,6 +14980,7 @@ ant messages count-tokens \
             - `type: "base64"`
 
           - `plain_text_source: object { data, media_type, type }`
+
             - `data: string`
 
             - `media_type: "text/plain"`
@@ -13472,11 +14988,15 @@ ant messages count-tokens \
             - `type: "text"`
 
           - `content_block_source: object { content, type }`
+
             - `content: string or array of ContentBlockSourceContent`
+
               - `union_member_0: string`
 
               - `content_block_source_content: array of ContentBlockSourceContent`
+
                 - `text_block_param: object { text, type, cache_control, citations }`
+
                   - `text: string`
 
                   - `type: "text"`
@@ -13484,6 +15004,7 @@ ant messages count-tokens \
                   - `cache_control: optional object { type, ttl }`
 
                     Create a cache control breakpoint at this content block.
+
                     - `type: "ephemeral"`
 
                     - `ttl: optional "5m" or "1h"`
@@ -13491,16 +15012,20 @@ ant messages count-tokens \
                       The time-to-live for the cache control breakpoint.
 
                       This may be one the following values:
+
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
                       Defaults to `5m`.
+
                       - `"5m"`
 
                       - `"1h"`
 
                   - `citations: optional array of TextCitationParam`
+
                     - `citation_char_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                       - `cited_text: string`
 
                       - `document_index: number`
@@ -13514,6 +15039,7 @@ ant messages count-tokens \
                       - `type: "char_location"`
 
                     - `citation_page_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                       - `cited_text: string`
 
                       - `document_index: number`
@@ -13527,6 +15053,7 @@ ant messages count-tokens \
                       - `type: "page_location"`
 
                     - `citation_content_block_location_param: object { cited_text, document_index, document_title, 3 more }`
+
                       - `cited_text: string`
 
                         The full text of the cited block range, concatenated.
@@ -13550,6 +15077,7 @@ ant messages count-tokens \
                       - `type: "content_block_location"`
 
                     - `citation_web_search_result_location_param: object { cited_text, encrypted_index, title, 2 more }`
+
                       - `cited_text: string`
 
                       - `encrypted_index: string`
@@ -13561,6 +15089,7 @@ ant messages count-tokens \
                       - `url: string`
 
                     - `citation_search_result_location_param: object { cited_text, end_block_index, search_result_index, 4 more }`
+
                       - `cited_text: string`
 
                         The full text of the cited block range, concatenated.
@@ -13590,11 +15119,15 @@ ant messages count-tokens \
                       - `type: "search_result_location"`
 
                 - `image_block_param: object { source, type, cache_control }`
+
                   - `source: Base64ImageSource or URLImageSource`
+
                     - `base64_image_source: object { data, media_type, type }`
+
                       - `data: string`
 
                       - `media_type: "image/jpeg" or "image/png" or "image/gif" or "image/webp"`
+
                         - `"image/jpeg"`
 
                         - `"image/png"`
@@ -13606,6 +15139,7 @@ ant messages count-tokens \
                       - `type: "base64"`
 
                     - `url_image_source: object { type, url }`
+
                       - `type: "url"`
 
                       - `url: string`
@@ -13615,6 +15149,7 @@ ant messages count-tokens \
                   - `cache_control: optional object { type, ttl }`
 
                     Create a cache control breakpoint at this content block.
+
                     - `type: "ephemeral"`
 
                     - `ttl: optional "5m" or "1h"`
@@ -13622,6 +15157,7 @@ ant messages count-tokens \
                       The time-to-live for the cache control breakpoint.
 
                       This may be one the following values:
+
                       - `5m`: 5 minutes
                       - `1h`: 1 hour
 
@@ -13630,6 +15166,7 @@ ant messages count-tokens \
             - `type: "content"`
 
           - `url_pdf_source: object { type, url }`
+
             - `type: "url"`
 
             - `url: string`
@@ -13639,6 +15176,7 @@ ant messages count-tokens \
         - `cache_control: optional object { type, ttl }`
 
           Create a cache control breakpoint at this content block.
+
           - `type: "ephemeral"`
 
           - `ttl: optional "5m" or "1h"`
@@ -13646,12 +15184,14 @@ ant messages count-tokens \
             The time-to-live for the cache control breakpoint.
 
             This may be one the following values:
+
             - `5m`: 5 minutes
             - `1h`: 1 hour
 
             Defaults to `5m`.
 
         - `citations: optional object { enabled }`
+
           - `enabled: optional boolean`
 
         - `context: optional string`
@@ -13675,6 +15215,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13682,6 +15223,7 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
@@ -13690,19 +15232,23 @@ ant messages count-tokens \
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -13710,7 +15256,9 @@ ant messages count-tokens \
 ### Web Fetch Tool Result Error Block
 
 - `web_fetch_tool_result_error_block: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
     - `"invalid_tool_input"`
 
     - `"url_too_long"`
@@ -13734,7 +15282,9 @@ ant messages count-tokens \
 ### Web Fetch Tool Result Error Block Param
 
 - `web_fetch_tool_result_error_block_param: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
     - `"invalid_tool_input"`
 
     - `"url_too_long"`
@@ -13758,6 +15308,7 @@ ant messages count-tokens \
 ### Web Fetch Tool Result Error Code
 
 - `web_fetch_tool_result_error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
   - `"invalid_tool_input"`
 
   - `"url_too_long"`
@@ -13779,6 +15330,7 @@ ant messages count-tokens \
 ### Web Search Result Block
 
 - `web_search_result_block: object { encrypted_content, page_age, title, 2 more }`
+
   - `encrypted_content: string`
 
   - `page_age: string`
@@ -13792,6 +15344,7 @@ ant messages count-tokens \
 ### Web Search Result Block Param
 
 - `web_search_result_block_param: object { encrypted_content, title, type, 2 more }`
+
   - `encrypted_content: string`
 
   - `title: string`
@@ -13805,6 +15358,7 @@ ant messages count-tokens \
 ### Web Search Tool 20250305
 
 - `web_search_tool_20250305: object { name, type, allowed_callers, 7 more }`
+
   - `name: "web_search"`
 
     Name of the tool.
@@ -13814,6 +15368,7 @@ ant messages count-tokens \
   - `type: "web_search_20250305"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -13831,6 +15386,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13838,10 +15394,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -13861,6 +15419,7 @@ ant messages count-tokens \
   - `user_location: optional object { type, city, country, 2 more }`
 
     Parameters for the user's location. Used to provide more relevant search results.
+
     - `type: "approximate"`
 
     - `city: optional string`
@@ -13882,6 +15441,7 @@ ant messages count-tokens \
 ### Web Search Tool 20260209
 
 - `web_search_tool_20260209: object { name, type, allowed_callers, 7 more }`
+
   - `name: "web_search"`
 
     Name of the tool.
@@ -13891,6 +15451,7 @@ ant messages count-tokens \
   - `type: "web_search_20260209"`
 
   - `allowed_callers: optional array of "direct" or "code_execution_20250825" or "code_execution_20260120"`
+
     - `"direct"`
 
     - `"code_execution_20250825"`
@@ -13908,6 +15469,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -13915,10 +15477,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -13938,6 +15502,7 @@ ant messages count-tokens \
   - `user_location: optional object { type, city, country, 2 more }`
 
     Parameters for the user's location. Used to provide more relevant search results.
+
     - `type: "approximate"`
 
     - `city: optional string`
@@ -13959,7 +15524,9 @@ ant messages count-tokens \
 ### Web Search Tool Request Error
 
 - `web_search_tool_request_error: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -13977,29 +15544,37 @@ ant messages count-tokens \
 ### Web Search Tool Result Block
 
 - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
   - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
 
   - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
     - `web_search_tool_result_error: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -14015,6 +15590,7 @@ ant messages count-tokens \
       - `type: "web_search_tool_result_error"`
 
     - `union_member_1: array of WebSearchResultBlock`
+
       - `encrypted_content: string`
 
       - `page_age: string`
@@ -14032,8 +15608,11 @@ ant messages count-tokens \
 ### Web Search Tool Result Block Content
 
 - `web_search_tool_result_block_content: WebSearchToolResultError or array of WebSearchResultBlock`
+
   - `web_search_tool_result_error: object { error_code, type }`
+
     - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
       - `"invalid_tool_input"`
 
       - `"unavailable"`
@@ -14049,6 +15628,7 @@ ant messages count-tokens \
     - `type: "web_search_tool_result_error"`
 
   - `union_member_1: array of WebSearchResultBlock`
+
     - `encrypted_content: string`
 
     - `page_age: string`
@@ -14062,8 +15642,11 @@ ant messages count-tokens \
 ### Web Search Tool Result Block Param
 
 - `web_search_tool_result_block_param: object { content, tool_use_id, type, 2 more }`
+
   - `content: array of WebSearchResultBlockParam or WebSearchToolRequestError`
+
     - `web_search_tool_result_block_item: array of WebSearchResultBlockParam`
+
       - `encrypted_content: string`
 
       - `title: string`
@@ -14075,7 +15658,9 @@ ant messages count-tokens \
       - `page_age: optional string`
 
     - `web_search_tool_request_error: object { error_code, type }`
+
       - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
         - `"invalid_tool_input"`
 
         - `"unavailable"`
@@ -14097,6 +15682,7 @@ ant messages count-tokens \
   - `cache_control: optional object { type, ttl }`
 
     Create a cache control breakpoint at this content block.
+
     - `type: "ephemeral"`
 
     - `ttl: optional "5m" or "1h"`
@@ -14104,10 +15690,12 @@ ant messages count-tokens \
       The time-to-live for the cache control breakpoint.
 
       This may be one the following values:
+
       - `5m`: 5 minutes
       - `1h`: 1 hour
 
       Defaults to `5m`.
+
       - `"5m"`
 
       - `"1h"`
@@ -14115,19 +15703,23 @@ ant messages count-tokens \
   - `caller: optional DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
     Tool invocation directly from the model.
+
     - `direct_caller: object { type }`
 
       Tool invocation directly from the model.
+
       - `type: "direct"`
 
     - `server_tool_caller: object { tool_id, type }`
 
       Tool invocation generated by a server-side tool.
+
       - `tool_id: string`
 
       - `type: "code_execution_20250825"`
 
     - `server_tool_caller_20260120: object { tool_id, type }`
+
       - `tool_id: string`
 
       - `type: "code_execution_20260120"`
@@ -14135,7 +15727,9 @@ ant messages count-tokens \
 ### Web Search Tool Result Block Param Content
 
 - `web_search_tool_result_block_param_content: array of WebSearchResultBlockParam or WebSearchToolRequestError`
+
   - `web_search_tool_result_block_item: array of WebSearchResultBlockParam`
+
     - `encrypted_content: string`
 
     - `title: string`
@@ -14147,7 +15741,9 @@ ant messages count-tokens \
     - `page_age: optional string`
 
   - `web_search_tool_request_error: object { error_code, type }`
+
     - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
       - `"invalid_tool_input"`
 
       - `"unavailable"`
@@ -14165,7 +15761,9 @@ ant messages count-tokens \
 ### Web Search Tool Result Error
 
 - `web_search_tool_result_error: object { error_code, type }`
+
   - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
     - `"invalid_tool_input"`
 
     - `"unavailable"`
@@ -14183,6 +15781,7 @@ ant messages count-tokens \
 ### Web Search Tool Result Error Code
 
 - `web_search_tool_result_error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -14218,6 +15817,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `message_batch: object { id, archived_at, cancel_initiated_at, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -14249,6 +15849,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" or "canceling" or "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -14260,6 +15861,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -14350,6 +15952,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `message_batch: object { id, archived_at, cancel_initiated_at, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -14381,6 +15984,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" or "canceling" or "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -14392,6 +15996,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -14492,7 +16097,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `ListResponse_MessageBatch_: object { data, first_id, has_more, last_id }`
+
   - `data: array of MessageBatch`
+
     - `id: string`
 
       Unique object identifier.
@@ -14524,6 +16131,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     - `processing_status: "in_progress" or "canceling" or "ended"`
 
       Processing status of the Message Batch.
+
       - `"in_progress"`
 
       - `"canceling"`
@@ -14535,6 +16143,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       Tallies requests within the Message Batch, categorized by their status.
 
       Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
       - `canceled: number`
 
         Number of requests in the Message Batch that have been canceled.
@@ -14645,6 +16254,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `message_batch: object { id, archived_at, cancel_initiated_at, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -14676,6 +16286,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" or "canceling" or "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -14687,6 +16298,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -14779,6 +16391,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `deleted_message_batch: object { id, type }`
+
   - `id: string`
 
     ID of the Message Batch.
@@ -14829,6 +16442,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `message_batch_individual_response: object { custom_id, result }`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `custom_id: string`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -14840,8 +16454,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `message_batch_succeeded_result: object { message, type }`
+
       - `message: object { id, container, content, 7 more }`
+
         - `id: string`
 
           Unique object identifier.
@@ -14851,6 +16468,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `container: object { id, expires_at }`
 
           Information about the container used in the request (for the code execution tool)
+
           - `id: string`
 
             Identifier for the container used in this request
@@ -14868,7 +16486,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -14877,27 +16495,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `text_block: object { citations, text, type }`
+
             - `citations: array of TextCitation`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -14913,6 +16531,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "char_location"`
 
               - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -14928,6 +16547,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "page_location"`
 
               - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -14953,6 +16573,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "content_block_location"`
 
               - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
                 - `cited_text: string`
 
                 - `encrypted_index: string`
@@ -14964,6 +16585,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `url: string`
 
               - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -14997,6 +16619,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "text"`
 
           - `thinking_block: object { signature, thinking, type }`
+
             - `signature: string`
 
             - `thinking: string`
@@ -15004,29 +16627,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "thinking"`
 
           - `redacted_thinking_block: object { data, type }`
+
             - `data: string`
 
             - `type: "redacted_thinking"`
 
           - `tool_use_block: object { id, caller, input, 2 more }`
+
             - `id: string`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
+
                 - `type: "direct"`
 
               - `server_tool_caller: object { tool_id, type }`
 
                 Tool invocation generated by a server-side tool.
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20250825"`
 
               - `server_tool_caller_20260120: object { tool_id, type }`
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
@@ -15038,11 +16667,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "tool_use"`
 
           - `server_tool_use_block: object { id, caller, input, 2 more }`
+
             - `id: string`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -15056,6 +16687,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `input: map[unknown]`
 
             - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
               - `"web_search"`
 
               - `"web_fetch"`
@@ -15073,9 +16705,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "server_tool_use"`
 
           - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -15087,8 +16721,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `server_tool_caller_20260120: object { tool_id, type }`
 
             - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
               - `web_search_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -15104,6 +16741,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "web_search_tool_result_error"`
 
               - `union_member_1: array of WebSearchResultBlock`
+
                 - `encrypted_content: string`
 
                 - `page_age: string`
@@ -15119,9 +16757,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "web_search_tool_result"`
 
           - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -15133,8 +16773,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `server_tool_caller_20260120: object { tool_id, type }`
 
             - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
               - `web_fetch_tool_result_error_block: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
                   - `"invalid_tool_input"`
 
                   - `"url_too_long"`
@@ -15156,14 +16799,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "web_fetch_tool_result_error"`
 
               - `web_fetch_block: object { content, retrieved_at, type, url }`
+
                 - `content: object { citations, source, title, type }`
+
                   - `citations: object { enabled }`
 
                     Citation configuration for the document
+
                     - `enabled: boolean`
 
                   - `source: Base64PDFSource or PlainTextSource`
+
                     - `base64_pdf_source: object { data, media_type, type }`
+
                       - `data: string`
 
                       - `media_type: "application/pdf"`
@@ -15171,6 +16819,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                       - `type: "base64"`
 
                     - `plain_text_source: object { data, media_type, type }`
+
                       - `data: string`
 
                       - `media_type: "text/plain"`
@@ -15198,11 +16847,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "web_fetch_tool_result"`
 
           - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `code_execution_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -15214,7 +16867,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "code_execution_tool_result_error"`
 
               - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
                 - `content: array of CodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
@@ -15230,7 +16885,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `content: array of CodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
@@ -15248,9 +16905,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "code_execution_tool_result"`
 
           - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
               - `bash_code_execution_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -15264,7 +16925,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "bash_code_execution_tool_result_error"`
 
               - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
                 - `content: array of BashCodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "bash_code_execution_output"`
@@ -15282,9 +16945,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "bash_code_execution_tool_result"`
 
           - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
               - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -15300,9 +16967,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "text_editor_code_execution_tool_result_error"`
 
               - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
                 - `content: string`
 
                 - `file_type: "text" or "image" or "pdf"`
+
                   - `"text"`
 
                   - `"image"`
@@ -15318,11 +16987,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "text_editor_code_execution_view_result"`
 
               - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
                 - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
 
               - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
                 - `lines: array of string`
 
                 - `new_lines: number`
@@ -15340,9 +17011,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "text_editor_code_execution_tool_result"`
 
           - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
               - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -15356,7 +17031,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `type: "tool_search_tool_result_error"`
 
               - `tool_search_tool_search_result_block: object { tool_references, type }`
+
                 - `tool_references: array of ToolReferenceBlock`
+
                   - `tool_name: string`
 
                   - `type: "tool_reference"`
@@ -15370,15 +17047,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `container_upload_block: object { file_id, type }`
 
             Response model for a file uploaded to the container.
+
             - `file_id: string`
 
             - `type: "container_upload"`
 
-        - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
           - `"claude-opus-4-8"`
 
             Frontier intelligence for long-running agents and coding
@@ -15460,14 +17147,18 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `stop_details: object { category, explanation, type }`
 
           Structured information about a refusal.
-          - `category: "cyber" or "bio"`
+
+          - `category: "cyber" or "bio" or "reasoning_extraction"`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `"cyber"`
 
             - `"bio"`
+
+            - `"reasoning_extraction"`
 
           - `explanation: string`
 
@@ -15482,14 +17173,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `"end_turn"`
 
           - `"max_tokens"`
@@ -15525,9 +17218,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
             Breakdown of cached tokens by TTL
+
             - `ephemeral_1h_input_tokens: number`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -15564,6 +17259,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `thinking_tokens: number`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -15578,6 +17274,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
             The number of server tool requests.
+
             - `web_fetch_requests: number`
 
               The number of web fetch tool requests.
@@ -15589,6 +17286,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `service_tier: "standard" or "priority" or "batch"`
 
             If the request used the priority, standard, or batch tier.
+
             - `"standard"`
 
             - `"priority"`
@@ -15598,49 +17296,61 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `type: "succeeded"`
 
     - `message_batch_errored_result: object { error, type }`
+
       - `error: object { error, request_id, type }`
+
         - `error: InvalidRequestError or AuthenticationError or BillingError or 6 more`
+
           - `invalid_request_error: object { message, type }`
+
             - `message: string`
 
             - `type: "invalid_request_error"`
 
           - `authentication_error: object { message, type }`
+
             - `message: string`
 
             - `type: "authentication_error"`
 
           - `billing_error: object { message, type }`
+
             - `message: string`
 
             - `type: "billing_error"`
 
           - `permission_error: object { message, type }`
+
             - `message: string`
 
             - `type: "permission_error"`
 
           - `not_found_error: object { message, type }`
+
             - `message: string`
 
             - `type: "not_found_error"`
 
           - `rate_limit_error: object { message, type }`
+
             - `message: string`
 
             - `type: "rate_limit_error"`
 
           - `gateway_timeout_error: object { message, type }`
+
             - `message: string`
 
             - `type: "timeout_error"`
 
           - `api_error_object: object { message, type }`
+
             - `message: string`
 
             - `type: "api_error"`
 
           - `overloaded_error: object { message, type }`
+
             - `message: string`
 
             - `type: "overloaded_error"`
@@ -15652,9 +17362,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `type: "errored"`
 
     - `message_batch_canceled_result: object { type }`
+
       - `type: "canceled"`
 
     - `message_batch_expired_result: object { type }`
+
       - `type: "expired"`
 
 ### Example
@@ -15670,6 +17382,7 @@ ant messages:batches results \
 ### Deleted Message Batch
 
 - `deleted_message_batch: object { id, type }`
+
   - `id: string`
 
     ID of the Message Batch.
@@ -15683,6 +17396,7 @@ ant messages:batches results \
 ### Message Batch
 
 - `message_batch: object { id, archived_at, cancel_initiated_at, 7 more }`
+
   - `id: string`
 
     Unique object identifier.
@@ -15714,6 +17428,7 @@ ant messages:batches results \
   - `processing_status: "in_progress" or "canceling" or "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -15725,6 +17440,7 @@ ant messages:batches results \
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -15768,54 +17484,67 @@ ant messages:batches results \
 ### Message Batch Canceled Result
 
 - `message_batch_canceled_result: object { type }`
+
   - `type: "canceled"`
 
 ### Message Batch Errored Result
 
 - `message_batch_errored_result: object { error, type }`
+
   - `error: object { error, request_id, type }`
+
     - `error: InvalidRequestError or AuthenticationError or BillingError or 6 more`
+
       - `invalid_request_error: object { message, type }`
+
         - `message: string`
 
         - `type: "invalid_request_error"`
 
       - `authentication_error: object { message, type }`
+
         - `message: string`
 
         - `type: "authentication_error"`
 
       - `billing_error: object { message, type }`
+
         - `message: string`
 
         - `type: "billing_error"`
 
       - `permission_error: object { message, type }`
+
         - `message: string`
 
         - `type: "permission_error"`
 
       - `not_found_error: object { message, type }`
+
         - `message: string`
 
         - `type: "not_found_error"`
 
       - `rate_limit_error: object { message, type }`
+
         - `message: string`
 
         - `type: "rate_limit_error"`
 
       - `gateway_timeout_error: object { message, type }`
+
         - `message: string`
 
         - `type: "timeout_error"`
 
       - `api_error_object: object { message, type }`
+
         - `message: string`
 
         - `type: "api_error"`
 
       - `overloaded_error: object { message, type }`
+
         - `message: string`
 
         - `type: "overloaded_error"`
@@ -15829,6 +17558,7 @@ ant messages:batches results \
 ### Message Batch Expired Result
 
 - `message_batch_expired_result: object { type }`
+
   - `type: "expired"`
 
 ### Message Batch Individual Response
@@ -15836,6 +17566,7 @@ ant messages:batches results \
 - `message_batch_individual_response: object { custom_id, result }`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `custom_id: string`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -15847,8 +17578,11 @@ ant messages:batches results \
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `message_batch_succeeded_result: object { message, type }`
+
       - `message: object { id, container, content, 7 more }`
+
         - `id: string`
 
           Unique object identifier.
@@ -15858,6 +17592,7 @@ ant messages:batches results \
         - `container: object { id, expires_at }`
 
           Information about the container used in the request (for the code execution tool)
+
           - `id: string`
 
             Identifier for the container used in this request
@@ -15875,7 +17610,7 @@ ant messages:batches results \
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -15884,27 +17619,27 @@ ant messages:batches results \
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `text_block: object { citations, text, type }`
+
             - `citations: array of TextCitation`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -15920,6 +17655,7 @@ ant messages:batches results \
                 - `type: "char_location"`
 
               - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -15935,6 +17671,7 @@ ant messages:batches results \
                 - `type: "page_location"`
 
               - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -15960,6 +17697,7 @@ ant messages:batches results \
                 - `type: "content_block_location"`
 
               - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
                 - `cited_text: string`
 
                 - `encrypted_index: string`
@@ -15971,6 +17709,7 @@ ant messages:batches results \
                 - `url: string`
 
               - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -16004,6 +17743,7 @@ ant messages:batches results \
             - `type: "text"`
 
           - `thinking_block: object { signature, thinking, type }`
+
             - `signature: string`
 
             - `thinking: string`
@@ -16011,29 +17751,35 @@ ant messages:batches results \
             - `type: "thinking"`
 
           - `redacted_thinking_block: object { data, type }`
+
             - `data: string`
 
             - `type: "redacted_thinking"`
 
           - `tool_use_block: object { id, caller, input, 2 more }`
+
             - `id: string`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
+
                 - `type: "direct"`
 
               - `server_tool_caller: object { tool_id, type }`
 
                 Tool invocation generated by a server-side tool.
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20250825"`
 
               - `server_tool_caller_20260120: object { tool_id, type }`
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
@@ -16045,11 +17791,13 @@ ant messages:batches results \
             - `type: "tool_use"`
 
           - `server_tool_use_block: object { id, caller, input, 2 more }`
+
             - `id: string`
 
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -16063,6 +17811,7 @@ ant messages:batches results \
             - `input: map[unknown]`
 
             - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
               - `"web_search"`
 
               - `"web_fetch"`
@@ -16080,9 +17829,11 @@ ant messages:batches results \
             - `type: "server_tool_use"`
 
           - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -16094,8 +17845,11 @@ ant messages:batches results \
               - `server_tool_caller_20260120: object { tool_id, type }`
 
             - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
               - `web_search_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -16111,6 +17865,7 @@ ant messages:batches results \
                 - `type: "web_search_tool_result_error"`
 
               - `union_member_1: array of WebSearchResultBlock`
+
                 - `encrypted_content: string`
 
                 - `page_age: string`
@@ -16126,9 +17881,11 @@ ant messages:batches results \
             - `type: "web_search_tool_result"`
 
           - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
             - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `direct_caller: object { type }`
 
                 Tool invocation directly from the model.
@@ -16140,8 +17897,11 @@ ant messages:batches results \
               - `server_tool_caller_20260120: object { tool_id, type }`
 
             - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
               - `web_fetch_tool_result_error_block: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
                   - `"invalid_tool_input"`
 
                   - `"url_too_long"`
@@ -16163,14 +17923,19 @@ ant messages:batches results \
                 - `type: "web_fetch_tool_result_error"`
 
               - `web_fetch_block: object { content, retrieved_at, type, url }`
+
                 - `content: object { citations, source, title, type }`
+
                   - `citations: object { enabled }`
 
                     Citation configuration for the document
+
                     - `enabled: boolean`
 
                   - `source: Base64PDFSource or PlainTextSource`
+
                     - `base64_pdf_source: object { data, media_type, type }`
+
                       - `data: string`
 
                       - `media_type: "application/pdf"`
@@ -16178,6 +17943,7 @@ ant messages:batches results \
                       - `type: "base64"`
 
                     - `plain_text_source: object { data, media_type, type }`
+
                       - `data: string`
 
                       - `media_type: "text/plain"`
@@ -16205,11 +17971,15 @@ ant messages:batches results \
             - `type: "web_fetch_tool_result"`
 
           - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `code_execution_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -16221,7 +17991,9 @@ ant messages:batches results \
                 - `type: "code_execution_tool_result_error"`
 
               - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
                 - `content: array of CodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
@@ -16237,7 +18009,9 @@ ant messages:batches results \
               - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `content: array of CodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
@@ -16255,9 +18029,13 @@ ant messages:batches results \
             - `type: "code_execution_tool_result"`
 
           - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
               - `bash_code_execution_tool_result_error: object { error_code, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -16271,7 +18049,9 @@ ant messages:batches results \
                 - `type: "bash_code_execution_tool_result_error"`
 
               - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
                 - `content: array of BashCodeExecutionOutputBlock`
+
                   - `file_id: string`
 
                   - `type: "bash_code_execution_output"`
@@ -16289,9 +18069,13 @@ ant messages:batches results \
             - `type: "bash_code_execution_tool_result"`
 
           - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
               - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -16307,9 +18091,11 @@ ant messages:batches results \
                 - `type: "text_editor_code_execution_tool_result_error"`
 
               - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
                 - `content: string`
 
                 - `file_type: "text" or "image" or "pdf"`
+
                   - `"text"`
 
                   - `"image"`
@@ -16325,11 +18111,13 @@ ant messages:batches results \
                 - `type: "text_editor_code_execution_view_result"`
 
               - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
                 - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
 
               - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
                 - `lines: array of string`
 
                 - `new_lines: number`
@@ -16347,9 +18135,13 @@ ant messages:batches results \
             - `type: "text_editor_code_execution_tool_result"`
 
           - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
             - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
               - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
                 - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -16363,7 +18155,9 @@ ant messages:batches results \
                 - `type: "tool_search_tool_result_error"`
 
               - `tool_search_tool_search_result_block: object { tool_references, type }`
+
                 - `tool_references: array of ToolReferenceBlock`
+
                   - `tool_name: string`
 
                   - `type: "tool_reference"`
@@ -16377,15 +18171,25 @@ ant messages:batches results \
           - `container_upload_block: object { file_id, type }`
 
             Response model for a file uploaded to the container.
+
             - `file_id: string`
 
             - `type: "container_upload"`
 
-        - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+        - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
           - `"claude-opus-4-8"`
 
             Frontier intelligence for long-running agents and coding
@@ -16467,14 +18271,18 @@ ant messages:batches results \
         - `stop_details: object { category, explanation, type }`
 
           Structured information about a refusal.
-          - `category: "cyber" or "bio"`
+
+          - `category: "cyber" or "bio" or "reasoning_extraction"`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `"cyber"`
 
             - `"bio"`
+
+            - `"reasoning_extraction"`
 
           - `explanation: string`
 
@@ -16489,14 +18297,16 @@ ant messages:batches results \
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `"end_turn"`
 
           - `"max_tokens"`
@@ -16532,9 +18342,11 @@ ant messages:batches results \
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
             Breakdown of cached tokens by TTL
+
             - `ephemeral_1h_input_tokens: number`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -16571,6 +18383,7 @@ ant messages:batches results \
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `thinking_tokens: number`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -16585,6 +18398,7 @@ ant messages:batches results \
           - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
             The number of server tool requests.
+
             - `web_fetch_requests: number`
 
               The number of web fetch tool requests.
@@ -16596,6 +18410,7 @@ ant messages:batches results \
           - `service_tier: "standard" or "priority" or "batch"`
 
             If the request used the priority, standard, or batch tier.
+
             - `"standard"`
 
             - `"priority"`
@@ -16605,49 +18420,61 @@ ant messages:batches results \
       - `type: "succeeded"`
 
     - `message_batch_errored_result: object { error, type }`
+
       - `error: object { error, request_id, type }`
+
         - `error: InvalidRequestError or AuthenticationError or BillingError or 6 more`
+
           - `invalid_request_error: object { message, type }`
+
             - `message: string`
 
             - `type: "invalid_request_error"`
 
           - `authentication_error: object { message, type }`
+
             - `message: string`
 
             - `type: "authentication_error"`
 
           - `billing_error: object { message, type }`
+
             - `message: string`
 
             - `type: "billing_error"`
 
           - `permission_error: object { message, type }`
+
             - `message: string`
 
             - `type: "permission_error"`
 
           - `not_found_error: object { message, type }`
+
             - `message: string`
 
             - `type: "not_found_error"`
 
           - `rate_limit_error: object { message, type }`
+
             - `message: string`
 
             - `type: "rate_limit_error"`
 
           - `gateway_timeout_error: object { message, type }`
+
             - `message: string`
 
             - `type: "timeout_error"`
 
           - `api_error_object: object { message, type }`
+
             - `message: string`
 
             - `type: "api_error"`
 
           - `overloaded_error: object { message, type }`
+
             - `message: string`
 
             - `type: "overloaded_error"`
@@ -16659,14 +18486,17 @@ ant messages:batches results \
       - `type: "errored"`
 
     - `message_batch_canceled_result: object { type }`
+
       - `type: "canceled"`
 
     - `message_batch_expired_result: object { type }`
+
       - `type: "expired"`
 
 ### Message Batch Request Counts
 
 - `message_batch_request_counts: object { canceled, errored, expired, 2 more }`
+
   - `canceled: number`
 
     Number of requests in the Message Batch that have been canceled.
@@ -16702,8 +18532,11 @@ ant messages:batches results \
   Processing result for this request.
 
   Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
   - `message_batch_succeeded_result: object { message, type }`
+
     - `message: object { id, container, content, 7 more }`
+
       - `id: string`
 
         Unique object identifier.
@@ -16713,6 +18546,7 @@ ant messages:batches results \
       - `container: object { id, expires_at }`
 
         Information about the container used in the request (for the code execution tool)
+
         - `id: string`
 
           Identifier for the container used in this request
@@ -16730,7 +18564,7 @@ ant messages:batches results \
         Example:
 
         ```json
-        [{ "type": "text", "text": "Hi, I'm Claude." }]
+        [{"type": "text", "text": "Hi, I'm Claude."}]
         ```
 
         If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -16739,27 +18573,27 @@ ant messages:batches results \
 
         ```json
         [
-          {
-            "role": "user",
-            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-          },
-          { "role": "assistant", "content": "The best answer is (" }
+          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+          {"role": "assistant", "content": "The best answer is ("}
         ]
         ```
 
         Then the response `content` might be:
 
         ```json
-        [{ "type": "text", "text": "B)" }]
+        [{"type": "text", "text": "B)"}]
         ```
 
         - `text_block: object { citations, text, type }`
+
           - `citations: array of TextCitation`
 
             Citations supporting the text block.
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
             - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
               - `document_index: number`
@@ -16775,6 +18609,7 @@ ant messages:batches results \
               - `type: "char_location"`
 
             - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
               - `document_index: number`
@@ -16790,6 +18625,7 @@ ant messages:batches results \
               - `type: "page_location"`
 
             - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
               - `cited_text: string`
 
                 The full text of the cited block range, concatenated.
@@ -16815,6 +18651,7 @@ ant messages:batches results \
               - `type: "content_block_location"`
 
             - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
               - `cited_text: string`
 
               - `encrypted_index: string`
@@ -16826,6 +18663,7 @@ ant messages:batches results \
               - `url: string`
 
             - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
               - `cited_text: string`
 
                 The full text of the cited block range, concatenated.
@@ -16859,6 +18697,7 @@ ant messages:batches results \
           - `type: "text"`
 
         - `thinking_block: object { signature, thinking, type }`
+
           - `signature: string`
 
           - `thinking: string`
@@ -16866,29 +18705,35 @@ ant messages:batches results \
           - `type: "thinking"`
 
         - `redacted_thinking_block: object { data, type }`
+
           - `data: string`
 
           - `type: "redacted_thinking"`
 
         - `tool_use_block: object { id, caller, input, 2 more }`
+
           - `id: string`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
+
               - `type: "direct"`
 
             - `server_tool_caller: object { tool_id, type }`
 
               Tool invocation generated by a server-side tool.
+
               - `tool_id: string`
 
               - `type: "code_execution_20250825"`
 
             - `server_tool_caller_20260120: object { tool_id, type }`
+
               - `tool_id: string`
 
               - `type: "code_execution_20260120"`
@@ -16900,11 +18745,13 @@ ant messages:batches results \
           - `type: "tool_use"`
 
         - `server_tool_use_block: object { id, caller, input, 2 more }`
+
           - `id: string`
 
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -16918,6 +18765,7 @@ ant messages:batches results \
           - `input: map[unknown]`
 
           - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
             - `"web_search"`
 
             - `"web_fetch"`
@@ -16935,9 +18783,11 @@ ant messages:batches results \
           - `type: "server_tool_use"`
 
         - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -16949,8 +18799,11 @@ ant messages:batches results \
             - `server_tool_caller_20260120: object { tool_id, type }`
 
           - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
             - `web_search_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -16966,6 +18819,7 @@ ant messages:batches results \
               - `type: "web_search_tool_result_error"`
 
             - `union_member_1: array of WebSearchResultBlock`
+
               - `encrypted_content: string`
 
               - `page_age: string`
@@ -16981,9 +18835,11 @@ ant messages:batches results \
           - `type: "web_search_tool_result"`
 
         - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
           - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
             Tool invocation directly from the model.
+
             - `direct_caller: object { type }`
 
               Tool invocation directly from the model.
@@ -16995,8 +18851,11 @@ ant messages:batches results \
             - `server_tool_caller_20260120: object { tool_id, type }`
 
           - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
             - `web_fetch_tool_result_error_block: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
                 - `"invalid_tool_input"`
 
                 - `"url_too_long"`
@@ -17018,14 +18877,19 @@ ant messages:batches results \
               - `type: "web_fetch_tool_result_error"`
 
             - `web_fetch_block: object { content, retrieved_at, type, url }`
+
               - `content: object { citations, source, title, type }`
+
                 - `citations: object { enabled }`
 
                   Citation configuration for the document
+
                   - `enabled: boolean`
 
                 - `source: Base64PDFSource or PlainTextSource`
+
                   - `base64_pdf_source: object { data, media_type, type }`
+
                     - `data: string`
 
                     - `media_type: "application/pdf"`
@@ -17033,6 +18897,7 @@ ant messages:batches results \
                     - `type: "base64"`
 
                   - `plain_text_source: object { data, media_type, type }`
+
                     - `data: string`
 
                     - `media_type: "text/plain"`
@@ -17060,11 +18925,15 @@ ant messages:batches results \
           - `type: "web_fetch_tool_result"`
 
         - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `code_execution_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -17076,7 +18945,9 @@ ant messages:batches results \
               - `type: "code_execution_tool_result_error"`
 
             - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
               - `content: array of CodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "code_execution_output"`
@@ -17092,7 +18963,9 @@ ant messages:batches results \
             - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `content: array of CodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "code_execution_output"`
@@ -17110,9 +18983,13 @@ ant messages:batches results \
           - `type: "code_execution_tool_result"`
 
         - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
             - `bash_code_execution_tool_result_error: object { error_code, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -17126,7 +19003,9 @@ ant messages:batches results \
               - `type: "bash_code_execution_tool_result_error"`
 
             - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
               - `content: array of BashCodeExecutionOutputBlock`
+
                 - `file_id: string`
 
                 - `type: "bash_code_execution_output"`
@@ -17144,9 +19023,13 @@ ant messages:batches results \
           - `type: "bash_code_execution_tool_result"`
 
         - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
             - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -17162,9 +19045,11 @@ ant messages:batches results \
               - `type: "text_editor_code_execution_tool_result_error"`
 
             - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
               - `content: string`
 
               - `file_type: "text" or "image" or "pdf"`
+
                 - `"text"`
 
                 - `"image"`
@@ -17180,11 +19065,13 @@ ant messages:batches results \
               - `type: "text_editor_code_execution_view_result"`
 
             - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
               - `is_file_update: boolean`
 
               - `type: "text_editor_code_execution_create_result"`
 
             - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
               - `lines: array of string`
 
               - `new_lines: number`
@@ -17202,9 +19089,13 @@ ant messages:batches results \
           - `type: "text_editor_code_execution_tool_result"`
 
         - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
           - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
             - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
               - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
                 - `"invalid_tool_input"`
 
                 - `"unavailable"`
@@ -17218,7 +19109,9 @@ ant messages:batches results \
               - `type: "tool_search_tool_result_error"`
 
             - `tool_search_tool_search_result_block: object { tool_references, type }`
+
               - `tool_references: array of ToolReferenceBlock`
+
                 - `tool_name: string`
 
                 - `type: "tool_reference"`
@@ -17232,15 +19125,25 @@ ant messages:batches results \
         - `container_upload_block: object { file_id, type }`
 
           Response model for a file uploaded to the container.
+
           - `file_id: string`
 
           - `type: "container_upload"`
 
-      - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+      - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"`
 
           Frontier intelligence for long-running agents and coding
@@ -17322,14 +19225,18 @@ ant messages:batches results \
       - `stop_details: object { category, explanation, type }`
 
         Structured information about a refusal.
-        - `category: "cyber" or "bio"`
+
+        - `category: "cyber" or "bio" or "reasoning_extraction"`
 
           The policy category that triggered the refusal.
 
           `null` when the refusal doesn't map to a named category.
+
           - `"cyber"`
 
           - `"bio"`
+
+          - `"reasoning_extraction"`
 
         - `explanation: string`
 
@@ -17344,14 +19251,16 @@ ant messages:batches results \
         The reason that we stopped.
 
         This may be one the following values:
-        - `"end_turn"`: the model reached a natural stopping point
-        - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-        - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-        - `"tool_use"`: the model invoked one or more tools
-        - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-        - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+        * `"end_turn"`: the model reached a natural stopping point
+        * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+        * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+        * `"tool_use"`: the model invoked one or more tools
+        * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+        * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
         - `"end_turn"`
 
         - `"max_tokens"`
@@ -17387,9 +19296,11 @@ ant messages:batches results \
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
         - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
           Breakdown of cached tokens by TTL
+
           - `ephemeral_1h_input_tokens: number`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -17426,6 +19337,7 @@ ant messages:batches results \
           This object provides a read-only decomposition for observability — for example,
           how many of the billed output tokens were spent on internal reasoning that may
           have been summarized before being returned to you.
+
           - `thinking_tokens: number`
 
             Number of output tokens the model generated as internal reasoning, including
@@ -17440,6 +19352,7 @@ ant messages:batches results \
         - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
           The number of server tool requests.
+
           - `web_fetch_requests: number`
 
             The number of web fetch tool requests.
@@ -17451,6 +19364,7 @@ ant messages:batches results \
         - `service_tier: "standard" or "priority" or "batch"`
 
           If the request used the priority, standard, or batch tier.
+
           - `"standard"`
 
           - `"priority"`
@@ -17460,49 +19374,61 @@ ant messages:batches results \
     - `type: "succeeded"`
 
   - `message_batch_errored_result: object { error, type }`
+
     - `error: object { error, request_id, type }`
+
       - `error: InvalidRequestError or AuthenticationError or BillingError or 6 more`
+
         - `invalid_request_error: object { message, type }`
+
           - `message: string`
 
           - `type: "invalid_request_error"`
 
         - `authentication_error: object { message, type }`
+
           - `message: string`
 
           - `type: "authentication_error"`
 
         - `billing_error: object { message, type }`
+
           - `message: string`
 
           - `type: "billing_error"`
 
         - `permission_error: object { message, type }`
+
           - `message: string`
 
           - `type: "permission_error"`
 
         - `not_found_error: object { message, type }`
+
           - `message: string`
 
           - `type: "not_found_error"`
 
         - `rate_limit_error: object { message, type }`
+
           - `message: string`
 
           - `type: "rate_limit_error"`
 
         - `gateway_timeout_error: object { message, type }`
+
           - `message: string`
 
           - `type: "timeout_error"`
 
         - `api_error_object: object { message, type }`
+
           - `message: string`
 
           - `type: "api_error"`
 
         - `overloaded_error: object { message, type }`
+
           - `message: string`
 
           - `type: "overloaded_error"`
@@ -17514,15 +19440,19 @@ ant messages:batches results \
     - `type: "errored"`
 
   - `message_batch_canceled_result: object { type }`
+
     - `type: "canceled"`
 
   - `message_batch_expired_result: object { type }`
+
     - `type: "expired"`
 
 ### Message Batch Succeeded Result
 
 - `message_batch_succeeded_result: object { message, type }`
+
   - `message: object { id, container, content, 7 more }`
+
     - `id: string`
 
       Unique object identifier.
@@ -17532,6 +19462,7 @@ ant messages:batches results \
     - `container: object { id, expires_at }`
 
       Information about the container used in the request (for the code execution tool)
+
       - `id: string`
 
         Identifier for the container used in this request
@@ -17549,7 +19480,7 @@ ant messages:batches results \
       Example:
 
       ```json
-      [{ "type": "text", "text": "Hi, I'm Claude." }]
+      [{"type": "text", "text": "Hi, I'm Claude."}]
       ```
 
       If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -17558,27 +19489,27 @@ ant messages:batches results \
 
       ```json
       [
-        {
-          "role": "user",
-          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-        },
-        { "role": "assistant", "content": "The best answer is (" }
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("}
       ]
       ```
 
       Then the response `content` might be:
 
       ```json
-      [{ "type": "text", "text": "B)" }]
+      [{"type": "text", "text": "B)"}]
       ```
 
       - `text_block: object { citations, text, type }`
+
         - `citations: array of TextCitation`
 
           Citations supporting the text block.
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
           - `citation_char_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -17594,6 +19525,7 @@ ant messages:batches results \
             - `type: "char_location"`
 
           - `citation_page_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
             - `document_index: number`
@@ -17609,6 +19541,7 @@ ant messages:batches results \
             - `type: "page_location"`
 
           - `citation_content_block_location: object { cited_text, document_index, document_title, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -17634,6 +19567,7 @@ ant messages:batches results \
             - `type: "content_block_location"`
 
           - `citations_web_search_result_location: object { cited_text, encrypted_index, title, 2 more }`
+
             - `cited_text: string`
 
             - `encrypted_index: string`
@@ -17645,6 +19579,7 @@ ant messages:batches results \
             - `url: string`
 
           - `citations_search_result_location: object { cited_text, end_block_index, search_result_index, 4 more }`
+
             - `cited_text: string`
 
               The full text of the cited block range, concatenated.
@@ -17678,6 +19613,7 @@ ant messages:batches results \
         - `type: "text"`
 
       - `thinking_block: object { signature, thinking, type }`
+
         - `signature: string`
 
         - `thinking: string`
@@ -17685,29 +19621,35 @@ ant messages:batches results \
         - `type: "thinking"`
 
       - `redacted_thinking_block: object { data, type }`
+
         - `data: string`
 
         - `type: "redacted_thinking"`
 
       - `tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
+
             - `type: "direct"`
 
           - `server_tool_caller: object { tool_id, type }`
 
             Tool invocation generated by a server-side tool.
+
             - `tool_id: string`
 
             - `type: "code_execution_20250825"`
 
           - `server_tool_caller_20260120: object { tool_id, type }`
+
             - `tool_id: string`
 
             - `type: "code_execution_20260120"`
@@ -17719,11 +19661,13 @@ ant messages:batches results \
         - `type: "tool_use"`
 
       - `server_tool_use_block: object { id, caller, input, 2 more }`
+
         - `id: string`
 
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -17737,6 +19681,7 @@ ant messages:batches results \
         - `input: map[unknown]`
 
         - `name: "web_search" or "web_fetch" or "code_execution" or 4 more`
+
           - `"web_search"`
 
           - `"web_fetch"`
@@ -17754,9 +19699,11 @@ ant messages:batches results \
         - `type: "server_tool_use"`
 
       - `web_search_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -17768,8 +19715,11 @@ ant messages:batches results \
           - `server_tool_caller_20260120: object { tool_id, type }`
 
         - `content: WebSearchToolResultError or array of WebSearchResultBlock`
+
           - `web_search_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "max_uses_exceeded" or 3 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -17785,6 +19735,7 @@ ant messages:batches results \
             - `type: "web_search_tool_result_error"`
 
           - `union_member_1: array of WebSearchResultBlock`
+
             - `encrypted_content: string`
 
             - `page_age: string`
@@ -17800,9 +19751,11 @@ ant messages:batches results \
         - `type: "web_search_tool_result"`
 
       - `web_fetch_tool_result_block: object { caller, content, tool_use_id, type }`
+
         - `caller: DirectCaller or ServerToolCaller or ServerToolCaller20260120`
 
           Tool invocation directly from the model.
+
           - `direct_caller: object { type }`
 
             Tool invocation directly from the model.
@@ -17814,8 +19767,11 @@ ant messages:batches results \
           - `server_tool_caller_20260120: object { tool_id, type }`
 
         - `content: WebFetchToolResultErrorBlock or WebFetchBlock`
+
           - `web_fetch_tool_result_error_block: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "url_too_long" or "url_not_allowed" or 6 more`
+
               - `"invalid_tool_input"`
 
               - `"url_too_long"`
@@ -17837,14 +19793,19 @@ ant messages:batches results \
             - `type: "web_fetch_tool_result_error"`
 
           - `web_fetch_block: object { content, retrieved_at, type, url }`
+
             - `content: object { citations, source, title, type }`
+
               - `citations: object { enabled }`
 
                 Citation configuration for the document
+
                 - `enabled: boolean`
 
               - `source: Base64PDFSource or PlainTextSource`
+
                 - `base64_pdf_source: object { data, media_type, type }`
+
                   - `data: string`
 
                   - `media_type: "application/pdf"`
@@ -17852,6 +19813,7 @@ ant messages:batches results \
                   - `type: "base64"`
 
                 - `plain_text_source: object { data, media_type, type }`
+
                   - `data: string`
 
                   - `media_type: "text/plain"`
@@ -17879,11 +19841,15 @@ ant messages:batches results \
         - `type: "web_fetch_tool_result"`
 
       - `code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: CodeExecutionToolResultError or CodeExecutionResultBlock or EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `code_execution_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -17895,7 +19861,9 @@ ant messages:batches results \
             - `type: "code_execution_tool_result_error"`
 
           - `code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
             - `content: array of CodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
@@ -17911,7 +19879,9 @@ ant messages:batches results \
           - `encrypted_code_execution_result_block: object { content, encrypted_stdout, return_code, 2 more }`
 
             Code execution result with encrypted stdout for PFC + web_search results.
+
             - `content: array of CodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "code_execution_output"`
@@ -17929,9 +19899,13 @@ ant messages:batches results \
         - `type: "code_execution_tool_result"`
 
       - `bash_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: BashCodeExecutionToolResultError or BashCodeExecutionResultBlock`
+
           - `bash_code_execution_tool_result_error: object { error_code, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -17945,7 +19919,9 @@ ant messages:batches results \
             - `type: "bash_code_execution_tool_result_error"`
 
           - `bash_code_execution_result_block: object { content, return_code, stderr, 2 more }`
+
             - `content: array of BashCodeExecutionOutputBlock`
+
               - `file_id: string`
 
               - `type: "bash_code_execution_output"`
@@ -17963,9 +19939,13 @@ ant messages:batches results \
         - `type: "bash_code_execution_tool_result"`
 
       - `text_editor_code_execution_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: TextEditorCodeExecutionToolResultError or TextEditorCodeExecutionViewResultBlock or TextEditorCodeExecutionCreateResultBlock or TextEditorCodeExecutionStrReplaceResultBlock`
+
           - `text_editor_code_execution_tool_result_error: object { error_code, error_message, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or 2 more`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -17981,9 +19961,11 @@ ant messages:batches results \
             - `type: "text_editor_code_execution_tool_result_error"`
 
           - `text_editor_code_execution_view_result_block: object { content, file_type, num_lines, 3 more }`
+
             - `content: string`
 
             - `file_type: "text" or "image" or "pdf"`
+
               - `"text"`
 
               - `"image"`
@@ -17999,11 +19981,13 @@ ant messages:batches results \
             - `type: "text_editor_code_execution_view_result"`
 
           - `text_editor_code_execution_create_result_block: object { is_file_update, type }`
+
             - `is_file_update: boolean`
 
             - `type: "text_editor_code_execution_create_result"`
 
           - `text_editor_code_execution_str_replace_result_block: object { lines, new_lines, new_start, 3 more }`
+
             - `lines: array of string`
 
             - `new_lines: number`
@@ -18021,9 +20005,13 @@ ant messages:batches results \
         - `type: "text_editor_code_execution_tool_result"`
 
       - `tool_search_tool_result_block: object { content, tool_use_id, type }`
+
         - `content: ToolSearchToolResultError or ToolSearchToolSearchResultBlock`
+
           - `tool_search_tool_result_error: object { error_code, error_message, type }`
+
             - `error_code: "invalid_tool_input" or "unavailable" or "too_many_requests" or "execution_time_exceeded"`
+
               - `"invalid_tool_input"`
 
               - `"unavailable"`
@@ -18037,7 +20025,9 @@ ant messages:batches results \
             - `type: "tool_search_tool_result_error"`
 
           - `tool_search_tool_search_result_block: object { tool_references, type }`
+
             - `tool_references: array of ToolReferenceBlock`
+
               - `tool_name: string`
 
               - `type: "tool_reference"`
@@ -18051,15 +20041,25 @@ ant messages:batches results \
       - `container_upload_block: object { file_id, type }`
 
         Response model for a file uploaded to the container.
+
         - `file_id: string`
 
         - `type: "container_upload"`
 
-    - `model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
+    - `model: "claude-fable-5" or "claude-mythos-5" or "claude-opus-4-8" or 17 more or string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -18141,14 +20141,18 @@ ant messages:batches results \
     - `stop_details: object { category, explanation, type }`
 
       Structured information about a refusal.
-      - `category: "cyber" or "bio"`
+
+      - `category: "cyber" or "bio" or "reasoning_extraction"`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
+
         - `"cyber"`
 
         - `"bio"`
+
+        - `"reasoning_extraction"`
 
       - `explanation: string`
 
@@ -18163,14 +20167,16 @@ ant messages:batches results \
       The reason that we stopped.
 
       This may be one the following values:
-      - `"end_turn"`: the model reached a natural stopping point
-      - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-      - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-      - `"tool_use"`: the model invoked one or more tools
-      - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-      - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+      * `"end_turn"`: the model reached a natural stopping point
+      * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+      * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+      * `"tool_use"`: the model invoked one or more tools
+      * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+      * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
       - `"end_turn"`
 
       - `"max_tokens"`
@@ -18206,9 +20212,11 @@ ant messages:batches results \
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         Breakdown of cached tokens by TTL
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -18245,6 +20253,7 @@ ant messages:batches results \
         This object provides a read-only decomposition for observability — for example,
         how many of the billed output tokens were spent on internal reasoning that may
         have been summarized before being returned to you.
+
         - `thinking_tokens: number`
 
           Number of output tokens the model generated as internal reasoning, including
@@ -18259,6 +20268,7 @@ ant messages:batches results \
       - `server_tool_use: object { web_fetch_requests, web_search_requests }`
 
         The number of server tool requests.
+
         - `web_fetch_requests: number`
 
           The number of web fetch tool requests.
@@ -18270,6 +20280,7 @@ ant messages:batches results \
       - `service_tier: "standard" or "priority" or "batch"`
 
         If the request used the priority, standard, or batch tier.
+
         - `"standard"`
 
         - `"priority"`

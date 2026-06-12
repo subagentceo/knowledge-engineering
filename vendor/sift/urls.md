@@ -1,7 +1,6 @@
 ---
 vendor: sift
 llms_txt: https://sift.com/llms.txt
-last_crawled: 2026-05-16T05:44:18.452Z
 count: 100
 transform: html-extract
 ---

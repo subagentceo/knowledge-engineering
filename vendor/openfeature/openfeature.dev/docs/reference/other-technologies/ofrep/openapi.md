@@ -1,14 +1,16 @@
--   OFREP Core
-    -   postEvaluate A Single Feature Flag
-    -   postBulk Evaluate All Feature Flags
+# OpenFeature Remote Evaluation Protocol (OFREP) (0.3.0)
 
-[API docs by Redocly](https://redocly.com/redoc/)
+*   OFREP Core
+    *   postEvaluate A Single Feature Flag
+    *   postBulk Evaluate All Feature Flags
+
+API docs by Redocly
 
 # OpenFeature Remote Evaluation Protocol (OFREP) (0.3.0)
 
-Download OpenAPI specification:[Download](https://raw.githubusercontent.com/open-feature/protocol/main/service/openapi.yaml)
+Download OpenAPI specification:Download
 
-URL: [https://github.com/open-feature/protocol](https://github.com/open-feature/protocol) License: Apache-2.0
+URL: https://github.com/open-feature/protocol License: Apache-2.0
 
 * * *
 
@@ -16,14 +18,14 @@ The **OpenFeature Remote Evaluation Protocol (OFREP)** is an API specification f
 
 OFREP defines a standard API layer between OpenFeature providers and flag management systems, allowing any flag management system to implement the protocol and be compatible with community-maintained providers.
 
-For more information, see the [OFREP documentation](https://openfeature.dev/docs/reference/other-technologies/ofrep/).
+For more information, see the OFREP documentation.
 
-## [](#tag/OFREP-Core)OFREP Core
+## OFREP Core
 
 **Required**: Core APIs to implement to support OFREP.  
 _This is the minimum set of APIs required for a flag management system to be OFREP compatible._
 
-## [](#tag/OFREP-Core/operation/evaluateFlag)Evaluate A Single Feature Flag
+## Evaluate A Single Feature Flag
 
 Evaluates a single feature flag by its key. This endpoint is used by **server-side providers** for dynamic context evaluation, where each evaluation request includes the evaluation context.
 
@@ -47,9 +49,7 @@ Example: discount-banner
 
 The unique identifier (key) of the feature flag
 
-##### Request Body schema: application/json
-
-required
+##### Request Body schema: application/jsonrequired
 
 Evaluation request containing the context for flag evaluation
 
@@ -67,7 +67,7 @@ required
 
 string
 
-property name\*
+property name*
 
 additional property
 
@@ -109,7 +109,7 @@ https://raw.githubusercontent.com/ofrep/v1/evaluate/flags/{key}
 
 ### Request samples
 
--   Payload
+*   Payload
 
 Content type
 
@@ -119,14 +119,14 @@ Copy
 
 Expand all Collapse all
 
-`{  -   "context": {          -   "targetingKey": "user-123",              -   "email": "user@example.com",              -   "custom-plan": "premium",              -   "country": "CA"                   }       }`
+`{  *   "context": {          *   "targetingKey": "user-123",              *   "email": "user@example.com",              *   "custom-plan": "premium",              *   "country": "CA"                   }       }`
 
 ### Response samples
 
--   200
--   400
--   404
--   500
+*   200
+*   400
+*   404
+*   500
 
 Content type
 
@@ -134,9 +134,9 @@ application/json
 
 Copy
 
-`{  -   "key": "discount-banner",      -   "value": true,      -   "reason": "TARGETING_MATCH",      -   "variant": "enabled"       }`
+`{  *   "key": "discount-banner",      *   "value": true,      *   "reason": "TARGETING_MATCH",      *   "variant": "enabled"       }`
 
-## [](#tag/OFREP-Core/operation/evaluateFlagsBulk)Bulk Evaluate All Feature Flags
+## Bulk Evaluate All Feature Flags
 
 Evaluates all feature flags in a single request using a static context. This endpoint is used by **client-side providers** for static context evaluation, where all flags are evaluated once and then cached locally for subsequent use.
 
@@ -162,8 +162,8 @@ integer or string
 
 Examples:
 
--   flagConfigLastModified=1771622898 -
--   flagConfigLastModified=2026-02-20T21:28:18Z -
+*   flagConfigLastModified=1771622898 -
+*   flagConfigLastModified=2026-02-20T21:28:18Z -
 
 Optional last-modified metadata provided by an event stream for change-triggered re-fetches (see ADR-0008). Supports Unix timestamp in seconds (recommended) or an ISO 8601 date-time string, and is transported as query metadata rather than `If-Modified-Since`. It should only be included when the request is directly triggered by a received change notification event.
 
@@ -177,9 +177,7 @@ Example: abc123xyz
 
 Optional ETag value from a previous bulk evaluation response. If provided and the ETag matches the current flag set, the server will return a 304 Not Modified response, indicating that flags haven't changed since the last evaluation.
 
-##### Request Body schema: application/json
-
-required
+##### Request Body schema: application/jsonrequired
 
 context
 
@@ -195,7 +193,7 @@ required
 
 string
 
-property name\*
+property name*
 
 additional property
 
@@ -237,7 +235,7 @@ https://raw.githubusercontent.com/ofrep/v1/evaluate/flags
 
 ### Request samples
 
--   Payload
+*   Payload
 
 Content type
 
@@ -247,13 +245,13 @@ Copy
 
 Expand all Collapse all
 
-`{  -   "context": {          -   "targetingKey": "user-456",              -   "email": "user@example.com",              -   "plan": "free",              -   "country": "CA"                   }       }`
+`{  *   "context": {          *   "targetingKey": "user-456",              *   "email": "user@example.com",              *   "plan": "free",              *   "country": "CA"                   }       }`
 
 ### Response samples
 
--   200
--   400
--   500
+*   200
+*   400
+*   500
 
 Content type
 
@@ -263,4 +261,4 @@ Copy
 
 Expand all Collapse all
 
-`{  -   "flags": [          -   {                  -   "key": "discount-banner",                      -   "value": true,                      -   "reason": "TARGETING_MATCH",                      -   "variant": "enabled"                               },              -   {                  -   "key": "theme-color",                      -   "value": "blue",                      -   "reason": "STATIC",                      -   "variant": "default"                               },              -   {                  -   "key": "non-existent-flag",                      -   "errorCode": "FLAG_NOT_FOUND",                      -   "errorDetails": "Flag 'non-existent-flag' was not found"                               }                   ],      -   "eventStreams": [          -   {                  -   "type": "sse",                      -   "url": "[https://sse.example.com/event-stream?channels=env_abc123_v1](https://sse.example.com/event-stream?channels=env_abc123_v1)",                      -   "inactivityDelaySec": 120                               }                   ],      -   "metadata": {          -   "version": "v12"                   }       }`
+`{  *   "flags": [          *   {                  *   "key": "discount-banner",                      *   "value": true,                      *   "reason": "TARGETING_MATCH",                      *   "variant": "enabled"                               },              *   {                  *   "key": "theme-color",                      *   "value": "blue",                      *   "reason": "STATIC",                      *   "variant": "default"                               },              *   {                  *   "key": "non-existent-flag",                      *   "errorCode": "FLAG_NOT_FOUND",                      *   "errorDetails": "Flag 'non-existent-flag' was not found"                               }                   ],      *   "eventStreams": [          *   {                  *   "type": "sse",                      *   "url": "https://sse.example.com/event-stream?channels=env_abc123_v1",                      *   "inactivityDelaySec": 120                               }                   ],      *   "metadata": {          *   "version": "v12"                   }       }`

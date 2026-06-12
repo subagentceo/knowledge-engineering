@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -13,10 +12,10 @@ This quickstart guide will have you using AI-powered coding assistance in a few 
 
 Make sure you have:
 
-- A terminal or command prompt open
-  - If you've never used the terminal before, check out the [terminal guide](/en/terminal-guide)
-- A code project to work with
-- A [Claude subscription](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=quickstart_prereq) (Pro, Max, Team, or Enterprise), [Claude Console](https://console.anthropic.com/) account, or access through a [supported cloud provider](/en/third-party-integrations)
+* A terminal or command prompt open
+  * If you've never used the terminal before, check out the [terminal guide](/en/terminal-guide)
+* A code project to work with
+* A [Claude subscription](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=quickstart_prereq) (Pro, Max, Team, or Enterprise), [Claude Console](https://console.anthropic.com/) account, or access through a [supported cloud provider](/en/third-party-integrations)
 
 <Note>
   This guide covers the terminal CLI. Claude Code is also available on the [web](https://claude.ai/code), as a [desktop app](/en/desktop), in [VS Code](/en/vs-code) and [JetBrains IDEs](/en/jetbrains), in [Slack](/en/slack), and in CI/CD with [GitHub Actions](/en/github-actions) and [GitLab](/en/gitlab-ci-cd). See [all interfaces](/en/overview#use-claude-code-everywhere).
@@ -30,19 +29,19 @@ To install Claude Code, use one of the following methods:
   <Tab title="Native Install (Recommended)">
     **macOS, Linux, WSL:**
 
-    ```bash theme={null}
+    ```bash theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null}
     curl -fsSL https://claude.ai/install.sh | bash
     ```
 
     **Windows PowerShell:**
 
-    ```powershell theme={null}
+    ```powershell theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null}
     irm https://claude.ai/install.ps1 | iex
     ```
 
     **Windows CMD:**
 
-    ```batch theme={null}
+    ```batch theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null}
     curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
     ```
 
@@ -53,11 +52,10 @@ To install Claude Code, use one of the following methods:
     <Info>
       Native installations automatically update in the background to keep you on the latest version.
     </Info>
-
   </Tab>
 
   <Tab title="Homebrew">
-    ```bash theme={null}
+    ```bash theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null}
     brew install --cask claude-code
     ```
 
@@ -66,18 +64,16 @@ To install Claude Code, use one of the following methods:
     <Info>
       Homebrew installations do not auto-update. Run `brew upgrade claude-code` or `brew upgrade claude-code@latest`, depending on which cask you installed, to get the latest features and security fixes.
     </Info>
-
   </Tab>
 
   <Tab title="WinGet">
-    ```powershell theme={null}
+    ```powershell theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null} theme={null}
     winget install Anthropic.ClaudeCode
     ```
 
     <Info>
       WinGet installations do not auto-update. Run `winget upgrade Anthropic.ClaudeCode` periodically to get the latest features and security fixes.
     </Info>
-
   </Tab>
 </Tabs>
 
@@ -99,9 +95,9 @@ For Claude subscription or Console accounts, follow the prompts to complete auth
 
 You can log in using any of these account types:
 
-- [Claude Pro, Max, Team, or Enterprise](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=quickstart_login) (recommended)
-- [Claude Console](https://console.anthropic.com/) (API access with pre-paid credits). On first login, a "Claude Code" workspace is automatically created in the Console for centralized cost tracking.
-- [Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations) (enterprise cloud providers)
+* [Claude Pro, Max, Team, or Enterprise](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=quickstart_login) (recommended)
+* [Claude Console](https://console.anthropic.com/) (API access with pre-paid credits). On first login, a "Claude Code" workspace is automatically created in the Console for centralized cost tracking.
+* [Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations) (enterprise cloud providers)
 
 Once logged in, your credentials are stored and you won't need to log in again.
 
@@ -114,7 +110,7 @@ cd /path/to/your/project
 claude
 ```
 
-You'll see the Claude Code welcome screen with your session information, recent conversations, and latest updates. Type `/help` for available commands or `/resume` to continue a previous conversation.
+You'll see the Claude Code prompt with the version, current model, and working directory shown above it. Type `/help` for available commands or `/resume` to continue a previous conversation.
 
 <Tip>
   After logging in (Step 2), your credentials are stored on your system. Learn more in [Credential Management](/en/authentication#credential-management).
@@ -223,10 +219,10 @@ there's a bug where users can submit empty forms - fix it
 
 Claude Code will:
 
-- Locate the relevant code
-- Understand the context
-- Implement a solution
-- Run tests if available
+* Locate the relevant code
+* Understand the context
+* Implement a solution
+* Run tests if available
 
 ## Step 8: Test out other common workflows
 
@@ -262,7 +258,9 @@ review my changes and suggest improvements
 
 ## Essential commands
 
-Here are the most important commands for daily use:
+Here are the most important commands for daily use. Shell commands run from your terminal to start or resume Claude Code. Session commands run inside Claude Code after it starts.
+
+**Shell commands**
 
 | Command             | What it does                                           | Example                             |
 | ------------------- | ------------------------------------------------------ | ----------------------------------- |
@@ -271,11 +269,16 @@ Here are the most important commands for daily use:
 | `claude -p "query"` | Run one-off query, then exit                           | `claude -p "explain this function"` |
 | `claude -c`         | Continue most recent conversation in current directory | `claude -c`                         |
 | `claude -r`         | Resume a previous conversation                         | `claude -r`                         |
-| `/clear`            | Clear conversation history                             | `/clear`                            |
-| `/help`             | Show available commands                                | `/help`                             |
-| `exit` or Ctrl+D    | Exit Claude Code                                       | `exit`                              |
 
-See the [CLI reference](/en/cli-reference) for a complete list of commands.
+**Session commands**
+
+| Command           | What it does               | Example  |
+| ----------------- | -------------------------- | -------- |
+| `/clear`          | Clear conversation history | `/clear` |
+| `/help`           | Show available commands    | `/help`  |
+| `/exit` or Ctrl+D | Exit Claude Code           | `/exit`  |
+
+See the [CLI reference](/en/cli-reference) for the complete list of shell commands and the [commands reference](/en/commands) for the complete list of session commands.
 
 ## Pro tips for beginners
 
@@ -286,7 +289,6 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     Instead of: "fix the bug"
 
     Try: "fix the login bug where users see a blank screen after entering wrong credentials"
-
   </Accordion>
 
   <Accordion title="Use step-by-step instructions">
@@ -297,7 +299,6 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     2. create an API endpoint to get and update user profiles
     3. build a webpage that allows users to see and edit their information
     ```
-
   </Accordion>
 
   <Accordion title="Let Claude explore first">
@@ -310,7 +311,6 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     ```text theme={null}
     build a dashboard showing products that are most frequently returned by our UK customers
     ```
-
   </Accordion>
 
   <Accordion title="Save time with shortcuts">
@@ -345,6 +345,6 @@ Now that you've learned the basics, explore more advanced features:
 
 ## Getting help
 
-- **In Claude Code**: Type `/help` or ask "how do I..."
-- **Documentation**: You're here! Browse other guides
-- **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support
+* **In Claude Code**: Type `/help` or ask "how do I..."
+* **Documentation**: You're here! Browse other guides
+* **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support

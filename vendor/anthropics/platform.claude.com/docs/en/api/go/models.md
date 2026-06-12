@@ -13,6 +13,7 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `params ModelListParams`
+
   - `AfterID param.Field[string]`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -30,9 +31,11 @@ The Models API response can be used to determine which models are available for 
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -85,11 +88,14 @@ The Models API response can be used to determine which models are available for 
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type ModelInfo struct{…}`
+
   - `ID string`
 
     Unique model identifier.
@@ -97,9 +103,11 @@ The Models API response can be used to determine which models are available for 
   - `Capabilities ModelCapabilities`
 
     Model capability information.
+
     - `Batch CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -115,6 +123,7 @@ The Models API response can be used to determine which models are available for 
     - `ContextManagement ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `ClearThinking20251015 CapabilitySupport`
 
         Indicates whether a capability is supported.
@@ -134,6 +143,7 @@ The Models API response can be used to determine which models are available for 
     - `Effort EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `High CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -173,6 +183,7 @@ The Models API response can be used to determine which models are available for 
     - `Thinking ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -180,6 +191,7 @@ The Models API response can be used to determine which models are available for 
       - `Types ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `Adaptive CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -209,6 +221,7 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
+
     - `const ModelModel Model = "model"`
 
 ### Example
@@ -336,12 +349,15 @@ The Models API response can be used to determine information about a specific mo
   Model identifier or alias.
 
 - `query ModelGetParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -394,11 +410,14 @@ The Models API response can be used to determine information about a specific mo
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type ModelInfo struct{…}`
+
   - `ID string`
 
     Unique model identifier.
@@ -406,9 +425,11 @@ The Models API response can be used to determine information about a specific mo
   - `Capabilities ModelCapabilities`
 
     Model capability information.
+
     - `Batch CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -424,6 +445,7 @@ The Models API response can be used to determine information about a specific mo
     - `ContextManagement ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `ClearThinking20251015 CapabilitySupport`
 
         Indicates whether a capability is supported.
@@ -443,6 +465,7 @@ The Models API response can be used to determine information about a specific mo
     - `Effort EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `High CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -482,6 +505,7 @@ The Models API response can be used to determine information about a specific mo
     - `Thinking ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -489,6 +513,7 @@ The Models API response can be used to determine information about a specific mo
       - `Types ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `Adaptive CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -518,6 +543,7 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
+
     - `const ModelModel Model = "model"`
 
 ### Example
@@ -632,6 +658,7 @@ func main() {
 - `type CapabilitySupport struct{…}`
 
   Indicates whether a capability is supported.
+
   - `Supported bool`
 
     Whether this capability is supported by the model.
@@ -641,9 +668,11 @@ func main() {
 - `type ContextManagementCapability struct{…}`
 
   Context management capability details.
+
   - `ClearThinking20251015 CapabilitySupport`
 
     Indicates whether a capability is supported.
+
     - `Supported bool`
 
       Whether this capability is supported by the model.
@@ -665,9 +694,11 @@ func main() {
 - `type EffortCapability struct{…}`
 
   Effort (reasoning_effort) capability details.
+
   - `High CapabilitySupport`
 
     Whether the model supports high effort level.
+
     - `Supported bool`
 
       Whether this capability is supported by the model.
@@ -697,9 +728,11 @@ func main() {
 - `type ModelCapabilities struct{…}`
 
   Model capability information.
+
   - `Batch CapabilitySupport`
 
     Whether the model supports the Batch API.
+
     - `Supported bool`
 
       Whether this capability is supported by the model.
@@ -715,6 +748,7 @@ func main() {
   - `ContextManagement ContextManagementCapability`
 
     Context management support and available strategies.
+
     - `ClearThinking20251015 CapabilitySupport`
 
       Indicates whether a capability is supported.
@@ -734,6 +768,7 @@ func main() {
   - `Effort EffortCapability`
 
     Effort (reasoning_effort) support and available levels.
+
     - `High CapabilitySupport`
 
       Whether the model supports high effort level.
@@ -773,6 +808,7 @@ func main() {
   - `Thinking ThinkingCapability`
 
     Thinking capability and supported type configurations.
+
     - `Supported bool`
 
       Whether this capability is supported by the model.
@@ -780,6 +816,7 @@ func main() {
     - `Types ThinkingTypes`
 
       Supported thinking type configurations.
+
       - `Adaptive CapabilitySupport`
 
         Whether the model supports thinking with type 'adaptive' (auto).
@@ -791,6 +828,7 @@ func main() {
 ### Model Info
 
 - `type ModelInfo struct{…}`
+
   - `ID string`
 
     Unique model identifier.
@@ -798,9 +836,11 @@ func main() {
   - `Capabilities ModelCapabilities`
 
     Model capability information.
+
     - `Batch CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -816,6 +856,7 @@ func main() {
     - `ContextManagement ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `ClearThinking20251015 CapabilitySupport`
 
         Indicates whether a capability is supported.
@@ -835,6 +876,7 @@ func main() {
     - `Effort EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `High CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -874,6 +916,7 @@ func main() {
     - `Thinking ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -881,6 +924,7 @@ func main() {
       - `Types ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `Adaptive CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -910,6 +954,7 @@ func main() {
     Object type.
 
     For Models, this is always `"model"`.
+
     - `const ModelModel Model = "model"`
 
 ### Thinking Capability
@@ -917,6 +962,7 @@ func main() {
 - `type ThinkingCapability struct{…}`
 
   Thinking capability details.
+
   - `Supported bool`
 
     Whether this capability is supported by the model.
@@ -924,9 +970,11 @@ func main() {
   - `Types ThinkingTypes`
 
     Supported thinking type configurations.
+
     - `Adaptive CapabilitySupport`
 
       Whether the model supports thinking with type 'adaptive' (auto).
+
       - `Supported bool`
 
         Whether this capability is supported by the model.
@@ -940,9 +988,11 @@ func main() {
 - `type ThinkingTypes struct{…}`
 
   Supported thinking type configurations.
+
   - `Adaptive CapabilitySupport`
 
     Whether the model supports thinking with type 'adaptive' (auto).
+
     - `Supported bool`
 
       Whether this capability is supported by the model.

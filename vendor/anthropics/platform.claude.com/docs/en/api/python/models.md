@@ -29,9 +29,11 @@ The Models API response can be used to determine which models are available for 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -84,11 +86,14 @@ The Models API response can be used to determine which models are available for 
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class ModelInfo: …`
+
   - `id: str`
 
     Unique model identifier.
@@ -96,9 +101,11 @@ The Models API response can be used to determine which models are available for 
   - `capabilities: Optional[ModelCapabilities]`
 
     Model capability information.
+
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -114,6 +121,7 @@ The Models API response can be used to determine which models are available for 
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: Optional[CapabilitySupport]`
 
         Indicates whether a capability is supported.
@@ -133,6 +141,7 @@ The Models API response can be used to determine which models are available for 
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -172,6 +181,7 @@ The Models API response can be used to determine which models are available for 
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -179,6 +189,7 @@ The Models API response can be used to determine which models are available for 
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -208,6 +219,7 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
+
     - `"model"`
 
 ### Example
@@ -324,9 +336,11 @@ The Models API response can be used to determine information about a specific mo
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -379,11 +393,14 @@ The Models API response can be used to determine information about a specific mo
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class ModelInfo: …`
+
   - `id: str`
 
     Unique model identifier.
@@ -391,9 +408,11 @@ The Models API response can be used to determine information about a specific mo
   - `capabilities: Optional[ModelCapabilities]`
 
     Model capability information.
+
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -409,6 +428,7 @@ The Models API response can be used to determine information about a specific mo
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: Optional[CapabilitySupport]`
 
         Indicates whether a capability is supported.
@@ -428,6 +448,7 @@ The Models API response can be used to determine information about a specific mo
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -467,6 +488,7 @@ The Models API response can be used to determine information about a specific mo
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -474,6 +496,7 @@ The Models API response can be used to determine information about a specific mo
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -503,6 +526,7 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
+
     - `"model"`
 
 ### Example
@@ -601,6 +625,7 @@ print(model_info.id)
 - `class CapabilitySupport: …`
 
   Indicates whether a capability is supported.
+
   - `supported: bool`
 
     Whether this capability is supported by the model.
@@ -610,9 +635,11 @@ print(model_info.id)
 - `class ContextManagementCapability: …`
 
   Context management capability details.
+
   - `clear_thinking_20251015: Optional[CapabilitySupport]`
 
     Indicates whether a capability is supported.
+
     - `supported: bool`
 
       Whether this capability is supported by the model.
@@ -634,9 +661,11 @@ print(model_info.id)
 - `class EffortCapability: …`
 
   Effort (reasoning_effort) capability details.
+
   - `high: CapabilitySupport`
 
     Whether the model supports high effort level.
+
     - `supported: bool`
 
       Whether this capability is supported by the model.
@@ -666,9 +695,11 @@ print(model_info.id)
 - `class ModelCapabilities: …`
 
   Model capability information.
+
   - `batch: CapabilitySupport`
 
     Whether the model supports the Batch API.
+
     - `supported: bool`
 
       Whether this capability is supported by the model.
@@ -684,6 +715,7 @@ print(model_info.id)
   - `context_management: ContextManagementCapability`
 
     Context management support and available strategies.
+
     - `clear_thinking_20251015: Optional[CapabilitySupport]`
 
       Indicates whether a capability is supported.
@@ -703,6 +735,7 @@ print(model_info.id)
   - `effort: EffortCapability`
 
     Effort (reasoning_effort) support and available levels.
+
     - `high: CapabilitySupport`
 
       Whether the model supports high effort level.
@@ -742,6 +775,7 @@ print(model_info.id)
   - `thinking: ThinkingCapability`
 
     Thinking capability and supported type configurations.
+
     - `supported: bool`
 
       Whether this capability is supported by the model.
@@ -749,6 +783,7 @@ print(model_info.id)
     - `types: ThinkingTypes`
 
       Supported thinking type configurations.
+
       - `adaptive: CapabilitySupport`
 
         Whether the model supports thinking with type 'adaptive' (auto).
@@ -760,6 +795,7 @@ print(model_info.id)
 ### Model Info
 
 - `class ModelInfo: …`
+
   - `id: str`
 
     Unique model identifier.
@@ -767,9 +803,11 @@ print(model_info.id)
   - `capabilities: Optional[ModelCapabilities]`
 
     Model capability information.
+
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -785,6 +823,7 @@ print(model_info.id)
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: Optional[CapabilitySupport]`
 
         Indicates whether a capability is supported.
@@ -804,6 +843,7 @@ print(model_info.id)
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
@@ -843,6 +883,7 @@ print(model_info.id)
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -850,6 +891,7 @@ print(model_info.id)
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
+
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -879,6 +921,7 @@ print(model_info.id)
     Object type.
 
     For Models, this is always `"model"`.
+
     - `"model"`
 
 ### Thinking Capability
@@ -886,6 +929,7 @@ print(model_info.id)
 - `class ThinkingCapability: …`
 
   Thinking capability details.
+
   - `supported: bool`
 
     Whether this capability is supported by the model.
@@ -893,9 +937,11 @@ print(model_info.id)
   - `types: ThinkingTypes`
 
     Supported thinking type configurations.
+
     - `adaptive: CapabilitySupport`
 
       Whether the model supports thinking with type 'adaptive' (auto).
+
       - `supported: bool`
 
         Whether this capability is supported by the model.
@@ -909,9 +955,11 @@ print(model_info.id)
 - `class ThinkingTypes: …`
 
   Supported thinking type configurations.
+
   - `adaptive: CapabilitySupport`
 
     Whether the model supports thinking with type 'adaptive' (auto).
+
     - `supported: bool`
 
       Whether this capability is supported by the model.

@@ -9,6 +9,7 @@ List environments with pagination support.
 ### Parameters
 
 - `EnvironmentListParams params`
+
   - `Optional<Boolean> includeArchived`
 
     Include archived environments in the response
@@ -24,6 +25,7 @@ List environments with pagination support.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -76,16 +78,19 @@ List environments with pagination support.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -94,23 +99,29 @@ List environments with pagination support.
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -126,11 +137,13 @@ List environments with pagination support.
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -158,19 +171,23 @@ List environments with pagination support.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -192,6 +209,7 @@ List environments with pagination support.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -201,6 +219,7 @@ List environments with pagination support.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -238,16 +257,31 @@ public final class Main {
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"

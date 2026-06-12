@@ -23,23 +23,11 @@ Error Monitoring\[ ]Tracing\[ ]Session Replay\[ ]Logs\[ ]User Feedback
 
 Want to learn more about these features?
 
-* [**Issues**](https://docs.sentry.io/product/issues.md) (always enabled)
-  <!-- -->
-  :
-  <!-- -->
-  Sentry's core error monitoring product that automatically reports errors, uncaught exceptions, and unhandled rejections. If you have something that looks like an exception, Sentry can capture it.
-* [**Tracing**](https://docs.sentry.io/product/tracing.md):
-  <!-- -->
-  Track software performance while seeing the impact of errors across multiple systems. For example, distributed tracing allows you to follow a request from the frontend to the backend and back.
-* [**Session Replay**](https://docs.sentry.io/product/explore/session-replay/web.md):
-  <!-- -->
-  Get to the root cause of an issue faster by viewing a video-like reproduction of what was happening in the user's browser before, during, and after the problem.
-* [**Logs**](https://docs.sentry.io/product/explore/logs.md):
-  <!-- -->
-  Centralize and analyze your application logs to correlate them with errors and performance issues. Search, filter, and visualize log data to understand what's happening in your applications.
-* [**User Feedback**](https://docs.sentry.io/product/user-feedback.md):
-  <!-- -->
-  Collect feedback directly from users when they encounter errors, allowing them to describe what happened and provide context that helps you understand and resolve issues faster.
+* [**Issues**](https://docs.sentry.io/product/issues.md) (always enabled): Sentry's core error monitoring product that automatically reports errors, uncaught exceptions, and unhandled rejections. If you have something that looks like an exception, Sentry can capture it.
+* [**Tracing**](https://docs.sentry.io/product/tracing.md): Track software performance while seeing the impact of errors across multiple systems. For example, distributed tracing allows you to follow a request from the frontend to the backend and back.
+* [**Session Replay**](https://docs.sentry.io/product/explore/session-replay/web.md): Get to the root cause of an issue faster by viewing a video-like reproduction of what was happening in the user's browser before, during, and after the problem.
+* [**Logs**](https://docs.sentry.io/product/explore/logs.md): Centralize and analyze your application logs to correlate them with errors and performance issues. Search, filter, and visualize log data to understand what's happening in your applications.
+* [**User Feedback**](https://docs.sentry.io/product/user-feedback.md): Collect feedback directly from users when they encounter errors, allowing them to describe what happened and provide context that helps you understand and resolve issues faster.
 
 ## [Install](https://docs.sentry.io/platforms/javascript.md#install)
 
@@ -52,6 +40,8 @@ Run the command for your preferred package manager to add the Sentry SDK to your
 ```bash
 npm install @sentry/browser --save
 ```
+
+*Other available variations of the above snippet: yarn, pnpm*
 
 #### [Option 2: Loader Script](https://docs.sentry.io/platforms/javascript.md#option-2-loader-script)
 
@@ -69,11 +59,13 @@ If you're updating your Sentry SDK to the latest version, check out our [migrati
 
 Initialize Sentry as early as possible in your application's lifecycle. The setup differs slightly depending on how you installed the Sentry SDK. Be sure to follow the instructions in the related tab (npm, Loader, CDN):
 
+**npm**
+
 ```javascript
-import * as Sentry from "___SDK_PACKAGE___";
+import * as Sentry from "<sdk-package-name>";
 
 Sentry.init({
-  dsn: "___PUBLIC_DSN___",
+  dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
 
   // Adds request headers and IP for users, for more info visit:
   // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
@@ -125,6 +117,138 @@ Sentry.init({
 });
 ```
 
+**Loader**
+
+```html
+<script
+  src="https://js.sentry-cdn.com/<your-public-key>.min.js"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  window.sentryOnLoad = function () {
+    Sentry.init({
+      dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
+
+      // Adds request headers and IP for users, for more info visit:
+      // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
+      sendDefaultPii: true,
+
+      // Alternatively, use `process.env.npm_package_version` for a dynamic release version
+      // if your build tool supports it.
+      release: "my-project-name@2.3.12",
+      integrations: [
+        // ___PRODUCT_OPTION_START___ performance
+        Sentry.browserTracingIntegration(),
+        // ___PRODUCT_OPTION_END___ performance
+        // ___PRODUCT_OPTION_START___ session-replay
+        Sentry.replayIntegration(),
+        // ___PRODUCT_OPTION_END___ session-replay
+        // ___PRODUCT_OPTION_START___ user-feedback
+        Sentry.feedbackIntegration({
+          // Additional SDK configuration goes in here, for example:
+          colorScheme: "system",
+        }),
+        // ___PRODUCT_OPTION_END___ user-feedback
+      ],
+      // ___PRODUCT_OPTION_START___ logs
+
+      // Enable logs to be sent to Sentry
+      enableLogs: true,
+      // ___PRODUCT_OPTION_END___ logs
+      // ___PRODUCT_OPTION_START___ performance
+
+      // Set tracesSampleRate to 1.0 to capture 100%
+      // of transactions for tracing.
+      // We recommend adjusting this value in production
+      // Learn more at
+      // https://docs.sentry.io/platforms/javascript/configuration/options/#traces-sample-rate
+      tracesSampleRate: 1.0,
+
+      // Set `tracePropagationTargets` to control for which URLs trace propagation should be enabled
+      tracePropagationTargets: [
+        "localhost",
+        /^https:\/\/yourserver\.io\/api/,
+      ],
+      // ___PRODUCT_OPTION_END___ performance
+      // ___PRODUCT_OPTION_START___ session-replay
+
+      // Capture Replay for 10% of all sessions,
+      // plus for 100% of sessions with an error
+      // Learn more at
+      // https://docs.sentry.io/platforms/javascript/session-replay/configuration/#general-integration-configuration
+      replaysSessionSampleRate: 0.1,
+      replaysOnErrorSampleRate: 1.0,
+      // ___PRODUCT_OPTION_END___ session-replay
+    });
+  };
+</script>
+```
+
+**CDN**
+
+```html
+<script
+  src="https://browser.sentry-cdn.com/10.57.0/bundle.tracing.min.js"
+  integrity="sha384-fm7orKrUHTJhAKcdqNq6Kb/0qIpMNYz3TbwoEoiA3hdbnHqSBhIqMAZ4XS09pCU5"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  Sentry.init({
+    dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
+
+    // Adds request headers and IP for users, for more info visit:
+    // https://docs.sentry.io/platforms/javascript/configuration/options/#sendDefaultPii
+    sendDefaultPii: true,
+
+    // Alternatively, use `process.env.npm_package_version` for a dynamic release version
+    // if your build tool supports it.
+    release: "my-project-name@2.3.12",
+    integrations: [
+      // ___PRODUCT_OPTION_START___ performance
+      Sentry.browserTracingIntegration(),
+      // ___PRODUCT_OPTION_END___ performance
+      // ___PRODUCT_OPTION_START___ session-replay
+      Sentry.replayIntegration(),
+      // ___PRODUCT_OPTION_END___ session-replay
+      // ___PRODUCT_OPTION_START___ user-feedback
+      Sentry.feedbackIntegration({
+        // Additional SDK configuration goes in here, for example:
+        colorScheme: "system",
+      }),
+      // ___PRODUCT_OPTION_END___ user-feedback
+    ],
+    // ___PRODUCT_OPTION_START___ logs
+
+    // Enable logs to be sent to Sentry
+    enableLogs: true,
+    // ___PRODUCT_OPTION_END___ logs
+    // ___PRODUCT_OPTION_START___ performance
+
+    // Set tracesSampleRate to 1.0 to capture 100%
+    // of transactions for tracing.
+    // We recommend adjusting this value in production
+    // Learn more at
+    // https://docs.sentry.io/platforms/javascript/configuration/options/#traces-sample-rate
+    tracesSampleRate: 1.0,
+
+    // Set `tracePropagationTargets` to control for which URLs trace propagation should be enabled
+    tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
+    // ___PRODUCT_OPTION_END___ performance
+    // ___PRODUCT_OPTION_START___ session-replay
+
+    // Capture Replay for 10% of all sessions,
+    // plus for 100% of sessions with an error
+    // Learn more at
+    // https://docs.sentry.io/platforms/javascript/session-replay/configuration/#general-integration-configuration
+    replaysSessionSampleRate: 0.1,
+    replaysOnErrorSampleRate: 1.0,
+    // ___PRODUCT_OPTION_END___ session-replay
+  });
+</script>
+```
+
 ### [Add Readable Stack Traces With Source Maps (Optional)](https://docs.sentry.io/platforms/javascript.md#add-readable-stack-traces-with-source-maps-optional)
 
 The stack traces in your Sentry errors probably won't look like your actual code without unminifying them. To fix this, upload your source maps to Sentry. The easiest way to do this is by using the Sentry Wizard.
@@ -143,10 +267,8 @@ This will send all events to the `tunnel` endpoint. However, the events need to 
 
 ```javascript
 Sentry.init({
-  dsn: "___PUBLIC_DSN___",
-
+  dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
   tunnel: "/tunnel",
-
 });
 ```
 
@@ -221,37 +343,11 @@ Now, head over to your project on [Sentry.io](https://sentry.io) to view the col
 
 Need help locating the captured errors in your Sentry project?
 
-* Open the
-  <!-- -->
-  [**Issues**](https://sentry.io/orgredirect/organizations/:orgslug/issues/)
-  <!-- -->
-  page and select an error from the issues list to view the full details and context of this error. For more details, see this
-  <!-- -->
-  [interactive walkthrough](https://docs.sentry.io/product/sentry-basics/integrate-frontend/generate-first-error.md#ui-walkthrough).
-* Open the
-  <!-- -->
-  [**Traces**](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/)
-  <!-- -->
-  page and select a trace to reveal more information about each span, its duration, and any errors. For an interactive UI walkthrough, click
-  <!-- -->
-  [here](https://docs.sentry.io/product/sentry-basics/distributed-tracing/generate-first-error.md#ui-walkthrough).
-* Open the
-  <!-- -->
-  [**Replays**](https://sentry.io/orgredirect/organizations/:orgslug/replays/)
-  <!-- -->
-  page and select an entry from the list to get a detailed view where you can replay the interaction and get more information to help you troubleshoot.
-* Open the
-  <!-- -->
-  [**Logs**](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/)
-  <!-- -->
-  page and filter by service, environment, or search keywords to view log entries from your application. For an interactive UI walkthrough, click
-  <!-- -->
-  [here](https://docs.sentry.io/product/explore/logs.md#overview).
-* Open the
-  <!-- -->
-  [**User Feedback**](https://sentry.io/orgredirect/organizations/:orgslug/feedback/)
-  <!-- -->
-  page and click on individual feedback to see more details all in one view. For more information, click [here](https://docs.sentry.io/product/user-feedback.md).
+* Open the [**Issues**](https://sentry.io/orgredirect/organizations/:orgslug/issues/) page and select an error from the issues list to view the full details and context of this error. For more details, see this [interactive walkthrough](https://docs.sentry.io/product/sentry-basics/integrate-frontend/generate-first-error.md#ui-walkthrough).
+* Open the [**Traces**](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/) page and select a trace to reveal more information about each span, its duration, and any errors. For an interactive UI walkthrough, click [here](https://docs.sentry.io/product/sentry-basics/distributed-tracing/generate-first-error.md#ui-walkthrough).
+* Open the [**Replays**](https://sentry.io/orgredirect/organizations/:orgslug/replays/) page and select an entry from the list to get a detailed view where you can replay the interaction and get more information to help you troubleshoot.
+* Open the [**Logs**](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/) page and filter by service, environment, or search keywords to view log entries from your application. For an interactive UI walkthrough, click [here](https://docs.sentry.io/product/explore/logs.md#overview).
+* Open the [**User Feedback**](https://sentry.io/orgredirect/organizations/:orgslug/feedback/) page and click on individual feedback to see more details all in one view. For more information, click [here](https://docs.sentry.io/product/user-feedback.md).
 
 ## [Next Steps](https://docs.sentry.io/platforms/javascript.md#next-steps)
 

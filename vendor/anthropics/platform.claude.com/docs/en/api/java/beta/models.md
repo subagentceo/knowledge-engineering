@@ -13,6 +13,7 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `ModelListParams params`
+
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -30,6 +31,7 @@ The Models API response can be used to determine which models are available for 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -82,21 +84,30 @@ The Models API response can be used to determine which models are available for 
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaModelInfo:`
+
   - `String id`
 
     Unique model identifier.
 
+  - `Optional<List<String>> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
+
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -112,6 +123,7 @@ The Models API response can be used to determine which models are available for 
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
+
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -131,6 +143,7 @@ The Models API response can be used to determine which models are available for 
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
@@ -170,6 +183,7 @@ The Models API response can be used to determine which models are available for 
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -177,6 +191,7 @@ The Models API response can be used to determine which models are available for 
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
+
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -206,6 +221,7 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
+
     - `MODEL("model")`
 
 ### Example
@@ -236,6 +252,9 @@ public final class Main {
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true
@@ -323,6 +342,7 @@ The Models API response can be used to determine information about a specific mo
 ### Parameters
 
 - `ModelRetrieveParams params`
+
   - `Optional<String> modelId`
 
     Model identifier or alias.
@@ -330,6 +350,7 @@ The Models API response can be used to determine information about a specific mo
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -382,21 +403,30 @@ The Models API response can be used to determine information about a specific mo
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaModelInfo:`
+
   - `String id`
 
     Unique model identifier.
 
+  - `Optional<List<String>> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
+
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -412,6 +442,7 @@ The Models API response can be used to determine information about a specific mo
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
+
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -431,6 +462,7 @@ The Models API response can be used to determine information about a specific mo
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
@@ -470,6 +502,7 @@ The Models API response can be used to determine information about a specific mo
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -477,6 +510,7 @@ The Models API response can be used to determine information about a specific mo
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
+
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -506,6 +540,7 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
+
     - `MODEL("model")`
 
 ### Example
@@ -534,6 +569,9 @@ public final class Main {
 ```json
 {
   "id": "claude-opus-4-6",
+  "allowed_fallback_models": [
+    "string"
+  ],
   "capabilities": {
     "batch": {
       "supported": true
@@ -610,6 +648,7 @@ public final class Main {
 - `class BetaCapabilitySupport:`
 
   Indicates whether a capability is supported.
+
   - `boolean supported`
 
     Whether this capability is supported by the model.
@@ -619,9 +658,11 @@ public final class Main {
 - `class BetaContextManagementCapability:`
 
   Context management capability details.
+
   - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
     Indicates whether a capability is supported.
+
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -643,9 +684,11 @@ public final class Main {
 - `class BetaEffortCapability:`
 
   Effort (reasoning_effort) capability details.
+
   - `BetaCapabilitySupport high`
 
     Whether the model supports high effort level.
+
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -675,9 +718,11 @@ public final class Main {
 - `class BetaModelCapabilities:`
 
   Model capability information.
+
   - `BetaCapabilitySupport batch`
 
     Whether the model supports the Batch API.
+
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -693,6 +738,7 @@ public final class Main {
   - `BetaContextManagementCapability contextManagement`
 
     Context management support and available strategies.
+
     - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
       Indicates whether a capability is supported.
@@ -712,6 +758,7 @@ public final class Main {
   - `BetaEffortCapability effort`
 
     Effort (reasoning_effort) support and available levels.
+
     - `BetaCapabilitySupport high`
 
       Whether the model supports high effort level.
@@ -751,6 +798,7 @@ public final class Main {
   - `BetaThinkingCapability thinking`
 
     Thinking capability and supported type configurations.
+
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -758,6 +806,7 @@ public final class Main {
     - `BetaThinkingTypes types`
 
       Supported thinking type configurations.
+
       - `BetaCapabilitySupport adaptive`
 
         Whether the model supports thinking with type 'adaptive' (auto).
@@ -769,16 +818,23 @@ public final class Main {
 ### Beta Model Info
 
 - `class BetaModelInfo:`
+
   - `String id`
 
     Unique model identifier.
 
+  - `Optional<List<String>> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
+
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -794,6 +850,7 @@ public final class Main {
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
+
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -813,6 +870,7 @@ public final class Main {
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
@@ -852,6 +910,7 @@ public final class Main {
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -859,6 +918,7 @@ public final class Main {
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
+
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -888,6 +948,7 @@ public final class Main {
     Object type.
 
     For Models, this is always `"model"`.
+
     - `MODEL("model")`
 
 ### Beta Thinking Capability
@@ -895,6 +956,7 @@ public final class Main {
 - `class BetaThinkingCapability:`
 
   Thinking capability details.
+
   - `boolean supported`
 
     Whether this capability is supported by the model.
@@ -902,9 +964,11 @@ public final class Main {
   - `BetaThinkingTypes types`
 
     Supported thinking type configurations.
+
     - `BetaCapabilitySupport adaptive`
 
       Whether the model supports thinking with type 'adaptive' (auto).
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -918,9 +982,11 @@ public final class Main {
 - `class BetaThinkingTypes:`
 
   Supported thinking type configurations.
+
   - `BetaCapabilitySupport adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).
+
     - `boolean supported`
 
       Whether this capability is supported by the model.

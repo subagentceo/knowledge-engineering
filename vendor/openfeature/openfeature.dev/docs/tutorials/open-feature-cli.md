@@ -2,15 +2,15 @@
 
 > **⚠️ The OpenFeature CLI is experimental!** Feel free to give it a shot and provide feedback, but expect breaking changes.
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview​
 
 The OpenFeature CLI is a command-line tool designed to improve the developer experience when working with feature flags. It helps developers manage feature flags consistently across different environments and programming languages by providing powerful utilities for code generation, flag validation, and more.
 
-## Setup[​](#setup "Direct link to Setup")
+## Setup​
 
 Before we jump in, let's get everything ready. You'll need to install the OpenFeature CLI. Choose the method that works best for you:
 
-### curl[​](#curl "Direct link to curl")
+### curl​
 
 The OpenFeature CLI can be installed using a shell command. This method is suitable for most Unix-like operating systems.
 
@@ -18,9 +18,9 @@ The OpenFeature CLI can be installed using a shell command. This method is suita
 curl -fsSL https://openfeature.dev/scripts/install_cli.sh | sh
 ```
 
-### docker[​](#docker "Direct link to docker")
+### docker​
 
-The OpenFeature CLI is available as a Docker image in the [GitHub Container Registry](https://github.com/open-feature/cli/pkgs/container/cli).
+The OpenFeature CLI is available as a Docker image in the GitHub Container Registry.
 
 You can run the CLI in a Docker container using the following command:
 
@@ -28,7 +28,7 @@ You can run the CLI in a Docker container using the following command:
 docker run -it -v $(pwd):/local -w /local ghcr.io/open-feature/cli:latest
 ```
 
-### go[​](#go "Direct link to go")
+### go​
 
 If you have `Go >= 1.23` installed, you can install the CLI using the following command:
 
@@ -36,11 +36,11 @@ If you have `Go >= 1.23` installed, you can install the CLI using the following 
 go install github.com/open-feature/cli/cmd/openfeature@latest
 ```
 
-### pre-built binaries[​](#pre-built-binaries "Direct link to pre-built binaries")
+### pre-built binaries​
 
-Download the appropriate pre-built binary from the [releases page](https://github.com/open-feature/cli/releases).
+Download the appropriate pre-built binary from the releases page.
 
-## Your first flag manifest[​](#your-first-flag-manifest "Direct link to Your first flag manifest")
+## Your first flag manifest​
 
 Every great feature flagging setup starts with knowing what flags you have. Let's create a simple flag manifest that defines a few common flags you might use in a real project:
 
@@ -50,24 +50,24 @@ cat > flags.json << EOF{  "$schema": "https://raw.githubusercontent.com/open-fea
 
 This manifest defines three flags `newUserOnboarding`, `maxLoginAttempts` and `welcomeMessage` that you might find in any web application. Notice how each flag has a clear `description`, a `type`, and a sensible `default value`.
 
-## Flag Manifest[​](#flag-manifest "Direct link to Flag Manifest")
+## Flag Manifest​
 
 The flag manifest is a JSON file that defines your feature flags and their properties. It serves as the source of truth for your feature flags and is used by the CLI to generate strongly typed accessors. The manifest file should be named `flags.json` and placed in the root of your project.
 
-### Flag Manifest Structure[​](#flag-manifest-structure "Direct link to Flag Manifest Structure")
+### Flag Manifest Structure​
 
-The flag manifest file should follow the JSON schema defined [here](https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json).
+The flag manifest file should follow the JSON schema defined here.
 
 The schema defines the following properties:
 
--   `$schema`: The URL of the JSON schema for validation.
--   `flags`: An object containing the feature flags.
-    -   `flagKey`: A unique key for the flag.
-        -   `description`: A description of what the flag does.
-        -   `flagType`: The type of the flag (e.g., `boolean`, `string`, `number`, `object`).
-        -   `defaultValue`: The default value of the flag.
+*   `$schema`: The URL of the JSON schema for validation.
+*   `flags`: An object containing the feature flags.
+    *   `flagKey`: A unique key for the flag.
+        *   `description`: A description of what the flag does.
+        *   `flagType`: The type of the flag (e.g., `boolean`, `string`, `number`, `object`).
+        *   `defaultValue`: The default value of the flag.
 
-## Code generation[​](#code-generation "Direct link to Code generation")
+## Code generation​
 
 Let's generate strongly typed flag accessors. The OpenFeature CLI supports multiple languages, so let's see what's available through the `generate` command.
 
@@ -101,7 +101,7 @@ This will create a `openfeature.ts` file with strongly typed accessors for the f
 
 You can now use the generated client in your Node.js application, and it will provide type-safe access to your feature flags.
 
-## Using the generated client[​](#using-the-generated-client "Direct link to Using the generated client")
+## Using the generated client​
 
 Now that we have our generated client, we can use it in our Node.js application. Let's create a simple server that uses the generated client to evaluate flags:
 
@@ -109,21 +109,21 @@ Now that we have our generated client, we can use it in our Node.js application.
 import { getGeneratedClient } from './openfeature';// Create your strongly typed clientconst flags = getGeneratedClient();// You get this type-safe approach:const isEnabled = await flags.newUserOnboarding();const attempts = await flags.maxLoginAttempts();const message = await flags.welcomeMessage();...const details = await flags.newUserOnboardingDetails(); // Returns Promise<EvaluationDetails<boolean>>
 ```
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration​
 
 The OpenFeature CLI uses an optional configuration file to override default settings and customize the behavior of the CLI. This file can be in JSON or YAML format and should be named either `.openfeature.json` or `.openfeature.yaml`.
 
-### Configuration File Structure[​](#configuration-file-structure "Direct link to Configuration File Structure")
+### Configuration File Structure​
 
 ```
 # Example .openfeature.yamlmanifest: "flags/manifest.json" # Overrides the default manifest pathgenerate:  output: "src/flags" # Overrides the default output directory  # Any language-specific options can be specified here  # For example, for React:  react:    output: "src/flags/react" # Overrides the default React output directory  # For Go:  go:    package: "github.com/myorg/myrepo/flags" # Overrides the default Go package name    output: "src/flags/go" # Overrides the default Go output directory
 ```
 
-## Next Steps[​](#next-steps "Direct link to Next Steps")
+## Next Steps​
 
 Want to dive deeper? Here are some great next steps:
 
--   Explore more generators: Try `openfeature generate` to see all supported languages
--   Set up provider integration: Connect your generated code to a real feature flag service using [OpenFeature providers](/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Provider)
--   Contribute: Visit the [GitHub repository](https://github.com/open-feature/cli) to contribute or report issues
--   Join the community: Drop by the [#openfeature-cli](https://cloud-native.slack.com/archives/C07DY4TUDK6) channel in CNCF Slack
+*   Explore more generators: Try `openfeature generate` to see all supported languages
+*   Set up provider integration: Connect your generated code to a real feature flag service using OpenFeature providers
+*   Contribute: Visit the GitHub repository to contribute or report issues
+*   Join the community: Drop by the #openfeature-cli channel in CNCF Slack

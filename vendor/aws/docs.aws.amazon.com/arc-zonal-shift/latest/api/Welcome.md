@@ -11,4 +11,4 @@ You can also configure zonal autoshift for supported load balancer resources. Zo
 
 For more information about using zonal shift and zonal autoshift, see the [Amazon Application Recovery Controller Developer Guide](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html).
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

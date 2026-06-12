@@ -18,7 +18,6 @@ Strict tool use validates tool parameters, ensuring Claude calls your functions 
 Building reliable agentic systems requires guaranteed schema conformance. Without strict mode, Claude might return incompatible types (`"2"` instead of `2`) or missing required fields, breaking your functions and causing runtime errors.
 
 Strict tool use guarantees type-safe parameters:
-
 - Functions receive correctly-typed arguments every time
 - No need to validate and retry tool calls
 - Production-ready agents that work consistently at scale
@@ -128,7 +127,7 @@ print(response.content)
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  apiKey: process.env.ANTHROPIC_API_KEY
 });
 
 const response = await client.messages.create({
@@ -137,8 +136,8 @@ const response = await client.messages.create({
   messages: [
     {
       role: "user",
-      content: "What's the weather like in San Francisco?",
-    },
+      content: "What's the weather like in San Francisco?"
+    }
   ],
   tools: [
     {
@@ -150,18 +149,18 @@ const response = await client.messages.create({
         properties: {
           location: {
             type: "string",
-            description: "The city and state, e.g. San Francisco, CA",
+            description: "The city and state, e.g. San Francisco, CA"
           },
           unit: {
             type: "string",
-            enum: ["celsius", "fahrenheit"],
-          },
+            enum: ["celsius", "fahrenheit"]
+          }
         },
         required: ["location"],
-        additionalProperties: false,
-      },
-    },
-  ],
+        additionalProperties: false
+      }
+    }
+  ]
 });
 console.log(response.content);
 ```
@@ -310,7 +309,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,
@@ -397,7 +396,6 @@ puts message.content
 ```
 
 **Guarantees:**
-
 - Tool `input` strictly follows the `input_schema`
 - Tool `name` is always valid (from provided tools or server tools)
 
@@ -499,23 +497,18 @@ const searchFlightsTool: Anthropic.Tool = {
     properties: {
       destination: { type: "string" },
       departure_date: { type: "string", format: "date" },
-      passengers: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
+      passengers: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
     },
     required: ["destination", "departure_date"],
-    additionalProperties: false,
-  },
+    additionalProperties: false
+  }
 };
 
 const response = await client.messages.create({
   model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [
-    {
-      role: "user",
-      content: "Search for flights to Tokyo departing June 1, 2026",
-    },
-  ],
-  tools: [searchFlightsTool],
+  messages: [{ role: "user", content: "Search for flights to Tokyo departing June 1, 2026" }],
+  tools: [searchFlightsTool]
 });
 
 console.log(response);
@@ -664,7 +657,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,
@@ -838,11 +831,11 @@ const tools: Anthropic.Tool[] = [
         origin: { type: "string" },
         destination: { type: "string" },
         departure_date: { type: "string", format: "date" },
-        travelers: { type: "integer", enum: [1, 2, 3, 4, 5, 6] },
+        travelers: { type: "integer", enum: [1, 2, 3, 4, 5, 6] }
       },
       required: ["origin", "destination", "departure_date"],
-      additionalProperties: false,
-    },
+      additionalProperties: false
+    }
   },
   {
     name: "search_hotels",
@@ -852,12 +845,12 @@ const tools: Anthropic.Tool[] = [
       properties: {
         city: { type: "string" },
         check_in: { type: "string", format: "date" },
-        guests: { type: "integer", enum: [1, 2, 3, 4] },
+        guests: { type: "integer", enum: [1, 2, 3, 4] }
       },
       required: ["city", "check_in"],
-      additionalProperties: false,
-    },
-  },
+      additionalProperties: false
+    }
+  }
 ];
 
 const response = await client.messages.create({
@@ -867,10 +860,10 @@ const response = await client.messages.create({
     {
       role: "user",
       content:
-        "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026",
-    },
+        "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026"
+    }
   ],
-  tools: tools,
+  tools: tools
 });
 
 console.log(response);
@@ -1062,7 +1055,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,

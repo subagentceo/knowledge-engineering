@@ -1,18 +1,20 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Fraud & Compliance
+# Optimize the Risk-Reward Equation
+
+Home/Solutions/Fraud & Compliance
 
 # Optimize the Risk-Reward Equation
 
 The best fraud teams unlock revenue while reducing risk.
 
-[Demo](/demo/)[Explore Fraud Data by Industry](/fibr-fraud-industry-benchmarking-resource/)
+DemoExplore Fraud Data by Industry
 
 ![BannerImage](https://sift.com/wp-content/uploads/2024/12/BannerImage.webp)
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#results)
+*   Challenge
+*   Solution
+*   Results
 
 ## Don’t Let Legacy Solutions Stunt Growth Potential
 
@@ -36,7 +38,7 @@ Head of Fraud Prevention at markt.de
 
 Sift’s solutions are intended to empower fraud teams rather than replace them.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ## Reach New Business Milestones With Sift
 
@@ -46,13 +48,11 @@ Using outdated solutions can result in your team appearing less productive and e
 
 Increase in team efficiency
 
-[\*Source](/resources/case-studies/universe/)
+*Source
 
 ## Meaningful Outcomes for Every Role
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
-
-[
 
 Leave Trust and Tooling to Us
 
@@ -60,15 +60,11 @@ Free up engineering resources and let Sift handle your fraud tooling needs. Prot
 
 Product Management
 
-](/solutions/product-management/)[
-
 Own the Risk-Reward Equation
 
 Confidently project revenue without fear of losses. Sift's global data network instantly surfaces and blocks risk, so your business always stays ahead of evolving attacks and trends.
 
 Operations
-
-](/solutions/business-operations/)[
 
 Secure Your Reputation (and Long-Term Revenue)
 
@@ -76,15 +72,11 @@ With Sift, your business is never an easy target. Drop churn and chargebacks, br
 
 Infosec & IT
 
-](/solutions/information-security/)[
-
 Grow Fearlessly on Your Terms
 
 Expand into new markets and metrics with confidence that the results will speak for themselves. Take the fraud conversation out of executive meetings, turn risk into revenue, and keep trust and safety teams lean, focused, and future-forward.
 
 Executives
-
-](/solutions/executives/)
 
 ### Start Your Digital Risk Assessment
 
@@ -96,13 +88,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -112,8 +102,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -121,8 +109,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -132,13 +118,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[Talk to an expert](/demo/)
+Talk to an expert

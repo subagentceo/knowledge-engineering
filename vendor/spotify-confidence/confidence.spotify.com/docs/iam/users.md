@@ -1,12 +1,12 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Users
 
 > Manage access to Confidence by adding and removing users.
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/iam-intro.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=89920be5ed3d69a0390cb8295c2e270b" alt="user overview" width="1100" height="613" data-path="images/iam-intro.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/iam-intro.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=b1208326a34b87d7ef95fb39cc9e6f1e" alt="user overview" width="1100" height="613" data-path="images/iam-intro.png" />
 
 ## Single Sign-On (SSO) {{ id: "sso" }}
 

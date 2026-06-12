@@ -38,20 +38,22 @@ Our London office is home to a growing team of AI researchers, and continues to 
 
 This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've partnered with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the Rwandan Government to bring AI education to hundreds of thousands of learners across the country.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

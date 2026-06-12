@@ -6,6 +6,9 @@ GET /v1/namespaces/:namespace/metadata
 
 Returns metadata about a namespace.
 
+**Metadata** (Metadata lookup for a namespace.)
+- Metadata Latency: p50=11ms, p90=15ms, p99=29ms
+
 ## Response
 
 **schema** object
@@ -62,16 +65,29 @@ Example: `"2024-04-16T09:27:32Z"`
 
 Describes how the namespace is encrypted.
 
-- Default server-side encryption: `{ "mode": "default" }`
-- [CMEK](/docs/cmek): `{ "mode": "customer-managed", "key_name": "…" }`
+Possible values include default server-side encryption and [CMEK](/docs/encryption).
 
-```jsonc
-  // GCP Example
-  { "mode": "customer-managed",
-    "key_name": "projects/myproject/locations/us-central1/keyRings/EXAMPLE/cryptoKeys/KEYNAME" }
-  // AWS Example
-  { "mode": "customer-managed",
-    "key_name": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012" }
+Example (default):
+```json
+{
+  "mode": "default"
+}
+```
+
+Example (GCP CMEK):
+```json
+{
+  "mode": "customer-managed",
+  "key_name": "projects/myproject/locations/us-central1/keyRings/EXAMPLE/cryptoKeys/KEYNAME"
+}
+```
+
+Example (AWS CMEK):
+```json
+{
+  "mode": "customer-managed",
+  "key_name": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
+}
 ```
 
 ---
@@ -112,12 +128,41 @@ Contains the following fields:
 
   When `utilization` exceeds 90%, consider increasing replica count.
 
-Example: `{ "replicas": 2, "status": { "ready_replicas": 1, "utilization": 0.73 } }`
+Example:
+
+```json
+{
+  "replicas": 2,
+  "status": {
+    "ready_replicas": 1,
+    "utilization": 0.73
+  }
+}
+```
+
+---
+
+**branching** object
+
+The state of [branching](/docs/branching) for the namespace. Only present for
+branched namespaces. Contains the following fields:
+
+- `parent` (string): The namespace this was branched from.
+
+---
+
+**branching** object
+
+The state of [branching](/docs/branching) for the namespace. Only present for
+branched namespaces. Contains the following fields:
+
+- `parent` (string): The namespace this was branched from.
 
 ## Example
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/metadata-curl/metadata \
   -X GET --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY"
@@ -157,7 +202,7 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/metadata-curl/metadat
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region="gcp-us-central1",  # pick the right region: https://turbopuffer.com/docs/regions
+    region="gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f"metadata-inspect-example-py")
@@ -169,7 +214,7 @@ print(metadata)  # returns a turbopuffer.NamespaceMetadata object
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`metadata-inspect-example-ts`);
@@ -192,8 +237,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("metadata-inspect-example-go")
@@ -217,22 +261,38 @@ public class MetadataInspect {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
-    var ns = tpuf.namespace("metadata-inspect-java-example");
+    var ns = tpuf.namespace("metadata-inspect-example-java");
 
     Object metadata = ns.metadata();
     System.out.println(metadata); // returns a NamespaceMetadata object
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("metadata-inspect-example-csharp");
+
+var metadata = await ns.Metadata(new NamespaceMetadataParams());
+Console.WriteLine(metadata); // returns a NamespaceMetadata object
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("metadata-inspect-example-rb")
@@ -273,8 +333,7 @@ Contains the following fields:
   Defaults to `1`. Each replica runs on its own reserved node, increases read
   throughput, and multiplies pinning cost.
 
-**Example (enable pinning):**
-
+Example (enable pinning):
 ```json
 {
   "pinning": {
@@ -283,16 +342,14 @@ Contains the following fields:
 }
 ```
 
-You can also enable pinning with the defaults (1 replica):
-
+Example (use defaults):
 ```json
 {
   "pinning": true
 }
 ```
 
-**Example (disable pinning):**
-
+Example (disable pinning):
 ```json
 {
   "pinning": null
@@ -307,3 +364,12 @@ fields for details.
 ### Billing
 
 This request is billed as a query that returns zero rows.
+
+
+---
+
+This page: [/docs/metadata.md](https://turbopuffer.com/docs/metadata.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

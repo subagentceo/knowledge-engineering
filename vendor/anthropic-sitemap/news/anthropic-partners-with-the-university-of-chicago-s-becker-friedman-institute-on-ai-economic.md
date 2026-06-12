@@ -12,9 +12,9 @@ Today, we’re announcing a partnership with the University of Chicago's Becker 
 
 The rapid pace of technological advancement is increasing the challenges in analyzing the resulting impacts across the labor market and throughout society. We aim to deepen our analysis of AI’s economic impacts by combining our research data with BFI's distinguished economic expertise. This partnership offers BFI economists opportunities to examine questions including:
 
-- **Productivity measurement:** Investigating how AI adoption affects traditional measures of productivity across different sectors;
-- **Labor market transitions:** Analyzing shifts in occupational tasks and required skills as AI adoption increases;
-- **Distributional impacts:** Studying how AI benefits and challenges affect different segments of society.
+*   **Productivity measurement:** Investigating how AI adoption affects traditional measures of productivity across different sectors;
+*   **Labor market transitions:** Analyzing shifts in occupational tasks and required skills as AI adoption increases;
+*   **Distributional impacts:** Studying how AI benefits and challenges affect different segments of society.
 
 "The tools of economics will aid us all in understanding the full implications of AI’s impact on society," said Benjamin Krause, Executive Director at BFI. "This partnership creates a structured framework for University of Chicago economists to engage directly with the data, developing more rigorous and nuanced analyses that can inform policy discussions."
 
@@ -24,18 +24,18 @@ The partnership will help expand the methodologies used to study AI's economic i
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

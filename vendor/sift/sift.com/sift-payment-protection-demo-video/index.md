@@ -1,19 +1,21 @@
-[Home](https://sift.com)/Sift payment protection demo video
+# Stop payment fraud and boost revenue
+
+Home/Sift payment protection demo video
 
 # Stop payment fraud and boost revenue
 
 Don’t let payment fraud hinder business growth. Get the only solution that helps you stop fraudulent transactions and manage risk in one place.
 
-[see sift in action](/demo/)
+see sift in action
 
 ![banner\_platform](https://sift.com/wp-content/uploads/2025/01/banner_platform.webp)
 
 ###### Overview
 
--   [Overview](#overview)
--   [How It Works](#how-it-works)
--   [Platform](#platform)
--   [Successes](#successes)
+*   Overview
+*   How It Works
+*   Platform
+*   Successes
 
 ## Simplify fraud management
 
@@ -37,9 +39,7 @@ Track business health, unblock trusted customers, and secure customer loyalty wi
 
 ## See how Sift Payment Protection works
 
-[Watch the demo](https://player.vimeo.com/video/833411580?h=c26521217d&badge=0&autopause=0&player_id=0&app_id=58479)
-
-[](https://player.vimeo.com/video/833411580?h=c26521217d&badge=0&autopause=0&player_id=0&app_id=58479)
+Watch the demo
 
 ## The Digital Trust & Safety Platform
 
@@ -83,7 +83,7 @@ As soon as we turned Sift on, we saw fraud being caught and our chargeback rate 
 
 Merchant Processing Director at ChowNow
 
-[read customer story](/resources/case-studies/chownow/)
+read customer story
 
 ![Case-Study-ChowNow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20431'%3E%3C/svg%3E)
 
@@ -105,7 +105,7 @@ I believe that the best way to keep customer data secure is with the use of mode
 
 Director of Client Services at Paula’s Choice
 
-[read customer story](/resources/case-studies/paulas-choice-case-study/)
+read customer story
 
 ![Case-Study-Paulas-Choice](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -123,41 +123,39 @@ Chargeback rate
 
 Launch unbeatable defenses against current and future threats using accurate, real-time data from our global network of one trillion events per year, representing 34K sites and apps.
 
--   ![unity](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![unity](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![turo-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![traveloka-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%2091'%3E%3C/svg%3E)
+*   ![traveloka-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%2091'%3E%3C/svg%3E)
     
--   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![remmitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![remmitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![hertz](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![atoms](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![atoms](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![unity](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![unity](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![turo-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![turo-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![traveloka-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%2091'%3E%3C/svg%3E)
+*   ![traveloka-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20384%2091'%3E%3C/svg%3E)
     
--   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![remmitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![remmitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![hertz](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![atoms](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![atoms](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -167,8 +165,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -176,8 +172,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -187,13 +181,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[Talk to an expert](/demo/)
+Talk to an expert

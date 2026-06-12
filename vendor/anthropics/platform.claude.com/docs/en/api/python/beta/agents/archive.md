@@ -13,9 +13,11 @@ Archive Agent
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,13 +70,16 @@ Archive Agent
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsAgent: …`
 
   A Managed Agents `agent`.
+
   - `id: str`
 
   - `archived_at: Optional[datetime]`
@@ -88,9 +93,11 @@ Archive Agent
   - `description: Optional[str]`
 
   - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
+
     - `name: str`
 
     - `type: Literal["url"]`
+
       - `"url"`
 
     - `url: str`
@@ -100,16 +107,21 @@ Archive Agent
   - `model: BetaManagedAgentsModelConfig`
 
     Model identifier and configuration.
+
     - `id: BetaManagedAgentsModel`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `Literal["claude-opus-4-7", "claude-opus-4-6", "claude-sonnet-4-6", 6 more]`
+
+      - `Literal["claude-fable-5", "claude-opus-4-8", "claude-opus-4-7", 8 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
+        - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
         - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
         - `claude-opus-4-6` - Most intelligent model for building agents and coding
         - `claude-sonnet-4-6` - Best combination of speed and intelligence
@@ -119,6 +131,14 @@ Archive Agent
         - `claude-opus-4-5-20251101` - Premium model combining maximum intelligence with practical performance
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
 
         - `"claude-opus-4-7"`
 
@@ -161,6 +181,7 @@ Archive Agent
     - `speed: Optional[Literal["standard", "fast"]]`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
       - `"standard"`
 
       - `"fast"`
@@ -168,28 +189,35 @@ Archive Agent
   - `multiagent: Optional[BetaManagedAgentsMultiagent]`
 
     Resolved coordinator topology with a concrete agent roster.
+
     - `agents: List[BetaManagedAgentsAgentReference]`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
+
       - `id: str`
 
       - `type: Literal["agent"]`
+
         - `"agent"`
 
       - `version: int`
 
     - `type: Literal["coordinator"]`
+
       - `"coordinator"`
 
   - `name: str`
 
   - `skills: List[Skill]`
+
     - `class BetaManagedAgentsAnthropicSkill: …`
 
       A resolved Anthropic-managed skill.
+
       - `skill_id: str`
 
       - `type: Literal["anthropic"]`
+
         - `"anthropic"`
 
       - `version: str`
@@ -197,9 +225,11 @@ Archive Agent
     - `class BetaManagedAgentsCustomSkill: …`
 
       A resolved user-created custom skill.
+
       - `skill_id: str`
 
       - `type: Literal["custom"]`
+
         - `"custom"`
 
       - `version: str`
@@ -207,13 +237,17 @@ Archive Agent
   - `system: Optional[str]`
 
   - `tools: List[Tool]`
+
     - `class BetaManagedAgentsAgentToolset20260401: …`
+
       - `configs: List[BetaManagedAgentsAgentToolConfig]`
+
         - `enabled: bool`
 
         - `name: Literal["bash", "edit", "read", 5 more]`
 
           Built-in agent tool identifier.
+
           - `"bash"`
 
           - `"edit"`
@@ -233,26 +267,33 @@ Archive Agent
         - `permission_policy: PermissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
+
             - `type: Literal["always_allow"]`
+
               - `"always_allow"`
 
           - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
             Tool calls require user confirmation before execution.
+
             - `type: Literal["always_ask"]`
+
               - `"always_ask"`
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
         Resolved default configuration for agent tools.
+
         - `enabled: bool`
 
         - `permission_policy: PermissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -262,10 +303,13 @@ Archive Agent
             Tool calls require user confirmation before execution.
 
       - `type: Literal["agent_toolset_20260401"]`
+
         - `"agent_toolset_20260401"`
 
     - `class BetaManagedAgentsMCPToolset: …`
+
       - `configs: List[BetaManagedAgentsMCPToolConfig]`
+
         - `enabled: bool`
 
         - `name: str`
@@ -273,6 +317,7 @@ Archive Agent
         - `permission_policy: PermissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -284,11 +329,13 @@ Archive Agent
       - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
+
         - `enabled: bool`
 
         - `permission_policy: PermissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -300,35 +347,35 @@ Archive Agent
       - `mcp_server_name: str`
 
       - `type: Literal["mcp_toolset"]`
+
         - `"mcp_toolset"`
 
     - `class BetaManagedAgentsCustomTool: …`
 
       A custom tool as returned in API responses.
+
       - `description: str`
 
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `type: Literal["object"]`
+
+          - `"object"`
+
         - `properties: Optional[Dict[str, object]]`
 
-          JSON Schema properties defining the tool's input parameters.
-
         - `required: Optional[List[str]]`
-
-          List of required property names.
-
-        - `type: Optional[Literal["object"]]`
-
-          Must be 'object' for tool input schemas.
-          - `"object"`
 
       - `name: str`
 
       - `type: Literal["custom"]`
+
         - `"custom"`
 
   - `type: Literal["agent"]`
+
     - `"agent"`
 
   - `updated_at: datetime`

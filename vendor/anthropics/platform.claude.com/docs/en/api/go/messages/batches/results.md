@@ -21,6 +21,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `type MessageBatchIndividualResponse struct{…}`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `CustomID string`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -32,8 +33,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `type MessageBatchSucceededResult struct{…}`
+
       - `Message Message`
+
         - `ID string`
 
           Unique object identifier.
@@ -43,6 +47,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `Container Container`
 
           Information about the container used in the request (for the code execution tool)
+
           - `ID string`
 
             Identifier for the container used in this request
@@ -60,7 +65,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -69,27 +74,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `type TextBlock struct{…}`
+
             - `Citations []TextCitationUnion`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `type CitationCharLocation struct{…}`
+
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -103,9 +108,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `StartCharIndex int64`
 
                 - `Type CharLocation`
+
                   - `const CharLocationCharLocation CharLocation = "char_location"`
 
               - `type CitationPageLocation struct{…}`
+
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -119,9 +126,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `StartPageNumber int64`
 
                 - `Type PageLocation`
+
                   - `const PageLocationPageLocation PageLocation = "page_location"`
 
               - `type CitationContentBlockLocation struct{…}`
+
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -145,9 +154,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   0-based index of the first cited block in the source's `content` array.
 
                 - `Type ContentBlockLocation`
+
                   - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
               - `type CitationsWebSearchResultLocation struct{…}`
+
                 - `CitedText string`
 
                 - `EncryptedIndex string`
@@ -155,11 +166,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type WebSearchResultLocation`
+
                   - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
                 - `URL string`
 
               - `type CitationsSearchResultLocation struct{…}`
+
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -187,51 +200,65 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type SearchResultLocation`
+
                   - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
             - `Text string`
 
             - `Type Text`
+
               - `const TextText Text = "text"`
 
           - `type ThinkingBlock struct{…}`
+
             - `Signature string`
 
             - `Thinking string`
 
             - `Type Thinking`
+
               - `const ThinkingThinking Thinking = "thinking"`
 
           - `type RedactedThinkingBlock struct{…}`
+
             - `Data string`
 
             - `Type RedactedThinking`
+
               - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
           - `type ToolUseBlock struct{…}`
+
             - `ID string`
 
             - `Caller ToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
+
               - `type DirectCaller struct{…}`
 
                 Tool invocation directly from the model.
+
                 - `Type Direct`
+
                   - `const DirectDirect Direct = "direct"`
 
               - `type ServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
+
                 - `ToolID string`
 
                 - `Type CodeExecution20250825`
+
                   - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
               - `type ServerToolCaller20260120 struct{…}`
+
                 - `ToolID string`
 
                 - `Type CodeExecution20260120`
+
                   - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
             - `Input map[string, any]`
@@ -239,14 +266,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Name string`
 
             - `Type ToolUse`
+
               - `const ToolUseToolUse ToolUse = "tool_use"`
 
           - `type ServerToolUseBlock struct{…}`
+
             - `ID string`
 
             - `Caller ServerToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
+
               - `type DirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -260,6 +290,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Input map[string, any]`
 
             - `Name ServerToolUseBlockName`
+
               - `const ServerToolUseBlockNameWebSearch ServerToolUseBlockName = "web_search"`
 
               - `const ServerToolUseBlockNameWebFetch ServerToolUseBlockName = "web_fetch"`
@@ -275,12 +306,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `const ServerToolUseBlockNameToolSearchToolBm25 ServerToolUseBlockName = "tool_search_tool_bm25"`
 
             - `Type ServerToolUse`
+
               - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
           - `type WebSearchToolResultBlock struct{…}`
+
             - `Caller WebSearchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
+
               - `type DirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -292,8 +326,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type ServerToolCaller20260120 struct{…}`
 
             - `Content WebSearchToolResultBlockContentUnion`
+
               - `type WebSearchToolResultError struct{…}`
+
                 - `ErrorCode WebSearchToolResultErrorCode`
+
                   - `const WebSearchToolResultErrorCodeInvalidToolInput WebSearchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const WebSearchToolResultErrorCodeUnavailable WebSearchToolResultErrorCode = "unavailable"`
@@ -307,9 +344,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const WebSearchToolResultErrorCodeRequestTooLarge WebSearchToolResultErrorCode = "request_too_large"`
 
                 - `Type WebSearchToolResultError`
+
                   - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
               - `type WebSearchToolResultBlockContentArray []WebSearchResultBlock`
+
                 - `EncryptedContent string`
 
                 - `PageAge string`
@@ -317,6 +356,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type WebSearchResult`
+
                   - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
                 - `URL string`
@@ -324,12 +364,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ToolUseID string`
 
             - `Type WebSearchToolResult`
+
               - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
           - `type WebFetchToolResultBlock struct{…}`
+
             - `Caller WebFetchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
+
               - `type DirectCaller struct{…}`
 
                 Tool invocation directly from the model.
@@ -341,8 +384,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `type ServerToolCaller20260120 struct{…}`
 
             - `Content WebFetchToolResultBlockContentUnion`
+
               - `type WebFetchToolResultErrorBlock struct{…}`
+
                 - `ErrorCode WebFetchToolResultErrorCode`
+
                   - `const WebFetchToolResultErrorCodeInvalidToolInput WebFetchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const WebFetchToolResultErrorCodeURLTooLong WebFetchToolResultErrorCode = "url_too_long"`
@@ -362,32 +408,43 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const WebFetchToolResultErrorCodeUnavailable WebFetchToolResultErrorCode = "unavailable"`
 
                 - `Type WebFetchToolResultError`
+
                   - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
               - `type WebFetchBlock struct{…}`
+
                 - `Content DocumentBlock`
+
                   - `Citations CitationsConfig`
 
                     Citation configuration for the document
+
                     - `Enabled bool`
 
                   - `Source DocumentBlockSourceUnion`
+
                     - `type Base64PDFSource struct{…}`
+
                       - `Data string`
 
                       - `MediaType ApplicationPDF`
+
                         - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                       - `Type Base64`
+
                         - `const Base64Base64 Base64 = "base64"`
 
                     - `type PlainTextSource struct{…}`
+
                       - `Data string`
 
                       - `MediaType TextPlain`
+
                         - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                       - `Type Text`
+
                         - `const TextText Text = "text"`
 
                   - `Title string`
@@ -395,6 +452,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     The title of the document
 
                   - `Type Document`
+
                     - `const DocumentDocument Document = "document"`
 
                 - `RetrievedAt string`
@@ -402,6 +460,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   ISO 8601 timestamp when the content was retrieved
 
                 - `Type WebFetchResult`
+
                   - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
                 - `URL string`
@@ -411,14 +470,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ToolUseID string`
 
             - `Type WebFetchToolResult`
+
               - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
           - `type CodeExecutionToolResultBlock struct{…}`
+
             - `Content CodeExecutionToolResultBlockContentUnion`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `type CodeExecutionToolResultError struct{…}`
+
                 - `ErrorCode CodeExecutionToolResultErrorCode`
+
                   - `const CodeExecutionToolResultErrorCodeInvalidToolInput CodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                   - `const CodeExecutionToolResultErrorCodeUnavailable CodeExecutionToolResultErrorCode = "unavailable"`
@@ -428,13 +492,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const CodeExecutionToolResultErrorCodeExecutionTimeExceeded CodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
                 - `Type CodeExecutionToolResultError`
+
                   - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
               - `type CodeExecutionResultBlock struct{…}`
+
                 - `Content []CodeExecutionOutputBlock`
+
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
+
                     - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                 - `ReturnCode int64`
@@ -444,12 +512,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stdout string`
 
                 - `Type CodeExecutionResult`
+
                   - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
               - `type EncryptedCodeExecutionResultBlock struct{…}`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `Content []CodeExecutionOutputBlock`
+
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
@@ -461,17 +532,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stderr string`
 
                 - `Type EncryptedCodeExecutionResult`
+
                   - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type CodeExecutionToolResult`
+
               - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
           - `type BashCodeExecutionToolResultBlock struct{…}`
+
             - `Content BashCodeExecutionToolResultBlockContentUnion`
+
               - `type BashCodeExecutionToolResultError struct{…}`
+
                 - `ErrorCode BashCodeExecutionToolResultErrorCode`
+
                   - `const BashCodeExecutionToolResultErrorCodeInvalidToolInput BashCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BashCodeExecutionToolResultErrorCodeUnavailable BashCodeExecutionToolResultErrorCode = "unavailable"`
@@ -483,13 +560,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BashCodeExecutionToolResultErrorCodeOutputFileTooLarge BashCodeExecutionToolResultErrorCode = "output_file_too_large"`
 
                 - `Type BashCodeExecutionToolResultError`
+
                   - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
               - `type BashCodeExecutionResultBlock struct{…}`
+
                 - `Content []BashCodeExecutionOutputBlock`
+
                   - `FileID string`
 
                   - `Type BashCodeExecutionOutput`
+
                     - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
                 - `ReturnCode int64`
@@ -499,17 +580,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stdout string`
 
                 - `Type BashCodeExecutionResult`
+
                   - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type BashCodeExecutionToolResult`
+
               - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
           - `type TextEditorCodeExecutionToolResultBlock struct{…}`
+
             - `Content TextEditorCodeExecutionToolResultBlockContentUnion`
+
               - `type TextEditorCodeExecutionToolResultError struct{…}`
+
                 - `ErrorCode TextEditorCodeExecutionToolResultErrorCode`
+
                   - `const TextEditorCodeExecutionToolResultErrorCodeInvalidToolInput TextEditorCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                   - `const TextEditorCodeExecutionToolResultErrorCodeUnavailable TextEditorCodeExecutionToolResultErrorCode = "unavailable"`
@@ -523,12 +610,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `ErrorMessage string`
 
                 - `Type TextEditorCodeExecutionToolResultError`
+
                   - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
               - `type TextEditorCodeExecutionViewResultBlock struct{…}`
+
                 - `Content string`
 
                 - `FileType TextEditorCodeExecutionViewResultBlockFileType`
+
                   - `const TextEditorCodeExecutionViewResultBlockFileTypeText TextEditorCodeExecutionViewResultBlockFileType = "text"`
 
                   - `const TextEditorCodeExecutionViewResultBlockFileTypeImage TextEditorCodeExecutionViewResultBlockFileType = "image"`
@@ -542,15 +632,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `TotalLines int64`
 
                 - `Type TextEditorCodeExecutionViewResult`
+
                   - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
               - `type TextEditorCodeExecutionCreateResultBlock struct{…}`
+
                 - `IsFileUpdate bool`
 
                 - `Type TextEditorCodeExecutionCreateResult`
+
                   - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
               - `type TextEditorCodeExecutionStrReplaceResultBlock struct{…}`
+
                 - `Lines []string`
 
                 - `NewLines int64`
@@ -562,17 +656,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `OldStart int64`
 
                 - `Type TextEditorCodeExecutionStrReplaceResult`
+
                   - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
             - `ToolUseID string`
 
             - `Type TextEditorCodeExecutionToolResult`
+
               - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
           - `type ToolSearchToolResultBlock struct{…}`
+
             - `Content ToolSearchToolResultBlockContentUnion`
+
               - `type ToolSearchToolResultError struct{…}`
+
                 - `ErrorCode ToolSearchToolResultErrorCode`
+
                   - `const ToolSearchToolResultErrorCodeInvalidToolInput ToolSearchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const ToolSearchToolResultErrorCodeUnavailable ToolSearchToolResultErrorCode = "unavailable"`
@@ -584,29 +684,37 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `ErrorMessage string`
 
                 - `Type ToolSearchToolResultError`
+
                   - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
               - `type ToolSearchToolSearchResultBlock struct{…}`
+
                 - `ToolReferences []ToolReferenceBlock`
+
                   - `ToolName string`
 
                   - `Type ToolReference`
+
                     - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                 - `Type ToolSearchToolSearchResult`
+
                   - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
             - `ToolUseID string`
 
             - `Type ToolSearchToolResult`
+
               - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
           - `type ContainerUploadBlock struct{…}`
 
             Response model for a file uploaded to the container.
+
             - `FileID string`
 
             - `Type ContainerUpload`
+
               - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
         - `Model Model`
@@ -614,11 +722,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
           - `type Model string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `const ModelClaudeFable5 Model = "claude-fable-5"`
+
+              Next generation of intelligence for the hardest knowledge work and coding problems
+
+            - `const ModelClaudeMythos5 Model = "claude-mythos-5"`
+
+              Most capable model for cybersecurity and biology research
+
             - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
 
               Frontier intelligence for long-running agents and coding
@@ -698,19 +816,24 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
+
           - `const AssistantAssistant Assistant = "assistant"`
 
         - `StopDetails RefusalStopDetails`
 
           Structured information about a refusal.
+
           - `Category RefusalStopDetailsCategory`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `const RefusalStopDetailsCategoryCyber RefusalStopDetailsCategory = "cyber"`
 
             - `const RefusalStopDetailsCategoryBio RefusalStopDetailsCategory = "bio"`
+
+            - `const RefusalStopDetailsCategoryReasoningExtraction RefusalStopDetailsCategory = "reasoning_extraction"`
 
           - `Explanation string`
 
@@ -719,6 +842,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
           - `Type Refusal`
+
             - `const RefusalRefusal Refusal = "refusal"`
 
         - `StopReason StopReason`
@@ -726,14 +850,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `const StopReasonEndTurn StopReason = "end_turn"`
 
           - `const StopReasonMaxTokens StopReason = "max_tokens"`
@@ -757,6 +883,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Object type.
 
           For Messages, this is always `"message"`.
+
           - `const MessageMessage Message = "message"`
 
         - `Usage Usage`
@@ -770,9 +897,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `CacheCreation CacheCreation`
 
             Breakdown of cached tokens by TTL
+
             - `Ephemeral1hInputTokens int64`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -801,7 +930,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             The number of output tokens which were used.
 
-          - `OutputTokensDetails UsageOutputTokensDetails`
+          - `OutputTokensDetails OutputTokensDetails`
 
             Breakdown of output tokens by category.
 
@@ -809,6 +938,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `ThinkingTokens int64`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -823,6 +953,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `ServerToolUse ServerToolUsage`
 
             The number of server tool requests.
+
             - `WebFetchRequests int64`
 
               The number of web fetch tool requests.
@@ -834,6 +965,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `ServiceTier UsageServiceTier`
 
             If the request used the priority, standard, or batch tier.
+
             - `const UsageServiceTierStandard UsageServiceTier = "standard"`
 
             - `const UsageServiceTierPriority UsageServiceTier = "priority"`
@@ -841,79 +973,107 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `const UsageServiceTierBatch UsageServiceTier = "batch"`
 
       - `Type Succeeded`
+
         - `const SucceededSucceeded Succeeded = "succeeded"`
 
     - `type MessageBatchErroredResult struct{…}`
+
       - `Error ErrorResponse`
+
         - `Error ErrorObjectUnion`
+
           - `type InvalidRequestError struct{…}`
+
             - `Message string`
 
             - `Type InvalidRequestError`
+
               - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
           - `type AuthenticationError struct{…}`
+
             - `Message string`
 
             - `Type AuthenticationError`
+
               - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
           - `type BillingError struct{…}`
+
             - `Message string`
 
             - `Type BillingError`
+
               - `const BillingErrorBillingError BillingError = "billing_error"`
 
           - `type PermissionError struct{…}`
+
             - `Message string`
 
             - `Type PermissionError`
+
               - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
           - `type NotFoundError struct{…}`
+
             - `Message string`
 
             - `Type NotFoundError`
+
               - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
           - `type RateLimitError struct{…}`
+
             - `Message string`
 
             - `Type RateLimitError`
+
               - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
           - `type GatewayTimeoutError struct{…}`
+
             - `Message string`
 
             - `Type TimeoutError`
+
               - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
           - `type APIErrorObject struct{…}`
+
             - `Message string`
 
             - `Type APIError`
+
               - `const APIErrorAPIError APIError = "api_error"`
 
           - `type OverloadedError struct{…}`
+
             - `Message string`
 
             - `Type OverloadedError`
+
               - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
         - `RequestID string`
 
         - `Type Error`
+
           - `const ErrorError Error = "error"`
 
       - `Type Errored`
+
         - `const ErroredErrored Errored = "errored"`
 
     - `type MessageBatchCanceledResult struct{…}`
+
       - `Type Canceled`
+
         - `const CanceledCanceled Canceled = "canceled"`
 
     - `type MessageBatchExpiredResult struct{…}`
+
       - `Type Expired`
+
         - `const ExpiredExpired Expired = "expired"`
 
 ### Example

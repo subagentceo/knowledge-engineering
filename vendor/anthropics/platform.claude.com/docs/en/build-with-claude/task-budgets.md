@@ -11,7 +11,7 @@ This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-cla
 Task budgets let you tell Claude how many tokens it has for a full agentic loop, including thinking, tool calls, tool results, and output. The model sees a running countdown and uses it to prioritize work and finish gracefully as the budget is consumed.
 
 <Note>
-Task budgets are in beta on <NextOpus /> and Claude Opus 4.7. Set the `task-budgets-2026-03-13` beta header to opt in.
+Task budgets are in beta on Claude Fable 5, Claude Mythos 5, Claude Opus 4.8, and Claude Opus 4.7. Set the `task-budgets-2026-03-13` beta header to opt in.
 </Note>
 
 ## When to use task budgets
@@ -99,15 +99,10 @@ const stream = client.beta.messages.stream({
   max_tokens: 128000,
   output_config: {
     effort: "high",
-    task_budget: { type: "tokens", total: 64000 },
+    task_budget: { type: "tokens", total: 64000 }
   },
-  messages: [
-    {
-      role: "user",
-      content: "Review the codebase and propose a refactor plan.",
-    },
-  ],
-  betas: ["task-budgets-2026-03-13"],
+  messages: [{ role: "user", content: "Review the codebase and propose a refactor plan." }],
+  betas: ["task-budgets-2026-03-13"]
 });
 
 const response = await stream.finalMessage();
@@ -227,7 +222,7 @@ void main() {
 use Anthropic\Client;
 use Anthropic\Beta\Messages\BetaRawMessageDeltaEvent;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $stream = $client->beta->messages->createStream(
     model: 'claude-opus-4-8',
@@ -275,7 +270,6 @@ response = stream.accumulated_message
 
 puts response.usage
 ```
-
 </CodeGroup>
 
 The `task_budget` object has three fields:
@@ -287,6 +281,10 @@ The `task_budget` object has three fields:
 ## How the budget countdown works
 
 Claude sees a budget-countdown marker injected server-side throughout the conversation. The marker shows how many tokens remain in the current agentic loop and updates as the model generates thinking, tool calls, and output, and as it processes tool results. Claude uses this signal to pace itself and finish gracefully as the budget is consumed.
+
+<Note>
+**The countdown is visible only to the model.** API responses do not include a remaining-budget field: there is no `task_budget` information in the response `usage` object, and SDKs have no accessor for it. To track spend client-side, sum token usage across the requests in your loop as shown in [Measure your current usage](#measure-your-current-usage), or pass your own figure forward with `remaining` when [carrying a budget across compaction](#carrying-a-budget-across-compaction-with-remaining).
+</Note>
 
 <Warning>
 **The countdown reflects tokens Claude has processed in the current agentic loop, not tokens you resend between turns.** If your client sends the full conversation history on every follow-up request, your client-side token count may differ from the budget Claude is tracking. If you also decrement `remaining` while resending full history, the model sees an under-reported budget and the countdown drops faster than it should, causing Claude to wrap up earlier than the budget actually allows. Set a generous budget and let the model self-regulate against the countdown rather than trying to mirror it client-side.
@@ -303,10 +301,7 @@ Consider a loop with `task_budget: {type: "tokens", total: 100000}` and a single
 ```json
 {
   "messages": [
-    {
-      "role": "user",
-      "content": "Audit this repo for security issues and report findings."
-    }
+    { "role": "user", "content": "Audit this repo for security issues and report findings." }
   ]
 }
 ```
@@ -338,17 +333,11 @@ Suppose this assistant turn (thinking plus the tool call) totals 5,000 generated
 ```json
 {
   "messages": [
-    {
-      "role": "user",
-      "content": "Audit this repo for security issues and report findings."
-    },
+    { "role": "user", "content": "Audit this repo for security issues and report findings." },
     {
       "role": "assistant",
       "content": [
-        {
-          "type": "thinking",
-          "thinking": "I'll start by listing dependencies..."
-        },
+        { "type": "thinking", "thinking": "I'll start by listing dependencies..." },
         {
           "type": "tool_use",
           "id": "toolu_01",
@@ -377,12 +366,12 @@ The resent turn-1 user and assistant messages are not counted again, but the 2,8
 
 Putting the three turns side by side makes the distinction between payload size and budget spend explicit:
 
-| Turn      | Request payload (approx. input tokens you sent) | Tokens counted against budget this turn                   | Budget `remaining` after |
-| --------- | ----------------------------------------------- | --------------------------------------------------------- | ------------------------ |
-| 1         | ~20                                             | 5,000 (thinking + `tool_use`)                             | ~95,000                  |
-| 2         | ~7,800 (turn 1 history + tool result)           | 6,800 (2,800 tool result + 4,000 thinking and `tool_use`) | ~88,200                  |
-| 3         | ~13,000 (full history + second tool result)     | 7,200 (1,200 tool result + 6,000 `text`)                  | ~81,000                  |
-| **Total** | **~20,820 sent across requests**                | **19,000 counted against budget**                         | N/A                      |
+| Turn | Request payload (approx. input tokens you sent) | Tokens counted against budget this turn | Budget `remaining` after |
+|---|---|---|---|
+| 1 | ~20 | 5,000 (thinking + `tool_use`) | ~95,000 |
+| 2 | ~7,800 (turn 1 history + tool result) | 6,800 (2,800 tool result + 4,000 thinking and `tool_use`) | ~88,200 |
+| 3 | ~13,000 (full history + second tool result) | 7,200 (1,200 tool result + 6,000 `text`) | ~81,000 |
+| **Total** | **~20,820 sent across requests** | **19,000 counted against budget** | N/A |
 
 Your client sent the turn-1 user message three times and the turn-1 assistant message twice, but each was counted once. The budget spent 19,000 of 100,000 tokens, even though the cumulative payload your client transmitted was larger and the prompt-cached input on turns 2 and 3 was larger still.
 
@@ -408,8 +397,8 @@ const output_config = {
   task_budget: {
     type: "tokens",
     total: 128000,
-    remaining: 128000 - tokensSpentSoFar,
-  },
+    remaining: 128000 - tokensSpentSoFar
+  }
 };
 ```
 
@@ -466,7 +455,6 @@ output_config = {
   }
 }
 ```
-
 </CodeGroup>
 
 For loops that resend the full uncompacted history on every turn, omit `remaining` and let the server track the countdown.
@@ -524,7 +512,7 @@ def run_task_and_count_tokens(messages: list) -> int:
 
 ```typescript TypeScript
 async function runTaskAndCountTokens(
-  messages: Anthropic.Beta.BetaMessageParam[],
+  messages: Anthropic.Beta.BetaMessageParam[]
 ): Promise<number> {
   let totalSpend = 0;
   while (true) {
@@ -534,7 +522,7 @@ async function runTaskAndCountTokens(
         max_tokens: 128000,
         messages,
         tools,
-        betas: ["task-budgets-2026-03-13"],
+        betas: ["task-budgets-2026-03-13"]
       })
       .finalMessage();
     // Count what Claude generated this turn (output covers text + tool calls;
@@ -547,12 +535,11 @@ async function runTaskAndCountTokens(
     messages = [
       ...messages,
       { role: "assistant", content: response.content },
-      { role: "user", content: runTools(response.content) },
+      { role: "user", content: runTools(response.content) }
     ];
   }
 }
 ```
-
 </CodeGroup>
 
 Run this across a representative set of tasks and record the distribution. Start with the p99 of your per-task token spend to understand how providing the model with a task budget may modify the model's behavior, then test up or down as needed.
@@ -568,12 +555,14 @@ The minimum accepted `task_budget.total` is **20,000 tokens**; values below the 
 
 ## Feature support
 
-| Model             | Support                                     |
-| ----------------- | ------------------------------------------- |
-| <NextOpus />      | Beta (set `task-budgets-2026-03-13` header) |
-| Claude Opus 4.7   | Beta (set `task-budgets-2026-03-13` header) |
-| Claude Opus 4.6   | Not supported                               |
-| Claude Sonnet 4.6 | Not supported                               |
-| Claude Haiku 4.5  | Not supported                               |
+| Model | Support |
+|-------|---------|
+| Claude Fable 5 | Beta (set `task-budgets-2026-03-13` header) |
+| Claude Mythos 5 | Beta (set `task-budgets-2026-03-13` header) |
+| Claude Opus 4.8 | Beta (set `task-budgets-2026-03-13` header) |
+| Claude Opus 4.7 | Beta (set `task-budgets-2026-03-13` header) |
+| Claude Opus 4.6 | Not supported |
+| Claude Sonnet 4.6 | Not supported |
+| Claude Haiku 4.5 | Not supported |
 
 Task budgets are not supported on [Claude Code](https://docs.claude.com/en/docs/claude-code) or Cowork surfaces. Use task budgets directly via the Messages API on a [supported model](#feature-support).

@@ -2,15 +2,15 @@ This article explains common error messages and warnings you may encounter when 
 
 ## Usage limit warnings and errors
 
-Usage limit warnings appear when you're approaching your plan’s limit within a five-hour session: _“Approaching 5-hour limit.”_
+Usage limit warnings appear when you're approaching your plan’s limit within a five-hour session: *“Approaching 5-hour limit.”*
 
-If you hit your plan’s limit after the warning appears, you’ll see a blocking error message letting you know when you can use Claude again: _“5-hour limit reached - resets [time].”_
+If you hit your plan’s limit after the warning appears, you’ll see a blocking error message letting you know when you can use Claude again: *“5-hour limit reached - resets [time].”*
 
 Looking for ways to maximize your Claude usage? Refer to **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
 
 ### Usage credits
 
-Paid Claude users with usage credits enabled in Usage settings will see a slightly different usage limit error: _"5-hour limit resets [time] - continuing with usage credits."_ Note that this will only appear for members with access to usage credits.
+Paid Claude users with usage credits enabled in Usage settings will see a slightly different usage limit error: *"5-hour limit resets [time] - continuing with usage credits."* Note that this will only appear for members with access to usage credits.
 
 Refer to these articles for more information about this feature depending on your plan:
 
@@ -46,7 +46,7 @@ If you're still seeing an error, check **[our status page](http://status.claude.
 
 ## Capacity constraints
 
-Capacity issues occur when Claude’s infrastructure experiences high demand system-wide. When capacity is constrained, you may see this message when chatting with Claude: _"Due to unexpected capacity constraints, Claude is unable to respond to your message. Please try again soon."_
+Capacity issues occur when Claude’s infrastructure experiences high demand system-wide. When capacity is constrained, you may see this message when chatting with Claude: *"Due to unexpected capacity constraints, Claude is unable to respond to your message. Please try again soon."*
 
 **Important:** Capacity constraints are not outages. The system is functioning normally but managing high demand across all users. These issues are temporary and typically resolve as demand patterns shift throughout the day. If you encounter this message, try again in a few minutes.
 
@@ -56,4 +56,4 @@ Capacity issues will not appear on our status page because they represent normal
 
 Service incidents are disruptions where Claude is unavailable or significantly degraded for all or most users. These represent actual technical problems with our systems. To check for confirmed incidents, visit status.claude.com, where you'll find real-time updates on scope, impact, and resolution progress for any active incidents.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1780164900&signature=d3deba9587798ac35bd1a36facbdfccb1dd220acd5c1c4003d9367bbc5c00936&req=dSciFc53m4NbXvMW1HO4za4BXq8i1LbN7y68oYp%2BYg8L7vrtCO0YAExodAXQ%0A%2Fv%2BPgMmGGRbh4rhq2Yc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1781284500&amp;signature=c792f8a04f184c978effc1b9b156839b4870f6bb0a58a933a6f143ec5cd20f42&amp;req=dSciFc53m4NbXvMW1HO4za4BXq4h2rbB7y68oYp%2BYg%2B6SnX0SFB%2F6GXKFAx8%0Alj1dc1Qg%2BI4pTtYSYrk%3D%0A)

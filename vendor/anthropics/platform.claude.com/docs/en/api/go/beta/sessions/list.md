@@ -9,6 +9,7 @@ List Sessions
 ### Parameters
 
 - `params BetaSessionListParams`
+
   - `AgentID param.Field[string]`
 
     Query param: Filter sessions created with this agent ID.
@@ -33,6 +34,10 @@ List Sessions
 
     Query param: Return sessions created at or before this time (inclusive).
 
+  - `DeploymentID param.Field[string]`
+
+    Query param: Filter sessions created by this deployment ID.
+
   - `IncludeArchived param.Field[bool]`
 
     Query param: When true, includes archived sessions. Default: false (exclude archived).
@@ -48,17 +53,19 @@ List Sessions
   - `Order param.Field[BetaSessionListParamsOrder]`
 
     Query param: Sort direction for results, ordered by created_at. Defaults to desc (newest first).
+
     - `const BetaSessionListParamsOrderAsc BetaSessionListParamsOrder = "asc"`
 
     - `const BetaSessionListParamsOrderDesc BetaSessionListParamsOrder = "desc"`
 
   - `Page param.Field[string]`
 
-    Query param: Opaque pagination cursor from a previous response's next_page.
+    Query param: Opaque pagination cursor from a previous response.
 
   - `Statuses param.Field[[]string]`
 
     Query param: Filter by session status. Repeat the parameter to match any of multiple statuses.
+
     - `const BetaSessionListParamsStatusRescheduling BetaSessionListParamsStatus = "rescheduling"`
 
     - `const BetaSessionListParamsStatusRunning BetaSessionListParamsStatus = "running"`
@@ -70,9 +77,11 @@ List Sessions
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -125,26 +134,32 @@ List Sessions
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsSession struct{…}`
 
   A Managed Agents `session`.
+
   - `ID string`
 
   - `Agent BetaManagedAgentsSessionAgent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `ID string`
 
     - `Description string`
 
     - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
       - `Name string`
 
       - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
         - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
       - `URL string`
@@ -152,16 +167,27 @@ List Sessions
     - `Model BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `ID BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -203,6 +229,7 @@ List Sessions
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
         - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
@@ -210,14 +237,17 @@ List Sessions
     - `Multiagent BetaManagedAgentsSessionMultiagentCoordinator`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `Agents []BetaManagedAgentsSessionThreadAgent`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `ID string`
 
         - `Description string`
 
         - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
           - `Name string`
 
           - `Type BetaManagedAgentsMCPServerURLDefinitionType`
@@ -231,12 +261,15 @@ List Sessions
         - `Name string`
 
         - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
+
           - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
             A resolved Anthropic-managed skill.
+
             - `SkillID string`
 
             - `Type BetaManagedAgentsAnthropicSkillType`
+
               - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
 
             - `Version string`
@@ -244,9 +277,11 @@ List Sessions
           - `type BetaManagedAgentsCustomSkill struct{…}`
 
             A resolved user-created custom skill.
+
             - `SkillID string`
 
             - `Type BetaManagedAgentsCustomSkillType`
+
               - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
             - `Version string`
@@ -254,13 +289,17 @@ List Sessions
         - `System string`
 
         - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
+
           - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+
             - `Configs []BetaManagedAgentsAgentToolConfig`
+
               - `Enabled bool`
 
               - `Name BetaManagedAgentsAgentToolConfigName`
 
                 Built-in agent tool identifier.
+
                 - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
 
                 - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
@@ -280,26 +319,33 @@ List Sessions
               - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
 
                 Permission policy for tool execution.
+
                 - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
                     - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
                 - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
                   Tool calls require user confirmation before execution.
+
                   - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
                     - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
             - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `Enabled bool`
 
               - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
 
                 Permission policy for tool execution.
+
                 - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                   Tool calls are automatically approved without user confirmation.
@@ -309,10 +355,13 @@ List Sessions
                   Tool calls require user confirmation before execution.
 
             - `Type BetaManagedAgentsAgentToolset20260401Type`
+
               - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
           - `type BetaManagedAgentsMCPToolset struct{…}`
+
             - `Configs []BetaManagedAgentsMCPToolConfig`
+
               - `Enabled bool`
 
               - `Name string`
@@ -320,6 +369,7 @@ List Sessions
               - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
 
                 Permission policy for tool execution.
+
                 - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                   Tool calls are automatically approved without user confirmation.
@@ -331,11 +381,13 @@ List Sessions
             - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `Enabled bool`
 
               - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
 
                 Permission policy for tool execution.
+
                 - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
                   Tool calls are automatically approved without user confirmation.
@@ -347,45 +399,47 @@ List Sessions
             - `MCPServerName string`
 
             - `Type BetaManagedAgentsMCPToolsetType`
+
               - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
 
           - `type BetaManagedAgentsCustomTool struct{…}`
 
             A custom tool as returned in API responses.
+
             - `Description string`
 
             - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
               JSON Schema for custom tool input parameters.
+
+              - `Type Object`
+
+                - `const ObjectObject Object = "object"`
+
               - `Properties map[string, any]`
 
-                JSON Schema properties defining the tool's input parameters.
-
               - `Required []string`
-
-                List of required property names.
-
-              - `Type BetaManagedAgentsCustomToolInputSchemaType`
-
-                Must be 'object' for tool input schemas.
-                - `const BetaManagedAgentsCustomToolInputSchemaTypeObject BetaManagedAgentsCustomToolInputSchemaType = "object"`
 
             - `Name string`
 
             - `Type BetaManagedAgentsCustomToolType`
+
               - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
 
         - `Type BetaManagedAgentsSessionThreadAgentType`
+
           - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
 
         - `Version int64`
 
       - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
+
         - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
 
     - `Name string`
 
     - `Skills []BetaManagedAgentsSessionAgentSkillUnion`
+
       - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
         A resolved Anthropic-managed skill.
@@ -397,6 +451,7 @@ List Sessions
     - `System string`
 
     - `Tools []BetaManagedAgentsSessionAgentToolUnion`
+
       - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
 
       - `type BetaManagedAgentsMCPToolset struct{…}`
@@ -406,6 +461,7 @@ List Sessions
         A custom tool as returned in API responses.
 
     - `Type BetaManagedAgentsSessionAgentType`
+
       - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
 
     - `Version int64`
@@ -425,6 +481,7 @@ List Sessions
   - `OutcomeEvaluations []BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `CompletedAt Time`
 
       A timestamp in RFC 3339 format
@@ -443,17 +500,20 @@ List Sessions
 
     - `OutcomeID string`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `Result string`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
+
       - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
 
   - `Resources []BetaManagedAgentsSessionResourceUnion`
+
     - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
+
       - `ID string`
 
       - `CreatedAt Time`
@@ -463,6 +523,7 @@ List Sessions
       - `MountPath string`
 
       - `Type BetaManagedAgentsGitHubRepositoryResourceType`
+
         - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
 
       - `UpdatedAt Time`
@@ -472,23 +533,29 @@ List Sessions
       - `URL string`
 
       - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
+
         - `type BetaManagedAgentsBranchCheckout struct{…}`
+
           - `Name string`
 
             Branch name to check out.
 
           - `Type BetaManagedAgentsBranchCheckoutType`
+
             - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
 
         - `type BetaManagedAgentsCommitCheckout struct{…}`
+
           - `Sha string`
 
             Full commit SHA to check out.
 
           - `Type BetaManagedAgentsCommitCheckoutType`
+
             - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
 
     - `type BetaManagedAgentsFileResource struct{…}`
+
       - `ID string`
 
       - `CreatedAt Time`
@@ -500,6 +567,7 @@ List Sessions
       - `MountPath string`
 
       - `Type BetaManagedAgentsFileResourceType`
+
         - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
 
       - `UpdatedAt Time`
@@ -509,16 +577,19 @@ List Sessions
     - `type BetaManagedAgentsMemoryStoreResource struct{…}`
 
       A memory store attached to an agent session.
+
       - `MemoryStoreID string`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `Type BetaManagedAgentsMemoryStoreResourceType`
+
         - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
 
       - `Access BetaManagedAgentsMemoryStoreResourceAccess`
 
         Access mode for an attached memory store.
+
         - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
 
         - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
@@ -542,6 +613,7 @@ List Sessions
   - `Stats BetaManagedAgentsSessionStats`
 
     Timing statistics for a session.
+
     - `ActiveSeconds float64`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -553,6 +625,7 @@ List Sessions
   - `Status BetaManagedAgentsSessionStatus`
 
     SessionStatus enum
+
     - `const BetaManagedAgentsSessionStatusRescheduling BetaManagedAgentsSessionStatus = "rescheduling"`
 
     - `const BetaManagedAgentsSessionStatusRunning BetaManagedAgentsSessionStatus = "running"`
@@ -564,6 +637,7 @@ List Sessions
   - `Title string`
 
   - `Type BetaManagedAgentsSessionType`
+
     - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
 
   - `UpdatedAt Time`
@@ -573,9 +647,11 @@ List Sessions
   - `Usage BetaManagedAgentsSessionUsage`
 
     Cumulative token usage for a session across all turns.
+
     - `CacheCreation BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `Ephemeral1hInputTokens int64`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -599,6 +675,10 @@ List Sessions
   - `VaultIDs []string`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `DeploymentID string`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -790,7 +870,10 @@ func main() {
         "input_tokens": 0,
         "output_tokens": 0
       },
-      "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+      "vault_ids": [
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+      ],
+      "deployment_id": "deployment_id"
     }
   ],
   "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="

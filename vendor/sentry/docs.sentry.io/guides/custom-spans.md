@@ -22,6 +22,8 @@ Sentry.startSpan(
 );
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 Numeric attributes become metrics you can aggregate with `sum()`, `avg()`, `p90()` in [Trace Explorer](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/).
 
 ## [Where to Add Spans](https://docs.sentry.io/guides/custom-spans.md#where-to-add-spans)
@@ -45,6 +47,8 @@ Sentry.startSpan(
   },
 );
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Query in [Explore > Traces](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/):** `span.op:user.action` grouped by `user.tier`, visualize `p90(span.duration)`.
 
@@ -72,6 +76,8 @@ Sentry.startSpan(
 );
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Traces](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/):** `span.op:http.client response.timeMs:>2000` to find slow external calls.
 
 **Alert idea:** `p95(span.duration) > 3s` where `http.url` contains your critical dependencies.
@@ -95,6 +101,8 @@ Sentry.startSpan(
   },
 );
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Why this matters:** Without these attributes, you see "a database query took 2 seconds." With them, you know it was aggregating 30 days of data and returned 50,000 rows. That's actionable.
 
@@ -129,6 +137,8 @@ async function processEmailDigest(job) {
 }
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Traces](https://sentry.io/orgredirect/organizations/:orgslug/explore/traces/):** `span.op:queue.process` grouped by `job.type`, visualize `p90(span.duration)`.
 
 **Alert idea:** `p90(span.duration) > 60s` for queue processing.
@@ -153,6 +163,8 @@ Sentry.startSpan(
   }
 );
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Alert idea:** `p95(span.duration) > 5s` for AI inference.
 

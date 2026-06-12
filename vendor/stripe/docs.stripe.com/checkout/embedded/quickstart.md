@@ -379,7 +379,7 @@ app.get('/session-status', async (req, res) => {
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "stripe": "^21.0.1"
+    "stripe": "^22.2.0"
   }
 }
 {
@@ -392,7 +392,7 @@ app.get('/session-status', async (req, res) => {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^3.4.0",
-    "stripe": "21.0.1"
+    "stripe": "22.2.0"
   },
   "devDependencies": {
     "concurrently": "4.1.2"
@@ -505,7 +505,7 @@ itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 requests==2.32.5
-stripe==15.0.0
+stripe==15.2.0
 toml==0.10.2
 Werkzeug==3.1.5
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
@@ -666,7 +666,7 @@ func retrieveCheckoutSession(sc *stripe.Client, w http.ResponseWriter, r *http.R
     CustomerEmail: string(s.CustomerDetails.Email),
   })
 }
-require github.com/stripe/stripe-go/v85 v85.0.0
+require github.com/stripe/stripe-go/v85 v85.2.0
     // This test secret API key is a placeholder. Don't include personal details in requests with this key.
     // To see your test secret API key embedded in code samples, sign in to your Stripe account.
     // You can also find your test secret API key at https://dashboard.stripe.com/test/apikeys.
@@ -867,10 +867,10 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
-// Make sure to call `loadStripe` outside of a component’s render to avoid
+// Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
 // This is a public sample test API key.
-// Don’t submit any personally identifiable information in requests made with this key.
+// Don't submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
 const stripePromise = loadStripe("<<YOUR_PUBLISHABLE_KEY>>");
   const fetchClientSecret = useCallback(() => {

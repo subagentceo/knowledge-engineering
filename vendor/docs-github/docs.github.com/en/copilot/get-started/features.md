@@ -38,7 +38,7 @@ An autonomous AI agent that can research a repository, create an implementation 
 
 ### Third-party coding agents (public preview)
 
-You can use third-party coding agents alongside Copilot cloud agent. Third-party agents are subject to the same security protections, mitigations, and limitations as Copilot cloud agent. See [About third-party agents](/en/copilot/concepts/agents/about-third-party-agents).
+You can use third-party coding agents alongside Copilot cloud agent. Third-party agents are subject to the same security protections, mitigations, and limitations as Copilot cloud agent. See [About third-party coding agents](/en/copilot/concepts/agents/about-third-party-coding-agents).
 
 ### Copilot code review
 

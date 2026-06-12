@@ -16,13 +16,11 @@ Sentry captures data by using an SDK within your application’s runtime.
 
 Edit your `mix.exs` file to add it as a dependency and add the `:sentry` package to your application:
 
-`mix.exs`
-
 ```elixir
 defp deps do
   [
     # ...
-    {:sentry, "~> 13.0.1"},
+    {:sentry, "~> 13.2.0"},
     {:jason, "~> 1.1"},
 
     # If you want to use Sentry's default HTTP client:
@@ -37,11 +35,9 @@ Configuration should happen as early as possible in your application's lifecycle
 
 Sentry has a range of configuration options, but most applications will have a configuration that looks like the following:
 
-`config/config.exs`
-
 ```elixir
 config :sentry,
-  dsn: "___PUBLIC_DSN___",
+  dsn: "https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
   environment_name: Mix.env(),
   enable_source_code_context: true,
   root_source_code_paths: [File.cwd!()]

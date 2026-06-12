@@ -364,6 +364,14 @@ Most integrations don’t use tokens anymore, but we make test tokens such as [t
 | Thailand (TH)                                                                                                                                                                                                                        | `tok_th_credit`     | Visa (credit) |
 | Thailand (TH)                                                                                                                                                                                                                        | `tok_th_debit`      | Visa (debit)  |
 
+### Simulate customer location with email 
+
+When testing [Checkout Sessions](https://docs.stripe.com/payments/checkout.md), [Payment Links](https://docs.stripe.com/payment-links.md), or [pricing tables](https://docs.stripe.com/payments/checkout/pricing-table.md), you can simulate a customer’s geographic location by using a location-formatted email address. Add a `+location_XX` suffix to the local part of any email address, where `XX` is a valid two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+
+For example, to simulate a customer located in the United States, pass `test+location_US@example.com` as the `customer_email` parameter when creating a Checkout Session and as the `prefilled_email` [URL parameter](https://docs.stripe.com/payment-links/customize.md#customize-checkout-with-url-parameters) when creating a Payment Link.
+
+When you visit the resulting Checkout Session URL, you see the same currency and payment methods that a customer in the specified country would see. Learn more about [testing with location-formatted emails](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing.md#testing).
+
 ## Simulate an HSA or FSA card payment 
 
 Below are test card numbers for simulating transactions using a health savings account (HSA) and a flexible spending account (FSA). These accounts are commonly used for medical expenses, and testing with them ensures proper handling of healthcare-related transactions within your application.
@@ -1121,7 +1129,7 @@ Create a test `PaymentIntent` that either succeeds or fails by doing the followi
 | NL82RABO0300065266 | pm_disputed_nl                      | The PaymentIntent status transitions from `processing` to `succeeded`, but a dispute is immediately created.                                         |
 | NL27RABO0000343434 | pm_exceedsWeeklyVolumeLimit_nl      | The payment fails with a `charge_exceeds_source_limit` failure code due to payment amount causing account to exceed its weekly payment volume limit. |
 | NL86RABO0000121212 | pm_exceedsWeeklyTransactionLimit_nl | The payment fails with a `charge_exceeds_weekly_limit` failure code due to payment amount exceeding account's transaction volume limit.              |
-| NL55RABO0300065267 | pm_insufficientFunds_nl             | The payment fails with an `insufficient_funds` failure code.                                                                                         |
+| NL27RABO0002222227 | pm_insufficientFunds_nl             | The payment fails with an `insufficient_funds` failure code.                                                                                         |
 
 ### NO
 
@@ -1133,7 +1141,7 @@ Create a test `PaymentIntent` that either succeeds or fails by doing the followi
 | NO6186011117941 | pm_failedDelayed_no                 | The PaymentIntent status transitions from `processing` to `requires_payment_method` after at least three minutes.                                    |
 | NO3986011117949 | pm_disputed_no                      | The PaymentIntent status transitions from `processing` to `succeeded`, but a dispute is immediately created.                                         |
 | NO0586010343434 | pm_exceedsWeeklyVolumeLimit_no      | The payment fails with a `charge_exceeds_source_limit` failure code due to payment amount causing account to exceed its weekly payment volume limit. |
-| NO0586010343434 | pm_exceedsWeeklyTransactionLimit_no | The payment fails with a `charge_exceeds_weekly_limit` failure code due to payment amount exceeding account's transaction volume limit.              |
+| NO6486010121212 | pm_exceedsWeeklyTransactionLimit_no | The payment fails with a `charge_exceeds_weekly_limit` failure code due to payment amount exceeding account's transaction volume limit.              |
 | NO0586012222227 | pm_insufficientFunds_no             | The payment fails with an `insufficient_funds` failure code.                                                                                         |
 
 ### PT

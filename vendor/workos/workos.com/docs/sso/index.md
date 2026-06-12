@@ -726,7 +726,7 @@ When adding your callback endpoint, it is important to always validate the retur
 
 ## (2) Configure a redirect URI
 
-Go to the [Redirects](https://dashboard.workos.com/redirects) page in the dashboard to configure allowed redirect URIs. This is your callback endpoint you used in the previous section.
+In the [Applications](https://dashboard.workos.com/environment/applications) section of the WorkOS Dashboard, open your application and go to the **Redirects** tab to configure allowed redirect URIs. Add your callback endpoint from the previous section.
 
 Multi-tenant apps will typically have a single redirect URI specified. You can set multiple redirect URIs for single-tenant apps. You’ll need to be sure to specify which redirect URI to use in the WorkOS client call to fetch the authorization URL.
 
@@ -736,7 +736,7 @@ Multi-tenant apps will typically have a single redirect URI specified. You can s
 
 ### Identity provider-initiated SSO
 
-Normally, the default redirect URI you configure in the WorkOS dashboard is going to be used for all identity provider-initiated SSO sessions. This is because the WorkOS client is not used to initiate the authentication flow.
+Normally, the default redirect URI you configure for your application is going to be used for all identity provider-initiated SSO sessions. This is because the WorkOS client is not used to initiate the authentication flow.
 
 However, your customer can specify a separate redirect URI to be used for all their IdP-initiated sessions as a `RelayState` parameter in the SAML settings on their side.
 
@@ -748,6 +748,6 @@ Learn more about configuring IdP-initiated SSO in the [Login Flows](https://work
 
 If you followed this guide, you used the Test Organization available in your staging environment to initiate SSO. With that, you can already test your integration end-to-end.
 
-![Test SSO WorkOs Dashboard](https://images.workoscdn.com/images/7b7407d7-dcc7-4fd4-859f-4ee4214d69c2.png?auto=format\&fit=clip\&q=80)
+![Test SSO WorkOS Dashboard](https://images.workoscdn.com/images/7b7407d7-dcc7-4fd4-859f-4ee4214d69c2.png?auto=format\&fit=clip\&q=80)
 
 Head to the *Test SSO* page in the [WorkOS Dashboard](https://dashboard.workos.com/) to get started with testing common login flows, or read on about that in detail in the next guide.

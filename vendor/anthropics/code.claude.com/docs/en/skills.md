@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -14,14 +13,14 @@ Create a skill when you keep pasting the same instructions, checklist, or multi-
 <Note>
   For built-in commands like `/help` and `/compact`, and bundled skills like `/debug` and `/code-review`, see the [commands reference](/en/commands).
 
-**Custom commands have been merged into skills.** A file at `.claude/commands/deploy.md` and a skill at `.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same way. Your existing `.claude/commands/` files keep working. Skills add optional features: a directory for supporting files, frontmatter to [control whether you or Claude invokes them](#control-who-invokes-a-skill), and the ability for Claude to load them automatically when relevant.
+  **Custom commands have been merged into skills.** A file at `.claude/commands/deploy.md` and a skill at `.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same way. Your existing `.claude/commands/` files keep working. Skills add optional features: a directory for supporting files, frontmatter to [control whether you or Claude invokes them](#control-who-invokes-a-skill), and the ability for Claude to load them automatically when relevant.
 </Note>
 
 Claude Code skills follow the [Agent Skills](https://agentskills.io) open standard, which works across multiple AI tools. Claude Code extends the standard with additional features like [invocation control](#control-who-invokes-a-skill), [subagent execution](#run-skills-in-a-subagent), and [dynamic context injection](#inject-dynamic-context).
 
 ## Bundled skills
 
-Claude Code includes a set of bundled skills that are available in every session, including `/code-review`, `/batch`, `/debug`, `/loop`, and `/claude-api`. Unlike most built-in commands, which execute fixed logic directly, bundled skills are prompt-based: they give Claude detailed instructions and let it orchestrate the work using its tools. You invoke them the same way as any other skill, by typing `/` followed by the skill name.
+Claude Code includes a set of bundled skills that are available in every session unless disabled with the [`disableBundledSkills`](/en/settings#available-settings) setting, including `/code-review`, `/batch`, `/debug`, `/loop`, and `/claude-api`. Unlike most built-in commands, which execute fixed logic directly, bundled skills are prompt-based: they give Claude detailed instructions and let it orchestrate the work using its tools. You invoke them the same way as any other skill, by typing `/` followed by the skill name.
 
 Bundled skills are listed alongside built-in commands in the [commands reference](/en/commands), marked **Skill** in the Purpose column.
 
@@ -35,7 +34,7 @@ Three bundled skills work together to launch your app and confirm changes agains
 | `/verify`              | Build and run your app to confirm a code change does what it should, without falling back to tests or type checks |
 | `/run-skill-generator` | Teach `/run` and `/verify` how to build and launch your project                                                   |
 
-{/_ min-version: 2.1.145 _/}All three skills require Claude Code v2.1.145 or later.
+{/* min-version: 2.1.145 */}All three skills require Claude Code v2.1.145 or later.
 
 `/run` and `/verify` work without setup. They infer the launch from your project type (CLI, server, TUI, browser-driven) and from what's in your README, `package.json`, or `Makefile`. That inference gets unreliable for projects that need anything beyond a standard launch: a database, an env file, a graphical session, a multi-step build.
 
@@ -54,7 +53,6 @@ This example creates a skill that summarizes the uncommitted changes in your git
     ```bash theme={null}
     mkdir -p ~/.claude/skills/summarize-changes
     ```
-
   </Step>
 
   <Step title="Write SKILL.md">
@@ -77,7 +75,6 @@ This example creates a skill that summarizes the uncommitted changes in your git
     ```
 
     The `` !`git diff HEAD` `` line uses [dynamic context injection](#inject-dynamic-context): Claude Code runs the command and replaces the line with its output before Claude sees the skill content, so the instructions arrive with the current diff already inlined.
-
   </Step>
 
   <Step title="Test the skill">
@@ -96,7 +93,6 @@ This example creates a skill that summarizes the uncommitted changes in your git
     ```
 
     Either way, Claude should respond with a short summary of your edit and a list of risks.
-
   </Step>
 </Steps>
 
@@ -172,10 +168,11 @@ Skill files can contain any instructions, but thinking about how you want to inv
 name: api-conventions
 description: API design patterns for this codebase
 ---
+
 When writing API endpoints:
-  - Use RESTful naming conventions
-  - Return consistent error formats
-  - Include request validation
+- Use RESTful naming conventions
+- Return consistent error formats
+- Include request validation
 ```
 
 **Task content** gives Claude step-by-step instructions for a specific action, like deployments, commits, or code generation. These are often actions you want to invoke directly with `/skill-name` rather than letting Claude decide when to run them. Add `disable-model-invocation: true` to prevent Claude from triggering it automatically.
@@ -209,6 +206,7 @@ description: What this skill does
 disable-model-invocation: true
 allowed-tools: Read Grep
 ---
+
 Your skill instructions here...
 ```
 
@@ -264,6 +262,8 @@ Skills support string substitution for dynamic values in the skill content:
 
 Indexed arguments use shell-style quoting, so wrap multi-word values in quotes to pass them as a single argument. For example, `/my-skill "hello world" second` makes `$0` expand to `hello world` and `$1` to `second`. The `$ARGUMENTS` placeholder always expands to the full argument string as typed.
 
+To include a literal `$` before a digit, `ARGUMENTS`, or a declared argument name, such as `$1.00` in prose, escape it with a backslash: `\$1.00`. A backslash before any other `$` is left unchanged. Only a single backslash directly before the token escapes it. A doubled backslash such as `\\$1` leaves both backslashes in place, and `$1` still expands to the argument value.
+
 **Example using substitutions:**
 
 ```yaml theme={null}
@@ -305,9 +305,9 @@ Reference supporting files from `SKILL.md` so Claude knows what each file contai
 
 By default, both you and Claude can invoke any skill. You can type `/skill-name` to invoke it directly, and Claude can load it automatically when relevant to your conversation. Two frontmatter fields let you restrict this:
 
-- **`disable-model-invocation: true`**: Only you can invoke the skill. Use this for workflows with side effects or that you want to control timing, like `/commit`, `/deploy`, or `/send-slack-message`. You don't want Claude deciding to deploy because your code looks ready.
+* **`disable-model-invocation: true`**: Only you can invoke the skill. Use this for workflows with side effects or that you want to control timing, like `/commit`, `/deploy`, or `/send-slack-message`. You don't want Claude deciding to deploy because your code looks ready.
 
-- **`user-invocable: false`**: Only Claude can invoke the skill. Use this for background knowledge that isn't actionable as a command. A `legacy-system-context` skill explains how an old system works. Claude should know this when relevant, but `/legacy-system-context` isn't a meaningful action for users to take.
+* **`user-invocable: false`**: Only Claude can invoke the skill. Use this for background knowledge that isn't actionable as a command. A `legacy-system-context` skill explains how an old system works. Claude should know this when relevant, but `/legacy-system-context` isn't a meaningful action for users to take.
 
 This example creates a deploy skill that only you can trigger. The `disable-model-invocation: true` field prevents Claude from running it automatically:
 
@@ -363,7 +363,7 @@ allowed-tools: Bash(git add *) Bash(git commit *) Bash(git status *)
 ---
 ```
 
-To block a skill from using certain tools, add deny rules in your [permission settings](/en/permissions) instead.
+To remove tools from Claude's available pool while a skill is active, list them in `disallowed-tools` in the skill's frontmatter. The restriction clears when you send your next message. To block tools across all skills and prompts, add deny rules in your [permission settings](/en/permissions).
 
 ### Pass arguments to skills
 
@@ -377,6 +377,7 @@ name: fix-issue
 description: Fix a GitHub issue
 disable-model-invocation: true
 ---
+
 Fix GitHub issue $ARGUMENTS following our coding standards.
 
 1. Read the issue description
@@ -397,6 +398,7 @@ To access individual arguments by position, use `$ARGUMENTS[N]` or the shorter `
 name: migrate-component
 description: Migrate a component from one framework to another
 ---
+
 Migrate the $ARGUMENTS[0] component from $ARGUMENTS[1] to $ARGUMENTS[2].
 Preserve all existing behavior and tests.
 ```
@@ -408,6 +410,7 @@ Running `/migrate-component SearchBar React Vue` replaces `$ARGUMENTS[0]` with `
 name: migrate-component
 description: Migrate a component from one framework to another
 ---
+
 Migrate the $0 component from $1 to $2.
 Preserve all existing behavior and tests.
 ```
@@ -454,7 +457,6 @@ For multi-line commands, use a fenced code block opened with ` ```! ` instead of
 
 ````markdown theme={null}
 ## Environment
-
 ```!
 node --version
 npm --version
@@ -575,9 +577,9 @@ Plugin skills are not affected by `skillOverrides`. Manage those through `/plugi
 
 Skills can be distributed at different scopes depending on your audience:
 
-- **Project skills**: Commit `.claude/skills/` to version control
-- **Plugins**: Create a `skills/` directory in your [plugin](/en/plugins)
-- **Managed**: Deploy organization-wide through [managed settings](/en/settings#settings-files)
+* **Project skills**: Commit `.claude/skills/` to version control
+* **Plugins**: Create a `skills/` directory in your [plugin](/en/plugins)
+* **Managed**: Deploy organization-wide through [managed settings](/en/settings#settings-files)
 
 ### Generate visual output
 
@@ -624,9 +626,9 @@ This creates `codebase-map.html` in the current directory and opens it in your d
 
 Save this to `~/.claude/skills/codebase-visualizer/scripts/visualize.py`. This script scans a directory tree and generates a self-contained HTML file with:
 
-- A **summary sidebar** showing file count, directory count, total size, and number of file types
-- A **bar chart** breaking down the codebase by file type (top 8 by size)
-- A **collapsible tree** where you can expand and collapse directories, with color-coded file type indicators
+* A **summary sidebar** showing file count, directory count, total size, and number of file types
+* A **bar chart** breaking down the codebase by file type (top 8 by size)
+* A **collapsible tree** where you can expand and collapse directories, with color-coded file type indicators
 
 The script requires Python 3 but uses only built-in libraries, so there are no packages to install:
 
@@ -796,10 +798,10 @@ To raise the budget, set the [`skillListingBudgetFraction`](/en/settings#availab
 
 ## Related resources
 
-- **[Debug your configuration](/en/debug-your-config)**: diagnose why a skill isn't appearing or triggering
-- **[Subagents](/en/sub-agents)**: delegate tasks to specialized agents
-- **[Plugins](/en/plugins)**: package and distribute skills with other extensions
-- **[Hooks](/en/hooks)**: automate workflows around tool events
-- **[Memory](/en/memory)**: manage CLAUDE.md files for persistent context
-- **[Commands](/en/commands)**: reference for built-in commands and bundled skills
-- **[Permissions](/en/permissions)**: control tool and skill access
+* **[Debug your configuration](/en/debug-your-config)**: diagnose why a skill isn't appearing or triggering
+* **[Subagents](/en/sub-agents)**: delegate tasks to specialized agents
+* **[Plugins](/en/plugins)**: package and distribute skills with other extensions
+* **[Hooks](/en/hooks)**: automate workflows around tool events
+* **[Memory](/en/memory)**: manage CLAUDE.md files for persistent context
+* **[Commands](/en/commands)**: reference for built-in commands and bundled skills
+* **[Permissions](/en/permissions)**: control tool and skill access

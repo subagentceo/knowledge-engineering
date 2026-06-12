@@ -18,11 +18,11 @@ If using Claude with tool use and extended thinking, refer to the [extended thin
 
 Client tools (both Anthropic-schema and user-defined) are specified in the `tools` top-level parameter of the API request. Each tool definition includes:
 
-| Parameter        | Description                                                                                                                                                  |
-| :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`           | The name of the tool. Must match the regex `^[a-zA-Z0-9_-]{1,64}$`.                                                                                          |
-| `description`    | A detailed plaintext description of what the tool does, when it should be used, and how it behaves.                                                          |
-| `input_schema`   | A [JSON Schema](https://json-schema.org/) object defining the expected parameters for the tool.                                                              |
+| Parameter      | Description                                                                                         |
+| :------------- | :-------------------------------------------------------------------------------------------------- |
+| `name`         | The name of the tool. Must match the regex `^[a-zA-Z0-9_-]{1,64}$`.                                 |
+| `description`  | A detailed plaintext description of what the tool does, when it should be used, and how it behaves. |
+| `input_schema` | A [JSON Schema](https://json-schema.org/) object defining the expected parameters for the tool.     |
 | `input_examples` | (Optional) An array of example input objects to help Claude understand how to use the tool. See [Providing tool use examples](#providing-tool-use-examples). |
 
 For the full set of optional properties available on any tool definition, including `cache_control`, `strict`, `defer_loading`, and `allowed_callers`, see the [Tool reference](/docs/en/agents-and-tools/tool-use/tool-reference#tool-definition-properties).
@@ -270,35 +270,33 @@ const response = await client.messages.create({
         properties: {
           location: {
             type: "string",
-            description: "The city and state, e.g. San Francisco, CA",
+            description: "The city and state, e.g. San Francisco, CA"
           },
           unit: {
             type: "string",
             enum: ["celsius", "fahrenheit"],
-            description: "The unit of temperature",
-          },
+            description: "The unit of temperature"
+          }
         },
-        required: ["location"],
+        required: ["location"]
       },
       input_examples: [
         {
           location: "San Francisco, CA",
-          unit: "fahrenheit",
+          unit: "fahrenheit"
         },
         {
           location: "Tokyo, Japan",
-          unit: "celsius",
+          unit: "celsius"
         },
         {
-          location: "New York, NY",
+          location: "New York, NY"
           // Demonstrates that 'unit' is optional
-        },
-      ],
-    },
+        }
+      ]
+    }
   ],
-  messages: [
-    { role: "user", content: "What's the weather like in San Francisco?" },
-  ],
+  messages: [{ role: "user", content: "What's the weather like in San Francisco?" }]
 });
 
 console.log(response);
@@ -482,7 +480,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,
@@ -575,7 +573,6 @@ message = client.messages.create(
 )
 puts message
 ```
-
 </CodeGroup>
 
 Examples are included in the prompt alongside your tool schema, showing Claude concrete patterns for well-formed tool calls. This helps Claude understand when to include optional parameters, what formats to use, and how to structure complex inputs.

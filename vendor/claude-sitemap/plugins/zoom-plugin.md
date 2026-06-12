@@ -1,10 +1,11 @@
 # zoom-plugin
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  2305
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    2465

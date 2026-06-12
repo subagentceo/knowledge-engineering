@@ -16,6 +16,7 @@ Get Cost Report
 - `bucket_width: optional "1d"`
 
   Time granularity of the response data.
+
   - `"1d"`
 
 - `ending_at: optional string`
@@ -25,6 +26,7 @@ Get Cost Report
 - `group_by: optional array of "workspace_id" or "description"`
 
   Group by any subset of the available options.
+
   - `"workspace_id"`
 
   - `"description"`
@@ -48,7 +50,9 @@ Get Cost Report
 ### Returns
 
 - `CostReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
@@ -56,6 +60,7 @@ Get Cost Report
     - `results: array of object { amount, context_window, cost_type, 7 more }`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `amount: string`
 
         Cost amount in lowest currency units (e.g. cents) as a decimal string. For example, `"123.45"` in `"USD"` represents `$1.23`.
@@ -63,6 +68,7 @@ Get Cost Report
       - `context_window: "0-200k" or "200k-1M"`
 
         Input context window used. `null` if not grouping by description or for non-token costs.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -70,6 +76,7 @@ Get Cost Report
       - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
 
         Type of cost. `null` if not grouping by description.
+
         - `"tokens"`
 
         - `"web_search"`
@@ -98,6 +105,7 @@ Get Cost Report
       - `service_tier: "standard" or "batch"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
+
         - `"standard"`
 
         - `"batch"`
@@ -105,6 +113,7 @@ Get Cost Report
       - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
+
         - `"uncached_input_tokens"`
 
         - `"output_tokens"`
@@ -136,7 +145,7 @@ Get Cost Report
 ```http
 curl https://api.anthropic.com/v1/organizations/cost_report \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -173,7 +182,9 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 ### Cost Report
 
 - `CostReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
@@ -181,6 +192,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
     - `results: array of object { amount, context_window, cost_type, 7 more }`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `amount: string`
 
         Cost amount in lowest currency units (e.g. cents) as a decimal string. For example, `"123.45"` in `"USD"` represents `$1.23`.
@@ -188,6 +200,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `context_window: "0-200k" or "200k-1M"`
 
         Input context window used. `null` if not grouping by description or for non-token costs.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -195,6 +208,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `cost_type: "tokens" or "web_search" or "code_execution" or "session_usage"`
 
         Type of cost. `null` if not grouping by description.
+
         - `"tokens"`
 
         - `"web_search"`
@@ -223,6 +237,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `service_tier: "standard" or "batch"`
 
         Service tier used. `null` if not grouping by description or for non-token costs.
+
         - `"standard"`
 
         - `"batch"`
@@ -230,6 +245,7 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
       - `token_type: "uncached_input_tokens" or "output_tokens" or "cache_read_input_tokens" or 2 more`
 
         Type of token. `null` if not grouping by description or for non-token costs.
+
         - `"uncached_input_tokens"`
 
         - `"output_tokens"`

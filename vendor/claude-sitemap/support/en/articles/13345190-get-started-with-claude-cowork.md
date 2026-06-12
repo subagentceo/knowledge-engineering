@@ -5,9 +5,11 @@ This article explains how to use **[Claude Cowork](https://claude.com/product/co
 Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 
 - **Claude Desktop for macOS**
+
   - **[Click here](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)** to download
 
 - **Claude Desktop for Windows**
+
   - Cowork requires the latest version of Claude for Windows. Download or update at **[claude.com/download](https://claude.com/download)**.
 
 ### Will my computer support Claude Cowork?
@@ -35,6 +37,7 @@ With Cowork, you can describe an outcome, step away, and come back to finished w
 - Cowork has unique risks due to its agentic nature and internet access.
 
 - Cowork respects your current network egress permissions.
+
   - **Important:** Network egress permissions don't apply to the web fetch or **[web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)** tools or MCPs, including Claude in Chrome. Web fetch runs server-side and is limited to search results and URLs you've shared.
 
   - Team or Enterprise plan owners can turn off web search for Cowork and Chat in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**, or Claude in Chrome via **[Organization settings > Claude in Chrome](http://claude.ai/admin-settings/browser-extension).**
@@ -145,7 +148,7 @@ To set global instructions:
 
 3. Type your instructions in the text box and click "Save":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1780164900&signature=d9fadf4eacf5c913e16f8cedd3c36f35fc75e2b4dfec7a0b163781006d6fb476&req=diEvFsx6nIlZWfMW1HO4zah%2FF7Hkvdhy8mPglonEgA7wWkqG6R4G97g32%2B%2Fs%0AwgUd%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1781284500&amp;signature=80581cb66a9758c8e23aa45505ec5e80a5591254617695c4146dd688d8ec157b&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FF7Dns9h%2B8mPglonEgA6HM%2FFYLSp3wh1l6sqk%0AhVin%0A)
 
 ### Folder instructions
 

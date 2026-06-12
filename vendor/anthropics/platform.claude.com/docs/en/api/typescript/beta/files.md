@@ -11,6 +11,7 @@ Upload File
 ### Parameters
 
 - `params: FileUploadParams`
+
   - `file: Uploadable`
 
     Body param: The file to upload
@@ -18,9 +19,11 @@ Upload File
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -73,11 +76,14 @@ Upload File
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `FileMetadata`
+
   - `id: string`
 
     Unique object identifier.
@@ -105,6 +111,7 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
+
     - `"file"`
 
   - `downloadable?: boolean`
@@ -114,6 +121,7 @@ Upload File
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -121,21 +129,20 @@ Upload File
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
       - `"session"`
 
 ### Example
 
 ```typescript
-import fs from "fs";
-import Anthropic from "@anthropic-ai/sdk";
+import fs from 'fs';
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const fileMetadata = await client.beta.files.upload({
-  file: fs.createReadStream("path/to/file"),
-});
+const fileMetadata = await client.beta.files.upload({ file: fs.createReadStream('path/to/file') });
 
 console.log(fileMetadata.id);
 ```
@@ -169,6 +176,7 @@ List Files
 ### Parameters
 
 - `params: FileListParams`
+
   - `after_id?: string`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -190,9 +198,11 @@ List Files
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -245,11 +255,14 @@ List Files
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `FileMetadata`
+
   - `id: string`
 
     Unique object identifier.
@@ -277,6 +290,7 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
+
     - `"file"`
 
   - `downloadable?: boolean`
@@ -286,6 +300,7 @@ List Files
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -293,15 +308,16 @@ List Files
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
       - `"session"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -350,12 +366,15 @@ Download File
   ID of the File.
 
 - `params: FileDownloadParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -408,7 +427,9 @@ Download File
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -417,13 +438,13 @@ Download File
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.beta.files.download("file_id");
+const response = await client.beta.files.download('file_id');
 
 console.log(response);
 
@@ -446,12 +467,15 @@ Get File Metadata
   ID of the File.
 
 - `params: FileRetrieveMetadataParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -504,11 +528,14 @@ Get File Metadata
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `FileMetadata`
+
   - `id: string`
 
     Unique object identifier.
@@ -536,6 +563,7 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
+
     - `"file"`
 
   - `downloadable?: boolean`
@@ -545,6 +573,7 @@ Get File Metadata
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -552,18 +581,19 @@ Get File Metadata
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
       - `"session"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const fileMetadata = await client.beta.files.retrieveMetadata("file_id");
+const fileMetadata = await client.beta.files.retrieveMetadata('file_id');
 
 console.log(fileMetadata.id);
 ```
@@ -601,12 +631,15 @@ Delete File
   ID of the File.
 
 - `params: FileDeleteParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -659,11 +692,14 @@ Delete File
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `DeletedFile`
+
   - `id: string`
 
     ID of the deleted file.
@@ -673,18 +709,19 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const deletedFile = await client.beta.files.delete("file_id");
+const deletedFile = await client.beta.files.delete('file_id');
 
 console.log(deletedFile.id);
 ```
@@ -703,6 +740,7 @@ console.log(deletedFile.id);
 ### Beta File Scope
 
 - `BetaFileScope`
+
   - `id: string`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -710,11 +748,13 @@ console.log(deletedFile.id);
   - `type: "session"`
 
     The type of scope (e.g., `"session"`).
+
     - `"session"`
 
 ### Deleted File
 
 - `DeletedFile`
+
   - `id: string`
 
     ID of the deleted file.
@@ -724,11 +764,13 @@ console.log(deletedFile.id);
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
+
     - `"file_deleted"`
 
 ### File Metadata
 
 - `FileMetadata`
+
   - `id: string`
 
     Unique object identifier.
@@ -756,6 +798,7 @@ console.log(deletedFile.id);
     Object type.
 
     For files, this is always `"file"`.
+
     - `"file"`
 
   - `downloadable?: boolean`
@@ -765,6 +808,7 @@ console.log(deletedFile.id);
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -772,4 +816,5 @@ console.log(deletedFile.id);
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
+
       - `"session"`

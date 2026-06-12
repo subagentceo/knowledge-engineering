@@ -1,72 +1,74 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Internet & Software Fraud Prevention
+# Fraud Prevention for Internet & Software
+
+Home/Solutions/Internet & Software Fraud Prevention
 
 # Fraud Prevention for Internet & Software
 
 **Where fearless growth meets instant gratification.** Whether it’s subscriptions, digital content, or in-app items, Sift’s platform enables internet & software businesses to protect revenue while delivering standout, seamless customer experiences.
 
-[Demo](/demo/)[Fraud Solutions Guide](/resources/ebooks/internet-software-evaluation-guide-online-fraud-solutions/)
+DemoFraud Solutions Guide
 
 ![hero-internet-software-providers](https://sift.com/wp-content/uploads/2025/01/hero-internet-software-providers-835x1024.png)
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [How it Works](#how-it-works)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   How it Works
+*   Successes
 
 ## Digital & SaaS Leaders Scale Securely with Sift
 
--   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
-
--   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+
+*   ![box-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![patreon-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![skillshare](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![rently-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![shutterstock-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![zola-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![reddit](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![vercel-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
 ## Where Revenue Grows, Fraudsters Follow
@@ -77,23 +79,23 @@ As internet & software businesses expand, so do the threats posed by fraudsters.
 
 13%
 
-Rise in payment fraud attack rate across digital goods & services in 2024 vs. 2023\*
+Rise in payment fraud attack rate across digital goods & services in 2024 vs. 2023*
 
-[\*Source: FIBR](https://www.fundera.com/resources/brick-and-mortar-vs-online-statistics)
+*Source: FIBR
 
 80%
 
-Of consumers would stop shopping on a site where they’d been a victim of ATO\*
+Of consumers would stop shopping on a site where they’d been a victim of ATO*
 
-[\*Source: Sift Q3 2024 Index Report](https://www.fundera.com/resources/brick-and-mortar-vs-online-statistics)
+*Source: Sift Q3 2024 Index Report
 
 ## Real-Time Defense for Real-Time Delivery
 
 Get robust fraud protection tailored to the needs of your industry and your specific business. Our AI-powered insights help teams apply friction only when necessary, reducing customer insults and ensuring unmatched security that doesn’t sacrifice speed.  
   
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
-[SIFT FOR INTERNET & SOFTWARE | ONE-PAGER](https://sift.com/wp-content/uploads/2025/02/Sift_OnePager_Internet_and_Software.pdf)
+SIFT FOR INTERNET & SOFTWARE | ONE-PAGER
 
 ![benefit-drive-growth](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20990%20810'%3E%3C/svg%3E)
 
@@ -179,7 +181,7 @@ Keep manual reviews to a minimum with insights tailored specifically to internet
 
 Harness the power of AI and diversified data to outpace rapidly changing fraud. Sift provides real-time fraud insights that make it easy for leading brands to grow fearlessly.
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Smartproxy-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%2053'%3E%3C/svg%3E)
 
@@ -195,7 +197,7 @@ Lukas Marcinkevicius
 
 Payments and Risk Lead at Smartproxy
 
-[read customer story](/resources/case-studies/smartproxy-case-study/)
+read customer story
 
 ![Smartproxy](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -217,7 +219,7 @@ Michael Kim
 
 Trust and Platform at PartnerStack
 
-[read customer story](/resources/case-studies/partnerstack-case-study/)
+read customer story
 
 ![Case-Study-Remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -237,7 +239,7 @@ Maritza Dominguez
 
 Trust & Safety at Patreon
 
-[read customer story](/resources/case-studies/patreon/)
+read customer story
 
 ![Case-Study-Patreon](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -251,14 +253,11 @@ Automation for efficiency
 
 Maintained low fraud rate alongside community growth
 
-## Fraud Exposes  
-More Than Money
+## Fraud ExposesMore Than Money
 
 From account creation to chargeback mitigation, Sift is your go-to partner in fighting fraud.
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
-
-[
 
 ![chargeback-fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -268,8 +267,6 @@ Quit leaking your bottom line to friendly fraud and mitigate more chargebacks wi
 
 learn more
 
-](/solutions/chargeback-fraud/)[
-
 ![account-creation-image-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Account Creation
@@ -277,8 +274,6 @@ Account Creation
 Stop fraud before it hits your site.
 
 learn more
-
-](/solutions/account-creation/)[
 
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
@@ -288,8 +283,6 @@ Lock down loyal customers’ accounts and assets, and prevent valuable PII from 
 
 learn more
 
-](/solutions/ato/)[
-
 ![money-movement](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Money Movement
@@ -297,8 +290,6 @@ Money Movement
 Get fintech-forward protection against evolving payment fraud.
 
 learn more
-
-](/solutions/money-movement/)
 
 ### Start Your Digital Risk Assessment
 
@@ -310,13 +301,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -326,8 +315,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -335,8 +322,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -346,12 +331,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

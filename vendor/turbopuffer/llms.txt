@@ -5,34 +5,45 @@
 > and extremely scalable. This is the complete documentation for
 > the turbopuffer API and platform.
 
+> In production: 4T+ documents, 25k+ queries/s, 10M+ writes/s.
+
 - [Introduction](https://turbopuffer.com/docs/index.md): What turbopuffer is and how it works
+- [Quickstart](https://turbopuffer.com/docs/quickstart.md): Get started with the turbopuffer API using code examples
+- [Roadmap & Changelog](https://turbopuffer.com/docs/roadmap.md): Upcoming features and detailed changelog
+
+## Database
+
 - [Architecture](https://turbopuffer.com/docs/architecture.md): System design: object storage, caching, WAL, and query routing
+- [Regions](https://turbopuffer.com/docs/regions.md): Available cloud regions and cross-region deployment options
 - [Concepts](https://turbopuffer.com/docs/concepts.md): turbopuffer's concepts
 - [Guarantees](https://turbopuffer.com/docs/guarantees.md): Guarantees of turbopuffer's architecture
 - [Tradeoffs](https://turbopuffer.com/docs/tradeoffs.md): Tradeoffs of turbopuffer's architecture
 - [Limits](https://turbopuffer.com/docs/limits.md): Current limits for turbopuffer.
-- [Regions](https://turbopuffer.com/docs/regions.md): Available cloud regions and cross-region deployment options
-- [Roadmap & Changelog](https://turbopuffer.com/docs/roadmap.md): Upcoming features and detailed changelog
+- [Branching](https://turbopuffer.com/docs/branching.md): Instantly clone namespaces with copy-on-write branching
+- [Pinning](https://turbopuffer.com/docs/pinning.md): Reserved compute and disk for predictable cost and performance at sustained high QPS
+
+## Production
+
 - [Security](https://turbopuffer.com/docs/security.md): Compliance (SOC 2, HIPAA), encryption, and deployment options
-- [Encryption](https://turbopuffer.com/docs/cmek.md): Customer-managed encryption key setup for GCP and AWS
+- [Encryption](https://turbopuffer.com/docs/encryption.md)
 - [Private Networking](https://turbopuffer.com/docs/private-networking.md): Configure private connections via AWS PrivateLink or GCP PSC
 - [Audit Logs](https://turbopuffer.com/docs/audit-logs.md)
 - [Backups](https://turbopuffer.com/docs/backups.md): Back up namespaces across turbopuffer regions
 - [Performance](https://turbopuffer.com/docs/performance.md): Learn how to improve the performance of your application
-- [Pinning](https://turbopuffer.com/docs/pinning.md): Reserved compute and disk for predictable cost and performance at sustained high QPS
 
 ## Guides
 
-- [Quickstart](https://turbopuffer.com/docs/quickstart.md): Get started with the turbopuffer API using code examples
 - [Vector Search](https://turbopuffer.com/docs/vector.md): Perform vector similarity search with filtering
 - [Full-Text Search](https://turbopuffer.com/docs/fts.md): Learn how to use BM25 full-text search
 - [Hybrid Search](https://turbopuffer.com/docs/hybrid.md): Combine vector and BM25 search with rank fusion
+- [Chunking](https://turbopuffer.com/docs/chunking.md): Chunking strategies to improve recall for text and vector search
 - [Testing](https://turbopuffer.com/docs/testing.md): Test with isolated per-test namespaces
 - [Permissions](https://turbopuffer.com/docs/permissions.md): Manage document-level access and permissions
+- [Ingestion](https://turbopuffer.com/docs/ingestion.md): Learn how to optimize data ingestion into turbopuffer
 
 ## API
 
-- [Auth & Encoding](https://turbopuffer.com/docs/auth.md): Overview of the API
+- [Overview](https://turbopuffer.com/docs/overview.md): Overview of the API
 - [Write](https://turbopuffer.com/docs/write.md): Learn how to create, update, or delete documents
 - [Query](https://turbopuffer.com/docs/query.md): Learn how to query documents
 - [Namespace metadata](https://turbopuffer.com/docs/metadata.md): Learn how to get and update metadata about a namespace

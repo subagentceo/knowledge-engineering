@@ -1,13 +1,13 @@
 # liquid-skills
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Shopify
-
-- Installs
-
-  1971
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Shopify
+    
+*   Installs
+    
+    2305

@@ -15,6 +15,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
@@ -45,6 +46,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 - `type: "tunnel"`
 
   Object type. Always `tunnel` for Tunnels.
+
   - `"tunnel"`
 
 - `workspace_id: string`
@@ -57,7 +59,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

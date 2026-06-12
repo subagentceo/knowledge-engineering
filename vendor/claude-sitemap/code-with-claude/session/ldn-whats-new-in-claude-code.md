@@ -2,6 +2,28 @@
 
 A twenty-minute summary of what's new in Claude Code: what shipped, why we built it, and how to get started.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+10:30 – 11:00
+
+Speaker(s)
+
+Ralph Ramos
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

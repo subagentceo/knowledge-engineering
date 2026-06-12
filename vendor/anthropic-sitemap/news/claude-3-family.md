@@ -52,7 +52,7 @@ Previous Claude models often made unnecessary refusals that suggested a lack of 
 
 Businesses of all sizes rely on our models to serve their customers, making it imperative for our model outputs to maintain high accuracy at scale. To assess this, we use a large set of complex, factual questions that target known weaknesses in current models. We categorize the responses into correct answers, incorrect answers (or hallucinations), and admissions of uncertainty, where the model says it doesn’t know the answer instead of providing incorrect information. Compared to Claude 2.1, Opus demonstrates a twofold improvement in accuracy (or correct answers) on these challenging open-ended questions while also exhibiting reduced levels of incorrect answers.
 
-In addition to producing more trustworthy responses, we will soon enable citations in our Claude 3 models so they can point to precise sentences in reference material to verify their answers.
+In addition to producing more trustworthy responses, we will soon enable citations in our Claude 3 models so they can point to precise sentences in reference material to verify their answers.  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7cb598c6a9fa58c12b77f67ee2067feaac4a2de0-2200x896.png&w=3840&q=75)
 
@@ -70,31 +70,31 @@ We’ve developed the Claude 3 family of models to be as trustworthy as they are
 
 Addressing biases in increasingly sophisticated models is an ongoing effort and we’ve made strides with this new release. As shown in the model card, Claude 3 shows less biases than our previous models according to the Bias Benchmark for Question Answering (BBQ). We remain committed to advancing techniques that reduce biases and promote greater neutrality in our models, ensuring they are not skewed towards any particular partisan stance.
 
-While the Claude 3 model family has advanced on key measures of biological knowledge, cyber-related knowledge, and autonomy compared to previous models, it remains at AI Safety Level 2 (ASL-2) per our Responsible Scaling Policy. Our red teaming evaluations (performed in line with our White House commitments and the 2023 US Executive Order) have concluded that the models present negligible potential for catastrophic risk at this time. We will continue to carefully monitor future models to assess their proximity to the ASL-3 threshold. Further safety details are available in the Claude 3 model card.
+While the Claude 3 model family has advanced on key measures of biological knowledge, cyber-related knowledge, and autonomy compared to previous models, it remains at AI Safety Level 2 (ASL-2) per our Responsible Scaling Policy. Our red teaming evaluations (performed in line with our White House commitments and the 2023 US Executive Order) have concluded that the models present negligible potential for catastrophic risk at this time. We will continue to carefully monitor future models to assess their proximity to the ASL-3 threshold. Further safety details are available in the Claude 3 model card.  
 
 ### Easier to use
 
-The Claude 3 models are better at following complex, multi-step instructions. They are particularly adept at adhering to brand voice and response guidelines, and developing customer-facing experiences our users can trust. In addition, the Claude 3 models are better at producing popular structured output in formats like JSON—making it simpler to instruct Claude for use cases like natural language classification and sentiment analysis.
+The Claude 3 models are better at following complex, multi-step instructions. They are particularly adept at adhering to brand voice and response guidelines, and developing customer-facing experiences our users can trust. In addition, the Claude 3 models are better at producing popular structured output in formats like JSON—making it simpler to instruct Claude for use cases like natural language classification and sentiment analysis.  
 
 ### Model details
 
 **Claude 3 Opus** is our most intelligent model, with best-in-market performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding. Opus shows us the outer limits of what’s possible with generative AI.
 
-\*\*Cost
-
-\*\*_[Input $/million tokens | Output $/million tokens]_
+**Cost  
+  
+**_[Input $/million tokens | Output $/million tokens]_
 
 $15 | $75
 
 **Context window**
 
-200K\*
+200K*
 
 **Potential uses**
 
-- Task automation: plan and execute complex actions across APIs and databases, interactive coding
-- R&D: research review, brainstorming and hypothesis generation, drug discovery
-- Strategy: advanced analysis of charts & graphs, financials and market trends, forecasting
+*   Task automation: plan and execute complex actions across APIs and databases, interactive coding
+*   R&D: research review, brainstorming and hypothesis generation, drug discovery
+*   Strategy: advanced analysis of charts & graphs, financials and market trends, forecasting
 
 **Differentiator**
 
@@ -102,15 +102,15 @@ Higher intelligence than any other model available.
 
 data
 
-_\*1M tokens available for specific use cases, please inquire._
+_*1M tokens available for specific use cases, please inquire._
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F08376f135c37fe029e2aea16fa55c4c83ec77b6b-1148x56.png&w=3840&q=75)
 
 **Claude 3 Sonnet** strikes the ideal balance between intelligence and speed—particularly for enterprise workloads. It delivers strong performance at a lower cost compared to its peers, and is engineered for high endurance in large-scale AI deployments.
 
-\*\*Cost
-
-\*\*_[Input $/million tokens | Output $/million tokens]_
+**Cost  
+  
+**_[Input $/million tokens | Output $/million tokens]_
 
 $3 | $15
 
@@ -120,9 +120,9 @@ $3 | $15
 
 **Potential uses**
 
-- Data processing: RAG or search & retrieval over vast amounts of knowledge
-- Sales: product recommendations, forecasting, targeted marketing
-- Time-saving tasks: code generation, quality control, parse text from images
+*   Data processing: RAG or search & retrieval over vast amounts of knowledge
+*   Sales: product recommendations, forecasting, targeted marketing
+*   Time-saving tasks: code generation, quality control, parse text from images
 
 **Differentiator**
 
@@ -132,9 +132,9 @@ data
 
 **Claude 3 Haiku** is our fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with unmatched speed. Users will be able to build seamless AI experiences that mimic human interactions.
 
-\*\*Cost
-
-\*\*_[Input $/million tokens | Output $/million tokens]_
+**Cost  
+  
+**_[Input $/million tokens | Output $/million tokens]_
 
 $0.25 | $1.25
 
@@ -144,9 +144,9 @@ $0.25 | $1.25
 
 **Potential uses**
 
-- Customer interactions: quick and accurate support in live interactions, translations
-- Content moderation: catch risky behavior or customer requests
-- Cost-saving tasks: optimized logistics, inventory management, extract knowledge from unstructured data
+*   Customer interactions: quick and accurate support in live interactions, translations
+*   Content moderation: catch risky behavior or customer requests
+*   Cost-saving tasks: optimized logistics, inventory management, extract knowledge from unstructured data
 
 **Differentiator**
 
@@ -174,18 +174,18 @@ We’re excited to see what you create with Claude 3 and hope you will give us f
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

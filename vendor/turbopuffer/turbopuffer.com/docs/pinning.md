@@ -1,5 +1,15 @@
 # Namespace Pinning
 
+**100B Vector Search**
+- p50: 46ms
+- p90: 61ms
+- p99: 185ms
+
+**Pin if:** the namespace is large, traffic is sustained, cold queries would
+hurt, or you want GB-hour instead of per-query pricing.
+
+**Rule of thumb:** start evaluating pinning around `>16 GB` and `>10 QPS`.
+
 ```
                    ╔══turbopuffer region═════╗      ╔═══Object Storage═════════════════╗
                    ║      ┌────────────────┐ ║░     ║ ┏━━Indexing Queue━━━━━━━━━━━━━━┓ ║░
@@ -139,7 +149,8 @@ Inspect current settings with `GET /v1/namespaces/:namespace/metadata`.
 
 <!-- multilang -->
 ```bash
-curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/my-namespace/metadata \
+# choose best region: https://turbopuffer.com/docs/regions
+curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/pinning-enable-example-curl/metadata \
   -X PATCH --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -153,10 +164,10 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/my-namespace/metadata
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
-ns = tpuf.namespace(f'my-namespace')
+ns = tpuf.namespace(f'pinning-enable-example-py')
 ns.update_metadata(
     pinning={
         'replicas': 2,
@@ -167,10 +178,10 @@ ns.update_metadata(
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
-const ns = tpuf.namespace(`my-namespace`);
+const ns = tpuf.namespace(`pinning-enable-example-ts`);
 await ns.updateMetadata({
   pinning: {
     replicas: 2,
@@ -193,11 +204,10 @@ import (
 func main() {
 	ctx := context.Background()
 	client := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
-	ns := client.Namespace("my-namespace")
+	ns := client.Namespace("pinning-enable-example-go")
 	_, err = ns.UpdateMetadata(ctx, turbopuffer.NamespaceUpdateMetadataParams{
 		NamespaceMetadataPatch: turbopuffer.NamespaceMetadataPatchParam{
 			Pinning: turbopuffer.PinningConfigParam{
@@ -223,11 +233,10 @@ public class EnablePinning {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
-    var ns = tpuf.namespace("my-namespace");
+    var ns = tpuf.namespace("pinning-enable-example-java");
 
     ns.updateMetadata(
       NamespaceMetadataPatch.builder().pinning(PinningConfig.builder().replicas(2L).build()).build()
@@ -235,14 +244,32 @@ public class EnablePinning {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("pinning-enable-example-csharp");
+
+await ns.UpdateMetadata(
+    new NamespaceUpdateMetadataParams { Pinning = new PinningConfig { Replicas = 2 } }
+);
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
-ns = tpuf.namespace("my-namespace")
+ns = tpuf.namespace("pinning-enable-example-rb")
 ns.update_metadata(pinning: { replicas: 2 })
 ```
 <!-- /multilang -->
@@ -251,7 +278,8 @@ ns.update_metadata(pinning: { replicas: 2 })
 
 <!-- multilang -->
 ```bash
-curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/my-namespace/metadata \
+# choose best region: https://turbopuffer.com/docs/regions
+curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/pinning-disable-example-curl/metadata \
   -X PATCH --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -263,20 +291,20 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/my-namespace/metadata
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
-ns = tpuf.namespace(f'my-namespace')
+ns = tpuf.namespace(f'pinning-disable-example-py')
 ns.update_metadata(pinning=None)
 ```
 ```typescript
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
-const ns = tpuf.namespace(`my-namespace`);
+const ns = tpuf.namespace(`pinning-disable-example-ts`);
 await ns.updateMetadata({
   pinning: null,
 });
@@ -297,11 +325,10 @@ import (
 func main() {
 	ctx := context.Background()
 	client := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
-	ns := client.Namespace("my-namespace")
+	ns := client.Namespace("pinning-disable-example-go")
 	_, err = ns.UpdateMetadata(ctx, turbopuffer.NamespaceUpdateMetadataParams{
 		NamespaceMetadataPatch: turbopuffer.NamespaceMetadataPatchParam{
 			Pinning: param.NullStruct[turbopuffer.PinningConfigParam](),
@@ -325,24 +352,48 @@ public class DisablePinning {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
-    var ns = tpuf.namespace("my-namespace");
+    var ns = tpuf.namespace("pinning-disable-example-java");
 
     ns.updateMetadata(NamespaceMetadataPatch.builder().pinning(false).build());
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("pinning-disable-example-csharp");
+
+await ns.UpdateMetadata(new NamespaceUpdateMetadataParams { Pinning = false });
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
-ns = tpuf.namespace("my-namespace")
+ns = tpuf.namespace("pinning-disable-example-rb")
 ns.update_metadata(pinning: nil)
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/pinning.md](https://turbopuffer.com/docs/pinning.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

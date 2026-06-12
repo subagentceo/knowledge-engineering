@@ -32,10 +32,10 @@ We’ve signed an agreement with SpaceX to use all of the compute capacity at th
 
 This joins our other significant compute announcements:
 
-- An up to 5 gigawatt (GW) agreement with Amazon, which includes nearly 1 GW of new capacity by the end of 2026;
-- A 5 GW agreement with Google and Broadcom, which will begin coming online in 2027;
-- A strategic partnership with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
-- Our $50 billion investment in American AI infrastructure with Fluidstack.
+*   An up to 5 gigawatt (GW) agreement with Amazon, which includes nearly 1 GW of new capacity by the end of 2026;
+*   A 5 GW agreement with Google and Broadcom, which will begin coming online in 2027;
+*   A strategic partnership with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
+*   Our $50 billion investment in American AI infrastructure with Fluidstack.
 
 We train and run Claude on a range of AI hardware—AWS Trainium, Google TPUs, and NVIDIA GPUs—and continue to explore opportunities to bring additional capacity online.
 
@@ -51,18 +51,18 @@ Finally, we recently made a commitment to cover any consumer electricity price i
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

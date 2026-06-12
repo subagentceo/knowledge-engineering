@@ -2,6 +2,32 @@
 
 A hands-on build session for Claude Managed Agents. You'll deploy a production-ready agent from scratch, then debug and monitor it live in the developer console.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+14:30 – 15:15
+
+Session type
+
+Workshop
+
+Speaker(s)
+
+Michael Cohen
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

@@ -2,9 +2,7 @@
 
 DELETE /v2/namespaces/:namespace
 
-Delete a namespace.
-
-Deletes the namespace and all its documents entirely. There is no way to recover a deleted namespace.
+Delete a namespace. Deletes the namespace and all its documents entirely. There is no way to recover a deleted namespace.
 
 After the delete operation returns `HTTP 200`, you can reuse the same namespace name by writing to it again.
 
@@ -12,6 +10,7 @@ After the delete operation returns `HTTP 200`, you can reuse the same namespace 
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/delete-namespace-example-curl \
   -X DELETE --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY"
@@ -25,7 +24,7 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/delete-namespace-exam
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'delete-namespace-example-py')
@@ -36,7 +35,7 @@ ns.delete_all()
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`delete-namespace-example-ts`);
@@ -57,8 +56,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("delete-namespace-example-go")
@@ -81,8 +79,7 @@ public class DeleteNamespace {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("delete-namespace-example-java");
@@ -93,11 +90,29 @@ public class DeleteNamespace {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("delete-namespace-example-csharp");
+
+// If an error occurs, this call raises a TurbopufferApiException if
+// a retry was not successful.
+await ns.DeleteAll(new NamespaceDeleteAllParams());
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("delete-namespace-example-rb")
@@ -105,3 +120,12 @@ ns = tpuf.namespace("delete-namespace-example-rb")
 ns.delete_all
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/delete-namespace.md](https://turbopuffer.com/docs/delete-namespace.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

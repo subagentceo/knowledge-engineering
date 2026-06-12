@@ -6,7 +6,7 @@ url: https://docs.sentry.io/product/snapshots/
 
 # Snapshots
 
-This feature is available only if you're in the [Early Adopter program](https://docs.sentry.io/organization/early-adopter-features.md). Features available to Early Adopters are still in-progress and may have bugs. We recognize the irony.
+This feature is currently in Beta. Beta features are still in progress and may have bugs. We recognize the irony.
 
 Snapshots helps you catch unintended visual changes before they reach users. Sentry handles image storage, diffing, CI checks, and more.
 
@@ -18,13 +18,12 @@ Snapshots helps you catch unintended visual changes before they reach users. Sen
 4. **Results post to your PR** — Snapshot results post to your PR\* via a GitHub status check. See [Integrating Into CI](https://docs.sentry.io/product/snapshots/integrating-into-ci.md) for setup. You can [configure settings](https://docs.sentry.io/product/snapshots/reviewing-snapshots.md#status-check-settings) to control status check and comment behavior.
 5. **Review and approve** — View snapshot results on the Sentry UI. If the Snapshot "failed" you can approve it from either the PR or the Sentry UI.
 
-\*Note: Snapshots EA only supports Github
+\*Note: Snapshots currently only supports GitHub for status check integration and PR comments.
 
 ## [Prerequisites](https://docs.sentry.io/product/snapshots.md#prerequisites)
 
-* **Early Adopter access** — Enable the Early Adopter toggle in your [organization settings](https://docs.sentry.io/organization/early-adopter-features.md).
 * **Auth token** — A Sentry auth token with `project:write` scope (personal token) or `org:ci` scope (org-level token).
-* **sentry-cli >= 3.4.0** — The `build snapshots` command requires version 3.4.0 or later.
+* **sentry-cli >= 3.5.0** — The `snapshots upload` command requires version 3.5.0 or later.
 * **GitHub integration** — Snapshots can be used with any VCS provider, but only Github is supported for status check integration and PR comments. Install the [Sentry GitHub App](https://docs.sentry.io/organization/integrations/source-code-mgmt/github.md) and grant it access to your repository for PR integration.
 
 ## [Recommended Platform Workflows](https://docs.sentry.io/product/snapshots.md#recommended-platform-workflows)
@@ -46,8 +45,18 @@ Snapshots works for any platform with a frontend and most platforms have a numbe
 
   Review snapshot diffs on your pull request and approve changes.
 
+- #### [Local Testing](https://docs.sentry.io/product/snapshots/local-testing.md)
+
+  Download baseline snapshots and diff images locally with sentry-cli.
+
+- #### [Agentic Workflow](https://docs.sentry.io/product/snapshots/agentic-workflow.md)
+
+  Connect an AI agent to Sentry's MCP server to inspect snapshot diffs, images, and baselines.
+
 ## Pages in this section
 
 - [Uploading Snapshots](https://docs.sentry.io/product/snapshots/uploading-snapshots.md)
 - [Integrating Into CI](https://docs.sentry.io/product/snapshots/integrating-into-ci.md)
 - [Reviewing Snapshots](https://docs.sentry.io/product/snapshots/reviewing-snapshots.md)
+- [Local Testing](https://docs.sentry.io/product/snapshots/local-testing.md)
+- [Agentic Workflow](https://docs.sentry.io/product/snapshots/agentic-workflow.md)

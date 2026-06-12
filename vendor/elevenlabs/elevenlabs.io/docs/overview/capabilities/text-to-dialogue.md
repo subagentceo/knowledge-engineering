@@ -1,0 +1,161 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Text to Dialogue
+
+## Overview
+
+The ElevenLabs [Text to Dialogue](/docs/api-reference/text-to-dialogue/convert) API creates natural sounding expressive dialogue from text using the Eleven v3 model. Popular use cases include:
+
+* Generating pitch perfect conversations for video games
+* Creating immersive dialogue for podcasts and other audio content
+* Bring audiobooks to life with expressive narration
+
+Text to Dialogue is not intended for use in real-time applications like conversational agents. Several generations might be required to achieve the desired results. When integrating Text to Dialogue into your application, consider generating several generations and allowing the user to select the best one.
+
+Listen to a sample:
+
+<elevenlabs-audio-player audio-title="Dialogue example" audio-src="https://storage.googleapis.com/eleven-public-cdn/documentation_assets/audio/dialogue.mp3" />
+
+Learn how to integrate text to dialogue into your application.
+
+Learn how to use the Eleven v3 model to generate expressive dialogue.
+
+Full API reference for the Text to Dialogue endpoint.
+
+## Voice options
+
+ElevenLabs offers thousands of voices across 70+ languages through multiple creation methods:
+
+* [Voice library](/docs/overview/capabilities/voices) with 3,000+ community-shared voices
+* [Professional voice cloning](/docs/overview/capabilities/voices#cloned) for highest-fidelity replicas
+* [Instant voice cloning](/docs/overview/capabilities/voices#cloned) for quick voice replication
+* [Voice design](/docs/overview/capabilities/voices#voice-design) to generate custom voices from text descriptions
+
+Learn more about our [voice options](/docs/overview/capabilities/voices).
+
+## Prompting
+
+The models interpret emotional context directly from the text input. For example, adding
+descriptive text like "she said excitedly" or using exclamation marks will influence the speech
+emotion. Voice settings like Stability and Similarity help control the consistency, while the
+underlying emotion comes from textual cues.
+
+Read the [prompting guide](/docs/overview/capabilities/text-to-speech/best-practices#prompting-eleven-v3) for more details.
+
+### Emotional deliveries with audio tags
+
+This feature is still under active development, actual results may vary.
+
+The Eleven v3 model allows the use of non-speech audio events to influence the delivery of the dialogue. This is done by inserting the audio events into the text input wrapped in square brackets.
+
+In Text to Dialogue, each dialogue turn has its own text and voice. Add audio tags inside the text for the turn they should affect. The `voice_id` still selects the speaker voice for that turn, while the tags guide delivery.
+
+For example, a speaker can use one voice while the text starts with `[giggling]`, and the next speaker can use a different voice while the text starts with `[whispering]`. For an API example that combines tags with `voice_id`, see the [Text to Dialogue quickstart](/docs/eleven-api/guides/cookbooks/text-to-dialogue).
+
+Audio tags are natural-language instructions, not an enum parameter. Wrap the instruction in square brackets and place it in the text where the delivery should change. The examples below are not exhaustive; use the [Eleven v3 prompting guide](/docs/overview/capabilities/text-to-speech/best-practices#prompting-eleven-v3) for more guidance on effective tags.
+
+Audio tags come in a few different forms:
+
+### Emotions and delivery
+
+For example, \[sad], \[laughing] and \[whispering]
+
+### Audio events
+
+For example, \[leaves rustling], \[gentle footsteps] and \[applause].
+
+### Overall direction
+
+For example, \[football], \[wrestling match] and \[auctioneer].
+
+Some examples include:
+
+```
+"[giggling] That's really funny!"
+"[groaning] That was awful."
+"Well, [sigh] I'm not sure what to say."
+```
+
+<elevenlabs-audio-player audio-title="Expressive dialogue" audio-src="https://storage.googleapis.com/eleven-public-cdn/documentation_assets/audio/dialogue-emotive.mp3" />
+
+You can also use punctuation to indicate the flow of dialog, like interruptions:
+
+```
+"[cautiously] Hello, is this seat-"
+"[jumping in] Free? [cheerfully] Yes it is."
+```
+
+<elevenlabs-audio-player audio-title="Interruption" audio-src="https://storage.googleapis.com/eleven-public-cdn/documentation_assets/audio/dialogue-interruption.mp3" />
+
+Ellipses can be used to indicate trailing sentences:
+
+```
+"[indecisive] Hi, can I get uhhh..."
+"[quizzically] The usual?"
+"[elated] Yes! [laughs] I'm so glad you knew!"
+```
+
+<elevenlabs-audio-player audio-title="Ellipses" audio-src="https://storage.googleapis.com/eleven-public-cdn/documentation_assets/audio/dialogue-ellipses.mp3" />
+
+The default response format is `mp3`, but other formats like `pcm` and `ulaw` are available.
+
+* **MP3**
+  * Sample rates: 22.05kHz - 44.1kHz
+  * Bitrates: 32kbps - 192kbps
+  * 22.05kHz @ 32kbps
+  * 44.1kHz @ 32kbps, 64kbps, 96kbps, 128kbps, 192kbps
+* **PCM (S16LE)**
+  * Sample rates: 16kHz - 44.1kHz
+  * Bitrates: 8kHz, 16kHz, 22.05kHz, 24kHz, 44.1kHz, 48kHz
+  * 16-bit depth
+* **μ-law**
+  * 8kHz sample rate
+  * Optimized for telephony applications
+* **A-law**
+  * 8kHz sample rate
+  * Optimized for telephony applications
+* **Opus**
+  * Sample rate: 48kHz
+  * Bitrates: 32kbps - 192kbps
+
+Higher quality audio options are only available on paid tiers - see our [pricing
+page](https://elevenlabs.io/pricing/api) for details.
+
+## Supported languages
+
+The Eleven v3 model supports 70+ languages, including:
+
+*Afrikaans (afr), Arabic (ara), Armenian (hye), Assamese (asm), Azerbaijani (aze), Belarusian (bel), Bengali (ben), Bosnian (bos), Bulgarian (bul), Catalan (cat), Cebuano (ceb), Chichewa (nya), Croatian (hrv), Czech (ces), Danish (dan), Dutch (nld), English (eng), Estonian (est), Filipino (fil), Finnish (fin), French (fra), Galician (glg), Georgian (kat), German (deu), Greek (ell), Gujarati (guj), Hausa (hau), Hebrew (heb), Hindi (hin), Hungarian (hun), Icelandic (isl), Indonesian (ind), Irish (gle), Italian (ita), Japanese (jpn), Javanese (jav), Kannada (kan), Kazakh (kaz), Kirghiz (kir), Korean (kor), Latvian (lav), Lingala (lin), Lithuanian (lit), Luxembourgish (ltz), Macedonian (mkd), Malay (msa), Malayalam (mal), Mandarin Chinese (cmn), Marathi (mar), Nepali (nep), Norwegian (nor), Pashto (pus), Persian (fas), Polish (pol), Portuguese (por), Punjabi (pan), Romanian (ron), Russian (rus), Serbian (srp), Sindhi (snd), Slovak (slk), Slovenian (slv), Somali (som), Spanish (spa), Swahili (swa), Swedish (swe), Tamil (tam), Telugu (tel), Thai (tha), Turkish (tur), Ukrainian (ukr), Urdu (urd), Vietnamese (vie), Welsh (cym).*
+
+## FAQ
+
+Text to Dialogue is only available on the Eleven v3 model.
+
+Yes. You retain ownership of any audio you generate. However, commercial usage rights are only
+available with paid plans. With a paid subscription, you may use generated audio for commercial
+purposes and monetize the outputs if you own the IP rights to the input content.
+
+A free regeneration allows you to regenerate the same text to speech content without additional cost, subject to these conditions:
+
+* Only available within the ElevenLabs dashboard.
+* You can regenerate each piece of content up to 2 times for free.
+* The content must be exactly the same as the previous generation. Any changes to the text, voice settings, or other parameters will require a new, paid generation.
+
+Free regenerations are useful in case there is a slight distortion in the audio output. According to ElevenLabs' internal benchmarks, regenerations will solve roughly half of issues with quality, with remaining issues usually due to poor training data.
+
+There is no limit to the number of speakers in a dialogue.
+
+The models are nondeterministic. For consistency, use the optional [seed
+parameter](/docs/api-reference/text-to-speech/convert#request.body.seed), though subtle
+differences may still occur.
+
+Keep the total length of all `inputs[].text` values at or below 2,000 characters per request for reliable generation. Split longer text into chunks and concatenate the resulting audio in your application.
+
+## Key facts
+
+* **Model**: Only available with Eleven v3
+* **Speakers**: No limit on number of speakers per dialogue
+* **Request size**: Keep the total length of all `inputs[].text` values at or below 2,000 characters per request
+* **Determinism**: Output is nondeterministic — use the `seed` parameter for more consistent results
+* **Free regenerations**: Up to 2 free regenerations per generation (same content, same parameters, dashboard only)
+* **Ownership**: You retain ownership of generated audio; commercial use requires a paid plan

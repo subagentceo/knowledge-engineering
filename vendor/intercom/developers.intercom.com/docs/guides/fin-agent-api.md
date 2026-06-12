@@ -3,15 +3,289 @@
 Please reach out to your accounts team to discuss access.
 
 API version
-The Fin Agent API is available on API version **2.14 and above**. Make sure your integration uses [version 2.14 or later](/docs/references/2.14/introduction).
+The Fin Agent API is available on API version **2.14 and above**. The new orchestration endpoints — Discover capabilities, Ask Fin, and Run a procedure — are currently available in the **Preview** API version only. See the [Preview changelog](/docs/references/preview/changelog).
 
 ## Overview
 
-Fin can be accessed programmatically via an API. Integration is centered around two endpoints (`/fin/start` and `/fin/reply`) and a set of events that notify the client of Fin's status and responses. Events can be delivered via [webhooks](#webhooks) or [Server-Sent Events (SSE)](#sse-server-sent-events).
+Fin can be accessed programmatically via an API. You can orchestrate Fin from your own agent — discover what Fin can do, ask a one-shot question, run a specific procedure, and reply — and Fin notifies the client of its status and responses through a set of events. Events can be delivered via [webhooks](#webhooks) or [Server-Sent Events (SSE)](#sse-server-sent-events).
 
-Once Fin is initialized, it progresses through a series of statuses such as *thinking*, *replying*, *awaiting_user_reply*, or *resolved* before ending its workflow with a status of *complete* . During this workflow, the client should allow Fin to continue uninterrupted until a final *complete* status is returned, at which point control of the conversation passes back to the client.
+Once Fin is initialized, it works through a series of [statuses](#fins-statuses) — *thinking* as it works on a request and *replying* as it sends each part of an answer. Fin hands control back to the orchestrating agent when it reaches *awaiting_user_reply* (it needs the user's next message to continue) or *complete* (it has finished). Allow Fin to continue uninterrupted until it returns control with one of these statuses.
 
-## Start a conversation with Fin
+## Orchestrating Fin
+
+If you are driving Fin from your own agent, the orchestration endpoints let your agent decide *what* Fin should do and *when*:
+
+| ENDPOINT  | WHEN TO USE |
+|  --- | --- |
+| `POST /fin/capabilities` | Discover, per user, which procedures and actions are available — call this first to decide what to do. |
+| `POST /fin/ask` | Get a single, self-contained answer to one question. Fin will not ask follow-ups, escalate, or run procedures. |
+| `POST /fin/procedures/{procedure_id}/run` | Deterministically run a specific procedure. |
+| `POST /fin/reply` | Send a follow-up message to an existing conversation — typically when Fin needs more information to complete an action. |
+
+
+Preview API version required
+Discover capabilities, Ask Fin, and Run a procedure are currently available in the **Preview** API version only — set `Intercom-Version: Preview` on those requests. Reply to Fin is available on version 2.14 and above. See the [Preview changelog](/docs/references/preview/changelog).
+
+### Discover capabilities
+
+`POST /fin/capabilities` returns a per-user list of what Fin can do, so your agent can decide which endpoint to call. The list is audience-matched to the user you pass.
+
+#### Request Payload
+
+| KEY  | TYPE  | Required  | DESCRIPTION |
+|  --- | --- | --- | --- |
+| `user` | `object` | `true` | The user to list capabilities for. If no user exists for the id, one is created from the supplied details. |
+| `user.id` | `string` | `true` | The external reference for the user (maps to `user_id` on the Intercom User object). |
+| `user.name` | `string` | `false` | The user's name. Applied when the user is created. |
+| `user.email` | `string` | `false` | The user's email. Applied when the user is created, and updates the existing user's email if it differs. See [User Handling](#user-handling). |
+| `user.attributes` | `object` | `false` | Up to 10 custom attributes. Merged into the user whether it is created or already exists. See [User Handling](#user-handling). |
+
+
+#### Example request
+
+
+```bash
+curl -X POST https://api.intercom.io/fin/capabilities \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  -H "Intercom-Version: Preview" \
+  -H "Content-Type: application/json" \
+  -d '{ "user": { "id": "123456" } }'
+```
+
+#### Example response
+
+
+```json
+{
+  "version": "Preview",
+  "capabilities": [
+    { "type": "procedure", "id": "12345", "name": "Reset password",
+      "description": "Walk the user through resetting their password.",
+      "endpoint": "/fin/procedures/12345/run", "method": "POST" },
+    { "type": "reply", "description": "Reply to an in-progress Fin conversation.",
+      "endpoint": "/fin/reply", "method": "POST" },
+    { "type": "ask", "description": "Ask Fin a single, self-contained question.",
+      "endpoint": "/fin/ask", "method": "POST" }
+  ]
+}
+```
+
+### Ask Fin
+
+`POST /fin/ask` gets a single, self-contained answer to one question. It is non-conversational: Fin will not ask follow-up questions, run procedures, or escalate.
+
+#### Request Payload
+
+| KEY  | TYPE  | Required  | DESCRIPTION |
+|  --- | --- | --- | --- |
+| `conversation_id` | `string` | `true` | Your external conversation ID. Fin creates a conversation for this ID. If a conversation already exists for it, use [`/fin/reply`](#reply-to-fin) instead. |
+| `message` | `object` | `true` | The user's question. |
+| `message.author` | `string` | `true` | Who sent the message. One of `user`, `agent`, or `fin`. |
+| `message.body` | `string` | `true` | The text of the message. |
+| `message.timestamp` | `string` | `false` | When the message was sent. Optional, but recommended: it is used to deduplicate messages sent within a 5-minute window. |
+| `user` | `User` | `true` | The user asking the question. Requires `id`. |
+| `conversation_metadata` | `object` | `false` | Optional `history` (up to 10 prior messages) and `attributes` to give Fin context. |
+| `attachments` | `array` | `false` | Up to 10 attachments to include with the message. |
+
+
+#### Example request
+
+
+```bash
+curl -X POST https://api.intercom.io/fin/ask \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  -H "Intercom-Version: Preview" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "conversation_id": "ext-123",
+    "message": { "author": "user", "body": "How do I reset my password?", "timestamp": "2025-01-24T10:01:20.000Z" },
+    "user": { "id": "123456", "name": "John Doe", "email": "john.doe@example.com" }
+  }'
+```
+
+#### Response
+
+| KEY  | TYPE  | DESCRIPTION |
+|  --- | --- | --- |
+| `conversation_id` | `String` | The external ID of the conversation. |
+| `user_id` | `String` | The ID of the user. |
+| `status` | `Enum<String>` | Fin's current status. **Values:** `thinking` `replying` `resolved` `complete` |
+| `created_at_ms` | `String` | The timestamp the response was created at, with millisecond precision. |
+| `sse_subscription_url` | `String` | Optional. A URL to subscribe to [SSE events](#sse-server-sent-events) for this conversation, returned when SSE is enabled. |
+| `errors` | `object` | Optional. Per-field errors for non-fatal issues, such as user attributes that could not be applied. |
+
+
+#### Example response
+
+
+```json
+{
+  "conversation_id": "ext-123",
+  "user_id": "user-456",
+  "status": "thinking",
+  "created_at_ms": "2025-01-24T10:00:00.123Z",
+  "sse_subscription_url": "https://primary-realtime.intercom-messenger.com/event-stream?channels=fin_agent_api:app123:ext-123&accessToken=eyJhbG...&rewind=2m"
+}
+```
+
+Fin's answer arrives asynchronously via the `fin_replied` event. The conversation ends with a `complete` status — there is no `awaiting_user_reply` cycle.
+
+### Reply to Fin
+
+Endpoint: `/fin/reply`
+
+Use `/fin/reply` to send a follow-up message in an existing conversation. When Fin needs more information to complete an action, it sets the conversation to `awaiting_user_reply` — send the user's response so Fin can continue.
+
+This endpoint requires `user.id`, the same as the other orchestration endpoints.
+
+#### **Request & Response**
+
+##### Request Payload
+
+| KEY  | TYPE  | Required  | DESCRIPTION |
+|  --- | --- | --- | --- |
+| `message` | `Message` | `true` | The user's message. |
+| `conversation_id` | `String` | `true` | The ID of the conversation. |
+| `user` | `Object<User>` | `true` | A user object that identifies the user replying to Fin. |
+| `attachments` | `Array<Attachment>` | `false` | An array of attachments to include with the message. **Note:** Maximum of 10 attachments. |
+
+
+**Request Payload Example**
+
+
+```json
+{
+  "message": {
+    "author": "user",
+    "body": "Here's the information you requested.",
+    "timestamp": "2025-01-24T09:01:00.000Z"
+  },
+  "conversation_id": "ext-123",
+  "user": {
+    "id": "123456",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "attributes": {
+      "plan_type": "Pro",
+      "subscription_status": "active"
+    }
+  },
+  "attachments": [
+    {
+      "type": "url",
+      "url": "https://example.com/invoice.pdf"
+    }
+  ]
+}
+```
+
+##### Response
+
+| KEY  | TYPE  | DESCRIPTION |
+|  --- | --- | --- |
+| `conversation_id` | `String` | The ID of the conversation. |
+| `user_id` | `String` | The ID of the user. |
+| `status` | `Enum<String>` | Fin's status. |
+| `created_at_ms` | `String` | The timestamp the response was created at, with millisecond precision. **Example:** `2025-01-24T10:00:00.123Z` |
+| `sse_subscription_url` | `String` | Optional. A URL to subscribe to [SSE events](#sse-server-sent-events) for this conversation, if SSE is enabled. The JWT token expires after 3 minutes and is revoked when Fin sets the conversation to `awaiting_user_reply` or `complete`. |
+| `errors` | `Object` | Optional. Contains error details if any user attribute updates failed. |
+| `errors.user.attributes` | `Hash<String,String>` | Optional. Map of user attribute names to error messages. |
+
+
+**Response Example**
+
+
+```json
+{
+  "conversation_id": "ext-123",
+  "user_id": "user-456",
+  "status": "thinking",
+  "created_at_ms": "2025-01-24T10:00:00.123Z",
+  "sse_subscription_url": "https://primary-realtime.intercom-messenger.com/event-stream?channels=fin_agent_api:app123:ext-123&accessToken=eyJhbG...",
+  "errors": {
+    "user": {
+      "attributes": {
+        "invalid_attr": "User attribute 'invalid_attr' does not exist"
+      }
+    }
+  }
+}
+```
+
+### Run a procedure
+
+`POST /fin/procedures/{procedure_id}/run` deterministically runs a specific procedure on a new conversation. Calling it guarantees that procedure runs.
+
+#### Request Payload
+
+| KEY  | TYPE  | Required  | DESCRIPTION |
+|  --- | --- | --- | --- |
+| `procedure_id` (path) | `string` | `true` | The ID of the procedure to run. |
+| `conversation_id` | `string` | `true` | Your external conversation ID. Fin creates a conversation for this ID. If a conversation already exists for it, use [`/fin/reply`](#reply-to-fin) instead. |
+| `user` | `User` | `true` | The user the procedure runs for. Requires `id`. |
+| `message` | `object` | `false` | An optional trigger message. If provided, `author` and `body` are required. |
+| `conversation_metadata` | `object` | `false` | Optional conversation `attributes` (no history). |
+| `settings` | `object` | `false` | Optional `email` (boolean) to format replies as email-style. |
+
+
+#### Example request
+
+
+```bash
+curl -X POST https://api.intercom.io/fin/procedures/12345/run \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  -H "Intercom-Version: Preview" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "conversation_id": "ext-123",
+    "user": { "id": "123456", "name": "John Doe", "email": "john.doe@example.com" }
+  }'
+```
+
+#### Response
+
+| KEY  | TYPE  | DESCRIPTION |
+|  --- | --- | --- |
+| `conversation_id` | `String` | The external ID of the conversation. |
+| `user_id` | `String` | The ID of the user. |
+| `procedure_id` | `String` | The ID of the procedure that was run. |
+| `status` | `Enum<String>` | Fin's current status. **Values:** `thinking` `replying` `awaiting_user_reply` `resolved` `complete` |
+| `created_at_ms` | `String` | The timestamp the response was created at, with millisecond precision. |
+| `sse_subscription_url` | `String` | Optional. A URL to subscribe to [SSE events](#sse-server-sent-events) for this conversation, returned when SSE is enabled. |
+| `errors` | `object` | Optional. Per-field errors for non-fatal issues, such as user attributes that could not be applied. |
+
+
+#### Example response
+
+
+```json
+{
+  "conversation_id": "ext-123",
+  "user_id": "user-456",
+  "procedure_id": "12345",
+  "status": "thinking",
+  "created_at_ms": "2025-01-24T10:00:00.123Z",
+  "sse_subscription_url": "https://primary-realtime.intercom-messenger.com/event-stream?channels=fin_agent_api:app123:ext-123&accessToken=eyJhbG...&rewind=2m"
+}
+```
+
+If the procedure pauses for input, the conversation status becomes `awaiting_user_reply` — send the user's response with [Reply to Fin](#reply-to-fin).
+
+## Pricing
+
+Preview pricing
+Pricing for the Fin Agent API is being finalised and is subject to change while the orchestration endpoints are in Preview.
+
+Conversations you drive through the Fin Agent API are billed the same way as any other Fin conversation — on **outcomes**. You're charged at most once per conversation, and only when Fin reaches a billable outcome.
+
+A conversation that Fin answers through the API is counted as a resolution, which is a billable outcome. Conversations that don't reach a billable outcome aren't charged — for example, discovering what Fin can do with [`/fin/capabilities`](#discover-capabilities), which doesn't create a conversation.
+
+For how outcomes are calculated and billed, see [Understanding Fin outcomes](https://www.intercom.com/help/en/articles/13513868-understanding-fin-outcomes).
+
+## Start a conversation with Fin (legacy)
+
+Legacy — conversational mode
+`/fin/start` powers the conversational model, where your own UI drives a back-and-forth with Fin. This endpoint is no longer actively developed and is maintained only for existing integrations — new functionality lands on the orchestration endpoints above.
 
 Endpoint: `/fin/start`
 
@@ -125,86 +399,6 @@ Initialise Fin by passing it the user's message along with some conversation his
 }
 ```
 
-## Reply to Fin
-
-Endpoint: `/fin/reply`
-
-Once Fin has returned a response to a user's message, its status will be awaiting_user_reply. If a user replies, use this endpoint to send this response to Fin.
-
-### **Request & Response**
-
-#### Request Payload
-
-| KEY  | TYPE  | Required  | DESCRIPTION |
-|  --- | --- | --- | --- |
-| `message` | `Message` | `true` | The user's message. |
-| `conversation_id` | `String` | `true` | The ID of the conversation. |
-| `user` | `Object<User>` | `true` | A user object that identifies the user replying to Fin. |
-| `attachments` | `Array<Attachment>` | `false` | An array of attachments to include with the message. **Note:** Maximum of 10 attachments. |
-
-
-**Request Payload Example**
-
-
-```json
-{
-  "message": {
-    "author": "user",
-    "body": "Here's the information you requested.",
-    "timestamp": "2025-01-24T09:01:00.000Z"
-  },
-  "conversation_id": "123456",
-  "user": {
-    "id": "123456",
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "attributes": {
-      "plan_type": "Pro",
-      "subscription_status": "active"
-    }
-  },
-  "attachments": [
-    {
-      "type": "url",
-      "url": "https://example.com/invoice.pdf"
-    }
-  ]
-}
-```
-
-#### Response
-
-| KEY  | TYPE  | DESCRIPTION |
-|  --- | --- | --- |
-| `conversation_id` | `String` | The ID of the conversation. |
-| `user_id` | `String` | The ID of the user. |
-| `status` | `Enum<String>` | Fin's status. |
-| `created_at_ms` | `String` | The timestamp the response was created at, with millisecond precision. **Example:** `2025-01-24T10:00:00.123Z` |
-| `sse_subscription_url` | `String` | Optional. A URL to subscribe to [SSE events](#sse-server-sent-events) for this conversation, if SSE is enabled. The JWT token expires after 3 minutes and is revoked when Fin sets the conversation to `awaiting_user_reply` or `complete`. |
-| `errors` | `Object` | Optional. Contains error details if any user attribute updates failed. |
-| `errors.user.attributes` | `Hash<String,String>` | Optional. Map of user attribute names to error messages. |
-
-
-**Response Example**
-
-
-```json
-{
-  "conversation_id": "ext-123",
-  "user_id": "user-456",
-  "status": "thinking",
-  "created_at_ms": "2025-01-24T10:00:00.123Z",
-  "sse_subscription_url": "https://primary-realtime.intercom-messenger.com/event-stream?channels=fin_agent_api:app123:ext-123&accessToken=eyJhbG...",
-  "errors": {
-    "user": {
-      "attributes": {
-        "invalid_attr": "User attribute 'invalid_attr' does not exist"
-      }
-    }
-  }
-}
-```
-
 ## Listening to Events
 
 Fin fires events during its workflow to convey its [status](#fins-statuses) and deliver replies to the user. These events can be received via **[Webhooks](#webhooks)**, **[SSE](#sse-server-sent-events)**, or both — for example, using SSE for low-latency UI rendering with webhooks as a reliable fallback.
@@ -219,11 +413,11 @@ All webhook requests will include an `X-Fin-Agent-API-Webhook-Signature` header 
 
 ### SSE (Server-Sent Events)
 
-You can receive events via Server-Sent Events (SSE) using the `sse_subscription_url` returned in the `/fin/start` and `/fin/reply` responses.
+You can receive events via Server-Sent Events (SSE) using the `sse_subscription_url` returned by any endpoint that starts or continues a Fin response cycle — [Ask Fin](#ask-fin), [Reply to Fin](#reply-to-fin), and [Run a procedure](#run-a-procedure) (as well as the legacy `/fin/start`).
 
 #### How it works
 
-1. Call `/fin/start` or `/fin/reply` as normal.
+1. Call any of these endpoints as normal.
 2. The response includes an `sse_subscription_url` field.
 3. Open an SSE connection to this URL using `EventSource` or any HTTP client that supports SSE.
 4. Receive `fin_replied` and `fin_status_updated` events in real time over the SSE stream.
@@ -242,17 +436,17 @@ https://primary-realtime.intercom-messenger.com/event-stream?channels={channel}&
 |  --- | --- |
 | `channels` | The SSE channel to subscribe to, in the format `fin_agent_api:{app_id}:{conversation_id}`. |
 | `accessToken` | A JWT (JSON Web Token) that authenticates the SSE connection. Expires after **3 minutes** and is revoked when Fin sets the conversation to `awaiting_user_reply` or `complete`. |
-| `rewind` | Only present on `/fin/start` responses. Replays events from the specified duration (e.g., `2m` for 2 minutes) to prevent missed events during initial connection. |
+| `rewind` | Present on responses that begin a new Fin response cycle (Ask Fin, Run a procedure, and the legacy `/fin/start`). Replays events from the specified duration (e.g., `2m` for 2 minutes) to prevent missed events during initial connection. Not present on `/fin/reply`. |
 
 
 #### The `rewind` parameter
 
-The SSE URL returned from `/fin/start` includes a `rewind=2m` query parameter. This instructs the SSE provider to replay any events from the last 2 minutes when the client connects, preventing missed events between the time the HTTP response is received and the SSE connection is established.
+Endpoints that begin a new Fin response cycle — Ask Fin, Run a procedure, and the legacy `/fin/start` — return an `sse_subscription_url` with a `rewind=2m` query parameter. This instructs the SSE provider to replay any events from the last 2 minutes when the client connects, preventing missed events between receiving the HTTP response and establishing the SSE connection.
 
 The `/fin/reply` endpoint does **not** include the `rewind` parameter, since the client is expected to already have an active SSE connection at that point.
 
-Why rewind is only on /start
-When a conversation is first started, there is a gap between receiving the HTTP response and opening the SSE connection. The `rewind` parameter ensures no events are lost during this window. For subsequent `/fin/reply` calls, the SSE connection should already be open.
+Why reply has no rewind
+When a response cycle is first started, there is a gap between receiving the HTTP response and opening the SSE connection, so `rewind` ensures no events are lost during this window. For a `/fin/reply` continuation, the SSE connection should already be open.
 
 #### Token expiration and revocation
 
@@ -268,13 +462,13 @@ Do not cache or reuse `sse_subscription_url` values across multiple interactions
 
 
 ```javascript
-// After calling /fin/start
-const response = await fetch('https://api.intercom.io/fin/start', {
+// After calling an endpoint that returns an sse_subscription_url (e.g. /fin/ask)
+const response = await fetch('https://api.intercom.io/fin/ask', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer <YOUR_ACCESS_TOKEN>',
     'Content-Type': 'application/json',
-    'Intercom-Version': '2.15'
+    'Intercom-Version': 'Preview'
   },
   body: JSON.stringify({ /* request payload */ })
 });
@@ -295,8 +489,8 @@ eventSource.onmessage = (event) => {
   if (eventData.event_name === 'fin_status_updated') {
     console.log('Status updated:', eventData.status);
 
-    if (eventData.status === 'awaiting_user_reply') {
-      // Fin is done replying — close the SSE connection
+    if (eventData.status === 'awaiting_user_reply' || eventData.status === 'complete') {
+      // Fin is done with this cycle — close the SSE connection
       eventSource.close();
     }
   }
@@ -330,7 +524,7 @@ Fin will report its status to the client via this event.
 ```json
 {
   "event_name": "fin_status_updated",
-  "conversation_id": "123456",
+  "conversation_id": "ext-123",
   "user_id": "7891",
   "status": "escalated",
   "reason": "Escalation requested by user",
@@ -344,7 +538,7 @@ Fin will report its status to the client via this event.
 ```json
 {
   "event_name": "fin_status_updated",
-  "conversation_id": "123456",
+  "conversation_id": "ext-123",
   "user_id": "7891",
   "status": "resolved",
   "created_at_ms": "2025-01-24T10:00:00.123Z"
@@ -357,7 +551,7 @@ Fin will report its status to the client via this event.
 ```json
 {
   "event_name": "fin_status_updated",
-  "conversation_id": "123456",
+  "conversation_id": "ext-123",
   "user_id": "7891",
   "status": "awaiting_user_reply",
   "created_at_ms": "2025-01-24T10:00:00.123Z"
@@ -392,7 +586,7 @@ The `replying` status for intermediate `fin_replied` events is currently only av
 ```json
 {
   "event_name": "fin_replied",
-  "conversation_id": "123456",
+  "conversation_id": "ext-123",
   "user_id": "7891",
   "message": {
     "id": "98765",
@@ -432,7 +626,7 @@ SSE with streaming only
 ```json
 {
   "event_name": "fin_reply_chunk",
-  "conversation_id": "123456",
+  "conversation_id": "ext-123",
   "stream_id": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
   "chunk_index": 3,
   "chunk_text": "You can see your account details by clicking",
@@ -446,8 +640,9 @@ Accumulate `fin_reply_chunk` events keyed by `stream_id` for progressive renderi
 
 ## Fin's Statuses
 
-During a conversation, Fin goes through a number of statuses as it progresses through a workflow.
-The client that is calling Fin will need to listen to these statuses via [Webhooks](#webhooks) or [SSE](#sse-server-sent-events) and react accordingly.
+As Fin works through a request it reports a series of statuses. Listen for these via [Webhooks](#webhooks) or [SSE](#sse-server-sent-events) and react accordingly.
+
+Which statuses you see depends on the endpoint. Every request reports `thinking` while Fin works and ends with `complete` when control returns to you. `replying` accompanies each reply part. `awaiting_user_reply` only appears when Fin needs more information to continue (for example, a procedure that pauses for input) — a one-shot [Ask Fin](#ask-fin) call never enters it. `escalated` is covered below.
 
 ![Statuses](/assets/fin_agent_api_statuses.9af1f4487c248e11ef2ce146d73ad7a67ba1d7a7f573b19408a673bf46027c21.71a4f21c.jpg)
 
@@ -456,16 +651,16 @@ The client that is calling Fin will need to listen to these statuses via [Webhoo
 | `thinking` | Fin is currently thinking about a response. When Fin is thinking, the client should consider indicating to the user that Fin is working on an answer. |
 | `replying` | Fin is sending reply parts. Each `fin_replied` event with this status contains a part of Fin's answer. Wait for the `fin_status_updated` event with `awaiting_user_reply` before prompting the user to reply. |
 | `awaiting_user_reply` | Fin has finished replying and is waiting for the user to respond. This status is delivered via the `fin_status_updated` event as a done signal after all `fin_replied` events. |
-| `escalated` | The conversation has been escalated by the user or Fin. This status means that the Fin has determined or the user has requested that the conversation be escalated to a human. The client should respond accordingly. |
+| `escalated` | The conversation has been handed off to a human. This happens automatically in conversational mode — [`/fin/start`](#start-a-conversation-with-fin-legacy), and [`/fin/reply`](#reply-to-fin) on a conversation that was started conversationally, let Fin decide to escalate. A one-shot [`/fin/ask`](#ask-fin) never escalates. |
 | `resolved` | The user's query has been resolved. The user has indicated to Fin that it has successfully answered their query. |
 | `complete` | Fin has completed its workflow and the conversation is over. Control of the conversation is now back with the client. |
 
 
 ## Escalation Reasons
 
-When Fin escalates a conversation and reports an `escalated` status via the `fin_status_updated` event, it includes a `reason` field that provides context for why the conversation was escalated. This helps you understand the path the conversation took and respond appropriately.
+When a conversation is escalated, the `escalated` `fin_status_updated` event carries a `reason` field.
 
-The following reasons may be provided:
+Fin escalates of its own accord in conversational mode — [`/fin/start`](#start-a-conversation-with-fin-legacy), and [`/fin/reply`](#reply-to-fin) on a conversation that was started conversationally, let Fin decide to escalate. The following reasons may be provided:
 
 | REASON  | DESCRIPTION |
 |  --- | --- |
@@ -504,12 +699,6 @@ When you provide a User object to the Fin Agent API, the following behavior appl
 - **Attribute updates:** If `attributes` are provided, they will be merged with the user's existing attributes. New attributes are added and existing attributes with the same key are overwritten.
 If your users interact with Intercom across multiple channels (e.g., Messenger and the Fin Agent API), updating the email or attributes via this API will affect the user record across all channels. Ensure that the data you provide is authoritative and consistent with your other integrations to avoid unintended changes to user data.
 
-
-## Example
-
-Below is a basic example of the flow of API requests and events when a client passes a message to Fin.
-
-![Flow](/assets/fin_agent_api_flow.0687fbf81a4aef371af9974265606dc2c637a134b42e42fc1d2a52ea96144598.71a4f21c.jpg)
 
 ## When to use SSE?
 

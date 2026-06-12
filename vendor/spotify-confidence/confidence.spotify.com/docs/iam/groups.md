@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Groups

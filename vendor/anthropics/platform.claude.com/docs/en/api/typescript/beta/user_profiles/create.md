@@ -9,6 +9,7 @@ Create User Profile
 ### Parameters
 
 - `params: UserProfileCreateParams`
+
   - `external_id?: string | null`
 
     Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
@@ -24,6 +25,7 @@ Create User Profile
   - `relationship?: "external" | "resold" | "internal"`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `"external"`
 
     - `"resold"`
@@ -33,9 +35,11 @@ Create User Profile
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -88,11 +92,14 @@ Create User Profile
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaUserProfile`
+
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -108,6 +115,7 @@ Create User Profile
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `"external"`
 
     - `"resold"`
@@ -117,9 +125,11 @@ Create User Profile
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
+
       - `"active"`
 
       - `"pending"`
@@ -129,6 +139,7 @@ Create User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
+
     - `"user_profile"`
 
   - `updated_at: string`
@@ -146,10 +157,10 @@ Create User Profile
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaUserProfile = await client.beta.userProfiles.create();

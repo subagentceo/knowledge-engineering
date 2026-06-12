@@ -9,11 +9,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 ### Parameters
 
 - `EnvironmentArchiveParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,16 +68,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `required string ID`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `required string? ArchivedAt`
 
@@ -84,15 +89,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `required Config Config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `required Networking Networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonElement Type "unrestricted"constant`
 
             Network policy type
@@ -100,6 +109,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `required Boolean AllowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -119,6 +129,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
       - `required BetaPackages Packages`
 
         Package manager configuration.
+
         - `required IReadOnlyList<string> Apt`
 
           Ubuntu/Debian packages to install
@@ -146,6 +157,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `Type Type`
 
           Package configuration type
+
           - `"packages"Packages`
 
       - `JsonElement Type "cloud"constant`
@@ -155,6 +167,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonElement Type "self_hosted"constant`
 
         Environment type
@@ -186,6 +199,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Scope Scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"Organization`
 
     - `"account"Account`
@@ -213,16 +227,31 @@ Console.WriteLine(betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

@@ -14,13 +14,14 @@ by created_at, with ties broken by id.
 
 - `after_id: optional string`
 
-  Pagination cursor for retrieving the next page of results (heading backwards in time). To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the next page of results. To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `before_id: optional string`
 
-  Pagination cursor for retrieving the previous page of results (heading forwards in time). To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the previous page of results. To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter chats created after this time (RFC 3339 format)
@@ -50,6 +51,7 @@ by created_at, with ties broken by id.
   Filter by project IDs (accepts `claude_proj_...`). Enumerate IDs via `GET /v1/compliance/apps/projects`.
 
 - `updated_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter chats updated after this time (RFC 3339 format)
@@ -75,6 +77,7 @@ by created_at, with ties broken by id.
 - `data: array of object { id, created_at, deleted_at, 8 more }`
 
   List of chat metadata sorted chronologically by created_at, tie break by id
+
   - `id: string`
 
     Chat ID
@@ -118,6 +121,7 @@ by created_at, with ties broken by id.
   - `user: object { id, email_address }`
 
     User information for the chat creator
+
     - `id: string`
 
       User identifier

@@ -12,6 +12,7 @@ Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the appl
 + [Collect, store, and query logs](#cloudwatch-logs-overview)
 + [Use the CloudWatch agent to gather metrics, logs, and traces from Amazon EC2 fleets](#cloudwatch-agent-overview)
 + [Cross-account monitoring](#cloudwatch-cross-account-overview)
++ [OpenTelemetry support](#cloudwatch-otel-overview)
 + [Solutions catalog](#cloudwatch-solutions-overview)
 + [Network and internet monitoring](#cloudwatch-network-monitoring-overview)
 + [Billing and costs](#BillingPointer)
@@ -57,6 +58,11 @@ Use the [CloudWatch agent](Install-CloudWatch-Agent.md) to collect detailed syst
 <a name="cloudwatch-cross-account-overview"></a>
 
 [CloudWatch cross-account observability](CloudWatch-Cross-Account-Methods.md) lets you set up a central monitoring account to monitor and troubleshoot applications that span multiple accounts. From the central account, you can view metrics, logs, and traces from source accounts across your organization. This centralized approach enables you to create cross-account dashboards, set up alarms that watch metrics from multiple accounts, and perform root-cause analysis across account boundaries. With CloudWatch cross-account observability, you can link source accounts either individually or link them automatically through AWS Organizations.
+
+## OpenTelemetry support
+<a name="cloudwatch-otel-overview"></a>
+
+Amazon CloudWatch provides native OTLP endpoints for ingesting metrics, logs, and traces using the OpenTelemetry standard. You can collect telemetry using any OpenTelemetry-compatible SDK or collector and send it directly to CloudWatch without proprietary agents or format conversion. CloudWatch also supports PromQL for querying OpenTelemetry metrics. This open-standards approach lets you use the same instrumentation to send data to CloudWatch and third-party destinations, and query application and AWS infrastructure telemetry together. For more information, see [OpenTelemetry](CloudWatch-OpenTelemetry-Sections.md).
 
 ## Solutions catalog
 <a name="cloudwatch-solutions-overview"></a>

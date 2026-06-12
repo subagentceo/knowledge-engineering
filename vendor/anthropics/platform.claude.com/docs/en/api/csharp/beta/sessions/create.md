@@ -9,19 +9,23 @@ Create Session
 ### Parameters
 
 - `SessionCreateParams parameters`
+
   - `required Agent agent`
 
     Body param: Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
+
     - `string`
 
     - `class BetaManagedAgentsAgentParams:`
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
       - `required string ID`
 
         The `agent` ID.
 
       - `required Type Type`
+
         - `"agent"Agent`
 
       - `Int Version`
@@ -39,14 +43,17 @@ Create Session
   - `IReadOnlyList<Resource> resources`
 
     Body param: Resources (e.g. repositories, files) to mount into the session's container.
+
     - `class BetaManagedAgentsGitHubRepositoryResourceParams:`
 
       Mount a GitHub repository into the session's container.
+
       - `required string AuthorizationToken`
 
         GitHub authorization token used to clone the repository.
 
       - `required Type Type`
+
         - `"github_repository"GitHubRepository`
 
       - `required string Url`
@@ -56,20 +63,25 @@ Create Session
       - `Checkout? Checkout`
 
         Branch or commit to check out. Defaults to the repository's default branch.
+
         - `class BetaManagedAgentsBranchCheckout:`
+
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
+
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
+
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
+
             - `"commit"Commit`
 
       - `string? MountPath`
@@ -79,11 +91,13 @@ Create Session
     - `class BetaManagedAgentsFileResourceParams:`
 
       Mount a file uploaded via the Files API into the session.
+
       - `required string FileID`
 
         ID of a previously uploaded file.
 
       - `required Type Type`
+
         - `"file"File`
 
       - `string? MountPath`
@@ -93,16 +107,19 @@ Create Session
     - `class BetaManagedAgentsMemoryStoreResourceParam:`
 
       Parameters for attaching a memory store to an agent session.
+
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
+
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
+
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -122,6 +139,7 @@ Create Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -174,26 +192,32 @@ Create Session
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
+
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
       - `required string Name`
 
       - `required Type Type`
+
         - `"url"Url`
 
       - `required string Url`
@@ -201,11 +225,21 @@ Create Session
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
+
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"ClaudeFable5`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"ClaudeOpus4_8`
+
+          Frontier intelligence for long-running agents and coding
+
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -245,6 +279,7 @@ Create Session
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -252,14 +287,17 @@ Create Session
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+
           - `required string Name`
 
           - `required Type Type`
@@ -273,12 +311,15 @@ Create Session
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
+
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
+
             - `required string SkillID`
 
             - `required Type Type`
+
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -286,9 +327,11 @@ Create Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
+
             - `required string SkillID`
 
             - `required Type Type`
+
               - `"custom"Custom`
 
             - `required string Version`
@@ -296,13 +339,17 @@ Create Session
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
+
           - `class BetaManagedAgentsAgentToolset20260401:`
+
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
+
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -322,26 +369,33 @@ Create Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `required Type Type`
+
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
+
                   - `required Type Type`
+
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -351,10 +405,13 @@ Create Session
                   Tool calls require user confirmation before execution.
 
             - `required Type Type`
+
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
+
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -362,6 +419,7 @@ Create Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -373,11 +431,13 @@ Create Session
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -389,45 +449,45 @@ Create Session
             - `required string McpServerName`
 
             - `required Type Type`
+
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
+
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
+
+              - `JsonElement Type "object"constant`
+
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
-                JSON Schema properties defining the tool's input parameters.
-
-              - `IReadOnlyList<string> Required`
-
-                List of required property names.
-
-              - `Type Type`
-
-                Must be 'object' for tool input schemas.
-                - `"object"Object`
+              - `IReadOnlyList<string>? Required`
 
             - `required string Name`
 
             - `required Type Type`
+
               - `"custom"Custom`
 
         - `required Type Type`
+
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
+
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
+
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
@@ -439,6 +499,7 @@ Create Session
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
+
       - `class BetaManagedAgentsAgentToolset20260401:`
 
       - `class BetaManagedAgentsMcpToolset:`
@@ -448,6 +509,7 @@ Create Session
         A custom tool as returned in API responses.
 
     - `required Type Type`
+
       - `"agent"Agent`
 
     - `required Int Version`
@@ -467,6 +529,7 @@ Create Session
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -485,17 +548,20 @@ Create Session
 
     - `required string OutcomeID`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `required string Result`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
+
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
+
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -505,6 +571,7 @@ Create Session
       - `required string MountPath`
 
       - `required Type Type`
+
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -514,23 +581,29 @@ Create Session
       - `required string Url`
 
       - `Checkout? Checkout`
+
         - `class BetaManagedAgentsBranchCheckout:`
+
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
+
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
+
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
+
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
+
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -542,6 +615,7 @@ Create Session
       - `required string MountPath`
 
       - `required Type Type`
+
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -551,16 +625,19 @@ Create Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
+
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
+
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
+
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -584,6 +661,7 @@ Create Session
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
+
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -595,6 +673,7 @@ Create Session
   - `required Status Status`
 
     SessionStatus enum
+
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -606,6 +685,7 @@ Create Session
   - `required string? Title`
 
   - `required Type Type`
+
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -615,9 +695,11 @@ Create Session
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
+
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -641,6 +723,10 @@ Create Session
   - `required IReadOnlyList<string> VaultIds`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `string? DeploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -817,6 +903,9 @@ Console.WriteLine(betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

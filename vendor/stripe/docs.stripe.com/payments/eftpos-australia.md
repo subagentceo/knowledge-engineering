@@ -164,6 +164,16 @@ StripeAPI.additionalEnabledApplePayNetworks = [.eftpos]
 
 > Only add eftpos to your list of enabled networks if the transaction currency is AUD.
 
+### Manual capture 
+
+Eftpos doesn’t support [manual capture](https://docs.stripe.com/payments/place-a-hold-on-a-payment-method.md) and Apple Pay eftpos tokens can only route through the eftpos network, with no fallback to Visa or Mastercard. Eftpos Apple Pay payments with manual capture always fail.
+
+To accept eftpos Apple Pay, set the PaymentIntent [`capture_method`](https://docs.stripe.com/api/payment_intents/create.md#create_payment_intent-capture_method) to `automatic` (default) or `automatic_async`. If you also set [`payment_method_options.card.capture_method`](https://docs.stripe.com/api/payment_intents/create.md#create_payment_intent-payment_method_options-card-capture_method), use `automatic` (default) or `automatic_async`.
+
+If you need manual capture for card payments, set `capture_method` to `manual` in your [Payment Element](https://docs.stripe.com/payments/accept-a-payment-deferred.md) configuration. This causes the Payment Element to hide eftpos Apple Pay, so customers see other available payment options instead of encountering a payment failure.
+
+> Don’t add `payment_method_options.card.capture_method: 'manual'` after the Payment Element has already rendered. If you do, the Element can’t detect the change and customers might select eftpos Apple Pay for a payment that fails at confirmation.
+
 ## See also
 
 - [Migrating from Charges API to the Payment Intents API](https://docs.stripe.com/payments/payment-intents/migration.md)

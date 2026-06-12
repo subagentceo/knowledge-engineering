@@ -39,8 +39,6 @@ Multiple mappings can share the same `stackRoot` if they point to different `sou
 
 The following example is based on the [getsentry/sentry-java](https://github.com/getsentry/sentry-java) monorepo, which has multiple modules sharing the `io/sentry` package prefix:
 
-`mappings.json`
-
 ```json
 [
   {

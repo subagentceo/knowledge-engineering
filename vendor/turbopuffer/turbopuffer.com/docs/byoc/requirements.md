@@ -43,3 +43,12 @@ the turbopuffer cluster must run on its own dedicated Kubernetes cluster, isolat
 to prevent resource contention and ensure predictable performance. This Kubernetes 
 cluster must reside within its own isolated member account in AWS, or its own 
 isolated project in GCP.
+
+
+---
+
+This page: [/docs/byoc/requirements.md](https://turbopuffer.com/docs/byoc/requirements.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

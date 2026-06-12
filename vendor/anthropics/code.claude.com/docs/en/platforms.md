@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -22,7 +21,7 @@ Choose a platform based on how you like to work and where your project lives.
 | [Web](/en/claude-code-on-the-web) | Long-running tasks that don't need much steering, or work that should continue when you're offline | Anthropic-managed cloud, continues after you disconnect                                                                                                                                   |
 | Mobile                            | Starting and monitoring tasks while away from your computer                                        | Cloud sessions from the Claude app for iOS and Android, [Remote Control](/en/remote-control) for local sessions, [Dispatch](/en/desktop#sessions-from-dispatch) to Desktop on Pro and Max |
 
-The CLI is the most complete surface for terminal-native work: scripting and the Agent SDK are CLI-only. Third-party providers also work in [VS Code](/en/vs-code#use-third-party-providers). Enterprise [Desktop](/en/desktop) deployments support Vertex AI and gateway providers; for Bedrock or Foundry, use the CLI or VS Code instead of Desktop. Desktop and the IDE extensions trade some CLI-only features for visual review and tighter editor integration. The web runs in Anthropic's cloud, so tasks keep going after you disconnect. Mobile is a thin client into those same cloud sessions or into a local session via Remote Control, and can send tasks to Desktop with Dispatch.
+The CLI is the most complete surface for terminal-native work: scripting and the Agent SDK are CLI-only. Third-party providers also work in [VS Code](/en/vs-code#use-third-party-providers). Enterprise [Desktop](/en/desktop) deployments support Vertex AI and gateway providers; for Bedrock or Foundry, use the CLI or VS Code, or the [Cowork on 3P research preview](https://claude.com/docs/cowork/3p/overview), which runs the Code tab on those providers. Desktop and the IDE extensions trade some CLI-only features for visual review and tighter editor integration. The web runs in Anthropic's cloud, so tasks keep going after you disconnect. Mobile is a thin client into those same cloud sessions or into a local session via Remote Control, and can send tasks to Desktop with Dispatch.
 
 You can mix surfaces on the same project. Configuration, project memory, and MCP servers are shared across the local surfaces.
 
@@ -58,25 +57,25 @@ If you're not sure where to start, [install the CLI](/en/quickstart) and run it 
 
 ### Platforms
 
-- [CLI quickstart](/en/quickstart): install and run your first command in the terminal
-- [Desktop](/en/desktop): visual diff review, parallel sessions, computer use, and Dispatch
-- [VS Code](/en/vs-code): the Claude Code extension inside your editor
-- [JetBrains](/en/jetbrains): the extension for IntelliJ, PyCharm, and other JetBrains IDEs
-- [Claude Code on the web](/en/claude-code-on-the-web): cloud sessions that keep running when you disconnect
-- Mobile: the Claude app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) and [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) for starting and monitoring tasks while away from your computer
+* [CLI quickstart](/en/quickstart): install and run your first command in the terminal
+* [Desktop](/en/desktop): visual diff review, parallel sessions, computer use, and Dispatch
+* [VS Code](/en/vs-code): the Claude Code extension inside your editor
+* [JetBrains](/en/jetbrains): the extension for IntelliJ, PyCharm, and other JetBrains IDEs
+* [Claude Code on the web](/en/claude-code-on-the-web): cloud sessions that keep running when you disconnect
+* Mobile: the Claude app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) and [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) for starting and monitoring tasks while away from your computer
 
 ### Integrations
 
-- [Chrome](/en/chrome): automate browser tasks with your logged-in sessions
-- [Computer use](/en/computer-use): let Claude open apps and control your screen on macOS
-- [GitHub Actions](/en/github-actions): run Claude in your CI pipeline
-- [GitLab CI/CD](/en/gitlab-ci-cd): the same for GitLab
-- [Code Review](/en/code-review): automatic review on every pull request
-- [Slack](/en/slack): send tasks from team chat, get PRs back
+* [Chrome](/en/chrome): automate browser tasks with your logged-in sessions
+* [Computer use](/en/computer-use): let Claude open apps and control your screen on macOS
+* [GitHub Actions](/en/github-actions): run Claude in your CI pipeline
+* [GitLab CI/CD](/en/gitlab-ci-cd): the same for GitLab
+* [Code Review](/en/code-review): automatic review on every pull request
+* [Slack](/en/slack): send tasks from team chat, get PRs back
 
 ### Remote access
 
-- [Dispatch](/en/desktop#sessions-from-dispatch): message a task from your phone and it can spawn a Desktop session
-- [Remote Control](/en/remote-control): drive a running session from your phone or browser
-- [Channels](/en/channels): push events from chat apps or your own servers into a session
-- [Scheduled tasks](/en/scheduled-tasks): run prompts on a recurring schedule
+* [Dispatch](/en/desktop#sessions-from-dispatch): message a task from your phone and it can spawn a Desktop session
+* [Remote Control](/en/remote-control): drive a running session from your phone or browser
+* [Channels](/en/channels): push events from chat apps or your own servers into a session
+* [Scheduled tasks](/en/scheduled-tasks): run prompts on a recurring schedule

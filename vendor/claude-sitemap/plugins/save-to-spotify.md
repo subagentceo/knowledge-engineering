@@ -1,13 +1,13 @@
 # save-to-spotify
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Spotify
-
-- Installs
-
-  150
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Spotify
+    
+*   Installs
+    
+    243

@@ -11,9 +11,9 @@ If this is a limitation, we recommend you contact us on Slack.
 
 ### Generating org IDs and API keys
 
-You can generate valid org IDs and API keys using any tooling that produces cryptographically random values. The format requirements are:
+You can generate valid org ids and API keys using any tooling that produces cryptographically random values. The format requirements are:
 
-**Org ID**
+**Org id**
 - 24 character random string
 - Alphabet: `[a-z0-9]` (lowercase alphanumeric only)
 
@@ -40,7 +40,7 @@ authentication:
 
 ### Adding additional organizations
 
-To add more organizations, generate new org ID and API key pairs and add them to the configuration:
+To add more organizations, generate new org id and API key pairs and add them to the configuration:
 
 ```yaml
 authentication:
@@ -68,3 +68,12 @@ authentication:
 ### Applying configuration changes
 
 After updating the configuration, apply the changes using the [helm upgrade command](/docs/byoc/configuration).
+
+
+---
+
+This page: [/docs/byoc/operations.md](https://turbopuffer.com/docs/byoc/operations.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

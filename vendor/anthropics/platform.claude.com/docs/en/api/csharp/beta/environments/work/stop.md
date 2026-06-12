@@ -11,6 +11,7 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Parameters
 
 - `WorkStopParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -26,6 +27,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -78,7 +80,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -89,9 +93,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -104,9 +109,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -131,6 +137,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`

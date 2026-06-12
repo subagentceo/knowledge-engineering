@@ -1,13 +1,13 @@
 # bigdata-com
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  RavenPack
-
-- Installs
-
-  1030
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    RavenPack
+    
+*   Installs
+    
+    1199

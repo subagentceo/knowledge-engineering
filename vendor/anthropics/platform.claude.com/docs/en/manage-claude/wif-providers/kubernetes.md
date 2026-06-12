@@ -55,7 +55,7 @@ spec:
           value: 00000000-0000-0000-0000-000000000000
         - name: ANTHROPIC_SERVICE_ACCOUNT_ID
           value: svac_...
-        - name: ANTHROPIC_WORKSPACE_ID # required when the rule covers multiple workspaces
+        - name: ANTHROPIC_WORKSPACE_ID  # required when the rule covers multiple workspaces
           value: wrkspc_...
       volumeMounts:
         - name: anthropic-token
@@ -67,7 +67,9 @@ The token issued for this pod carries `sub: "system:serviceaccount:inference:inf
 
 ## Configure Anthropic
 
-Follow the [setup walkthrough](/docs/en/manage-claude/workload-identity-federation#set-up-federation) to register a federation issuer, create an Anthropic service account, and create a federation rule in the Claude Console. Use these Kubernetes-specific values.
+In the Claude Console, open **Settings → Workload identity**, click **Connect workload**, and select the **Kubernetes** tile. The wizard walks you through registering the issuer, creating a service account, and creating a federation rule.
+
+The wizard creates these resources for you. Use the following values whether you enter them in the wizard or send them to the [Admin API](/docs/en/manage-claude/wif-admin-api):
 
 **Federation issuer:** Many self-managed clusters use an issuer URL such as `https://kubernetes.default.svc.cluster.local` that is not reachable from the public internet. If that applies to your cluster, choose the **inline** JWKS source and paste the cluster's keys. Fetch them from inside the cluster:
 
@@ -81,12 +83,14 @@ Then configure the issuer with the contents of the returned `keys` array (not th
 {
   "name": "onprem-k8s",
   "issuer_url": "https://kubernetes.default.svc.cluster.local",
-  "jwks_source": "inline",
-  "jwks_keys": [{ "kty": "RSA", "kid": "...", "n": "...", "e": "AQAB" }]
+  "jwks": {
+    "type": "inline",
+    "keys": [{ "kty": "RSA", "kid": "...", "n": "...", "e": "AQAB" }]
+  }
 }
 ```
 
-In `inline` mode the `issuer_url` is only compared against the JWT's `iss` claim; Anthropic never attempts to reach it. If your issuer is publicly reachable, use `"jwks_source": "discovery"` instead and omit `jwks_keys`.
+In `inline` mode the `issuer_url` is only compared against the JWT's `iss` claim; Anthropic never attempts to reach it. If your issuer is publicly reachable, use `"jwks": {"type": "discovery"}` instead.
 
 <Warning>
 With `inline` keys you are responsible for updating the issuer when the cluster rotates its service account signing key. Rotation is rare (typically only during cluster upgrades), but token exchanges fail with a signature error until you push the new JWKS.
@@ -175,7 +179,7 @@ const client = new Anthropic();
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }],
+  messages: [{ role: "user", content: "Hello, Claude" }]
 });
 for (const block of message.content) {
   if (block.type === "text") {

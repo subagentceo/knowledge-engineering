@@ -21,7 +21,7 @@ WorkOS makes use of Cloudflare to ensure security and reliability of all operati
   > Only enterprise connections in your Production environment will be charged. OAuth connections in Production will be free.
 - \[ ] Set your Production Client’s ID and API Key as environment variables
 - \[ ] Secure your Production Project’s API key
-- \[ ] Configure production redirect URI(s) in your Product Project. Verify the default redirect URI is correct
+- \[ ] Configure production redirect URI(s) for your application. Verify the default redirect URI is correct
 - \[ ] Ensure that your application can receive redirects from WorkOS.
   Depending on your network architecture, you may need to allowlist incoming redirect traffic from `api.workos.com`.
 - \[ ] Add Connections for your customers in the Production Environment

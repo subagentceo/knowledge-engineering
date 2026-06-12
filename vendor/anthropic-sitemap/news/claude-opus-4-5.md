@@ -27,147 +27,147 @@ Many of our customers with early access have had similar experiences. Here are s
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/094b76abf3e64453c224e12ae388b8008b02660e-150x48.svg)
 
 > **Opus models have always been “the real SOTA”** but have been cost prohibitive in the past. Claude Opus 4.5 is now at a price point where it can be your go-to model for most tasks. It’s the clear winner and exhibits the best frontier task planning and tool calling we’ve seen yet.
->
+> 
 > Jeff Wang  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7715b118c5eb0ff2a85f1f7914bce8c634ecacbd-150x48.svg)
 
 > Claude Opus 4.5 delivers high-quality code and excels at powering heavy-duty agentic workflows with GitHub Copilot. Early testing shows it **surpasses internal coding benchmarks while cutting token usage in half**, and is especially well-suited for tasks like code migration and code refactoring.
->
+> 
 > Mario Rodriguez  
 > Chief Product Officer
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/431e098a503851789fa4508b88a0418853f513eb-150x48.svg)
 
 > Claude Opus 4.5 beats Sonnet 4.5 and competition on our internal benchmarks, **using fewer tokens to solve the same problems**. At scale, that efficiency compounds.
->
+> 
 > Michele Catasta  
 > President
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/21b57e300c357bc179137aa4a1585916fffb7680-911x155.svg)
 
 > **Claude Opus 4.5 delivers frontier reasoning within Lovable's chat mode**, where users plan and iterate on projects. Its reasoning depth transforms planning—and great planning makes code generation even better.
->
+> 
 > Fabian Hedin  
 > CTO & Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/14c3ac690679578d7361cf67c93f11782531d602-150x48.svg)
 
 > **Claude Opus 4.5 excels at long-horizon, autonomous tasks**, especially those that require sustained reasoning and multi-step execution. In our evaluations it handled complex workflows with fewer dead-ends. On Terminal Bench it delivered a 15% improvement over Sonnet 4.5, a meaningful gain that becomes especially clear when using Warp’s Planning Mode.
->
+> 
 > Zach Lloyd  
 > Founder & CEO
 
 ![ logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9fec2f71d418d084eaa52aa27559560f490fa5cf-480x480.png&w=256&q=75)
 
 > **Claude Opus 4.5 achieved state-of-the-art results for complex enterprise tasks** on our benchmarks, outperforming previous models on multi-step reasoning tasks that combine information retrieval, tool use, and deep analysis.
->
+> 
 > Kay Zhu  
 > CTO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e418ccebe0a1d6fd13f21094852b080a0c93ae5-150x48.svg)
 
 > **Claude Opus 4.5 delivers measurable gains where it matters most**: stronger results on our hardest evaluations and consistent performance through 30-minute autonomous coding sessions.
->
+> 
 > Scott Wu  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/72c2fc0ba500f30eb18f4caf85952bdd33197a47-150x48.svg)
 
 > **Claude Opus 4.5 represents a breakthrough in self-improving AI agents**. For automation of office tasks, our agents were able to autonomously refine their own capabilities—achieving peak performance in 4 iterations while other models couldn’t match that quality after 10. They also demonstrated the ability to learn from experience across technical tasks, storing insights and applying them later.
->
+> 
 > Yusuke Kaji  
 > General Manager of AI for Business
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/464cf83cd04ad624fee1730a71914b18e89cdf9b-150x48.svg)
 
 > **Claude Opus 4.5 is a notable improvement over the prior Claude models inside Cursor**, with improved pricing and intelligence on difficult coding tasks.
->
+> 
 > Michael Truell  
 > CEO & Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ccd739ba05214ec1c94499b138a8247a512990fa-480x128.svg)
 
 > **Claude Opus 4.5 is yet another example of Anthropic pushing the frontier of general intelligence**. It performs exceedingly well across difficult coding tasks, showcasing long-term goal-directed behavior.
->
+> 
 > Eno Reyes  
 > CTO & Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/02dced142fb26d4a3441cad79f997a1fd6c9a8b0-150x48.svg)
 
 > Claude Opus 4.5 delivered an impressive refactor spanning two codebases and three coordinated agents. It was very thorough, helping develop a robust plan, handling the details and fixing tests. **A clear step forward from Sonnet 4.5**.
->
+> 
 > Paulo Arruda  
 > Staff Engineer, AI Productivity
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/b0b6b40b55f3aa73e8a32ce81f9bb927134fd3da-150x48.svg)
 
 > **Claude Opus 4.5 handles long-horizon coding tasks more efficiently than any model we’ve tested**. It achieves higher pass rates on held-out tests while using up to 65% fewer tokens, giving developers real cost control without sacrificing quality.
->
+> 
 > Sean Ward  
 > CEO & Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0b54c24c80d4e0a39eaac122245d41950ac1a3a7-116x40.svg)
 
 > **We’ve found that Opus 4.5 excels at interpreting what users actually want, producing shareable content on the first try**. Combined with its speed, token efficiency, and surprisingly low cost, it’s the first time we’re making Opus available in Notion Agent.
->
+> 
 > Sarah Sachs  
 > AI Lead Engineer
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/13fff4712ea2c67fcdb2358c9b8d47538ec9a7c0-114x35.svg)
 
 > **Claude Opus 4.5 excels at long-context storytelling**, generating 10-15 page chapters with strong organization and consistency. It's unlocked use cases we couldn't reliably deliver before.
->
+> 
 > Djay Lee  
 > CPO & Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/f56dd39922154e7aa40769f162715c3d79109ffe-222x64.svg)
 
 > **Claude Opus 4.5 sets a new standard for Excel automation and financial modeling**. Accuracy on our internal evals improved 20%, efficiency rose 15%, and complex tasks that once seemed out of reach became achievable.
->
+> 
 > Nico Christie  
 > Co-founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/3c226702a9a4cd6bf028a3c9f5b98ca3331ee579-112x24.svg)
 
 > **Claude Opus 4.5 is the only model that nails some of our hardest 3D visualizations**. Polished design, tasteful UX, and excellent planning & orchestration - all with more efficient token usage. Tasks that took previous models 2 hours now take thirty minutes.
->
+> 
 > Madhav Jha  
 > CTO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/dc8e3b29b23d0bf06698ea830b56cf17790ee56d-2152x314.svg)
 
 > **Claude Opus 4.5 catches more issues in code reviews without sacrificing precision**. For production code review at scale, that reliability matters.
->
+> 
 > David Loker  
 > Director of AI
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/0771e57a89ed3fd31f33b80fb9336d5324a9dc72-298x64.svg)
 
 > Based on testing with Junie, our coding agent, **Claude Opus 4.5 outperforms Sonnet 4.5 across all benchmarks**. It requires fewer steps to solve tasks and uses fewer tokens as a result. This indicates that the new model is more precise and follows instructions more effectively — a direction we’re very excited about.
->
+> 
 > Andrew Zakonov  
 > VP of Business, Junie & Kineto
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7245ddfbb56c3f08bc8f1dcfd864255ec442c729-150x48.svg)
 
 > The effort parameter is brilliant. **Claude Opus 4.5 feels dynamic rather than overthinking**, and at lower effort delivers the same quality we need while being dramatically more efficient. That control is exactly what our SQL workflows demand.
->
+> 
 > AJ Orbach  
 > CEO & Co-founder
 
 ![ logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcdc58becbf5e34e34603b446d63bf2135d1b5d9b-1920x286.png&w=256&q=75)
 
 > **We’re seeing 50% to 75% reductions in both tool calling errors and build/lint errors with Claude Opus 4.5**. It consistently finishes complex tasks in fewer iterations with more reliable execution.
->
+> 
 > Nicholas Charriere  
 > Founder & CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bfa46c016877370b73f25410b92ebb5c6314388d-222x64.svg)
 
 > Claude Opus 4.5 is smooth, with none of the rough edges we've seen from other frontier models. The **speed improvements are remarkable.**
->
+> 
 > Quinn Slack  
 > CEO
 
@@ -257,7 +257,7 @@ With effort control, context compaction, and advanced tool use, Claude Opus 4.5 
 
 Our context management and memory capabilities can dramatically boost performance on agentic tasks. Opus 4.5 is also very effective at managing a team of subagents, enabling the construction of complex, well-coordinated multi-agent systems. In our testing, the combination of all these techniques boosted Opus 4.5’s performance on a deep research evaluation by almost 15 percentage points4.
 
-We’re making our Developer Platform more composable over time. We want to give you the building blocks to construct exactly what you need, with full control over efficiency, tool use, and context management.
+We’re making our Developer Platform more composable over time. We want to give you the building blocks to construct exactly what you need, with full control over efficiency, tool use, and context management.  
 
 ## Product updates
 
@@ -277,7 +277,7 @@ For Claude and Claude Code users with access to Opus 4.5, we’ve removed Opus-s
 
 3. Note that these evaluations were run on an in-progress upgrade to Petri, our open-source, automated evaluation tool. They were run on an earlier snapshot of Claude Opus 4.5. Evaluations of the final production model show a very similar pattern of results when compared to other Claude models, and are described in detail in the Claude Opus 4.5 system card.
 
-4. A fetch-enabled version of BrowseComp-Plus. Specifically, the improvement was from 70.48% without using the combination of techniques to 85.30% using it.
+4. A fetch-enabled version of BrowseComp-Plus. Specifically, the improvement was from 70.48% without using the combination of techniques to 85.30% using it.  
 
 **Methodology**
 
@@ -285,18 +285,18 @@ All evals were run with a 64K thinking budget, interleaved scratchpads, 200K con
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -11,6 +11,7 @@ Updates are applied to all instances in a DB cluster at the same time. An update
 
 **Topics**
 + [Release calendars for Amazon Aurora MySQL](AuroraMySQL.release-calendars.md)
++ [Database engine updates for Amazon Aurora MySQL version 8.4](AuroraMySQL.Updates.84Updates.md)
 + [Database engine updates for Amazon Aurora MySQL version 3](AuroraMySQL.Updates.30Updates.md)
 + [Database engine updates for Amazon Aurora MySQL version 2](AuroraMySQL.Updates.20Updates.md)
 + [Database engine updates for Amazon Aurora MySQL version 1 (Deprecated)](AuroraMySQL.Updates.11Updates.md)

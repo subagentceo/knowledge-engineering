@@ -187,20 +187,16 @@ America and its allies have developed both the world’s most capable frontier A
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
 
 Read more

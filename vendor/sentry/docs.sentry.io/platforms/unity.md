@@ -53,7 +53,7 @@ Install the package via the [Unity Package Manager using a Git URL](https://docs
 https://github.com/getsentry/unity.git
 ```
 
-To use a specific version of the SDK, append `#4.3.1` to the URL.
+To use a specific version of the SDK, append `#4.4.0` to the URL.
 
 ## [Configure](https://docs.sentry.io/platforms/unity.md#configure)
 
@@ -61,7 +61,7 @@ Installing the SDK will add an entry to Unity's top menu: `Tools` > `Sentry`. Wh
 
 ```json
 {
-  "public-dsn": "___PUBLIC_DSN___"
+  "public-dsn": "https://<key>@o<orgId>.ingest.sentry.io/<projectId>"
 }
 ```
 

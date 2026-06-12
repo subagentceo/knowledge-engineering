@@ -13,12 +13,15 @@ Get File Metadata
   ID of the File.
 
 - `query BetaFileGetMetadataParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -71,11 +74,14 @@ Get File Metadata
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type FileMetadata struct{…}`
+
   - `ID string`
 
     Unique object identifier.
@@ -103,6 +109,7 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
+
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -112,6 +119,7 @@ Get File Metadata
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
+
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -119,6 +127,7 @@ Get File Metadata
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
+
       - `const SessionSession Session = "session"`
 
 ### Example

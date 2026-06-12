@@ -80,13 +80,13 @@ We're excited for you to explore these new capabilities and to see what you’ll
 
 ### Eval data sources
 
-- Grok
-- Gemini 2 Pro
-- o1 and o3-mini
-- Supplementary o1
-- o1 TAU-bench
-- Supplementary o3-mini
-- Deepseek R1
+*   Grok
+*   Gemini 2 Pro
+*   o1 and o3-mini
+*   Supplementary o1
+*   o1 TAU-bench
+*   Supplementary o3-mini
+*   Deepseek R1
 
 ### TAU-bench
 
@@ -106,38 +106,38 @@ For Claude 3.7 Sonnet and Claude 3.5 Sonnet (new), we use a much simpler approac
 
 For our “high compute” number we adopt additional complexity and parallel test-time compute as follows:
 
-- We sample multiple parallel attempts with the scaffold above
-- We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by Agentless; note no hidden test information is used.
-- We then rank the remaining attempts with a scoring model similar to our results on GPQA and AIME described in our research post and choose the best one for the submission.
+*   We sample multiple parallel attempts with the scaffold above
+*   We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by Agentless; note no hidden test information is used.
+*   We then rank the remaining attempts with a scoring model similar to our results on GPQA and AIME described in our research post and choose the best one for the submission.
 
 This results in a score of 70.3% on the subset of n=489 verified tasks which work on our infrastructure. Without this scaffold, Claude 3.7 Sonnet achieves 63.7% on SWE-bench Verified using this same subset. The excluded 11 test cases that were incompatible with our internal infrastructure are:
 
-- scikit-learn\_\_scikit-learn-14710
-- django\_\_django-10097
-- psf\_\_requests-2317
-- sphinx-doc\_\_sphinx-10435
-- sphinx-doc\_\_sphinx-7985
-- sphinx-doc\_\_sphinx-8475
-- matplotlib\_\_matplotlib-20488
-- astropy\_\_astropy-8707
-- astropy\_\_astropy-8872
-- sphinx-doc\_\_sphinx-8595
-- sphinx-doc\_\_sphinx-9711
+*   scikit-learn__scikit-learn-14710
+*   django__django-10097
+*   psf__requests-2317
+*   sphinx-doc__sphinx-10435
+*   sphinx-doc__sphinx-7985
+*   sphinx-doc__sphinx-8475
+*   matplotlib__matplotlib-20488
+*   astropy__astropy-8707
+*   astropy__astropy-8872
+*   sphinx-doc__sphinx-8595
+*   sphinx-doc__sphinx-9711
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -12,7 +12,7 @@ Create Credential
 
   Path param: Path parameter vault_id
 
-- `--auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams`
+- `--auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
 
   Body param: Authentication details for creating a credential.
 
@@ -33,6 +33,7 @@ Create Credential
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -41,17 +42,20 @@ Create Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -61,6 +65,7 @@ Create Credential
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -72,22 +77,29 @@ Create Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -101,12 +113,50 @@ Create Credential
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `beta_managed_agents_environment_variable_auth_response: object { networking, secret_name, type }`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `beta_managed_agents_unrestricted_credential_networking_response: object { type }`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `beta_managed_agents_limited_credential_networking_response: object { allowed_hosts, type }`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -117,6 +167,7 @@ Create Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`

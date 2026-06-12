@@ -44,6 +44,7 @@ Store, transform, optimize, and deliver images at scale
 
 ## optimization
 
+- [Optimize with Workers](https://developers.cloudflare.com/images/optimization/binding/index.md): Use the Images binding to optimize, resize, and manipulate images directly in a Worker from any source.
 - [Features](https://developers.cloudflare.com/images/optimization/features/index.md): Available Cloudflare Images optimization parameters for resizing, cropping, format conversion, and visual effects.
 - [Apply blur](https://developers.cloudflare.com/images/optimization/hosted-images/blur-variants/index.md): Add a blur effect to Cloudflare Images variants using the dashboard or flexible variants API.
 - [Browser TTL](https://developers.cloudflare.com/images/optimization/hosted-images/browser-ttl/index.md): Configure cache-control settings for Cloudflare Images at the account or variant level.
@@ -53,16 +54,16 @@ Store, transform, optimize, and deliver images at scale
 - [Serve images from custom domains](https://developers.cloudflare.com/images/optimization/hosted-images/serve-from-custom-domains/index.md): Deliver Cloudflare Images through your own custom domain using the cdn-cgi image delivery path.
 - [Serve private images](https://developers.cloudflare.com/images/optimization/hosted-images/serve-private-images/index.md): Restrict access to Cloudflare Images by generating signed URL tokens with expiration times.
 - [Serve uploaded images](https://developers.cloudflare.com/images/optimization/hosted-images/serve-uploaded-images/index.md): Construct delivery URLs to serve images uploaded to Cloudflare Images using your account hash, image ID, and variant name.
-- [Make responsive images](https://developers.cloudflare.com/images/optimization/make-responsive-images/index.md): Learn how to serve responsive images using HTML srcset and width=auto for optimal display on various devices. Ideal for high-DPI and fluid layouts.
-- [Bind to Workers API](https://developers.cloudflare.com/images/optimization/transformations/bindings/index.md): Bind the Cloudflare Images API to a Worker to transform images without requiring a public URL.
+- [Make responsive images](https://developers.cloudflare.com/images/optimization/make-responsive-images/index.md): Automatically resize images for optimal display on every device.
 - [Control origin access](https://developers.cloudflare.com/images/optimization/transformations/control-origin-access/index.md): Hide original image sources and restrict access using Cloudflare Workers with image transformations.
 - [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/transformations/draw-overlays/index.md): Add watermarks, logos, and overlay images on top of transformed images using Cloudflare Workers.
+- [Create transformation flows](https://developers.cloudflare.com/images/optimization/transformations/flows/index.md)
 - [Integrate with frameworks](https://developers.cloudflare.com/images/optimization/transformations/integrate-with-frameworks/index.md): Use Cloudflare Images transformations with Next.js and Nuxt image components.
 - [Overview](https://developers.cloudflare.com/images/optimization/transformations/overview/index.md): Cloudflare Images transformations optimize and cache remote images from any origin at the edge.
 - [Preserve Content Credentials](https://developers.cloudflare.com/images/optimization/transformations/preserve-content-credentials/index.md): Retain C2PA metadata and provenance data when transforming remote images with Cloudflare Images.
 - [Set up rewrite rules](https://developers.cloudflare.com/images/optimization/transformations/rewrite-rules/index.md): Use Transform Rules to rewrite URLs for Cloudflare Images transformations and serve images from custom paths.
 - [Define source origins](https://developers.cloudflare.com/images/optimization/transformations/sources/index.md): Manage which origins Cloudflare Images can use as the source for image transformations.
-- [Transform via Workers](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/index.md): Use Cloudflare Workers to programmatically resize, format, and optimize images with custom URL schemes.
+- [Transform via fetch](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/index.md): Use cf.image options on a fetch() subrequest in a Worker to programmatically resize, format, and optimize remote images.
 
 ## platform
 
@@ -75,6 +76,7 @@ Store, transform, optimize, and deliver images at scale
 
 ## storage
 
+- [Manage hosted images with Workers](https://developers.cloudflare.com/images/storage/binding/index.md): Use the Images binding to upload, list, retrieve, update, and delete hosted images from a Worker.
 - [Delete images](https://developers.cloudflare.com/images/storage/manage-images/delete-images/index.md): Remove images from Cloudflare Images storage using the dashboard or API.
 - [Edit images](https://developers.cloudflare.com/images/storage/manage-images/edit-images/index.md): Modify image settings in Cloudflare Images, including signed URL requirements and variant URLs.
 - [Export images](https://developers.cloudflare.com/images/storage/manage-images/export-images/index.md): Download the original version of images stored in Cloudflare Images via the dashboard or API.

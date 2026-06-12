@@ -23,9 +23,11 @@ List Session Resources
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -78,14 +80,18 @@ List Session Resources
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of BetaManagedAgentsSessionResource`
 
   Resources for the session, ordered by `created_at`.
+
   - `BetaManagedAgentsGitHubRepositoryResource object { id, created_at, mount_path, 4 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -95,6 +101,7 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -104,23 +111,29 @@ List Session Resources
     - `url: string`
 
     - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
       - `BetaManagedAgentsBranchCheckout object { name, type }`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout object { sha, type }`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource object { id, created_at, file_id, 3 more }`
+
     - `id: string`
 
     - `created_at: string`
@@ -132,6 +145,7 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -141,16 +155,19 @@ List Session Resources
   - `BetaManagedAgentsMemoryStoreResource object { memory_store_id, type, access, 4 more }`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access: optional "read_write" or "read_only"`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`

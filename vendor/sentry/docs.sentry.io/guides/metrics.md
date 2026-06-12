@@ -31,6 +31,8 @@ Sentry.metrics.count("checkout.failed", 1, {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 ## [Where to Track Metrics](https://docs.sentry.io/guides/metrics.md#where-to-track-metrics)
 
 Start with these five metrics and you'll spot issues before they become problems.
@@ -48,6 +50,8 @@ Sentry.metrics.count("checkout.failed", 1, {
   attributes: { user_tier: "premium", failure_reason: "payment_declined" },
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Explore in Sentry:**
 
@@ -74,6 +78,8 @@ Sentry.metrics.count("job.processed", 1, {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Metrics](https://sentry.io/orgredirect/organizations/:orgslug/explore/metrics/):** Add both `email.sent` and `email.failed`, group by `email_type`, compare the ratio.
 
 ### [3. Resource Utilization](https://docs.sentry.io/guides/metrics.md#3-resource-utilization)
@@ -89,6 +95,8 @@ Sentry.metrics.gauge("pool.connections_active", pool.activeConnections, {
   attributes: { pool_name: "postgres-primary" },
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Query in [Explore > Metrics](https://sentry.io/orgredirect/organizations/:orgslug/explore/metrics/):** View `max(queue.depth)` over time to spot backlogs.
 
@@ -108,6 +116,8 @@ Sentry.metrics.distribution("db.query_time", queryDurationMs, {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Metrics](https://sentry.io/orgredirect/organizations/:orgslug/explore/metrics/):** View `p95(api.latency)` grouped by `endpoint` to find slow routes.
 
 ### [5. Business Values](https://docs.sentry.io/guides/metrics.md#5-business-values)
@@ -125,6 +135,8 @@ Sentry.metrics.distribution("upload.size", fileSizeBytes, {
   attributes: { file_type: "image", source: "profile-update" },
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Query in [Explore > Metrics](https://sentry.io/orgredirect/organizations/:orgslug/explore/metrics/):** View `avg(order.amount)` grouped by `region` to compare regional performance.
 

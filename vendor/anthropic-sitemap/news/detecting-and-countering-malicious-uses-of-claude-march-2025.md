@@ -12,19 +12,19 @@ We are committed to preventing misuse of our Claude models by adversarial actors
 
 This report outlines several case studies on how actors have misused our models, as well as the steps we have taken to detect and counter such misuse. By sharing these insights, we hope to protect the safety of our users, prevent abuse or misuse of our services, enforce our Usage Policy and other terms, and share our learnings for the benefit of the wider online ecosystem. The case studies presented in this report, while specific, are representative of broader patterns we're observing across our monitoring systems. These examples were selected because they clearly illustrate emerging trends in how malicious actors are adapting to and leveraging frontier AI models. We hope to contribute to a broader understanding of the evolving threat landscape and help the wider AI ecosystem develop more robust safeguards.
 
-The most novel case of misuse detected was a professional 'influence-as-a-service' operation showcasing a distinct evolution in how certain actors are leveraging LLMs for influence operation campaigns. What is especially novel is that this operation used Claude not just for content generation, but also to decide when social media bot accounts would comment, like, or re-share posts from authentic social media users. As described in the full report, Claude was used as an orchestrator deciding what actions social media bot accounts should take based on politically motivated personas. **Read the full report here**.
+The most novel case of misuse detected was a professional 'influence-as-a-service' operation showcasing a distinct evolution in how certain actors are leveraging LLMs for influence operation campaigns. What is especially novel is that this operation used Claude not just for content generation, but also to decide when social media bot accounts would comment, like, or re-share posts from authentic social media users. As described in the full report, Claude was used as an orchestrator deciding what actions social media bot accounts should take based on politically motivated personas. **Read the full report here**.  
 
 We have also observed cases of credential stuffing operations, recruitment fraud campaigns, and a novice actor using AI to enhance their technical capabilities for malware generation beyond their skill level, among other activities not mentioned in this blog. The impact of these activities varies:
 
-- An influence-as-a-service operation utilized Claude to automate operations and engaged with 10s of thousands of authentic social media accounts across multiple countries and languages.
-- An actor leveraged Claude to enhance systems for identifying and processing exposed usernames and passwords associated with security cameras, while simultaneously collecting information on internet-facing targets to test these credentials against. We have not confirmed successful deployment of these efforts.
-- A recruitment fraud campaign leveraged Claude to enhance the content of scams targeting job seekers in Eastern European countries. We have not confirmed successful deployment of these efforts.
-- An individual actor with limited technical skills developed malware that would typically require more advanced expertise. We have not confirmed successful deployment of these efforts.
+*   An influence-as-a-service operation utilized Claude to automate operations and engaged with 10s of thousands of authentic social media accounts across multiple countries and languages.
+*   An actor leveraged Claude to enhance systems for identifying and processing exposed usernames and passwords associated with security cameras, while simultaneously collecting information on internet-facing targets to test these credentials against. We have not confirmed successful deployment of these efforts.
+*   A recruitment fraud campaign leveraged Claude to enhance the content of scams targeting job seekers in Eastern European countries. We have not confirmed successful deployment of these efforts.
+*   An individual actor with limited technical skills developed malware that would typically require more advanced expertise. We have not confirmed successful deployment of these efforts.
 
 **Our key learnings include:**
 
-- Users are starting to use frontier models to semi-autonomously orchestrate complex abuse systems that involve many social media bots. As agentic AI systems improve we expect this trend to continue.
-- Generative AI can accelerate capability development for less sophisticated actors, potentially allowing them to operate at a level previously only achievable by more technically proficient individuals.
+*   Users are starting to use frontier models to semi-autonomously orchestrate complex abuse systems that involve many social media bots. As agentic AI systems improve we expect this trend to continue.
+*   Generative AI can accelerate capability development for less sophisticated actors, potentially allowing them to operate at a level previously only achievable by more technically proficient individuals.
 
 Our intelligence program is meant to be a safety net by both finding harms not caught by our standard scaled detection and to add context in how bad actors are using our models maliciously. In investigating these cases, our team applied techniques described in our recently published research papers, including Clio and hierarchical summarization. These approaches allowed us to efficiently analyze large volumes of conversation data to identify patterns of misuse. These techniques, coupled with classifiers (which analyze user inputs for potentially harmful requests and evaluate Claude's responses before or after delivery) allowed us to detect, investigate, and ban the accounts associated with these cases.
 
@@ -38,10 +38,10 @@ We identified and banned an actor using Claude for a financially-motivated "infl
 
 **Tactics and Techniques**: The operation used Claude for multiple purposes:
 
-- Creating and maintaining consistent personas across platforms with specific political alignments
-- Determining when personas should like, share, comment on, or ignore specific content
-- Generating politically-aligned responses in appropriate languages
-- Creating prompts for image-generation tools and evaluating their outputs
+*   Creating and maintaining consistent personas across platforms with specific political alignments
+*   Determining when personas should like, share, comment on, or ignore specific content
+*   Generating politically-aligned responses in appropriate languages
+*   Creating prompts for image-generation tools and evaluating their outputs
 
 The actor maintained distinct narrative portfolios for different clients, all outside of the United States with varied political narratives they were aimed at pushing
 
@@ -55,10 +55,10 @@ We identified and banned a sophisticated actor using our models in an attempt to
 
 **Tactics and Techniques:** The actor primarily used Claude to enhance their technical capabilities:
 
-- Rewriting their open source scraping toolkit for easier maintenance
-- Creating scripts to scrape target URLs from websites
-- Developing systems to process posts from stealer log telegram communities
-- Improving UI and backend systems to enhance search features
+*   Rewriting their open source scraping toolkit for easier maintenance
+*   Creating scripts to scrape target URLs from websites
+*   Developing systems to process posts from stealer log telegram communities
+*   Improving UI and backend systems to enhance search features
 
 Some of these techniques are dual use. In fact, a benign actor may use them for legitimate purposes, however it’s important to look at the full context of activity which in this case was to enable unauthorized access to devices.
 
@@ -72,10 +72,10 @@ We identified and banned an actor conducting recruitment fraud targeting job see
 
 **Tactics and Techniques:** The actor used Claude primarily to enhance their fraudulent communications:
 
-- Requesting language refinement to improve the professionalism of their communications
-- Developing more convincing recruitment narratives
-- Creating interview questions and scenarios
-- Formatting messages to appear more legitimate
+*   Requesting language refinement to improve the professionalism of their communications
+*   Developing more convincing recruitment narratives
+*   Creating interview questions and scenarios
+*   Formatting messages to appear more legitimate
 
 In one notable pattern, the operators would submit poorly written text in non-native English and ask Claude to adjust the text as if written by a native english speaker - effectively laundering their communications to appear more polished. This real-time language sanitization improves the perceived legitimacy of their communications.
 
@@ -89,8 +89,8 @@ We identified and banned a novice actor leveraging Claude to improve their techn
 
 **Technical Evolution:** We observed this actor evolve from simple scripts to sophisticated systems with the aid of Claude.
 
-- Their open source toolkit evolved from basic functionality (likely obtained off-the-shelf) to an advanced suite that included facial recognition and dark web scanning.
-- Their malware builder evolved from a simple batch script generator to a comprehensive graphical user interface for generating undetectable malicious payloads, with particular emphasis on evading security controls and maintaining persistent access to compromised systems.
+*   Their open source toolkit evolved from basic functionality (likely obtained off-the-shelf) to an advanced suite that included facial recognition and dark web scanning.
+*   Their malware builder evolved from a simple batch script generator to a comprehensive graphical user interface for generating undetectable malicious payloads, with particular emphasis on evading security controls and maintaining persistent access to compromised systems.
 
 **Impact:** This case illustrates how AI can potentially flatten the learning curve for malicious actors, allowing individuals with limited technical knowledge to develop sophisticated tools and potentially accelerate their progression from low-level activities to more serious cybercriminal endeavors. We have not confirmed real world deployment of this malware.
 
@@ -104,18 +104,18 @@ We hope this report provides insights our industry, governments, and the wider r
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

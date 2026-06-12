@@ -14,7 +14,7 @@ Our cyber safeguards currently block two categories of activities:
 
 ## Cyber Verification Program
 
-Many cybersecurity practitioners do legitimate work that overlaps with the dual use category above. The Cyber Verification Program (CVP) is a free application-based program that is designed to enable professionals to continue working on legitimate dual use tasks safely while minimizing interruption.
+Many cybersecurity practitioners do legitimate work that overlaps with the dual use category above. The Cyber Verification Program (CVP) is a free application-based program for Opus models that is designed to enable professionals to continue working on legitimate dual use tasks safely while minimizing interruption.
 
 If your use case has a legitimate defensive purpose and is being affected by these safeguards, we encourage you to apply for the CVP. See **How to apply** below for the right path based on how you access Claude.
 
@@ -24,14 +24,14 @@ Organizations on Zero Data Retention (ZDR) are not currently eligible to partici
 
 How you apply depends on how you access Claude. Once you submit your application, we aim to send an email notification with our review decision within 2 business days.
 
-| **How you access Claude**                                                | **How to apply**                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API)    | Find your Organization ID under **Settings > Account** or **Settings > Organization**, then fill out the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**.<br>**Note:** Applications must be submitted by an authorized admin of your organization.                                       |
-| **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time.                                                                                                |
-| **Microsoft Foundry**                                                    | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (See instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose ‘Azure’ under the ‘Surface’ field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
-| **Amazon Bedrock**                                                       | The Cyber Verification Program is not available on Bedrock at this time.                                                                                                                                                                                                                                   |
-| **Google Vertex AI**                                                     | The Cyber Verification Program is not available on Vertex at this time.                                                                                                                                                                                                                                    |
-| **Bring your own key (BYOK) Customers**                                  | Follow instructions under **Anthropic first-party**                                                                                                                                                                                                                                                        |
+| **How you access Claude** | **How to apply** |
+| --- | --- |
+| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Find your Organization ID under **Settings > Account** or **Settings > Organization**, then fill out the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**.<br>**Note:** Applications must be submitted by an authorized admin of your organization. |
+| **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
+| **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (See instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose ‘Azure’ under the ‘Surface’ field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
+| **Amazon Bedrock** | The Cyber Verification Program is not available on Bedrock at this time. |
+| **Google Vertex AI** | The Cyber Verification Program is not available on Vertex at this time. |
+| **Bring your own key (BYOK) Customers** | Follow instructions under **Anthropic first-party** |
 
 [Cyber Use Case Form](https://claude.com/form/cyber-use-case)
 

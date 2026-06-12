@@ -14,7 +14,7 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 
 A **memory store** is a workspace-scoped collection of text documents optimized for Claude. When you attach a store to a session, it is mounted as a directory inside the session's sandbox. The agent reads and writes it with the same file tools it uses for the rest of the filesystem, and a note describing each mount is automatically added to the system prompt, telling the agent where to look. The [agent toolset](/docs/en/managed-agents/tools) is required for these interactions; make sure to enable it during [agent creation](/docs/en/managed-agents/agent-setup).
 
-Each **memory** in a store is addressed by a path and can be read and edited directly via the API or Console, allowing for tuning, importing, and exporting.
+Each **memory** in a store is addressed by a path and can be read and edited directly through the API or Console, allowing for tuning, importing, and exporting.
 
 Every change to a memory creates an immutable **memory version**, giving you an audit trail and point-in-time recovery for everything the agent writes.
 
@@ -35,39 +35,44 @@ store_id=$(jq -r '.id' <<< "$store")
 echo "$store_id"  # memstore_01Hx...
 ````
 
-```bash
+  
+````bash
 store_id=$(ant beta:memory-stores create \
   --name "User Preferences" \
   --description "Per-user preferences and project context." \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 store = client.beta.memory_stores.create(
     name="User Preferences",
     description="Per-user preferences and project context.",
 )
 print(store.id)  # memstore_01Hx...
-```
+````
 
-```typescript
+  
+````typescript
 const store = await client.beta.memoryStores.create({
   name: "User Preferences",
-  description: "Per-user preferences and project context.",
+  description: "Per-user preferences and project context."
 });
 console.log(store.id); // memstore_01Hx...
-```
+````
 
-```csharp
+  
+````csharp
 var store = await client.Beta.MemoryStores.Create(new()
 {
     Name = "User Preferences",
     Description = "Per-user preferences and project context.",
 });
 Console.WriteLine(store.ID);  // memstore_01Hx...
-```
+````
 
-```go
+  
+````go
 store, err := client.Beta.MemoryStores.New(ctx, anthropic.BetaMemoryStoreNewParams{
 	Name:        "User Preferences",
 	Description: anthropic.String("Per-user preferences and project context."),
@@ -76,9 +81,10 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(store.ID) // memstore_01Hx...
-```
+````
 
-```java
+  
+````java
 var store = client.beta().memoryStores().create(
     MemoryStoreCreateParams.builder()
         .name("User Preferences")
@@ -86,9 +92,10 @@ var store = client.beta().memoryStores().create(
         .build()
 );
 IO.println(store.id());  // memstore_01Hx...
-```
+````
 
-```php
+  
+````php
 use Anthropic\Client;
 
 $client = new Client();
@@ -98,9 +105,10 @@ $store = $client->beta->memoryStores->create(
     description: 'Per-user preferences and project context.',
 );
 echo "{$store->id}\n"; // memstore_01Hx...
-```
+````
 
-```ruby
+  
+````ruby
 require "anthropic"
 
 client = Anthropic::Client.new
@@ -110,7 +118,7 @@ store = client.beta.memory_stores.create(
   description: "Per-user preferences and project context."
 )
 puts store.id # memstore_01Hx...
-```
+````
 
 </CodeGroup>
 
@@ -131,38 +139,43 @@ curl -s "https://api.anthropic.com/v1/memory_stores/$store_id/memories" \
   -d '{"path": "/formatting_standards.md", "content": "All reports use GAAP formatting. Dates are ISO-8601..."}' > /dev/null
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories create \
   --memory-store-id "$store_id" \
   --path "/formatting_standards.md" \
   --content "All reports use GAAP formatting. Dates are ISO-8601..." \
   > /dev/null
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.memories.create(
     store.id,
     path="/formatting_standards.md",
     content="All reports use GAAP formatting. Dates are ISO-8601...",
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.memories.create(store.id, {
   path: "/formatting_standards.md",
-  content: "All reports use GAAP formatting. Dates are ISO-8601...",
+  content: "All reports use GAAP formatting. Dates are ISO-8601..."
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.Memories.Create(store.ID, new()
 {
     Path = "/formatting_standards.md",
     Content = "All reports use GAAP formatting. Dates are ISO-8601...",
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.Memories.New(ctx, store.ID, anthropic.BetaMemoryStoreMemoryNewParams{
 	Path:    "/formatting_standards.md",
 	Content: anthropic.String("All reports use GAAP formatting. Dates are ISO-8601..."),
@@ -170,9 +183,10 @@ _, err = client.Beta.MemoryStores.Memories.New(ctx, store.ID, anthropic.BetaMemo
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().memories().create(
     store.id(),
     MemoryCreateParams.builder()
@@ -180,23 +194,25 @@ client.beta().memoryStores().memories().create(
         .content("All reports use GAAP formatting. Dates are ISO-8601...")
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->memories->create(
     $store->id,
     path: '/formatting_standards.md',
     content: 'All reports use GAAP formatting. Dates are ISO-8601...',
 );
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.memories.create(
   store.id,
   path: "/formatting_standards.md",
   content: "All reports use GAAP formatting. Dates are ISO-8601..."
 )
-```
+````
 
 </CodeGroup>
 
@@ -236,7 +252,8 @@ curl -s https://api.anthropic.com/v1/sessions \
 EOF
 ````
 
-```bash
+  
+````bash
 ant beta:sessions create <<YAML
 agent: $agent_id
 environment_id: $environment_id
@@ -246,9 +263,10 @@ resources:
     access: read_write
     instructions: User preferences and project context. Check before starting any task.
 YAML
-```
+````
 
-```python
+  
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
@@ -261,9 +279,10 @@ session = client.beta.sessions.create(
         }
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
@@ -272,14 +291,14 @@ const session = await client.beta.sessions.create({
       type: "memory_store",
       memory_store_id: store.id,
       access: "read_write",
-      instructions:
-        "User preferences and project context. Check before starting any task.",
-    },
-  ],
+      instructions: "User preferences and project context. Check before starting any task."
+    }
+  ]
 });
-```
+````
 
-```csharp
+  
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
@@ -295,9 +314,10 @@ var session = await client.Beta.Sessions.Create(new()
         },
     ],
 });
-```
+````
 
-```go
+  
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent: anthropic.BetaSessionNewParamsAgentUnion{
 		OfString: anthropic.String(agent.ID),
@@ -315,9 +335,10 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var session = client.beta().sessions().create(
     SessionCreateParams.builder()
         .agent(agent.id())
@@ -332,9 +353,10 @@ var session = client.beta().sessions().create(
         )
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
@@ -347,9 +369,10 @@ $session = $client->beta->sessions->create(
         ],
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
@@ -362,7 +385,7 @@ session = client.beta.sessions.create(
     }
   ]
 )
-```
+````
 
 </CodeGroup>
 
@@ -386,7 +409,7 @@ The agent's reads and writes appear in the [event stream](/docs/en/managed-agent
 
 ## View and edit memories
 
-Memory stores can be managed directly via the API. Use this for building review workflows, correcting bad memories, or seeding stores before any session runs.
+Memory stores can be managed directly through the API. Use this for building review workflows, correcting bad memories, or seeding stores before any session runs.
 
 ### List memories
 
@@ -401,13 +424,15 @@ curl -s "https://api.anthropic.com/v1/memory_stores/$store_id/memories?path_pref
   -H "anthropic-beta: managed-agents-2026-04-01" | jq -r '.data[] | "\(.type)  \(.path)"'
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories list \
   --memory-store-id "$store_id" \
   --path-prefix "/" --order-by path --depth 2
-```
+````
 
-```python
+  
+````python
 page = client.beta.memory_stores.memories.list(
     store.id,
     path_prefix="/",
@@ -416,20 +441,22 @@ page = client.beta.memory_stores.memories.list(
 )
 for item in page.data:
     print(item.type, item.path)
-```
+````
 
-```typescript
+  
+````typescript
 const page = await client.beta.memoryStores.memories.list(store.id, {
   path_prefix: "/",
   order_by: "path",
-  depth: 2,
+  depth: 2
 });
 for (const item of page.data) {
   console.log(item.type, item.path);
 }
-```
+````
 
-```csharp
+  
+````csharp
 var page = await client.Beta.MemoryStores.Memories.List(store.ID, new()
 {
     PathPrefix = "/",
@@ -441,9 +468,10 @@ await foreach (var item in page.Paginate())
     var line = item.Match(m => $"memory  {m.Path}", p => $"memory_prefix  {p.Path}");
     Console.WriteLine(line);
 }
-```
+````
 
-```go
+  
+````go
 page, err := client.Beta.MemoryStores.Memories.List(ctx, store.ID, anthropic.BetaMemoryStoreMemoryListParams{
 	PathPrefix: anthropic.String("/"),
 	OrderBy:    anthropic.String("path"),
@@ -455,9 +483,10 @@ if err != nil {
 for _, item := range page.Data {
 	fmt.Println(item.Type, item.Path)
 }
-```
+````
 
-```java
+  
+````java
 var page = client.beta().memoryStores().memories().list(
     store.id(),
     MemoryListParams.builder()
@@ -470,9 +499,10 @@ for (var item : page.data()) {
     item.memory().ifPresent(m -> IO.println("memory  " + m.path()));
     item.memoryPrefix().ifPresent(p -> IO.println("memory_prefix  " + p.path()));
 }
-```
+````
 
-```php
+  
+````php
 $page = $client->beta->memoryStores->memories->list(
     $store->id,
     pathPrefix: '/',
@@ -482,9 +512,10 @@ $page = $client->beta->memoryStores->memories->list(
 foreach ($page->data as $item) {
     echo "{$item->type}  {$item->path}\n";
 }
-```
+````
 
-```ruby
+  
+````ruby
 page = client.beta.memory_stores.memories.list(
   store.id,
   path_prefix: "/",
@@ -494,7 +525,7 @@ page = client.beta.memory_stores.memories.list(
 page.data.each do |entry|
   puts "#{entry.type}  #{entry.path}"
 end
-```
+````
 
 </CodeGroup>
 
@@ -513,36 +544,41 @@ curl -s "https://api.anthropic.com/v1/memory_stores/$store_id/memories/$mem_id" 
   -H "anthropic-beta: managed-agents-2026-04-01" | jq -r '.content'
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories retrieve \
   --memory-store-id "$store_id" \
   --memory-id "$mem_id"
-```
+````
 
-```python
+  
+````python
 retrieved = client.beta.memory_stores.memories.retrieve(
     mem.id,
     memory_store_id=store.id,
 )
 print(retrieved.content)
-```
+````
 
-```typescript
+  
+````typescript
 const retrieved = await client.beta.memoryStores.memories.retrieve(mem.id, {
-  memory_store_id: store.id,
+  memory_store_id: store.id
 });
 console.log(retrieved.content);
-```
+````
 
-```csharp
+  
+````csharp
 var retrieved = await client.Beta.MemoryStores.Memories.Retrieve(mem.ID, new()
 {
     MemoryStoreID = store.ID,
 });
 Console.WriteLine(retrieved.Content);
-```
+````
 
-```go
+  
+````go
 retrieved, err := client.Beta.MemoryStores.Memories.Get(ctx, mem.ID, anthropic.BetaMemoryStoreMemoryGetParams{
 	MemoryStoreID: store.ID,
 })
@@ -550,28 +586,31 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(retrieved.Content)
-```
+````
 
-```java
+  
+````java
 var retrieved = client.beta().memoryStores().memories().retrieve(
     mem.id(),
     MemoryRetrieveParams.builder().memoryStoreId(store.id()).build()
 );
 IO.println(retrieved.content());
-```
+````
 
-```php
+  
+````php
 $retrieved = $client->beta->memoryStores->memories->retrieve($mem->id, memoryStoreID: $store->id);
 echo "{$retrieved->content}\n";
-```
+````
 
-```ruby
+  
+````ruby
 retrieved = client.beta.memory_stores.memories.retrieve(
   mem.id,
   memory_store_id: store.id
 )
 puts retrieved.content
-```
+````
 
 </CodeGroup>
 
@@ -594,7 +633,8 @@ mem_id=$(jq -r '.id' <<< "$mem")
 mem_sha=$(jq -r '.content_sha256' <<< "$mem")
 ````
 
-```bash
+  
+````bash
 mem=$(ant beta:memory-stores:memories create \
   --memory-store-id "$store_id" \
   --path "/preferences/formatting.md" \
@@ -602,32 +642,36 @@ mem=$(ant beta:memory-stores:memories create \
   --format json)
 mem_id=$(jq -r '.id' <<< "$mem")
 mem_sha=$(jq -r '.content_sha256' <<< "$mem")
-```
+````
 
-```python
+  
+````python
 mem = client.beta.memory_stores.memories.create(
     store.id,
     path="/preferences/formatting.md",
     content="Always use tabs, not spaces.",
 )
-```
+````
 
-```typescript
+  
+````typescript
 const mem = await client.beta.memoryStores.memories.create(store.id, {
   path: "/preferences/formatting.md",
-  content: "Always use tabs, not spaces.",
+  content: "Always use tabs, not spaces."
 });
-```
+````
 
-```csharp
+  
+````csharp
 var mem = await client.Beta.MemoryStores.Memories.Create(store.ID, new()
 {
     Path = "/preferences/formatting.md",
     Content = "Always use tabs, not spaces.",
 });
-```
+````
 
-```go
+  
+````go
 mem, err := client.Beta.MemoryStores.Memories.New(ctx, store.ID, anthropic.BetaMemoryStoreMemoryNewParams{
 	Path:    "/preferences/formatting.md",
 	Content: anthropic.String("Always use tabs, not spaces."),
@@ -635,9 +679,10 @@ mem, err := client.Beta.MemoryStores.Memories.New(ctx, store.ID, anthropic.BetaM
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var mem = client.beta().memoryStores().memories().create(
     store.id(),
     MemoryCreateParams.builder()
@@ -645,23 +690,25 @@ var mem = client.beta().memoryStores().memories().create(
         .content("Always use tabs, not spaces.")
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $mem = $client->beta->memoryStores->memories->create(
     $store->id,
     path: '/preferences/formatting.md',
     content: 'Always use tabs, not spaces.',
 );
-```
+````
 
-```ruby
+  
+````ruby
 mem = client.beta.memory_stores.memories.create(
   store.id,
   path: "/preferences/formatting.md",
   content: "Always use tabs, not spaces."
 )
-```
+````
 
 </CodeGroup>
 
@@ -682,38 +729,43 @@ curl -s -X POST "https://api.anthropic.com/v1/memory_stores/$store_id/memories/$
   -d '{"path": "/archive/2026_q1_formatting.md"}' > /dev/null
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories update \
   --memory-store-id "$store_id" \
   --memory-id "$mem_id" \
   --path "/archive/2026_q1_formatting.md" \
   > /dev/null
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.memories.update(
     mem.id,
     memory_store_id=store.id,
     path="/archive/2026_q1_formatting.md",
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.memories.update(mem.id, {
   memory_store_id: store.id,
-  path: "/archive/2026_q1_formatting.md",
+  path: "/archive/2026_q1_formatting.md"
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.Memories.Update(mem.ID, new()
 {
     MemoryStoreID = store.ID,
     Path = "/archive/2026_q1_formatting.md",
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.Memories.Update(ctx, mem.ID, anthropic.BetaMemoryStoreMemoryUpdateParams{
 	MemoryStoreID: store.ID,
 	Path:          anthropic.String("/archive/2026_q1_formatting.md"),
@@ -721,9 +773,10 @@ _, err = client.Beta.MemoryStores.Memories.Update(ctx, mem.ID, anthropic.BetaMem
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().memories().update(
     mem.id(),
     MemoryUpdateParams.builder()
@@ -731,23 +784,25 @@ client.beta().memoryStores().memories().update(
         .path("/archive/2026_q1_formatting.md")
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->memories->update(
     $mem->id,
     memoryStoreID: $store->id,
     path: '/archive/2026_q1_formatting.md',
 );
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.memories.update(
   mem.id,
   memory_store_id: store.id,
   path: "/archive/2026_q1_formatting.md"
 )
-```
+````
 
 </CodeGroup>
 
@@ -773,33 +828,37 @@ curl -s -X POST "https://api.anthropic.com/v1/memory_stores/$store_id/memories/$
 EOF
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories update \
   --memory-store-id "$store_id" \
   --memory-id "$mem_id" \
   --content "CORRECTED: Always use 2-space indentation." \
   --precondition "{type: content_sha256, content_sha256: $mem_sha}" \
   > /dev/null
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.memories.update(
     memory_id=mem.id,
     memory_store_id=store.id,
     content="CORRECTED: Always use 2-space indentation.",
     precondition={"type": "content_sha256", "content_sha256": mem.content_sha256},
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.memories.update(mem.id, {
   memory_store_id: store.id,
   content: "CORRECTED: Always use 2-space indentation.",
-  precondition: { type: "content_sha256", content_sha256: mem.content_sha256 },
+  precondition: { type: "content_sha256", content_sha256: mem.content_sha256 }
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.Memories.Update(mem.ID, new()
 {
     MemoryStoreID = store.ID,
@@ -810,9 +869,10 @@ await client.Beta.MemoryStores.Memories.Update(mem.ID, new()
         ContentSha256 = mem.ContentSha256,
     },
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.Memories.Update(ctx, mem.ID, anthropic.BetaMemoryStoreMemoryUpdateParams{
 	MemoryStoreID: store.ID,
 	Content:       anthropic.String("CORRECTED: Always use 2-space indentation."),
@@ -824,9 +884,10 @@ _, err = client.Beta.MemoryStores.Memories.Update(ctx, mem.ID, anthropic.BetaMem
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().memories().update(
     mem.id(),
     MemoryUpdateParams.builder()
@@ -840,25 +901,27 @@ client.beta().memoryStores().memories().update(
         )
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->memories->update(
     $mem->id,
     memoryStoreID: $store->id,
     content: 'CORRECTED: Always use 2-space indentation.',
     precondition: ['type' => 'content_sha256', 'content_sha256' => $mem->contentSha256],
 );
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.memories.update(
   mem.id,
   memory_store_id: store.id,
   content: "CORRECTED: Always use 2-space indentation.",
   precondition: {type: "content_sha256", content_sha256: mem.content_sha256}
 )
-```
+````
 
 </CodeGroup>
 
@@ -873,59 +936,67 @@ curl -s -X DELETE "https://api.anthropic.com/v1/memory_stores/$store_id/memories
   -H "anthropic-beta: managed-agents-2026-04-01" > /dev/null
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memories delete \
   --memory-store-id "$store_id" \
   --memory-id "$mem_id" \
   > /dev/null
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.memories.delete(
     mem.id,
     memory_store_id=store.id,
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.memories.delete(mem.id, {
-  memory_store_id: store.id,
+  memory_store_id: store.id
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.Memories.Delete(mem.ID, new()
 {
     MemoryStoreID = store.ID,
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.Memories.Delete(ctx, mem.ID, anthropic.BetaMemoryStoreMemoryDeleteParams{
 	MemoryStoreID: store.ID,
 })
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().memories().delete(
     mem.id(),
     MemoryDeleteParams.builder().memoryStoreId(store.id()).build()
 );
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->memories->delete($mem->id, memoryStoreID: $store->id);
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.memories.delete(
   mem.id,
   memory_store_id: store.id
 )
-```
+````
 
 </CodeGroup>
 
@@ -939,7 +1010,7 @@ Versions belong to the store (not the individual memory) and survive even after 
 
 There is no dedicated restore endpoint; to roll back, retrieve the version you want and write its `content` back with `memories.update` (or `memories.create` if the parent memory has been deleted, because versions outlive their parent).
 
-Past memory versions might be deleted after 30 days. To preserve memory history for longer, export versions via the API.
+Past memory versions might be deleted after 30 days. To preserve memory history for longer, export versions through the API.
 
 ### List versions
 
@@ -956,16 +1027,18 @@ jq -r '.data[] | "\(.id): \(.operation)"' <<< "$versions"
 version_id=$(jq -r '.data[1].id' <<< "$versions")
 ````
 
-```bash
+  
+````bash
 versions=$(ant beta:memory-stores:memory-versions list \
   --memory-store-id "$store_id" \
   --memory-id "$mem_id" \
   --format json)
 jq -r '.data[] | "\(.id): \(.operation)"' <<< "$versions"
 version_id=$(jq -r '.data[1].id' <<< "$versions")
-```
+````
 
-```python
+  
+````python
 versions = client.beta.memory_stores.memory_versions.list(
     store.id,
     memory_id=mem.id,
@@ -974,20 +1047,22 @@ for v in versions:
     print(f"{v.id}: {v.operation}")
 
 version_id = versions.data[1].id
-```
+````
 
-```typescript
+  
+````typescript
 const versions = await client.beta.memoryStores.memoryVersions.list(store.id, {
-  memory_id: mem.id,
+  memory_id: mem.id
 });
 for await (const v of versions) {
   console.log(`${v.id}: ${v.operation}`);
 }
 
 const versionId = versions.data[1].id;
-```
+````
 
-```csharp
+  
+````csharp
 var versions = await client.Beta.MemoryStores.MemoryVersions.List(store.ID, new()
 {
     MemoryID = mem.ID,
@@ -1000,9 +1075,10 @@ await foreach (var v in versions.Paginate())
 }
 
 var versionId = versionIds[1];
-```
+````
 
-```go
+  
+````go
 versions := client.Beta.MemoryStores.MemoryVersions.ListAutoPaging(ctx, store.ID, anthropic.BetaMemoryStoreMemoryVersionListParams{
 	MemoryID: anthropic.String(mem.ID),
 })
@@ -1021,9 +1097,10 @@ if err != nil {
 	panic(err)
 }
 versionID := vpage.Data[1].ID
-```
+````
 
-```java
+  
+````java
 var versions = client.beta().memoryStores().memoryVersions().list(
     store.id(),
     MemoryVersionListParams.builder().memoryId(mem.id()).build()
@@ -1033,9 +1110,10 @@ for (var v : versions.autoPager()) {
 }
 
 var versionId = versions.data().get(1).id();
-```
+````
 
-```php
+  
+````php
 $versions = $client->beta->memoryStores->memoryVersions->list(
     $store->id,
     memoryID: $mem->id,
@@ -1045,9 +1123,10 @@ foreach ($versions->pagingEachItem() as $v) {
 }
 
 $versionId = $versions->data[1]->id;
-```
+````
 
-```ruby
+  
+````ruby
 versions = client.beta.memory_stores.memory_versions.list(
   store.id,
   memory_id: mem.id
@@ -1057,7 +1136,7 @@ versions.auto_paging_each do |v|
 end
 
 version_id = versions.data[1].id
-```
+````
 
 </CodeGroup>
 
@@ -1076,39 +1155,41 @@ curl -s "https://api.anthropic.com/v1/memory_stores/$store_id/memory_versions/$v
   -H "anthropic-beta: managed-agents-2026-04-01"
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memory-versions retrieve \
   --memory-store-id "$store_id" \
   --memory-version-id "$version_id"
-```
+````
 
-```python
+  
+````python
 version = client.beta.memory_stores.memory_versions.retrieve(
     version_id,
     memory_store_id=store.id,
 )
 print(version.content)
-```
+````
 
-```typescript
-const version = await client.beta.memoryStores.memoryVersions.retrieve(
-  versionId,
-  {
-    memory_store_id: store.id,
-  },
-);
+  
+````typescript
+const version = await client.beta.memoryStores.memoryVersions.retrieve(versionId, {
+  memory_store_id: store.id
+});
 console.log(version.content);
-```
+````
 
-```csharp
+  
+````csharp
 var version = await client.Beta.MemoryStores.MemoryVersions.Retrieve(versionId, new()
 {
     MemoryStoreID = store.ID,
 });
 Console.WriteLine(version.Content);
-```
+````
 
-```go
+  
+````go
 version, err := client.Beta.MemoryStores.MemoryVersions.Get(ctx, versionID, anthropic.BetaMemoryStoreMemoryVersionGetParams{
 	MemoryStoreID: store.ID,
 })
@@ -1116,31 +1197,34 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(version.Content)
-```
+````
 
-```java
+  
+````java
 var version = client.beta().memoryStores().memoryVersions().retrieve(
     versionId,
     MemoryVersionRetrieveParams.builder().memoryStoreId(store.id()).build()
 );
 IO.println(version.content());
-```
+````
 
-```php
+  
+````php
 $version = $client->beta->memoryStores->memoryVersions->retrieve(
     $versionId,
     memoryStoreID: $store->id,
 );
 echo "{$version->content}\n";
-```
+````
 
-```ruby
+  
+````ruby
 version = client.beta.memory_stores.memory_versions.retrieve(
   version_id,
   memory_store_id: store.id
 )
 puts version.content
-```
+````
 
 </CodeGroup>
 
@@ -1163,61 +1247,69 @@ curl -s -X POST "https://api.anthropic.com/v1/memory_stores/$store_id/memory_ver
   -d '{}'
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores:memory-versions redact \
   --memory-store-id "$store_id" \
   --memory-version-id "$version_id"
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.memory_versions.redact(
     version_id,
     memory_store_id=store.id,
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.memoryVersions.redact(versionId, {
-  memory_store_id: store.id,
+  memory_store_id: store.id
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.MemoryVersions.Redact(versionId, new()
 {
     MemoryStoreID = store.ID,
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.MemoryVersions.Redact(ctx, versionID, anthropic.BetaMemoryStoreMemoryVersionRedactParams{
 	MemoryStoreID: store.ID,
 })
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().memoryVersions().redact(
     versionId,
     MemoryVersionRedactParams.builder().memoryStoreId(store.id()).build()
 );
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->memoryVersions->redact(
     $versionId,
     memoryStoreID: $store->id,
 );
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.memory_versions.redact(
   version_id,
   memory_store_id: store.id
 )
-```
+````
 
 </CodeGroup>
 
@@ -1240,32 +1332,35 @@ curl -s "https://api.anthropic.com/v1/memory_stores?include_archived=true" \
   -H "anthropic-beta: managed-agents-2026-04-01" | jq '.data[] | {id, name, archived_at}'
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores list --include-archived
-```
+````
 
-```python
+  
+````python
 for s in client.beta.memory_stores.list(include_archived=True):
     print(s.id, s.name, s.archived_at)
-```
+````
 
-```typescript
-for await (const s of client.beta.memoryStores.list({
-  include_archived: true,
-})) {
+  
+````typescript
+for await (const s of client.beta.memoryStores.list({ include_archived: true })) {
   console.log(s.id, s.name, s.archived_at);
 }
-```
+````
 
-```csharp
+  
+````csharp
 var stores = await client.Beta.MemoryStores.List(new() { IncludeArchived = true });
 await foreach (var s in stores.Paginate())
 {
     Console.WriteLine($"{s.ID} {s.Name} {s.ArchivedAt}");
 }
-```
+````
 
-```go
+  
+````go
 stores := client.Beta.MemoryStores.ListAutoPaging(ctx, anthropic.BetaMemoryStoreListParams{
 	IncludeArchived: anthropic.Bool(true),
 })
@@ -1276,27 +1371,30 @@ for stores.Next() {
 if err := stores.Err(); err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 for (var s : client.beta().memoryStores().list(
     MemoryStoreListParams.builder().includeArchived(true).build()
 ).autoPager()) {
     IO.println(s.id() + " " + s.name() + " " + s.archivedAt());
 }
-```
+````
 
-```php
+  
+````php
 foreach ($client->beta->memoryStores->list(includeArchived: true)->pagingEachItem() as $s) {
     echo "{$s->id} {$s->name} {$s->archivedAt}\n";
 }
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.list(include_archived: true).auto_paging_each do |s|
   puts "#{s.id} #{s.name} #{s.archived_at}"
 end
-```
+````
 
 </CodeGroup>
 
@@ -1315,40 +1413,48 @@ curl -s -X POST "https://api.anthropic.com/v1/memory_stores/$store_id/archive" \
   -H "anthropic-beta: managed-agents-2026-04-01" > /dev/null
 ````
 
-```bash
+  
+````bash
 ant beta:memory-stores archive --memory-store-id "$store_id"
-```
+````
 
-```python
+  
+````python
 client.beta.memory_stores.archive(store.id)
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.memoryStores.archive(store.id);
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.MemoryStores.Archive(store.ID);
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.MemoryStores.Archive(ctx, store.ID, anthropic.BetaMemoryStoreArchiveParams{})
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().memoryStores().archive(store.id());
-```
+````
 
-```php
+  
+````php
 $client->beta->memoryStores->archive($store->id);
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.memory_stores.archive(store.id)
-```
+````
 
 </CodeGroup>
 

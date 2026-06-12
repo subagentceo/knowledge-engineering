@@ -329,4 +329,4 @@ If you are experiencing other issues with the GitHub MCP server, here are some g
 ## Further reading
 
 * [Enhancing GitHub Copilot agent mode with MCP](/en/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
-* [Connect agents to external tools](/en/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)
+* [Configure MCP servers for your repository](/en/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp)

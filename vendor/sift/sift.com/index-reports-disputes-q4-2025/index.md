@@ -1,3 +1,5 @@
+# The Rising Impact of Chargebacks and Consumer Disputes
+
 Q4 2025 DIGITAL TRUST INDEX
 
 # The Rising Impact of Chargebacks and Consumer Disputes
@@ -8,16 +10,16 @@ Powered by FIBR, the Fraud Industry Benchmarking Resource
 
 Overview
 
--   [Dispute Trends](#dispute-trends)
--   [Consumer Data & Insights](#consumer-data-insights)
--   [Generational Divides](#generational_divides)
--   [Fraud Prevention Solutions](#global-resources)
+*   Dispute Trends
+*   Consumer Data & Insights
+*   Generational Divides
+*   Fraud Prevention Solutions
 
 ## The State of Disputes in 2025
 
-As digital commerce grows, the frequency and financial impact of disputes and chargebacks is expanding. Global chargeback volume is projected to reach [324 million](https://b2b.mastercard.com/news-and-insights/blog/what-s-the-true-cost-of-a-chargeback-in-2025/) transactions by 2028, up 24% from 2025, driven largely by the expansion of card-not-present (CNP) payments, which now make up 63% of merchants’ transactions. 
+As digital commerce grows, the frequency and financial impact of disputes and chargebacks is expanding. Global chargeback volume is projected to reach 324 million transactions by 2028, up 24% from 2025, driven largely by the expansion of card-not-present (CNP) payments, which now make up 63% of merchants’ transactions. 
 
-The cost burden is growing just as quickly. Worldwide chargeback losses are expected to climb from $33.79 billion in 2025 to [$41.69 billion](https://b2b.mastercard.com/news-and-insights/blog/what-s-the-true-cost-of-a-chargeback-in-2025/) in 2028, while first-party and third-party fraud now account for roughly 45% of merchant dispute volume. With U.S. merchants [losing an estimated $4.61](https://risk.lexisnexis.com/about-us/press-room/press-release/20250402-tcof-ecommerce-and-retail) for every $1 in chargebacks, understanding the root causes of disputes—and strengthening prevention strategies—is becoming essential to protecting both revenue and customer trust.
+The cost burden is growing just as quickly. Worldwide chargeback losses are expected to climb from $33.79 billion in 2025 to $41.69 billion in 2028, while first-party and third-party fraud now account for roughly 45% of merchant dispute volume. With U.S. merchants losing an estimated $4.61 for every $1 in chargebacks, understanding the root causes of disputes—and strengthening prevention strategies—is becoming essential to protecting both revenue and customer trust.
 
 ![background\_blue\_with\_yellow\_boreder](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201080%201115'%3E%3C/svg%3E)
 
@@ -57,7 +59,7 @@ Thank you, we will be in contact soon.
 
 ## The Consumer Experience with Disputes
 
-As commerce continues to move online, consumer disputes have become an unavoidable part of doing business. What began as a mechanism for resolving legitimate issues has evolved into a complex ecosystem, mixing valid chargebacks, fulfillment frustrations, and opportunistic misuse. Sift’s consumer survey\* reveals how shifting economic pressures, heightened expectations, and the viral spread of “refund hacks” are reshaping how and why consumers challenge transactions.
+As commerce continues to move online, consumer disputes have become an unavoidable part of doing business. What began as a mechanism for resolving legitimate issues has evolved into a complex ecosystem, mixing valid chargebacks, fulfillment frustrations, and opportunistic misuse. Sift’s consumer survey* reveals how shifting economic pressures, heightened expectations, and the viral spread of “refund hacks” are reshaping how and why consumers challenge transactions.
 
 ![the-consumer-experience-with-disputes\_img](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%201004'%3E%3C/svg%3E)
 
@@ -75,7 +77,7 @@ This expansion beyond traditional “fraud” disputes points to the evolving ex
 
 ### Rising First-Party Fraud & Refund Schemes
 
-First-party fraud is now the [world’s most prevalent fraud type](https://risk.lexisnexis.com/about-us/press-room/press-release/20250513-cybercrime-report). It represents 36% of all reported fraud in 2024—up from just 15% a year earlier—on top of a $132 billion risk to e-commerce. One forecast projects a [40% rise](https://www.pymnts.com/credit-cards/2024/card-disputes-projected-to-jump-40percent-as-friendly-fraud-persists/) in first-party fraud by 2026, with global chargeback volumes reaching 337 million transactions.
+First-party fraud is now the world’s most prevalent fraud type. It represents 36% of all reported fraud in 2024—up from just 15% a year earlier—on top of a $132 billion risk to e-commerce. One forecast projects a 40% rise in first-party fraud by 2026, with global chargeback volumes reaching 337 million transactions.
 
 Sixteen percent of consumers admit to filing a false fraud claim (a form of first-party fraud) despite being satisfied with their purchase. Many now view chargebacks as a form of customer leverage rather than a fraud safeguard.
 
@@ -103,7 +105,7 @@ The reputational toll is equally severe. Sixty-two percent of consumers say they
 
 ### Agentic AI and the Next Wave of Disputes
 
-Agentic commerce, where AI agents independently research, compare, and complete purchases, is poised to reshape digital shopping and could unlock [$3 to $5 trillion](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-agentic-commerce-opportunity-how-ai-agents-are-ushering-in-a-new-era-for-consumers-and-merchants) in global revenue by 2030. But this shift is already creating new trust gaps. Nearly half of consumers (47%) are worried about AI agents making unauthorized purchases, and when orders go wrong, accountability is unclear. Sixty-one percent would blame the AI company, while 39% would fault the merchant.
+Agentic commerce, where AI agents independently research, compare, and complete purchases, is poised to reshape digital shopping and could unlock $3 to $5 trillion in global revenue by 2030. But this shift is already creating new trust gaps. Nearly half of consumers (47%) are worried about AI agents making unauthorized purchases, and when orders go wrong, accountability is unclear. Sixty-one percent would blame the AI company, while 39% would fault the merchant.
 
 As automated purchasing grows, businesses should expect a temporary rise in disputes as consumers adjust and fraudsters test new vulnerabilities. Over time, stronger authorization standards and trusted agent protocols could reduce first-party fraud by clarifying intent and approval. For now, merchants, payment providers, and AI platforms share a common challenge: preventing misuse while helping consumers understand who, or what, is driving each purchase.
 
@@ -143,17 +145,15 @@ While Gen X holds the highest overall dispute participation, Gen Z and Millennia
 
 ## Mitigating Chargebacks through smarter prevention
 
-Businesses must understand the true cost and consequences of chargebacks. Excessively high chargeback rates typically triggers scrutiny from acquirers and card networks, potentially placing merchants into programs like [Visa’s Acquirer Monitoring Program](/blog/visas-vamp-dispute-threshold-changes-and-what-you-can-do-to-prepare/) or Mastercard’s Excessive Chargeback Program, which carry higher fees and mandatory corrective actions. Under VAMP, the “excessive” threshold is set at 1.5% starting October 1, 2025, dropping to 0.9% on January 1, 2026, with a $10 fee per disputed transaction for merchants above the limit. Businesses must prevent fraud pre-transaction to manage VAMP, using tools like RDR, [CE 3.0](/blog/what-you-need-to-know-about-the-visa-compelling-evidence-3-0-update/), or CDRN, improving policies, and changing acquirers if ratios remain high.
+Businesses must understand the true cost and consequences of chargebacks. Excessively high chargeback rates typically triggers scrutiny from acquirers and card networks, potentially placing merchants into programs like Visa’s Acquirer Monitoring Program or Mastercard’s Excessive Chargeback Program, which carry higher fees and mandatory corrective actions. Under VAMP, the “excessive” threshold is set at 1.5% starting October 1, 2025, dropping to 0.9% on January 1, 2026, with a $10 fee per disputed transaction for merchants above the limit. Businesses must prevent fraud pre-transaction to manage VAMP, using tools like RDR, CE 3.0, or CDRN, improving policies, and changing acquirers if ratios remain high.
 
 Sift’s award-winning platform provides real-time transaction analysis, identifies potential fraud, and automates dispute management, helping businesses prioritize winnable cases, reduce financial losses, and protect revenue. By combining comprehensive fraud prevention with efficient dispute handling, companies can stay ahead of evolving fraud tactics while maintaining a secure, seamless customer experience.
 
-\*On behalf of Sift, Researchscape International polled 1,075 adults (aged 18+) across the United States via online survey in October 2025.
+*On behalf of Sift, Researchscape International polled 1,075 adults (aged 18+) across the United States via online survey in October 2025.
 
 ## Discover More from Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -163,8 +163,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -172,8 +170,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -183,12 +179,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![drive-forward-with-fibr](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Drive Your Business Forward with FIBR
 
 Stop fraud losses fast, create exceptional user experiences, and scale securely with Sift’s tried-and-trusted platform.
 
-[Discover Data](/fibr-fraud-industry-benchmarking-resource/)
+Discover Data

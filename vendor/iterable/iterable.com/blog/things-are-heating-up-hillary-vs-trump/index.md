@@ -1,3 +1,5 @@
+# Things Are Heating Up: Hillary vs. Trump - Iterable
+
 ## Things Are Heating Up: Hillary vs. Trump
 
 **Published by**
@@ -8,7 +10,7 @@ August 4, 2016
 
 With 100 days left to the election, the US presidential race is in the final stretch. Things are heating up. In fact, that’s quite an understatement.
 
-So we thought it would be interesting to take one more look at how the Trump and Hillary campaigns are engaging their supporters across different channels. We [analyzed both campaigns back in October](https://iterable.com/blog/user-engagement-teardown-hillary-vs-trump) and found some stark differences in how they were messaging their followers. (We’re re-posting the Slideshare at the end of this post in case you want to review that first teardown.)
+So we thought it would be interesting to take one more look at how the Trump and Hillary campaigns are engaging their supporters across different channels. We analyzed both campaigns back in October and found some stark differences in how they were messaging their followers. (We’re re-posting the Slideshare at the end of this post in case you want to review that first teardown.)
 
 Some things have changed but others haven’t. First what has changed:
 
@@ -24,12 +26,12 @@ And the things that have _not_ changed:
 
 Without further ado, see below for the Hillary vs. Trump User Engagement Teardown (Take 2). _(Note: if you can’t see the embedded SlideShare, make sure to turn off any ad blockers!)_
 
-[https://www.slideshare.net/Iterable/hillary-vs-trump-user-engagement-teardown-take-2](https://www.slideshare.net/Iterable/hillary-vs-trump-user-engagement-teardown-take-2)
+https://www.slideshare.net/Iterable/hillary-vs-trump-user-engagement-teardown-take-2
 
 For those of you that want to look at the original teardown, here it is:
 
-[https://www.slideshare.net/Iterable/iterable-hillary-trumpteardown](https://www.slideshare.net/Iterable/iterable-hillary-trumpteardown)
+https://www.slideshare.net/Iterable/iterable-hillary-trumpteardown
 
-You can download the slides and see our past teardowns (including Pinterest, Dollar Shave Club and more) on our [User Engagement Teardowns](https://iterable.com/user-engagement-teardowns) page.
+You can download the slides and see our past teardowns (including Pinterest, Dollar Shave Club and more) on our User Engagement Teardowns page.
 
 _Note: The Hillary and Trump campaigns are not_ _Iterable_ _customers._

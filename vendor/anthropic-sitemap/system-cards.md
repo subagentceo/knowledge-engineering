@@ -1,4 +1,4 @@
-# Model System Cards
+# Model system cards
 
 System cards document the capabilities, safety evaluations, and responsible deployment decisions for Claude models.
 
@@ -7,6 +7,18 @@ Model
 Date
 
 System card
+
+Claude Opus 4.8
+
+May 2026
+
+Read system card
+
+Claude Fable 5 and Mythos 5
+
+June 2026
+
+Read system card
 
 Claude Opus 4.7
 

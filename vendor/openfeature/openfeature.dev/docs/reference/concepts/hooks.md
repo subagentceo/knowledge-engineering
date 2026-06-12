@@ -2,16 +2,16 @@
 
 _Hooks_ are a mechanism that allow for the addition of arbitrary behavior at well-defined points of the _flag evaluation life-cycle_. Use cases include validation of the resolved flag value, modifying or adding data to the evaluation context, logging, telemetry, and tracking.
 
-## Adding Hooks to Flag Evaluation[​](#adding-hooks-to-flag-evaluation "Direct link to Adding Hooks to Flag Evaluation")
+## Adding Hooks to Flag Evaluation​
 
 Hooks can be attached globally (on the OpenFeature API object), at the client, or at the flag invocation level.
 
--   TypeScript
--   Java
--   C#
--   Go
--   PHP
--   Python
+*   TypeScript
+*   Java
+*   C#
+*   Go
+*   PHP
+*   Python
 
 ```
 // add a hook globally, to run on all evaluationsOpenFeature.addHooks(new ExampleGlobalHook());// add a hook on this client, to run on all evaluations made by this clientconst client = OpenFeature.getClient();client.addHooks(new ExampleClientHook());// add a hook for this evaluation onlyconst value = await client.getBooleanValue(FLAG_KEY, false, context, {  hooks: [new ExampleInvocationHook()],});
@@ -37,56 +37,56 @@ Hooks can be attached globally (on the OpenFeature API object), at the client, o
 # add a hook globally, to run on all evaluationsimport openfeature.apiopenfeature.api.add_hooks([ExampleGlobalHook()])# add a hook on this client, to run on all evaluations made by this clientclient = api.get_client()client.add_hooks([ExampleClientHook()])# add a hook for this evaluation onlyoptions = EvaluationOptions(hooks=[ExampleInvocationHook()])value = client.get_boolean_value("boolFlag", False, context, options)
 ```
 
-## Flag Evaluation Life-Cycle[​](#flag-evaluation-life-cycle "Direct link to Flag Evaluation Life-Cycle")
+## Flag Evaluation Life-Cycle​
 
 The flag evaluation life-cycle consists of four stages: _Before_, _After_, _Error_ and _Finally_. A Hook will implement one or more of these stages, performing activities related to their specific role.
 
 > Note: "finally" is a reserved word in some languages. In such cases, an alternate name is used, such as _finallyAfter_.
 
-### Before[​](#before "Direct link to Before")
+### Before​
 
-The _Before_ stage is evaluated before flag evaluation takes place. Hooks implementing the Before stage may alter the [evaluation context](/docs/reference/concepts/evaluation-context) or perform other side effects. Note that Before hooks run before flag evaluation has succeeded. Consider this when using Before hooks. You may want to use [After hooks](#after) for use cases where you want to perform some side effect with an assurance that flag evaluation proceeded normally.
+The _Before_ stage is evaluated before flag evaluation takes place. Hooks implementing the Before stage may alter the evaluation context or perform other side effects. Note that Before hooks run before flag evaluation has succeeded. Consider this when using Before hooks. You may want to use After hooks for use cases where you want to perform some side effect with an assurance that flag evaluation proceeded normally.
 
-### After[​](#after "Direct link to After")
+### After​
 
 The _After_ stage is evaluated after **successful** flag evaluation. Hooks implementing the After stage may validate the resolved flag value (throwing or returning errors) or perform other side effects. After hooks are an ideal mechanism for publishing records in other services for the purposes of telemetry relating to flag evaluation or for user tracking.
 
-### Error[​](#error "Direct link to Error")
+### Error​
 
 The _Error_ stage runs only in the case that flag evaluation has proceeded abnormally. Some reasons for abnormal execution include:
 
--   the flag control plane could not be reached
--   the flag referenced by the flag key does not exist
--   the flag referenced by the flag key is not of the expected type
--   an unhandled error occurred in a _Before_ hook
+*   the flag control plane could not be reached
+*   the flag referenced by the flag key does not exist
+*   the flag referenced by the flag key is not of the expected type
+*   an unhandled error occurred in a _Before_ hook
 
 The Error stage is ideal for logging error messages or adding error records to a telemetry provider.
 
-### Finally[​](#finally "Direct link to Finally")
+### Finally​
 
 The _Finally_ stage runs unconditionally, no matter if flag resolution succeeded or failed. Hooks implementing this stage might use it to release resources or finalize records.
 
-### Ordering[​](#ordering "Direct link to Ordering")
+### Ordering​
 
 Hooks are evaluated in the following order:
 
--   before: API, Client, Invocation
--   after: Invocation, Client, API
--   error (if applicable): Invocation, Client, API
--   finally: Invocation, Client, API
+*   before: API, Client, Invocation
+*   after: Invocation, Client, API
+*   error (if applicable): Invocation, Client, API
+*   finally: Invocation, Client, API
 
 Hooks added at the same level (API, client, or invocation) are evaluated in the order they are added.
 
-## Implementing Hooks[​](#implementing-hooks "Direct link to Implementing Hooks")
+## Implementing Hooks​
 
 Create a hook by implementing **at least** one of the flag evaluation life-cycle stages.
 
--   TypeScript
--   Java
--   C#
--   Go
--   PHP
--   Python
+*   TypeScript
+*   Java
+*   C#
+*   Go
+*   PHP
+*   Python
 
 ```
 export class MyHook implements Hook {  before(hookContext: HookContext) {    // code to run before flag evaluation  }  after(hookContext: HookContext, details: EvaluationDetails<FlagValue>) {    // code to run after successful flag evaluation  }  error(hookContext: HookContext, err: Error) {    // code to run if there's an error during before hooks or during flag evaluation  }  finally(hookContext: HookContext, details: EvaluationDetails<FlagValue>) {    // code to run after all other stages, regardless of success/failure  }}

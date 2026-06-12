@@ -11,6 +11,7 @@ Archive Session Thread
 - `threadID string`
 
 - `params BetaSessionThreadArchiveParams`
+
   - `SessionID param.Field[string]`
 
     Path param: Path parameter session_id
@@ -18,9 +19,11 @@ Archive Session Thread
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -73,13 +76,16 @@ Archive Session Thread
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaManagedAgentsSessionThread struct{…}`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
+
   - `ID string`
 
     Unique identifier for this thread.
@@ -87,14 +93,17 @@ Archive Session Thread
   - `Agent BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
     - `ID string`
 
     - `Description string`
 
     - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
+
       - `Name string`
 
       - `Type BetaManagedAgentsMCPServerURLDefinitionType`
+
         - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
       - `URL string`
@@ -102,16 +111,27 @@ Archive Session Thread
     - `Model BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `ID BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const BetaManagedAgentsModelClaudeFable5 BetaManagedAgentsModel = "claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `const BetaManagedAgentsModelClaudeOpus4_8 BetaManagedAgentsModel = "claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
+
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -153,6 +173,7 @@ Archive Session Thread
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
         - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
@@ -160,12 +181,15 @@ Archive Session Thread
     - `Name string`
 
     - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
+
       - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
         A resolved Anthropic-managed skill.
+
         - `SkillID string`
 
         - `Type BetaManagedAgentsAnthropicSkillType`
+
           - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
 
         - `Version string`
@@ -173,9 +197,11 @@ Archive Session Thread
       - `type BetaManagedAgentsCustomSkill struct{…}`
 
         A resolved user-created custom skill.
+
         - `SkillID string`
 
         - `Type BetaManagedAgentsCustomSkillType`
+
           - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
         - `Version string`
@@ -183,13 +209,17 @@ Archive Session Thread
     - `System string`
 
     - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
+
       - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
+
         - `Configs []BetaManagedAgentsAgentToolConfig`
+
           - `Enabled bool`
 
           - `Name BetaManagedAgentsAgentToolConfigName`
 
             Built-in agent tool identifier.
+
             - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
 
             - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
@@ -209,26 +239,33 @@ Archive Session Thread
           - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
+
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
+
               - `Type BetaManagedAgentsAlwaysAllowPolicyType`
+
                 - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
             - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
               Tool calls require user confirmation before execution.
+
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
+
                 - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
         - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
+
           - `Enabled bool`
 
           - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
+
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
@@ -238,10 +275,13 @@ Archive Session Thread
               Tool calls require user confirmation before execution.
 
         - `Type BetaManagedAgentsAgentToolset20260401Type`
+
           - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
       - `type BetaManagedAgentsMCPToolset struct{…}`
+
         - `Configs []BetaManagedAgentsMCPToolConfig`
+
           - `Enabled bool`
 
           - `Name string`
@@ -249,6 +289,7 @@ Archive Session Thread
           - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
+
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
@@ -260,11 +301,13 @@ Archive Session Thread
         - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
+
           - `Enabled bool`
 
           - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
+
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
@@ -276,35 +319,35 @@ Archive Session Thread
         - `MCPServerName string`
 
         - `Type BetaManagedAgentsMCPToolsetType`
+
           - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
 
       - `type BetaManagedAgentsCustomTool struct{…}`
 
         A custom tool as returned in API responses.
+
         - `Description string`
 
         - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
+
+          - `Type Object`
+
+            - `const ObjectObject Object = "object"`
+
           - `Properties map[string, any]`
 
-            JSON Schema properties defining the tool's input parameters.
-
           - `Required []string`
-
-            List of required property names.
-
-          - `Type BetaManagedAgentsCustomToolInputSchemaType`
-
-            Must be 'object' for tool input schemas.
-            - `const BetaManagedAgentsCustomToolInputSchemaTypeObject BetaManagedAgentsCustomToolInputSchemaType = "object"`
 
         - `Name string`
 
         - `Type BetaManagedAgentsCustomToolType`
+
           - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
 
     - `Type BetaManagedAgentsSessionThreadAgentType`
+
       - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
 
     - `Version int64`
@@ -328,6 +371,7 @@ Archive Session Thread
   - `Stats BetaManagedAgentsSessionThreadStats`
 
     Timing statistics for a session thread.
+
     - `ActiveSeconds float64`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -343,6 +387,7 @@ Archive Session Thread
   - `Status BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
+
     - `const BetaManagedAgentsSessionThreadStatusRunning BetaManagedAgentsSessionThreadStatus = "running"`
 
     - `const BetaManagedAgentsSessionThreadStatusIdle BetaManagedAgentsSessionThreadStatus = "idle"`
@@ -352,6 +397,7 @@ Archive Session Thread
     - `const BetaManagedAgentsSessionThreadStatusTerminated BetaManagedAgentsSessionThreadStatus = "terminated"`
 
   - `Type BetaManagedAgentsSessionThreadType`
+
     - `const BetaManagedAgentsSessionThreadTypeSessionThread BetaManagedAgentsSessionThreadType = "session_thread"`
 
   - `UpdatedAt Time`
@@ -361,9 +407,11 @@ Archive Session Thread
   - `Usage BetaManagedAgentsSessionThreadUsage`
 
     Cumulative token usage for a session thread across all turns.
+
     - `CacheCreation BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `Ephemeral1hInputTokens int64`
 
         Tokens used to create 1-hour ephemeral cache entries.

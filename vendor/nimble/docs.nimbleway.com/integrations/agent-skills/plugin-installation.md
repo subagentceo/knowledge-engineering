@@ -90,6 +90,76 @@ Or add to `~/.claude/settings.json` (Claude Code):
     ```
   </Tab>
 
+  <Tab title="Claude Cowork">
+    Install the Nimble plugin from the Anthropic & Partners directory inside Claude. Authentication is handled via OAuth — no API key required.
+
+    ### One-click install
+
+    <a href="https://claude.ai/directory/plugins/nimble%40knowledge-work-plugins" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/Install%20in%20Claude%20Cowork-edc602?style=for-the-badge&logo=anthropic&logoColor=black" alt="Install in Claude Cowork" noZoom style={{height: "40px"}} />
+    </a>
+
+    ### Step-by-step
+
+    <Steps>
+      <Step title="Open the plugin directory">
+        In a new Cowork task, click the **+** button, hover **Plugins**, then click **Manage plugins**.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=5d2f000ecbbc20d8c433a6c038a62d33" alt="Cowork new-task input with the + menu open showing Plugins > Manage plugins" data-og-width="1664" width="1664" data-og-height="850" height="850" data-path="images/plugin-install/cowork-plus-menu.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=280&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=8a594ed6b83f2971f02546c93d78b672 280w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=560&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=71f1a300e74e72dfed106ab6c42f6971 560w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=840&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=a242c8c3fee09f73e0f1437441340a7c 840w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=1100&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=c3b06674a3c3f1e7c81aa2e8008f7a36 1100w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=1650&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=e31ca4878938da03cf8fac89e329c2c7 1650w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-plus-menu.png?w=2500&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=fc73dfd540acf58044aa1a414bb59422 2500w" />
+        </Frame>
+
+        Alternatively, from the **Customize** screen, click **+** next to **Personal plugins** and choose **Browse plugins**.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=c11bfa2570b8b5fac0d3c4195e6b6530" alt="Customize > Personal plugins with the Browse plugins / Create plugin menu open" data-og-width="996" width="996" data-og-height="878" height="878" data-path="images/plugin-install/cowork-browse-plugins.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=280&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=d79881c8b353056c6f8deb00e037aec8 280w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=560&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=bd43996c2cce75e03f26eb7f7fd46d1e 560w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=840&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=910ce49d8c711c897360e762bd704eed 840w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=1100&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=7f415f689617b8520b99aa2bce67dee8 1100w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=1650&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=64db91ab7c6480bad6970320d2730341 1650w, https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-browse-plugins.png?w=2500&fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=c3e85f7215e5cdba4ef320a00e8b086c 2500w" />
+        </Frame>
+      </Step>
+
+      <Step title="Find Nimble">
+        Switch to the **Plugins** tab, select **Anthropic & Partners**, and search for `Nimble`.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/directory-search-nimble.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=ee8308cf479c453603559929354ad886" alt="Directory with Plugins tab and Anthropic & Partners filter, search 'Nimble' showing the Nimble plugin card" width="2000" height="893" data-path="images/plugin-install/directory-search-nimble.png" />
+        </Frame>
+      </Step>
+
+      <Step title="Install">
+        Open the Nimble plugin and click **Install**. The plugin's skills, agents, and MCP connector register automatically.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/nimble-plugin-detail.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=8efe881767f65e1bd3857567c9b58372" alt="Nimble plugin detail page showing 14 skills, 2 agents, and 1 MCP connector" width="2000" height="1124" data-path="images/plugin-install/nimble-plugin-detail.png" />
+        </Frame>
+      </Step>
+
+      <Step title="Connect the MCP server">
+        Nimble now appears under **Personal plugins** in Customize, with **Skills**, **Connectors**, and **Agents** sub-sections.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/nimble-installed-sidebar.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=d8316cb8c0b0664098269bfa7d705b76" alt="Customize sidebar showing the installed Nimble plugin with Skills, Connectors, and Agents sub-items" width="594" height="504" data-path="images/plugin-install/nimble-installed-sidebar.png" />
+        </Frame>
+
+        Open **Connectors**, then click **Connect** to start OAuth.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/qIF2LyWE-cP0M-Us/images/plugin-install/cowork-connect-mcp.png?fit=max&auto=format&n=qIF2LyWE-cP0M-Us&q=85&s=aca133789fb574f12f0a5f86aa762d14" alt="Nimble plugin Connectors page with the nimble (CUSTOM) connector and a Connect button" width="2000" height="888" data-path="images/plugin-install/cowork-connect-mcp.png" />
+        </Frame>
+      </Step>
+
+      <Step title="Approve OAuth">
+        Review the permissions Claude is requesting and click **Approve** to authenticate with your Nimble workspace.
+
+        <Frame>
+          <img src="https://mintcdn.com/nimble-f5a8283f/X7lm_l_CY6UUR5ie/images/claude-connectors/oauth-approve.png?fit=max&auto=format&n=X7lm_l_CY6UUR5ie&q=85&s=3fb816aefa48a387cf104e997ccbf32d" alt="OAuth approval dialog: Claude is requesting access to Nimble with permissions to verify identity, search the web, extract data, manage Web Search Agents, and maintain access offline" width="1288" height="1308" data-path="images/claude-connectors/oauth-approve.png" />
+        </Frame>
+
+        Once approved, the Nimble skills, agents, and MCP tools are live across your Cowork conversations.
+      </Step>
+    </Steps>
+
+    For more on connecting Nimble to other Claude surfaces, see the [Claude AI Connectors guide](/integrations/connectors/anthropic/claude-connectors).
+  </Tab>
+
   <Tab title="Cursor">
     ### Step 1: Add the MCP Server
 
@@ -145,7 +215,52 @@ Or add to `~/.claude/settings.json` (Claude Code):
     </Accordion>
   </Tab>
 
-  <Tab title="Vercel Agent Skills CLI">
+  <Tab title="Codex">
+    ### Step 1: Add the MCP Server
+
+    Codex stores MCP configuration in `~/.codex/config.toml` (or a project-scoped `.codex/config.toml`). Add:
+
+    ```toml theme={"system"}
+    [mcp_servers.nimble-mcp-server]
+    url = "https://mcp.nimbleway.com/mcp"
+    bearer_token_env_var = "NIMBLE_API_KEY"
+    ```
+
+    Codex reads `NIMBLE_API_KEY` from your environment at runtime — never hardcode the key. Verify the server is registered with `/mcp` inside the Codex TUI.
+
+    ### Step 2: Add Skills
+
+    ```bash theme={"system"}
+    npx skills add Nimbleway/agent-skills -a codex
+    ```
+
+    Installs both skills into Codex's skill discovery paths (`~/.agents/skills/`). Restart Codex if `/skills` doesn't show `nimble-web-expert` and `nimble-agent-builder`.
+  </Tab>
+
+  <Tab title="Cortex Code">
+    [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code), Snowflake's native AI coding agent for the terminal, installs the Nimble MCP server with a single command. OAuth handles authentication — no API key required.
+
+    ### Add Nimble as an MCP server
+
+    ```bash theme={"system"}
+    cortex mcp add nimble https://mcp.nimbleway.com/mcp --transport http
+    ```
+
+    Cortex Code writes the server to `~/.snowflake/cortex/mcp.json`. On first connection, your system browser opens for OAuth sign-in; tokens are stored in your OS keychain and refreshed automatically.
+
+    ### Verify the connection
+
+    ```bash theme={"system"}
+    cortex mcp list
+    cortex mcp start
+    ```
+
+    Once `nimble` shows as connected, its tools are namespaced as `mcp__nimble__search`, `mcp__nimble__extract`, `mcp__nimble__map`, and `mcp__nimble__crawl`.
+
+    For organization-wide rollout via managed settings, see the [full Cortex Code integration guide](/integrations/partnerships/snowflake/cortex-code).
+  </Tab>
+
+  <Tab title="Vercel CLI">
     ```bash theme={"system"}
     npx skills add Nimbleway/agent-skills
     ```

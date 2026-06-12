@@ -7,4 +7,4 @@ With Amazon CloudWatch RUM, you can perform real-user monitoring to collect clie
 
 You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error messages, stack traces, and user sessions. You can also use RUM to understand the range of end-user impact including the number of users, geolocations, and browsers used.
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

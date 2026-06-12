@@ -26,7 +26,7 @@ Enterprises use ServiceNow’s platform to process more than 80 billion workflow
 
 **Accelerating product adoption and time to value**: ServiceNow is also working with us to improve how customers deploy and adopt ServiceNow products. With Claude, ServiceNow is targeting a 50% reduction in time-to-implement for customers—reducing the delay from initial sales conversations to autonomous deployment. Customers and partners will be able to use the same AI-powered approach to speed their own deployments.
 
-**Applying innovative Claude-powered solutions to industries**: ServiceNow is using Claude to build agentic applications for select industries, such as healthcare and life sciences. In these environments, Claude will support tasks like research analysis, claims authorization, and more—all while operating within ServiceNow’s governed platform. Claude is an industry-leading AI model for these tasks\*, with Claude Opus 4.5 leading major medical benchmarks and life sciences evaluations. With the ServiceNow AI Platform underpinning these capabilities, claims authorization could be reduced from days to hours while also decreasing costs. ServiceNow and Anthropic will take these innovative industry solutions to market together.
+**Applying innovative Claude-powered solutions to industries**: ServiceNow is using Claude to build agentic applications for select industries, such as healthcare and life sciences. In these environments, Claude will support tasks like research analysis, claims authorization, and more—all while operating within ServiceNow’s governed platform. Claude is an industry-leading AI model for these tasks*, with Claude Opus 4.5 leading major medical benchmarks and life sciences evaluations. With the ServiceNow AI Platform underpinning these capabilities, claims authorization could be reduced from days to hours while also decreasing costs. ServiceNow and Anthropic will take these innovative industry solutions to market together.
 
 ## How ServiceNow will use Claude internally
 
@@ -40,22 +40,22 @@ ServiceNow is putting Claude to work for the companys global workforce, applying
 
 Claude is now available as the default model for Build Agent and as a preferred model across the ServiceNow AI Platform. Tens of thousands of ServiceNow enterprise customers and the company’s global workforce can access Claude to build and deploy agentic automation and workflows across departments. Learn more about ServiceNow’s AI Platform at servicenow.com/ai.
 
-_\*For more on these evaluations, see here._
+_*For more on these evaluations, see here._
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

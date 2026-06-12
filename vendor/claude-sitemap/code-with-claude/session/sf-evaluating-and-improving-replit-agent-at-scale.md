@@ -2,6 +2,34 @@
 
 Most teams shipping AI products can't build evals that predict how a model will actually perform in production. Michele Catasta, President & Head of AI at Replit, shares how his team closed that gap with ViBench — a public vibe-coding benchmark that scores whether the generated app works — and the offline/online evaluation loop behind Replit Agent that turns weeks of engineering into compounding overnight gains. Anthropic's Hannah Moran joins to share what separates evals that look rigorous from ones that actually help teams adopt new models with confidence.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+04:50PM – 05:20PM
+
+Speaker(s)
+
+Michele Catasta
+
+President & Head of AI,
+
+Replit
+
+Hannah Moran
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

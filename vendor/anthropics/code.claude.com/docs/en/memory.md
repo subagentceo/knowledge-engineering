@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,15 +8,15 @@
 
 Each Claude Code session begins with a fresh context window. Two mechanisms carry knowledge across sessions:
 
-- **CLAUDE.md files**: instructions you write to give Claude persistent context
-- **Auto memory**: notes Claude writes itself based on your corrections and preferences
+* **CLAUDE.md files**: instructions you write to give Claude persistent context
+* **Auto memory**: notes Claude writes itself based on your corrections and preferences
 
 This page covers how to:
 
-- [Write and organize CLAUDE.md files](#claude-md-files)
-- [Scope rules to specific file types](#organize-rules-with-claude/rules/) with `.claude/rules/`
-- [Configure auto memory](#auto-memory) so Claude takes notes automatically
-- [Troubleshoot](#troubleshoot-memory-issues) when instructions aren't being followed
+* [Write and organize CLAUDE.md files](#claude-md-files)
+* [Scope rules to specific file types](#organize-rules-with-claude/rules/) with `.claude/rules/`
+* [Configure auto memory](#auto-memory) so Claude takes notes automatically
+* [Troubleshoot](#troubleshoot-memory-issues) when instructions aren't being followed
 
 ## CLAUDE.md vs auto memory
 
@@ -43,10 +42,10 @@ CLAUDE.md files are markdown files that give Claude persistent instructions for 
 
 Treat CLAUDE.md as the place you write down what you'd otherwise re-explain. Add to it when:
 
-- Claude makes the same mistake a second time
-- A code review catches something Claude should have known about this codebase
-- You type the same correction or clarification into chat that you typed last session
-- A new teammate would need the same context to be productive
+* Claude makes the same mistake a second time
+* A code review catches something Claude should have known about this codebase
+* You type the same correction or clarification into chat that you typed last session
+* A new teammate would need the same context to be productive
 
 Keep it to facts Claude should hold in every session: build commands, conventions, project layout, "always do X" rules. If an entry is a multi-step procedure or only matters for one part of the codebase, move it to a [skill](/en/skills) or a [path-scoped rule](#organize-rules-with-claude/rules/) instead. The [extension overview](/en/features-overview#build-your-setup-over-time) covers when to use each mechanism.
 
@@ -72,7 +71,7 @@ A project CLAUDE.md can be stored in either `./CLAUDE.md` or `./.claude/CLAUDE.m
 <Tip>
   Run `/init` to generate a starting CLAUDE.md automatically. Claude analyzes your codebase and creates a file with build commands, test instructions, and project conventions it discovers. If a CLAUDE.md already exists, `/init` suggests improvements rather than overwriting it. Refine from there with instructions Claude wouldn't discover on its own.
 
-Set `CLAUDE_CODE_NEW_INIT=1` to enable an interactive multi-phase flow. `/init` asks which artifacts to set up: CLAUDE.md files, skills, and hooks. It then explores your codebase with a subagent, fills in gaps via follow-up questions, and presents a reviewable proposal before writing any files.
+  Set `CLAUDE_CODE_NEW_INIT=1` to enable an interactive multi-phase flow. `/init` asks which artifacts to set up: CLAUDE.md files, skills, and hooks. It then explores your codebase with a subagent, fills in gaps via follow-up questions, and presents a reviewable proposal before writing any files.
 </Tip>
 
 ### Write effective instructions
@@ -85,9 +84,9 @@ CLAUDE.md files are loaded into the context window at the start of every session
 
 **Specificity**: write instructions that are concrete enough to verify. For example:
 
-- "Use 2-space indentation" instead of "Format code properly"
-- "Run `npm test` before committing" instead of "Test your changes"
-- "API handlers live in `src/api/handlers/`" instead of "Keep files organized"
+* "Use 2-space indentation" instead of "Format code properly"
+* "Run `npm test` before committing" instead of "Test your changes"
+* "API handlers live in `src/api/handlers/`" instead of "Keep files organized"
 
 **Consistency**: if two rules contradict each other, Claude may pick one arbitrarily. Review your CLAUDE.md files, nested CLAUDE.md files in subdirectories, and [`.claude/rules/`](#organize-rules-with-claude/rules/) periodically to remove outdated or conflicting instructions. In monorepos, use [`claudeMdExcludes`](#exclude-specific-claude-md-files) to skip CLAUDE.md files from other teams that aren't relevant to your work.
 
@@ -141,7 +140,7 @@ ln -s AGENTS.md CLAUDE.md
 
 On Windows, creating a symlink requires Administrator privileges or Developer Mode, so use the `@AGENTS.md` import instead.
 
-Running [`/init`](/en/commands) in a repo that already has an `AGENTS.md` reads it and incorporates the relevant parts into the generated `CLAUDE.md`. It also reads other tool configs like `.cursorrules` and `.windsurfrules`.
+Running [`/init`](/en/commands) in a repo that already has an `AGENTS.md` reads it and incorporates the relevant parts into the generated `CLAUDE.md`. It also reads other tool configs like `.cursorrules`, `.devin/rules/`, and `.windsurfrules`.
 
 ### How CLAUDE.md files load
 
@@ -382,7 +381,7 @@ Claude reads and writes memory files during your session. When you see "Writing 
 
 ### Audit and edit your memory
 
-Auto memory files are plain markdown you can edit or delete at any time. Run [`/memory`](#view-and-edit-with-memory) to browse and open memory files from within a session.
+Auto memory files are plain markdown you can edit or delete at any time. Run [`/memory`](#view-and-edit-with-%2Fmemory) to browse and open memory files from within a session.
 
 ## View and edit with `/memory`
 
@@ -400,10 +399,10 @@ CLAUDE.md content is delivered as a user message after the system prompt, not as
 
 To debug:
 
-- Run `/memory` to verify your CLAUDE.md and CLAUDE.local.md files are being loaded. If a file isn't listed, Claude can't see it.
-- Check that the relevant CLAUDE.md is in a location that gets loaded for your session (see [Choose where to put CLAUDE.md files](#choose-where-to-put-claude-md-files)).
-- Make instructions more specific. "Use 2-space indentation" works better than "format code nicely."
-- Look for conflicting instructions across CLAUDE.md files. If two files give different guidance for the same behavior, Claude may pick one arbitrarily.
+* Run `/memory` to verify your CLAUDE.md and CLAUDE.local.md files are being loaded. If a file isn't listed, Claude can't see it.
+* Check that the relevant CLAUDE.md is in a location that gets loaded for your session (see [Choose where to put CLAUDE.md files](#choose-where-to-put-claude-md-files)).
+* Make instructions more specific. "Use 2-space indentation" works better than "format code nicely."
+* Look for conflicting instructions across CLAUDE.md files. If two files give different guidance for the same behavior, Claude may pick one arbitrarily.
 
 If the instruction is something that must run at a specific point, such as before every commit or after each file edit, write it as a [hook](/en/hooks-guide) instead. Hooks execute as shell commands at fixed lifecycle events and apply regardless of what Claude decides to do.
 
@@ -431,7 +430,7 @@ See [Write effective instructions](#write-effective-instructions) for guidance o
 
 ## Related resources
 
-- [Debug your configuration](/en/debug-your-config): diagnose why CLAUDE.md or settings aren't taking effect
-- [Skills](/en/skills): package repeatable workflows that load on demand
-- [Settings](/en/settings): configure Claude Code behavior with settings files
-- [Subagent memory](/en/sub-agents#enable-persistent-memory): let subagents maintain their own auto memory
+* [Debug your configuration](/en/debug-your-config): diagnose why CLAUDE.md or settings aren't taking effect
+* [Skills](/en/skills): package repeatable workflows that load on demand
+* [Settings](/en/settings): configure Claude Code behavior with settings files
+* [Subagent memory](/en/sub-agents#enable-persistent-memory): let subagents maintain their own auto memory

@@ -22,7 +22,7 @@ Some events have multiple activity types. For these events, you can specify whic
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see [About protected branches](/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). For information about the branch protection rule APIs, see [Objects](/en/graphql/reference/objects#branchprotectionrule) in the GraphQL API documentation or [REST API endpoints for branches and their settings](/en/rest/branches).
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see [About protected branches](/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). For information about the branch protection rule APIs, see [Branches](/en/graphql/reference/branches#object-branchprotectionrule) in the GraphQL API documentation or [REST API endpoints for branches and their settings](/en/rest/branches).
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -44,7 +44,7 @@ on:
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 > * To prevent recursive workflows, this event does not trigger workflows if the check run's check suite was created by GitHub Actions or if the check suite's head SHA is associated with GitHub Actions.
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see [Using the REST API to interact with checks](/en/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check run APIs, see [Objects](/en/graphql/reference/objects#checkrun) in the GraphQL API documentation or [REST API endpoints for check runs](/en/rest/checks/runs).
+Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see [Using the REST API to interact with checks](/en/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check run APIs, see [Checks](/en/graphql/reference/checks#object-checkrun) in the GraphQL API documentation or [REST API endpoints for check runs](/en/rest/checks/runs).
 
 For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
@@ -66,7 +66,7 @@ on:
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 > * To prevent recursive workflows, this event does not trigger workflows if the check suite was created by GitHub Actions or if the check suite's head SHA is associated with GitHub Actions.
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see [Using the REST API to interact with checks](/en/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check suite APIs, see [Objects](/en/graphql/reference/objects#checksuite) in the GraphQL API documentation or [REST API endpoints for check suites](/en/rest/checks/suites).
+Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see [Using the REST API to interact with checks](/en/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check suite APIs, see [Checks](/en/graphql/reference/checks#object-checksuite) in the GraphQL API documentation or [REST API endpoints for check suites](/en/rest/checks/suites).
 
 For example, you can run a workflow when a check suite has been `completed`.
 
@@ -85,7 +85,7 @@ on:
 > \[!NOTE]
 > An event will not be created when you create more than three tags at once.
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see [Mutations](/en/graphql/reference/mutations#createref) in the GraphQL API documentation or [REST API endpoints for Git references](/en/rest/git/refs#create-a-reference).
+Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see [Git](/en/graphql/reference/git#mutation-createref) in the GraphQL API documentation or [REST API endpoints for Git references](/en/rest/git/refs#create-a-reference).
 
 For example, you can run a workflow when the `create` event occurs.
 
@@ -105,7 +105,7 @@ on:
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 > * An event will not be created when you delete more than three tags at once.
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see [Mutations](/en/graphql/reference/mutations#deleteref) in the GraphQL API documentation or [REST API endpoints for Git references](/en/rest/git/refs#delete-a-reference).
+Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see [Git](/en/graphql/reference/git#mutation-deleteref) in the GraphQL API documentation or [REST API endpoints for Git references](/en/rest/git/refs#delete-a-reference).
 
 For example, you can run a workflow when the `delete` event occurs.
 
@@ -120,7 +120,7 @@ on:
 | --------------------------------------------------------------------------------------- | -------------- | --------------------- | ----------------------------------------------------------------- |
 | [`deployment`](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment) | Not applicable | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA) |
 
-Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see [Mutations](/en/graphql/reference/mutations#createdeployment) in the GraphQL API documentation or [REST API endpoints for repositories](/en/rest/repos#deployments).
+Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see [Deployments](/en/graphql/reference/deployments#mutation-createdeployment) in the GraphQL API documentation or [REST API endpoints for repositories](/en/rest/repos#deployments).
 
 For example, you can run a workflow when the `deployment` event occurs.
 
@@ -138,7 +138,7 @@ on:
 > \[!NOTE]
 > When a deployment status's state is set to `inactive`, a workflow run will not be triggered.
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see [Mutations](/en/graphql/reference/mutations#createdeploymentstatus) in the GraphQL API documentation or [REST API endpoints for deployments](/en/rest/deployments#create-a-deployment-status).
+Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see [Deployments](/en/graphql/reference/deployments#mutation-createdeploymentstatus) in the GraphQL API documentation or [REST API endpoints for deployments](/en/rest/deployments#create-a-deployment-status).
 
 For example, you can run a workflow when the `deployment_status` event occurs.
 
@@ -159,7 +159,7 @@ on:
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 > * Webhook events for GitHub Discussions are currently in public preview and subject to change.
 
-Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see [About discussions](/en/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [Objects](/en/graphql/reference/objects#discussion).
+Runs your workflow when a discussion in the workflow's repository is created or modified. For activity related to comments on a discussion, use the [`discussion_comment`](#discussion_comment) event. For more information about discussions, see [About discussions](/en/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [Discussions](/en/graphql/reference/discussions#object-discussion).
 
 For example, you can run a workflow when a discussion has been `created`, `edited`, or `answered`.
 
@@ -181,7 +181,7 @@ on:
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 > * Webhook events for GitHub Discussions are currently in public preview and subject to change.
 
-Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see [About discussions](/en/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [Objects](/en/graphql/reference/objects#discussion).
+Runs your workflow when a comment on a discussion in the workflow's repository is created or modified. For activity related to a discussion as opposed to comments on the discussion, use the [`discussion`](#discussion) event. For more information about discussions, see [About discussions](/en/discussions/collaborating-with-your-community-using-discussions/about-discussions). For information about the GraphQL API, see [Discussions](/en/graphql/reference/discussions#object-discussion).
 
 For example, you can run a workflow when a discussion comment has been `created` or `deleted`.
 
@@ -259,7 +259,7 @@ on:
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see [Objects](/en/graphql/reference/objects#issuecomment) in the GraphQL API documentation or [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) in the REST API documentation.
+Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see [Issues](/en/graphql/reference/issues#object-issuecomment) in the GraphQL API documentation or [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issue_comment) in the REST API documentation.
 
 For example, you can run a workflow when an issue or pull request comment has been `created` or `deleted`.
 
@@ -304,16 +304,16 @@ jobs:
 
 ## `issues`
 
-| Webhook event payload                                                           | Activity types                                                                                                                                                                                                                                                                                               | `GITHUB_SHA`                  | `GITHUB_REF`   |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------- | -------------- |
-| [`issues`](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned`<br/> - `typed`<br/> - `untyped` | Last commit on default branch | Default branch |
+| Webhook event payload                                                           | Activity types                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`                  | `GITHUB_REF`   |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------- |
+| [`issues`](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned`<br/> - `typed`<br/> - `untyped`<br/> - `field_added`<br/> - `field_removed` | Last commit on default branch | Default branch |
 
 > \[!NOTE]
 >
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see [About issues](/en/issues/tracking-your-work-with-issues/about-issues). For information about the issue APIs, see [Objects](/en/graphql/reference/objects#issue) in the GraphQL API documentation or [REST API endpoints for issues](/en/rest/issues).
+Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see [About issues](/en/issues/tracking-your-work-with-issues/about-issues). For information about the issue APIs, see [Issues](/en/graphql/reference/issues#object-issue) in the GraphQL API documentation or [REST API endpoints for issues](/en/rest/issues).
 
 For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
 
@@ -321,6 +321,14 @@ For example, you can run a workflow when an issue has been `opened`, `edited`, o
 on:
   issues:
     types: [opened, edited, milestoned]
+```
+
+You can also run a workflow when an issue field value is set, changed, or cleared. The `field_added` activity type fires both when a field value is initially set and when an existing value is updated. The `field_removed` activity type fires when a field value is cleared.
+
+```yaml
+on:
+  issues:
+    types: [field_added, field_removed]
 ```
 
 ## `label`
@@ -334,7 +342,7 @@ on:
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#label). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see [Managing labels](/en/issues/using-labels-and-milestones-to-track-work/managing-labels). For information about the label APIs, see [Objects](/en/graphql/reference/objects#label) in the GraphQL API documentation or [REST API endpoints for labels](/en/rest/issues/labels).
+Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see [Managing labels](/en/issues/using-labels-and-milestones-to-track-work/managing-labels). For information about the label APIs, see [Issues](/en/graphql/reference/issues#object-label) in the GraphQL API documentation or [REST API endpoints for labels](/en/rest/issues/labels).
 
 If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
 
@@ -380,7 +388,7 @@ on:
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#milestone). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see [About milestones](/en/issues/using-labels-and-milestones-to-track-work/about-milestones). For information about the milestone APIs, see [Objects](/en/graphql/reference/objects#milestone) in the GraphQL API documentation or [REST API endpoints for milestones](/en/rest/issues/milestones).
+Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see [About milestones](/en/issues/using-labels-and-milestones-to-track-work/about-milestones). For information about the milestone APIs, see [Issues](/en/graphql/reference/issues#object-milestone) in the GraphQL API documentation or [REST API endpoints for milestones](/en/rest/issues/milestones).
 
 If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
 
@@ -439,9 +447,10 @@ on:
 > * More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request). By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first. Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
 > * The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
+> * When a pull request is created or updated by a workflow using `GITHUB_TOKEN`, `pull_request` events with the `opened`, `synchronize`, or `reopened` activity types create workflow runs that require approval. A user with write access to the repository can approve these runs from the pull request page. With the exception of `workflow_dispatch` and `repository_dispatch`, other `GITHUB_TOKEN`-triggered events do not create workflow runs at all.
 > * The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
-Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see [Objects](/en/graphql/reference/objects#pullrequest) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls).
+Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see [Pull requests](/en/graphql/reference/pulls#object-pullrequest) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls).
 
 Note that `GITHUB_SHA` for this event is the last merge commit of the pull request merge branch. If you want to get the commit ID for the last commit to the head branch of the pull request, use `github.event.pull_request.head.sha` instead. For more information about merge branches, see [About pull requests](/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#pull-request-refs-and-merge-branches).
 
@@ -596,7 +605,7 @@ To run your workflow when a comment on a pull request (not on a pull request's d
 > \[!NOTE]
 > More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 
-Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see [Objects](/en/graphql/reference/objects#pullrequest) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls#reviews).
+Runs your workflow when a pull request review is submitted, edited, or dismissed. A pull request review is a group of pull request review comments in addition to a body comment and a state. For activity related to pull request review comments or pull request comments, use the [`pull_request_review_comment`](#pull_request_review_comment) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review APIs, see [Pull requests](/en/graphql/reference/pulls#object-pullrequest) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls#reviews).
 
 For example, you can run a workflow when a pull request review has been `edited` or `dismissed`.
 
@@ -649,7 +658,7 @@ For pull requests from a forked repository to a private repository, workflows on
 > \[!NOTE]
 > More than one activity type triggers this event. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 
-Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see [Objects](/en/graphql/reference/objects#pullrequestreviewcomment) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls#comments).
+Runs your workflow when a pull request review comment is modified. A pull request review comment is a comment on a pull request's diff. For activity related to pull request reviews or pull request comments, use the [`pull_request_review`](#pull_request_review) or [`issue_comment`](#issue_comment) events instead. For information about the pull request review comment APIs, see [Pull requests](/en/graphql/reference/pulls#object-pullrequestreviewcomment) in the GraphQL API documentation or [REST API endpoints for pull requests](/en/rest/pulls#comments).
 
 For example, you can run a workflow when a pull request review comment has been `created` or `deleted`.
 
@@ -802,10 +811,10 @@ jobs:
 
 > \[!NOTE]
 >
-> * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [Objects](/en/graphql/reference/objects#commit) in the GraphQL API documentation or [REST API endpoints for commits](/en/rest/commits#get-a-commit).
+> * The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see [Commits](/en/graphql/reference/commits#object-commit) in the GraphQL API documentation or [REST API endpoints for commits](/en/rest/commits#get-a-commit).
 > * Events will not be created if more than 5,000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
-Runs your workflow when you push a commit or tag, or when you create a repository from a template.
+Runs your workflow when you push a commit or tag, or when you create a repository from a template. This includes workflows that are not merged into the default branch. For more information, see [Events that trigger workflows](/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs).
 
 For example, you can run a workflow when the `push` event occurs.
 
@@ -909,7 +918,7 @@ on:
 > * Workflows are not triggered for the `created`, `edited`, or `deleted` activity types for draft releases. When you create your release through the GitHub UI, your release may automatically be saved as a draft.
 > * The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
-Runs your workflow when release activity in your repository occurs. For information about the release APIs, see [Objects](/en/graphql/reference/objects#release) in the GraphQL API documentation or [REST API endpoints for releases and release assets](/en/rest/releases) in the REST API documentation.
+Runs your workflow when release activity in your repository occurs. For information about the release APIs, see [Releases](/en/graphql/reference/releases#object-release) in the GraphQL API documentation or [REST API endpoints for releases and release assets](/en/rest/releases) in the REST API documentation.
 
 For example, you can run a workflow when a release has been `published`.
 
@@ -1081,7 +1090,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 > \[!NOTE]
 > This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see [Objects](/en/graphql/reference/objects#status) in the GraphQL API documentation or [REST API endpoints for commits](/en/rest/commits#commit-statuses).
+Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see [Commits](/en/graphql/reference/commits#object-status) in the GraphQL API documentation or [REST API endpoints for commits](/en/rest/commits#commit-statuses).
 
 For example, you can run a workflow when the `status` event occurs.
 
@@ -1119,7 +1128,7 @@ jobs:
 > * More than one activity type triggers this event. Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see [Webhook events and payloads](/en/webhooks-and-events/webhooks/webhook-events-and-payloads#watch). By default, all activity types trigger workflows that run on this event. You can limit your workflow runs to specific activity types using the `types` keyword. For more information, see [Workflow syntax for GitHub Actions](/en/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes).
 > * This event will only trigger a workflow run if the workflow file exists on the default branch.
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see [Mutations](/en/graphql/reference/mutations#addstar) in the GraphQL API documentation or [REST API endpoints for starring](/en/rest/activity/starring).
+Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see [Activity](/en/graphql/reference/activity#mutation-addstar) in the GraphQL API documentation or [REST API endpoints for starring](/en/rest/activity/starring).
 
 For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 

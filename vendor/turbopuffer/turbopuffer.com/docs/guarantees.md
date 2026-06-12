@@ -10,11 +10,12 @@ however staleness of about 100ms can be observed during (rare) scaling/failover 
 
 * **Atomic Conditional Writes.**  [Conditional writes](/docs/write#conditional-writes) evaluate their condition atomically with writing.
 * **Atomic Batches.**  All writes in an upsert are applied simultaneously.
+* **Branch isolation.** Branched namespaces are point-in-time snapshots that are fully independent after creation. Writes to one namespace are never visible in the other. Deleting either namespace does not affect the other.
 * **Any node can serve queries for any namespace.** HA does not come as a cost/reliability trade-off. Our HA is the number of query nodes we run.
 * **Object storage is the only stateful dependency.** This means there is no separate consensus plane that needs to be maintained and scaled independently, simplifying the system's operations and thus reliability. All concurrency control is delegated to object storage.
 * **Compute-Compute Separation.** Query nodes handle queries and writes to object storage and the write-through cache. All expensive computation happens on separate, auto-scaled indexing nodes.
 * **Smart Caching.** After a cold query, data is cached on NVMe SSD and frequently accessed namespaces are stored in memory. turbopuffer does not need to load the entire namespace into cache, and then query it. The storage engine is designed to perform small, ranged reads directly to object storage for fast cold queries. [Cache warming hints](/docs/warm-cache) can eliminate user-visible cold query latency in many applications.
-* **Autoscaling.** Query and indexing nodes are automatically scale with demand.
+* **Autoscaling.** Query and indexing nodes automatically scale with demand.
 
 Regarding ACID properties: turbopuffer provides Atomicity, Consistency, and
 Durability.
@@ -32,8 +33,8 @@ under Serializable isolation, the strongest isolation level.
 `patch_by_filter` and `delete_by_filter` execute in two phases:
 
 1. They evaluate their filter against a namespace snapshot to identify matching
-   document IDs.
-2. They atomically re-evaluate their filter against those matching IDs and
+   document ids.
+2. They atomically re-evaluate their filter against those matching ids and
    modify documents that still satisfy the condition.
 
 Re-evaluation ensures that documents are never modified that no longer satisfy
@@ -43,9 +44,20 @@ between the two phases will be missed. As a result, `patch_by_filter` and
 `UPDATE ... SET ... WHERE ...` and `DELETE FROM ... WHERE ...` in
 [PostgreSQL](https://www.postgresql.org/docs/current/transaction-iso.html#XACT-READ-COMMITTED).
 
-For CAP theorem: turbopuffer prioritizes consistency over availability when
+## CAP Theorem
+
+turbopuffer prioritizes consistency over availability when
 object storage is unreachable. You can adjust this to favor availability through
 [query configuration](/docs/query).
 
 For more details, see [Tradeoffs](/docs/tradeoffs), [Limits](/docs/limits),
 and [Architecture](/docs/architecture).
+
+
+---
+
+This page: [/docs/guarantees.md](https://turbopuffer.com/docs/guarantees.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

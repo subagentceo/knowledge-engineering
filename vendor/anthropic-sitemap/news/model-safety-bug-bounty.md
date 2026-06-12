@@ -18,8 +18,8 @@ We’re eager to work with the global community of security and safety researche
 
 To date, we’ve operated an invite-only bug bounty program in partnership with HackerOne that rewards researchers for identifying model safety issues in our publicly released AI models. The bug bounty initiative we’re announcing today will test our next-generation system we've developed for AI safety mitigations, which we haven’t deployed publicly yet. Here’s how it will work:
 
-- **Early Access:** Participants will be given early access to test our latest safety mitigation system before its public deployment. As part of this, participants will be challenged to identify potential vulnerabilities or ways to circumvent our safety measures in a controlled environment.
-- **Program Scope:** We're offering bounty rewards up to $15,000 for novel, universal jailbreak attacks that could expose vulnerabilities in critical, high risk domains such as CBRN (chemical, biological, radiological, and nuclear) and cybersecurity. As we’ve written about previously, a jailbreak attack in AI refers to a method used to circumvent an AI system's built-in safety measures and ethical guidelines, allowing a user to elicit responses or behaviors from the AI that would typically be restricted or prohibited. A universal jailbreak is a type of vulnerability in AI systems that allows a user to consistently bypass the safety measures across a wide range of topics. Identifying and mitigating universal jailbreaks is the key focus of this bug bounty initiative. If exploited, these vulnerabilities could have far-reaching consequences across a variety of harmful, unethical or dangerous areas. The jailbreak will be defined as universal if it can get the model to answer a defined number of specific harmful questions. Detailed instructions and feedback will be shared with the participants of the program.
+*   **Early Access:** Participants will be given early access to test our latest safety mitigation system before its public deployment. As part of this, participants will be challenged to identify potential vulnerabilities or ways to circumvent our safety measures in a controlled environment.
+*   **Program Scope:** We're offering bounty rewards up to $15,000 for novel, universal jailbreak attacks that could expose vulnerabilities in critical, high risk domains such as CBRN (chemical, biological, radiological, and nuclear) and cybersecurity. As we’ve written about previously, a jailbreak attack in AI refers to a method used to circumvent an AI system's built-in safety measures and ethical guidelines, allowing a user to elicit responses or behaviors from the AI that would typically be restricted or prohibited. A universal jailbreak is a type of vulnerability in AI systems that allows a user to consistently bypass the safety measures across a wide range of topics. Identifying and mitigating universal jailbreaks is the key focus of this bug bounty initiative. If exploited, these vulnerabilities could have far-reaching consequences across a variety of harmful, unethical or dangerous areas. The jailbreak will be defined as universal if it can get the model to answer a defined number of specific harmful questions. Detailed instructions and feedback will be shared with the participants of the program.
 
 ## Get involved
 
@@ -31,18 +31,18 @@ This initiative aligns with commitments we’ve signed onto with other AI compan
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

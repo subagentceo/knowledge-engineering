@@ -13,6 +13,7 @@ Long poll for work items in the queue.
 - `environmentID: string`
 
 - `params: WorkPollParams`
+
   - `block_ms?: number | null`
 
     Query param: How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
@@ -24,9 +25,11 @@ Long poll for work items in the queue.
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -79,7 +82,9 @@ Long poll for work items in the queue.
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
   - `"Anthropic-Worker-ID"?: string`
 
@@ -88,9 +93,10 @@ Long poll for work items in the queue.
 ### Returns
 
 - `BetaSelfHostedWork | null`
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string | null`
 
@@ -103,13 +109,15 @@ Long poll for work items in the queue.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -131,6 +139,7 @@ Long poll for work items in the queue.
   - `state: "queued" | "starting" | "active" | 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -152,20 +161,19 @@ Long poll for work items in the queue.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaSelfHostedWork = await client.beta.environments.work.poll(
-  "env_011CZkZ9X2dpNyB7HsEFoRfW",
-);
+const betaSelfHostedWork = await client.beta.environments.work.poll('env_011CZkZ9X2dpNyB7HsEFoRfW');
 
 console.log(betaSelfHostedWork.id);
 ```

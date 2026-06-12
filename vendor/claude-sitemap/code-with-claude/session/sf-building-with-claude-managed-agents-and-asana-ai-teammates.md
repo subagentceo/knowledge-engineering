@@ -2,6 +2,28 @@
 
 Most of the AI value in your organization is locked in isolated experiments. That is not the Agentic Enterprise we’ve been promised. AI can help us ideate, orchestrate, and complete the work. Not just support.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+01:50PM – 02:20PM
+
+Speaker(s)
+
+Arnab Bose
+
+Chief Product Officer,
+
+Asana
+
 ## Watch recording
 
 Play videoPlay video

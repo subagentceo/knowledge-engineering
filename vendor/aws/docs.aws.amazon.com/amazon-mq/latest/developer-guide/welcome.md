@@ -3,7 +3,7 @@
 # What is Amazon MQ?
 <a name="welcome"></a>
 
- Amazon MQ is a managed message broker service for [Apache ActiveMQ](http://activemq.apache.org/) Classic and [RabbitMQ](https://www.rabbitmq.com/) that manages the setup, operation, and maintenance of message brokers. You can create a new Amazon MQ broker using industry standard messaging protocols, or migrate existing message brokers to Amazon MQ without rewriting messaging code. 
+ Amazon MQ is a managed message broker service for [Apache ActiveMQ](https://activemq.apache.org/) Classic and [RabbitMQ](https://www.rabbitmq.com/) that manages the setup, operation, and maintenance of message brokers. You can create a new Amazon MQ broker using industry standard messaging protocols, or migrate existing message brokers to Amazon MQ without rewriting messaging code. 
 
  A *broker* is a message broker environment running on Amazon MQ. It is the basic building block of Amazon MQ. A *message* broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols. You can use Amazon MQ brokers for communication between large scale, cloud native applications and components. 
 
@@ -52,11 +52,11 @@
 
 To learn about Amazon MQ REST APIs, see the *[Amazon MQ REST API Reference](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/)*.
 
-To learn about Amazon MQ AWS CLI commands, see [Amazon MQ in the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/mq/index.html). 
+To learn about Amazon MQ AWS CLI commands, see [Amazon MQ in the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/mq/). 
 
 ## How can I provide feedback to Amazon MQ?
 <a name="amazon-mq-we-want-to-hear-from-you"></a>
 
-We welcome and encourgae your feedback on the documentation. You can use the thumbs up and thumbs down icons on the right hand side to submit feedback, or you can use the "Provide feedback" form linked below. 
+We welcome and encourage your feedback on the documentation. You can use the thumbs up and thumbs down icons on the right hand side to submit feedback, or you can use the "Provide feedback" form linked below. 
 
 To contact the Amazon MQ team, use the [Amazon MQ Discussion Forum](https://forums.aws.amazon.com/forum.jspa?forumID=279).

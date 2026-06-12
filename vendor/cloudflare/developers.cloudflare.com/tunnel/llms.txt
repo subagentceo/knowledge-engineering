@@ -51,6 +51,7 @@ Connect your origin servers, APIs, and services to Cloudflare without a publicly
 
 ## advanced
 
+- [Granular permissions](https://developers.cloudflare.com/tunnel/advanced/granular-permissions/index.md): Scope Cloudflare member permissions to individual Cloudflare Tunnel instances.
 - [Linux](https://developers.cloudflare.com/tunnel/advanced/local-management/as-a-service/linux/index.md): Install and run cloudflared as a systemd service on Linux.
 - [macOS](https://developers.cloudflare.com/tunnel/advanced/local-management/as-a-service/macos/index.md): Install and run cloudflared as a launch agent on macOS.
 - [Windows](https://developers.cloudflare.com/tunnel/advanced/local-management/as-a-service/windows/index.md): Install and run cloudflared as a Windows service.

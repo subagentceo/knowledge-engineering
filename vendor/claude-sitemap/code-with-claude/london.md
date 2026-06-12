@@ -1,16 +1,26 @@
 # Code with Claude London — May 19, 2026
 
-- San Francisco
-  - Code w/ Claude
-  - Code w/ Claude: Extended
-
-- London
-  - Code w/ Claude
-  - Code w/ Claude: Extended
-
-- Tokyo
-  - Code w/ Claude
-  - Code w/ Claude: Extended
+*   San Francisco
+    
+    *   Code w/ Claude
+        
+    *   Code w/ Claude: Extended
+        
+    
+*   London
+    
+    *   Code w/ Claude
+        
+    *   Code w/ Claude: Extended
+        
+    
+*   Tokyo
+    
+    *   Code w/ Claude
+        
+    *   Code w/ Claude: Extended
+        
+    
 
 Attend virtually
 
@@ -50,13 +60,23 @@ Opening keynote
 
 Angela Jiang
 
+, Anthropic
+
 Boris Cherny
+
+, Anthropic
 
 Cat Wu
 
+, Anthropic
+
 Katelyn Lesse
 
+, Anthropic
+
 Lisa Crofoot
+
+, Anthropic
 
 Watch recordingWatch recording
 
@@ -67,6 +87,8 @@ Play videoPlay video
 What's new in Claude Code
 
 Ralph Ramos
+
+, Anthropic
 
 Claude Code
 
@@ -80,6 +102,8 @@ Memory and dreaming for self-learning agents
 
 Ravi Trivedi
 
+, Anthropic
+
 Claude Platform
 
 Watch recordingWatch recording
@@ -91,6 +115,8 @@ Play videoPlay video
 Picking the right model
 
 Lucas Smedley
+
+, Anthropic
 
 Research
 
@@ -104,6 +130,8 @@ Coding is no longer the constraint: Scaling devex to teams and agents at Spotify
 
 Niklas Gustavsson
 
+, Spotify
+
 Research
 
 Watch recordingWatch recording
@@ -115,6 +143,8 @@ Play videoPlay video
 Designing with Claude: From prompt to production
 
 Dan Cary
+
+, Anthropic
 
 Research
 
@@ -128,6 +158,8 @@ Beyond the basics with Claude Code
 
 Daisy Hollman
 
+, Anthropic
+
 Claude Code
 
 Watch recordingWatch recording
@@ -140,7 +172,11 @@ How to get to production faster with Claude Managed Agents
 
 Michael Cohen
 
+, Anthropic
+
 Harrison Stall
+
+, Anthropic
 
 Claude Code
 
@@ -154,7 +190,11 @@ From one person to 80: Scaling a hypergrowth engineering org with Claude Code
 
 Gabriel Grinberg
 
+, Base44
+
 Yoav Orlev
+
+, Base44
 
 Claude Code
 

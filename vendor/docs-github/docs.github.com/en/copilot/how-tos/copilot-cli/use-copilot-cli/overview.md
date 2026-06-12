@@ -39,6 +39,8 @@ Install Copilot CLI. See [Installing GitHub Copilot CLI](/en/copilot/how-tos/set
 
    This can be a simple chat question, or a request for Copilot to perform a specific task, such as fixing a bug, adding a feature to an existing application, or creating a new application.
 
+   As an alternative to typing, you can speak your prompt. See [Use voice input with Copilot CLI](/en/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input).
+
    For some examples of prompts, see [About GitHub Copilot CLI](/en/copilot/concepts/agents/about-copilot-cli).
 
 6. When Copilot wants to use a tool that could modify or execute files—for example, `touch`, `chmod`, `node`, or `sed`—it will ask you to approve the use of the tool.
@@ -104,6 +106,16 @@ You can prepend your input with `!` to directly run shell commands, without maki
 ```shell
 !git clone https://github.com/github/copilot-cli
 ```
+
+### Schedule prompts to run later
+
+You can schedule prompts to run in the future using the `/every` and `/after` slash commands. The `/every` command schedules a prompt to run repeatedly at a specified interval, while the `/after` command schedules a one-shot prompt to run once after a specified delay. For example:
+
+```shell
+/every 1h Run frontend tests and report any failures
+```
+
+For more information, see [Scheduling prompts in GitHub Copilot CLI](/en/copilot/how-tos/copilot-cli/automate-copilot-cli/schedule-prompts).
 
 ### Resume an interactive session
 
@@ -231,14 +243,14 @@ To extend the functionality available to you in Copilot CLI, you can add more MC
 
 3. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
-Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [Connect agents to external tools](/en/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.copilot` directory. This location can be changed by setting the `COPILOT_HOME` environment variable. For information about the JSON structure of a server definition, see [Configure MCP servers for your repository](/en/copilot/how-tos/use-copilot-agents/cloud-agent/extend-cloud-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
 
 ### Context management
 
 Copilot CLI provides several slash commands to help you monitor and manage your context window:
 
 * `/usage`: Lets you view your session statistics, including:
-  * The amount of premium requests used in the current session
+  * The amount of GitHub AI Credits used in the current session
   * The session duration
   * The total lines of code edited
   * A breakdown of token usage per model
@@ -253,9 +265,25 @@ GitHub Copilot CLI automatically compresses your history in the background when 
 
 For situations where you trust Copilot to run freely, you can use the `--allow-all` or `--yolo` flags to enable all permissions at once.
 
+### Run in a sandbox
+
+You can run Copilot CLI sessions inside a sandbox to restrict access to your filesystem, network, and system capabilities. To enable local sandboxing, enter `/sandbox enable` inside a session. To start a cloud-backed session instead, run `copilot --cloud`. For more information, see [About cloud and local sandboxes for GitHub Copilot](/en/copilot/concepts/about-cloud-and-local-sandboxes).
+
 ### Toggle reasoning visibility
 
 Press <kbd>Ctrl</kbd>+<kbd>T</kbd> to show or hide the model's reasoning process while it generates a response. This setting persists across sessions, allowing you to observe how Copilot works through complex problems.
+
+### Configure settings
+
+You can view and change Copilot CLI settings using the `/settings` slash command.
+
+* Run `/settings` to open an interactive settings dialog, where you can search for a setting by name and edit it.
+* Run `/settings KEY VALUE` to set a setting inline, where KEY is the name of the setting and VALUE is the value you want to set. This also works in scripts and in programmatic sessions started with `-p`.
+* Run `/settings reset KEY` to restore a setting to its default value.
+
+Some settings, such as the color mode, take effect immediately when you save them.
+
+For the full list of available settings, see [GitHub Copilot CLI configuration directory](/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference#configuration-file-settings).
 
 ## Find out more
 

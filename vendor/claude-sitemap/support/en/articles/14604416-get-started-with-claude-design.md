@@ -115,11 +115,12 @@ Use the “Export” button in the upper right corner when viewing your project 
 - Export as standalone HTML
 
 - Handoff to Claude Code
+
   - Send to local coding agent
 
   - Send to Claude Code Web
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1780164900&signature=f15993eaac5a80fceb6bc6a19787aeb2445237e1cedf0cce2ddb6361596cfce0&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SxbnWl9nfz9ljnuyXTdAq0yyBwl%2FUTqvqNR%0AjtYOhPUjS1mixixWq3g%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1781284500&amp;signature=af0262cf083e18d9b4e01c83e0ab85460997558957b15b3bfef96415d7ea5c67&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4S1Yk2lxnfz9ljnuyXTxq0WfaFRTHSjZbKuA%0A7E3DQy2U%2F3saht6VAQ0%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 

@@ -1,67 +1,67 @@
 # OpenFeature NestJS SDK
 
-[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.2.6&color=blue&style=for-the-badge)](https://github.com/open-feature/js-sdk/releases/tag/nestjs-sdk-v0.2.6)  
-[![codecov](https://codecov.io/gh/open-feature/js-sdk/branch/main/graph/badge.svg?token=3DC5XOEHMY)](https://codecov.io/gh/open-feature/js-sdk)[![NPM Download](https://img.shields.io/npm/dm/%40openfeature%2Fnestjs-sdk)](https://www.npmjs.com/package/@openfeature/nestjs-sdk)
+![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)![Release](https://img.shields.io/static/v1?label=release&message=v0.2.6&color=blue&style=for-the-badge)  
+![codecov](https://codecov.io/gh/open-feature/js-sdk/branch/main/graph/badge.svg?token=3DC5XOEHMY)![NPM Download](https://img.shields.io/npm/dm/%40openfeature%2Fnestjs-sdk)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview​
 
-The OpenFeature NestJS SDK is a package that provides a NestJS wrapper for the [OpenFeature Server SDK](/docs/reference/sdks/server/javascript/).
+The OpenFeature NestJS SDK is a package that provides a NestJS wrapper for the OpenFeature Server SDK.
 
 Capabilities include:
 
--   Providing a NestJS global module to simplify OpenFeature configuration and usage within NestJS
--   Setting up logging, event handling, hooks and providers directly when registering the module
--   Injecting feature flags directly into controller route handlers by using decorators
--   Injecting transaction evaluation context for flag evaluations directly from [execution context](https://docs.nestjs.com/fundamentals/execution-context) (HTTP header values, client IPs, etc.)
--   Injecting OpenFeature clients into NestJS services and controllers by using decorators
+*   Providing a NestJS global module to simplify OpenFeature configuration and usage within NestJS
+*   Setting up logging, event handling, hooks and providers directly when registering the module
+*   Injecting feature flags directly into controller route handlers by using decorators
+*   Injecting transaction evaluation context for flag evaluations directly from execution context (HTTP header values, client IPs, etc.)
+*   Injecting OpenFeature clients into NestJS services and controllers by using decorators
 
-## Quick start[​](#quick-start "Direct link to Quick start")
+## Quick start​
 
 **MCP Install**📋 Copy Prompt
 
-Follow the [MCP Getting Started](/docs/reference/other-technologies/mcp) guide to quickly set up the OpenFeature MCP server and connect your AI tool.
+Follow the MCP Getting Started guide to quickly set up the OpenFeature MCP server and connect your AI tool.
 
--   Run this prompt: `"Install OpenFeature into this app"`
+*   Run this prompt: `"Install OpenFeature into this app"`
 
 **Quick Install:**
 
-[📦 Install in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=OpenFeature&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAb3BlbmZlYXR1cmUvbWNwIl19Cg==)[📦 Install in VS Code](https://vscode.dev/redirect/mcp/install?name=OpenFeature&config=%7B%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22%40openfeature%2Fmcp%22%5D%7D)
+📦 Install in Cursor📦 Install in VS Code
 
 ```
 claude mcp add --transport stdio openfeature npx -y @openfeature/mcp
 ```
 
-### Requirements[​](#requirements "Direct link to Requirements")
+### Requirements​
 
--   Node.js version 20+
--   NestJS version 8+
+*   Node.js version 20+
+*   NestJS version 8+
 
-### Install[​](#install "Direct link to Install")
+### Install​
 
-#### npm[​](#npm "Direct link to npm")
+#### npm​
 
 ```
 npm install --save @openfeature/nestjs-sdk
 ```
 
-#### yarn[​](#yarn "Direct link to yarn")
+#### yarn​
 
 ```
 # yarn requires manual installation of the peer dependencies (see below)yarn add @openfeature/nestjs-sdk @openfeature/server-sdk @openfeature/core
 ```
 
-#### Required peer dependencies[​](#required-peer-dependencies "Direct link to Required peer dependencies")
+#### Required peer dependencies​
 
 The following list contains the peer dependencies of `@openfeature/nestjs-sdk` with its expected and compatible versions:
 
--   `@openfeature/server-sdk`: ^1.17.1
--   `@nestjs/common`: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
--   `@nestjs/core`: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
--   `rxjs`: ^7.0.0 || ^8.0.0
+*   `@openfeature/server-sdk`: ^1.17.1
+*   `@nestjs/common`: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
+*   `@nestjs/core`: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0
+*   `rxjs`: ^7.0.0 || ^8.0.0
 
 The minimum required version of `@openfeature/server-sdk` currently is `1.17.1`.
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage​
 
 The example below shows how to use the `OpenFeatureModule` with OpenFeature's `TypedInMemoryProvider`.
 
@@ -81,7 +81,7 @@ It is also possible to inject the default or domain scoped OpenFeature clients i
 import { Injectable } from '@nestjs/common';import { OpenFeatureClient, Client } from '@openfeature/nestjs-sdk';@Injectable()export class OpenFeatureTestService {  constructor(    @OpenFeatureClient() private defaultClient: Client,    @OpenFeatureClient({ domain: 'my-domain' }) private scopedClient: Client,  ) {}  public async getBoolean() {    return await this.defaultClient.getBooleanValue('testBooleanFlag', false);  }}
 ```
 
-#### Managing Controller or Route Access via Feature Flags[​](#managing-controller-or-route-access-via-feature-flags "Direct link to Managing Controller or Route Access via Feature Flags")
+#### Managing Controller or Route Access via Feature Flags​
 
 The `RequireFlagsEnabled` decorator can be used to manage access to a controller or route based on the enabled state of a feature flag. The decorator will throw an exception if the required feature flag(s) are not enabled.
 
@@ -89,12 +89,12 @@ The `RequireFlagsEnabled` decorator can be used to manage access to a controller
 import { Controller, Get } from '@nestjs/common';import { RequireFlagsEnabled } from '@openfeature/nestjs-sdk';@Controller()export class OpenFeatureController {  @RequireFlagsEnabled({ flags: [{ flagKey: 'testBooleanFlag' }] })  @Get('/welcome')  public async welcome() {    return 'Welcome to this OpenFeature-enabled NestJS app!';  }}
 ```
 
-#### Type-Safe Flag Keys[​](#type-safe-flag-keys "Direct link to Type-Safe Flag Keys")
+#### Type-Safe Flag Keys​
 
-For enhanced type safety and autocompletion, you can override flag key types using TypeScript module augmentation. See the [`@openfeature/core` README](https://github.com/open-feature/js-sdk/blob/main/packages/shared/README.md#type-safe-flag-keys) for details.
+For enhanced type safety and autocompletion, you can override flag key types using TypeScript module augmentation. See the `@openfeature/core` README for details.
 
-## Module additional information[​](#module-additional-information "Direct link to Module additional information")
+## Module additional information​
 
-### Flag evaluation context injection[​](#flag-evaluation-context-injection "Direct link to Flag evaluation context injection")
+### Flag evaluation context injection​
 
 Whenever a flag evaluation occurs, context can be provided with information like user e-mail, role, targeting key, etc. in order to trigger specific evaluation rules or logic. The `OpenFeatureModule` provides a way to configure context for each request using the `contextFactory` option. The `contextFactory` is run in a NestJS interceptor scope to configure the evaluation context, and then it is used in every flag evaluation related to this request. By default, the interceptor is configured globally, but it can be changed by setting the `useGlobalInterceptor` to `false`. In this case, it is still possible to configure a `contextFactory` that can be injected into route, module or controller bound interceptors.

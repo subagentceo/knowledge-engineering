@@ -26,8 +26,60 @@ Sentry captures data by using an SDK within your application's runtime. These ar
 
 We recommend installing the SDK through our [Sentry Wizard](https://github.com/getsentry/sentry-wizard) by running one of the following commands inside your project directory:
 
+**brew**
+
 ```bash
 brew install getsentry/tools/sentry-wizard && sentry-wizard -i android
+```
+
+**npx**
+
+```bash
+npx @sentry/wizard@latest -i android
+```
+
+**macOS (Intel/x64)**
+
+```bash
+downloadUrl="https://github.com/getsentry/sentry-wizard/releases/download/v5.1.0/sentry-wizard-darwin-x64"
+curl -L $downloadUrl -o sentry-wizard
+chmod +x sentry-wizard
+./sentry-wizard -i android
+```
+
+**macOS (Apple Silicon/arm64)**
+
+```bash
+downloadUrl="https://github.com/getsentry/sentry-wizard/releases/download/v5.1.0/sentry-wizard-darwin-arm64"
+curl -L $downloadUrl -o sentry-wizard
+chmod +x sentry-wizard
+./sentry-wizard -i android
+```
+
+**Linux (x64)**
+
+```bash
+downloadUrl="https://github.com/getsentry/sentry-wizard/releases/download/v5.1.0/sentry-wizard-linux-x64"
+curl -L $downloadUrl -o sentry-wizard
+chmod +x sentry-wizard
+./sentry-wizard -i android
+```
+
+**Linux (arm64)**
+
+```bash
+downloadUrl="https://github.com/getsentry/sentry-wizard/releases/download/v5.1.0/sentry-wizard-linux-arm64"
+curl -L $downloadUrl -o sentry-wizard
+chmod +x sentry-wizard
+./sentry-wizard -i android
+```
+
+**Windows**
+
+```powershell
+$downloadUrl = "https://github.com/getsentry/sentry-wizard/releases/download/v5.1.0/sentry-wizard-win-x64.exe"
+Invoke-WebRequest $downloadUrl -OutFile sentry-wizard.exe
+./sentry-wizard.exe -i android
 ```
 
 This will patch your project and configure the SDK. You only need to patch the project once, then you can add the patched files to your version control system. If you prefer, you can also [set up the SDK manually](https://docs.sentry.io/platforms/android/manual-setup.md) or follow the instructions below to adapt the [configuration](https://docs.sentry.io/platforms/android.md#configure).
@@ -45,14 +97,12 @@ The wizard will prompt you to log in to Sentry. It'll then automatically do the 
 
 Configuration is done via the application `AndroidManifest.xml`. Here's an example config which should get you started:
 
-`AndroidManifest.xml`
-
 ```xml
 <application>
   <!-- Required: set your sentry.io project identifier (DSN) -->
   <meta-data
     android:name="io.sentry.dsn"
-    android:value="___PUBLIC_DSN___"
+    android:value="https://<key>@o<orgId>.ingest.sentry.io/<projectId>"
   />
   <!-- Add data like request headers, user ip address and device name, see https://docs.sentry.io/platforms/android/data-management/data-collected/ for more info -->
   <meta-data
@@ -122,6 +172,8 @@ public class MyActivity extends AppCompatActivity {
   }
 }
 ```
+
+*Other available variations of the above snippet: kotlin*
 
 ## [Next Steps](https://docs.sentry.io/platforms/android.md#next-steps)
 

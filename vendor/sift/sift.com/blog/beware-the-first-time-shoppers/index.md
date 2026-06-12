@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+# 10 Warning Signs of eCommerce Fraud (Part 2): Beware of first-time shoppers
+
+Home/Blog
 
 Table of Contents
 
@@ -26,20 +28,20 @@ Explore AI Summary
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F&title=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers)
--   [](https://twitter.com/intent/tweet?text=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers&url=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fdark-computer.jpg&title=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers)
--   [](/cdn-cgi/l/email-protection#3b04484e59515e584f060a0b1e090b6c5a495552555c1e090b68525c55481e090b545d1e090b5e785456565e49585e1e090b7d495a4e5f1e090b1e09036b5a494f1e090b091e09021e087a1e090b795e4c5a495e1e090b545d1e090b5d5249484f164f52565e1e090b4853544b4b5e49481d180b08030059545f4206534f4f4b481e087a1e097d1e097d48525d4f155854561e097d5957545c1e097d595e4c5a495e164f535e165d5249484f164f52565e164853544b4b5e49481e097d)
+*   
+*   
+*   
+*   
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Fraud
 
 # 10 Warning Signs of eCommerce Fraud (Part 2): Beware of first-time shoppers
 
 Fraudsters come in many sizes (individuals with a stolen purse, organized rings of credit card thieves, evil bots) and with many habits. In last week’s…
 
-[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)
 
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+Sift Trust and Safety Team
 
 Feb 12, 2015
 
@@ -67,84 +69,84 @@ With a machine learning-based system like Sift Science, merchants can train thei
 
 Long story short: save time reviewing first-time shoppers with Sift Science; they may be fraudulent, but you won’t know for sure unless you have the whole picture.
 
-Thanks for tuning into Part 2 of our “10 Warning Signs of eCommerce Fraud” series. For more information about machine learning and fraud, visit our free Guides and Resources library or tweet us questions [@siftscience](https://twitter.com/siftscience).
+Thanks for tuning into Part 2 of our “10 Warning Signs of eCommerce Fraud” series. For more information about machine learning and fraud, visit our free Guides and Resources library or tweet us questions @siftscience.
 
 Share post on:
 
--   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F&title=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers)
--   [](https://twitter.com/intent/tweet?text=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers&url=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F)
--   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fbeware-the-first-time-shoppers%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fdark-computer.jpg&title=10%20Warning%20Signs%20of%20eCommerce%20Fraud%20%28Part%202%29%3A%20Beware%20of%20first-time%20shoppers)
--   [](/cdn-cgi/l/email-protection#6a55191f08000f091e575b5a4f585a3d0b180403040d4f585a39030d04194f585a050c4f585a0f290507070f18090f4f585a2c180b1f0e4f585a4f58523a0b181e4f585a584f58534f592b4f585a280f1d0b180f4f585a050c4f585a0c0318191e471e03070f4f585a1902051a1a0f18194c495a59525108050e1357021e1e1a194f592b4f582c4f582c19030c1e440905074f582c0806050d4f582c080f1d0b180f471e020f470c0318191e471e03070f471902051a1a0f18194f582c)
+*   
+*   
+*   
+*   
 
 ## You may also like
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Fraud](https://sift.com/blog/category/fraud/)
+*   Digital Trust
 
-### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+### How to Reduce Friction Without Compromising Fraud Security
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+Sift Trust and Safety Team
 
-May 14, 2026
+Jun 8, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-6 min read
+8 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
 
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
+*   Digital Trust
 
-### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+### The Operational Blueprint for Modern Fraud Teams: How to Design a Fraud Organization That Actually Scales
 
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
 
-[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+Kevin Lee
 
-Apr 20, 2026
+May 29, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+11 min read
+
+![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+*   Data & Insights
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)
+
+Sift Trust and Safety Team
+
+May 26, 2026
 
 ![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 7 min read
 
-[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
--   [Data & Insights](https://sift.com/blog/category/data-insights/)
-
-### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
-
-[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
-
-Mar 31, 2026
-
-![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-
-4 min read
-
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
 
--   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
     
--   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+*   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
     
--   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+*   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

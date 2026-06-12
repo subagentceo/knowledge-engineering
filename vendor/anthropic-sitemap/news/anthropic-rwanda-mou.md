@@ -12,9 +12,9 @@ The Government of Rwanda and Anthropic have signed a three-year Memorandum of Un
 
 Our collaboration spans three areas:
 
-- **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
-- **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
-- **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies our fall 2025 education agreement, which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
+*   **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
+*   **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
+*   **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies our fall 2025 education agreement, which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
 
 ## Accelerating AI for health, education, and the public sector
 
@@ -30,20 +30,22 @@ Today’s announcement builds on our education partnerships, which help students
 
 Together, these partnerships reflect a long-term collaboration that prioritizes capacity building, responsible deployment, and local autonomy over how new technologies are introduced. By investing in skills, infrastructure, and institutions, we hope to lay the groundwork for AI to deliver lasting value in the sectors that matter most to people’s lives.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

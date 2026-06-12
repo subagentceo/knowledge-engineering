@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Introduction to Flags
@@ -47,7 +47,7 @@ The flag has a name, `home-screen`, and the value has properties:
 * Show shortcuts or not (`show-shortcuts`).
 * Number of shortcuts to show (`shortcut-count`).
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/flag-overview.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=351a0ee2b4e40a86a2ae6a95b0ff4b6e" alt="flag overview" width="3406" height="1994" data-path="images/flag-overview.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/flag-overview.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=7e550b42802787089f2328a68d2513bf" alt="flag overview" width="3406" height="1994" data-path="images/flag-overview.png" />
 
 The schema for this flag is as follows:
 
@@ -99,7 +99,7 @@ Resolving a flag to a value and applying the flag value to control an experience
 are two distinct operations. The type of client decides when these operations
 happen.
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/client-resolver-static.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=bedcc0dfeb4b9673432cd09e081d52a0" alt="client resolver" width="2532" height="702" data-path="images/client-resolver-static.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/client-resolver-static.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=c71648b6ea74d7805bafa4e2a765b023" alt="client resolver" width="2532" height="702" data-path="images/client-resolver-static.png" />
 
 **Single-user clients**, such as mobile apps or single-page web applications,
 resolve multiple flags (1, 2) at the start of a session. They later use locally
@@ -110,7 +110,7 @@ value was applied. If a client resolves a flag at the start of the session but
 never uses it, it doesn't emit an event. The resolver writes a flag applied event
 to a data warehouse for later use in analysis of experiments (4).
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/client-resolver-dynamic.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=49b0b1cc0b01bba1f7efdff6932f1766" alt="client resolver" width="2532" height="702" data-path="images/client-resolver-dynamic.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/client-resolver-dynamic.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=8a89797ce320d82f5f5d9a197c922fff" alt="client resolver" width="2532" height="702" data-path="images/client-resolver-dynamic.png" />
 
 **Multi-user clients**, such as backend services, resolve flags as requests
 come in (1). Since the clients use flag values directly when rendering the

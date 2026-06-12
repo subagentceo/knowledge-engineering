@@ -17,6 +17,7 @@ Enterprise plans are available two ways:
 Enterprise includes everything in the Team plan, plus the following:
 
 - **Security features** to ensure the safety and compliance of your organization's data including:
+
   - **Audit logs:** capture key information about user actions, system events, and data access.
 
   - **System for Cross-domain Identity Management (SCIM)**
@@ -28,11 +29,13 @@ Enterprise includes everything in the Team plan, plus the following:
   - **Analytics API:** Programmatically access aggregated engagement and adoption metrics for your organization.
 
 - **Usage-based pricing**
+
   - The seat fee only covers access to the platform and doesn't include any usage. All usage across Claude, Claude Code, and Cowork is billed separately at standard API rates, based on what your team actually consumes. There are no per-seat usage limits and no included token allowance.
 
   - Admins can set spend limits at the organization and individual user levels to manage costs.
 
 - **Connectors for workplace tools**
+
   - Connect Claude to Google Drive, Gmail, Google Calendar, GitHub, Microsoft 365, and Slack to search and retrieve context from your existing documents, emails, calendars, and team communications without manual uploads.
 
 ---
@@ -63,19 +66,18 @@ On usage-based Enterprise plans, there's no token allowance to divide up. Instea
 
 Both self-serve and sales-assisted Enterprise plans include the same features and the same seat pricing. The differences are in how you purchase, pay, and manage your plan:
 
-|                             | **Self-serve**                                                                                                                       | **Sales-assisted**                                                                                                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **How to purchase**         | **[Online](https://claude.ai/create/enterprise?utm_source=support&utm_medium=article&utm_content=enterprise-plan_self-serve_intro)** | Through our **[Sales team](https://claude.com/contact-sales?utm_source=support&utm_medium=article&utm_content=enterprise-plan_contact-sales_intro)** |
-| **Minimum number of seats** | 20                                                                                                                                   | 50                                                                                                                                                   |
-| **Payment methods**         | Credit card, ACH\*                                                                                                                   | Credit card, ACH, invoicing                                                                                                                          |
-| **Accepted currency**       | USD only                                                                                                                             | Multi-currency supported                                                                                                                             |
-| **Usage billing**           | Credits purchased upfront                                                                                                            | Billed monthly in arrears                                                                                                                            |
-| **Trials**                  | Not available                                                                                                                        | Available                                                                                                                                            |
-| **HIPAA-readiness / BAA**   | Not available                                                                                                                        | Available                                                                                                                                            |
+|  | **Self-serve** | **Sales-assisted** |
+| --- | --- | --- |
+| **How to purchase** | **[Online](https://claude.ai/create/enterprise?utm_source=support&utm_medium=article&utm_content=enterprise-plan_self-serve_intro)** | Through our **[Sales team](https://claude.com/contact-sales?utm_source=support&utm_medium=article&utm_content=enterprise-plan_contact-sales_intro)** |
+| **Minimum number of seats** | 20 | 50 |
+| **Payment methods** | Credit card, ACH* | Credit card, ACH, invoicing |
+| **Accepted currency** | USD only | Multi-currency supported |
+| **Usage billing** | Credits purchased upfront | Billed monthly in arrears |
+| **HIPAA-readiness / BAA** | Not available | Available |
 
-\*ACH bank transfers are only available when creating new self-serve Enterprise organizations, not when upgrading a Team organization to Enterprise.
+*ACH bank transfers are only available when creating new self-serve Enterprise organizations, not when upgrading a Team organization to Enterprise.
 
-**When to contact Sales:** If your organization needs invoicing, HIPAA-readiness and a Business Associate Agreement (BAA), trials, dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
+**When to contact Sales:** If your organization needs invoicing, HIPAA-readiness and a Business Associate Agreement (BAA), dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
 
 ---
 

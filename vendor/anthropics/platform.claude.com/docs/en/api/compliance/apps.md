@@ -18,13 +18,14 @@ by created_at, with ties broken by id.
 
 - `after_id: optional string`
 
-  Pagination cursor for retrieving the next page of results (heading backwards in time). To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the next page of results. To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `before_id: optional string`
 
-  Pagination cursor for retrieving the previous page of results (heading forwards in time). To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the previous page of results. To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter chats created after this time (RFC 3339 format)
@@ -54,6 +55,7 @@ by created_at, with ties broken by id.
   Filter by project IDs (accepts `claude_proj_...`). Enumerate IDs via `GET /v1/compliance/apps/projects`.
 
 - `updated_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter chats updated after this time (RFC 3339 format)
@@ -79,6 +81,7 @@ by created_at, with ties broken by id.
 - `data: array of object { id, created_at, deleted_at, 8 more }`
 
   List of chat metadata sorted chronologically by created_at, tie break by id
+
   - `id: string`
 
     Chat ID
@@ -122,6 +125,7 @@ by created_at, with ties broken by id.
   - `user: object { id, email_address }`
 
     User information for the chat creator
+
     - `id: string`
 
       User identifier
@@ -202,6 +206,7 @@ files. This is a destructive operation that cannot be undone.
 - `type: optional "claude_chat_deleted"`
 
   Constant string confirming deletion
+
   - `"claude_chat_deleted"`
 
 ### Example
@@ -228,6 +233,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
 - `ChatListResponse object { id, created_at, deleted_at, 8 more }`
 
   Chat metadata for listing chats (without messages).
+
   - `id: string`
 
     Chat ID
@@ -271,6 +277,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
   - `user: object { id, email_address }`
 
     User information for the chat creator
+
     - `id: string`
 
       User identifier
@@ -284,6 +291,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
 - `ChatDeleteResponse object { id, type }`
 
   Response for deleting a Claude chat.
+
   - `id: string`
 
     The ID of the Claude chat that was deleted
@@ -291,6 +299,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID \
   - `type: optional "claude_chat_deleted"`
 
     Constant string confirming deletion
+
     - `"claude_chat_deleted"`
 
 # Messages
@@ -311,13 +320,14 @@ Retrieves message history and file metadata for a specific chat.
 
 - `after_id: optional string`
 
-  Pagination cursor for retrieving the next page of results (heading backwards in time). To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the next page of results. To paginate, pass the `last_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `before_id: optional string`
 
-  Pagination cursor for retrieving the previous page of results (heading forwards in time). To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+  Pagination cursor for retrieving the previous page of results. To paginate, pass the `first_id` value from the most recent response. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter messages created after this time (RFC 3339 format)
@@ -341,11 +351,21 @@ Retrieves message history and file metadata for a specific chat.
 - `order: optional "asc" or "desc"`
 
   Sort direction for messages within the response. `asc` (the default) returns oldest-first; `desc` returns newest-first.
+
   - `"asc"`
 
   - `"desc"`
 
+- `tool_result_max_chars: optional number`
+
+  Maximum characters returned per tool-result text item. Items longer than this are shortened and the block's `truncated` field is set. Pass -1 to disable the limit.
+
+- `tool_use_input_max_chars: optional number`
+
+  Maximum characters of JSON-encoded tool input returned per tool_use block. Inputs longer than this are shortened and the block's `truncated` field is set. Pass -1 to disable the limit.
+
 - `updated_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter messages updated after this time (RFC 3339 format)
@@ -375,6 +395,7 @@ Retrieves message history and file metadata for a specific chat.
 - `chat_messages: array of object { id, artifacts, content, 4 more }`
 
   Array of chat messages in order of created_at
+
   - `id: string`
 
     Unique identifier for the message e.g. 'claude_chat_msg_abcd1234'
@@ -382,6 +403,7 @@ Retrieves message history and file metadata for a specific chat.
   - `artifacts: array of object { id, artifact_type, title, version_id }`
 
     Versioned documents generated or updated by the assistant in this message. Download via `GET /v1/compliance/apps/artifacts/{artifact_version_id}/content`.
+
     - `id: string`
 
       Artifact ID e.g. 'claude_artifact_abc123'
@@ -398,15 +420,97 @@ Retrieves message history and file metadata for a specific chat.
 
       Artifact version ID e.g. 'claude_artifact_version_abc123'
 
-  - `content: array of object { text, type }`
+  - `content: array of object { text, type }  or object { id, input, integration_name, 4 more }  or object { content, integration_name, is_error, 5 more }`
 
     Content blocks within the message
-    - `text: string`
 
-      Text content from human or assistant
+    - `Text object { text, type }`
 
-    - `type: "text"`
-      - `"text"`
+      Text content block.
+
+      - `text: string`
+
+        Text content from human or assistant
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `ToolUse object { id, input, integration_name, 4 more }`
+
+      Tool invocation requested by the assistant.
+
+      - `id: string`
+
+        Tool-use ID, e.g. 'toolu_01AbC...'
+
+      - `input: string`
+
+        Arguments passed to the tool, as a JSON-encoded string. May be shortened — see the `truncated` field
+
+      - `integration_name: string`
+
+        Name of the integration that provides this tool, when applicable
+
+      - `mcp_server_url: string`
+
+        Base URL (scheme, host, and path only) of the MCP server that provides this tool, when applicable
+
+      - `name: string`
+
+        Name of the tool invoked
+
+      - `truncated: boolean`
+
+        True when `input` was shortened. Pass tool_use_input_max_chars=-1 to disable the limit
+
+      - `type: "tool_use"`
+
+        - `"tool_use"`
+
+    - `ToolResult object { content, integration_name, is_error, 5 more }`
+
+      Result returned by a tool invocation.
+
+      - `content: array of object { text, type }`
+
+        Text content returned by the tool. Generated files are surfaced via the message's `generated_files` list; other non-text item types (including images and links) are omitted.
+
+        - `text: string`
+
+          Text returned by the tool
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `integration_name: string`
+
+        Name of the integration that provides this tool, when applicable
+
+      - `is_error: boolean`
+
+        True when the tool reported an error
+
+      - `mcp_server_url: string`
+
+        Base URL (scheme, host, and path only) of the MCP server that provides this tool, when applicable
+
+      - `name: string`
+
+        Name of the tool that produced this result
+
+      - `tool_use_id: string`
+
+        ID of the tool_use block this result responds to
+
+      - `truncated: boolean`
+
+        True when one or more text items in `content` were shortened. Pass tool_result_max_chars=-1 to retrieve full content.
+
+      - `type: "tool_result"`
+
+        - `"tool_result"`
 
   - `created_at: string`
 
@@ -415,6 +519,7 @@ Retrieves message history and file metadata for a specific chat.
   - `files: array of object { id, filename, mime_type }`
 
     Binary file attachments uploaded by the user. Download via `GET /v1/compliance/apps/chats/files/{claude_file_id}/content`.
+
     - `id: string`
 
       File ID
@@ -430,6 +535,7 @@ Retrieves message history and file metadata for a specific chat.
   - `generated_files: array of object { id, filename, mime_type }`
 
     Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`.
+
     - `id: string`
 
       Opaque generated-file id, e.g. 'claude_gen_file_abc123'. Treat as an opaque string; the encoding may change without notice.
@@ -445,6 +551,7 @@ Retrieves message history and file metadata for a specific chat.
   - `role: "assistant" or "user"`
 
     Message sender (user or assistant)
+
     - `"assistant"`
 
     - `"user"`
@@ -500,6 +607,7 @@ Retrieves message history and file metadata for a specific chat.
 - `user: object { id, email_address }`
 
   User information
+
   - `id: string`
 
     User identifier
@@ -584,6 +692,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
 - `MessageListResponse object { id, artifacts, content, 4 more }`
 
   A single message in a chat conversation.
+
   - `id: string`
 
     Unique identifier for the message e.g. 'claude_chat_msg_abcd1234'
@@ -591,6 +700,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
   - `artifacts: array of object { id, artifact_type, title, version_id }`
 
     Versioned documents generated or updated by the assistant in this message. Download via `GET /v1/compliance/apps/artifacts/{artifact_version_id}/content`.
+
     - `id: string`
 
       Artifact ID e.g. 'claude_artifact_abc123'
@@ -607,15 +717,97 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
 
       Artifact version ID e.g. 'claude_artifact_version_abc123'
 
-  - `content: array of object { text, type }`
+  - `content: array of object { text, type }  or object { id, input, integration_name, 4 more }  or object { content, integration_name, is_error, 5 more }`
 
     Content blocks within the message
-    - `text: string`
 
-      Text content from human or assistant
+    - `Text object { text, type }`
 
-    - `type: "text"`
-      - `"text"`
+      Text content block.
+
+      - `text: string`
+
+        Text content from human or assistant
+
+      - `type: "text"`
+
+        - `"text"`
+
+    - `ToolUse object { id, input, integration_name, 4 more }`
+
+      Tool invocation requested by the assistant.
+
+      - `id: string`
+
+        Tool-use ID, e.g. 'toolu_01AbC...'
+
+      - `input: string`
+
+        Arguments passed to the tool, as a JSON-encoded string. May be shortened — see the `truncated` field
+
+      - `integration_name: string`
+
+        Name of the integration that provides this tool, when applicable
+
+      - `mcp_server_url: string`
+
+        Base URL (scheme, host, and path only) of the MCP server that provides this tool, when applicable
+
+      - `name: string`
+
+        Name of the tool invoked
+
+      - `truncated: boolean`
+
+        True when `input` was shortened. Pass tool_use_input_max_chars=-1 to disable the limit
+
+      - `type: "tool_use"`
+
+        - `"tool_use"`
+
+    - `ToolResult object { content, integration_name, is_error, 5 more }`
+
+      Result returned by a tool invocation.
+
+      - `content: array of object { text, type }`
+
+        Text content returned by the tool. Generated files are surfaced via the message's `generated_files` list; other non-text item types (including images and links) are omitted.
+
+        - `text: string`
+
+          Text returned by the tool
+
+        - `type: "text"`
+
+          - `"text"`
+
+      - `integration_name: string`
+
+        Name of the integration that provides this tool, when applicable
+
+      - `is_error: boolean`
+
+        True when the tool reported an error
+
+      - `mcp_server_url: string`
+
+        Base URL (scheme, host, and path only) of the MCP server that provides this tool, when applicable
+
+      - `name: string`
+
+        Name of the tool that produced this result
+
+      - `tool_use_id: string`
+
+        ID of the tool_use block this result responds to
+
+      - `truncated: boolean`
+
+        True when one or more text items in `content` were shortened. Pass tool_result_max_chars=-1 to retrieve full content.
+
+      - `type: "tool_result"`
+
+        - `"tool_result"`
 
   - `created_at: string`
 
@@ -624,6 +816,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
   - `files: array of object { id, filename, mime_type }`
 
     Binary file attachments uploaded by the user. Download via `GET /v1/compliance/apps/chats/files/{claude_file_id}/content`.
+
     - `id: string`
 
       File ID
@@ -639,6 +832,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
   - `generated_files: array of object { id, filename, mime_type }`
 
     Downloadable files the assistant created via tool use (e.g. PDF, spreadsheet, slide deck). Distinct from `files`, which are uploads attached to the message. Download via `GET /v1/compliance/apps/chats/generated-files/{claude_gen_file_id}/content`.
+
     - `id: string`
 
       Opaque generated-file id, e.g. 'claude_gen_file_abc123'. Treat as an opaque string; the encoding may change without notice.
@@ -654,6 +848,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/$CLAUDE_CHAT_ID/messages
   - `role: "assistant" or "user"`
 
     Message sender (user or assistant)
+
     - `"assistant"`
 
     - `"user"`
@@ -683,6 +878,10 @@ download the bytes.
 - `id: string`
 
   File ID
+
+- `claude_chat_ids: array of string`
+
+  Chats this file is attached to. A file can be referenced by messages across multiple chats.
 
 - `created_at: string`
 
@@ -725,7 +924,12 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
   "size_bytes": 1048576,
   "md5": "5d41402abc4b2a76b9719d911017c592",
   "created_at": "2024-01-15T10:30:00Z",
-  "message_ids": ["claude_chat_msg_abc123"]
+  "message_ids": [
+    "claude_chat_msg_abc123"
+  ],
+  "claude_chat_ids": [
+    "claude_chat_def456"
+  ]
 }
 ```
 
@@ -755,6 +959,7 @@ operation that cannot be undone.
 - `type: optional "claude_file_deleted"`
 
   Constant string confirming deletion
+
   - `"claude_file_deleted"`
 
 ### Example
@@ -801,15 +1006,20 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/co
 
 ### File Retrieve Response
 
-- `FileRetrieveResponse object { id, created_at, filename, 4 more }`
+- `FileRetrieveResponse object { id, claude_chat_ids, created_at, 5 more }`
 
   File metadata for GET /v1/compliance/apps/chats/files/{claude_file_id}.
 
   Returns metadata only. Use the sibling `/content` endpoint to download
   the file bytes.
+
   - `id: string`
 
     File ID
+
+  - `claude_chat_ids: array of string`
+
+    Chats this file is attached to. A file can be referenced by messages across multiple chats.
 
   - `created_at: string`
 
@@ -840,6 +1050,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/co
 - `FileDeleteResponse object { id, type }`
 
   Response for deleting a compliance file.
+
   - `id: string`
 
     The ID of the file that was deleted
@@ -847,6 +1058,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID/co
   - `type: optional "claude_file_deleted"`
 
     Constant string confirming deletion
+
     - `"claude_file_deleted"`
 
 # Generated Files
@@ -958,6 +1170,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_
   specific message that produced the file, fetch
   `/v1/compliance/apps/chats/{claude_chat_id}/messages` and match on
   `generated_files[].id`.
+
   - `id: string`
 
     Opaque generated-file id, e.g. 'claude_gen_file_abc123'.
@@ -998,6 +1211,7 @@ are sorted chronologically (time ascending) by created_at.
 ### Query Parameters
 
 - `created_at: optional object { gt, gte, lt, lte }`
+
   - `gt: optional string`
 
     Filter projects created after this time (RFC 3339 format)
@@ -1039,6 +1253,7 @@ are sorted chronologically (time ascending) by created_at.
 - `data: array of object { id, created_at, deleted_at, 6 more }`
 
   List of projects sorted by creation date ascending
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -1073,7 +1288,12 @@ are sorted chronologically (time ascending) by created_at.
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -1126,9 +1346,6 @@ curl https://api.anthropic.com/v1/compliance/apps/projects \
 **get** `/v1/compliance/apps/projects/{project_id}`
 
 Get detailed information for a specific project.
-
-Returns:
-Detailed project information including description, instructions, and counts
 
 ### Path Parameters
 
@@ -1192,7 +1409,12 @@ Detailed project information including description, instructions, and counts
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -1246,13 +1468,6 @@ Hard-deletes the project and all its associated data including:
 
 Project must have no attached chats - returns 409 if chats exist.
 
-Returns:
-ClaudeProjectDeleteResponse confirming the deletion
-
-Raises:
-ConflictException: If project has chats attached
-NotFoundException: If project doesn't exist or already deleted
-
 ### Path Parameters
 
 - `project_id: string`
@@ -1272,6 +1487,7 @@ NotFoundException: If project doesn't exist or already deleted
 - `type: optional "claude_project_deleted"`
 
   Constant string confirming deletion.
+
   - `"claude_project_deleted"`
 
 ### Example
@@ -1298,6 +1514,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectListResponse object { id, created_at, deleted_at, 6 more }`
 
   Project information for compliance responses.
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -1332,7 +1549,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -1346,6 +1568,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectRetrieveResponse object { id, attachments_count, chats_count, 10 more }`
 
   Detailed project information for compliance responses.
+
   - `id: string`
 
     Project identifier (tagged ID)
@@ -1396,7 +1619,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -1410,6 +1638,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
 - `ProjectDeleteResponse object { id, type }`
 
   Response for deleting a Claude project.
+
   - `id: string`
 
     The ID of the Claude project that was deleted
@@ -1417,6 +1646,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
   - `type: optional "claude_project_deleted"`
 
     Constant string confirming deletion.
+
     - `"claude_project_deleted"`
 
 # Attachments
@@ -1435,12 +1665,6 @@ GET /v1/compliance/apps/chats/files/{claude_file_id}/content endpoint.
 
 The text content of attached project documents can be fetched using the
 GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
-
-Returns:
-List of project attachments with pagination info
-
-Raises:
-NotFoundException: If project doesn't exist or project_id format is invalid
 
 ### Path Parameters
 
@@ -1467,9 +1691,11 @@ NotFoundException: If project doesn't exist or project_id format is invalid
 - `data: array of object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   List of attachments sorted chronologically by created_at, tie break by id
+
   - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
+
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -1489,11 +1715,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
+
       - `"project_file"`
 
   - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
+
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -1509,11 +1737,13 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
+
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
+
       - `"project_doc"`
 
 - `has_more: boolean`
@@ -1556,9 +1786,11 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
 - `AttachmentListResponse = object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   File attachment reference for compliance responses.
+
   - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
+
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -1578,11 +1810,13 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
+
       - `"project_file"`
 
   - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
+
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -1598,12 +1832,333 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
+
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
+
       - `"project_doc"`
+
+# Collaborators
+
+## List project collaborators
+
+**get** `/v1/compliance/apps/projects/{project_id}/collaborators`
+
+List the users, groups, and organization-wide grants on a project.
+
+Each entry represents one active role assignment on the project. Principals
+are returned as a discriminated union on `type` — an individual user, an
+RBAC group, the whole organization, or all holders of an organization-level
+role.
+
+### Path Parameters
+
+- `project_id: string`
+
+  The project ID (tagged ID, e.g., claude_proj_abc123)
+
+### Query Parameters
+
+- `limit: optional number`
+
+  Maximum results (default: 20, max: 100)
+
+- `page: optional string`
+
+  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
+
+### Header Parameters
+
+- `"x-api-key": optional string`
+
+### Returns
+
+- `data: array of object { granted_at, role, type, user_id }  or object { granted_at, group_id, role, type }  or object { granted_at, organization_uuid, role, type }  or object { granted_at, organization_role, role, type }`
+
+  List of collaborators sorted chronologically by granted_at, tie break by the underlying role-assignment UUID
+
+  - `ComplianceProjectUserCollaborator object { granted_at, role, type, user_id }`
+
+    An individual user granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "user"`
+
+      Discriminator marking this as an individual user collaborator
+
+      - `"user"`
+
+    - `user_id: string`
+
+      Identifier of the user granted access (tagged ID), or null if their account has since been deleted
+
+  - `ComplianceProjectGroupCollaborator object { granted_at, group_id, role, type }`
+
+    An RBAC group granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `group_id: string`
+
+      Identifier of the group granted access (tagged ID)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "group"`
+
+      Discriminator marking this as a group collaborator
+
+      - `"group"`
+
+  - `ComplianceProjectOrganizationCollaborator object { granted_at, organization_uuid, role, type }`
+
+    An entire organization granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_uuid: string`
+
+      UUID of the organization granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization"`
+
+      Discriminator marking this as an organization-wide grant
+
+      - `"organization"`
+
+  - `ComplianceProjectOrganizationRoleCollaborator object { granted_at, organization_role, role, type }`
+
+    All holders of an organization-level role granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_role: string`
+
+      The organization-level role whose holders are granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization_role"`
+
+      Discriminator marking this as a grant to all organization members holding a specific org-level role
+
+      - `"organization_role"`
+
+- `has_more: boolean`
+
+  Whether more records exist beyond the current result set
+
+- `next_page: string`
+
+  To get the next page, use the 'next_page' from the current response as the 'page' in your next request
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/collaborators \
+    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "granted_at": "2019-12-27T18:11:19.117Z",
+      "role": "admin",
+      "type": "user",
+      "user_id": "user_id"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
+## Domain Types
+
+### Collaborator List Response
+
+- `CollaboratorListResponse = object { granted_at, role, type, user_id }  or object { granted_at, group_id, role, type }  or object { granted_at, organization_uuid, role, type }  or object { granted_at, organization_role, role, type }`
+
+  An individual user granted a role on a project.
+
+  - `ComplianceProjectUserCollaborator object { granted_at, role, type, user_id }`
+
+    An individual user granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "user"`
+
+      Discriminator marking this as an individual user collaborator
+
+      - `"user"`
+
+    - `user_id: string`
+
+      Identifier of the user granted access (tagged ID), or null if their account has since been deleted
+
+  - `ComplianceProjectGroupCollaborator object { granted_at, group_id, role, type }`
+
+    An RBAC group granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `group_id: string`
+
+      Identifier of the group granted access (tagged ID)
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "group"`
+
+      Discriminator marking this as a group collaborator
+
+      - `"group"`
+
+  - `ComplianceProjectOrganizationCollaborator object { granted_at, organization_uuid, role, type }`
+
+    An entire organization granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_uuid: string`
+
+      UUID of the organization granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization"`
+
+      Discriminator marking this as an organization-wide grant
+
+      - `"organization"`
+
+  - `ComplianceProjectOrganizationRoleCollaborator object { granted_at, organization_role, role, type }`
+
+    All holders of an organization-level role granted a role on a project.
+
+    - `granted_at: string`
+
+      When this collaborator was granted access (RFC 3339 format)
+
+    - `organization_role: string`
+
+      The organization-level role whose holders are granted access
+
+    - `role: "admin" or "editor" or "owner" or "viewer"`
+
+      Role granted on the project
+
+      - `"admin"`
+
+      - `"editor"`
+
+      - `"owner"`
+
+      - `"viewer"`
+
+    - `type: "organization_role"`
+
+      Discriminator marking this as a grant to all organization members holding a specific org-level role
+
+      - `"organization_role"`
 
 # Documents
 
@@ -1612,9 +2167,6 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
 **get** `/v1/compliance/apps/projects/documents/{document_id}`
 
 Get detailed information for a specific project document.
-
-Returns:
-Project document information including content and metadata
 
 ### Path Parameters
 
@@ -1646,7 +2198,12 @@ Project document information including content and metadata
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -1723,6 +2280,7 @@ consumer can dedupe or match hashes without downloading every document.
 - `mime_type: "text/plain"`
 
   MIME type of the document content, always plain text
+
   - `"text/plain"`
 
 - `size_bytes: number`
@@ -1731,7 +2289,12 @@ consumer can dedupe or match hashes without downloading every document.
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -1773,9 +2336,6 @@ Delete a project document for compliance purposes.
 
 Hard-deletes the project document permanently.
 
-Returns:
-ComplianceProjectDocumentDeleteResponse confirming the deletion
-
 ### Path Parameters
 
 - `document_id: string`
@@ -1795,6 +2355,7 @@ ComplianceProjectDocumentDeleteResponse confirming the deletion
 - `type: "claude_project_document_deleted"`
 
   Constant string confirming deletion.
+
   - `"claude_project_document_deleted"`
 
 ### Example
@@ -1821,6 +2382,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentRetrieveResponse object { id, content, created_at, 2 more }`
 
   Project document information for compliance responses.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -1839,7 +2401,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -1856,6 +2423,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   Returns metadata only. Use the sibling endpoint (without `/metadata`)
   to fetch the document text content.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -1879,6 +2447,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `mime_type: "text/plain"`
 
     MIME type of the document content, always plain text
+
     - `"text/plain"`
 
   - `size_bytes: number`
@@ -1887,7 +2456,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -1901,6 +2475,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentDeleteResponse object { id, type }`
 
   Response for deleting a project document.
+
   - `id: string`
 
     The ID of the project document that was deleted
@@ -1908,6 +2483,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `type: "claude_project_document_deleted"`
 
     Constant string confirming deletion.
+
     - `"claude_project_document_deleted"`
 
 # Artifacts
@@ -2024,6 +2600,7 @@ curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID
 
   Returns metadata only. Use the sibling `/content` endpoint to fetch the
   artifact body.
+
   - `id: string`
 
     Artifact ID e.g. 'claude_artifact_abc123'

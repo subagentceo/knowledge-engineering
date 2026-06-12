@@ -20,12 +20,12 @@ Claude Design gives designers room to explore widely and everyone else a way to 
 
 Teams have been using Claude Design for:
 
-- **Realistic prototypes:** Designers can turn static mockups into easily-shareable interactive prototypes to gather feedback and user-test, without code review or PRs.
-- **Product wireframes and mockups:** Product Managers can sketch out feature flows and hand them off to Claude Code for implementation, or share them with designers to refine further.
-- **Design explorations:** Designers can quickly create a wide range of directions to explore.
-- **Pitch decks and presentations:** Founders and Account Executives can go from a rough outline to a complete, on-brand deck in minutes, and then export as a PPTX or send to Canva.
-- **Marketing collateral:** Marketers can create landing pages, social media assets, and campaign visuals, then loop in designers to polish.
-- **Frontier design**: Anyone can build code-powered prototypes with voice, video, shaders, 3D and built-in AI.
+*   **Realistic prototypes:** Designers can turn static mockups into easily-shareable interactive prototypes to gather feedback and user-test, without code review or PRs.
+*   **Product wireframes and mockups:** Product Managers can sketch out feature flows and hand them off to Claude Code for implementation, or share them with designers to refine further.
+*   **Design explorations:** Designers can quickly create a wide range of directions to explore.
+*   **Pitch decks and presentations:** Founders and Account Executives can go from a rough outline to a complete, on-brand deck in minutes, and then export as a PPTX or send to Canva.
+*   **Marketing collateral:** Marketers can create landing pages, social media assets, and campaign visuals, then loop in designers to polish.
+*   **Frontier design**: Anyone can build code-powered prototypes with voice, video, shaders, 3D and built-in AI.
 
 ## How it works
 
@@ -50,21 +50,21 @@ Over the coming weeks, we'll make it easier to build integrations with Claude De
 ![Canva logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/66e0000e396aea64ea31ed3fea7b2b20ac329312-150x48.svg)
 
 > We’ve loved collaborating with Anthropic over the past couple of years and share a deep focus on making complex things simple. At Canva, our mission has always been to empower the world to design, and that means bringing Canva to wherever ideas begin. We’re excited to build on our collaboration with Claude, making it seamless for people to bring ideas and drafts from Claude Design into Canva, where they instantly become fully editable and collaborative designs ready to refine, share, and publish.
->
+> 
 > Melanie Perkins  
 > Co-Founder and CEO, Canva
 
 ![Brilliant logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/ee86aca1b1cceae67a2d309028a347329a44c2b6-138x33.svg)
 
 > Brilliant's intricate interactivity and animations are historically painful to prototype, but Claude Design's ability to turn static designs into interactive prototypes has been a step change for us. Our most complex pages, which took 20+ prompts to recreate in other tools, only required 2 prompts in Claude Design. Including design intent in Claude Code handoffs has made the jump from prototype to production seamless.
->
+> 
 > Olivia Xu  
 > Senior Product Designer, Brilliant
 
 ![Datadog logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/5d98f2428e66e7aa3c9f773818ef6231fa4602b4-146x36.svg)
 
 > Claude Design has made prototyping dramatically faster for our team, enabling live design during conversations. We've gone from a rough idea to a working prototype before anyone leaves the room, and the output stays true to our brand and design guidelines. What used to take a week of back-and-forth between briefs, mockups, and review rounds now happens in a single conversation.
->
+> 
 > Aneesh Kethini  
 > Product Manager, Datadog
 
@@ -80,18 +80,18 @@ Start designing at claude.ai/design.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

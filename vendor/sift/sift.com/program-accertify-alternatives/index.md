@@ -1,81 +1,83 @@
-[Home](https://sift.com)/Alternatives to Accertify
+# Opt In to Deeper Data & Unmatched Potential
+
+Home/Alternatives to Accertify
 
 # Opt In to Deeper Data & Unmatched Potential
 
-Data is the common denominator shared by digital commerce leaders. It’s a business’s best defense against fraud and its greatest opportunity to grow into the future with confidence. With Sift’s AI-powered fraud platform, you’ll join 700+ brands from around the world who’ve opted in to a network built on user-level insights and risk signals shared across a global consortium of 1T annual events.\*
+Data is the common denominator shared by digital commerce leaders. It’s a business’s best defense against fraud and its greatest opportunity to grow into the future with confidence. With Sift’s AI-powered fraud platform, you’ll join 700+ brands from around the world who’ve opted in to a network built on user-level insights and risk signals shared across a global consortium of 1T annual events.*
 
-[Request Demo](/program-accertify-demo/)[Download Migration Guide](/resources/ebooks/migration-guide-moving-from-accertify-to-sift/)
+Request DemoDownload Migration Guide
 
 ![Accertify-Hero-Banner-Image](https://sift.com/wp-content/uploads/2024/03/Accertify-Hero-Banner-Image.png)
 
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
-    
-
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
-    
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
 
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+    
+
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+    
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
 
 ## Feature-to-Feature: Sift vs. Accertify
 
 The fraud management space is packed with solutions that promise to push your business ahead of mutating risk. But Sift outpaces threats and competitors like Accertify with an independent AI decision engine fed by data from our entire consortium of customers.
 
-[Upgrade to Sift with Our Step-by-Step Guide](/resources/ebooks/migration-guide-moving-from-accertify-to-sift/)
+Upgrade to Sift with Our Step-by-Step Guide
 
 Feature or functionality
 
@@ -303,7 +305,7 @@ Sift has been named a Leader in the 2023 Forrester Wave for Digital Fraud Manage
 
 ![Forrester-Wave-Powder-Blue-1068x867](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201068%20867'%3E%3C/svg%3E)
 
-[Explore Platform](/platform/)
+Explore Platform
 
 ![The-Sift-Platform-Offset-Circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20750%20674'%3E%3C/svg%3E)
 
@@ -313,8 +315,6 @@ Our mission is to help everyone trust the internet. Meet the investors driving t
 
 view all resources
 
-[
-
 ![FraudDetection\_Leader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20212%20276'%3E%3C/svg%3E)
 
 #### G2 Leader
@@ -322,8 +322,6 @@ view all resources
 Products in the Leader quadrant in the Grid®️ Report are rated highly by G2 users and have substantial Satisfaction and Market Presence scores.
 
 see sift reviews
-
-](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)[
 
 ![FraudDetection\_Leader\_Enterprise\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20212%20270'%3E%3C/svg%3E)
 
@@ -333,8 +331,6 @@ Products in the Leader quadrant in the Grid®️ Report are rated highly by G2 u
 
 read report
 
-](/resources/ebooks/forrester-wave-digital-fraud-management-report/)[
-
 ![FraudDetection\_MomentumLeader\_Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20212%20276'%3E%3C/svg%3E)
 
 #### G2 Momentum Leader
@@ -343,13 +339,11 @@ Products in the Leader quadrant in the Grid®️ Report are rated highly by G2 u
 
 see sift reviews
 
-](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)
-
 ## Fight fraud like DoorDash, Hertz, and Alaska Airlines
 
 Ready for AI-powered fraud prevention that’s certain to drive growth? Let’s talk.
 
-\*Sift uses the term “event” to describe user interactions with your website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
+*Sift uses the term “event” to describe user interactions with your website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 

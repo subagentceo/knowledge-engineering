@@ -2,6 +2,28 @@
 
 When agentic coding goes from individual tool to org-wide default, the tool isn't the hard part...your processes are. Fiona Fung, Director of Engineering for Claude Code, walks through what broke at Anthropic (review, ownership, hiring) and the norms we had to rewrite to keep shipping.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+02:35PM – 03:05PM
+
+Speaker(s)
+
+Fiona Fung
+
+Manager of the Claude Code and Cowork Team,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

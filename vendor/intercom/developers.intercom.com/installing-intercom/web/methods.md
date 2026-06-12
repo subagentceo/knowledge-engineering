@@ -79,6 +79,12 @@ Intercom('update', {theme_mode: 'system'});
 ```
 
 
+```JavaScript
+// Switch to a different messenger style at runtime
+Intercom('update', {messenger_style_id: '123456'});
+```
+
+
 ```NPM
 import { update } from "@intercom/messenger-js-sdk";
 // ...
@@ -88,6 +94,9 @@ update({"name": "Inigo Montoya"}); // argument is optional
 update({theme_mode: 'dark'});
 update({theme_mode: 'light'});
 update({theme_mode: 'system'});
+
+// Style override example
+update({messenger_style_id: '123456'});
 ```
 
 ### IDs & Data

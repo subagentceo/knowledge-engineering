@@ -1,306 +1,338 @@
 {
   "https://neon.com/docs/ai/agent-skills.md": {
     "sha256": "b1744d6838b87ac3b59209339b8157983e35dfc2a52fd3f941d79b2ac3bd8a11",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/ai/ai-agents-tools.md": {
     "sha256": "a6040fbdbc2389cb7379bfb2d36f5b8e7675ff1d175e0d727a40a89b2ca8feb7",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/ai/ai-azure-notebooks.md": {
     "sha256": "079a0822fab5bef59a7a619e7083e5ebb5b93a2a69e8363d585f6e101d57da6f",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/ai/ai-claude-code-plugin.md": {
     "sha256": "800f527f062f4b74673f4f12ca974d183370cb209af907d075f46ba71424f563",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/ai/ai-concepts.md": {
     "sha256": "8f86a63683304bf1f00058b352cc544c2188607a0c5d63bbe5d9b58bd4cd2e8a",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/ai/ai-intro.md": {
     "sha256": "bfb838538596c46fd2123b1e803bfe132252e70dd91a31132465d2f6228fa7a6",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli.md": {
+    "sha256": "d0baec6140242e8f63e0f90b198e9a3ca219222e65b1586ee96eb453f97125bd",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/auth.md": {
+    "sha256": "a707efa5a810413310cff08ed1afe623259adc5d991792aa0df1a18935cc0676",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/bootstrap.md": {
+    "sha256": "727a62b7aa3feb74f1ea324ca3cc14de4b9128ff15ddbc40b753fae1b8c7bf70",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/branches.md": {
+    "sha256": "dba8b9a79906eed5cce460ce7f71ab793ca54aec375ce758e376720f4b6e57a9",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/bucket.md": {
+    "sha256": "bb8804c790260871d64a69952c64f8211cc00c95770cd7087c29bfc467a7b450",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/checkout.md": {
+    "sha256": "c6229603d108ec8e04d025262932cd34d26f8c8939a6aeaade18b3643269e7ac",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/completion.md": {
+    "sha256": "5428acb3f50ec113583ccb881b9647d0affcf09c4e104abb559a23177bc62fcd",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/config.md": {
+    "sha256": "70c01baafcfd4151f72b22056c39801d6b78a5108e5da9fa4c9a604d07b38c30",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/connection-string.md": {
+    "sha256": "0fcdc1da9296cc3e362a74a73419502f508949e935ca489d8a538e393b91ea56",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/data-api.md": {
+    "sha256": "fa06590dfc40100396703ef8eb60f1412dc1e937a41339ffe94d57845f9b1beb",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/databases.md": {
+    "sha256": "f4df75ab29a529f7a9c77b9b2c4dd7e52cdad98295f41c90b3da7425a2ce35ac",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/dev.md": {
+    "sha256": "50b6126d9c050ab303a38a962c19a55d1de8cc9b2a64ea615918d8400c6bbe3b",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/env.md": {
+    "sha256": "bb57b5255591177db567c84309468f0d723a8679409af4edcca843802b3625aa",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/functions.md": {
+    "sha256": "b3c6b018fffc8b488a8e66d9d7235589be44d094de94669453ea39ba4abb1984",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/init.md": {
+    "sha256": "98efe2b04447390259fb57fda9d26fe718547eac013c0ac71c35a9d941480828",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/ip-allow.md": {
+    "sha256": "15af51a3962152b55128574f016b0b3c36a9ce84bcf6a409bb05b903a35749be",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/link.md": {
+    "sha256": "c8588296b585d583e594a48c5448dccda656fab5c86436653f67a4eebd7aa2ac",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/me.md": {
+    "sha256": "6aac3a1478a6f31c28b06bf8dfd7c2f209dde8eaac1782be5207496fa2c5f8dc",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/neon-auth.md": {
+    "sha256": "8d38c42e45c3cf112c163ac440aa9225a8c2f765358f611c5c7f5d1b681852dc",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/operations.md": {
+    "sha256": "d33806f32ae303bcf4e88faeeaaaa65b9f8fdf1e61284fe4cd88c4eee1fe396c",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/cli/orgs.md": {
+    "sha256": "2e5865f3c62b0c634502f75e3acf079e999eafd45ff6028721a6eab1effae8a9",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/choose-connection.md": {
-    "sha256": "2a7e738a184797d57070beac9d3800cd8dd228d6fc6a9bbea3e232ea442d6f8a",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "cbea2a18f6b138d0d44c9021d955b06913818a5b8dbf063cd8b33439835ac6e8",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-from-any-app.md": {
-    "sha256": "5e562f34ab3210465a4ebae18de603ecd2f9bd64c84527f5b56da227caab451c",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "61feecc9973c40cdf9cb496b82e3eb56f5d2858cacc2179945a175c33b258917",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-intro.md": {
-    "sha256": "e13f5542adfe8bc5c1899280bf01f7ced3a2bccbb1b498253c9cd657002df59c",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "9b08ff25ad0cce1c79d5fdaeaed03fe92bc7144dc446292297725f010243c03b",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-looker-studio.md": {
-    "sha256": "60d24e020b8080c6ebeae43426a30b685acd561ff02eaaeb116d202c33036762",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "f8c52af31805a7518102cd85d0dfca8ca61adc77604eb204fe0f46107058744d",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-pgcli.md": {
-    "sha256": "1055c7983c664c779adcda074ccd7e7bae80b74a6176aa96dd4ac401ce44d5c8",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "1c44fcc8904916c7e95e1a3c3c04d4ea7f55afbe5e05dedb24afab31e086c4ba",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-postgres-gui.md": {
-    "sha256": "89c645e1de51eda7a1a3371dc3097d9afdbc2a7190d03f8a8ce8dde5d6b5a75c",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "52d6520576ef3a9a05d7a5e113d3e158155620543db2c2bb019e604a5d09dc6c",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connect-securely.md": {
-    "sha256": "b9acfb966de1e1550c6ec4ac26e60c0b84b1e06662aedf5d69a0b456d5c8ef5f",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "3e0dee18a291c5526d7ef365c90fa1b768d977c783754d3010d29c17a4d248c7",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connection-errors.md": {
-    "sha256": "8bc060155c5b1df01c183e0e6ebe438612f488c92045bef36abc355fc0101a5d",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "8cec4523e4863ca986d9460739e12f97f6f53ab01d7c9e64e1f5eb55f0056692",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connection-latency.md": {
-    "sha256": "2b4feb3c85236288118528165a717dc08e49e9c74ac75880f35f795cfbaf1d29",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "f29e57ab3a2f9a1c9eb8fd18142b18d6ab4e82457dfa57ec79a0a0dfb40c0038",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/connection-pooling.md": {
-    "sha256": "37a6ef22949cfb960fccdda1f668daabff086d1c22dd1e7275723b7b45b202de",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "602a8281b800217e0ba0ebfcdfeb17ac541150aa7c1e7760fd96b204aa9db37a",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/passwordless-connect.md": {
-    "sha256": "1942513c506a7c644f5a0dfd0131255ee5296800eeba411e9cfcf5c9eac9af90",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "4f4bdd6098bfeed059b6d46075146f64d0680aa7326f8abc423e30a91604205d",
     "lastStatus": 200
   },
   "https://neon.com/docs/connect/query-with-psql-editor.md": {
-    "sha256": "3ca630c08cc9ae56ef460b1b79c0fdf2a1c76dfe86459652bad53f8015377edd",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "355bb953976d8aed462abd88af99e2274590a4b22361541e5257c8a9c003e9f9",
     "lastStatus": 200
   },
   "https://neon.com/docs/extensions/pgvector.md": {
-    "sha256": "d745030a60e70669ad323e66d806ab08d20007f3952ba52896ef03f2332d8b7c",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "201e1657f5ab3f60e4176db2813922b748a168717112a1ce2786569cd8ad217d",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/built-to-scale.md": {
-    "sha256": "4e8db76bf66de6c7a1629155191fbb999e8726f764c68b4b8f63a52bf9e8dfd7",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "00453d885c8eec819504939db421317a7cf8eb0e9d0ee895a373418170472015",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/connect-neon.md": {
-    "sha256": "7f5a86d64498b7d8bf06b4c838f258e44b699455cb5ea845b039e7194a7c6a97",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "676adbf913eb7bbc75a7079165268d206c428890ae4145da0143e1590292d18a",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/dev-experience.md": {
-    "sha256": "61a9d71021633a1c82e73dbcbc650864f2a25cbf7165286374708d312ae773a6",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "f0f3daff1c6af08b0e40435e1a7f54c3a30c622848e50f22bb329d04efcb6a8e",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/frameworks.md": {
-    "sha256": "c8e90b09112f12a2aa0ca6b022fc69437dd4eaed11e5777b93c93e2a56f5ff53",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "aa6e1a01da91955939752ced50b584704e5c4c647b5fff4504a797267728d8a2",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/get-started/full-backend-quickstart.md": {
+    "sha256": "f84697b2267091af9df90806a331e6554d12189df193adb831a623e39aaa65f6",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/languages.md": {
-    "sha256": "faeedd362c4113659e7c85097e27e59f39303f5be1231b6a12f63664d59a5379",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "29e86b8503a8a74157c970b354fed2e18c12aa7403716f1a4918de0fcf0da7ca",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/orms.md": {
-    "sha256": "5b57e6d23ed43b63d203a857fb08d2c1a696ca08feb40da6451b5dc22a3b4b08",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "0b433efc6276804d7c6085dd764992bcef10c964c0215f9d428d603da5969619",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/production-checklist.md": {
-    "sha256": "a7d8cf014e5131e7b1132e5435c095527ac863b24c198ef446a01dd3f53a8b23",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "c16d3e06ef6631a5e09ca84712f35f66128c576cef1d762d9ba75ec37a95e377",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/production-readiness.md": {
-    "sha256": "095813c9f3a3e19f0adc3000cff3fab6604cb132e65ebe3ff2f705b6f0703213",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "aeba86bb2beeea99119f7a60dceebe74966d0ea76e2a2573f2c73546f9ba9ba5",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/query-with-neon-sql-editor.md": {
-    "sha256": "25025a0acce0b09075a8c7fd09f75892397a4fb97b44f610eaad3beeef61dea9",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "651fabf2d6e70f276ed62e8eceef676e44495dea5ab0497dc56d421c1d0db9c7",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/signing-up.md": {
-    "sha256": "c633384ff2c8f75bcb5f16dd17a76918e159092198592293db18a509daa82516",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "b1b8e11b46eb8ff0a4d4981abbd9e173f4889682c48d0fb7e8cbc6f3567bbf14",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/why-neon.md": {
-    "sha256": "1196a8e50dee44b6b08500377c3a81b3ec1f02afe3253a6a35b2c0a1c887e8ba",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "0fab5b50762679f38bbb0b75f2ce109246f9d6813503baa2e8365320125b85d4",
+    "lastStatus": 200
+  },
+  "https://neon.com/docs/get-started/with-an-agent.md": {
+    "sha256": "50eaff1ebaa228bc6fea27f05de398100126bbcdb9e60c1004370772d880eda9",
     "lastStatus": 200
   },
   "https://neon.com/docs/get-started/workflow-primer.md": {
-    "sha256": "90c1c9e940bc93195928a0dcba5052219ac318f9ed85cfe197dbd22695f6a85b",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "b9283226ea1ff3aa1e1b877db8a8079e5e57825264cb4974c88b1966f68c5612",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/about-billing.md": {
-    "sha256": "879932ea2afdaa5af76259105143f0a8594c05f560e2bead98d7d45e229e1ee1",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "37a97f3705380b2f759b4a055e7067825479952473dd330446d52f70987abea9",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/architecture-overview.md": {
-    "sha256": "8a11834bd9cda6736949ead829dff28601feaa61c1503baf57bc8deb36bb29b1",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "9582f5f2941ac22a88b9e2384c0122172ff2f8e57ff68d99a36edbf9060535ae",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/autoscaling.md": {
-    "sha256": "753388ef587fccd28ec8ec549d76214192498eed9423eb5464d6f3ced3591246",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "fc63ec5a830fcf9180ccadf091924f35b144ebd388ee5d40b61ad45707fcc224",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/branching.md": {
-    "sha256": "07a833093119ebf15568c895cebaedcd3cf056583042cf5be5360967aab6776d",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "c44938cb8887fa4728fb13973dd54ea6afdf6b0fbeaf6a4d5c11233dbe98ccdc",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/llms.txt": {
-    "sha256": "0b9d92e04b4e98dce696b546604c7f9f5f815f56585689a57cf4e440918d692a",
-    "etag": "W/\"a79bf66bf41b18d4dac7cec44197c1ce\"",
-    "lastModified": "Fri, 15 May 2026 03:29:08 GMT",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
-    "lastStatus": 200
+    "sha256": "81821e1a24dcd9605609e5ddf8fbf266e1b3891c2f5a47f0385c5b4189a81d07",
+    "lastStatus": 200,
+    "etag": "W/\"7053160a1550a1fb60e8662d363ed268\"",
+    "lastModified": "Fri, 12 Jun 2026 17:12:52 GMT"
   },
   "https://neon.com/docs/introduction/read-replicas.md": {
-    "sha256": "cadda6da3acc9deb2c0b56a2e20f449204dbbe5bfa4db7afb5ca29b9703e0ce7",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "e6dad9312e68dc2ffa7efe1844c9924f812d63bfc7b8661fce2a1a8620b23407",
     "lastStatus": 200
   },
   "https://neon.com/docs/introduction/scale-to-zero.md": {
-    "sha256": "7cdc0a920dbf1b3e34372be803f7930267de2624c5b3c1b6271b4ef317065642",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "3edde4a74895d936664db867cbfda333a2831907bfb805745f5ec8eb15995936",
     "lastStatus": 200
   },
   "https://neon.com/docs/local/neon-local.md": {
-    "sha256": "3542c1e9c57b97ee1a8f3e9fb7fd9a34b5f844d9a31fc5b19787a83ff4689bf2",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "4cdf44968b5c34ebc23326ff6b1e676095053a5908a79173a0ae715b1c3ef690",
     "lastStatus": 200
   },
   "https://neon.com/docs/local/vscode-extension.md": {
-    "sha256": "898a3a98655f9e2dfe21ab5f4c91974e6022a7d3ce48b64ce220aa3d72e27d86",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "237c45df881539d1a2e7dad800d2eb6ad1b54ed000df9e5c51a3537332f0454a",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/api-reference.md": {
-    "sha256": "c0295fba651bb7a0ba0f417e840be538aab831ba81b017ec8775c451dcb8509e",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "320bb403524107f59665322096c6bf4ff4519870f9ababec1f10c11a61505784",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-auth.md": {
     "sha256": "2874d53c68a80fca1aa9559c0de0154338c5e2a247b024f457233bacccbef1c2",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-branches.md": {
     "sha256": "7c1f2a5f94cd62033e8696dd95a700b5ed9fe7cda2623d007ee486d06de43e89",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-completion.md": {
     "sha256": "2fa861fabdafccfdc37f689c1b004812c94de50171f661768127beaac5128f0b",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-connection-string.md": {
     "sha256": "78cd252ba9999840298763e2da610d1e7729784cf5a455fd54d4dacd62378263",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-databases.md": {
     "sha256": "c7423917788d91a7b90ca8e18db6bcb3d7bf9f6eb9463f73660e93cfb4e0dfea",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-init.md": {
     "sha256": "a69fca5b62effd719c8a3eb155b7ac2846f82f8a91c3df5d661aedb42f927921",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-install.md": {
     "sha256": "746cc4d3f766084e556e1eab84d7467904d779f13cdceb924d8974df94f91ad7",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-ip-allow.md": {
     "sha256": "90ec0e2a9d563cd625d4a7d029f4b6d6b75ff9c0d78b05860ae01e50da4beef2",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-me.md": {
     "sha256": "cb2527c66088ae51b0a858d90d06f42518fa4fb77f69a3f6b0e7f4e197d46696",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-operations.md": {
     "sha256": "08e28ab3dd37cc73aba2adf2f8a3f05260422977206e246ae927eed405443cb6",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-orgs.md": {
     "sha256": "ee49cab55285ea4b27188b76c42787396ed875dfa576dff6326218379f236592",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-projects.md": {
     "sha256": "3222a45ce44d2e3d5a8ca52715aedd5a89cb3b0fc65c7866a6ed6769a9c42fc2",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-quickstart.md": {
     "sha256": "e66098043ca67ff95b89aabd13a5a5d57d9f4e30aa6fea349f08a69d3b0585fc",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-roles.md": {
     "sha256": "91ec789450c9a24dd9881ed193c7da297bd24822d3e7e2079d063f8876b2ee80",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-set-context.md": {
     "sha256": "682b82e2786a90d2bc248bc2f0b1a935c9020689f831169030958eb77f4e0091",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/cli-vpc.md": {
     "sha256": "b5534de2ecd0074d3a432b38d65067199a23029eeefc20c76912532bc20221a5",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/reference/neon-cli.md": {
     "sha256": "787f697d78041516421589173357c2b3b2e0808ba5cf211818b328233b90b823",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
     "lastStatus": 200
   },
   "https://neon.com/docs/serverless/serverless-driver.md": {
-    "sha256": "2790c99424846b04361af91f2dc681bc77e776f8ff1889c489857d9e115b0943",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
+    "sha256": "55f4d4d23db49477cf56fbaf6e72597f4d92fcbc076befdd8a362e9f45d5cfce",
     "lastStatus": 200
   },
   "https://neon.com/pricing.md": {
-    "sha256": "88d9279ab0d25e1fc9b3aabe4b501d94575578ff52e93be342c32ff584029dcc",
-    "etag": "W/\"4f744f94b45330f286780de93366580c\"",
-    "lastModified": "Fri, 15 May 2026 01:53:51 GMT",
-    "fetchedAt": "2026-05-15T03:29:08.511Z",
-    "lastStatus": 200
+    "sha256": "d2e11de532ff941cd33f216d21e09d7c594d0669d4cebd28ffb23aecffd1ae46",
+    "lastStatus": 200,
+    "etag": "W/\"b660a0fcec0d6ec2ee0ad4c8ef1e298a\"",
+    "lastModified": "Fri, 12 Jun 2026 16:16:55 GMT"
   }
 }

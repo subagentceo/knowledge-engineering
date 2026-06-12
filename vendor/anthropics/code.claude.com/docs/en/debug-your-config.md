@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -51,9 +50,9 @@ Run `/status` to see which settings sources are active, including whether manage
 
 Run `/mcp` to see every configured server, its connection status, and whether you have approved it for the current project. A server can be defined correctly but still not provide tools for a few common reasons:
 
-- Project-scoped servers in `.mcp.json` require a one-time approval. If the prompt was dismissed, the server stays disabled until you approve it from `/mcp`.
-- A server that fails to start shows as failed in `/mcp`. Relative file paths in `command` or `args` are a frequent cause, since they resolve against the directory you launched Claude Code from rather than the location of `.mcp.json`.
-- A server that shows as connected but lists zero tools has started successfully but isn't returning a tool list. Select **Reconnect** from `/mcp`. If the count stays at zero, run `claude --debug mcp` to see the server's stderr output.
+* Project-scoped servers in `.mcp.json` require a one-time approval. If the prompt was dismissed, the server stays disabled until you approve it from `/mcp`.
+* A server that fails to start shows as failed in `/mcp`. Relative file paths in `command` or `args` are a frequent cause, since they resolve against the directory you launched Claude Code from rather than the location of `.mcp.json`.
+* A server that shows as connected but lists zero tools has started successfully but isn't returning a tool list. Select **Reconnect** from `/mcp`. If the count stays at zero, run `claude --debug mcp` to see the server's stderr output.
 
 For configuration locations and scope rules, see [MCP](/en/mcp).
 
@@ -69,7 +68,9 @@ If `/hooks` shows the hook but it still does not fire, the next step is to watch
 
 ## Test against a clean configuration
 
-If targeted checks don't isolate the cause, or your configuration is in an unknown state, compare against a session that loads nothing from your usual setup. Point [`CLAUDE_CONFIG_DIR`](/en/env-vars) at an empty directory to bypass everything under `~/.claude`, and launch from a directory that has no `.claude` folder, `.mcp.json`, or `CLAUDE.md` so project configuration is also skipped.
+{/* min-version: 2.1.169 */}Start with [`claude --safe-mode`](/en/cli-reference#cli-flags), which launches a session with all customizations disabled, including `CLAUDE.md`, skills, plugins, hooks, MCP servers, and custom commands and agents. Authentication, model selection, built-in tools, and permissions work normally. If the problem disappears in safe mode, one of those surfaces is the cause; use the targeted checks above to find which. Managed settings deployed by your organization still partially apply, so policy-configured hooks and status line run even in safe mode.
+
+If the problem persists in safe mode, or your settings themselves are suspect, compare against a session that loads nothing from your usual setup. Point [`CLAUDE_CONFIG_DIR`](/en/env-vars) at an empty directory to bypass everything under `~/.claude`, and launch from a directory that has no `.claude` folder, `.mcp.json`, or `CLAUDE.md` so project configuration is also skipped.
 
 ```bash theme={null}
 cd /tmp && CLAUDE_CONFIG_DIR=/tmp/claude-clean claude
@@ -77,9 +78,9 @@ cd /tmp && CLAUDE_CONFIG_DIR=/tmp/claude-clean claude
 
 The clean session has no user or project settings, hooks, MCP servers, plugins, or memory.
 
-- Managed settings still apply if your organization deploys them, since they live at a system path outside `~/.claude`
-- On Linux and Windows, you'll be prompted to log in again because credentials are stored under the configuration directory
-- On macOS, credentials are in the Keychain and carry over to the clean session
+* Managed settings still apply if your organization deploys them, since they live at a system path outside `~/.claude`
+* On Linux and Windows, you'll be prompted to log in again because credentials are stored under the configuration directory
+* On macOS, credentials are in the Keychain and carry over to the clean session
 
 If the problem disappears here, the cause is somewhere in your real `~/.claude` or project `.claude` files. Reintroduce them one at a time, by copying files into the temporary directory or by launching from your project, to find which one. If it persists in the clean session, the cause is outside your user and project configuration. Run `/status` to check whether managed settings are in effect, look for [environment variables](/en/env-vars) that affect Claude Code, then see [Troubleshooting](/en/troubleshooting).
 
@@ -110,9 +111,9 @@ Most configuration surprises trace back to a small set of location and syntax ru
 
 For full reference on each configuration surface, see the dedicated page:
 
-- **[`.claude` directory reference](/en/claude-directory)**: every config file location and what reads it
-- **[Settings](/en/settings)**: precedence order and the full key list
-- **[Hooks reference](/en/hooks)**: event names, payloads, and `--debug hooks` output format
-- **[MCP](/en/mcp)**: server configuration, approval, and `/mcp` output
-- **[Troubleshoot installation and login](/en/troubleshoot-install)**: `command not found`, PATH, and authentication problems
-- **[Troubleshooting](/en/troubleshooting)**: performance, hangs, and search issues
+* **[`.claude` directory reference](/en/claude-directory)**: every config file location and what reads it
+* **[Settings](/en/settings)**: precedence order and the full key list
+* **[Hooks reference](/en/hooks)**: event names, payloads, and `--debug hooks` output format
+* **[MCP](/en/mcp)**: server configuration, approval, and `/mcp` output
+* **[Troubleshoot installation and login](/en/troubleshoot-install)**: `command not found`, PATH, and authentication problems
+* **[Troubleshooting](/en/troubleshooting)**: performance, hangs, and search issues

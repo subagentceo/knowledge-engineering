@@ -1,3 +1,5 @@
+# When to Request Permission to Send Push Notifications - Iterable
+
 ## When to Request Permission to Send Push Notifications
 
 **Published by**
@@ -6,13 +8,13 @@ June 15, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/061517_When-to-Request-Permission-to-Send-Push-Notifications.png)
 
-Earlier this month we launched [The 2017 User Engagement Top 100 Report](https://iterable.com/mobile-gaming) on mobile gaming, an inside look into the push messaging strategies of leading game studios.
+Earlier this month we launched The 2017 User Engagement Top 100 Report on mobile gaming, an inside look into the push messaging strategies of leading game studios.
 
-[![](https://iterableblogimport.files.wordpress.com/2017/06/ed7e3-1ofkinoa5rvxqeji2aua1ha.png)](https://iterable.com/mobile-gaming)
+![](https://iterableblogimport.files.wordpress.com/2017/06/ed7e3-1ofkinoa5rvxqeji2aua1ha.png)
 
 Today we’re kicking off a three-part blog post series, summarizing each of these strategies. The first dives deeper into push notification permissions.
 
-We determine industry best practices that all [B2C growth marketers](https://iterable.com) can apply specifically to their own mobile campaigns, as well as their broader omni-channel marketing strategy.
+We determine industry best practices that all B2C growth marketers can apply specifically to their own mobile campaigns, as well as their broader omni-channel marketing strategy.
 
 To accompany this blog series, we’ve also produced a mini infographic (see below) that details the results of our analysis.
 
@@ -46,6 +48,6 @@ However, a few outliers that messaged most frequently skewed this data: the medi
 
 Ask your users what types of messages they’d like to receive, and how often, to avoid a dropoff in push permission acceptance.
 
-In the next blog post in this series, we will discuss how push strategy varied by mobile game genre. In the meantime, you can access the full [User Engagement Top 100 Report](https://iterable.com/mobile-gaming) for more insights and real-life case studies.
+In the next blog post in this series, we will discuss how push strategy varied by mobile game genre. In the meantime, you can access the full User Engagement Top 100 Report for more insights and real-life case studies.
 
-Want to make your push campaigns more successful? Want to learn how omni-channel marketing can help your business? [Request a demo today](https://iterable.com/demo/) to put our recommendations into action!
+Want to make your push campaigns more successful? Want to learn how omni-channel marketing can help your business? Request a demo today to put our recommendations into action!

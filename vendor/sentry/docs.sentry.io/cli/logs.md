@@ -27,7 +27,7 @@ sentry-cli login
 Or by setting the `SENTRY_AUTH_TOKEN` environment variable:
 
 ```bash
-export SENTRY_AUTH_TOKEN=___ORG_AUTH_TOKEN___
+export SENTRY_AUTH_TOKEN=<your-sentry-auth-token>
 ```
 
 Learn more about the CLI's [configuration file](https://docs.sentry.io/cli/configuration.md#configuration-file).

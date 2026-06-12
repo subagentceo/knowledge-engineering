@@ -1,13 +1,13 @@
 # miro
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Miro
-
-- Installs
-
-  1614
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Miro
+    
+*   Installs
+    
+    1861

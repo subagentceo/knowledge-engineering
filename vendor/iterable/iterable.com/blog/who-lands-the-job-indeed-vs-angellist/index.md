@@ -1,3 +1,5 @@
+# Who Lands the Job? Indeed vs. AngelList - Iterable
+
 ## Who Lands the Job? Indeed vs. AngelList
 
 **Published by**
@@ -6,9 +8,9 @@ February 15, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/021517_Who-Lands-the-Job-Indeed-vs.-AngelList.png)
 
-The start of a new year is a popular time for job searching ([hint: we are hiring!](https://iterable.com/careers/)), so if you’re in the process of finding your next gig, there’s a good chance that you began by browsing for listings on [Indeed](https://indeed.com) or [AngelList](https://angel.co).
+The start of a new year is a popular time for job searching (hint: we are hiring!), so if you’re in the process of finding your next gig, there’s a good chance that you began by browsing for listings on Indeed or AngelList.
 
-But which company does a better job of sharing their job postings through the different communication channels? We’ve created a [User Engagement Teardown](https://iterable.com/user-engagement-teardowns/) that compares the omni-channel strategies of each leading career site.
+But which company does a better job of sharing their job postings through the different communication channels? We’ve created a User Engagement Teardown that compares the omni-channel strategies of each leading career site.
 
 Founded in 2004, Indeed is an incumbent in the job search industry that serves over 200 million monthly users globally.
 
@@ -22,10 +24,10 @@ After analyzing the content of all emails and push notifications received, we id
 
 Take a look at the teardown below to learn who landed the job when it comes to user engagement. _(Note: if you can’t see the embedded SlideShare, make sure to turn off any ad blockers!)_
 
-[https://www.slideshare.net/Iterable/indeed-vs-angellist-user-engagement-teardown](https://www.slideshare.net/Iterable/indeed-vs-angellist-user-engagement-teardown)
+https://www.slideshare.net/Iterable/indeed-vs-angellist-user-engagement-teardown
 
-You can see our past teardowns (including Pinterest, Dollar Shave Club and more) on our [User Engagement Teardowns](https://iterable.com/user-engagement-teardowns/) page.
+You can see our past teardowns (including Pinterest, Dollar Shave Club and more) on our User Engagement Teardowns page.
 
-For more information on how to build world-class user engagement campaigns achieving omni-channel relevance, take a look at our [recent case studies](https://iterable.com/resources/case-studies/) and [request a demo](https://iterable.com/demo).
+For more information on how to build world-class user engagement campaigns achieving omni-channel relevance, take a look at our recent case studies and request a demo.
 
 _Note: Indeed and AngelList are not Iterable customers._

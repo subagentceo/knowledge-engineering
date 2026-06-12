@@ -66,7 +66,6 @@ Enrichments can be added anytime after a FindAll run is created, even for comple
   ```bash cURL theme={"system"}
   curl -X POST "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/enrich" \
     -H "x-api-key: $PARALLEL_API_KEY" \
-    -H "parallel-beta: findall-2025-09-15" \
     -H "Content-Type: application/json" \
     -d '{
       "processor": "core",

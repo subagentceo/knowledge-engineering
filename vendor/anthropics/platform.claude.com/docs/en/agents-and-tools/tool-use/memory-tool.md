@@ -34,19 +34,16 @@ Since this is a client-side tool, Claude makes tool calls to perform memory oper
 When you ask Claude to help with a task, Claude automatically checks its memory directory first. Here's what a typical interaction looks like:
 
 **1. User request:**
-
 ```text
 "Help me respond to this customer service ticket."
 ```
 
 **2. Claude checks the memory directory:**
-
 ```text
 "I'll help you respond to the customer service ticket. Let me check my memory for any previous context."
 ```
 
 Claude calls the memory tool:
-
 ```json
 {
   "type": "tool_use",
@@ -60,7 +57,6 @@ Claude calls the memory tool:
 ```
 
 **3. Your application returns the directory contents:**
-
 ```json
 {
   "type": "tool_result",
@@ -70,7 +66,6 @@ Claude calls the memory tool:
 ```
 
 **4. Claude reads relevant files:**
-
 ```json
 {
   "type": "tool_use",
@@ -84,7 +79,6 @@ Claude calls the memory tool:
 ```
 
 **5. Your application returns the file contents:**
-
 ```json
 {
   "type": "tool_result",
@@ -94,7 +88,6 @@ Claude calls the memory tool:
 ```
 
 **6. Claude uses the memory to help:**
-
 ```text
 "Based on your customer service guidelines, I can help you craft a response. Please share the ticket details..."
 ```
@@ -109,19 +102,20 @@ To use the memory tool:
 2. Implement client-side handlers for memory operations
 
 <Note>
-To handle memory tool operations in your application, you need to implement handlers for each memory command. The SDKs provide memory tool helpers that handle the tool interface. You can subclass `BetaAbstractMemoryTool` (Python) or use `betaMemoryTool` (TypeScript) to implement your own memory backend (file-based, database, cloud storage, encrypted files, etc.).
+To handle memory tool operations in your application, you need to implement handlers for each memory command. The SDKs provide memory tool helpers that handle the tool interface. You can subclass `BetaAbstractMemoryTool` (Python and C#), use `betaMemoryTool` (TypeScript), or implement `BetaMemoryToolHandler` (Java) to implement your own memory backend (file-based, database, cloud storage, encrypted files, etc.).
 
 For working examples, see:
-
 - Python: [examples/memory/basic.py](https://github.com/anthropics/anthropic-sdk-python/blob/main/examples/memory/basic.py)
 - TypeScript: [examples/tools-helpers-memory.ts](https://github.com/anthropics/anthropic-sdk-typescript/blob/main/examples/tools-helpers-memory.ts)
-  </Note>
+- Java: [BetaMemoryToolExample.java](https://github.com/anthropics/anthropic-sdk-java/blob/main/anthropic-java-example/src/main/java/com/anthropic/example/BetaMemoryToolExample.java)
+- C#: [MemoryToolExample](https://github.com/anthropics/anthropic-sdk-csharp/tree/main/examples/MemoryToolExample)
+</Note>
 
 ## Basic usage
 
 <CodeGroup>
 
-````bash cURL
+```bash cURL
 curl https://api.anthropic.com/v1/messages \
     --header "x-api-key: $ANTHROPIC_API_KEY" \
     --header "anthropic-version: 2023-06-01" \
@@ -140,7 +134,7 @@ curl https://api.anthropic.com/v1/messages \
             "name": "memory"
         }]
     }'
-````
+```
 
 ````bash CLI
 ant messages create <<'YAML'
@@ -171,7 +165,7 @@ messages:
 YAML
 ````
 
-````python Python hidelines={1..2}
+```python Python hidelines={1..2}
 import anthropic
 
 client = anthropic.Anthropic()
@@ -189,13 +183,13 @@ message = client.messages.create(
 )
 
 print(message)
-````
+```
 
-````typescript TypeScript hidelines={1..2}
+```typescript TypeScript hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
 
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  apiKey: process.env.ANTHROPIC_API_KEY
 });
 
 const message = await anthropic.messages.create({
@@ -205,16 +199,16 @@ const message = await anthropic.messages.create({
     {
       role: "user",
       content:
-        "I'm working on a Python web scraper that keeps crashing with a timeout error. Here's the problematic function:\n\n```python\ndef fetch_page(url, retries=3):\n    for i in range(retries):\n        try:\n            response = requests.get(url, timeout=5)\n            return response.text\n        except requests.exceptions.Timeout:\n            if i == retries - 1:\n                raise\n            time.sleep(1)\n```\n\nPlease help me debug this.",
-    },
+        "I'm working on a Python web scraper that keeps crashing with a timeout error. Here's the problematic function:\n\n```python\ndef fetch_page(url, retries=3):\n    for i in range(retries):\n        try:\n            response = requests.get(url, timeout=5)\n            return response.text\n        except requests.exceptions.Timeout:\n            if i == retries - 1:\n                raise\n            time.sleep(1)\n```\n\nPlease help me debug this."
+    }
   ],
-  tools: [{ type: "memory_20250818", name: "memory" }],
+  tools: [{ type: "memory_20250818", name: "memory" }]
 });
 
 console.log(message);
-````
+```
 
-````csharp C#
+```csharp C#
 using System;
 using System.Threading.Tasks;
 using Anthropic;
@@ -247,9 +241,9 @@ public class Program
         Console.WriteLine(message);
     }
 }
-````
+```
 
-````go Go hidelines={1..11,-1}
+```go Go hidelines={1..11,-1}
 package main
 
 import (
@@ -278,9 +272,9 @@ func main() {
 	}
 	fmt.Println(response)
 }
-````
+```
 
-````java Java hidelines={1..2,4..9,-2..}
+```java Java hidelines={1..2,4..9,-2..}
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
 import com.anthropic.models.messages.MemoryTool20250818;
@@ -303,14 +297,14 @@ public class MemoryToolExample {
         System.out.println(response);
     }
 }
-````
+```
 
-````php PHP hidelines={1..4}
+```php PHP hidelines={1..4}
 <?php
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 2048,
@@ -328,9 +322,9 @@ $message = $client->messages->create(
         ],
     ],
 );
-````
+```
 
-````ruby Ruby hidelines={1..2}
+```ruby Ruby hidelines={1..2}
 require "anthropic"
 
 client = Anthropic::Client.new
@@ -352,7 +346,7 @@ message = client.messages.create(
   ]
 )
 puts message
-````
+```
 
 </CodeGroup>
 
@@ -361,7 +355,6 @@ puts message
 Your client-side implementation needs to handle these memory tool commands. While these specifications describe the recommended behaviors that Claude is most familiar with, you can modify your implementation and return strings as needed for your use case.
 
 ### view
-
 Shows directory contents or file contents with optional line ranges:
 
 ```json
@@ -375,8 +368,7 @@ Shows directory contents or file contents with optional line ranges:
 #### Return values
 
 **For directories:** Return a listing that shows files and directories with their sizes:
-
-```text
+```text nowrap
 Here're the files and directories up to 2 levels deep in {path}, excluding hidden items and node_modules:
 {size}    {path}
 {size}    {path}/{filename1}
@@ -389,22 +381,19 @@ Here're the files and directories up to 2 levels deep in {path}, excluding hidde
 - Uses tab character between size and path
 
 **For files:** Return file contents with a header and line numbers:
-
 ```text
 Here's the content of {path} with line numbers:
 {line_numbers}{tab}{content}
 ```
 
 Line number formatting:
-
 - **Width**: 6 characters, right-aligned with space padding
 - **Separator**: Tab character between line number and content
 - **Indexing**: 1-indexed (first line is line 1)
 - **Line limit**: Files with more than 999,999 lines should return an error: `"File {path} exceeds maximum line limit of 999,999 lines."`
 
 **Example output:**
-
-```text
+```text nowrap
 Here's the content of /memories/notes.txt with line numbers:
      1	Hello World
      2	This is line two
@@ -417,7 +406,6 @@ Here's the content of /memories/notes.txt with line numbers:
 - **File/directory does not exist**: `"The path {path} does not exist. Please provide a valid path."`
 
 ### create
-
 Create a new file:
 
 ```json
@@ -437,7 +425,6 @@ Create a new file:
 - **File already exists**: `"Error: File {path} already exists"`
 
 ### str_replace
-
 Replace text in a file:
 
 ```json
@@ -464,7 +451,6 @@ Replace text in a file:
 If the path is a directory, return a "file does not exist" error.
 
 ### insert
-
 Insert text at a specific line:
 
 ```json
@@ -490,7 +476,6 @@ Insert text at a specific line:
 If the path is a directory, return a "file does not exist" error.
 
 ### delete
-
 Delete a file or directory:
 
 ```json
@@ -513,7 +498,6 @@ Delete a file or directory:
 Deletes the directory and all its contents recursively.
 
 ### rename
-
 Rename or move a file/directory:
 
 ```json
@@ -561,15 +545,12 @@ You can also guide what Claude writes to memory. For example: "Only write down i
 Here are important security concerns when implementing your memory store:
 
 ### Sensitive information
-
 Claude will usually refuse to write down sensitive information in memory files. However, you may want to implement stricter validation that strips out potentially sensitive information.
 
 ### File storage size
-
 Consider tracking memory file sizes and preventing files from growing too large. Consider adding a maximum number of characters the memory read command can return, and let Claude paginate through contents.
 
 ### Memory expiration
-
 Consider clearing out memory files periodically that haven't been accessed in an extended time.
 
 ### Path traversal protection

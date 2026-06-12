@@ -668,7 +668,6 @@ Available permissions and details of what each allows an action to do:
 | `packages`             | Work with GitHub Packages. For example, `packages: write` permits an action to upload and publish packages on GitHub Packages. For more information, see [About permissions for GitHub Packages](/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `pages`                | Work with GitHub Pages. For example, `pages: write` permits an action to request a GitHub Pages build. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pages).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `pull-requests`        | Work with pull requests. For example, `pull-requests: write` permits an action to add a label to a pull request. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pull-requests).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `security-events`      | Work with GitHub code scanning alerts. For example, `security-events: read` permits an action to list the code scanning alerts for the repository, and `security-events: write` allows an action to update the status of a code scanning alert. For more information, see [Repository permissions for "Code scanning alerts"](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-code-scanning-alerts). <br><br> For Dependabot alerts, use the `vulnerability-alerts` permission. Secret scanning alerts cannot be read with this permission and require a GitHub App or a personal access token. For more information, see [Repository permissions for "Secret scanning alerts"](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-secret-scanning-alerts) in "Permissions required for GitHub Apps." |
 | `statuses`             | Work with commit statuses. For example, `statuses:read` permits an action to list the commit statuses for a given reference. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-commit-statuses).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -695,6 +694,7 @@ permissions:
   packages: read|write|none
   pages: read|write|none
   pull-requests: read|write|none
+
   security-events: read|write|none
   statuses: read|write|none
   vulnerability-alerts: read|none
@@ -1036,7 +1036,6 @@ Available permissions and details of what each allows an action to do:
 | `packages`             | Work with GitHub Packages. For example, `packages: write` permits an action to upload and publish packages on GitHub Packages. For more information, see [About permissions for GitHub Packages](/en/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `pages`                | Work with GitHub Pages. For example, `pages: write` permits an action to request a GitHub Pages build. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pages).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `pull-requests`        | Work with pull requests. For example, `pull-requests: write` permits an action to add a label to a pull request. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-pull-requests).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `security-events`      | Work with GitHub code scanning alerts. For example, `security-events: read` permits an action to list the code scanning alerts for the repository, and `security-events: write` allows an action to update the status of a code scanning alert. For more information, see [Repository permissions for "Code scanning alerts"](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-code-scanning-alerts). <br><br> For Dependabot alerts, use the `vulnerability-alerts` permission. Secret scanning alerts cannot be read with this permission and require a GitHub App or a personal access token. For more information, see [Repository permissions for "Secret scanning alerts"](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-secret-scanning-alerts) in "Permissions required for GitHub Apps." |
 | `statuses`             | Work with commit statuses. For example, `statuses:read` permits an action to list the commit statuses for a given reference. For more information, see [Permissions required for GitHub Apps](/en/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-commit-statuses).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -1063,6 +1062,7 @@ permissions:
   packages: read|write|none
   pages: read|write|none
   pull-requests: read|write|none
+
   security-events: read|write|none
   statuses: read|write|none
   vulnerability-alerts: read|none
@@ -1186,15 +1186,15 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 * The destination machine can be either a [GitHub-hosted runner](#choosing-github-hosted-runners), [larger runner](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).
 
-- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.
+* You can target runners based on the labels assigned to them, or their group membership, or a combination of these.
 
-- You can provide `runs-on` as:
+* You can provide `runs-on` as:
   * A single string
   * A single variable containing a string
   * An array of strings, variables containing strings, or a combination of both
   * A `key: value` pair using the `group` or `labels` keys
 
-- If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
+* If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
 
   ```yaml
   runs-on: [self-hosted, linux, x64, gpu]
@@ -1202,7 +1202,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   For more information, see [Choosing self-hosted runners](#choosing-self-hosted-runners).
 
-- You can mix strings and variables in an array. For example:
+* You can mix strings and variables in an array. For example:
 
   ```yaml
   on:
@@ -1222,7 +1222,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
       - run: echo Hello world!
   ```
 
-- If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+* If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 > \[!NOTE]
 > Quotation marks are not required around simple strings like `self-hosted`, but they are required for expressions like  `"${{ inputs.chosen-os }}"`.
@@ -1270,7 +1270,8 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> (Public preview)
       </td>
     </tr>
     <tr>
@@ -1293,8 +1294,9 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> (Public preview)
       </td>
     </tr>
     <tr>
@@ -1304,7 +1306,8 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td>arm64</td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-VS2026-Arm64-Readme.md">windows-11-vs2026-arm</a></code> (Public preview)
       </td>
     </tr>
     <tr>
@@ -1370,7 +1373,8 @@ For  private repositories, jobs using the workflow labels shown in the table bel
       <td>
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
         <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Readme.md">ubuntu-26.04</a></code> (Public preview)
       </td>
     </tr>
     <tr>
@@ -1392,8 +1396,9 @@ For  private repositories, jobs using the workflow labels shown in the table bel
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
-        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Arm64-Readme.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Arm64-Readme.md">ubuntu-22.04-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2604-Arm64-Readme.md">ubuntu-26.04-arm</a></code> (Public preview)
       </td>
     </tr>
     <tr>
@@ -1403,7 +1408,8 @@ For  private repositories, jobs using the workflow labels shown in the table bel
       <td>14 GB</td>
       <td> arm64 </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-Readme.md">windows-11-arm</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows11-Arm64-VS2026-Readme.md">windows-11-vs2026-arm</a></code> (Public preview)
       </td>
     </tr>
     <tr>

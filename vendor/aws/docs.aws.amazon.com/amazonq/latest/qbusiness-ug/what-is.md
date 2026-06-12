@@ -19,7 +19,7 @@ To get started with Amazon Q Business, visit [Amazon Q Business](https://aws.ama
 
 |  | 
 | --- |
-|  [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/JZsu6Mh9KuI?si=83m6nRe8GW7MBs5H/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/JZsu6Mh9KuI?si=83m6nRe8GW7MBs5H)  | 
+|  [![AWS Videos](http://img.youtube.com/vi/JZsu6Mh9KuI?si=83m6nRe8GW7MBs5H/0.jpg)](http://www.youtube.com/watch?v=JZsu6Mh9KuI?si=83m6nRe8GW7MBs5H)  | 
 
 **Topics**
 + [Benefits of Amazon Q Business](#benefits-overview)

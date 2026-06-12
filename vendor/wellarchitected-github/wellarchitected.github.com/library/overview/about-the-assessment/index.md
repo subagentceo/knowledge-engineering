@@ -1,6 +1,8 @@
-[Content Library](/library/)
+# About the Assessment
 
-[Overview](/library/overview/)
+Libraries
+
+Overview
 
 About the Assessment
 
@@ -10,16 +12,16 @@ With the help of an expert through GitHub or one of its Partners, a **GitHub Wel
 
 This site serves as a basis for an assessment. It is designed to be a self-service guide of high-level thinking around design principles to help all personas understand how their organizational objectives can be met through effective adoption of GitHub Platform technologies. This can be accomplished by mapping those objectives, through the lens of each pillar’s design principles, towards developer workload details and reference architectures.
 
-## Purpose of the Assessment[](#purpose-of-the-assessment)
+## Purpose of the Assessment
 
 A **GitHub Well-Architected Assessment** aims to:
 
--   **Identify areas of improvement:** By comparing current practices against the framework’s pillars and design principles, organizations can pinpoint areas where they can optimize their usage of the GitHub Platform.
--   **Guide strategic planning:** The assessment helps in setting priorities and creating a roadmap for implementing best practices, ensuring a structured and effective approach to GitHub adoption.
--   **Enhance productivity and security:** By adhering to the framework’s guidelines, organizations can improve their development workflows, collaboration, and application security.
--   **Realize governance and compliance:** The assessment aids in establishing policies and practices that align with governance standards and compliance requirements.
+*   **Identify areas of improvement:** By comparing current practices against the framework’s pillars and design principles, organizations can pinpoint areas where they can optimize their usage of the GitHub Platform.
+*   **Guide strategic planning:** The assessment helps in setting priorities and creating a roadmap for implementing best practices, ensuring a structured and effective approach to GitHub adoption.
+*   **Enhance productivity and security:** By adhering to the framework’s guidelines, organizations can improve their development workflows, collaboration, and application security.
+*   **Realize governance and compliance:** The assessment aids in establishing policies and practices that align with governance standards and compliance requirements.
 
-## How the Assessment Works[](#how-the-assessment-works)
+## How the Assessment Works
 
 The assessment process involves several key steps:
 
@@ -28,16 +30,14 @@ The assessment process involves several key steps:
 3.  **Analysis and Scoring:** Based on the information collected, we analyze the organization’s alignment with the framework’s pillars and principles, scoring each area to identify strengths and weaknesses.
 4.  **Recommendations:** We provide a report with recommendations for improvements, tailored to the organization’s specific needs and goals. This includes an executive summary, a document with additional details, and a worksession to include action items in your system of record.
 
-## After the Assessment[](#after-the-assessment)
+## After the Assessment
 
 Following the assessment, organizations will have a clear understanding of where they stand in terms of best practices. The next steps involve:
 
--   **Prioritizing Recommendations:** Based on the assessment’s findings, organizations should prioritize the recommendations to address the most critical areas first.
--   **Developing an Action Plan:** Create a detailed action plan for implementing the recommendations, including timelines, responsibilities, and resources required.
--   **Continuous Improvement:** Assessments are designed to be iterative. Organizations should regularly review their practices against the framework, making continuous improvements over time.
+*   **Prioritizing Recommendations:** Based on the assessment’s findings, organizations should prioritize the recommendations to address the most critical areas first.
+*   **Developing an Action Plan:** Create a detailed action plan for implementing the recommendations, including timelines, responsibilities, and resources required.
+*   **Continuous Improvement:** Assessments are designed to be iterative. Organizations should regularly review their practices against the framework, making continuous improvements over time.
 
 By following the framework and utilizing the assessment, organizations can ensure they are leveraging GitHub to its fullest potential, aligning with best practices, and achieving their strategic goals.
 
-Last updated on December 10, 2025
-
-[Layers of GitHub Well-Architected](/library/overview/layers/ "Layers of GitHub Well-Architected")[Getting Started Checklist](/library/overview/getting-started-checklist/ "Getting Started Checklist")
+Layers of GitHub Well-ArchitectedGetting Started Checklist

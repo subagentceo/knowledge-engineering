@@ -9,6 +9,7 @@ Archive Credential
 ### Parameters
 
 - `CredentialArchiveParams params`
+
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -16,6 +17,7 @@ Archive Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,13 +70,16 @@ Archive Credential
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `String id`
 
     Unique identifier for the credential.
@@ -86,14 +91,17 @@ Archive Credential
   - `Auth auth`
 
     Authentication details for a credential.
+
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
+
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
+
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -103,6 +111,7 @@ Archive Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `String clientId`
 
           OAuth client ID.
@@ -114,22 +123,29 @@ Archive Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
+
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
+
             - `Type type`
+
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `Type type`
+
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `Type type`
+
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -143,12 +159,50 @@ Archive Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
+
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
+
         - `STATIC_BEARER("static_bearer")`
+
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `Networking networking`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse:`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `Type type`
+
+            - `UNRESTRICTED("unrestricted")`
+
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse:`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `List<String> allowedHosts`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `Type type`
+
+            - `LIMITED("limited")`
+
+      - `String secretName`
+
+        Name of the environment variable.
+
+      - `Type type`
+
+        - `ENVIRONMENT_VARIABLE("environment_variable")`
 
   - `LocalDateTime createdAt`
 
@@ -159,6 +213,7 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
+
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`

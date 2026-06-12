@@ -19,6 +19,7 @@ restarted after rotation must use the new value. An optional
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Body Parameters
@@ -41,6 +42,7 @@ restarted after rotation must use the new value. An optional
 - `type: "tunnel_token"`
 
   Object type. Always `tunnel_token` for Tunnel Tokens.
+
   - `"tunnel_token"`
 
 ### Example
@@ -49,7 +51,7 @@ restarted after rotation must use the new value. An optional
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID/rotate_token \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

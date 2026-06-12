@@ -70,20 +70,24 @@ As we continue developing and improving our agents, we expect our understanding 
 
 These principles will guide our current and future work on agent development, and we look forward to collaborating with other companies and organizations on this topic. Agents have tremendous potential for positive impacts in work, education, healthcare, and scientific discovery. That is why it is so important to ensure they are built to the highest standards.
 
+  
+
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

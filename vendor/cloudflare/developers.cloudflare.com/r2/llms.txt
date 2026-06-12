@@ -48,6 +48,19 @@ Store large amounts of unstructured data without egress fees
 - [Download objects](https://developers.cloudflare.com/r2/objects/download-objects/index.md): Download objects from R2 using the dashboard, Workers API, S3 API, or CLI tools.
 - [Upload objects](https://developers.cloudflare.com/r2/objects/upload-objects/index.md): Upload objects to R2 using single-part or multipart uploads via the dashboard, Workers API, or S3 API.
 
+## API
+
+- [API](https://developers.cloudflare.com/r2/api/index.md): Access R2 storage through the S3-compatible API, Workers API, or Cloudflare REST API.
+- [Error codes](https://developers.cloudflare.com/r2/api/error-codes/index.md): Reference of R2 error codes returned by the Workers API and S3-compatible API.
+- [S3 API compatibility](https://developers.cloudflare.com/r2/api/s3/api/index.md): Review which S3 API operations and features R2 supports, including implementation status.
+- [Extensions](https://developers.cloudflare.com/r2/api/s3/extensions/index.md): R2 extensions to the S3 API, including Unicode metadata and custom headers.
+- [Presigned URLs](https://developers.cloudflare.com/r2/api/s3/presigned-urls/index.md): Generate presigned URLs to grant temporary access to R2 objects without exposing credentials.
+- [Temporary credentials](https://developers.cloudflare.com/r2/api/s3/temporary-credentials/index.md): Learn about temporary credentials in r2.
+- [Authentication](https://developers.cloudflare.com/r2/api/tokens/index.md): Generate and manage R2 API tokens for use with S3-compatible SDKs and APIs.
+- [Workers API reference](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/index.md): Complete reference for the R2 in-Worker API, including bucket and object operations.
+- [Use R2 from Workers](https://developers.cloudflare.com/r2/api/workers/workers-api-usage/index.md): Bind an R2 bucket to a Worker and perform read, write, and list operations.
+- [Use the R2 multipart API from Workers](https://developers.cloudflare.com/r2/api/workers/workers-multipart-usage/index.md): Upload large objects to R2 using the multipart API through a Cloudflare Worker.
+
 ## R2 Data Catalog
 
 - [R2 Data Catalog](https://developers.cloudflare.com/r2/data-catalog/index.md): A managed Apache Iceberg data catalog built directly into R2 buckets.
@@ -57,11 +70,13 @@ Store large amounts of unstructured data without egress fees
 - [Spark (PySpark)](https://developers.cloudflare.com/r2/data-catalog/config-examples/spark-python/index.md): Connect PySpark to R2 Data Catalog to read and write Iceberg tables.
 - [Spark (Scala)](https://developers.cloudflare.com/r2/data-catalog/config-examples/spark-scala/index.md): Build a Scala Spark application that connects to R2 Data Catalog for Iceberg table operations.
 - [StarRocks](https://developers.cloudflare.com/r2/data-catalog/config-examples/starrocks/index.md): Connect StarRocks to R2 Data Catalog to query and modify Iceberg tables.
-- [Apache Trino](https://developers.cloudflare.com/r2/data-catalog/config-examples/trino/index.md): Connect Apache Trino to R2 Data Catalog using the Iceberg REST catalog connector.
+- [Trino](https://developers.cloudflare.com/r2/data-catalog/config-examples/trino/index.md): Connect Trino to R2 Data Catalog using the Iceberg REST catalog connector.
 - [Deleting data](https://developers.cloudflare.com/r2/data-catalog/deleting-data/index.md): How to properly delete data from R2 Data Catalog
 - [Getting started](https://developers.cloudflare.com/r2/data-catalog/get-started/index.md): Learn how to enable the R2 Data Catalog on your bucket, load sample data, and run your first query.
 - [Manage catalogs](https://developers.cloudflare.com/r2/data-catalog/manage-catalogs/index.md): Understand how to manage Iceberg REST catalogs associated with R2 buckets
 - [Metrics and analytics](https://developers.cloudflare.com/r2/data-catalog/observability/metrics/index.md): Query R2 Data Catalog metrics for Iceberg REST API operations and table maintenance jobs via the GraphQL Analytics API.
+- [Platform](https://developers.cloudflare.com/r2/data-catalog/platform/index.md): R2 Data Catalog platform details including pricing.
+- [Pricing](https://developers.cloudflare.com/r2/data-catalog/platform/pricing/index.md): R2 Data Catalog pricing for catalog operations, compaction, and free tier details.
 - [Table maintenance](https://developers.cloudflare.com/r2/data-catalog/table-maintenance/index.md): Learn how R2 Data Catalog automates table maintenance
 
 ## R2 SQL
@@ -99,18 +114,6 @@ Store large amounts of unstructured data without egress fees
 ## Pricing
 
 - [Pricing](https://developers.cloudflare.com/r2/pricing/index.md): R2 pricing for storage, Class A and Class B operations, and free tier details.
-
-## api
-
-- [Error codes](https://developers.cloudflare.com/r2/api/error-codes/index.md): Reference of R2 error codes returned by the Workers API and S3-compatible API.
-- [S3 API compatibility](https://developers.cloudflare.com/r2/api/s3/api/index.md): Review which S3 API operations and features R2 supports, including implementation status.
-- [Extensions](https://developers.cloudflare.com/r2/api/s3/extensions/index.md): R2 extensions to the S3 API, including Unicode metadata and custom headers.
-- [Presigned URLs](https://developers.cloudflare.com/r2/api/s3/presigned-urls/index.md): Generate presigned URLs to grant temporary access to R2 objects without exposing credentials.
-- [Temporary credentials](https://developers.cloudflare.com/r2/api/s3/temporary-credentials/index.md): Learn about temporary credentials in r2.
-- [Authentication](https://developers.cloudflare.com/r2/api/tokens/index.md): Generate and manage R2 API tokens for use with S3-compatible SDKs and APIs.
-- [Workers API reference](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/index.md): Complete reference for the R2 in-Worker API, including bucket and object operations.
-- [Use R2 from Workers](https://developers.cloudflare.com/r2/api/workers/workers-api-usage/index.md): Bind an R2 bucket to a Worker and perform read, write, and list operations.
-- [Use the R2 multipart API from Workers](https://developers.cloudflare.com/r2/api/workers/workers-multipart-usage/index.md): Upload large objects to R2 using the multipart API through a Cloudflare Worker.
 
 ## examples
 

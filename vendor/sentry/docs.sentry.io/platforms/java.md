@@ -25,16 +25,71 @@ Sentry captures data by using an SDK within your application’s runtime.
 
 Error Monitoring\[ ]Tracing\[ ]Profiling\[ ]Logs\[x]OpenTelemetry
 
-`build.gradle`
+**\[groovy] build.gradle**
 
 ```groovy
 plugins {
-  id "io.sentry.jvm.gradle" version "6.7.0"
+  id "io.sentry.jvm.gradle" version "6.11.0"
 }
 // ___PRODUCT_OPTION_START___ profiling
 dependencies {
-  implementation 'io.sentry:sentry-async-profiler:8.41.0'
+  implementation 'io.sentry:sentry-async-profiler:8.43.2'
 }
+// ___PRODUCT_OPTION_END___ profiling
+```
+
+**\[Maven Plugin] pom.xml**
+
+```xml
+<plugin>
+  <groupId>io.sentry</groupId>
+  <artifactId>sentry-maven-plugin</artifactId>
+  <version>0.11.0</version>
+  <!-- Required to allow auto-install of Sentry SDK and Integrations -->
+  <extensions>true</extensions>
+  <configuration>
+    <!-- In case you're self hosting, provide the URL here -->
+    <!-- <url>http://localhost:8000/</url> -->
+    <org>___SENTRY_ORG_SLUG___</org>
+    <project>___SENTRY_PROJECT_SLUG___</project>
+    <!-- Do not commit your auth token with this file, you should provide it via the SENTRY_AUTH_TOKEN environment variable or similar -->
+    <!-- <authToken>${env.SENTRY_AUTH_TOKEN}</authToken> -->
+    <authToken>___SENTRY_AUTH_TOKEN___</authToken>
+    <!-- Enable debugging to see logs in case something goes wrong when uploading the source bundle -->
+    <debugSentryCli>true</debugSentryCli>
+   </configuration>
+   <executions>
+    <execution>
+      <goals>
+        <!-- Generates a source bundle and uploads it to Sentry -->
+        <!-- This enables source context, allowing you to see your source code as part of your stack traces in Sentry -->
+        <!-- Learn more about this feature in its dedicated "Source Context" docs page -->
+        <goal>uploadSourceBundle</goal>
+        <!--  Validates Sentry SDK dependency versions. -->
+        <!--  Mixing SDK dependency versions can result in build or run time errors. -->
+        <!--  If mixed versions are detected, the build will fail. -->
+        <goal>validateSdkDependencyVersions</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+// ___PRODUCT_OPTION_START___ profiling
+<dependencies>
+  <dependency>
+      <groupId>io.sentry</groupId>
+      <artifactId>sentry-async-profiler</artifactId>
+      <version>8.43.2</version>
+  </dependency>
+</dependencies>
+// ___PRODUCT_OPTION_END___ profiling
+```
+
+**SBT**
+
+```scala
+libraryDependencies += "io.sentry" % "sentry" % "8.43.2"
+// ___PRODUCT_OPTION_START___ profiling
+libraryDependencies += "io.sentry" % "sentry-async-profiler" % "8.43.2"
 // ___PRODUCT_OPTION_END___ profiling
 ```
 
@@ -44,17 +99,19 @@ If you are manually adding multiple Sentry dependencies, you can add a [bill of 
 
 When running your application, please add our `sentry-opentelemetry-agent` to the `java` command.
 
-Download the latest version of the `sentry-opentelemetry-agent-8.41.0.jar` from [MavenCentral](https://search.maven.org/artifact/io.sentry/sentry-opentelemetry-agent):
+Download the latest version of the `sentry-opentelemetry-agent-8.43.2.jar` from [MavenCentral](https://search.maven.org/artifact/io.sentry/sentry-opentelemetry-agent):
 
 ```bash
-curl https://repo1.maven.org/maven2/io/sentry/sentry-opentelemetry-agent/8.41.0/sentry-opentelemetry-agent-8.41.0.jar -o sentry-opentelemetry-agent-8.41.0.jar
+curl https://repo1.maven.org/maven2/io/sentry/sentry-opentelemetry-agent/8.43.2/sentry-opentelemetry-agent-8.43.2.jar -o sentry-opentelemetry-agent-8.43.2.jar
 ```
 
 Then run your application with:
 
 ```bash
-SENTRY_PROPERTIES_FILE=sentry.properties JAVA_TOOL_OPTIONS="-javaagent:sentry-opentelemetry-agent-8.41.0.jar" java -jar your-application.jar
+SENTRY_PROPERTIES_FILE=sentry.properties JAVA_TOOL_OPTIONS="-javaagent:sentry-opentelemetry-agent-8.43.2.jar" java -jar your-application.jar
 ```
+
+*Other available variations of the above snippet: Java CLI argument*
 
 ## [Configure](https://docs.sentry.io/platforms/java.md#configure)
 
@@ -64,7 +121,7 @@ Configuration should happen as early as possible in your application's lifecycle
 import io.sentry.Sentry;
 
 Sentry.init(options -> {
-  options.setDsn("___PUBLIC_DSN___");
+  options.setDsn("https://<key>@o<orgId>.ingest.sentry.io/<projectId>");
 
   // Add data like request headers and IP for users,
   // see https://docs.sentry.io/platforms/java/data-management/data-collected/ for more info
@@ -90,14 +147,14 @@ Sentry.init(options -> {
 });
 ```
 
+*Other available variations of the above snippet: Kotlin*
+
 Learn more about setting up logging in our [Logs documentation](https://docs.sentry.io/platforms/java/logs.md).
 
 The SDK can be configured using a `sentry.properties` file:
 
-`sentry.properties`
-
 ```properties
-dsn=___PUBLIC_DSN___
+dsn=https://<key>@o<orgId>.ingest.sentry.io/<projectId>
 # Add data like request headers and IP for users,
 # see https://docs.sentry.io/platforms/java/data-management/data-collected/ for more info
 send-default-pii=true
@@ -130,6 +187,8 @@ try {
   Sentry.captureException(e);
 }
 ```
+
+*Other available variations of the above snippet: Kotlin*
 
 Learn more about manually capturing an error or message in our [Usage documentation](https://docs.sentry.io/platforms/java/usage.md).
 

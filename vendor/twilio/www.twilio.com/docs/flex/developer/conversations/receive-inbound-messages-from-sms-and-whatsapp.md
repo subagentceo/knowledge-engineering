@@ -127,7 +127,6 @@ class Program {
 // Install the Java helper library from twilio.com/docs/java/install
 
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.flexapi.v1.Interaction;
 

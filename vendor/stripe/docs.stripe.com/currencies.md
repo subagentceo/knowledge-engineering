@@ -20,6 +20,10 @@ If the charge currency differs from your *settlement currency* (The settlement c
 
 In certain countries, Stripe might support [settlement in additional currencies](https://docs.stripe.com/payments/currencies/settlement-payouts.md). If you need liquidity in additional currencies, you can enable settlement in those currencies and add a bank account in the [payout settings of your Dashboard](https://dashboard.stripe.com/account/payouts). Our [payouts documentation](https://docs.stripe.com/payouts.md#multiple-bank-accounts) lists the different bank account currencies we support. See [Stripe pricing](https://www.stripe.com/pricing) for conversion costs.
 
+### Integration currency
+
+“Integration currency” is the currency you set on a [Price](https://docs.stripe.com/api/prices/object.md#price_object-currency) or [PaymentIntent](https://docs.stripe.com/api/payment_intents/object.md#payment_intent_object-currency). It appears in the Stripe Dashboard and the currency Stripe Tax uses when recording tax liability in the Stripe Tax reports.
+
 ### Connect platforms
 
 If you use *Connect* (Connect is Stripe's solution for multi-party businesses, such as marketplace or software platforms, to route payments between sellers, customers, and other recipients), your platform has additional currency conversion considerations. See [Work with multiple currencies](https://docs.stripe.com/connect/currencies.md) to manage currency conversions.
@@ -104,23 +108,29 @@ Exceptions to the minimum charge amount apply to some payment methods, such as [
 
 ### Maximum charge amounts
 
-In general, the number of allowed digits limits the maximum amount you can charge a customer. The `amount` value supports up to:
+In general, the number of allowed digits limits the maximum amount you can charge a customer.
+
+#### Card payments
+
+For card payments, the maximum charge amount is determined by the card network. The `amount` value supports up to:
+
+- 12 digits for most card payments, for a maximum of 999,999,999,999 in minor units
+- 9 digits for American Express in most currencies, for a maximum of 999,999,999 in minor units
+
+Card networks can impose charge amount limits that are more restrictive than digit number, depending on currency and region.
+
+> When processing JCB, Diners Club, and Discover cards from Japanese Stripe accounts, the maximum amount is 8 digits (99,999,999 JPY), regardless of the card network limits listed above. Learn more about [accepting JCB payments in Japan](https://support.stripe.com/questions/enabling-jcb-payments-for-japan-based-stripe-accounts).
+
+#### Other payment methods
+
+For non-card payment methods, the number of allowed digits limits the maximum amount you can charge. The `amount` value supports up to:
 
 - 12 digits for IDR, for a maximum charge of 9,999,999,999.99 IDR (`999999999999`)
-- 9 digits for IDR with American Express, for a maximum charge of 9,999,999.99 IDR (`999999999`)
+- 10 digits for COP, for a maximum charge of 99,999,999.99 COP (`9999999999`)
 - 9 digits for INR, for a maximum charge of 9,999,999.99 INR (`999999999`)
 - 8 digits for all other currencies, for a maximum charge of 999,999.99 (`99999999`)
 
-When accepting card payments, these currencies support higher maximum amounts:
-
-- 12 digits for LBP, for a maximum charge of 9,999,999,999.99 LBP (`999999999999`)
-- 10 digits for COP, for a maximum charge of 9,999,999,999.9 COP (`9999999999999`)
-- 10 digits for HUF, for a maximum charge of 9,999,999,999 HUF (`9999999999999`)
-- 10 digits for JPY, for a maximum charge of 9,999,999,999 JPY (`9999999999999`)
-
-Card networks can impose charge amount limits that are more restrictive than digit number.
-
-> When processing JCB, Diners Club, and Discover cards from Japanese Stripe accounts, the maximum amount is 8 digits (99,999,999 JPY), regardless of the JPY currency limits listed above. Learn more about [accepting JCB payments in Japan](https://support.stripe.com/questions/enabling-jcb-payments-for-japan-based-stripe-accounts).
+Some [payment methods](https://docs.stripe.com/payments/payment-methods/payment-method-support.md#country-currency-support) enforce their own per-currency maximums that can be more restrictive than these limits.
 
 ## Supported payment methods
 

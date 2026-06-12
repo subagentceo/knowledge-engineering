@@ -8,6 +8,20 @@ We have detailed instructions for setting up single sign-on on a Team, Enterpris
 
 If you are a Claude Console user, this can be configured through rate limiting in your Console organization. If you are using Bedrock or Vertex, set the Opus rate limit to 0 in your Vertex/Bedrock project settings. Note that even if disabled in Vertex, users may be able to switch models in Claude Code, so rate limiting is the most effective approach.
 
+## What are Claude Code dynamic workflows, and how do we control access?
+
+Dynamic workflows (available for Claude Enterprise plans) let Claude run large engineering tasks—migrations, audits, codebase-wide bug hunts—from start to finish in a single Claude Code session. They become available and turn on by default for your whole Enterprise organization on June 8, 2026. Because a single run can last for hours and use more tokens than a typical session, admins should decide who has access before that date.
+
+You have three ways to control access:
+
+1. **At the role level (Enterprise plans with custom roles):** Grant or restrict the Claude Code dynamic workflows capability per group. This only affects members whose role is set to "Custom roles." See **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
+
+2. **Disable org-wide via `managed-settings.json`:** Add `"disableWorkflows": true` to your managed settings. This holds before and after June 8.
+
+3. **Organization-wide:** After June 8, an owner can disable dynamic workflows for everyone by going to **[Organization settings > Claude Code](https://claude.ai/admin-settings/claude-code)** and toggling **Workflows** off.
+
+We apply the more restrictive of your managed settings and custom role permissions on a per-user basis. If either one disables workflows for a given user, that user won't have access.
+
 ## Does Claude Code support Microsoft Visual Studio IDE integration (not VS Code)?
 
 No current Visual Studio 2022 integration exists. Claude Code currently supports VS Code, Cursor (and other VS Code forks), Intellij, Pycharm (and other Jetbrains IDEs).
@@ -30,7 +44,7 @@ Yes. Our setup guides for **[Bedrock](https://docs.claude.com/en/docs/claude-cod
 
 ## How can we deploy Claude Code with custom environment variables and permissions across our organization?
 
-Create wrapper scripts that set environment variables before running Claude Code. For permissions, use .claude/settings.json files with allow/deny lists. Note that wildcard patterns (\*) don't always match as expected - test permissions thoroughly. Enterprise teams often inject standardized Claude.md files for consistent configurations.
+Create wrapper scripts that set environment variables before running Claude Code. For permissions, use .claude/settings.json files with allow/deny lists. Note that wildcard patterns (*) don't always match as expected - test permissions thoroughly. Enterprise teams often inject standardized Claude.md files for consistent configurations.
 
 ## Does Claude Code have public code filtering or attribution capabilities on the roadmap?
 
@@ -62,11 +76,11 @@ Currently, Claude.md files are the primary mechanism. IT teams can inject standa
 
 ## How do permissions work in Claude Code, and why aren’t my allow lists being respected?
 
-Permissions use pattern matching in .claude/settings.json or settings.local.json. Wildcard syntax can be tricky - "Bash(atlassian-api:\*)" should work but may need exact command matching. Use "Yes, and don't ask again for similar commands" to build up permissions incrementally. Check both global (~/.claude/settings.json) and local settings files.
+Permissions use pattern matching in .claude/settings.json or settings.local.json. Wildcard syntax can be tricky - "Bash(atlassian-api:*)" should work but may need exact command matching. Use "Yes, and don't ask again for similar commands" to build up permissions incrementally. Check both global (~/.claude/settings.json) and local settings files.
 
 ## Does Claude Code index my entire codebase or use a vector database to store information about my codebase?
 
-No. Claude Code has access to a system prompt and a series of tools that it can use to navigate your codebase on command. For example, if Claude Code needs to understand something about your codebase, it will use a search tool to search through your codebase and read files on command. We find that this is more effective and flexible than full codebase indexing: Claude Code is _really_ good at knowing how to sift through a codebase to gather context it needs on the fly!
+No. Claude Code has access to a system prompt and a series of tools that it can use to navigate your codebase on command. For example, if Claude Code needs to understand something about your codebase, it will use a search tool to search through your codebase and read files on command. We find that this is more effective and flexible than full codebase indexing: Claude Code is *really* good at knowing how to sift through a codebase to gather context it needs on the fly!
 
 ## Can Claude Code integrate with CI/CD, version control, and observability platforms?
 

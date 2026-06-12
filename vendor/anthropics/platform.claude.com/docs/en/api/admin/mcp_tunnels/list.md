@@ -34,11 +34,13 @@ archived tunnels are excluded unless `include_archived` is set.
 - `"anthropic-beta": array of "mcp-tunnels-2026-05-19"`
 
   Required for all Tunnel endpoints.
+
   - `"mcp-tunnels-2026-05-19"`
 
 ### Returns
 
 - `data: array of object { id, archived_at, created_at, 4 more }`
+
   - `id: string`
 
     ID of the Tunnel.
@@ -65,6 +67,7 @@ archived tunnels are excluded unless `include_archived` is set.
   - `type: "tunnel"`
 
     Object type. Always `tunnel` for Tunnels.
+
     - `"tunnel"`
 
   - `workspace_id: string`
@@ -81,7 +84,7 @@ archived tunnels are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

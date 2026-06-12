@@ -3,7 +3,6 @@
 ---
 
 Token counting enables you to determine the number of tokens in a message before sending it to Claude, helping you make informed decisions about your prompts and usage. With token counting, you can
-
 - Proactively manage rate limits and costs
 - Make smart model routing decisions
 - Optimize prompts to be a specific length
@@ -25,7 +24,6 @@ Token counts may include tokens added automatically by Anthropic for system opti
 </Note>
 
 ### Supported models
-
 All [active models](/docs/en/about-claude/models/overview) support token counting.
 
 ### Count tokens in basic messages
@@ -79,9 +77,9 @@ const response = await client.messages.countTokens({
   messages: [
     {
       role: "user",
-      content: "Hello, Claude",
-    },
-  ],
+      content: "Hello, Claude"
+    }
+  ]
 });
 
 console.log(response);
@@ -172,7 +170,7 @@ public class CountTokensExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->countTokens(
     messages: [
@@ -200,7 +198,6 @@ response = client.messages.count_tokens(
 
 puts response
 ```
-
 </CodeGroup>
 
 ```json Output
@@ -312,16 +309,14 @@ const response = await client.messages.countTokens({
         properties: {
           location: {
             type: "string",
-            description: "The city and state, e.g. San Francisco, CA",
-          },
+            description: "The city and state, e.g. San Francisco, CA"
+          }
         },
-        required: ["location"],
-      },
-    },
+        required: ["location"]
+      }
+    }
   ],
-  messages: [
-    { role: "user", content: "What's the weather like in San Francisco?" },
-  ],
+  messages: [{ role: "user", content: "What's the weather like in San Francisco?" }]
 });
 
 console.log(response);
@@ -471,7 +466,7 @@ public class CountTokensWithToolsExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->countTokens(
     messages: [
@@ -529,7 +524,6 @@ response = client.messages.count_tokens(
 
 puts response
 ```
-
 </CodeGroup>
 
 ```json Output
@@ -547,7 +541,7 @@ IMAGE_MEDIA_TYPE="image/jpeg"
 IMAGE_BASE64=$(curl -s "$IMAGE_URL" | base64 | tr -d '\n')
 
 curl https://api.anthropic.com/v1/messages/count_tokens \
- --header "x-api-key: $ANTHROPIC_API_KEY" \
+     --header "x-api-key: $ANTHROPIC_API_KEY" \
      --header "anthropic-version: 2023-06-01" \
      --header "content-type: application/json" \
      --data @- <<EOF
@@ -558,15 +552,14 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
             {"type": "image", "source": {
                 "type": "base64",
                 "media_type": "$IMAGE_MEDIA_TYPE",
-"data": "$IMAGE_BASE64"
-}},
-{"type": "text", "text": "Describe this image"}
-]}
-]
+                "data": "$IMAGE_BASE64"
+            }},
+            {"type": "text", "text": "Describe this image"}
+        ]}
+    ]
 }
 EOF
-
-````
+```
 
 ```bash CLI nocheck
 IMAGE_URL="https://upload.wikimedia.org/wikipedia/commons/a/a7/Camponotus_flavomarginatus_ant.jpg"
@@ -585,7 +578,7 @@ messages:
       - type: text
         text: Describe this image
 YAML
-````
+```
 
 ```python Python nocheck hidelines={1}
 import anthropic
@@ -642,16 +635,16 @@ const response = await anthropic.messages.countTokens({
           source: {
             type: "base64",
             media_type: image_media_type,
-            data: image_data,
-          },
+            data: image_data
+          }
         },
         {
           type: "text",
-          text: "Describe this image",
-        },
-      ],
-    },
-  ],
+          text: "Describe this image"
+        }
+      ]
+    }
+  ]
 });
 console.log(response);
 ```
@@ -827,7 +820,7 @@ $imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a7/Camponotus_flav
 $imageMediaType = "image/jpeg";
 $imageData = base64_encode(file_get_contents($imageUrl));
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->countTokens(
     messages: [
@@ -885,7 +878,6 @@ response = client.messages.count_tokens(
 )
 puts response
 ```
-
 </CodeGroup>
 
 ```json Output
@@ -1006,13 +998,12 @@ const response = await client.messages.countTokens({
   model: "claude-sonnet-4-6",
   thinking: {
     type: "enabled",
-    budget_tokens: 16000,
+    budget_tokens: 16000
   },
   messages: [
     {
       role: "user",
-      content:
-        "Are there an infinite number of prime numbers such that n mod 4 == 3?",
+      content: "Are there an infinite number of prime numbers such that n mod 4 == 3?"
     },
     {
       role: "assistant",
@@ -1022,19 +1013,19 @@ const response = await client.messages.countTokens({
           thinking:
             "This is a nice number theory question. Let's think about it step by step...",
           signature:
-            "EuYBCkQYAiJAgCs1le6/Pol5Z4/JMomVOouGrWdhYNsH3ukzUECbB6iWrSQtsQuRHJID6lWV...",
+            "EuYBCkQYAiJAgCs1le6/Pol5Z4/JMomVOouGrWdhYNsH3ukzUECbB6iWrSQtsQuRHJID6lWV..."
         },
         {
           type: "text",
-          text: "Yes, there are infinitely many prime numbers p such that p mod 4 = 3...",
-        },
-      ],
+          text: "Yes, there are infinitely many prime numbers p such that p mod 4 = 3..."
+        }
+      ]
     },
     {
       role: "user",
-      content: "Can you write a formal proof?",
-    },
-  ],
+      content: "Can you write a formal proof?"
+    }
+  ]
 });
 
 console.log(response);
@@ -1187,7 +1178,7 @@ public class CountTokensThinkingExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $response = $client->messages->countTokens(
     messages: [
@@ -1263,7 +1254,6 @@ response = client.messages.count_tokens(
 
 puts response
 ```
-
 </CodeGroup>
 
 ```json Output
@@ -1282,7 +1272,7 @@ PDF_URL="https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model
 PDF_BASE64=$(curl -s "$PDF_URL" | base64 | tr -d '\n')
 
 curl https://api.anthropic.com/v1/messages/count_tokens \
- --header "x-api-key: $ANTHROPIC_API_KEY" \
+    --header "x-api-key: $ANTHROPIC_API_KEY" \
     --header "content-type: application/json" \
     --header "anthropic-version: 2023-06-01" \
     --data @- <<EOF
@@ -1297,18 +1287,17 @@ curl https://api.anthropic.com/v1/messages/count_tokens \
           "type": "base64",
           "media_type": "application/pdf",
           "data": "$PDF_BASE64"
-}
-},
-{
-"type": "text",
-"text": "Please summarize this document."
-}
-]
-}]
+        }
+      },
+      {
+        "type": "text",
+        "text": "Please summarize this document."
+      }
+    ]
+  }]
 }
 EOF
-
-````
+```
 
 ```bash CLI nocheck hidelines={1..3}
 PDF_URL="https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf"
@@ -1327,7 +1316,7 @@ messages:
       - type: text
         text: Please summarize this document.
 YAML
-````
+```
 
 ```python Python nocheck
 import base64
@@ -1380,16 +1369,16 @@ const response = await client.messages.countTokens({
           source: {
             type: "base64",
             media_type: "application/pdf",
-            data: pdfBase64,
-          },
+            data: pdfBase64
+          }
         },
         {
           type: "text",
-          text: "Please summarize this document.",
-        },
-      ],
-    },
-  ],
+          text: "Please summarize this document."
+        }
+      ]
+    }
+  ]
 });
 
 console.log(response);
@@ -1536,7 +1525,7 @@ public class CountTokensPdfExample {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $pdfBase64 = base64_encode(file_get_contents("document.pdf"));
 
@@ -1599,7 +1588,6 @@ response = client.messages.count_tokens(
 
 puts response
 ```
-
 </CodeGroup>
 
 ```json Output
@@ -1608,12 +1596,22 @@ puts response
 
 ---
 
+## Token counts on Claude Fable 5 and Claude Mythos 5 \{#token-counts-on-claude-fable-5}
+
+Claude Fable 5 and Claude Mythos 5 use the tokenizer introduced with Claude Opus 4.7, which produces roughly 30% more tokens than models before Claude Opus 4.7 for the same text. The token counting endpoint returns the count under the tokenizer of the `model` you pass, so to measure the difference for your workload, count the same request twice: once with your current model and once with `model: "claude-fable-5"` (or `"claude-mythos-5"`), and compare the two `input_tokens` values.
+
+<Note>
+**Billing and migration:** Usage and billing on Claude Fable 5 and Claude Mythos 5 reflect this tokenizer's counts. If you're migrating from a model before Claude Opus 4.7, the same content consumes roughly 30% more tokens. When migrating a workload to Claude Fable 5 and Claude Mythos 5, don't reuse token counts measured on a model before Claude Opus 4.7 to estimate costs or context window fit. Count your prompts with `model: "claude-fable-5"` (or `"claude-mythos-5"`).
+</Note>
+
+---
+
 ## Pricing and rate limits
 
 Token counting is **free to use** but subject to requests per minute rate limits based on your [usage tier](/docs/en/api/rate-limits#rate-limits). If you need higher limits, contact sales through the [Claude Console](/settings/limits).
 
 | Usage tier | Requests per minute (RPM) |
-| ---------- | ------------------------- |
+|------------|---------------------------|
 | 1          | 100                       |
 | 2          | 2,000                     |
 | 3          | 4,000                     |
@@ -1624,11 +1622,10 @@ Token counting is **free to use** but subject to requests per minute rate limits
 </Note>
 
 ---
-
 ## FAQ
 
   <section title="Does token counting use prompt caching?">
 
     No, token counting provides an estimate without using caching logic. While you may provide `cache_control` blocks in your token counting request, prompt caching only occurs during actual message creation.
-
+  
 </section>

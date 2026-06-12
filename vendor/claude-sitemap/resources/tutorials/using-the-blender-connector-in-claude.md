@@ -12,8 +12,8 @@ First, add the Blender connector in Claude Desktop, then install an add-on insid
 
 ### Prerequisites
 
-- **Claude Desktop** — any Claude plan, including Free 
-- **Blender 4.2 or later** — free at blender.org/download
+*   **Claude Desktop** — any Claude plan, including Free 
+*   **Blender 4.2 or later** — free at blender.org/download
 
 ### Step 1: Add the connector in Claude Desktop
 
@@ -30,9 +30,8 @@ In Claude Desktop, go to **Customize > Connectors**, search for **Blender**, and
 ### Step 3: Start the connection
 
 1.  Open your Blender project.
-2.  In the 3D Viewport, press **N** to open the sidebar.
-3.  Open the **BlenderMCP** tab and select **Connect to Claude**.
-4.  In Claude Desktop, the Blender tools appear under the connector icon in the chat input.
+2.  Go to Edit > Preferences > Add-ons
+3.  Find BlenderMCP tab and enable/ click 'start MCP server'
 
 For more on installing connectors from the directory, see Browsing the Connectors Directory.
 
@@ -62,12 +61,12 @@ You want to change or delete something but aren't sure what else in the file dep
 
 Render times are long and you want to know where the polygon budget is going relative to what's visible on screen.
 
-> ‍*For each mesh in the scene, report its polygon count alongside how large it appears in the active camera's final render. Sort by polygon count and flag anything that's heavy but small on screen.*
+> ‍_For each mesh in the scene, report its polygon count alongside how large it appears in the active camera's final render. Sort by polygon count and flag anything that's heavy but small on screen._
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f0cf9996f522485d52f08d_Screenshot%202026-04-28%20at%208.17.39%E2%80%AFAM.png)
 
 ## Frequently asked questions
 
-- **Does the connector work on claude.ai in the browser?** — No. The connector needs Blender running on the same machine as Claude, so it requires Claude Desktop.
-- **Does Claude edit my .blend file directly?** — Claude operates on the open scene through Blender's Python API. Changes apply to your session and are written to disk when you save in Blender.
-- **Do I need to know Python?** — No. You describe what you want and Claude writes and runs the Python. You can ask to see the code first if you want to review it or learn from it.
+*   **Does the connector work on claude.ai in the browser?** — No. The connector needs Blender running on the same machine as Claude, so it requires Claude Desktop.
+*   **Does Claude edit my .blend file directly?** — Claude operates on the open scene through Blender's Python API. Changes apply to your session and are written to disk when you save in Blender.
+*   **Do I need to know Python?** — No. You describe what you want and Claude writes and runs the Python. You can ask to see the code first if you want to review it or learn from it.

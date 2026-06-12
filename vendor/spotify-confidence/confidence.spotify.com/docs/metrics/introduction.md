@@ -1,5 +1,5 @@
 > ## Documentation Index
-> Fetch the complete documentation index at: https://confidence.spotify.com/llms.txt
+> Fetch the complete documentation index at: https://confidence-auth-testing.mintlify.io/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Introduction to Metrics
@@ -73,7 +73,7 @@ The key concepts for defining a metric are:
 
 ## How Confidence Computes Metrics
 
-<img src="https://mintcdn.com/confidence-7c0fec1b/KTPKB6kyq9KGua3d/images/avg-metric.png?fit=max&auto=format&n=KTPKB6kyq9KGua3d&q=85&s=1174d9f7f3229c2624cd6e5bbfafe2e9" alt="metric processing" width="1400" height="507" data-path="images/avg-metric.png" />
+<img src="https://mintcdn.com/confidence-auth-testing/YnQm99fG-Zh7IGxq/images/avg-metric.png?fit=max&auto=format&n=YnQm99fG-Zh7IGxq&q=85&s=38d1f545fd71353cf45ad23b5b9e324c" alt="metric processing" width="1400" height="507" data-path="images/avg-metric.png" />
 
 To compute a metric, Confidence goes through the following steps:
 

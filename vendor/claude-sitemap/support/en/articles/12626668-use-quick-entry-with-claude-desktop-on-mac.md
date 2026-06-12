@@ -38,7 +38,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1780164900&signature=3b4d46978977115982f8dd5cca5df7c961c14ea416876e9835a37a10c732f460&req=dSguFcl2lYJZXPMW1HO4zWggD95QoJiTRC8c%2FcM5c2LCPU7wwleP9DKfaQ4o%0AAkaS9L6y06WgzgO6MsE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1781284500&amp;signature=fbde53820050940c28039bd710d20ff2d2294819b41b54fbcf3d1069831eae69&amp;req=dSguFcl2lYJZXPMW1HO4zWggD99TrpifRC8c%2FcM5c2KAfhgWTdBa0D2hJKNy%0AM%2FJzpx4rT79VyqEX%2BOI%3D%0A)
 
 ### Enable the voice shortcut (optional)
 
@@ -110,19 +110,19 @@ You can customize quick entry shortcuts in your Claude Desktop settings.
 
 3. Choose from the following next to **Quick access shortcut**:
 
-- Double-tap Option (default)
+  - Double-tap Option (default)
 
-- Option + Space
+  - Option + Space
 
-- Custom keyboard shortcut
+  - Custom keyboard shortcut
 
 4. Click the dropdown next to **Voice shortcut** to:
 
-- Enable Caps Lock for voice input
+  - Enable Caps Lock for voice input
 
-- Set a custom keyboard shortcut
+  - Set a custom keyboard shortcut
 
-- Disable the shortcut entirely
+  - Disable the shortcut entirely
 
 ## Permissions
 

@@ -2,6 +2,28 @@
 
 Local agents hit a ceiling — they compete for your machine's resources, can't verify their own work, and bottleneck at one or two tasks at a time. Alexi Robbins, Head of Engineering for Cursor's async agents, share how they gave each agent its own isolated VM so agents can write code, spin up browsers, test their own changes, and deliver merge-ready PRs in parallel — now behind 30%+ of Cursor's internal merged PRs.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+05:35PM – 06:05PM
+
+Speaker(s)
+
+Alexi Robbins
+
+Head of Engineering, Async Agents,
+
+Cursor
+
 ## Watch recording
 
 Play videoPlay video

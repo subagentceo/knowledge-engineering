@@ -26,6 +26,7 @@ Improve the performance of your website or web application
 ## Troubleshooting
 
 - [Troubleshooting](https://developers.cloudflare.com/speed/troubleshooting/index.md): Troubleshoot common speed and performance optimization issues.
+- [Troubleshooting a slow website](https://developers.cloudflare.com/speed/troubleshooting/slow-website/index.md): Identify and resolve performance issues affecting your website.
 
 ## Aggregated Internet Measurement
 

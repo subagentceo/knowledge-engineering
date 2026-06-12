@@ -9,6 +9,7 @@ List Skills
 ### Parameters
 
 - `params: SkillListParams`
+
   - `limit?: number`
 
     Query param: Number of results to return per page.
@@ -26,15 +27,18 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-    - `"custom"`: only return user-created skills
-    - `"anthropic"`: only return Anthropic-created skills
+
+    * `"custom"`: only return user-created skills
+    * `"anthropic"`: only return Anthropic-created skills
 
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -87,11 +91,14 @@ List Skills
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `SkillListResponse`
+
   - `id: string`
 
     Unique identifier for the skill.
@@ -119,8 +126,9 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -135,10 +143,10 @@ List Skills
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.

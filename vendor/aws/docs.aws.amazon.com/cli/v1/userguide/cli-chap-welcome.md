@@ -4,7 +4,7 @@
 
 We announced the upcoming end-of-support for the AWS CLI version 1. We recommend that you migrate to the AWS CLI version 2. For dates, additional details, and information on how to migrate, see the [announcement](https://aws.amazon.com/blogs/developer/cli-v1-maintenance-mode-announcement/). For documentation related to Version 2 of the AWS CLI, see the [Version 2 User Guide](https://docs.aws.amazon.com/cli/latest/userguide/).
 
-# What is the AWS Command Line Interfaceversion 1?
+# What is the AWS Command Line Interface version 1?
 <a name="cli-chap-welcome"></a>
 
 **Note**  

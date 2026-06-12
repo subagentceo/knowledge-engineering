@@ -42,7 +42,7 @@ There are two options to upload your response certificate to a Connection, both 
 
 ### Renewing certificates
 
-To facilitate certificate renewal, WorKOS offers the ability to renew SAML certificates through the Admin Portal. When a certificate is nearing expiration (within 90 days), or has already expired, a notification will appear on the Dashboard Overview page with details about the certificate.
+To facilitate certificate renewal, WorkOS offers the ability to renew SAML certificates through the Admin Portal. When a certificate is nearing expiration (within 90 days), or has already expired, a notification will appear on the Dashboard Overview page with details about the certificate.
 
 ![Notification for expired certificate](https://images.workoscdn.com/images/5eba5473-fa61-4d57-bf60-bb9359d61797.png?auto=format\&fit=clip\&q=50)
 

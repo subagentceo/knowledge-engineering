@@ -2,6 +2,28 @@
 
 There are trading signals in production at Man Group right now — running real capital — that were researched, backtested, and proposed by AI. Tushara Fernando shares what made that possible inside a regulated investment firm: a governed skills framework and core data layer that taught Claude Code how Man Group's quants have worked for decades, now scaled across ~750 developers and quants and 100+ skills. Walk away with the governance model that lets compliance say yes to AI on your most load-bearing workflows.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+15:20 – 15:50
+
+Speaker(s)
+
+Tushara Fernando
+
+Managing Director – Head of Data and AI,
+
+Man Group
+
 ## Watch recording
 
 Play videoPlay video

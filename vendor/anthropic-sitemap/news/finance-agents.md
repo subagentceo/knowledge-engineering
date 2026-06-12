@@ -26,19 +26,19 @@ The full list of new agents is as follows:
 
 **Research and client coverage**
 
-- **Pitch builder** creates target lists, runs comparables, and drafts pitchbooks for client meetings;
-- **Meeting preparer** assembles client and counterparty briefs ahead of calls;
-- **Earnings reviewer** reads transcripts and filings, updates models, and flags thesis-relevant changes;
-- **Model builder** creates and maintains financial models from filings, data feeds, and analyst inputs;
-- **Market researcher** tracks sector and issuer developments, synthesizes news, filings, and broker research, and flags items for credit and risk review.
+*   **Pitch builder** creates target lists, runs comparables, and drafts pitchbooks for client meetings;
+*   **Meeting preparer** assembles client and counterparty briefs ahead of calls;
+*   **Earnings reviewer** reads transcripts and filings, updates models, and flags thesis-relevant changes;
+*   **Model builder** creates and maintains financial models from filings, data feeds, and analyst inputs;
+*   **Market researcher** tracks sector and issuer developments, synthesizes news, filings, and broker research, and flags items for credit and risk review.
 
 **Finance and operations**
 
-- **Valuation reviewer** checks valuations against comparables, methodology, and the firm's review standards;
-- **General ledger reconciler** reconciles general ledger accounts and runs net asset value calculations against the books of record;
-- **Month-end closer** runs the close checklist, prepares journal entries, and produces close reports;
-- **Statement auditor** reviews financial statements for consistency, completeness, and audit-readiness;
-- **KYC screener** assembles entity files, reviews source documents, and packages escalations for compliance review.
+*   **Valuation reviewer** checks valuations against comparables, methodology, and the firm's review standards;
+*   **General ledger reconciler** reconciles general ledger accounts and runs net asset value calculations against the books of record;
+*   **Month-end closer** runs the close checklist, prepares journal entries, and produces close reports;
+*   **Statement auditor** reviews financial statements for consistency, completeness, and audit-readiness;
+*   **KYC screener** assembles entity files, reviews source documents, and packages escalations for compliance review.
 
 There are two ways to put these to work.
 
@@ -64,14 +64,14 @@ We’re now adding connectors and an MCP app from new partners. The new connecto
 
 The new connectors are:
 
-- **Dun & Bradstreet**, which provides the global standard for verified business identity and helps enterprises connect systems of record and scale AI-enabled workflows;
-- **Fiscal AI**, which extends real-time fundamentals coverage across public equities for deeper research and benchmarking;
-- **Financial Modeling Prep**, which provides real-time quotes, fundamentals, statements, filings, and transcripts across equities, ETFs, crypto, forex, and commodities;
-- **Guidepoint**, which searches 100,000+ compliance-reviewed expert interview transcripts and provides verbatim excerpts linked to source;
-- **IBISWorld**, which tracks industry-level revenue, financial ratios, risk scores, cost structures, and forecasts across thousands of sectors;
-- **SS&C Intralinks**, which gives Claude access to DealCenter AI data rooms for document search, diligence Q&A, and deal-activity tracking;
-- **Third Bridge**, which gives Claude access to primary-source expert interviews on companies, sectors, and value chains;
-- **Verisk**, which provides property, casualty, and specialty insurance data for underwriting, claims, and risk analysis.
+*   **Dun & Bradstreet**, which provides the global standard for verified business identity and helps enterprises connect systems of record and scale AI-enabled workflows;
+*   **Fiscal AI**, which extends real-time fundamentals coverage across public equities for deeper research and benchmarking;
+*   **Financial Modeling Prep**, which provides real-time quotes, fundamentals, statements, filings, and transcripts across equities, ETFs, crypto, forex, and commodities;
+*   **Guidepoint**, which searches 100,000+ compliance-reviewed expert interview transcripts and provides verbatim excerpts linked to source;
+*   **IBISWorld**, which tracks industry-level revenue, financial ratios, risk scores, cost structures, and forecasts across thousands of sectors;
+*   **SS&C Intralinks**, which gives Claude access to DealCenter AI data rooms for document search, diligence Q&A, and deal-activity tracking;
+*   **Third Bridge**, which gives Claude access to primary-source expert interviews on companies, sectors, and value chains;
+*   **Verisk**, which provides property, casualty, and specialty insurance data for underwriting, claims, and risk analysis.
 
 In addition, **Moody's** has launched an MCP app that brings proprietary credit ratings and data on more than 600 million public and private companies for use in compliance, credit analysis, and business development.
 
@@ -82,77 +82,77 @@ Many leading banks, asset managers, and insurers choose Claude. It supports the 
 ![Citadel logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa46aeeca5f6a18c7e83ff1235049e57d2efe5f47-3840x504.png&w=256&q=75)
 
 > Our investment professionals live in data and analytical models, and Claude for Excel meets them there. Analysts are using it to build and update coverage models, separate signal from noise, and pressure-test their work — all with a step-change in efficiency.
->
+> 
 > Atte Lahtiranta  
 > Head of Core Engineering, Citadel
 
 ![FIS logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/3c70dfc4944696f4d3ecb9357d8b760190f7e322-2394x1000.svg)
 
 > FIS sits at the center of how money moves for thousands of financial institutions worldwide. When we began to build AI agents, we knew we needed a provider we could trust. Anthropic was the clear choice. Together we're building an agent that compresses AML investigations from days to minutes, with credit decisioning, fraud prevention, and deposit retention agents to follow. FIS clients won't need to build this infrastructure themselves. It's already here.
->
+> 
 > Stephanie Ferris  
 > CEO and President, FIS
 
 ![BNY logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff4da4be08db2bc43ee243e4545cf9b471d82a5d3-3840x833.png&w=256&q=75)
 
 > With Eliza and Claude, we’re giving processes new digital employees who work the case end to end.
->
+> 
 > Leigh-Ann Russell  
 > CIO & Global Head of Engineering, BNY
 
 ![Carlyle logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b60c286a362ff94c2f09bd076a95d1172a81961-1560x194.png&w=256&q=75)
 
 > Carlyle has adopted Claude as a key part of our AI technology stack because of its strong coding capabilities, agentic reasoning, and continual advances in both the underlying models and key features. Claude is a core tool for delivering value across our firm from investing to operations to portfolio management.
->
+> 
 > Matt Anderson  
 > Chief Digital Officer, Carlyle
 
 ![Mizuho logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7e8a9f3b8048c0321b46bf1f0c2b01b93ff4c38e-1280x385.png&w=256&q=75)
 
 > Claude compresses and enhances the work before the meeting so each and every meeting is more impactful — prep time has been transformed into idea time, with faster workflows, richer client insights, and new use cases we didn’t anticipate.
->
+> 
 > Patrick Suehnholz  
 > Managing Director & Banking COO, Mizuho
 
 ![Travelers logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb83d0c8ad42d0baf626410b00027ba497a36da5b-3840x2160.png&w=256&q=75)
 
 > Since we started introducing personalized Claude and Claude Code assistants, we have seen significantly elevated levels of engineering excellence and meaningful improvements in productivity. We are pleased to be delivering value by putting AI to work in advancing the company’s strategic innovation priorities of extending our advantage in risk expertise; providing great experiences for our customers, distribution partners and employees; and optimizing our productivity and efficiency.
->
+> 
 > Mojgan Lefebvre  
 > Executive Vice President and Chief Technology & Operations Officer, Travelers
 
 ![Walleye logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/e9fe73c429973c6f07001b40d834f3e7b71a88b2-317x83.svg)
 
 > 100% of employees at Walleye Capital use Claude Code. This level of adoption across our 400-person hedge fund reflects our AI-first mindset: we expect everyone to constantly rethink how they work, always asking 'How can AI help me do this?'—whether or not they're in a traditionally technical role.
->
+> 
 > Will England  
 > CEO & CIO, Walleye
 
 ![Hg logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F91e187d85b3367ce7d8e6c547b558669aefb3780-500x242.png&w=256&q=75)
 
 > Claude for Excel powered by Claude Opus 4.6 represents a significant leap forward. From due diligence to financial modeling, it’s proving to be a remarkably powerful tool for our team - taking unstructured data and intelligently working with minimal prompting to meaningfully automate complex analysis. It’s an excellent example of AI augmenting investment professionals’ capabilities in tangible, time-saving ways.
->
+> 
 > Lloyd Hilton  
 > Head of Hg Catalyst, Hg
 
 ![Dun & Bradstreet logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faf68ac48df26917bc592472d7e0c6b61d49cd654-3840x565.png&w=256&q=75)
 
 > Agents in risk workflows must understand who they’re dealing with. Bringing Dun & Bradstreet's Commercial Graph and D-U-N-S® Number, the global standard for business identity, into Claude ensures AI agents operate on verified data and deliver the deterministic, auditable outcomes financial workflows require.
->
+> 
 > Gary Koveats  
 > Chief Data and Analytics Officer, Dun & Bradstreet
 
 ![Morningstar logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F640abf19fdf2d81f67926e60f3dffa4f79fe6562-3840x806.png&w=256&q=75)
 
 > Investors need AI they can trust — and trust starts with the data behind it. Morningstar and PitchBook bring decades of independent, analyst-backed intelligence to Claude, so users aren't just getting faster answers. They're getting better ones. Together, we're building the intelligence layer that powers smarter decisions across public and private markets.
->
+> 
 > Adam Wheat  
 > Chief Technology Officer and Head of Data & Research Solutions, Morningstar
 
 ![FactSet logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fee54230e131ad008f3897e85e91264478dfc2d25-1491x289.png&w=256&q=75)
 
 > Our clients — institutional investors, asset managers, hedge funds, and banks — increasingly want to run AI-assisted workflows directly against select sets of FactSet data. Partnering with Anthropic lets us bring Claude into a hosted programmatic environment where they can reason over our foundational market data, research, and analytics in the tools they already use. Internally, firm-wide Claude Code adoption across our engineering org is accelerating how quickly we can ship those capabilities.
->
+> 
 > Kate Stepp  
 > Chief AI Officer, FactSet
 
@@ -168,18 +168,18 @@ To see these capabilities in action, you can register for our livestreamed keyno
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

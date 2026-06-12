@@ -26,13 +26,13 @@ As before, we maintain our core commitment: we will not train or deploy models u
 
 In our updated policy, we have refined our methodology for assessing specific capabilities (and their associated risks) and implementing proportional safety and security measures. Our updated framework has two key components:
 
-- **Capability Thresholds:** Specific AI abilities that, if reached, would require stronger safeguards than our current baseline.
-- **Required Safeguards:** The specific ASL Standards needed to mitigate risks once a Capability Threshold has been reached.
+*   **Capability Thresholds:** Specific AI abilities that, if reached, would require stronger safeguards than our current baseline.
+*   **Required Safeguards:** The specific ASL Standards needed to mitigate risks once a Capability Threshold has been reached.
 
 At present, all of our models operate under ASL-2 Standards, which reflect current industry best practices. Our updated policy defines two key Capability Thresholds that would require upgraded safeguards:
 
-- **Autonomous AI Research and Development:** If a model can independently conduct complex AI research tasks typically requiring human expertise—potentially significantly accelerating AI development in an unpredictable way—we require elevated security standards (potentially ASL-4 or higher standards) and additional safety assurances to avoid a situation where development outpaces our ability to address emerging risks.
-- **Chemical, Biological, Radiological, and Nuclear (CBRN) weapons:** If a model can meaningfully assist someone with a basic technical background in creating or deploying CBRN weapons, we require enhanced security and deployment safeguards (ASL-3 standards).
+*   **Autonomous AI Research and Development:** If a model can independently conduct complex AI research tasks typically requiring human expertise—potentially significantly accelerating AI development in an unpredictable way—we require elevated security standards (potentially ASL-4 or higher standards) and additional safety assurances to avoid a situation where development outpaces our ability to address emerging risks.
+*   **Chemical, Biological, Radiological, and Nuclear (CBRN) weapons:** If a model can meaningfully assist someone with a basic technical background in creating or deploying CBRN weapons, we require enhanced security and deployment safeguards (ASL-3 standards).
 
 ASL-3 safeguards involve enhanced security measures and deployment controls. On the security side, this will include internal access controls and more robust protection of model weights. For deployment risks, we plan to implement a multi-layered approach to prevent misuse, including real-time and asynchronous monitoring, rapid response protocols, and thorough pre-deployment red teaming.
 
@@ -40,10 +40,10 @@ ASL-3 safeguards involve enhanced security measures and deployment controls. On 
 
 To contribute to effective implementation of the policy, we have established:
 
-- **Capability assessments**: Routine model evaluations based on our Capability Thresholds to determine whether our current safeguards are still appropriate. (Summaries of past assessments are available here.)
-- **Safeguard assessments:** Routine evaluation of the effectiveness of our security and deployment safety measures to assess whether we have met the Required Safeguards bar. (Summaries of these decisions will be available here.)
-- **Documentation and decision-making:** Processes for documenting the capability and safeguard assessments, inspired by procedures (such as safety case methodologies) common in high-reliability industries.
-- **Measures for internal governance and external input:** Our assessment methodology will be backed up by internal stress-testing in addition to our existing internal reporting process for safety issues. We are also soliciting external expert feedback on our methodologies.1
+*   **Capability assessments**: Routine model evaluations based on our Capability Thresholds to determine whether our current safeguards are still appropriate. (Summaries of past assessments are available here.)
+*   **Safeguard assessments:** Routine evaluation of the effectiveness of our security and deployment safety measures to assess whether we have met the Required Safeguards bar. (Summaries of these decisions will be available here.)
+*   **Documentation and decision-making:** Processes for documenting the capability and safeguard assessments, inspired by procedures (such as safety case methodologies) common in high-reliability industries.
+*   **Measures for internal governance and external input:** Our assessment methodology will be backed up by internal stress-testing in addition to our existing internal reporting process for safety issues. We are also soliciting external expert feedback on our methodologies.1
 
 ## Learning from experience
 
@@ -61,34 +61,38 @@ Additionally, Co-Founder and Chief Science Officer Jared Kaplan will serve as An
 
 If you would like to contribute to AI risk management at Anthropic, we are hiring! Many of our teams now contribute to risk management via the RSP, including:
 
-- Frontier Red Team (responsible for threat modeling and capability assessments)
-- Trust & Safety (responsible for developing deployment safeguards)
-- Security and Compliance (responsible for security safeguards and risk management)
-- Alignment Science (including sub-teams responsible for developing ASL-3+ safety measures, for misalignment-focused capability evaluations, and for our internal alignment stress-testing program)
-- RSP Team (responsible for policy drafting, assurance, and cross-company execution)
+*   Frontier Red Team (responsible for threat modeling and capability assessments)
+*   Trust & Safety (responsible for developing deployment safeguards)
+*   Security and Compliance (responsible for security safeguards and risk management)
+*   Alignment Science (including sub-teams responsible for developing ASL-3+ safety measures, for misalignment-focused capability evaluations, and for our internal alignment stress-testing program)
+*   RSP Team (responsible for policy drafting, assurance, and cross-company execution)
 
 **Read the updated policy at anthropic.com/rsp, and supplementary information at anthropic.com/rsp-updates.**
 
 _We extend our sincere gratitude to the many external groups that provided invaluable feedback on the development and refinement of our Responsible Scaling Policy._
 
+  
+
 #### Footnotes
 
-1 *We have also shared our assessment methodology with both AI Safety Institutes, as well as a selection of independent experts and organizations, for feedback. This does not represent an endorsement from either AI Safety Institute or the independent experts and organizations.* 
+1 _We have also shared our assessment methodology with both AI Safety Institutes, as well as a selection of independent experts and organizations, for feedback. This does not represent an endorsement from either AI Safety Institute or the independent experts and organizations._ 
+
+  
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

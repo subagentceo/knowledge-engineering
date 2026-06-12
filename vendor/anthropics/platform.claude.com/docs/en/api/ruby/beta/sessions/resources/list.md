@@ -21,9 +21,11 @@ List Session Resources
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -76,14 +78,18 @@ List Session Resources
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
+
   - `class BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -93,6 +99,7 @@ List Session Resources
     - `mount_path: String`
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `updated_at: Time`
@@ -102,23 +109,29 @@ List Session Resources
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
+
     - `id: String`
 
     - `created_at: Time`
@@ -130,6 +143,7 @@ List Session Resources
     - `mount_path: String`
 
     - `type: :file`
+
       - `:file`
 
     - `updated_at: Time`
@@ -139,16 +153,19 @@ List Session Resources
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`

@@ -3,7 +3,7 @@
 Skills allow Copilot to perform specialized tasks.
 
 > \[!NOTE]
-> Agent skills work with Copilot cloud agent, the GitHub Copilot CLI, and agent mode in Visual Studio Code.
+> Agent skills work with Copilot cloud agent, Copilot code review, the GitHub Copilot CLI, the GitHub Copilot app, and agent mode in Visual Studio Code.
 
 ## About agent skills
 
@@ -26,4 +26,5 @@ To create or add agent skills, see:
 
 * [Adding agent skills for GitHub Copilot](/en/copilot/how-tos/use-copilot-agents/cloud-agent/add-skills)
 * [Adding agent skills for GitHub Copilot CLI](/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills)
+* [Customizing the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app)
 * [Copilot customization cheat sheet](/en/copilot/reference/customization-cheat-sheet)

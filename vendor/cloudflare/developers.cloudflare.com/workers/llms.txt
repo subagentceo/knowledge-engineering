@@ -87,6 +87,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 ## Demos and architectures
 
 - [Demos and architectures](https://developers.cloudflare.com/workers/demos/index.md): Explore demo applications and reference architectures built with Cloudflare Workers.
+- [Build an Interactive ChatGPT App](https://developers.cloudflare.com/workers/demos/chatgpt-app/index.md): Build and deploy an interactive ChatGPT App on Cloudflare Workers with real-time multiplayer state using MCP.
 
 ## Development & testing
 
@@ -171,7 +172,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 - [Durable Objects](https://developers.cloudflare.com/durable-objects/api/index.md): A globally distributed coordination API with strongly consistent storage.
 - [Environment Variables](https://developers.cloudflare.com/workers/configuration/environment-variables/index.md): Add string and JSON values to your Worker.
 - [Hyperdrive](https://developers.cloudflare.com/hyperdriveindex.md): Connect to your existing database from Workers, turning your existing regional database into a globally distributed database.
-- [Images](https://developers.cloudflare.com/images/optimization/transformations/bindings/index.md): Store, transform, optimize, and deliver images at scale.
+- [Images](https://developers.cloudflare.com/images/optimization/binding/index.md): Store, transform, optimize, and deliver images at scale.
 - [KV](https://developers.cloudflare.com/kv/api/index.md): Global, low-latency, key-value data storage.
 - [Media Transformations](https://developers.cloudflare.com/stream/transform-videos/bindings/index.md): Optimize, transform, and extract from short-form video.
 - [mTLS](https://developers.cloudflare.com/workers/runtime-apis/bindings/mtls/index.md): Configure your Worker to present a client certificate to services that enforce an mTLS connection.
@@ -196,7 +197,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 - [Fetch](https://developers.cloudflare.com/workers/runtime-apis/fetch/index.md): An interface for asynchronously fetching resources via HTTP requests inside of a Worker.
 - [Handlers](https://developers.cloudflare.com/workers/runtime-apis/handlers/index.md): Methods, such as `fetch()`, on Workers that can receive and process external inputs.
 - [Alarm Handler](https://developers.cloudflare.com/durable-objects/api/alarms/index.md): Handle scheduled alarms in Cloudflare Workers using the Durable Objects alarm API.
-- [Email Handler](https://developers.cloudflare.com/email-routing/email-workers/runtime-api/index.md): Process incoming emails in Cloudflare Workers using the Email Routing runtime API.
+- [Email Handler](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/index.md): Process incoming emails in Cloudflare Workers using the Email Routing runtime API.
 - [Fetch Handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/fetch/index.md): Handle incoming HTTP requests in Cloudflare Workers using the fetch() handler and return responses.
 - [Queue Handler](https://developers.cloudflare.com/queues/configuration/javascript-apis/#consumerindex.md): Consume messages from Cloudflare Queues using the queue handler in Workers.
 - [Scheduled Handler](https://developers.cloudflare.com/workers/runtime-apis/handlers/scheduled/index.md): Run Workers on a recurring schedule using the scheduled() handler and Cron Triggers.
@@ -450,6 +451,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 - [API](https://developers.cloudflare.com/workers/wrangler/api/index.md): A set of programmatic APIs that can be integrated with local Cloudflare Workers-related workflows.
 - [Bundling](https://developers.cloudflare.com/workers/wrangler/bundling/index.md): Review Wrangler's default bundling.
 - [Commands](https://developers.cloudflare.com/workers/wrangler/commands/index.md): Create, develop, and deploy your Cloudflare Workers with Wrangler commands.
+- [Artifacts](https://developers.cloudflare.com/workers/wrangler/commands/artifacts/index.md): Manage Artifacts namespaces, repositories, and repo-scoped tokens using Wrangler.
 - [Browser](https://developers.cloudflare.com/workers/wrangler/commands/browser/index.md): Wrangler commands for interacting with Cloudflare Browser Run.
 - [Certificates](https://developers.cloudflare.com/workers/wrangler/commands/certificates/index.md): Wrangler commands for managing mTLS and CA certificates, for use standalone or with Hyperdrive.
 - [Containers](https://developers.cloudflare.com/workers/wrangler/commands/containers/index.md): Wrangler commands for interacting with Cloudflare's Container Platform.

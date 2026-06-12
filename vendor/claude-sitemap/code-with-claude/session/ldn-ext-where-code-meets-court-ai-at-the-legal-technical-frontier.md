@@ -2,6 +2,28 @@
 
 AI saves lawyers countless hours on research; AI helps developers reason through complex technical systems. Patent law is unique in demanding both simultaneously—researching across millions of documents while comprehending the technical intricacies of novel inventions. The result: a profession undergoing more radical change than any other, and a wealth engineering problems at the frontier of what’s possible with LLMs.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+15:35 – 16:05
+
+Speaker(s)
+
+Olly Cobb
+
+Founding AI Engineer,
+
+Solve Intelligence
+
 ## Watch recording
 
 Play videoPlay video

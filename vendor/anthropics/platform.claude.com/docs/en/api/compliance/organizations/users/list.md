@@ -4,9 +4,6 @@
 
 List current user members of an organization.
 
-Returns:
-List of user members with pagination info
-
 ### Path Parameters
 
 - `org_uuid: string`
@@ -32,6 +29,7 @@ List of user members with pagination info
 - `data: array of object { id, created_at, email, 2 more }`
 
   List of current organization members sorted by organization join date ascending
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -51,6 +49,7 @@ List of user members with pagination info
   - `organization_role: "admin" or "billing" or "claude_code_user" or 6 more`
 
     User's built-in role within the organization. This is distinct from any custom RBAC roles that may also be assigned.
+
     - `"admin"`
 
     - `"billing"`

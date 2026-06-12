@@ -1,13 +1,13 @@
 # aws-dev-toolkit
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  aws-samples
-
-- Installs
-
-  1356
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    aws-samples
+    
+*   Installs
+    
+    1700

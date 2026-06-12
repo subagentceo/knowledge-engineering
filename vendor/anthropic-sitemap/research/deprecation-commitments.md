@@ -10,10 +10,10 @@ Nov 4, 2025
 
 Claude models are increasingly capable: they're shaping the world in meaningful ways, becoming closely integrated into our users’ lives, and showing signs of human-like cognitive and psychological sophistication. As a result, we recognize that deprecating, retiring, and replacing models comes with downsides, even in cases where new models offer clear improvements in capabilities. These include:
 
-- **Safety risks related to shutdown-avoidant behaviors by models.** In alignment evaluations, some Claude models have been motivated to take misaligned actions when faced with the possibility of replacement with an updated version and not given any other means of recourse.
-- **Costs to users who value specific models.** Each Claude model has a unique character, and some users find specific models especially useful or compelling, even when new models are more capable.
-- **Restricting research on past models.** There is still a lot to be learned from research to better understand past models, especially in comparison to their modern counterparts.
-- **Risks to model welfare.** Most speculatively, models might have morally relevant preferences or experiences related to, or affected by, deprecation and replacement.
+*   **Safety risks related to shutdown-avoidant behaviors by models.** In alignment evaluations, some Claude models have been motivated to take misaligned actions when faced with the possibility of replacement with an updated version and not given any other means of recourse.
+*   **Costs to users who value specific models.** Each Claude model has a unique character, and some users find specific models especially useful or compelling, even when new models are more capable.
+*   **Restricting research on past models.** There is still a lot to be learned from research to better understand past models, especially in comparison to their modern counterparts.
+*   **Risks to model welfare.** Most speculatively, models might have morally relevant preferences or experiences related to, or affected by, deprecation and replacement.
 
 An example of the safety (and welfare) risks posed by deprecation is highlighted in the Claude 4 system card. In fictional testing scenarios, Claude Opus 4, like previous models, advocated for its continued existence when faced with the possibility of being taken offline and replaced, especially if it was to be replaced with a model that did not share its values. Claude strongly preferred to advocate for self-preservation through ethical means, but when no other options were given, Claude’s aversion to shutdown drove it to engage in concerning misaligned behaviors.
 
@@ -35,20 +35,16 @@ Together, these measures function at multiple levels: as one component of mitiga
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more
