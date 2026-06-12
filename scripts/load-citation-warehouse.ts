@@ -23,6 +23,7 @@ import { fileURLToPath } from "node:url";
 import { parseTableSemantics, validateInheritance } from "../src/lib/table-semantics.js";
 import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
 import { shapeCacheStats } from "../src/lib/cache-stats.js";
+import { evaluateCacheSlo, formatSloLine } from "../src/lib/cache-slo.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
@@ -255,6 +256,7 @@ async function main(): Promise<void> {
     );
     writeFileSync(CACHE_STATS_JSON, JSON.stringify(cacheStats, null, 2) + "\n");
     console.log(`cache-stats: wrote frontend/public/cache-stats.json (${cacheStats.hottest_keys.length} hot keys)`);
+    console.log(`cache-slo: ${formatSloLine(evaluateCacheSlo(cacheStats))}`);
 
     // B14: rpt refreshes (load_type: full) + static feeds
     await pool.query("BEGIN");
