@@ -91,6 +91,8 @@ export interface CrawlConfig {
   deny_prefixes?: string[];
   /** Strip ?query from collected links before allowlist+dedupe (locale-variant sitemaps). */
   strip_query_params?: boolean;
+  /** Extra request headers merged over the transform's (e.g. Accept-Language pinning). */
+  fetch_headers?: Record<string, string>;
   /**
    * Exact-URL allow list. Bypasses the prefix-allow gate for individual
    * URLs (e.g. bare-index `/pricing` when only `/pricing/` is in
@@ -628,7 +630,10 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         const w = work[i];
         const prior = checksums[w.origUrl];
         try {
-          const res = await conditionalFetch(w.fetchUrl, prior, w.transform.headers ?? {});
+          const res = await conditionalFetch(w.fetchUrl, prior, {
+            ...(w.transform.headers ?? {}),
+            ...(cfg.fetch_headers ?? {}),
+          });
           if (res.status === 304) {
             preflight304 += 1;
             if (prior) {
