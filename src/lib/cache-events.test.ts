@@ -1,7 +1,9 @@
 /**
  * @tdd green
- * @cite data/models/alloydb/events_cache_access.yaml
  * @cite seeds/citations/define-outcomes.md
+ * @cite seeds/citations/dreams.md
+ *
+ * Table contract: data/models/alloydb/events_cache_access.yaml
  */
 
 import assert from "node:assert/strict";
