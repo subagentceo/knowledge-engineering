@@ -4,9 +4,9 @@ Block—the company behind Square, Cash App, Afterpay, and other financial servi
 
 With Claude in Databricks, Block has seen:
 
-- 75% of engineers saving 8 to 10+ hours every week using codename goose — accelerating velocity and cutting down on busywork
-- codename goose adoption doubling in just one month with user engagement increasing 40-50% weekly as employees discover new use cases
-- Claude 3.5 Sonnet becoming the only model to consistently achieve 100% success on their benchmark tests
+*   75% of engineers saving 8 to 10+ hours every week using codename goose — accelerating velocity and cutting down on busywork
+*   codename goose adoption doubling in just one month with user engagement increasing 40-50% weekly as employees discover new use cases
+*   Claude 3.5 Sonnet becoming the only model to consistently achieve 100% success on their benchmark tests
 
 ## Giving more employees access to data insights
 
@@ -32,9 +32,9 @@ Block integrated Claude in Databricks with goose to create an ecosystem connecti
 
 This approach allows employees across departments to interact with data more efficiently:
 
-- SQL generation without technical knowledge: The model writes SQL, sends it to the data endpoint, and brings back insights. Someone without SQL knowledge can solve their own data problems, enabling product teams and non-technical employees to answer data questions without waiting for data scientists.
-- Complex data feature engineering: Engineers created a system that teaches Claude to write code for Block's internal Beacon service. An MCP server teaches the LLMs on Databricks how to submit code to Beacon, allowing machine learning engineers to create sophisticated data features without deep knowledge of Block's backend systems.
-- Multi-tool data workflows: codename goose uses MCP to connect diverse systems. Block can build an MCP server for any internal tool and connect it to workflows. This allows the operations team to use AI to close case tickets and helps departments access the data they need.
+*   SQL generation without technical knowledge: The model writes SQL, sends it to the data endpoint, and brings back insights. Someone without SQL knowledge can solve their own data problems, enabling product teams and non-technical employees to answer data questions without waiting for data scientists.
+*   Complex data feature engineering: Engineers created a system that teaches Claude to write code for Block's internal Beacon service. An MCP server teaches the LLMs on Databricks how to submit code to Beacon, allowing machine learning engineers to create sophisticated data features without deep knowledge of Block's backend systems.
+*   Multi-tool data workflows: codename goose uses MCP to connect diverse systems. Block can build an MCP server for any internal tool and connect it to workflows. This allows the operations team to use AI to close case tickets and helps departments access the data they need.
 
 This agentic approach aligns with Block's broader vision. "The big opportunity is having an LLM translate someone's intent into actions on our systems. That's going to change how we offer products to customers and how we work internally," Axen noted.
 

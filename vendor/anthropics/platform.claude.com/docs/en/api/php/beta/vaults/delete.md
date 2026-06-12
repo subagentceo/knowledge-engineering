@@ -17,6 +17,7 @@ Delete Vault
 ### Returns
 
 - `BetaManagedAgentsDeletedVault`
+
   - `string id`
 
     Unique identifier of the deleted vault.

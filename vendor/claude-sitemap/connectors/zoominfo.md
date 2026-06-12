@@ -2,8 +2,8 @@
 
 Access ZoomInfo's GTM intelligence to ground your AI workflows with verified B2B data. Search companies and identify key stakeholders with natural language. Enrich with 300+ data points, build targeted account lists, and drive momentum from first touch to renewal.
 
-You can use the ZoomInfo connector to:
-
+You can use the ZoomInfo connector to:  
+  
 Search for target companies:  
 "Find publicly listed tech companies in the USA with over $1B in revenue, selling primarily to revenue operations and sales leadership"
 

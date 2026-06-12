@@ -2,11 +2,11 @@
 
 GitLab, the leading AI-powered DevSecOps platform, adopted Claude for Work to empower teams to create high-quality content, gain deeper data insights, and accelerate sales cycles. During an initial pilot program, GitLab saw the following gains from incorporating Claude into key workflows:
 
-- 98% of GitLab team members surveyed reported to be satisfied or very satisfied with Claude for Work
-- 25 - 50% productivity gains
-- Significant time savings in RFP responses and content generation
-- Improved collaboration and skill sharing across teams
-- Team members more likely to take on complex tasks
+*   98% of GitLab team members surveyed reported to be satisfied or very satisfied with Claude for Work
+*   25 - 50% productivity gains
+*   Significant time savings in RFP responses and content generation
+*   Improved collaboration and skill sharing across teams
+*   Team members more likely to take on complex tasks
 
 ## Empowering teams across GitLab with Claude
 
@@ -28,11 +28,11 @@ GitLab has discovered a wide range of use cases for Claude across various depart
 
 GitLab team members reported using Claude for Work across use cases, including writing, brainstorming, research, and problem-solving. These use cases support more specific workflows across the organization:
 
-- RFP responses: The sales team uses Claude to quickly generate and customize responses to RFPs, saving significant time on repetitive tasks.
-- Content creation and translation: The marketing team uses Claude to efficiently generate and translate content.
-- Documentation: Technical writers use Claude to rewrite and improve documentation, ensuring consistency and clarity.
-- Internal tool development: Developers use Claude to create small applications and scripts, introducing new automation into their workflows.
-- Data analysis: Teams upload reports and use Claude to ask questions and gain insights from the data.
+*   RFP responses: The sales team uses Claude to quickly generate and customize responses to RFPs, saving significant time on repetitive tasks.
+*   Content creation and translation: The marketing team uses Claude to efficiently generate and translate content.
+*   Documentation: Technical writers use Claude to rewrite and improve documentation, ensuring consistency and clarity.
+*   Internal tool development: Developers use Claude to create small applications and scripts, introducing new automation into their workflows.
+*   Data analysis: Teams upload reports and use Claude to ask questions and gain insights from the data.
 
 ## Transformative impact and productivity gains
 

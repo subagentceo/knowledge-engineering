@@ -4,10 +4,10 @@ Brex, the modern financial platform combining global corporate cards, spend mana
 
 Claude helps Brex to:
 
-- Automate 75% of expense transactions, achieving a 94% compliance rate versus the industry standard of 70%
-- Save customers 169,000 hours per month on expenses and accounting through automation
-- Save $56.5 million in annual salary costs across all customers
-- Review 100% of transactions with AI-driven anomaly detection at the line-item level
+*   Automate 75% of expense transactions, achieving a 94% compliance rate versus the industry standard of 70%
+*   Save customers 169,000 hours per month on expenses and accounting through automation
+*   Save $56.5 million in annual salary costs across all customers
+*   Review 100% of transactions with AI-driven anomaly detection at the line-item level
 
 ## Rethinking expense management for AI-first experiences
 
@@ -33,10 +33,10 @@ Brex decided to rebuild their platform with AI at its core. Tim Foster, Engineer
 
 Claude powers several key capabilities in Brex's reimagined platform:
 
-- **Conversational expense submission**: Their new spender experience makes expense management nearly invisible to employees. The system analyzes contextual information like calendar events, location data, and spending patterns to automatically categorize expenses and apply compliance rules without requiring manual input. This transforms expense management from a burdensome task into a seamless background process that increases compliance while eliminating administrative work.
-- **AI-powered policy interpretation**: Finance teams can upload policy documents directly into the system instead of complex rule configurations. The AI interprets these documents intelligently, eliminating the need to translate policies into technical rules or decision trees.
-- **Intelligent expense auditing**: An AI-first workbench transforms how finance professionals review expenses by proactively grouping related expenses, flagging policy concerns, and providing explanations with recommended actions. This makes each review more meaningful and efficient.
-- **Contextual policy guidance**: The system provides employees with relevant policy information before they spend rather than flagging violations after the fact. This creates a proactive approach to compliance that reduces policy violations while improving the employee experience.
+*   **Conversational expense submission**: Their new spender experience makes expense management nearly invisible to employees. The system analyzes contextual information like calendar events, location data, and spending patterns to automatically categorize expenses and apply compliance rules without requiring manual input. This transforms expense management from a burdensome task into a seamless background process that increases compliance while eliminating administrative work.
+*   **AI-powered policy interpretation**: Finance teams can upload policy documents directly into the system instead of complex rule configurations. The AI interprets these documents intelligently, eliminating the need to translate policies into technical rules or decision trees.
+*   **Intelligent expense auditing**: An AI-first workbench transforms how finance professionals review expenses by proactively grouping related expenses, flagging policy concerns, and providing explanations with recommended actions. This makes each review more meaningful and efficient.
+*   **Contextual policy guidance**: The system provides employees with relevant policy information before they spend rather than flagging violations after the fact. This creates a proactive approach to compliance that reduces policy violations while improving the employee experience.
 
 ## Transforming finance operations through intelligent automation
 

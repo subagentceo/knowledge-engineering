@@ -8,9 +8,9 @@ Parcha empowers banks and fintechs to onboard customers efficiently with stronge
 
 ## With Claude, Parcha:
 
-- Builds generalizable customer due diligence agents that pass rigorous model governance evaluations while meeting the unique needs of every customer
-- Enables the product to serve more types of customers through dynamic workflow adaptation
-- Develops fully agentic open-source intelligence research capabilities in just two weeks
+*   Builds generalizable customer due diligence agents that pass rigorous model governance evaluations while meeting the unique needs of every customer
+*   Enables the product to serve more types of customers through dynamic workflow adaptation
+*   Develops fully agentic open-source intelligence research capabilities in just two weeks
 
 ## The problem
 

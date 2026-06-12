@@ -21,6 +21,7 @@ Delete Skill
 ### Returns
 
 - `BetaSkillDeleteResponse: object { id, type }`
+
   - `id: string`
 
     Unique identifier for the skill.

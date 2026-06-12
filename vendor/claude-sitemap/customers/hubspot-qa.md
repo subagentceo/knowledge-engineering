@@ -4,8 +4,8 @@
 
 ## How did your teams first start using Claude Cowork, and what were you hoping it would help with?
 
-**Chloe Tambe, Director, AI Transformation:** The HubSpot Marketing team didn't come to Cowork as strangers to Claude. We were already extensive Claude users: individual chats, shared projects, artifacts, integrations woven into daily work. So when Cowork came along, the question wasn't "should we try this?" It was "how fast can we go further?"
-
+**Chloe Tambe, Director, AI Transformation:** The HubSpot Marketing team didn't come to Cowork as strangers to Claude. We were already extensive Claude users: individual chats, shared projects, artifacts, integrations woven into daily work. So when Cowork came along, the question wasn't "should we try this?" It was "how fast can we go further?"  
+  
 Cowork's automation really appeals to the Marketing Team. We have hundreds of marketers with very different jobs, and the administrative load is real. Cowork gives us the ability to schedule and run tasks even when people are offline, taking busywork off their plates so they can focus on actually being marketers. A thought partner that works alongside the team, not just on demand, is a meaningful shift.
 
 **Kathie Lui, Product Manager, Central AI:** The specific pain point was connector sprawl. As Claude Cowork rolled out across HubSpot, I was managing requests to add new tool integrations through ServiceNow requests and Asana tickets, while simultaneously fielding questions in Slack, tracking approvals in Google Sheets, and coordinating with our security review team. It was the same kind of work happening in four different places. Cowork didn't just help with one workflow. It was the first tool that could sit on top of all the others. For someone who collaborates across a lot of different teams and platforms, that continuity is a big shift.

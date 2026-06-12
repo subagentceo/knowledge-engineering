@@ -1,6 +1,6 @@
 # Introducing the analysis tool in Claude.ai
 
-***Update:*** *The analysis tool is being replaced by more powerful code execution capabilities. (November 5, 2025)*
+**_Update:_** _The analysis tool is being replaced by more powerful code execution capabilities. (November 5, 2025)_
 
 _Code execution can run all the same analysis, plus generate downloadable files (spreadsheets, CSVs, reports), create visualizations, and handle complex multi-step workflows._ _Learn more._
 
@@ -18,11 +18,11 @@ While Claude could always write code, it can now run that code within Claude.ai 
 
 The analysis tool in Claude.ai can expand capabilities across teams. For example:
 
-- **Marketers** can upload customer interactions across the full funnel and Claude will surface opportunities to improve conversions.
-- **Sales** **teams** can upload global sales data and Claude will provide country-specific performance analysis.
-- **Product** **managers** can upload customer engagement data and Claude will help inform sprint planning and development priorities.
-- **Engineers** can upload performance logs from various servers and Claude will identify areas for better resource utilization.
-- **Finance** **teams** can upload monthly financial data and Claude will create a financial dashboard to convey key trends and inform decision making.
+*   **Marketers** can upload customer interactions across the full funnel and Claude will surface opportunities to improve conversions.
+*   **Sales** **teams** can upload global sales data and Claude will provide country-specific performance analysis.
+*   **Product** **managers** can upload customer engagement data and Claude will help inform sprint planning and development priorities.
+*   **Engineers** can upload performance logs from various servers and Claude will identify areas for better resource utilization.
+*   **Finance** **teams** can upload monthly financial data and Claude will create a financial dashboard to convey key trends and inform decision making.
 
 ## Getting started
 

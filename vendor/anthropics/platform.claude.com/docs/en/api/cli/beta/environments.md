@@ -39,9 +39,10 @@ Create a new environment with the specified configuration.
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -50,15 +51,19 @@ Create a new environment with the specified configuration.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -66,6 +71,7 @@ Create a new environment with the specified configuration.
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -85,6 +91,7 @@ Create a new environment with the specified configuration.
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -112,6 +119,7 @@ Create a new environment with the specified configuration.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -121,6 +129,7 @@ Create a new environment with the specified configuration.
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -152,6 +161,7 @@ Create a new environment with the specified configuration.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -174,16 +184,31 @@ ant beta:environments create \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -232,12 +257,14 @@ List environments with pagination support.
 
   This response model uses opaque cursor-based pagination. Use the `page`
   query parameter with the value from `next_page` to fetch the next page.
+
   - `data: array of BetaEnvironment`
 
     List of environments.
+
     - `id: string`
 
-      Environment identifier (e.g., 'env\_...')
+      Environment identifier (e.g., 'env_...')
 
     - `archived_at: string`
 
@@ -246,15 +273,19 @@ List environments with pagination support.
     - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
       Environment configuration (either Anthropic Cloud or self-hosted)
+
       - `beta_cloud_config: object { networking, packages, type }`
 
         `cloud` environment configuration.
+
         - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
           Network configuration policy.
+
           - `beta_unrestricted_network: object { type }`
 
             Unrestricted network access.
+
             - `type: "unrestricted"`
 
               Network policy type
@@ -262,6 +293,7 @@ List environments with pagination support.
           - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
             Limited network access.
+
             - `allow_mcp_servers: boolean`
 
               Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -281,6 +313,7 @@ List environments with pagination support.
         - `packages: object { apt, cargo, gem, 4 more }`
 
           Package manager configuration.
+
           - `apt: array of string`
 
             Ubuntu/Debian packages to install
@@ -308,6 +341,7 @@ List environments with pagination support.
           - `type: optional "packages"`
 
             Package configuration type
+
             - `"packages"`
 
         - `type: "cloud"`
@@ -317,6 +351,7 @@ List environments with pagination support.
       - `beta_self_hosted_config: object { type }`
 
         Configuration for self-hosted environments.
+
         - `type: "self_hosted"`
 
           Environment type
@@ -348,6 +383,7 @@ List environments with pagination support.
     - `scope: optional "organization" or "account"`
 
       The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
       - `"organization"`
 
       - `"account"`
@@ -375,16 +411,31 @@ ant beta:environments list \
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -423,9 +474,10 @@ Retrieve a specific environment by ID.
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -434,15 +486,19 @@ Retrieve a specific environment by ID.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -450,6 +506,7 @@ Retrieve a specific environment by ID.
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -469,6 +526,7 @@ Retrieve a specific environment by ID.
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -496,6 +554,7 @@ Retrieve a specific environment by ID.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -505,6 +564,7 @@ Retrieve a specific environment by ID.
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -536,6 +596,7 @@ Retrieve a specific environment by ID.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -558,16 +619,31 @@ ant beta:environments retrieve \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -625,9 +701,10 @@ Update an existing environment's configuration.
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -636,15 +713,19 @@ Update an existing environment's configuration.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -652,6 +733,7 @@ Update an existing environment's configuration.
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -671,6 +753,7 @@ Update an existing environment's configuration.
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -698,6 +781,7 @@ Update an existing environment's configuration.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -707,6 +791,7 @@ Update an existing environment's configuration.
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -738,6 +823,7 @@ Update an existing environment's configuration.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -760,16 +846,31 @@ ant beta:environments update \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -805,6 +906,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 - `beta_environment_delete_response: object { id, type }`
 
   Response after deleting an environment.
+
   - `id: string`
 
     Environment identifier
@@ -851,9 +953,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -862,15 +965,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -878,6 +985,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -897,6 +1005,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -924,6 +1033,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -933,6 +1043,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -964,6 +1075,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -986,16 +1098,31 @@ ant beta:environments archive \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1017,12 +1144,15 @@ ant beta:environments archive \
 - `beta_cloud_config: object { networking, packages, type }`
 
   `cloud` environment configuration.
+
   - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
     Network configuration policy.
+
     - `beta_unrestricted_network: object { type }`
 
       Unrestricted network access.
+
       - `type: "unrestricted"`
 
         Network policy type
@@ -1030,6 +1160,7 @@ ant beta:environments archive \
     - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
       Limited network access.
+
       - `allow_mcp_servers: boolean`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1049,6 +1180,7 @@ ant beta:environments archive \
   - `packages: object { apt, cargo, gem, 4 more }`
 
     Package manager configuration.
+
     - `apt: array of string`
 
       Ubuntu/Debian packages to install
@@ -1076,6 +1208,7 @@ ant beta:environments archive \
     - `type: optional "packages"`
 
       Package configuration type
+
       - `"packages"`
 
   - `type: "cloud"`
@@ -1090,6 +1223,7 @@ ant beta:environments archive \
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `type: "cloud"`
 
     Environment type
@@ -1097,9 +1231,11 @@ ant beta:environments archive \
   - `networking: optional BetaUnrestrictedNetwork or BetaLimitedNetworkParams`
 
     Network configuration policy. Omit on update to preserve the existing value.
+
     - `beta_unrestricted_network: object { type }`
 
       Unrestricted network access.
+
       - `type: "unrestricted"`
 
         Network policy type
@@ -1110,6 +1246,7 @@ ant beta:environments archive \
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `type: "limited"`
 
         Network policy type
@@ -1131,6 +1268,7 @@ ant beta:environments archive \
     Specify packages (and optionally their versions) available in this environment.
 
     When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
     - `apt: optional array of string`
 
       Ubuntu/Debian packages to install
@@ -1158,6 +1296,7 @@ ant beta:environments archive \
     - `type: optional "packages"`
 
       Package configuration type
+
       - `"packages"`
 
 ### Beta Environment
@@ -1165,9 +1304,10 @@ ant beta:environments archive \
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -1176,15 +1316,19 @@ ant beta:environments archive \
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -1192,6 +1336,7 @@ ant beta:environments archive \
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1211,6 +1356,7 @@ ant beta:environments archive \
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -1238,6 +1384,7 @@ ant beta:environments archive \
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -1247,6 +1394,7 @@ ant beta:environments archive \
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -1278,6 +1426,7 @@ ant beta:environments archive \
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -1287,6 +1436,7 @@ ant beta:environments archive \
 - `beta_environment_delete_response: object { id, type }`
 
   Response after deleting an environment.
+
   - `id: string`
 
     Environment identifier
@@ -1300,6 +1450,7 @@ ant beta:environments archive \
 - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
   Limited network access.
+
   - `allow_mcp_servers: boolean`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1324,6 +1475,7 @@ ant beta:environments archive \
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `type: "limited"`
 
     Network policy type
@@ -1345,6 +1497,7 @@ ant beta:environments archive \
 - `beta_packages: object { apt, cargo, gem, 4 more }`
 
   Packages (and their versions) available in this environment.
+
   - `apt: array of string`
 
     Ubuntu/Debian packages to install
@@ -1372,6 +1525,7 @@ ant beta:environments archive \
   - `type: optional "packages"`
 
     Package configuration type
+
     - `"packages"`
 
 ### Beta Packages Params
@@ -1381,6 +1535,7 @@ ant beta:environments archive \
   Specify packages (and optionally their versions) available in this environment.
 
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
   - `apt: optional array of string`
 
     Ubuntu/Debian packages to install
@@ -1408,6 +1563,7 @@ ant beta:environments archive \
   - `type: optional "packages"`
 
     Package configuration type
+
     - `"packages"`
 
 ### Beta Self Hosted Config
@@ -1415,6 +1571,7 @@ ant beta:environments archive \
 - `beta_self_hosted_config: object { type }`
 
   Configuration for self-hosted environments.
+
   - `type: "self_hosted"`
 
     Environment type
@@ -1424,6 +1581,7 @@ ant beta:environments archive \
 - `beta_self_hosted_config_params: object { type }`
 
   Request params for `self_hosted` environment configuration.
+
   - `type: "self_hosted"`
 
     Environment type
@@ -1433,6 +1591,7 @@ ant beta:environments archive \
 - `beta_unrestricted_network: object { type }`
 
   Unrestricted network access.
+
   - `type: "unrestricted"`
 
     Network policy type
@@ -1472,9 +1631,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -1487,9 +1647,10 @@ Retrieve detailed information about a specific work item.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -1514,6 +1675,7 @@ Retrieve detailed information about a specific work item.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1610,9 +1772,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -1625,9 +1788,10 @@ Long poll for work items in the queue.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -1652,6 +1816,7 @@ Long poll for work items in the queue.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1739,9 +1904,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -1754,9 +1920,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -1781,6 +1948,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1873,6 +2041,7 @@ Record a heartbeat for a work item to maintain the lease.
 - `beta_self_hosted_work_heartbeat_response: object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1884,6 +2053,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -1960,9 +2130,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -1975,9 +2146,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -2002,6 +2174,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2090,12 +2263,14 @@ List work items in an environment.
 - `beta_self_hosted_work_list_response: object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -2108,9 +2283,10 @@ List work items in an environment.
     - `data: object { id, type }`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
@@ -2135,6 +2311,7 @@ List work items in an environment.
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -2235,9 +2412,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2250,9 +2428,10 @@ Update work item metadata with merge semantics.
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -2277,6 +2456,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2356,6 +2536,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -2407,9 +2588,10 @@ ant beta:environments:work stats \
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -2422,9 +2604,10 @@ ant beta:environments:work stats \
   - `data: object { id, type }`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
@@ -2449,6 +2632,7 @@ ant beta:environments:work stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -2476,6 +2660,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_heartbeat_response: object { last_heartbeat, lease_extended, state, 2 more }`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -2487,6 +2672,7 @@ ant beta:environments:work stats \
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -2510,12 +2696,14 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_list_response: object { data, next_page }`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: array of BetaSelfHostedWork`
 
     List of work items
+
     - `id: string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: string`
 
@@ -2528,9 +2716,10 @@ ant beta:environments:work stats \
     - `data: object { id, type }`
 
       The actual work to be performed
+
       - `id: string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: "session"`
 
@@ -2555,6 +2744,7 @@ ant beta:environments:work stats \
     - `state: "queued" or "starting" or "active" or 2 more`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -2588,6 +2778,7 @@ ant beta:environments:work stats \
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: number`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -2613,6 +2804,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_stop_request: object { force }`
 
   Request to stop a work item.
+
   - `force: optional boolean`
 
     If true, immediately stop work without graceful shutdown
@@ -2622,6 +2814,7 @@ ant beta:environments:work stats \
 - `beta_self_hosted_work_update_request: object { metadata }`
 
   Request to update work item metadata.
+
   - `metadata: map[string]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -2634,9 +2827,10 @@ ant beta:environments:work stats \
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `id: string`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `type: "session"`
 

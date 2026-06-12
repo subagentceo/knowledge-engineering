@@ -2,10 +2,10 @@
 
 Intuit, the global financial technology platform for consumers and small businesses, integrated Claude into their AI financial assistant to generate clear and accurate tax explanations for millions of TurboTax customers, driving more customers to successfully file their taxes in 2024 and boosting helpfulness ratings. With Claude, Intuit:
 
-- Served millions of TurboTax customers during peak season.
-- Achieved higher helpfulness ratings compared to non-Claude-powered experiences last tax season.
-- Improved conversion rates for completed federal tax filings.
-- Increased performance and output quality through partnership with Anthropic
+*   Served millions of TurboTax customers during peak season.
+*   Achieved higher helpfulness ratings compared to non-Claude-powered experiences last tax season.
+*   Improved conversion rates for completed federal tax filings.
+*   Increased performance and output quality through partnership with Anthropic
 
 ## Making tax filing fast, accurate, and understandable
 

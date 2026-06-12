@@ -32,10 +32,10 @@ The second version explicitly requests comprehensive features and signals that y
 
 **Best practices**:
 
-- Lead with direct action verbs: "Write," "Analyze," "Generate," "Create"
-- Skip preambles and get straight to the request
-- State what you want the output to include, not just what to work on
-- Be specific about quality and depth expectations
+*   Lead with direct action verbs: "Write," "Analyze," "Generate," "Create"
+*   Skip preambles and get straight to the request
+*   State what you want the output to include, not just what to work on
+*   Be specific about quality and depth expectations
 
 #### Provide context and motivation
 
@@ -51,10 +51,10 @@ The second version helps the model understand the reasoning behind the rule, whi
 
 **When to provide context**:
 
-- Explaining the purpose or audience for the output
-- Clarifying why certain constraints exist
-- Describing how the output will be used
-- Indicating what problem you're trying to solve
+*   Explaining the purpose or audience for the output
+*   Clarifying why certain constraints exist
+*   Describing how the output will be used
+*   Indicating what problem you're trying to solve
 
 #### Be specific
 
@@ -70,10 +70,10 @@ Specificity in prompt engineering means structuring your instructions with expli
 
 Include:
 
-- Clear constraints (word count, format, timeline)
-- Relevant context (who's the audience, what's the goal)
-- Desired output structure (table, list, paragraph)
-- Any requirements or restrictions (dietary needs, budget limits, technical constraints)
+*   Clear constraints (word count, format, timeline)
+*   Relevant context (who's the audience, what's the goal)
+*   Desired output structure (table, list, paragraph)
+*   Any requirements or restrictions (dietary needs, budget limits, technical constraints)
 
 #### Use examples
 
@@ -96,10 +96,10 @@ Now summarize this article in the same style: [link to your new article]
 
 **When to use examples**:
 
-- The desired format is easier to show than describe
-- You need a specific tone or style
-- The task involves subtle patterns or conventions
-- Simple instructions haven't produced consistent results
+*   The desired format is easier to show than describe
+*   You need a specific tone or style
+*   The task involves subtle patterns or conventions
+*   Simple instructions haven't produced consistent results
 
 **Pro tip**: Start with one example (one-shot). Only add more examples (few-shot) if the output still doesn't match your needs.
 
@@ -123,10 +123,10 @@ Prefilling lets you start the AI's response for it, guiding format, tone, or str
 
 **When to use prefilling**:
 
-- You need the AI to output JSON, XML, or other structured formats
-- You want to skip conversational preambles and get straight to content
-- You need to maintain a specific voice or character
-- You want to control how the AI begins its response
+*   You need the AI to output JSON, XML, or other structured formats
+*   You want to skip conversational preambles and get straight to content
+*   You need to maintain a specific voice or character
+*   You want to control how the AI begins its response
 
 **Example: Enforcing JSON output**
 
@@ -153,10 +153,10 @@ Chain of thought (CoT) prompting involves requesting step-by-step reasoning befo
 
 **When to use chain of thought**:
 
-- Extended thinking isn't available (i.e. the free Claude.ai plan)
-- You need transparent reasoning that you can review
-- The task requires multiple analytical steps
-- You want to ensure the AI considers specific factors
+*   Extended thinking isn't available (i.e. the free Claude.ai plan)
+*   You need transparent reasoning that you can review
+*   The task requires multiple analytical steps
+*   You want to ensure the AI considers specific factors
 
 There are three common implementations of chain of thought:
 
@@ -240,11 +240,11 @@ Each stage adds refinement through focused instruction.
 
 **When to use prompt chaining**:
 
-- You have a complex request that needs breaking down into steps
-- You need iterative refinement
-- You're doing multi-stage analysis
-- Intermediate validation adds value
-- A single prompt produces inconsistent results
+*   You have a complex request that needs breaking down into steps
+*   You need iterative refinement
+*   You're doing multi-stage analysis
+*   Intermediate validation adds value
+*   A single prompt produces inconsistent results
 
 **Trade-offs**: Chaining increases latency (multiple API calls) but often dramatically improves accuracy and reliability for complex tasks.
 
@@ -271,9 +271,9 @@ Generate a meal plan based on the athlete information above.
 
 **When XML tags might still be helpful**:
 
-- You're working with extremely complex prompts mixing multiple types of content
-- You need to be absolutely certain about content boundaries
-- You're working with older model versions
+*   You're working with extremely complex prompts mixing multiple types of content
+*   You need to be absolutely certain about content boundaries
+*   You're working with older model versions
 
 **Modern alternative**: For most use cases, clear headings, whitespace, and explicit language ("Using the athlete information below...") work just as well with less overhead.
 
@@ -287,9 +287,9 @@ Role prompting defines expert personas and perspectives in how you phrase your q
 
 **When role prompting might help**:
 
-- You need consistent tone across many outputs
-- You're building an application that requires a specific persona
-- You want domain expertise framing for complex topics
+*   You need consistent tone across many outputs
+*   You're building an application that requires a specific persona
+*   You want domain expertise framing for complex topics
 
 **Modern alternative**: Often, being explicit about what perspective you want is more effective: "Analyze this investment portfolio, focusing on risk tolerance and long-term growth potential" rather than assigning a role.
 
@@ -320,11 +320,11 @@ Begin your response with an opening brace: {
 
 This prompt combines:
 
-- Explicit instructions (exactly what to extract)
-- Context (why format matters)
-- Example structure (showing the format)
-- Permission to express uncertainty (use null if unsure)
-- Format control (begin with opening brace)
+*   Explicit instructions (exactly what to extract)
+*   Context (why format matters)
+*   Example structure (showing the format)
+*   Permission to express uncertainty (use null if unsure)
+*   Format control (begin with opening brace)
 
 ## Choosing the right techniques
 
@@ -368,13 +368,13 @@ Permission to say "I don't know"
 
 Even well-intentioned prompts can produce unexpected results. Here are common issues and how to fix them:
 
-- **Problem: Response is too generic** → Solution: Add specificity, examples, or explicit requests for comprehensive output. Ask the AI to "go beyond the basics."
-- **Problem: Response is off-topic or misses the point** → Solution: Be more explicit about your actual goal. Provide context about why you're asking.
-- **Problem: Response format is inconsistent** → Solution: Add examples (few-shot) or use prefilling to control the start of the response.
-- **Problem: Task is too complex, results are unreliable** → Solution: Break into multiple prompts (chaining). Each prompt should do one thing well.
-- **Problem: AI includes unnecessary preambles** → Solution: Use prefilling or explicitly request: "Skip the preamble and get straight to the answer."
-- **Problem: AI makes up information** → Solution: Explicitly give permission to say "I don't know" when uncertain.
-- **Problem: AI suggests changes when you wanted implementation** → Solution: Be explicit about action: "Change this function" rather than "Can you suggest changes?"
+*   **Problem: Response is too generic** → Solution: Add specificity, examples, or explicit requests for comprehensive output. Ask the AI to "go beyond the basics."
+*   **Problem: Response is off-topic or misses the point** → Solution: Be more explicit about your actual goal. Provide context about why you're asking.
+*   **Problem: Response format is inconsistent** → Solution: Add examples (few-shot) or use prefilling to control the start of the response.
+*   **Problem: Task is too complex, results are unreliable** → Solution: Break into multiple prompts (chaining). Each prompt should do one thing well.
+*   **Problem: AI includes unnecessary preambles** → Solution: Use prefilling or explicitly request: "Skip the preamble and get straight to the answer."
+*   **Problem: AI makes up information** → Solution: Explicitly give permission to say "I don't know" when uncertain.
+*   **Problem: AI suggests changes when you wanted implementation** → Solution: Be explicit about action: "Change this function" rather than "Can you suggest changes?"
 
 **Pro tip**: Start simple and add complexity only when needed. Test each addition to see if it actually improves results.
 
@@ -382,12 +382,12 @@ Even well-intentioned prompts can produce unexpected results. Here are common is
 
 Learn from these common pitfalls to save time and improve your prompts:
 
-- **Don't over-engineer**: Longer, more complex prompts are NOT always better.
-- **Don't ignore the basics**: Advanced techniques won't help if your core prompt is unclear or vague.
-- **Don't assume the AI reads minds**: Be specific about what you want. Leaving things ambiguous gives the AI room to misinterpret.
-- **Don't use every technique at once**: Select techniques that address your specific challenge.
-- **Don't forget to iterate**: The first prompt rarely works perfectly. Test and refine.
-- **Don't rely on outdated techniques**: XML tags and heavy role prompting are less necessary with modern models. Start with explicit, clear instructions.
+*   **Don't over-engineer**: Longer, more complex prompts are NOT always better.
+*   **Don't ignore the basics**: Advanced techniques won't help if your core prompt is unclear or vague.
+*   **Don't assume the AI reads minds**: Be specific about what you want. Leaving things ambiguous gives the AI room to misinterpret.
+*   **Don't use every technique at once**: Select techniques that address your specific challenge.
+*   **Don't forget to iterate**: The first prompt rarely works perfectly. Test and refine.
+*   **Don't rely on outdated techniques**: XML tags and heavy role prompting are less necessary with modern models. Start with explicit, clear instructions.
 
 ## Prompt engineering considerations
 
@@ -411,10 +411,10 @@ To really hone your prompt engineering skills, you'll need to objectively measur
 
 **Quick evaluation tips**:
 
-- Does the output match your specific requirements?
-- Did you get the result in one attempt or need multiple iterations?
-- Is the format consistent across multiple attempts?
-- Are you avoiding the common mistakes listed above?
+*   Does the output match your specific requirements?
+*   Did you get the result in one attempt or need multiple iterations?
+*   Is the format consistent across multiple attempts?
+*   Are you avoiding the common mistakes listed above?
 
 ## Final words of advice
 
@@ -428,7 +428,7 @@ Start prompting in Claude today.
 
 ## Additional resources
 
-- Prompt engineering documentation
-- Interactive prompt engineering tutorial
-- Prompt engineering course
-- Context engineering guide
+*   Prompt engineering documentation
+*   Interactive prompt engineering tutorial
+*   Prompt engineering course
+*   Context engineering guide

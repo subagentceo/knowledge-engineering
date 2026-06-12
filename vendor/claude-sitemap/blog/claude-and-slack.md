@@ -14,9 +14,9 @@ Claude only searches public and private Slack channels you have access to. When 
 
 There are three ways to use Claude in Slack:
 
-- **Direct messages**: Start a private conversation with @Claude for one-on-one assistance with research, writing, or analysis.
-- **AI assistant panel**: Click the Claude icon in Slack's AI assistant header from any channel to access Claude without interrupting ongoing conversations.
-- **Thread participation**: Add Claude to any thread by mentioning @Claude. Claude will draft a response based on the conversation context, which you can review before sharing.
+*   **Direct messages**: Start a private conversation with @Claude for one-on-one assistance with research, writing, or analysis.
+*   **AI assistant panel**: Click the Claude icon in Slack's AI assistant header from any channel to access Claude without interrupting ongoing conversations.
+*   **Thread participation**: Add Claude to any thread by mentioning @Claude. Claude will draft a response based on the conversation context, which you can review before sharing.
 
 ### Connecting Slack to Claude
 
@@ -24,10 +24,10 @@ When you connect Slack to Claude, Claude searches your workspace's channels, dir
 
 Claude helps you prepare for meetings by pulling relevant Slack discussions, gathering project updates from multiple channels, or finding action items buried in team conversations. Use it for:
 
-- **Meeting preparation:** Review Slack discussions, pull relevant documents, and create briefings with recent updates and key decisions
-- **Project coordination:** Search across channels to gather status updates, identify blockers, and summarize progress
-- **Onboarding support:** Help new team members understand ongoing projects by reviewing channel history, shared documents, and related email threads
-- **Create documentation:** Formalize team discussions into documentation, pulling context from conversations and relevant background materials
+*   **Meeting preparation:** Review Slack discussions, pull relevant documents, and create briefings with recent updates and key decisions
+*   **Project coordination:** Search across channels to gather status updates, identify blockers, and summarize progress
+*   **Onboarding support:** Help new team members understand ongoing projects by reviewing channel history, shared documents, and related email threads
+*   **Create documentation:** Formalize team discussions into documentation, pulling context from conversations and relevant background materials
 
 This integration represents a significant step toward more intelligent, AI-powered workflows:
 

@@ -29,6 +29,7 @@ Create Skill
 ### Returns
 
 - `BetaSkillNewResponse: object { id, created_at, display_title, 4 more }`
+
   - `id: string`
 
     Unique identifier for the skill.
@@ -56,8 +57,9 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -117,8 +119,9 @@ List Skills
   Query param: Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-  - `"custom"`: only return user-created skills
-  - `"anthropic"`: only return Anthropic-created skills
+
+  * `"custom"`: only return user-created skills
+  * `"anthropic"`: only return Anthropic-created skills
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -127,9 +130,11 @@ List Skills
 ### Returns
 
 - `BetaListSkillsResponse: object { data, has_more, next_page }`
+
   - `data: array of object { id, created_at, display_title, 4 more }`
 
     List of skills.
+
     - `id: string`
 
       Unique identifier for the skill.
@@ -157,8 +162,9 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-      - `"custom"`: the skill was created by a user
-      - `"anthropic"`: the skill was created by Anthropic
+
+      * `"custom"`: the skill was created by a user
+      * `"anthropic"`: the skill was created by Anthropic
 
     - `type: string`
 
@@ -232,6 +238,7 @@ Get Skill
 ### Returns
 
 - `BetaSkillGetResponse: object { id, created_at, display_title, 4 more }`
+
   - `id: string`
 
     Unique identifier for the skill.
@@ -259,8 +266,9 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -317,6 +325,7 @@ Delete Skill
 ### Returns
 
 - `BetaSkillDeleteResponse: object { id, type }`
+
   - `id: string`
 
     Unique identifier for the skill.
@@ -377,6 +386,7 @@ Create Skill Version
 ### Returns
 
 - `BetaSkillVersionNewResponse: object { id, created_at, description, 5 more }`
+
   - `id: string`
 
     Unique identifier for the skill version.
@@ -477,9 +487,11 @@ List Skill Versions
 ### Returns
 
 - `BetaListSkillVersionsResponse: object { data, has_more, next_page }`
+
   - `data: array of object { id, created_at, description, 5 more }`
 
     List of skill versions.
+
     - `id: string`
 
       Unique identifier for the skill version.
@@ -629,6 +641,7 @@ Get Skill Version
 ### Returns
 
 - `BetaSkillVersionGetResponse: object { id, created_at, description, 5 more }`
+
   - `id: string`
 
     Unique identifier for the skill version.
@@ -726,6 +739,7 @@ Delete Skill Version
 ### Returns
 
 - `BetaSkillVersionDeleteResponse: object { id, type }`
+
   - `id: string`
 
     Version identifier for the skill.

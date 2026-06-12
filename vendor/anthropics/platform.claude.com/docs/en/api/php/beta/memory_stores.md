@@ -29,6 +29,7 @@ Create a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -132,6 +133,7 @@ List memory stores
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -224,6 +226,7 @@ Retrieve a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -318,6 +321,7 @@ Update a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -404,6 +408,7 @@ Delete a memory store
 ### Returns
 
 - `BetaManagedAgentsDeletedMemoryStore`
+
   - `string id`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
@@ -454,6 +459,7 @@ Archive a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -522,6 +528,7 @@ var_dump($betaManagedAgentsMemoryStore);
 ### Beta Managed Agents Deleted Memory Store
 
 - `BetaManagedAgentsDeletedMemoryStore`
+
   - `string id`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
@@ -531,6 +538,7 @@ var_dump($betaManagedAgentsMemoryStore);
 ### Beta Managed Agents Memory Store
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -594,6 +602,7 @@ Create a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -716,7 +725,9 @@ List memories
 ### Returns
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -756,6 +767,7 @@ List memories
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -833,6 +845,7 @@ Retrieve a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -944,6 +957,7 @@ Update a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1048,6 +1062,7 @@ Delete a memory
 ### Returns
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -1087,6 +1102,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Conflict Error
 
 - `ManagedAgentsConflictError`
+
   - `Type type`
 
   - `?string message`
@@ -1094,6 +1110,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Content Sha256 Precondition
 
 - `ManagedAgentsContentSha256Precondition`
+
   - `Type type`
 
   - `?string contentSha256`
@@ -1103,6 +1120,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Deleted Memory
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -1112,57 +1130,69 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Error
 
 - `ManagedAgentsError`
+
   - `BetaInvalidRequestError`
+
     - `string message`
 
     - `"invalid_request_error" type`
 
   - `BetaAuthenticationError`
+
     - `string message`
 
     - `"authentication_error" type`
 
   - `BetaBillingError`
+
     - `string message`
 
     - `"billing_error" type`
 
   - `BetaPermissionError`
+
     - `string message`
 
     - `"permission_error" type`
 
   - `BetaNotFoundError`
+
     - `string message`
 
     - `"not_found_error" type`
 
   - `BetaRateLimitError`
+
     - `string message`
 
     - `"rate_limit_error" type`
 
   - `BetaGatewayTimeoutError`
+
     - `string message`
 
     - `"timeout_error" type`
 
   - `BetaAPIError`
+
     - `string message`
 
     - `"api_error" type`
 
   - `BetaOverloadedError`
+
     - `string message`
 
     - `"overloaded_error" type`
 
   - `ManagedAgentsMemoryPreconditionFailedError`
+
     - `Type type`
 
     - `?string message`
 
   - `ManagedAgentsMemoryPathConflictError`
+
     - `Type type`
 
     - `?string conflictingMemoryID`
@@ -1172,6 +1202,7 @@ var_dump($betaManagedAgentsDeletedMemory);
     - `?string message`
 
   - `ManagedAgentsConflictError`
+
     - `Type type`
 
     - `?string message`
@@ -1179,6 +1210,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1220,7 +1252,9 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory List Item
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1260,6 +1294,7 @@ var_dump($betaManagedAgentsDeletedMemory);
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -1269,6 +1304,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `ManagedAgentsMemoryPathConflictError`
+
   - `Type type`
 
   - `?string conflictingMemoryID`
@@ -1280,6 +1316,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `ManagedAgentsMemoryPreconditionFailedError`
+
   - `Type type`
 
   - `?string message`
@@ -1287,6 +1324,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Prefix
 
 - `ManagedAgentsMemoryPrefix`
+
   - `string path`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -1296,6 +1334,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory View
 
 - `ManagedAgentsMemoryView`
+
   - `"basic"`
 
   - `"full"`
@@ -1303,6 +1342,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Precondition
 
 - `ManagedAgentsPrecondition`
+
   - `Type type`
 
   - `?string contentSha256`
@@ -1366,6 +1406,7 @@ List memory versions
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1498,6 +1539,7 @@ Retrieve a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1618,6 +1660,7 @@ Redact a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1721,7 +1764,9 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Actor
 
 - `ManagedAgentsActor`
+
   - `ManagedAgentsSessionActor`
+
     - `string sessionID`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -1729,6 +1774,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsAPIActor`
+
     - `string apiKeyID`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
@@ -1736,6 +1782,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsUserActor`
+
     - `Type type`
 
     - `string userID`
@@ -1745,6 +1792,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents API Actor
 
 - `ManagedAgentsAPIActor`
+
   - `string apiKeyID`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
@@ -1754,6 +1802,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1807,6 +1856,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version Operation
 
 - `ManagedAgentsMemoryVersionOperation`
+
   - `"created"`
 
   - `"modified"`
@@ -1816,6 +1866,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Session Actor
 
 - `ManagedAgentsSessionActor`
+
   - `string sessionID`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -1825,6 +1876,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents User Actor
 
 - `ManagedAgentsUserActor`
+
   - `Type type`
 
   - `string userID`

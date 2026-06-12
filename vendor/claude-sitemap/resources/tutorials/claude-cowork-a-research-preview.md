@@ -22,18 +22,18 @@ Cowork handles the orchestration—breaking work into pieces, managing context, 
 
 ###### Use Cowork when:
 
-- The work lives in your files—whether that’s organizing what you have, analyzing a folder, or creating outputs saved directly to your machine
-- Tasks involve large amounts of material or many sources
-- Work benefits from parallel exploration
-- You want to delegate and come back to results
-- Tasks might take longer than a typical chat session
+*   The work lives in your files—whether that’s organizing what you have, analyzing a folder, or creating outputs saved directly to your machine
+*   Tasks involve large amounts of material or many sources
+*   Work benefits from parallel exploration
+*   You want to delegate and come back to results
+*   Tasks might take longer than a typical chat session
 
 ###### Stay in regular chat when:
 
-- You want real-time back-and-forth collaboration
-- Tasks are quicker and conversational
-- You want to stay more hands-on throughout
-- The work is exploratory and you’re thinking alongside Claude
+*   You want real-time back-and-forth collaboration
+*   Tasks are quicker and conversational
+*   You want to stay more hands-on throughout
+*   The work is exploratory and you’re thinking alongside Claude
 
 > **_Try:_** Ask Cowork to organize your desktop. It’ll ask a few questions about how you want things grouped, then get to work—a real task where Claude acts directly in your environment.
 
@@ -47,7 +47,7 @@ Cowork shines when you want Claude to take action and follow through. That might
 
 Point Claude at folders on your machine: your notes, project directories, research archives. Claude reads, creates, and organizes files directly.
 
-> ‍*“Organize my Downloads folder. Group by type and project.”*
+> ‍_“Organize my Downloads folder. Group by type and project.”_
 
 > _“Find identical photos and screenshots I can delete.”_
 
@@ -77,7 +77,7 @@ Work that would get disrupted in regular chat (hitting context limits, losing th
 
 When a task has independent parts, Claude can spin up sub-agents to tackle them simultaneously and synthesize the results.
 
-> ‍*“I’m evaluating four vendors for our team. Spin up subagents to research each one’s pricing, support reputation, and integration options. Give me a comparison.”*
+> ‍_“I’m evaluating four vendors for our team. Spin up subagents to research each one’s pricing, support reputation, and integration options. Give me a comparison.”_
 
 > _“Spin up subagents to analyze this decision from three angles: financial impact, customer experience, and operational risk. Synthesize a recommendation.”_
 
@@ -135,11 +135,11 @@ Try tasks with clear boundaries—_“organize this folder,” “synthesize the
 
 ## Current limitations
 
-Cowork is available as a feature preview, with some known limitations:
+Cowork is available as a feature preview, with some known limitations:  
 
-- **Desktop only (macOS and Windows).** Sessions don’t sync to web or mobile.
-- **No chat sharing.** Sessions stay on your machine.
-- **Some features aren’t available yet.** Chat sharing, artifact sharing, and Memory don’t work with Cowork currently. You also can’t switch between Cowork and regular chat mid-conversation.
+*   **Desktop only (macOS and Windows).** Sessions don’t sync to web or mobile.
+*   **No chat sharing.** Sessions stay on your machine.
+*   **Some features aren’t available yet.** Chat sharing, artifact sharing, and Memory don’t work with Cowork currently. You also can’t switch between Cowork and regular chat mid-conversation.
 
 Local execution means faster iteration and direct file access. Sessions stay on your device and use your machine’s resources.
 

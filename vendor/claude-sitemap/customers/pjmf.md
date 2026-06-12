@@ -4,10 +4,10 @@ The Patrick J. McGovern Foundation, a global philanthropy focused on AI and data
 
 **Key results with Claude**
 
-- Processed hundreds of grants since launching Grant Guardian
-- Eliminated hours of manual work transcribing and cross-checking financial documents
-- Achieved consistent evaluation standards across all grant reviews
-- Replaced inefficient spreadsheet processes prone to manual error
+*   Processed hundreds of grants since launching Grant Guardian
+*   Eliminated hours of manual work transcribing and cross-checking financial documents
+*   Achieved consistent evaluation standards across all grant reviews
+*   Replaced inefficient spreadsheet processes prone to manual error
 
 ## Grant evaluation becomes a guessing game without proper tools
 

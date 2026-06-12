@@ -99,8 +99,8 @@ Per question
 
 Once you’ve verified the answer, finish the rest of the work — the part that happens in your other tools. Through connectors to your messaging and project-management tools, Claude can:
 
-- **Reply to your teammate** — with a messaging connector (Gmail, Slack), Claude drafts the response right in the tool you’d send it from.
-- **Close out the request** — with a task-tracker connector (Jira, Linear, Asana), Claude posts your decision, links the source, and marks the ticket done.
+*   **Reply to your teammate** — with a messaging connector (Gmail, Slack), Claude drafts the response right in the tool you’d send it from.
+*   **Close out the request** — with a task-tracker connector (Jira, Linear, Asana), Claude posts your decision, links the source, and marks the ticket done.
 
 Claude asks before it sends or changes anything. You can do both in one prompt:
 
@@ -116,10 +116,10 @@ Ask
 
 This setup isn’t legal-specific and can work for any role that fields fast questions about past decisions:
 
-- **Support and escalations** — what did we tell this customer last time, and what’s changed since?
-- **Compliance and risk** — which assessments does this change reopen?
-- **Finance** — what assumptions did we approve in the last forecast, and does the new request hold to them?
-- **Engineering on-call** — what did we decide about this system’s failure modes, and does the new alert fit a known one?
+*   **Support and escalations** — what did we tell this customer last time, and what’s changed since?
+*   **Compliance and risk** — which assessments does this change reopen?
+*   **Finance** — what assumptions did we approve in the last forecast, and does the new request hold to them?
+*   **Engineering on-call** — what did we decide about this system’s failure modes, and does the new alert fit a known one?
 
 The setup is the same every time:
 
@@ -130,8 +130,8 @@ The setup is the same every time:
 
 ## Learn more
 
-- Claude Cowork 101. Take the full Cowork course to dive deeper into the product.
-- Customize Cowork. Learn how to set up connectors, skills, and instructions.
-- AI Fluency: Framework and Foundations. Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
-- The 4 Ds of AI Fluency. Learn practical skills and mental models behind building AI fluency.
-- Use Cowork safely. Understand access, approvals, and what Claude can see.
+*   Claude Cowork 101. Take the full Cowork course to dive deeper into the product.
+*   Customize Cowork. Learn how to set up connectors, skills, and instructions.
+*   AI Fluency: Framework and Foundations. Take the full AI fluency course to work towards effective, efficient, and ethical AI use.
+*   The 4 Ds of AI Fluency. Learn practical skills and mental models behind building AI fluency.
+*   Use Cowork safely. Understand access, approvals, and what Claude can see.

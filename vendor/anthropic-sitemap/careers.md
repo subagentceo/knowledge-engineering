@@ -62,27 +62,27 @@ We want you to thrive at work and feel confident that you and your family are ta
 
 ### Health and wellness
 
-- Comprehensive health, dental, and vision insurance for you and your dependents
-- Inclusive fertility benefits via Carrot Fertility
-- 22 weeks of paid parental leave
-- Flexible paid time off and absence policies
-- Mental health support for you and your dependents
+*   Comprehensive health, dental, and vision insurance for you and your dependents
+*   Inclusive fertility benefits via Carrot Fertility
+*   22 weeks of paid parental leave
+*   Flexible paid time off and absence policies
+*   Mental health support for you and your dependents
 
 ### Compensation and support
 
-- Competitive salary and equity packages
-- Optional equity donation matching at a 1:1 ratio, up to 25% of your equity grant
-- Retirement plans with competitive matching
-- Life and income protection plans
+*   Competitive salary and equity packages
+*   Optional equity donation matching at a 1:1 ratio, up to 25% of your equity grant
+*   Retirement plans with competitive matching
+*   Life and income protection plans
 
 ### Additional benefits
 
-- $500/month flexible wellness and time saver stipend
-- Commuter benefits
-- Annual education stipend
-- Home office stipends
-- Relocation support for those moving for Anthropic
-- Daily meals and snacks in the office
+*   $500/month flexible wellness and time saver stipend
+*   Commuter benefits
+*   Annual education stipend
+*   Home office stipends
+*   Relocation support for those moving for Anthropic
+*   Daily meals and snacks in the office
 
 ## How we hire
 
@@ -113,11 +113,11 @@ To protect yourself from potential scams, remember that Anthropic recruiters onl
 
 We're committed to protecting your personal information throughout the hiring process. Review the privacy policy for your region below.
 
-- United States
-- India
-- EU & APAC
-- EU & APAC (French)
-- EU & APAC (Japanese)
+*   United States
+*   India
+*   EU & APAC
+*   EU & APAC (French)
+*   EU & APAC (Japanese)
 
 ### Applicant and interview accommodations
 

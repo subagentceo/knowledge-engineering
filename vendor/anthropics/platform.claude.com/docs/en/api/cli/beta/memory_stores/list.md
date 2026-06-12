@@ -37,9 +37,11 @@ List memory stores
 - `BetaManagedAgentsListMemoryStoresResponse: object { data, next_page }`
 
   A page of `memory_store` results, ordered by `created_at` descending (newest first).
+
   - `data: optional array of BetaManagedAgentsMemoryStore`
 
     Memory stores on this page, newest first. Empty when there are no stores matching the filters.
+
     - `id: string`
 
       Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -53,6 +55,7 @@ List memory stores
       Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `updated_at: string`

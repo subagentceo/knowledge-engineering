@@ -21,11 +21,13 @@ Delete Vault
 - `beta_managed_agents_deleted_vault: object { id, type }`
 
   Confirmation of a deleted vault.
+
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
+
     - `"vault_deleted"`
 
 ### Example

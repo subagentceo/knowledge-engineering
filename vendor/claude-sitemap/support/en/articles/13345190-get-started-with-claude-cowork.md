@@ -60,6 +60,8 @@ For important limitations and considerations for Team and Enterprise organizatio
 
 - **Professional outputs:** Generate polished deliverables like Excel spreadsheets with working formulas, PowerPoint presentations, and formatted documents.
 
+- **Edit drafts in place:** When Claude drafts a Markdown document, highlight the text you want changed, click "Edit with Claude," and type your request. Claude makes the edit right where you marked it, with no need to describe the section in your task thread.
+
 - **Long-running tasks:** Work on complex tasks for extended periods without conversation timeouts or context limits interrupting your progress.
 
 - **Scheduled tasks:** Create and save tasks that you can have Claude run on-demand, or automatically on a cadence of your choosing.
@@ -148,7 +150,7 @@ To set global instructions:
 
 3. Type your instructions in the text box and click "Save":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1781284500&amp;signature=80581cb66a9758c8e23aa45505ec5e80a5591254617695c4146dd688d8ec157b&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FF7Dns9h%2B8mPglonEgA6HM%2FFYLSp3wh1l6sqk%0AhVin%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1781416800&amp;signature=43356077ebbd8105873b8c309d932ff2f809c2004169300a769820d1d246f593&amp;req=diEvFsx6nIlZWfMW3nq%2BgfGWjaK0gC2EGZnBXgbPCvEibiNnE959qaeDpuoH%0A%2Fre6RR%2B%2BJZ1JacQyH10y9SCwBGg%3D%0A)
 
 ### Folder instructions
 

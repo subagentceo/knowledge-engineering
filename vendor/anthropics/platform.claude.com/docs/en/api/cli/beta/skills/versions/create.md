@@ -27,6 +27,7 @@ Create Skill Version
 ### Returns
 
 - `BetaSkillVersionNewResponse: object { id, created_at, description, 5 more }`
+
   - `id: string`
 
     Unique identifier for the skill version.

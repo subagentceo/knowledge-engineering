@@ -24,6 +24,7 @@ operation that cannot be undone.
 - `type: optional "claude_file_deleted"`
 
   Constant string confirming deletion
+
   - `"claude_file_deleted"`
 
 ### Example

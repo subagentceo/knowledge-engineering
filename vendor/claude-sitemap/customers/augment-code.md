@@ -4,10 +4,10 @@ Augment Code uses Claude on Google Cloud's Vertex AI to transform how developers
 
 With Claude on Vertex AI, Augment has:
 
-- Reduced project timelines from 4-8 months to 2 weeks for one enterprise customer
-- Accelerated developer onboarding from weeks to 1-2 days
-- Processed millions of lines of code across hundreds of customer codebases
-- Implemented secure protocols with SOC 2 Level 2 certification
+*   Reduced project timelines from 4-8 months to 2 weeks for one enterprise customer
+*   Accelerated developer onboarding from weeks to 1-2 days
+*   Processed millions of lines of code across hundreds of customer codebases
+*   Implemented secure protocols with SOC 2 Level 2 certification
 
 ## Bringing expert-level AI to complex software
 
@@ -31,11 +31,11 @@ Infrastructure reliability also influenced their decision. Ostrovsky said, "Goog
 
 Augment combines Claude with five to six other AI models to enhance development through:
 
-- Contextual Code Understanding: Developers can chat with their codebase to quickly comprehend new areas
-- Impact Analysis: The system evaluates potential changes across the entire codebase, identifying risks and dependencies
-- Intelligent Code Reuse: Instead of generating new code, the system suggests existing libraries
-- Documentation Generation: AI assistance for creating and maintaining technical documentation
-- Change Propagation: When developers modify code, the system identifies all related areas needing updates, from databases to APIs and documentation
+*   Contextual Code Understanding: Developers can chat with their codebase to quickly comprehend new areas
+*   Impact Analysis: The system evaluates potential changes across the entire codebase, identifying risks and dependencies
+*   Intelligent Code Reuse: Instead of generating new code, the system suggests existing libraries
+*   Documentation Generation: AI assistance for creating and maintaining technical documentation
+*   Change Propagation: When developers modify code, the system identifies all related areas needing updates, from databases to APIs and documentation
 
 ## Delivering measurable impact
 

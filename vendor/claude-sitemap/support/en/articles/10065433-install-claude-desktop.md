@@ -12,9 +12,9 @@ The Claude desktop apps bring Claude's capabilities directly to your computer, a
 
 2. Select the appropriate version for your operating system:
 
-- For Mac users: Click "macOS"
+  - For Mac users: Click "macOS"
 
-- For Windows users: Click "Windows"
+  - For Windows users: Click "Windows"
 
 Once the download is completed:
 

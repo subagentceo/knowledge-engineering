@@ -33,9 +33,11 @@ List Files
 ### Returns
 
 - `BetaFileListResponse: object { data, first_id, has_more, last_id }`
+
   - `data: array of FileMetadata`
 
     List of file metadata objects.
+
     - `id: string`
 
       Unique object identifier.
@@ -71,6 +73,7 @@ List Files
     - `scope: optional object { id, type }`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
+
       - `id: string`
 
         The ID of the scoping resource (e.g., the session ID).

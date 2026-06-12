@@ -22,18 +22,30 @@ Start the course
 
 Course preview
 
-- 01Introduction to AI Fluency
-- 02The AI Fluency Framework
-- 03Deep Dive 1: What is Generative AI?
-- 04Delegation
-- 05Applying Delegation
-- 06Description
-- 07Deep Dive 2: Effective Prompting Techniques
-- 08Discernment
-- 09The Description-Discernment Loop
-- 010Diligence
-- 11Conclusion
-- 12Additional Activities
+*   01Introduction to AI Fluency
+    
+*   02The AI Fluency Framework
+    
+*   03Deep Dive 1: What is Generative AI?
+    
+*   04Delegation
+    
+*   05Applying Delegation
+    
+*   06Description
+    
+*   07Deep Dive 2: Effective Prompting Techniques
+    
+*   08Discernment
+    
+*   09The Description-Discernment Loop
+    
+*   010Diligence
+    
+*   11Conclusion
+    
+*   12Additional Activities
+    
 
 ## Explore by topic
 
@@ -45,16 +57,16 @@ Learn about our most intelligent and capable models yet, Claude Sonnet 4.5 and C
 
 #### Get started
 
-- Try Claude on Claude.ai
-- Get the most out of Sonnet 4.5
-- Get the most from Claude Opus 4.6
+*   Try Claude on Claude.ai
+*   Get the most out of Sonnet 4.5
+*   Get the most from Claude Opus 4.6
 
 #### Insights
 
-- Read the Claude 4.6 announcement blog post
-- Visit the Claude Opus 4.6 website
-- Visit the Claude Sonnet 4.5 website
-- Visit the Haiku 4.5 website
+*   Read the Claude 4.6 announcement blog post
+*   Visit the Claude Opus 4.6 website
+*   Visit the Claude Sonnet 4.5 website
+*   Visit the Haiku 4.5 website
 
 ![Ornate quill pen with detailed handle and intricate feather quill on a flat surface](https://www-cdn.anthropic.com/images/4zrzovbb/website/39ada9836e2ffe1c3b0d394dd2f5b98b8142d3f6-500x500.svg)
 
@@ -64,8 +76,8 @@ Create, manage, and collaborate on files and other content with Claude
 
 #### Resources
 
-- Learn how to use Artifacts
-- Prototype AI-powered apps with Artifacts
+*   Learn how to use Artifacts
+*   Prototype AI-powered apps with Artifacts
 
 ![Geometric shapes including triangle and circle](https://www-cdn.anthropic.com/images/4zrzovbb/website/d5c97a0ef20401228ae8678ecad20c11c9c11af5-500x500.svg)
 
@@ -75,8 +87,8 @@ Organize your work and collaborate on complex tasks
 
 #### Resources
 
-- Collaborate with Claude on Projects
-- Learn how to use Projects
+*   Collaborate with Claude on Projects
+*   Learn how to use Projects
 
 ![Stylized hand with interconnected digital nodes representing artificial intelligence networks](https://www-cdn.anthropic.com/images/4zrzovbb/website/837aea0de4a5bade833df09588b9b0ef6b06920f-500x500.svg)
 
@@ -86,9 +98,9 @@ Perform a specific task better by providing detailed instructions with Skills
 
 #### Resources
 
-- Learn about Skills
-- Use Skills in Claude
-- Create custom Skills
+*   Learn about Skills
+*   Use Skills in Claude
+*   Create custom Skills
 
 ![Document icon with connected nodes on corners](https://www-cdn.anthropic.com/images/4zrzovbb/website/8d42ad31ca954f54582ba4c6f64b708534e20cff-500x500.svg)
 
@@ -98,10 +110,10 @@ Streamline your workflow by connecting to your favorite tools
 
 #### Resources
 
-- Connect your tools to unlock a smarter, more capable AI companion
-- Use the GitHub integration
-- Use the Google Docs integration
-- Use the analysis tool
+*   Connect your tools to unlock a smarter, more capable AI companion
+*   Use the GitHub integration
+*   Use the Google Docs integration
+*   Use the analysis tool
 
 ![Classical stone column with architectural details and structured vertical design](https://www-cdn.anthropic.com/images/4zrzovbb/website/f529d41a01e39e2c8618eb9b1963c0091e3f7ba6-500x500.svg)
 
@@ -111,13 +123,13 @@ AI Fluency courses for use in education settings.
 
 #### Educators
 
-- Introducing Claude for Education
-- AI Fluency for educators
-- Teaching AI Fluency
-- Getting Started with Claude for Education at Your University
+*   Introducing Claude for Education
+*   AI Fluency for educators
+*   Teaching AI Fluency
+*   Getting Started with Claude for Education at Your University
 
 #### Students
 
-- AI Fluency for students
-- Join a Claude campus program
-- FAQs on using Claude for Education at your university
+*   AI Fluency for students
+*   Join a Claude campus program
+*   FAQs on using Claude for Education at your university

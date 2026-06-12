@@ -20,9 +20,9 @@ Claude Agent is included in the JetBrains AI subscription, at no extra cost, alo
 
 Key advantages:
 
-- **Native IDE access:** Claude Agent operates directly within JetBrains' AI Chat interface, accessing IDE functionality through the JetBrains MCP server. Developers can navigate codebases, execute searches, and apply refactorings without switching contexts
-- **No deployment overhead:** No separate plugins to install, authentication flows, or standalone tools to manage
-- **Unified experience:** All AI assistance appears in a single chat interface via JetBrains AI Assistant, streamlining workflows
+*   **Native IDE access:** Claude Agent operates directly within JetBrains' AI Chat interface, accessing IDE functionality through the JetBrains MCP server. Developers can navigate codebases, execute searches, and apply refactorings without switching contexts
+*   **No deployment overhead:** No separate plugins to install, authentication flows, or standalone tools to manage
+*   **Unified experience:** All AI assistance appears in a single chat interface via JetBrains AI Assistant, streamlining workflows
 
 ## An Open Ecosystem Vision
 

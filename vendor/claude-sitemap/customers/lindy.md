@@ -6,10 +6,10 @@ Since implementing Claude Sonnet 3.5 as the default model for their agents, Lind
 
 With Claude, Lindy AI agents:
 
-- Book 40+ prospect meetings monthly while sales reps focus on high-value conversations
-- Handle over 70% of routine support tickets, freeing teams for complex problem-solving
-- Reduce time-to-qualified-lead by 72% for sales teams
-- Deliver 3-5x productivity gains across customers’ go-to-market and support workflows
+*   Book 40+ prospect meetings monthly while sales reps focus on high-value conversations
+*   Handle over 70% of routine support tickets, freeing teams for complex problem-solving
+*   Reduce time-to-qualified-lead by 72% for sales teams
+*   Deliver 3-5x productivity gains across customers’ go-to-market and support workflows
 
 ## Elevating human potential through intelligent automation
 

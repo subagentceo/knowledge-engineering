@@ -8,9 +8,9 @@ Each section below includes a brief summary of a key topic, followed by discussi
 
 **Suggested format:** 
 
-- Allow 45 to 60 minutes for a focused discussion. 
-- Have participants read or skim the report in advance. 
-- Select 2 to 3 discussion sections and one optional activity. 
+*   Allow 45 to 60 minutes for a focused discussion. 
+*   Have participants read or skim the report in advance. 
+*   Select 2 to 3 discussion sections and one optional activity. 
 
 ## Topic 1: What your team is already doing well
 
@@ -84,10 +84,10 @@ Each participant writes a short "collaboration preamble" that they would use at 
 
 These resources provide additional context for the findings in the AI Fluency Index.
 
-- The 4D AI Fluency Framework, developed by Rick Dakan and Joe Feller in collaboration with Anthropic, defines the 24 behavioral indicators that underpin this research.
-- ‍Anthropic's research on coding skills examines patterns in how developers interact with AI when writing and reviewing code.
-- Previous Anthropic Education Reports on university students and educators provide context on how specific populations are using AI.
+*   The 4D AI Fluency Framework, developed by Rick Dakan and Joe Feller in collaboration with Anthropic, defines the 24 behavioral indicators that underpin this research.
+*   ‍Anthropic's research on coding skills examines patterns in how developers interact with AI when writing and reviewing code.
+*   Previous Anthropic Education Reports on university students and educators provide context on how specific populations are using AI.
 
 ‍
 
-‍*This discussion guide is a companion to the* _Anthropic Education Report: The AI Fluency Index (2026)\_\_. It was created by the AI Fluency Program at Anthropic to support leaders, educators, and teams in making sense of the report's findings and cultivating stronger AI fluency across their organizations._
+‍_This discussion guide is a companion to the_ _Anthropic Education Report: The AI Fluency Index (2026)__. It was created by the AI Fluency Program at Anthropic to support leaders, educators, and teams in making sense of the report's findings and cultivating stronger AI fluency across their organizations._

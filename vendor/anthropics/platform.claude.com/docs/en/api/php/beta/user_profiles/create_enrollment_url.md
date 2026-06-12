@@ -17,6 +17,7 @@ Create Enrollment URL
 ### Returns
 
 - `BetaUserProfileEnrollmentURL`
+
   - `\Datetime expiresAt`
 
     A timestamp in RFC 3339 format

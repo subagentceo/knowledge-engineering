@@ -16,20 +16,20 @@ Before exploring what Claude can do with Databricks, it's important to understan
 
 Through the Databricks integration, Claude can access resources in your workspace:
 
-- **Execute Custom Functions**: Claude can run Unity Catalog functions defined by your organization. This includes executing complex business logic, applying calculations, or calling external APIs through functions your team has created. For example, if your organization has built a custom customer health score function, Claude can apply it consistently across analyses.**‍**
-- **Semantic Search**: Using vector search indexes, Claude can find relevant documents and content based on meaning rather than just keywords. This is particularly useful for searching through contracts, research reports, customer feedback, or technical documentation where similar concepts might be expressed in different ways.**‍**
-- **Natural Language Queries**: Through Genie, Claude can translate plain English questions into SQL queries. Instead of writing complex SQL, you can ask questions like "What was our revenue growth last quarter?" and Claude will use Genie to generate and execute the appropriate query.**‍**
-- **Governed Access**: All data access through the connector respects your organization's Unity Catalog permissions and policies. Claude can only access data and execute functions that your user account has permission to use.
+*   **Execute Custom Functions**: Claude can run Unity Catalog functions defined by your organization. This includes executing complex business logic, applying calculations, or calling external APIs through functions your team has created. For example, if your organization has built a custom customer health score function, Claude can apply it consistently across analyses.**‍**
+*   **Semantic Search**: Using vector search indexes, Claude can find relevant documents and content based on meaning rather than just keywords. This is particularly useful for searching through contracts, research reports, customer feedback, or technical documentation where similar concepts might be expressed in different ways.**‍**
+*   **Natural Language Queries**: Through Genie, Claude can translate plain English questions into SQL queries. Instead of writing complex SQL, you can ask questions like "What was our revenue growth last quarter?" and Claude will use Genie to generate and execute the appropriate query.**‍**
+*   **Governed Access**: All data access through the connector respects your organization's Unity Catalog permissions and policies. Claude can only access data and execute functions that your user account has permission to use.
 
 ### How Claude Uses Databricks Data
 
 Claude applies Databricks capabilities in several ways to support comprehensive data analysis:
 
-- **Multi-Source Analysis**: Claude combines results from database queries, vector searches, and custom functions to provide comprehensive insights. For example, when validating an investment thesis, Claude might query historical financial performance from your portfolio database, search through past due diligence reports for similar sector investments, and apply your proprietary IRR calculation function to model expected returns.**‍**
-- **Iterative Exploration**: Claude can query data, analyze initial results, and refine searches based on findings. This allows for analysis where insights from one query inform the next.**‍**
-- **Custom Logic Application**: By executing Unity Catalog functions, Claude applies your organization's specific rules and calculations. This ensures that proprietary metrics, adjusted calculations, and company-specific logic are applied uniformly across all analyses.**‍**
-- **Contextual Query Building**: When you ask questions in plain English, Claude uses Genie to translate them into appropriate SQL queries. This translation considers your table structures, column names, and relationships to generate accurate queries that match your database structure.**‍**
-- **Pattern Recognition**: Through vector search, Claude can find patterns and similarities across documents and data. This helps in finding related issues, similar transactions, or comparable situations that might not be obvious through traditional keyword searches.
+*   **Multi-Source Analysis**: Claude combines results from database queries, vector searches, and custom functions to provide comprehensive insights. For example, when validating an investment thesis, Claude might query historical financial performance from your portfolio database, search through past due diligence reports for similar sector investments, and apply your proprietary IRR calculation function to model expected returns.**‍**
+*   **Iterative Exploration**: Claude can query data, analyze initial results, and refine searches based on findings. This allows for analysis where insights from one query inform the next.**‍**
+*   **Custom Logic Application**: By executing Unity Catalog functions, Claude applies your organization's specific rules and calculations. This ensures that proprietary metrics, adjusted calculations, and company-specific logic are applied uniformly across all analyses.**‍**
+*   **Contextual Query Building**: When you ask questions in plain English, Claude uses Genie to translate them into appropriate SQL queries. This translation considers your table structures, column names, and relationships to generate accurate queries that match your database structure.**‍**
+*   **Pattern Recognition**: Through vector search, Claude can find patterns and similarities across documents and data. This helps in finding related issues, similar transactions, or comparable situations that might not be obvious through traditional keyword searches.
 
 ## Setting up the Databricks Connector
 
@@ -123,13 +123,13 @@ Claude might then respond with a breach risk analysis, organized by company and 
 
 ## Tips for Using Databricks
 
-- Be specific about what data you are looking for.
-  - Example: Instead of "Analyze customers", try "Show me our top 20 customers by…"
-- Use "find similar" language for pattern matching
-  - Example: "Find feedback that mentions issues like this complaint."
+*   Be specific about what data you are looking for.
+    *   Example: Instead of "Analyze customers", try "Show me our top 20 customers by…"
+*   Use "find similar" language for pattern matching
+    *   Example: "Find feedback that mentions issues like this complaint."
 
-- Remember that all data access permissions follow your Unity Catalog permissions. Claude can only access the data that you can access.
-- Custom functions provide consistent calculations. Consider adding UC Functions for calculating standardized metrics.
-- Complex analyses may require multiple steps. Ask for a plan first and review Claude's proposed approach.
+*   Remember that all data access permissions follow your Unity Catalog permissions. Claude can only access the data that you can access.
+*   Custom functions provide consistent calculations. Consider adding UC Functions for calculating standardized metrics.
+*   Complex analyses may require multiple steps. Ask for a plan first and review Claude's proposed approach.
 
 ‍

@@ -10,13 +10,13 @@ The 10x Genomics integration enables researchers to create and manage single cel
 
 ## Who should use the 10x Genomics integration
 
-- **Computational Biologists:** Researchers who analyze single cell genomics data and want to streamline cloud-based analysis workflows
+*   **Computational Biologists:** Researchers who analyze single cell genomics data and want to streamline cloud-based analysis workflows
 
-- **Bioinformaticians:** Scientists who process multiple samples and need efficient batch processing capabilities
+*   **Bioinformaticians:** Scientists who process multiple samples and need efficient batch processing capabilities
 
-- **Research Scientists:** Lab researchers who generate single cell data and want an intuitive interface for running standard pipelines
+*   **Research Scientists:** Lab researchers who generate single cell data and want an intuitive interface for running standard pipelines
 
-- **Core Facility Managers:** Staff who process samples for multiple research groups and need to manage numerous analyses
+*   **Core Facility Managers:** Staff who process samples for multiple research groups and need to manage numerous analyses
 
 ## Who can access the 10x Genomics integration
 
@@ -77,24 +77,24 @@ Learn about installing desktop extensions from the directory.
 
 ## Common use cases
 
-- Set up a Cell Ranger count analysis
+*   Set up a Cell Ranger count analysis
 
-- Set up a Cell Ranger multi analysis with multiplexing
+*   Set up a Cell Ranger multi analysis with multiplexing
 
-- Batch process multiple samples
+*   Batch process multiple samples
 
-- Monitor and download analysis results
+*   Monitor and download analysis results
 
-- Interpret QC metrics and results
+*   Interpret QC metrics and results
 
 Sample prompts and prompting best practices can be found in the 10x Genomics MCP Server Documentation.
 
 ## More resources from 10x Genomics
 
-- 10x Cloud Analysis support
+*   10x Cloud Analysis support
 
-- Cell Ranger documentation
+*   Cell Ranger documentation
 
-- 10x Genomics MCP Server Documentation
+*   10x Genomics MCP Server Documentation
 
 ‍

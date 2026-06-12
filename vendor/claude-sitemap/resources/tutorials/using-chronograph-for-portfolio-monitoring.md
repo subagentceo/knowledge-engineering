@@ -8,31 +8,31 @@ The Chronograph integration provides Claude with access to a portfolio monitorin
 
 The Chronograph integration enables Claude to access comprehensive portfolio and investment data.
 
-- **Entity Search and Discovery:** Search for companies, funds, groups, and general partners via substring similarity search. The search helps you quickly locate relevant investment entities across Chronograph’s database.
+*   **Entity Search and Discovery:** Search for companies, funds, groups, and general partners via substring similarity search. The search helps you quickly locate relevant investment entities across Chronograph’s database.
 
-- **Core Entity Information:** Retrieve detailed information about entities including their identifiers, core details, and filter options. This provides fundamental data needed for investment analysis.
+*   **Core Entity Information:** Retrieve detailed information about entities including their identifiers, core details, and filter options. This provides fundamental data needed for investment analysis.
 
-- **Portfolio Exposure Tracking:** List your top company exposures by investment status (Invested, Realized, or Unrealized), along with detailed company information for portfolio monitoring and risk assessment.
+*   **Portfolio Exposure Tracking:** List your top company exposures by investment status (Invested, Realized, or Unrealized), along with detailed company information for portfolio monitoring and risk assessment.
 
-- **Commitment History Analysis:** Calculate aggregate values for key metrics including NAV, Called, Distributed, Unfunded, Net IRR, Net MOIC, and Commitment Amount across your portfolio’s commitment history.
+*   **Commitment History Analysis:** Calculate aggregate values for key metrics including NAV, Called, Distributed, Unfunded, Net IRR, Net MOIC, and Commitment Amount across your portfolio’s commitment history.
 
-- **Investment Metrics Calculator:** Calculate individual metrics across specific investments, useful for aggregating and tracking performance. The calculator helps enumerate available metric options before running detailed queries.
+*   **Investment Metrics Calculator:** Calculate individual metrics across specific investments, useful for aggregating and tracking performance. The calculator helps enumerate available metric options before running detailed queries.
 
-- **Help Center Integration:** Access Chronograph’s help documentation directly through Claude. Search for relevant articles or retrieve complete article content to answer platform-specific questions.
+*   **Help Center Integration:** Access Chronograph’s help documentation directly through Claude. Search for relevant articles or retrieve complete article content to answer platform-specific questions.
 
 ## How Claude Uses Chronograph Data
 
 Claude applies Chronograph’s portfolio data to support your investment analysis.
 
-- Portfolio Performance Review: Retrieves commitment history data and calculates key metrics like IRR and MOIC to assess portfolio performance over time.
+*   Portfolio Performance Review: Retrieves commitment history data and calculates key metrics like IRR and MOIC to assess portfolio performance over time.
 
-- Exposure Analysis: Pulls top company exposures to identify concentration risks and diversification opportunities across your portfolio.
+*   Exposure Analysis: Pulls top company exposures to identify concentration risks and diversification opportunities across your portfolio.
 
-- Entity Research: Searches for and retrieves detailed information about companies, funds, or partners to support due diligence and investment decisions.
+*   Entity Research: Searches for and retrieves detailed information about companies, funds, or partners to support due diligence and investment decisions.
 
-- Metric Calculations: Computes custom investment metrics across your holdings to create tailored performance reports matching your analytical needs.
+*   Metric Calculations: Computes custom investment metrics across your holdings to create tailored performance reports matching your analytical needs.
 
-- Documentation Access: Searches Chronograph’s help center to answer questions about platform features, workflows, and best practices.
+*   Documentation Access: Searches Chronograph’s help center to answer questions about platform features, workflows, and best practices.
 
 ## Setting Up Chronograph Integration
 
@@ -114,12 +114,12 @@ Example input prompt:
 
 ## Tips for Using Chronograph
 
-- Use specific entity names or identifiers when possible for accurate results
+*   Use specific entity names or identifiers when possible for accurate results
 
-- For metric calculations, first call the Investment Metrics Calculator with query: {help: true} to see available options
+*   For metric calculations, first call the Investment Metrics Calculator with query: {help: true} to see available options
 
-- Specify investment status filters (Invested, Realized, Unrealized) to focus your analysis
+*   Specify investment status filters (Invested, Realized, Unrealized) to focus your analysis
 
-- Search the help center for platform-specific guidance before asking general questions
+*   Search the help center for platform-specific guidance before asking general questions
 
 **Note:** Claude currently cannot access documents, custom fields, or metrics that require a Primary Metric Type label.

@@ -22,12 +22,12 @@ People may experience one or more of the following when attempting to access you
 
 OneLogin user profiles contain distinct fields for username and email, which may hold different values. SCIM provisioning parameters and SAML attribute statements are configured independently and can each pull from a different field:
 
-| **OneLogin field** | **Typical value**                                         | **Commonly used by**                    |
-| ------------------ | --------------------------------------------------------- | --------------------------------------- |
-| `Username`         | `testuser1` or <testuser1@example.com>                    | Sometimes used in SCIM userName mapping |
-| `Email`            | <test.user.one@example.com>                               | Recommended for both SCIM and SAML      |
-| `Login Name`       | May differ from email if SSO is used for non-email logins | Legacy or custom configurations         |
-| Custom user fields | Custom attributes defined per org                         | Advanced attribute mappings             |
+| **OneLogin field** | **Typical value** | **Commonly used by** |
+| --- | --- | --- |
+| `Username` | `testuser1` or <testuser1@example.com> | Sometimes used in SCIM userName mapping |
+| `Email` | <test.user.one@example.com> | Recommended for both SCIM and SAML |
+| `Login Name` | May differ from email if SSO is used for non-email logins | Legacy or custom configurations |
+| Custom user fields | Custom attributes defined per org | Advanced attribute mappings |
 
 A common mismatch: the SCIM parameters tab maps the email attribute to Username (which may be an employee ID or short name) while the SAML attribute statement sends the Email field. Claude requires an **exact string match**.
 
@@ -75,7 +75,7 @@ OneLogin's Email field is the most reliable source for both SCIM and SAML, as it
 
 ## Trigger a full re-sync
 
-**Critical — Full sync required:** An incremental sync will _not_ update existing records after you change an attribute mapping. You must trigger a **full restart** of the provisioning cycle.
+**Critical — Full sync required:** An incremental sync will *not* update existing records after you change an attribute mapping. You must trigger a **full restart** of the provisioning cycle.
 
 1. In the app's **Provisioning** tab, look for a **Re-sync** or **Sync All** option and run it.
 
@@ -117,14 +117,14 @@ After correcting the attribute mapping and completing the full sync:
 
 ## Common issues
 
-| **Issue**                                                      | **Solution**                                                                                  |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| Username field holds a short name or employee ID, not an email | Switch SCIM to use the **Email** field.                                                       |
-| SAML attributes updated but SCIM parameters were not changed   | Both the Parameters tab (for SCIM) and the SSO/SAML attributes must be updated independently. |
-| Re-sync doesn't appear to trigger                              | Try removing and re-assigning affected people from the app.                                   |
-| Custom user fields are mapped but blank for some people        | Switch to the standard **Email** field.                                                       |
-| Emails updated in SCIM but person still can't log in           | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry.                 |
-| "Invite domain not allowed" when trying to re-add people       | Your organization's domain may not be verified in Claude. Contact Support.                    |
+| **Issue** | **Solution** |
+| --- | --- |
+| Username field holds a short name or employee ID, not an email | Switch SCIM to use the **Email** field. |
+| SAML attributes updated but SCIM parameters were not changed | Both the Parameters tab (for SCIM) and the SSO/SAML attributes must be updated independently. |
+| Re-sync doesn't appear to trigger | Try removing and re-assigning affected people from the app. |
+| Custom user fields are mapped but blank for some people | Switch to the standard **Email** field. |
+| Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
+| "Invite domain not allowed" when trying to re-add people | Your organization's domain may not be verified in Claude. Contact Support. |
 
 ---
 

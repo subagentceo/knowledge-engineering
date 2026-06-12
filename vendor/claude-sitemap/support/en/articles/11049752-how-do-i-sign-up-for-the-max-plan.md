@@ -42,7 +42,7 @@ This article applies to individual consumers signing up for paid Max plans. If y
 
 Your Pro plan will be upgraded to Max immediately, with billing adjusted on a prorated basis for the remainder of your current billing cycle.
 
-**Note:** When moving from an annual Pro plan to a Max plan, if the remaining balance on your annual Pro plan is greater than your Max plan price, you will receive a credit to your account for the remaining balance. This credit will be applied to future subscription costs.
+**Note:**  When moving from an annual Pro plan to a Max plan, if the remaining balance on your annual Pro plan is greater than your Max plan price, you will receive a credit to your account for the remaining balance. This credit will be applied to future subscription costs.
 
 ## How does subscription renewal work for Max plans?
 

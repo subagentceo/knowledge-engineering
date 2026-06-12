@@ -4,10 +4,10 @@ AppFolio, a technology leader powering the future of the real estate industry, u
 
 With Claude, AppFolio was able to:
 
-- 3x adoption rates due to Claude 3 Haiku's faster response times
-- Help property managers save an average of 11 hours weekly on communications
-- Process over half a million AI-suggested responses
-- Reduce message response time by an average of 26 seconds
+*   3x adoption rates due to Claude 3 Haiku's faster response times
+*   Help property managers save an average of 11 hours weekly on communications
+*   Process over half a million AI-suggested responses
+*   Reduce message response time by an average of 26 seconds
 
 ## Meeting the unique challenges of modern property management
 
@@ -33,11 +33,11 @@ This combination of speed, intelligence, and security through Amazon Bedrock's r
 
 AppFolio's Realm-X Messages platform leverages two Claude models for different communication needs:
 
-- Claude 3 Haiku handles high-volume, rapid-response scenarios where speed is critical for most general inquiries
-- Claude 3.5 Sonnet manages complex communications by:
-  - Incorporating resident history and current situation
-  - Checking for existing maintenance tickets where applicable
-  - Incorporating property-specific policies and amenity information
+*   Claude 3 Haiku handles high-volume, rapid-response scenarios where speed is critical for most general inquiries
+*   Claude 3.5 Sonnet manages complex communications by:
+    *   Incorporating resident history and current situation
+    *   Checking for existing maintenance tickets where applicable
+    *   Incorporating property-specific policies and amenity information
 
 ## Transforming property management efficiency and professionalism
 

@@ -2,9 +2,9 @@
 
 Perplexity, a conversational answer engine, uses the Claude model family to deliver factual and relevant search results to users. By employing various models—Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku—Perplexity optimizes cost, performance, and accuracy for both its free and paid users.
 
-- 2x faster response times with Claude 3.5 Sonnet
-- 2x more accurate results with Claude 3 Opus
-- <3 seconds for Claude 3 Haiku to read dense research
+*   2x faster response times with Claude 3.5 Sonnet
+*   2x more accurate results with Claude 3 Opus
+*   <3 seconds for Claude 3 Haiku to read dense research
 
 ## Using Claude to help generate answers
 
@@ -12,7 +12,7 @@ Perplexity is on a mission to change the way that we seek and discover informati
 
 The team at Perplexity strives to provide the best possible AI-powered search experience for its users while also balancing cost and performance. Since its launch, Perplexity has offered Claude models for users to power their searches. As new Claude models come to market, Perplexity has quickly updated its AI workflows to integrate the latest models, including Claude 3.5 Sonnet.
 
-With the capabilities of Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku, their team has been able to add new features and functionality to their platform without compromising on cost.
+With the capabilities of Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku, their team has been able to add new features and functionality to their platform without compromising on cost.  
 
 ## Improving accuracy and performance
 

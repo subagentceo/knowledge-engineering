@@ -4,9 +4,9 @@ Lazy AI uses Claude to lower the barrier to entry for web development by automat
 
 With Claude, Lazy AI sees the following improvements:
 
-- 51% reduction in code requiring multiple fixes
-- 73% success rate for first-attempt feature implementation
-- 64% accuracy in generating syntactically correct JavaScript code
+*   51% reduction in code requiring multiple fixes
+*   73% success rate for first-attempt feature implementation
+*   64% accuracy in generating syntactically correct JavaScript code
 
 ## Making software development more accessible
 
@@ -18,9 +18,9 @@ The challenge was to create a platform to automate complex tasks like cloud depl
 
 Lazy AI integrated Claude into their platform, leveraging Claude 3.5 Sonnet's advanced capabilities for coding tasks. This integration allowed Lazy AI to:
 
-- Generate full-stack web apps from user prompts
-- Automate cloud deployment processes
-- Improve code quality and reduce errors
+*   Generate full-stack web apps from user prompts
+*   Automate cloud deployment processes
+*   Improve code quality and reduce errors
 
 Szalontay says, "We believe that the best way to learn is through fun passion projects. What we think of as fun or as a personal project can often lead to innovation, and many fun projects can turn into successful businesses.”
 

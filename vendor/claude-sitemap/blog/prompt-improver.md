@@ -30,9 +30,9 @@ If your prompt doesn’t have examples, you can add them with Claude-driven exam
 
 Adding examples contributes to increased:
 
-- **Accuracy:** Reduces misinterpretation of instructions.
-- **Consistency:** Ensures desired output formatting.
-- **Performance:** Boosts Claude’s ability to handle complex tasks.
+*   **Accuracy:** Reduces misinterpretation of instructions.
+*   **Consistency:** Ensures desired output formatting.
+*   **Performance:** Boosts Claude’s ability to handle complex tasks.
 
 ## Evaluate prompts with ideal outputs
 

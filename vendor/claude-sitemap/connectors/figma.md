@@ -5,8 +5,8 @@ Pull in Figma context and generate high-quality code that aligns with your codeb
 You can use Figma in Claude to:  
 ‍  
 Map your flows with diagrams:  
-Turn your prompts into flow charts, Gantt charts, or diagrams in FigJam
-
+Turn your prompts into flow charts, Gantt charts, or diagrams in FigJam  
+  
 Implement designs as websites:  
 "Help me implement my Figma design as a website in HTML and CSS"
 

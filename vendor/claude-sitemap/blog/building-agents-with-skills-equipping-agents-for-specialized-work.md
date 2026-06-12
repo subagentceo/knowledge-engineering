@@ -115,9 +115,9 @@ As skills adoption grows, several patterns are emerging that point to where this
 
 Early skills were simple documentation references. Now we're seeing sophisticated multi-step workflows that coordinate data retrieval, complex calculations, and formatted output across multiple tools.
 
-- **Simple**: "Status report writer" (~100 lines) - Templates and formatting
-- **Intermediate**: "Financial model builder" (~800 lines) - Data retrieval, Excel modeling with Python
-- **Complex**: "RNA sequencing pipeline" (2,500+ lines) - Coordinates HISAT2, StringTie, DESeq2 analysis
+*   **Simple**: "Status report writer" (~100 lines) - Templates and formatting
+*   **Intermediate**: "Financial model builder" (~800 lines) - Data retrieval, Excel modeling with Python
+*   **Complex**: "RNA sequencing pipeline" (2,500+ lines) - Coordinates HISAT2, StringTie, DESeq2 analysis
 
 ### Skills and MCP
 
@@ -150,22 +150,22 @@ This emerging pattern of general agents equipped with MCP servers and skills is 
 
 Just after launching skills, we enhanced Claude for the financial services sector with skills that make Claude more useful for finance professionals:
 
-- **DCF model builder**: Constructs discounted cash flow models with proper WACC calculations and sensitivity analysis
-- **Comparable company analysis**: Generates comps tables with relevant multiples and benchmarking
-- **Earnings analysis**: Processes quarterly results and creates investment update reports
-- **Initiation coverage**: Builds comprehensive research reports with financial models
-- **Due diligence**: Structures M&A analysis with standardized frameworks
-- **Pitch materials**: Creates client presentations following industry standards
+*   **DCF model builder**: Constructs discounted cash flow models with proper WACC calculations and sensitivity analysis
+*   **Comparable company analysis**: Generates comps tables with relevant multiples and benchmarking
+*   **Earnings analysis**: Processes quarterly results and creates investment update reports
+*   **Initiation coverage**: Builds comprehensive research reports with financial models
+*   **Due diligence**: Structures M&A analysis with standardized frameworks
+*   **Pitch materials**: Creates client presentations following industry standards
 
 ### Healthcare & Life Sciences
 
 We've also enhanced our healthcare and life sciences offerings with skills that make Claude more useful for researchers, clinicians, and healthcare developers:
 
-- **Bioinformatics bundles**: Skills for scVI-tools and Nextflow deployments, essential for managing genomic pipelines and single-cell RNA sequencing
-- **Clinical trial protocol generation**: Accelerates protocol development for clinical research
-- **Scientific problem selection**: Helps researchers identify and frame impactful research questions
-- **FHIR development**: Helps developers write more accurate code for health data interoperability, connecting healthcare systems faster with fewer errors
-- **Prior authorization review**: Cuts administrative burden and accelerates patient access to needed care by cross-referencing coverage requirements, clinical guidelines, and patient records
+*   **Bioinformatics bundles**: Skills for scVI-tools and Nextflow deployments, essential for managing genomic pipelines and single-cell RNA sequencing
+*   **Clinical trial protocol generation**: Accelerates protocol development for clinical research
+*   **Scientific problem selection**: Helps researchers identify and frame impactful research questions
+*   **FHIR development**: Helps developers write more accurate code for health data interoperability, connecting healthcare systems faster with fewer errors
+*   **Prior authorization review**: Cuts administrative burden and accelerates patient access to needed care by cross-referencing coverage requirements, clinical guidelines, and patient records
 
 ## Standardizing Agent Skills
 
@@ -179,13 +179,13 @@ We're converging on an architecture for general agents, and skills provide a par
 
 **Resources:**
 
-- Don’t Build Agents, Build Skills Instead (YouTube Video)
-- Skills documentation
-- GitHub repository
-- Skills cookbook
-- Using skills in Claude
-- Skills API quickstart
-- Skills best practices documentation
+*   Don’t Build Agents, Build Skills Instead (YouTube Video)
+*   Skills documentation
+*   GitHub repository
+*   Skills cookbook
+*   Using skills in Claude
+*   Skills API quickstart
+*   Skills best practices documentation
 
 ### Acknowledgments:
 

@@ -31,9 +31,11 @@ List Skill Versions
 ### Returns
 
 - `BetaListSkillVersionsResponse: object { data, has_more, next_page }`
+
   - `data: array of object { id, created_at, description, 5 more }`
 
     List of skill versions.
+
     - `id: string`
 
       Unique identifier for the skill version.

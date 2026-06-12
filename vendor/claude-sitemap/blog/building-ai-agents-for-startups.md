@@ -88,9 +88,9 @@ At this stage, you have AI agents handling real work across different parts of y
 
 This is when you're ready to pursue larger challenges. Building them successfully requires incorporating these capabilities from the start:
 
-- **Build with modularity from the start.** Your needs will evolve, and redesigning from scratch wastes the progress you've made. Modular systems let you swap components and add capabilities without rebuilding everything.
-- **Make agent decisions visible.** When something goes wrong or a decision seems off, you need to trace exactly how the agent reached that conclusion. It's best to build observability into your systems from day one, retrofitting it into complex agents is painful.
-- **Keep humans in the loop where it matters.** Autonomy is powerful, but some decisions require human judgment. Design your agents to flag specific situations for approval rather than proceeding automatically on everything or nothing.
+*   **Build with modularity from the start.** Your needs will evolve, and redesigning from scratch wastes the progress you've made. Modular systems let you swap components and add capabilities without rebuilding everything.
+*   **Make agent decisions visible.** When something goes wrong or a decision seems off, you need to trace exactly how the agent reached that conclusion. It's best to build observability into your systems from day one, retrofitting it into complex agents is painful.
+*   **Keep humans in the loop where it matters.** Autonomy is powerful, but some decisions require human judgment. Design your agents to flag specific situations for approval rather than proceeding automatically on everything or nothing.
 
 These capabilities separate agents that get more responsibility from agents that stay stuck handling simple tasks. Building them takes time and experience, which is why starting small matters so much.
 

@@ -4,9 +4,9 @@ Benchling, a leading R&D platform for biotech, uses Claude in Amazon Bedrock to 
 
 With Claude, Benchling:
 
-- Saves scientists up to 2 weeks spent transforming complex data with Data Entry Assistant
-- Improves data quality and experiment reproducibility with Notebook Check
-- Speeds up answering scientific questions from hours to seconds with SQL Assistant
+*   Saves scientists up to 2 weeks spent transforming complex data with Data Entry Assistant
+*   Improves data quality and experiment reproducibility with Notebook Check
+*   Speeds up answering scientific questions from hours to seconds with SQL Assistant
 
 ## Building AI into everyday scientific work
 
@@ -30,9 +30,9 @@ Singhal explained, "The ability to use models that stay within the AWS cloud, th
 
 Benchling has launched three AI assistants powered by Claude, each targeting a critical pain point in scientific research:
 
-- **Data Entry Assistant**: Transforms unstructured data from study reports or instrument files into structured, searchable records. This saves hours per study, reduces transcription errors, and converts disconnected documents into usable data. "Almost always in these external study data transcription processes there's some data error that happens," explained Singhal. By automating this process with Claude, Benchling significantly reduces these errors.
-- **Notebook Check**: Automates the initial review process for scientific documentation, identifying errors and missing data before human reviewers see them. Over 100 organizations use this feature to accelerate reviews while catching mistakes that might otherwise go unnoticed.
-- **SQL Assistant**: Enables scientists to generate database queries and dashboards using plain English. This helps teams, especially those with limited technical expertise, unlock insights buried in their data.
+*   **Data Entry Assistant**: Transforms unstructured data from study reports or instrument files into structured, searchable records. This saves hours per study, reduces transcription errors, and converts disconnected documents into usable data. "Almost always in these external study data transcription processes there's some data error that happens," explained Singhal. By automating this process with Claude, Benchling significantly reduces these errors.
+*   **Notebook Check**: Automates the initial review process for scientific documentation, identifying errors and missing data before human reviewers see them. Over 100 organizations use this feature to accelerate reviews while catching mistakes that might otherwise go unnoticed.
+*   **SQL Assistant**: Enables scientists to generate database queries and dashboards using plain English. This helps teams, especially those with limited technical expertise, unlock insights buried in their data.
 
 ## Elevating research quality and accelerating discovery
 

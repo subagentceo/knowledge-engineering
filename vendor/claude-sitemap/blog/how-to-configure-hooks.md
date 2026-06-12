@@ -112,10 +112,10 @@ This PreToolUse hook example evaluates file writes before they execute. Claude r
 
 When to use PreToolUse:
 
-- Blocking dangerous Bash commands like rm -rf or force pushes
-- Auto-approving safe, repetitive operations to reduce prompt fatigue
-- Validating file paths before writes to prevent accidental overwrites
-- Modifying tool inputs to inject project-specific defaults
+*   Blocking dangerous Bash commands like rm -rf or force pushes
+*   Auto-approving safe, repetitive operations to reduce prompt fatigue
+*   Validating file paths before writes to prevent accidental overwrites
+*   Modifying tool inputs to inject project-specific defaults
 
 ### PermissionRequest
 
@@ -143,10 +143,10 @@ This example auto-approves any Bash command starting with npm test. The matcher 
 
 When to use PermissionRequest:
 
-- Auto-approving test commands you run dozens of times per session
-- Blocking write access to production configuration files
-- Allowing read operations on specific directories without prompts
-- Denying any command that matches a dangerous pattern
+*   Auto-approving test commands you run dozens of times per session
+*   Blocking write access to production configuration files
+*   Allowing read operations on specific directories without prompts
+*   Denying any command that matches a dangerous pattern
 
 ### PostToolUse
 
@@ -174,10 +174,10 @@ This example of PostToolUse runs Prettier on any file Claude writes or edits. Th
 
 When to use PostToolUse:
 
-- Running Prettier, Black, or gofmt after every file write to enforce formatting
-- Logging all file modifications to an audit trail
-- Triggering linters and showing warnings after code changes
-- Sending notifications when certain operations complete
+*   Running Prettier, Black, or gofmt after every file write to enforce formatting
+*   Logging all file modifications to an audit trail
+*   Triggering linters and showing warnings after code changes
+*   Sending notifications when certain operations complete
 
 ### PreCompact
 
@@ -205,9 +205,9 @@ This PreCompact example backs up the transcript before automatic compaction. The
 
 When to use PreCompact:
 
-- Backing up the full transcript to a file before summarization
-- Extracting and saving important decisions or code snippets
-- Logging session milestones for later review
+*   Backing up the full transcript to a file before summarization
+*   Extracting and saving important decisions or code snippets
+*   Logging session milestones for later review
 
 ### SessionStart
 
@@ -234,9 +234,9 @@ Every session starts with Claude knowing your current git status and TODO list. 
 
 When to use SessionStart:
 
-- Feeding Claude your current git branch and recent commits
-- Loading the contents of your TODO list or sprint backlog
-- Injecting environment-specific configuration details
+*   Feeding Claude your current git branch and recent commits
+*   Loading the contents of your TODO list or sprint backlog
+*   Injecting environment-specific configuration details
 
 ### Stop
 
@@ -263,10 +263,10 @@ The script can return JSON with "continue": true to make Claude continue working
 
 When to use Stop:
 
-- Forcing Claude to continue until all items in a checklist are done
-- Verifying that tests pass before considering a task complete
-- Triggering summary generation at the end of a session
-- Checking that generated code compiles before stopping
+*   Forcing Claude to continue until all items in a checklist are done
+*   Verifying that tests pass before considering a task complete
+*   Triggering summary generation at the end of a session
+*   Checking that generated code compiles before stopping
 
 ### SubagentStop
 
@@ -284,16 +284,16 @@ This hook fires whenever a subagent created via the Task tool finishes. Works th
           }
         ]
       }
-    ]
+          ]
   }
 }
 ```
 
 When to use SubagentStop:
 
-- Validating that subagent output meets quality criteria
-- Triggering follow-up actions based on subagent results
-- Logging subagent activity for debugging or auditing
+*   Validating that subagent output meets quality criteria
+*   Triggering follow-up actions based on subagent results
+*   Logging subagent activity for debugging or auditing
 
 ### UserPromptSubmit
 
@@ -320,10 +320,10 @@ In this example, every time you submit a prompt, Claude receives the contents of
 
 When to use UserPromptSubmit:
 
-- Injecting current sprint context or project priorities with every prompt
-- Validating prompts before they reach Claude
-- Blocking certain types of requests based on content
-- Adding dynamic context like recent error logs or test results
+*   Injecting current sprint context or project priorities with every prompt
+*   Validating prompts before they reach Claude
+*   Blocking certain types of requests based on content
+*   Adding dynamic context like recent error logs or test results
 
 ## Configuration and file locations
 
@@ -359,11 +359,11 @@ For example:
 }
 ```
 
-The pipe syntax lets you match multiple tools: "Write|Edit" triggers for either, whereas wildcards match everything: "\*" or an empty string matches all tools.
+The pipe syntax lets you match multiple tools: "Write|Edit" triggers for either, whereas wildcards match everything: "*" or an empty string matches all tools.
 
 **Note:** Matchers are case sensitive, so "bash" won't be matched to the Bash tool.
 
-For finer control, argument patterns like "Bash(npm test*)" can match specific command arguments. MCP tool patterns follow the format "mcp**memory**.*" for Model Context Protocol tools.
+For finer control, argument patterns like "Bash(npm test*)" can match specific command arguments. MCP tool patterns follow the format "mcp__memory__.*" for Model Context Protocol tools.
 
 ## Input, output, and structured responses
 

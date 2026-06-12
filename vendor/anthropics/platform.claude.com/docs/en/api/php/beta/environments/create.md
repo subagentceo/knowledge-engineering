@@ -35,9 +35,10 @@ Create a new environment with the specified configuration.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -123,16 +124,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

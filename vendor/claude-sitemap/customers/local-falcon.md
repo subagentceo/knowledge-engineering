@@ -4,10 +4,10 @@ Local Falcon transforms how 95,000 businesses worldwide understand and improve t
 
 Their use of Claude has delivered remarkable results, enabling Local Falcon to:
 
-- Analyze up to 1 million customer reviews simultaneously
-- Save businesses 20+ hours monthly on review analysis
-- Increase recurring revenue by 15%
-- Deploy an MVP in under three weeks
+*   Analyze up to 1 million customer reviews simultaneously
+*   Save businesses 20+ hours monthly on review analysis
+*   Increase recurring revenue by 15%
+*   Deploy an MVP in under three weeks
 
 ## Solving the local search visibility puzzle
 
@@ -25,12 +25,12 @@ Security was equally crucial given the sensitive nature of customer data. Hunter
 
 Local Falcon's Reviews Analysis tool uses Claude to help businesses in several ways:
 
-- Analyzes up to 1 million customer reviews to identify trending complaints and praise
-- Breaks down feedback by location, helping multi-location businesses understand each branch
-- Identifies specific issues affecting ratings, such as wait times or service quality
-- Compares performance against top competitors for targeted improvements
-- Provides step-by-step recommendations for addressing common complaints
-- Tracks sentiment changes over time to measure improvement initiatives
+*   Analyzes up to 1 million customer reviews to identify trending complaints and praise
+*   Breaks down feedback by location, helping multi-location businesses understand each branch
+*   Identifies specific issues affecting ratings, such as wait times or service quality
+*   Compares performance against top competitors for targeted improvements
+*   Provides step-by-step recommendations for addressing common complaints
+*   Tracks sentiment changes over time to measure improvement initiatives
 
 ![Local Falcon Product Shot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05f5931877a22cc3bc9_4a5a344f6677a8ee633dff826439c12fe8ffa2a1-1920x1080.jpeg)
 

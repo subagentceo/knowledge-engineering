@@ -5,9 +5,11 @@ Cowork lets Claude work on your computer with access to your files, browser, con
 Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 
 - **Claude Desktop for macOS**
+
   - **[Click here](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)** to download
 
 - **Claude Desktop for Windows**
+
   - Cowork requires the latest version of Claude for Windows. Download or update at **[claude.com/download](https://claude.com/download)**.
 
 ---

@@ -4,10 +4,10 @@ Syracuse University, a private research university in New York with more than 20
 
 ## With Claude, Syracuse University achieved:
 
-- 80-90% weekly active usage rate among licensed users, with the majority of conversations including file uploads rather than text-only prompts
-- 394% growth in student peak daily active users and 214% growth in staff from October through April, with steady increases across all categories
-- Donor query turnaround reduced from two weeks to instant results, giving advancement staff immediate access to filtered, personalized reports
-- 123 of 139 university leadership team members actively using Claude, signaling top-down institutional commitment
-- Class selection transformed from keyword search to natural language queries through Clementine, a new tool built on Claude Opus 4.6
-- Data preparation time for AI projects cut from three months to six weeks between first and second implementations
-- Claude Code adopted by non-technical staff within one week of pilot launch
+*   80-90% weekly active usage rate among licensed users, with the majority of conversations including file uploads rather than text-only prompts
+*   394% growth in student peak daily active users and 214% growth in staff from October through April, with steady increases across all categories
+*   Donor query turnaround reduced from two weeks to instant results, giving advancement staff immediate access to filtered, personalized reports
+*   123 of 139 university leadership team members actively using Claude, signaling top-down institutional commitment
+*   Class selection transformed from keyword search to natural language queries through Clementine, a new tool built on Claude Opus 4.6
+*   Data preparation time for AI projects cut from three months to six weeks between first and second implementations
+*   Claude Code adopted by non-technical staff within one week of pilot launch

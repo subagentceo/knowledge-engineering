@@ -38,9 +38,9 @@ You can work with Claude in two different ways:
 
 Before writing integration code or setting up testing environments, you can validate your understanding of an API's requirements and potential pitfalls. This upfront analysis helps you identify authentication flows, error scenarios, and rate limiting strategies upfront, reducing the need for post-implementation debugging. Some common integration questions you might ask Claude:
 
-- "Here's a Stripe webhook signature error. What validation steps am I missing?"
-- "Why might OAuth tokens expire during multi-step checkout flows?"
-- "Compare webhook vs polling for real-time inventory updates"
+*   "Here's a Stripe webhook signature error. What validation steps am I missing?"
+*   "Why might OAuth tokens expire during multi-step checkout flows?"
+*   "Compare webhook vs polling for real-time inventory updates"
 
 This immediate feedback supports making informed integration decisions during development rather than discovering issues through production incidents.
 
@@ -84,9 +84,9 @@ Claude Code analyzes API specifications, creates typed clients matching your pro
 
 Some integrations require complex authentication flows. Claude Code handles OAuth2, JWT validation, and API key rotation without hardcoded credentials:
 
-- "Build OAuth2 flow for Google Calendar with automatic token refresh"
-- "Create rotating API key system for Twilio with monitoring"
-- "Implement JWT validation for microservices"
+*   "Build OAuth2 flow for Google Calendar with automatic token refresh"
+*   "Create rotating API key system for Twilio with monitoring"
+*   "Implement JWT validation for microservices"
 
 Claude Code can suggest implementations using environment variables and integration patterns that match your existing secret management approach.
 
@@ -94,9 +94,9 @@ Claude Code can suggest implementations using environment variables and integrat
 
 Once implemented, ask Claude to generate and run tests verifying that the integrations handle edge cases properly:
 
-- "Create tests that reproduce this rate limit scenario"
-- "Generate contract tests for schema validation”
-- "Run tests for authentication refresh during long operations"
+*   "Create tests that reproduce this rate limit scenario"
+*   "Generate contract tests for schema validation”
+*   "Run tests for authentication refresh during long operations"
 
 ### Ship with automated workflows
 

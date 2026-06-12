@@ -12,25 +12,25 @@ Install for Outlook
 
 Install for OutlookInstall for Outlook
 
-![](<https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3eb4a8e9112a9e3a235_Microsoft_Office_Excel_(2025%E2%80%93present)%201.svg>)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3eb4a8e9112a9e3a235_Microsoft_Office_Excel_\(2025%E2%80%93present\)%201.svg)
 
 ## Claude for Excel
 
 Ask about any cell, update assumptions without breaking formulas, and build models from scratch.
 
-![](<https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea4f91467c3bbcde6f_Microsoft_Office_PowerPoint_(2025%E2%80%93present)%201.svg>)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea4f91467c3bbcde6f_Microsoft_Office_PowerPoint_\(2025%E2%80%93present\)%201.svg)
 
 ## Claude for PowerPoint
 
 Build slides in your template, edit what you've selected, and generate native charts and diagrams.
 
-![](<https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea39f537d5a9875aee_Microsoft_Office_Word_(2025%E2%80%93present)%201.svg>)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea39f537d5a9875aee_Microsoft_Office_Word_\(2025%E2%80%93present\)%201.svg)
 
 ## Claude for Word
 
 Edit with tracked changes, respond to comment threads, and update content using company styles.
 
-![](<https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea2795ae3e05c000b8_Microsoft_Outlook_Icon_(2025%E2%80%93present)%201.svg>)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69efc3ea2795ae3e05c000b8_Microsoft_Outlook_Icon_\(2025%E2%80%93present\)%201.svg)
 
 Beta
 

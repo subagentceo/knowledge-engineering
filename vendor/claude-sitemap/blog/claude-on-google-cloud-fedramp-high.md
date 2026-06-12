@@ -12,9 +12,9 @@ Similarly, Defense contractors and agencies can use Claude within environments a
 
 With Claude, federal agencies can now:
 
-- Build AI applications and workflows while maintaining compliance with stringent security standards
-- Access the complete Claude model family, including Claude 3.7 Sonnet–our most intelligent model to date
-- Support digital transformation initiatives with frontier AI capabilities
+*   Build AI applications and workflows while maintaining compliance with stringent security standards
+*   Access the complete Claude model family, including Claude 3.7 Sonnet–our most intelligent model to date
+*   Support digital transformation initiatives with frontier AI capabilities
 
 ### Clearing the way for government AI innovation
 

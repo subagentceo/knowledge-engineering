@@ -25,6 +25,7 @@ Create Vault
 - `beta_managed_agents_vault: object { id, archived_at, created_at, 4 more }`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -46,6 +47,7 @@ Create Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`

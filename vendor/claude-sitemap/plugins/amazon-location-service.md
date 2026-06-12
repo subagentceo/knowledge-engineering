@@ -6,8 +6,8 @@ The plugin connects to the AWS MCP server for live API access and bundles detail
 
 **How to use:** Ask Claude to help you add location features to your project. Example prompts:
 
-- "Add an interactive map to my web app using Amazon Location Service"
-- "Implement a places search autocomplete with Amazon Location Service"
-- "Calculate a driving route between two addresses and display it on a map"
-- "Set up geocoding to convert addresses to coordinates in my app"
-- "Add address verification to my checkout form using Amazon Location Service"
+*   "Add an interactive map to my web app using Amazon Location Service"
+*   "Implement a places search autocomplete with Amazon Location Service"
+*   "Calculate a driving route between two addresses and display it on a map"
+*   "Set up geocoding to convert addresses to coordinates in my app"
+*   "Add address verification to my checkout form using Amazon Location Service"

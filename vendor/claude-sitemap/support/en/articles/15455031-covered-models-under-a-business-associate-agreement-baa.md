@@ -21,10 +21,14 @@ Each row in the table is a configuration: a product, how you access it, and whet
 | Claude Code | Claude Enterprise | Standard retention | ❌ No | ✅ Yes |
 | Claude Code | 1P API org | Zero data retention | ✅ Yes | ❌ No |
 | Claude Code | 1P API org | Standard retention | ❌ No | ✅ Yes |
+| Claude Code | 3P API (Google Vertex only)* | Standard retention | ❌ No | ✅ Yes |
 | Cowork | Claude Enterprise | Standard retention | ❌ No | ✅ Yes |
 | Claude API (1P API) | HIPAA-ready API | Standard retention | ✅ Yes | ✅ Yes |
 | Claude API (1P API) | Regular API | Zero data retention | ✅ Yes | ❌ No |
 | Claude API (1P API) | Regular API | Standard retention | ❌ No | ✅ Yes |
+
+*Anthropic's BAA doesn't apply to services purchased through a third-party cloud provider. For questions about coverage on these platforms, contact your cloud provider and your Anthropic account team.
+​
 
 Requests to a Covered Model from a ZDR-enabled organization or workspace return an error.
 
@@ -63,7 +67,3 @@ Some organizations may consider setting up a separate, non-ZDR organization to a
 - **Cowork is not an Eligible Service under Anthropic's BAA in any configuration**, regardless of retention settings or the model in use, and shouldn't be used with PHI.
 
 - **If your teams work across multiple organizations with different coverage, you're responsible for ensuring PHI is only submitted through Eligible Services**, configured according to the **[Implementation Guide for HIPAA Entities](https://trust.anthropic.com/resources?s=rgirr4qe8u7ek8c2igx3&name=claude-for-enterprise-hipaa-ready-offering-implementation-guide)**.
-
-## Third-party cloud platforms
-
-Anthropic's BAA doesn't apply to services purchased through a third-party cloud provider. For questions about coverage on these platforms, contact your cloud provider and your Anthropic account team.

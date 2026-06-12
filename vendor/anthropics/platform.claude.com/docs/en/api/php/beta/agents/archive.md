@@ -17,6 +17,7 @@ Archive Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`

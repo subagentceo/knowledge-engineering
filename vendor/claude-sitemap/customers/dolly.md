@@ -4,10 +4,10 @@ Dolly helps UK teachers save time by using Claude in Amazon Bedrock to instantly
 
 **Key results with Claude**
 
-- 60-70% reduction in marking time for digital quizzes and assessments
-- 8-10 hours saved per teacher per week across multiple classes
-- Quiz marking reduced from 1.5-2 hours to instant feedback for a class of 30
-- 50% reduction in report writing time with AI-generated narrative summaries
+*   60-70% reduction in marking time for digital quizzes and assessments
+*   8-10 hours saved per teacher per week across multiple classes
+*   Quiz marking reduced from 1.5-2 hours to instant feedback for a class of 30
+*   50% reduction in report writing time with AI-generated narrative summaries
 
 ## The teaching profession faces a workload crisis
 

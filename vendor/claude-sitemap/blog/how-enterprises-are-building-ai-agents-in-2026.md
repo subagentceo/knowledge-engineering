@@ -36,4 +36,4 @@ This transition requires purpose-built infrastructure: models optimized for codi
 
 We're also finding that while coding has been the proving ground for AI agents,  it's just the beginning. As agents expand into research, customer service, financial planning, and supply chain operations, the organizations that build expertise now will capture disproportionate value as the technology matures.
 
-**Read the full 2026 State of AI Agents Report,** **here\*\***.\*\*
+**Read the full 2026 State of AI Agents Report,** **here****.**

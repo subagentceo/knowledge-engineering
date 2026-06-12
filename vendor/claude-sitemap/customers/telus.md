@@ -6,11 +6,11 @@ TELUS, a leading communications technology company headquartered in Canada, is e
 
 Key AI results at TELUS:
 
-- **13,000+** custom AI solutions created by team members across all departments
-- **57,000** team members actively using generative AI to boost their work
-- Time savings of **40 minutes** per AI interaction by completing work faster, with **500,000+** hours saved to date
-- **47** large-scale GenAI solutions that have already driven over **$90 million** in benefits to-date
-- Engineering teams are shipping code **30% faster**
+*   **13,000+** custom AI solutions created by team members across all departments
+*   **57,000** team members actively using generative AI to boost their work
+*   Time savings of **40 minutes** per AI interaction by completing work faster, with **500,000+** hours saved to date
+*   **47** large-scale GenAI solutions that have already driven over **$90 million** in benefits to-date
+*   Engineering teams are shipping code **30% faster**
 
 ## Solving the enterprise complexity challenge
 

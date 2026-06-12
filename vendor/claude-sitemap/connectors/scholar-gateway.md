@@ -1,6 +1,6 @@
 # Scholar Gateway
 
-Enhance responses with scholarly research and citations. The Scholar Gateway Connector grounds Claude's responses in peer-reviewed sources with verifiable citations and DOI links, helping you ensure your Claude-assisted research meets professional research standards.
+Enhance responses with scholarly research and citations. The Scholar Gateway Connector grounds Claude's responses in peer-reviewed sources with verifiable citations and DOI links, helping you ensure your Claude-assisted research meets professional research standards.  
 
 You can use the Scholar Gateway connector to:
 

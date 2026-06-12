@@ -33,6 +33,7 @@ List Files
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.

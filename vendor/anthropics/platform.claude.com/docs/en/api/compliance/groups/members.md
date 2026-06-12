@@ -31,6 +31,7 @@ List Compliance Group Members
 - `data: array of object { created_at, email, updated_at, user_id }`
 
   List of group members
+
   - `created_at: string`
 
     Membership creation timestamp (ISO 8601)
@@ -86,6 +87,7 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID/members \
 - `MemberListResponse object { created_at, email, updated_at, user_id }`
 
   Group member for compliance responses.
+
   - `created_at: string`
 
     Membership creation timestamp (ISO 8601)

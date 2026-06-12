@@ -31,9 +31,10 @@ Long poll for work items in the queue.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 

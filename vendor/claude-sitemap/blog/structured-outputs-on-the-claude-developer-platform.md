@@ -12,9 +12,9 @@ With structured outputs, developers can eliminate schema-related parsing errors 
 
 For developers building applications and agents in production, a single error in data formatting can cause cascading failures. Structured outputs solves this by guaranteeing your response matches the exact structure you define, without any impact to model performance. This makes Claude dependable for applications and agents where accuracy is critical, including:
 
-- **Data extraction** when downstream systems rely on error-free, consistent formats.
-- **Multi-agent architectures** where consistent communication between agents is critical for a performant, stable experience.
-- **Complex search tools** where multiple search fields must be filled in accurately and conform to specific patterns.
+*   **Data extraction** when downstream systems rely on error-free, consistent formats.
+*   **Multi-agent architectures** where consistent communication between agents is critical for a performant, stable experience.
+*   **Complex search tools** where multiple search fields must be filled in accurately and conform to specific patterns.
 
 Structured outputs can be used two ways: with JSON or tools. When used with JSON, you provide your schema definition in the API request. For tools, you define your tool specifications, and Claude's output conforms to those tool definitions automatically.
 

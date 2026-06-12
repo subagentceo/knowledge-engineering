@@ -54,25 +54,25 @@ Include concrete examples showing correct usage. Specify what the skill cannot d
 
 Depending on what Claude surface you’re building on, here’s how to upload your skill for use: 
 
-- Claude.ai (Claude apps): Go to **Settings** and add your custom skill there. Custom skills require a Pro, Max, Team, or Enterprise plan with code execution enabled. Skills uploaded here are individual to each user—they are not shared organization-wide and cannot be centrally managed by admins.
-- Claude Code: Create a skills/ directory in your plugin or project root and add skill folders containing SKILL.md files. Claude discovers and uses them automatically when the plugin is installed. Example structure:
+*   Claude.ai (Claude apps): Go to **Settings** and add your custom skill there. Custom skills require a Pro, Max, Team, or Enterprise plan with code execution enabled. Skills uploaded here are individual to each user—they are not shared organization-wide and cannot be centrally managed by admins.
+*   Claude Code: Create a skills/ directory in your plugin or project root and add skill folders containing SKILL.md files. Claude discovers and uses them automatically when the plugin is installed. Example structure:
 
 ```markdown
 my-project/
 ├── skills/
-│ └── my-skill/
-│ └── SKILL.md
+│   └── my-skill/
+│       └── SKILL.md
 ```
 
-- Claude Developer Platform: Upload skills via the Skills API (/v1/skills endpoints). Use a POST request with the required beta headers:
+*   Claude Developer Platform: Upload skills via the Skills API (/v1/skills endpoints). Use a POST request with the required beta headers:
 
 ```markdown
 curl -X POST "https://api.anthropic.com/v1/skills" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: skills-2025-10-02" \
- -F "display_title=My Skill Name" \
- -F "files[]=@my-skill/SKILL.md;filename=my-skill/SKILL.md"
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: skills-2025-10-02" \
+  -F "display_title=My Skill Name" \
+  -F "files[]=@my-skill/SKILL.md;filename=my-skill/SKILL.md"
 ```
 
 ### 4. Testing and validation
@@ -81,14 +81,14 @@ Test your skill with realistic scenarios before deploying it. Systematic testing
 
 Create a test matrix covering three scenarios:
 
-- **Normal operations**: Test the skill with typical requests it should handle perfectly. If you built a financial analysis skill, try "analyze Microsoft's latest earnings" or "build a datapack for this 10-K filing." These baseline tests confirm your instructions work as intended.
-- **Edge cases**: Test with incomplete or unusual inputs. What happens when data is missing? When file formats are unexpected? When users provide ambiguous instructions? Your skill should handle these gracefully—either producing degraded but useful output or explaining what's needed to proceed.
-- **Out-of-scope requests**: Test with tasks that seem related but shouldn't trigger your skill. If you built an NDA review skill, try requesting "review this employment agreement" or "analyze this lease." The skill should stay dormant, letting other skills or general Claude capabilities handle the request.
+*   **Normal operations**: Test the skill with typical requests it should handle perfectly. If you built a financial analysis skill, try "analyze Microsoft's latest earnings" or "build a datapack for this 10-K filing." These baseline tests confirm your instructions work as intended.
+*   **Edge cases**: Test with incomplete or unusual inputs. What happens when data is missing? When file formats are unexpected? When users provide ambiguous instructions? Your skill should handle these gracefully—either producing degraded but useful output or explaining what's needed to proceed.
+*   **Out-of-scope requests**: Test with tasks that seem related but shouldn't trigger your skill. If you built an NDA review skill, try requesting "review this employment agreement" or "analyze this lease." The skill should stay dormant, letting other skills or general Claude capabilities handle the request.
 
 Consider implementing the following tests for even deeper validation:
 
-- **Triggering tests:** Does the skill activate when expected? Test with both explicit requests ("use the financial datapack skill to analyze this company") and natural requests ("help me understand this company's financials"). Does it stay inactive when irrelevant? A well-scoped skill knows when not to activate. Test similar but distinct requests to verify boundaries.
-- **Functional tests:** These include output consistency (do multiple runs with similar inputs produce comparable results?), usability (can someone unfamiliar with the domain use it successfully?), and documentation accuracy (do your examples match actual behavior?). 
+*   **Triggering tests:** Does the skill activate when expected? Test with both explicit requests ("use the financial datapack skill to analyze this company") and natural requests ("help me understand this company's financials"). Does it stay inactive when irrelevant? A well-scoped skill knows when not to activate. Test similar but distinct requests to verify boundaries.
+*   **Functional tests:** These include output consistency (do multiple runs with similar inputs produce comparable results?), usability (can someone unfamiliar with the domain use it successfully?), and documentation accuracy (do your examples match actual behavior?). 
 
 ### 5. Iterate based on usage
 
@@ -134,12 +134,11 @@ These separate files don't need to represent mutually exclusive paths. The key p
 
 ### Skill example #1: docx creation skill
 
-````markdown
+```markdown
 #---
 name: docx
 description: "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
 license: Proprietary. LICENSE.txt has complete terms
-
 ---
 
 # DOCX creation, editing, and analysis
@@ -151,15 +150,12 @@ A user may ask you to create, edit, or analyze the contents of a .docx file. A .
 ## Workflow Decision Tree
 
 ### Reading/Analyzing Content
-
 Use "Text extraction" or "Raw XML access" sections below
 
 ### Creating New Document
-
 Use "Creating a new Word document" workflow
 
 ### Editing Existing Document
-
 - **Your own document + simple changes**
   Use "Basic OOXML editing" workflow
 
@@ -172,7 +168,6 @@ Use "Creating a new Word document" workflow
 ## Reading and analyzing content
 
 ### Text extraction
-
 If you just need to read the text contents of a document, you should convert the document to markdown using pandoc. Pandoc provides excellent support for preserving document structure and can show tracked changes:
 
 ```bash
@@ -180,29 +175,24 @@ If you just need to read the text contents of a document, you should convert the
 pandoc --track-changes=all path-to-file.docx -o output.md
 # Options: --track-changes=accept/reject/all
 ```
-````
 
 ### Raw XML access
-
 You need raw XML access for: comments, complex formatting, document structure, embedded media, and metadata. For any of these features, you'll need to unpack a document and read its raw XML contents.
 
 #### Unpacking a file
-
 `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 
 #### Key file structures
-
-- `word/document.xml` - Main document contents
-- `word/comments.xml` - Comments referenced in document.xml
-- `word/media/` - Embedded images and media files
-- Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
+* `word/document.xml` - Main document contents
+* `word/comments.xml` - Comments referenced in document.xml
+* `word/media/` - Embedded images and media files
+* Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
 
 ## Creating a new Word document
 
 When creating a new Word document from scratch, use **docx-js**, which allows you to create Word documents using JavaScript/TypeScript.
 
 ### Workflow
-
 1. **MANDATORY - READ ENTIRE FILE**: Read [`docx-js.md`](docx-js.md) (~500 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with document creation.
 2. Create a JavaScript/TypeScript file using Document, Paragraph, TextRun components (You can assume all dependencies are installed, but if not, refer to the dependencies section below)
 3. Export as .docx using Packer.toBuffer()
@@ -212,7 +202,6 @@ When creating a new Word document from scratch, use **docx-js**, which allows yo
 When editing an existing Word document, use the **Document library** (a Python library for OOXML manipulation). The library automatically handles infrastructure setup and provides methods for document manipulation. For complex scenarios, you can access the underlying DOM directly through the library.
 
 ### Workflow
-
 1. **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](ooxml.md) (~600 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for the Document library API and XML patterns for directly editing document files.
 2. Unpack the document: `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 3. Create and run a Python script using the Document library (see "Document Library" section in ooxml.md)
@@ -230,7 +219,6 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
 When implementing tracked changes, only mark text that actually changes. Repeating unchanged text makes edits harder to review and appears unprofessional. Break replacements into: [unchanged text] + [deletion] + [insertion] + [unchanged text]. Preserve the original run's RSID for unchanged text by extracting the `<w:r>` element from the original and reusing it.
 
 Example - Changing "30 days" to "60 days" in a sentence:
-
 ```python
 # BAD - Replaces entire sentence
 '<w:del><w:r><w:delText>The term is 30 days.</w:delText></w:r></w:del><w:ins><w:r><w:t>The term is 60 days.</w:t></w:r></w:ins>'
@@ -242,7 +230,6 @@ Example - Changing "30 days" to "60 days" in a sentence:
 ### Tracked changes workflow
 
 1. **Get markdown representation**: Convert document to markdown with tracked changes preserved:
-
    ```bash
    pandoc --track-changes=all path-to-file.docx -o current.md
    ```
@@ -286,7 +273,6 @@ Example - Changing "30 days" to "60 days" in a sentence:
    **Note**: Always grep `word/document.xml` immediately before writing a script to get current line numbers and verify text content. Line numbers change after each script run.
 
 5. **Pack the document**: After all batches are complete, convert the unpacked directory back to .docx:
-
    ```bash
    python ooxml/scripts/pack.py unpacked reviewed-document.docx
    ```
@@ -303,12 +289,12 @@ Example - Changing "30 days" to "60 days" in a sentence:
      ```
    - Check that no unintended changes were introduced
 
+
 ## Converting Documents to Images
 
 To visually analyze Word documents, convert them to images using a two-step process:
 
 1. **Convert DOCX to PDF**:
-
    ```bash
    soffice --headless --convert-to pdf document.docx
    ```
@@ -320,7 +306,6 @@ To visually analyze Word documents, convert them to images using a two-step proc
    This creates files like `page-1.jpg`, `page-2.jpg`, etc.
 
 Options:
-
 - `-r 150`: Sets resolution to 150 DPI (adjust for quality/size balance)
 - `-jpeg`: Output JPEG format (use `-png` for PNG if preferred)
 - `-f N`: First page to convert (e.g., `-f 2` starts from page 2)
@@ -328,15 +313,12 @@ Options:
 - `page`: Prefix for output files
 
 Example for specific range:
-
 ```bash
 pdftoppm -jpeg -r 150 -f 2 -l 5 document.pdf page  # Converts only pages 2-5
 ```
 
 ## Code Style Guidelines
-
 **IMPORTANT**: When generating code for DOCX operations:
-
 - Write concise code
 - Avoid verbose variable names and redundant operations
 - Avoid unnecessary print statements
@@ -350,8 +332,7 @@ Required dependencies (install if not available):
 - **LibreOffice**: `sudo apt-get install libreoffice` (for PDF conversion)
 - **Poppler**: `sudo apt-get install poppler-utils` (for pdftoppm to convert PDF to images)
 - **defusedxml**: `pip install defusedxml` (for secure XML parsing)
-
-````
+```
 
 **What makes it strong**: Provides a clear decision tree that routes Claude to the right workflow based on task type, uses progressive disclosure to keep the main file lean while referencing detailed implementation files only when needed, and includes concrete good/bad examples that show exactly how to implement complex patterns like tracked changes.
 
@@ -430,7 +411,7 @@ To access Anthropic's official brand identity and style resources, use this skil
 - Uses RGB color values for precise brand matching
 - Applied via python-pptx's RGBColor class
 - Maintains color fidelity across different systems
-````
+```
 
 **What makes it strong**: Provides precise, actionable information Claude doesn't inherently have (exact hex codes, font names, size thresholds) with a clear description that tells Claude both what it does and when to trigger it.
 
@@ -442,7 +423,6 @@ To access Anthropic's official brand identity and style resources, use this skil
 name: frontend-design
 description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
-
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
@@ -452,7 +432,6 @@ The user provides frontend requirements: a component, page, application, or inte
 ## Design Thinking
 
 Before coding, understand the context and commit to a BOLD aesthetic direction:
-
 - **Purpose**: What problem does this interface solve? Who uses it?
 - **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
 - **Constraints**: Technical requirements (framework, performance, accessibility).
@@ -461,7 +440,6 @@ Before coding, understand the context and commit to a BOLD aesthetic direction:
 **CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
 
 Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
-
 - Production-grade and functional
 - Visually striking and memorable
 - Cohesive with a clear aesthetic point-of-view
@@ -470,7 +448,6 @@ Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
 ## Frontend Aesthetics Guidelines
 
 Focus on:
-
 - **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
 - **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
 - **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
@@ -510,19 +487,19 @@ Regardless of your team size, we suggest creating a shared document repository w
 
 **For medium to large teams**, establish a skills governance process:
 
-- Designate skill owners for each domain (finance, legal, marketing)
-- Maintain a central wiki or shared drive as your skill library
-- Include usage examples and common troubleshooting for each skill
-- Version your skills and document changes in a changelog
-- Schedule quarterly reviews to update or retire outdated skills
+*   Designate skill owners for each domain (finance, legal, marketing)
+*   Maintain a central wiki or shared drive as your skill library
+*   Include usage examples and common troubleshooting for each skill
+*   Version your skills and document changes in a changelog
+*   Schedule quarterly reviews to update or retire outdated skills
 
 **Best practices for all team sizes**:
 
-- Document the business purpose for each skill
-- Assign clear ownership for maintenance and updates
-- Create onboarding materials showing new team members how to implement shared skills
-- Track which skills deliver the most value to prioritize maintenance efforts
-- Use consistent naming conventions so skills are easy to find
+*   Document the business purpose for each skill
+*   Assign clear ownership for maintenance and updates
+*   Create onboarding materials showing new team members how to implement shared skills
+*   Track which skills deliver the most value to prioritize maintenance efforts
+*   Use consistent naming conventions so skills are easy to find
 
 Enterprise customers can work with Anthropic's customer success team to explore additional deployment options and governance frameworks.
 
@@ -540,16 +517,16 @@ Ready to build with Skills? Here's how to start:
 
 Claude.ai users:
 
-- Enable Skills in Settings → Features
-- Create your first project at claude.ai/projects
-- Try combining project knowledge with Skills for your next analysis task
+*   Enable Skills in Settings → Features
+*   Create your first project at claude.ai/projects
+*   Try combining project knowledge with Skills for your next analysis task
 
 API developers:
 
-- Explore the Skills endpoint in documentation
-- Check out our skills cookbook
+*   Explore the Skills endpoint in documentation
+*   Check out our skills cookbook
 
 Claude Code users:
 
-- Install Skills via plugin marketplaces
-- Check out our skills cookbook
+*   Install Skills via plugin marketplaces
+*   Check out our skills cookbook

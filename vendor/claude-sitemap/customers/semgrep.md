@@ -4,10 +4,10 @@ Semgrep, a leading cyber security company, leverages Claude in Amazon Bedrock to
 
 With Claude, Semgrep:
 
-- Confidently labels 20% of security findings as safe to ignore, with a 92% user agree rate and 96% security researcher agree rate
-- Achieved 16% higher accuracy identifying false positives than a prior version powered by GPT-4o
-- Delivered 17% better performance in component tagging (compared to their previous model, GPT-4o)
-- Processes and analyzes thousands of security findings for customers daily
+*   Confidently labels 20% of security findings as safe to ignore, with a 92% user agree rate and 96% security researcher agree rate
+*   Achieved 16% higher accuracy identifying false positives than a prior version powered by GPT-4o
+*   Delivered 17% better performance in component tagging (compared to their previous model, GPT-4o)
+*   Processes and analyzes thousands of security findings for customers daily
 
 ## How Semgrep is solving security's false positive problem
 
@@ -41,12 +41,12 @@ In two of the most important evals, false positive detection and component taggi
 
 Semgrep uses a variety of large language models—including Claude—to power features that help security teams cut noise, automate routine tasks, and generate fixes:
 
-- **Noise filtering:** Analyze security alerts to separate true issues from false positives, reducing alert volume by 20% out of the box, and up to 40% over time.
-- **Memories:** Learns and stores critical, security-relevant context about an environment as users triage findings and fix issues, eliminating future false positives.
-- **Autofix + Remediation guidance:** Suggest one-click code fixes to remediate vulnerabilities, and give developers the context they need to understand and feel confident merging the changes.
-- **Breaking change analysis:** Analyze dependency upgrades for breaking changes, and automatically create upgrade PRs that tell developers if the version bump is safe or if they need to refactor.
-- **File sensitivity classification:** Assess the criticality of files, elevating issues in high-risk components like auth or payments over low-risk ones.
-- **Rule-writing:** Write deterministic Semgrep rules based on instructions in natural language
+*   **Noise filtering:** Analyze security alerts to separate true issues from false positives, reducing alert volume by 20% out of the box, and up to 40% over time.
+*   **Memories:** Learns and stores critical, security-relevant context about an environment as users triage findings and fix issues, eliminating future false positives.
+*   **Autofix + Remediation guidance:** Suggest one-click code fixes to remediate vulnerabilities, and give developers the context they need to understand and feel confident merging the changes.
+*   **Breaking change analysis:** Analyze dependency upgrades for breaking changes, and automatically create upgrade PRs that tell developers if the version bump is safe or if they need to refactor.
+*   **File sensitivity classification:** Assess the criticality of files, elevating issues in high-risk components like auth or payments over low-risk ones.
+*   **Rule-writing:** Write deterministic Semgrep rules based on instructions in natural language
 
 ## One of the security tools that developers don’t mind
 

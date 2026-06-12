@@ -16,15 +16,15 @@ When you send a screenshot to Claude’s Computer Use API, the model sees it and
 
 For our Claude 4.6 model family, the API's limits are:
 
-- **Max long edge**: 1568 pixels
-- **Max total pixels**: 1.15 megapixels
-- Images exceeding **either** limit get internally downscaled
+*   **Max long edge**: 1568 pixels
+*   **Max total pixels**: 1.15 megapixels
+*   Images exceeding **either** limit get internally downscaled
 
 Our Opus 4.7 model supports higher resolution. The limits are:
 
-- **Max long edge**: 2576 pixels
-- **Max total pixels**: 3.75 megapixels
-- Images exceeding **either** limit get internally downscaled
+*   **Max long edge**: 2576 pixels
+*   **Max total pixels**: 3.75 megapixels
+*   Images exceeding **either** limit get internally downscaled
 
 When the coordinate space and the model's perceived image don't match, the model's predicted clicks land on a display scale different from the image it's actually seeing. This is the primary cause of click inaccuracy at high resolutions. The fix is straightforward: always downscale your screenshots to fit within these limits before sending them to the API. We consistently observe significant accuracy degradation when images exceed the limits, and this single change is worth more than almost any other optimization.
 
@@ -73,10 +73,10 @@ This approach is slightly more complex but avoids aspect ratio distortion and us
 
 **Resolutions to avoid:**
 
-- **Native resolution (unscaled)**: Unless your source images happen to be below the resolution limits, sending native resolution screenshots is the most common cause of poor click accuracy.
-- **Very low resolutions (below 960x540)**: With low resolution images, too much detail is lost for the model to accurately identify small UI elements.
-- **If on MacOS:**  A common issue for browser use is that the screenshots on MacOS are often captured with a device pixel ratio of 2, which means that you can end up with images that are 2x the resolution of the screen coordinates.
-- **If you are on the 4.6 family, avoid 1920x1080 and above:** These exceed the pixel limit and will be silently downscaled. On Opus 4.7 the ceiling is higher (3.75 MP), so 1080p and 1440p is within budget; still avoid native 4K without downscaling.
+*   **Native resolution (unscaled)**: Unless your source images happen to be below the resolution limits, sending native resolution screenshots is the most common cause of poor click accuracy.
+*   **Very low resolutions (below 960x540)**: With low resolution images, too much detail is lost for the model to accurately identify small UI elements.
+*   **If on MacOS:**  A common issue for browser use is that the screenshots on MacOS are often captured with a device pixel ratio of 2, which means that you can end up with images that are 2x the resolution of the screen coordinates.
+*   **If you are on the 4.6 family, avoid 1920x1080 and above:** These exceed the pixel limit and will be silently downscaled. On Opus 4.7 the ceiling is higher (3.75 MP), so 1080p and 1440p is within budget; still avoid native 4K without downscaling.
 
 ## Coordinate scaling
 
@@ -124,43 +124,43 @@ Try this
 
 Clicks consistently offset in one direction
 
-- `display_width_px` / `display_height_px` don't match the actual image dimensions sent
-- Screenshot exceeds API limits and is being silently downscaled
-- Content ordering is image-first instead of text-first
+*   `display_width_px` / `display_height_px` don't match the actual image dimensions sent
+*   Screenshot exceeds API limits and is being silently downscaled
+*   Content ordering is image-first instead of text-first
 
-- Ensure display dimensions exactly match your resized screenshot, not your native resolution
-- Pre-downscale to 1280x720 or use `compute_max_api_fit`
-- Move text instruction before the image in the content array
+*   Ensure display dimensions exactly match your resized screenshot, not your native resolution
+*   Pre-downscale to 1280x720 or use `compute_max_api_fit`
+*   Move text instruction before the image in the content array
 
 Clicks land in roughly the right area but miss the target
 
-- Target is very small (checkbox, icon, toggle)
-- Source image was very high resolution (4K+) and detail was lost during downscaling
-- Aspect ratio distortion from forcing a non-native aspect ratio
+*   Target is very small (checkbox, icon, toggle)
+*   Source image was very high resolution (4K+) and detail was lost during downscaling
+*   Aspect ratio distortion from forcing a non-native aspect ratio
 
-- Enable `enable_zoom: True` for dense UIs
-- Capture at a lower DPI or crop to the relevant screen region before downscaling
-- Preserve the source aspect ratio when resizing
+*   Enable `enable_zoom: True` for dense UIs
+*   Capture at a lower DPI or crop to the relevant screen region before downscaling
+*   Preserve the source aspect ratio when resizing
 
 Model clicks the wrong element entirely
 
-- Ambiguous instruction ("click Submit" when multiple submit-like buttons exist)
-- Visually similar elements near the target
-- UI is too complex for a single instruction
+*   Ambiguous instruction ("click Submit" when multiple submit-like buttons exist)
+*   Visually similar elements near the target
+*   UI is too complex for a single instruction
 
-- Use more specific prompts with positional context ("click the blue Submit button in the bottom-right of the form")
-- Break complex interactions into smaller steps
-- Provide additional context about the page layout
+*   Use more specific prompts with positional context ("click the blue Submit button in the bottom-right of the form")
+*   Break complex interactions into smaller steps
+*   Provide additional context about the page layout
 
 Accuracy is poor across the board
 
-- Screenshots are being sent above API limits
-- Source images are from very high-resolution displays (4K+) with extreme compression ratios
-- Resolution is too low, losing critical detail
+*   Screenshots are being sent above API limits
+*   Source images are from very high-resolution displays (4K+) with extreme compression ratios
+*   Resolution is too low, losing critical detail
 
-- Pre-downscale all screenshots to fit within limits
-- For 4K+ sources on the 4.6 family, Sonnet is more robust to heavy downscaling than Opus 4.6. On Opus 4.7 this gap largely closes, use the 4.7 pixel budget (up to 3.75 MP) so less downscaling is needed in the first place.
-- Try 1280x720 as a baseline; if too lossy, use `compute_max_api_fit`
+*   Pre-downscale all screenshots to fit within limits
+*   For 4K+ sources on the 4.6 family, Sonnet is more robust to heavy downscaling than Opus 4.6. On Opus 4.7 this gap largely closes, use the 4.7 pixel budget (up to 3.75 MP) so less downscaling is needed in the first place.
+*   Try 1280x720 as a baseline; if too lossy, use `compute_max_api_fit`
 
 ## Model selection for clicking tasks
 
@@ -198,9 +198,9 @@ If your application involves clicking small targets frequently, consider these s
 
 We experimented on internal evaluations with several popular optimization techniques and did not find consistent uplift from these approaches, though results may vary depending on the specific situation:
 
-- **Breaking the image into smaller tiles**: Splitting a screenshot into quadrants or regions and sending them separately did not improve click accuracy.
-- **Overlaying a grid pattern with coordinates**: Adding a visual coordinate grid to screenshots to help the model localize targets did not produce reliable gains.
-- **Resize algorithm choice**: PIL LANCZOS, sips, and other common resize algorithms produced identical results. Use whatever is convenient for your stack.
+*   **Breaking the image into smaller tiles**: Splitting a screenshot into quadrants or regions and sending them separately did not improve click accuracy.
+*   **Overlaying a grid pattern with coordinates**: Adding a visual coordinate grid to screenshots to help the model localize targets did not produce reliable gains.
+*   **Resize algorithm choice**: PIL LANCZOS, sips, and other common resize algorithms produced identical results. Use whatever is convenient for your stack.
 
 ## Inspecting failures
 
@@ -433,10 +433,10 @@ response = client.beta.messages.create(
 
 UI automation tasks are fundamentally different from coding or math problems. Most computer use actions are perceptual and mechanical: identifying the right element, clicking in the right place, rather than deeply logical. Thinking helps most when the model needs to:
 
-- Plan a multi-step sequence before starting (e.g., "I need to open Settings, navigate to Privacy, then disable tracking")
-- Recover from an unexpected UI state (e.g., a dialog appeared that wasn't anticipated)
-- Cross-reference information between what's on screen and the task instructions
-- Complete challenging projects on professional software
+*   Plan a multi-step sequence before starting (e.g., "I need to open Settings, navigate to Privacy, then disable tracking")
+*   Recover from an unexpected UI state (e.g., a dialog appeared that wasn't anticipated)
+*   Cross-reference information between what's on screen and the task instructions
+*   Complete challenging projects on professional software
 
 # Improving safety: leveraging prompt injection classifiers
 
@@ -506,8 +506,8 @@ Prompt caching only helps if breakpoints land on content that will recur across 
 
 We recommend:
 
-- **One breakpoint on the system prompt or trailing tool definitions.** This prefix rarely changes within a session.
-- **Up to three additional breakpoints on the most recent tool results**, advancing each turn and clearing the previous iteration's breakpoints so you don't overrun the four-breakpoint limit.
+*   **One breakpoint on the system prompt or trailing tool definitions.** This prefix rarely changes within a session.
+*   **Up to three additional breakpoints on the most recent tool results**, advancing each turn and clearing the previous iteration's breakpoints so you don't overrun the four-breakpoint limit.
 
 Spreading breakpoints across recent positions gives you graceful degradation. If your most recent breakpoint is invalidated, e.g. by an image prune, a compaction, or a tool-definition change, an earlier breakpoint can still hit, and you keep paying 10% of the full input cost instead of 100%.
 
@@ -706,9 +706,9 @@ If you're using a model that doesn't support server-side compaction, or you want
 
 A good default for a long-running computer use agent looks like this:
 
-- One cache breakpoint on the stable prefix, three on trailing tool results, cleared and re-placed each turn.
-- Cache-aware rolling buffer with keep_n = 3 and interval = 25, replacing older screenshots with placeholders in batches.
-- Server-side compaction triggered around 150k input tokens with a custom prompt, plus a client-side truncation pass to keep the two views aligned.
+*   One cache breakpoint on the stable prefix, three on trailing tool results, cleared and re-placed each turn.
+*   Cache-aware rolling buffer with keep_n = 3 and interval = 25, replacing older screenshots with placeholders in batches.
+*   Server-side compaction triggered around 150k input tokens with a custom prompt, plus a client-side truncation pass to keep the two views aligned.
 
 With these three layers in place, a typical long-horizon CU session will hit the prompt cache on the vast majority of turns, keep total input tokens bounded well below the context window, and preserve enough history through compaction events that the agent doesn't lose track of the task.
 
@@ -758,9 +758,9 @@ response = client.beta.messages.create(
 
 Useful controls for the advisor tool include:
 
-- **`max_uses`:** cap advisor calls per request. Helpful when you want to bound the worst-case cost.
-- **Conversation-wide cap in your harness:** the advisor bills at Opus 4.7 rates for each consult, so on very long sessions you may want to stop offering the advisor after some number of uses.
-- **Advisor-side caching:** on multi-call conversations, caching the advisor's prefix pays off after roughly three consults. In the reference implementation we default to 5-minute ephemeral caching.
+*   **`max_uses`:** cap advisor calls per request. Helpful when you want to bound the worst-case cost.
+*   **Conversation-wide cap in your harness:** the advisor bills at Opus 4.7 rates for each consult, so on very long sessions you may want to stop offering the advisor after some number of uses.
+*   **Advisor-side caching:** on multi-call conversations, caching the advisor's prefix pays off after roughly three consults. In the reference implementation we default to 5-minute ephemeral caching.
 
 Two non-obvious things worth knowing: the advisor runs without tools and without context management, so it can't click or browse on your behalf, it only returns text advice. And because the executor model doesn't always remember the advisor exists on long-horizon tasks, see the reminder nudges section below.
 
@@ -810,9 +810,9 @@ Both nudges are light-touch context injections, not system-prompt rewrites. They
 
 When something misbehaves and you're not sure whether the problem is your harness, your screenshots, or the model, three side utilities in the reference implementation are worth reaching for before you start adding logging:
 
-- **Trajectory viewer (streamlit run viewer/app.py).** Loads a recorded trajectory and lets you step through the agent's turns with screenshots, thinking, tool calls, and usage per step. Best for answering "what did the model actually see, and what did it decide?" after a failed run.
-- **Tool debug panel (uvicorn debug.server:app --reload)**. A small web UI that lets you exercise each tool individually: take a screenshot, capture click coordinates, type, scroll, zoom. Useful for confirming that your capture pipeline and coordinate scaling are actually producing what you expect.
-- **Localization playground (uvicorn localize.server:app --reload --port 8001)**. Upload any image and ask the model to point at a target. Renders the predicted coordinates back on your image at both display and native resolution. This is the fastest way to diagnose whether a click miss is a resize bug, a coordinate-scaling bug, or a genuine model error. This is especially useful when a customer reports bad clicks and you want to reproduce the failure in isolation.
+*   **Trajectory viewer (streamlit run viewer/app.py).** Loads a recorded trajectory and lets you step through the agent's turns with screenshots, thinking, tool calls, and usage per step. Best for answering "what did the model actually see, and what did it decide?" after a failed run.
+*   **Tool debug panel (uvicorn debug.server:app --reload)**. A small web UI that lets you exercise each tool individually: take a screenshot, capture click coordinates, type, scroll, zoom. Useful for confirming that your capture pipeline and coordinate scaling are actually producing what you expect.
+*   **Localization playground (uvicorn localize.server:app --reload --port 8001)**. Upload any image and ask the model to point at a target. Renders the predicted coordinates back on your image at both display and native resolution. This is the fastest way to diagnose whether a click miss is a resize bug, a coordinate-scaling bug, or a genuine model error. This is especially useful when a customer reports bad clicks and you want to reproduce the failure in isolation.
 
 None of these are required to build a working integration; they're debugging aids for when the default feedback loop (log, re-run, squint at transcripts) isn't fast enough.
 
@@ -1020,6 +1020,6 @@ These practices reflect our current best understanding of what makes computer us
 
 As your integration matures, the patterns that matter most will depend on your specific environment, target applications, and reliability requirements._‍_
 
-_Get started with the_ _computer use documentation\_\_, check out our new_ _demo implementation_ _of these best practices, or revisit the_ _original computer use research post_ _for background on how these capabilities were built and where they're headed._
+_Get started with the_ _computer use documentation__, check out our new_ _demo implementation_ _of these best practices, or revisit the_ _original computer use research post_ _for background on how these capabilities were built and where they're headed._
 
 _Acknowledgements: This article & corresponding demo were written by Lucas Gonzalez and Luca Weihs. The authors would like to thank Molly Vorwerck, Javier Rando, Maya Nielan, Gabe Mulley, and Brigit Brown for their contributions._

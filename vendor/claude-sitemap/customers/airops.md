@@ -4,7 +4,7 @@ AirOps helps marketing teams at Ramp, Kayak, Chime, Carta, and Rippling understa
 
 ## With Claude, AirOps achieved:
 
-- 2x productivity across the team, with individual employees reporting 20 to 40 hours saved per week through Claude Enterprise and Claude Code
-- Org-wide adoption of Claude, including Claude Code for building internal tools and apps, shared design system skills, and Claude Enterprise as the daily operating environment across marketing, sales, and engineering
-- Prototype-to-production timelines compressed from months to weeks after adopting the Agent SDK
-- Measurable results for customers using the AirOps platform, including a 3x citation rate increase and 89% time reduction in content creation for Chime, and a 300% content velocity increase for Carta
+*   2x productivity across the team, with individual employees reporting 20 to 40 hours saved per week through Claude Enterprise and Claude Code
+*   Org-wide adoption of Claude, including Claude Code for building internal tools and apps, shared design system skills, and Claude Enterprise as the daily operating environment across marketing, sales, and engineering
+*   Prototype-to-production timelines compressed from months to weeks after adopting the Agent SDK
+*   Measurable results for customers using the AirOps platform, including a 3x citation rate increase and 89% time reduction in content creation for Chime, and a 300% content velocity increase for Carta

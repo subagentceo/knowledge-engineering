@@ -25,6 +25,7 @@ List Session Threads
 ### Returns
 
 - `ManagedAgentsSessionThread`
+
   - `string id`
 
     Unique identifier for this thread.

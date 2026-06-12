@@ -6,10 +6,10 @@ The plugin uses a CLI-based `browse` command under the hood with a structured sn
 
 **How to use:** Ask Claude to perform web tasks in plain language. Example prompts:
 
-- "Go to https://news.ycombinator.com and summarize the top 5 stories"
-- "Open my app at localhost:3000 and test the login flow"
-- "Extract all product prices from this e-commerce page"
-- "Fill out the contact form on example.com with my details"
-- "Take a screenshot of the homepage and check if the hero banner is visible"
+*   "Go to https://news.ycombinator.com and summarize the top 5 stories"
+*   "Open my app at localhost:3000 and test the login flow"
+*   "Extract all product prices from this e-commerce page"
+*   "Fill out the contact form on example.com with my details"
+*   "Take a screenshot of the homepage and check if the hero banner is visible"
 
 For sites with bot protection, Claude can automatically switch to Browserbase remote mode for stealth browsing. Set `BROWSERBASE_API_KEY` and `BROWSERBASE_PROJECT_ID` environment variables to enable remote sessions.
