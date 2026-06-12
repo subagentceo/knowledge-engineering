@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 2
+
+metadata:
+  name: dim_cache_key
+  labels:
+    lane: semantic-cache
+    source: scripts/load-citation-warehouse.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: refreshed by every dw:load run
+  data_start_date: "2026-06-12"
+  allowed_operations:
+    - read
+    - scd2_rewrite
+  description: >-
+    Catalog of tiered-cache keys observed in semantic_cache (L3) and the
+    events_cache_access stream. SCD II — a key whose source_path lineage
+    changes closes its old row, so the provenance history of every cached
+    fact stays auditable. Conformed dimension for fact_cache_hits.
+  load_type: incremental
+  columns:
+    - name: cache_key
+      kind: dimension
+      sql_type: text
+      description: namespaced cache key (ke:<lane>:<id>), natural key
+    - name: lane
+      kind: dimension
+      sql_type: text
+      description: lane parsed from the key namespace; NULL when unnamespaced
+    - name: source_path
+      kind: dimension
+      sql_type: text
+      description: originating repo path from semantic_cache; NULL when synthesized
+    - name: row_effective_from
+      kind: time_dimension
+      sql_type: timestamptz
+      description: SCD II validity start
+    - name: row_effective_to
+      kind: time_dimension
+      sql_type: timestamptz
+      description: SCD II validity end; infinity while current
+    - name: is_current
+      kind: dimension
+      sql_type: boolean
+      description: current-row flag
