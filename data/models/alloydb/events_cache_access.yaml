@@ -1,0 +1,51 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: events
+grain: one row per cache operation (tier × op × cache_key × occurred_at)
+
+metadata:
+  name: events_cache_access
+  labels:
+    lane: semantic-cache
+    source: src/cache/events.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: append at access time via buffered sink; never mutated
+  data_start_date: "2026-06-12"
+  allowed_operations:
+    - read
+    - append
+  description: >-
+    Append-only access log of the three-tier semantic cache. Every get/set
+    against L1 (in-process LRU), L2 (Redis) and L3 (Postgres
+    semantic_cache) appends one row. Never UPDATE, never DELETE — this is
+    the raw event stream the fact_cache_hits rollup aggregates.
+  load_type: append_only
+  columns:
+    - name: cache_key
+      kind: dimension
+      sql_type: text
+      description: namespaced cache key (ke:<lane>:<id>)
+    - name: tier
+      kind: dimension
+      sql_type: text
+      description: cache tier the operation resolved at — L1, L2 or L3
+    - name: op
+      kind: dimension
+      sql_type: text
+      description: operation outcome — hit, miss, set, invalidate or promote
+    - name: lane
+      kind: dimension
+      sql_type: text
+      description: originating lane parsed from the key namespace; NULL when unnamespaced
+    - name: occurred_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: operation wall-clock time

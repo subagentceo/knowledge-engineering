@@ -17,6 +17,7 @@
  */
 
 import { z } from "zod";
+import { recordCacheEvent } from "./events.js";
 
 // Hits in the volatile tier before an entry is considered durable-worthy.
 export const PROMOTE_AFTER_HITS = 3;
@@ -55,6 +56,7 @@ export class DurableStore {
 
   async set<T>(entry: DurableEntry<T>, schema: z.ZodType<T>): Promise<void> {
     const payload = schema.parse(entry.value);
+    recordCacheEvent(entry.key, "L3", "set");
     await this.pg.query(
       `INSERT INTO semantic_cache (key, payload, source_path, hits)
        VALUES ($1, $2::jsonb, $3, $4)
@@ -74,6 +76,7 @@ export class DurableStore {
       [key],
     );
     const row = rows[0];
+    recordCacheEvent(key, "L3", row === undefined ? "miss" : "hit");
     if (row === undefined) return undefined;
     return schema.parse(row.payload);
   }
@@ -96,6 +99,7 @@ export class DurableStore {
     for (const entry of entries) {
       if ((entry.hits ?? 0) < PROMOTE_AFTER_HITS) continue;
       await this.set(entry, schema);
+      recordCacheEvent(entry.key, "L3", "promote");
       if (onPromote !== undefined) await onPromote(entry);
       promoted += 1;
     }
