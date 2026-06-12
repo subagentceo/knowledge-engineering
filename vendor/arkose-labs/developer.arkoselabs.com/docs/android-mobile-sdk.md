@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Android Mobile SDK
 
 # Introduction
@@ -407,8 +411,7 @@ import com.arkoselabs.sdk.ArkoseManager;
 
    ```
 5. **Resetting the Arkose Session**\
-   The Arkose session can be reset dynamically to initiate a new challenge with updated configurations or other triggering events. This effectively clears the current session data and allows for a fresh start.
-   To reset the session, follow these steps:
+   The Arkose session can be reset dynamically to initiate a new challenge with updated configurations or other triggering events. This effectively clears the current session data and allows for a fresh start. To reset the session, follow these steps:
    * Create a new `ArkoseConfig` instance with the desired configuration.
    * Call `ArkoseManager.updateConfig(arkoseConfig, arkoseChallenge);` to update the session.
    * ```java
@@ -437,9 +440,7 @@ The new `inlineRunOnTrigger` configuration enables preloading of enforcement cha
 2. Use with `createEnforcementChallenge()` to preload the challenge
 3. Resume the challenge flow by calling `runTriggeredInline(arkoseChallenge)`
 
-**⚠️ Important Notes:**
-• Do NOT use this configuration with `showEnforcementChallenge()`
-• Do NOT enable `loader=true` when using this feature, as it will cause the loader to display indefinitely
+**⚠️ Important Notes:** • Do NOT use this configuration with `showEnforcementChallenge()` • Do NOT enable `loader=true` when using this feature, as it will cause the loader to display indefinitely
 
 ```java Implementation Example
 private boolean isInlineRunOnTriggeredCalled = false;
@@ -519,6 +520,12 @@ private void dismissEnforcementChallenge() {
 ```
 
 <br />
+
+## Jetpack Compose Support
+
+Integrating the Arkose Mobile SDKs into Jetpack Compose apps is straightforward, eliminating the need for extra configuration and allowing developers to incorporate SDK features into composable objects with ease.
+
+For optimal app and SDK performance, it's advised to utilize baseline profiles, which leverage Jetpack Compose's just-in-time (JIT) compilation. This approach, especially when creating baseline profiles for critical user actions like showing the Enforcement Challenge, prompts Android Runtime to optimize execution through ahead-of-time (AOT) compilation, significantly boosting performance. For guidance on crafting a Baseline Profile, consult the [Android Documentation](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile).
 
 ## Steps for Integration in a Compose-based Application
 
@@ -764,7 +771,7 @@ In the toolbar, click on **File**. Then in its menu click **Sync Project with Gr
    Arkose sessions in Jetpack Compose can be reset dynamically by **modifying the properties of a mutable** `ArkoseConfigCompose` instance. Since Jetpack Compose automatically recomposes when a state changes, updating the config will automatically reset the session.
    * Create a Mutable ArkoseConfig Instance
    * Customers should first **initialize** a mutable `ArkoseConfigCompose` instance using `remember`:
-   * ```
+   * ```kotlin
      // Create a mutable ArkoseConfigCompose instance
      var arkoseConfig by remember {
          mutableStateOf(
@@ -778,7 +785,7 @@ In the toolbar, click on **File**. Then in its menu click **Sync Project with Gr
      ```
    * **Pass the Mutable Config** to `EnforcementChallengeInline`\
      The mutable `arkoseConfig` should be passed to `EnforcementChallengeInline`, allowing it to automatically detect and apply any updates.
-   * ```
+   * ```kotlin
      EnforcementChallengeInline(
          onDismiss = {
              closeButtonState.value = false
@@ -794,7 +801,7 @@ In the toolbar, click on **File**. Then in its menu click **Sync Project with Gr
      ```
    * **Reset the Session by Updating** `arkoseConfig`\
      Whenever the customer wants to reset the session, **they only need to update** `arkoseConfig` properties. The Composable function will **automatically apply the new configuration** and reset the session.
-   * ```
+   * ```kotlin
      // Update the arkoseConfig properties to reset the session
      arkoseConfig = ArkoseConfigCompose(
          language = "<YOUR_PREFERRED_LANGUAGE>", // Optional: Set preferred language
@@ -804,7 +811,7 @@ In the toolbar, click on **File**. Then in its menu click **Sync Project with Gr
      ```
    * **Example Use Case**
    * Here’s an example of resetting the session when a user clicks a button:
-   * ```
+   * ```kotlin
      Button(onClick = {
          arkoseConfig = ArkoseConfigCompose(
              blobData = "updated_blob_data"
@@ -813,6 +820,120 @@ In the toolbar, click on **File**. Then in its menu click **Sync Project with Gr
          Text("Reset Session")
      }
      ```
+
+<br />
+
+<br />
+
+## Implement Preloading of Challenges to onReady with On-Demand Presentation
+
+**Overview:**
+
+The `inlineRunOnTrigger` configuration enables preloading of the enforcement challenge to the `onReady` state in Jetpack Compose inline mode, giving your application full control over when the challenge is presented to the user. This improves user-perceived latency by warming up the WebView ahead of time. Available from **Android SDK v2.20.0** (Jetpack Compose inline mode only).
+
+**Configuration:**
+
+1. Set `inlineRunOnTrigger = true` in your `ArkoseConfigCompose` object (default: `false`)
+2. Use `EnforcementChallengeInline` as the composable — this is the supported format for preloading in Compose
+3. Resume the challenge flow by calling `ArkoseManagerCompose.runTriggeredInline()` when the challenge should be presented
+
+**⚠️ Important Notes:**
+
+* Only supported with `EnforcementChallengeInline`. Do NOT use with `EnforcementChallenge` (dialog/overlay mode)
+* Do NOT enable `loading = true` when using this feature, as it will cause the loader to display indefinitely
+* `ArkoseManagerCompose.runTriggeredInline()` should only be called after `onReady` has fired
+
+**Implementation Example:**
+
+```kotlin
+class InlineActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Set log level
+        ArkoseManager.setLogLevel(ArkoseManager.INFO)
+
+        setContent {
+            AppTheme {
+                InlineScreen(onFinish = { finish() })
+            }
+        }
+    }
+}
+
+@Composable
+fun InlineScreen(onFinish: () -> Unit) {
+    val isVisible = remember { mutableStateOf(true) }
+    val isOnReadyCalled = remember { mutableStateOf(false) }
+
+    // Step 1: Configure ArkoseConfigCompose with inlineRunOnTrigger enabled
+    var arkoseConfig by remember {
+        mutableStateOf(
+            ArkoseConfigCompose(
+                apiKey = "<YOUR_PUBLIC_KEY>",
+                enableBackButton = true,   // optional
+                noSuppress = false,        // optional
+                inlineRunOnTrigger = true  // enables preloading
+            )
+        )
+    }
+
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+
+        // Step 2: Add EnforcementChallengeInline — this preloads the challenge on composition
+        EnforcementChallengeInline(
+            onDismiss = {
+                onFinish()
+            },
+            isVisible = isVisible,
+            config = arkoseConfig,
+            onCompleted = {
+                "Arkose Enforcement Challenge onCompleted -> ${it.response}".log()
+            },
+            onFailure = {
+                "Arkose Enforcement Challenge OnFailure -> ${it.response}".log()
+            },
+            onError = {
+                "Arkose Enforcement Challenge OnError -> ${it.response}".log()
+            },
+            onWarning = {
+                "Arkose Enforcement Challenge OnWarning".log()
+            },
+            onReady = {
+                // Step 3: Mark onReady received — challenge is preloaded and ready to present
+                isOnReadyCalled.value = true
+                "Arkose Enforcement Challenge OnReady".log()
+            },
+            onShown = {
+                "Arkose Enforcement Challenge OnShown".log()
+            },
+            onHide = {
+                "Arkose Enforcement Challenge OnHide".log()
+            },
+            onReset = {
+                "Arkose Enforcement Challenge OnReset".log()
+            },
+            onSuppress = {
+                "Arkose Enforcement Challenge OnSuppress".log()
+            }
+        )
+
+        Button(
+            onClick = {
+                // Step 4: Trigger the preloaded challenge only after onReady (e.g. on button click)
+                if (isOnReadyCalled.value) {
+                    ArkoseManagerCompose.runTriggeredInline()
+                }
+            },
+            modifier = Modifier.fillMaxWidth().padding(top = 10.dp)
+        ) {
+            Text("Show Challenge")
+        }
+    }
+}
+```
+
+<br />
 
 ### Build the revised project
 
@@ -853,11 +974,7 @@ public void onCompleted(ArkoseECResponse arkoseECResponse) {
 }
 ```
 
-## Jetpack Compose Support
-
-Integrating the Arkose Mobile SDKs into Jetpack Compose apps is straightforward, eliminating the need for extra configuration and allowing developers to incorporate SDK features into composable objects with ease.
-
-For optimal app and SDK performance, it's advised to utilize baseline profiles, which leverage Jetpack Compose's just-in-time (JIT) compilation. This approach, especially when creating baseline profiles for critical user actions like showing the Enforcement Challenge, prompts Android Runtime to optimize execution through ahead-of-time (AOT) compilation, significantly boosting performance. For guidance on crafting a Baseline Profile, consult the [Android Documentation](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile).
+<br />
 
 ## `ArkoseConfig` Configuration
 
@@ -1046,8 +1163,7 @@ Note that Arkose’s detection component is part of our overall Arkose Bot Manag
 
       <td>
         Listener function invoked when\
-        either:
-        a. For our enforcement component, a session is classified as not needing a challenge or a challenge has been successfully completed.
+        either: a. For our enforcement component, a session is classified as not needing a challenge or a challenge has been successfully completed.
 
         b. For our detection component, a session detection has been successfully completed.
 
@@ -1227,7 +1343,7 @@ Note that Arkose’s detection component is part of our overall Arkose Bot Manag
   </tbody>
 </Table>
 
-## Enforcement Challenge Configuration Parameters / `strings.xml`
+## Enforcement Challenge Configuration Parameters
 
 You can change the following Enforcement Challenge configuration parameters by specifying their values in the `ArkoseConfig` object.
 
@@ -1385,8 +1501,7 @@ You can change the following Enforcement Challenge configuration parameters by s
       </td>
 
       <td>
-        SDK timeout in seconds (optional, positive integer).
-        Introduced configurable WebView session timeouts. Developers can now set a timeout for all API calls within a session called before onReady. If the WebView is still loading when the timeout is reached, a timeout exception will be thrown. Once the WebView successfully loads and the onReady callback is triggered, the timeout automatically resets to its default value.
+        SDK timeout in seconds (optional, positive integer). Introduced configurable WebView session timeouts. Developers can now set a timeout for all API calls within a session called before onReady. If the WebView is still loading when the timeout is reached, a timeout exception will be thrown. Once the WebView successfully loads and the onReady callback is triggered, the timeout automatically resets to its default value.
 
         Default: `0`
       </td>
@@ -1411,6 +1526,22 @@ You can change the following Enforcement Challenge configuration parameters by s
         **Use case:** If you're experiencing issues where Android's maximum font size settings are causing display problems in the challenge interface (such as text scaling to 200%), you can use this parameter to maintain consistent rendering while still supporting accessibility where appropriate.
 
         Default: `0`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        *(XML)* `Builder setInlineRunOnTrigger(Boolean val)`
+
+        *(Compose)*`inlineRunOnTrigger`
+      </td>
+
+      <td>
+        Enables preloading of the enforcement challenge to `onReady` state, giving the application full control over when the challenge is presented to the user. When set to `true`, the SDK initializes and warms up the WebView in the background without displaying the challenge. The challenge is then presented on demand by calling `ArkoseManager.runTriggeredInline(arkoseChallenge)` (XML) or `ArkoseManagerCompose.runTriggeredInline()` (Compose) after the `onReady` callback fires.
+
+        **Do NOT** use with `showEnforcementChallenge()` or enable `loading = true` alongside this flag.
+
+        Available from **v2.18.0** (XML) and **v2.20.0** (Compose inline mode). Default: `false`
       </td>
     </tr>
   </tbody>

@@ -313,7 +313,6 @@ class Program {
 // Install the Java helper library from twilio.com/docs/java/install
 
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.intelligence.v2.Transcript;
 
@@ -654,7 +653,6 @@ class Program {
 // Install the Java helper library from twilio.com/docs/java/install
 
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.intelligence.v2.Transcript;
 
@@ -972,7 +970,6 @@ class Program {
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import com.twilio.Twilio;
 import com.twilio.rest.intelligence.v2.Transcript;
 

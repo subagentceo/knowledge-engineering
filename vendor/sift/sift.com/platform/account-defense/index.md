@@ -1,19 +1,21 @@
-[Home](https://sift.com)/[Platform Overview](https://sift.com/platform/)/Account Defense
+# Simplify Account Security and Accelerate Growth
+
+Home/Platform Overview/Account Defense
 
 # Simplify Account Security and Accelerate Growth
 
 Proactively detect and block account takeovers, cultivate customer trust, and build flexible fraud operations.
 
-[watch the demo](https://player.vimeo.com/video/1047988297?badge=0&autopause=0&player_id=0&app_id=58479)
+watch the demo
 
 ![Payment-Protection-Hero](https://sift.com/wp-content/uploads/2025/01/Payment-Protection-Hero.webp)
 
 Overview
 
--   [Overview](#overview)
--   [Benefits](#benefits)
--   [Capabilities](#capabilities)
--   [Use Cases](#use-cases)
+*   Overview
+*   Benefits
+*   Capabilities
+*   Use Cases
 
 ![The-Sift-Platform-Offset-Circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20921'%3E%3C/svg%3E)
 
@@ -21,7 +23,7 @@ Overview
 
 Add smarter, more flexible fraud decisioning throughout the user journey. Sift delivers decisions with dimension through Identity Trust XD, adding crucial context to risk insights derived from our Global Data Network of 1T annual events.
 
-[Explore the platform](/platform/)
+Explore the platform
 
 ## Stop Sophisticated ATO and Unlock Revenue
 
@@ -47,7 +49,7 @@ Track business health, unblock trusted customers, and secure customer loyalty wi
 
 Streamline safe interactions while limiting risk with Sift's line of established products.  
   
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more ->](https://sift.com/solutions/sift-score-api/)**
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more ->**
 
 ![Operational efficiency](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20361%20361'%3E%3C/svg%3E)
 
@@ -69,9 +71,7 @@ Unify and augment existing CIAM through low-code integrations with leading solut
 
 ## See how Sift Account Defense works
 
-[Watch the demo](https://player.vimeo.com/video/1047988297?badge=0&autopause=0&player_id=0&app_id=58479)
-
-[](https://player.vimeo.com/video/1047988297?badge=0&autopause=0&player_id=0&app_id=58479)
+Watch the demo
 
 ## What customers are saying about Account Defense
 
@@ -89,7 +89,7 @@ Sahil Farooqi
 
 Head of Customer Care and Security at Rently
 
-[read customer story](/resources/case-studies/rently/)
+read customer story
 
 ![Case-Study-ChowNow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20431'%3E%3C/svg%3E)
 
@@ -111,7 +111,7 @@ Yan Pritzker
 
 Co-founder & CTO at Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![Case-Study-Paulas-Choice](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -133,7 +133,7 @@ Wayan Tresna Perdana
 
 Sr. Product Manager - User Platform at Traveloka
 
-[read customer story](/resources/case-studies/traveloka/)
+read customer story
 
 ![case-study-traveloka](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%20800'%3E%3C/svg%3E)
 
@@ -155,7 +155,7 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[see sift in action](/demo/)
+see sift in action
 
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
@@ -163,4 +163,4 @@ Get Started
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

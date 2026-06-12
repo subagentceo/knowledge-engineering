@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/iGaming
+# Your Cheat Code to Online Gambling Success
+
+Home/Solutions/iGaming
 
 # Your Cheat Code to Online Gambling Success
 
@@ -10,7 +12,7 @@ Join the ranks of online gambling’s leading brands. Transform fraud prevention
 
 Maritza Dominguez, Trust & Safety at Patreon
 
-[DEMO](/program-igaming-demo/)[Compare iGaming Fraud Rates](/fibr-fraud-industry-benchmarking-resource/)
+DEMOCompare iGaming Fraud Rates
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,10 +36,10 @@ Of the U.S. Online Gaming & Gambling market secured by Sift
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Online Gambling & Gaming Leaders Scale Securely with Sift
 
@@ -57,7 +59,7 @@ Overview
 
 **Build a Brand Based on Trust.** Increase player retention rates with faster SLAs and protect players against account takeovers.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![igaming](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -85,11 +87,11 @@ Online gaming holds immense growth potential, but also comes with a high risk of
 
 63%
 
-[Average player churn rate](https://enteractive.com/customer-retention/average-customer-retention-rate-by-industry)
+Average player churn rate
 
 50%
 
-[Of digital gaming fraud is from bonus abuse](https://risk.lexisnexis.co.uk/insights-resources/article/bonus-abuse-fraud)
+Of digital gaming fraud is from bonus abuse
 
 ## Enable White Glove Treatment for VIPs
 
@@ -145,13 +147,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![mobile](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20372%20240'%3E%3C/svg%3E)
 
@@ -159,15 +159,11 @@ Get Started
 
 read the blog
 
-](/blog/how-leading-igaming-brands-are-redefining-vip-experiences/)[
-
 ![tablet](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20372%20240'%3E%3C/svg%3E)
 
 #### Five Proven Ways Sift Strengthens Safe, Profitable Performance for Online Gaming & Gambling Providers
 
 read the one pager
-
-](/resources/onepagers/digital-trust-and-safety-igaming/)
 
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
@@ -175,4 +171,4 @@ read the one pager
 
 Meet with Sift’s fraud prevention experts to discover how you can turn a challenge into a competitive advantage.
 
-[see sift in action](/demo/)
+see sift in action

@@ -2,6 +2,28 @@
 
 At Metaview, we help recruiters sift through thousands of resumes a day. Most evaluation systems set the criteria upfront and rebuild every time preferences change. We built one that learns from every decision recruiters make and evolves with them.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+14:05 – 14:35
+
+Speaker(s)
+
+Nick Mayhew
+
+Product Engineer,
+
+Metaview
+
 ## Watch recording
 
 Play videoPlay video

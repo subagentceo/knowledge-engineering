@@ -6,9 +6,9 @@ Authenticate to the Claude API with API keys or Workload Identity Federation.
 
 The Claude API supports two ways to authenticate requests:
 
-| Method                                                        | Credential                                                                      | Best for                                                                                                                                        |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [API key](#api-keys)                                          | Long-lived `sk-ant-api...` secret in the `x-api-key` header                     | Local development, prototyping, scripts, and single-tenant servers where you control secret storage                                             |
+| Method | Credential | Best for |
+|---|---|---|
+| [API key](#api-keys) | Long-lived `sk-ant-api...` secret in the `x-api-key` header | Local development, prototyping, scripts, and single-tenant servers where you control secret storage |
 | [Workload Identity Federation](#workload-identity-federation) | Short-lived bearer token exchanged from your identity provider's identity token | Production workloads on cloud platforms (AWS, Google Cloud, Azure), CI/CD pipelines, and Kubernetes, where you want to eliminate static secrets |
 
 Both methods grant the same access to Claude API endpoints. Choose API keys to get started quickly, and move to Workload Identity Federation when your workload already has a platform-issued identity you can federate.
@@ -18,7 +18,7 @@ Both methods grant the same access to Claude API endpoints. Choose API keys to g
 API keys are static secrets that you generate in the Claude Console and pass on every request.
 
 - **Create a key:** Go to [Settings → API keys](https://platform.claude.com/settings/keys) in the Claude Console. Use [workspaces](https://platform.claude.com/settings/workspaces) to scope keys by project or environment.
-- **Send the key:** Set the `x-api-key` header on direct HTTP requests, or set the `ANTHROPIC_API_KEY` environment variable and the [client SDKs](/docs/en/api/client-sdks) pick it up automatically.
+- **Send the key:** Set the `x-api-key` header on direct HTTP requests, or set the `ANTHROPIC_API_KEY` environment variable and the [client SDKs](/docs/en/cli-sdks-libraries/overview) pick it up automatically.
 
 ```http
 POST /v1/messages
@@ -116,7 +116,7 @@ anthropic = Anthropic::Client.new
 ```
 
 ```bash CLI
-# See /docs/en/api/sdks/cli#api-key for zsh, bash, and Windows variants
+# See /docs/en/cli-sdks-libraries/cli/authentication#api-key for zsh, bash, and Windows variants
 export ANTHROPIC_API_KEY=sk-ant-api03-...
 ```
 
@@ -142,7 +142,7 @@ To configure federation, you create three resources in the Claude Console (a ser
   <Card title="WIF reference" icon="book" href="/docs/en/manage-claude/wif-reference">
     Environment variables, validation rules, profile configuration, and error reference
   </Card>
-  <Card title="Client SDKs" icon="code" href="/docs/en/api/client-sdks">
-    Python, TypeScript, Go, Java, C#, Ruby, PHP, and the CLI
+  <Card title="Client SDKs" icon="code" href="/docs/en/cli-sdks-libraries/overview">
+    Python, TypeScript, C#, Go, Java, PHP, Ruby, and the CLI
   </Card>
 </CardGroup>

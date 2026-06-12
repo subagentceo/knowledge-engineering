@@ -1,7 +1,7 @@
 > This page location: Extensions > pgvector
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of the `pgvector` extension in Neon for storing vector embeddings and performing vector similarity searches, including installation, version management, and table creation for vector storage.
+> Summary: The pgvector extension adds vector embedding storage and similarity search to Neon Postgres, supporting exact and approximate nearest-neighbor queries with L2, cosine, inner product, L1, Hamming, and Jaccard distance operators. Use this page when building AI or NLP applications that store embeddings from models such as OpenAI text-embedding-3-small and need to choose between HNSW and IVFFlat indexes, tune build performance, or pick a vector type (vector, halfvec, bit, sparsevec). HNSW supports up to 2,000 dimensions for vector, 4,000 for halfvec, and 64,000 for bit; IVFFlat shares the same limits.
 
 # The pgvector extension
 
@@ -666,6 +666,8 @@ LINE 1: SELECT '[4e38,1]'::vector;
 - [fuzzystrmatch](https://neon.com/docs/extensions/fuzzystrmatch)
 - [hstore](https://neon.com/docs/extensions/hstore)
 - [intarray](https://neon.com/docs/extensions/intarray)
+- [lakebase_text](https://neon.com/docs/extensions/lakebase-text)
+- [lakebase_vector](https://neon.com/docs/extensions/lakebase-vector)
 - [ltree](https://neon.com/docs/extensions/ltree)
 - [neon](https://neon.com/docs/extensions/neon)
 - [neon_utils](https://neon.com/docs/extensions/neon-utils)

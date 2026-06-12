@@ -12,7 +12,7 @@ GitHub repositories are cached, so future sessions that use the same repository 
 All Managed Agents API requests require the `managed-agents-2026-04-01` beta header. The SDK sets the beta header automatically.
 </Note>
 
-## GitHub MCP and Session Resources
+## GitHub MCP and session resources
 
 First, create an agent that declares the GitHub MCP server. The agent definition holds the server URL but no auth token:
 
@@ -48,7 +48,8 @@ JSON
 )
 ````
 
-```bash
+  
+````bash
 AGENT_ID=$(ant beta:agents create \
   --name "Code Reviewer" \
   --model '{id: claude-opus-4-8}' \
@@ -57,9 +58,10 @@ AGENT_ID=$(ant beta:agents create \
   --tool '{type: agent_toolset_20260401}' \
   --tool '{type: mcp_toolset, mcp_server_name: github}' \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 agent = client.beta.agents.create(
     name="Code Reviewer",
     model="claude-opus-4-8",
@@ -79,9 +81,10 @@ agent = client.beta.agents.create(
         },
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const agent = await client.beta.agents.create({
   name: "Code Reviewer",
   model: "claude-opus-4-8",
@@ -101,9 +104,10 @@ const agent = await client.beta.agents.create({
     },
   ],
 });
-```
+````
 
-```csharp
+  
+````csharp
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "Code Reviewer",
@@ -126,9 +130,10 @@ var agent = await client.Beta.Agents.Create(new()
         },
     ],
 });
-```
+````
 
-```go
+  
+````go
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Code Reviewer",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
@@ -159,9 +164,10 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var agent = client.beta().agents().create(AgentCreateParams.builder()
     .name("Code Reviewer")
     .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_8)
@@ -179,9 +185,10 @@ var agent = client.beta().agents().create(AgentCreateParams.builder()
         .mcpServerName("github")
         .build())
     .build());
-```
+````
 
-```php
+  
+````php
 $agent = $client->beta->agents->create(
     name: 'Code Reviewer',
     model: 'claude-opus-4-8',
@@ -201,9 +208,10 @@ $agent = $client->beta->agents->create(
         ],
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 agent = client.beta.agents.create(
   name: "Code Reviewer",
   model: "claude-opus-4-8",
@@ -223,7 +231,7 @@ agent = client.beta.agents.create(
     }
   ]
 )
-```
+````
 
 </CodeGroup>
 
@@ -254,7 +262,8 @@ JSON
 )
 ````
 
-```bash
+  
+````bash
 SESSION_ID=$(ant beta:sessions create \
   --agent "$AGENT_ID" \
   --environment-id "$ENVIRONMENT_ID" \
@@ -266,9 +275,10 @@ resources:
     authorization_token: ghp_your_github_token
 EOF
 )
-```
+````
 
-```python
+  
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
@@ -281,9 +291,10 @@ session = client.beta.sessions.create(
         },
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
@@ -296,9 +307,10 @@ const session = await client.beta.sessions.create({
     },
   ],
 });
-```
+````
 
-```csharp
+  
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
@@ -314,9 +326,10 @@ var session = await client.Beta.Sessions.Create(new()
         },
     ],
 });
-```
+````
 
-```go
+  
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent:         anthropic.BetaSessionNewParamsAgentUnion{OfString: anthropic.String(agent.ID)},
 	EnvironmentID: environment.ID,
@@ -334,9 +347,10 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var session = client.beta().sessions().create(SessionCreateParams.builder()
     .agent(agent.id())
     .environmentId(environment.id())
@@ -347,9 +361,10 @@ var session = client.beta().sessions().create(SessionCreateParams.builder()
         .authorizationToken("ghp_your_github_token")
         .build())
     .build());
-```
+````
 
-```php
+  
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
@@ -362,9 +377,10 @@ $session = $client->beta->sessions->create(
         ],
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
@@ -377,7 +393,7 @@ session = client.beta.sessions.create(
     }
   ]
 )
-```
+````
 
 </CodeGroup>
 
@@ -387,12 +403,12 @@ The `resources[].authorization_token` authenticates the repository clone operati
 
 When providing a GitHub token, use the minimum required permissions:
 
-| Action              | Required scopes                   |
-| ------------------- | --------------------------------- |
-| Clone private repos | `repo`                            |
-| Create PRs          | `repo`                            |
-| Read issues         | `repo` (private) or `public_repo` |
-| Create issues       | `repo` (private) or `public_repo` |
+| Action | Required scopes |
+|--------|----------------|
+| Clone private repos | `repo` |
+| Create PRs | `repo` |
+| Read issues | `repo` (private) or `public_repo` |
+| Create issues | `repo` (private) or `public_repo` |
 
 <Warning>
 Use fine-grained personal access tokens with minimum required permissions. Avoid using tokens with broad access to your GitHub account.
@@ -421,7 +437,8 @@ resources='[
 ]'
 ````
 
-```bash
+  
+````bash
 RESOURCES_BODY=$(cat <<'EOF'
 resources:
   - type: github_repository
@@ -434,9 +451,10 @@ resources:
     authorization_token: ghp_your_github_token
 EOF
 )
-```
+````
 
-```python
+  
+````python
 resources = [
     {
         "type": "github_repository",
@@ -451,9 +469,10 @@ resources = [
         "authorization_token": "ghp_your_github_token",
     },
 ]
-```
+````
 
-```typescript
+  
+````typescript
 const resources = [
   {
     type: "github_repository",
@@ -468,9 +487,10 @@ const resources = [
     authorization_token: "ghp_your_github_token",
   },
 ];
-```
+````
 
-```csharp
+  
+````csharp
 BetaManagedAgentsGitHubRepositoryResourceParams[] resources =
 [
     new()
@@ -488,9 +508,10 @@ BetaManagedAgentsGitHubRepositoryResourceParams[] resources =
         AuthorizationToken = "ghp_your_github_token",
     },
 ];
-```
+````
 
-```go
+  
+````go
 resources := []anthropic.BetaSessionNewParamsResourceUnion{
 	{
 		OfGitHubRepository: &anthropic.BetaManagedAgentsGitHubRepositoryResourceParams{
@@ -509,9 +530,10 @@ resources := []anthropic.BetaSessionNewParamsResourceUnion{
 		},
 	},
 }
-```
+````
 
-```java
+  
+````java
 var resources = List.of(
     BetaManagedAgentsGitHubRepositoryResourceParams.builder()
         .type(BetaManagedAgentsGitHubRepositoryResourceParams.Type.GITHUB_REPOSITORY)
@@ -525,9 +547,10 @@ var resources = List.of(
         .mountPath("/workspace/backend")
         .authorizationToken("ghp_your_github_token")
         .build());
-```
+````
 
-```php
+  
+````php
 $resources = [
     [
         'type' => 'github_repository',
@@ -542,9 +565,10 @@ $resources = [
         'authorizationToken' => 'ghp_your_github_token',
     ],
 ];
-```
+````
 
-```ruby
+  
+````ruby
 resources = [
   {
     type: "github_repository",
@@ -559,13 +583,13 @@ resources = [
     authorization_token: "ghp_your_github_token"
   }
 ]
-```
+````
 
 </CodeGroup>
 
 ## Managing repositories on a running session
 
-After a session is created, you can list its repository resources and rotate their authorization tokens. Each resource has an `id` returned at session creation time (or via `resources.list`) that you use for updates. Repositories are attached for the lifetime of the session; to change which repositories are mounted, create a new session.
+After a session is created, you can list its repository resources and rotate their authorization tokens. Each resource has an `id` returned at session creation time (or through `resources.list`) that you use for updates. Repositories are attached for the lifetime of the session; to change which repositories are mounted, create a new session.
 
 <CodeGroup>
   
@@ -579,22 +603,20 @@ repo_resource_id=$(curl -fsS "https://api.anthropic.com/v1/sessions/$session_id/
 echo "$repo_resource_id"  # "sesrsc_01ABC..."
 
 # Rotate the authorization token
-
 curl -fsS "https://api.anthropic.com/v1/sessions/$session_id/resources/$repo_resource_id" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: managed-agents-2026-04-01" \
- -H "content-type: application/json" \
- -o /dev/null \
- --data @- <<JSON
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01" \
+  -H "content-type: application/json" \
+  -o /dev/null \
+  --data @- <<JSON
 {
-"authorization_token": "ghp_your_new_github_token"
+  "authorization_token": "ghp_your_new_github_token"
 }
 JSON
+````
 
-`````
-
-
+  
 ````bash
 # List resources on the session
 ant beta:sessions:resources list --session-id "$SESSION_ID"
@@ -604,9 +626,10 @@ ant beta:sessions:resources update \
   --session-id "$SESSION_ID" \
   --resource-id "$RESOURCE_ID" \
   --authorization-token "ghp_your_new_github_token"
-`````
+````
 
-```python
+  
+````python
 # List resources on the session
 listed = client.beta.sessions.resources.list(session.id)
 repo_resource_id = listed.data[0].id
@@ -618,9 +641,10 @@ client.beta.sessions.resources.update(
     session_id=session.id,
     authorization_token="ghp_your_new_github_token",
 )
-```
+````
 
-```typescript
+  
+````typescript
 // List resources on the session
 const listed = await client.beta.sessions.resources.list(session.id);
 const repoResourceId = listed.data[0].id;
@@ -631,9 +655,10 @@ await client.beta.sessions.resources.update(repoResourceId, {
   session_id: session.id,
   authorization_token: "ghp_your_new_github_token",
 });
-```
+````
 
-```csharp
+  
+````csharp
 // List resources on the session
 var listed = await client.Beta.Sessions.Resources.List(session.ID);
 var repoResourceId = (await listed.Paginate().FirstAsync()).ID;
@@ -645,9 +670,10 @@ await client.Beta.Sessions.Resources.Update(repoResourceId, new()
     SessionID = session.ID,
     AuthorizationToken = "ghp_your_new_github_token",
 });
-```
+````
 
-```go
+  
+````go
 // List resources on the session
 listed, err := client.Beta.Sessions.Resources.List(ctx, session.ID, anthropic.BetaSessionResourceListParams{})
 if err != nil {
@@ -664,9 +690,10 @@ _, err = client.Beta.Sessions.Resources.Update(ctx, repoResourceID, anthropic.Be
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 // List resources on the session
 var listed = client.beta().sessions().resources().list(session.id());
 var repoResourceId = listed.data().getFirst().asGitHubRepository().id();
@@ -677,9 +704,10 @@ client.beta().sessions().resources().update(repoResourceId, ResourceUpdateParams
     .sessionId(session.id())
     .authorizationToken("ghp_your_new_github_token")
     .build());
-```
+````
 
-```php
+  
+````php
 // List resources on the session
 $listed = $client->beta->sessions->resources->list($session->id);
 $repoResourceId = $listed->data[0]->id;
@@ -691,9 +719,10 @@ $client->beta->sessions->resources->update(
     sessionID: $session->id,
     authorizationToken: 'ghp_your_new_github_token',
 );
-```
+````
 
-```ruby
+  
+````ruby
 # List resources on the session
 listed = client.beta.sessions.resources.list(session.id)
 repo_resource_id = listed.data.first.id
@@ -705,7 +734,7 @@ client.beta.sessions.resources.update(
   session_id: session.id,
   authorization_token: "ghp_your_new_github_token"
 )
-```
+````
 
 </CodeGroup>
 
@@ -739,7 +768,8 @@ curl -fsS "https://api.anthropic.com/v1/sessions/$session_id/events" \
 JSON
 ````
 
-```bash
+  
+````bash
 ant beta:sessions:events send \
   --session-id "$SESSION_ID" \
   > /dev/null <<'EOF'
@@ -749,9 +779,10 @@ events:
       - type: text
         text: Fix the type error in src/utils.ts, commit it to a new branch, and push it.
 EOF
-```
+````
 
-```python
+  
+````python
 client.beta.sessions.events.send(
     session.id,
     events=[
@@ -766,9 +797,10 @@ client.beta.sessions.events.send(
         },
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 await client.beta.sessions.events.send(session.id, {
   events: [
     {
@@ -782,9 +814,10 @@ await client.beta.sessions.events.send(session.id, {
     },
   ],
 });
-```
+````
 
-```csharp
+  
+````csharp
 await client.Beta.Sessions.Events.Send(session.ID, new()
 {
     Events =
@@ -803,9 +836,10 @@ await client.Beta.Sessions.Events.Send(session.ID, new()
         },
     ],
 });
-```
+````
 
-```go
+  
+````go
 _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
 	Events: []anthropic.BetaManagedAgentsEventParamsUnion{
 		{
@@ -826,9 +860,10 @@ _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSession
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 client.beta().sessions().events().send(session.id(), EventSendParams.builder()
     .addEvent(BetaManagedAgentsUserMessageEventParams.builder()
         .type(BetaManagedAgentsUserMessageEventParams.Type.USER_MESSAGE)
@@ -838,9 +873,10 @@ client.beta().sessions().events().send(session.id(), EventSendParams.builder()
             .build())
         .build())
     .build());
-```
+````
 
-```php
+  
+````php
 $client->beta->sessions->events->send(
     $session->id,
     events: [
@@ -855,9 +891,10 @@ $client->beta->sessions->events->send(
         ],
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 client.beta.sessions.events.send_(
   session.id,
   events: [
@@ -872,6 +909,20 @@ client.beta.sessions.events.send_(
     }
   ]
 )
-```
+````
 
 </CodeGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Session event stream" icon="lightning" href="/docs/en/managed-agents/events-and-streaming">
+    Stream events and steer the agent while it opens the pull request
+  </Card>
+  <Card title="MCP connector" icon="link" href="/docs/en/managed-agents/mcp-connector">
+    Connect more MCP servers to give the agent additional tools
+  </Card>
+  <Card title="Adding files" icon="file" href="/docs/en/managed-agents/files">
+    Mount files in the sandbox alongside your repositories
+  </Card>
+</CardGroup>

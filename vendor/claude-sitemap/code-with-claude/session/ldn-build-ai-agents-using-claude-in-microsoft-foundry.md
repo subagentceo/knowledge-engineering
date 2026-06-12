@@ -2,6 +2,32 @@
 
 In this hands-on workshop, you'll provision Claude in Microsoft Foundry, connect it to a real MCP server with Claude Code, and build a working agent. You'll leave with running code and a cupcake to prove it.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+19 May 2026
+
+Time
+
+15:30 – 16:15
+
+Session type
+
+Workshop
+
+Speaker(s)
+
+Marlene Mhangami
+
+Senior Cloud Advocate,
+
+Microsoft
+
 ## Watch recording
 
 Play videoPlay video

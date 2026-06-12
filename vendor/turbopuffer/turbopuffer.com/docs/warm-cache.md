@@ -2,9 +2,10 @@
 
 GET /v1/namespaces/:namespace/hint_cache_warm
 
-Signal turbopuffer to prepare for low-latency requests
+**Hint Cache Warm** (Latency of the hint_cache_warm endpoint when warming is already in progress.)
+- Hint Latency Only (Warming in Background): p50=1ms, p90=1ms, p99=2ms
 
-Hints turbopuffer that the client will send latency-sensitive requests in the near future,
+Signal turbopuffer to prepare for low-latency requests. Hints turbopuffer that the client will send latency-sensitive requests in the near future,
 so that turbopuffer can get ready to serve those requests with low (warm) latency.
 turbopuffer responds by acknowledging the request.
 
@@ -24,6 +25,7 @@ cold latency when they trigger their first turbopuffer query.
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/warm-cache-example-curl/hint_cache_warm \
   -X GET --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY"
@@ -35,7 +37,7 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces/warm-cache-example-cu
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'warm-cache-example-py')
@@ -47,7 +49,7 @@ print(ns.hint_cache_warm())
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`warm-cache-example-ts`);
@@ -70,8 +72,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("warm-cache-example-go")
@@ -96,27 +97,52 @@ public class WarmCache {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("warm-cache-example-java");
 
     System.out.println(ns.hintCacheWarm());
-    // NamespaceHintCacheWarmResponse{status=OK, message=cache warm hint accepted}
+    // NamespaceHintCacheWarmResponse{status=ACCEPTED, message=cache warm hint accepted}
   }
 }
+```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("warm-cache-example-csharp");
+
+Console.WriteLine(await ns.HintCacheWarm(new NamespaceHintCacheWarmParams()));
+// {"status": "ACCEPTED", "message": "cache warm hint accepted"}
 ```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("warm-cache-example-rb")
 
 puts ns.hint_cache_warm
-# {status: :OK, message: "cache warm hint accepted"}
+# {status: :ACCEPTED, message: "cache warm hint accepted"}
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/warm-cache.md](https://turbopuffer.com/docs/warm-cache.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

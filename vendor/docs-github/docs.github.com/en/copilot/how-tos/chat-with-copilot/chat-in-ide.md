@@ -56,9 +56,7 @@ You can also [click this link](vscode://GitHub.Copilot-Chat/chat?mode=agent\&ref
 
 For more information, see [Chat overview](https://aka.ms/vscode-copilot-agent) in the Visual Studio Code documentation.
 
-When you use agent mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. Copilot may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
-
-The total number of premium requests you use depends on how many prompts you enter and which model you select. See [Requests in GitHub Copilot](/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+When you use agent mode, each prompt you enter consumes GitHub AI Credits.
 
 #### Using subagents
 
@@ -207,7 +205,7 @@ You can use MCP to extend the capabilities of Copilot Chat by integrating it wit
 
 ## AI models for Copilot Chat
 
-You can change the model Copilot uses to generate responses to chat prompts. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  See [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+You can change the model Copilot uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.
 
 ## Additional ways to access Copilot Chat
 
@@ -255,8 +253,9 @@ To leave feedback about the GitHub Copilot Chat extension, open an issue in the 
 
 * [Prompt engineering for GitHub Copilot Chat](/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/getting-started) in the Visual Studio Code documentation
+* [Managing agent sessions](/en/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 * [Asking GitHub Copilot questions in GitHub](/en/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/github-copilot-chat/about-github-copilot-chat)
+* [Application card: GitHub Copilot Chat](/en/copilot/github-copilot-chat/about-github-copilot-chat)
 * [GitHub Terms for Additional Products and Features](/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [GitHub Copilot Trust Center](https://copilot.github.trust.page)
 * [GitHub Copilot FAQ](https://github.com/features/copilot#faq)
@@ -330,7 +329,7 @@ You can use MCP to extend the capabilities of Copilot Chat by integrating it wit
 
 ## AI models for Copilot Chat
 
-You can change the model Copilot uses to generate responses to chat prompts. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  See [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+You can change the model Copilot uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.
 
 ## Additional ways to access Copilot Chat
 
@@ -356,7 +355,7 @@ Use agent mode when you have a specific task in mind and want to enable Copilot 
 3. Submit a prompt. In response to your prompt, Copilot streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 4. Review the changes. If Copilot suggested terminal commands, confirm whether or not Copilot can run them. In response, Copilot iterates and performs additional actions to complete the task in your original prompt.
 
-When you use Copilot agent mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. Copilot may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
+When you use Copilot agent mode, each prompt you enter consumes GitHub AI Credits.
 
 ## Using images in Copilot Chat
 
@@ -405,7 +404,7 @@ To share feedback about Copilot Chat, you can use the **Send feedback** button i
 * [Using GitHub Copilot Chat in Visual Studio in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 * [Tips to improve GitHub Copilot Chat results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
 * [Asking GitHub Copilot questions in GitHub](/en/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/github-copilot-chat/about-github-copilot-chat)
+* [Application card: GitHub Copilot Chat](/en/copilot/github-copilot-chat/about-github-copilot-chat)
 * [GitHub Terms for Additional Products and Features](/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [GitHub Copilot Trust Center](https://copilot.github.trust.page)
 * [GitHub Copilot FAQ](https://github.com/features/copilot#faq)
@@ -496,7 +495,7 @@ You can use MCP to extend the capabilities of Copilot Chat by integrating it wit
 
 ## AI models for Copilot Chat
 
-You can change the model Copilot uses to generate responses to chat prompts. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  See [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+You can change the model Copilot uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.
 
 ## Additional ways to access Copilot Chat
 
@@ -547,9 +546,7 @@ Agent mode is best suited to use cases where:
 3. Submit a prompt. In response to your prompt, Copilot streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 4. Review the changes. If Copilot suggested terminal commands, confirm whether or not Copilot can run them. In response, Copilot iterates and performs additional actions to complete the task in your original prompt.
 
-When you use agent mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. Copilot may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
-
-The total number of premium requests you use depends on how many prompts you enter and which model you select. See [Requests in GitHub Copilot](/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+When you use agent mode, each prompt you enter consumes GitHub AI Credits.
 
 ### Using subagents
 
@@ -639,7 +636,7 @@ To share feedback about Copilot Chat, you can use the **share feedback** link in
 
 * [Prompt engineering for GitHub Copilot Chat](/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Asking GitHub Copilot questions in GitHub](/en/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/github-copilot-chat/about-github-copilot-chat)
+* [Application card: GitHub Copilot Chat](/en/copilot/github-copilot-chat/about-github-copilot-chat)
 * [GitHub Pre-release License Terms](/en/site-policy/github-terms/github-copilot-pre-release-terms)
 * [GitHub Terms for Additional Products and Features](/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [GitHub Copilot Trust Center](https://copilot.github.trust.page)
@@ -683,7 +680,7 @@ You can use MCP to extend the capabilities of Copilot Chat by integrating it wit
 
 ## AI models for Copilot Chat
 
-You can change the model Copilot uses to generate responses to chat prompts. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  See [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+You can change the model Copilot uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.
 
 ## Using keywords in your prompt
 
@@ -749,9 +746,7 @@ Agent mode is best suited to use cases where:
 4. Submit a prompt. In response to your prompt, Copilot streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 5. Review the changes. If Copilot suggested terminal commands, confirm whether or not Copilot can run them. In response, Copilot iterates and performs additional actions to complete the task in your original prompt.
 
-When you use agent mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. Copilot may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
-
-The total number of premium requests you use depends on how many prompts you enter and which model you select. See [Requests in GitHub Copilot](/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+When you use agent mode, each prompt you enter consumes GitHub AI Credits.
 
 ### Using subagents
 
@@ -806,7 +801,7 @@ To indicate whether a response was helpful, use <svg version="1.1" width="16" he
 
 * [Prompt engineering for GitHub Copilot Chat](/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Asking GitHub Copilot questions in GitHub](/en/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/github-copilot-chat/about-github-copilot-chat)
+* [Application card: GitHub Copilot Chat](/en/copilot/github-copilot-chat/about-github-copilot-chat)
 * [GitHub Pre-release License Terms](/en/site-policy/github-terms/github-copilot-pre-release-terms)
 * [GitHub Terms for Additional Products and Features](/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [GitHub Copilot Trust Center](https://copilot.github.trust.page)
@@ -860,7 +855,7 @@ You can use MCP to extend the capabilities of Copilot Chat by integrating it wit
 
 ## AI models for Copilot Chat
 
-You can change the model Copilot uses to generate responses to chat prompts. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.  See [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+You can change the model Copilot uses to generate responses. You may find that different models perform better, or provide more useful responses, depending on the type of questions you ask. Options include premium models with advanced capabilities.
 
 ## Using plan mode
 
@@ -915,9 +910,7 @@ To use agent mode:
 3. Submit a prompt. In response to your prompt, Copilot streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 4. Review the changes. If Copilot suggested terminal commands, confirm whether or not Copilot can run them. In response, Copilot iterates and performs additional actions to complete the task in your original prompt.
 
-When you use agent mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. Copilot may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
-
-The total number of premium requests you use depends on how many prompts you enter and which model you select. See [Requests in GitHub Copilot](/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+When you use agent mode, each prompt you enter consumes GitHub AI Credits.
 
 ### Using subagents
 
@@ -961,7 +954,7 @@ When the subagent completes its task, its results appear back in the main chat s
 
 * [Prompt engineering for GitHub Copilot Chat](/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
 * [Asking GitHub Copilot questions in GitHub](/en/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/github-copilot-chat/about-github-copilot-chat)
+* [Application card: GitHub Copilot Chat](/en/copilot/github-copilot-chat/about-github-copilot-chat)
 * [GitHub Terms for Additional Products and Features](/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [GitHub Copilot Trust Center](https://copilot.github.trust.page)
 * [GitHub Copilot FAQ](https://github.com/features/copilot#faq)

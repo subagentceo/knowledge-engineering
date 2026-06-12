@@ -30,9 +30,9 @@ The London School of Economics and Political Science (LSE) Anthropic Economic Fu
 
 As with the US, the Anthropic Economic Futures Programme in the UK and Europe will focus on three areas:
 
-- **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see here; applications are open here.
-- **Evidence-based policy:** The LSE Symposium will mark the first of many forums where researchers, policymakers, and practitioners can develop and evaluate policy proposals grounded in real data on Europeans’ use of AI.
-- **Economic measurement and data:** We're expanding the Anthropic Economic Index to provide more granular, Europe-specific information, with regular public data releases tracking AI adoption across European industries and regions.
+*   **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see here; applications are open here.
+*   **Evidence-based policy:** The LSE Symposium will mark the first of many forums where researchers, policymakers, and practitioners can develop and evaluate policy proposals grounded in real data on Europeans’ use of AI.
+*   **Economic measurement and data:** We're expanding the Anthropic Economic Index to provide more granular, Europe-specific information, with regular public data releases tracking AI adoption across European industries and regions.
 
 Professor Cosmina Dorobantu at the London School of Economics added: "AI is forcing us to confront important questions about our economic future. Today's Symposium tackles these questions head-on. We are delighted to partner with Anthropic on this event, which exemplifies LSE's ambition to be the place where researchers, leading AI companies, policymakers, and civil society representatives converge to find solutions to the urgent socio-economic questions brought about by AI. Our work does not end here. Today marks the beginning of our collective efforts to ensure AI's transformative potential delivers an economy that works for everyone."
 
@@ -44,18 +44,18 @@ If you’re a researcher working on AI policy in the UK or Europe, you can submi
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

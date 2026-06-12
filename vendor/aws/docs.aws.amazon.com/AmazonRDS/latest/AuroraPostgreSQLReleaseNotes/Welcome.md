@@ -13,4 +13,4 @@ Aurora PostgreSQL releases are made available to all AWS Regions over the course
 + [Amazon Aurora PostgreSQL Limitless Database updates](limitless-updates.md)
 + [Babelfish for Aurora PostgreSQL updates](AuroraBabelfish.Updates.md)
 + [Aurora PostgreSQL query plan management updates](auroraqpm.updates.md)
-+ [Extension versions for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md)
++ [Extensions supported for Amazon Aurora PostgreSQL](AuroraPostgreSQL.Extensions.md)

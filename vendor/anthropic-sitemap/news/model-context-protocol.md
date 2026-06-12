@@ -20,9 +20,9 @@ The Model Context Protocol is an open standard that enables developers to build 
 
 Today, we're introducing three major components of the Model Context Protocol for developers:
 
-- The Model Context Protocol specification and SDKs
-- Local MCP server support in the Claude Desktop apps
-- An open-source repository of MCP servers
+*   The Model Context Protocol specification and SDKs
+*   Local MCP server support in the Claude Desktop apps
+*   An open-source repository of MCP servers
 
 Claude 3.5 Sonnet is adept at quickly building MCP server implementations, making it easy for organizations and individuals to rapidly connect their most important datasets with a range of AI-powered tools. To help developers start exploring, we’re sharing pre-built MCP servers for popular enterprise systems like Google Drive, Slack, GitHub, Git, Postgres, and Puppeteer.
 
@@ -40,9 +40,9 @@ Claude for Work customers can begin testing MCP servers locally, connecting Clau
 
 To start building:
 
-- Install pre-built MCP servers through the Claude Desktop app
-- Follow our quickstart guide to build your first MCP server
-- Contribute to our open-source repositories of connectors and implementations
+*   Install pre-built MCP servers through the Claude Desktop app
+*   Follow our quickstart guide to build your first MCP server
+*   Contribute to our open-source repositories of connectors and implementations
 
 ## An open community
 
@@ -50,18 +50,18 @@ MCP was created at Anthropic by David Soria Parra and Justin Spahr-Summers. We�
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

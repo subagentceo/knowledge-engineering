@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -19,22 +18,22 @@ Claude opens new tabs for browser tasks and shares your browser's login state, s
 
 With Chrome connected, you can chain browser actions with coding tasks in a single workflow:
 
-- **Live debugging**: read console errors and DOM state directly, then fix the code that caused them
-- **Design verification**: build a UI from a Figma mock, then open it in the browser to verify it matches
-- **Web app testing**: test form validation, check for visual regressions, or verify user flows
-- **Authenticated web apps**: interact with Google Docs, Gmail, Notion, or any app you're logged into without API connectors
-- **Data extraction**: pull structured information from web pages and save it locally
-- **Task automation**: automate repetitive browser tasks like data entry, form filling, or multi-site workflows
-- **Session recording**: record browser interactions as GIFs to document or share what happened
+* **Live debugging**: read console errors and DOM state directly, then fix the code that caused them
+* **Design verification**: build a UI from a Figma mock, then open it in the browser to verify it matches
+* **Web app testing**: test form validation, check for visual regressions, or verify user flows
+* **Authenticated web apps**: interact with Google Docs, Gmail, Notion, or any app you're logged into without API connectors
+* **Data extraction**: pull structured information from web pages and save it locally
+* **Task automation**: automate repetitive browser tasks like data entry, form filling, or multi-site workflows
+* **Session recording**: record browser interactions as GIFs to document or share what happened
 
 ## Prerequisites
 
 Before using Claude Code with Chrome, you need:
 
-- [Google Chrome](https://www.google.com/chrome/) or [Microsoft Edge](https://www.microsoft.com/edge) browser
-- [Claude in Chrome extension](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn) version 1.0.36 or higher, available in the Chrome Web Store for both browsers
-- [Claude Code](/en/quickstart#step-1-install-claude-code) version 2.0.73 or higher
-- A direct Anthropic plan (Pro, Max, Team, or Enterprise)
+* [Google Chrome](https://www.google.com/chrome/) or [Microsoft Edge](https://www.microsoft.com/edge) browser
+* [Claude in Chrome extension](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn) version 1.0.36 or higher, available in the Chrome Web Store for both browsers
+* [Claude Code](/en/quickstart#step-1-install-claude-code) version 2.0.73 or higher
+* A direct Anthropic plan (Pro, Max, Team, or Enterprise)
 
 <Note>
   Chrome integration is not available through third-party providers like Amazon Bedrock, Google Cloud Vertex AI, or Microsoft Foundry. If you access Claude exclusively through a third-party provider, you need a separate claude.ai account to use this feature.
@@ -51,7 +50,6 @@ Before using Claude Code with Chrome, you need:
     ```
 
     You can also enable Chrome from within an existing session by running `/chrome`.
-
   </Step>
 
   <Step title="Ask Claude to use the browser">
@@ -61,7 +59,6 @@ Before using Claude Code with Chrome, you need:
     Go to code.claude.com/docs, click on the search box,
     type "hooks", and tell me what results appear
     ```
-
   </Step>
 </Steps>
 
@@ -171,7 +168,7 @@ Claude records the interaction sequence and saves it as a GIF file.
 
 ### Extension not detected
 
-If Claude Code shows "Chrome extension not detected":
+If Claude Code's setup-issues line lists `chrome`:
 
 1. Verify the Chrome extension is installed and enabled in `chrome://extensions`
 2. Verify Claude Code is up to date by running `claude --version`
@@ -185,15 +182,15 @@ If the connection still fails, verify the host configuration file exists at:
 
 For Chrome:
 
-- **macOS**: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
-- **Linux**: `~/.config/google-chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
-- **Windows**: check `HKCU\Software\Google\Chrome\NativeMessagingHosts\` in the Windows Registry
+* **macOS**: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
+* **Linux**: `~/.config/google-chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
+* **Windows**: check `HKCU\Software\Google\Chrome\NativeMessagingHosts\` in the Windows Registry
 
 For Edge:
 
-- **macOS**: `~/Library/Application Support/Microsoft Edge/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
-- **Linux**: `~/.config/microsoft-edge/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
-- **Windows**: check `HKCU\Software\Microsoft\Edge\NativeMessagingHosts\` in the Windows Registry
+* **macOS**: `~/Library/Application Support/Microsoft Edge/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
+* **Linux**: `~/.config/microsoft-edge/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
+* **Windows**: check `HKCU\Software\Microsoft\Edge\NativeMessagingHosts\` in the Windows Registry
 
 ### Browser not responding
 
@@ -211,8 +208,8 @@ The Chrome extension's service worker can go idle during extended sessions, whic
 
 On Windows, you may encounter:
 
-- **Named pipe conflicts (EADDRINUSE)**: if another process is using the same named pipe, restart Claude Code. Close any other Claude Code sessions that might be using Chrome.
-- **Native messaging host errors**: if the native messaging host crashes on startup, try reinstalling Claude Code to regenerate the host configuration.
+* **Named pipe conflicts (EADDRINUSE)**: if another process is using the same named pipe, restart Claude Code. Close any other Claude Code sessions that might be using Chrome.
+* **Native messaging host errors**: if the native messaging host crashes on startup, try reinstalling Claude Code to regenerate the host configuration.
 
 ### Common error messages
 
@@ -227,9 +224,9 @@ These are the most frequently encountered errors and how to resolve them:
 
 ## See also
 
-- [Computer use](/en/computer-use): control native macOS apps when a task can't be done in a browser
-- [Use Claude Code in VS Code](/en/vs-code#automate-browser-tasks-with-chrome): browser automation in the VS Code extension
-- [CLI reference](/en/cli-reference): command-line flags including `--chrome`
-- [Common workflows](/en/common-workflows): more ways to use Claude Code
-- [Data and privacy](/en/data-usage): how Claude Code handles your data
-- [Getting started with Claude in Chrome](https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome): full documentation for the Chrome extension, including shortcuts, scheduling, and permissions
+* [Computer use](/en/computer-use): control native macOS apps when a task can't be done in a browser
+* [Use Claude Code in VS Code](/en/vs-code#automate-browser-tasks-with-chrome): browser automation in the VS Code extension
+* [CLI reference](/en/cli-reference): command-line flags including `--chrome`
+* [Common workflows](/en/common-workflows): more ways to use Claude Code
+* [Data and privacy](/en/data-usage): how Claude Code handles your data
+* [Getting started with Claude in Chrome](https://support.claude.com/en/articles/12012173-getting-started-with-claude-in-chrome): full documentation for the Chrome extension, including shortcuts, scheduling, and permissions

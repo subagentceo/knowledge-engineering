@@ -1,17 +1,18 @@
-[![sift-transparent](https://sift.com/wp-content/uploads/2025/10/sift-transparent.svg)](/)
+# See Why Your Peers Rank Sift #1 In Fraud Detection
 
--   [G2 Customer Reviews](#g2-customer-reviews)
--   [How Sift Works](#how-sift-works)
--   [Customer Success Stories](#customer-success-stories)
--   [Analyst Recognition](#analyst-recognition)
--   [See a Demo](#demo)
+![sift-transparent](https://sift.com/wp-content/uploads/2025/10/sift-transparent.svg)
 
-[![the-leader-in-e-commerce-g2](https://sift.com/wp-content/uploads/2025/08/the-leader-in-e-commerce-g2.svg)](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)
+*   G2 Customer Reviews
+*   How Sift Works
+*   Customer Success Stories
+*   Analyst Recognition
+*   See a Demo
+
+![the-leader-in-e-commerce-g2](https://sift.com/wp-content/uploads/2025/08/the-leader-in-e-commerce-g2.svg)
 
 #1 in Fraud Prevention
 
-# See Why Your Peers Rank Sift #1  
-In Fraud Detection
+# See Why Your Peers Rank Sift #1In Fraud Detection
 
 Request a Demo
 
@@ -19,25 +20,17 @@ Thanks, we'll be in touch soon.
 
 While you're here, check out additional resources below:
 
-[
-
 ![book-frame](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 customer stories
-
-](/resources/case-studies/)[
 
 ![compare fraud rates](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 compare fraud rates
 
-](/fibr-fraud-industry-benchmarking-resource/)[
-
 ![return to homepage](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 Explore Sift Events
-
-](/events/)
 
 **Stronger fraud decisions in real time** that separate trusted customers from risky activity across sign-up, login, and checkout
 
@@ -49,27 +42,27 @@ Explore Sift Events
 
 Overview
 
--   [G2 Customer Reviews](#g2-customer-reviews)
--   [How Sift Works](#how-sift-works)
--   [Customer Success Stories](#customer-success-stories)
--   [Analyst Recognition](#analyst-recognition)
--   [See a Demo](#demo)
+*   G2 Customer Reviews
+*   How Sift Works
+*   Customer Success Stories
+*   Analyst Recognition
+*   See a Demo
 
-![spring-2026-most-implementable](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
 
-![spring-2026-momentum-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
 
-![spring-2026-emea-regional-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
 
-![spring-2026-best-usability](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-![spring-2026-best-results](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-![spring-2026-best-relationship](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
 
 ## Customer Reviews
 
-[See 600+ Sift reviews on G2](https://www.g2.com/products/sift-s-ai-powered-fraud-decisioning-platform-sift/reviews)
+See 600+ Sift reviews on G2
 
 ![previous-arrow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -199,21 +192,21 @@ Connect payments fraud, account defense, and abuse prevention in a single platfo
 
 ![sift-leads-g2-winter](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201485%201215'%3E%3C/svg%3E)
 
-## Sift Ranked #1 in Fraud Detection on the G2 Grid® Spring 2026
+## Sift Ranked #1 in Fraud Detection on the G2 Grid® Summer 2026
 
-On the **G2 Grid® for Fraud Detection, Spring 2026**, Sift is recognized as a Leader, reflecting what customers see every day:
+On the **G2 Grid® for Fraud Detection, Summer 2026**, Sift is recognized as a Leader, reflecting what customers see every day:
 
--   Stronger fraud and risk decisions
--   Less friction for trusted users
--   Measurable revenue and chargeback protection
+*   Stronger fraud and risk decisions
+*   Less friction for trusted users
+*   Measurable revenue and chargeback protection
 
-[ACCESS THE REPORT](/resources/ebooks/sift-g2-leader-fraud-detection-2026/)
+ACCESS THE REPORT
 
 ## Hear From Teams Who Run on Sift
 
 Fraud, risk, and payments teams use Sift to drive measurable outcomes.
 
-[EXPLORE MORE CUSTOMER STORIES](/resources/case-studies/)
+EXPLORE MORE CUSTOMER STORIES
 
 ![sift-customer-voices](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -271,8 +264,6 @@ It’s not just peer reviews. Independent analysts also recognize Sift’s fraud
 
 These evaluations highlight Sift’s machine-learning–driven fraud detection, broad coverage across abuse types, and focus on protecting revenue while reducing friction.
 
-[
-
 ![qks-spark-matrix-recognition](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20621%20435'%3E%3C/svg%3E)
 
 Report
@@ -280,10 +271,6 @@ Report
 ### QKS Group SPARK Matrix™ for eCommerce Fraud Prevention Solutions
 
 Read the Report
-
-
-
-](/resources/ebooks/report-qks-spark-matrix-ecommerce-fraud-prevention-q4-2025/)[
 
 ![forrester-wave-recognition](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20621%20435'%3E%3C/svg%3E)
 
@@ -293,14 +280,10 @@ Report
 
 Read the Report
 
-
-
-](/blog/sift-forrester-wave-enterprise-fraud-management/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[Request a Demo](#demo)
+Request a Demo

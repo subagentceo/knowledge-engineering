@@ -6,7 +6,7 @@ The installer added `claude` to your PATH, but your current shell has not picked
 
 ## 2. npm install fails with `EACCES` / permission denied.
 
-This usually means the install was run with `sudo`, or your global npm directory is root-owned. Do not use sudo. Instead, use the native installer (`curl -fsSL <https://claude.ai/install.sh> | bash`), or fix npm's prefix with `npm config set prefix ~/.npm-global` and add that `bin` directory to your PATH.
+This usually means the install was run with `sudo`, or your global npm directory is root-owned. Do not use sudo. Instead, use the native installer (`curl -fsSL https://claude.ai/install.sh | bash`), or fix npm's prefix with `npm config set prefix ~/.npm-global` and add that `bin` directory to your PATH.
 
 ## 3. "Node version not supported" or silent crash on launch.
 
@@ -18,7 +18,7 @@ Windows PATH leaks into WSL and overrides nvm. Prepend your Linux node to PATH i
 
 ## 5. Installer hangs or fails behind a corporate network.
 
-The download host (`storage.googleapis.com`) is likely blocked. Set your proxy first with `export HTTPS_PROXY=<http://proxy.example.com:port>`, then re-run the installer. If that is not possible, ask your IT team for the offline package.
+The download host (`storage.googleapis.com`) is likely blocked. Set your proxy first with `export HTTPS_PROXY=http://proxy.example.com:port`, then re-run the installer. If that is not possible, ask your IT team for the offline package.
 
 ## 6. **SELF_SIGNED_CERT_IN_CHAIN** or other TLS errors.
 

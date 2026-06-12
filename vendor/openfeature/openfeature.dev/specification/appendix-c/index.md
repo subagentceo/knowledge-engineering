@@ -1,15 +1,15 @@
 # Appendix C: OpenFeature Remote Evaluation Protocol
 
-OpenFeature Remote Evaluation Protocol (OFREP) is a unified feature flag evaluation protocol that adheres to the OpenFeature semantics. You can find proposals, discussions and the progress at the dedicated [OpenFeature OFREP](https://github.com/open-feature/protocol) repository.
+OpenFeature Remote Evaluation Protocol (OFREP) is a unified feature flag evaluation protocol that adheres to the OpenFeature semantics. You can find proposals, discussions and the progress at the dedicated OpenFeature OFREP repository.
 
-There is a dedicated [OpenFeature working group](https://github.com/open-feature/community/blob/main/config/open-feature/spec-evaluation/workgroup.yaml) for this initiative that focuses on:
+There is a dedicated OpenFeature working group for this initiative that focuses on:
 
--   Feature flag evaluation protocol
--   Telemetry enrichment of the evaluations
--   Reference implementations of the protocol
+*   Feature flag evaluation protocol
+*   Telemetry enrichment of the evaluations
+*   Reference implementations of the protocol
 
-If you are interested in this initiative, you can join the [`#openfeature-remote-evaluation-protocol`](https://cloud-native.slack.com/archives/C066A48LK35) Slack channel on the [CNCF Slack](https://communityinviter.com/apps/cloud-native/cncf) workspace.
+If you are interested in this initiative, you can join the `#openfeature-remote-evaluation-protocol` Slack channel on the CNCF Slack workspace.
 
-## API Specification[​](#api-specification "Direct link to API Specification")
+## API Specification​
 
-View the full [OFREP API Specification](https://openfeature.dev/docs/reference/other-technologies/ofrep/openapi) with interactive documentation.
+View the full OFREP API Specification with interactive documentation.

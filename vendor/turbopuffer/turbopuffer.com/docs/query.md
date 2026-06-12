@@ -2,14 +2,15 @@
 
 POST /v2/namespaces/:namespace/query
 
-Query, filter, full-text search and vector search documents.
+**Vector Query** (768 dimensions, f16, 10M docs, ~15GB. Strongly consistent.)
+- warm (10M docs): p50=14ms, p90=17ms, p99=27ms
+- cold (10M docs): p50=874ms, p90=1214ms, p99=1686ms
 
-| | p50 | p90 | p99 |
-|---|---|---|---|
-| warm (1M docs) | 8ms | 10ms | 35ms |
-| cold (1M docs) | 343ms | 444ms | 554ms |
+**Full-Text Search** (BM25, 1M docs, ~300MB. Strongly consistent.)
+- warm (1M docs): p50=13ms, p90=18ms, p99=29ms
+- cold (1M docs): p50=316ms, p90=381ms, p99=559ms
 
-A query retrieves documents in a single [namespace](/docs/write), returning the
+Query, filter, full-text search and vector search documents. A query retrieves documents in a single [namespace](/docs/write), returning the
 ordered or highest-ranked documents that match the query's filters.
 
 turbopuffer supports the following types of queries:
@@ -43,22 +44,62 @@ How to rank the documents in the namespace. Supported ranking functions:
 
 Documents with a score of zero are excluded from results.
 
-For [hybrid search](/docs/hybrid-search), you can use [multi-queries](#multi-queries) (e.g. BM25 + vector) and combine the results client-side with e.g. reciprocal-rank fusion. We encourage users to write a strong query layer abstraction, as it's not uncommon to do several turbopuffer queries per user query.
+For [hybrid search](/docs/hybrid-search), you can use [multi-queries](#multi-queries) (e.g. BM25 + vector).
 
-**Vector example (ANN):** `["vector", "ANN", [0.1, 0.2, 0.3, ..., 76.8]]`
-
-**Vector example (kNN):** `["vector", "kNN", [0.1, 0.2, 0.3, ..., 76.8]]` (requires filters)
-
-**BM25:** `["text", "BM25", "fox jumping"]`
-
-**SparseKNN** `["sparse_vector", "SparseKNN", {"dim0": 0.1, "dimt1": 0.2, ...}]`
-
-**Order by attribute example:** `["timestamp", "desc"]`
-
-**BM25 with multiple, weighted fields:**
-
+Example (ANN):
 ```json
-["Sum", [
+[
+  "vector",
+  "ANN",
+  [0.1, 0.2, 0.3, ..., 76.8]
+]
+```
+
+Example (kNN):
+```json
+// Requires filters
+[
+  "vector",
+  "kNN",
+  [0.1, 0.2, 0.3, ..., 76.8]
+]
+```
+
+Example (BM25):
+```json
+[
+  "text",
+  "BM25",
+  "fox jumping"
+]
+```
+
+Example (SparseKNN):
+```json
+[
+  "sparse_vector",
+  "SparseKNN",
+  {
+    "dim0": 0.1,
+    "dimt1": 0.2,
+    ...
+  }
+]
+```
+
+Example (order by attribute):
+```json
+[
+  "timestamp",
+  "desc"
+]
+```
+
+Example (weighted BM25):
+```json
+[
+  "Sum",
+  [
     ["Product", 2, ["title", "BM25", "fox jumping"]],
     ["content", "BM25", "fox jumping"]
   ]
@@ -69,7 +110,7 @@ For [hybrid search](/docs/hybrid-search), you can use [multi-queries](#multi-que
 
 **top_k** number
 
-Alias for [limit.total](#param-limit).
+Alias for [`limit.total`](#param-limit).
 
   Maximum: 10,000
 
@@ -91,7 +132,23 @@ for details.
 For the best performance, separate documents into namespaces instead of
 filtering where possible. See also [Performance](/docs/performance).
 
-**Example:** `["And", [["id", "Gte", 1000], ["permissions", "ContainsAny", ["3d7a7296-3d6a-4796-8fb0-f90406b1f621", "92ef7c95-a212-43a4-ae4e-0ebc96a65764"]]]]`
+Example:
+```json
+[
+  "And",
+  [
+    ["id", "Gte", 1000],
+    [
+      "permissions",
+      "ContainsAny",
+      [
+        "3d7a7296-3d6a-4796-8fb0-f90406b1f621",
+        "92ef7c95-a212-43a4-ae4e-0ebc96a65764"
+      ]
+    ]
+  ]
+]
+```
 
 ---
 
@@ -113,7 +170,13 @@ List of attribute names to exclude from the response. All other attributes
 
   Cannot be specified with [include_attributes](#param-include_attributes).
 
-  **Example:** `["vector", "big_attribute"]`
+Example:
+```json
+[
+  "vector",
+  "big_attribute"
+]
+```
 
 ---
 
@@ -135,27 +198,30 @@ Limits the number of documents returned.
       * `limit` (number): the maximum number of documents to return for each
         value of the limit key
 
-      `per` is only supported for [order by attribute](#ordering-by-attributes)
-      queries. Support for BM25 and ANN queries is on our roadmap.
+      `per` is supported for [vector](#vector-search) and [order by attribute](#ordering-by-attributes)
+      queries. Support for BM25 is on our roadmap.
 
-  **Example (simple total):**
+Example (simple total):
+```json
+{
+  "limit": 10
+}
+```
 
-  ```json
-  {"limit": 10}
-  ```
-
-  **Example (limit per category and size):**
-
-  ```json
-  {
-    "limit": {
-      "per": {"attributes": ["category", "size"], "limit": 10},
-      "total": 10
-    }
+Example (limit per category and size):
+```json
+{
+  "limit": {
+    "per": {
+      "attributes": ["category", "size"],
+      "limit": 10
+    },
+    "total": 10
   }
-  ```
+}
+```
 
-    See [Diversification](#diversification) below for details.
+  See [Diversification](#diversification) below for details.
 
 ---
 
@@ -174,7 +240,14 @@ required unless rank_by is set
   * `["Count"]`: counts the number of documents.
   * `["Sum", "attribute_name"]`: sums the values of the specified scalar numeric attribute (supports `int`, `uint`, `float`)
 
-  **Example:** `{"aggregate_by": {"my_count": ["Count"]}}`
+Example:
+```json
+{
+  "aggregate_by": {
+    "my_count": ["Count"]
+  }
+}
+```
 
 ---
 
@@ -186,9 +259,17 @@ Only valid when [`aggregate_by`](#param-aggregate_by) is set.
   before computing aggregates. Aggregates are computed separately for each
   group.
 
-  Up to [limit.total](#param-limit) groups are returned, ordered by group key.
+  Up to [`limit.total`](#param-limit) groups are returned, ordered by group key.
 
-  **Example:** `{"aggregate_by": {"count_by_color_and_size": ["Count"]}, "group_by": ["color", "size"]}`
+Example:
+```json
+{
+  "aggregate_by": {
+    "count_by_color_and_size": ["Count"]
+  },
+  "group_by": ["color", "size"]
+}
+```
 
 ---
 
@@ -203,6 +284,28 @@ the namespace. If you need a higher limit, please [contact us](/contact).
 The provided array should consist of query objects, including every field except for `vector_encoding` or `consistency`, which should be set on the root object.
 
 The `queries` field is mutually exclusive with other query object fields. A request can contain either a multi-query or an ordinary query.
+
+---
+
+**rerank_by** array
+optional
+
+Combine the rows returned by a [multi-query](#multi-queries) into a single ranked list.
+Supported reranking functions:
+
+  * [RRF](#reciprocal-rank-fusion) (reciprocal rank fusion)
+
+A single list of up to [`limit.total`](#param-limit) results is returned.
+
+Example (RRF):
+```json
+["RRF"]
+```
+
+Example (RRF with config):
+```json
+["RRF", { "rank_constant": 10 }]
+```
 
 ---
 
@@ -245,16 +348,23 @@ queries usually hit the writing node. [Over 99.8% of queries return consistent d
 
 **rows** array
 
-An array of the [limit.total](#param-limit) documents that matched the query, ordered by the ranking function. Only present if [rank_by](#param-rank_by) is specified.
+An array of the [`limit.total`](#param-limit) documents that matched the query, ordered by the ranking function. Only present if [rank_by](#param-rank_by) is specified.
 
 Each document is an object containing the [requested attributes](#param-include_attributes). The `id` attribute is always included. The special attribute `$dist` is set to the ranking function's score for the document (distance from the query vector for `ANN`; BM25 score for `BM25`; omitted when ordering by an attribute).
 
-**Example:**
-
+Example:
 ```json
 [
-  {"$dist": 1.7, "id": 8, "extra_attr": "puffer"},
-  {"$dist": 3.1, "id": 20, "extra_attr": "fish"}
+  {
+    "$dist": 1.7,
+    "id": 8,
+    "extra_attr": "puffer"
+  },
+  {
+    "$dist": 3.1,
+    "id": 20,
+    "extra_attr": "fish"
+  }
 ]
 ```
 
@@ -262,22 +372,23 @@ Each document is an object containing the [requested attributes](#param-include_
 
 An array of response objects containing the results for each sub-query of a [multi-query](#multi-queries) request, the result objects are returned in the same order as the queries.
 
+Example:
 ```json
 [
-    {
-      "rows": [
-        {
-          "$dist": 0.0,
-          "id": 0
-        }
-      ]
-    },
-    {
-      "aggregations": {
-        "my_count_of_ids": 42
+  {
+    "rows": [
+      {
+        "$dist": 0.0,
+        "id": 0
       }
+    ]
+  },
+  {
+    "aggregations": {
+      "my_count_of_ids": 42
     }
-  ]
+  }
+]
 ```
 
 **aggregations** object
@@ -288,10 +399,11 @@ An object mapping the label for each
 Only present if [aggregate_by](#param-aggregate_by) is specified but
 [group_by](#param-group_by) is **not** specified.
 
-**Example:**
-
+Example:
 ```json
-{ "my_count_of_ids": 42 }
+{
+  "my_count_of_ids": 42
+}
 ```
 
 **aggregation_groups** array
@@ -303,14 +415,25 @@ the [group key](#param-group_by) and the computed value of each
 Only present if both [aggregate_by](#param-aggregate_by) and
 [group_by](#param-group_by) are specified.
 
-**Example:**
-
+Example:
 ```json
+// Sorted by group key. No more than limit.total groups returned.
 [
-  // Sorted by group key. No more than limit.total groups are returned.
-  { "color": "blue", "size": "small", "my_grouped_count": 2 },
-  { "color": "blue", "size": "medium", "my_grouped_count": 7 },
-  { "color": "red", "size": "small", "my_grouped_count": 4 }
+  {
+    "color": "blue",
+    "size": "small",
+    "my_grouped_count": 2
+  },
+  {
+    "color": "blue",
+    "size": "medium",
+    "my_grouped_count": 7
+  },
+  {
+    "color": "red",
+    "size": "small",
+    "my_grouped_count": 4
+  }
 ]
 ```
 
@@ -343,12 +466,17 @@ The query vector must have the same dimensionality as the vector column being qu
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-vector-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["vector", "ANN", [0.1, 0.1]],
+   "rank_by": [
+     "vector",
+     "ANN",
+     [0.1, 0.1]
+   ],
    "limit": 10
  }'
 
@@ -369,8 +497,7 @@ import os
 tpuf = turbopuffer.Turbopuffer(
     # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
     api_key=os.getenv("TURBOPUFFER_API_KEY"),
-    # Pick the right region: https://turbopuffer.com/docs/regions
-    region="gcp-us-central1",
+    region="gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-vector-example-py')
@@ -395,14 +522,17 @@ import { Turbopuffer } from "@turbopuffer/turbopuffer";
 const tpuf = new Turbopuffer({
   // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
   apiKey: process.env.TURBOPUFFER_API_KEY,
-  // Pick the right region: https://turbopuffer.com/docs/regions
-  region: "gcp-us-central1",
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-vector-example-ts`);
 
 const result = await ns.query({
-  rank_by: ["vector", "ANN", [0.1, 0.1]],
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.1],
+  ],
   limit: 10,
 });
 console.log(result.rows);
@@ -424,8 +554,7 @@ func main() {
 	tpuf := turbopuffer.NewClient(
 		// API tokens are created in the dashboard: https://turbopuffer.com/dashboard
 		option.WithAPIKey(os.Getenv("TURBOPUFFER_API_KEY")),
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-vector-example-go")
@@ -465,8 +594,7 @@ public class QueryVector {
       .fromEnv()
       // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
       .apiKey(System.getenv("TURBOPUFFER_API_KEY"))
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-vector-example-java");
@@ -486,6 +614,40 @@ public class QueryVector {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+    // Loaded from TURBOPUFFER_API_KEY env var by default. Override if necessary:
+    // ApiKey = "...",
+
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-vector-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankBy.Ann("vector", new[] { 0.1f, 0.1f }),
+        Limit = 10,
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Prints a list of row-oriented documents:
+// {"$dist": 0.0, "id": 1}
+// {"$dist": 2.0, "id": 2}
+```
 ```ruby
 # $ gem install turbopuffer
 require "turbopuffer"
@@ -493,15 +655,18 @@ require "turbopuffer"
 tpuf = Turbopuffer::Client.new(
   # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
   api_key: ENV["TURBOPUFFER_API_KEY"],
-  # Pick the right region: https://turbopuffer.com/docs/regions
-  region: "gcp-us-central1",
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-vector-example-rb")
 
 # If an error occurs, this call raises a Turbopuffer::Errors::APIError if a retry was not successful.
 result = ns.query(
-  rank_by: ["vector", "ANN", [0.1, 0.1]],
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.1],
+  ],
   limit: 10,
 )
 puts result.rows
@@ -518,16 +683,24 @@ When you need to filter documents, you can combine filters with vector search or
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-filters-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "filters": ["And", [
-     ["timestamp", "Gte", "2024-03-01T00:00:00.000Z"],
-     ["public", "Eq", true]
-   ]],
-   "rank_by": ["vector", "ANN", [0.1, 0.2, 0.3]],
+   "filters": [
+     "And",
+     [
+       ["timestamp", "Gte", "2024-03-01T00:00:00.000Z"],
+       ["public", "Eq", true]
+     ]
+   ],
+   "rank_by": [
+     "vector",
+     "ANN",
+     [0.1, 0.2, 0.3]
+   ],
    "limit": 10,
    "include_attributes": ["title", "timestamp"]
  }'
@@ -537,7 +710,7 @@ from datetime import datetime
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-filters-example-py')
@@ -563,7 +736,7 @@ print(result.rows)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-filters-example-ts`);
@@ -576,7 +749,11 @@ const result = await ns.query({
       ["public", "Eq", true],
     ],
   ],
-  rank_by: ["vector", "ANN", [0.1, 0.2, 0.3]], // Optional: include vector to combine with filters
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.2, 0.3],
+  ], // Optional: include vector to combine with filters
   limit: 10,
   include_attributes: ["title", "timestamp"],
 });
@@ -604,8 +781,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-filters-example-go")
@@ -653,8 +829,7 @@ public class QueryFilters {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-filters-example-java");
@@ -682,21 +857,64 @@ public class QueryFilters {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-filters-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        Filters = Filter.And(
+            Filter.Gte("timestamp", new DateTime(2024, 3, 1, 0, 0, 0, DateTimeKind.Utc)), // Documents after March 1, 2024
+            Filter.Eq("public", true)
+        ),
+        RankBy = RankBy.Ann("vector", new[] { 0.1f, 0.2f, 0.3f }), // Optional: include vector to combine with filters
+        Limit = 10,
+        IncludeAttributes = new List<string> { "title", "timestamp" },
+    }
+);
+
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Prints a list of row-oriented documents:
+// {"$dist": 0.15, "id": 1, "timestamp": "2024-03-02T00:00:00.000000000Z", "title": "Getting Started Guide"}
+// {"$dist": 0.28, "id": 2, "timestamp": "2024-03-03T00:00:00.000000000Z", "title": "Advanced Features"}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-filters-example-rb")
 
 result = ns.query(
-  filters: ["And", [
-    ["timestamp", "Gte", DateTime.new(2024, 3, 1, 0, 0, 0)],  # Documents after March 1, 2024
-    ["public", "Eq", true],
-  ]],
-  rank_by: ["vector", "ANN", [0.1, 0.2, 0.3]],  # Optional: include vector to combine with filters
+  filters: [
+    "And",
+    [
+      ["timestamp", "Gte", DateTime.new(2024, 3, 1, 0, 0, 0)], # Documents after March 1, 2024
+      ["public", "Eq", true],
+    ],
+  ],
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.2, 0.3],
+  ], # Optional: include vector to combine with filters
   limit: 10,
   include_attributes: ["title", "timestamp"],
 )
@@ -714,12 +932,17 @@ You can use `SparseKNN` to rank by the distance between a sparse vector attribut
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-sparse-vector-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["sparse_vector", "SparseKNN", {"dim0": 0.2, "dim3": 0.1}],
+   "rank_by": [
+     "sparse_vector",
+     "SparseKNN",
+     {"dim0": 0.2, "dim3": 0.1}
+   ],
    "limit": 10
  }'
 ```
@@ -832,6 +1055,40 @@ public class QuerySparseVector {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+    // Loaded from TURBOPUFFER_API_KEY env var by default. Override if necessary:
+    // ApiKey = "...",
+
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-sparse-vector-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankBy.SparseKnn(
+            "sparse_vector",
+            new Dictionary<string, double> { ["dim0"] = 0.2, ["dim3"] = 0.1 }
+        ),
+        Limit = 10,
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+```
 ```ruby
 # $ gem install turbopuffer
 require "turbopuffer"
@@ -862,13 +1119,21 @@ You can specify a `rank_by` parameter to order results by a specific attribute (
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-ordering-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "filters": ["timestamp", "Lt", "2024-03-01T00:00:00.000Z"],
-   "rank_by": ["timestamp", "desc"],
+   "filters": [
+     "timestamp",
+     "Lt",
+     "2024-03-01T00:00:00.000Z"
+   ],
+   "rank_by": [
+     "timestamp",
+     "desc"
+   ],
    "limit": 1000,
    "include_attributes": ["title", "timestamp"]
  }'
@@ -878,7 +1143,7 @@ from datetime import datetime
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-ordering-example-py')
@@ -901,14 +1166,21 @@ print(result.rows)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-ordering-example-ts`);
 
 const result = await ns.query({
-  filters: ["timestamp", "Lt", new Date("2024-03-01").toISOString()], // Documents before March 1, 2024
-  rank_by: ["timestamp", "desc"], // Order by timestamp in descending order
+  filters: [
+    "timestamp",
+    "Lt",
+    new Date("2024-03-01").toISOString(),
+  ], // Documents before March 1, 2024
+  rank_by: [
+    "timestamp",
+    "desc",
+  ], // Order by timestamp in descending order
   limit: 1000,
   include_attributes: ["title", "timestamp"],
 });
@@ -936,8 +1208,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-ordering-example-go")
@@ -946,7 +1217,7 @@ func main() {
 		ctx,
 		turbopuffer.NamespaceQueryParams{
 			Filters: turbopuffer.NewFilterLt("timestamp", time.Date(2024, 3, 1, 0, 0, 0, 0, time.UTC)), // Documents before March 1, 2024
-			RankBy: turbopuffer.NewRankByAttribute("timestamp", turbopuffer.RankByAttributeOrderDesc), // Order by timestamp in descending order
+			RankBy:  turbopuffer.NewRankByAttribute("timestamp", turbopuffer.RankByAttributeOrderDesc), // Order by timestamp in descending order
 			Limit: turbopuffer.LimitParam{
 				Total: 1000,
 			},
@@ -980,8 +1251,7 @@ public class QueryOrdering {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-ordering-example-java");
@@ -1003,18 +1273,57 @@ public class QueryOrdering {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-ordering-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        Filters = Filter.Lt("timestamp", new DateTime(2024, 3, 1, 0, 0, 0, DateTimeKind.Utc)), // Documents before March 1, 2024
+        RankBy = RankBy.Attribute("timestamp", RankByAttributeOrder.DESC), // Order by timestamp in descending order
+        Limit = 1000,
+        IncludeAttributes = new List<string> { "title", "timestamp" },
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Prints a list of row-oriented documents:
+// {"id": 6, "timestamp": "2024-02-27T00:00:00.000000000Z", "title": "Roadmap"}
+// {"id": 4, "timestamp": "2024-02-24T00:00:00.000000000Z", "title": "Performance Guide"}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-ordering-example-rb")
 
 result = ns.query(
-  filters: ["timestamp", "Lt", DateTime.new(2024, 3, 1, 0, 0, 0)],  # Documents before March 1, 2024
-  rank_by: ["timestamp", "desc"],  # Order by timestamp in descending order
+  filters: [
+    "timestamp",
+    "Lt",
+    DateTime.new(2024, 3, 1, 0, 0, 0),
+  ], # Documents before March 1, 2024
+  rank_by: [
+    "timestamp",
+    "desc",
+  ], # Order by timestamp in descending order
   limit: 1000,
   include_attributes: ["title", "timestamp"],
 )
@@ -1039,7 +1348,10 @@ by the `id` attribute, which is guaranteed to be present in every namespace:
 
 ```json
 "filters": [...],
-"rank_by": ["id", "asc"],
+"rank_by": [
+  "id",
+  "asc"
+],
 "limit": ...
 ```
 
@@ -1057,6 +1369,7 @@ For example, to count the number of documents in a namespace:
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-count-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
@@ -1065,14 +1378,18 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-count-example-c
     "aggregate_by": {
       "my_cool_count": ["Count"]
     },
-    "filters": ["cool_score", "Gt", 7]
+    "filters": [
+      "cool_score",
+      "Gt",
+      7
+    ]
   }'
 ```
 ```python
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-count-example-py')
@@ -1087,14 +1404,18 @@ print(result.aggregations['my_cool_count'])
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-count-example-ts`);
 
 const result = await ns.query({
   aggregate_by: { my_cool_count: ["Count"] },
-  filters: ["cool_score", "Gt", 7],
+  filters: [
+    "cool_score",
+    "Gt",
+    7,
+  ],
 });
 console.log(result.aggregations!.my_cool_count);
 ```
@@ -1113,8 +1434,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-count-example-go")
@@ -1145,8 +1465,7 @@ public class QueryCount {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-count-example-java");
@@ -1163,18 +1482,48 @@ public class QueryCount {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-count-example-csharp");
+
+var queryResult = await ns.Query(
+    new NamespaceQueryParams
+    {
+        AggregateBy = new Dictionary<string, AggregateBy> { ["my_cool_count"] = AggregateBy.Count() },
+        Filters = Filter.Gt("cool_score", 7),
+    }
+);
+
+var aggregations = queryResult.GetAggregations();
+Console.WriteLine(aggregations["my_cool_count"]);
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-count-example-rb")
 
 result = ns.query(
   aggregate_by: { my_cool_count: ["Count"] },
-  filters: ["cool_score", "Gt", 7],
+  filters: [
+    "cool_score",
+    "Gt",
+    7,
+  ],
 )
 puts result.aggregations[:my_cool_count]
 ```
@@ -1185,6 +1534,7 @@ a particular filter:
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-sum-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
@@ -1193,14 +1543,18 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-sum-example-cur
     "aggregate_by": {
       "my_cool_sum": ["Sum", "cool_score"]
     },
-    "filters": ["id", "Gte", 2]
+    "filters": [
+      "id",
+      "Gte",
+      2
+    ]
   }'
 ```
 ```python
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-sum-example-py')
@@ -1215,14 +1569,18 @@ print(result.aggregations['my_cool_sum'])
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-sum-example-ts`);
 
 const result = await ns.query({
   aggregate_by: { my_cool_sum: ["Sum", "cool_score"] },
-  filters: ["id", "Gte", 2],
+  filters: [
+    "id",
+    "Gte",
+    2,
+  ],
 });
 console.log(result.aggregations!.my_cool_sum);
 ```
@@ -1241,8 +1599,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-sum-example-go")
@@ -1273,8 +1630,7 @@ public class QuerySum {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-sum-example-java");
@@ -1291,18 +1647,48 @@ public class QuerySum {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-sum-example-csharp");
+
+var queryResult = await ns.Query(
+    new NamespaceQueryParams
+    {
+        AggregateBy = new Dictionary<string, AggregateBy> { ["my_cool_sum"] = AggregateBy.Sum("cool_score") },
+        Filters = Filter.Gte("id", 2),
+    }
+);
+
+var aggregations = queryResult.GetAggregations();
+Console.WriteLine(aggregations["my_cool_sum"]);
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-sum-example-rb")
 
 result = ns.query(
   aggregate_by: { my_cool_sum: ["Sum", "cool_score"] },
-  filters: ["id", "Gte", 1],
+  filters: [
+    "id",
+    "Gte",
+    1,
+  ],
 )
 puts result.aggregations[:my_cool_sum]
 ```
@@ -1320,6 +1706,7 @@ For example, to count documents grouped by the `color` and `size` attributes:
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-group-by-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
@@ -1339,7 +1726,7 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-group-by-exampl
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region="gcp-us-central1",  # pick the right region: https://turbopuffer.com/docs/regions
+    region="gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-group-by-example-py')
@@ -1358,7 +1745,7 @@ print(result.aggregation_groups)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-group-by-example-ts`);
@@ -1388,8 +1775,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-group-by-example-go")
@@ -1427,15 +1813,14 @@ public class QueryGroupBy {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-group-by-example-java");
 
     var queryResult = ns.query(
       NamespaceQueryParams.builder()
-        .aggregateBy(Map.of("count_by_color_and_size", AggregateBy.count("id")))
+        .aggregateBy(Map.of("count_by_color_and_size", AggregateBy.count()))
         .groupBy(List.of(GroupBy.attr("color"), GroupBy.attr("size")))
         .build()
     );
@@ -1449,11 +1834,45 @@ public class QueryGroupBy {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-group-by-example-csharp");
+
+var queryResult = await ns.Query(
+    new NamespaceQueryParams
+    {
+        AggregateBy = new Dictionary<string, AggregateBy>
+        {
+            ["count_by_color_and_size"] = AggregateBy.Count(),
+        },
+        GroupBy = [GroupBy.Attr("color"), GroupBy.Attr("size")],
+    }
+);
+
+foreach (var group in queryResult.GetAggregationGroups())
+{
+    Console.WriteLine(group);
+}
+// Prints a list of aggregation groups:
+// { "size": "XL", "count_by_color_and_size": 1, "color": "blue" }
+// { "size": "L", "count_by_color_and_size": 2, "color": "red" }
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-group-by-example-rb")
@@ -1609,6 +2028,40 @@ public class QueryGroupByForEachUnique {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-group-by-for-each-unique-example-csharp");
+
+var queryResult = await ns.Query(
+    new NamespaceQueryParams
+    {
+        AggregateBy = new Dictionary<string, AggregateBy>
+        {
+            ["count_by_tag"] = AggregateBy.Count(),
+        },
+        GroupBy = [GroupBy.Expr("tag", GroupByFunction.ForEachUnique("tags"))],
+    }
+);
+
+foreach (var group in queryResult.GetAggregationGroups())
+{
+    Console.WriteLine(group);
+}
+// Prints a list of aggregation groups:
+// { "count_by_tag": 2, "tag": "electronics" }
+// { "count_by_tag": 1, "tag": "mobile" }
+```
 ```ruby
 require "turbopuffer"
 
@@ -1632,9 +2085,13 @@ You can also combine `ForEachUnique` with regular grouping attributes:
 
 ```jsonc
 {
-  "aggregate_by": {"count_by_tag_and_status": ["Count"]},
+  "aggregate_by": {
+    "count_by_tag_and_status": ["Count"]
+  },
   "group_by": [
-    {"tag": ["ForEachUnique", "tags"]},
+    {
+      "tag": ["ForEachUnique", "tags"]
+    },
     "status"
   ]
 }
@@ -1659,6 +2116,7 @@ For example, a standard hybrid query combining full-text and vector searches exe
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-multi-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
@@ -1666,11 +2124,19 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-multi-example-c
   -d '{
    "queries": [
     {
-      "rank_by": ["vector", "ANN", [1.0, 0.0]],
+      "rank_by": [
+        "vector",
+        "ANN",
+        [1.0, 0.0]
+      ],
       "limit": 1
     },
     {
-      "rank_by": ["attr1", "BM25", "quick fox"],
+      "rank_by": [
+        "attr1",
+        "BM25",
+        "quick fox"
+      ],
       "limit": 1
     }
   ]
@@ -1680,7 +2146,7 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-multi-example-c
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region="gcp-us-central1",  # pick the right region: https://turbopuffer.com/docs/regions
+    region="gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-multi-example-py')
@@ -1703,7 +2169,7 @@ print(response.results)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-multi-example-ts`);
@@ -1711,11 +2177,19 @@ const ns = tpuf.namespace(`query-multi-example-ts`);
 const result = await ns.multiQuery({
   queries: [
     {
-      rank_by: ["vector", "ANN", [1.0, 0.0]],
+      rank_by: [
+        "vector",
+        "ANN",
+        [1.0, 0.0],
+      ],
       limit: 1,
     },
     {
-      rank_by: ["attr1", "BM25", "quick fox"],
+      rank_by: [
+        "attr1",
+        "BM25",
+        "quick fox",
+      ],
       limit: 1,
     }
   ]
@@ -1737,8 +2211,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-multi-example-go")
@@ -1781,8 +2254,7 @@ public class QueryMulti {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-multi-example-java");
@@ -1799,11 +2271,44 @@ public class QueryMulti {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-multi-example-csharp");
+
+var response = await ns.MultiQuery(
+    new NamespaceMultiQueryParams
+    {
+        Queries =
+        [
+            new Query { RankBy = RankBy.Ann("vector", new[] { 1.0f, 0.0f }), Limit = 1 },
+            new Query { RankBy = RankByText.BM25("attr1", "quick fox"), Limit = 1 },
+        ],
+    }
+);
+foreach (var result in response.Results)
+{
+    foreach (var row in result.GetRows())
+    {
+        Console.WriteLine(row);
+    }
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-multi-example-rb")
@@ -1811,11 +2316,19 @@ ns = tpuf.namespace("query-multi-example-rb")
 response = ns.multi_query(
   queries: [
     {
-      rank_by: ["vector", "ANN", [1.0, 0.0]],
+      rank_by: [
+        "vector",
+        "ANN",
+        [1.0, 0.0],
+      ],
       limit: 1,
     },
     {
-      rank_by: ["attr1", "BM25", "quick fox"],
+      rank_by: [
+        "attr1",
+        "BM25",
+        "quick fox",
+      ],
       limit: 1,
     },
   ],
@@ -1828,6 +2341,191 @@ Individual sub-queries can vary their parameters independently including differe
 
 The `consistency` parameter must be set at the root level of the request, not on individual sub-queries. All sub-queries in a multi-query share the same consistency level.
 
+### Reciprocal rank fusion
+
+Reciprocal rank fusion (RRF) lets you combine the results of a [multi-query](#multi-queries) into a single ranked list.
+It operates on ranks rather than scores, so it can fuse results across different search types, such as BM25, dense vector, and sparse vector search.
+
+<!-- multilang -->
+```bash
+# choose best region: https://turbopuffer.com/docs/regions
+curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-rrf-example-curl/query \
+  -X POST --fail-with-body \
+  -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+   "queries": [
+     {"rank_by": ["vector", "ANN", [1.0, 0.0]], "limit": 10},
+     {"rank_by": ["attr1", "BM25", "quick fox"], "limit": 10}
+   ],
+   "rerank_by": ["RRF"]
+ }'
+```
+```python
+import turbopuffer
+
+tpuf = turbopuffer.Turbopuffer(
+    region="gcp-us-central1",  # choose best region: https://turbopuffer.com/docs/regions
+)
+
+ns = tpuf.namespace(f'query-rrf-example-py')
+response = ns.multi_query(
+    queries=[
+        {"rank_by": ("vector", "ANN", [1.0, 0.0]), "limit": 10},
+        {"rank_by": ("attr1", "BM25", "quick fox"), "limit": 10},
+    ],
+    rerank_by=("RRF",),
+)
+print(response.results)
+```
+```typescript
+import { Turbopuffer } from "@turbopuffer/turbopuffer";
+
+const tpuf = new Turbopuffer({
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
+});
+
+const ns = tpuf.namespace(`query-rrf-example-ts`);
+const result = await ns.multiQuery({
+  queries: [
+    {rank_by: ["vector", "ANN", [1.0, 0.0]], limit: 10},
+    {rank_by: ["attr1", "BM25", "quick fox"], limit: 10},
+  ],
+  rerank_by: ["RRF"],
+});
+console.log(result.results);
+```
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
+)
+
+func main() {
+	ctx := context.Background()
+	tpuf := turbopuffer.NewClient(
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
+	)
+
+	ns := tpuf.Namespace("query-rrf-example-go")
+	result, err := ns.MultiQuery(
+		ctx,
+		turbopuffer.NamespaceMultiQueryParams{
+			Queries: []turbopuffer.QueryParam{
+				{
+					RankBy: turbopuffer.NewRankByAnn("vector", []float32{1.0, 0.0}),
+					Limit: turbopuffer.LimitParam{Total: 10},
+				},
+				{
+					RankBy: turbopuffer.NewRankByTextBM25("attr1", "quick fox"),
+					Limit: turbopuffer.LimitParam{Total: 10},
+				},
+			},
+			RerankBy: turbopuffer.NewRerankByRrf(),
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(turbopuffer.PrettyPrint(result.Results))
+}
+```
+```java
+package com.turbopuffer.docs;
+
+import com.turbopuffer.client.okhttp.*;
+import com.turbopuffer.core.*;
+import com.turbopuffer.models.namespaces.*;
+import java.util.*;
+
+public class QueryRrf {
+
+  public static void main(String[] args) {
+    var tpuf = TurbopufferOkHttpClient.builder()
+      .fromEnv()
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
+      .build();
+
+    var ns = tpuf.namespace("query-rrf-example-java");
+    var response = ns.multiQuery(
+      NamespaceMultiQueryParams.builder()
+        .addQuery(
+          Query.builder().rankBy(RankBy.ann("vector", List.of(1.0f, 0.0f))).limit(10).build()
+        )
+        .addQuery(Query.builder().rankBy(RankByText.bm25("attr1", "quick fox")).limit(10).build())
+        .rerankBy(RerankBy.rrf())
+        .build()
+    );
+    System.out.println(response.results());
+  }
+}
+```
+```cs
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-rrf-example-csharp");
+var response = await ns.MultiQuery(
+    new NamespaceMultiQueryParams
+    {
+        Queries =
+        [
+            new Query { RankBy = RankBy.Ann("vector", new[] { 1.0f, 0.0f }), Limit = 10 },
+            new Query { RankBy = RankByText.BM25("attr1", "quick fox"), Limit = 10 },
+        ],
+        RerankBy = RerankBy.Rrf(),
+    }
+);
+foreach (var result in response.Results)
+{
+    foreach (var row in result.GetRows())
+    {
+        Console.WriteLine(row);
+    }
+}
+```
+```ruby
+require "turbopuffer"
+
+tpuf = Turbopuffer::Client.new(
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
+)
+
+ns = tpuf.namespace("query-rrf-example-rb")
+response = ns.multi_query(
+  queries: [
+    { rank_by: ["vector", "ANN", [1.0, 0.0]], limit: 10 },
+    { rank_by: ["attr1", "BM25", "quick fox"], limit: 10 },
+  ],
+  rerank_by: ["RRF"],
+)
+puts response.results
+```
+<!-- /multilang -->
+
+The [results](#responsefield-results) contain a single list combining all the subquery results, sorted by descending RRF score.
+The RRF score for each row is reported in the `$dist` field.
+It is calculated as the sum of `1 / (rank_constant + rank)` across all subquery results.
+
+`rank_constant` is an integer greater than zero, with a default of 60.
+Use the `["RRF", { "rank_constant": <number> }]` syntax to select a different value.
+
+RRF reranking requires at least two subqueries and is not supported for aggregations.
+
 ## Full-Text Search
 
 The FTS attribute must be configured with `full_text_search` set in the schema
@@ -1839,12 +2537,17 @@ For an example of hybrid search (combining both vector and BM25 results), see
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-fts-basic-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["content", "BM25", "quick fox"],
+   "rank_by": [
+     "content",
+     "BM25",
+     "quick fox"
+   ],
    "limit": 10,
    "include_attributes": ["title", "content"]
  }'
@@ -1853,7 +2556,7 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-fts-basic-examp
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-fts-basic-example-py')
@@ -1869,13 +2572,17 @@ print(result.rows)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-fts-basic-example-ts`);
 
 const result = await ns.query({
-  rank_by: ["content", "BM25", "quick fox"],
+  rank_by: [
+    "content",
+    "BM25",
+    "quick fox",
+  ],
   limit: 10,
   include_attributes: ["title", "content"],
 });
@@ -1896,8 +2603,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-fts-basic-example-go")
@@ -1933,8 +2639,7 @@ public class QueryFtsBasic {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-fts-basic-example-java");
@@ -1950,17 +2655,49 @@ public class QueryFtsBasic {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-fts-basic-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankByText.BM25("content", "quick fox"),
+        Limit = 10,
+        IncludeAttributes = new List<string> { "title", "content" },
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-fts-basic-example-rb")
 
 result = ns.query(
-  rank_by: ["content", "BM25", "quick fox"],
+  rank_by: [
+    "content",
+    "BM25",
+    "quick fox",
+  ],
   limit: 10,
   include_attributes: ["title", "content"],
 )
@@ -1973,16 +2710,24 @@ a specific subset of documents.
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/fts-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["content", "BM25", "quick fox"],
-   "filters": ["And", [
-     ["timestamp", "Gte", "2024-03-01T00:00:00.000Z"],
-     ["public", "Eq", true]
-   ]],
+   "rank_by": [
+     "content",
+     "BM25",
+     "quick fox"
+   ],
+   "filters": [
+     "And",
+     [
+       ["timestamp", "Gte", "2024-03-01T00:00:00.000Z"],
+       ["public", "Eq", true]
+     ]
+   ],
    "limit": 10,
    "include_attributes": ["title", "content", "timestamp"]
  }'
@@ -1992,7 +2737,7 @@ from datetime import datetime
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-fts-example-py')
@@ -2018,13 +2763,17 @@ print(result.rows)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-fts-example-ts`);
 
 const result = await ns.query({
-  rank_by: ["content", "BM25", "quick fox"],
+  rank_by: [
+    "content",
+    "BM25",
+    "quick fox",
+  ],
   filters: [
     "And",
     [
@@ -2059,8 +2808,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-fts-example-go")
@@ -2105,8 +2853,7 @@ public class QueryFts {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-fts-example-java");
@@ -2134,21 +2881,64 @@ public class QueryFts {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-fts-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankByText.BM25("content", "quick fox"),
+        Filters = Filter.And(
+            Filter.Gte("timestamp", new DateTime(2024, 3, 1, 0, 0, 0, DateTimeKind.Utc)), // Documents after March 1, 2024
+            Filter.Eq("public", true)
+        ),
+        Limit = 10,
+        IncludeAttributes = new List<string> { "title", "content", "timestamp" },
+    }
+);
+
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Prints a list of row-oriented documents:
+// {"$dist": 0.85, "id": 1, "content": "The quick brown fox...", "timestamp": "2024-03-02T00:00:00.000000000Z", "title": "Animal Stories"}
+// {"$dist": 1.28, "id": 2, "content": "A quick red fox...", "timestamp": "2024-03-03T00:00:00.000000000Z", "title": "Forest Tales"}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-fts-example-rb")
 
 result = ns.query(
-  rank_by: ["content", "BM25", "quick fox"],
-  filters: ["And", [
-    ["timestamp", "Gte", DateTime.new(2024, 3, 1, 0, 0, 0)],  # Documents after March 1, 2024
-    ["public", "Eq", true],
-  ]],
+  rank_by: [
+    "content",
+    "BM25",
+    "quick fox",
+  ],
+  filters: [
+    "And",
+    [
+      ["timestamp", "Gte", DateTime.new(2024, 3, 1, 0, 0, 0)], # Documents after March 1, 2024
+      ["public", "Eq", true],
+    ],
+  ],
   limit: 10,
   include_attributes: ["title", "content", "timestamp"],
 )
@@ -2170,13 +2960,19 @@ FTS operators combine the results of multiple clauses into a single score. Speci
 Operators can be nested. For example:
 
 ```json
-"rank_by": ["Sum", [
-  ["Max", [
-    ["title", "BM25", "whale facts"],
-    ["description", "BM25", "whale facts"]
-  ]],
-  ["content", "BM25", "huge whale"]
-]]
+"rank_by": [
+  "Sum",
+  [
+    [
+      "Max",
+      [
+        ["title", "BM25", "whale facts"],
+        ["description", "BM25", "whale facts"]
+      ]
+    ],
+    ["content", "BM25", "huge whale"]
+  ]
+]
 ```
 
 ### Field weights/boosts
@@ -2185,10 +2981,13 @@ You can specify a weight / boost per-field by using the `Product` operator insid
 For example, to apply a 2x score multiplier on the `title` clause:
 
 ```json
-"rank_by": ["Sum", [
-  ["Product", 2, ["title", "BM25", "quick fox"]],
-  ["content", "BM25", "quick fox"]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["Product", 2, ["title", "BM25", "quick fox"]],
+    ["content", "BM25", "quick fox"]
+  ]
+]
 ```
 
 Note that the weight must be non-negative.
@@ -2198,16 +2997,23 @@ Note that the weight must be non-negative.
 [Filters](#filtering) can be used inside `rank_by` expressions to conditionally boost documents matching certain criteria. Documents that pass the filter get a score of 1, and are otherwise scored 0.
 
 ```json
-"rank_by": ["Sum", [
-  ["title", "BM25", "quick fox"],
-  ["species", "Eq", "whale"]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["title", "BM25", "quick fox"],
+    ["species", "Eq", "whale"]
+  ]
+]
 ```
 
 Use `Product` to change how large the boost is:
 
 ```json
-"rank_by": ["Product", 2.0, ["species", "Eq", "whale"]]
+"rank_by": [
+  "Product",
+  2.0,
+  ["species", "Eq", "whale"]
+]
 ```
 
 ### Rank by attribute
@@ -2219,10 +3025,13 @@ For instance, to rank by the sum of the BM25 score and the value of an
 attribute named `clicks`:
 
 ```json
-"rank_by": ["Sum", [
-  ["title", "BM25", "quick fox"],
-  ["Max", 0, ["Attribute", "clicks"]]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["title", "BM25", "quick fox"],
+    ["Max", 0, ["Attribute", "clicks"]]
+  ]
+]
 ```
 
 Scores have to be non-negative for best performance. turbopuffer will reject
@@ -2251,10 +3060,23 @@ combination. See how the below example uses `Product` to set a weight of 1.7 on
 the contribution of the `clicks` attribute:
 
 ```json
-"rank_by": ["Sum", [
-  ["title", "BM25", "quick fox"],
-  ["Product", 1.7, ["Saturate", ["Attribute", "clicks"], { "midpoint": 100 }]]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["title", "BM25", "quick fox"],
+    [
+      "Product",
+      1.7,
+      [
+        "Saturate",
+        ["Attribute", "clicks"],
+        {
+          "midpoint": 100
+        }
+      ]
+    ]
+  ]
+]
 ```
 
 A difference though is that BM25 takes advantage of the fact that text data
@@ -2284,10 +3106,19 @@ midpoint^exponent)`.
 ![decay_plot.svg](/images/decay_plot.svg)
 
 ```json
-"rank_by": ["Sum", [
-  ["title", "BM25", "quick fox"],
-  ["Decay", ["Attribute", "number_of_negative_reviews"], { "midpoint": 2 }]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["title", "BM25", "quick fox"],
+    [
+      "Decay",
+      ["Attribute", "number_of_negative_reviews"],
+      {
+        "midpoint": 2
+      }
+    ]
+  ]
+]
 ```
 
 ### Rank by distance
@@ -2298,10 +3129,19 @@ point and an attribute value. The returned distance is typically passed to the
 recency (time distance):
 
 ```json
-"rank_by": ["Sum", [
-  ["title", "BM25", "quick fox"],
-  ["Decay", ["Dist", ["Attribute", "published_at"], "2026-02-03T12:13:14"], { "midpoint": "6h" }]
-]]
+"rank_by": [
+  "Sum",
+  [
+    ["title", "BM25", "quick fox"],
+    [
+      "Decay",
+      ["Dist", ["Attribute", "published_at"], "2026-02-03T12:13:14"],
+      {
+        "midpoint": "6h"
+      }
+    ]
+  ]
+]
 ```
 
 When used on a `datetime` field, the `midpoint` can be provided either as a
@@ -2313,7 +3153,11 @@ number of milliseconds, or as a duration string. Supported units include `s`
 `ContainsTokenSequence` matches documents that contain all the tokens present in the filter input string, in the exact order and adjacent to each other.
 
 ```json
-"filters": ["text", "ContainsTokenSequence", "walrus is lazy"]
+"filters": [
+  "text",
+  "ContainsTokenSequence",
+  "walrus is lazy"
+]
 ```
 
 Currently, turbopuffer implements `ContainsTokenSequence` using a partial postfilter which may lead to reduced recall on ANN queries, and potentially higher latency on filter-only and FTS queries; we expect to improve this in the future.
@@ -2321,10 +3165,13 @@ Currently, turbopuffer implements `ContainsTokenSequence` using a partial postfi
 `ContainsAllTokens` matches documents that contain all the tokens present in the filter input string, regardless of order or adjacency. For example, this filter would match a document like "walrus is lazy", provided said document didn't contain both "polar" and "bear":
 
 ```json
-"filters": ["And", [
-  ["text", "ContainsAllTokens", "lazy walrus"],
-  ["Not", ["text", "ContainsAllTokens", "polar bear"]]
-]]
+"filters": [
+  "And",
+  [
+    ["text", "ContainsAllTokens", "lazy walrus"],
+    ["Not", ["text", "ContainsAllTokens", "polar bear"]]
+  ]
+]
 ```
 
 `ContainsAllTokens` is generally faster than `ContainsTokenSequence`.
@@ -2335,13 +3182,34 @@ Type-ahead style prefix queries are supported through the `ContainsAllTokens` fi
 
 ```jsonc
 // As a filter (matching all tokens)
-"filters": ["text", "ContainsAllTokens", "lazy wal", { "last_as_prefix": true }]
+"filters": [
+  "text",
+  "ContainsAllTokens",
+  "lazy wal",
+  {
+    "last_as_prefix": true
+  }
+]
 
 // As a filter (matching any token)
-"filters": ["text", "ContainsAnyToken", "lazy wal", { "last_as_prefix": true }]
+"filters": [
+  "text",
+  "ContainsAnyToken",
+  "lazy wal",
+  {
+    "last_as_prefix": true
+  }
+]
 
 // Within a BM25 query
-"rank_by": ["text", "BM25", "lazy wal", { "last_as_prefix": true }]
+"rank_by": [
+  "text",
+  "BM25",
+  "lazy wal",
+  {
+    "last_as_prefix": true
+  }
+]
 ```
 
 When `last_as_prefix` is true, the last token in the input string is treated as a literal prefix. In this case, the prefix
@@ -2367,22 +3235,31 @@ Conditions can be combined using `{And,Or}` operations:
 
 ```json
 // basic And condition
-"filters": ["And", [
-  ["attr_name", "Eq", 42],
-  ["page_id", "In", ["page1", "page2"]]
-]]
+"filters": [
+  "And",
+  [
+    ["attr_name", "Eq", 42],
+    ["page_id", "In", ["page1", "page2"]]
+  ]
+]
 
 // conditions can be nested
-"filters": ["And", [
-  ["page_id", "In", ["page1", "page2"]],
-  ["Or", [
-    ["public", "Eq", 1],
-    ["permission_id", "In", ["3iQK2VC4", "wzw8zpnQ"]]
-  ]]
-]]
+"filters": [
+  "And",
+  [
+    ["page_id", "In", ["page1", "page2"]],
+    [
+      "Or",
+      [
+        ["public", "Eq", 1],
+        ["permission_id", "In", ["3iQK2VC4", "wzw8zpnQ"]]
+      ]
+    ]
+  ]
+]
 ```
 
-Filters can also be applied to the `id` field, which refers to the document ID.
+Filters can also be applied to the `id` field, which refers to the document id.
 
 ### Filtering Parameters
 
@@ -2493,7 +3370,42 @@ Case insensitive version of `NotGlob`.
 
 Regular expression match against `string` attribute values. Requires the [regex schema attribute](/docs/write#param-regex) to be enabled before use.
 
-  **Warning:** Doesn't support certain advanced features (e.g. look-around, backreferences).
+```json
+// matches "swordfish", "pufferfish", "clownfish", …
+"filters": [
+  "text",
+  "Regex",
+  "\\w+fish"
+]
+```
+
+  **Warning:** Doesn't support certain advanced features (e.g. look-around, backreferences). Currently requires exhaustive evaluation; not recommended for large namespaces or ANN queries unless used in conjunction with other selective filters. [Contact us](/contact) if you run into performance problems.
+
+---
+**Fuzzy** string
+
+Fuzzy substring match against `string` or `[]string` attribute values. Requires the [fuzzy schema attribute](/docs/write#param-fuzzy) to be enabled before use. 
+  
+  See [Full-Text Search](/docs/fts#fuzzy-matching) for more details.
+
+  - `max_edit_distance` (required) sets how many edits to tolerate by the query length in characters (uses [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)). `distance` can be `0`, `1`, or `2`, and `min_query_chars` must be at least 3 · (`distance` + 1). Queries shorter than the first `min_query_chars` threshold return no matches.
+
+  - `case_sensitive` (optional; defaults to `true`) controls case sensitivity. When `true`, the edit distance between `M` and `m` is 1.
+
+  ```jsonc
+  {
+    // Will match substrings within edit distance 1,
+    // since query has >= 6 chars.
+    // If query was < 3 chars, would match nothing
+    "filters": ["company_name", "Fuzzy", "turbopufer", {
+        "max_edit_distance": [
+            {"min_query_chars": 3, "distance": 0},
+            {"min_query_chars": 6, "distance": 1},
+        ],
+        "case_sensitive": false
+    }]
+  }
+  ```
 
 ---
 **ContainsAllTokens** string
@@ -2527,30 +3439,41 @@ Using nested `And` and `Or` filters:
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-complex-filter-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["vector", "ANN", [0.1, 0.1]],
+   "rank_by": [
+     "vector",
+     "ANN",
+     [0.1, 0.1]
+   ],
    "limit": 10,
    "exclude_attributes": ["vector", "filename"],
-   "filters": ["And", [
-     ["id", "In", [1, 2, 3]],
-     ["key1", "Eq", "one"],
-     ["filename", "NotGlob", "/vendor/**"],
-     ["Or", [
-       ["filename", "Glob", "**.tsx"],
-       ["filename", "Glob", "**.js"]
-     ]]
-   ]]
+   "filters": [
+     "And",
+     [
+       ["id", "In", [1, 2, 3]],
+       ["key1", "Eq", "one"],
+       ["filename", "NotGlob", "/vendor/**"],
+       [
+         "Or",
+         [
+           ["filename", "Glob", "**.tsx"],
+           ["filename", "Glob", "**.js"]
+         ]
+       ]
+     ]
+   ]
  }'
 ```
 ```python
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-complex-filter-example-py')
@@ -2576,13 +3499,17 @@ print(result.rows) # Returns a row-oriented VectorResult
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-complex-filter-example-ts`);
 
 const result = await ns.query({
-  rank_by: ["vector", "ANN", [0.1, 0.1]],
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.1],
+  ],
   limit: 10,
   exclude_attributes: ["vector", "filename"],
   filters: [
@@ -2618,8 +3545,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-complex-filter-example-go")
@@ -2662,8 +3588,7 @@ public class QueryComplexFilter {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-complex-filter-example-java");
@@ -2689,29 +3614,76 @@ public class QueryComplexFilter {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-complex-filter-example-csharp");
+
+// If an error occurs, this call raises a TurbopufferApiException if a
+// retry was not successful.
+var queryResult = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankBy.Ann("vector", new[] { 0.1f, 0.1f }),
+        Limit = 10,
+        ExcludeAttributes = new List<string> { "vector", "filename" },
+        Filters = Filter.And(
+            Filter.In("id", new[] { 1, 2, 3 }),
+            Filter.Eq("key1", "one"),
+            Filter.NotGlob("filename", "/vendor/**"),
+            Filter.Or(Filter.Glob("filename", "**.tsx"), Filter.Glob("filename", "**.js"))
+        ),
+    }
+);
+foreach (var row in queryResult.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Returns a row-oriented result
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-complex-filter-example-rb")
 
 # If an error occurs, this call raises a Turbopuffer::Errors::APIError if a retry was not successful.
 result = ns.query(
-  rank_by: ["vector", "ANN", [0.1, 0.1]],
+  rank_by: [
+    "vector",
+    "ANN",
+    [0.1, 0.1],
+  ],
   limit: 10,
   exclude_attributes: ["vector", "filename"],
-  filters: ["And", [
-    ["id", "In", [1, 2, 3]],
-    ["key1", "Eq", "one"],
-    ["filename", "NotGlob", "/vendor/**"],
-    ["Or", [
-      ["filename", "Glob", "**.tsx"],
-      ["filename", "Glob", "**.js"],
-    ]],
-  ]],
+  filters: [
+    "And",
+    [
+      ["id", "In", [1, 2, 3]],
+      ["key1", "Eq", "one"],
+      ["filename", "NotGlob", "/vendor/**"],
+      [
+        "Or",
+        [
+          ["filename", "Glob", "**.tsx"],
+          ["filename", "Glob", "**.js"],
+        ],
+      ],
+    ],
+  ],
 )
 puts result.rows # Returns a row-oriented result
 ```
@@ -2725,13 +3697,13 @@ five times in the results:
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-limit-per-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["id", "asc"],
-   "filters": ["product_name", "ContainsAllTokens", "red cotton"],
+   "rank_by": ["vector", "ANN", [0.1, 0.1]],
    "limit": {
      "per": {"attributes": ["category"], "limit": 5},
      "total": 50
@@ -2743,14 +3715,13 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-limit-per-examp
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-limit-per-example-py')
 
 result = ns.query(
-    rank_by=('id', 'asc'),
-    filters=('product_name', 'ContainsAllTokens', 'red cotton'),
+    rank_by=('vector', 'ANN', [0.1, 0.1]),
     # No more than 5 docs per category
     limit={
         'per': {'attributes': ['category'], 'limit': 5},
@@ -2764,14 +3735,13 @@ print(result.rows)
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-limit-per-example-ts`);
 
 const result = await ns.query({
-  rank_by: ["id", "asc"],
-  filters: ["product_name", "ContainsAllTokens", "red cotton"],
+  rank_by: ["vector", "ANN", [0.1, 0.1]],
   // No more than 5 docs per category
   limit: {
     per: { attributes: ["category"], limit: 5 },
@@ -2797,8 +3767,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-limit-per-example-go")
@@ -2806,8 +3775,7 @@ func main() {
 	result, err := ns.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy:  turbopuffer.NewRankByAttribute("id", turbopuffer.RankByAttributeOrderAsc),
-			Filters: turbopuffer.NewFilterContainsAllTokens("product_name", "red cotton"),
+			RankBy: turbopuffer.NewRankByAnn("vector", []float32{0.1, 0.1}),
 			// No more than 5 docs per category
 			Limit: turbopuffer.LimitParam{
 				Total: 50,
@@ -2839,16 +3807,14 @@ public class QueryLimitPer {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-limit-per-example-java");
 
     var result = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.attribute("id", RankByAttributeOrder.ASC))
-        .filters(Filter.containsAllTokens("product_name", "red cotton"))
+        .rankBy(RankBy.ann("vector", List.of(0.1f, 0.1f)))
         // No more than 5 docs per category
         .limit(
           Limit.builder()
@@ -2863,18 +3829,50 @@ public class QueryLimitPer {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-limit-per-example-csharp");
+
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankBy.Ann("vector", new[] { 0.1f, 0.1f }),
+        // No more than 5 docs per category
+        Limit = new NamespaceLimit
+        {
+            Total = 50,
+            Per = new Per { Attributes = new List<string> { "category" }, Limit = 5 },
+        },
+        IncludeAttributes = new List<string> { "category" },
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-limit-per-example-rb")
 
 result = ns.query(
-  rank_by: ["id", "asc"],
-  filters: ["product_name", "ContainsAllTokens", "red cotton"],
+  rank_by: ["vector", "ANN", [0.1, 0.1]],
   # No more than 5 docs per category
   limit: {
     per: { attributes: ["category"], limit: 5 },
@@ -2890,7 +3888,7 @@ puts result.rows
 
 For full-text and vector search, you have two main options. If you're letting
 your users paginate through hits with an infinite scrolling experience, the
-best option is to create a filter that excludes IDs that have already been
+best option is to create a filter that excludes ids that have already been
 rendered. This preserves a smooth user experience in the case when a write
 operation changes the top hits of the query after the first page is retrieved.
 
@@ -2898,7 +3896,11 @@ operation changes the top hits of the query after the first page is retrieved.
 {
   "limit": 20,
   "rank_by": [...],
-  "filters": ["id", "NotIn", [...]]
+  "filters": [
+    "id",
+    "NotIn",
+    [...]
+  ]
 }
 ```
 
@@ -2911,7 +3913,7 @@ on the client side.
 
 When [Ordering by Attributes](#ordering-by-attributes), you can page through
 results by advancing a filter on the order attribute. For example, to paginate
-by ID, advance a greater-than filter on ID:
+by id, advance a greater-than filter on id:
 
 <!-- multilang -->
 ```python
@@ -2921,7 +3923,7 @@ from turbopuffer.types import Filter
 from typing import List
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-pagination-example-py')
@@ -2949,7 +3951,7 @@ import { Turbopuffer } from "@turbopuffer/turbopuffer";
 import { Filter } from "@turbopuffer/turbopuffer/resources";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-pagination-example-ts`);
@@ -2963,9 +3965,15 @@ while (true) {
   if (lastId !== null) filters.push(["id", "Gt", lastId]);
 
   const result = await ns.query({
-    rank_by: ["id", "asc"],
+    rank_by: [
+      "id",
+      "asc",
+    ],
     limit: 1000,
-    filters: ["And", filters],
+    filters: [
+      "And",
+      filters,
+    ],
   });
   console.log(result.rows);
 
@@ -2989,11 +3997,10 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
-	ns := tpuf.Namespace("query-pagination-go-example")
+	ns := tpuf.Namespace("query-pagination-example-go")
 
 	var lastID any
 	for {
@@ -3009,7 +4016,7 @@ func main() {
 		result, err := ns.Query(
 			ctx,
 			turbopuffer.NamespaceQueryParams{
-				RankBy:  turbopuffer.NewRankByAttribute("id", turbopuffer.RankByAttributeOrderAsc),
+				RankBy: turbopuffer.NewRankByAttribute("id", turbopuffer.RankByAttributeOrderAsc),
 				Limit: turbopuffer.LimitParam{
 					Total: 1000,
 				},
@@ -3043,8 +4050,7 @@ public class QueryPagination {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-pagination-example-java");
@@ -3078,11 +4084,58 @@ public class QueryPagination {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-pagination-example-csharp");
+
+JsonElement? lastId = null;
+while (true)
+{
+    Filter filters = Filter.Gte("timestamp", new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc));
+    if (lastId != null)
+    {
+        filters = Filter.And(filters, Filter.Gt("id", lastId));
+    }
+    var result = await ns.Query(
+        new NamespaceQueryParams
+        {
+            RankBy = RankBy.Attribute("id", RankByAttributeOrder.ASC),
+            Limit = 1000,
+            Filters = filters,
+        }
+    );
+    var rows = result.GetRows();
+
+    // Do something with the page of results.
+    foreach (var row in rows)
+    {
+        Console.WriteLine(row);
+    }
+
+    if (rows.Count < 1000)
+    {
+        break;
+    }
+    lastId = rows[^1]["id"];
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-pagination-example-rb")
@@ -3096,9 +4149,15 @@ loop do
   end
 
   result = ns.query(
-    rank_by: ["id", "asc"],
+    rank_by: [
+      "id",
+      "asc",
+    ],
     limit: 1000,
-    filters: ["And", filters],
+    filters: [
+      "And",
+      filters,
+    ],
   )
   puts result.rows
 
@@ -3126,13 +4185,22 @@ documents matching the filters and can be significantly higher than ANN queries.
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-knn-example-curl/query \
   -X POST --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-   "rank_by": ["vector", "kNN", [0.1, 0.1]],
-   "filters": ["category", "Eq", "A"],
+   "rank_by": [
+     "vector",
+     "kNN",
+     [0.1, 0.1]
+   ],
+   "filters": [
+     "category",
+     "Eq",
+     "A"
+   ],
    "limit": 10
  }'
 
@@ -3152,8 +4220,7 @@ import os
 tpuf = turbopuffer.Turbopuffer(
     # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
     api_key=os.getenv("TURBOPUFFER_API_KEY"),
-    # Pick the right region: https://turbopuffer.com/docs/regions
-    region="gcp-us-central1",
+    region="gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace(f'query-knn-example-py')
@@ -3179,16 +4246,23 @@ import { Turbopuffer } from "@turbopuffer/turbopuffer";
 const tpuf = new Turbopuffer({
   // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
   apiKey: process.env.TURBOPUFFER_API_KEY,
-  // Pick the right region: https://turbopuffer.com/docs/regions
-  region: "gcp-us-central1",
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 const ns = tpuf.namespace(`query-knn-example-ts`);
 
 // kNN performs exact nearest neighbor search over filtered results
 const result = await ns.query({
-  rank_by: ["vector", "kNN", [0.1, 0.1]],
-  filters: ["category", "Eq", "A"],
+  rank_by: [
+    "vector",
+    "kNN",
+    [0.1, 0.1],
+  ],
+  filters: [
+    "category",
+    "Eq",
+    "A",
+  ],
   limit: 10,
 });
 console.log(result.rows);
@@ -3210,8 +4284,7 @@ func main() {
 	tpuf := turbopuffer.NewClient(
 		// API tokens are created in the dashboard: https://turbopuffer.com/dashboard
 		option.WithAPIKey(os.Getenv("TURBOPUFFER_API_KEY")),
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	ns := tpuf.Namespace("query-knn-example-go")
@@ -3253,8 +4326,7 @@ public class QueryKnn {
       .fromEnv()
       // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
       .apiKey(System.getenv("TURBOPUFFER_API_KEY"))
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var ns = tpuf.namespace("query-knn-example-java");
@@ -3270,11 +4342,47 @@ public class QueryKnn {
     System.out.println(result.rows().get());
     // Prints a list of row-oriented documents:
     // [
-    //   {id=1, $dist=0.0},
-    //   {id=2, $dist=0.0}
+    //   {id=1, $dist=0.2},
+    //   {id=2, $dist=0.7}
     // ]
   }
 }
+```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using System.Collections.Generic;
+using Turbopuffer;
+using Turbopuffer.Models.Namespaces;
+
+using var tpuf = new TurbopufferClient
+{
+    // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+    // Loaded from TURBOPUFFER_API_KEY env var by default. Override if necessary:
+    // ApiKey = "...",
+
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var ns = tpuf.Namespace("query-knn-example-csharp");
+
+// kNN performs exact nearest neighbor search over filtered results
+var result = await ns.Query(
+    new NamespaceQueryParams
+    {
+        RankBy = RankBy.Knn("vector", new[] { 0.1f, 0.1f }),
+        Filters = Filter.Eq("category", "A"),
+        Limit = 10,
+    }
+);
+foreach (var row in result.GetRows())
+{
+    Console.WriteLine(row);
+}
+// Prints a list of row-oriented documents:
+// {"$dist": 0.2, "id": 1}
+// {"$dist": 0.7, "id": 2}
 ```
 ```ruby
 # $ gem install turbopuffer
@@ -3283,16 +4391,23 @@ require "turbopuffer"
 tpuf = Turbopuffer::Client.new(
   # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
   api_key: ENV["TURBOPUFFER_API_KEY"],
-  # Pick the right region: https://turbopuffer.com/docs/regions
-  region: "gcp-us-central1",
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 ns = tpuf.namespace("query-knn-example-rb")
 
 # kNN performs exact nearest neighbor search over filtered results
 result = ns.query(
-  rank_by: ["vector", "kNN", [0.1, 0.1]],
-  filters: ["category", "Eq", "A"],
+  rank_by: [
+    "vector",
+    "kNN",
+    [0.1, 0.1],
+  ],
+  filters: [
+    "category",
+    "Eq",
+    "A",
+  ],
   limit: 10,
 )
 puts result.rows
@@ -3302,3 +4417,12 @@ puts result.rows
 # {id: 2, dist: 0.7}
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/query.md](https://turbopuffer.com/docs/query.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

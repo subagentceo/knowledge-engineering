@@ -19,9 +19,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -74,11 +76,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaMessageBatch`
+
   - `id: String`
 
     Unique object identifier.
@@ -110,6 +115,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: :in_progress | :canceling | :ended`
 
     Processing status of the Message Batch.
+
     - `:in_progress`
 
     - `:canceling`
@@ -121,6 +127,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: Integer`
 
       Number of requests in the Message Batch that have been canceled.
@@ -160,6 +167,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
+
     - `:message_batch`
 
 ### Example

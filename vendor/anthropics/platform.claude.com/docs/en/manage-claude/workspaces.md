@@ -11,7 +11,6 @@ Workspaces provide a way to organize your API usage within an organization. Use 
 Every organization has a **Default Workspace** that cannot be renamed, archived, or deleted. When you create additional workspaces, you can assign API keys, members, and resource limits to each one.
 
 Key characteristics:
-
 - **Workspace identifiers** use the `wrkspc_` prefix (for example, `wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ`)
 - **Maximum 100 workspaces** per organization (archived workspaces don't count)
 - **Default Workspace** has no ID and doesn't appear in list endpoints
@@ -36,13 +35,13 @@ Archiving the Claude Code workspace disables Claude Code sign-in through Console
 
 Members can have different roles in each workspace, allowing fine-grained access control.
 
-| Role                        | Permissions                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------------------- |
-| Workspace User              | Use the Workbench only                                                                          |
+| Role | Permissions |
+|------|-------------|
+| Workspace User | Use the Workbench only |
 | Workspace Limited Developer | Create and manage API keys, use the API. Cannot access session tracing views or download files. |
-| Workspace Developer         | Create and manage API keys, use the API                                                         |
-| Workspace Admin             | Full control over workspace settings and members                                                |
-| Workspace Billing           | View workspace billing information (inherited from organization billing role)                   |
+| Workspace Developer | Create and manage API keys, use the API |
+| Workspace Admin | Full control over workspace settings and members |
+| Workspace Billing | View workspace billing information (inherited from organization billing role) |
 
 ### Role inheritance
 
@@ -114,8 +113,8 @@ Organization admins and billing members cannot be removed from workspaces while 
 
 In the **Limits** tab, you can configure:
 
-- **Rate limits**: Set limits per model tier for requests per minute, input tokens, or output tokens
-- **Spend notifications**: Configure alerts when spending reaches certain thresholds
+- **Rate limits:** Set limits per model tier for requests per minute, input tokens, or output tokens
+- **Spend notifications:** Configure alerts when spending reaches certain thresholds
 
 #### Archive a workspace
 
@@ -190,18 +189,16 @@ For complete parameter details, see the [Workspace Members API reference](/docs/
 API keys are scoped to a specific workspace. When you create an API key in a workspace, it can only access resources within that workspace.
 
 Resources scoped to workspaces include:
-
 - **Files** created through the [Files API](/docs/en/build-with-claude/files)
 - **Message Batches** created through the [Batch API](/docs/en/build-with-claude/batch-processing)
 - **Skills** created through the [Skills API](/docs/en/build-with-claude/skills-guide)
 
 Some resources are managed at the organization level and cannot be managed with a workspace API key:
-
-- **[MCP tunnels](/docs/en/agents-and-tools/mcp-tunnels/overview)** are created in a workspace; the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only, while the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them. The Tunnels API authenticates with a short-lived OAuth token carrying the `org:manage_tunnels` scope, obtained through [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation), not a workspace API key.
+- **[MCP tunnels](/docs/en/agents-and-tools/mcp-tunnels/overview)** are managed with an org-scoped OAuth token (`org:manage_tunnels`) obtained through [Workload Identity Federation](/docs/en/manage-claude/workload-identity-federation), not a workspace API key, and the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them. Tunnels are created in a workspace, and the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only.
 - **Workspaces** themselves and **organization members** are managed through the [Admin API](/docs/en/manage-claude/admin-api), which requires an Admin API key.
 
 <Note>
-[Prompt caches](/docs/en/build-with-claude/prompt-caching) are also isolated per workspace on the Claude API, [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry) (in beta). On Amazon Bedrock and Vertex AI, prompt caches are isolated per organization.
+[Prompt caches](/docs/en/build-with-claude/prompt-caching) are also isolated per workspace on the Claude API, [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry) (where Claude is currently in beta). On Amazon Bedrock and Vertex AI, prompt caches are isolated per organization.
 </Note>
 
 <Tip>
@@ -216,8 +213,8 @@ You can set custom spend and rate limits for each workspace to protect against o
 
 Workspace limits can be set lower than (but not higher than) your organization's limits:
 
-- **Spend limits**: Cap monthly spending for a workspace
-- **Rate limits**: Limit requests per minute, input tokens per minute, or output tokens per minute
+- **Spend limits:** Cap monthly spending for a workspace
+- **Rate limits:** Limit requests per minute, input tokens per minute, or output tokens per minute
 
 <Note>
 - You cannot set limits on the Default Workspace
@@ -250,11 +247,11 @@ Usage and costs attributed to the Default Workspace have a `null` value for `wor
 
 Create separate workspaces for development, staging, and production:
 
-| Workspace   | Purpose                                            |
-| ----------- | -------------------------------------------------- |
+| Workspace | Purpose |
+|-----------|---------|
 | Development | Testing and experimentation with lower rate limits |
-| Staging     | Pre-production testing with production-like limits |
-| Production  | Live traffic with full rate limits and monitoring  |
+| Staging | Pre-production testing with production-like limits |
+| Production | Live traffic with full rate limits and monitoring |
 
 ### Team or department isolation
 
@@ -322,7 +319,7 @@ Organization users and developers can be assigned Workspace Admin, Workspace Dev
 
 <section title="Can organization admin or billing members' workspace roles be changed?">
 
-Only organization billing members can have their workspace role upgraded to an admin role. Otherwise, organization admins and billing members cannot have their workspace roles changed or be removed from workspaces while they hold those organization roles. Their workspace access must be modified by changing their organization role first.
+Organization admins and billing members cannot have their workspace roles changed or be removed from workspaces while they hold those organization roles (with one exception: billing members can be upgraded to a Workspace Admin role). For everyone else covered by this constraint, change their organization role first to change their workspace access.
 
 </section>
 

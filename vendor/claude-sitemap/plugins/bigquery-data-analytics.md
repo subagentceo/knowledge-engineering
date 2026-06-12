@@ -1,0 +1,11 @@
+# bigquery-data-analytics
+
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Google LLC
+    
+*   Installs

@@ -39,6 +39,7 @@ Price and plans are subject to change at Anthropic's discretion.
 - When upgrading from a lower to a higher tier, your account will be charged on a prorated basis for the remainder of your billing cycle.
 
 - When moving from an annual Pro plan to a Max plan, if the remaining balance on your annual Pro plan is greater than your Max plan price, you will receive a credit to your account for the remaining balance. This credit will be applied to future subscription costs.
+
   - To receive your credit, the billing address used to purchase your Max plan must be the same as your previous subscription’s billing address.
 
   - If your billing address has changed, you will need to cancel your Pro subscription and wait for the subscription end date before signing up for a new Max subscription with a new billing address.
@@ -59,7 +60,7 @@ Yes. The Max plan offers substantially higher usage compared to our Pro plan and
 
 **Max 20x** provides 20 times more usage per session than the Pro plan. This tier is ideal for daily users who collaborate often with Claude for most tasks.
 
-Max plans also have two weekly usage limits: one that applies across all models and another for Sonnet models only. Both limits reset seven days after your session starts.
+Max plans also have two weekly usage limits: one that applies across all models and another for Sonnet models only. Weekly limits reset at a fixed time each week that is assigned to your account. Your reset day and time stay the same regardless of when you start using Claude or when your subscription begins, and you receive your full weekly allowance each cycle. You can see your next reset time in **[Settings > Usage](https://claude.ai/new#settings/usage)**.
 
 In addition, to manage capacity and ensure fair access to all users, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion.
 

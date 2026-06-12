@@ -65,7 +65,7 @@ While complying with the Data Security Standards is important, it shouldn’t be
 
 ### Content Security Policy 
 
-If you’ve deployed a *Content Security Policy* (Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross-Site Scripting (XSS) and data injection attacks), the full set of directives that Checkout, Connect embedded components, and Stripe.js require are:
+If you’ve deployed a *Content Security Policy* (Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross-Site Scripting (XSS) and data injection attacks), the full set of directives for Stripe products are:
 
 #### Checkout
 
@@ -76,10 +76,10 @@ If you’ve deployed a *Content Security Policy* (Content Security Policy (CSP) 
 
 #### Connect embedded components
 
-- `frame-src` `https://connect-js.stripe.com` `https://js.stripe.com`
-- `img-src` `https://*.stripe.com`
-- `script-src` `https://connect-js.stripe.com` `https://js.stripe.com`
-- `style-src` `sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=` (SHA of empty style element)
+- `frame-src`, `https://connect-js.stripe.com`, `https://js.stripe.com`
+- `img-src`, `https://*.stripe.com`
+- `script-src`, `https://connect-js.stripe.com`, `https://js.stripe.com`
+- `style-src`, `sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=` (SHA of empty style element)
 
 If you’re using a CSS file to load [web fonts](https://docs.stripe.com/connect/get-started-connect-embedded-components.md#fonts-object) for use with Connect embedded components, its URL must be allowed by your [connect-src](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/connect-src) CSP directive.
 
@@ -111,6 +111,28 @@ trustedTypes.createPolicy('default', {
   },
 });
 ```
+
+#### Link
+
+If you use [Link](https://docs.stripe.com/payments/link.md), add the following directives in addition to the [Stripe.js](https://docs.stripe.com/security/guide.md?csp=csp-js#csp-js) directives:
+
+- `frame-src`, `https://link.com`, `https://*.link.com`
+- `connect-src`, `https://link.com`, `https://*.link.com`
+- `img-src`, `https://*.link.com`
+
+Link's authentication UI and static assets are served from Stripe-owned `link.com` subdomains (for example, `checkout.link.com` and `statics.link.com`). The `*.link.com` wildcard covers all current and future Link subdomains.
+
+#### Crypto
+
+If you use the [embedded crypto onramp](https://docs.stripe.com/crypto/onramp/embedded.md), add the following directives in addition to the [Stripe.js](https://docs.stripe.com/security/guide.md?csp=csp-js#csp-js) directives:
+
+- `script-src`, `https://crypto-js.stripe.com`
+- `frame-src`, `https://crypto.link.com`
+- `connect-src`, `https://crypto.link.com`
+
+The onramp JavaScript (`crypto-onramp-outer.js`) must be loaded directly from `https://crypto-js.stripe.com`. Don’t self-host it. The onramp UI renders inside an iframe served from `https://crypto.link.com`.
+
+If you use the [Stripe-hosted onramp](https://docs.stripe.com/crypto/onramp/stripe-hosted.md) (redirect flow), no additional CSP changes are required on your page.
 
 ### Cross-origin isolation support 
 

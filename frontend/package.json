@@ -1,8 +1,8 @@
 {
-  "name": "@subagentceo/outcomesdk-frontend",
+  "name": "@subagentceo/subagentknowledge-frontend",
   "version": "0.2.0",
   "private": true,
-  "description": "outcomesdk.com \u2014 single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
+  "description": "subagentknowledge.com \u2014 single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
   "type": "module",
   "scripts": {
     "build:manifest": "tsx scripts/build-vendor-manifest.ts",

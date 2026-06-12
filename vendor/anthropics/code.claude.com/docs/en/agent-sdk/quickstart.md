@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -17,8 +16,8 @@ Use the Agent SDK to build an AI agent that reads your code, finds bugs, and fix
 
 ## Prerequisites
 
-- **Node.js 18+** or **Python 3.10+**
-- An **Anthropic account** ([sign up here](https://platform.claude.com/))
+* **Node.js 18+** or **Python 3.10+**
+* An **Anthropic account** ([sign up here](https://platform.claude.com/))
 
 ## Setup
 
@@ -32,7 +31,6 @@ Use the Agent SDK to build an AI agent that reads your code, finds bugs, and fix
     ```
 
     For your own projects, you can run the SDK from any folder; it will have access to files in that directory and its subdirectories by default.
-
   </Step>
 
   <Step title="Install the SDK">
@@ -80,7 +78,6 @@ Use the Agent SDK to build an AI agent that reads your code, finds bugs, and fix
     <Note>
       The TypeScript SDK bundles a native Claude Code binary for your platform as an optional dependency, so you don't need to install Claude Code separately.
     </Note>
-
   </Step>
 
   <Step title="Set your API key">
@@ -102,7 +99,6 @@ Use the Agent SDK to build an AI agent that reads your code, finds bugs, and fix
     <Note>
       Unless previously approved, Anthropic does not allow third party developers to offer claude.ai login or rate limits for their products, including agents built on the Claude Agent SDK. Please use the API key authentication methods described in this document instead.
     </Note>
-
   </Step>
 </Steps>
 
@@ -136,53 +132,55 @@ Create `agent.py` if you're using the Python SDK, or `agent.ts` for TypeScript:
   import asyncio
   from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 
-async def main(): # Agentic loop: streams messages as Claude works
-async for message in query(
-prompt="Review utils.py for bugs that would cause crashes. Fix any issues you find.",
-options=ClaudeAgentOptions(
-allowed_tools=["Read", "Edit", "Glob"], # Auto-approve these tools
-permission_mode="acceptEdits", # Auto-approve file edits
-),
-): # Print human-readable output
-if isinstance(message, AssistantMessage):
-for block in message.content:
-if hasattr(block, "text"):
-print(block.text) # Claude's reasoning
-elif hasattr(block, "name"):
-print(f"Tool: {block.name}") # Tool being called
-elif isinstance(message, ResultMessage):
-print(f"Done: {message.subtype}") # Final result
 
-asyncio.run(main())
+  async def main():
+      # Agentic loop: streams messages as Claude works
+      async for message in query(
+          prompt="Review utils.py for bugs that would cause crashes. Fix any issues you find.",
+          options=ClaudeAgentOptions(
+              allowed_tools=["Read", "Edit", "Glob"],  # Auto-approve these tools
+              permission_mode="acceptEdits",  # Auto-approve file edits
+          ),
+      ):
+          # Print human-readable output
+          if isinstance(message, AssistantMessage):
+              for block in message.content:
+                  if hasattr(block, "text"):
+                      print(block.text)  # Claude's reasoning
+                  elif hasattr(block, "name"):
+                      print(f"Tool: {block.name}")  # Tool being called
+          elif isinstance(message, ResultMessage):
+              print(f"Done: {message.subtype}")  # Final result
 
-````
 
-```typescript TypeScript theme={null}
-import { query } from "@anthropic-ai/claude-agent-sdk";
+  asyncio.run(main())
+  ```
 
-// Agentic loop: streams messages as Claude works
-for await (const message of query({
-  prompt: "Review utils.py for bugs that would cause crashes. Fix any issues you find.",
-  options: {
-    allowedTools: ["Read", "Edit", "Glob"], // Auto-approve these tools
-    permissionMode: "acceptEdits" // Auto-approve file edits
-  }
-})) {
-  // Print human-readable output
-  if (message.type === "assistant" && message.message?.content) {
-    for (const block of message.message.content) {
-      if ("text" in block) {
-        console.log(block.text); // Claude's reasoning
-      } else if ("name" in block) {
-        console.log(`Tool: ${block.name}`); // Tool being called
-      }
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
+
+  // Agentic loop: streams messages as Claude works
+  for await (const message of query({
+    prompt: "Review utils.py for bugs that would cause crashes. Fix any issues you find.",
+    options: {
+      allowedTools: ["Read", "Edit", "Glob"], // Auto-approve these tools
+      permissionMode: "acceptEdits" // Auto-approve file edits
     }
-  } else if (message.type === "result") {
-    console.log(`Done: ${message.subtype}`); // Final result
+  })) {
+    // Print human-readable output
+    if (message.type === "assistant" && message.message?.content) {
+      for (const block of message.message.content) {
+        if ("text" in block) {
+          console.log(block.text); // Claude's reasoning
+        } else if ("name" in block) {
+          console.log(`Tool: ${block.name}`); // Tool being called
+        }
+      }
+    } else if (message.type === "result") {
+      console.log(`Done: ${message.subtype}`); // Final result
+    }
   }
-}
-````
-
+  ```
 </CodeGroup>
 
 This code has three main parts:
@@ -206,15 +204,23 @@ The message handling inside the loop filters for human-readable output. Without 
 Your agent is ready. Run it with the following command:
 
 <Tabs>
-  <Tab title="Python">
-    ```bash theme={null}
-    python3 agent.py
-    ```
-  </Tab>
-
   <Tab title="TypeScript">
     ```bash theme={null}
     npx tsx agent.ts
+    ```
+  </Tab>
+
+  <Tab title="Python (uv)">
+    ```bash theme={null}
+    uv run agent.py
+    ```
+  </Tab>
+
+  <Tab title="Python (pip)">
+    With your virtual environment still activated:
+
+    ```bash theme={null}
+    python agent.py
     ```
   </Tab>
 </Tabs>
@@ -235,9 +241,9 @@ This is what makes the Agent SDK different: Claude executes tools directly inste
 
 Now that your agent is set up, try some different prompts:
 
-- `"Add docstrings to all functions in utils.py"`
-- `"Add type hints to all functions in utils.py"`
-- `"Create a README.md documenting the functions in utils.py"`
+* `"Add docstrings to all functions in utils.py"`
+* `"Add type hints to all functions in utils.py"`
+* `"Create a README.md documenting the functions in utils.py"`
 
 ### Customize your agent
 
@@ -252,15 +258,14 @@ You can modify your agent's behavior by changing the options. Here are a few exa
   )
   ```
 
-```typescript TypeScript hidelines={1,-1} theme={null}
-const _ = {
-  options: {
-    allowedTools: ["Read", "Edit", "Glob", "WebSearch"],
-    permissionMode: "acceptEdits",
-  },
-};
-```
-
+  ```typescript TypeScript hidelines={1,-1} theme={null}
+  const _ = {
+    options: {
+      allowedTools: ["Read", "Edit", "Glob", "WebSearch"],
+      permissionMode: "acceptEdits"
+    }
+  };
+  ```
 </CodeGroup>
 
 **Give Claude a custom system prompt:**
@@ -274,17 +279,15 @@ const _ = {
   )
   ```
 
-```typescript TypeScript hidelines={1,-1} theme={null}
-const _ = {
-  options: {
-    allowedTools: ["Read", "Edit", "Glob"],
-    permissionMode: "acceptEdits",
-    systemPrompt:
-      "You are a senior Python developer. Always follow PEP 8 style guidelines.",
-  },
-};
-```
-
+  ```typescript TypeScript hidelines={1,-1} theme={null}
+  const _ = {
+    options: {
+      allowedTools: ["Read", "Edit", "Glob"],
+      permissionMode: "acceptEdits",
+      systemPrompt: "You are a senior Python developer. Always follow PEP 8 style guidelines."
+    }
+  };
+  ```
 </CodeGroup>
 
 **Run commands in the terminal:**
@@ -296,15 +299,14 @@ const _ = {
   )
   ```
 
-```typescript TypeScript hidelines={1,-1} theme={null}
-const _ = {
-  options: {
-    allowedTools: ["Read", "Edit", "Glob", "Bash"],
-    permissionMode: "acceptEdits",
-  },
-};
-```
-
+  ```typescript TypeScript hidelines={1,-1} theme={null}
+  const _ = {
+    options: {
+      allowedTools: ["Read", "Edit", "Glob", "Bash"],
+      permissionMode: "acceptEdits"
+    }
+  };
+  ```
 </CodeGroup>
 
 With `Bash` enabled, try: `"Write unit tests for utils.py, run them, and fix any failures"`
@@ -321,13 +323,13 @@ With `Bash` enabled, try: `"Write unit tests for utils.py, run them, and fix any
 
 **Permission modes** control how much human oversight you want:
 
-| Mode                     | Behavior                                                                        | Use case                                 |
-| ------------------------ | ------------------------------------------------------------------------------- | ---------------------------------------- |
-| `acceptEdits`            | Auto-approves file edits and common filesystem commands, asks for other actions | Trusted development workflows            |
-| `dontAsk`                | Denies anything not in `allowedTools`                                           | Locked-down headless agents              |
-| `auto` (TypeScript only) | A model classifier approves or denies each tool call                            | Autonomous agents with safety guardrails |
-| `bypassPermissions`      | Runs every tool without prompts                                                 | Sandboxed CI, fully trusted environments |
-| `default`                | Requires a `canUseTool` callback to handle approval                             | Custom approval flows                    |
+| Mode                     | Behavior                                                                                                                            | Use case                                 |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `acceptEdits`            | Auto-approves file edits and common filesystem commands, asks for other actions                                                     | Trusted development workflows            |
+| `dontAsk`                | Denies anything not in `allowedTools`                                                                                               | Locked-down headless agents              |
+| `auto` (TypeScript only) | A model classifier approves or denies each tool call                                                                                | Autonomous agents with safety guardrails |
+| `bypassPermissions`      | Runs every tool without prompting, unless an explicit [`ask` rule](/en/agent-sdk/permissions#how-permissions-are-evaluated) matches | Sandboxed CI, fully trusted environments |
+| `default`                | Requires a `canUseTool` callback to handle approval                                                                                 | Custom approval flows                    |
 
 The example above uses `acceptEdits` mode, which auto-approves file operations so the agent can run without interactive prompts. If you want to prompt users for approval, use `default` mode and provide a [`canUseTool` callback](/en/agent-sdk/user-input) that collects user input. For more control, see [Permissions](/en/agent-sdk/permissions).
 
@@ -347,9 +349,9 @@ Upgrade to Agent SDK v0.2.111 or later to use Opus 4.7.
 
 Now that you've created your first agent, learn how to extend its capabilities and tailor it to your use case:
 
-- **[Permissions](/en/agent-sdk/permissions)**: control what your agent can do and when it needs approval
-- **[Hooks](/en/agent-sdk/hooks)**: run custom code before or after tool calls
-- **[Sessions](/en/agent-sdk/sessions)**: build multi-turn agents that maintain context
-- **[MCP servers](/en/agent-sdk/mcp)**: connect to databases, browsers, APIs, and other external systems
-- **[Hosting](/en/agent-sdk/hosting)**: deploy agents to Docker, cloud, and CI/CD
-- **[Example agents](https://github.com/anthropics/claude-agent-sdk-demos)**: see complete examples: email assistant, research agent, and more
+* **[Permissions](/en/agent-sdk/permissions)**: control what your agent can do and when it needs approval
+* **[Hooks](/en/agent-sdk/hooks)**: run custom code before or after tool calls
+* **[Sessions](/en/agent-sdk/sessions)**: build multi-turn agents that maintain context
+* **[MCP servers](/en/agent-sdk/mcp)**: connect to databases, browsers, APIs, and other external systems
+* **[Hosting](/en/agent-sdk/hosting)**: deploy agents to Docker, cloud, and CI/CD
+* **[Example agents](https://github.com/anthropics/claude-agent-sdk-demos)**: see complete examples: email assistant, research agent, and more

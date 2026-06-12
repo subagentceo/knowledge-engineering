@@ -24,8 +24,7 @@ The `/v1beta/findall/runs/{findall_id}/events` endpoint provides real-time updat
   ```bash cURL theme={"system"}
   curl -N -X GET "https://api.parallel.ai/v1beta/findall/runs/findall_40e0ab8c10754be0b7a16477abb38a2f/events" \
     -H "x-api-key: ${PARALLEL_API_KEY}" \
-    -H "Accept: text/event-stream" \
-    -H "parallel-beta: findall-2025-09-15"
+    -H "Accept: text/event-stream"
   ```
 
   ```python Python theme={"system"}
@@ -36,8 +35,7 @@ The `/v1beta/findall/runs/{findall_id}/events` endpoint provides real-time updat
   findall_id = "findall_40e0ab8c10754be0b7a16477abb38a2f"
   headers = {
       "x-api-key": "${PARALLEL_API_KEY}",
-      "Accept": "text/event-stream",
-      "parallel-beta": "findall-2025-09-15"
+      "Accept": "text/event-stream"
   }
 
   events_url = f"{base_url}/v1beta/findall/runs/{findall_id}/events"

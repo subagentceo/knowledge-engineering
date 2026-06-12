@@ -127,7 +127,7 @@ Guided modules and projects to help you get started with Cloudflare
 - [What is Shadow IT?](https://developers.cloudflare.com/learning-paths/holistic-ai-security/concepts/shadow-it/index.md): Understand unauthorized IT usage risks.
 - [Get started](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/index.md): Monitor and secure generative AI usage.
 - [Additional setup for AI security solutions in Zero Trust](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/additional-setup/index.md): Complete additional Zero Trust setup for AI security.
-- [Define your company's AI risk tolerance and strategy](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/define-ai-risk-tolerance/index.md): Learn about define your companys ai risk tolerance and strategy in this guide.
+- [Define your company's AI risk tolerance and strategy](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/define-ai-risk-tolerance/index.md): Set AI security goals and risk boundaries.
 - [Monitor AI usage at your organization](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/index.md): Monitor and secure generative AI usage.
 - [Monitor prompts and responses](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/monitor-prompts-responses/index.md): Inspect AI prompts using TLS decryption.
 - [Review inline AI use](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/review-inline-ai-use/index.md): Monitor AI application usage via Shadow IT.
@@ -337,4 +337,4 @@ Guided modules and projects to help you get started with Cloudflare
 
 - [Monitor and batch your website data](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-2/index.md): Workflows can be used to process batches of data, ensuring each item in the batch goes through a defined process with reliable execution. This section demonstrates processing a batch of puns using the Punderful application as an example.
 
-- [Use cron triggers to develop time-aware applications](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-3/index.md): Cloudflare Workflows provide a powerful way to manage asynchronous, durable processes. The ability to explicitly schedule tasks using cron triggers and pause execution with `step.sleep` allows developers to build sophisticated, time-aware applications.
+- [Use cron triggers to develop time-aware applications](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-3/index.md): Cloudflare Workflows provide a powerful way to manage asynchronous, durable processes. The ability to explicitly schedule tasks using scheduled handlers and pause execution with `step.sleep` allows developers to build sophisticated, time-aware applications.

@@ -14,9 +14,9 @@ The impact is already evident. Lyft's customer care AI assistant, powered by Cla
 
 The collaboration focuses on three key areas:
 
-- **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
-- **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
-- **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
+*   **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
+*   **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
+*   **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
 
 > Software engineering has undergone a seismic shift with the introduction of GenAI technologies. Gone are the days when humans were predominantly writing code. With the promise of LLMs, especially leading models for coding like Claude, and agentic AI, we're working to revolutionize our engineering organization to more effectively build game changing products for our customers.
 
@@ -34,18 +34,18 @@ _Certain statements contained in this blog are “forward-looking statements” 
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

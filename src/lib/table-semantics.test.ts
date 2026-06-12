@@ -23,7 +23,26 @@ const tables = readdirSync(ALLOYDB_DIR)
   .filter((f) => f.endsWith(".yaml"))
   .map((f) => parseTableSemantics(readFileSync(resolve(ALLOYDB_DIR, f), "utf8")));
 
-assert.equal(tables.length, 10);
+// Deliberate friction: adding a contract means adding its name here, so
+// new tables get reviewed. A name list fails with WHICH table drifted,
+// where the old bare count only said "10 !== 11".
+const EXPECTED_TABLES = [
+  "dim_cache_key",
+  "dim_memory",
+  "dim_research_doc",
+  "dim_vendor",
+  "events_cache_access",
+  "events_cache_promotion",
+  "events_memory_access",
+  "fact_cache_hits",
+  "fact_doc_ingest",
+  "fact_memory_access",
+  "fact_vendor_crawl",
+  "rpt_citations_by_team",
+  "rpt_citations_by_year",
+  "rpt_vendor_freshness",
+];
+assert.deepEqual(tables.map((t) => t.metadata.name).sort(), EXPECTED_TABLES);
 validateInheritance(tables);
 
 const byName = new Map(tables.map((t) => [t.metadata.name, t]));

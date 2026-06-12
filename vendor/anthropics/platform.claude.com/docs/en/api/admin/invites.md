@@ -15,6 +15,7 @@ Create Invite
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   Role for the invited User. Cannot be "admin".
+
   - `"user"`
 
   - `"developer"`
@@ -26,6 +27,7 @@ Create Invite
 ### Returns
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -45,6 +47,7 @@ Create Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -58,6 +61,7 @@ Create Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -71,6 +75,7 @@ Create Invite
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Example
@@ -79,7 +84,7 @@ Create Invite
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "email": "user@emaildomain.com",
           "role": "user"
@@ -115,6 +120,7 @@ Get Invite
 ### Returns
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -134,6 +140,7 @@ Get Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -147,6 +154,7 @@ Get Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -160,6 +168,7 @@ Get Invite
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Example
@@ -167,7 +176,7 @@ Get Invite
 ```http
 curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -209,6 +218,7 @@ List Invites
 ### Returns
 
 - `data: array of Invite`
+
   - `id: string`
 
     ID of the Invite.
@@ -228,6 +238,7 @@ List Invites
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -241,6 +252,7 @@ List Invites
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -254,6 +266,7 @@ List Invites
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 - `first_id: string`
@@ -273,7 +286,7 @@ List Invites
 ```http
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -320,6 +333,7 @@ Delete Invite
   Deleted object type.
 
   For Invites, this is always `"invite_deleted"`.
+
   - `"invite_deleted"`
 
 ### Example
@@ -328,7 +342,7 @@ Delete Invite
 curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -345,6 +359,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
 ### Invite
 
 - `Invite object { id, email, expires_at, 4 more }`
+
   - `id: string`
 
     ID of the Invite.
@@ -364,6 +379,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -377,6 +393,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
+
     - `"accepted"`
 
     - `"expired"`
@@ -390,11 +407,13 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     Object type.
 
     For Invites, this is always `"invite"`.
+
     - `"invite"`
 
 ### Invite Delete Response
 
 - `InviteDeleteResponse object { id, type }`
+
   - `id: string`
 
     ID of the Invite.
@@ -404,4 +423,5 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
     Deleted object type.
 
     For Invites, this is always `"invite_deleted"`.
+
     - `"invite_deleted"`

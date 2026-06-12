@@ -1,8 +1,10 @@
-[Home](https://sift.com)/Atom Tickets
+# How Atom Tickets maintains secure, seamless ticketing
+
+Home/Atom Tickets
 
 # How Atom Tickets maintains secure, seamless ticketing
 
-[See Sift in action](/demo/)
+See Sift in action
 
 50%+ reduction in chargebacks
 
@@ -14,18 +16,18 @@ Days of manual review each week eliminated
 
 Overview
 
--   [Overview](#overview)
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#results)
+*   Overview
+*   Challenge
+*   Solution
+*   Results
 
 OVERVIEW
 
 ## Going to the movies has never been simpler
 
-[Atom Tickets](https://www.atomtickets.com/) reimagines the most convenient way for users to plan a night out at the movies and preorder concessions. The free app and website provide relevant reviews, trailers, and synopses to help moviegoers make the best decision on what to see. Atom users can quickly select the movie, theater, showtime, and seats, and after purchasing tickets they can invite friends and Atom will share the selected showtime and seats with them. At the theater, users skip the box office lines and go right to the ticket attendants, who scan a QR code on the user’s phone or Apple Watch to redeem their order. With millions of users on the platform, Atom Tickets operates in the US and Canada and is enabled on 22,000 screens.
+Atom Tickets reimagines the most convenient way for users to plan a night out at the movies and preorder concessions. The free app and website provide relevant reviews, trailers, and synopses to help moviegoers make the best decision on what to see. Atom users can quickly select the movie, theater, showtime, and seats, and after purchasing tickets they can invite friends and Atom will share the selected showtime and seats with them. At the theater, users skip the box office lines and go right to the ticket attendants, who scan a QR code on the user’s phone or Apple Watch to redeem their order. With millions of users on the platform, Atom Tickets operates in the US and Canada and is enabled on 22,000 screens.
 
-[Explore more customer stories](/case-studies/)
+Explore more customer stories
 
 ![Quotation-mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -83,4 +85,4 @@ Trust & Safety Specialist
 
 ## Download this case study
 
-[Download now](https://sift.com/wp-content/uploads/2026/02/Sift_CaseStudy_Atom_062823-2.pdf)
+Download now

@@ -18,9 +18,9 @@ These issues arise because the underlying source of AI models’ “character tr
 
 In a new paper, we identify patterns of activity within an AI model’s neural network that control its character traits. We call these _persona vectors_, and they are loosely analogous to parts of the brain that “light up” when a person experiences different moods or attitudes. Persona vectors can be used to:
 
-- Monitor whether and how a model’s personality is changing during a conversation, or over training;
-- Mitigate undesirable personality shifts, or prevent them from arising during training;
-- Identify training data that will lead to these shifts.
+*   Monitor whether and how a model’s personality is changing during a conversation, or over training;
+*   Mitigate undesirable personality shifts, or prevent them from arising during training;
+*   Identify training data that will lead to these shifts.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F521c383ee1c3e95b2587f276772850ea2c52f3d7-3300x1854.jpg&w=3840&q=75)
 
@@ -104,20 +104,16 @@ This research was led by participants in our Anthropic Fellows program.
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

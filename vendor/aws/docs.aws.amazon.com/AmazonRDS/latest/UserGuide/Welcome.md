@@ -80,7 +80,7 @@ You can access your DB instances by using the same tools and applications that y
 
 The following image shows a typical use case of a dynamic website that uses Amazon RDS DB instances for database storage:
 
-![Shows a Region that contains a VPC containing two Availability Zones. Each AZ contains an application server and DB instance. An Elastic Load Balancer forwards user requests to the application servers.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/aws-cloud-deployment-architecture.png)
+![A Region with a VPC spanning two Availability Zones, each containing an application server and DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/aws-cloud-deployment-architecture.png)
 
 
 The primary components of the preceding architecture are as follows:
@@ -172,7 +172,7 @@ Amazon cloud computing resources are housed in highly available data center faci
 
 The following scenario shows an RDS DB instance in one Region that replicates asynchronously to a standby DB instance in a different Region. If one Region becomes unavailable, the instance in the other Region is still available.
 
-![Cross-Region read replica configuration](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-cross-region.png)
+![Cross-Region read replica configuration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-cross-region.png)
 
 
 ### Availability Zones
@@ -193,12 +193,12 @@ A Multi-AZ deployment provides the following advantages:
 
 The following diagram depicts a Multi-AZ DB instance deployment, where Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone. The replica database doesn't serve read traffic.
 
-![High availability scenario for a Multi-AZ instance deployment](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-multi-AZ.png)
+![High availability scenario for a Multi-AZ instance deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-multi-AZ.png)
 
 
 The following diagram depicts a Multi-AZ DB cluster deployment, which has a writer DB instance and two reader DB instances in three separate Availability Zones in the same AWS Region. All three DB instances can serve read traffic.
 
-![High availability scenario for a Multi-AZ cluster deployment](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster.png)
+![High availability scenario for a Multi-AZ cluster deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster.png)
 
 
 For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).
@@ -210,7 +210,7 @@ A *security group *controls the access to a DB instance by allowing access to IP
 
 A common use of a DB instance in a VPC is to share data with an application server in the same VPC. The following example uses VPC security group `ec2-rds-x` to define inbound rules that use the IP addresses of the client application as the source. The application server belongs to this security group. A second security group named `rds-ec2-x` specifies `ec2-rds-x` as the source and attaches to an RDS DB instance. According to the security group rules, client applications can't directly access the DB instance, but the EC2 instance can access the DB instance.
 
-![DB instance and EC2 instance in a VPC](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
+![DB instance and EC2 instance in a VPC.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
 
 
 For more information about security groups, see [Security in Amazon RDS ](UsingWithRDS.md).
@@ -250,7 +250,7 @@ You can interact with Amazon RDS in multiple ways.
 
 The AWS Management Console is a simple web-based user interface. You can manage your DB instances from the console with no programming required. To access the Amazon RDS console, sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/). 
 
-![Home page of the RDS console. The left panel includes links for Dashboard, Databases, and so on. The central panel lists resources such as DB instances.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_console.png)
+![Home page of the RDS console with navigation links and resource listings.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_console.png)
 
 
 ### Command line interface

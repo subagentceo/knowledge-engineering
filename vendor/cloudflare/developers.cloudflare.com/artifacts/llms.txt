@@ -18,9 +18,11 @@ Store, version, and share filesystem artifacts across Workers, APIs, and git-com
 
 ## api
 
+- [Errors](https://developers.cloudflare.com/artifacts/api/errors/index.md): Error codes returned by the Artifacts REST API and Workers binding.
 - [Git protocol](https://developers.cloudflare.com/artifacts/api/git-protocol/index.md): Use Artifacts with standard git-over-HTTPS clients.
 - [REST API](https://developers.cloudflare.com/artifacts/api/rest-api/index.md): Manage Artifacts repos and tokens over HTTP.
 - [Workers binding](https://developers.cloudflare.com/artifacts/api/workers-binding/index.md): Call Artifacts from a Worker binding.
+- [Wrangler commands](https://developers.cloudflare.com/artifacts/api/wrangler/index.md): Manage Artifacts namespaces, repositories, and repo tokens from the command line using Wrangler.
 
 ## concepts
 
@@ -39,6 +41,7 @@ Store, version, and share filesystem artifacts across Workers, APIs, and git-com
 
 - [ArtifactFS](https://developers.cloudflare.com/artifacts/guides/artifact-fs/index.md): Mount large repos without waiting for full clones.
 - [Authentication](https://developers.cloudflare.com/artifacts/guides/authentication/index.md): Choose auth for bindings, API calls, and Git.
+- [Event subscriptions](https://developers.cloudflare.com/artifacts/guides/event-subscriptions/index.md): Subscribe to Artifacts events for repo lifecycle changes.
 - [Import repositories](https://developers.cloudflare.com/artifacts/guides/import-repositories/index.md): Import existing Git repos into Artifacts.
 
 ## observability

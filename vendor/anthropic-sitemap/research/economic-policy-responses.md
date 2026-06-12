@@ -28,8 +28,8 @@ The rate, scale, and form of AI's economic effects will determine the policy res
 
 **Policy ideas for scenarios with moderate acceleration**, where AI leads to measurable wage declines and job losses for large portions of the workforce. Here, more substantial fiscal support for displaced workers might be needed. To offset negative externalities imposed on displaced workers from rapid automation, taxes on automation might be considered in this scenario.
 
-**Policy ideas for faster-moving scenarios,** potentially involving dramatic job losses and worsening inequality. These proposals are much more ambitious, and are designed to respond to a starkly different economic picture. So far, ideas include using sovereign wealth funds to give citizens stakes in AI revenues, and finding new ways to generate government revenue.
-
+**Policy ideas for faster-moving scenarios,** potentially involving dramatic job losses and worsening inequality. These proposals are much more ambitious, and are designed to respond to a starkly different economic picture. So far, ideas include using sovereign wealth funds to give citizens stakes in AI revenues, and finding new ways to generate government revenue.  
+  
 The proposals below don’t necessarily represent Anthropic's own policy positions. But we’re excited by the breadth of proposals we’ve received, and we hope they encourage further research and debate.
 
 ## Policies for nearly all scenarios
@@ -122,20 +122,16 @@ _Most of the policy ideas discussed in this post have emerged from proposals fro
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

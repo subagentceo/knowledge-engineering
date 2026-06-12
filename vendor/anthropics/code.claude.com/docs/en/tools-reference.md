@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -31,13 +30,13 @@ To add custom tools, connect an [MCP server](/en/mcp). To extend Claude with reu
 | `Monitor`              | Runs a command in the background and feeds each output line back to Claude, so it can react to log entries, file changes, or polled status mid-conversation. See [Monitor tool](#monitor-tool)                                                                                                                                                                                                                                                                                                                                                                               | Yes                 |
 | `NotebookEdit`         | Modifies Jupyter notebook cells. See [NotebookEdit tool behavior](#notebookedit-tool-behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes                 |
 | `PowerShell`           | Executes PowerShell commands natively. See [PowerShell tool](#powershell-tool) for availability                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Yes                 |
-| `PushNotification`     | Sends a desktop notification, and a phone push when [Remote Control](/en/remote-control) is connected, so a long-running task or [scheduled task](/en/scheduled-tasks) can reach you when you step away. {/_ plan-availability: feature=push-notifications providers=anthropic _/}Push delivery runs through Anthropic-hosted infrastructure, which is not accessible from Amazon Bedrock, Google Vertex AI, or Microsoft Foundry                                                                                                                                            | No                  |
+| `PushNotification`     | Sends a desktop notification, and a phone push when [Remote Control](/en/remote-control) is connected, so a long-running task or [scheduled task](/en/scheduled-tasks) can reach you when you step away. {/* plan-availability: feature=push-notifications providers=anthropic */}Push delivery runs through Anthropic-hosted infrastructure, which is not accessible from Amazon Bedrock, Google Vertex AI, or Microsoft Foundry                                                                                                                                            | No                  |
 | `Read`                 | Reads the contents of files. See [Read tool behavior](#read-tool-behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | No                  |
 | `ReadMcpResourceTool`  | Reads a specific MCP resource by URI                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | No                  |
-| `RemoteTrigger`        | Creates, updates, runs, and lists [Routines](/en/routines) on claude.ai. Backs the `/schedule` command. {/_ plan-availability: feature=routines plans=pro,max,team,enterprise providers=anthropic _/}Routines live on claude.ai and require a Pro, Max, Team, or Enterprise plan, so this tool is not accessible from Amazon Bedrock, Google Vertex AI, or Microsoft Foundry                                                                                                                                                                                                 | No                  |
-| `ScheduleWakeup`       | Reschedules the next iteration of a [self-paced `/loop`](/en/scheduled-tasks#let-claude-choose-the-interval). Claude calls this at the end of each iteration to pick when the next one runs, between one minute and one hour out; you don't call it directly. The pending wakeup appears in `session_crons` in [Stop hook input](/en/hooks#stop-input). {/_ plan-availability: feature=loop-dynamic providers=anthropic _/}Not available on Amazon Bedrock, Google Vertex AI, or Microsoft Foundry, where a `/loop` prompt with no interval runs on a fixed schedule instead | No                  |
+| `RemoteTrigger`        | Creates, updates, runs, and lists [Routines](/en/routines) on claude.ai. Backs the `/schedule` command. {/* plan-availability: feature=routines plans=pro,max,team,enterprise providers=anthropic */}Routines live on claude.ai and require a Pro, Max, Team, or Enterprise plan, so this tool is not accessible from Amazon Bedrock, Google Vertex AI, or Microsoft Foundry                                                                                                                                                                                                 | No                  |
+| `ScheduleWakeup`       | Reschedules the next iteration of a [self-paced `/loop`](/en/scheduled-tasks#let-claude-choose-the-interval). Claude calls this at the end of each iteration to pick when the next one runs, between one minute and one hour out; you don't call it directly. The pending wakeup appears in `session_crons` in [Stop hook input](/en/hooks#stop-input). {/* plan-availability: feature=loop-dynamic providers=anthropic */}Not available on Amazon Bedrock, Google Vertex AI, or Microsoft Foundry, where a `/loop` prompt with no interval runs on a fixed schedule instead | No                  |
 | `SendMessage`          | Sends a message to an [agent team](/en/agent-teams) teammate, or [resumes a subagent](/en/sub-agents#resume-subagents) by its agent ID. Stopped subagents auto-resume in the background. Only available when `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` is set                                                                                                                                                                                                                                                                                                                 | No                  |
-| `ShareOnboardingGuide` | {/_ plan-availability: feature=onboarding-guide-share plans=pro,max,team,enterprise providers=anthropic _/}Uploads `ONBOARDING.md` and returns a share link teammates can open in Claude Code. Called from `/team-onboarding` after the guide is written. Available to claude.ai subscribers on Pro, Max, Team, and Enterprise plans                                                                                                                                                                                                                                         | Yes                 |
+| `ShareOnboardingGuide` | {/* plan-availability: feature=onboarding-guide-share plans=pro,max,team,enterprise providers=anthropic */}Uploads `ONBOARDING.md` and returns a share link teammates can open in Claude Code. Called from `/team-onboarding` after the guide is written. Available to claude.ai subscribers on Pro, Max, Team, and Enterprise plans                                                                                                                                                                                                                                         | Yes                 |
 | `Skill`                | Executes a [skill](/en/skills#control-who-invokes-a-skill) within the main conversation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Yes                 |
 | `TaskCreate`           | Creates a new task in the task list                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | No                  |
 | `TaskGet`              | Retrieves full details for a specific task                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | No                  |
@@ -47,9 +46,9 @@ To add custom tools, connect an [MCP server](/en/mcp). To extend Claude with reu
 | `TaskUpdate`           | Updates task status, dependencies, details, or deletes tasks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | No                  |
 | `TeamCreate`           | Creates an [agent team](/en/agent-teams) with multiple teammates. Only available when `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` is set                                                                                                                                                                                                                                                                                                                                                                                                                                        | No                  |
 | `TeamDelete`           | Disbands an agent team and cleans up teammate processes. Only available when `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` is set                                                                                                                                                                                                                                                                                                                                                                                                                                                 | No                  |
-| `TodoWrite`            | {/_ min-version: 2.1.142 _/}Manages the session task checklist. Disabled by default as of v2.1.142 in favor of `TaskCreate`, `TaskGet`, `TaskList`, and `TaskUpdate`. Set `CLAUDE_CODE_ENABLE_TASKS=0` to re-enable                                                                                                                                                                                                                                                                                                                                                          | No                  |
+| `TodoWrite`            | {/* min-version: 2.1.142 */}Manages the session task checklist. Disabled by default as of v2.1.142 in favor of `TaskCreate`, `TaskGet`, `TaskList`, and `TaskUpdate`. Set `CLAUDE_CODE_ENABLE_TASKS=0` to re-enable                                                                                                                                                                                                                                                                                                                                                          | No                  |
 | `ToolSearch`           | Searches for and loads deferred tools when [tool search](/en/mcp#scale-with-mcp-tool-search) is enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | No                  |
-| `WaitForMcpServers`    | {/_ min-version: 2.1.142 _/}Waits for one or more [MCP servers](/en/mcp) that are still connecting in the background, so a request can use their tools without restarting the session. Claude calls it when a needed server is not connected yet. Only appears when [tool search](/en/mcp#scale-with-mcp-tool-search) is disabled, since `ToolSearch` handles the wait when it's enabled                                                                                                                                                                                     | No                  |
+| `WaitForMcpServers`    | {/* min-version: 2.1.142 */}Waits for one or more [MCP servers](/en/mcp) that are still connecting in the background, so a request can use their tools without restarting the session. Claude calls it when a needed server is not connected yet. Only appears when [tool search](/en/mcp#scale-with-mcp-tool-search) is disabled, since `ToolSearch` handles the wait when it's enabled                                                                                                                                                                                     | No                  |
 | `WebFetch`             | Fetches content from a specified URL. See [WebFetch tool behavior](#webfetch-tool-behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Yes                 |
 | `WebSearch`            | Performs web searches. See [WebSearch tool behavior](#websearch-tool-behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Yes                 |
 | `Workflow`             | Runs a [dynamic workflow](/en/workflows): a script that orchestrates many subagents in the background and returns one consolidated result                                                                                                                                                                                                                                                                                                                                                                                                                                    | Yes                 |
@@ -59,12 +58,12 @@ To add custom tools, connect an [MCP server](/en/mcp). To extend Claude with reu
 
 For the most part, Claude decides when to use these tools and you do not need to name them yourself when interacting with Claude. You reference tool names directly when defining permissions and other configuration:
 
-- in [`permissions.allow` and `permissions.deny`](/en/settings#available-settings) in settings, and the `/permissions` interface
-- in the `--allowedTools` and `--disallowedTools` [CLI flags](/en/cli-reference)
-- in the Agent SDK's [`allowedTools` and `disallowedTools`](/en/agent-sdk/permissions#allow-and-deny-rules) options
-- in a [subagent's `tools` or `disallowedTools`](/en/sub-agents#supported-frontmatter-fields) frontmatter
-- in a [skill's `allowed-tools`](/en/skills#frontmatter-reference) frontmatter
-- in a hook's [`if` condition](/en/hooks-guide#filter-by-tool-name-and-arguments-with-the-if-field)
+* in [`permissions.allow` and `permissions.deny`](/en/settings#available-settings) in settings, and the `/permissions` interface
+* in the `--allowedTools` and `--disallowedTools` [CLI flags](/en/cli-reference)
+* in the Agent SDK's [`allowedTools` and `disallowedTools`](/en/agent-sdk/permissions#allow-and-deny-rules) options
+* in a [subagent's `tools` or `disallowedTools`](/en/sub-agents#supported-frontmatter-fields) frontmatter
+* in a [skill's `allowed-tools`](/en/skills#frontmatter-reference) frontmatter
+* in a hook's [`if` condition](/en/hooks-guide#filter-by-tool-name-and-arguments-with-the-if-field)
 
 All of these accept the same rule format, `ToolName(specifier)`. The specifier depends on the tool, and several tools share a format:
 
@@ -93,15 +92,15 @@ The same Agent tool also launches [forked subagents](/en/sub-agents#fork-the-cur
 
 Which tools a named subagent can use depends on the `tools` and `disallowedTools` fields in the [subagent definition](/en/sub-agents):
 
-- **Neither field set**: the subagent inherits every tool available to the parent.
-- **`tools` only**: the subagent gets only the listed tools.
-- **`disallowedTools` only**: the subagent gets every parent tool except the listed ones.
-- **Both set**: `disallowedTools` takes precedence. A tool listed in both is removed.
+* **Neither field set**: the subagent inherits every tool available to the parent.
+* **`tools` only**: the subagent gets only the listed tools.
+* **`disallowedTools` only**: the subagent gets every parent tool except the listed ones.
+* **Both set**: `disallowedTools` takes precedence. A tool listed in both is removed.
 
 Launching the subagent does not itself prompt for permission. The subagent's own tool calls are checked against your permission rules as it runs:
 
-- **Foreground subagents** show the same permission prompts you would see in the main conversation, at the moment each tool call happens.
-- **Background subagents** do not show prompts. They run with the permissions already granted in the session and auto-deny any tool call that would otherwise prompt. After a denial, the subagent keeps going without that tool.
+* **Foreground subagents** show the same permission prompts you would see in the main conversation, at the moment each tool call happens.
+* **Background subagents** do not show prompts. They run with the permissions already granted in the session and auto-deny any tool call that would otherwise prompt. After a denial, the subagent keeps going without that tool.
 
 To limit what a subagent can reach in the first place, narrow its `tools` field, leave Bash off the list, or set deny rules in your settings, as described in [Control subagent capabilities](/en/sub-agents#control-subagent-capabilities). For more on choosing between foreground and background, see [Run subagents in foreground or background](/en/sub-agents#run-subagents-in-foreground-or-background).
 
@@ -109,18 +108,18 @@ To limit what a subagent can reach in the first place, narrow its `tools` field,
 
 The Bash tool runs each command in a separate process with the following persistence behavior:
 
-- When Claude runs `cd` in the main session, the new working directory carries over to later Bash commands as long as it stays inside the project directory or an [additional working directory](/en/permissions#working-directories) you added with `--add-dir`, `/add-dir`, or `additionalDirectories` in settings. Subagent sessions never carry over working directory changes.
-  - If `cd` lands outside those directories, Claude Code resets to the project directory and appends `Shell cwd was reset to <dir>` to the tool result.
-  - To disable this carry-over so every Bash command starts in the project directory, set `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1`.
-- Environment variables do not persist. An `export` in one command will not be available in the next.
-- Aliases and shell functions defined in your shell startup file are available. At session start, Claude Code sources `~/.zshrc`, `~/.bashrc`, or `~/.profile` depending on your shell, captures the resulting aliases, functions, and shell options, and applies them to every Bash command.
+* When Claude runs `cd` in the main session, the new working directory carries over to later Bash commands as long as it stays inside the project directory or an [additional working directory](/en/permissions#working-directories) you added with `--add-dir`, `/add-dir`, or `additionalDirectories` in settings. Subagent sessions never carry over working directory changes.
+  * If `cd` lands outside those directories, Claude Code resets to the project directory and appends `Shell cwd was reset to <dir>` to the tool result.
+  * To disable this carry-over so every Bash command starts in the project directory, set `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1`.
+* Environment variables do not persist. An `export` in one command will not be available in the next.
+* Aliases and shell functions defined in your shell startup file are available. At session start, Claude Code sources `~/.zshrc`, `~/.bashrc`, or `~/.profile` depending on your shell, captures the resulting aliases, functions, and shell options, and applies them to every Bash command.
 
 Activate your virtualenv or conda environment before launching Claude Code. To make environment variables persist across Bash commands, set [`CLAUDE_ENV_FILE`](/en/env-vars) to a shell script before launching Claude Code, or use a [SessionStart hook](/en/hooks#persist-environment-variables) to populate it dynamically.
 
 Two limits bound each command:
 
-- **Timeout**: two minutes by default. Claude can request up to 10 minutes per command with the `timeout` parameter. Override the default and ceiling with [`BASH_DEFAULT_TIMEOUT_MS` and `BASH_MAX_TIMEOUT_MS`](/en/env-vars).
-- **Output length**: 30,000 characters by default. When a command produces more than that, Claude Code saves the full output to a file in the session directory and gives Claude the file path plus a short preview from the start. Claude reads or searches that file when it needs the rest. Raise the limit with [`BASH_MAX_OUTPUT_LENGTH`](/en/env-vars), up to a hard ceiling of 150,000 characters.
+* **Timeout**: two minutes by default. Claude can request up to 10 minutes per command with the `timeout` parameter. Override the default and ceiling with [`BASH_DEFAULT_TIMEOUT_MS` and `BASH_MAX_TIMEOUT_MS`](/en/env-vars).
+* **Output length**: 30,000 characters by default. When a command produces more than that, Claude Code saves the full output to a file in the session directory and gives Claude the file path plus a short preview from the start. Claude reads or searches that file when it needs the rest. Raise the limit with [`BASH_MAX_OUTPUT_LENGTH`](/en/env-vars), up to a hard ceiling of 150,000 characters.
 
 For long-running processes such as dev servers or watch builds, Claude can set `run_in_background: true` to start the command as a background task and continue working while it runs. List and stop background tasks with `/tasks`.
 
@@ -130,21 +129,21 @@ The Edit tool performs exact string replacement. It takes an `old_string` and a 
 
 Three checks must pass for an edit to apply:
 
-- **Read-before-edit**: Claude must have read the file in the current conversation, and the file must not have changed on disk since that read. This check runs first, before any string matching.
-- **Match**: `old_string` must appear in the file exactly as written. A single character of whitespace or indentation difference is enough to miss.
-- **Uniqueness**: `old_string` must appear exactly once. When it appears more than once, Claude either supplies a longer string with enough surrounding context to pin down one occurrence, or sets `replace_all: true` to replace them all.
+* **Read-before-edit**: Claude must have read the file in the current conversation, and the file must not have changed on disk since that read. This check runs first, before any string matching.
+* **Match**: `old_string` must appear in the file exactly as written. A single character of whitespace or indentation difference is enough to miss.
+* **Uniqueness**: `old_string` must appear exactly once. When it appears more than once, Claude either supplies a longer string with enough surrounding context to pin down one occurrence, or sets `replace_all: true` to replace them all.
 
-Viewing a file with Bash also satisfies the read-before-edit requirement when the command is `cat`, `head`, `tail`, or `sed -n 'X,Yp'` on a single file with no pipes, redirects, or other flags. Piped output and other Bash commands do not count, and Claude must use Read before editing in those cases.
+Viewing a file with Bash also satisfies the read-before-edit requirement when the command is `cat`, `head`, `tail`, `sed -n 'X,Yp'`, `grep`, `egrep`, or `fgrep` on a single file with no pipes or redirects. Piped output and other Bash commands do not count, and Claude must use Read before editing in those cases.
 
-This affects edit eligibility only, not permissions. [Read and Edit deny rules](/en/permissions#tool-specific-permission-rules) also apply to file commands Claude Code recognizes in Bash, such as `cat`, `head`, `tail`, and `sed`, but not to arbitrary subprocesses that read or write files indirectly, like a Python or Node script that opens files itself. For OS-level enforcement that covers every process, [enable the sandbox](/en/sandboxing).
+This affects edit eligibility only, not permissions. [Read and Edit deny rules](/en/permissions#tool-specific-permission-rules) also apply to file commands Claude Code recognizes in Bash, such as `cat`, `head`, `tail`, `sed`, and `grep`, but not to arbitrary subprocesses that read or write files indirectly, like a Python or Node script that opens files itself. The set of commands recognized for deny rules is not the same as the read-before-edit list above: for example, `egrep` and `fgrep` count for read-before-edit but are not checked against Read deny rules. For OS-level enforcement that covers every process, [enable the sandbox](/en/sandboxing).
 
 ## Glob tool behavior
 
 The Glob tool finds files by name pattern. It supports standard glob syntax including `**` for recursive directory matching:
 
-- `**/*.js` matches all `.js` files at any depth
-- `src/**/*.ts` matches all `.ts` files under `src/`
-- `*.{json,yaml}` matches `.json` and `.yaml` files in the current directory
+* `**/*.js` matches all `.js` files at any depth
+* `src/**/*.ts` matches all `.ts` files under `src/`
+* `*.{json,yaml}` matches `.json` and `.yaml` files in the current directory
 
 Results are sorted by modification time and capped at 100 files. If the cap is hit, Claude sees a truncation flag in the result and can narrow the pattern.
 
@@ -158,9 +157,9 @@ Grep is built on [ripgrep](https://github.com/BurntSushi/ripgrep) and uses ripgr
 
 Three output modes control what comes back:
 
-- `files_with_matches`: file paths only, no line content. This is the default.
-- `content`: matching lines with file and line number.
-- `count`: match count per file.
+* `files_with_matches`: file paths only, no line content. This is the default.
+* `content`: matching lines with file and line number.
+* `count`: match count per file.
 
 Claude can scope results by file with the `glob` parameter, such as `**/*.tsx`, or by language with the `type` parameter, such as `py` or `rust`. By default, patterns match within a single line. Claude can set `multiline: true` to match across line boundaries.
 
@@ -170,12 +169,13 @@ Grep respects `.gitignore`, so gitignored files are skipped. To search a gitigno
 
 The LSP tool gives Claude code intelligence from a running language server. After each file edit, it automatically reports type errors and warnings so Claude can fix issues without a separate build step. Claude can also call it directly to navigate code:
 
-- Jump to a symbol's definition
-- Find all references to a symbol
-- Get type information at a position
-- List symbols in a file or workspace
-- Find implementations of an interface
-- Trace call hierarchies
+* Jump to a symbol's definition
+* Find all references to a symbol
+* Get type information at a position
+* List symbols in a file
+* Search for a symbol by name across the workspace
+* Find implementations of an interface
+* Trace call hierarchies
 
 The tool is inactive until you install a [code intelligence plugin](/en/discover-plugins#code-intelligence) for your language. The plugin bundles the language server configuration, and you install the server binary separately.
 
@@ -187,10 +187,10 @@ The tool is inactive until you install a [code intelligence plugin](/en/discover
 
 The Monitor tool lets Claude watch something in the background and react when it changes, without pausing the conversation. Ask Claude to:
 
-- Tail a log file and flag errors as they appear
-- Poll a PR or CI job and report when its status changes
-- Watch a directory for file changes
-- Track output from any long-running script you point it at
+* Tail a log file and flag errors as they appear
+* Poll a PR or CI job and report when its status changes
+* Watch a directory for file changes
+* Track output from any long-running script you point it at
 
 Claude writes a small script for the watch, runs it in the background, and receives each output line as it arrives. You keep working in the same session and Claude interjects when an event lands. Stop a monitor by asking Claude to cancel it or by ending the session.
 
@@ -204,9 +204,9 @@ NotebookEdit modifies a Jupyter notebook one cell at a time, targeting cells by 
 
 Three edit modes control what happens to the target cell:
 
-- `replace`: overwrite the cell's source. This is the default.
-- `insert`: add a new cell after the target. With no `cell_id`, the new cell goes at the start of the notebook. Requires `cell_type` set to `code` or `markdown`.
-- `delete`: remove the target cell.
+* `replace`: overwrite the cell's source. This is the default.
+* `insert`: add a new cell after the target. With no `cell_id`, the new cell goes at the start of the notebook. Requires `cell_type` set to `code` or `markdown`.
+* `delete`: remove the target cell.
 
 Permission rules use the `Edit(...)` path format. A rule like `Edit(notebooks/**)` covers NotebookEdit calls on files in that directory.
 
@@ -236,9 +236,9 @@ Claude Code spawns PowerShell with `-ExecutionPolicy Bypass` at process scope on
 
 Three additional settings control where PowerShell is used:
 
-- `"defaultShell": "powershell"` in [`settings.json`](/en/settings#available-settings): routes interactive `!` commands through PowerShell. Requires the PowerShell tool to be enabled.
-- `"shell": "powershell"` on individual [command hooks](/en/hooks#command-hook-fields): runs that hook in PowerShell. Hooks spawn PowerShell directly, so this works regardless of `CLAUDE_CODE_USE_POWERSHELL_TOOL`.
-- `shell: powershell` in [skill frontmatter](/en/skills#frontmatter-reference): runs `` !`command` `` blocks in PowerShell. Requires the PowerShell tool to be enabled.
+* `"defaultShell": "powershell"` in [`settings.json`](/en/settings#available-settings): routes interactive `!` commands through PowerShell. Requires the PowerShell tool to be enabled.
+* `"shell": "powershell"` on individual [command hooks](/en/hooks#command-hook-fields): runs that hook in PowerShell. Hooks spawn PowerShell directly, so this works regardless of `CLAUDE_CODE_USE_POWERSHELL_TOOL`.
+* `shell: powershell` in [skill frontmatter](/en/skills#frontmatter-reference): runs `` !`command` `` blocks in PowerShell. Requires the PowerShell tool to be enabled.
 
 The same main-session working-directory reset behavior described under the Bash tool section applies to PowerShell commands, including the `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` environment variable.
 
@@ -246,8 +246,8 @@ The same main-session working-directory reset behavior described under the Bash 
 
 The PowerShell tool has the following known limitations during the preview:
 
-- PowerShell profiles are not loaded
-- On Windows, sandboxing is not supported
+* PowerShell profiles are not loaded
+* On Windows, sandboxing is not supported
 
 ## Read tool behavior
 
@@ -257,9 +257,9 @@ By default, Read returns the file from the start. When a whole-file read exceeds
 
 Read handles several file types beyond plain text:
 
-- **Images**: PNG, JPG, and other image formats are returned as visual content that Claude can see, not as raw bytes. Claude Code resizes and recompresses large images to fit the model's image size limits before sending them, so Claude may see a downscaled version of a large screenshot. If Claude misses fine pixel-level detail in a large image, ask it to crop the region of interest first, for example with ImageMagick via Bash.
-- **PDFs**: Claude reads short `.pdf` files whole. For PDFs longer than 10 pages, it reads in ranges with a `pages` parameter, such as `"1-5"`, up to 20 pages at a time.
-- **Jupyter notebooks**: `.ipynb` files return all cells with their outputs, including code, markdown, and visualizations.
+* **Images**: PNG, JPG, and other image formats are returned as visual content that Claude can see, not as raw bytes. Claude Code resizes and recompresses large images to fit the model's image size limits before sending them, so Claude may see a downscaled version of a large screenshot. If Claude misses fine pixel-level detail in a large image, ask it to crop the region of interest first, for example with ImageMagick via Bash.
+* **PDFs**: Claude reads short `.pdf` files whole. For PDFs longer than 10 pages, it reads in ranges with a `pages` parameter, such as `"1-5"`, up to 20 pages at a time.
+* **Jupyter notebooks**: `.ipynb` files return all cells with their outputs, including code, markdown, and visualizations.
 
 Read only reads files, not directories. Claude uses `ls` via the Bash tool to list directory contents.
 
@@ -271,12 +271,14 @@ This makes WebFetch lossy by design. The extraction prompt determines what reach
 
 A few behaviors shape the response Claude receives:
 
-- HTTP URLs are automatically upgraded to HTTPS.
-- Large pages are truncated to a fixed character limit before processing.
-- Responses are cached for 15 minutes, so repeated fetches of the same URL return quickly.
-- When a URL redirects to a different host, WebFetch returns a text result that names the original URL and the redirect target instead of following it. Claude then fetches the new URL with a second WebFetch call.
+* HTTP URLs are automatically upgraded to HTTPS.
+* Large pages are truncated to a fixed character limit before processing.
+* Responses are cached for 15 minutes, so repeated fetches of the same URL return quickly.
+* When a URL redirects to a different host, WebFetch returns a text result that names the original URL and the redirect target instead of following it. Claude then fetches the new URL with a second WebFetch call.
 
-In the default and `acceptEdits` permission modes, WebFetch prompts the first time it reaches a new domain. To allow a domain in advance without a prompt, add a permission rule like `WebFetch(domain:example.com)`. The `auto` and `bypassPermissions` [permission modes](/en/permissions#permission-modes) skip the prompt entirely.
+In the default and `acceptEdits` permission modes, WebFetch prompts the first time it reaches a new domain, except for a built-in set of preapproved documentation domains that fetch without a prompt. To allow another domain in advance without a prompt, add a permission rule like `WebFetch(domain:example.com)`. The `auto` and `bypassPermissions` [permission modes](/en/permissions#permission-modes) skip the prompt entirely.
+
+An explicit `WebFetch(domain:...)` rule in `deny`, `ask`, or `allow` takes precedence over the preapproved set, so you can block a preapproved domain or require a prompt for it.
 
 WebFetch sets a `User-Agent` header beginning with `Claude-User`, and an `Accept` header that prefers Markdown over HTML so servers that support content negotiation can return Markdown directly. [Sandbox](/en/sandboxing) network rules are configured separately, so a domain you want a sandboxed process to reach still needs an explicit sandbox permission rule.
 
@@ -314,9 +316,13 @@ What tools do you have access to?
 
 Claude gives a conversational summary. For exact MCP tool names, run `/mcp`.
 
+<Note>
+  The [advisor tool](/en/advisor) is a [server tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool) that the API runs, rather than a tool that Claude Code implements. It has no name you can reference in permission rules or hook matchers.
+</Note>
+
 ## See also
 
-- [MCP servers](/en/mcp): add custom tools by connecting external servers
-- [Permissions](/en/permissions): permission system, rule syntax, and tool-specific patterns
-- [Subagents](/en/sub-agents): configure tool access for subagents
-- [Hooks](/en/hooks-guide): run custom commands before or after tool execution
+* [MCP servers](/en/mcp): add custom tools by connecting external servers
+* [Permissions](/en/permissions): permission system, rule syntax, and tool-specific patterns
+* [Subagents](/en/sub-agents): configure tool access for subagents
+* [Hooks](/en/hooks-guide): run custom commands before or after tool execution

@@ -13,7 +13,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Parameters
 
 - `MessageCreateParams = MessageCreateParamsNonStreaming | MessageCreateParamsStreaming`
+
   - `MessageCreateParamsBase`
+
     - `max_tokens: number`
 
       The maximum number of tokens to generate before stopping.
@@ -22,7 +24,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-      Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+      Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
     - `messages: Array<MessageParam>`
 
@@ -37,19 +39,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Example with a single `user` message:
 
       ```json
-      [{ "role": "user", "content": "Hello, Claude" }]
+      [{"role": "user", "content": "Hello, Claude"}]
       ```
 
       Example with multiple conversational turns:
 
       ```json
       [
-        { "role": "user", "content": "Hello there." },
-        {
-          "role": "assistant",
-          "content": "Hi, I'm Claude. How can I help you?"
-        },
-        { "role": "user", "content": "Can you explain LLMs in plain English?" }
+        {"role": "user", "content": "Hello there."},
+        {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+        {"role": "user", "content": "Can you explain LLMs in plain English?"},
       ]
       ```
 
@@ -57,25 +56,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
       ```json
       [
-        {
-          "role": "user",
-          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-        },
-        { "role": "assistant", "content": "The best answer is (" }
+        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+        {"role": "assistant", "content": "The best answer is ("},
       ]
       ```
 
       Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
       ```json
-      { "role": "user", "content": "Hello, Claude" }
+      {"role": "user", "content": "Hello, Claude"}
       ```
 
       ```json
-      {
-        "role": "user",
-        "content": [{ "type": "text", "text": "Hello, Claude" }]
-      }
+      {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
       ```
 
       See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -83,20 +76,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
       There is a limit of 100,000 messages in a single request.
+
       - `content: string | Array<ContentBlockParam>`
+
         - `string`
 
         - `Array<ContentBlockParam>`
+
           - `TextBlockParam`
+
             - `text: string`
 
             - `type: "text"`
+
               - `"text"`
 
             - `cache_control?: CacheControlEphemeral | null`
 
               Create a cache control breakpoint at this content block.
+
               - `type: "ephemeral"`
+
                 - `"ephemeral"`
 
               - `ttl?: "5m" | "1h"`
@@ -104,16 +104,20 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 The time-to-live for the cache control breakpoint.
 
                 This may be one the following values:
+
                 - `5m`: 5 minutes
                 - `1h`: 1 hour
 
                 Defaults to `5m`.
+
                 - `"5m"`
 
                 - `"1h"`
 
             - `citations?: Array<TextCitationParam> | null`
+
               - `CitationCharLocationParam`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -125,9 +129,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `start_char_index: number`
 
                 - `type: "char_location"`
+
                   - `"char_location"`
 
               - `CitationPageLocationParam`
+
                 - `cited_text: string`
 
                 - `document_index: number`
@@ -139,9 +145,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `start_page_number: number`
 
                 - `type: "page_location"`
+
                   - `"page_location"`
 
               - `CitationContentBlockLocationParam`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -163,9 +171,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   0-based index of the first cited block in the source's `content` array.
 
                 - `type: "content_block_location"`
+
                   - `"content_block_location"`
 
               - `CitationWebSearchResultLocationParam`
+
                 - `cited_text: string`
 
                 - `encrypted_index: string`
@@ -173,11 +183,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `title: string | null`
 
                 - `type: "web_search_result_location"`
+
                   - `"web_search_result_location"`
 
                 - `url: string`
 
               - `CitationSearchResultLocationParam`
+
                 - `cited_text: string`
 
                   The full text of the cited block range, concatenated.
@@ -205,14 +217,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `title: string | null`
 
                 - `type: "search_result_location"`
+
                   - `"search_result_location"`
 
           - `ImageBlockParam`
+
             - `source: Base64ImageSource | URLImageSource`
+
               - `Base64ImageSource`
+
                 - `data: string`
 
                 - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
+
                   - `"image/jpeg"`
 
                   - `"image/png"`
@@ -222,15 +239,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"image/webp"`
 
                 - `type: "base64"`
+
                   - `"base64"`
 
               - `URLImageSource`
+
                 - `type: "url"`
+
                   - `"url"`
 
                 - `url: string`
 
             - `type: "image"`
+
               - `"image"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -238,44 +259,59 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
           - `DocumentBlockParam`
+
             - `source: Base64PDFSource | PlainTextSource | ContentBlockSource | URLPDFSource`
+
               - `Base64PDFSource`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
+
                   - `"application/pdf"`
 
                 - `type: "base64"`
+
                   - `"base64"`
 
               - `PlainTextSource`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
+
                   - `"text/plain"`
 
                 - `type: "text"`
+
                   - `"text"`
 
               - `ContentBlockSource`
+
                 - `content: string | Array<ContentBlockSourceContent>`
+
                   - `string`
 
                   - `Array<ContentBlockSourceContent>`
+
                     - `TextBlockParam`
 
                     - `ImageBlockParam`
 
                 - `type: "content"`
+
                   - `"content"`
 
               - `URLPDFSource`
+
                 - `type: "url"`
+
                   - `"url"`
 
                 - `url: string`
 
             - `type: "document"`
+
               - `"document"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -283,6 +319,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
             - `citations?: CitationsConfigParam | null`
+
               - `enabled?: boolean`
 
             - `context?: string | null`
@@ -290,7 +327,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `title?: string | null`
 
           - `SearchResultBlockParam`
+
             - `content: Array<TextBlockParam>`
+
               - `text: string`
 
               - `type: "text"`
@@ -306,6 +345,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `title: string`
 
             - `type: "search_result"`
+
               - `"search_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -315,20 +355,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `citations?: CitationsConfigParam`
 
           - `ThinkingBlockParam`
+
             - `signature: string`
 
             - `thinking: string`
 
             - `type: "thinking"`
+
               - `"thinking"`
 
           - `RedactedThinkingBlockParam`
+
             - `data: string`
 
             - `type: "redacted_thinking"`
+
               - `"redacted_thinking"`
 
           - `ToolUseBlockParam`
+
             - `id: string`
 
             - `input: Record<string, unknown>`
@@ -336,6 +381,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `name: string`
 
             - `type: "tool_use"`
+
               - `"tool_use"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -345,30 +391,39 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `DirectCaller`
 
                 Tool invocation directly from the model.
+
                 - `type: "direct"`
+
                   - `"direct"`
 
               - `ServerToolCaller`
 
                 Tool invocation generated by a server-side tool.
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20250825"`
+
                   - `"code_execution_20250825"`
 
               - `ServerToolCaller20260120`
+
                 - `tool_id: string`
 
                 - `type: "code_execution_20260120"`
+
                   - `"code_execution_20260120"`
 
           - `ToolResultBlockParam`
+
             - `tool_use_id: string`
 
             - `type: "tool_result"`
+
               - `"tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -376,9 +431,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
             - `content?: string | Array<TextBlockParam | ImageBlockParam | SearchResultBlockParam | 2 more>`
+
               - `string`
 
               - `Array<TextBlockParam | ImageBlockParam | SearchResultBlockParam | 2 more>`
+
                 - `TextBlockParam`
 
                 - `ImageBlockParam`
@@ -390,9 +447,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `ToolReferenceBlockParam`
 
                   Tool reference block that can be included in tool_result content.
+
                   - `tool_name: string`
 
                   - `type: "tool_reference"`
+
                     - `"tool_reference"`
 
                   - `cache_control?: CacheControlEphemeral | null`
@@ -402,11 +461,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `is_error?: boolean`
 
           - `ServerToolUseBlockParam`
+
             - `id: string`
 
             - `input: Record<string, unknown>`
 
             - `name: "web_search" | "web_fetch" | "code_execution" | 4 more`
+
               - `"web_search"`
 
               - `"web_fetch"`
@@ -422,6 +483,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `"tool_search_tool_bm25"`
 
             - `type: "server_tool_use"`
+
               - `"server_tool_use"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -431,6 +493,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `DirectCaller`
 
                 Tool invocation directly from the model.
@@ -442,13 +505,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `ServerToolCaller20260120`
 
           - `WebSearchToolResultBlockParam`
+
             - `content: WebSearchToolResultBlockParamContent`
+
               - `Array<WebSearchResultBlockParam>`
+
                 - `encrypted_content: string`
 
                 - `title: string`
 
                 - `type: "web_search_result"`
+
                   - `"web_search_result"`
 
                 - `url: string`
@@ -456,7 +523,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `page_age?: string | null`
 
               - `WebSearchToolRequestError`
+
                 - `error_code: WebSearchToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -470,11 +539,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"request_too_large"`
 
                 - `type: "web_search_tool_result_error"`
+
                   - `"web_search_tool_result_error"`
 
             - `tool_use_id: string`
 
             - `type: "web_search_tool_result"`
+
               - `"web_search_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -484,6 +555,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `DirectCaller`
 
                 Tool invocation directly from the model.
@@ -495,9 +567,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `ServerToolCaller20260120`
 
           - `WebFetchToolResultBlockParam`
+
             - `content: WebFetchToolResultErrorBlockParam | WebFetchBlockParam`
+
               - `WebFetchToolResultErrorBlockParam`
+
                 - `error_code: WebFetchToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"url_too_long"`
@@ -517,12 +593,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"unavailable"`
 
                 - `type: "web_fetch_tool_result_error"`
+
                   - `"web_fetch_tool_result_error"`
 
               - `WebFetchBlockParam`
+
                 - `content: DocumentBlockParam`
 
                 - `type: "web_fetch_result"`
+
                   - `"web_fetch_result"`
 
                 - `url: string`
@@ -536,6 +615,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `tool_use_id: string`
 
             - `type: "web_fetch_tool_result"`
+
               - `"web_fetch_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -545,6 +625,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `caller?: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
               Tool invocation directly from the model.
+
               - `DirectCaller`
 
                 Tool invocation directly from the model.
@@ -556,11 +637,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `ServerToolCaller20260120`
 
           - `CodeExecutionToolResultBlockParam`
+
             - `content: CodeExecutionToolResultBlockParamContent`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `CodeExecutionToolResultErrorParam`
+
                 - `error_code: CodeExecutionToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -570,13 +655,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"execution_time_exceeded"`
 
                 - `type: "code_execution_tool_result_error"`
+
                   - `"code_execution_tool_result_error"`
 
               - `CodeExecutionResultBlockParam`
+
                 - `content: Array<CodeExecutionOutputBlockParam>`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
+
                     - `"code_execution_output"`
 
                 - `return_code: number`
@@ -586,12 +675,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `stdout: string`
 
                 - `type: "code_execution_result"`
+
                   - `"code_execution_result"`
 
               - `EncryptedCodeExecutionResultBlockParam`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `content: Array<CodeExecutionOutputBlockParam>`
+
                   - `file_id: string`
 
                   - `type: "code_execution_output"`
@@ -603,11 +695,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `stderr: string`
 
                 - `type: "encrypted_code_execution_result"`
+
                   - `"encrypted_code_execution_result"`
 
             - `tool_use_id: string`
 
             - `type: "code_execution_tool_result"`
+
               - `"code_execution_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -615,9 +709,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
           - `BashCodeExecutionToolResultBlockParam`
+
             - `content: BashCodeExecutionToolResultErrorParam | BashCodeExecutionResultBlockParam`
+
               - `BashCodeExecutionToolResultErrorParam`
+
                 - `error_code: BashCodeExecutionToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -629,13 +727,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"output_file_too_large"`
 
                 - `type: "bash_code_execution_tool_result_error"`
+
                   - `"bash_code_execution_tool_result_error"`
 
               - `BashCodeExecutionResultBlockParam`
+
                 - `content: Array<BashCodeExecutionOutputBlockParam>`
+
                   - `file_id: string`
 
                   - `type: "bash_code_execution_output"`
+
                     - `"bash_code_execution_output"`
 
                 - `return_code: number`
@@ -645,11 +747,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `stdout: string`
 
                 - `type: "bash_code_execution_result"`
+
                   - `"bash_code_execution_result"`
 
             - `tool_use_id: string`
 
             - `type: "bash_code_execution_tool_result"`
+
               - `"bash_code_execution_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -657,9 +761,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
           - `TextEditorCodeExecutionToolResultBlockParam`
+
             - `content: TextEditorCodeExecutionToolResultErrorParam | TextEditorCodeExecutionViewResultBlockParam | TextEditorCodeExecutionCreateResultBlockParam | TextEditorCodeExecutionStrReplaceResultBlockParam`
+
               - `TextEditorCodeExecutionToolResultErrorParam`
+
                 - `error_code: TextEditorCodeExecutionToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -671,14 +779,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"file_not_found"`
 
                 - `type: "text_editor_code_execution_tool_result_error"`
+
                   - `"text_editor_code_execution_tool_result_error"`
 
                 - `error_message?: string | null`
 
               - `TextEditorCodeExecutionViewResultBlockParam`
+
                 - `content: string`
 
                 - `file_type: "text" | "image" | "pdf"`
+
                   - `"text"`
 
                   - `"image"`
@@ -686,6 +797,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"pdf"`
 
                 - `type: "text_editor_code_execution_view_result"`
+
                   - `"text_editor_code_execution_view_result"`
 
                 - `num_lines?: number | null`
@@ -695,13 +807,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                 - `total_lines?: number | null`
 
               - `TextEditorCodeExecutionCreateResultBlockParam`
+
                 - `is_file_update: boolean`
 
                 - `type: "text_editor_code_execution_create_result"`
+
                   - `"text_editor_code_execution_create_result"`
 
               - `TextEditorCodeExecutionStrReplaceResultBlockParam`
+
                 - `type: "text_editor_code_execution_str_replace_result"`
+
                   - `"text_editor_code_execution_str_replace_result"`
 
                 - `lines?: Array<string> | null`
@@ -717,6 +833,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `tool_use_id: string`
 
             - `type: "text_editor_code_execution_tool_result"`
+
               - `"text_editor_code_execution_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -724,9 +841,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
           - `ToolSearchToolResultBlockParam`
+
             - `content: ToolSearchToolResultErrorParam | ToolSearchToolSearchResultBlockParam`
+
               - `ToolSearchToolResultErrorParam`
+
                 - `error_code: ToolSearchToolResultErrorCode`
+
                   - `"invalid_tool_input"`
 
                   - `"unavailable"`
@@ -736,10 +857,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                   - `"execution_time_exceeded"`
 
                 - `type: "tool_search_tool_result_error"`
+
                   - `"tool_search_tool_result_error"`
 
+                - `error_message?: string | null`
+
               - `ToolSearchToolSearchResultBlockParam`
+
                 - `tool_references: Array<ToolReferenceBlockParam>`
+
                   - `tool_name: string`
 
                   - `type: "tool_reference"`
@@ -749,11 +875,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
                     Create a cache control breakpoint at this content block.
 
                 - `type: "tool_search_tool_search_result"`
+
                   - `"tool_search_tool_search_result"`
 
             - `tool_use_id: string`
 
             - `type: "tool_search_tool_result"`
+
               - `"tool_search_tool_result"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -764,9 +892,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             A content block that represents a file to be uploaded to the container
             Files uploaded via this block will be available in the container's input directory.
+
             - `file_id: string`
 
             - `type: "container_upload"`
+
               - `"container_upload"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -779,9 +909,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
             Use this block to provide or update system-level instructions at a specific
             point in the conversation, rather than only via the top-level `system` parameter.
+
             - `content: Array<TextBlockParam>`
 
               System instruction text blocks.
+
               - `text: string`
 
               - `type: "text"`
@@ -793,6 +925,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               - `citations?: Array<TextCitationParam> | null`
 
             - `type: "mid_conv_system"`
+
               - `"mid_conv_system"`
 
             - `cache_control?: CacheControlEphemeral | null`
@@ -800,6 +933,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               Create a cache control breakpoint at this content block.
 
       - `role: "user" | "assistant" | "system"`
+
         - `"user"`
 
         - `"assistant"`
@@ -811,7 +945,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-      - `"claude-opus-4-8" | "claude-opus-4-7" | "claude-mythos-preview" | 15 more`
+
+      - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 17 more`
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-mythos-5"`
+
+          Most capable model for cybersecurity and biology research
+
         - `"claude-opus-4-8"`
 
           Frontier intelligence for long-running agents and coding
@@ -901,6 +1045,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `metadata?: Metadata`
 
       An object describing metadata about the request.
+
       - `user_id?: string | null`
 
         An external identifier for the user who is associated with the request.
@@ -910,9 +1055,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `output_config?: OutputConfig`
 
       Configuration options for the model's output, such as the output format.
+
       - `effort?: "low" | "medium" | "high" | 2 more | null`
 
         All possible effort levels.
+
         - `"low"`
 
         - `"medium"`
@@ -926,11 +1073,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `format?: JSONOutputFormat | null`
 
         A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
         - `schema: Record<string, unknown>`
 
           The JSON schema of the format
 
         - `type: "json_schema"`
+
           - `"json_schema"`
 
     - `service_tier?: "auto" | "standard_only"`
@@ -938,6 +1087,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Determines whether to use priority capacity (if available) or standard capacity for this request.
 
       Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
+
       - `"auto"`
 
       - `"standard_only"`
@@ -955,6 +1105,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Whether to incrementally stream the response using server-sent events.
 
       See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+
       - `false`
 
     - `system?: string | Array<TextBlockParam>`
@@ -962,9 +1113,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       System prompt.
 
       A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
+
       - `string`
 
       - `Array<TextBlockParam>`
+
         - `text: string`
 
         - `type: "text"`
@@ -990,7 +1143,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
       See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
+
       - `ThinkingConfigEnabled`
+
         - `budget_tokens: number`
 
           Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -1000,26 +1155,33 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
 
         - `type: "enabled"`
+
           - `"enabled"`
 
         - `display?: "summarized" | "omitted" | null`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
           - `"summarized"`
 
           - `"omitted"`
 
       - `ThinkingConfigDisabled`
+
         - `type: "disabled"`
+
           - `"disabled"`
 
       - `ThinkingConfigAdaptive`
+
         - `type: "adaptive"`
+
           - `"adaptive"`
 
         - `display?: "summarized" | "omitted" | null`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
           - `"summarized"`
 
           - `"omitted"`
@@ -1027,10 +1189,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `tool_choice?: ToolChoice`
 
       How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
       - `ToolChoiceAuto`
 
         The model will automatically decide whether to use tools.
+
         - `type: "auto"`
+
           - `"auto"`
 
         - `disable_parallel_tool_use?: boolean`
@@ -1042,7 +1207,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `ToolChoiceAny`
 
         The model will use any available tools.
+
         - `type: "any"`
+
           - `"any"`
 
         - `disable_parallel_tool_use?: boolean`
@@ -1054,11 +1221,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `ToolChoiceTool`
 
         The model will use the specified tool with `tool_choice.name`.
+
         - `name: string`
 
           The name of the tool to use.
 
         - `type: "tool"`
+
           - `"tool"`
 
         - `disable_parallel_tool_use?: boolean`
@@ -1070,7 +1239,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `ToolChoiceNone`
 
         The model will not be allowed to use tools.
+
         - `type: "none"`
+
           - `"none"`
 
     - `tools?: Array<ToolUnion>`
@@ -1082,9 +1253,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
       Each tool definition includes:
-      - `name`: Name of the tool.
-      - `description`: Optional, but strongly-recommended description of the tool.
-      - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+      * `name`: Name of the tool.
+      * `description`: Optional, but strongly-recommended description of the tool.
+      * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
       For example, if you defined `tools` as:
 
@@ -1135,13 +1307,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
       See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
+
       - `Tool`
+
         - `input_schema: InputSchema`
 
           [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
           This defines the shape of the `input` that your tool accepts and that the model will produce.
+
           - `type: "object"`
+
             - `"object"`
 
           - `properties?: Record<string, unknown> | null`
@@ -1155,6 +1331,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           This is how the tool will be called by the model and in `tool_use` blocks.
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1186,20 +1363,25 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
         - `type?: "custom" | null`
+
           - `"custom"`
 
       - `ToolBash20250124`
+
         - `name: "bash"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"bash"`
 
         - `type: "bash_20250124"`
+
           - `"bash_20250124"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1221,17 +1403,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `CodeExecutionTool20250522`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"code_execution"`
 
         - `type: "code_execution_20250522"`
+
           - `"code_execution_20250522"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1251,17 +1437,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `CodeExecutionTool20250825`
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"code_execution"`
 
         - `type: "code_execution_20250825"`
+
           - `"code_execution_20250825"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1283,17 +1473,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `CodeExecutionTool20260120`
 
         Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
         - `name: "code_execution"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"code_execution"`
 
         - `type: "code_execution_20260120"`
+
           - `"code_execution_20260120"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1313,17 +1507,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `MemoryTool20250818`
+
         - `name: "memory"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"memory"`
 
         - `type: "memory_20250818"`
+
           - `"memory_20250818"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1345,17 +1543,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `ToolTextEditor20250124`
+
         - `name: "str_replace_editor"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"str_replace_editor"`
 
         - `type: "text_editor_20250124"`
+
           - `"text_editor_20250124"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1377,17 +1579,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `ToolTextEditor20250429`
+
         - `name: "str_replace_based_edit_tool"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"str_replace_based_edit_tool"`
 
         - `type: "text_editor_20250429"`
+
           - `"text_editor_20250429"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1409,17 +1615,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `ToolTextEditor20250728`
+
         - `name: "str_replace_based_edit_tool"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"str_replace_based_edit_tool"`
 
         - `type: "text_editor_20250728"`
+
           - `"text_editor_20250728"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1445,17 +1655,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `WebSearchTool20250305`
+
         - `name: "web_search"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"web_search"`
 
         - `type: "web_search_20250305"`
+
           - `"web_search_20250305"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1489,7 +1703,9 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `user_location?: UserLocation | null`
 
           Parameters for the user's location. Used to provide more relevant search results.
+
           - `type: "approximate"`
+
             - `"approximate"`
 
           - `city?: string | null`
@@ -1509,17 +1725,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
       - `WebFetchTool20250910`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"web_fetch"`
 
         - `type: "web_fetch_20250910"`
+
           - `"web_fetch_20250910"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1559,17 +1779,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `WebSearchTool20260209`
+
         - `name: "web_search"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"web_search"`
 
         - `type: "web_search_20260209"`
+
           - `"web_search_20260209"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1605,17 +1829,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Parameters for the user's location. Used to provide more relevant search results.
 
       - `WebFetchTool20260209`
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"web_fetch"`
 
         - `type: "web_fetch_20260209"`
+
           - `"web_fetch_20260209"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1657,17 +1885,21 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `WebFetchTool20260309`
 
         Web fetch tool with use_cache parameter for bypassing cached content.
+
         - `name: "web_fetch"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"web_fetch"`
 
         - `type: "web_fetch_20260309"`
+
           - `"web_fetch_20260309"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1711,19 +1943,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
       - `ToolSearchToolBm25_20251119`
+
         - `name: "tool_search_tool_bm25"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"tool_search_tool_bm25"`
 
         - `type: "tool_search_tool_bm25_20251119" | "tool_search_tool_bm25"`
+
           - `"tool_search_tool_bm25_20251119"`
 
           - `"tool_search_tool_bm25"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1743,19 +1979,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           When true, guarantees schema validation on tool names and inputs
 
       - `ToolSearchToolRegex20251119`
+
         - `name: "tool_search_tool_regex"`
 
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
           - `"tool_search_tool_regex"`
 
         - `type: "tool_search_tool_regex_20251119" | "tool_search_tool_regex"`
+
           - `"tool_search_tool_regex_20251119"`
 
           - `"tool_search_tool_regex"`
 
         - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
+
           - `"direct"`
 
           - `"code_execution_20250825"`
@@ -1791,6 +2031,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       Recommended for advanced use cases only.
 
   - `MessageCreateParamsNonStreaming extends MessageCreateParamsBase`
+
     - `stream?: false`
 
       Whether to incrementally stream the response using server-sent events.
@@ -1798,16 +2039,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
 
   - `MessageCreateParamsStreaming extends MessageCreateParamsBase`
+
     - `stream: true`
 
       Whether to incrementally stream the response using server-sent events.
 
       See [streaming](https://docs.claude.com/en/api/messages-streaming) for details.
+
       - `true`
 
 ### Returns
 
 - `Message`
+
   - `id: string`
 
     Unique object identifier.
@@ -1817,6 +2061,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   - `container: Container | null`
 
     Information about the container used in the request (for the code execution tool)
+
     - `id: string`
 
       Identifier for the container used in this request
@@ -1834,7 +2079,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -1843,27 +2088,27 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
     - `TextBlock`
+
       - `citations: Array<TextCitation> | null`
 
         Citations supporting the text block.
 
         The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
         - `CitationCharLocation`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -1877,9 +2122,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `start_char_index: number`
 
           - `type: "char_location"`
+
             - `"char_location"`
 
         - `CitationPageLocation`
+
           - `cited_text: string`
 
           - `document_index: number`
@@ -1893,9 +2140,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `start_page_number: number`
 
           - `type: "page_location"`
+
             - `"page_location"`
 
         - `CitationContentBlockLocation`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -1919,9 +2168,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             0-based index of the first cited block in the source's `content` array.
 
           - `type: "content_block_location"`
+
             - `"content_block_location"`
 
         - `CitationsWebSearchResultLocation`
+
           - `cited_text: string`
 
           - `encrypted_index: string`
@@ -1929,11 +2180,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string | null`
 
           - `type: "web_search_result_location"`
+
             - `"web_search_result_location"`
 
           - `url: string`
 
         - `CitationsSearchResultLocation`
+
           - `cited_text: string`
 
             The full text of the cited block range, concatenated.
@@ -1961,51 +2214,65 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string | null`
 
           - `type: "search_result_location"`
+
             - `"search_result_location"`
 
       - `text: string`
 
       - `type: "text"`
+
         - `"text"`
 
     - `ThinkingBlock`
+
       - `signature: string`
 
       - `thinking: string`
 
       - `type: "thinking"`
+
         - `"thinking"`
 
     - `RedactedThinkingBlock`
+
       - `data: string`
 
       - `type: "redacted_thinking"`
+
         - `"redacted_thinking"`
 
     - `ToolUseBlock`
+
       - `id: string`
 
       - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `DirectCaller`
 
           Tool invocation directly from the model.
+
           - `type: "direct"`
+
             - `"direct"`
 
         - `ServerToolCaller`
 
           Tool invocation generated by a server-side tool.
+
           - `tool_id: string`
 
           - `type: "code_execution_20250825"`
+
             - `"code_execution_20250825"`
 
         - `ServerToolCaller20260120`
+
           - `tool_id: string`
 
           - `type: "code_execution_20260120"`
+
             - `"code_execution_20260120"`
 
       - `input: Record<string, unknown>`
@@ -2013,14 +2280,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `name: string`
 
       - `type: "tool_use"`
+
         - `"tool_use"`
 
     - `ServerToolUseBlock`
+
       - `id: string`
 
       - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `DirectCaller`
 
           Tool invocation directly from the model.
@@ -2034,6 +2304,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `input: Record<string, unknown>`
 
       - `name: "web_search" | "web_fetch" | "code_execution" | 4 more`
+
         - `"web_search"`
 
         - `"web_fetch"`
@@ -2049,12 +2320,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `"tool_search_tool_bm25"`
 
       - `type: "server_tool_use"`
+
         - `"server_tool_use"`
 
     - `WebSearchToolResultBlock`
+
       - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `DirectCaller`
 
           Tool invocation directly from the model.
@@ -2066,8 +2340,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `ServerToolCaller20260120`
 
       - `content: WebSearchToolResultBlockContent`
+
         - `WebSearchToolResultError`
+
           - `error_code: WebSearchToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2081,9 +2358,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"request_too_large"`
 
           - `type: "web_search_tool_result_error"`
+
             - `"web_search_tool_result_error"`
 
         - `Array<WebSearchResultBlock>`
+
           - `encrypted_content: string`
 
           - `page_age: string | null`
@@ -2091,6 +2370,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `title: string`
 
           - `type: "web_search_result"`
+
             - `"web_search_result"`
 
           - `url: string`
@@ -2098,12 +2378,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `tool_use_id: string`
 
       - `type: "web_search_tool_result"`
+
         - `"web_search_tool_result"`
 
     - `WebFetchToolResultBlock`
+
       - `caller: DirectCaller | ServerToolCaller | ServerToolCaller20260120`
 
         Tool invocation directly from the model.
+
         - `DirectCaller`
 
           Tool invocation directly from the model.
@@ -2115,8 +2398,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
         - `ServerToolCaller20260120`
 
       - `content: WebFetchToolResultErrorBlock | WebFetchBlock`
+
         - `WebFetchToolResultErrorBlock`
+
           - `error_code: WebFetchToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"url_too_long"`
@@ -2136,32 +2422,43 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"unavailable"`
 
           - `type: "web_fetch_tool_result_error"`
+
             - `"web_fetch_tool_result_error"`
 
         - `WebFetchBlock`
+
           - `content: DocumentBlock`
+
             - `citations: CitationsConfig | null`
 
               Citation configuration for the document
+
               - `enabled: boolean`
 
             - `source: Base64PDFSource | PlainTextSource`
+
               - `Base64PDFSource`
+
                 - `data: string`
 
                 - `media_type: "application/pdf"`
+
                   - `"application/pdf"`
 
                 - `type: "base64"`
+
                   - `"base64"`
 
               - `PlainTextSource`
+
                 - `data: string`
 
                 - `media_type: "text/plain"`
+
                   - `"text/plain"`
 
                 - `type: "text"`
+
                   - `"text"`
 
             - `title: string | null`
@@ -2169,6 +2466,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
               The title of the document
 
             - `type: "document"`
+
               - `"document"`
 
           - `retrieved_at: string | null`
@@ -2176,6 +2474,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             ISO 8601 timestamp when the content was retrieved
 
           - `type: "web_fetch_result"`
+
             - `"web_fetch_result"`
 
           - `url: string`
@@ -2185,14 +2484,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       - `tool_use_id: string`
 
       - `type: "web_fetch_tool_result"`
+
         - `"web_fetch_tool_result"`
 
     - `CodeExecutionToolResultBlock`
+
       - `content: CodeExecutionToolResultBlockContent`
 
         Code execution result with encrypted stdout for PFC + web_search results.
+
         - `CodeExecutionToolResultError`
+
           - `error_code: CodeExecutionToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2202,13 +2506,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"execution_time_exceeded"`
 
           - `type: "code_execution_tool_result_error"`
+
             - `"code_execution_tool_result_error"`
 
         - `CodeExecutionResultBlock`
+
           - `content: Array<CodeExecutionOutputBlock>`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
+
               - `"code_execution_output"`
 
           - `return_code: number`
@@ -2218,12 +2526,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stdout: string`
 
           - `type: "code_execution_result"`
+
             - `"code_execution_result"`
 
         - `EncryptedCodeExecutionResultBlock`
 
           Code execution result with encrypted stdout for PFC + web_search results.
+
           - `content: Array<CodeExecutionOutputBlock>`
+
             - `file_id: string`
 
             - `type: "code_execution_output"`
@@ -2235,17 +2546,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stderr: string`
 
           - `type: "encrypted_code_execution_result"`
+
             - `"encrypted_code_execution_result"`
 
       - `tool_use_id: string`
 
       - `type: "code_execution_tool_result"`
+
         - `"code_execution_tool_result"`
 
     - `BashCodeExecutionToolResultBlock`
+
       - `content: BashCodeExecutionToolResultError | BashCodeExecutionResultBlock`
+
         - `BashCodeExecutionToolResultError`
+
           - `error_code: BashCodeExecutionToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2257,13 +2574,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
             - `"output_file_too_large"`
 
           - `type: "bash_code_execution_tool_result_error"`
+
             - `"bash_code_execution_tool_result_error"`
 
         - `BashCodeExecutionResultBlock`
+
           - `content: Array<BashCodeExecutionOutputBlock>`
+
             - `file_id: string`
 
             - `type: "bash_code_execution_output"`
+
               - `"bash_code_execution_output"`
 
           - `return_code: number`
@@ -2273,17 +2594,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `stdout: string`
 
           - `type: "bash_code_execution_result"`
+
             - `"bash_code_execution_result"`
 
       - `tool_use_id: string`
 
       - `type: "bash_code_execution_tool_result"`
+
         - `"bash_code_execution_tool_result"`
 
     - `TextEditorCodeExecutionToolResultBlock`
+
       - `content: TextEditorCodeExecutionToolResultError | TextEditorCodeExecutionViewResultBlock | TextEditorCodeExecutionCreateResultBlock | TextEditorCodeExecutionStrReplaceResultBlock`
+
         - `TextEditorCodeExecutionToolResultError`
+
           - `error_code: TextEditorCodeExecutionToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2297,12 +2624,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `error_message: string | null`
 
           - `type: "text_editor_code_execution_tool_result_error"`
+
             - `"text_editor_code_execution_tool_result_error"`
 
         - `TextEditorCodeExecutionViewResultBlock`
+
           - `content: string`
 
           - `file_type: "text" | "image" | "pdf"`
+
             - `"text"`
 
             - `"image"`
@@ -2316,15 +2646,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `total_lines: number | null`
 
           - `type: "text_editor_code_execution_view_result"`
+
             - `"text_editor_code_execution_view_result"`
 
         - `TextEditorCodeExecutionCreateResultBlock`
+
           - `is_file_update: boolean`
 
           - `type: "text_editor_code_execution_create_result"`
+
             - `"text_editor_code_execution_create_result"`
 
         - `TextEditorCodeExecutionStrReplaceResultBlock`
+
           - `lines: Array<string> | null`
 
           - `new_lines: number | null`
@@ -2336,17 +2670,23 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `old_start: number | null`
 
           - `type: "text_editor_code_execution_str_replace_result"`
+
             - `"text_editor_code_execution_str_replace_result"`
 
       - `tool_use_id: string`
 
       - `type: "text_editor_code_execution_tool_result"`
+
         - `"text_editor_code_execution_tool_result"`
 
     - `ToolSearchToolResultBlock`
+
       - `content: ToolSearchToolResultError | ToolSearchToolSearchResultBlock`
+
         - `ToolSearchToolResultError`
+
           - `error_code: ToolSearchToolResultErrorCode`
+
             - `"invalid_tool_input"`
 
             - `"unavailable"`
@@ -2358,29 +2698,37 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
           - `error_message: string | null`
 
           - `type: "tool_search_tool_result_error"`
+
             - `"tool_search_tool_result_error"`
 
         - `ToolSearchToolSearchResultBlock`
+
           - `tool_references: Array<ToolReferenceBlock>`
+
             - `tool_name: string`
 
             - `type: "tool_reference"`
+
               - `"tool_reference"`
 
           - `type: "tool_search_tool_search_result"`
+
             - `"tool_search_tool_search_result"`
 
       - `tool_use_id: string`
 
       - `type: "tool_search_tool_result"`
+
         - `"tool_search_tool_result"`
 
     - `ContainerUploadBlock`
 
       Response model for a file uploaded to the container.
+
       - `file_id: string`
 
       - `type: "container_upload"`
+
         - `"container_upload"`
 
   - `model: Model`
@@ -2388,7 +2736,17 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-    - `"claude-opus-4-8" | "claude-opus-4-7" | "claude-mythos-preview" | 15 more`
+
+    - `"claude-fable-5" | "claude-mythos-5" | "claude-opus-4-8" | 17 more`
+
+      - `"claude-fable-5"`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `"claude-mythos-5"`
+
+        Most capable model for cybersecurity and biology research
+
       - `"claude-opus-4-8"`
 
         Frontier intelligence for long-running agents and coding
@@ -2468,19 +2826,24 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Conversational role of the generated message.
 
     This will always be `"assistant"`.
+
     - `"assistant"`
 
   - `stop_details: RefusalStopDetails | null`
 
     Structured information about a refusal.
-    - `category: "cyber" | "bio" | null`
+
+    - `category: "cyber" | "bio" | "reasoning_extraction" | null`
 
       The policy category that triggered the refusal.
 
       `null` when the refusal doesn't map to a named category.
+
       - `"cyber"`
 
       - `"bio"`
+
+      - `"reasoning_extraction"`
 
     - `explanation: string | null`
 
@@ -2489,6 +2852,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
     - `type: "refusal"`
+
       - `"refusal"`
 
   - `stop_reason: StopReason | null`
@@ -2496,14 +2860,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
     - `"end_turn"`
 
     - `"max_tokens"`
@@ -2527,6 +2893,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Object type.
 
     For Messages, this is always `"message"`.
+
     - `"message"`
 
   - `usage: Usage`
@@ -2540,9 +2907,11 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
     Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
     - `cache_creation: CacheCreation | null`
 
       Breakdown of cached tokens by TTL
+
       - `ephemeral_1h_input_tokens: number`
 
         The number of input tokens used to create the 1 hour cache entry.
@@ -2579,6 +2948,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
       This object provides a read-only decomposition for observability — for example,
       how many of the billed output tokens were spent on internal reasoning that may
       have been summarized before being returned to you.
+
       - `thinking_tokens: number`
 
         Number of output tokens the model generated as internal reasoning, including
@@ -2593,6 +2963,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `server_tool_use: ServerToolUsage | null`
 
       The number of server tool requests.
+
       - `web_fetch_requests: number`
 
         The number of web fetch tool requests.
@@ -2604,6 +2975,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     - `service_tier: "standard" | "priority" | "batch" | null`
 
       If the request used the priority, standard, or batch tier.
+
       - `"standard"`
 
       - `"priority"`
@@ -2613,16 +2985,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const message = await client.messages.create({
   max_tokens: 1024,
-  messages: [{ content: "Hello, world", role: "user" }],
-  model: "claude-opus-4-6",
+  messages: [{ content: 'Hello, world', role: 'user' }],
+  model: 'claude-opus-4-6',
 });
 
 console.log(message.id);

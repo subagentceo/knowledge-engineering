@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Fraud Prevention for Fintech
+# How Fintech & Finance Fight Fraud
+
+Home/Solutions/Fraud Prevention for Fintech
 
 # How Fintech & Finance Fight Fraud
 
@@ -8,7 +10,7 @@ Sift helps top fintech companies accelerate growth despite increasing fraud acti
 
 "Sift is instrumental in aggregating data all in one place and making sense of it in a way that’s actionable.” Yan Pritzker, Co-founder & CTO of Swan Bitcoin
 
-[Speak to an Expert](/demo/)[Compare Fintech Fraud Rates](/fibr-fraud-industry-benchmarking-resource/)
+Speak to an ExpertCompare Fintech Fraud Rates
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -32,62 +34,62 @@ Fintech payment fraud attack rate across the Sift network
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Fintech Leaders Scale Securely with Sift
 
--   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
+*   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
     
--   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
-
--   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
-    
--   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
-    
--   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
+*   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
     
--   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+
+*   ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![coinjar](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+    
+*   ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
+    
+*   ![taptapsend-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![mamo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![nexo-black-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![curve](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
 ![remitly-logo-black@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
@@ -102,15 +104,15 @@ Digital offerings from neo and challenger banks are transforming a market long d
 
 $1.5T
 
-Fintech industry valuation by 2030\*
+Fintech industry valuation by 2030*
 
-[\*BCG](https://www.bcg.com/press/3may2023-fintech-1-5-trillion-industry-by-2030)
+*BCG
 
 1.7%
 
-In annual revenue lost to fraud for the average fintech company\*
+In annual revenue lost to fraud for the average fintech company*
 
-[\*PYMNTS](https://www.pymnts.com/news/security-and-risk/2022/46-of-fintechs-fraud-hurts-money-mobility-and-customer-experience/)
+*PYMNTS
 
 ## Comprehensive Fintech Solutions
 
@@ -120,7 +122,7 @@ In annual revenue lost to fraud for the average fintech company\*
 
 **Improve Conversion and Engagement.** Onboard new users quickly, keep friction low, and unlock additional features for trusted users without compromising the security of your platform.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![Fintech\_Solutions-Overview-Circle@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -146,8 +148,7 @@ Current fintech manual review rate across the Sift network.
 
 Protect your users and your brand by defending against account takeover attacks. Automatically surface suspicious sessions for additional levels of verification at risky value extraction points.
 
-## Maximize ROI,  
-Minimize Manual Review
+## Maximize ROI,Minimize Manual Review
 
 Sift’s AI-powered solutions automate your fraud fighting, accurately stopping fraud automatically, and providing intuitive, insightful tools to make manual reviews fast, accurate, and insightful.
 
@@ -171,7 +172,7 @@ Keep the team small and the growth high with Sift’s automation that minimizes 
 
 ## Leading Brands Succeed With Sift
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![doxo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
 
@@ -187,7 +188,7 @@ Taylor Snyder
 
 Manager of Risk & Compliance at doxo
 
-[read customer story](/resources/case-studies/doxo-case-study/)
+read customer story
 
 ![Doxo-Slider](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20706'%3E%3C/svg%3E)
 
@@ -209,7 +210,7 @@ Derrick Liew
 
 Senior Financial Accountant at CoinJar
 
-[read customer story](/resources/case-studies/coinjar-case-study/)
+read customer story
 
 ![harry](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -231,7 +232,7 @@ Nate Spanier
 
 Director of Operations at Remitly
 
-[read customer story](/resources/case-studies/remitly/)
+read customer story
 
 ![Case-Study-Remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -251,8 +252,6 @@ Sift has the data and helps fight fraud across industries.
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![iGaming](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 iGaming
@@ -260,8 +259,6 @@ iGaming
 Protect your players and yourselves when the chips are down.
 
 learn more
-
-](/solutions/igaming/)[
 
 ![digital-goods-Services](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -271,8 +268,6 @@ Instant risk scoring for instant transactions.
 
 learn more
 
-](/solutions/digital-goods-services/)[
-
 ![Marketplace](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Marketplaces
@@ -281,8 +276,6 @@ Clearly see the complex collusion that comes from multi-party marketplaces.
 
 learn more
 
-](/solutions/marketplaces/)[
-
 ![ecommerce](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 E-commerce
@@ -290,8 +283,6 @@ E-commerce
 Deliver physical goods to digital customers with confidence.
 
 learn more
-
-](/solutions/ecommerce/)
 
 ### Start Your Digital Risk Assessment
 
@@ -303,13 +294,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -319,8 +308,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -328,8 +315,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -339,12 +324,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

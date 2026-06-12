@@ -1,20 +1,22 @@
-[Home](https://sift.com)/Company
+# The Fraud Platform That Turns Risk Into Revenue
+
+Home/Company
 
 # The Fraud Platform That Turns Risk Into Revenue
 
 Sift continues to optimize the risk-reward equation for every digital business.
 
-[SEE SIFT IN ACTION](/resources/demos/)
+SEE SIFT IN ACTION
 
 ![About\_Us\_V2](https://sift.com/wp-content/uploads/2024/06/About_Us_V2.png)
 
 Overview
 
--   [About Us](#about-us)
--   [Leadership](#leadership)
--   [Awards](#awards)
--   [Careers](#careers)
--   [News & Press](#newsroom)
+*   About Us
+*   Leadership
+*   Awards
+*   Careers
+*   News & Press
 
 ## Empowering Digital Businesses Across the Globe
 
@@ -44,9 +46,9 @@ Chief Executive Officer
 
 Marc Friend
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/marcfriend/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Raj-Jain](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -54,9 +56,9 @@ Chief Product Officer
 
 Raj Jain
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/raj-jain-a19376/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Johannes-Hoech](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -64,9 +66,9 @@ Chief Marketing Officer
 
 Johannes Hoech
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/jhoech/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Ada-Johnson](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -74,9 +76,9 @@ Chief Financial Officer
 
 Ada Johnson
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/ada-johnson/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Tina-Liu](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -84,9 +86,9 @@ Chief People Officer
 
 Tina Liu
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/tinaliusphr/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Ajay-Gopal](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -94,9 +96,9 @@ Chief Strategy Officer
 
 Ajay Gopal
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/ajzz/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Jason-Fama](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -104,9 +106,9 @@ SVP, Engineering
 
 Jason Fama
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/jasonfama/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Kevin Lee, SVP Customer Experience, Trust & Safety](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -114,9 +116,9 @@ Field Chief Technology Officer
 
 Kevin Lee
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/thisisklee/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![brittany-gerths](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -124,9 +126,9 @@ Vice President, Customer Experience
 
 Brittany Gerths
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/brittany-gerths/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Brent-Sapiro](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -134,9 +136,9 @@ Chief Revenue Officer
 
 Brent Sapiro
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/brent-sapiro/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Leslie-Lorenco](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
@@ -144,13 +146,11 @@ VP, Global Channel Sales
 
 Leslie Lorenco
 
-[![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://www.linkedin.com/in/leslielorenco/)
+![Linkedin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[read bio](/)
+read bio
 
 ![Marc-Friend](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/marcfriend/)
 
 Marc Friend
 
@@ -160,8 +160,6 @@ Marc Friend is Sift's Chief Executive Officer. As a Silicon Valley veteran and c
 
 ![Raj-Jain](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
-[](https://www.linkedin.com/in/raj-jain-a19376/)
-
 Raj Jain
 
 Chief Product Officer
@@ -169,8 +167,6 @@ Chief Product Officer
 Raj Jain is Sift's Chief Product Officer. As a seasoned technology executive, he brings more than two decades of leadership across high-growth companies and venture-backed environments.
 
 ![Johannes-Hoech](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/jhoech/)
 
 Johannes Hoech
 
@@ -180,8 +176,6 @@ Johannes Hoech is Sift's Chief Marketing Officer. As a Silicon Valley executive 
 
 ![Ada-Johnson](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
-[](https://www.linkedin.com/in/ada-johnson/)
-
 Ada Johnson
 
 Chief Financial Officer
@@ -189,8 +183,6 @@ Chief Financial Officer
 Ada Johnson is Sift's Chief Financial Officer, overseeing strategy and operations. An experienced leader, Ada drives successful fiscal performance and operational excellence at high-growth technology companies.
 
 ![Tina-Liu](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/tinaliusphr/)
 
 Tina Liu
 
@@ -200,8 +192,6 @@ As Sift's Chief People Officer, Tina Liu leads talent strategy, culture, and org
 
 ![Ajay-Gopal](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
-[](https://www.linkedin.com/in/ajzz/)
-
 Ajay Gopal
 
 Chief Strategy Officer
@@ -209,8 +199,6 @@ Chief Strategy Officer
 Ajay Gopal is Sift's Chief Strategy Officer. As a technologist and PhD, he connects cutting-edge research with commercial innovation in enterprise software.
 
 ![Jason-Fama](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/jasonfama/)
 
 Jason Fama
 
@@ -220,8 +208,6 @@ Jason Fama is Sift's SVP of Engineering, overseeing platform development and tec
 
 ![Kevin Lee](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20200'%3E%3C/svg%3E)
 
-[](https://www.linkedin.com/in/thisisklee/)
-
 Kevin Lee
 
 Field Chief Technology Officer
@@ -229,8 +215,6 @@ Field Chief Technology Officer
 Kevin helps customers implement strategies that cross-functionally align risk and revenue programs. Prior to Sift, he spent over 14 years leading various risk, chargeback, spam/scams, and trust and safety organizations at Facebook, Square, and Google.
 
 ![brittany-gerths](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/brittany-gerths/)
 
 Brittany Gerths
 
@@ -240,8 +224,6 @@ A Customer Success executive with roots at Intuit and Nokia, Brittany specialize
 
 ![Brent-Sapiro](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
 
-[](https://www.linkedin.com/in/brent-sapiro/)
-
 Brent Sapiro
 
 Chief Revenue Officer
@@ -249,8 +231,6 @@ Chief Revenue Officer
 Brent Sapiro is Sift’s Chief Revenue Officer. He brings an established track record of driving revenue, scaling operations, building high-performing teams, and delivering exceptional customer experiences.
 
 ![Leslie-Lorenco](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20546%20484'%3E%3C/svg%3E)
-
-[](https://www.linkedin.com/in/leslielorenco/)
 
 Leslie Lorenco
 
@@ -310,7 +290,7 @@ Albert Wenger
 
 Our mission is to help everyone trust the internet. Meet the investors driving the future of AI-powered fraud prevention forward and defining how digital businesses grow fearlessly.
 
-[See All Investors](/investors/)
+See All Investors
 
 ![insight-partners-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20324%20200'%3E%3C/svg%3E)
 
@@ -326,8 +306,6 @@ Our mission is to help everyone trust the internet. Meet the investors driving t
 
 view all resources
 
-[
-
 ![Leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 G2 Leader
@@ -335,8 +313,6 @@ G2 Leader
 Products in the Leader quadrant in the Grid®️ Report are rated highly by G2 users and have substantial Satisfaction and Market Presence scores.
 
 see sift reviews
-
-](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)[
 
 ![enterprise-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -346,8 +322,6 @@ Products in the Leader quadrant in the Enterprise Grid®️ Report are rated hig
 
 See Sift Reviews
 
-](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)[
-
 ![momentum-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 G2 Momentum Leader
@@ -356,15 +330,13 @@ Products in the Leader tier in the Momentum Grid®️ rank in the top 25% of the
 
 see sift reviews
 
-](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)
-
 ## Join a Winning Team
 
 Our goal is to foster a diverse, equitable, and inclusive workplace where every team member feels empowered to share their unique perspectives. We believe diversity drives innovation, equity is essential, and inclusion is a basic human need. Our vision is to create an environment where every member of our team can freely express themselves.
 
 **Open the door to your next professional opportunity, and let’s build a safer internet together.**
 
-[View open positions](/careers/)
+View open positions
 
 ![people\_group](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20495%20405'%3E%3C/svg%3E)
 
@@ -372,9 +344,7 @@ Our goal is to foster a diverse, equitable, and inclusive workplace where every 
 
 Explore stories, press releases, and other company announcements.
 
-[Visit the Newsroom](/company/newsroom/)
-
-[
+Visit the Newsroom
 
 September 18, 2025
 
@@ -382,19 +352,11 @@ September 18, 2025
 
 Read more
 
-
-
-](https://www.globenewswire.com/news-release/2025/09/18/3152632/0/en/Sift-Maintains-1-Position-Across-All-Fraud-Prevention-Categories-in-G2-s-Fall-2025-Reports.html?utm_source=chatgpt.com)[
-
 September 17, 2025
 
 ### Account Takeover Attacks Surge 122% in Fintech as Agentic Commerce Adoption Looms
 
 Read more
-
-
-
-](https://www.globenewswire.com/news-release/2025/09/17/3151852/0/en/Account-Takeover-Attacks-Surge-122-in-Fintech-as-Agentic-Commerce-Adoption-Looms.html)[
 
 August 20, 2025
 
@@ -402,132 +364,90 @@ August 20, 2025
 
 Read more
 
-
-
-](https://www.globenewswire.com/news-release/2025/08/20/3136587/0/en/Sift-s-Fall-25-Release-Advanced-Fraud-Investigation-Tooling-to-Simplify-Fraud-Management-Strengthen-Identity-Trust.html)[](#)
-
 ## The Leader in Fraud Prevention
 
--   ![spring-2026-best-relationship-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-emea-regional-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-leader-small-business](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-momentum-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![spring-2026-best-relationship-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-emea-regional-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-leader-small-business](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-momentum-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
--   ![spring-2026-best-relationship-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![e-commerce-leader-1](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![mid-market-emea-leader-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-relationship-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-mid-market-leader-3](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![small-business-leader-4](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![momentum-leader-leader-5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-enterprise-total-6](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-results](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-relationship-total-7](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![best-results-total-8](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-best-usability-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestsupport-mid-market-qualityofsupport-9](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![spring-2026-emea-regional-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![bestusability-total-10](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![leader-enterprise-leader-11](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20868%201000'%3E%3C/svg%3E)
     
--   ![spring-2026-leader-small-business](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-enterprise](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-momentum-leader](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable-mid-market](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![spring-2026-most-implementable](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![most-implementable-total-12](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
 
 ![g2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[See Sift Reviews](https://www.g2.com/products/sift-digital-trust-safety-sift/reviews)
+See Sift Reviews
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -537,8 +457,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -546,8 +464,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -557,12 +473,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

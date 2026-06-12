@@ -16,7 +16,7 @@ Reliability managers can quickly deploy Amazon Monitron to track the machine hea
 
 |  | 
 | --- |
-|  [![AWS Videos](http://img.youtube.com/vi/https://www.youtube.com/embed/_cIiB-JEwVI/0.jpg)](http://www.youtube.com/watch?v=https://www.youtube.com/embed/_cIiB-JEwVI)  | 
+|  [![AWS Videos](http://img.youtube.com/vi/_cIiB-JEwVI/0.jpg)](http://www.youtube.com/watch?v=_cIiB-JEwVI)  | 
 
 ## Amazon Monitron devices
 <a name="how-it-works-hardware"></a>

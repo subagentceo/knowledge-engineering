@@ -23,6 +23,7 @@ Create User Profile
 - `relationship: Optional[Literal["external", "resold", "internal"]]`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
   - `"external"`
 
   - `"resold"`
@@ -32,9 +33,11 @@ Create User Profile
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -87,11 +90,14 @@ Create User Profile
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaUserProfile: …`
+
   - `id: str`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,6 +113,7 @@ Create User Profile
   - `relationship: Literal["external", "resold", "internal"]`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `"external"`
 
     - `"resold"`
@@ -116,9 +123,11 @@ Create User Profile
   - `trust_grants: Dict[str, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `status: Literal["active", "pending", "rejected"]`
 
       Status of the trust grant.
+
       - `"active"`
 
       - `"pending"`
@@ -128,6 +137,7 @@ Create User Profile
   - `type: Literal["user_profile"]`
 
     Object type. Always `user_profile`.
+
     - `"user_profile"`
 
   - `updated_at: datetime`

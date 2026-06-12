@@ -20,11 +20,11 @@ _– Kaushal Kurapati, Senior Vice President of Product for AI at Salesforce_
 
 ## Use Cases Across Industries:
 
-- **Sales and Marketing**: Generate tailored pitches, analyze call transcripts, create personalized content, and evaluate campaign performance.
-- **Customer Service**: Summarize cases and generate personalized responses.
-- **Healthcare and Financial Services**: Summarize records, generate education materials, analyze reports, and create investment recommendations.
-- **Legal and Technology**: Analyze contracts and user feedback, generate product descriptions.
-- **Media and Entertainment**: Generate content ideas and create personalized recommendations.
+*   **Sales and Marketing**: Generate tailored pitches, analyze call transcripts, create personalized content, and evaluate campaign performance.
+*   **Customer Service**: Summarize cases and generate personalized responses.
+*   **Healthcare and Financial Services**: Summarize records, generate education materials, analyze reports, and create investment recommendations.
+*   **Legal and Technology**: Analyze contracts and user feedback, generate product descriptions.
+*   **Media and Entertainment**: Generate content ideas and create personalized recommendations.
 
 ## Integration Details:
 
@@ -59,18 +59,20 @@ _In Summer ’24, Salesforce added Anthropic Claude 3 models hosted on Amazon Be
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Introducing Claude Opus 4.8
+### Introducing Claude Corps
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Claude Fable 5 and Claude Mythos 5
 
-We're opening a new office in Milan, our sixth in Europe.
+Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

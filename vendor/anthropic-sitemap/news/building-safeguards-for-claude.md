@@ -16,7 +16,7 @@ We operate across multiple layers: developing policies, influencing model traini
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0726b0ac8266805acac21dad8a6b32a5f976a987-7200x4050.png&w=3840&q=75)
 
-_Figure 1: Safeguards’ approach to building effective protections throughout the lifecycle of our models_
+_Figure 1: Safeguards’ approach to building effective protections throughout the lifecycle of our models_  
 
 ## Policy development
 
@@ -24,12 +24,12 @@ Safeguards designs our Usage Policy—the framework that defines how Claude shou
 
 Two mechanisms guide our policy development and iteration process:
 
-- **Unified Harm Framework:** This evolving framework helps our team understand potentially harmful impacts from Claude use across five dimensions: physical, psychological, economic, societal, and individual autonomy. Rather than a formal grading system, the framework serves as a structured lens and considers the likelihood and scale of misuse when developing policies and enforcement procedures.
-- **Policy Vulnerability Testing:** We partner with external domain experts to identify areas of concern, and then stress-test these concerns against our policies by assessing the output of our models under challenging prompts. Our partners include experts in terrorism, radicalization, child safety, and mental health. The findings from these stress tests directly shape our policies, training, and detection systems. For example, during the 2024 U.S. election, we partnered with the Institute for Strategic Dialogue to understand when Claude might provide outdated information. We then added a banner pointing Claude.ai users seeking election information to authoritative sources like TurboVote.
+*   **Unified Harm Framework:** This evolving framework helps our team understand potentially harmful impacts from Claude use across five dimensions: physical, psychological, economic, societal, and individual autonomy. Rather than a formal grading system, the framework serves as a structured lens and considers the likelihood and scale of misuse when developing policies and enforcement procedures.
+*   **Policy Vulnerability Testing:** We partner with external domain experts to identify areas of concern, and then stress-test these concerns against our policies by assessing the output of our models under challenging prompts. Our partners include experts in terrorism, radicalization, child safety, and mental health. The findings from these stress tests directly shape our policies, training, and detection systems. For example, during the 2024 U.S. election, we partnered with the Institute for Strategic Dialogue to understand when Claude might provide outdated information. We then added a banner pointing Claude.ai users seeking election information to authoritative sources like TurboVote.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd30b0034da7215fa55cce92db8e4a21e161a968f-7200x4050.png&w=3840&q=75)
 
-_Figure 2: Banner displayed during 2024 U.S. election cycle for accurate voting information as a result of our policy vulnerability testing with the Institute for Strategic Dialogue_
+_Figure 2: Banner displayed during 2024 U.S. election cycle for accurate voting information as a result of our policy vulnerability testing with the Institute for Strategic Dialogue_  
 
 ## Claude’s training
 
@@ -43,15 +43,15 @@ Through this collaborative process, Claude develops several important skills. It
 
 ## Testing and evaluation
 
-Before releasing a new model, we evaluate its performance and capabilities. Our evaluations include:
+Before releasing a new model, we evaluate its performance and capabilities. Our evaluations include:  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fba37b3137323a8db3754822663a26dd0a41f2223-7200x4050.png&w=3840&q=75)
 
-_Figure 3: We test each model via safety evaluations, risk assessments, and bias evaluations prior to deployment_
+_Figure 3: We test each model via safety evaluations, risk assessments, and bias evaluations prior to deployment_  
 
-- **Safety evaluations:** We assess Claude’s adherence to our Usage Policy on topics like child exploitation or self-harm. We test a variety of scenarios, including clear usage violations, ambiguous contexts, and extended multi-turn conversations. These evaluations leverage our models to grade Claude’s responses, with human review as an additional check for accuracy.
-- **Risk assessments:** For high-risk domains, such as those associated with cyber harm, or chemical, biological, radiological, and nuclear weapons and high-yield explosives (CBRNE), we conduct AI capability uplift testing in partnership with government entities and private industry. We define threat models that could arise from improved capabilities and assess the performance of our safeguards against these threat models.
-- **Bias evaluations:** We check whether Claude consistently provides reliable, accurate responses across different contexts and users. For political bias, we test prompts with opposing viewpoints and compare the responses, scoring them for factuality, comprehensiveness, equivalency, and consistency. We also test responses on topics such as jobs and healthcare to identify whether the inclusion of identity attributes like gender, race, or religion result in biased outputs.
+*   **Safety evaluations:** We assess Claude’s adherence to our Usage Policy on topics like child exploitation or self-harm. We test a variety of scenarios, including clear usage violations, ambiguous contexts, and extended multi-turn conversations. These evaluations leverage our models to grade Claude’s responses, with human review as an additional check for accuracy.
+*   **Risk assessments:** For high-risk domains, such as those associated with cyber harm, or chemical, biological, radiological, and nuclear weapons and high-yield explosives (CBRNE), we conduct AI capability uplift testing in partnership with government entities and private industry. We define threat models that could arise from improved capabilities and assess the performance of our safeguards against these threat models.
+*   **Bias evaluations:** We check whether Claude consistently provides reliable, accurate responses across different contexts and users. For political bias, we test prompts with opposing viewpoints and compare the responses, scoring them for factuality, comprehensiveness, equivalency, and consistency. We also test responses on topics such as jobs and healthcare to identify whether the inclusion of identity attributes like gender, race, or religion result in biased outputs.
 
 This rigorous pre-deployment testing helps us verify whether training holds up under pressure, and signals whether we might need to build additional guardrails to monitor and protect against risks. During pre-launch evaluations of our computer use tool, we determined it could augment spam generation and distribution. In response, prior to launch we developed new detection methods and enforcement mechanisms, including the option to disable the tool for accounts showing signs of misuse, and new protections for our users against prompt injection.
 
@@ -65,8 +65,8 @@ Our systems for detection and enforcement are powered by a set of prompted or sp
 
 These classifiers help us determine if and when we take enforcement actions including:
 
-- **Response steering:** We can adjust how Claude interprets and responds to certain user prompts in real-time to prevent harmful output. For example, if our classifier detects that a user may be attempting to generate spam or malware, we can automatically add additional instructions to Claude’s system prompt to steer its response. In a narrow set of cases, we can also stop Claude from responding entirely.
-- **Account enforcement actions:** We investigate patterns of violations and might take additional measures on the account level, including warnings or, in severe cases, account termination. We also have defenses for blocking fraudulent account creation and use of our services.
+*   **Response steering:** We can adjust how Claude interprets and responds to certain user prompts in real-time to prevent harmful output. For example, if our classifier detects that a user may be attempting to generate spam or malware, we can automatically add additional instructions to Claude’s system prompt to steer its response. In a narrow set of cases, we can also stop Claude from responding entirely.
+*   **Account enforcement actions:** We investigate patterns of violations and might take additional measures on the account level, including warnings or, in severe cases, account termination. We also have defenses for blocking fraudulent account creation and use of our services.
 
 Building these enforcement systems represents a considerable challenge, both in terms of machine learning research needed to design them and engineering solutions required to implement them. For instance, our classifiers must be able to process trillions of input and output tokens, while simultaneously limiting both compute overhead and enforcement on benign content.
 
@@ -74,9 +74,9 @@ Building these enforcement systems represents a considerable challenge, both in 
 
 We also monitor harmful Claude traffic, going beyond single prompts and individual accounts, to understand the prevalence of particular harms and identify more sophisticated attack patterns. This work includes:
 
-- **Claude insights and observations:** Our insights tool helps us measure real-world use of Claude and analyze traffic in a privacy-preserving manner by grouping conversations into high-level topic clusters. Research informed by this work (like on the emotional impacts of Claude use) can inform the guardrails we build.
-- **Hierarchical summarization:** To monitor computer use capabilities or potential harmful cyber use, we use hierarchical summarization, a technique that condenses individual interactions into summaries and then analyzes these summaries to identify account-level concerns. This helps us spot behaviors that might appear violative only in aggregate, such as automated influence operations and other large-scale misuses.
-- **Threat intelligence:** We also study the most severe misuses of our models, identifying adversarial use and patterns that our existing detection systems might miss. We use methods like comparing indicators of abuse (such as unusual spikes in account activity) against typical account usage patterns to identify suspicious activity and cross-reference external threat data (like open source repositories or industry reporting) with our internal systems. We also monitor channels where bad actors might operate, including social media, messaging platforms, and hacker forums. We share our findings in our public threat intelligence reports.
+*   **Claude insights and observations:** Our insights tool helps us measure real-world use of Claude and analyze traffic in a privacy-preserving manner by grouping conversations into high-level topic clusters. Research informed by this work (like on the emotional impacts of Claude use) can inform the guardrails we build.
+*   **Hierarchical summarization:** To monitor computer use capabilities or potential harmful cyber use, we use hierarchical summarization, a technique that condenses individual interactions into summaries and then analyzes these summaries to identify account-level concerns. This helps us spot behaviors that might appear violative only in aggregate, such as automated influence operations and other large-scale misuses.
+*   **Threat intelligence:** We also study the most severe misuses of our models, identifying adversarial use and patterns that our existing detection systems might miss. We use methods like comparing indicators of abuse (such as unusual spikes in account activity) against typical account usage patterns to identify suspicious activity and cross-reference external threat data (like open source repositories or industry reporting) with our internal systems. We also monitor channels where bad actors might operate, including social media, messaging platforms, and hacker forums. We share our findings in our public threat intelligence reports.
 
 ## Looking forward
 
@@ -86,18 +86,18 @@ To support our work, we’re actively looking to hire people who can help us tac
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

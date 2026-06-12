@@ -1,21 +1,37 @@
 # Roadmap & Changelog
 
-**Last updated:** May 4, 2026
+**Last updated:** June 8, 2026
 
-## Up Next
+## Roadmap
 
 - ⚡ Faster & smarter cache warming
 - 📊 Major dashboard improvements
 - 📉 Query and indexing performance, _always_
-- 📕 More full-text search features ([~rank by attribute~](#february-2026), [~rank by distance~](#february-2026), highlighting, fuzzy search, native
+- 📕 More full-text search features ([~rank by attribute~](#february-2026), [~rank by distance~](#february-2026), highlighting, [~fuzzy search~](#may-2026), native
   search-as-you-type, ...)
 - ∑ More aggregate functions ([~count~](#may-2025), [~group by~](#august-2025), [~sum~](#november-2025), distinct, min, max...)
 - ⏱️ Late interaction support
 - 🗂️ [~Multiple vector columns~](#march-2026)
 - 🪆 Nested attributes
-- 🌿 Namespace branching
+- 🌿 [~Namespace branching~](#may-2026)
+- 🪓 Automatic namespace sharding
+- 🫛 Hosted vector embedding
 
 ## Changelog
+
+### June 2026
+
+- 🧮 [`i8` vector type](/docs/write#param-type) for [quantization-aware models](/docs/performance#use-smaller-vectors) (75% reduced storage and query cost compared to `f32`)
+
+### May 2026
+
+- 🌿 [Namespace branching](/docs/branching): instant copy-on-write namespace cloning
+- ✏️ Typo-tolerant string matching with the [Fuzzy filter](/docs/fts#fuzzy-matching)
+- 🗺️ View [namespace metadata](https://x.com/turbopuffer/status/2054275230584201665) in the dashboard
+- #️⃣ [C# API client](https://github.com/turbopuffer/turbopuffer-csharp)
+- 🔤 [`word_v4` tokenizer](/docs/fts#tokenizers), ~3x faster than `word_v3`
+- ⏱️ Make [asynchronous requests](/docs/overview#asynchronous-requests) to `copy_from_namespace` and `recall` endpoints
+- 📋 New API key permission to [`list` namespaces](/docs/namespaces)
 
 ### April 2026
 
@@ -78,7 +94,7 @@
 
 - 🏎️ [FTS v2](/blog/fts-v2): up to 20x faster full-text search [opt-in, beta]
 - 🔑 `copy_from_namespace` can now
-  [encrypt with a different key into the destination](/docs/cmek#does-turbopuffer-support-key-rotation)
+  [encrypt with a different key into the destination](/docs/encryption#does-turbopuffer-support-key-rotation)
 - ✈️
   [Cross-region, cross-org `copy_from_namespace`](/docs/write#param-copy_from_namespace)
   for testing, backups, branching
@@ -334,7 +350,7 @@
 ### January 2024
 
 - 📉 [`<= 1s` P99 cold query performance on 1M vectors][2xcoldperf]
-- 🤖 String IDs
+- 🤖 String ids
 - 🔍 Pre-filtering
 - 🔍 Case insensitive filtering globs
 
@@ -362,3 +378,12 @@
 - 🚀 Launch
 
 [jli-magic]: https://x.com/pushrax/status/1719419280788189645
+
+
+---
+
+This page: [/docs/roadmap.md](https://turbopuffer.com/docs/roadmap.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

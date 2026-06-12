@@ -78,7 +78,7 @@ Accelerate database queries to make databases fast globally
 
 ## observability
 
-- [Metrics and analytics](https://developers.cloudflare.com/hyperdrive/observability/metrics/index.md): Inspect query volume, latency, and cache hit ratios for your Hyperdrive configurations.
+- [Metrics and analytics](https://developers.cloudflare.com/hyperdrive/observability/metrics/index.md): Inspect query volume, latency, cache hit ratios, and connection pool sizes for your Hyperdrive configurations.
 - [Troubleshoot and debug](https://developers.cloudflare.com/hyperdrive/observability/troubleshooting/index.md): Resolve common Hyperdrive connection errors and database connectivity issues.
 
 ## platform

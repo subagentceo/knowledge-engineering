@@ -1,30 +1,32 @@
+# Dispute data, consumer insights, and emerging trends
+
 Q4 2023 Digital Trust & Safety Index
 
 # Dispute data, consumer insights, and emerging trends
 
-[See Data](#disputes)
+See Data
 
 ![phone with hand](https://sift.com/wp-content/uploads/2024/02/phone-with-hand-1024x931.webp)
 
 Overview
 
--   [Current state of disputes](#disputes)
--   [Consumer data & insights](#insights)
--   [Preparing for chargeback season](#chargeback-season)
+*   Current state of disputes
+*   Consumer data & insights
+*   Preparing for chargeback season
 
 ## The current state of disputes
 
-Amid multiple global crises, stubborn inflation, and still-high interest rates, [global economic growth remains slow](https://www.imf.org/en/Publications/WEO/Issues/2023/10/10/world-economic-outlook-october-2023) at a projected 3% in 2023, down from 3.5% in 2022. In flagging economic times, many businesses turn their focus to profitability—searching for ways to keep costs low and prevent losses. At the same time, economic stressors have a direct impact on fraud, driving up abuse rates for many merchants.
+Amid multiple global crises, stubborn inflation, and still-high interest rates, global economic growth remains slow at a projected 3% in 2023, down from 3.5% in 2022. In flagging economic times, many businesses turn their focus to profitability—searching for ways to keep costs low and prevent losses. At the same time, economic stressors have a direct impact on fraud, driving up abuse rates for many merchants.
 
 Fraudulent transactions and the resulting chargebacks are some of the most common forms of online fraud no matter the economic climate, but can be exacerbated when markets face uncertainty. Disputes are a universal source of frustration for businesses looking to control profit loss, as they’re difficult to predict and easy for anyone to exploit.
 
-Merchants estimate that credit card chargebacks will cost them [$100 billion](https://www.newswire.com/news/merchant-fraud-journal-releases-chargebacks-consumer-survey-report-2022-21837006) by the close of 2023, an expected outcome after the average cost of a dispute [rose 16%](https://sift.com/ebook/q4-2022-digital-trust-safety-index-the-rising-risk-of-online-disputes/) last year. **And with average transaction amounts trending upward by 67% during Q1-Q3 2023 vs. Q1-Q3 2022 across the Sift network, this could spell more expensive chargebacks in 2024.**
+Merchants estimate that credit card chargebacks will cost them $100 billion by the close of 2023, an expected outcome after the average cost of a dispute rose 16% last year. **And with average transaction amounts trending upward by 67% during Q1-Q3 2023 vs. Q1-Q3 2022 across the Sift network, this could spell more expensive chargebacks in 2024.**
 
 ## True fraud accounts for less than half of disputes
 
 Disputes come in many forms and can be caused by true fraud, first-party fraud, or merchant error, making them particularly difficult to predict and prevent. While true fraud disputes are the result of fraudulent purchases being disputed by the legitimate cardholder, first-party fraud (also known as friendly fraud) occurs when the legitimate cardholder is the one committing fraud, intentionally or not.
 
-These first-party fraud disputes could be the result of an honest mistake, like a family member making a purchase without notifying the cardholder—or a consumer intentionally filing a chargeback in order to get their money back while keeping their purchase. First-party fraud is the most common kind of chargeback, with true fraud disputes accounting for less than half of all disputes filed by consumers surveyed\* by Sift.
+These first-party fraud disputes could be the result of an honest mistake, like a family member making a purchase without notifying the cardholder—or a consumer intentionally filing a chargeback in order to get their money back while keeping their purchase. First-party fraud is the most common kind of chargeback, with true fraud disputes accounting for less than half of all disputes filed by consumers surveyed* by Sift.
 
 ![true fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201092%20936'%3E%3C/svg%3E)
 
@@ -32,9 +34,9 @@ These first-party fraud disputes could be the result of an honest mistake, like 
 
 ## Consumers engage in first-party fraud to get their money back
 
-Despite the economy holding steady, [many consumers still feel financial strain](https://www.vox.com/money/2023/11/8/23951098/economy-inflation-prices-job-market-sticker-shock) as prices and interest rates remain high. In times of financial stress, consumers are more likely to find creative ways to secure the best deals and get the most out of their money, including by participating in first-party fraud.
+Despite the economy holding steady, many consumers still feel financial strain as prices and interest rates remain high. In times of financial stress, consumers are more likely to find creative ways to secure the best deals and get the most out of their money, including by participating in first-party fraud.
 
-This economic environment, coupled with the growing [democratization of fraud,](https://sift.com/what-is-the-democratization-of-fraud/) is leading to more consumers participating in the [Fraud Economy.](https://sift.com/fraud-center/fraud-schemes/) This trend is lowering the barrier to entry to commit fraud, opening up opportunities for the average consumer to learn and buy fraud tips and guides across the internet. New-age [“fraud influencers”](https://www.fastcompany.com/90982398/new-generation-scammer-hiding-social-tiktok-telegram) are even taking to popular social media sites to advertise and sell their tactics, making it accessible for anyone to participate in fraudulent activity online.
+This economic environment, coupled with the growing democratization of fraud, is leading to more consumers participating in the Fraud Economy. This trend is lowering the barrier to entry to commit fraud, opening up opportunities for the average consumer to learn and buy fraud tips and guides across the internet. New-age “fraud influencers” are even taking to popular social media sites to advertise and sell their tactics, making it accessible for anyone to participate in fraudulent activity online.
 
 We’re seeing this play out with people taking advantage of the dispute process and their consumer protections, with more than one in four dispute filers initiating a chargeback for an item they received and were satisfied with in order to keep the item or service and get their money back.
 
@@ -74,7 +76,7 @@ Rebecca Alter, Trust and Safety Architect at Sift
 
 Across the Sift network, dispute rates rose a moderate 6% YoY in Q1 2023 vs. Q1 2022—the three months following the holiday spending rush known as chargeback season. Several key verticals saw massive jumps in chargeback rates, including in the ticketing industry. Reselling is pervasive in this industry, with both consumers and fraudsters trying to make a profit off highly sought-after tickets in short supply.
 
-Add consumer frustration over ticketing monopolies’ high prices, fees, and [botched presale scandals,](https://www.nytimes.com/2022/11/18/technology/live-nation-ticketmaster-investigation-taylor-swift.html) and it becomes clear that the ticketing industry has work to do when it comes to optimizing the customer experience and preventing fraudulent activity.
+Add consumer frustration over ticketing monopolies’ high prices, fees, and botched presale scandals, and it becomes clear that the ticketing industry has work to do when it comes to optimizing the customer experience and preventing fraudulent activity.
 
 ![vertical-specific rates](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20562'%3E%3C/svg%3E)
 
@@ -96,7 +98,7 @@ Historically, certain industries and types of items have been more susceptible t
 
 We see a growing trend of more everyday items being disputed by shoppers, partially due to it being easier now than ever for anyone, regardless of technical skill, to participate in malicious activity through the accessibility of fraud tools and technology.
 
-One example of this is on the deep web, which solicits a growing number of on-demand [fraud-as-a-service](https://sift.com/ebook/q1-2023-digital-trust-safety-index-payment-fraud/) (FaaS) tools and services that anyone can purchase in order to commit fraud.
+One example of this is on the deep web, which solicits a growing number of on-demand fraud-as-a-service (FaaS) tools and services that anyone can purchase in order to commit fraud.
 
 ## Percent of consumers who have filed a dispute on common purchases
 
@@ -154,13 +156,13 @@ Rebecca Alter, Trust and Safety Architect at Sift
 
 ## Preparing for the 2024 chargeback season
 
-Cardholders commonly file chargeback claims 2-3 months after the initial charges were made, meaning holiday purchases typically lead to disputes being filed between January and March—also known as the universal chargeback season. And with 2023 global [online Black Friday sales](https://www.barrons.com/articles/black-friday-cyber-week-online-sales-deals-total-970002b1) stronger than expected at an 8% uptick coming in at $70.9 billion, many merchants may face an increasing volume and value of disputes in the new year.
+Cardholders commonly file chargeback claims 2-3 months after the initial charges were made, meaning holiday purchases typically lead to disputes being filed between January and March—also known as the universal chargeback season. And with 2023 global online Black Friday sales stronger than expected at an 8% uptick coming in at $70.9 billion, many merchants may face an increasing volume and value of disputes in the new year.
 
 Merchants can reduce the number of chargebacks they face by having clear cancellation and return policies in place for the holidays. The Visa Compelling Evidence 3.0 update is also intended to help merchants better defend against first-party misuse.
 
 ## Fighting first-party fraud with Visa CE 3.0
 
-In response to rising chargeback rates, Visa has come out with an updated [Compelling Evidence 3.0 (CE 3.0)](https://sift.com/what-you-need-to-know-about-the-visa-compelling-evidence-3-0-update) policy designed to help merchants, acquirers, and issuers more successfully prove that a chargeback was fraudulent. The new guidelines expand the list of compelling evidence that can be submitted, allowing merchants to build a stronger case for themselves and reduce the money lost to illegitimate chargebacks, such as first-party fraud.
+In response to rising chargeback rates, Visa has come out with an updated Compelling Evidence 3.0 (CE 3.0) policy designed to help merchants, acquirers, and issuers more successfully prove that a chargeback was fraudulent. The new guidelines expand the list of compelling evidence that can be submitted, allowing merchants to build a stronger case for themselves and reduce the money lost to illegitimate chargebacks, such as first-party fraud.
 
 These compelling evidence rules require merchants to demonstrate a pattern of previous, non-disputed purchases by the cardholder, proving that the disputed transaction in question isn’t the result ofthird-party fraud.
 
@@ -170,8 +172,8 @@ These compelling evidence rules require merchants to demonstrate a pattern of pr
 
 Building dispute management into digital risk operations is more important than ever for companies facing abuse on multiple fronts. Businesses must implement a full-coverage solution in order to successfully protect the entire customer journey against all forms of payment fraud and achieve sustainable growth.
 
-As the first-ever chargeback solution to use real-time machine learning, [Sift Dispute Management](https://sift.com/products/dispute-management/) helps identify missing evidence to streamline chargeback responses and increase win rates.
+As the first-ever chargeback solution to use real-time machine learning, Sift Dispute Management helps identify missing evidence to streamline chargeback responses and increase win rates.
 
-Combined with [Sift Payment Protection,](https://sift.com/products/payment-protection/) the solutions provide complete, end-to-end protection against payment fraud losses with a single, leading [Digital Trust & Safety Platform.](https://sift.com/products/digital-trust-safety-platform/) Risk teams can stop fraud at the source, win more disputes, and secure revenue by leveraging intelligent automation at every touchpoint.
+Combined with Sift Payment Protection, the solutions provide complete, end-to-end protection against payment fraud losses with a single, leading Digital Trust & Safety Platform. Risk teams can stop fraud at the source, win more disputes, and secure revenue by leveraging intelligent automation at every touchpoint.
 
-_\*On behalf of Sift, Researchscape International polled 1,016 adults (aged 18+) across the United States via online survey in November 2023._
+_*On behalf of Sift, Researchscape International polled 1,016 adults (aged 18+) across the United States via online survey in November 2023._

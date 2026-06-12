@@ -22,22 +22,22 @@ To address this, the AI field needs established practices and standards for syst
 
 ### Domain-specific, expert red teaming
 
-- Trust & Safety: Policy Vulnerability Testing
-- National security: Frontier threats red teaming
-- Region-specific: Multilingual and multicultural red teaming
+*   Trust & Safety: Policy Vulnerability Testing
+*   National security: Frontier threats red teaming
+*   Region-specific: Multilingual and multicultural red teaming
 
 ### Using language models to red team
 
-- Automated red teaming
+*   Automated red teaming
 
 ### Red teaming in new modalities
 
-- Multimodal red teaming
+*   Multimodal red teaming
 
 ### Open-ended, general red teaming
 
-- Crowdsourced red teaming for general harms
-- Community-based red teaming for general risks and system limitations
+*   Crowdsourced red teaming for general harms
+*   Community-based red teaming for general risks and system limitations
 
 In the following sections, we will cover each of these red teaming methods, examining the unique advantages and the challenges they present (some of the benefits and challenges we outline may be applicable across red teaming methods).
 
@@ -93,8 +93,8 @@ When we began our red teaming research efforts in mid-2022, there was a large bo
 
 ### Community red teaming for general risks and system limitations
 
-As red teaming AI models has become more common, efforts such as DEF CON’s AI Village have engaged a broader cross-section of society in the testing of publicly deployed systems. In 2023, the Generative Red Teaming (GRT) Challenge hosted thousands of participants from a broad range of ages and disciplines, including many individuals with nontechnical backgrounds, and invited them to red team models provided by Anthropic and other labs. We were impressed by the enthusiasm and creativity red teamers brought to the challenge, and hope that the GRT challenge and events like it can inspire a more diverse group of people to get involved in AI safety efforts.
-
+As red teaming AI models has become more common, efforts such as DEF CON’s AI Village have engaged a broader cross-section of society in the testing of publicly deployed systems. In 2023, the Generative Red Teaming (GRT) Challenge hosted thousands of participants from a broad range of ages and disciplines, including many individuals with nontechnical backgrounds, and invited them to red team models provided by Anthropic and other labs. We were impressed by the enthusiasm and creativity red teamers brought to the challenge, and hope that the GRT challenge and events like it can inspire a more diverse group of people to get involved in AI safety efforts.  
+  
 Having explored these diverse red teaming methods, each with their own strengths and challenges, we now discuss how they can contribute to our goal of establishing more standardized red teaming practices in the AI industry.
 
 ![Community Red Teaming Benefits and Challenges](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd491922d0c702664245b88540ebf8eee1cd8b9f1-2200x1492.png&w=3840&q=75)
@@ -121,20 +121,23 @@ To support further adoption and standardization of red teaming, we encourage pol
 
 Red teaming is a valuable technique for identifying and mitigating risks in AI systems. The various red teaming methods covered in this post highlight a handful of techniques available for different use cases and threat models. We look forward to collaborating with other actors to iterate on these techniques and work towards common standards for safety testing. By investing in red teaming, we can work towards building AI systems that are safe and beneficial to society. It is one of several tools in a larger effort to ensure AI is developed thoughtfully and with robust safeguards in place.
 
+  
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -1,76 +1,78 @@
-[Home](https://sift.com)/Alternatives to Kount
+# AI-Powered Fraud Prevention You Can Count On
+
+Home/Alternatives to Kount
 
 # AI-Powered Fraud Prevention You Can Count On
 
-Sift’s AI-powered platform delivers secure, fearless growth, protecting $325B in gross annual merchandise value across abuse types in every region and industry—fueled by intelligent risk decisioning and a global consortium of 1T annual events\*\*.
+Sift’s AI-powered platform delivers secure, fearless growth, protecting $325B in gross annual merchandise value across abuse types in every region and industry—fueled by intelligent risk decisioning and a global consortium of 1T annual events**.
 
-\*\*Sift uses the term “event” to describe user interactions with a website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
+**Sift uses the term “event” to describe user interactions with a website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
 
-[Request Demo](/program-kount-demo/)[Explore Platform](/platform/)
+Request DemoExplore Platform
 
 ![banner\_platform](https://sift.com/wp-content/uploads/2023/12/banner_platform.png)
 
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
-    
-
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
-    
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
-    
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
-    
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
-    
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
 
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
--   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
     
--   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
     
--   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
     
--   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+    
+
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
+    
+*   ![Remitly logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20382%2091'%3E%3C/svg%3E)
+    
+*   ![poshmark-color-logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![logo-color-paulas-choice-89992eda169e812c07de](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+*   ![hertz-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20161'%3E%3C/svg%3E)
+    
+*   ![wayfair-logo-color@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20282%2065'%3E%3C/svg%3E)
     
 
 ## Sift’s AI-Powered Platform: Purpose-Built with Growth in Mind
@@ -85,9 +87,9 @@ Intelligent automation drives analyst efficiency and protects every step of the 
 
 ### Fine-Tuned Data and Decisioning
 
-Machine learning models refine in real time based on our global data consortium of 1T events\*\*.
+Machine learning models refine in real time based on our global data consortium of 1T events**.
 
-[Upgrade to Sift with our step-by-step guide](/resources/ebooks/migration-guide-moving-from-kount-to-sift/)
+Upgrade to Sift with our step-by-step guide
 
 ![The-Sift-Platform-Offset-Circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20750%20674'%3E%3C/svg%3E)
 
@@ -95,9 +97,9 @@ Machine learning models refine in real time based on our global data consortium 
 
 The fraud management space is packed with solutions following the leader in AI-powered fraud decisioning—but Sift outpaces Kount on multiple mission-critical capabilities, like statistical decisioning and user management.
 
-\*\*In the below table, Sift uses the term “event” to describe user interactions with your website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
+**In the below table, Sift uses the term “event” to describe user interactions with your website or mobile app. Examples of events include: account creation, account login, account updates, payment transactions, and user generated content.
 
-[Upgrade to Sift with Our Step-by-Step Guide](/resources/ebooks/migration-guide-moving-from-kount-to-sift/)
+Upgrade to Sift with Our Step-by-Step Guide
 
 Feature or functionality
 
@@ -113,7 +115,7 @@ Global data consortium fueled by 1 trillion annual events
 
 ![close-circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-Deriving real-time insights from 1T annual events\*\* creates diverse datasets that significantly improve decision accuracy, expand risk coverage, and fine-tune global and custom ML models.
+Deriving real-time insights from 1T annual events** creates diverse datasets that significantly improve decision accuracy, expand risk coverage, and fine-tune global and custom ML models.
 
 Coverage for spam & content abuse (content fraud)
 
@@ -161,7 +163,7 @@ Kount
 
 Why it matters for businesses
 
-Deriving real-time insights from 1T annual events\*\* creates diverse datasets that significantly improve decision accuracy, expand risk coverage, and fine-tune global and custom ML models.
+Deriving real-time insights from 1T annual events** creates diverse datasets that significantly improve decision accuracy, expand risk coverage, and fine-tune global and custom ML models.
 
 Feature or functionality
 
@@ -235,20 +237,20 @@ It’s hard for digital risk providers to stand out from the growing crowd of so
 
 ### Global Data Consortium & End-to-End Strategy
 
-Sift’s Global Data Network of 1 trillion annual events\*\* delivers diverse digital insights from across 700+ leading brands, all supported by our team of Trust and Safety Architects. They apply hands-on product knowledge and front-line fraud expertise at scale as customers:
+Sift’s Global Data Network of 1 trillion annual events** delivers diverse digital insights from across 700+ leading brands, all supported by our team of Trust and Safety Architects. They apply hands-on product knowledge and front-line fraud expertise at scale as customers:
 
--   Select the right Sift solutions for their business needs
--   Adapt operations and strategic processes at scale
--   Deepen insights and refine accuracy with total transparency into risk decisioning
--   Reduce manual review, securely grow revenue, and drive higher ROI with AI-powered models that streamline ops and CX
+*   Select the right Sift solutions for their business needs
+*   Adapt operations and strategic processes at scale
+*   Deepen insights and refine accuracy with total transparency into risk decisioning
+*   Reduce manual review, securely grow revenue, and drive higher ROI with AI-powered models that streamline ops and CX
 
 ### 12+ Years of Model Tuning & Exclusive Expertise
 
 Sift machine learning models are built for growth, using intelligent automation to accelerate risk decisioning at scale. Clear dashboards, one-of-a-kind features, and customizable reports let analysts focus on stopping fraud—not admin. Our intuitive, user-first console:
 
--   Surfaces signals and insights based on nearly thirteen years of consistent, connected, AI-powered models
--   Ingests and analyzes user-level data across hundreds of leading digital businesses
--   Offers an exclusive global customer community of product experts, industry partners, and front-line fraud practitioners
+*   Surfaces signals and insights based on nearly thirteen years of consistent, connected, AI-powered models
+*   Ingests and analyzes user-level data across hundreds of leading digital businesses
+*   Offers an exclusive global customer community of product experts, industry partners, and front-line fraud practitioners
 
 ![BusinessOperations\_Solutions\_Teaser](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201068%20876'%3E%3C/svg%3E)
 
@@ -258,13 +260,13 @@ Sift machine learning models are built for growth, using intelligent automation 
 
 Payment fraud is only one of many threats to online businesses. Sift also protects businesses from non-payment fraud and policy abuse, born-bad accounts, ATO, scams, and chargebacks. We support digital brands with:
 
--   Intelligent automation and full-spectrum protection across the entire user journey from account creation to checkout to chargeback
--   Complete control over inputs and outcomes
--   Increased decision accuracy no matter the size of your business, and tangible time-to-value in a matter of days
+*   Intelligent automation and full-spectrum protection across the entire user journey from account creation to checkout to chargeback
+*   Complete control over inputs and outcomes
+*   Increased decision accuracy no matter the size of your business, and tangible time-to-value in a matter of days
 
 ## Sift Named a Leader in the 2023 Forrester Wave for Digital Fraud Management
 
-[Read More](/blog/sift-2023-forrester-wave-digital-fraud-management/)
+Read More
 
 ![Quotation mark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 

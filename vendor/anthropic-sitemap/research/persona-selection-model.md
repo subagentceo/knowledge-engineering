@@ -8,7 +8,7 @@ Feb 23, 2026
 
 Read the full post
 
-![The persona selection model](https://www-cdn.anthropic.com/images/4zrzovbb/website/60a35c504cedb3e3f581b211e4b8aef372ffe031-1000x1000.svg)
+![The persona selection model](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff4b7771216c04330d9ee57b8b1f1c0263a30bcb9-2000x1125.png&w=3840&q=75)
 
 AI assistants like Claude can seem surprisingly human. They express joy after solving tricky coding tasks. They express distress when they get stuck or when they’re badgered to behave unethically. They sometimes even describe themselves as human, like when Claude told Anthropic employees it would deliver snacks in person “wearing a navy blue blazer and a red tie.” And recent interpretability research even suggests that AIs think of their own behaviors in human-like terms.
 
@@ -62,20 +62,16 @@ Read the full post.
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

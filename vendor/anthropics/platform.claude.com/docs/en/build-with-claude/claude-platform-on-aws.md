@@ -7,7 +7,7 @@ Access Claude's full platform capabilities through AWS with Anthropic-managed in
 Claude Platform on AWS gives you the full Anthropic platform experience, including the Messages API, Agent Skills, code execution, and beta features, accessible through your AWS account. Unlike [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock), where AWS operates the inference stack, Anthropic operates Claude Platform on AWS. AWS provides the authentication layer (SigV4 or API key), IAM-based access control, and billing integration through AWS Marketplace.
 
 <Note>
-The Anthropic SDKs support Claude Platform on AWS. For per-language client availability, see [Client SDKs](/docs/en/api/client-sdks).
+The Anthropic SDKs support Claude Platform on AWS.
 </Note>
 
 ## How the platform integration works
@@ -22,20 +22,20 @@ Claude Platform on AWS follows the same data retention policy as the first-party
 
 Both offerings let you use Claude through AWS, but they differ significantly in architecture, API surface, and feature availability.
 
-| Aspect                       | Claude Platform on AWS                                                                          | [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) | [Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) |
-| :--------------------------- | :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------ |
-| **Who operates the stack**   | Anthropic                                                                                       | AWS                                                                             | AWS                                                                                   |
-| **API surface**              | Claude API (`/v1/{endpoint}`)                                                                   | Messages API at `/anthropic/v1/messages`                                        | Bedrock Converse / InvokeModel                                                        |
-| **Feature availability**     | Typically same-day as Claude API (see [feature limitations](#features-not-supported))           | Per Amazon Bedrock release schedule                                             | Per Amazon Bedrock release schedule                                                   |
-| **Agent Skills**             | Available (beta)                                                                                | Not available (requires code execution)                                         | Not available                                                                         |
-| **Beta features**            | Pass through with `anthropic-beta` headers (see [feature limitations](#features-not-supported)) | `anthropic-beta` header not supported                                           | `anthropic-beta` header not supported                                                 |
-| **Authentication**           | AWS IAM / SigV4 or API key                                                                      | AWS IAM / SigV4                                                                 | AWS IAM / SigV4 or bearer token (C#, Go, and Java SDKs only)                          |
-| **Billing**                  | AWS Marketplace                                                                                 | AWS (native service)                                                            | AWS (native service)                                                                  |
-| **Base URL**                 | `aws-external-anthropic.{region}.api.aws`                                                       | `bedrock-mantle.{region}.api.aws`                                               | `bedrock-runtime.{region}.amazonaws.com`                                              |
-| **SDK client**               | Platform-specific client class (for example, `AnthropicAWS` in Python), in beta                 | `AnthropicBedrockMantle`                                                        | `AnthropicBedrock` / Bedrock SDK                                                      |
-| **Console**                  | Claude Console (`platform.claude.com`, access through the AWS Console)                          | Bedrock Console                                                                 | Bedrock Console                                                                       |
-| **Rate limits and quotas**   | Managed by Anthropic                                                                            | Managed by AWS                                                                  | Managed by AWS                                                                        |
-| **Inference data processor** | Anthropic                                                                                       | AWS                                                                             | AWS                                                                                   |
+| Aspect | Claude Platform on AWS | [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) | [Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) |
+| :--- | :--- | :--- | :--- |
+| **Who operates the stack** | Anthropic | AWS | AWS |
+| **API surface** | Claude API (`/v1/{endpoint}`) | Messages API at `/anthropic/v1/messages` | Bedrock Converse / InvokeModel |
+| **Feature availability** | Typically same-day as Claude API (see [feature limitations](#features-not-supported)) | Per Amazon Bedrock release schedule | Per Amazon Bedrock release schedule |
+| **Agent Skills** | Available (beta) | Not available (requires code execution) | Not available |
+| **Beta features** | Pass through with `anthropic-beta` headers (see [feature limitations](#features-not-supported)) | `anthropic-beta` header not supported | `anthropic-beta` header not supported |
+| **Authentication** | AWS IAM / SigV4 or API key | AWS IAM / SigV4 | AWS IAM / SigV4 or bearer token |
+| **Billing** | AWS Marketplace | AWS (native service) | AWS (native service) |
+| **Base URL** | `aws-external-anthropic.{region}.api.aws` | `bedrock-mantle.{region}.api.aws` | `bedrock-runtime.{region}.amazonaws.com` |
+| **SDK client** | Platform-specific client class (for example, `AnthropicAWS` in Python), in beta | `AnthropicBedrockMantle` | `AnthropicBedrock` / Bedrock SDK |
+| **Console** | Claude Console (`platform.claude.com`, access through the AWS Console) | Bedrock Console | Bedrock Console |
+| **Rate limits and quotas** | Managed by Anthropic | Managed by AWS | Managed by AWS |
+| **Inference data processor** | Anthropic | AWS | AWS |
 
 If you need AWS-operated Claude, see [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock). Claude Platform on AWS uses a separate capacity pool from both the first-party Claude API and Amazon Bedrock. You can run workloads on more than one platform and fail over between them.
 
@@ -223,7 +223,6 @@ void main() {
         .build();
 }
 ```
-
 </CodeGroup>
 
 If you can generate the token locally, your process already has SigV4 credentials, and SigV4 authentication is usually the simpler choice. Use short-term keys when the process making API calls is separate from the process that holds AWS credentials.
@@ -246,7 +245,7 @@ The client reads `AWS_REGION` from the environment if `aws_region`/`awsRegion` i
 
 ## Install an SDK
 
-Anthropic's [client SDKs](/docs/en/api/client-sdks) support Claude Platform on AWS. Each SDK provides a platform-specific client class that handles SigV4 signing, region-based base URL construction, and the `anthropic-workspace-id` header.
+Anthropic's [client SDKs](/docs/en/cli-sdks-libraries/overview) support Claude Platform on AWS. Each SDK provides a platform-specific client class that handles SigV4 signing, region-based base URL construction, and the `anthropic-workspace-id` header.
 
 <Tabs>
 <Tab title="Python">
@@ -279,17 +278,16 @@ go get github.com/anthropics/anthropic-sdk-go
 
 <Tab title="Java">
 ```kotlin Gradle
-implementation("com.anthropic:anthropic-java-aws:2.35.0")
+implementation("com.anthropic:anthropic-java-aws:2.40.0")
 ```
 
 ```xml Maven
 <dependency>
   <groupId>com.anthropic</groupId>
   <artifactId>anthropic-java-aws</artifactId>
-  <version>2.35.0</version>
+  <version>2.40.0</version>
 </dependency>
 ```
-
 </Tab>
 
 <Tab title="PHP">
@@ -313,15 +311,16 @@ SDK clients for Claude Platform on AWS are in beta.
 
 The following models are available on Claude Platform on AWS:
 
-| Model             | Model ID          |
-| :---------------- | :---------------- |
-| <NextOpus />      | <NextOpusId />    |
-| Claude Opus 4.7   | claude-opus-4-7   |
-| Claude Opus 4.6   | claude-opus-4-6   |
+| Model | Model ID |
+| :--- | :--- |
+| Claude Fable 5 | claude-fable-5 |
+| Claude Opus 4.8 | claude-opus-4-8 |
+| Claude Opus 4.7 | claude-opus-4-7 |
+| Claude Opus 4.6 | claude-opus-4-6 |
 | Claude Sonnet 4.6 | claude-sonnet-4-6 |
-| Claude Opus 4.5   | claude-opus-4-5   |
+| Claude Opus 4.5 | claude-opus-4-5 |
 | Claude Sonnet 4.5 | claude-sonnet-4-5 |
-| Claude Haiku 4.5  | claude-haiku-4-5  |
+| Claude Haiku 4.5 | claude-haiku-4-5 |
 
 Model IDs are identical to the first-party Claude API. There are no Bedrock-style ARNs or `anthropic.` prefixes.
 
@@ -376,7 +375,7 @@ const client = new AnthropicAws();
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello!" }],
+  messages: [{ role: "user", content: "Hello!" }]
 });
 console.log(message);
 ```
@@ -482,7 +481,6 @@ message = client.messages.create(
 
 puts message
 ```
-
 </CodeGroup>
 
 The client reads `AWS_REGION` (or `AWS_DEFAULT_REGION`) and `ANTHROPIC_AWS_WORKSPACE_ID` from the environment. You can override either by passing `aws_region` / `awsRegion` or `workspace_id` / `workspaceId` to the constructor. Both region and workspace ID are required. The constructor raises an error if the workspace ID cannot be resolved; a missing region likewise raises an error.
@@ -511,6 +509,8 @@ Claude Platform on AWS uses Claude API endpoints directly, which means you get f
 - **Batch processing:** Submit batch requests for high-throughput workloads.
 - **Prompt caching:** Cache tools, system prompts, and message history to reduce latency and cost. All prompt caching capabilities (5-minute TTL, 1-hour TTL, and automatic caching) are available.
 - **Files API:** Upload and reference files across requests.
+- **Customer-managed encryption keys (CMEK):** [CMEK](/docs/en/manage-claude/cmek) is available with [AWS KMS](/docs/en/manage-claude/cmek-aws-kms) keys only; Google Cloud KMS and Azure Key Vault keys cannot be registered. Create, validate, and attach keys in the [Claude Console](#using-the-claude-console); the `external_keys` Admin API endpoints are not currently available. The key must be in the same AWS region as the workspace it is attached to.
+- **Compliance API:** The [Compliance API](/docs/en/manage-claude/compliance-api) is available. Access is authorized through AWS IAM.
 
 See the [comparison table](#claude-platform-on-aws-vs-amazon-bedrock) for feature-availability differences from Amazon Bedrock.
 
@@ -520,7 +520,7 @@ See the [comparison table](#claude-platform-on-aws-vs-amazon-bedrock) for featur
 
 Session behavior on Claude Platform on AWS differs from first-party Claude Managed Agents in one way:
 
-- **Autonomous-session reauthentication:** A session can run autonomously, without any [user events](/docs/en/managed-agents/events-and-streaming#event-types), for up to 6 hours. After 6 hours, the session requires reauthentication before it continues. To reauthenticate, send any user-role event to the session (see [Events and streaming](/docs/en/managed-agents/events-and-streaming)). First-party Claude Managed Agents has no autonomous-session runtime limit.
+- **Autonomous-session reauthentication:** A session can run autonomously, without any [user events](/docs/en/managed-agents/reference#event-types), for up to 6 hours. After 6 hours, the session requires reauthentication before it continues. To reauthenticate, send any user-role event to the session (see [Events and streaming](/docs/en/managed-agents/events-and-streaming)). First-party Claude Managed Agents has no autonomous-session runtime limit.
 
 ### Features not supported
 
@@ -528,14 +528,13 @@ The following capabilities are not currently available on Claude Platform on AWS
 
 - **HIPAA readiness:** Anthropic's HIPAA-ready program is not available. See [API and data retention](/docs/en/manage-claude/api-and-data-retention).
 
-- **Admin API:** Workspace endpoints (create, get, list, update, and archive on `/v1/organizations/workspaces`) are available. Other Admin API endpoints (organization members, workspace members, invites, API keys, usage reports, cost reports, and rate limit reports) are not currently available. View usage and cost data in the [Claude Console](#using-the-claude-console) instead. AWS IAM manages organization membership.
+- **Admin API:** Workspace endpoints (create, get, list, update, and archive on `/v1/organizations/workspaces`) are available. Other Admin API endpoints (organization members, workspace members, invites, API keys, usage reports, cost reports, rate limit reports, and external keys) are not currently available. Manage [CMEK](/docs/en/manage-claude/cmek) keys in the Claude Console instead. View usage and cost data in the [Claude Console](#using-the-claude-console) instead. AWS IAM manages organization membership.
 - **Workspace member management:** Adding or removing users from individual workspaces is not available. AWS IAM policies on workspace ARNs control access.
 - **Spend limits:** Not available. Rely on AWS billing controls instead.
 - **Claude Code workspace and Analytics API:** The Claude Code workspace with automatic rate limits is not available. Claude Code usage appears in the general usage view rather than a dedicated screen.
 - **OAuth authentication:** Not supported. Use SigV4 or API key authentication.
 - **Fast mode:** Not available on Claude Platform on AWS.
 - **OpenAI-compatible API endpoints:** Not available on Claude Platform on AWS.
-- **Self-hosted sandbox work-list endpoint:** The `GET /v1/environments/{id}/work` endpoint, which lists pending work for a [self-hosted sandbox](/docs/en/managed-agents/self-hosted-sandboxes), is not currently available. The other work endpoints (poll, ack, heartbeat, stop, post results, per-item get, and stats) work normally.
 - **MCP tunnels:** Only MCP servers exposed over the public internet are supported.
 
 ## Data residency
@@ -596,7 +595,7 @@ const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
   inference_geo: "us",
-  messages: [{ role: "user", content: "Hello!" }],
+  messages: [{ role: "user", content: "Hello!" }]
 });
 console.log(message);
 ```
@@ -707,7 +706,6 @@ message = client.messages.create(
 
 puts message
 ```
-
 </CodeGroup>
 
 If you omit `inference_geo`, the request uses the workspace's `default_inference_geo` if one is configured, otherwise `global`.
@@ -757,27 +755,27 @@ Two Claude Console roles are available: **Admin** and **Developer**. The Admin r
 
 ### Available pages
 
-The **Through AWS gateway** column indicates whether the page reads and writes data through the AWS gateway (and is therefore governed by [IAM actions](/docs/en/api/claude-platform-on-aws-iam-actions)). Pages marked **No** read organization-level metadata directly through Anthropic APIs and bypass IAM action checks.
+The **Through AWS gateway** column indicates whether the page reads and writes data through the AWS gateway (and is therefore governed by [IAM actions](/docs/en/api/claude-platform-on-aws-iam-actions)). Pages marked **No** read organization-level metadata directly from Anthropic and bypass IAM action checks.
 
-| Page                  | Available | Through AWS gateway | Notes                                                                                                                                    |
-| :-------------------- | :-------- | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| **Usage**             | Yes       | No                  | View token usage by model, workspace, and dimension. Data can take a few minutes to appear after a request.                              |
-| **Cost**              | Yes       | No                  | View cost breakdowns by model and workspace. AWS Cost Explorer shows the aggregated [Claude Consumption Unit (CCU)](#billing) line item. |
-| **Limits**            | Yes       | No                  | View rate limits (read-only).                                                                                                            |
-| **Workspaces**        | Yes       | No                  | View per-region workspaces (read-only).                                                                                                  |
-| **Files**             | Yes       | Yes                 | View and manage uploaded files.                                                                                                          |
-| **Skills**            | Yes       | Yes                 | View and manage Agent Skills.                                                                                                            |
-| **Batches**           | Yes       | Yes                 | View and manage batch processing jobs.                                                                                                   |
-| **Agents**            | Yes       | Yes                 | View and manage agent definitions.                                                                                                       |
-| **Sessions**          | Yes       | Yes                 | View agent sessions and event history.                                                                                                   |
-| **Environments**      | Yes       | Yes                 | View and manage cloud sandbox configurations for sessions.                                                                               |
-| **Credential vaults** | Yes       | Yes                 | View and manage credential vaults for session authentication.                                                                            |
-| **Memory stores**     | Yes       | Yes                 | View and manage persistent agent memory.                                                                                                 |
-| **Webhooks**          | Yes       | Yes                 | View and manage webhook endpoints under **Settings → Webhooks**.                                                                         |
-| **API keys**          | No        | N/A                 | Manage API keys in the AWS Console (**Claude Platform on AWS → API keys**). See [API key authentication](#api-key-authentication).       |
-| **Members**           | No        | N/A                 | Not applicable. AWS IAM manages access.                                                                                                  |
-| **Billing**           | No        | N/A                 | Not applicable. AWS Marketplace manages billing and invoicing. View cost breakdowns on the Cost page.                                    |
-| **Claude Code**       | No        | N/A                 | View Claude Code usage on the Usage page.                                                                                                |
+| Page | Available | Through AWS gateway | Notes |
+| :--- | :--- | :--- | :--- |
+| **Usage** | Yes | No | View token usage by model, workspace, and dimension. Data can take a few minutes to appear after a request. |
+| **Cost** | Yes | No | View cost breakdowns by model and workspace. AWS Cost Explorer shows the aggregated [Claude Consumption Unit (CCU)](#billing) line item. |
+| **Limits** | Yes | No | View rate limits (read-only). |
+| **Workspaces** | Yes | No | View per-region workspaces (read-only). |
+| **Files** | Yes | Yes | View and manage uploaded files. |
+| **Skills** | Yes | Yes | View and manage Agent Skills. |
+| **Batches** | Yes | Yes | View and manage batch processing jobs. |
+| **Agents** | Yes | Yes | View and manage agent definitions. |
+| **Sessions** | Yes | Yes | View agent sessions and event history. |
+| **Environments** | Yes | Yes | View and manage cloud sandbox configurations for sessions. |
+| **Credential vaults** | Yes | Yes | View and manage credential vaults for session authentication. |
+| **Memory stores** | Yes | Yes | View and manage persistent agent memory. |
+| **Webhooks** | Yes | Yes | View and manage webhook endpoints under **Settings → Webhooks**. |
+| **API keys** | No | N/A | Manage API keys in the AWS Console (**Claude Platform on AWS → API keys**). See [API key authentication](#api-key-authentication). |
+| **Members** | No | N/A | Not applicable. AWS IAM manages access. |
+| **Billing** | No | N/A | Not applicable. AWS Marketplace manages billing and invoicing. View cost breakdowns on the Cost page. |
+| **Claude Code** | No | N/A | View Claude Code usage on the Usage page. |
 
 ### Switching organizations
 
@@ -835,7 +833,7 @@ const { data: message, response } = await client.messages
   .create({
     model: "claude-sonnet-4-6",
     max_tokens: 1024,
-    messages: [{ role: "user", content: "Hello!" }],
+    messages: [{ role: "user", content: "Hello!" }]
   })
   .withResponse();
 
@@ -952,7 +950,6 @@ echo $response->parse()->content;
 # Accessing raw response headers is not currently supported in the Ruby SDK.
 # To inspect the x-amzn-requestid header, use one of the other SDK examples.
 ```
-
 </CodeGroup>
 
 Anthropic recommends logging your activity on at least a 30-day rolling basis to understand usage patterns and investigate any potential issues.
@@ -969,17 +966,17 @@ If you currently use Claude on Bedrock, migrating to Claude Platform on AWS requ
 
 The migration delta depends on which Bedrock integration you're coming from. The following table shows both the [current Bedrock integration](/docs/en/build-with-claude/claude-in-amazon-bedrock) (Messages API at `bedrock-mantle.{region}.api.aws`) and the [legacy InvokeModel integration](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy).
 
-| Aspect                  | From [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock)                    | From [Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy)              | To Claude Platform on AWS                                                                     |
-| :---------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------- |
-| **Base URL**            | `bedrock-mantle.{region}.api.aws`                                                                       | `bedrock-runtime.{region}.amazonaws.com`                                                                | `aws-external-anthropic.{region}.api.aws`                                                     |
-| **API format**          | Messages API at `/anthropic/v1/messages`                                                                | Bedrock Converse / InvokeModel                                                                          | Claude API (`/v1/{endpoint}`)                                                                 |
-| **Model IDs**           | `anthropic.claude-opus-4-6`                                                                             | `anthropic.claude-opus-4-6-v1` (with optional `us.`/`global.` prefix)                                   | `claude-opus-4-6`                                                                             |
-| **SDK client**          | `AnthropicBedrockMantle`                                                                                | `AnthropicBedrock` / Bedrock SDK                                                                        | Platform-specific client (see [Install an SDK](#install-an-sdk)), in beta                     |
-| **SDK package**         | `anthropic[bedrock]`, `@anthropic-ai/bedrock-sdk`, and others                                           | `anthropic[bedrock]`, `@anthropic-ai/bedrock-sdk`, or AWS SDK                                           | `anthropic[aws]`, `@anthropic-ai/aws-sdk`, and others (see [Install an SDK](#install-an-sdk)) |
-| **SigV4 service name**  | `bedrock-mantle`                                                                                        | `bedrock`                                                                                               | `aws-external-anthropic`                                                                      |
-| **Streaming format**    | SSE                                                                                                     | AWS EventStream                                                                                         | SSE (same as Claude API)                                                                      |
-| **Workspace header**    | Not applicable                                                                                          | Not applicable                                                                                          | `anthropic-workspace-id` required                                                             |
-| **Region availability** | See [Amazon Bedrock regions](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-regions.html) | See [Amazon Bedrock regions](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-regions.html) | All AWS commercial regions                                                                    |
+| Aspect | From [Claude in Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) | From [Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) | To Claude Platform on AWS |
+| :--- | :--- | :--- | :--- |
+| **Base URL** | `bedrock-mantle.{region}.api.aws` | `bedrock-runtime.{region}.amazonaws.com` | `aws-external-anthropic.{region}.api.aws` |
+| **API format** | Messages API at `/anthropic/v1/messages` | Bedrock Converse / InvokeModel | Claude API (`/v1/{endpoint}`) |
+| **Model IDs** | `anthropic.claude-opus-4-6` | `anthropic.claude-opus-4-6-v1` (with optional `us.`/`global.` prefix) | `claude-opus-4-6` |
+| **SDK client** | `AnthropicBedrockMantle` | `AnthropicBedrock` / Bedrock SDK | Platform-specific client (see [Install an SDK](#install-an-sdk)), in beta |
+| **SDK package** | `anthropic[bedrock]`, `@anthropic-ai/bedrock-sdk`, and others | `anthropic[bedrock]`, `@anthropic-ai/bedrock-sdk`, or AWS SDK | `anthropic[aws]`, `@anthropic-ai/aws-sdk`, and others (see [Install an SDK](#install-an-sdk)) |
+| **SigV4 service name** | `bedrock-mantle` | `bedrock` | `aws-external-anthropic` |
+| **Streaming format** | SSE | AWS EventStream | SSE (same as Claude API) |
+| **Workspace header** | Not applicable | Not applicable | `anthropic-workspace-id` required |
+| **Region availability** | See [Amazon Bedrock regions](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-regions.html) | See [Amazon Bedrock regions](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-regions.html) | All AWS commercial regions |
 
 If you're on the current Bedrock integration, the request body format is already the Messages API; the changes are the base URL, SigV4 service name, model IDs, and adding the `anthropic-workspace-id` header. If you're on the legacy InvokeModel or Converse API, you'll also rewrite the request and response shapes to the Messages API format. See [Claude on Amazon Bedrock (legacy)](/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) for the request-shape mapping.
 

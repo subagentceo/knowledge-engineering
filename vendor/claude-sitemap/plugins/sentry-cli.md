@@ -1,13 +1,13 @@
 # sentry-cli
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Sentry
-
-- Installs
-
-  283
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Sentry
+    
+*   Installs
+    
+    536

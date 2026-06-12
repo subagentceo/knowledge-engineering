@@ -10,14 +10,15 @@
 
 ## Summary
 
-| API     | Price       | Use case                                   | Reasoning | Type         | Latency   |
-| ------- | ----------- | ------------------------------------------ | --------- | ------------ | --------- |
-| Search  | \$          | Page and excerpt retrieval                 | -         | Synchronous  | 1-3s      |
-| Extract | \$          | Page content retrieval                     | -         | Synchronous  | 1-20s     |
-| Chat    | \$          | Grounded chat completions                  | Low       | Synchronous  | 1-3s      |
-| Task    | \$-\$\$\$\$ | Deep research, enrichment, custom research | Low-High  | Asynchronous | 10s - 2hr |
-| FindAll | \$-\$\$\$\$ | List / database building                   | Low-High  | Asynchronous | 10s - 2hr |
-| Monitor | \$-\$\$     | Always-on web monitoring                   | Low       | Asynchronous | Ambient   |
+| API           | Price       | Use case                                   | Reasoning | Type         | Latency   |
+| ------------- | ----------- | ------------------------------------------ | --------- | ------------ | --------- |
+| Search        | \$          | Page and excerpt retrieval                 | -         | Synchronous  | 1-3s      |
+| Extract       | \$          | Page content retrieval                     | -         | Synchronous  | 1-20s     |
+| Chat          | \$          | Grounded chat completions                  | Low       | Synchronous  | 1-3s      |
+| Task          | \$-\$\$\$\$ | Deep research, enrichment, custom research | Low-High  | Asynchronous | 10s - 2hr |
+| FindAll       | \$-\$\$\$\$ | List / database building                   | Low-High  | Asynchronous | 10s - 2hr |
+| Entity Search | \$          | People & company search                    | -         | Synchronous  | 1-3s      |
+| Monitor       | \$-\$\$     | Always-on web monitoring                   | Low       | Asynchronous | Ambient   |
 
 ## Web Tools
 
@@ -93,6 +94,10 @@ Task API pricing is based on the [processor](/task-api/guides/choose-a-processor
   Pricing is per Task Run (row), not per output field (cell). A single Task Run can populate many output fields—whether you request 1 field or 20 fields, the cost is the same.
 </Note>
 
+<Note>
+  You are only charged for successfully completed runs. Failed runs are not billed.
+</Note>
+
 ### FindAll API
 
 FindAll API pricing is based on the [generator](/findall-api/core-concepts/findall-generator-pricing) you select, with a fixed cost plus a per-match cost.
@@ -111,6 +116,21 @@ $$
 $$
 
 If you add [enrichments](/findall-api/features/findall-enrich), each enrichment adds its own per-match cost based on the Task API processor you choose (see Task API pricing above).
+
+#### Entity Search
+
+[Entity Search](/findall-api/entity-search) is a fast, synchronous people-and-company search within FindAll. It is priced per request, including 100 results by default.
+
+| Component                                | Cost (\$/1000) |
+| ---------------------------------------- | -------------- |
+| Per 1,000 requests (default 100 results) | 5              |
+| Per 1,000 additional results             | 0.05           |
+
+**Cost formula:**
+
+$$
+\text{total cost} = 0.005 + (0.00005 \times \text{additional results})
+$$
 
 ### Monitor API
 

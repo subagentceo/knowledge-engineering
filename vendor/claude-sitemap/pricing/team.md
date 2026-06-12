@@ -1,3 +1,12 @@
-# Claude Team
+# Plans & Pricing | Claude by Anthropic
 
-Add documents, text, code, and files to dedicated projects as context for your chats—so any employee can deliver expert-level results. Claude can reference large amounts of information for every task.
+*   Chat on web, iOS, Android, and on your desktop
+*   Generate code and visualize data
+*   Write, edit, and create content
+*   Ability to search the web
+*   Memory across conversations
+*   Create files and execute code
+*   Unlock more from Claude with desktop extensions
+*   Connect Slack and Google Workspace services
+*   Integrate any context or tool through connectors with remote MCP
+*   Extended thinking for complex work

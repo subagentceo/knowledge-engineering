@@ -90,23 +90,32 @@ jobs:
         with:
           script: |
             const prSha = context.payload.pull_request.head.sha;
-            let page = 1;
             let artifact = null;
 
-            // Paginate so we don't miss the artifact on busy repos (> 100 artifacts)
-            while (!artifact) {
-              const { data } = await github.rest.actions.listArtifactsForRepo({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                name: 'agent-session-costs',
-                per_page: 100,
-                page,
-              });
-              artifact = data.artifacts.find(a =>
-                a.workflow_run?.head_sha === prSha
-              );
-              if (data.artifacts.length < 100) break; // last page
-              page++;
+            const findArtifact = async () => {
+              let page = 1;
+              // Paginate so we don't miss the artifact on busy repos (> 100 artifacts)
+              while (true) {
+                const { data } = await github.rest.actions.listArtifactsForRepo({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: 'agent-session-costs',
+                  per_page: 100,
+                  page,
+                });
+                const hit = data.artifacts.find(a =>
+                  a.workflow_run?.head_sha === prSha
+                );
+                if (hit || data.artifacts.length < 100) return hit ?? null;
+                page++;
+              }
+            };
+
+            // agent-session-cost-report runs concurrently on the same PR event;
+            // wait for its upload instead of failing on a race.
+            for (let attempt = 0; attempt < 9 && !artifact; attempt++) {
+              if (attempt > 0) await new Promise(r => setTimeout(r, 20_000));
+              artifact = await findArtifact();
             }
 
             if (!artifact) {

@@ -1,4 +1,6 @@
-[Home](https://sift.com)/Patents
+# Sift Patents
+
+Home/Patents
 
 # Sift Patents
 

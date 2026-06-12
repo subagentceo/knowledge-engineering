@@ -1,7 +1,6 @@
 ---
 vendor: sentry
 llms_txt: https://docs.sentry.io/llms.txt
-last_crawled: 2026-05-16T05:32:09.745Z
 count: 117
 transform: append-md-and-accept
 ---
@@ -29,7 +28,7 @@ transform: append-md-and-accept
 | https://docs.sentry.io/api/organizations.md | `vendor/sentry/docs.sentry.io/api/organizations.md` |
 | https://docs.sentry.io/api/pagination.md | `vendor/sentry/docs.sentry.io/api/pagination.md` |
 | https://docs.sentry.io/api/permissions.md | `vendor/sentry/docs.sentry.io/api/permissions.md` |
-| https://docs.sentry.io/api/prevent.md | `vendor/sentry/docs.sentry.io/api/prevent.md` |
+| https://docs.sentry.io/api/profiling.md | `vendor/sentry/docs.sentry.io/api/profiling.md` |
 | https://docs.sentry.io/api/projects.md | `vendor/sentry/docs.sentry.io/api/projects.md` |
 | https://docs.sentry.io/api/ratelimits.md | `vendor/sentry/docs.sentry.io/api/ratelimits.md` |
 | https://docs.sentry.io/api/releases.md | `vendor/sentry/docs.sentry.io/api/releases.md` |
@@ -37,6 +36,7 @@ transform: append-md-and-accept
 | https://docs.sentry.io/api/requests.md | `vendor/sentry/docs.sentry.io/api/requests.md` |
 | https://docs.sentry.io/api/scim.md | `vendor/sentry/docs.sentry.io/api/scim.md` |
 | https://docs.sentry.io/api/seer.md | `vendor/sentry/docs.sentry.io/api/seer.md` |
+| https://docs.sentry.io/api/snapshots.md | `vendor/sentry/docs.sentry.io/api/snapshots.md` |
 | https://docs.sentry.io/api/spike-protection.md | `vendor/sentry/docs.sentry.io/api/spike-protection.md` |
 | https://docs.sentry.io/api/teams.md | `vendor/sentry/docs.sentry.io/api/teams.md` |
 | https://docs.sentry.io/api/users.md | `vendor/sentry/docs.sentry.io/api/users.md` |
@@ -107,7 +107,6 @@ transform: append-md-and-accept
 | https://docs.sentry.io/pricing/quotas.md | `vendor/sentry/docs.sentry.io/pricing/quotas.md` |
 | https://docs.sentry.io/product/ai-in-sentry.md | `vendor/sentry/docs.sentry.io/product/ai-in-sentry.md` |
 | https://docs.sentry.io/product/build-distribution.md | `vendor/sentry/docs.sentry.io/product/build-distribution.md` |
-| https://docs.sentry.io/product/codecov.md | `vendor/sentry/docs.sentry.io/product/codecov.md` |
 | https://docs.sentry.io/product/dashboards.md | `vendor/sentry/docs.sentry.io/product/dashboards.md` |
 | https://docs.sentry.io/product/drains.md | `vendor/sentry/docs.sentry.io/product/drains.md` |
 | https://docs.sentry.io/product/explore.md | `vendor/sentry/docs.sentry.io/product/explore.md` |

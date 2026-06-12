@@ -1,3 +1,5 @@
+# Notorious RPG: How Mobile Game Genre Influences Push Notification Strategy - Iterable
+
 ## Notorious RPG: How Mobile Game Genre Influences Push Notification Strategy
 
 **Published by**
@@ -6,11 +8,11 @@ June 21, 2017
 
 ![](https://iterable.com/wp-content/uploads/2026/04/062117_Notorious-RPG-How-Mobile-Game-Genre-Influences-Push-Notification-Strategy.png)
 
-The month of June is all about gaming, as all of the major studios announced what’s to come at last week’s [E3 conference](https://www.e3expo.com/takeover). We’ve also got gaming on the brain, discussing the push messaging strategies that mobile games in particular can use to engage and retain users. In a mobile-first environment, push notifications are an incredibly powerful piece of a broader omni-channel marketing strategy.
+The month of June is all about gaming, as all of the major studios announced what’s to come at last week’s E3 conference. We’ve also got gaming on the brain, discussing the push messaging strategies that mobile games in particular can use to engage and retain users. In a mobile-first environment, push notifications are an incredibly powerful piece of a broader omni-channel marketing strategy.
 
-[![](https://iterableblogimport.files.wordpress.com/2017/06/111f5-1ofkinoa5rvxqeji2aua1ha.png)](https://iterable.com/mobile-gaming)
+![](https://iterableblogimport.files.wordpress.com/2017/06/111f5-1ofkinoa5rvxqeji2aua1ha.png)
 
-In the first post in this blog series, we shared industry trends and insights from our [2017 User Engagement Top 1oo Report](https://iterable.com/mobile-gaming) about how to [request push permission](https://iterable.com/blog/when-to-request-permission-to-send-push-notifications).
+In the first post in this blog series, we shared industry trends and insights from our 2017 User Engagement Top 1oo Report about how to request push permission.
 
 Today we’re examining how various game genres communicate with their customers.
 
@@ -20,7 +22,7 @@ Each title was categorized as either Puzzle, Sports/Arcade, Simulation or Role-P
 
 To illustrate the variance between mobile game genres, we’ve also produced a mini infographic (see below) that details the results of our analysis.
 
-[![](https://iterableblogimport.files.wordpress.com/2017/06/b31c5-1h72o9f8fxeqk9svhynpvya.png)](https://iterable.com/demo)
+![](https://iterableblogimport.files.wordpress.com/2017/06/b31c5-1h72o9f8fxeqk9svhynpvya.png)
 
 Whether you’re researching ways to improve your existing push campaigns or can relate to the 19 percent of mobile games who have yet to implement one, here are our tips to keep your customers engaged and coming back for more.
 
@@ -54,8 +56,8 @@ We logged into each game on days zero, four, eight and 11. Pushes spiked in the 
 
 > Respond in real time with personalized messages based on user actions.
 
-The right [growth marketing platform](https://iterable.com) can make real-time response easier by simplifying user segmentation and message scheduling.
+The right growth marketing platform can make real-time response easier by simplifying user segmentation and message scheduling.
 
-In the final blog post in this series, we will take a closer look into how e-commerce brands can gamify their own businesses. In the meantime, you can access the full [User Engagement Top 100 Report](https://iterable.com/mobile-gaming) for more insights and real-life case studies.
+In the final blog post in this series, we will take a closer look into how e-commerce brands can gamify their own businesses. In the meantime, you can access the full User Engagement Top 100 Report for more insights and real-life case studies.
 
-Want to make your push campaigns more successful? [Request a demo today](https://iterable.com/demo/) to put our recommendations into action!
+Want to make your push campaigns more successful? Request a demo today to put our recommendations into action!

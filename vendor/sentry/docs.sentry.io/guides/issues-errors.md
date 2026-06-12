@@ -29,6 +29,8 @@ try {
 }
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Levels:** `fatal`, `error`, `warning`, `info`, `debug`
 
 **Context:** Tags, user info, logs, and session replays help you debug faster. Tags are searchable, so use them for high-cardinality data like IDs, regions, and feature flags.
@@ -155,6 +157,8 @@ Sentry.captureException(error, {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Search in Sentry:** `order_id:order_123` or `payment_gateway:stripe region:us-west`
 
 ### [Ignore Known Noise](https://docs.sentry.io/guides/issues-errors.md#ignore-known-noise)
@@ -170,6 +174,8 @@ Sentry.init({
   ],
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 You can also use [beforeSend](https://docs.sentry.io/platform-redirect.md?next=%2Fconfiguration%2Ffiltering%2F%23using-before-send) to filter errors dynamically:
 
@@ -188,6 +194,8 @@ Sentry.init({
   },
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 ## [Quick Reference](https://docs.sentry.io/guides/issues-errors.md#quick-reference)
 

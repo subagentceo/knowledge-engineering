@@ -4,7 +4,7 @@ Upload files and mount them in your sandbox for reading and processing.
 
 ---
 
-You can provide files to your agent by uploading them via the Files API and mounting them in the session's sandbox.
+You can provide files to your agent by uploading them through the Files API and mounting them in the session's sandbox.
 
 <Note>
 All Managed Agents API requests require the `managed-agents-2026-04-01` beta header. The SDK sets the beta header automatically.
@@ -24,31 +24,36 @@ file_id=$(jq -er '.id' <<<"${file}")
 printf 'File ID: %s\n' "${file_id}"
 ````
 
-```bash
+  
+````bash
 FILE_ID=$(ant beta:files upload \
   --file data.csv \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 file = client.beta.files.upload(file=Path("data.csv"))
 print(f"File ID: {file.id}")
-```
+````
 
-```typescript
+  
+````typescript
 const file = await client.beta.files.upload({
   file: await toFile(readFile("data.csv"), "data.csv", { type: "text/csv" }),
 });
 console.log(`File ID: ${file.id}`);
-```
+````
 
-```csharp
+  
+````csharp
 await using var stream = File.OpenRead(csvPath);
 var file = await client.Beta.Files.Upload(new() { File = stream });
 Console.WriteLine($"File ID: {file.ID}");
-```
+````
 
-```go
+  
+````go
 csvFile, err := os.Open("data.csv")
 if err != nil {
 	panic(err)
@@ -62,26 +67,29 @@ if err != nil {
 	panic(err)
 }
 fmt.Printf("File ID: %s\n", file.ID)
-```
+````
 
-```java
+  
+````java
 var file = client.beta().files().upload(
     FileUploadParams.builder().file(dataCsv).build()
 );
 IO.println("File ID: " + file.id());
-```
+````
 
-```php
+  
+````php
 $file = $client->beta->files->upload(
     FileParam::fromResource(fopen($csvPath, 'r'), filename: 'data.csv', contentType: 'text/csv'),
 );
 echo "File ID: {$file->id}\n";
-```
+````
 
-```ruby
+  
+````ruby
 file = client.beta.files.upload(file: Pathname(csv_path))
 puts "File ID: #{file.id}"
-```
+````
 
 </CodeGroup>
 
@@ -90,7 +98,7 @@ puts "File ID: #{file.id}"
 Mount uploaded files into the sandbox by adding them to the `resources` array when creating a session:
 
 <Tip>
-The `mount_path` is optional, but make sure the uploaded file has a descriptive name so the agent knows what it is looking for.
+The `mount_path` is optional, but make sure the uploaded file has a descriptive name so the agent can identify it.
 </Tip>
 
 <CodeGroup>
@@ -116,7 +124,8 @@ session=$(
 session_id=$(jq -er '.id' <<<"${session}")
 ````
 
-```bash
+  
+````bash
 SESSION_ID=$(ant beta:sessions create \
   --agent "$AGENT_ID" \
   --environment-id "$ENVIRONMENT_ID" \
@@ -127,9 +136,10 @@ resources:
     mount_path: /workspace/data.csv
 EOF
 )
-```
+````
 
-```python
+  
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
@@ -141,9 +151,10 @@ session = client.beta.sessions.create(
         },
     ],
 )
-```
+````
 
-```typescript
+  
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
@@ -155,9 +166,10 @@ const session = await client.beta.sessions.create({
     },
   ],
 });
-```
+````
 
-```csharp
+  
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
@@ -172,9 +184,10 @@ var session = await client.Beta.Sessions.Create(new()
         },
     ],
 });
-```
+````
 
-```go
+  
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent: anthropic.BetaSessionNewParamsAgentUnion{
 		OfString: anthropic.String(agent.ID),
@@ -191,9 +204,10 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var session = client.beta().sessions().create(
     SessionCreateParams.builder()
         .agent(agent.id())
@@ -207,9 +221,10 @@ var session = client.beta().sessions().create(
         )
         .build()
 );
-```
+````
 
-```php
+  
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
@@ -221,9 +236,10 @@ $session = $client->beta->sessions->create(
         ),
     ],
 );
-```
+````
 
-```ruby
+  
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
@@ -235,11 +251,11 @@ session = client.beta.sessions.create(
     }
   ]
 )
-```
+````
 
 </CodeGroup>
 
-A new `file_id` will be created that references the instance of the file in the session. These copies do not count against your [storage limits](/docs/en/build-with-claude/files).
+A new `file_id` is created that references the instance of the file in the session. These copies do not count against your [storage limits](/docs/en/build-with-claude/files).
 
 ## Multiple files
 
@@ -281,17 +297,9 @@ resources = [
 const _ = {
   resources: [
     { type: "file", file_id: "file_abc123", mount_path: "/workspace/data.csv" },
-    {
-      type: "file",
-      file_id: "file_def456",
-      mount_path: "/workspace/config.json",
-    },
-    {
-      type: "file",
-      file_id: "file_ghi789",
-      mount_path: "/workspace/src/main.py",
-    },
-  ],
+    { type: "file", file_id: "file_def456", mount_path: "/workspace/config.json" },
+    { type: "file", file_id: "file_ghi789", mount_path: "/workspace/src/main.py" }
+  ]
 };
 ```
 
@@ -339,7 +347,6 @@ resources = [
   {type: "file", file_id: "file_ghi789", mount_path: "/workspace/src/main.py"}
 ]
 ```
-
 </CodeGroup>
 
 A maximum of 100 files is supported per session.
@@ -360,41 +367,46 @@ resource_id=$(jq -er '.id' <<<"${resource}")
 printf '%s\n' "${resource_id}"  # "sesrsc_01ABC..."
 ````
 
-```bash
+  
+````bash
 RESOURCE_ID=$(ant beta:sessions:resources add \
   --session-id "$SESSION_ID" \
   --type file \
   --file-id "$FILE_ID" \
   --transform id --raw-output)
-```
+````
 
-```python
+  
+````python
 resource = client.beta.sessions.resources.add(
     session.id,
     type="file",
     file_id=file.id,
 )
 print(resource.id)  # "sesrsc_01ABC..."
-```
+````
 
-```typescript
+  
+````typescript
 const resource = await client.beta.sessions.resources.add(session.id, {
   type: "file",
   file_id: file.id,
 });
 console.log(resource.id); // "sesrsc_01ABC..."
-```
+````
 
-```csharp
+  
+````csharp
 var resource = await client.Beta.Sessions.Resources.Add(session.ID, new()
 {
     Type = "file",
     FileID = file.ID,
 });
 Console.WriteLine(resource.ID);  // "sesrsc_01ABC..."
-```
+````
 
-```go
+  
+````go
 resource, err := client.Beta.Sessions.Resources.Add(ctx, session.ID, anthropic.BetaSessionResourceAddParams{
 	BetaManagedAgentsFileResourceParams: anthropic.BetaManagedAgentsFileResourceParams{
 		Type:   anthropic.BetaManagedAgentsFileResourceParamsTypeFile,
@@ -405,9 +417,10 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(resource.ID) // "sesrsc_01ABC..."
-```
+````
 
-```java
+  
+````java
 var resource = client.beta().sessions().resources().add(
     session.id(),
     ResourceAddParams.builder()
@@ -420,25 +433,27 @@ var resource = client.beta().sessions().resources().add(
         .build()
 );
 IO.println(resource.id()); // "sesrsc_01ABC..."
-```
+````
 
-```php
+  
+````php
 $resource = $client->beta->sessions->resources->add(
     $session->id,
     type: 'file',
     fileID: $file->id,
 );
 echo "{$resource->id}\n";  // "sesrsc_01ABC..."
-```
+````
 
-```ruby
+  
+````ruby
 resource = client.beta.sessions.resources.add(
   session.id,
   type: "file",
   file_id: file.id
 )
 puts resource.id # "sesrsc_01ABC..."
-```
+````
 
 </CodeGroup>
 
@@ -453,27 +468,28 @@ curl --fail-with-body -sS "${auth[@]}" \
 
 curl --fail-with-body -sS "${auth[@]}" -X DELETE \
   "${base_url}/sessions/${session_id}/resources/${resource_id}" >/dev/null
+````
 
-`````
-
-
+  
 ````bash
 ant beta:sessions:resources list --session-id "$SESSION_ID"
 
 ant beta:sessions:resources delete \
   --session-id "$SESSION_ID" \
   --resource-id "$RESOURCE_ID"
-`````
+````
 
-```python
+  
+````python
 listed = client.beta.sessions.resources.list(session.id)
 for entry in listed.data:
     print(entry.id, entry.type)
 
 client.beta.sessions.resources.delete(resource.id, session_id=session.id)
-```
+````
 
-```typescript
+  
+````typescript
 const listed = await client.beta.sessions.resources.list(session.id);
 for (const entry of listed.data) {
   console.log(entry.id, entry.type);
@@ -482,9 +498,10 @@ for (const entry of listed.data) {
 await client.beta.sessions.resources.delete(resource.id, {
   session_id: session.id,
 });
-```
+````
 
-```csharp
+  
+````csharp
 var listed = await client.Beta.Sessions.Resources.List(session.ID);
 await foreach (var entry in listed.Paginate())
 {
@@ -493,9 +510,10 @@ await foreach (var entry in listed.Paginate())
 }
 
 await client.Beta.Sessions.Resources.Delete(resource.ID, new() { SessionID = session.ID });
-```
+````
 
-```go
+  
+````go
 listed, err := client.Beta.Sessions.Resources.List(ctx, session.ID, anthropic.BetaSessionResourceListParams{})
 if err != nil {
 	panic(err)
@@ -509,9 +527,10 @@ if _, err := client.Beta.Sessions.Resources.Delete(ctx, resource.ID, anthropic.B
 }); err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var listed = client.beta().sessions().resources().list(session.id());
 for (var entry : listed.data()) {
     if (entry.isFile()) {
@@ -527,23 +546,25 @@ client.beta().sessions().resources().delete(
     resource.id(),
     ResourceDeleteParams.builder().sessionId(session.id()).build()
 );
-```
+````
 
-```php
+  
+````php
 $listed = $client->beta->sessions->resources->list($session->id);
 foreach ($listed->data as $entry) {
     echo "{$entry->id} {$entry->type}\n";
 }
 
 $client->beta->sessions->resources->delete($resource->id, sessionID: $session->id);
-```
+````
 
-```ruby
+  
+````ruby
 listed = client.beta.sessions.resources.list(session.id)
 listed.data.each { puts "#{it.id} #{it.type}" }
 
 client.beta.sessions.resources.delete(resource.id, session_id: session.id)
-```
+````
 
 </CodeGroup>
 
@@ -560,14 +581,12 @@ curl -fsSL "https://api.anthropic.com/v1/files?scope_id=sesn_abc123" \
   -H "anthropic-beta: managed-agents-2026-04-01"
 
 # Download a file
-
 curl -fsSL "https://api.anthropic.com/v1/files/$FILE_ID/content" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: managed-agents-2026-04-01" \
- -o output.txt
-
-````
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01" \
+  -o output.txt
+```
 
 ```bash CLI nocheck
 # List files associated with a session
@@ -577,7 +596,7 @@ ant beta:files list --scope-id sesn_abc123 \
 
 # Download a file
 ant beta:files download --file-id "$FILE_ID" --output output.txt
-````
+```
 
 ```python Python nocheck
 # List files associated with a session
@@ -597,7 +616,7 @@ content.write_to_file("output.txt")
 // List files associated with a session
 const files = await client.beta.files.list({
   scope_id: "sesn_abc123",
-  betas: ["managed-agents-2026-04-01"],
+  betas: ["managed-agents-2026-04-01"]
 });
 for (const f of files.data) {
   console.log(f.id, f.filename);
@@ -637,8 +656,13 @@ if err != nil {
 	panic(err)
 }
 defer resp.Body.Close()
-fileContent, _ := io.ReadAll(resp.Body)
-os.WriteFile("output.txt", fileContent, 0644)
+fileContent, err := io.ReadAll(resp.Body)
+if err != nil {
+	panic(err)
+}
+if err := os.WriteFile("output.txt", fileContent, 0644); err != nil {
+	panic(err)
+}
 ```
 
 ```java Java nocheck
@@ -679,14 +703,13 @@ files = client.beta.files.list(
 content = client.beta.files.download(files.data[0].id)
 File.binwrite("output.txt", content.read)
 ```
-
 </CodeGroup>
 
 ## Supported file types
 
 The agent can work with any file type, including:
 
-- Source code (`.py`, `.js`, `.ts`, `.go`, `.rs`, etc.)
+- Source code (`.py`, `.js`, `.ts`, `.go`, `.rs`, and others)
 - Data files (`.csv`, `.json`, `.xml`, `.yaml`)
 - Documents (`.txt`, `.md`)
 - Archives (`.zip`, `.tar.gz`) - the agent can extract these using bash

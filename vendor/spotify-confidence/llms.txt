@@ -106,3 +106,183 @@ For a comprehensive LLM-optimized version of the documentation, see: [Confidence
 ## MCP servers
 
 - [MCP Servers](https://confidence.spotify.com/docs/mcp-servers): Use Confidence with AI assistants via Model Context Protocol
+
+## Comparisons
+
+Side-by-side comparisons of Confidence with other experimentation and feature management platforms, plus "what is" overviews and alternatives lists.
+
+### Confidence vs competitors
+
+- [Confidence vs Statsig](https://confidence.spotify.com/comparisons/confidence-vs-statsig): Head-to-head comparison of warehouse-native experimentation platforms
+- [Confidence vs Eppo](https://confidence.spotify.com/comparisons/confidence-vs-eppo): Both run analysis in your warehouse — the difference is operating history and metric workflow
+- [Confidence vs LaunchDarkly](https://confidence.spotify.com/comparisons/confidence-vs-launchdarkly): Feature-flag-first vs experimentation-first platform architectures
+- [Confidence vs Optimizely](https://confidence.spotify.com/comparisons/confidence-vs-optimizely): Experimentation-first vendor vs content-and-commerce suite with experimentation
+- [Confidence vs GrowthBook](https://confidence.spotify.com/comparisons/confidence-vs-growthbook): Managed platform with opinionated defaults vs open-source self-hosted flexibility
+- [Confidence vs PostHog](https://confidence.spotify.com/comparisons/confidence-vs-posthog): Experimentation depth vs bundled product analytics suite
+- [Confidence vs Split (Harness FME)](https://confidence.spotify.com/comparisons/confidence-vs-split): Comparison with Split, now Harness Feature Management & Experimentation
+
+### What is each platform?
+
+- [What is Statsig?](https://confidence.spotify.com/comparisons/what-is-statsig): Overview of Statsig's feature flagging, experimentation, and product analytics platform
+- [What is Eppo?](https://confidence.spotify.com/comparisons/what-is-eppo): Overview of Eppo's warehouse-native experimentation platform
+- [What is LaunchDarkly?](https://confidence.spotify.com/comparisons/what-is-launchdarkly): Overview of LaunchDarkly's enterprise feature flag platform
+- [What is Optimizely?](https://confidence.spotify.com/comparisons/what-is-optimizely): Overview of Optimizely's Digital Experience Platform
+- [What is GrowthBook?](https://confidence.spotify.com/comparisons/what-is-growthbook): Overview of GrowthBook's open-source experimentation platform
+- [What is PostHog?](https://confidence.spotify.com/comparisons/what-is-posthog): Overview of PostHog's open-source product analytics platform
+- [What is Split?](https://confidence.spotify.com/comparisons/what-is-split): Overview of Split (now Harness FME) feature flag and experimentation platform
+
+### Alternatives lists
+
+- [Alternatives to Statsig](https://confidence.spotify.com/comparisons/alternatives-to-statsig): Top alternatives to Statsig for experimentation
+- [Alternatives to Eppo](https://confidence.spotify.com/comparisons/alternatives-to-eppo): Top alternatives to Eppo for experimentation
+- [Alternatives to LaunchDarkly](https://confidence.spotify.com/comparisons/alternatives-to-launchdarkly): Top alternatives to LaunchDarkly for feature flags and experimentation
+- [Alternatives to Optimizely](https://confidence.spotify.com/comparisons/alternatives-to-optimizely): Top alternatives to Optimizely for experimentation
+- [Alternatives to GrowthBook](https://confidence.spotify.com/comparisons/alternatives-to-growthbook): Top alternatives to GrowthBook for experimentation
+- [Alternatives to PostHog](https://confidence.spotify.com/comparisons/alternatives-to-posthog): Top alternatives to PostHog for experimentation
+- [Alternatives to Split](https://confidence.spotify.com/comparisons/alternatives-to-split): Top alternatives to Split (Harness FME) for experimentation
+
+## Bootcamp
+
+The Confidence Bootcamp is a free learning program covering experimentation, metrics, hypothesis testing, sample size calculation, and experimentation culture. Each course contains sequential lessons.
+
+For the complete full-text content of all bootcamp lessons, see: [Confidence Bootcamp llms-full.txt](https://confidence.spotify.com/bootcamp/llms-full.txt)
+
+### Intro to experimentation
+
+- [Introduction](https://confidence.spotify.com/bootcamp/intro-course/introduction): Course overview
+- [Why you should experiment](https://confidence.spotify.com/bootcamp/intro-course/why-you-should-experiment): The case for experimentation — biases, accidental breakage, and causal conclusions
+- [Experiment hypothesis](https://confidence.spotify.com/bootcamp/intro-course/experiment-hypothesis): How to formulate a clear experiment hypothesis
+- [Success and guardrail metrics](https://confidence.spotify.com/bootcamp/intro-course/success-and-guardrail-metrics): How to measure impact with success and guardrail metrics
+- [Success metrics](https://confidence.spotify.com/bootcamp/intro-course/success-metrics): Choosing the right success metrics
+- [Set up your experiment](https://confidence.spotify.com/bootcamp/intro-course/set-up-your-experiment): Experiment setup in Confidence
+- [Calculation frequency](https://confidence.spotify.com/bootcamp/intro-course/calculation-frequency): How often experiment results are calculated
+- [Target audience](https://confidence.spotify.com/bootcamp/intro-course/target-audience): Defining who participates in an experiment
+- [Sample size](https://confidence.spotify.com/bootcamp/intro-course/sample-size): Determining required sample size
+- [Quality assurance](https://confidence.spotify.com/bootcamp/intro-course/quality-assurance): QA checks before and during experiments
+- [Run your experiment](https://confidence.spotify.com/bootcamp/intro-course/run-your-experiment): Monitoring and managing a running experiment
+- [Evaluate and decide](https://confidence.spotify.com/bootcamp/intro-course/evaluate-your-experiment-and-make-a-decision): Interpreting results and making decisions
+- [A/B tests and rollouts](https://confidence.spotify.com/bootcamp/intro-course/ab-tests-and-rollouts): Differences between A/B tests and rollouts
+
+### Interpreting experiment results
+
+- [Introduction](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/introduction): Course overview
+- [Anatomy of the results page](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/the-anatomy-of-the-results-page): Understanding the results page layout
+- [The Spotlight](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/the-spotlight): How to use the Spotlight summary
+- [Means and relative effects](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/reading-means-and-relative-effects): Reading means and relative effects
+- [Confidence intervals and precision](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/confidence-intervals-and-precision): Understanding confidence intervals
+- [Significance for success metrics](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/significance-and-status-labels): Significance labels and what they mean
+- [Guardrail metrics and NIMs](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/guardrail-metrics-and-nims): Non-inferiority margins for guardrail metrics
+- [Health checks and SRM](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/health-checks-and-srm): Sample ratio mismatch and experiment health
+- [Variance reduction](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/variance-reduction): CUPED and variance reduction techniques
+- [Sequential vs non-sequential](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/sequential-vs-non-sequential): When to use sequential testing
+- [Exploratory analysis](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/exploratory-analysis): Dimension slicing and exploratory analysis
+- [The winner's curse](https://confidence.spotify.com/bootcamp/interpreting-experiment-results/type-m-and-type-s-errors): Type M and Type S errors
+
+### Intro to metrics
+
+- [Introduction](https://confidence.spotify.com/bootcamp/intro-to-metrics/introduction): Course overview
+- [What is a metric?](https://confidence.spotify.com/bootcamp/intro-to-metrics/what-is-a-metric): Defining metrics for experimentation
+- [Metric roles](https://confidence.spotify.com/bootcamp/intro-to-metrics/metric-roles): Success, guardrail, and monitoring metrics
+- [Time considerations](https://confidence.spotify.com/bootcamp/intro-to-metrics/time-considerations): How time affects metric measurement
+- [Capturing behavior](https://confidence.spotify.com/bootcamp/intro-to-metrics/capturing-behavior): Translating user behavior into measurable metrics
+- [Strategic metrics](https://confidence.spotify.com/bootcamp/intro-to-metrics/strategic-metrics): Aligning metrics with business strategy
+- [Interpretability](https://confidence.spotify.com/bootcamp/intro-to-metrics/interpretability): Making metrics easy to understand and act on
+- [Feasibility and sensitivity](https://confidence.spotify.com/bootcamp/intro-to-metrics/feasibility-and-sensitivity): Practical constraints on metric selection
+- [Variance reduction](https://confidence.spotify.com/bootcamp/intro-to-metrics/variance-reduction): Reducing noise in metric measurements
+- [Select metrics](https://confidence.spotify.com/bootcamp/intro-to-metrics/select-metrics): Choosing the right set of metrics
+- [Segment-level analysis](https://confidence.spotify.com/bootcamp/intro-to-metrics/segment-analysis): Breaking down results by user segments
+
+### Scientific product development
+
+- [Introduction](https://confidence.spotify.com/bootcamp/scientific-product-development/introduction): Course overview
+- [Why you should experiment](https://confidence.spotify.com/bootcamp/scientific-product-development/why-you-should-experiment): The case for scientific product development
+- [The scientific method](https://confidence.spotify.com/bootcamp/scientific-product-development/the-scientific-method): Origins of the scientific method applied to product
+- [Randomized controlled trials](https://confidence.spotify.com/bootcamp/scientific-product-development/rct): Why randomized controlled experiments matter
+- [Experiment hypothesis](https://confidence.spotify.com/bootcamp/scientific-product-development/experiment-hypothesis): Formulating experiment hypotheses
+- [Case study: Shuffle button](https://confidence.spotify.com/bootcamp/scientific-product-development/shuffle-example-1): Case study — shuffle button in a shelf on Spotify Home
+- [Why do we need statistics?](https://confidence.spotify.com/bootcamp/scientific-product-development/why-do-we-need-statistics): The role of statistics in experimentation
+- [Success metrics](https://confidence.spotify.com/bootcamp/scientific-product-development/success-metrics): Choosing success metrics for experiments
+- [Detectable effects and sample size](https://confidence.spotify.com/bootcamp/scientific-product-development/detectable-effects-and-sample-size): Setting the MDE and calculating sample size
+- [Make a decision](https://confidence.spotify.com/bootcamp/scientific-product-development/decision-making): Making ship/no-ship decisions from results
+
+### A primer on hypothesis testing
+
+- [Introduction](https://confidence.spotify.com/bootcamp/hypothesis-testing/introduction): Course overview
+- [Introduction to hypothesis testing](https://confidence.spotify.com/bootcamp/hypothesis-testing/what-is-hypothesis-testing): What hypothesis tests are and why they matter
+- [True vs estimated effects](https://confidence.spotify.com/bootcamp/hypothesis-testing/true-vs-estimated-effects): Understanding estimation error in experiments
+- [Sampling distribution](https://confidence.spotify.com/bootcamp/hypothesis-testing/sampling-distribution-of-the-difference-in-means): Sampling distribution of the difference-in-means estimator
+- [Z-tests and rejecting the null](https://confidence.spotify.com/bootcamp/hypothesis-testing/z-tests-and-rejecting-the-null): Z-tests and how to reject the null hypothesis
+- [False positive rate and alpha](https://confidence.spotify.com/bootcamp/hypothesis-testing/fpr-and-alpha): Type I error rate and significance level
+- [True positive rate and power](https://confidence.spotify.com/bootcamp/hypothesis-testing/tpr-and-power): True positive rate, MDE, and statistical power
+
+### Sample size calculation - Level I
+
+- [Introduction](https://confidence.spotify.com/bootcamp/sample-size-calculation-i/introduction): Course overview
+- [Required sample size](https://confidence.spotify.com/bootcamp/sample-size-calculation-i/what-is-the-required-sample-size): What determines the required sample size
+- [Alpha and power](https://confidence.spotify.com/bootcamp/sample-size-calculation-i/alpha-and-power): Refresher on alpha and power for sample size
+- [Baseline mean and variance](https://confidence.spotify.com/bootcamp/sample-size-calculation-i/mean-variance-and-mde): How baseline mean, variance, and MDE affect sample size
+- [Sample size playground I](https://confidence.spotify.com/bootcamp/sample-size-calculation-i/ssc-playground-i): Interactive sample size calculator
+
+### Sample size calculation - Level II
+
+- [Introduction](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/introduction): Course overview
+- [Multi-metric decisions](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/multi-metric-decisions): Impact of multiple metrics on sample size
+- [Number of success metrics](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/number-of-success-metrics): How the number of success metrics affects sample size
+- [Number of guardrail metrics](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/number-of-guardrail-metrics): How guardrail metrics affect sample size
+- [Number of comparisons](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/number-of-comparisons): How multiple comparisons affect sample size
+- [Sample size playground II](https://confidence.spotify.com/bootcamp/sample-size-calculation-ii/ssc-playground-ii): Interactive sample size calculator — level II
+
+### Sample size calculation - Level III
+
+- [Introduction](https://confidence.spotify.com/bootcamp/sample-size-calculation-iii/introduction): Course overview
+- [Binary metrics](https://confidence.spotify.com/bootcamp/sample-size-calculation-iii/binary-metrics): Sample size for binary metrics
+- [Treatment proportions](https://confidence.spotify.com/bootcamp/sample-size-calculation-iii/treatment-proportion): Impact of unequal treatment group sizes
+- [Variance reduction](https://confidence.spotify.com/bootcamp/sample-size-calculation-iii/variance-reduction): How variance reduction reduces required sample size
+- [Sample size playground III](https://confidence.spotify.com/bootcamp/sample-size-calculation-iii/ssc-playground-iii): Interactive sample size calculator — level III
+
+### Advance your experimentation
+
+- [Introduction](https://confidence.spotify.com/bootcamp/advancing-experimentation/introduction): Course overview
+- [Guardrail metrics with NIMs](https://confidence.spotify.com/bootcamp/advancing-experimentation/guardrail-metrics-and-nims): Guardrail metrics with non-inferiority margins
+- [Choose evaluation strategy](https://confidence.spotify.com/bootcamp/advancing-experimentation/choose-evaluation-strategy): Sequential vs non-sequential testing strategy
+- [Metric roles in experiments](https://confidence.spotify.com/bootcamp/advancing-experimentation/metric-roles): Different types of metrics in experiments
+- [Cumulative holdback evaluations](https://confidence.spotify.com/bootcamp/advancing-experimentation/holdbacks): Measuring cumulative impact with holdbacks
+
+### Experimentation culture
+
+- [Introduction](https://confidence.spotify.com/bootcamp/experimentation-culture/introduction): Building an experimentation-driven culture
+- [Onboarding into experimentation](https://confidence.spotify.com/bootcamp/experimentation-culture/onboarding): Onboarding new colleagues to experimentation
+- [Experimentation champions](https://confidence.spotify.com/bootcamp/experimentation-culture/champions): Empowering experimentation champions
+- [Sustaining the culture](https://confidence.spotify.com/bootcamp/experimentation-culture/sustaining-the-culture): Maintaining experimentation culture long-term
+
+### Working with feature flags
+
+- [Introduction](https://confidence.spotify.com/bootcamp/intro-to-feature-flags/introduction): Course overview
+- [What is a feature flag?](https://confidence.spotify.com/bootcamp/intro-to-feature-flags/what-is-a-feature-flag): Feature flag fundamentals
+- [Lifecycle](https://confidence.spotify.com/bootcamp/intro-to-feature-flags/life-cycle): Lifecycle of a feature flag
+- [Clients](https://confidence.spotify.com/bootcamp/intro-to-feature-flags/clients): Working with feature flag clients
+- [Evaluation context and targeting](https://confidence.spotify.com/bootcamp/intro-to-feature-flags/evaluation-context-and-targeting): Context and targeting rules for feature flags
+
+## RFP Guides
+
+Detailed guides for evaluating experimentation platforms. Each guide covers what to ask vendors, what good answers look like, and what pitfalls to watch for when writing a Request for Proposal (RFP) for an experimentation platform.
+
+- [RFP Guides Index](https://confidence.spotify.com/rfp): Browse all experimentation platform RFP guides
+- [Sample Size Calculators](https://confidence.spotify.com/rfp/rfp-sample-size): What to ask about sample size estimation and whether the calculator connects to the actual analysis method
+- [Sequential Testing](https://confidence.spotify.com/rfp/rfp-sequential-testing): What to ask about sequential testing beyond "do you have it" — stopping rules, alpha spending, and valid confidence intervals
+- [Multi-Metric Decision Making](https://confidence.spotify.com/rfp/rfp-multi-metric): What to ask about handling multiple metrics — guardrails, trade-offs, and decision frameworks
+- [Multiple Testing Corrections](https://confidence.spotify.com/rfp/rfp-multiple-testing): What to ask about correction methods — which comparisons are corrected and which are not
+- [Variance Reduction](https://confidence.spotify.com/rfp/rfp-variance-reduction): What to ask about CUPED and other variance reduction methods — coverage, automation, and actual runtime savings
+- [Ratio Metrics](https://confidence.spotify.com/rfp/rfp-ratio-metrics): What to ask about ratio metrics like revenue per user — variance estimation and the delta method
+- [Fixed-Power Designs](https://confidence.spotify.com/rfp/rfp-fixed-power): What to ask about during-experiment power monitoring and what happens when assumptions change mid-flight
+- [Observation Windows and Time-in Metrics](https://confidence.spotify.com/rfp/rfp-time-in-metrics): What to ask about how platforms handle observation periods and time-based metric windows
+- [Monitoring and Alerting](https://confidence.spotify.com/rfp/rfp-monitoring-alerting): What to ask about automated experiment health checks, guardrail alerts, and sample ratio mismatch detection
+- [Clustered Randomization](https://confidence.spotify.com/rfp/rfp-clustered-randomization): What to ask about cluster-level randomization and whether the analysis accounts for the clustering
+- [Metric Zero-Handling](https://confidence.spotify.com/rfp/rfp-zero-handling): What to ask about how the platform treats users with zero events and the impact on metric definitions
+- [Exploratory Analysis and Dimensions](https://confidence.spotify.com/rfp/rfp-exploratory-analysis): What to ask about dimension slicing and false positive rate control in exploratory analysis
+- [Percentile Metrics](https://confidence.spotify.com/rfp/rfp-percentiles): What to ask about percentile metric support — bootstrap methods, confidence intervals, and where implementations break down
+- [Experiment Design Review](https://confidence.spotify.com/rfp/rfp-experiment-review): What to ask about structured review of experiment design before launch
+- [Experiment Coordination](https://confidence.spotify.com/rfp/rfp-experiment-coordination): What to ask about mutual exclusion, experiment interactions, and coordination across concurrent experiments
+- [Bayesian Inference](https://confidence.spotify.com/rfp/rfp-bayesian): What to ask about Bayesian methods — priors, stopping rules, and what "Bayesian" actually means for the analysis
+- [Geo-Lift and Synthetic Control](https://confidence.spotify.com/rfp/rfp-geo-lift): What to ask about geo-lift experiments — when you need them, synthetic control assumptions, and pre-test diagnostics
+- [Switchback Experiments](https://confidence.spotify.com/rfp/rfp-switchback): What to ask about switchback designs for marketplace and network-effect settings where standard A/B tests break down

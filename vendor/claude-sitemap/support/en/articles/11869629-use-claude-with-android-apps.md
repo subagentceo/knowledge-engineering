@@ -222,7 +222,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1780164900&signature=0b89a6c47808709bd1686611003dc16bda91ff91065de14320a52d3bc114b121&req=dScnEcp7nIdeXfMW1HO4zQe5Gl%2BO3SH9S5x65TIld%2FBaptMT%2Fcgl2JSgiY%2FK%0AbaLJFyU9JLDL0HSRFII%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1781284500&amp;signature=70ac645254263446a6d7c6e339c3a4806e3777e7eece08ae144b95325850261e&amp;req=dScnEcp7nIdeXfMW1HO4zQe5Gl6N0yHxS5x65TIld%2FCbzmFQzg1UfXa8EJjh%0APhEVlsBWD%2BVNISGwePQ%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
@@ -253,6 +253,7 @@ Health Connect permissions are managed separately from other app permissions. Wh
 - Check that you have messaging and email apps installed and set up.
 
 - Try clearing the Claude for Android cache in your device settings:
+
   - Navigate to your app settings and select "Claude" from the list.
 
   - Select "Storage & cache."

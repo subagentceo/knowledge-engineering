@@ -1,13 +1,13 @@
 # workos
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  WorkOS
-
-- Installs
-
-  227
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    WorkOS
+    
+*   Installs
+    
+    317

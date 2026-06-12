@@ -14,8 +14,8 @@ Every day, millions of users entrust Claude with sensitive information—from pr
 
 What do we mean by “cryptographically guaranteed”? In a new report published in collaboration with Pattern Labs, we describe the mechanics of Confidential Inference. Confidential Inference is a set of tools we can use to process encrypted data and to show that such data is only readable within servers that can prove themselves trustworthy. There are two main reasons to adopt these tools:
 
-- Model Weight Security: We can use Confidential Inference as one component of our broader effort to secure frontier models like Claude against increasingly capable threat actors, such as those described in the recent report from RAND on Securing AI Model Weights;
-- User Security: We can use Confidential Inference to prove that sensitive user data is kept private.
+*   Model Weight Security: We can use Confidential Inference as one component of our broader effort to secure frontier models like Claude against increasingly capable threat actors, such as those described in the recent report from RAND on Securing AI Model Weights;
+*   User Security: We can use Confidential Inference to prove that sensitive user data is kept private.
 
 We're sharing this post, and the accompanying report, to explain what Confidential Inference is and the benefits it could offer our users. We also want to share how we're thinking about the security of the systems involved. This is just a sketch of our research to start a conversation; we’re still early in this work and it is too soon to forecast how it will evolve into specific designs or features we might offer in the future.
 
@@ -27,15 +27,15 @@ The guiding principle behind Confidential Inference is that sensitive data shoul
 
 For user data, there are two points where we need to operate on the sensitive cleartext (that is, on text that isn’t encrypted or otherwise obscured in any way):
 
-- The API Server. This server handles a prompt, transforms it into tokens, and operates most of the logic behind a Claude API request;
-- The Inference Server. This server runs the “brains” of Claude on hardware accelerators to generate completion tokens from the prompt.
+*   The API Server. This server handles a prompt, transforms it into tokens, and operates most of the logic behind a Claude API request;
+*   The Inference Server. This server runs the “brains” of Claude on hardware accelerators to generate completion tokens from the prompt.
 
 For model weights, only the Inference Server receives sensitive data.
 
 We'll focus on the Inference Server for this post—the security of the API Server is equally important, but beyond the scope of what we're trying to describe. Because not all accelerators fully support confidential computing yet, we’re exploring an Inference Server implemented on top of a small, secure "model loader and invoker", which can run within a trusted environment. This loader program performs a few simple jobs:
 
-- Accept encrypted data, decrypt it, and send to the accelerator;
-- Invoke calls against the accelerator, and return the encrypted results to the caller.
+*   Accept encrypted data, decrypt it, and send to the accelerator;
+*   Invoke calls against the accelerator, and return the encrypted results to the caller.
 
 Only the "trusted" loader is able to access decrypted data. The rest of the system is "untrusted", but can send requests to the loader.
 
@@ -65,10 +65,10 @@ As frontier models grow more capable, we may find it necessary to incorporate fu
 
 This research will advance our ongoing efforts to secure our model weights and protect user data. Using this model to protect a user request is designed to ensure that customer data is only ever decrypted in contexts with enhanced hardware-based security controls: :
 
-- The request is encrypted at a point before it arrives at Anthropic servers;
-- When the request arrives at the API server, it is decrypted, processed, and re-encrypted before it is passed onward;
-- The Inference Server handles the request in encrypted form, and the request is decrypted only when it's sent to the trusted loader;
-- Completions are encrypted before they leave the loader, and passed back through the API server to the caller.
+*   The request is encrypted at a point before it arrives at Anthropic servers;
+*   When the request arrives at the API server, it is decrypted, processed, and re-encrypted before it is passed onward;
+*   The Inference Server handles the request in encrypted form, and the request is decrypted only when it's sent to the trusted loader;
+*   Completions are encrypted before they leave the loader, and passed back through the API server to the caller.
 
 Model weights are a simpler story: they can be stored encrypted, decrypted at the loader, and never released from there.
 
@@ -82,20 +82,16 @@ If this discussion of Confidential Inference has inspired you to want to work wi
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

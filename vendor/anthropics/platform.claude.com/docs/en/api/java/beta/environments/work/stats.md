@@ -9,11 +9,13 @@ Get statistics about the work queue for an environment.
 ### Parameters
 
 - `WorkStatsParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Get statistics about the work queue for an environment.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -75,6 +79,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `long depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -90,6 +95,7 @@ Get statistics about the work queue for an environment.
   - `JsonValue; type "work_queue_stats"constant`
 
     The type of object
+
     - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`

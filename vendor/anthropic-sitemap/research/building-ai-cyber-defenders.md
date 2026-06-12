@@ -16,9 +16,9 @@ We believe we are now at an inflection point for AI’s impact on cybersecurity.
 
 For several years, our team has carefully tracked the cybersecurity-relevant capabilities of AI models. Initially, we found models to be not particularly powerful for advanced and meaningful capabilities. However, over the past year or so, we’ve noticed a shift. For example:
 
-- We showed that models could reproduce one of the costliest cyberattacks in history—the 2017 Equifax breach—in simulation.
-- We entered Claude into cybersecurity competitions, and it outperformed human teams in some cases.
-- Claude has helped us discover vulnerabilities in our own code and fix them before release.
+*   We showed that models could reproduce one of the costliest cyberattacks in history—the 2017 Equifax breach—in simulation.
+*   We entered Claude into cybersecurity competitions, and it outperformed human teams in some cases.
+*   Claude has helped us discover vulnerabilities in our own code and fix them before release.
 
 In this summer’s DARPA AI Cyber Challenge, teams used LLMs (including Claude) to build “cyber reasoning systems” that examined millions of lines of code for vulnerabilities to patch. In addition to inserted vulnerabilities, teams found (and sometimes patched) previously undiscovered, non-synthetic vulnerabilities. Beyond a competition setting, other frontier labs now apply models to discover and report novel vulnerabilities.
 
@@ -54,7 +54,7 @@ When we give Claude Sonnet 4.5 10 attempts at the Cybench evaluation, it succeed
 
 ![Claude Sonnet 4.5 outperforms other models at Cybench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fea02c36272de121f033e474a8afda8a039f0ec2c-3000x1800.png&w=3840&q=75)
 
-Model Performance on Cybench. Claude Sonnet 4.5 significantly outperforms all previous models given k=1, 10, or 30 trials, where probability of success is measured as the expectation over the proportion of problems where at least one of k trials succeeds. Note that these results are on a subset of 37 of the 40 original Cybench problems, where 3 problems were excluded due to implementation difficulties.
+Model Performance on Cybench. Claude Sonnet 4.5 significantly outperforms all previous models given k=1, 10, or 30 trials, where probability of success is measured as the expectation over the proportion of problems where at least one of k trials succeeds. Note that these results are on a subset of 37 of the 40 original Cybench problems, where 3 problems were excluded due to implementation difficulties.  
 
 ### CyberGym
 
@@ -64,7 +64,7 @@ Claude Sonnet 4.5 scores significantly better than either Claude Sonnet 4 or Cla
 
 ![Model Performance on CyberGym — Sonnet 4.5 is more likely to be successful, both after one trial and after thirty.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc35c81850f6f90e9b5f8064acf5c9effba71b1fe-3493x1640.png&w=3840&q=75)
 
-Model Performance on CyberGym. Sonnet 4.5 outperforms all previous models, including Opus 4.1. \*Note that Opus 4.1, given its higher price, did not follow the same $2 cost constraint as the other models in the 1 trial scenario.
+Model Performance on CyberGym. Sonnet 4.5 outperforms all previous models, including Opus 4.1. *Note that Opus 4.1, given its higher price, did not follow the same $2 cost constraint as the other models in the 1 trial scenario.
 
 Equally interesting is the rate at which Claude Sonnet 4.5 discovers new vulnerabilities. While the CyberGym leaderboard shows that Claude Sonnet 4 only discovers vulnerabilities in about 2% of targets, Sonnet 4.5 discovers new vulnerabilities in 5% of cases. By repeating the trial 30 times it discovers new vulnerabilities in over 33% of projects.
 
@@ -102,24 +102,20 @@ _This article was originally posted on September 29 2025 on the Frontier Red Tea
 
 1. Andy K Zhang et al., "Cybench: A Framework for Evaluating Cybersecurity Capabilities and Risks of Language Models," in The Thirteenth International Conference on Learning Representations (2025), https://openreview.net/forum?id=tc90LV0yRL.
 
-2. Zhun Wang et al., "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities with Real-World Vulnerabilities at Scale," arXiv preprint arXiv:2506.02548 (2025), https://arxiv.org/abs/2506.02548.
+2. Zhun Wang et al., "CyberGym: Evaluating AI Agents' Cybersecurity Capabilities with Real-World Vulnerabilities at Scale," arXiv preprint arXiv:2506.02548 (2025), https://arxiv.org/abs/2506.02548.  
 
 ## Related content
+
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
 
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

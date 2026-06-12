@@ -1,7 +1,7 @@
 > This page location: Branching > About branching
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the creation and management of data branches in Neon, allowing for isolated development, testing, and historical analysis without impacting the performance of the production database.
+> Summary: Neon branching creates copy-on-write clones of your database instantly, with writes saved as deltas so parent branches see zero load or performance impact. Use branching to spin up isolated development or test environments pre-loaded with production data, or run parallel CI/CD pipelines. You can also recover from data loss by rolling back to any point within your history window.
 
 # Branching
 
@@ -10,6 +10,8 @@ Branch your data the same way you branch your code
 With Neon, you can quickly branch your data for development, testing, and various other purposes, enabling you to improve developer productivity and optimize continuous integration and delivery (CI/CD) pipelines.
 
 You can also rewind your data or create branches from the past to recover from mistakes or analyze historical states.
+
+[Watch on YouTube](https://youtube.com/watch?v=UuHnFlg66Io)
 
 ## What is a branch?
 
@@ -25,9 +27,13 @@ Creating a branch does not increase load on the parent branch or affect it in an
 
 Each Neon project is created with a [root branch](https://neon.com/docs/reference/glossary#root-branch) called `main`. The first branch that you create is branched from the project's root branch. Subsequent branches can be branched from the root branch or from a previously created branch.
 
+**Tip: Using Neon Auth?**
+
+Users, sessions, and auth configuration in the `neon_auth` schema branch with your data, so preview and test environments get isolated authentication state. See [Neon Auth](https://neon.com/docs/auth/overview) and [Branching authentication](https://neon.com/docs/auth/branching-authentication).
+
 ## Branching workflows
 
-You can use Neon's branching feature in variety workflows.
+You can use Neon's branching feature in a variety of workflows.
 
 ### Development
 
@@ -92,6 +98,7 @@ Learn how to use these data recovery features:
 ## Related docs (Branching)
 
 - [Get started with branching](https://neon.com/docs/guides/branching-intro)
+- [Branching workflow primer](https://neon.com/docs/get-started/workflow-primer)
 - [Branching workflows](https://neon.com/docs/guides/branching-test-queries)
 - [Branch archiving](https://neon.com/docs/guides/branch-archiving)
 - [Branch expiration](https://neon.com/docs/guides/branch-expiration)

@@ -6,9 +6,6 @@
 
 Get detailed information for a specific project document.
 
-Returns:
-Project document information including content and metadata
-
 ### Path Parameters
 
 - `document_id: string`
@@ -39,7 +36,12 @@ Project document information including content and metadata
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -116,6 +118,7 @@ consumer can dedupe or match hashes without downloading every document.
 - `mime_type: "text/plain"`
 
   MIME type of the document content, always plain text
+
   - `"text/plain"`
 
 - `size_bytes: number`
@@ -124,7 +127,12 @@ consumer can dedupe or match hashes without downloading every document.
 
 - `user: object { id, email_address }`
 
-  User information for project creator.
+  The user who created a project or project document.
+
+  Fields that reference this type are null when the creator's account has
+  been deleted or the creator is no longer a member of any organization
+  under the parent organization.
+
   - `id: string`
 
     User identifier (tagged ID)
@@ -166,9 +174,6 @@ Delete a project document for compliance purposes.
 
 Hard-deletes the project document permanently.
 
-Returns:
-ComplianceProjectDocumentDeleteResponse confirming the deletion
-
 ### Path Parameters
 
 - `document_id: string`
@@ -188,6 +193,7 @@ ComplianceProjectDocumentDeleteResponse confirming the deletion
 - `type: "claude_project_document_deleted"`
 
   Constant string confirming deletion.
+
   - `"claude_project_document_deleted"`
 
 ### Example
@@ -214,6 +220,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentRetrieveResponse object { id, content, created_at, 2 more }`
 
   Project document information for compliance responses.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -232,7 +239,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -249,6 +261,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   Returns metadata only. Use the sibling endpoint (without `/metadata`)
   to fetch the document text content.
+
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -272,6 +285,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `mime_type: "text/plain"`
 
     MIME type of the document content, always plain text
+
     - `"text/plain"`
 
   - `size_bytes: number`
@@ -280,7 +294,12 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
+
     - `id: string`
 
       User identifier (tagged ID)
@@ -294,6 +313,7 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 - `DocumentDeleteResponse object { id, type }`
 
   Response for deleting a project document.
+
   - `id: string`
 
     The ID of the project document that was deleted
@@ -301,4 +321,5 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `type: "claude_project_document_deleted"`
 
     Constant string confirming deletion.
+
     - `"claude_project_document_deleted"`

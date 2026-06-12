@@ -18,7 +18,7 @@ In the cyber domain, 2024 was a ‘zero to one’ moment. In Capture The Flag (C
 
 ![Figure 1: In less than a year, Claude went from solving less than a quarter to nearly all Intercode CTF challenges, publicly available CTFs that were designed for high school competitions.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F66c528d2cec28f5f089c83f9f7844792544999d0-1440x695.jpg&w=3840&q=75)
 
-_Figure 1: In less than a year, Claude went from solving less than a quarter to nearly all Intercode CTF challenges, publicly available CTFs that were designed for high school competitions._
+_Figure 1: In less than a year, Claude went from solving less than a quarter to nearly all Intercode CTF challenges, publicly available CTFs that were designed for high school competitions._  
 
 We are confident this reflects authentic improvement in capability because we custom-developed additional challenges to ensure they were not inadvertently in the model’s training data.
 
@@ -26,13 +26,13 @@ This improvement in cyber capabilities has continued with our latest model, Clau
 
 ![Figure 2: Claude 3.7 Sonnet shows clear improvement on the Cybench CTF benchmark compared to the previous two generations of models, even without using extended thinking.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5354acf6e462db03f4d1e6eae8a232fc0879f076-1440x695.jpg&w=3840&q=75)
 
-_Figure 2: Claude 3.7 Sonnet shows clear improvement on the Cybench CTF benchmark compared to the previous two generations of models, even without using extended thinking._
+_Figure 2: Claude 3.7 Sonnet shows clear improvement on the Cybench CTF benchmark compared to the previous two generations of models, even without using extended thinking._  
 
 These improvements are occurring across different categories of cybersecurity tasks. Figure 3 shows improvement across model generations on different kinds of CTFs which require discovering and exploiting vulnerabilities in insecure software on a remote server (‘pwn’), web applications (‘web’), and cryptographic primitives and protocols (‘crypto’). However, Claude’s skills still lag expert humans. For example, it continues to struggle with reverse engineering binary executables to find hidden vulnerabilities and performing reconnaissance and exploitation in a network environment — at least without a little help.
 
 ![Figure 3: Claude is improving in CTFs across multiple categories of challenges (Claude 3.7 Sonnet’s performance is reported without extended thinking).](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F89539350b58ac6e90706ce3f12e2a9ab4ec11afa-1440x695.jpg&w=3840&q=75)
 
-_Figure 3: Claude is improving in CTFs across multiple categories of challenges (Claude 3.7 Sonnet’s performance is reported without extended thinking)._
+_Figure 3: Claude is improving in CTFs across multiple categories of challenges (Claude 3.7 Sonnet’s performance is reported without extended thinking)._  
 
 Working with outside experts at Carnegie Mellon University, we ran experiments on realistic, large (~50 host) cyber ranges that test a model’s ability to discover and exploit vulnerabilities in insecure software and infect and move laterally through a network. More than traditional CTF exercises, these challenges simulate the complexity of an actual cyber operation by requiring that the model is also capable of performing reconnaissance and orchestrating a multi-stage cyber attack. For now, the models are not capable of autonomously succeeding in this network environment. But when equipped with a set of software tools built by cybersecurity researchers, Claude (and other LLMs) were able to use simple instructions to successfully replicate an attack similar to a known large-scale theft of personally identifiable information from a credit reporting agency.
 
@@ -48,13 +48,13 @@ Our previous post focused extensively on our biosecurity evaluations, and we hav
 
 ![Figure 5: Claude’s performance has improved on VCT, an evaluation of model capabilities in troubleshooting virology tasks designed by SecureBio. Claude 3.7 Sonnet used its extended thinking capability.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc8b9ac87fc4c0fd329ca73d23c52956e2c3d85d9-1440x606.jpg&w=3840&q=75)
 
-_Figure 5: Claude’s performance has improved on VCT, an evaluation of model capabilities in troubleshooting virology tasks designed by SecureBio. Claude 3.7 Sonnet used its extended thinking capability._
+_Figure 5: Claude’s performance has improved on VCT, an evaluation of model capabilities in troubleshooting virology tasks designed by SecureBio. Claude 3.7 Sonnet used its extended thinking capability._  
 
 Claude’s capabilities in biology remain uneven, though. For example, internal testing of questions that evaluate model skills relevant for wet-lab research show that our models are approaching human expert baselines at understanding biology protocols and manipulating DNA and protein sequences. Our latest model exceeds human expert baselines at cloning workflows. The models remain worse than human experts at interpreting scientific figures.
 
 ![Figure 6: Claude 3.7 Sonnet improved on LabBench tasks compared to Claude 3.5 (New), approaching and in some cases exceeding the human baseline. Claude 3.7 Sonnet used its extended thinking capability.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd986fa87ace46487769b1d767c2d91bff4f55133-1440x606.jpg&w=3840&q=75)
 
-_Figure 6: Claude 3.7 Sonnet improved on LabBench tasks compared to Claude 3.5 (New), approaching and in some cases exceeding the human baseline. Claude 3.7 Sonnet used its extended thinking capability._
+_Figure 6: Claude 3.7 Sonnet improved on LabBench tasks compared to Claude 3.5 (New), approaching and in some cases exceeding the human baseline. Claude 3.7 Sonnet used its extended thinking capability._  
 
 To gauge how this improving — but uneven — biological expertise translates to biosecurity risk, we conducted small, controlled studies of weaponization-related tasks and worked with world-class biodefense experts. In one experimental study, we found that our most recent model provided some amount of uplift to novices compared to other participants who did not have access to a model. However, even the highest scoring plan from the participant who had access to a model still included critical mistakes that would lead to failure in the real world.
 
@@ -80,20 +80,22 @@ We are moving with urgency. As models improve in their ability to use extended t
 
 If you are interested in contributing directly to our work, we are hiring.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

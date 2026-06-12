@@ -5,4 +5,4 @@
 
 Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within AWS services. 
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

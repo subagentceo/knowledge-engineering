@@ -47,7 +47,7 @@
 
 - [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md): Monitor your AWS resources and applications using Amazon CloudWatch to collect and track metrics on performance. [llms.txt](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/llms.txt)
 
-- [Amazon CloudWatch Logs API Reference](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.md): Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files. [llms.txt](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/llms.txt)
+- [Amazon CloudWatch Logs API Reference](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.md): You can use Amazon CloudWatch Logs to monitor, store, and access your log files from EC2 instances, AWS CloudTrail, and other sources. [llms.txt](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/llms.txt)
 
 - [Amazon Elastic Container Registry API Reference](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.md): Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. [llms.txt](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/llms.txt)
 
@@ -83,7 +83,9 @@
 
 - [Amazon Relational Database Service Getting Started Guide](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds.md): Get step-by-step instructions to help you securely set up, connect to, and optimize your Amazon RDS database. [llms.txt](https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/llms.txt)
 
-- [Amazon Simple Storage Service API Reference](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.md): Explains the Amazon S3 API operations, related request and response structures, and error codes to enable you to store data in the cloud. [llms.txt](https://docs.aws.amazon.com/AmazonS3/latest/API/llms.txt)
+- [Amazon S3 API Reference](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.md) [llms.txt](https://docs.aws.amazon.com/AmazonS3/latest/API/llms.txt)
+
+- [Amazon Simple Storage Service Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/Welcome.md): Provides developer-focused information about using the Amazon S3 REST API, including making requests, authentication, and error handling. [llms.txt](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/llms.txt)
 
 - [Amazon S3 on Outposts User Guide](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.md): Perform Amazon S3 operations on AWS Outposts with Amazon S3 on Outposts. [llms.txt](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/llms.txt)
 
@@ -103,6 +105,8 @@
 
 - [AWS Incident Detection and Response User Guide AWS Incident Detection and Response Concepts and Procedures](https://docs.aws.amazon.com/IDR/latest/userguide/what-is-idr.md): Describes AWS Incident Detection and Response. [llms.txt](https://docs.aws.amazon.com/IDR/latest/userguide/llms.txt)
 
+- [AWS Migration Acceleration Program 2.0 Tagging Guide User Guide](https://docs.aws.amazon.com/MAP/latest/userguide/what-is-service.md): Learn about AWS Migration Acceleration Program 2.0, a comprehensive cloud migration program based on AWS's experience migrating hundreds of enterprise customers. [llms.txt](https://docs.aws.amazon.com/MAP/latest/userguide/llms.txt)
+
 - [Amazon MSK API Reference 2.0](https://docs.aws.amazon.com/MSK/2.0/APIReference/welcome.md): This API reference describes three new Amazon MSK operations: CreateClusterV2, ListClustersV2, and DescribeClusterV2. [llms.txt](https://docs.aws.amazon.com/MSK/2.0/APIReference/llms.txt)
 
 - [Amazon MSK Connect API Reference](https://docs.aws.amazon.com/MSKC/latest/mskc/Welcome.md) [llms.txt](https://docs.aws.amazon.com/MSKC/latest/mskc/llms.txt)
@@ -115,9 +119,9 @@
 
 - [AWS Partner Revenue Measurement Onboarding guide for AWS Partner Revenue Measurement](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.md): Learn about Partner Revenue Measurement, AWS's revenue attribution measurement service for partners. [llms.txt](https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/llms.txt)
 
-- [AWS Flat-Rate Plans User Guide](https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/overview.md): AWS Flat-Rate Pricing Plans provide predictable monthly costs for integrated AWS service packages. [llms.txt](https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/llms.txt)
+- [AWS Flat-Rate Plans User Guide](https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/llms.txt)
 
-- [Amazon Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.md): Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. [llms.txt](https://docs.aws.amazon.com/Route53/latest/APIReference/llms.txt)
+- [Amazon Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/Route53/latest/APIReference/llms.txt)
 
 - [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.md): You can use Amazon Route 53 to register domains, route internet traffic to your resources, and check the health of your web application. [llms.txt](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/llms.txt)
 
@@ -127,7 +131,9 @@
 
 - [IAM Access Analyzer API Reference](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.md): AWS Identity and Access Management Access Analyzer helps you to set, verify, and refine your IAM policies by providing a suite of capabilities. [llms.txt](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/llms.txt)
 
-- [AWS Account Management Reference Guide](https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.md): Learn about AWS accounts and how to create and manage them. [llms.txt](https://docs.aws.amazon.com/accounts/latest/reference/llms.txt)
+- [AWS Account Management API Reference](https://docs.aws.amazon.com/accounts/latest/APIReference/Welcome.md): The API operations in the Account Management (account) namespace enable you to modify your AWS account. [llms.txt](https://docs.aws.amazon.com/accounts/latest/APIReference/llms.txt)
+
+- [AWS Account Management User Guide](https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.md): Learn about AWS accounts and how to create and manage them. [llms.txt](https://docs.aws.amazon.com/accounts/latest/reference/llms.txt)
 
 - [AWS Certificate Manager API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/Welcome.md): Welcome to the AWS Certificate Manager (ACM) API Reference. [llms.txt](https://docs.aws.amazon.com/acm/latest/APIReference/llms.txt)
 
@@ -225,7 +231,7 @@
 
 - [Amazon Application Recovery Controller API Reference Guide for Region Switch](https://docs.aws.amazon.com/arc-region-switch/latest/api/Welcome.md): Amazon Application Recovery Controller (ARC) Region switch helps you to quickly and reliably shift traffic away from an impaired AWS Region to a healthy Region. [llms.txt](https://docs.aws.amazon.com/arc-region-switch/latest/api/llms.txt)
 
-- [Amazon Route 53 Application Recovery Controller API Reference Guide for Zonal Shift and Zonal Autoshift](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/Welcome.md): Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon Application Recovery Controller (ARC). [llms.txt](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/llms.txt)
+- [Amazon Application Recovery Controller API Reference Guide for Zonal Shift and Zonal Autoshift](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/Welcome.md): Welcome to the API Reference Guide for zonal shift and zonal autoshift in Amazon Application Recovery Controller (ARC). [llms.txt](https://docs.aws.amazon.com/arc-zonal-shift/latest/api/llms.txt)
 
 - [AWS Artifact Welcome](https://docs.aws.amazon.com/artifact/latest/APIReference/Welcome.md): This reference provides descriptions of the low-level AWS Artifact Service API. [llms.txt](https://docs.aws.amazon.com/artifact/latest/APIReference/llms.txt)
 
@@ -317,7 +323,7 @@
 
 - [AWS Support User Guide](https://docs.aws.amazon.com/awssupport/latest/user/getting-started.md): Use AWS Support to create and manage cases, troubleshoot issues, and access services such as AWS Trusted Advisor. [llms.txt](https://docs.aws.amazon.com/awssupport/latest/user/llms.txt)
 
-- [AWS B2B Data Interchange API Reference](https://docs.aws.amazon.com/b2bi/latest/APIReference/api-welcome.md): Overview of the structure and function of the AWS B2B Data Interchange API for exchange of EDI documents, including advanced features like EDI splitting and enhanced partnership configuration. [llms.txt](https://docs.aws.amazon.com/b2bi/latest/APIReference/llms.txt)
+- [AWS B2B Data Interchange API Reference](https://docs.aws.amazon.com/b2bi/latest/APIReference/Welcome.md): AWS B2B Data Interchange automates the transformation between Electronic Data Interchange (EDI) documents and JSON or XML formats, to simplify your downstream data integrations. [llms.txt](https://docs.aws.amazon.com/b2bi/latest/APIReference/llms.txt)
 
 - [AWS B2B Data Interchange User Guide](https://docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.md): Learn about B2B Data Interchange, a service that enables automated exchange of electronic data interchange (EDI)–based business-critical transactions at cloud scale, with elasticity, and pay-as-you-go pricing. [llms.txt](https://docs.aws.amazon.com/b2bi/latest/userguide/llms.txt)
 
@@ -331,7 +337,7 @@
 
 - [Amazon Bedrock AgentCore Developer Guide](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md) [llms.txt](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/llms.txt)
 
-- [Amazon Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.md): Details about the Amazon Bedrock API operations and parameters. [llms.txt](https://docs.aws.amazon.com/bedrock/latest/APIReference/llms.txt)
+- [Amazon Bedrock Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/bedrock/latest/APIReference/llms.txt)
 
 - [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.md): Provides an overview of the Amazon Bedrock service. [llms.txt](https://docs.aws.amazon.com/bedrock/latest/userguide/llms.txt)
 
@@ -485,7 +491,7 @@
 
 - [Amazon Comprehend Medical Developer Guide](https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-welcome.md): Describes Amazon Comprehend Medical. [llms.txt](https://docs.aws.amazon.com/comprehend-medical/latest/dev/llms.txt)
 
-- [Amazon Comprehend API Reference](https://docs.aws.amazon.com/comprehend/latest/APIReference/welcome.md): Details about the Comprehend API operations and parameters. [llms.txt](https://docs.aws.amazon.com/comprehend/latest/APIReference/llms.txt)
+- [Amazon Comprehend Comprehend API Reference](https://docs.aws.amazon.com/comprehend/latest/APIReference/Welcome.md): Amazon Comprehend is an AWS service for gaining insight into the content of documents. [llms.txt](https://docs.aws.amazon.com/comprehend/latest/APIReference/llms.txt)
 
 - [Amazon Comprehend Developer Guide](https://docs.aws.amazon.com/comprehend/latest/dg/what-is.md): Overview of Amazon Comprehend, a natural language processing (NLP) service. [llms.txt](https://docs.aws.amazon.com/comprehend/latest/dg/llms.txt)
 
@@ -512,6 +518,8 @@
 - [Amazon Connect Customer API Reference](https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/connect/latest/APIReference/llms.txt)
 
 - [Amazon Connect Customer Administrator Guide](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.md): Connect Customer engages customers at every touchpoint and creates deeper relationships with AI powered capabilities. [llms.txt](https://docs.aws.amazon.com/connect/latest/adminguide/llms.txt)
+
+- [Amazon Connect Developer Guide](https://docs.aws.amazon.com/connect/latest/devguide/what-is-connect-dev.md): Learn about the Amazon Connect Developer Guide, who it's for, and how to use it. [llms.txt](https://docs.aws.amazon.com/connect/latest/devguide/llms.txt)
 
 - [Amazon Connect Health API Reference](https://docs.aws.amazon.com/connecthealth/latest/APIReference/Welcome.md): Amazon Connect Health is an AI-powered healthcare service built on Amazon Connect. [llms.txt](https://docs.aws.amazon.com/connecthealth/latest/APIReference/llms.txt)
 
@@ -549,7 +557,7 @@
 
 - [Connect Customer Customer Profiles Welcome](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/llms.txt)
 
-- [AWS Data Exchange API Reference](https://docs.aws.amazon.com/data-exchange/latest/apireference/welcome.md): Use AWS Data Exchange API operations to create, update, manage, and access data sets. [llms.txt](https://docs.aws.amazon.com/data-exchange/latest/apireference/llms.txt)
+- [AWS Data Exchange API Reference](https://docs.aws.amazon.com/data-exchange/latest/apireference/Welcome.md): Welcome to the AWS Data Exchange API Reference. [llms.txt](https://docs.aws.amazon.com/data-exchange/latest/apireference/llms.txt)
 
 - [AWS Data Exchange User Guide](https://docs.aws.amazon.com/data-exchange/latest/userguide/what-is.md): Overview of AWS Data Exchange [llms.txt](https://docs.aws.amazon.com/data-exchange/latest/userguide/llms.txt)
 
@@ -560,6 +568,8 @@
 - [AWS Data Pipeline API Reference](https://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.md): AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. [llms.txt](https://docs.aws.amazon.com/datapipeline/latest/APIReference/llms.txt)
 
 - [AWS Data Pipeline Developer Guide](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/what-is-datapipeline.md): Automate the movement and transformation of data with data-driven workflows in the AWS Data Pipeline web service. [llms.txt](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/llms.txt)
+
+- [DataSync API Reference](https://docs.aws.amazon.com/datasync/latest/apireference/Welcome.md): In addition to the AWS Management Console and AWS Command Line Interface, you can use the AWS DataSync API to configure and manage DataSync with the AWS SDKs. [llms.txt](https://docs.aws.amazon.com/datasync/latest/apireference/llms.txt)
 
 - [AWS DataSync User Guide](https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.md): Learn how AWS DataSync simplifies, automates, and accelerates copying large amounts of data between storage systems and services. [llms.txt](https://docs.aws.amazon.com/datasync/latest/userguide/llms.txt)
 
@@ -651,7 +661,9 @@
 
 - [Databases on AWS: How to Choose](https://docs.aws.amazon.com/documentation/latest/databases-on-aws-how-to-choose/welcome.md): welcome
 
-- [Amazon DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.md): Overview of Amazon DocumentDB (with MongoDB compatibility), a fully managed MongoDB-compatible NoSQL database service. [llms.txt](https://docs.aws.amazon.com/documentdb/latest/developerguide/llms.txt)
+- [Amazon DocumentDB (with MongoDB compatibility) API Reference](https://docs.aws.amazon.com/documentdb/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/documentdb/latest/APIReference/llms.txt)
+
+- [Amazon DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/devguide/what-is.md): Overview of Amazon DocumentDB (with MongoDB compatibility), a fully managed MongoDB-compatible NoSQL database service. [llms.txt](https://docs.aws.amazon.com/documentdb/latest/devguide/llms.txt)
 
 - [AWS Elastic Disaster Recovery AWS Elastic Disaster Recovery Api Docs](https://docs.aws.amazon.com/drs/latest/APIReference/Welcome.md): AWS Elastic Disaster Recovery Service. [llms.txt](https://docs.aws.amazon.com/drs/latest/APIReference/llms.txt)
 
@@ -775,7 +787,7 @@
 
 - [AWS Entity Resolution User Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.md): Learn about AWS Entity Resolution, a service that provides pre-configured identity resolution capabilities. [llms.txt](https://docs.aws.amazon.com/entityresolution/latest/userguide/llms.txt)
 
-- [Amazon EventBridge API Reference](https://docs.aws.amazon.com/eventbridge/latest/APIReference/Welcome.md): Complete reference for the Amazon EventBridge APIs, formerly known as Amazon CloudWatch Events. [llms.txt](https://docs.aws.amazon.com/eventbridge/latest/APIReference/llms.txt)
+- [Amazon EventBridge API Reference](https://docs.aws.amazon.com/eventbridge/latest/APIReference/Welcome.md): Amazon EventBridge helps you to respond to state changes in your AWS resources. [llms.txt](https://docs.aws.amazon.com/eventbridge/latest/APIReference/llms.txt)
 
 - [Amazon EventBridge Amazon EventBridge Onboarding Guide](https://docs.aws.amazon.com/eventbridge/latest/onboarding/amazon_eventbridge_partner_onboarding_guide.md): Amazon EventBridge enables customers to build event-driven applications that subscribe to events from any participating software-as-a-service (SaaS) product without needing to write undifferentiated connection code. [llms.txt](https://docs.aws.amazon.com/eventbridge/latest/onboarding/llms.txt)
 
@@ -787,15 +799,19 @@
 
 - [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.md): Discover how Amazon EventBridge uses events to connect application components together, making it easier for you to build scalable event-driven applications. [llms.txt](https://docs.aws.amazon.com/eventbridge/latest/userguide/llms.txt)
 
+- [](https://docs.aws.amazon.com/eventsbilltoaws/latest/reference/what-is-eventsbilltoaws.md): "Bill to AWS" allows attendees to bill re:Invent pass purchases directly to their AWS account. [llms.txt](https://docs.aws.amazon.com/eventsbilltoaws/latest/reference/llms.txt)
+
 - [Amazon Elastic VMware Service Welcome](https://docs.aws.amazon.com/evs/latest/APIReference/Welcome.md): Amazon Elastic VMware Service (Amazon EVS) is a service that you can use to deploy a VMware Cloud Foundation (VCF) software environment directly on EC2 bare metal instances within an Amazon Virtual Private Cloud (VPC). [llms.txt](https://docs.aws.amazon.com/evs/latest/APIReference/llms.txt)
 
 - [Amazon Elastic VMware Service User Guide](https://docs.aws.amazon.com/evs/latest/userguide/what-is-evs.md): Learn about Amazon Elastic VMware Service, a service allows you to deploy and run a VMware Cloud Foundation (VCF) environment directly on EC2 bare metal instances within Amazon Virtual Private Cloud (VPC). [llms.txt](https://docs.aws.amazon.com/evs/latest/userguide/llms.txt)
 
-- [FedRamp Compliance Guide User Guide](https://docs.aws.amazon.com/fedramp/latest/userguide/introduction.md): Comprehensive security configuration guidance for AWS accounts and services aligned with FedRAMP Revision 5 Secure Configuration Guidance (SCG) requirements. [llms.txt](https://docs.aws.amazon.com/fedramp/latest/userguide/llms.txt)
+- [FedRamp Compliance Guide User Guide](https://docs.aws.amazon.com/fedramp/latest/userguide/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/fedramp/latest/userguide/llms.txt)
 
 - [AWS Storage Gateway Amazon FSx File Gateway User Guide](https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.md): Use Amazon FSx File Gateway to connect your on-premises environment with cloud-based storage. [llms.txt](https://docs.aws.amazon.com/filegateway/latest/filefsxw/llms.txt)
 
 - [AWS Storage Gateway Amazon S3 File Gateway User Guide](https://docs.aws.amazon.com/filegateway/latest/files3/what-is-file-s3.md): Use Amazon S3 File Gateway to connect your on-premises environment with cloud-based storage. [llms.txt](https://docs.aws.amazon.com/filegateway/latest/files3/llms.txt)
+
+- [AWS FinOps Agent (preview) User Guide](https://docs.aws.amazon.com/finops-agent/latest/userguide/what-is.md): AWS FinOps Agent is a frontier agent that makes it easy for customers to continuously monitor costs, investigate anomalies, and surface optimization opportunities across their cloud environments. [llms.txt](https://docs.aws.amazon.com/finops-agent/latest/userguide/llms.txt)
 
 - [Amazon FinSpace Data API Reference](https://docs.aws.amazon.com/finspace/latest/data-api/fs-api-welcome.md): The Amazon FinSpace Dataset browser allows you to collect data and catalog it by relevant business concepts such as asset class, risk classification, or geographic region; which makes it easy to discover and share across your organization. [llms.txt](https://docs.aws.amazon.com/finspace/latest/data-api/llms.txt)
 
@@ -895,11 +911,11 @@
 
 - [Amazon GuardDuty Amazon GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.md): Use Amazon GuardDuty to analyze event logs and detect potentially malicious or suspicious activities in your AWS environment. [llms.txt](https://docs.aws.amazon.com/guardduty/latest/ug/llms.txt)
 
-- [Guidance for an Automotive Data Platform on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/guidance-overview.md): Build a scalable data mesh platform to deliver insights and analytics for automotive customers on AWS [llms.txt](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/llms.txt)
+- [Guidance for an Automotive Data Platform on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/llms.txt)
 
-- [Cloud Intelligence Dashboards on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/getting-started.md): Introduction [llms.txt](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/llms.txt)
+- [Cloud Intelligence Dashboards on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/llms.txt)
 
-- [Guidance for Connected Mobility on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/solution-overview.md): Manage vehicle fleets with increased efficiency and reduced downtime [llms.txt](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/llms.txt)
+- [Guidance for Connected Mobility on AWS Implementation Guide](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/llms.txt)
 
 - [Guidance for Deploying Cross-Region Disaster Recovery with AWS Elastic Disaster Recovery Implementation Guide](https://docs.aws.amazon.com/guidance/latest/deploying-cross-region-disaster-recovery-with-aws-elastic-disaster-recovery/getting-started.md): Get started with AWS Elastic Disaster Recovery. [llms.txt](https://docs.aws.amazon.com/guidance/latest/deploying-cross-region-disaster-recovery-with-aws-elastic-disaster-recovery/llms.txt)
 
@@ -1127,6 +1143,8 @@
 
 - [Kinesis Video Streams Amazon Kinesis Video Streams WebRTC Developer Guide](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.md): What is Amazon Kinesis Video Streams with WebRTC? [llms.txt](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/llms.txt)
 
+- [Amazon Kinesis Video Streams API Reference](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/kinesisvideostreams/latest/APIReference/llms.txt)
+
 - [Amazon Kinesis Video Streams Developer Guide](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.md): Overview of Kinesis Video Streams features and links to more information. [llms.txt](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/llms.txt)
 
 - [AWS Key Management Service API Reference](https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.md): AWS Key Management Service (AWS KMS) is an encryption and key management web service. [llms.txt](https://docs.aws.amazon.com/kms/latest/APIReference/llms.txt)
@@ -1147,7 +1165,7 @@
 
 - [AWS Launch Wizard User Guide](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-active-directory-landing.md): AWS Launch Wizard for Active Directory is a service that applies AWS cloud application best practices to guide you through setting up a new Active Directory infrastructure, or adding domain controllers to an existing infrastructure either in the AWS Cloud or on premises. [llms.txt](https://docs.aws.amazon.com/launchwizard/latest/userguide/llms.txt)
 
-- [Amazon Lex API Reference](https://docs.aws.amazon.com/lexv2/latest/APIReference/welcome.md): Insert abstract text [llms.txt](https://docs.aws.amazon.com/lexv2/latest/APIReference/llms.txt)
+- [Amazon Lex Welcome](https://docs.aws.amazon.com/lexv2/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/lexv2/latest/APIReference/llms.txt)
 
 - [Amazon Lex V2 Developer Guide](https://docs.aws.amazon.com/lexv2/latest/dg/what-is.md): Learn about Amazon Lex V2 and how you can use it to create conversational chat bots for your applications. [llms.txt](https://docs.aws.amazon.com/lexv2/latest/dg/llms.txt)
 
@@ -1179,7 +1197,7 @@
 
 - [Amazon Location Service Developer Guide](https://docs.aws.amazon.com/location/latest/developerguide/what-is.md): Amazon Location Service is a geolocation service that developers can use to add location features into apps that can react to events. [llms.txt](https://docs.aws.amazon.com/location/latest/developerguide/llms.txt)
 
-- [Amazon Location Service API Reference](https://docs.aws.amazon.com/location/previous/APIReference/welcome.md): Amazon Location Service is a geolocation service that developers can use to add location features into apps that can react to events. [llms.txt](https://docs.aws.amazon.com/location/previous/APIReference/llms.txt)
+- [Amazon Location Service Amazon Location Service](https://docs.aws.amazon.com/location/previous/APIReference/Welcome.md): "Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing" [llms.txt](https://docs.aws.amazon.com/location/previous/APIReference/llms.txt)
 
 - [Amazon Location Service Developer Guide](https://docs.aws.amazon.com/location/previous/developerguide/what-is-previous.md): Amazon Location Service is a geolocation service that developers can use to add location features into apps that can react to events. [llms.txt](https://docs.aws.amazon.com/location/previous/developerguide/llms.txt)
 
@@ -1271,7 +1289,7 @@
 
 - [ApplicationMigrationService Application Migration Service Api Docs](https://docs.aws.amazon.com/mgn/latest/APIReference/Welcome.md): The Application Migration Service service. [llms.txt](https://docs.aws.amazon.com/mgn/latest/APIReference/llms.txt)
 
-- [Application Migration Service User Guide](https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.md): AWS Application Migration Service simplifies and expedites migration of applications from virtual, cloud, and physical servers to AWS. [llms.txt](https://docs.aws.amazon.com/mgn/latest/ug/llms.txt)
+- [AWS Transform MGN User Guide](https://docs.aws.amazon.com/mgn/latest/ug/what-is-mgn.md): AWS Transform MGN simplifies and expedites migration of applications from virtual, cloud, and physical servers to AWS. [llms.txt](https://docs.aws.amazon.com/mgn/latest/ug/llms.txt)
 
 - [AWS Migration Hub Journeys Migration Hub Journeys User Guide](https://docs.aws.amazon.com/mhj/latest/userguide/what-is-mhj.md): Learn about Migration Hub Journeys, a service that you can use to plan and perform migrations to AWS. [llms.txt](https://docs.aws.amazon.com/mhj/latest/userguide/llms.txt)
 
@@ -1381,7 +1399,7 @@
 
 - [Amazon OpenSearch Service Developer Guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.md): Index, manage, search, and visualize large collections of data with Amazon OpenSearch Service. [llms.txt](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/llms.txt)
 
-- [AWS Organizations API reference](https://docs.aws.amazon.com/organizations/latest/APIReference/Welcome.md): Learn how to use the AWS Organizations API. [llms.txt](https://docs.aws.amazon.com/organizations/latest/APIReference/llms.txt)
+- [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/Welcome.md): AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources. [llms.txt](https://docs.aws.amazon.com/organizations/latest/APIReference/llms.txt)
 
 - [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.md): Learn how AWS Organizations helps you to manage multiple AWS accounts. [llms.txt](https://docs.aws.amazon.com/organizations/latest/userguide/llms.txt)
 
@@ -1471,7 +1489,7 @@
 
 - [Quick Setup API Reference](https://docs.aws.amazon.com/quick-setup/latest/APIReference/Welcome.md): Quick Setup helps you quickly configure frequently used services and features with recommended best practices. [llms.txt](https://docs.aws.amazon.com/quick-setup/latest/APIReference/llms.txt)
 
-- [Amazon Quick User Guide](https://docs.aws.amazon.com/quick/latest/userguide/what-is.md): Learn about Amazon Quick, a generative-AI powered business intelligence (BI) and analytics assistant that combines data visualization with intelligent query capabilities. [llms.txt](https://docs.aws.amazon.com/quick/latest/userguide/llms.txt)
+- [Amazon Quick User Guide](https://docs.aws.amazon.com/quick/latest/userguide/what-is.md): Learn about Amazon Quick, an AI-powered service for automating tasks, analyzing data, building web applications, and conducting research. [llms.txt](https://docs.aws.amazon.com/quick/latest/userguide/llms.txt)
 
 - [Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.md): Amazon Quick Sight is a fully managed, serverless business intelligence service for the AWS Cloud that makes it easy to extend data and insights to every user in your organization. [llms.txt](https://docs.aws.amazon.com/quicksight/latest/APIReference/llms.txt)
 
@@ -1487,9 +1505,9 @@
 
 - [RDS Data API API Reference](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/Welcome.md): Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. [llms.txt](https://docs.aws.amazon.com/rdsdataservice/latest/APIReference/llms.txt)
 
-- [Amazon Route 53 Application Recovery Controller Recovery Control Configuration API Reference Guide](https://docs.aws.amazon.com/recovery-cluster/latest/api/what-is-recovery-control.md): Learn about Amazon Application Recovery Controller (ARC) and how it helps you improve your application availability. [llms.txt](https://docs.aws.amazon.com/recovery-cluster/latest/api/llms.txt)
+- [Amazon Application Recovery Controller Recovery Control Configuration API Reference Guide](https://docs.aws.amazon.com/recovery-cluster/latest/api/what-is-recovery-control.md): Learn about Amazon Application Recovery Controller (ARC) and how it helps you improve your application availability. [llms.txt](https://docs.aws.amazon.com/recovery-cluster/latest/api/llms.txt)
 
-- [Amazon Route 53 Application Recovery Controller Recovery Readiness API Reference Guide](https://docs.aws.amazon.com/recovery-readiness/latest/api/what-is-recovery-readiness.md): Learn about the recovery readiness feature in Amazon Application Recovery Controller (ARC), which provides continuous readiness checks to ensure that your applications are properly scaled to handle failover traffic. [llms.txt](https://docs.aws.amazon.com/recovery-readiness/latest/api/llms.txt)
+- [Amazon Application Recovery Controller Recovery Readiness API Reference Guide](https://docs.aws.amazon.com/recovery-readiness/latest/api/what-is-recovery-readiness.md): Learn about the recovery readiness feature in Amazon Application Recovery Controller (ARC), which provides continuous readiness checks to ensure that your applications are properly scaled to handle failover traffic. [llms.txt](https://docs.aws.amazon.com/recovery-readiness/latest/api/llms.txt)
 
 - [Recycle Bin Welcome](https://docs.aws.amazon.com/recyclebin/latest/APIReference/Welcome.md): This is the Recycle Bin API Reference. [llms.txt](https://docs.aws.amazon.com/recyclebin/latest/APIReference/llms.txt)
 
@@ -1531,7 +1549,9 @@
 
 - [AWS Resilience Hub Welcome](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/Welcome.md): AWS Resilience Hub helps you proactively prepare and protect your AWS applications from disruptions. [llms.txt](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/llms.txt)
 
-- [AWS Resilience Hub User Guide](https://docs.aws.amazon.com/resilience-hub/latest/userguide/what-is.md): The AWS Resilience Hub service helps you proactively prepare and protect your AWS applications from disruptions. [llms.txt](https://docs.aws.amazon.com/resilience-hub/latest/userguide/llms.txt)
+- [AWS Resilience Hub User Guide](https://docs.aws.amazon.com/resilience-hub/latest/userguide/arh.md): AWS Resilience Hub helps you proactively prepare and protect your AWS applications from disruptions by defining resilience goals, assessing your posture, and implementing recommendations based on the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/resilience-hub/latest/userguide/llms.txt)
+
+- [Next generation Resilience Hub API Reference](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/Welcome.md): The next generation of AWS Resilience Hub is the single location in AWS where you assess and improve the resilience of your critical applications. [llms.txt](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/llms.txt)
 
 - [AWS Resource Explorer API Reference](https://docs.aws.amazon.com/resource-explorer/latest/apireference/Welcome.md): AWS Resource Explorer is a resource search and discovery service. [llms.txt](https://docs.aws.amazon.com/resource-explorer/latest/apireference/llms.txt)
 
@@ -1545,7 +1565,7 @@
 
 - [Red Hat OpenShift Service on AWS User Guide](https://docs.aws.amazon.com/rosa/latest/userguide/what-is-rosa.md): Red Hat OpenShift Service on AWS is a managed service that you can use to build, scale, and deploy containerized applications with the Red Hat OpenShift platform on AWS. [llms.txt](https://docs.aws.amazon.com/rosa/latest/userguide/llms.txt)
 
-- [Amazon Route 53 Application Recovery Controller Routing Control API Reference Guide](https://docs.aws.amazon.com/routing-control/latest/APIReference/Welcome.md): Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller. [llms.txt](https://docs.aws.amazon.com/routing-control/latest/APIReference/llms.txt)
+- [Amazon Application Recovery Controller Routing Control API Reference Guide](https://docs.aws.amazon.com/routing-control/latest/APIReference/Welcome.md): Welcome to the Routing Control (Recovery Cluster) API Reference Guide for Amazon Route 53 Application Recovery Controller. [llms.txt](https://docs.aws.amazon.com/routing-control/latest/APIReference/llms.txt)
 
 - [AWS RTB Fabric API Reference](https://docs.aws.amazon.com/rtb-fabric/latest/api/Welcome.md): AWS RTB Fabric provides secure, low-latency infrastructure for connecting real-time bidding (RTB) applications. [llms.txt](https://docs.aws.amazon.com/rtb-fabric/latest/api/llms.txt)
 
@@ -1645,11 +1665,11 @@
 
 - [Service Authorization Reference Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/reference.md): Find a list of the actions, resources, and condition keys supported by each AWS service that can be used in an AWS Identity and Access Management (IAM) policy. [llms.txt](https://docs.aws.amazon.com/service-authorization/latest/reference/llms.txt)
 
+- [AWS Service Catalog API Reference](https://docs.aws.amazon.com/servicecatalog/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/servicecatalog/latest/APIReference/llms.txt)
+
 - [AWS Service Catalog Administrator Guide](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.md): Use Service Catalog to build a collection of line-of-business applications that run in the AWS Cloud and present them to your users with a marketplace-like interface. [llms.txt](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/llms.txt)
 
 - [AWS Service Catalog AppRegistry Administrator Guide](https://docs.aws.amazon.com/servicecatalog/latest/arguide/intro-app-registry.md): Learn about AppRegistry. [llms.txt](https://docs.aws.amazon.com/servicecatalog/latest/arguide/llms.txt)
-
-- [AWS Service Catalog Developer Guide](https://docs.aws.amazon.com/servicecatalog/latest/dg/what-is-service-catalog.md): The AWS Service Catalog API allows organizations to programmatically create and manage catalogs of products that are approved for use in AWS. [llms.txt](https://docs.aws.amazon.com/servicecatalog/latest/dg/llms.txt)
 
 - [AWS Service Management Connector Administrator Guide](https://docs.aws.amazon.com/servicecatalog/latest/smcguide/overview.md): Learn about AWS Service Management Connector.
 
@@ -1695,11 +1715,11 @@
 
 - [Snowball Edge Getting Started Guide](https://docs.aws.amazon.com/snow/latest/swsbe-pack/whatitis.md): Get an introduction to Snow devices. [llms.txt](https://docs.aws.amazon.com/snow/latest/swsbe-pack/llms.txt)
 
-- [AWS Snowball Edge API Reference](https://docs.aws.amazon.com/snowball/latest/api-reference/api-reference.md): The Snowball Edge API reference provides descriptions, syntax, and usage examples for each of the actions and data types for creating and managing jobs in Snowball Edge. [llms.txt](https://docs.aws.amazon.com/snowball/latest/api-reference/llms.txt)
+- [AWS Snowball Edge API Reference](https://docs.aws.amazon.com/snowball/latest/api-reference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/snowball/latest/api-reference/llms.txt)
 
 - [AWS Snowball Edge Developer Guide](https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.md): Get an introduction to the AWS Snowball Edge device, which brings the storage and computing power of the AWS Cloud to your on-premises data center or a disconnected environment. [llms.txt](https://docs.aws.amazon.com/snowball/latest/developer-guide/llms.txt)
 
-- [Amazon Simple Notification Service API Reference](https://docs.aws.amazon.com/sns/latest/api/welcome.md): Amazon SNS is a web service that enables you to build distributed web-enabled applications. [llms.txt](https://docs.aws.amazon.com/sns/latest/api/llms.txt)
+- [Amazon Simple Notification Service API Reference](https://docs.aws.amazon.com/sns/latest/api/Welcome.md): Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. [llms.txt](https://docs.aws.amazon.com/sns/latest/api/llms.txt)
 
 - [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/welcome.md): This topic provides an introduction to Amazon SNS and how it facilitates asynchronous message delivery between publishers and subscribers through topics. [llms.txt](https://docs.aws.amazon.com/sns/latest/dg/llms.txt)
 
@@ -1707,7 +1727,7 @@
 
 - [AWS End User Messaging Social User Guide](https://docs.aws.amazon.com/social-messaging/latest/userguide/what-is-service.md): Learn about AWS End User Messaging Social, a service that lets you use WhatsApp to send and receive customer messages. [llms.txt](https://docs.aws.amazon.com/social-messaging/latest/userguide/llms.txt)
 
-- [Secure Packager and Encoder Key Exchange API Specification Partner and customer guide](https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.md): Secure Packager and Encoder Key Exchange (SPEKE) is part of the AWS content protection strategy for digital media content. [llms.txt](https://docs.aws.amazon.com/speke/latest/documentation/llms.txt)
+- [Secure Packager and Encoder Key Exchange API Specification Partner and customer guide](https://docs.aws.amazon.com/speke/latest/documentation/sign-up-for-aws.md): To get started with AWS, you need an AWS account. [llms.txt](https://docs.aws.amazon.com/speke/latest/documentation/llms.txt)
 
 - [Microsoft SQL Server on Amazon EC2 User Guide](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/sql-server-on-ec2-overview.md): Describes using Microsoft SQL Server on Amazon EC2. [llms.txt](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/llms.txt)
 
@@ -1743,7 +1763,11 @@
 
 - [Tagging AWS Resources and Tag Editor User Guide](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.md): Learn how tagging helps you organize and identify AWS resources. [llms.txt](https://docs.aws.amazon.com/tag-editor/latest/userguide/llms.txt)
 
+- [Amazon Textract API Reference](https://docs.aws.amazon.com/textract/latest/APIReference/Welcome.md): Amazon Textract detects and analyzes text in documents and converts it into machine-readable text. [llms.txt](https://docs.aws.amazon.com/textract/latest/APIReference/llms.txt)
+
 - [Amazon Textract Developer Guide](https://docs.aws.amazon.com/textract/latest/dg/what-is.md): Overview of Amazon Textract, which is a service that enables you to add document text detection and analysis to your applications. [llms.txt](https://docs.aws.amazon.com/textract/latest/dg/llms.txt)
+
+- [Amazon Timestream Write Amazon Timestream for LiveAnalytics](https://docs.aws.amazon.com/timestream/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/timestream/latest/APIReference/llms.txt)
 
 - [Amazon Timestream Developer Guide](https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.md): Amazon Timestream for LiveAnalytics is a fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day. [llms.txt](https://docs.aws.amazon.com/timestream/latest/developerguide/llms.txt)
 
@@ -1763,11 +1787,11 @@
 
 - [Amazon Transcribe Developer Guide](https://docs.aws.amazon.com/transcribe/latest/dg/what-is.md): Learn about Amazon Transcribe. [llms.txt](https://docs.aws.amazon.com/transcribe/latest/dg/llms.txt)
 
-- [AWS Transfer Family API Reference](https://docs.aws.amazon.com/transfer/latest/APIReference/api-welcome.md): Overview of the structure and function of the AWS Transfer Family API. [llms.txt](https://docs.aws.amazon.com/transfer/latest/APIReference/llms.txt)
+- [AWS Transfer Family API Reference](https://docs.aws.amazon.com/transfer/latest/APIReference/Welcome.md): AWS Transfer Family offers fully managed support for the transfer of files over SFTP, AS2, FTPS, FTP, and web browser-based transfers directly into and out of AWS storage services. [llms.txt](https://docs.aws.amazon.com/transfer/latest/APIReference/llms.txt)
 
 - [AWS Transfer Family User Guide](https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.md): Learn about and start working with the AWS Transfer Family a secure transfer service that enables you to transfer files into and out of AWS storage services. [llms.txt](https://docs.aws.amazon.com/transfer/latest/userguide/llms.txt)
 
-- [AWS Migration Hub Migration Launch Guide](https://docs.aws.amazon.com/transform/latest/launchguide/what-is-mlg.md): This guide offers guidance on the resources that customers commonly use when migrating to or modernizing on AWS. [llms.txt](https://docs.aws.amazon.com/transform/latest/launchguide/llms.txt)
+- [Migration Launch Guide](https://docs.aws.amazon.com/transform/latest/launchguide/what-is-mlg.md): This guide offers guidance on the resources that customers commonly use when migrating to or modernizing on AWS. [llms.txt](https://docs.aws.amazon.com/transform/latest/launchguide/llms.txt)
 
 - [AWS Transform User Guide](https://docs.aws.amazon.com/transform/latest/userguide/what-is-service.md): Learn about AWS Transform, a service that can help you plan and execute migration and modernization jobs. [llms.txt](https://docs.aws.amazon.com/transform/latest/userguide/llms.txt)
 
@@ -1777,11 +1801,11 @@
 
 - [AWS Trusted Advisor API Reference](https://docs.aws.amazon.com/trustedadvisor/latest/APIReference/Welcome.md): TrustedAdvisor Public API [llms.txt](https://docs.aws.amazon.com/trustedadvisor/latest/APIReference/llms.txt)
 
-- [Timestream for InfluxDB API Reference](https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/Welcome.md): Amazon Timestream for InfluxDB is a managed time-series database engine that makes it easy for application developers and DevOps teams to run InfluxDB databases on AWS for near real-time time-series applications using open-source APIs. [llms.txt](https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/llms.txt)
+- [Timestream for InfluxDB Welcome](https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/Welcome.md): Amazon Timestream for InfluxDB is a managed time-series database engine that makes it easy for application developers and DevOps teams to run InfluxDB databases on AWS for near real-time time-series applications using open-source APIs. [llms.txt](https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/llms.txt)
 
 - [AWS Verified Access User Guide](https://docs.aws.amazon.com/verified-access/latest/ug/what-is-verified-access.md): Learn about AWS Verified Access, a service that helps you manage secure access to applications without requiring users to connect to a virtual private network. [llms.txt](https://docs.aws.amazon.com/verified-access/latest/ug/llms.txt)
 
-- [Amazon Verified Permissions API Reference Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/Welcome.md): Amazon Verified Permissions is a permissions management service from AWS. [llms.txt](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/llms.txt)
+- [Amazon Verified Permissions API Reference](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/Welcome.md): Amazon Verified Permissions is a permissions management service from AWS. [llms.txt](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/llms.txt)
 
 - [Amazon Verified Permissions User Guide](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.md): Learn about Amazon Verified Permissions, a scalable, fine-grained permissions management and authorization service for custom applications. [llms.txt](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/llms.txt)
 
@@ -1863,7 +1887,7 @@
 
 - [Amazon WorkSpaces Administration Guide](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.md): Amazon WorkSpaces is a fully managed desktop computing service in the cloud. [llms.txt](https://docs.aws.amazon.com/workspaces/latest/adminguide/llms.txt)
 
-- [Amazon WorkSpaces Service API Reference](https://docs.aws.amazon.com/workspaces/latest/api/welcome.md): Amazon WorkSpaces API reference. [llms.txt](https://docs.aws.amazon.com/workspaces/latest/api/llms.txt)
+- [Amazon WorkSpaces Service API Reference](https://docs.aws.amazon.com/workspaces/latest/api/Welcome.md): Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows or Amazon Linux desktops for your users, known as WorkSpaces. [llms.txt](https://docs.aws.amazon.com/workspaces/latest/api/llms.txt)
 
 - [Amazon WorkSpaces User Guide](https://docs.aws.amazon.com/workspaces/latest/userguide/workspaces-user-getting-started.md): How to get started using your WorkSpace. [llms.txt](https://docs.aws.amazon.com/workspaces/latest/userguide/llms.txt)
 

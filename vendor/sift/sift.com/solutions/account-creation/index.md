@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Fake Account Creation
+# Airtight Protection for Account Creation
+
+Home/Solutions/Fake Account Creation
 
 # Airtight Protection for Account Creation
 
@@ -10,7 +12,7 @@ Expand fearlessly with bulletproof, AI-fueled account creation that delivers ent
 
 —Wayan Tresna Perdana, Sr. Product Manager | User Platform at Traveloka
 
-[Speak to an Expert](/demo/)[Get One-Pager](/resources/onepagers/sift-and-account-defense/)
+Speak to an ExpertGet One-Pager
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,11 +36,11 @@ Of expert fraud fighters in your corner
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [How It Works](#how-it-works)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   How It Works
+*   Successes
 
 ## Fraudulent Account Creation Threatens Secure Growth
 
@@ -48,15 +50,15 @@ Businesses that turn a blind eye to account creation are a target for fraud. Mas
 
 $6.7B
 
-In new account fraud losses\*
+In new account fraud losses*
 
-[\*Source: Javelin](https://javelinstrategy.com/whitepapers/new-account-fraud-threat-down-every-avenue)
+*Source: Javelin
 
 109%
 
-Increase in new account fraud losses in recent years\*
+Increase in new account fraud losses in recent years*
 
-[\*Source: Javelin](https://javelinstrategy.com/whitepapers/new-account-fraud-threat-down-every-avenue)
+*Source: Javelin
 
 ## Secure Every Stage of the User Journey
 
@@ -66,7 +68,7 @@ Increase in new account fraud losses in recent years\*
 
 **Manage fraud at scale.** Automate risk decisions, deep-dive into complex cases, and accelerate manual review with a comprehensive view into the entire user journey in one console.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![Woman with laptop](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -122,7 +124,7 @@ Unlock conversion for trusted users and block risky ones with Sift’s 0.1% ATO 
 
 ## Accelerating Secure Growth with AI-fueled Data and Decisioning
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Smartproxy-logo-color](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20448%2053'%3E%3C/svg%3E)
 
@@ -138,7 +140,7 @@ Lukas Marcinkevicius
 
 Payments and Risk Lead at Smartproxy
 
-[read customer story](/resources/case-studies/smartproxy-case-study/)
+read customer story
 
 ![Smartproxy](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -160,7 +162,7 @@ Yan Pritzker
 
 Co-founder & CTO Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![case-study-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -182,7 +184,7 @@ Wayan Tresna Perdana
 
 Sr. Product Manager - User Platform Traveloka
 
-[read customer story](/resources/case-studies/traveloka/)
+read customer story
 
 ![case-study-traveloka](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -202,8 +204,6 @@ Evolving risk is an opportunity to redefine reward. Fraud pain points become bus
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Account Takeover
@@ -211,8 +211,6 @@ Account Takeover
 Make trusted users untouchable with bulletproof account protection.
 
 learn more
-
-](/solutions/ato/)[
 
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -222,8 +220,6 @@ Keep transactions and transfers secure across users, no matter the size, sum, or
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![Policy Abuse](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Policy Abuse
@@ -232,8 +228,6 @@ Protect return policies, promo offers, and customer perks from misuse.
 
 learn more
 
-](/solutions/policy-abuse/)[
-
 ![Content Scams](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Content Scams
@@ -241,8 +235,6 @@ Content Scams
 Stop spam, scams, and phishing schemes from undercutting trust and revenue.
 
 learn more
-
-](/solutions/content-scams/)
 
 ### Start Your Digital Risk Assessment
 
@@ -254,13 +246,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -270,8 +260,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -279,8 +267,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -290,13 +276,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

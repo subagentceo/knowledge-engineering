@@ -10,7 +10,7 @@
 
 ## OpenAPI
 
-````yaml /openapi.json post /v1/agents/async
+````yaml /api-reference/openapi.json post /v1/agents/async
 openapi: 3.1.0
 info:
   title: Nimble SDK

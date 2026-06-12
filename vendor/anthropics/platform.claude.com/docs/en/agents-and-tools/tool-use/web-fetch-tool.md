@@ -6,7 +6,7 @@ Fetch and read content from specific URLs to augment Claude's context with live 
 
 The web fetch tool allows Claude to retrieve full content from specified web pages and PDF documents.
 
-The latest web fetch tool version (`web_fetch_20260209`) supports **dynamic filtering** with Claude Opus 4.8, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Claude can write and execute code to filter fetched content before it reaches the context window, keeping only relevant information and discarding the rest. This reduces token consumption while maintaining response quality. The previous tool version (`web_fetch_20250910`) remains available without dynamic filtering.
+The latest web fetch tool version (`web_fetch_20260209`) supports **dynamic filtering** with Claude Fable 5, Claude Opus 4.8, Claude Mythos 5, [Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6. Claude can write and execute code to filter fetched content before it reaches the context window, keeping only relevant information and discarding the rest. This reduces token consumption while maintaining response quality. The previous tool version (`web_fetch_20250910`) remains available without dynamic filtering.
 
 <Note>
 For [Claude Mythos Preview](https://anthropic.com/glasswing), web fetch is available on the Claude API and Microsoft Foundry. It is not currently available for Mythos Preview on Amazon Bedrock or Vertex AI.
@@ -24,11 +24,10 @@ Enabling the web fetch tool in environments where Claude processes untrusted inp
 To minimize exfiltration risks, Claude is not allowed to dynamically construct URLs. Claude can only fetch URLs that have been explicitly provided by the user or that come from previous web search or web fetch results. However, there is still residual risk that should be carefully considered when using this tool.
 
 If data exfiltration is a concern, consider:
-
 - Disabling the web fetch tool entirely
 - Using the `max_uses` parameter to limit the number of requests
 - Using the `allowed_domains` parameter to restrict to known safe domains
-  </Warning>
+</Warning>
 
 For model support, see the [Tool reference](/docs/en/agents-and-tools/tool-use/tool-reference).
 
@@ -59,7 +58,6 @@ Claude does **not** fetch for general-knowledge or open-ended questions that don
 Fetching full web pages and PDFs can quickly consume tokens, especially when only specific information is needed from large documents. With the `web_fetch_20260209` tool version, Claude can write and execute code to filter the fetched content before loading it into context.
 
 This dynamic filtering is particularly useful for:
-
 - Extracting specific sections from long documents
 - Processing structured data from web pages
 - Filtering relevant information from PDFs
@@ -140,10 +138,10 @@ async function main() {
       {
         role: "user",
         content:
-          "Fetch the content at https://example.com/research-paper and extract the key findings.",
-      },
+          "Fetch the content at https://example.com/research-paper and extract the key findings."
+      }
     ],
-    tools: [{ type: "web_fetch_20260209", name: "web_fetch" }],
+    tools: [{ type: "web_fetch_20260209", name: "web_fetch" }]
   });
 
   console.log(response);
@@ -229,7 +227,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 4096,
@@ -263,7 +261,6 @@ message = client.messages.create(
 )
 puts message
 ```
-
 </CodeGroup>
 
 ## How to use web fetch
@@ -332,16 +329,16 @@ async function main() {
     messages: [
       {
         role: "user",
-        content: "Please analyze the content at https://example.com/article",
-      },
+        content: "Please analyze the content at https://example.com/article"
+      }
     ],
     tools: [
       {
         type: "web_fetch_20250910",
         name: "web_fetch",
-        max_uses: 5,
-      },
-    ],
+        max_uses: 5
+      }
+    ]
   });
 
   console.log(response);
@@ -431,7 +428,7 @@ void main() {
 
 use Anthropic\Client;
 
-$client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
+$client = new Client();
 
 $message = $client->messages->create(
     maxTokens: 1024,
@@ -467,7 +464,6 @@ message = client.messages.create(
 )
 puts message
 ```
-
 </CodeGroup>
 
 ### Tool definition
@@ -699,7 +695,6 @@ print(response)
 ```
 
 In this workflow, Claude will:
-
 1. Use web search to find relevant articles
 2. Select the most promising results
 3. Use web fetch to retrieve full content
@@ -767,7 +762,6 @@ The web fetch tool is available on the Claude API at **no additional cost**. You
 To protect against inadvertently fetching large content that would consume excessive tokens, use the `max_content_tokens` parameter to set appropriate limits based on your use case and budget considerations.
 
 Example token usage for typical content:
-
 - Average web page (10&nbsp;kB): ~2,500 tokens
 - Large documentation page (100&nbsp;kB): ~25,000 tokens
 - Research paper PDF (500&nbsp;kB): ~125,000 tokens

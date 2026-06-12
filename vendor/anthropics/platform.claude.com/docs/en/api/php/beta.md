@@ -5,6 +5,7 @@
 ### Anthropic Beta
 
 - `AnthropicBeta`
+
   - `"message-batches-2024-09-24"`
 
   - `"prompt-caching-2024-07-31"`
@@ -57,11 +58,14 @@
 
   - `"thinking-token-count-2026-05-13"`
 
-  - `"mid-conversation-system-2026-04-07"`
+  - `"server-side-fallback-2026-06-01"`
+
+  - `"fallback-credit-2026-06-01"`
 
 ### Beta API Error
 
 - `BetaAPIError`
+
   - `string message`
 
   - `"api_error" type`
@@ -69,6 +73,7 @@
 ### Beta Authentication Error
 
 - `BetaAuthenticationError`
+
   - `string message`
 
   - `"authentication_error" type`
@@ -76,6 +81,7 @@
 ### Beta Billing Error
 
 - `BetaBillingError`
+
   - `string message`
 
   - `"billing_error" type`
@@ -83,47 +89,57 @@
 ### Beta Error
 
 - `BetaError`
+
   - `BetaInvalidRequestError`
+
     - `string message`
 
     - `"invalid_request_error" type`
 
   - `BetaAuthenticationError`
+
     - `string message`
 
     - `"authentication_error" type`
 
   - `BetaBillingError`
+
     - `string message`
 
     - `"billing_error" type`
 
   - `BetaPermissionError`
+
     - `string message`
 
     - `"permission_error" type`
 
   - `BetaNotFoundError`
+
     - `string message`
 
     - `"not_found_error" type`
 
   - `BetaRateLimitError`
+
     - `string message`
 
     - `"rate_limit_error" type`
 
   - `BetaGatewayTimeoutError`
+
     - `string message`
 
     - `"timeout_error" type`
 
   - `BetaAPIError`
+
     - `string message`
 
     - `"api_error" type`
 
   - `BetaOverloadedError`
+
     - `string message`
 
     - `"overloaded_error" type`
@@ -131,6 +147,7 @@
 ### Beta Error Response
 
 - `BetaErrorResponse`
+
   - `BetaError error`
 
   - `?string requestID`
@@ -140,6 +157,7 @@
 ### Beta Gateway Timeout Error
 
 - `BetaGatewayTimeoutError`
+
   - `string message`
 
   - `"timeout_error" type`
@@ -147,6 +165,7 @@
 ### Beta Invalid Request Error
 
 - `BetaInvalidRequestError`
+
   - `string message`
 
   - `"invalid_request_error" type`
@@ -154,6 +173,7 @@
 ### Beta Not Found Error
 
 - `BetaNotFoundError`
+
   - `string message`
 
   - `"not_found_error" type`
@@ -161,6 +181,7 @@
 ### Beta Overloaded Error
 
 - `BetaOverloadedError`
+
   - `string message`
 
   - `"overloaded_error" type`
@@ -168,6 +189,7 @@
 ### Beta Permission Error
 
 - `BetaPermissionError`
+
   - `string message`
 
   - `"permission_error" type`
@@ -175,6 +197,7 @@
 ### Beta Rate Limit Error
 
 - `BetaRateLimitError`
+
   - `string message`
 
   - `"rate_limit_error" type`
@@ -214,9 +237,14 @@ The Models API response can be used to determine which models are available for 
 ### Returns
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -270,6 +298,9 @@ var_dump($page);
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true
@@ -367,9 +398,14 @@ The Models API response can be used to determine information about a specific mo
 ### Returns
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -418,6 +454,9 @@ var_dump($betaModelInfo);
 ```json
 {
   "id": "claude-opus-4-6",
+  "allowed_fallback_models": [
+    "string"
+  ],
   "capabilities": {
     "batch": {
       "supported": true
@@ -492,6 +531,7 @@ var_dump($betaModelInfo);
 ### Beta Capability Support
 
 - `BetaCapabilitySupport`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -499,6 +539,7 @@ var_dump($betaModelInfo);
 ### Beta Context Management Capability
 
 - `BetaContextManagementCapability`
+
   - `?BetaCapabilitySupport clearThinking20251015`
 
     Indicates whether a capability is supported.
@@ -518,6 +559,7 @@ var_dump($betaModelInfo);
 ### Beta Effort Capability
 
 - `BetaEffortCapability`
+
   - `BetaCapabilitySupport high`
 
     Whether the model supports high effort level.
@@ -545,6 +587,7 @@ var_dump($betaModelInfo);
 ### Beta Model Capabilities
 
 - `BetaModelCapabilities`
+
   - `BetaCapabilitySupport batch`
 
     Whether the model supports the Batch API.
@@ -584,9 +627,14 @@ var_dump($betaModelInfo);
 ### Beta Model Info
 
 - `BetaModelInfo`
+
   - `string id`
 
     Unique model identifier.
+
+  - `?list<string> allowedFallbackModels`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
 
   - `?BetaModelCapabilities capabilities`
 
@@ -617,6 +665,7 @@ var_dump($betaModelInfo);
 ### Beta Thinking Capability
 
 - `BetaThinkingCapability`
+
   - `bool supported`
 
     Whether this capability is supported by the model.
@@ -628,6 +677,7 @@ var_dump($betaModelInfo);
 ### Beta Thinking Types
 
 - `BetaThinkingTypes`
+
   - `BetaCapabilitySupport adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).
@@ -640,7 +690,7 @@ var_dump($betaModelInfo);
 
 ## Create a Message
 
-`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?list<AnthropicBeta> betas): BetaMessage`
+`$client->beta->messages->create(int maxTokens, list<BetaMessageParam> messages, Model model, ?BetaCacheControlEphemeral cacheControl, ?Container container, ?BetaContextManagementConfig contextManagement, ?BetaDiagnosticsParam diagnostics, ?string fallbackCreditToken, ?list<BetaFallbackParam> fallbacks, ?string inferenceGeo, ?list<BetaRequestMCPServerURLDefinition> mcpServers, ?BetaMetadata metadata, ?BetaOutputConfig outputConfig, ?BetaJSONOutputFormat outputFormat, ?ServiceTier serviceTier, ?Speed speed, ?list<string> stopSequences, ?System system, ?float temperature, ?BetaThinkingConfigParam thinking, ?BetaToolChoice toolChoice, ?list<BetaToolUnion> tools, ?int topK, ?float topP, ?string userProfileID, ?list<AnthropicBeta> betas): BetaMessage`
 
 **post** `/v1/messages`
 
@@ -660,7 +710,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-  Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
+  Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
 - `messages: list<BetaMessageParam>`
 
@@ -675,16 +725,16 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -692,22 +742,19 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -740,6 +787,33 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
   Request-level diagnostics. Currently carries the previous response
   id for prompt-cache divergence reporting.
+
+- `fallbackCreditToken?:optional string`
+
+  The `fallback_credit_token` from a prior refusal's `stop_details`.
+
+  When a preceding request was refused and returned a `fallback_credit_token`,
+  pass that code here on the retry to have the retry's cache-creation tokens
+  for the prefix that was warm on the refused model billed at the cache-read
+  rate. Must be redeemed by the same organization and workspace, with the same
+  request body (optionally extended by one appended `assistant` message whose
+  content is the partial text — with any trailing whitespace stripped from
+  the final text block — and paired server-tool blocks streamed before the
+  refusal; the appended-assistant form is not available for requests with
+  `output_format` set or forced `tool_choice`), on an eligible fallback
+  model, on the same platform,
+  and within 5 minutes of the refusal; a mismatch is a 400. A token minted
+  mid-server-tool-loop whose partial content was continuable may only be
+  redeemed with the appended-assistant form — if an exact-body retry is
+  rejected with a 400 saying the token must be redeemed by continuing the
+  partial response, retry with the appended-assistant form instead.
+
+  When the appended-assistant form is used on a model that otherwise disallows
+  assistant-turn prefill, this token also authorizes that one prefill.
+
+- `fallbacks?:optional list<BetaFallbackParam>`
+
+  Opt-in server-side retry on one or more substitute models when the requested model declines for policy reasons. Tried in order: if the first entry also declines, the second is tried, and so on.
 
 - `inferenceGeo?:optional string`
 
@@ -822,9 +896,10 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -903,6 +978,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 ### Returns
 
 - `BetaMessage`
+
   - `string id`
 
     Unique object identifier.
@@ -922,7 +998,7 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -931,18 +1007,15 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
   - `?BetaContextManagementResponse contextManagement`
@@ -977,12 +1050,13 @@ Learn more about the Messages API in our [user guide](https://docs.claude.com/en
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -1043,6 +1117,22 @@ $betaMessage = $client->beta->messages->create(
     ],
   ],
   diagnostics: ['previousMessageID' => 'previous_message_id'],
+  fallbackCreditToken: 'x',
+  fallbacks: [
+    [
+      'model' => 'claude-fable-5',
+      'maxTokens' => 0,
+      'outputConfig' => [
+        'effort' => 'low',
+        'format' => ['schema' => ['foo' => 'bar'], 'type' => 'json_schema'],
+        'taskBudget' => ['total' => 1024, 'type' => 'tokens', 'remaining' => 0],
+      ],
+      'speed' => 'standard',
+      'thinking' => [
+        'budgetTokens' => 1024, 'type' => 'enabled', 'display' => 'summarized'
+      ],
+    ],
+  ],
   inferenceGeo: 'inference_geo',
   mcpServers: [
     [
@@ -1163,6 +1253,9 @@ var_dump($betaMessage);
   "stop_details": {
     "category": "cyber",
     "explanation": "explanation",
+    "fallback_credit_token": "fallback_credit_token",
+    "fallback_has_prefill_claim": true,
+    "recommended_model": "recommended_model",
     "type": "refusal"
   },
   "stop_reason": "end_turn",
@@ -1186,6 +1279,7 @@ var_dump($betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
+        "model": "claude-fable-5",
         "output_tokens": 0,
         "type": "message"
       }
@@ -1231,16 +1325,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   Example with a single `user` message:
 
   ```json
-  [{ "role": "user", "content": "Hello, Claude" }]
+  [{"role": "user", "content": "Hello, Claude"}]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    { "role": "user", "content": "Hello there." },
-    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
-    { "role": "user", "content": "Can you explain LLMs in plain English?" }
+    {"role": "user", "content": "Hello there."},
+    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
+    {"role": "user", "content": "Can you explain LLMs in plain English?"},
   ]
   ```
 
@@ -1248,22 +1342,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   ```json
   [
-    {
-      "role": "user",
-      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-    },
-    { "role": "assistant", "content": "The best answer is (" }
+    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+    {"role": "assistant", "content": "The best answer is ("},
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  { "role": "user", "content": "Hello, Claude" }
+  {"role": "user", "content": "Hello, Claude"}
   ```
 
   ```json
-  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
+  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -1333,9 +1424,10 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-  - `name`: Name of the tool.
-  - `description`: Optional, but strongly-recommended description of the tool.
-  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+
+  * `name`: Name of the tool.
+  * `description`: Optional, but strongly-recommended description of the tool.
+  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -1394,6 +1486,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 ### Returns
 
 - `BetaMessageTokensCount`
+
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
     Information about context management applied to the message.
@@ -1502,6 +1595,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Message Iteration Usage
 
 - `BetaAdvisorMessageIterationUsage`
+
   - `?BetaCacheCreation cacheCreation`
 
     Breakdown of cached tokens by TTL
@@ -1535,6 +1629,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Redacted Result Block
 
 - `BetaAdvisorRedactedResultBlock`
+
   - `string encryptedContent`
 
     Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
@@ -1548,6 +1643,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Redacted Result Block Param
 
 - `BetaAdvisorRedactedResultBlockParam`
+
   - `string encryptedContent`
 
     Opaque blob produced by a prior response; must be round-tripped verbatim.
@@ -1559,6 +1655,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Result Block
 
 - `BetaAdvisorResultBlock`
+
   - `?string stopReason`
 
     The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
@@ -1570,6 +1667,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Result Block Param
 
 - `BetaAdvisorResultBlockParam`
+
   - `string text`
 
   - `"advisor_result" type`
@@ -1579,6 +1677,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Tool 20260301
 
 - `BetaAdvisorTool20260301`
+
   - `Model model`
 
     The model that will complete your prompt.
@@ -1607,6 +1706,10 @@ var_dump($betaMessageTokensCount);
 
     If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+  - `?int maxTokens`
+
+    Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
   - `?int maxUses`
 
     Maximum number of times the tool can be used in the API request.
@@ -1618,6 +1721,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Tool Result Block
 
 - `BetaAdvisorToolResultBlock`
+
   - `Content content`
 
   - `string toolUseID`
@@ -1627,6 +1731,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Tool Result Block Param
 
 - `BetaAdvisorToolResultBlockParam`
+
   - `Content content`
 
   - `string toolUseID`
@@ -1640,6 +1745,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Tool Result Error
 
 - `BetaAdvisorToolResultError`
+
   - `ErrorCode errorCode`
 
   - `"advisor_tool_result_error" type`
@@ -1647,6 +1753,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Advisor Tool Result Error Param
 
 - `BetaAdvisorToolResultErrorParam`
+
   - `ErrorCode errorCode`
 
   - `"advisor_tool_result_error" type`
@@ -1654,11 +1761,13 @@ var_dump($betaMessageTokensCount);
 ### Beta All Thinking Turns
 
 - `BetaAllThinkingTurns`
+
   - `"all" type`
 
 ### Beta Base64 Image Source
 
 - `BetaBase64ImageSource`
+
   - `string data`
 
   - `MediaType mediaType`
@@ -1668,6 +1777,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Base64 PDF Source
 
 - `BetaBase64PDFSource`
+
   - `string data`
 
   - `"application/pdf" mediaType`
@@ -1677,6 +1787,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Output Block
 
 - `BetaBashCodeExecutionOutputBlock`
+
   - `string fileID`
 
   - `"bash_code_execution_output" type`
@@ -1684,6 +1795,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Output Block Param
 
 - `BetaBashCodeExecutionOutputBlockParam`
+
   - `string fileID`
 
   - `"bash_code_execution_output" type`
@@ -1691,6 +1803,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Result Block
 
 - `BetaBashCodeExecutionResultBlock`
+
   - `list<BetaBashCodeExecutionOutputBlock> content`
 
   - `int returnCode`
@@ -1704,6 +1817,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Result Block Param
 
 - `BetaBashCodeExecutionResultBlockParam`
+
   - `list<BetaBashCodeExecutionOutputBlockParam> content`
 
   - `int returnCode`
@@ -1717,6 +1831,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Block
 
 - `BetaBashCodeExecutionToolResultBlock`
+
   - `Content content`
 
   - `string toolUseID`
@@ -1726,6 +1841,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Block Param
 
 - `BetaBashCodeExecutionToolResultBlockParam`
+
   - `Content content`
 
   - `string toolUseID`
@@ -1739,6 +1855,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Error
 
 - `BetaBashCodeExecutionToolResultError`
+
   - `ErrorCode errorCode`
 
   - `"bash_code_execution_tool_result_error" type`
@@ -1746,6 +1863,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Bash Code Execution Tool Result Error Param
 
 - `BetaBashCodeExecutionToolResultErrorParam`
+
   - `ErrorCode errorCode`
 
   - `"bash_code_execution_tool_result_error" type`
@@ -1753,6 +1871,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Control Ephemeral
 
 - `BetaCacheControlEphemeral`
+
   - `"ephemeral" type`
 
   - `?TTL ttl`
@@ -1760,6 +1879,7 @@ var_dump($betaMessageTokensCount);
     The time-to-live for the cache control breakpoint.
 
     This may be one the following values:
+
     - `5m`: 5 minutes
     - `1h`: 1 hour
 
@@ -1768,6 +1888,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Creation
 
 - `BetaCacheCreation`
+
   - `int ephemeral1hInputTokens`
 
     The number of input tokens used to create the 1 hour cache entry.
@@ -1779,6 +1900,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Miss Messages Changed
 
 - `BetaCacheMissMessagesChanged`
+
   - `int cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -1788,6 +1910,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Miss Model Changed
 
 - `BetaCacheMissModelChanged`
+
   - `int cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -1797,11 +1920,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Miss Previous Message Not Found
 
 - `BetaCacheMissPreviousMessageNotFound`
+
   - `"previous_message_not_found" type`
 
 ### Beta Cache Miss System Changed
 
 - `BetaCacheMissSystemChanged`
+
   - `int cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -1811,6 +1936,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Miss Tools Changed
 
 - `BetaCacheMissToolsChanged`
+
   - `int cacheMissedInputTokens`
 
     Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
@@ -1820,11 +1946,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Cache Miss Unavailable
 
 - `BetaCacheMissUnavailable`
+
   - `"unavailable" type`
 
 ### Beta Citation Char Location
 
 - `BetaCitationCharLocation`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1842,6 +1970,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Char Location Param
 
 - `BetaCitationCharLocationParam`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1857,11 +1986,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Config
 
 - `BetaCitationConfig`
+
   - `bool enabled`
 
 ### Beta Citation Content Block Location
 
 - `BetaCitationContentBlockLocation`
+
   - `string citedText`
 
     The full text of the cited block range, concatenated.
@@ -1889,6 +2020,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Content Block Location Param
 
 - `BetaCitationContentBlockLocationParam`
+
   - `string citedText`
 
     The full text of the cited block range, concatenated.
@@ -1914,6 +2046,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Page Location
 
 - `BetaCitationPageLocation`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1931,6 +2064,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Page Location Param
 
 - `BetaCitationPageLocationParam`
+
   - `string citedText`
 
   - `int documentIndex`
@@ -1946,6 +2080,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Search Result Location
 
 - `BetaCitationSearchResultLocation`
+
   - `string citedText`
 
     The full text of the cited block range, concatenated.
@@ -1977,6 +2112,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Search Result Location Param
 
 - `BetaCitationSearchResultLocationParam`
+
   - `string citedText`
 
     The full text of the cited block range, concatenated.
@@ -2008,6 +2144,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citation Web Search Result Location Param
 
 - `BetaCitationWebSearchResultLocationParam`
+
   - `string citedText`
 
   - `string encryptedIndex`
@@ -2021,11 +2158,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Citations Config Param
 
 - `BetaCitationsConfigParam`
+
   - `?bool enabled`
 
 ### Beta Citations Delta
 
 - `BetaCitationsDelta`
+
   - `Citation citation`
 
   - `"citations_delta" type`
@@ -2033,6 +2172,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Citations Web Search Result Location
 
 - `BetaCitationsWebSearchResultLocation`
+
   - `string citedText`
 
   - `string encryptedIndex`
@@ -2046,6 +2186,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Clear Thinking 20251015 Edit
 
 - `BetaClearThinking20251015Edit`
+
   - `"clear_thinking_20251015" type`
 
   - `?Keep keep`
@@ -2055,6 +2196,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Clear Thinking 20251015 Edit Response
 
 - `BetaClearThinking20251015EditResponse`
+
   - `int clearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -2070,6 +2212,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Clear Tool Uses 20250919 Edit
 
 - `BetaClearToolUses20250919Edit`
+
   - `"clear_tool_uses_20250919" type`
 
   - `?BetaInputTokensClearAtLeast clearAtLeast`
@@ -2095,6 +2238,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Clear Tool Uses 20250919 Edit Response
 
 - `BetaClearToolUses20250919EditResponse`
+
   - `int clearedInputTokens`
 
     Number of input tokens cleared by this edit.
@@ -2110,6 +2254,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Output Block
 
 - `BetaCodeExecutionOutputBlock`
+
   - `string fileID`
 
   - `"code_execution_output" type`
@@ -2117,6 +2262,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Output Block Param
 
 - `BetaCodeExecutionOutputBlockParam`
+
   - `string fileID`
 
   - `"code_execution_output" type`
@@ -2124,6 +2270,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Result Block
 
 - `BetaCodeExecutionResultBlock`
+
   - `list<BetaCodeExecutionOutputBlock> content`
 
   - `int returnCode`
@@ -2137,6 +2284,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Result Block Param
 
 - `BetaCodeExecutionResultBlockParam`
+
   - `list<BetaCodeExecutionOutputBlockParam> content`
 
   - `int returnCode`
@@ -2150,6 +2298,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool 20250522
 
 - `BetaCodeExecutionTool20250522`
+
   - `"code_execution" name`
 
     Name of the tool.
@@ -2175,6 +2324,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool 20250825
 
 - `BetaCodeExecutionTool20250825`
+
   - `"code_execution" name`
 
     Name of the tool.
@@ -2200,6 +2350,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool 20260120
 
 - `BetaCodeExecutionTool20260120`
+
   - `"code_execution" name`
 
     Name of the tool.
@@ -2225,6 +2376,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block
 
 - `BetaCodeExecutionToolResultBlock`
+
   - `BetaCodeExecutionToolResultBlockContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
@@ -2236,12 +2388,15 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block Content
 
 - `BetaCodeExecutionToolResultBlockContent`
+
   - `BetaCodeExecutionToolResultError`
+
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
     - `"code_execution_tool_result_error" type`
 
   - `BetaCodeExecutionResultBlock`
+
     - `list<BetaCodeExecutionOutputBlock> content`
 
     - `int returnCode`
@@ -2253,6 +2408,7 @@ var_dump($betaMessageTokensCount);
     - `"code_execution_result" type`
 
   - `BetaEncryptedCodeExecutionResultBlock`
+
     - `list<BetaCodeExecutionOutputBlock> content`
 
     - `string encryptedStdout`
@@ -2266,6 +2422,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block Param
 
 - `BetaCodeExecutionToolResultBlockParam`
+
   - `BetaCodeExecutionToolResultBlockParamContent content`
 
     Code execution result with encrypted stdout for PFC + web_search results.
@@ -2281,12 +2438,15 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Block Param Content
 
 - `BetaCodeExecutionToolResultBlockParamContent`
+
   - `BetaCodeExecutionToolResultErrorParam`
+
     - `BetaCodeExecutionToolResultErrorCode errorCode`
 
     - `"code_execution_tool_result_error" type`
 
   - `BetaCodeExecutionResultBlockParam`
+
     - `list<BetaCodeExecutionOutputBlockParam> content`
 
     - `int returnCode`
@@ -2298,6 +2458,7 @@ var_dump($betaMessageTokensCount);
     - `"code_execution_result" type`
 
   - `BetaEncryptedCodeExecutionResultBlockParam`
+
     - `list<BetaCodeExecutionOutputBlockParam> content`
 
     - `string encryptedStdout`
@@ -2311,6 +2472,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error
 
 - `BetaCodeExecutionToolResultError`
+
   - `BetaCodeExecutionToolResultErrorCode errorCode`
 
   - `"code_execution_tool_result_error" type`
@@ -2318,6 +2480,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error Code
 
 - `BetaCodeExecutionToolResultErrorCode`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -2329,6 +2492,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Code Execution Tool Result Error Param
 
 - `BetaCodeExecutionToolResultErrorParam`
+
   - `BetaCodeExecutionToolResultErrorCode errorCode`
 
   - `"code_execution_tool_result_error" type`
@@ -2336,6 +2500,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Compact 20260112 Edit
 
 - `BetaCompact20260112Edit`
+
   - `"compact_20260112" type`
 
   - `?string instructions`
@@ -2353,6 +2518,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Compaction Block
 
 - `BetaCompactionBlock`
+
   - `?string content`
 
     Summary of compacted content, or null if compaction failed
@@ -2366,6 +2532,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Compaction Block Param
 
 - `BetaCompactionBlockParam`
+
   - `"compaction" type`
 
   - `?BetaCacheControlEphemeral cacheControl`
@@ -2383,6 +2550,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Compaction Content Block Delta
 
 - `BetaCompactionContentBlockDelta`
+
   - `?string content`
 
   - `?string encryptedContent`
@@ -2394,6 +2562,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Compaction Iteration Usage
 
 - `BetaCompactionIterationUsage`
+
   - `?BetaCacheCreation cacheCreation`
 
     Breakdown of cached tokens by TTL
@@ -2421,6 +2590,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Container
 
 - `BetaContainer`
+
   - `string id`
 
     Identifier for the container used in this request
@@ -2436,6 +2606,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Container Params
 
 - `BetaContainerParams`
+
   - `?string id`
 
     Container id
@@ -2447,6 +2618,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Container Upload Block
 
 - `BetaContainerUploadBlock`
+
   - `string fileID`
 
   - `"container_upload" type`
@@ -2454,6 +2626,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Container Upload Block Param
 
 - `BetaContainerUploadBlockParam`
+
   - `string fileID`
 
   - `"container_upload" type`
@@ -2465,7 +2638,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Content Block
 
 - `BetaContentBlock`
+
   - `BetaTextBlock`
+
     - `?list<BetaTextCitation> citations`
 
       Citations supporting the text block.
@@ -2477,6 +2652,7 @@ var_dump($betaMessageTokensCount);
     - `"text" type`
 
   - `BetaThinkingBlock`
+
     - `string signature`
 
     - `string thinking`
@@ -2484,11 +2660,13 @@ var_dump($betaMessageTokensCount);
     - `"thinking" type`
 
   - `BetaRedactedThinkingBlock`
+
     - `string data`
 
     - `"redacted_thinking" type`
 
   - `BetaToolUseBlock`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2502,6 +2680,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaServerToolUseBlock`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2515,6 +2694,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaWebSearchToolResultBlock`
+
     - `BetaWebSearchToolResultBlockContent content`
 
     - `string toolUseID`
@@ -2526,6 +2706,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaWebFetchToolResultBlock`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2537,6 +2718,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaAdvisorToolResultBlock`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2544,6 +2726,7 @@ var_dump($betaMessageTokensCount);
     - `"advisor_tool_result" type`
 
   - `BetaCodeExecutionToolResultBlock`
+
     - `BetaCodeExecutionToolResultBlockContent content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
@@ -2553,6 +2736,7 @@ var_dump($betaMessageTokensCount);
     - `"code_execution_tool_result" type`
 
   - `BetaBashCodeExecutionToolResultBlock`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2560,6 +2744,7 @@ var_dump($betaMessageTokensCount);
     - `"bash_code_execution_tool_result" type`
 
   - `BetaTextEditorCodeExecutionToolResultBlock`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2567,6 +2752,7 @@ var_dump($betaMessageTokensCount);
     - `"text_editor_code_execution_tool_result" type`
 
   - `BetaToolSearchToolResultBlock`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2574,6 +2760,7 @@ var_dump($betaMessageTokensCount);
     - `"tool_search_tool_result" type`
 
   - `BetaMCPToolUseBlock`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2589,6 +2776,7 @@ var_dump($betaMessageTokensCount);
     - `"mcp_tool_use" type`
 
   - `BetaMCPToolResultBlock`
+
     - `Content content`
 
     - `bool isError`
@@ -2598,11 +2786,13 @@ var_dump($betaMessageTokensCount);
     - `"mcp_tool_result" type`
 
   - `BetaContainerUploadBlock`
+
     - `string fileID`
 
     - `"container_upload" type`
 
   - `BetaCompactionBlock`
+
     - `?string content`
 
       Summary of compacted content, or null if compaction failed
@@ -2613,10 +2803,24 @@ var_dump($betaMessageTokensCount);
 
     - `"compaction" type`
 
+  - `BetaFallbackBlock`
+
+    - `BetaFallbackInfo from`
+
+      The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+    - `BetaFallbackInfo to`
+
+      The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+    - `"fallback" type`
+
 ### Beta Content Block Param
 
 - `BetaContentBlockParam`
+
   - `BetaTextBlockParam`
+
     - `string text`
 
     - `"text" type`
@@ -2628,6 +2832,7 @@ var_dump($betaMessageTokensCount);
     - `?list<BetaTextCitationParam> citations`
 
   - `BetaImageBlockParam`
+
     - `Source source`
 
     - `"image" type`
@@ -2637,6 +2842,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaRequestDocumentBlock`
+
     - `Source source`
 
     - `"document" type`
@@ -2652,6 +2858,7 @@ var_dump($betaMessageTokensCount);
     - `?string title`
 
   - `BetaSearchResultBlockParam`
+
     - `list<BetaTextBlockParam> content`
 
     - `string source`
@@ -2667,6 +2874,7 @@ var_dump($betaMessageTokensCount);
     - `?BetaCitationsConfigParam citations`
 
   - `BetaThinkingBlockParam`
+
     - `string signature`
 
     - `string thinking`
@@ -2674,11 +2882,13 @@ var_dump($betaMessageTokensCount);
     - `"thinking" type`
 
   - `BetaRedactedThinkingBlockParam`
+
     - `string data`
 
     - `"redacted_thinking" type`
 
   - `BetaToolUseBlockParam`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2696,6 +2906,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaToolResultBlockParam`
+
     - `string toolUseID`
 
     - `"tool_result" type`
@@ -2709,6 +2920,7 @@ var_dump($betaMessageTokensCount);
     - `?bool isError`
 
   - `BetaServerToolUseBlockParam`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2726,6 +2938,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaWebSearchToolResultBlockParam`
+
     - `BetaWebSearchToolResultBlockParamContent content`
 
     - `string toolUseID`
@@ -2741,6 +2954,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaWebFetchToolResultBlockParam`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2756,6 +2970,7 @@ var_dump($betaMessageTokensCount);
       Tool invocation directly from the model.
 
   - `BetaAdvisorToolResultBlockParam`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2767,6 +2982,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaCodeExecutionToolResultBlockParam`
+
     - `BetaCodeExecutionToolResultBlockParamContent content`
 
       Code execution result with encrypted stdout for PFC + web_search results.
@@ -2780,6 +2996,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaBashCodeExecutionToolResultBlockParam`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2791,6 +3008,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaTextEditorCodeExecutionToolResultBlockParam`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2802,6 +3020,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaToolSearchToolResultBlockParam`
+
     - `Content content`
 
     - `string toolUseID`
@@ -2813,6 +3032,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaMCPToolUseBlockParam`
+
     - `string id`
 
     - `array<string,mixed> input`
@@ -2830,6 +3050,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaRequestMCPToolResultBlockParam`
+
     - `string toolUseID`
 
     - `"mcp_tool_result" type`
@@ -2843,6 +3064,7 @@ var_dump($betaMessageTokensCount);
     - `?bool isError`
 
   - `BetaContainerUploadBlockParam`
+
     - `string fileID`
 
     - `"container_upload" type`
@@ -2852,6 +3074,7 @@ var_dump($betaMessageTokensCount);
       Create a cache control breakpoint at this content block.
 
   - `BetaCompactionBlockParam`
+
     - `"compaction" type`
 
     - `?BetaCacheControlEphemeral cacheControl`
@@ -2867,6 +3090,7 @@ var_dump($betaMessageTokensCount);
       Opaque metadata from prior compaction, to be round-tripped verbatim
 
   - `BetaMidConversationSystemBlockParam`
+
     - `list<BetaTextBlockParam> content`
 
       System instruction text blocks.
@@ -2877,9 +3101,22 @@ var_dump($betaMessageTokensCount);
 
       Create a cache control breakpoint at this content block.
 
+  - `BetaFallbackBlockParam`
+
+    - `BetaFallbackInfoParam from`
+
+      Identifies one hop of a fallback transition.
+
+    - `BetaFallbackInfoParam to`
+
+      Identifies one hop of a fallback transition.
+
+    - `"fallback" type`
+
 ### Beta Content Block Source
 
 - `BetaContentBlockSource`
+
   - `Content content`
 
   - `"content" type`
@@ -2887,7 +3124,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Content Block Source Content
 
 - `BetaContentBlockSourceContent`
+
   - `BetaTextBlockParam`
+
     - `string text`
 
     - `"text" type`
@@ -2899,6 +3138,7 @@ var_dump($betaMessageTokensCount);
     - `?list<BetaTextCitationParam> citations`
 
   - `BetaImageBlockParam`
+
     - `Source source`
 
     - `"image" type`
@@ -2910,6 +3150,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Context Management Config
 
 - `BetaContextManagementConfig`
+
   - `?list<Edit> edits`
 
     List of context management edits to apply
@@ -2917,6 +3158,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Context Management Response
 
 - `BetaContextManagementResponse`
+
   - `list<AppliedEdit> appliedEdits`
 
     List of context management edits that were applied.
@@ -2924,6 +3166,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Count Tokens Context Management Response
 
 - `BetaCountTokensContextManagementResponse`
+
   - `int originalInputTokens`
 
     The original token count before context management was applied
@@ -2931,6 +3174,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Diagnostics
 
 - `BetaDiagnostics`
+
   - `?CacheMissReason cacheMissReason`
 
     Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
@@ -2938,6 +3182,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Diagnostics Param
 
 - `BetaDiagnosticsParam`
+
   - `?string previousMessageID`
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
@@ -2945,11 +3190,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Direct Caller
 
 - `BetaDirectCaller`
+
   - `"direct" type`
 
 ### Beta Document Block
 
 - `BetaDocumentBlock`
+
   - `?BetaCitationConfig citations`
 
     Citation configuration for the document
@@ -2965,6 +3212,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Encrypted Code Execution Result Block
 
 - `BetaEncryptedCodeExecutionResultBlock`
+
   - `list<BetaCodeExecutionOutputBlock> content`
 
   - `string encryptedStdout`
@@ -2978,6 +3226,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Encrypted Code Execution Result Block Param
 
 - `BetaEncryptedCodeExecutionResultBlockParam`
+
   - `list<BetaCodeExecutionOutputBlockParam> content`
 
   - `string encryptedStdout`
@@ -2988,9 +3237,110 @@ var_dump($betaMessageTokensCount);
 
   - `"encrypted_code_execution_result" type`
 
+### Beta Fallback Block
+
+- `BetaFallbackBlock`
+
+  - `BetaFallbackInfo from`
+
+    The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
+
+  - `BetaFallbackInfo to`
+
+    The fallback model producing the content that follows this block. Its `model` is always the canonical id.
+
+  - `"fallback" type`
+
+### Beta Fallback Block Param
+
+- `BetaFallbackBlockParam`
+
+  - `BetaFallbackInfoParam from`
+
+    Identifies one hop of a fallback transition.
+
+  - `BetaFallbackInfoParam to`
+
+    Identifies one hop of a fallback transition.
+
+  - `"fallback" type`
+
+### Beta Fallback Info
+
+- `BetaFallbackInfo`
+
+  - `Model model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+### Beta Fallback Info Param
+
+- `BetaFallbackInfoParam`
+
+  - `Model model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+### Beta Fallback Message Iteration Usage
+
+- `BetaFallbackMessageIterationUsage`
+
+  - `?BetaCacheCreation cacheCreation`
+
+    Breakdown of cached tokens by TTL
+
+  - `int cacheCreationInputTokens`
+
+    The number of input tokens used to create the cache entry.
+
+  - `int cacheReadInputTokens`
+
+    The number of input tokens read from the cache.
+
+  - `int inputTokens`
+
+    The number of input tokens which were used.
+
+  - `Model model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+  - `int outputTokens`
+
+    The number of output tokens which were used.
+
+  - `"fallback_message" type`
+
+    Usage for the fallback-model attempt that served the response
+
+### Beta Fallback Param
+
+- `BetaFallbackParam`
+
+  - `Model model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+  - `?int maxTokens`
+
+  - `?BetaOutputConfig outputConfig`
+
+  - `?Speed speed`
+
+  - `?Thinking thinking`
+
 ### Beta File Document Source
 
 - `BetaFileDocumentSource`
+
   - `string fileID`
 
   - `"file" type`
@@ -2998,6 +3348,7 @@ var_dump($betaMessageTokensCount);
 ### Beta File Image Source
 
 - `BetaFileImageSource`
+
   - `string fileID`
 
   - `"file" type`
@@ -3005,6 +3356,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Image Block Param
 
 - `BetaImageBlockParam`
+
   - `Source source`
 
   - `"image" type`
@@ -3016,6 +3368,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Input JSON Delta
 
 - `BetaInputJSONDelta`
+
   - `string partialJSON`
 
   - `"input_json_delta" type`
@@ -3023,6 +3376,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Input Tokens Clear At Least
 
 - `BetaInputTokensClearAtLeast`
+
   - `"input_tokens" type`
 
   - `int value`
@@ -3030,6 +3384,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Input Tokens Trigger
 
 - `BetaInputTokensTrigger`
+
   - `"input_tokens" type`
 
   - `int value`
@@ -3037,7 +3392,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Iterations Usage
 
 - `list<BetaIterationsUsageItem>`
+
   - `BetaMessageIterationUsage`
+
     - `?BetaCacheCreation cacheCreation`
 
       Breakdown of cached tokens by TTL
@@ -3054,6 +3411,12 @@ var_dump($betaMessageTokensCount);
 
       The number of input tokens which were used.
 
+    - `Model model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
     - `int outputTokens`
 
       The number of output tokens which were used.
@@ -3063,6 +3426,7 @@ var_dump($betaMessageTokensCount);
       Usage for a sampling iteration
 
   - `BetaCompactionIterationUsage`
+
     - `?BetaCacheCreation cacheCreation`
 
       Breakdown of cached tokens by TTL
@@ -3088,6 +3452,7 @@ var_dump($betaMessageTokensCount);
       Usage for a compaction iteration
 
   - `BetaAdvisorMessageIterationUsage`
+
     - `?BetaCacheCreation cacheCreation`
 
       Breakdown of cached tokens by TTL
@@ -3118,9 +3483,42 @@ var_dump($betaMessageTokensCount);
 
       Usage for an advisor sub-inference iteration
 
+  - `BetaFallbackMessageIterationUsage`
+
+    - `?BetaCacheCreation cacheCreation`
+
+      Breakdown of cached tokens by TTL
+
+    - `int cacheCreationInputTokens`
+
+      The number of input tokens used to create the cache entry.
+
+    - `int cacheReadInputTokens`
+
+      The number of input tokens read from the cache.
+
+    - `int inputTokens`
+
+      The number of input tokens which were used.
+
+    - `Model model`
+
+      The model that will complete your prompt.
+
+      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `int outputTokens`
+
+      The number of output tokens which were used.
+
+    - `"fallback_message" type`
+
+      Usage for the fallback-model attempt that served the response
+
 ### Beta JSON Output Format
 
 - `BetaJSONOutputFormat`
+
   - `array<string,mixed> schema`
 
     The JSON schema of the format
@@ -3130,6 +3528,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Tool Config
 
 - `BetaMCPToolConfig`
+
   - `?bool deferLoading`
 
   - `?bool enabled`
@@ -3137,6 +3536,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Tool Default Config
 
 - `BetaMCPToolDefaultConfig`
+
   - `?bool deferLoading`
 
   - `?bool enabled`
@@ -3144,6 +3544,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Tool Result Block
 
 - `BetaMCPToolResultBlock`
+
   - `Content content`
 
   - `bool isError`
@@ -3155,6 +3556,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Tool Use Block
 
 - `BetaMCPToolUseBlock`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -3172,6 +3574,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Tool Use Block Param
 
 - `BetaMCPToolUseBlockParam`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -3191,6 +3594,7 @@ var_dump($betaMessageTokensCount);
 ### Beta MCP Toolset
 
 - `BetaMCPToolset`
+
   - `string mcpServerName`
 
     Name of the MCP server to configure tools for
@@ -3212,6 +3616,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818
 
 - `BetaMemoryTool20250818`
+
   - `"memory" name`
 
     Name of the tool.
@@ -3239,7 +3644,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Command
 
 - `BetaMemoryTool20250818Command`
+
   - `BetaMemoryTool20250818ViewCommand`
+
     - `"view" command`
 
       Command type identifier
@@ -3253,6 +3660,7 @@ var_dump($betaMessageTokensCount);
       Optional line range for viewing specific lines
 
   - `BetaMemoryTool20250818CreateCommand`
+
     - `"create" command`
 
       Command type identifier
@@ -3266,6 +3674,7 @@ var_dump($betaMessageTokensCount);
       Path where the file should be created
 
   - `BetaMemoryTool20250818StrReplaceCommand`
+
     - `"str_replace" command`
 
       Command type identifier
@@ -3283,6 +3692,7 @@ var_dump($betaMessageTokensCount);
       Path to the file where text should be replaced
 
   - `BetaMemoryTool20250818InsertCommand`
+
     - `"insert" command`
 
       Command type identifier
@@ -3300,6 +3710,7 @@ var_dump($betaMessageTokensCount);
       Path to the file where text should be inserted
 
   - `BetaMemoryTool20250818DeleteCommand`
+
     - `"delete" command`
 
       Command type identifier
@@ -3309,6 +3720,7 @@ var_dump($betaMessageTokensCount);
       Path to the file or directory to delete
 
   - `BetaMemoryTool20250818RenameCommand`
+
     - `"rename" command`
 
       Command type identifier
@@ -3324,6 +3736,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Create Command
 
 - `BetaMemoryTool20250818CreateCommand`
+
   - `"create" command`
 
     Command type identifier
@@ -3339,6 +3752,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Delete Command
 
 - `BetaMemoryTool20250818DeleteCommand`
+
   - `"delete" command`
 
     Command type identifier
@@ -3350,6 +3764,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Insert Command
 
 - `BetaMemoryTool20250818InsertCommand`
+
   - `"insert" command`
 
     Command type identifier
@@ -3369,6 +3784,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Rename Command
 
 - `BetaMemoryTool20250818RenameCommand`
+
   - `"rename" command`
 
     Command type identifier
@@ -3384,6 +3800,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 Str Replace Command
 
 - `BetaMemoryTool20250818StrReplaceCommand`
+
   - `"str_replace" command`
 
     Command type identifier
@@ -3403,6 +3820,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Memory Tool 20250818 View Command
 
 - `BetaMemoryTool20250818ViewCommand`
+
   - `"view" command`
 
     Command type identifier
@@ -3418,6 +3836,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Message
 
 - `BetaMessage`
+
   - `string id`
 
     Unique object identifier.
@@ -3437,7 +3856,7 @@ var_dump($betaMessageTokensCount);
     Example:
 
     ```json
-    [{ "type": "text", "text": "Hi, I'm Claude." }]
+    [{"type": "text", "text": "Hi, I'm Claude."}]
     ```
 
     If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -3446,18 +3865,15 @@ var_dump($betaMessageTokensCount);
 
     ```json
     [
-      {
-        "role": "user",
-        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-      },
-      { "role": "assistant", "content": "The best answer is (" }
+      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+      {"role": "assistant", "content": "The best answer is ("}
     ]
     ```
 
     Then the response `content` might be:
 
     ```json
-    [{ "type": "text", "text": "B)" }]
+    [{"type": "text", "text": "B)"}]
     ```
 
   - `?BetaContextManagementResponse contextManagement`
@@ -3492,12 +3908,13 @@ var_dump($betaMessageTokensCount);
     The reason that we stopped.
 
     This may be one the following values:
-    - `"end_turn"`: the model reached a natural stopping point
-    - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-    - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-    - `"tool_use"`: the model invoked one or more tools
-    - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-    - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+    * `"end_turn"`: the model reached a natural stopping point
+    * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+    * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+    * `"tool_use"`: the model invoked one or more tools
+    * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+    * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
@@ -3528,6 +3945,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Message Delta Usage
 
 - `BetaMessageDeltaUsage`
+
   - `?int cacheCreationInputTokens`
 
     The cumulative number of input tokens used to create the cache entry.
@@ -3545,6 +3963,7 @@ var_dump($betaMessageTokensCount);
     Per-iteration token usage breakdown.
 
     Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
     - Calculate the true context window size from the last iteration
     - Understand token accumulation across server-side tool use loops
@@ -3553,7 +3972,7 @@ var_dump($betaMessageTokensCount);
 
     The cumulative number of output tokens which were used.
 
-  - `?OutputTokensDetails outputTokensDetails`
+  - `?BetaOutputTokensDetails outputTokensDetails`
 
     Breakdown of output tokens by category.
 
@@ -3569,6 +3988,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Message Iteration Usage
 
 - `BetaMessageIterationUsage`
+
   - `?BetaCacheCreation cacheCreation`
 
     Breakdown of cached tokens by TTL
@@ -3585,6 +4005,12 @@ var_dump($betaMessageTokensCount);
 
     The number of input tokens which were used.
 
+  - `Model model`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
   - `int outputTokens`
 
     The number of output tokens which were used.
@@ -3596,6 +4022,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Message Param
 
 - `BetaMessageParam`
+
   - `Content content`
 
   - `Role role`
@@ -3603,6 +4030,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Message Tokens Count
 
 - `BetaMessageTokensCount`
+
   - `?BetaCountTokensContextManagementResponse contextManagement`
 
     Information about context management applied to the message.
@@ -3614,6 +4042,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Metadata
 
 - `BetaMetadata`
+
   - `?string userID`
 
     An external identifier for the user who is associated with the request.
@@ -3623,6 +4052,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Mid Conversation System Block Param
 
 - `BetaMidConversationSystemBlockParam`
+
   - `list<BetaTextBlockParam> content`
 
     System instruction text blocks.
@@ -3636,6 +4066,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Output Config
 
 - `BetaOutputConfig`
+
   - `?Effort effort`
 
     All possible effort levels.
@@ -3648,9 +4079,25 @@ var_dump($betaMessageTokensCount);
 
     User-configurable total token budget across contexts.
 
+### Beta Output Tokens Details
+
+- `BetaOutputTokensDetails`
+
+  - `int thinkingTokens`
+
+    Number of output tokens the model generated as internal reasoning, including
+    the thinking-block delimiter tokens.
+
+    Reflects the raw reasoning the model produced, not the (possibly shorter)
+    summarized thinking text returned in the response body. Computed by
+    re-tokenizing the raw reasoning text, so it may differ from the model's exact
+    generation count by a small number of tokens. Always ≤ `output_tokens`;
+    `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
 ### Beta Plain Text Source
 
 - `BetaPlainTextSource`
+
   - `string data`
 
   - `"text/plain" mediaType`
@@ -3660,22 +4107,27 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Content Block Delta
 
 - `BetaRawContentBlockDelta`
+
   - `BetaTextDelta`
+
     - `string text`
 
     - `"text_delta" type`
 
   - `BetaInputJSONDelta`
+
     - `string partialJSON`
 
     - `"input_json_delta" type`
 
   - `BetaCitationsDelta`
+
     - `Citation citation`
 
     - `"citations_delta" type`
 
   - `BetaThinkingDelta`
+
     - `?int estimatedTokens`
 
       Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -3685,11 +4137,13 @@ var_dump($betaMessageTokensCount);
     - `"thinking_delta" type`
 
   - `BetaSignatureDelta`
+
     - `string signature`
 
     - `"signature_delta" type`
 
   - `BetaCompactionContentBlockDelta`
+
     - `?string content`
 
     - `?string encryptedContent`
@@ -3701,6 +4155,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Content Block Delta Event
 
 - `BetaRawContentBlockDeltaEvent`
+
   - `BetaRawContentBlockDelta delta`
 
   - `int index`
@@ -3710,6 +4165,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Content Block Start Event
 
 - `BetaRawContentBlockStartEvent`
+
   - `ContentBlock contentBlock`
 
     Response model for a file uploaded to the container.
@@ -3721,6 +4177,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Content Block Stop Event
 
 - `BetaRawContentBlockStopEvent`
+
   - `int index`
 
   - `"content_block_stop" type`
@@ -3728,6 +4185,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Message Delta Event
 
 - `BetaRawMessageDeltaEvent`
+
   - `?BetaContextManagementResponse contextManagement`
 
     Information about context management strategies applied during the request
@@ -3751,6 +4209,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Message Start Event
 
 - `BetaRawMessageStartEvent`
+
   - `BetaMessage message`
 
   - `"message_start" type`
@@ -3758,17 +4217,21 @@ var_dump($betaMessageTokensCount);
 ### Beta Raw Message Stop Event
 
 - `BetaRawMessageStopEvent`
+
   - `"message_stop" type`
 
 ### Beta Raw Message Stream Event
 
 - `BetaRawMessageStreamEvent`
+
   - `BetaRawMessageStartEvent`
+
     - `BetaMessage message`
 
     - `"message_start" type`
 
   - `BetaRawMessageDeltaEvent`
+
     - `?BetaContextManagementResponse contextManagement`
 
       Information about context management strategies applied during the request
@@ -3790,9 +4253,11 @@ var_dump($betaMessageTokensCount);
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
 
   - `BetaRawMessageStopEvent`
+
     - `"message_stop" type`
 
   - `BetaRawContentBlockStartEvent`
+
     - `ContentBlock contentBlock`
 
       Response model for a file uploaded to the container.
@@ -3802,6 +4267,7 @@ var_dump($betaMessageTokensCount);
     - `"content_block_start" type`
 
   - `BetaRawContentBlockDeltaEvent`
+
     - `BetaRawContentBlockDelta delta`
 
     - `int index`
@@ -3809,6 +4275,7 @@ var_dump($betaMessageTokensCount);
     - `"content_block_delta" type`
 
   - `BetaRawContentBlockStopEvent`
+
     - `int index`
 
     - `"content_block_stop" type`
@@ -3816,6 +4283,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Redacted Thinking Block
 
 - `BetaRedactedThinkingBlock`
+
   - `string data`
 
   - `"redacted_thinking" type`
@@ -3823,6 +4291,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Redacted Thinking Block Param
 
 - `BetaRedactedThinkingBlockParam`
+
   - `string data`
 
   - `"redacted_thinking" type`
@@ -3830,6 +4299,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Refusal Stop Details
 
 - `BetaRefusalStopDetails`
+
   - `?Category category`
 
     The policy category that triggered the refusal.
@@ -3842,11 +4312,61 @@ var_dump($betaMessageTokensCount);
 
     This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
+  - `?string fallbackCreditToken`
+
+    Opaque code that refunds the cache-miss cost when retrying this refused
+    request on the fallback model. Pass it as `fallback_credit_token` on the
+    retry request. Expires 5 minutes after the refusal.
+
+    The retry is sent either with the same request body (`system`, `messages`,
+    `tools`, and other render-shaping fields), or with the same body plus one
+    appended `assistant` message whose content is the partial text (with any
+    trailing whitespace stripped from the final text block) and paired
+    server-tool blocks from this refusal — which also authorizes that
+    appended turn as an assistant-prefill continuation on models that otherwise
+    disallow prefill. A token minted mid-server-tool-loop whose partial content
+    was continuable may only be redeemed the second way — if a same-body retry
+    is rejected with a 400 saying the token must be redeemed by continuing the
+    partial response, retry the second way instead. Either way: same workspace,
+    same platform; a mismatch is a 400. Resending a token for an already-warm
+    prefix is permitted but yields no additional credit.
+
+    `null` when the refused model isn't eligible for a fallback credit.
+
+  - `?bool fallbackHasPrefillClaim`
+
+    Whether the accompanying `fallback_credit_token` may be redeemed with the
+    appended-assistant retry form. Only set when `fallback_credit_token` is
+    present.
+
+    `true`: retry by resending the same request body plus one appended
+    `assistant` message whose content is this response's `content` with any
+    trailing whitespace stripped from the final text block and unpaired
+    `tool_use` blocks omitted (the same appended-turn shape described on
+    `fallback_credit_token`), with the token attached. `false`: retry by
+    resending the original request body unchanged, with the token attached —
+    the appended-assistant form is not available for this refusal (no
+    continuable partial content, or the request uses `output_format` or a
+    `tool_choice` that forces tool use). One exception: when the request used
+    `output_format` or a forced `tool_choice` and the refusal arrived after
+    server tools (including MCP connector tools) had already executed, the
+    token may not be redeemable by either retry form; if the exact-body retry
+    is then rejected with a 400 saying the token must be redeemed by
+    continuing the partial response, discard the token and retry without it.
+
+    Advisory: if an appended-assistant retry is rejected with a 400 despite
+    `true`, fall back to resending the original request body with the token.
+
+  - `?string recommendedModel`
+
+    The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
+
   - `"refusal" type`
 
 ### Beta Request Document Block
 
 - `BetaRequestDocumentBlock`
+
   - `Source source`
 
   - `"document" type`
@@ -3864,6 +4384,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Request MCP Server Tool Configuration
 
 - `BetaRequestMCPServerToolConfiguration`
+
   - `?list<string> allowedTools`
 
   - `?bool enabled`
@@ -3871,6 +4392,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Request MCP Server URL Definition
 
 - `BetaRequestMCPServerURLDefinition`
+
   - `string name`
 
   - `"url" type`
@@ -3884,6 +4406,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Request MCP Tool Result Block Param
 
 - `BetaRequestMCPToolResultBlockParam`
+
   - `string toolUseID`
 
   - `"mcp_tool_result" type`
@@ -3899,6 +4422,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Search Result Block Param
 
 - `BetaSearchResultBlockParam`
+
   - `list<BetaTextBlockParam> content`
 
   - `string source`
@@ -3916,6 +4440,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Server Tool Caller
 
 - `BetaServerToolCaller`
+
   - `string toolID`
 
   - `"code_execution_20250825" type`
@@ -3923,6 +4448,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Server Tool Caller 20260120
 
 - `BetaServerToolCaller20260120`
+
   - `string toolID`
 
   - `"code_execution_20260120" type`
@@ -3930,6 +4456,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Server Tool Usage
 
 - `BetaServerToolUsage`
+
   - `int webFetchRequests`
 
     The number of web fetch tool requests.
@@ -3941,6 +4468,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Server Tool Use Block
 
 - `BetaServerToolUseBlock`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -3956,6 +4484,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Server Tool Use Block Param
 
 - `BetaServerToolUseBlockParam`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -3975,6 +4504,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Signature Delta
 
 - `BetaSignatureDelta`
+
   - `string signature`
 
   - `"signature_delta" type`
@@ -3982,6 +4512,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Skill
 
 - `BetaSkill`
+
   - `string skillID`
 
     Skill ID
@@ -3997,6 +4528,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Skill Params
 
 - `BetaSkillParams`
+
   - `string skillID`
 
     Skill ID
@@ -4012,6 +4544,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Stop Reason
 
 - `BetaStopReason`
+
   - `"end_turn"`
 
   - `"max_tokens"`
@@ -4031,6 +4564,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Block
 
 - `BetaTextBlock`
+
   - `?list<BetaTextCitation> citations`
 
     Citations supporting the text block.
@@ -4044,6 +4578,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Block Param
 
 - `BetaTextBlockParam`
+
   - `string text`
 
   - `"text" type`
@@ -4057,7 +4592,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Citation
 
 - `BetaTextCitation`
+
   - `BetaCitationCharLocation`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4073,6 +4610,7 @@ var_dump($betaMessageTokensCount);
     - `"char_location" type`
 
   - `BetaCitationPageLocation`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4088,6 +4626,7 @@ var_dump($betaMessageTokensCount);
     - `"page_location" type`
 
   - `BetaCitationContentBlockLocation`
+
     - `string citedText`
 
       The full text of the cited block range, concatenated.
@@ -4113,6 +4652,7 @@ var_dump($betaMessageTokensCount);
     - `"content_block_location" type`
 
   - `BetaCitationsWebSearchResultLocation`
+
     - `string citedText`
 
     - `string encryptedIndex`
@@ -4124,6 +4664,7 @@ var_dump($betaMessageTokensCount);
     - `string url`
 
   - `BetaCitationSearchResultLocation`
+
     - `string citedText`
 
       The full text of the cited block range, concatenated.
@@ -4155,7 +4696,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Citation Param
 
 - `BetaTextCitationParam`
+
   - `BetaCitationCharLocationParam`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4169,6 +4712,7 @@ var_dump($betaMessageTokensCount);
     - `"char_location" type`
 
   - `BetaCitationPageLocationParam`
+
     - `string citedText`
 
     - `int documentIndex`
@@ -4182,6 +4726,7 @@ var_dump($betaMessageTokensCount);
     - `"page_location" type`
 
   - `BetaCitationContentBlockLocationParam`
+
     - `string citedText`
 
       The full text of the cited block range, concatenated.
@@ -4205,6 +4750,7 @@ var_dump($betaMessageTokensCount);
     - `"content_block_location" type`
 
   - `BetaCitationWebSearchResultLocationParam`
+
     - `string citedText`
 
     - `string encryptedIndex`
@@ -4216,6 +4762,7 @@ var_dump($betaMessageTokensCount);
     - `string url`
 
   - `BetaCitationSearchResultLocationParam`
+
     - `string citedText`
 
       The full text of the cited block range, concatenated.
@@ -4247,6 +4794,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Delta
 
 - `BetaTextDelta`
+
   - `string text`
 
   - `"text_delta" type`
@@ -4254,6 +4802,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Create Result Block
 
 - `BetaTextEditorCodeExecutionCreateResultBlock`
+
   - `bool isFileUpdate`
 
   - `"text_editor_code_execution_create_result" type`
@@ -4261,6 +4810,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Create Result Block Param
 
 - `BetaTextEditorCodeExecutionCreateResultBlockParam`
+
   - `bool isFileUpdate`
 
   - `"text_editor_code_execution_create_result" type`
@@ -4268,6 +4818,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Str Replace Result Block
 
 - `BetaTextEditorCodeExecutionStrReplaceResultBlock`
+
   - `?list<string> lines`
 
   - `?int newLines`
@@ -4283,6 +4834,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Str Replace Result Block Param
 
 - `BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
   - `"text_editor_code_execution_str_replace_result" type`
 
   - `?list<string> lines`
@@ -4298,6 +4850,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Block
 
 - `BetaTextEditorCodeExecutionToolResultBlock`
+
   - `Content content`
 
   - `string toolUseID`
@@ -4307,6 +4860,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Block Param
 
 - `BetaTextEditorCodeExecutionToolResultBlockParam`
+
   - `Content content`
 
   - `string toolUseID`
@@ -4320,6 +4874,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Error
 
 - `BetaTextEditorCodeExecutionToolResultError`
+
   - `ErrorCode errorCode`
 
   - `?string errorMessage`
@@ -4329,6 +4884,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution Tool Result Error Param
 
 - `BetaTextEditorCodeExecutionToolResultErrorParam`
+
   - `ErrorCode errorCode`
 
   - `"text_editor_code_execution_tool_result_error" type`
@@ -4338,6 +4894,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution View Result Block
 
 - `BetaTextEditorCodeExecutionViewResultBlock`
+
   - `string content`
 
   - `FileType fileType`
@@ -4353,6 +4910,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Text Editor Code Execution View Result Block Param
 
 - `BetaTextEditorCodeExecutionViewResultBlockParam`
+
   - `string content`
 
   - `FileType fileType`
@@ -4368,6 +4926,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Block
 
 - `BetaThinkingBlock`
+
   - `string signature`
 
   - `string thinking`
@@ -4377,6 +4936,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Block Param
 
 - `BetaThinkingBlockParam`
+
   - `string signature`
 
   - `string thinking`
@@ -4386,6 +4946,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Config Adaptive
 
 - `BetaThinkingConfigAdaptive`
+
   - `"adaptive" type`
 
   - `?Display display`
@@ -4395,11 +4956,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Config Disabled
 
 - `BetaThinkingConfigDisabled`
+
   - `"disabled" type`
 
 ### Beta Thinking Config Enabled
 
 - `BetaThinkingConfigEnabled`
+
   - `int budgetTokens`
 
     Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -4417,7 +4980,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Config Param
 
 - `BetaThinkingConfigParam`
+
   - `BetaThinkingConfigEnabled`
+
     - `int budgetTokens`
 
       Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -4433,9 +4998,11 @@ var_dump($betaMessageTokensCount);
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
   - `BetaThinkingConfigDisabled`
+
     - `"disabled" type`
 
   - `BetaThinkingConfigAdaptive`
+
     - `"adaptive" type`
 
     - `?Display display`
@@ -4445,6 +5012,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Delta
 
 - `BetaThinkingDelta`
+
   - `?int estimatedTokens`
 
     Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
@@ -4456,6 +5024,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Thinking Turns
 
 - `BetaThinkingTurns`
+
   - `"thinking_turns" type`
 
   - `int value`
@@ -4463,6 +5032,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Token Task Budget
 
 - `BetaTokenTaskBudget`
+
   - `int total`
 
     Total token budget across all contexts in the session.
@@ -4478,6 +5048,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool
 
 - `BetaTool`
+
   - `InputSchema inputSchema`
 
     [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -4521,6 +5092,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Bash 20241022
 
 - `BetaToolBash20241022`
+
   - `"bash" name`
 
     Name of the tool.
@@ -4548,6 +5120,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Bash 20250124
 
 - `BetaToolBash20250124`
+
   - `"bash" name`
 
     Name of the tool.
@@ -4575,7 +5148,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Choice
 
 - `BetaToolChoice`
+
   - `BetaToolChoiceAuto`
+
     - `"auto" type`
 
     - `?bool disableParallelToolUse`
@@ -4585,6 +5160,7 @@ var_dump($betaMessageTokensCount);
       Defaults to `false`. If set to `true`, the model will output at most one tool use.
 
   - `BetaToolChoiceAny`
+
     - `"any" type`
 
     - `?bool disableParallelToolUse`
@@ -4594,6 +5170,7 @@ var_dump($betaMessageTokensCount);
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
   - `BetaToolChoiceTool`
+
     - `string name`
 
       The name of the tool to use.
@@ -4607,11 +5184,13 @@ var_dump($betaMessageTokensCount);
       Defaults to `false`. If set to `true`, the model will output exactly one tool use.
 
   - `BetaToolChoiceNone`
+
     - `"none" type`
 
 ### Beta Tool Choice Any
 
 - `BetaToolChoiceAny`
+
   - `"any" type`
 
   - `?bool disableParallelToolUse`
@@ -4623,6 +5202,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Choice Auto
 
 - `BetaToolChoiceAuto`
+
   - `"auto" type`
 
   - `?bool disableParallelToolUse`
@@ -4634,11 +5214,13 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Choice None
 
 - `BetaToolChoiceNone`
+
   - `"none" type`
 
 ### Beta Tool Choice Tool
 
 - `BetaToolChoiceTool`
+
   - `string name`
 
     The name of the tool to use.
@@ -4654,6 +5236,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Computer Use 20241022
 
 - `BetaToolComputerUse20241022`
+
   - `int displayHeightPx`
 
     The height of the display in pixels.
@@ -4693,6 +5276,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Computer Use 20250124
 
 - `BetaToolComputerUse20250124`
+
   - `int displayHeightPx`
 
     The height of the display in pixels.
@@ -4732,6 +5316,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Computer Use 20251124
 
 - `BetaToolComputerUse20251124`
+
   - `int displayHeightPx`
 
     The height of the display in pixels.
@@ -4775,6 +5360,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Reference Block
 
 - `BetaToolReferenceBlock`
+
   - `string toolName`
 
   - `"tool_reference" type`
@@ -4782,6 +5368,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Reference Block Param
 
 - `BetaToolReferenceBlockParam`
+
   - `string toolName`
 
   - `"tool_reference" type`
@@ -4793,6 +5380,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Result Block Param
 
 - `BetaToolResultBlockParam`
+
   - `string toolUseID`
 
   - `"tool_result" type`
@@ -4808,6 +5396,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Bm25 20251119
 
 - `BetaToolSearchToolBm25_20251119`
+
   - `"tool_search_tool_bm25" name`
 
     Name of the tool.
@@ -4833,6 +5422,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Regex 20251119
 
 - `BetaToolSearchToolRegex20251119`
+
   - `"tool_search_tool_regex" name`
 
     Name of the tool.
@@ -4858,6 +5448,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Result Block
 
 - `BetaToolSearchToolResultBlock`
+
   - `Content content`
 
   - `string toolUseID`
@@ -4867,6 +5458,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Result Block Param
 
 - `BetaToolSearchToolResultBlockParam`
+
   - `Content content`
 
   - `string toolUseID`
@@ -4880,6 +5472,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Result Error
 
 - `BetaToolSearchToolResultError`
+
   - `ErrorCode errorCode`
 
   - `?string errorMessage`
@@ -4889,13 +5482,17 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Result Error Param
 
 - `BetaToolSearchToolResultErrorParam`
+
   - `ErrorCode errorCode`
 
   - `"tool_search_tool_result_error" type`
 
+  - `?string errorMessage`
+
 ### Beta Tool Search Tool Search Result Block
 
 - `BetaToolSearchToolSearchResultBlock`
+
   - `list<BetaToolReferenceBlock> toolReferences`
 
   - `"tool_search_tool_search_result" type`
@@ -4903,6 +5500,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Search Tool Search Result Block Param
 
 - `BetaToolSearchToolSearchResultBlockParam`
+
   - `list<BetaToolReferenceBlockParam> toolReferences`
 
   - `"tool_search_tool_search_result" type`
@@ -4910,6 +5508,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Text Editor 20241022
 
 - `BetaToolTextEditor20241022`
+
   - `"str_replace_editor" name`
 
     Name of the tool.
@@ -4937,6 +5536,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Text Editor 20250124
 
 - `BetaToolTextEditor20250124`
+
   - `"str_replace_editor" name`
 
     Name of the tool.
@@ -4964,6 +5564,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Text Editor 20250429
 
 - `BetaToolTextEditor20250429`
+
   - `"str_replace_based_edit_tool" name`
 
     Name of the tool.
@@ -4991,6 +5592,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Text Editor 20250728
 
 - `BetaToolTextEditor20250728`
+
   - `"str_replace_based_edit_tool" name`
 
     Name of the tool.
@@ -5022,7 +5624,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Union
 
 - `BetaToolUnion`
+
   - `BetaTool`
+
     - `InputSchema inputSchema`
 
       [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
@@ -5064,6 +5668,7 @@ var_dump($betaMessageTokensCount);
     - `?Type type`
 
   - `BetaToolBash20241022`
+
     - `"bash" name`
 
       Name of the tool.
@@ -5089,6 +5694,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolBash20250124`
+
     - `"bash" name`
 
       Name of the tool.
@@ -5114,6 +5720,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaCodeExecutionTool20250522`
+
     - `"code_execution" name`
 
       Name of the tool.
@@ -5137,6 +5744,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaCodeExecutionTool20250825`
+
     - `"code_execution" name`
 
       Name of the tool.
@@ -5160,6 +5768,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaCodeExecutionTool20260120`
+
     - `"code_execution" name`
 
       Name of the tool.
@@ -5183,6 +5792,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20241022`
+
     - `int displayHeightPx`
 
       The height of the display in pixels.
@@ -5220,6 +5830,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaMemoryTool20250818`
+
     - `"memory" name`
 
       Name of the tool.
@@ -5245,6 +5856,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20250124`
+
     - `int displayHeightPx`
 
       The height of the display in pixels.
@@ -5282,6 +5894,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20241022`
+
     - `"str_replace_editor" name`
 
       Name of the tool.
@@ -5307,6 +5920,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolComputerUse20251124`
+
     - `int displayHeightPx`
 
       The height of the display in pixels.
@@ -5348,6 +5962,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250124`
+
     - `"str_replace_editor" name`
 
       Name of the tool.
@@ -5373,6 +5988,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250429`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
@@ -5398,6 +6014,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolTextEditor20250728`
+
     - `"str_replace_based_edit_tool" name`
 
       Name of the tool.
@@ -5427,6 +6044,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaWebSearchTool20250305`
+
     - `"web_search" name`
 
       Name of the tool.
@@ -5466,6 +6084,7 @@ var_dump($betaMessageTokensCount);
       Parameters for the user's location. Used to provide more relevant search results.
 
   - `BetaWebFetchTool20250910`
+
     - `"web_fetch" name`
 
       Name of the tool.
@@ -5509,6 +6128,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaWebSearchTool20260209`
+
     - `"web_search" name`
 
       Name of the tool.
@@ -5548,6 +6168,7 @@ var_dump($betaMessageTokensCount);
       Parameters for the user's location. Used to provide more relevant search results.
 
   - `BetaWebFetchTool20260209`
+
     - `"web_fetch" name`
 
       Name of the tool.
@@ -5591,6 +6212,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaWebFetchTool20260309`
+
     - `"web_fetch" name`
 
       Name of the tool.
@@ -5638,6 +6260,7 @@ var_dump($betaMessageTokensCount);
       Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
   - `BetaAdvisorTool20260301`
+
     - `Model model`
 
       The model that will complete your prompt.
@@ -5666,6 +6289,10 @@ var_dump($betaMessageTokensCount);
 
       If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
+    - `?int maxTokens`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
     - `?int maxUses`
 
       Maximum number of times the tool can be used in the API request.
@@ -5675,6 +6302,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolSearchToolBm25_20251119`
+
     - `"tool_search_tool_bm25" name`
 
       Name of the tool.
@@ -5698,6 +6326,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaToolSearchToolRegex20251119`
+
     - `"tool_search_tool_regex" name`
 
       Name of the tool.
@@ -5721,6 +6350,7 @@ var_dump($betaMessageTokensCount);
       When true, guarantees schema validation on tool names and inputs
 
   - `BetaMCPToolset`
+
     - `string mcpServerName`
 
       Name of the MCP server to configure tools for
@@ -5742,6 +6372,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Use Block
 
 - `BetaToolUseBlock`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -5757,6 +6388,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Use Block Param
 
 - `BetaToolUseBlockParam`
+
   - `string id`
 
   - `array<string,mixed> input`
@@ -5776,6 +6408,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Uses Keep
 
 - `BetaToolUsesKeep`
+
   - `"tool_uses" type`
 
   - `int value`
@@ -5783,6 +6416,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Tool Uses Trigger
 
 - `BetaToolUsesTrigger`
+
   - `"tool_uses" type`
 
   - `int value`
@@ -5790,6 +6424,7 @@ var_dump($betaMessageTokensCount);
 ### Beta URL Image Source
 
 - `BetaURLImageSource`
+
   - `"url" type`
 
   - `string url`
@@ -5797,6 +6432,7 @@ var_dump($betaMessageTokensCount);
 ### Beta URL PDF Source
 
 - `BetaURLPDFSource`
+
   - `"url" type`
 
   - `string url`
@@ -5804,6 +6440,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Usage
 
 - `BetaUsage`
+
   - `?BetaCacheCreation cacheCreation`
 
     Breakdown of cached tokens by TTL
@@ -5829,6 +6466,7 @@ var_dump($betaMessageTokensCount);
     Per-iteration token usage breakdown.
 
     Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
     - Calculate the true context window size from the last iteration
     - Understand token accumulation across server-side tool use loops
@@ -5837,7 +6475,7 @@ var_dump($betaMessageTokensCount);
 
     The number of output tokens which were used.
 
-  - `?OutputTokensDetails outputTokensDetails`
+  - `?BetaOutputTokensDetails outputTokensDetails`
 
     Breakdown of output tokens by category.
 
@@ -5861,6 +6499,7 @@ var_dump($betaMessageTokensCount);
 ### Beta User Location
 
 - `BetaUserLocation`
+
   - `"approximate" type`
 
   - `?string city`
@@ -5882,6 +6521,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Block
 
 - `BetaWebFetchBlock`
+
   - `BetaDocumentBlock content`
 
   - `?string retrievedAt`
@@ -5897,6 +6537,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Block Param
 
 - `BetaWebFetchBlockParam`
+
   - `BetaRequestDocumentBlock content`
 
   - `"web_fetch_result" type`
@@ -5912,6 +6553,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool 20250910
 
 - `BetaWebFetchTool20250910`
+
   - `"web_fetch" name`
 
     Name of the tool.
@@ -5957,6 +6599,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool 20260209
 
 - `BetaWebFetchTool20260209`
+
   - `"web_fetch" name`
 
     Name of the tool.
@@ -6002,6 +6645,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool 20260309
 
 - `BetaWebFetchTool20260309`
+
   - `"web_fetch" name`
 
     Name of the tool.
@@ -6051,6 +6695,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Block
 
 - `BetaWebFetchToolResultBlock`
+
   - `Content content`
 
   - `string toolUseID`
@@ -6064,6 +6709,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Block Param
 
 - `BetaWebFetchToolResultBlockParam`
+
   - `Content content`
 
   - `string toolUseID`
@@ -6081,6 +6727,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Block
 
 - `BetaWebFetchToolResultErrorBlock`
+
   - `BetaWebFetchToolResultErrorCode errorCode`
 
   - `"web_fetch_tool_result_error" type`
@@ -6088,6 +6735,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Block Param
 
 - `BetaWebFetchToolResultErrorBlockParam`
+
   - `BetaWebFetchToolResultErrorCode errorCode`
 
   - `"web_fetch_tool_result_error" type`
@@ -6095,6 +6743,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Fetch Tool Result Error Code
 
 - `BetaWebFetchToolResultErrorCode`
+
   - `"invalid_tool_input"`
 
   - `"url_too_long"`
@@ -6116,6 +6765,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Result Block
 
 - `BetaWebSearchResultBlock`
+
   - `string encryptedContent`
 
   - `?string pageAge`
@@ -6129,6 +6779,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Result Block Param
 
 - `BetaWebSearchResultBlockParam`
+
   - `string encryptedContent`
 
   - `string title`
@@ -6142,6 +6793,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool 20250305
 
 - `BetaWebSearchTool20250305`
+
   - `"web_search" name`
 
     Name of the tool.
@@ -6183,6 +6835,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool 20260209
 
 - `BetaWebSearchTool20260209`
+
   - `"web_search" name`
 
     Name of the tool.
@@ -6224,6 +6877,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Request Error
 
 - `BetaWebSearchToolRequestError`
+
   - `BetaWebSearchToolResultErrorCode errorCode`
 
   - `"web_search_tool_result_error" type`
@@ -6231,6 +6885,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Block
 
 - `BetaWebSearchToolResultBlock`
+
   - `BetaWebSearchToolResultBlockContent content`
 
   - `string toolUseID`
@@ -6244,12 +6899,15 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Content
 
 - `BetaWebSearchToolResultBlockContent`
+
   - `BetaWebSearchToolResultError`
+
     - `BetaWebSearchToolResultErrorCode errorCode`
 
     - `"web_search_tool_result_error" type`
 
   - `list<BetaWebSearchResultBlock>`
+
     - `string encryptedContent`
 
     - `?string pageAge`
@@ -6263,6 +6921,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Param
 
 - `BetaWebSearchToolResultBlockParam`
+
   - `BetaWebSearchToolResultBlockParamContent content`
 
   - `string toolUseID`
@@ -6280,7 +6939,9 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Block Param Content
 
 - `BetaWebSearchToolResultBlockParamContent`
+
   - `list<BetaWebSearchResultBlockParam>`
+
     - `string encryptedContent`
 
     - `string title`
@@ -6292,6 +6953,7 @@ var_dump($betaMessageTokensCount);
     - `?string pageAge`
 
   - `BetaWebSearchToolRequestError`
+
     - `BetaWebSearchToolResultErrorCode errorCode`
 
     - `"web_search_tool_result_error" type`
@@ -6299,6 +6961,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Error
 
 - `BetaWebSearchToolResultError`
+
   - `BetaWebSearchToolResultErrorCode errorCode`
 
   - `"web_search_tool_result_error" type`
@@ -6306,6 +6969,7 @@ var_dump($betaMessageTokensCount);
 ### Beta Web Search Tool Result Error Code
 
 - `BetaWebSearchToolResultErrorCode`
+
   - `"invalid_tool_input"`
 
   - `"unavailable"`
@@ -6345,6 +7009,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -6432,6 +7097,28 @@ $betaMessageBatch = $client->beta->messages->batches->create(
           ],
         ],
         'diagnostics' => ['previousMessageID' => 'previous_message_id'],
+        'fallbackCreditToken' => 'x',
+        'fallbacks' => [
+          [
+            'model' => 'claude-fable-5',
+            'maxTokens' => 0,
+            'outputConfig' => [
+              'effort' => 'low',
+              'format' => [
+                'schema' => ['foo' => 'bar'], 'type' => 'json_schema'
+              ],
+              'taskBudget' => [
+                'total' => 1024, 'type' => 'tokens', 'remaining' => 0
+              ],
+            ],
+            'speed' => 'standard',
+            'thinking' => [
+              'budgetTokens' => 1024,
+              'type' => 'enabled',
+              'display' => 'summarized',
+            ],
+          ],
+        ],
         'inferenceGeo' => 'inference_geo',
         'mcpServers' => [
           [
@@ -6555,6 +7242,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -6677,6 +7365,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -6801,6 +7490,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -6915,6 +7605,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `DeletedMessageBatch`
+
   - `string id`
 
     ID of the Message Batch.
@@ -6975,6 +7666,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatchIndividualResponse`
+
   - `string customID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -7010,6 +7702,7 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Deleted Message Batch
 
 - `DeletedMessageBatch`
+
   - `string id`
 
     ID of the Message Batch.
@@ -7023,6 +7716,7 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Message Batch
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -7076,11 +7770,13 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Message Batch Canceled Result
 
 - `MessageBatchCanceledResult`
+
   - `"canceled" type`
 
 ### Beta Message Batch Errored Result
 
 - `MessageBatchErroredResult`
+
   - `BetaErrorResponse error`
 
   - `"errored" type`
@@ -7088,11 +7784,13 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Message Batch Expired Result
 
 - `MessageBatchExpiredResult`
+
   - `"expired" type`
 
 ### Beta Message Batch Individual Response
 
 - `MessageBatchIndividualResponse`
+
   - `string customID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -7108,6 +7806,7 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Message Batch Request Counts
 
 - `MessageBatchRequestCounts`
+
   - `int canceled`
 
     Number of requests in the Message Batch that have been canceled.
@@ -7139,25 +7838,31 @@ var_dump($betaMessageBatchIndividualResponse);
 ### Beta Message Batch Result
 
 - `MessageBatchResult`
+
   - `MessageBatchSucceededResult`
+
     - `BetaMessage message`
 
     - `"succeeded" type`
 
   - `MessageBatchErroredResult`
+
     - `BetaErrorResponse error`
 
     - `"errored" type`
 
   - `MessageBatchCanceledResult`
+
     - `"canceled" type`
 
   - `MessageBatchExpiredResult`
+
     - `"expired" type`
 
 ### Beta Message Batch Succeeded Result
 
 - `MessageBatchSucceededResult`
+
   - `BetaMessage message`
 
   - `"succeeded" type`
@@ -7180,11 +7885,11 @@ Create Agent
 
 - `name: string`
 
-  Human-readable name for the agent. 1-256 characters.
+  Human-readable name for the agent.
 
 - `description?:optional string`
 
-  Description of what the agent does. Up to 2048 characters.
+  Description of what the agent does.
 
 - `mcpServers?:optional list<BetaManagedAgentsURLMCPServerParams>`
 
@@ -7200,11 +7905,11 @@ Create Agent
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
-  Skills available to the agent. Maximum 20.
+  Skills available to the agent.
 
 - `system?:optional string`
 
-  System prompt for the agent. Up to 100,000 characters.
+  System prompt for the agent.
 
 - `tools?:optional list<Tool>`
 
@@ -7217,6 +7922,7 @@ Create Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -7416,6 +8122,7 @@ List Agents
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -7579,6 +8286,7 @@ Get Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -7729,7 +8437,7 @@ Update Agent
 
 - `description?:optional string`
 
-  Description. Up to 2048 characters. Omit to preserve; send empty string or null to clear.
+  Description. Omit to preserve; send empty string or null to clear.
 
 - `mcpServers?:optional list<BetaManagedAgentsURLMCPServerParams>`
 
@@ -7749,15 +8457,15 @@ Update Agent
 
 - `name?:optional string`
 
-  Human-readable name. 1-256 characters. Omit to preserve. Cannot be cleared.
+  Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
 - `skills?:optional list<BetaManagedAgentsSkillParams>`
 
-  Skills. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 20.
+  Skills. Full replacement. Omit to preserve; send empty array or null to clear.
 
 - `system?:optional string`
 
-  System prompt. Up to 100,000 characters. Omit to preserve; send empty string or null to clear.
+  System prompt. Omit to preserve; send empty string or null to clear.
 
 - `tools?:optional list<Tool>`
 
@@ -7770,6 +8478,7 @@ Update Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -7953,6 +8662,7 @@ Archive Agent
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -8088,6 +8798,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -8133,6 +8844,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Reference
 
 - `BetaManagedAgentsAgentReference`
+
   - `string id`
 
   - `Type type`
@@ -8142,6 +8854,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Tool Config
 
 - `BetaManagedAgentsAgentToolConfig`
+
   - `bool enabled`
 
   - `Name name`
@@ -8155,6 +8868,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Tool Config Params
 
 - `BetaManagedAgentsAgentToolConfigParams`
+
   - `Name name`
 
     Built-in agent tool identifier.
@@ -8170,6 +8884,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset Default Config
 
 - `BetaManagedAgentsAgentToolsetDefaultConfig`
+
   - `bool enabled`
 
   - `PermissionPolicy permissionPolicy`
@@ -8179,6 +8894,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset Default Config Params
 
 - `BetaManagedAgentsAgentToolsetDefaultConfigParams`
+
   - `?bool enabled`
 
     Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -8190,6 +8906,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401
 
 - `BetaManagedAgentsAgentToolset20260401`
+
   - `list<BetaManagedAgentsAgentToolConfig> configs`
 
   - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
@@ -8201,6 +8918,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Bash Input
 
 - `BetaManagedAgentsAgentToolset20260401BashInput`
+
   - `?string command`
 
     Shell command to execute. Omit only when `restart` is true.
@@ -8219,6 +8937,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Edit Input
 
 - `BetaManagedAgentsAgentToolset20260401EditInput`
+
   - `string filePath`
 
     Path of the file to edit.
@@ -8239,6 +8958,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Glob Input
 
 - `BetaManagedAgentsAgentToolset20260401GlobInput`
+
   - `string pattern`
 
     Doublestar glob pattern (e.g. `**/*.go`). Absolute patterns
@@ -8253,6 +8973,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Grep Input
 
 - `BetaManagedAgentsAgentToolset20260401GrepInput`
+
   - `string pattern`
 
     Regular expression to search for.
@@ -8265,6 +8986,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Params
 
 - `BetaManagedAgentsAgentToolset20260401Params`
+
   - `Type type`
 
   - `?list<BetaManagedAgentsAgentToolConfigParams> configs`
@@ -8278,6 +9000,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Read Input
 
 - `BetaManagedAgentsAgentToolset20260401ReadInput`
+
   - `string filePath`
 
     Path of the file to read.
@@ -8291,6 +9014,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Agent Toolset20260401 Write Input
 
 - `BetaManagedAgentsAgentToolset20260401WriteInput`
+
   - `string content`
 
     Full file contents to write.
@@ -8302,16 +9026,19 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Always Allow Policy
 
 - `BetaManagedAgentsAlwaysAllowPolicy`
+
   - `Type type`
 
 ### Beta Managed Agents Always Ask Policy
 
 - `BetaManagedAgentsAlwaysAskPolicy`
+
   - `Type type`
 
 ### Beta Managed Agents Anthropic Skill
 
 - `BetaManagedAgentsAnthropicSkill`
+
   - `string skillID`
 
   - `Type type`
@@ -8321,6 +9048,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Anthropic Skill Params
 
 - `BetaManagedAgentsAnthropicSkillParams`
+
   - `string skillID`
 
     Identifier of the Anthropic skill (e.g., "xlsx").
@@ -8334,6 +9062,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Skill
 
 - `BetaManagedAgentsCustomSkill`
+
   - `string skillID`
 
   - `Type type`
@@ -8343,6 +9072,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Skill Params
 
 - `BetaManagedAgentsCustomSkillParams`
+
   - `string skillID`
 
     Tagged ID of the custom skill (e.g., "skill_01XJ5...").
@@ -8356,6 +9086,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Tool
 
 - `BetaManagedAgentsCustomTool`
+
   - `string description`
 
   - `BetaManagedAgentsCustomToolInputSchema inputSchema`
@@ -8369,21 +9100,17 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Custom Tool Input Schema
 
 - `BetaManagedAgentsCustomToolInputSchema`
+
+  - `"object" type`
+
   - `?array<string,mixed> properties`
 
-    JSON Schema properties defining the tool's input parameters.
-
   - `?list<string> required`
-
-    List of required property names.
-
-  - `?Type type`
-
-    Must be 'object' for tool input schemas.
 
 ### Beta Managed Agents Custom Tool Params
 
 - `BetaManagedAgentsCustomToolParams`
+
   - `string description`
 
     Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -8401,6 +9128,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Server URL Definition
 
 - `BetaManagedAgentsMCPServerURLDefinition`
+
   - `string name`
 
   - `Type type`
@@ -8410,6 +9138,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Tool Config
 
 - `BetaManagedAgentsMCPToolConfig`
+
   - `bool enabled`
 
   - `string name`
@@ -8421,6 +9150,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Tool Config Params
 
 - `BetaManagedAgentsMCPToolConfigParams`
+
   - `string name`
 
     Name of the MCP tool to configure. 1-128 characters.
@@ -8436,6 +9166,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset
 
 - `BetaManagedAgentsMCPToolset`
+
   - `list<BetaManagedAgentsMCPToolConfig> configs`
 
   - `BetaManagedAgentsMCPToolsetDefaultConfig defaultConfig`
@@ -8449,6 +9180,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Default Config
 
 - `BetaManagedAgentsMCPToolsetDefaultConfig`
+
   - `bool enabled`
 
   - `PermissionPolicy permissionPolicy`
@@ -8458,6 +9190,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Default Config Params
 
 - `BetaManagedAgentsMCPToolsetDefaultConfigParams`
+
   - `?bool enabled`
 
     Whether tools are enabled by default. Defaults to true if not specified.
@@ -8469,6 +9202,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents MCP Toolset Params
 
 - `BetaManagedAgentsMCPToolsetParams`
+
   - `string mcpServerName`
 
     Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
@@ -8486,6 +9220,15 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model
 
 - `BetaManagedAgentsModel`
+
+  - `"claude-fable-5"`
+
+    Next generation of intelligence for the hardest knowledge work and coding problems
+
+  - `"claude-opus-4-8"`
+
+    Frontier intelligence for long-running agents and coding
+
   - `"claude-opus-4-7"`
 
     Frontier intelligence for long-running agents and coding
@@ -8525,6 +9268,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model Config
 
 - `BetaManagedAgentsModelConfig`
+
   - `BetaManagedAgentsModel id`
 
     The model that will power your agent.
@@ -8538,6 +9282,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Model Config Params
 
 - `BetaManagedAgentsModelConfigParams`
+
   - `BetaManagedAgentsModel id`
 
     The model that will power your agent.
@@ -8551,6 +9296,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Coordinator
 
 - `BetaManagedAgentsMultiagentCoordinator`
+
   - `list<BetaManagedAgentsAgentReference> agents`
 
     Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -8560,6 +9306,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Coordinator Params
 
 - `BetaManagedAgentsMultiagentCoordinatorParams`
+
   - `list<BetaManagedAgentsMultiagentRosterEntryParams> agents`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
@@ -8569,11 +9316,13 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Multiagent Self Params
 
 - `BetaManagedAgentsMultiagentSelfParams`
+
   - `Type type`
 
 ### Beta Managed Agents Session Thread Agent
 
 - `BetaManagedAgentsSessionThreadAgent`
+
   - `string id`
 
   - `?string description`
@@ -8599,7 +9348,9 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents Skill Params
 
 - `BetaManagedAgentsSkillParams`
+
   - `BetaManagedAgentsAnthropicSkillParams`
+
     - `string skillID`
 
       Identifier of the Anthropic skill (e.g., "xlsx").
@@ -8611,6 +9362,7 @@ var_dump($betaManagedAgentsAgent);
       Version to pin. Defaults to latest if omitted.
 
   - `BetaManagedAgentsCustomSkillParams`
+
     - `string skillID`
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
@@ -8624,6 +9376,7 @@ var_dump($betaManagedAgentsAgent);
 ### Beta Managed Agents URL MCP Server Params
 
 - `BetaManagedAgentsURLMCPServerParams`
+
   - `string name`
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
@@ -8663,6 +9416,7 @@ List Agent Versions
 ### Returns
 
 - `BetaManagedAgentsAgent`
+
   - `string id`
 
   - `?\Datetime archivedAt`
@@ -8840,9 +9594,10 @@ Create a new environment with the specified configuration.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -8928,16 +9683,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -8981,9 +9751,10 @@ List environments with pagination support.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -9052,16 +9823,31 @@ var_dump($page);
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -9098,9 +9884,10 @@ Retrieve a specific environment by ID.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -9164,16 +9951,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -9227,9 +10029,10 @@ Update an existing environment's configuration.
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -9316,16 +10119,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -9359,6 +10177,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Returns
 
 - `BetaEnvironmentDeleteResponse`
+
   - `string id`
 
     Environment identifier
@@ -9411,9 +10230,10 @@ Archive an environment by ID. Archived environments cannot be used to create new
 ### Returns
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -9477,16 +10297,31 @@ var_dump($betaEnvironment);
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -9506,6 +10341,7 @@ var_dump($betaEnvironment);
 ### Beta Cloud Config
 
 - `BetaCloudConfig`
+
   - `Networking networking`
 
     Network configuration policy.
@@ -9521,6 +10357,7 @@ var_dump($betaEnvironment);
 ### Beta Cloud Config Params
 
 - `BetaCloudConfigParams`
+
   - `"cloud" type`
 
     Environment type
@@ -9538,9 +10375,10 @@ var_dump($betaEnvironment);
 ### Beta Environment
 
 - `BetaEnvironment`
+
   - `string id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `?string archivedAt`
 
@@ -9581,6 +10419,7 @@ var_dump($betaEnvironment);
 ### Beta Environment Delete Response
 
 - `BetaEnvironmentDeleteResponse`
+
   - `string id`
 
     Environment identifier
@@ -9592,6 +10431,7 @@ var_dump($betaEnvironment);
 ### Beta Limited Network
 
 - `BetaLimitedNetwork`
+
   - `bool allowMCPServers`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -9611,6 +10451,7 @@ var_dump($betaEnvironment);
 ### Beta Limited Network Params
 
 - `BetaLimitedNetworkParams`
+
   - `"limited" type`
 
     Network policy type
@@ -9630,6 +10471,7 @@ var_dump($betaEnvironment);
 ### Beta Packages
 
 - `BetaPackages`
+
   - `list<string> apt`
 
     Ubuntu/Debian packages to install
@@ -9661,6 +10503,7 @@ var_dump($betaEnvironment);
 ### Beta Packages Params
 
 - `BetaPackagesParams`
+
   - `?list<string> apt`
 
     Ubuntu/Debian packages to install
@@ -9692,6 +10535,7 @@ var_dump($betaEnvironment);
 ### Beta Self Hosted Config
 
 - `BetaSelfHostedConfig`
+
   - `"self_hosted" type`
 
     Environment type
@@ -9699,6 +10543,7 @@ var_dump($betaEnvironment);
 ### Beta Self Hosted Config Params
 
 - `BetaSelfHostedConfigParams`
+
   - `"self_hosted" type`
 
     Environment type
@@ -9706,6 +10551,7 @@ var_dump($betaEnvironment);
 ### Beta Unrestricted Network
 
 - `BetaUnrestrictedNetwork`
+
   - `"unrestricted" type`
 
     Network policy type
@@ -9735,9 +10581,10 @@ Retrieve detailed information about a specific work item.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -9858,9 +10705,10 @@ Long poll for work items in the queue.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -9973,9 +10821,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -10094,6 +10943,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Returns
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -10177,9 +11027,10 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -10297,9 +11148,10 @@ List work items in an environment.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -10420,9 +11272,10 @@ Update work item metadata with merge semantics.
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -10530,6 +11383,7 @@ Get statistics about the work queue for an environment.
 ### Returns
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -10583,9 +11437,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 
@@ -10634,6 +11489,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Heartbeat Response
 
 - `SelfHostedWorkHeartbeatResponse`
+
   - `string lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -10657,6 +11513,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work List Response
 
 - `SelfHostedWorkListResponse`
+
   - `list<SelfHostedWork> data`
 
     List of work items
@@ -10668,6 +11525,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Queue Stats
 
 - `SelfHostedWorkQueueStats`
+
   - `int depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -10691,6 +11549,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Stop Request
 
 - `SelfHostedWorkStopRequest`
+
   - `?bool force`
 
     If true, immediately stop work without graceful shutdown
@@ -10698,6 +11557,7 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Self Hosted Work Update Request
 
 - `SelfHostedWorkUpdateRequest`
+
   - `array<string,string> metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -10705,9 +11565,10 @@ var_dump($betaSelfHostedWorkQueueStats);
 ### Beta Session Work Data
 
 - `SessionWorkData`
+
   - `string id`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `"session" type`
 
@@ -10756,6 +11617,7 @@ Create Session
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -10803,6 +11665,10 @@ Create Session
   - `list<string> vaultIDs`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -10993,13 +11859,16 @@ var_dump($betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```
 
 ## List Sessions
 
-`$client->beta->sessions->list(?string agentID, ?int agentVersion, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?bool includeArchived, ?int limit, ?string memoryStoreID, ?Order order, ?string page, ?list<Status> statuses, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsSession>`
+`$client->beta->sessions->list(?string agentID, ?int agentVersion, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?string deploymentID, ?bool includeArchived, ?int limit, ?string memoryStoreID, ?Order order, ?string page, ?list<Status> statuses, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsSession>`
 
 **get** `/v1/sessions`
 
@@ -11031,6 +11900,10 @@ List Sessions
 
   Return sessions created at or before this time (inclusive).
 
+- `deploymentID?:optional string`
+
+  Filter sessions created by this deployment ID.
+
 - `includeArchived?:optional bool`
 
   When true, includes archived sessions. Default: false (exclude archived).
@@ -11049,7 +11922,7 @@ List Sessions
 
 - `page?:optional string`
 
-  Opaque pagination cursor from a previous response's next_page.
+  Opaque pagination cursor from a previous response.
 
 - `statuses?:optional list<Status>`
 
@@ -11062,6 +11935,7 @@ List Sessions
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -11110,6 +11984,10 @@ List Sessions
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
 
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
+
 ### Example
 
 ```php
@@ -11126,6 +12004,7 @@ $page = $client->beta->sessions->list(
   createdAtGte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
   createdAtLt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
   createdAtLte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  deploymentID: 'deployment_id',
   includeArchived: true,
   limit: 0,
   memoryStoreID: 'memory_store_id',
@@ -11301,7 +12180,10 @@ var_dump($page);
         "input_tokens": 0,
         "output_tokens": 0
       },
-      "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+      "vault_ids": [
+        "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+      ],
+      "deployment_id": "deployment_id"
     }
   ],
   "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
@@ -11327,6 +12209,7 @@ Get Session
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -11374,6 +12257,10 @@ Get Session
   - `list<string> vaultIDs`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -11552,7 +12439,10 @@ var_dump($betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```
 
@@ -11591,6 +12481,7 @@ Update Session
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -11638,6 +12529,10 @@ Update Session
   - `list<string> vaultIDs`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -11844,7 +12739,10 @@ var_dump($betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```
 
@@ -11867,6 +12765,7 @@ Delete Session
 ### Returns
 
 - `BetaManagedAgentsDeletedSession`
+
   - `string id`
 
   - `Type type`
@@ -11915,6 +12814,7 @@ Archive Session
 ### Returns
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -11962,6 +12862,10 @@ Archive Session
   - `list<string> vaultIDs`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -12140,7 +13044,10 @@ var_dump($betaManagedAgentsSession);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```
 
@@ -12149,6 +13056,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Agent Params
 
 - `BetaManagedAgentsAgentParams`
+
   - `string id`
 
     The `agent` ID.
@@ -12162,6 +13070,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Branch Checkout
 
 - `BetaManagedAgentsBranchCheckout`
+
   - `string name`
 
     Branch name to check out.
@@ -12171,6 +13080,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Cache Creation Usage
 
 - `BetaManagedAgentsCacheCreationUsage`
+
   - `?int ephemeral1hInputTokens`
 
     Tokens used to create 1-hour ephemeral cache entries.
@@ -12182,6 +13092,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Commit Checkout
 
 - `BetaManagedAgentsCommitCheckout`
+
   - `string sha`
 
     Full commit SHA to check out.
@@ -12191,6 +13102,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Deleted Session
 
 - `BetaManagedAgentsDeletedSession`
+
   - `string id`
 
   - `Type type`
@@ -12198,6 +13110,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents File Resource Params
 
 - `BetaManagedAgentsFileResourceParams`
+
   - `string fileID`
 
     ID of a previously uploaded file.
@@ -12211,6 +13124,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents GitHub Repository Resource Params
 
 - `BetaManagedAgentsGitHubRepositoryResourceParams`
+
   - `string authorizationToken`
 
     GitHub authorization token used to clone the repository.
@@ -12232,9 +13146,10 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Memory Store Resource Param
 
 - `BetaManagedAgentsMemoryStoreResourceParam`
+
   - `string memoryStoreID`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `Type type`
 
@@ -12249,6 +13164,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Multiagent
 
 - `BetaManagedAgentsMultiagent`
+
   - `list<BetaManagedAgentsAgentReference> agents`
 
     Agents the coordinator may spawn as session threads, each resolved to a specific version.
@@ -12258,6 +13174,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Multiagent Params
 
 - `BetaManagedAgentsMultiagentParams`
+
   - `list<BetaManagedAgentsMultiagentRosterEntryParams> agents`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
@@ -12267,9 +13184,11 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Multiagent Roster Entry Params
 
 - `BetaManagedAgentsMultiagentRosterEntryParams`
+
   - `string`
 
   - `BetaManagedAgentsAgentParams`
+
     - `string id`
 
       The `agent` ID.
@@ -12281,11 +13200,13 @@ var_dump($betaManagedAgentsSession);
       The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
 
   - `BetaManagedAgentsMultiagentSelfParams`
+
     - `Type type`
 
 ### Beta Managed Agents Outcome Evaluation Resource
 
 - `BetaManagedAgentsOutcomeEvaluationResource`
+
   - `?\Datetime completedAt`
 
     A timestamp in RFC 3339 format
@@ -12304,7 +13225,7 @@ var_dump($betaManagedAgentsSession);
 
   - `string outcomeID`
 
-    Server-generated outc\_ ID for this outcome.
+    Server-generated outc_ ID for this outcome.
 
   - `string result`
 
@@ -12315,6 +13236,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session
 
 - `BetaManagedAgentsSession`
+
   - `string id`
 
   - `BetaManagedAgentsSessionAgent agent`
@@ -12363,9 +13285,14 @@ var_dump($betaManagedAgentsSession);
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
 
+  - `?string deploymentID`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
+
 ### Beta Managed Agents Session Agent
 
 - `BetaManagedAgentsSessionAgent`
+
   - `string id`
 
   - `?string description`
@@ -12395,6 +13322,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session Agent Update
 
 - `BetaManagedAgentsSessionAgentUpdate`
+
   - `?list<BetaManagedAgentsURLMCPServerParams> mcpServers`
 
     Replacement MCP server list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
@@ -12406,6 +13334,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session Multiagent Coordinator
 
 - `BetaManagedAgentsSessionMultiagentCoordinator`
+
   - `list<BetaManagedAgentsSessionThreadAgent> agents`
 
     Full `agent` definitions the coordinator may spawn as session threads.
@@ -12415,6 +13344,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session Stats
 
 - `BetaManagedAgentsSessionStats`
+
   - `?float activeSeconds`
 
     Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -12426,6 +13356,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session Updated Event
 
 - `BetaManagedAgentsSessionUpdatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -12451,6 +13382,7 @@ var_dump($betaManagedAgentsSession);
 ### Beta Managed Agents Session Usage
 
 - `BetaManagedAgentsSessionUsage`
+
   - `?BetaManagedAgentsCacheCreationUsage cacheCreation`
 
     Prompt-cache creation token usage broken down by cache lifetime.
@@ -12467,9 +13399,38 @@ var_dump($betaManagedAgentsSession);
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents System Content Block
+
+- `BetaManagedAgentsSystemContentBlock`
+
+  - `string text`
+
+    The text content.
+
+  - `Type type`
+
+### Beta Managed Agents System Message Event
+
+- `BetaManagedAgentsSystemMessageEvent`
+
+  - `string id`
+
+    Unique identifier for this event.
+
+  - `list<BetaManagedAgentsSystemContentBlock> content`
+
+    System content blocks. Text-only.
+
+  - `Type type`
+
+  - `?\Datetime processedAt`
+
+    A timestamp in RFC 3339 format
+
 ### Beta Managed Agents User Tool Result Event
 
 - `BetaManagedAgentsUserToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -12549,7 +13510,9 @@ List Events
 ### Returns
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12565,6 +13528,7 @@ List Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12580,6 +13544,7 @@ List Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12607,6 +13572,7 @@ List Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12634,6 +13600,7 @@ List Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12657,6 +13624,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12672,6 +13640,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12683,6 +13652,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12714,6 +13684,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12737,6 +13708,7 @@ List Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12764,6 +13736,7 @@ List Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12787,6 +13760,7 @@ List Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12810,6 +13784,7 @@ List Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12833,6 +13808,7 @@ List Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12844,6 +13820,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12859,6 +13836,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12870,6 +13848,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12881,6 +13860,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12896,6 +13876,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12907,6 +13888,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12926,6 +13908,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12945,6 +13928,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12980,6 +13964,7 @@ List Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -12991,6 +13976,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13014,6 +14000,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13033,6 +14020,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13060,6 +14048,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13071,6 +14060,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13085,11 +14075,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13104,7 +14095,7 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -13113,6 +14104,7 @@ List Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13127,11 +14119,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13159,6 +14152,7 @@ List Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13173,11 +14167,12 @@ List Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13199,6 +14194,22 @@ List Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -13280,6 +14291,7 @@ Send Events
 ### Returns
 
 - `ManagedAgentsSendSessionEvents`
+
   - `?list<Data> data`
 
     Sent events
@@ -13346,7 +14358,9 @@ Stream Events
 ### Returns
 
 - `ManagedAgentsStreamSessionEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13362,6 +14376,7 @@ Stream Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13377,6 +14392,7 @@ Stream Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13404,6 +14420,7 @@ Stream Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13431,6 +14448,7 @@ Stream Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13454,6 +14472,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13469,6 +14488,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13480,6 +14500,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13511,6 +14532,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13534,6 +14556,7 @@ Stream Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13561,6 +14584,7 @@ Stream Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13584,6 +14608,7 @@ Stream Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13607,6 +14632,7 @@ Stream Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13630,6 +14656,7 @@ Stream Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13641,6 +14668,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13656,6 +14684,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13667,6 +14696,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13678,6 +14708,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13693,6 +14724,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13704,6 +14736,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13723,6 +14756,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13742,6 +14776,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13777,6 +14812,7 @@ Stream Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13788,6 +14824,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13811,6 +14848,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13830,6 +14868,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13857,6 +14896,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13868,6 +14908,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13882,11 +14923,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13901,7 +14943,7 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -13910,6 +14952,7 @@ Stream Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13924,11 +14967,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13956,6 +15000,7 @@ Stream Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13970,11 +15015,12 @@ Stream Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -13996,6 +15042,22 @@ Stream Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -14038,6 +15100,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Custom Tool Use Event
 
 - `ManagedAgentsAgentCustomToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14063,6 +15126,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent MCP Tool Result Event
 
 - `ManagedAgentsAgentMCPToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14088,6 +15152,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent MCP Tool Use Event
 
 - `ManagedAgentsAgentMCPToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14121,6 +15186,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Message Event
 
 - `ManagedAgentsAgentMessageEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14138,6 +15204,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thinking Event
 
 - `ManagedAgentsAgentThinkingEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14151,6 +15218,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Context Compacted Event
 
 - `ManagedAgentsAgentThreadContextCompactedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14164,6 +15232,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Message Received Event
 
 - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14189,6 +15258,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Thread Message Sent Event
 
 - `ManagedAgentsAgentThreadMessageSentEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14214,6 +15284,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Tool Result Event
 
 - `ManagedAgentsAgentToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14239,6 +15310,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Agent Tool Use Event
 
 - `ManagedAgentsAgentToolUseEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14268,6 +15340,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Base64 Document Source
 
 - `ManagedAgentsBase64DocumentSource`
+
   - `string data`
 
     Base64-encoded document data.
@@ -14281,6 +15354,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Base64 Image Source
 
 - `ManagedAgentsBase64ImageSource`
+
   - `string data`
 
     Base64-encoded image data.
@@ -14294,6 +15368,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Billing Error
 
 - `ManagedAgentsBillingError`
+
   - `string message`
 
     Human-readable error description.
@@ -14304,9 +15379,32 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `Type type`
 
+### Beta Managed Agents Credential Host Unreachable Error
+
+- `ManagedAgentsCredentialHostUnreachableError`
+
+  - `string credentialID`
+
+    ID of the affected credential.
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `RetryStatus retryStatus`
+
+    What the client should do next in response to this error.
+
+  - `Type type`
+
+  - `string vaultID`
+
+    ID of the vault containing the affected credential.
+
 ### Beta Managed Agents Document Block
 
 - `ManagedAgentsDocumentBlock`
+
   - `Source source`
 
     Union type for document source variants.
@@ -14324,7 +15422,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Event Params
 
 - `ManagedAgentsEventParams`
+
   - `ManagedAgentsUserMessageEventParams`
+
     - `list<Content> content`
 
       Array of content blocks for the user message.
@@ -14332,6 +15432,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserInterruptEventParams`
+
     - `Type type`
 
     - `?string sessionThreadID`
@@ -14339,6 +15440,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEventParams`
+
     - `Result result`
 
       UserToolConfirmationResult enum
@@ -14354,6 +15456,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
   - `ManagedAgentsUserCustomToolResultEventParams`
+
     - `string customToolUseID`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -14369,6 +15472,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsUserDefineOutcomeEventParams`
+
     - `string description`
 
       What the agent should produce. This is the task specification.
@@ -14384,6 +15488,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Eval→revision cycles before giving up. Default 3, max 20.
 
   - `ManagedAgentsUserToolResultEventParams`
+
     - `string toolUseID`
 
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -14398,9 +15503,18 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       Whether the tool execution resulted in an error.
 
+  - `ManagedAgentsSystemMessageEventParams`
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks to append. Text-only.
+
+    - `Type type`
+
 ### Beta Managed Agents File Document Source
 
 - `ManagedAgentsFileDocumentSource`
+
   - `string fileID`
 
     ID of a previously uploaded file.
@@ -14410,6 +15524,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Image Source
 
 - `ManagedAgentsFileImageSource`
+
   - `string fileID`
 
     ID of a previously uploaded file.
@@ -14419,6 +15534,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Rubric
 
 - `ManagedAgentsFileRubric`
+
   - `string fileID`
 
     ID of the rubric file.
@@ -14428,6 +15544,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents File Rubric Params
 
 - `ManagedAgentsFileRubricParams`
+
   - `string fileID`
 
     ID of the rubric file.
@@ -14437,6 +15554,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Image Block
 
 - `ManagedAgentsImageBlock`
+
   - `Source source`
 
     Union type for image source variants.
@@ -14446,6 +15564,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents MCP Authentication Failed Error
 
 - `ManagedAgentsMCPAuthenticationFailedError`
+
   - `string mcpServerName`
 
     Name of the MCP server that failed authentication.
@@ -14463,6 +15582,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents MCP Connection Failed Error
 
 - `ManagedAgentsMCPConnectionFailedError`
+
   - `string mcpServerName`
 
     Name of the MCP server that failed to connect.
@@ -14480,6 +15600,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Overloaded Error
 
 - `ManagedAgentsModelOverloadedError`
+
   - `string message`
 
     Human-readable error description.
@@ -14493,6 +15614,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Rate Limited Error
 
 - `ManagedAgentsModelRateLimitedError`
+
   - `string message`
 
     Human-readable error description.
@@ -14506,6 +15628,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Model Request Failed Error
 
 - `ManagedAgentsModelRequestFailedError`
+
   - `string message`
 
     Human-readable error description.
@@ -14519,6 +15642,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Plain Text Document Source
 
 - `ManagedAgentsPlainTextDocumentSource`
+
   - `string data`
 
     The plain text content.
@@ -14532,21 +15656,25 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Retry Status Exhausted
 
 - `ManagedAgentsRetryStatusExhausted`
+
   - `Type type`
 
 ### Beta Managed Agents Retry Status Retrying
 
 - `ManagedAgentsRetryStatusRetrying`
+
   - `Type type`
 
 ### Beta Managed Agents Retry Status Terminal
 
 - `ManagedAgentsRetryStatusTerminal`
+
   - `Type type`
 
 ### Beta Managed Agents Search Result Block
 
 - `ManagedAgentsSearchResultBlock`
+
   - `ManagedAgentsSearchResultCitations citations`
 
     Citation settings for a search result.
@@ -14568,6 +15696,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Search Result Citations
 
 - `ManagedAgentsSearchResultCitations`
+
   - `bool enabled`
 
     Whether citations are enabled for this search result.
@@ -14575,6 +15704,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Search Result Content
 
 - `ManagedAgentsSearchResultContent`
+
   - `string text`
 
     The text content.
@@ -14584,6 +15714,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Send Session Events
 
 - `ManagedAgentsSendSessionEvents`
+
   - `?list<Data> data`
 
     Sent events
@@ -14591,6 +15722,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Deleted Event
 
 - `ManagedAgentsSessionDeletedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14604,11 +15736,13 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session End Turn
 
 - `ManagedAgentsSessionEndTurn`
+
   - `Type type`
 
 ### Beta Managed Agents Session Error Event
 
 - `ManagedAgentsSessionErrorEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -14626,7 +15760,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Event
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14642,6 +15778,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14657,6 +15794,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14684,6 +15822,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14711,6 +15850,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14734,6 +15874,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14749,6 +15890,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14760,6 +15902,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14791,6 +15934,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14814,6 +15958,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14841,6 +15986,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14864,6 +16010,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14887,6 +16034,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14910,6 +16058,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14921,6 +16070,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14936,6 +16086,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14947,6 +16098,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14958,6 +16110,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14973,6 +16126,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -14984,6 +16138,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15003,6 +16158,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15022,6 +16178,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15057,6 +16214,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15068,6 +16226,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15091,6 +16250,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15110,6 +16270,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15137,6 +16298,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15148,6 +16310,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15162,11 +16325,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15181,7 +16345,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -15190,6 +16354,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15204,11 +16369,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15236,6 +16402,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15250,11 +16417,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15277,9 +16445,26 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
+
 ### Beta Managed Agents Session Requires Action
 
 - `ManagedAgentsSessionRequiresAction`
+
   - `list<string> eventIDs`
 
     The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
@@ -15289,11 +16474,13 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Retries Exhausted
 
 - `ManagedAgentsSessionRetriesExhausted`
+
   - `Type type`
 
 ### Beta Managed Agents Session Status Idle Event
 
 - `ManagedAgentsSessionStatusIdleEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15311,6 +16498,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Rescheduled Event
 
 - `ManagedAgentsSessionStatusRescheduledEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15324,6 +16512,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Running Event
 
 - `ManagedAgentsSessionStatusRunningEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15337,6 +16526,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Status Terminated Event
 
 - `ManagedAgentsSessionStatusTerminatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15350,6 +16540,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Created Event
 
 - `ManagedAgentsSessionThreadCreatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15371,6 +16562,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Status Idle Event
 
 - `ManagedAgentsSessionThreadStatusIdleEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15385,7 +16577,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that went idle.
+    Public sthr_ ID of the thread that went idle.
 
   - `StopReason stopReason`
 
@@ -15396,6 +16588,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Session Thread Status Rescheduled Event
 
 - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15410,13 +16603,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that is retrying.
+    Public sthr_ ID of the thread that is retrying.
 
   - `Type type`
 
 ### Beta Managed Agents Session Thread Status Running Event
 
 - `ManagedAgentsSessionThreadStatusRunningEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15431,13 +16625,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that started running.
+    Public sthr_ ID of the thread that started running.
 
   - `Type type`
 
 ### Beta Managed Agents Session Thread Status Terminated Event
 
 - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15452,13 +16647,14 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
   - `string sessionThreadID`
 
-    Public sthr\_ ID of the thread that terminated.
+    Public sthr_ ID of the thread that terminated.
 
   - `Type type`
 
 ### Beta Managed Agents Span Model Request End Event
 
 - `ManagedAgentsSpanModelRequestEndEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15484,6 +16680,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Model Request Start Event
 
 - `ManagedAgentsSpanModelRequestStartEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15497,6 +16694,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Model Usage
 
 - `ManagedAgentsSpanModelUsage`
+
   - `int cacheCreationInputTokens`
 
     Tokens used to create prompt cache in this request.
@@ -15520,6 +16718,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation End Event
 
 - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15557,6 +16756,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation Ongoing Event
 
 - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15578,6 +16778,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Span Outcome Evaluation Start Event
 
 - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -15599,7 +16800,9 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Stream Session Events
 
 - `ManagedAgentsStreamSessionEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15615,6 +16818,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15630,6 +16834,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15657,6 +16862,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15684,6 +16890,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15707,6 +16914,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15722,6 +16930,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15733,6 +16942,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15764,6 +16974,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15787,6 +16998,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15814,6 +17026,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15837,6 +17050,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15860,6 +17074,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15883,6 +17098,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15894,6 +17110,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15909,6 +17126,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15920,6 +17138,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15931,6 +17150,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15946,6 +17166,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15957,6 +17178,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15976,6 +17198,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -15995,6 +17218,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16030,6 +17254,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16041,6 +17266,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16064,6 +17290,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16083,6 +17310,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16110,6 +17338,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16121,6 +17350,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16135,11 +17365,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16154,7 +17385,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -16163,6 +17394,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16177,11 +17409,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16209,6 +17442,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16223,11 +17457,12 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -16250,9 +17485,36 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 
       The session's new title. Present only when the update changed it.
 
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
+
+### Beta Managed Agents System Message Event Params
+
+- `ManagedAgentsSystemMessageEventParams`
+
+  - `list<BetaManagedAgentsSystemContentBlock> content`
+
+    System content blocks to append. Text-only.
+
+  - `Type type`
+
 ### Beta Managed Agents Text Block
 
 - `ManagedAgentsTextBlock`
+
   - `string text`
 
     The text content.
@@ -16262,6 +17524,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Text Rubric
 
 - `ManagedAgentsTextRubric`
+
   - `string content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text.
@@ -16271,6 +17534,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Text Rubric Params
 
 - `ManagedAgentsTextRubricParams`
+
   - `string content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
@@ -16280,6 +17544,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents Unknown Error
 
 - `ManagedAgentsUnknownError`
+
   - `string message`
 
     Human-readable error description.
@@ -16293,6 +17558,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents URL Document Source
 
 - `ManagedAgentsURLDocumentSource`
+
   - `Type type`
 
   - `string url`
@@ -16302,6 +17568,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents URL Image Source
 
 - `ManagedAgentsURLImageSource`
+
   - `Type type`
 
   - `string url`
@@ -16311,6 +17578,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Custom Tool Result Event
 
 - `ManagedAgentsUserCustomToolResultEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -16340,6 +17608,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Custom Tool Result Event Params
 
 - `ManagedAgentsUserCustomToolResultEventParams`
+
   - `string customToolUseID`
 
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -16357,6 +17626,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Define Outcome Event
 
 - `ManagedAgentsUserDefineOutcomeEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -16386,6 +17656,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Define Outcome Event Params
 
 - `ManagedAgentsUserDefineOutcomeEventParams`
+
   - `string description`
 
     What the agent should produce. This is the task specification.
@@ -16403,6 +17674,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Interrupt Event
 
 - `ManagedAgentsUserInterruptEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -16420,6 +17692,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Interrupt Event Params
 
 - `ManagedAgentsUserInterruptEventParams`
+
   - `Type type`
 
   - `?string sessionThreadID`
@@ -16429,6 +17702,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Message Event
 
 - `ManagedAgentsUserMessageEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -16446,6 +17720,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Message Event Params
 
 - `ManagedAgentsUserMessageEventParams`
+
   - `list<Content> content`
 
     Array of content blocks for the user message.
@@ -16455,6 +17730,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Confirmation Event
 
 - `ManagedAgentsUserToolConfirmationEvent`
+
   - `string id`
 
     Unique identifier for this event.
@@ -16484,6 +17760,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Confirmation Event Params
 
 - `ManagedAgentsUserToolConfirmationEventParams`
+
   - `Result result`
 
     UserToolConfirmationResult enum
@@ -16501,6 +17778,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 ### Beta Managed Agents User Tool Result Event Params
 
 - `ManagedAgentsUserToolResultEventParams`
+
   - `string toolUseID`
 
     The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
@@ -16546,6 +17824,7 @@ Add Session Resource
 ### Returns
 
 - `ManagedAgentsFileResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -16622,7 +17901,9 @@ List Session Resources
 ### Returns
 
 - `ManagedAgentsSessionResource`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16642,6 +17923,7 @@ List Session Resources
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16659,9 +17941,10 @@ List Session Resources
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -16755,7 +18038,9 @@ Get Session Resource
 ### Returns
 
 - `ResourceGetResponse`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16775,6 +18060,7 @@ Get Session Resource
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16792,9 +18078,10 @@ Get Session Resource
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -16878,7 +18165,9 @@ Update Session Resource
 ### Returns
 
 - `ResourceUpdateResponse`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16898,6 +18187,7 @@ Update Session Resource
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -16915,9 +18205,10 @@ Update Session Resource
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -16998,6 +18289,7 @@ Delete Session Resource
 ### Returns
 
 - `ManagedAgentsDeleteSessionResource`
+
   - `string id`
 
   - `Type type`
@@ -17038,6 +18330,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Delete Session Resource
 
 - `ManagedAgentsDeleteSessionResource`
+
   - `string id`
 
   - `Type type`
@@ -17045,6 +18338,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents File Resource
 
 - `ManagedAgentsFileResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -17064,6 +18358,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents GitHub Repository Resource
 
 - `ManagedAgentsGitHubRepositoryResource`
+
   - `string id`
 
   - `\Datetime createdAt`
@@ -17085,9 +18380,10 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Memory Store Resource
 
 - `ManagedAgentsMemoryStoreResource`
+
   - `string memoryStoreID`
 
-    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
   - `Type type`
 
@@ -17114,7 +18410,9 @@ var_dump($betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents Session Resource
 
 - `ManagedAgentsSessionResource`
+
   - `ManagedAgentsGitHubRepositoryResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -17134,6 +18432,7 @@ var_dump($betaManagedAgentsDeleteSessionResource);
     - `?Checkout checkout`
 
   - `ManagedAgentsFileResource`
+
     - `string id`
 
     - `\Datetime createdAt`
@@ -17151,9 +18450,10 @@ var_dump($betaManagedAgentsDeleteSessionResource);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsMemoryStoreResource`
+
     - `string memoryStoreID`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
 
@@ -17206,6 +18506,7 @@ List Session Threads
 ### Returns
 
 - `ManagedAgentsSessionThread`
+
   - `string id`
 
     Unique identifier for this thread.
@@ -17368,6 +18669,7 @@ Get Session Thread
 ### Returns
 
 - `ManagedAgentsSessionThread`
+
   - `string id`
 
     Unique identifier for this thread.
@@ -17524,6 +18826,7 @@ Archive Session Thread
 ### Returns
 
 - `ManagedAgentsSessionThread`
+
   - `string id`
 
     Unique identifier for this thread.
@@ -17664,6 +18967,7 @@ var_dump($betaManagedAgentsSessionThread);
 ### Beta Managed Agents Session Thread
 
 - `ManagedAgentsSessionThread`
+
   - `string id`
 
     Unique identifier for this thread.
@@ -17709,6 +19013,7 @@ var_dump($betaManagedAgentsSessionThread);
 ### Beta Managed Agents Session Thread Stats
 
 - `ManagedAgentsSessionThreadStats`
+
   - `?float activeSeconds`
 
     Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -17724,6 +19029,7 @@ var_dump($betaManagedAgentsSessionThread);
 ### Beta Managed Agents Session Thread Status
 
 - `ManagedAgentsSessionThreadStatus`
+
   - `"running"`
 
   - `"idle"`
@@ -17735,6 +19041,7 @@ var_dump($betaManagedAgentsSessionThread);
 ### Beta Managed Agents Session Thread Usage
 
 - `ManagedAgentsSessionThreadUsage`
+
   - `?BetaManagedAgentsCacheCreationUsage cacheCreation`
 
     Prompt-cache creation token usage broken down by cache lifetime.
@@ -17754,7 +19061,9 @@ var_dump($betaManagedAgentsSessionThread);
 ### Beta Managed Agents Stream Session Thread Events
 
 - `ManagedAgentsStreamSessionThreadEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17770,6 +19079,7 @@ var_dump($betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17785,6 +19095,7 @@ var_dump($betaManagedAgentsSessionThread);
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17812,6 +19123,7 @@ var_dump($betaManagedAgentsSessionThread);
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17839,6 +19151,7 @@ var_dump($betaManagedAgentsSessionThread);
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17862,6 +19175,7 @@ var_dump($betaManagedAgentsSessionThread);
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17877,6 +19191,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17888,6 +19203,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17919,6 +19235,7 @@ var_dump($betaManagedAgentsSessionThread);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17942,6 +19259,7 @@ var_dump($betaManagedAgentsSessionThread);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17969,6 +19287,7 @@ var_dump($betaManagedAgentsSessionThread);
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -17992,6 +19311,7 @@ var_dump($betaManagedAgentsSessionThread);
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18015,6 +19335,7 @@ var_dump($betaManagedAgentsSessionThread);
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18038,6 +19359,7 @@ var_dump($betaManagedAgentsSessionThread);
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18049,6 +19371,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18064,6 +19387,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18075,6 +19399,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18086,6 +19411,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18101,6 +19427,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18112,6 +19439,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18131,6 +19459,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18150,6 +19479,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18185,6 +19515,7 @@ var_dump($betaManagedAgentsSessionThread);
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18196,6 +19527,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18219,6 +19551,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18238,6 +19571,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18265,6 +19599,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18276,6 +19611,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18290,11 +19626,12 @@ var_dump($betaManagedAgentsSessionThread);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18309,7 +19646,7 @@ var_dump($betaManagedAgentsSessionThread);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -18318,6 +19655,7 @@ var_dump($betaManagedAgentsSessionThread);
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18332,11 +19670,12 @@ var_dump($betaManagedAgentsSessionThread);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18364,6 +19703,7 @@ var_dump($betaManagedAgentsSessionThread);
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18378,11 +19718,12 @@ var_dump($betaManagedAgentsSessionThread);
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18404,6 +19745,22 @@ var_dump($betaManagedAgentsSessionThread);
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 # Events
 
@@ -18436,7 +19793,9 @@ List Session Thread Events
 ### Returns
 
 - `ManagedAgentsSessionEvent`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18452,6 +19811,7 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18467,6 +19827,7 @@ List Session Thread Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18494,6 +19855,7 @@ List Session Thread Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18521,6 +19883,7 @@ List Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18544,6 +19907,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18559,6 +19923,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18570,6 +19935,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18601,6 +19967,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18624,6 +19991,7 @@ List Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18651,6 +20019,7 @@ List Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18674,6 +20043,7 @@ List Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18697,6 +20067,7 @@ List Session Thread Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18720,6 +20091,7 @@ List Session Thread Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18731,6 +20103,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18746,6 +20119,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18757,6 +20131,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18768,6 +20143,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18783,6 +20159,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18794,6 +20171,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18813,6 +20191,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18832,6 +20211,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18867,6 +20247,7 @@ List Session Thread Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18878,6 +20259,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18901,6 +20283,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18920,6 +20303,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18947,6 +20331,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18958,6 +20343,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18972,11 +20358,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -18991,7 +20378,7 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -19000,6 +20387,7 @@ List Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19014,11 +20402,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19046,6 +20435,7 @@ List Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19060,11 +20450,12 @@ List Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19086,6 +20477,22 @@ List Session Thread Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -19149,7 +20556,9 @@ Stream Session Thread Events
 ### Returns
 
 - `ManagedAgentsStreamSessionThreadEvents`
+
   - `ManagedAgentsUserMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19165,6 +20574,7 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
   - `ManagedAgentsUserInterruptEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19180,6 +20590,7 @@ Stream Session Thread Events
       If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
 
   - `ManagedAgentsUserToolConfirmationEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19207,6 +20618,7 @@ Stream Session Thread Events
       When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
 
   - `ManagedAgentsUserCustomToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19234,6 +20646,7 @@ Stream Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsAgentCustomToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19257,6 +20670,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
 
   - `ManagedAgentsAgentMessageEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19272,6 +20686,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentThinkingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19283,6 +20698,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsAgentMCPToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19314,6 +20730,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentMCPToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19337,6 +20754,7 @@ Stream Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentToolUseEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19364,6 +20782,7 @@ Stream Session Thread Events
       When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
 
   - `ManagedAgentsAgentToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19387,6 +20806,7 @@ Stream Session Thread Events
       Whether the tool execution resulted in an error.
 
   - `ManagedAgentsAgentThreadMessageReceivedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19410,6 +20830,7 @@ Stream Session Thread Events
       Name of the callable agent this message came from. Absent when received from the primary agent.
 
   - `ManagedAgentsAgentThreadMessageSentEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19433,6 +20854,7 @@ Stream Session Thread Events
       Name of the callable agent this message was sent to. Absent when sent to the primary agent.
 
   - `ManagedAgentsAgentThreadContextCompactedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19444,6 +20866,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionErrorEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19459,6 +20882,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19470,6 +20894,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19481,6 +20906,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19496,6 +20922,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19507,6 +20934,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadCreatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19526,6 +20954,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19545,6 +20974,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19580,6 +21010,7 @@ Stream Session Thread Events
       Token usage for a single model request.
 
   - `ManagedAgentsSpanModelRequestStartEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19591,6 +21022,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanModelRequestEndEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19614,6 +21046,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSpanOutcomeEvaluationOngoingEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19633,6 +21066,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsUserDefineOutcomeEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19660,6 +21094,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionDeletedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19671,6 +21106,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusRunningEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19685,11 +21121,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that started running.
+      Public sthr_ ID of the thread that started running.
 
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusIdleEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19704,7 +21141,7 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that went idle.
+      Public sthr_ ID of the thread that went idle.
 
     - `StopReason stopReason`
 
@@ -19713,6 +21150,7 @@ Stream Session Thread Events
     - `Type type`
 
   - `ManagedAgentsSessionThreadStatusTerminatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19727,11 +21165,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that terminated.
+      Public sthr_ ID of the thread that terminated.
 
     - `Type type`
 
   - `BetaManagedAgentsUserToolResultEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19759,6 +21198,7 @@ Stream Session Thread Events
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `ManagedAgentsSessionThreadStatusRescheduledEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19773,11 +21213,12 @@ Stream Session Thread Events
 
     - `string sessionThreadID`
 
-      Public sthr\_ ID of the thread that is retrying.
+      Public sthr_ ID of the thread that is retrying.
 
     - `Type type`
 
   - `BetaManagedAgentsSessionUpdatedEvent`
+
     - `string id`
 
       Unique identifier for this event.
@@ -19799,6 +21240,22 @@ Stream Session Thread Events
     - `?string title`
 
       The session's new title. Present only when the update changed it.
+
+  - `BetaManagedAgentsSystemMessageEvent`
+
+    - `string id`
+
+      Unique identifier for this event.
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+    - `Type type`
+
+    - `?\Datetime processedAt`
+
+      A timestamp in RFC 3339 format
 
 ### Example
 
@@ -19839,6 +21296,2361 @@ var_dump($betaManagedAgentsStreamSessionThreadEvents);
 }
 ```
 
+# Deployments
+
+## Create Deployment
+
+`$client->beta->deployments->create(Agent agent, string environmentID, list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, string name, ?string description, ?array<string,string> metadata, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments`
+
+Create Deployment
+
+### Parameters
+
+- `agent: Agent`
+
+  Agent to deploy. Accepts the `agent` ID string, which pins the latest version, or an `agent` object with both id and version specified. The agent must exist and not be archived.
+
+- `environmentID: string`
+
+  ID of the `environment` defining the container configuration for sessions created from this deployment.
+
+- `initialEvents: list<BetaManagedAgentsDeploymentInitialEventParams>`
+
+  Events to send to each session immediately after creation. At least 1, maximum 50.
+
+- `name: string`
+
+  Human-readable name for the deployment.
+
+- `description?:optional string`
+
+  Description of what the deployment does.
+
+- `metadata?:optional array<string,string>`
+
+  Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+- `resources?:optional list<Resource>`
+
+  Resources (e.g. repositories, files) to mount into each session's container. Maximum 500.
+
+- `schedule?:optional BetaManagedAgentsScheduleParams`
+
+  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+- `vaultIDs?:optional list<string>`
+
+  Vault IDs for stored credentials the agent can use during sessions created from this deployment. Maximum 50.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->create(
+  agent: 'string',
+  environmentID: 'x',
+  initialEvents: [
+    [
+      'content' => [['text' => 'Where is my order #1234?', 'type' => 'text']],
+      'type' => 'user.message',
+    ],
+  ],
+  name: 'x',
+  description: 'description',
+  metadata: ['foo' => 'string'],
+  resources: [
+    [
+      'fileID' => 'file_011CNha8iCJcU1wXNR6q4V8w',
+      'type' => 'file',
+      'mountPath' => '/uploads/receipt.pdf',
+    ],
+  ],
+  schedule: ['expression' => 'x', 'timezone' => 'x', 'type' => 'cron'],
+  vaultIDs: ['string'],
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## List Deployments
+
+`$client->beta->deployments->list(?string agentID, ?\Datetime createdAtGte, ?\Datetime createdAtLte, ?bool includeArchived, ?int limit, ?string page, ?BetaManagedAgentsDeploymentStatus status, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsDeployment>`
+
+**get** `/v1/deployments`
+
+List Deployments
+
+### Parameters
+
+- `agentID?:optional string`
+
+  Filter by agent ID.
+
+- `createdAtGte?:optional \Datetime`
+
+  Return deployments created at or after this time (inclusive).
+
+- `createdAtLte?:optional \Datetime`
+
+  Return deployments created at or before this time (inclusive).
+
+- `includeArchived?:optional bool`
+
+  When true, includes archived deployments. Default: false (exclude archived).
+
+- `limit?:optional int`
+
+  Maximum results per page. Default 20, maximum 100.
+
+- `page?:optional string`
+
+  Opaque pagination cursor.
+
+- `status?:optional BetaManagedAgentsDeploymentStatus`
+
+  Filter by status: active or paused. Omit for both. To include archived deployments, use include_archived instead; the two cannot be combined.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->deployments->list(
+  agentID: 'agent_id',
+  createdAtGte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  includeArchived: true,
+  limit: 0,
+  page: 'page',
+  status: BetaManagedAgentsDeploymentStatus::ACTIVE,
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($page);
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "environment_id": "environment_id",
+      "initial_events": [
+        {
+          "content": [
+            {
+              "text": "Where is my order #1234?",
+              "type": "text"
+            }
+          ],
+          "type": "user.message"
+        }
+      ],
+      "metadata": {
+        "foo": "string"
+      },
+      "name": "name",
+      "paused_reason": {
+        "type": "manual"
+      },
+      "resources": [
+        {
+          "type": "github_repository",
+          "url": "url",
+          "checkout": {
+            "name": "main",
+            "type": "branch"
+          },
+          "mount_path": "mount_path"
+        }
+      ],
+      "schedule": {
+        "expression": "x",
+        "timezone": "x",
+        "type": "cron",
+        "last_run_at": "2019-12-27T18:11:19.117Z",
+        "upcoming_runs_at": [
+          "2019-12-27T18:11:19.117Z"
+        ]
+      },
+      "status": "active",
+      "type": "deployment",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "vault_ids": [
+        "string"
+      ]
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get Deployment
+
+`$client->beta->deployments->retrieve(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**get** `/v1/deployments/{deployment_id}`
+
+Get Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->retrieve(
+  'deployment_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## Update Deployment
+
+`$client->beta->deployments->update(string deploymentID, ?Agent agent, ?string description, ?string environmentID, ?list<BetaManagedAgentsDeploymentInitialEventParams> initialEvents, ?array<string,string> metadata, ?string name, ?list<Resource> resources, ?BetaManagedAgentsScheduleParams schedule, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}`
+
+Update Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `agent?:optional Agent`
+
+  Agent to deploy. Accepts the `agent` ID string, which re-pins to the latest version, or an `agent` object with both id and version specified. Omit to preserve. Cannot be cleared.
+
+- `description?:optional string`
+
+  Description. Omit to preserve; send empty string or null to clear.
+
+- `environmentID?:optional string`
+
+  ID of the `environment` where sessions run. Omit to preserve. Cannot be cleared.
+
+- `initialEvents?:optional list<BetaManagedAgentsDeploymentInitialEventParams>`
+
+  Initial events. Full replacement. Omit to preserve. Cannot be cleared. At least 1, maximum 50.
+
+- `metadata?:optional array<string,string>`
+
+  Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
+
+- `name?:optional string`
+
+  Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+
+- `resources?:optional list<Resource>`
+
+  Session resources. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 500.
+
+- `schedule?:optional BetaManagedAgentsScheduleParams`
+
+  5-field POSIX cron schedule. Literal wall-clock matching in the configured timezone.
+
+- `vaultIDs?:optional list<string>`
+
+  Vault IDs. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 50.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->update(
+  'deployment_id',
+  agent: 'string',
+  description: 'description',
+  environmentID: 'environment_id',
+  initialEvents: [
+    [
+      'content' => [['text' => 'Where is my order #1234?', 'type' => 'text']],
+      'type' => 'user.message',
+    ],
+  ],
+  metadata: ['foo' => 'string'],
+  name: 'name',
+  resources: [
+    [
+      'fileID' => 'file_011CNha8iCJcU1wXNR6q4V8w',
+      'type' => 'file',
+      'mountPath' => '/uploads/receipt.pdf',
+    ],
+  ],
+  schedule: ['expression' => 'x', 'timezone' => 'x', 'type' => 'cron'],
+  vaultIDs: ['string'],
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## Archive Deployment
+
+`$client->beta->deployments->archive(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/archive`
+
+Archive Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->archive(
+  'deployment_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## Run Deployment Now
+
+`$client->beta->deployments->run(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeploymentRun`
+
+**post** `/v1/deployments/{deployment_id}/run`
+
+Run Deployment Now
+
+### Parameters
+
+- `deploymentID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  - `string id`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string deploymentID`
+
+    ID of the deployment that produced this run.
+
+  - `?Error error`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+  - `?string sessionID`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `BetaManagedAgentsTriggerContext triggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+  - `Type type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeploymentRun = $client->beta->deployments->run(
+  'deployment_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeploymentRun);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Pause Deployment
+
+`$client->beta->deployments->pause(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/pause`
+
+Pause Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->pause(
+  'deployment_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## Unpause Deployment
+
+`$client->beta->deployments->unpause(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
+
+**post** `/v1/deployments/{deployment_id}/unpause`
+
+Unpause Deployment
+
+### Parameters
+
+- `deploymentID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeployment = $client->beta->deployments->unpause(
+  'deployment_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeployment);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "environment_id": "environment_id",
+  "initial_events": [
+    {
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message"
+    }
+  ],
+  "metadata": {
+    "foo": "string"
+  },
+  "name": "name",
+  "paused_reason": {
+    "type": "manual"
+  },
+  "resources": [
+    {
+      "type": "github_repository",
+      "url": "url",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      },
+      "mount_path": "mount_path"
+    }
+  ],
+  "schedule": {
+    "expression": "x",
+    "timezone": "x",
+    "type": "cron",
+    "last_run_at": "2019-12-27T18:11:19.117Z",
+    "upcoming_runs_at": [
+      "2019-12-27T18:11:19.117Z"
+    ]
+  },
+  "status": "active",
+  "type": "deployment",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "vault_ids": [
+    "string"
+  ]
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Agent Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Cron Schedule
+
+- `BetaManagedAgentsCronSchedule`
+
+  - `string expression`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `string timezone`
+
+    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+  - `Type type`
+
+  - `?\Datetime lastRunAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?list<\Datetime> upcomingRunsAt`
+
+    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+### Beta Managed Agents Cron Schedule Params
+
+- `BetaManagedAgentsCronScheduleParams`
+
+  - `string expression`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `string timezone`
+
+    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+  - `Type type`
+
+### Beta Managed Agents Deployment
+
+- `BetaManagedAgentsDeployment`
+
+  - `string id`
+
+    Unique identifier for this deployment.
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `?\Datetime archivedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?string description`
+
+    Description of what the deployment does.
+
+  - `string environmentID`
+
+    ID of the `environment` where sessions run.
+
+  - `list<BetaManagedAgentsDeploymentInitialEvent> initialEvents`
+
+    Events sent to each session immediately after creation.
+
+  - `array<string,string> metadata`
+
+    Arbitrary key-value metadata. Maximum 16 pairs.
+
+  - `string name`
+
+    Human-readable name.
+
+  - `?BetaManagedAgentsDeploymentPausedReason pausedReason`
+
+    Why a deployment is paused. Non-null exactly when `status` is `paused`.
+
+  - `list<BetaManagedAgentsSessionResourceConfig> resources`
+
+    Resources attached to sessions created from this deployment. Echoes the input minus write-only credentials.
+
+  - `?BetaManagedAgentsSchedule schedule`
+
+    5-field POSIX cron schedule with computed runtime timestamps.
+
+  - `BetaManagedAgentsDeploymentStatus status`
+
+    Lifecycle status of a deployment.
+
+  - `Type type`
+
+  - `\Datetime updatedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `list<string> vaultIDs`
+
+    Vault IDs supplying stored credentials for sessions created from this deployment.
+
+### Beta Managed Agents Deployment Initial Event
+
+- `BetaManagedAgentsDeploymentInitialEvent`
+
+  - `BetaManagedAgentsDeploymentUserMessageEvent`
+
+    - `list<Content> content`
+
+      Array of content blocks for the user message.
+
+    - `Type type`
+
+  - `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+    - `string description`
+
+      What the agent should produce. This is the task specification.
+
+    - `Rubric rubric`
+
+      Rubric for grading the quality of an outcome.
+
+    - `Type type`
+
+    - `?int maxIterations`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks to append. Text-only.
+
+    - `Type type`
+
+### Beta Managed Agents Deployment Initial Event Params
+
+- `BetaManagedAgentsDeploymentInitialEventParams`
+
+  - `ManagedAgentsUserMessageEventParams`
+
+    - `list<Content> content`
+
+      Array of content blocks for the user message.
+
+    - `Type type`
+
+  - `ManagedAgentsUserDefineOutcomeEventParams`
+
+    - `string description`
+
+      What the agent should produce. This is the task specification.
+
+    - `Rubric rubric`
+
+      Rubric for grading the quality of an outcome.
+
+    - `Type type`
+
+    - `?int maxIterations`
+
+      Eval→revision cycles before giving up. Default 3, max 20.
+
+  - `ManagedAgentsSystemMessageEventParams`
+
+    - `list<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks to append. Text-only.
+
+    - `Type type`
+
+### Beta Managed Agents Deployment Paused Reason
+
+- `BetaManagedAgentsDeploymentPausedReason`
+
+  - `BetaManagedAgentsManualDeploymentPausedReason`
+
+    - `Type type`
+
+  - `BetaManagedAgentsErrorDeploymentPausedReason`
+
+    - `BetaManagedAgentsDeploymentPausedReasonError error`
+
+      The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+    - `Type type`
+
+### Beta Managed Agents Deployment Paused Reason Error
+
+- `BetaManagedAgentsDeploymentPausedReasonError`
+
+  - `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+    - `Type type`
+
+  - `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+    - `Type type`
+
+### Beta Managed Agents Deployment Status
+
+- `BetaManagedAgentsDeploymentStatus`
+
+  - `"active"`
+
+  - `"paused"`
+
+### Beta Managed Agents Deployment System Message Event
+
+- `BetaManagedAgentsDeploymentSystemMessageEvent`
+
+  - `list<BetaManagedAgentsSystemContentBlock> content`
+
+    System content blocks to append. Text-only.
+
+  - `Type type`
+
+### Beta Managed Agents Deployment User Define Outcome Event
+
+- `BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
+
+  - `string description`
+
+    What the agent should produce. This is the task specification.
+
+  - `Rubric rubric`
+
+    Rubric for grading the quality of an outcome.
+
+  - `Type type`
+
+  - `?int maxIterations`
+
+    Eval→revision cycles before giving up. Default 3, max 20.
+
+### Beta Managed Agents Deployment User Message Event
+
+- `BetaManagedAgentsDeploymentUserMessageEvent`
+
+  - `list<Content> content`
+
+    Array of content blocks for the user message.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsEnvironmentArchivedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Environment Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Error Deployment Paused Reason
+
+- `BetaManagedAgentsErrorDeploymentPausedReason`
+
+  - `BetaManagedAgentsDeploymentPausedReasonError error`
+
+    The error that triggered an auto-pause. Matches the failed run's `error.type`.
+
+  - `Type type`
+
+### Beta Managed Agents File Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents File Resource Config
+
+- `BetaManagedAgentsFileResourceConfig`
+
+  - `string fileID`
+
+    ID of a previously uploaded file.
+
+  - `Type type`
+
+  - `?string mountPath`
+
+    Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+### Beta Managed Agents GitHub Repository Resource Config
+
+- `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+  - `Type type`
+
+  - `string url`
+
+    Github URL of the repository
+
+  - `?Checkout checkout`
+
+    Branch or commit to check out. Defaults to the repository's default branch.
+
+  - `?string mountPath`
+
+    Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+### Beta Managed Agents Manual Deployment Paused Reason
+
+- `BetaManagedAgentsManualDeploymentPausedReason`
+
+  - `Type type`
+
+### Beta Managed Agents MCP Egress Blocked Deployment Paused Reason Error
+
+- `BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Memory Store Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Memory Store Resource Config
+
+- `BetaManagedAgentsMemoryStoreResourceConfig`
+
+  - `string memoryStoreID`
+
+    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+  - `Type type`
+
+  - `?Access access`
+
+    Access mode for an attached memory store.
+
+  - `?string instructions`
+
+    Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+### Beta Managed Agents Organization Disabled Deployment Paused Reason Error
+
+- `BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Schedule
+
+- `BetaManagedAgentsSchedule`
+
+  - `string expression`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `string timezone`
+
+    IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
+
+  - `Type type`
+
+  - `?\Datetime lastRunAt`
+
+    A timestamp in RFC 3339 format
+
+  - `?list<\Datetime> upcomingRunsAt`
+
+    Up to 5 timestamps of upcoming cron occurrences. Non-empty for active and paused deployments (reflects what the schedule would do if unpaused); empty once the deployment is archived (`archived_at` set). Each fire is offset by a small per-schedule jitter, so a run will actually start at or shortly after its listed time.
+
+### Beta Managed Agents Schedule Params
+
+- `BetaManagedAgentsScheduleParams`
+
+  - `string expression`
+
+    5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
+
+  - `string timezone`
+
+    Required. IANA timezone identifier (e.g., "America/Los_Angeles", "UTC"). Validated against the IANA timezone database.
+
+  - `Type type`
+
+### Beta Managed Agents Self Hosted Resources Unsupported Deployment Paused Reason Error
+
+- `BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Session Resource Config
+
+- `BetaManagedAgentsSessionResourceConfig`
+
+  - `BetaManagedAgentsGitHubRepositoryResourceConfig`
+
+    - `Type type`
+
+    - `string url`
+
+      Github URL of the repository
+
+    - `?Checkout checkout`
+
+      Branch or commit to check out. Defaults to the repository's default branch.
+
+    - `?string mountPath`
+
+      Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+  - `BetaManagedAgentsFileResourceConfig`
+
+    - `string fileID`
+
+      ID of a previously uploaded file.
+
+    - `Type type`
+
+    - `?string mountPath`
+
+      Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+  - `BetaManagedAgentsMemoryStoreResourceConfig`
+
+    - `string memoryStoreID`
+
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+    - `Type type`
+
+    - `?Access access`
+
+      Access mode for an attached memory store.
+
+    - `?string instructions`
+
+      Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+### Beta Managed Agents Session Resource Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Skill Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Unknown Deployment Paused Reason Error
+
+- `BetaManagedAgentsUnknownDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Vault Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Vault Not Found Deployment Paused Reason Error
+
+- `BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
+
+  - `Type type`
+
+### Beta Managed Agents Workspace Archived Deployment Paused Reason Error
+
+- `BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
+
+  - `Type type`
+
+# Deployment Runs
+
+## List Deployment Runs
+
+`$client->beta->deploymentRuns->list(?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?string deploymentID, ?bool hasError, ?int limit, ?string page, ?BetaManagedAgentsTriggerType triggerType, ?list<AnthropicBeta> betas): PageCursor<BetaManagedAgentsDeploymentRun>`
+
+**get** `/v1/deployment_runs`
+
+List Deployment Runs
+
+### Parameters
+
+- `createdAtGt?:optional \Datetime`
+
+  Return runs created strictly after this time (exclusive).
+
+- `createdAtGte?:optional \Datetime`
+
+  Return runs created at or after this time (inclusive).
+
+- `createdAtLt?:optional \Datetime`
+
+  Return runs created strictly before this time (exclusive).
+
+- `createdAtLte?:optional \Datetime`
+
+  Return runs created at or before this time (inclusive).
+
+- `deploymentID?:optional string`
+
+  Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
+
+- `hasError?:optional bool`
+
+  Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
+
+- `limit?:optional int`
+
+  Maximum results per page. Default 20, maximum 1000.
+
+- `page?:optional string`
+
+  Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
+
+- `triggerType?:optional BetaManagedAgentsTriggerType`
+
+  Filter runs by what triggered them. Omit to return all runs.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  - `string id`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string deploymentID`
+
+    ID of the deployment that produced this run.
+
+  - `?Error error`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+  - `?string sessionID`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `BetaManagedAgentsTriggerContext triggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+  - `Type type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->deploymentRuns->list(
+  createdAtGt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtGte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLt: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  createdAtLte: new \DateTimeImmutable('2019-12-27T18:11:19.117Z'),
+  deploymentID: 'deployment_id',
+  hasError: true,
+  limit: 0,
+  page: 'page',
+  triggerType: BetaManagedAgentsTriggerType::SCHEDULE,
+  betas: ['message-batches-2024-09-24'],
+);
+
+var_dump($page);
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      },
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "deployment_id": "deployment_id",
+      "error": {
+        "message": "message",
+        "type": "environment_archived_error"
+      },
+      "session_id": "session_id",
+      "trigger_context": {
+        "scheduled_at": "2019-12-27T18:11:19.117Z",
+        "type": "schedule"
+      },
+      "type": "deployment_run"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Get Deployment Run
+
+`$client->beta->deploymentRuns->retrieve(string deploymentRunID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeploymentRun`
+
+**get** `/v1/deployment_runs/{deployment_run_id}`
+
+Get Deployment Run
+
+### Parameters
+
+- `deploymentRunID: string`
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `BetaManagedAgentsDeploymentRun`
+
+  - `string id`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string deploymentID`
+
+    ID of the deployment that produced this run.
+
+  - `?Error error`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+  - `?string sessionID`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `BetaManagedAgentsTriggerContext triggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+  - `Type type`
+
+### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaManagedAgentsDeploymentRun = $client->beta->deploymentRuns->retrieve(
+  'deployment_run_id', betas: ['message-batches-2024-09-24']
+);
+
+var_dump($betaManagedAgentsDeploymentRun);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "type": "agent",
+    "version": 1
+  },
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deployment_id": "deployment_id",
+  "error": {
+    "message": "message",
+    "type": "environment_archived_error"
+  },
+  "session_id": "session_id",
+  "trigger_context": {
+    "scheduled_at": "2019-12-27T18:11:19.117Z",
+    "type": "schedule"
+  },
+  "type": "deployment_run"
+}
+```
+
+## Domain Types
+
+### Beta Managed Agents Agent Archived Run Error
+
+- `BetaManagedAgentsAgentArchivedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Deployment Run
+
+- `BetaManagedAgentsDeploymentRun`
+
+  - `string id`
+
+    Unique identifier for this run (`drun_...`).
+
+  - `BetaManagedAgentsAgentReference agent`
+
+    A resolved agent reference with a concrete version.
+
+  - `\Datetime createdAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string deploymentID`
+
+    ID of the deployment that produced this run.
+
+  - `?Error error`
+
+    Why the run failed to create a session. The type identifies the failure; message is human-readable detail.
+
+  - `?string sessionID`
+
+    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+
+  - `BetaManagedAgentsTriggerContext triggerContext`
+
+    Describes what triggered a deployment run, with trigger-specific metadata.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Archived Run Error
+
+- `BetaManagedAgentsEnvironmentArchivedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Not Found Run Error
+
+- `BetaManagedAgentsEnvironmentNotFoundRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents File Not Found Run Error
+
+- `BetaManagedAgentsFileNotFoundRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Manual Trigger Context
+
+- `BetaManagedAgentsManualTriggerContext`
+
+  - `Type type`
+
+### Beta Managed Agents MCP Egress Blocked Run Error
+
+- `BetaManagedAgentsMCPEgressBlockedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Memory Store Archived Run Error
+
+- `BetaManagedAgentsMemoryStoreArchivedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Organization Disabled Run Error
+
+- `BetaManagedAgentsOrganizationDisabledRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Schedule Trigger Context
+
+- `BetaManagedAgentsScheduleTriggerContext`
+
+  - `\Datetime scheduledAt`
+
+    A timestamp in RFC 3339 format
+
+  - `Type type`
+
+### Beta Managed Agents Self Hosted Resources Unsupported Run Error
+
+- `BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Session Creation Rejected Run Error
+
+- `BetaManagedAgentsSessionCreationRejectedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Session Rate Limited Run Error
+
+- `BetaManagedAgentsSessionRateLimitedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Session Resource Not Found Run Error
+
+- `BetaManagedAgentsSessionResourceNotFoundRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Skill Not Found Run Error
+
+- `BetaManagedAgentsSkillNotFoundRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Trigger Context
+
+- `BetaManagedAgentsTriggerContext`
+
+  - `BetaManagedAgentsScheduleTriggerContext`
+
+    - `\Datetime scheduledAt`
+
+      A timestamp in RFC 3339 format
+
+    - `Type type`
+
+  - `BetaManagedAgentsManualTriggerContext`
+
+    - `Type type`
+
+### Beta Managed Agents Trigger Type
+
+- `BetaManagedAgentsTriggerType`
+
+  - `"schedule"`
+
+  - `"manual"`
+
+### Beta Managed Agents Unknown Run Error
+
+- `BetaManagedAgentsUnknownRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Vault Archived Run Error
+
+- `BetaManagedAgentsVaultArchivedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Vault Not Found Run Error
+
+- `BetaManagedAgentsVaultNotFoundRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
+### Beta Managed Agents Workspace Archived Run Error
+
+- `BetaManagedAgentsWorkspaceArchivedRunError`
+
+  - `string message`
+
+    Human-readable error description.
+
+  - `Type type`
+
 # Vaults
 
 ## Create Vault
@@ -19866,6 +23678,7 @@ Create Vault
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -19955,6 +23768,7 @@ List Vaults
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -20040,6 +23854,7 @@ Get Vault
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -20125,6 +23940,7 @@ Update Vault
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -20205,6 +24021,7 @@ Delete Vault
 ### Returns
 
 - `BetaManagedAgentsDeletedVault`
+
   - `string id`
 
     Unique identifier of the deleted vault.
@@ -20255,6 +24072,7 @@ Archive Vault
 ### Returns
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -20318,6 +24136,7 @@ var_dump($betaManagedAgentsVault);
 ### Beta Managed Agents Deleted Vault
 
 - `BetaManagedAgentsDeletedVault`
+
   - `string id`
 
     Unique identifier of the deleted vault.
@@ -20327,6 +24146,7 @@ var_dump($betaManagedAgentsVault);
 ### Beta Managed Agents Vault
 
 - `BetaManagedAgentsVault`
+
   - `string id`
 
     Unique identifier for the vault.
@@ -20386,6 +24206,7 @@ Create Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -20496,6 +24317,7 @@ List Credentials
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -20597,6 +24419,7 @@ Get Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -20703,6 +24526,7 @@ Update Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -20811,6 +24635,7 @@ Delete Credential
 ### Returns
 
 - `ManagedAgentsDeletedCredential`
+
   - `string id`
 
     Unique identifier of the deleted credential.
@@ -20869,6 +24694,7 @@ Archive Credential
 ### Returns
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -20963,6 +24789,7 @@ Validate Credential
 ### Returns
 
 - `ManagedAgentsCredentialValidation`
+
   - `string credentialID`
 
     Unique identifier of the credential that was validated.
@@ -21051,6 +24878,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Credential
 
 - `ManagedAgentsCredential`
+
   - `string id`
 
     Unique identifier for the credential.
@@ -21085,9 +24913,26 @@ var_dump($betaManagedAgentsCredentialValidation);
 
     Human-readable name for the credential.
 
+### Beta Managed Agents Credential Networking Params
+
+- `ManagedAgentsCredentialNetworkingParams`
+
+  - `ManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+    - `Type type`
+
+  - `ManagedAgentsLimitedCredentialNetworkingParams`
+
+    - `list<string> allowedHosts`
+
+      Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `Type type`
+
 ### Beta Managed Agents Credential Validation
 
 - `ManagedAgentsCredentialValidation`
+
   - `string credentialID`
 
     Unique identifier of the credential that was validated.
@@ -21121,6 +24966,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Credential Validation Status
 
 - `ManagedAgentsCredentialValidationStatus`
+
   - `"valid"`
 
   - `"invalid"`
@@ -21130,15 +24976,83 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Deleted Credential
 
 - `ManagedAgentsDeletedCredential`
+
   - `string id`
 
     Unique identifier of the deleted credential.
 
   - `Type type`
 
+### Beta Managed Agents Environment Variable Auth Response
+
+- `ManagedAgentsEnvironmentVariableAuthResponse`
+
+  - `Networking networking`
+
+    Outbound hosts the secret value is substituted on.
+
+  - `string secretName`
+
+    Name of the environment variable.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Variable Create Params
+
+- `ManagedAgentsEnvironmentVariableCreateParams`
+
+  - `ManagedAgentsCredentialNetworkingParams networking`
+
+    Outbound hosts the secret value is substituted on.
+
+  - `string secretName`
+
+    Name of the environment variable. Immutable after create.
+
+  - `string secretValue`
+
+    Secret value. Write-only; never returned in responses.
+
+  - `Type type`
+
+### Beta Managed Agents Environment Variable Update Params
+
+- `ManagedAgentsEnvironmentVariableUpdateParams`
+
+  - `Type type`
+
+  - `?ManagedAgentsCredentialNetworkingParams networking`
+
+    Updated networking scope. Full replacement.
+
+  - `?string secretValue`
+
+    Updated secret value.
+
+### Beta Managed Agents Limited Credential Networking Params
+
+- `ManagedAgentsLimitedCredentialNetworkingParams`
+
+  - `list<string> allowedHosts`
+
+    Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+  - `Type type`
+
+### Beta Managed Agents Limited Credential Networking Response
+
+- `ManagedAgentsLimitedCredentialNetworkingResponse`
+
+  - `list<string> allowedHosts`
+
+    Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+  - `Type type`
+
 ### Beta Managed Agents MCP OAuth Auth Response
 
 - `ManagedAgentsMCPOAuthAuthResponse`
+
   - `string mcpServerURL`
 
     URL of the MCP server this credential authenticates against.
@@ -21156,6 +25070,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Create Params
 
 - `ManagedAgentsMCPOAuthCreateParams`
+
   - `string accessToken`
 
     OAuth access token.
@@ -21177,6 +25092,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Params
 
 - `ManagedAgentsMCPOAuthRefreshParams`
+
   - `string clientID`
 
     OAuth client ID.
@@ -21204,6 +25120,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Response
 
 - `ManagedAgentsMCPOAuthRefreshResponse`
+
   - `string clientID`
 
     OAuth client ID.
@@ -21227,6 +25144,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Refresh Update Params
 
 - `ManagedAgentsMCPOAuthRefreshUpdateParams`
+
   - `?string refreshToken`
 
     Updated OAuth refresh token.
@@ -21242,6 +25160,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP OAuth Update Params
 
 - `ManagedAgentsMCPOAuthUpdateParams`
+
   - `Type type`
 
   - `?string accessToken`
@@ -21259,6 +25178,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents MCP Probe
 
 - `ManagedAgentsMCPProbe`
+
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
     An HTTP response captured during a credential validation probe.
@@ -21270,6 +25190,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Refresh HTTP Response
 
 - `ManagedAgentsRefreshHTTPResponse`
+
   - `string body`
 
     Response body. May be truncated and has sensitive values scrubbed.
@@ -21289,6 +25210,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Refresh Object
 
 - `ManagedAgentsRefreshObject`
+
   - `?ManagedAgentsRefreshHTTPResponse httpResponse`
 
     An HTTP response captured during a credential validation probe.
@@ -21300,6 +25222,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Auth Response
 
 - `ManagedAgentsStaticBearerAuthResponse`
+
   - `string mcpServerURL`
 
     URL of the MCP server this credential authenticates against.
@@ -21309,6 +25232,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Create Params
 
 - `ManagedAgentsStaticBearerCreateParams`
+
   - `string token`
 
     Static bearer token value.
@@ -21322,6 +25246,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Static Bearer Update Params
 
 - `ManagedAgentsStaticBearerUpdateParams`
+
   - `Type type`
 
   - `?string token`
@@ -21331,6 +25256,7 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Basic Param
 
 - `ManagedAgentsTokenEndpointAuthBasicParam`
+
   - `string clientSecret`
 
     OAuth client secret.
@@ -21340,11 +25266,13 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Basic Response
 
 - `ManagedAgentsTokenEndpointAuthBasicResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
 
 - `ManagedAgentsTokenEndpointAuthBasicUpdateParam`
+
   - `Type type`
 
   - `?string clientSecret`
@@ -21354,16 +25282,19 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth None Param
 
 - `ManagedAgentsTokenEndpointAuthNoneParam`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth None Response
 
 - `ManagedAgentsTokenEndpointAuthNoneResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
 
 - `ManagedAgentsTokenEndpointAuthPostParam`
+
   - `string clientSecret`
 
     OAuth client secret.
@@ -21373,16 +25304,30 @@ var_dump($betaManagedAgentsCredentialValidation);
 ### Beta Managed Agents Token Endpoint Auth Post Response
 
 - `ManagedAgentsTokenEndpointAuthPostResponse`
+
   - `Type type`
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
 
 - `ManagedAgentsTokenEndpointAuthPostUpdateParam`
+
   - `Type type`
 
   - `?string clientSecret`
 
     Updated OAuth client secret.
+
+### Beta Managed Agents Unrestricted Credential Networking Params
+
+- `ManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+  - `Type type`
+
+### Beta Managed Agents Unrestricted Credential Networking Response
+
+- `ManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+  - `Type type`
 
 # Memory Stores
 
@@ -21415,6 +25360,7 @@ Create a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21518,6 +25464,7 @@ List memory stores
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21610,6 +25557,7 @@ Retrieve a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21704,6 +25652,7 @@ Update a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21790,6 +25739,7 @@ Delete a memory store
 ### Returns
 
 - `BetaManagedAgentsDeletedMemoryStore`
+
   - `string id`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
@@ -21840,6 +25790,7 @@ Archive a memory store
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21908,6 +25859,7 @@ var_dump($betaManagedAgentsMemoryStore);
 ### Beta Managed Agents Deleted Memory Store
 
 - `BetaManagedAgentsDeletedMemoryStore`
+
   - `string id`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
@@ -21917,6 +25869,7 @@ var_dump($betaManagedAgentsMemoryStore);
 ### Beta Managed Agents Memory Store
 
 - `BetaManagedAgentsMemoryStore`
+
   - `string id`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -21980,6 +25933,7 @@ Create a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22102,7 +26056,9 @@ List memories
 ### Returns
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22142,6 +26098,7 @@ List memories
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -22219,6 +26176,7 @@ Retrieve a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22330,6 +26288,7 @@ Update a memory
 ### Returns
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22434,6 +26393,7 @@ Delete a memory
 ### Returns
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -22473,6 +26433,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Conflict Error
 
 - `ManagedAgentsConflictError`
+
   - `Type type`
 
   - `?string message`
@@ -22480,6 +26441,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Content Sha256 Precondition
 
 - `ManagedAgentsContentSha256Precondition`
+
   - `Type type`
 
   - `?string contentSha256`
@@ -22489,6 +26451,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Deleted Memory
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).
@@ -22498,57 +26461,69 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Error
 
 - `ManagedAgentsError`
+
   - `BetaInvalidRequestError`
+
     - `string message`
 
     - `"invalid_request_error" type`
 
   - `BetaAuthenticationError`
+
     - `string message`
 
     - `"authentication_error" type`
 
   - `BetaBillingError`
+
     - `string message`
 
     - `"billing_error" type`
 
   - `BetaPermissionError`
+
     - `string message`
 
     - `"permission_error" type`
 
   - `BetaNotFoundError`
+
     - `string message`
 
     - `"not_found_error" type`
 
   - `BetaRateLimitError`
+
     - `string message`
 
     - `"rate_limit_error" type`
 
   - `BetaGatewayTimeoutError`
+
     - `string message`
 
     - `"timeout_error" type`
 
   - `BetaAPIError`
+
     - `string message`
 
     - `"api_error" type`
 
   - `BetaOverloadedError`
+
     - `string message`
 
     - `"overloaded_error" type`
 
   - `ManagedAgentsMemoryPreconditionFailedError`
+
     - `Type type`
 
     - `?string message`
 
   - `ManagedAgentsMemoryPathConflictError`
+
     - `Type type`
 
     - `?string conflictingMemoryID`
@@ -22558,6 +26533,7 @@ var_dump($betaManagedAgentsDeletedMemory);
     - `?string message`
 
   - `ManagedAgentsConflictError`
+
     - `Type type`
 
     - `?string message`
@@ -22565,6 +26541,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory
 
 - `ManagedAgentsMemory`
+
   - `string id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22606,7 +26583,9 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory List Item
 
 - `ManagedAgentsMemoryListItem`
+
   - `ManagedAgentsMemory`
+
     - `string id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -22646,6 +26625,7 @@ var_dump($betaManagedAgentsDeletedMemory);
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
   - `ManagedAgentsMemoryPrefix`
+
     - `string path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -22655,6 +26635,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `ManagedAgentsMemoryPathConflictError`
+
   - `Type type`
 
   - `?string conflictingMemoryID`
@@ -22666,6 +26647,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `ManagedAgentsMemoryPreconditionFailedError`
+
   - `Type type`
 
   - `?string message`
@@ -22673,6 +26655,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Prefix
 
 - `ManagedAgentsMemoryPrefix`
+
   - `string path`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
@@ -22682,6 +26665,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory View
 
 - `ManagedAgentsMemoryView`
+
   - `"basic"`
 
   - `"full"`
@@ -22689,6 +26673,7 @@ var_dump($betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Precondition
 
 - `ManagedAgentsPrecondition`
+
   - `Type type`
 
   - `?string contentSha256`
@@ -22752,6 +26737,7 @@ List memory versions
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -22884,6 +26870,7 @@ Retrieve a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -23004,6 +26991,7 @@ Redact a memory version
 ### Returns
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -23107,7 +27095,9 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Actor
 
 - `ManagedAgentsActor`
+
   - `ManagedAgentsSessionActor`
+
     - `string sessionID`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -23115,6 +27105,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsAPIActor`
+
     - `string apiKeyID`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
@@ -23122,6 +27113,7 @@ var_dump($betaManagedAgentsMemoryVersion);
     - `Type type`
 
   - `ManagedAgentsUserActor`
+
     - `Type type`
 
     - `string userID`
@@ -23131,6 +27123,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents API Actor
 
 - `ManagedAgentsAPIActor`
+
   - `string apiKeyID`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
@@ -23140,6 +27133,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version
 
 - `ManagedAgentsMemoryVersion`
+
   - `string id`
 
     Unique identifier for this version (a `memver_...` value).
@@ -23193,6 +27187,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Memory Version Operation
 
 - `ManagedAgentsMemoryVersionOperation`
+
   - `"created"`
 
   - `"modified"`
@@ -23202,6 +27197,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents Session Actor
 
 - `ManagedAgentsSessionActor`
+
   - `string sessionID`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
@@ -23211,6 +27207,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 ### Beta Managed Agents User Actor
 
 - `ManagedAgentsUserActor`
+
   - `Type type`
 
   - `string userID`
@@ -23240,6 +27237,7 @@ Upload File
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -23346,6 +27344,7 @@ List Files
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -23486,6 +27485,7 @@ Get File Metadata
 ### Returns
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -23577,6 +27577,7 @@ Delete File
 ### Returns
 
 - `DeletedFile`
+
   - `string id`
 
     ID of the deleted file.
@@ -23617,6 +27618,7 @@ var_dump($deletedFile);
 ### Beta File Scope
 
 - `BetaFileScope`
+
   - `string id`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -23628,6 +27630,7 @@ var_dump($deletedFile);
 ### Deleted File
 
 - `DeletedFile`
+
   - `string id`
 
     ID of the deleted file.
@@ -23641,6 +27644,7 @@ var_dump($deletedFile);
 ### File Metadata
 
 - `FileMetadata`
+
   - `string id`
 
     Unique object identifier.
@@ -23708,6 +27712,7 @@ Create Skill
 ### Returns
 
 - `SkillNewResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -23735,8 +27740,9 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `string type`
 
@@ -23809,8 +27815,9 @@ List Skills
   Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-  - `"custom"`: only return user-created skills
-  - `"anthropic"`: only return Anthropic-created skills
+
+  * `"custom"`: only return user-created skills
+  * `"anthropic"`: only return Anthropic-created skills
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -23819,6 +27826,7 @@ List Skills
 ### Returns
 
 - `SkillListResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -23846,8 +27854,9 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `string type`
 
@@ -23921,6 +27930,7 @@ Get Skill
 ### Returns
 
 - `SkillGetResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -23948,8 +27958,9 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `string type`
 
@@ -24014,6 +28025,7 @@ Delete Skill
 ### Returns
 
 - `SkillDeleteResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -24082,6 +28094,7 @@ Create Skill Version
 ### Returns
 
 - `VersionNewResponse`
+
   - `string id`
 
     Unique identifier for the skill version.
@@ -24194,6 +28207,7 @@ List Skill Versions
 ### Returns
 
 - `VersionListResponse`
+
   - `string id`
 
     Unique identifier for the skill version.
@@ -24350,6 +28364,7 @@ Get Skill Version
 ### Returns
 
 - `VersionGetResponse`
+
   - `string id`
 
     Unique identifier for the skill version.
@@ -24454,6 +28469,7 @@ Delete Skill Version
 ### Returns
 
 - `VersionDeleteResponse`
+
   - `string id`
 
     Version identifier for the skill.
@@ -24526,6 +28542,7 @@ Create User Profile
 ### Returns
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -24631,6 +28648,7 @@ List User Profiles
 ### Returns
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -24727,6 +28745,7 @@ Get User Profile
 ### Returns
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -24834,6 +28853,7 @@ Update User Profile
 ### Returns
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -24930,6 +28950,7 @@ Create Enrollment URL
 ### Returns
 
 - `BetaUserProfileEnrollmentURL`
+
   - `\Datetime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -24976,6 +28997,7 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta User Profile
 
 - `BetaUserProfile`
+
   - `string id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -25015,6 +29037,7 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta User Profile Enrollment URL
 
 - `BetaUserProfileEnrollmentURL`
+
   - `\Datetime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -25030,6 +29053,7 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta User Profile Trust Grant
 
 - `BetaUserProfileTrustGrant`
+
   - `Status status`
 
     Status of the trust grant.
@@ -25041,6 +29065,7 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Event
 
 - `BetaWebhookEvent`
+
   - `string id`
 
     Unique event identifier for idempotency.
@@ -25058,10 +29083,12 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Event Data
 
 - `BetaWebhookEventData`
+
   - `BetaWebhookSessionCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25070,9 +29097,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionPendingEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25081,9 +29109,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionRunningEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25092,9 +29121,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25103,9 +29133,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionRequiresActionEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25114,9 +29145,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25125,9 +29157,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25136,9 +29169,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusRescheduledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25147,9 +29181,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusRunStartedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25158,9 +29193,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25169,9 +29205,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusTerminatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25180,42 +29217,58 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_created" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_idled" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadTerminatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_terminated" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -25224,9 +29277,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -25235,9 +29289,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -25246,9 +29301,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -25257,9 +29313,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -25272,9 +29329,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -25287,9 +29345,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -25302,9 +29361,10 @@ var_dump($betaUserProfileEnrollmentURL);
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -25319,9 +29379,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Archived Event Data
 
 - `BetaWebhookSessionArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25332,9 +29393,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Created Event Data
 
 - `BetaWebhookSessionCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25345,9 +29407,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Deleted Event Data
 
 - `BetaWebhookSessionDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25358,9 +29421,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Idled Event Data
 
 - `BetaWebhookSessionIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25371,9 +29435,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Outcome Evaluation Ended Event Data
 
 - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25384,9 +29449,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Pending Event Data
 
 - `BetaWebhookSessionPendingEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25397,9 +29463,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Requires Action Event Data
 
 - `BetaWebhookSessionRequiresActionEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25410,9 +29477,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Running Event Data
 
 - `BetaWebhookSessionRunningEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25423,9 +29491,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Status Idled Event Data
 
 - `BetaWebhookSessionStatusIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25436,9 +29505,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Status Rescheduled Event Data
 
 - `BetaWebhookSessionStatusRescheduledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25449,9 +29519,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Status Run Started Event Data
 
 - `BetaWebhookSessionStatusRunStartedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25462,9 +29533,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Status Terminated Event Data
 
 - `BetaWebhookSessionStatusTerminatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -25475,11 +29547,16 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Thread Created Event Data
 
 - `BetaWebhookSessionThreadCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_created" type`
 
@@ -25488,11 +29565,16 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Thread Idled Event Data
 
 - `BetaWebhookSessionThreadIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_idled" type`
 
@@ -25501,11 +29583,16 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Session Thread Terminated Event Data
 
 - `BetaWebhookSessionThreadTerminatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_terminated" type`
 
@@ -25514,9 +29601,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Archived Event Data
 
 - `BetaWebhookVaultArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -25527,9 +29615,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Created Event Data
 
 - `BetaWebhookVaultCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -25540,9 +29629,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Credential Archived Event Data
 
 - `BetaWebhookVaultCredentialArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -25557,9 +29647,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Credential Created Event Data
 
 - `BetaWebhookVaultCredentialCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -25574,9 +29665,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Credential Deleted Event Data
 
 - `BetaWebhookVaultCredentialDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -25591,9 +29683,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Credential Refresh Failed Event Data
 
 - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -25608,9 +29701,10 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Beta Webhook Vault Deleted Event Data
 
 - `BetaWebhookVaultDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -25621,6 +29715,7 @@ var_dump($betaUserProfileEnrollmentURL);
 ### Unwrap Webhook Event
 
 - `UnwrapWebhookEvent`
+
   - `string id`
 
     Unique event identifier for idempotency.

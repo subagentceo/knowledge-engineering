@@ -20,15 +20,15 @@ Brian Peters, Anthropic's Head of North America Government Affairs, attended the
 
 Anthropic seeks to provide DOE researchers access both to Claude and to a team of Anthropic engineers, who can develop purpose-built tools, including:
 
-- AI "agents" (models that take actions) for DOE’s highest-priority challenges
-- Model Context Protocol servers that connect Claude to scientific instruments and tools
-- Claude Skills for specialized expertise on relevant scientific workflows
+*   AI "agents" (models that take actions) for DOE’s highest-priority challenges
+*   Model Context Protocol servers that connect Claude to scientific instruments and tools
+*   Claude Skills for specialized expertise on relevant scientific workflows
 
 Claude can facilitate substantial advancements in:
 
-- **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
-- **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
-- **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
+*   **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
+*   **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
+*   **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
 
 ## Our commitment to partner with the US Government
 
@@ -38,18 +38,20 @@ Potential future arrangements would represent the next stage of Anthropic and DO
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
+
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Introducing Claude Opus 4.8
+### Introducing Claude Corps
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Claude Fable 5 and Claude Mythos 5
 
-We're opening a new office in Milan, our sixth in Europe.
+Our next generation of intelligence for the hardest knowledge work and coding problems.
 
 Read more

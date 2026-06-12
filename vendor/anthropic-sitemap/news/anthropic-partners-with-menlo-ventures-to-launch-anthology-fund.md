@@ -14,26 +14,28 @@ The Fund will back selected entrepreneurs primarily innovating in five key areas
 
 Startups backed by the Anthology Fund will gain access to Anthropic products and research, $25,000 in free credits towards our most advanced models, and best-in-class venture support from Menlo, among other benefits and resources.
 
-“We are thrilled to join forces with Anthropic to launch the Anthology Fund,” said Matt Murphy, Partner at Menlo Ventures. “By combining Menlo’s company-building experience with Anthropic’s cutting-edge AI technology and talent, we are uniquely positioned to identify and partner with the most promising entrepreneurs shaping the future of AI.”
+“We are thrilled to join forces with Anthropic to launch the Anthology Fund,” said Matt Murphy, Partner at Menlo Ventures. “By combining Menlo’s company-building experience with Anthropic’s cutting-edge AI technology and talent, we are uniquely positioned to identify and partner with the most promising entrepreneurs shaping the future of AI.”  
 
 We look forward to working with Menlo in supporting the startup ecosystem and driving responsible AI innovation.
 
 Interested startups can learn more and apply here.
 
+  
+
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

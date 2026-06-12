@@ -16,9 +16,9 @@ For a detailed technical overview, see the **[Claude Cowork desktop security arc
 
 Two MDM keys let you restrict Cowork's scope on managed devices. Both are device-level settings applied through your MDM solution, not from organization settings.
 
-- **Disable local MCP servers:** Set isLocalDevMcpEnabled to false to disable plugin-bundled and locally configured MCP servers.
+- **Disable local MCP servers:** Set `isLocalDevMcpEnabled` to false to disable plugin-bundled and locally configured MCP servers.
 
-- **Disable desktop extensions:** Set isDesktopExtensionEnabled to false to block MCPB and DXT extension servers from running.
+- **Disable desktop extensions:** Set `isDesktopExtensionEnabled` to false to block MCPB and DXT extension servers from running.
 
 Both controls are described in **[Enterprise configuration for Claude Desktop](https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop)**.
 
@@ -27,10 +27,6 @@ The organization-wide Cowork toggle in **Organization settings > Cowork** (**Ena
 ---
 
 ## Frequently asked questions
-
-### My organization started using Cowork during the research preview. Does this article apply to me?
-
-Not yet. Your organization is still on the older architecture and is being migrated to the one described here. We’ll email your organization admin before the switch.
 
 ### What happens if a member's device can't start the VM?
 

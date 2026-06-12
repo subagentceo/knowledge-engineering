@@ -1,3 +1,5 @@
+# Payment Fraud in the New Age of Digital Transformation
+
 Q1 2025 Digital Trust Index
 
 # Payment Fraud in the New Age of Digital Transformation
@@ -8,15 +10,15 @@ Powered by FIBR, the Fraud Industry Benchmarking Resource
 
 Overview
 
--   [Payment Fraud Trends](#payment-fraud-trends)
--   [Consumer Data & Insights](#consumer-data-insights)
--   [Fraud Decisioning Solutions](#fraud-decisioning-solutions)
+*   Payment Fraud Trends
+*   Consumer Data & Insights
+*   Fraud Decisioning Solutions
 
 ## Current Trends in Payment Fraud
 
-The digital economy is shifting yet again. With changing consumer habits and [advancements in AI](/index-reports-ai-fraud-q2-2024/), the global economy is experiencing a second-wave digital transformation. Along with it, businesses face a broader range of risks now than they did even a year ago as different fraud patterns emerge. Amid this evolution, e-commerce [fraud is expected to rise](https://www.juniperresearch.com/research/fintech-payments/fraud-security/merchant-fraud-prevention-research-report/) from $44.3 billion in 2024 to $107 billion in 2029, growing by 141% over that period. 
+The digital economy is shifting yet again. With changing consumer habits and advancements in AI, the global economy is experiencing a second-wave digital transformation. Along with it, businesses face a broader range of risks now than they did even a year ago as different fraud patterns emerge. Amid this evolution, e-commerce fraud is expected to rise from $44.3 billion in 2024 to $107 billion in 2029, growing by 141% over that period. 
 
-Payment fraud persists as a leading concern—particularly when it comes to card testing, automation, and the [democratization of fraud](/blog/what-is-the-democratization-of-fraud/). Research shows that nearly 90% of businesses saw up to [9% of revenue lost](https://www.veriff.com/resources/ebooks/veriff-us-fraud-industry-pulse-survey-2024) due to fraud. As detection tools become stronger, fraud has increasingly shifted upstream or off-platform, manifesting in heightened [account takeovers](/index-reports-account-takeover-fraud-q3-2024/), social engineering, and [fraud-as-a-service schemes](/blog/what-is-the-democratization-of-fraud/).
+Payment fraud persists as a leading concern—particularly when it comes to card testing, automation, and the democratization of fraud. Research shows that nearly 90% of businesses saw up to 9% of revenue lost due to fraud. As detection tools become stronger, fraud has increasingly shifted upstream or off-platform, manifesting in heightened account takeovers, social engineering, and fraud-as-a-service schemes.
 
 ![current-trends-in-payment-fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20779%20779'%3E%3C/svg%3E)
 
@@ -26,7 +28,7 @@ Payment fraud persists as a leading concern—particularly when it comes to card
 
 ## Payment fraud attack rates across the Sift Global Network remained high in 2024 at 3.3%
 
-Although payment fraud attack rates across the Sift Global Network did not rise in 2024, they remain high at 3.3%. Certain industries, however, are targeted more by fraudsters. The ticketing and reservations industry, for example, has become prime prey for fraudsters. High-demand events, such as the [Taylor Swift concerts](https://www.forbes.com/councils/forbestechcouncil/2023/06/29/taylor-swift-and-bot-attacks-what-organizations-can-learn-from-the-ticket-dilemma/), have forced ticketing platforms to process transactions more quickly to meet customer expectations, opening the door to more fraudulent activities. As a result, the ticketing industry saw an 85% rise in attempted payment fraud YoY, with the fraud attack rate reaching 7.4%.
+Although payment fraud attack rates across the Sift Global Network did not rise in 2024, they remain high at 3.3%. Certain industries, however, are targeted more by fraudsters. The ticketing and reservations industry, for example, has become prime prey for fraudsters. High-demand events, such as the Taylor Swift concerts, have forced ticketing platforms to process transactions more quickly to meet customer expectations, opening the door to more fraudulent activities. As a result, the ticketing industry saw an 85% rise in attempted payment fraud YoY, with the fraud attack rate reaching 7.4%.
 
 ![Chart\_Highest Attempted Payment Fraud Rates in 2024](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20531'%3E%3C/svg%3E)
 
@@ -48,7 +50,7 @@ Different card issuers experience varying rates of attempted payment fraud withi
 
 ## Consumer Payment Fraud Insights
 
-Nearly half (44%) of consumers surveyed\* by Sift have been a victim of payment fraud in their lifetime, during which their payment information was used by someone else to make an unauthorized purchase. Of these payment fraud victims, the majority only had this happen once, but nearly 2/5 had been a victim twice, and 1/10 had been a victim three or more times. It’s likely that in these cases, victims’ payment information was compromised and used multiple times across sites before being detected.   
+Nearly half (44%) of consumers surveyed* by Sift have been a victim of payment fraud in their lifetime, during which their payment information was used by someone else to make an unauthorized purchase. Of these payment fraud victims, the majority only had this happen once, but nearly 2/5 had been a victim twice, and 1/10 had been a victim three or more times. It’s likely that in these cases, victims’ payment information was compromised and used multiple times across sites before being detected.   
   
 Fraudulent transactions can occur on nearly any site or app, but some are more prone to nefarious activity than others. Online shopping sites, for example, are the most common for payment fraud to occur based on consumer responses.
 
@@ -60,7 +62,7 @@ Fraudulent transactions can occur on nearly any site or app, but some are more p
 
 ## Consumer Use of Payment Methods
 
-Unsurprisingly, credit cards remain the top most-used payment method among consumers. Alternative payments such as digital wallets and BNPL continue rising in popularity, with [digital wallet ownership](https://www.juniperresearch.com/press/over-two-thirds-of-the-global-population-to-own-a-digital-wallet-by-2029) forecasted to grow 15.3% by 2029 and the global [BNPL market size](https://www.fortunebusinessinsights.com/buy-now-pay-later-market-106408) projected to grow 20.7% by 2032. 
+Unsurprisingly, credit cards remain the top most-used payment method among consumers. Alternative payments such as digital wallets and BNPL continue rising in popularity, with digital wallet ownership forecasted to grow 15.3% by 2029 and the global BNPL market size projected to grow 20.7% by 2032. 
 
 Businesses should be prepared to meet this increased demand for alternative payments by providing a variety of payment options for consumers and ensuring additional security checks are in place.
 
@@ -68,7 +70,7 @@ Businesses should be prepared to meet this increased demand for alternative paym
 
 ## More Consumers Cash in on Payment Fraud
 
-More than 1/3 (34%) of consumers have seen offers to participate in payment fraud online, up from [18% last year](/index-reports-payment-fraud-q1-2024/). These payment fraud offerings include posts on social media sites featuring methods for committing fraud, message boards advertising stolen credit card info for sale, or groups in messaging apps offering to buy deeply discounted services or merchandise for a small fee.
+More than 1/3 (34%) of consumers have seen offers to participate in payment fraud online, up from 18% last year. These payment fraud offerings include posts on social media sites featuring methods for committing fraud, message boards advertising stolen credit card info for sale, or groups in messaging apps offering to buy deeply discounted services or merchandise for a small fee.
 
 Moreover, nearly 1/4 (23%) of consumers have personally, or know someone who has, participated in payment fraud, up from 19% last year. Taking part in this form of fraud involves knowingly using stolen payment information to make a purchase, or coordinating with other people to obtain free or discounted services or merchandise through unofficial channels like online forums, chat groups, or messaging apps. Of these 23%, 65% know someone who participated in payment fraud and 35% personally participated in the fraud.
 
@@ -78,7 +80,7 @@ Moreover, nearly 1/4 (23%) of consumers have personally, or know someone who has
 
 ## Behind the Fraud Scheme: Silver Bullet Configs
 
-Fraud is becoming more democratized as tips on how to carry out scams permeate social media feeds and deep web forums. Fraudsters are increasingly advertising and selling fraud tools and expertise in a practice known as [fraud-as-a-service](/blog/what-is-the-democratization-of-fraud/), lowering the barrier for anyone to participate in fraud. 
+Fraud is becoming more democratized as tips on how to carry out scams permeate social media feeds and deep web forums. Fraudsters are increasingly advertising and selling fraud tools and expertise in a practice known as fraud-as-a-service, lowering the barrier for anyone to participate in fraud. 
 
 Silver Bullet Configs are one such scheme raising alarm bells. Found on deep web forums like Telegram, this service equips fraudsters with a list of settings and attributes for their device to bypass security measures on a given platform, allowing just about anyone to configure their device to test compromised payment information and login credentials. The service comes with multiple options, including free and paid versions of device configurations, reviews from other fraudsters, and a chat functionality. Because these configurations may be used by multiple bad actors, it’s crucial for businesses to leverage device intelligence in their fraud detection to accurately block these attacks.
 
@@ -118,15 +120,13 @@ Trust and Safety Architect at Sift
 
 Businesses must balance growth against ever-evolving digital risks, while still ensuring superior consumer experiences. Innovative models and enhanced, digitally-native strategies are essential to building and maintaining trust.
 
-Leveraging the [Sift AI-powered platform](/platform/), businesses can enhance consumer experiences, drive growth, and effectively mitigate payment fraud. Sift delivers unprecedented visibility into digital identity behavior across multiple dimensions to drive better fraud decisioning with its breakthrough framework, Identity Trust XD. The innovation transforms fragmented data into actionable, cross-dimensional (XD) insights, providing a holistic view of user behavior over time. This powerful fusion of fraud prevention and digital identity intelligence enables companies to navigate cyber threats confidently while fostering a secure digital environment.
+Leveraging the Sift AI-powered platform, businesses can enhance consumer experiences, drive growth, and effectively mitigate payment fraud. Sift delivers unprecedented visibility into digital identity behavior across multiple dimensions to drive better fraud decisioning with its breakthrough framework, Identity Trust XD. The innovation transforms fragmented data into actionable, cross-dimensional (XD) insights, providing a holistic view of user behavior over time. This powerful fusion of fraud prevention and digital identity intelligence enables companies to navigate cyber threats confidently while fostering a secure digital environment.
 
-\*On behalf of Sift, Researchscape International polled 1,075 adults (aged 18+) across the United States via online survey from January-February 2025.
+*On behalf of Sift, Researchscape International polled 1,075 adults (aged 18+) across the United States via online survey from January-February 2025.
 
 ## Discover more from Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Social2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20622'%3E%3C/svg%3E)
 
@@ -136,8 +136,6 @@ Report
 
 READ THE REPORT
 
-](/index-reports-disputes-q4-2024/)[
-
 ![Social2 (1)](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20622'%3E%3C/svg%3E)
 
 Report
@@ -145,8 +143,6 @@ Report
 ### Account Takeover Data & Insights
 
 READ THE REPORT
-
-](/index-reports-account-takeover-fraud-q3-2024/)[
 
 ![Social2 (2)](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20622'%3E%3C/svg%3E)
 
@@ -156,12 +152,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-ai-fraud-q2-2024/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Drive Your Business Forward with FIBR
 
 Compare your own data against Sift benchmarks with FIBR, the first Fraud Industry Benchmarking Resource of its kind, delivering crucial fraud insights to businesses across verticals and regions.
 
-[Discover Data](/fibr-fraud-industry-benchmarking-resource/)
+Discover Data

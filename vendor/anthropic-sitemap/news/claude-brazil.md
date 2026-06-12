@@ -10,9 +10,9 @@ Aug 1, 2024
 
 Claude, Anthropic’s trusted AI assistant, is now available in Brazil. Starting today, consumers and businesses in Brazil will be able to access Claude via:
 
-- Claude.ai: The web-based version of our next-generation AI assistant.
-- Claude mobile apps: Free Android and iOS apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
-- Anthropic API: Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
+*   Claude.ai: The web-based version of our next-generation AI assistant.
+*   Claude mobile apps: Free Android and iOS apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
+*   Anthropic API: Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
 
 Claude.ai offers both free and paid plans. Paid users on the Pro plan get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including Claude 3.5 Sonnet, our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
 
@@ -26,18 +26,18 @@ _Read this post in Portuguese._
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

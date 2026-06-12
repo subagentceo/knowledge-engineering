@@ -7,4 +7,4 @@ Using AWS Batch, you can run batch computing workloads on the AWS Cloud. Batch c
 
 As a fully managed service, AWS Batch can run batch computing workloads of any scale. AWS Batch automatically provisions compute resources and optimizes workload distribution based on the quantity and scale of your specific workloads. With AWS Batch, there's no need to install or manage batch computing software. This means that you can focus on analyzing results and solving your specific problems instead.
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

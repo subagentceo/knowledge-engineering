@@ -18,11 +18,15 @@ Every structured log follows the same format:
 Sentry.logger.<level>(message, { attributes });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET*
+
 Logs in Sentry are automatically trace-connected. Each log shows a trace ID that links to the full [trace view](https://docs.sentry.io/concepts/key-terms/tracing.md#traces-to-trace-view).
 
 ```ruby
 Sentry.logger.<level>(message)
 ```
+
+*Other available variations of the above snippet: Flutter, Swift, Kotlin*
 
 **Levels:** `trace`, `debug`, `info`, `warn` (or `warning` in Python), `error`, `fatal`
 
@@ -36,6 +40,8 @@ Sentry.logger.info("Order completed", {
   paymentMethod: "stripe",
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 Logs in Sentry are automatically trace-connected. Each log shows a trace ID that links to the full [trace view](https://docs.sentry.io/concepts/key-terms/tracing/trace-view.md).
 
@@ -63,6 +69,8 @@ Sentry.logger.warn("Login failed", {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Logs](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/):** `userId:123 "logged in"` or `severity:warn authMethod:*`
 
 **Alert idea:** Alert when `severity:warn "Login failed"` spikes in a 5-minute window—this can indicate brute force attempts or auth provider issues.
@@ -81,6 +89,8 @@ Sentry.logger.error("Payment failed", {
   cartItems: 3,
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Query in [Explore > Logs](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/):** `orderId:order_123` or `severity:error gateway:stripe`
 
@@ -110,6 +120,8 @@ Sentry.logger.info("Webhook received", {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Logs](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/):** `service:shipping-provider durationMs:>2000` or `source:stripe`
 
 **Alert idea:** Alert when `service:* durationMs:>3000` to catch third-party slowdowns before they cascade.
@@ -134,6 +146,8 @@ Sentry.logger.error("Job failed", {
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 **Query in [Explore > Logs](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/):** `jobType:email-digest severity:error`
 
 **Alert idea:** Alert when `severity:error jobType:*` spikes—this can indicate queue processing issues or downstream failures.
@@ -155,6 +169,8 @@ Sentry.logger.warn("Config reloaded", {
   changedKeys: ["API_TIMEOUT", "MAX_CONNECTIONS"],
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 **Query in [Explore > Logs](https://sentry.io/orgredirect/organizations/:orgslug/explore/logs/):** `flag:new-checkout-flow` or `"Config reloaded"`
 
@@ -198,6 +214,8 @@ Sentry.init({
 });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 Use verbose logging levels like `debug` (development diagnostics) and `trace` (fine-grained execution details) freely in development. You can filter these out in production using [beforeSendLog](https://docs.sentry.io/platform-redirect.md?next=%2Fconfiguration%2Foptions%2F%23beforeSendLog) to only capture `info` and above.
 
 ### [Production Logging](https://docs.sentry.io/guides/logs.md#production-logging)
@@ -214,6 +232,8 @@ Sentry.logger.info("Discount applied", { code: "WINTER20" });
 Sentry.logger.error("Payment failed", { reason: "Insufficient Funds" });
 ```
 
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
+
 These logs are trace-connected, but searching for the error won't return the userId or discount code from the same transaction.
 
 **Do this instead:**
@@ -229,6 +249,8 @@ Sentry.logger.error("Checkout failed", {
   itemCount: 4,
 });
 ```
+
+*Other available variations of the above snippet: Python, PHP, .NET, Ruby, Flutter, Swift, Kotlin*
 
 One log tells the whole story. Search for the error and get full context.
 

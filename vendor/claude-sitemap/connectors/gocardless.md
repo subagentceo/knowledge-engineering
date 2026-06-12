@@ -1,11 +1,17 @@
 # GoCardless
 
-Get intelligent, context-aware guidance for building GoCardless payment integrations directly from Claude. The GoCardless MCP provides comprehensive knowledge of API endpoints, integration patterns, webhooks, and code samples across all supported languages. Use it to generate integration code, set up payment pages, handle recurring billing, and follow best practices for error handling and security.
+Connect your GoCardless account to Claude to get instant answers about your payments, customers, mandates, payouts, and more. Your data is secure — sensitive details are automatically masked. Also provides integration guidance, code samples, and best practices for developers building with the GoCardless API.
 
 You can use GoCardless to:
 
-**Ask a question:**  
-"What can you help me do with GoCardless?"
+**Check on a payment:**  
+"What's the status of payment PM123 and which mandate is it on?"
 
-**Explore your data:**  
-"Summarize the most recent activity in GoCardless."
+**Review payouts:**  
+"List my GBP payouts from the last 30 days and total them up"
+
+**Investigate a customer:**  
+"Show me all active subscriptions and recent failed payments for customer CU456"
+
+**Get integration help:**  
+"Show me a code sample for creating a mandate via the GoCardless API"

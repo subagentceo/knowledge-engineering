@@ -4,7 +4,7 @@ For each cluster in your turbopuffer [BYOC](/docs/byoc) deployment you will be p
 
 ## Your kit contents
 
-```
+```txt
 byoc-kit
 ├── README.md
 ├── aws
@@ -49,7 +49,7 @@ byoc-kit
     - [ ] Run `kubectl get pods` and confirm the command succeeds (no output).
     - [ ] **GCP:** **Apply ComputeClass manifests:** Terraform writes a `compute_classes.yaml` at the kit root that defines GKE `ComputeClass` priorities across the query and index node pools. Apply it before installing Helm so the autoscaler has the priority order in place when the first pods schedule: `kubectl apply -f compute_classes.yaml`
 5. [ ] **Configure Helm:** The terraform command will have output a `values.yaml` file in the `byoc-kit` directory, which contains values for Helm. Edit this file and set any other necessary values. Refer to `values.schema.json` for a description of valid configurations.
-    - To use provider managed TLS certificates, see [here](#using-cloud-provider-managed-tls-certificates).
+    - To use provider managed TLS certificates, see [using cloud provider managed TLS certificates](#using-cloud-provider-managed-tls-certificates).
     - `tpuf_config` configuration values suggested by turbopuffer for your BYOC deployment. You can find information about these settings and more in our [BYOC configuration](/docs/byoc/configuration) documentation.
 6. [ ] **Generate API keys:** Run `./scripts/generate-secrets.py` to generate `values.secret.yaml`. This file will generate an Org Id and API key, along with an token for intra-cluster communication. 
 7. [ ] **Deploy turbopuffer:**
@@ -71,7 +71,7 @@ By default turbopuffer will pull from one of several turbopuffer managed image r
 However, there are many reasons you may want to host our images in a registry you control. 
 Our Helm chart fully supports this through the following settings:
 
-```
+```yaml
 image.registry: YOUR_REGISTRY_URL
 control_plane.image.registry: YOUR_REGISTRY_URL
 ```
@@ -197,3 +197,12 @@ the following IPs:
 
 If you have manual approvals enabled, the turbopuffer team will provide you with a command to upgrade the cluster when a new version is available. 
 Otherwise, upgrades will happen automatically through the control plane.
+
+
+---
+
+This page: [/docs/byoc/deployment.md](https://turbopuffer.com/docs/byoc/deployment.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

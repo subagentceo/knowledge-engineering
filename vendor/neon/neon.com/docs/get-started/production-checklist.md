@@ -1,7 +1,7 @@
 > This page location: Neon platform > Operations & maintenance > Production checklist
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of production environments in Neon, including guidelines for selecting plans, optimizing performance, managing branches, enabling autoscaling, and ensuring reliability through connection testing and restore settings.
+> Summary: A production readiness checklist for Neon Postgres covering plan selection, region placement, autoscaling limits, branch protection, and connection pooling. Use this page when moving a Neon project out of development. It covers scale-to-zero tradeoffs, instant restore history windows, snapshot schedules, IP Allow, pg_stat_statements for query monitoring, and metric exports to Datadog, Grafana, or any OTEL-compatible platform.
 
 # Getting ready for production
 

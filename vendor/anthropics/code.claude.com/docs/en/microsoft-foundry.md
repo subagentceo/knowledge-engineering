@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +7,13 @@
 > Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting.
 
 export const ContactSalesCard = ({surface}) => {
-const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-<line x1="5" y1="12" x2="19" y2="12" />
-<polyline points="12 5 19 12 12 19" />
-</svg>;
-const STYLES = `.cc-cs {
+  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>;
+  const STYLES = `
+.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,23 +56,24 @@ const STYLES = `.cc-cs {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}`;
-return <div className="cc-cs not-prose">
-<style>{STYLES}</style>
-<div className="cc-cs-card">
-<div className="cc-cs-text">
-<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-</div>
-<div className="cc-cs-actions">
-<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-View plans
-</a>
-<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-Contact sales {iconArrowRight()}
-</a>
-</div>
-</div>
-</div>;
+}
+`;
+  return <div className="cc-cs not-prose">
+      <style>{STYLES}</style>
+      <div className="cc-cs-card">
+        <div className="cc-cs-text">
+          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+        </div>
+        <div className="cc-cs-actions">
+          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+            View plans
+          </a>
+          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+            Contact sales {iconArrowRight()}
+          </a>
+        </div>
+      </div>
+    </div>;
 };
 
 <ContactSalesCard surface="foundry" />
@@ -81,12 +82,12 @@ Contact sales {iconArrowRight()}
 
 Before configuring Claude Code with Microsoft Foundry, ensure you have:
 
-- An Azure subscription with access to Microsoft Foundry
-- RBAC permissions to create Microsoft Foundry resources and deployments
-- Azure CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
+* An Azure subscription with access to Microsoft Foundry
+* RBAC permissions to create Microsoft Foundry resources and deployments
+* Azure CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
 
 <Note>
-  If you are deploying Claude Code to multiple users, [pin your model versions](#4-pin-model-versions) to prevent breakage when Anthropic releases new models.
+  If you are deploying Claude Code to multiple users, [pin your model versions](#4-pin-model-versions) before rolling out.
 </Note>
 
 ## Setup
@@ -98,9 +99,9 @@ First, create a Claude resource in Azure:
 1. Navigate to the [Microsoft Foundry portal](https://ai.azure.com/)
 2. Create a new resource, noting your resource name
 3. Create deployments for the Claude models:
-   - Claude Opus
-   - Claude Sonnet
-   - Claude Haiku
+   * Claude Opus
+   * Claude Sonnet
+   * Claude Haiku
 
 ### 2. Configure Azure credentials
 
@@ -149,7 +150,7 @@ export ANTHROPIC_FOUNDRY_RESOURCE={resource}
 ### 4. Pin model versions
 
 <Warning>
-  Pin specific model versions for every deployment. If you use model aliases (`sonnet`, `opus`, `haiku`) without pinning, Claude Code may attempt to use a newer model version that isn't available in your Foundry account, breaking existing users when Anthropic releases updates. When you create Azure deployments, select a specific model version rather than "auto-update to latest."
+  Pin specific model versions for every deployment. Without pinning, model aliases such as `sonnet` and `opus` resolve to Claude Code's built-in default for Foundry, which can lag the newest release and may not yet be available in your account. Foundry has no startup model check, so requests fail when the default is unavailable. When you create Azure deployments, select a specific model version rather than "auto-update to latest."
 </Warning>
 
 Set the model variables to match the deployment names you created in step 1.
@@ -192,7 +193,9 @@ For more restrictive permissions, create a custom role with the following:
 {
   "permissions": [
     {
-      "dataActions": ["Microsoft.CognitiveServices/accounts/providers/*"]
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/providers/*"
+      ]
     }
   ]
 }
@@ -204,10 +207,10 @@ For details, see [Microsoft Foundry RBAC documentation](https://learn.microsoft.
 
 If you receive an error "Failed to get token from azureADTokenProvider: ChainedTokenCredential authentication failed":
 
-- Configure Entra ID on the environment, or set `ANTHROPIC_FOUNDRY_API_KEY`.
+* Configure Entra ID on the environment, or set `ANTHROPIC_FOUNDRY_API_KEY`.
 
 ## Additional resources
 
-- [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)
-- [Microsoft Foundry models](https://ai.azure.com/explore/models)
-- [Microsoft Foundry pricing](https://azure.microsoft.com/en-us/pricing/details/ai-foundry/)
+* [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)
+* [Microsoft Foundry models](https://ai.azure.com/explore/models)
+* [Microsoft Foundry pricing](https://azure.microsoft.com/en-us/pricing/details/ai-foundry/)

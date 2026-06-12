@@ -11,6 +11,8 @@ Pagination in the API is handled via the Link header standard:
 curl -i https://sentry.io/api/0/organizations/acme/projects/1/groups/
 ```
 
+*Other available variations of the above snippet: http*
+
 When supported, cursors will **always** be returned for both a previous and a next page, even if there are no results on these pages. This allows you to make a query against the API for yet-undiscovered results. An example where this would be used is when you're implementing polling behavior and you want to see if there is any new data. We return a `results="[true|false]"` indicator to determine if you actually need to paginate.
 
 ## [Pagination Example](https://docs.sentry.io/api/pagination.md#pagination-example)

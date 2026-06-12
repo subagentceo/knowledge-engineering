@@ -1,7 +1,6 @@
 ---
 vendor: intercom
 llms_txt: https://developers.intercom.com/llms.txt
-last_crawled: 2026-05-16T05:43:12.187Z
 count: 100
 transform: verbatim
 ---
@@ -10,7 +9,6 @@ transform: verbatim
 
 | URL | Local |
 |---|---|
-| https://developers.intercom.com/claude.md | `vendor/intercom/developers.intercom.com/claude.md` |
 | https://developers.intercom.com/docs.md | `vendor/intercom/developers.intercom.com/docs.md` |
 | https://developers.intercom.com/docs/build-an-integration/counts/admin-conversations.md | `vendor/intercom/developers.intercom.com/docs/build-an-integration/counts/admin-conversations.md` |
 | https://developers.intercom.com/docs/build-an-integration/counts/company-tag-counts.md | `vendor/intercom/developers.intercom.com/docs/build-an-integration/counts/company-tag-counts.md` |
@@ -43,6 +41,7 @@ transform: verbatim
 | https://developers.intercom.com/docs/guides/news-center/custom-domains.md | `vendor/intercom/developers.intercom.com/docs/guides/news-center/custom-domains.md` |
 | https://developers.intercom.com/docs/guides/reporting.md | `vendor/intercom/developers.intercom.com/docs/guides/reporting.md` |
 | https://developers.intercom.com/docs/guides/reporting/ai-agent-report.md | `vendor/intercom/developers.intercom.com/docs/guides/reporting/ai-agent-report.md` |
+| https://developers.intercom.com/docs/guides/tickets/build-a-ticket-form.md | `vendor/intercom/developers.intercom.com/docs/guides/tickets/build-a-ticket-form.md` |
 | https://developers.intercom.com/docs/publish-to-the-app-store/intercom-developer-terms.md | `vendor/intercom/developers.intercom.com/docs/publish-to-the-app-store/intercom-developer-terms.md` |
 | https://developers.intercom.com/docs/publish-to-the-app-store/intercom-platform-guidelines.md | `vendor/intercom/developers.intercom.com/docs/publish-to-the-app-store/intercom-platform-guidelines.md` |
 | https://developers.intercom.com/docs/publish-to-the-app-store/listing-your-app.md | `vendor/intercom/developers.intercom.com/docs/publish-to-the-app-store/listing-your-app.md` |

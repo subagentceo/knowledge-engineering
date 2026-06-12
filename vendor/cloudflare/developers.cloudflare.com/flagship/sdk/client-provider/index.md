@@ -16,9 +16,9 @@ The `FlagshipClientProvider` implements the OpenFeature web provider interface f
 
 This makes the provider suitable for client-side rendering where synchronous access to flag values is required.
 
-Important
+Warning
 
-The client provider requires an API token to fetch flag values. This token is not scoped to a single app, so anyone with the token can **evaluate flags** across all apps in your account. Use the client provider with caution in public-facing applications.
+We do not recommend using the client provider in public-facing apps right now. It requires a Cloudflare API token, which would be exposed in client-side code and visible to anyone who inspects your application. We are working on a safer solution for client-side flag evaluation — in the meantime, use the [Worker binding](https://developers.cloudflare.com/flagship/binding/) or the [server provider](https://developers.cloudflare.com/flagship/sdk/server-provider/).
 
 ## prefetchFlags
 
@@ -34,8 +34,8 @@ The client provider requires an API token to fetch flag values. This token is no
 
 The following example initializes the provider with a set of pre-fetched flags and evaluates them in a browser application.
 
-* [  JavaScript ](#tab-panel-6410)
-* [  TypeScript ](#tab-panel-6411)
+* [  JavaScript ](#tab-panel-8380)
+* [  TypeScript ](#tab-panel-8381)
 
 JavaScript
 

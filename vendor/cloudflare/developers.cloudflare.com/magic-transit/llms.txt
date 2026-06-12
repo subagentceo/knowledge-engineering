@@ -72,7 +72,7 @@ Network functions at Cloudflare scale for on-premise, cloud-hosted, and hybrid n
 
 - [Advertise prefixes](https://developers.cloudflare.com/magic-transit/how-to/advertise-prefixes/index.md): Advertise and withdraw IP prefixes with Magic Transit.
 - [Configure routes](https://developers.cloudflare.com/magic-transit/how-to/configure-routes/index.md): Magic Transit uses a static configuration to route your traffic through anycast tunnels from Cloudflare's global network to your locations. If you are connected through CNI with Dataplane v2, you also have access to BGP peering (beta).
-- [Configure tunnel endpoints](https://developers.cloudflare.com/magic-transit/how-to/configure-tunnel-endpoints/index.md): Cloudflare recommends two tunnels for each ISP and network location router combination, one per Cloudflare endpoint. Learn how to configure IPsec or GRE tunnels.
+- [Configure tunnel endpoints](https://developers.cloudflare.com/magic-transit/how-to/configure-tunnel-endpoints/index.md): Learn how to configure IPsec or GRE tunnels for Magic Transit.
 - [Enable Magic user roles](https://developers.cloudflare.com/magic-transit/how-to/enable-magic-roles/index.md): You can determine which users have, or do not have, configuration edit access for Magic products.
 - [Configure IPv6 (beta)](https://developers.cloudflare.com/magic-transit/how-to/ipv6/index.md): Configure IPv6 support for Magic Transit.
 - [Safely withdraw a BYOIP prefix](https://developers.cloudflare.com/magic-transit/how-to/safely-withdraw-byoip-prefix/index.md): Safely withdraw a BYOIP prefix from Magic Transit.

@@ -147,16 +147,16 @@
     "dated_share": 0
   },
   {
+    "vendor": "cloudflare",
+    "host": "developers.cloudflare.com",
+    "doc_count": 17,
+    "dated_count": 1,
+    "dated_share": 0.0588
+  },
+  {
     "vendor": "osv-scanner",
     "host": "google.github.io",
     "doc_count": 17,
-    "dated_count": 0,
-    "dated_share": 0
-  },
-  {
-    "vendor": "cloudflare",
-    "host": "developers.cloudflare.com",
-    "doc_count": 16,
     "dated_count": 0,
     "dated_share": 0
   },

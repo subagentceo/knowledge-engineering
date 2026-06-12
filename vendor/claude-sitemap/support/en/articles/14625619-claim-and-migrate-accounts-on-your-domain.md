@@ -1,11 +1,10 @@
-Domain claiming lets Enterprise admins discover, claim, and migrate existing personal Claude accounts (Free, Pro, and Max) on a verified company domain into their Enterprise workspace. This gives your organization a clean path to consolidate accounts on day one of an Enterprise deployment, and allows people using Claude on personal accounts to keep their work.
+Domain claiming lets Enterprise admins discover, claim, and migrate existing personal Claude accounts (Free, Pro, and Max) on a verified company domain into their Enterprise workspace. This gives your organization a clean path to consolidate accounts on day one of an Enterprise deployment, and allows people using Claude on personal accounts to keep their work. Domain claiming is available for Enterprise plans, whether purchased directly through Anthropic or through the AWS Marketplace, and works the same in both cases.
 
-| **Plan**       | **Migrate individual accounts** | **Block new account creation** |
-| -------------- | ------------------------------- | ------------------------------ |
-| **Enterprise** | ✅                              | ✅                             |
-| **Team**       |                                 | ✅                             |
+Domain claiming is supported on Claude Enterprise plans only.
 
-Team plans can verify a domain and block new personal accounts from being created, but can’t claim or migrate existing accounts. Domain claiming is Enterprise-only.
+Team plans can verify a domain and block new personal accounts from being created, but admins can't claim or migrate existing accounts. People on a Team plan can still migrate their own personal accounts voluntarily—see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400)**.
+
+---
 
 ## Prerequisites
 
@@ -77,7 +76,7 @@ New accounts created on the domain after domain capture is enabled go directly t
 
 - Setting a custom migration deadline. The window is always 30 days.
 
-- Canceling App Store subscriptions. People who purchased Pro or Max through the Apple App Store need to cancel their subscription themselves through their Apple ID settings. See **[Migrate your Claude account to an Enterprise organization](https://support.claude.com/en/articles/14625626-migrate-your-claude-account-to-an-enterprise-organization)** for details.
+- Canceling App Store subscriptions. People who purchased Pro or Max through the Apple App Store need to cancel their subscription themselves through their Apple ID settings. For details, see **[Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626)**.
 
 ## SSO and provisioning sequencing
 
@@ -95,4 +94,6 @@ Domain claiming integrates with your existing SSO and provisioning setup:
 
 ### What happens if my organization doesn’t have enough seats available for migrated users?
 
-You will see an error message within organization settings prompting you to **[buy more seats](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)**.
+If you purchased your Enterprise plan directly through Anthropic, you'll see an error message in organization settings prompting you to **[buy more seats](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)**.
+
+If you purchased your Enterprise plan through the AWS Marketplace, migrated users will see a message asking them to contact their admin when they try to log in after the migration.

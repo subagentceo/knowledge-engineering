@@ -1,11 +1,11 @@
 > This page location: Tools & Workflows > API, CLI & SDKs
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: How to manage Neon projects programmatically using the Neon API, including creating and managing projects, branches, databases, and roles, along with guidance on obtaining an API key and using SDKs.
+> Summary: The Neon API (REST, base URL https://console.neon.tech/api/v2/) lets developers create and manage projects, branches, databases, roles, and compute endpoints programmatically, mirroring every action available in the Neon Console. Use this page to get an API key, authenticate with Bearer tokens, and understand constraints like rate limits, async operation polling, and branch deletion rules before building automation or CI/CD pipelines. Neon supports multiple API key scopes (personal, organization, and project-scoped), TypeScript and Python SDKs, an OpenAPI 3.0 spec, and an index of API examples covering branching, read replicas, snapshots, schema diff, and data anonymization.
 
 # Neon API
 
-Copy this prompt into your AI coding assistant (Cursor, Copilot, etc.) to get help creating your first API key and making your first successful API call (using curl, the TypeScript SDK, or the Python SDK). [View prompt](https://neon.com/prompts/neon-api-prompt.md)
+Copy into your AI assistant to get an API key and make your first API call. [View prompt](https://neon.com/prompts/neon-api-prompt.md)
 
 The Neon API allows you to manage your Neon projects programmatically. You can create and manage projects, branches, databases, roles, compute endpoints, and more. Everything you can do in the Neon Console, you can do with the API.
 
@@ -222,7 +222,7 @@ Instead of using curl, you can use our official SDKs:
 - **[TypeScript SDK](https://neon.com/docs/reference/typescript-sdk)**: Full-featured SDK for Node.js and browser
 - **[Python SDK](https://neon.com/docs/reference/python-sdk)**: Pythonic wrapper for the Neon API
 - **[@neondatabase/toolkit](https://neon.com/docs/reference/neondatabase-toolkit)**: Combined SDK for AI agents (includes API SDK + Serverless Driver)
-- **[Neon CLI](https://neon.com/docs/reference/neon-cli)**: Command-line interface for Neon
+- **[Neon CLI](https://neon.com/docs/cli)**: Command-line interface for Neon
 
 See [Neon SDKs](https://neon.com/docs/reference/sdk) for the full list, including community SDKs.
 

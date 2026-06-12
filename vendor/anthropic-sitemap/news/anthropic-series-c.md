@@ -12,8 +12,8 @@ We are pleased to announce that we have raised $450 million in Series C funding 
 
 Anthropic was founded to build AI products that people can rely on and generate research about the opportunities and risks of AI. Our CEO, Dario Amodei, says, “We are thrilled that these leading investors and technology companies are supporting Anthropic’s mission: AI research and products that put safety at the frontier. The systems we are building are being designed to provide reliable AI services that can positively impact businesses and consumers now and in the future.”
 
-With our Series C funding, we hope to grow our product offerings, support businesses that will responsibly deploy Claude in the market, and further AI safety research. Our team is focused on AI alignment techniques that allow AI systems to better handle adversarial conversations, follow precise instructions, and generally be more transparent about their behaviors and limitations. We are also building new features like 100K context windows, which lets you submit hundreds of pages of materials for Claude to digest and analyze. We look forward to announcing more improvements to our API and chat products.
-
+With our Series C funding, we hope to grow our product offerings, support businesses that will responsibly deploy Claude in the market, and further AI safety research. Our team is focused on AI alignment techniques that allow AI systems to better handle adversarial conversations, follow precise instructions, and generally be more transparent about their behaviors and limitations. We are also building new features like 100K context windows, which lets you submit hundreds of pages of materials for Claude to digest and analyze. We look forward to announcing more improvements to our API and chat products.  
+  
 In connection with the Series C round, Yasmin Razavi, a General Partner at Spark Capital focused on growth stage software investments, has joined Anthropic's Board of Directors. Yasmin says, "All of us at Spark are excited to partner with Dario, Daniela, and the entire Anthropic team on their mission to build reliable and honest AI systems. Anthropic has assembled a world-class technical team that is dedicated to building safe and capable AI systems. The overwhelmingly positive response to Anthropic’s products and research hints at AI’s broader potential for unlocking a new paradigm of flourishing in our society. I am delighted to join their Board.”
 
 In addition to our technical work, during the past year we have been further refining our governance structure to better achieve our Public Benefit orientation. We are glad to have the support of our investors in developing different approaches to corporate governance, and we will have more to share about this in the coming months.
@@ -22,18 +22,18 @@ We are excited to use the new funding to grow our world-class team across produc
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

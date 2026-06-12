@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-06-12T15:05:43.555Z",
+  "tiers": [
+    {
+      "tier": "L1",
+      "hits": 120,
+      "misses": 40,
+      "promotions": 0,
+      "hit_ratio": 0.75
+    },
+    {
+      "tier": "L2",
+      "hits": 0,
+      "misses": 40,
+      "promotions": 0,
+      "hit_ratio": 0
+    },
+    {
+      "tier": "L3",
+      "hits": 40,
+      "misses": 0,
+      "promotions": 5482,
+      "hit_ratio": 1
+    }
+  ],
+  "hottest_keys": [
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:c2e15095e05250d9feecef8a1b9e9fd319acd7c7",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:0a540acdf3e1678274f0fe04b3a70ea7fd99ed36",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:5686521fb5eaa65ae0a3e79c7d7713760942e6d2",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:analysis:coding-agents-social-sciences.analysis",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:analysis:economic-index-january-2026.analysis",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:a3cdcd9e67c3c4c51440429dd016cacba514b35b",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:careers",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:anthropic-sitemap:_pdfs:096d94c1a91c6480806d8f24b2344c7e2a4bc666",
+      "lane": "anthropic-sitemap",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:agentskills:agentskills.io:skill-creation:using-scripts",
+      "lane": "agentskills",
+      "hits": 4
+    },
+    {
+      "cache_key": "csl:agentskills:agentskills.io:home",
+      "lane": "agentskills",
+      "hits": 4
+    }
+  ]
+}

@@ -16,7 +16,7 @@ Global enterprises across industries are deploying Claude in their core operatio
 
 The round was co-led by Capital Group, Coatue, D1 Capital Partners, GIC, ICONIQ, and XN. Significant investors in this round include AMP PBC, Baillie Gifford, Blackstone, Brookfield, D.E. Shaw Ventures, DST Global, Fidelity Management & Research Company, General Catalyst, Insight Partners, Jane Street, Lightspeed Venture Partners, MGX, NTTVC, NX1 Capital, Situational Awareness LP, T. Rowe Price Associates, Inc., T. Rowe Price Investment Management, Inc., and Temasek. It also includes $15 billion of previously committed investments from hyperscalers, including $5 billion from Amazon.
 
-Joining them are strategic infrastructure partners*—\_Micron, Samsung, and SK hynix*—\_whose technologies play a critical role in the world's supply of memory, storage, and logic chips. As demand for Claude continues to grow, these relationships will help us scale our compute reliably at the pace our customers need.
+Joining them are strategic infrastructure partners_—_Micron, Samsung, and SK hynix_—_whose technologies play a critical role in the world's supply of memory, storage, and logic chips. As demand for Claude continues to grow, these relationships will help us scale our compute reliably at the pace our customers need.
 
 We have significantly expanded our compute capacity in recent weeks. We signed agreements with Amazon for up to five gigawatts of new capacity, with Google and Broadcom for five gigawatts of next-generation TPU capacity, and with SpaceX for access to GPU capacity in Colossus 1 and Colossus 2. Claude is the first frontier model available on all three of the world's largest cloud platforms: Amazon Web Services, Google Cloud, and Microsoft Azure. AWS remains our primary cloud provider and training partner.
 
@@ -32,18 +32,18 @@ We are grateful for the support of our investors and partners as we continue bui
 
 ## Related content
 
-### Introducing Claude Opus 4.8
-
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic appoints KiYoung Choi as Representative Director of Korea ahead of Seoul office opening
+### Introducing Claude Corps
+
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

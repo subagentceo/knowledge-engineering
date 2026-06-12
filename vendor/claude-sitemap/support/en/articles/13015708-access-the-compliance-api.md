@@ -2,11 +2,11 @@ The Compliance API is generally available to Claude Enterprise plans, excluding 
 
 ## Claude Enterprise plan customers
 
-Enterprise plan Primary Owners can enable the Compliance API by navigating to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)** and clicking "Enable" under **Compliance API**.
+Enterprise plan Primary Owners can enable the Compliance API by navigating to **[Organization settings > API](https://claude.ai/admin-settings/api-access)** and clicking "Enable" under **Compliance API**.
 
 Once the Compliance API is enabled, create new compliance access keys by clicking "+ Create key":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1780164900&signature=20328fdf7eabb2f9b7d5b61707a1da58df6bf5b97c64de19b8c229aa19e8b46a&req=dSghEc5%2BnIJfWfMW1HO4zdjcO0g938kaLb9AVN3cSSFYuhd2HJJYySDdKwJ%2F%0A61SAKePGulv14YirzF0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1781284500&amp;signature=7fd1f57d2fe8e2864922737ea1696d411e0a521948efe93c69117a50778474a2&amp;req=dSghEc5%2BnIJfWfMW1HO4zdjcO0k%2B0ckWLb9AVN3cSSEqdV%2BbMhnHjvRjFHZS%0A7Yy22qsgyVCiccvwuQg%3D%0A)
 
 Creating a compliance access key will allow you to start pulling activity feed events, chat data, and file content programmatically.
 

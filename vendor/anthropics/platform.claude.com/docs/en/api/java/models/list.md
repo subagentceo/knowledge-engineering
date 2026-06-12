@@ -11,6 +11,7 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `ModelListParams params`
+
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -28,6 +29,7 @@ The Models API response can be used to determine which models are available for 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -80,11 +82,14 @@ The Models API response can be used to determine which models are available for 
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class ModelInfo:`
+
   - `String id`
 
     Unique model identifier.
@@ -92,9 +97,11 @@ The Models API response can be used to determine which models are available for 
   - `Optional<ModelCapabilities> capabilities`
 
     Model capability information.
+
     - `CapabilitySupport batch`
 
       Whether the model supports the Batch API.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -110,6 +117,7 @@ The Models API response can be used to determine which models are available for 
     - `ContextManagementCapability contextManagement`
 
       Context management support and available strategies.
+
       - `Optional<CapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
@@ -129,6 +137,7 @@ The Models API response can be used to determine which models are available for 
     - `EffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
+
       - `CapabilitySupport high`
 
         Whether the model supports high effort level.
@@ -168,6 +177,7 @@ The Models API response can be used to determine which models are available for 
     - `ThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
+
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -175,6 +185,7 @@ The Models API response can be used to determine which models are available for 
       - `ThinkingTypes types`
 
         Supported thinking type configurations.
+
         - `CapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -204,6 +215,7 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
+
     - `MODEL("model")`
 
 ### Example

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +7,13 @@
 > Learn about configuring Claude Code through Google Vertex AI, including setup, IAM configuration, and troubleshooting.
 
 export const ContactSalesCard = ({surface}) => {
-const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-<line x1="5" y1="12" x2="19" y2="12" />
-<polyline points="12 5 19 12 12 19" />
-</svg>;
-const STYLES = `.cc-cs {
+  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>;
+  const STYLES = `
+.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,23 +56,24 @@ const STYLES = `.cc-cs {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}`;
-return <div className="cc-cs not-prose">
-<style>{STYLES}</style>
-<div className="cc-cs-card">
-<div className="cc-cs-text">
-<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-</div>
-<div className="cc-cs-actions">
-<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-View plans
-</a>
-<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-Contact sales {iconArrowRight()}
-</a>
-</div>
-</div>
-</div>;
+}
+`;
+  return <div className="cc-cs not-prose">
+      <style>{STYLES}</style>
+      <div className="cc-cs-card">
+        <div className="cc-cs-text">
+          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+        </div>
+        <div className="cc-cs-actions">
+          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+            View plans
+          </a>
+          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+            Contact sales {iconArrowRight()}
+          </a>
+        </div>
+      </div>
+    </div>;
 };
 
 <ContactSalesCard surface="vertex" />
@@ -81,11 +82,11 @@ Contact sales {iconArrowRight()}
 
 Before configuring Claude Code with Vertex AI, ensure you have:
 
-- A Google Cloud Platform (GCP) account with billing enabled
-- A GCP project with Vertex AI API enabled
-- Access to desired Claude models (for example, Claude Sonnet 4.6)
-- Google Cloud SDK (`gcloud`) installed and configured
-- Quota allocated in desired GCP region
+* A Google Cloud Platform (GCP) account with billing enabled
+* A GCP project with Vertex AI API enabled
+* Access to desired Claude models (for example, Claude Sonnet 4.6)
+* Google Cloud SDK (`gcloud`) installed and configured
+* Quota allocated in desired GCP region
 
 To sign in with your own Vertex AI credentials, follow [Sign in with Vertex AI](#sign-in-with-vertex-ai) below. To deploy Claude Code across a team, use the [manual setup](#set-up-manually) steps and [pin your model versions](#5-pin-model-versions) before rolling out.
 
@@ -206,7 +207,7 @@ Claude Code disables [MCP tool search](/en/mcp#scale-with-mcp-tool-search) by de
 ### 5. Pin model versions
 
 <Warning>
-  Pin specific model versions when deploying to multiple users. Without pinning, model aliases such as `sonnet` and `opus` resolve to the latest version, which may not yet be enabled in your Vertex AI project when Anthropic releases an update. Claude Code [falls back](#startup-model-checks) to the previous version at startup when the latest is unavailable, but pinning lets you control when your users move to a new model.
+  Pin specific model versions when deploying to multiple users. Without pinning, model aliases such as `sonnet` and `opus` resolve to Claude Code's built-in default for Vertex AI, which can lag the newest release and may not yet be enabled in your project. Claude Code [falls back](#startup-model-checks) to the previous version at startup when the default is unavailable, but pinning lets you control when your users move to a new model.
 </Warning>
 
 Set these environment variables to specific Vertex AI model IDs.
@@ -251,7 +252,7 @@ Assign the required IAM permissions:
 
 The `roles/aiplatform.user` role includes the required permissions:
 
-- `aiplatform.endpoints.predict` - Required for model invocation and token counting
+* `aiplatform.endpoints.predict` - Required for model invocation and token counting
 
 For more restrictive permissions, create a custom role with only the permissions above.
 
@@ -271,29 +272,29 @@ The [setup wizard](#sign-in-with-vertex-ai) offers a 1M context option when it p
 
 If you encounter "Could not load the default credentials" errors:
 
-- Run `gcloud auth application-default login` to set up Application Default Credentials
-- Set `GOOGLE_APPLICATION_CREDENTIALS` to a service account key file path
-- See [Configure GCP credentials](#3-configure-gcp-credentials) for all options
+* Run `gcloud auth application-default login` to set up Application Default Credentials
+* Set `GOOGLE_APPLICATION_CREDENTIALS` to a service account key file path
+* See [Configure GCP credentials](#3-configure-gcp-credentials) for all options
 
 If you encounter quota issues:
 
-- Check current quotas or request quota increase through [Cloud Console](https://cloud.google.com/docs/quotas/view-manage)
+* Check current quotas or request quota increase through [Cloud Console](https://cloud.google.com/docs/quotas/view-manage)
 
 If you encounter "model not found" 404 errors:
 
-- Confirm model is Enabled in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden)
-- Verify the model is available in the location you specified. Some models are offered only on `global` or multi-region locations such as `eu` and `us`, not in specific regions
-- If using `CLOUD_ML_REGION=global`, check that your models support global endpoints in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden) under "Supported features". For models that don't support global endpoints, either:
-  - Specify a supported model via `ANTHROPIC_MODEL` or `ANTHROPIC_DEFAULT_HAIKU_MODEL`, or
-  - Set a region or multi-region location using `VERTEX_REGION_<MODEL_NAME>` environment variables
+* Confirm model is Enabled in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden)
+* Verify the model is available in the location you specified. Some models are offered only on `global` or multi-region locations such as `eu` and `us`, not in specific regions
+* If using `CLOUD_ML_REGION=global`, check that your models support global endpoints in [Model Garden](https://console.cloud.google.com/vertex-ai/model-garden) under "Supported features". For models that don't support global endpoints, either:
+  * Specify a supported model via `ANTHROPIC_MODEL` or `ANTHROPIC_DEFAULT_HAIKU_MODEL`, or
+  * Set a region or multi-region location using `VERTEX_REGION_<MODEL_NAME>` environment variables
 
 If you encounter 429 errors:
 
-- For regional endpoints, ensure the primary model and small/fast model are supported in your selected region
-- Consider switching to `CLOUD_ML_REGION=global` for better availability
+* For regional endpoints, ensure the primary model and small/fast model are supported in your selected region
+* Consider switching to `CLOUD_ML_REGION=global` for better availability
 
 ## Additional resources
 
-- [Vertex AI documentation](https://cloud.google.com/vertex-ai/docs)
-- [Vertex AI pricing](https://cloud.google.com/vertex-ai/pricing)
-- [Vertex AI quotas and limits](https://cloud.google.com/vertex-ai/docs/quotas)
+* [Vertex AI documentation](https://cloud.google.com/vertex-ai/docs)
+* [Vertex AI pricing](https://cloud.google.com/vertex-ai/pricing)
+* [Vertex AI quotas and limits](https://cloud.google.com/vertex-ai/docs/quotas)

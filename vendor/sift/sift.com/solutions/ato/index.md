@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Account Takeover Prevention
+# Unlock  Revenue  with Unified ATO Operations
+
+Home/Solutions/Account Takeover Prevention
 
 # Unlock Revenue with Unified ATO Operations
 
@@ -10,7 +12,7 @@ Connect diverse, fragmented insights, automate cross-team workflows, and elimina
 
 Maritza Dominguez, Trust & Safety at Patreon
 
-[Demo](/demo/)[Compare Industry Account Takeover Data](/fibr-fraud-industry-benchmarking-resource/)
+DemoCompare Industry Account Takeover Data
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -28,10 +30,10 @@ Bring ATO rates closer to zero
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Building Back Trust and Shrinking ATO
 
@@ -59,7 +61,7 @@ Sift research
 
 **Scale fraud ops with confidence**. Automate risk decisioning, simplify complex cases, and speed up manual review with total transparency into account activity and data—all in one intuitive console.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![AccountTakeover\_Solutions-Overview-Circle@2x](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -115,7 +117,7 @@ Unlock conversions for trusted users and lower your ATO rate with Sift.
 
 ## AI-fueled Data and Decisioning Accelerates Secure Growth
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![industries-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20106'%3E%3C/svg%3E)
 
@@ -129,7 +131,7 @@ Yan Pritzker
 
 Co-founder & CTO Swan Bitcoin
 
-[read customer story](/resources/case-studies/swan-bitcoin-case-study/)
+read customer story
 
 ![case-study-swan-bitcoin](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -151,7 +153,7 @@ Wayan Tresna Perdana
 
 Sr. Product Manager - User Platform Traveloka
 
-[read customer story](/resources/case-studies/traveloka/)
+read customer story
 
 ![case-study-traveloka](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -171,8 +173,6 @@ Evolving risk is an opportunity to redefine reward. Fraud pain points become bus
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Account Creation
@@ -180,8 +180,6 @@ Account Creation
 Make new users untouchable from the second they sign up.
 
 learn more
-
-](/solutions/account-creation/)[
 
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -191,8 +189,6 @@ Keep transactions and transfers secure across users, no matter the size, sum, or
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![Policy Abuse](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Policy Abuse
@@ -201,8 +197,6 @@ Protect return policies, promo offers, and customer perks from misuse.
 
 learn more
 
-](/solutions/policy-abuse/)[
-
 ![Content Scams](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Content Scams
@@ -210,8 +204,6 @@ Content Scams
 Stop spam, scams, and phishing schemes from undercutting trust and revenue.
 
 learn more
-
-](/solutions/content-scams/)
 
 ### Start Your Digital Risk Assessment
 
@@ -223,13 +215,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -239,8 +229,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -248,8 +236,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -259,12 +245,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
 ## Dare to grow differently.
 
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
-[see sift in action](/demo/)
+see sift in action

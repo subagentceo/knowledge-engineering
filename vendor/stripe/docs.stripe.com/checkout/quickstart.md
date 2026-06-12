@@ -212,7 +212,7 @@ Add your publishable and secret keys to a `.env` file. Next.js automatically loa
 
 ### Before you run the application
 
-Add `“proxy”: “<http://localhost:4242>”` to your `package.json` file during local development.
+Add `"proxy": "<http://localhost:4242>"` to your `package.json` file during local development.
 
 ### Run the application
 
@@ -288,8 +288,8 @@ To always create customers whenever one isn’t provided, set [customer_creation
 To associate a Checkout Session with a customer that already exists, provide the [customer](https://docs.stripe.com/api/checkout/sessions/create.md#create_checkout_session-customer) when creating a session. If you model customers using Accounts v2, you can also pass an Account ID to the [customer_account](https://docs.stripe.com/api/checkout/sessions/create.md#create_checkout_session-customer_account) field to prefill the associated email address. Learn more about the [difference between using v1 Customers and v2 Accounts](https://docs.stripe.com/accounts-v2/use-accounts-as-customers.md).
 
 // This test secret API key is a placeholder. Don't include personal details in requests with this key.
-// To see your test secret API key embedded in code samples, sign in to your Stripe account.
-// You can also find your test secret API key at https://dashboard.stripe.com/test/apikeys.
+// To see your test secret API key in code samples, log in to your Stripe account.
+// You can also find your test secret key at https://dashboard.stripe.com/test/apikeys
 // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
 const stripe = require('stripe')('<<YOUR_SECRET_KEY>>');
   const session = await stripe.checkout.sessions.create({
@@ -328,7 +328,7 @@ const stripe = require('stripe')('<<YOUR_SECRET_KEY>>');
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "stripe": "^21.0.1"
+    "stripe": "^22.2.0"
   }
 }
 {
@@ -341,7 +341,7 @@ const stripe = require('stripe')('<<YOUR_SECRET_KEY>>');
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^3.4.0",
-    "stripe": "21.0.1"
+    "stripe": "22.2.0"
   },
   "devDependencies": {
     "concurrently": "4.1.2"
@@ -436,7 +436,7 @@ itsdangerous==2.2.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 requests==2.32.5
-stripe==15.0.0
+stripe==15.2.0
 toml==0.10.2
 Werkzeug==3.1.5
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
@@ -539,7 +539,7 @@ $stripeSecretKey = '<<YOUR_SECRET_KEY>>';
   }
 
   http.Redirect(w, r, s.URL, http.StatusSeeOther)
-require github.com/stripe/stripe-go/v85 v85.0.0
+require github.com/stripe/stripe-go/v85 v85.2.0
     // This test secret API key is a placeholder. Don't include personal details in requests with this key.
     // To see your test secret API key embedded in code samples, sign in to your Stripe account.
     // You can also find your test secret API key at https://dashboard.stripe.com/test/apikeys.
@@ -1098,3 +1098,7 @@ Let your customers self-manage their payment details, invoices, and subscription
 #### [Adaptive Pricing](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing.md)
 
 Automatically present prices in your customer’s local currency.
+
+#### [Checkout studio](https://docs.stripe.com/payments/checkout-studio.md)
+
+Configure and monitor your Checkout integration from the Dashboard without writing code.

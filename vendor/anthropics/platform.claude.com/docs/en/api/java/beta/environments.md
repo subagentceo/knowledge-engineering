@@ -11,9 +11,11 @@ Create a new environment with the specified configuration.
 ### Parameters
 
 - `EnvironmentCreateParams params`
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Create a new environment with the specified configuration.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `String name`
 
@@ -75,26 +79,32 @@ Create a new environment with the specified configuration.
   - `Optional<Config> config`
 
     Environment configuration
+
     - `class BetaCloudConfigParams:`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
       - `Optional<Networking> networking`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetworkParams:`
@@ -103,9 +113,11 @@ Create a new environment with the specified configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
           - `Optional<Boolean> allowMcpServers`
@@ -125,6 +137,7 @@ Create a new environment with the specified configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -152,14 +165,17 @@ Create a new environment with the specified configuration.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `Optional<String> description`
@@ -173,6 +189,7 @@ Create a new environment with the specified configuration.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -182,9 +199,10 @@ Create a new environment with the specified configuration.
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -193,23 +211,29 @@ Create a new environment with the specified configuration.
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -225,11 +249,13 @@ Create a new environment with the specified configuration.
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -257,19 +283,23 @@ Create a new environment with the specified configuration.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -291,6 +321,7 @@ Create a new environment with the specified configuration.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -300,6 +331,7 @@ Create a new environment with the specified configuration.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -338,16 +370,31 @@ public final class Main {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -373,6 +420,7 @@ List environments with pagination support.
 ### Parameters
 
 - `EnvironmentListParams params`
+
   - `Optional<Boolean> includeArchived`
 
     Include archived environments in the response
@@ -388,6 +436,7 @@ List environments with pagination support.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -440,16 +489,19 @@ List environments with pagination support.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -458,23 +510,29 @@ List environments with pagination support.
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -490,11 +548,13 @@ List environments with pagination support.
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -522,19 +582,23 @@ List environments with pagination support.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -556,6 +620,7 @@ List environments with pagination support.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -565,6 +630,7 @@ List environments with pagination support.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -602,16 +668,31 @@ public final class Main {
         "networking": {
           "allow_mcp_servers": false,
           "allow_package_managers": true,
-          "allowed_hosts": ["api.example.com"],
+          "allowed_hosts": [
+            "api.example.com"
+          ],
           "type": "limited"
         },
         "packages": {
-          "apt": ["string"],
-          "cargo": ["string"],
-          "gem": ["string"],
-          "go": ["string"],
-          "npm": ["string"],
-          "pip": ["pandas", "numpy"],
+          "apt": [
+            "string"
+          ],
+          "cargo": [
+            "string"
+          ],
+          "gem": [
+            "string"
+          ],
+          "go": [
+            "string"
+          ],
+          "npm": [
+            "string"
+          ],
+          "pip": [
+            "pandas",
+            "numpy"
+          ],
           "type": "packages"
         },
         "type": "cloud"
@@ -640,11 +721,13 @@ Retrieve a specific environment by ID.
 ### Parameters
 
 - `EnvironmentRetrieveParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -697,16 +780,19 @@ Retrieve a specific environment by ID.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -715,23 +801,29 @@ Retrieve a specific environment by ID.
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -747,11 +839,13 @@ Retrieve a specific environment by ID.
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -779,19 +873,23 @@ Retrieve a specific environment by ID.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -813,6 +911,7 @@ Retrieve a specific environment by ID.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -822,6 +921,7 @@ Retrieve a specific environment by ID.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -857,16 +957,31 @@ public final class Main {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -892,11 +1007,13 @@ Update an existing environment's configuration.
 ### Parameters
 
 - `EnvironmentUpdateParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -949,31 +1066,39 @@ Update an existing environment's configuration.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<Config> config`
 
     Updated environment configuration
+
     - `class BetaCloudConfigParams:`
 
       Request params for `cloud` environment configuration.
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
       - `Optional<Networking> networking`
 
         Network configuration policy. Omit on update to preserve the existing value.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetworkParams:`
@@ -982,9 +1107,11 @@ Update an existing environment's configuration.
 
           Fields default to null; on update, omitted fields preserve the
           existing value.
+
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
           - `Optional<Boolean> allowMcpServers`
@@ -1004,6 +1131,7 @@ Update an existing environment's configuration.
         Specify packages (and optionally their versions) available in this environment.
 
         When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
         - `Optional<List<String>> apt`
 
           Ubuntu/Debian packages to install
@@ -1031,14 +1159,17 @@ Update an existing environment's configuration.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `Optional<String> description`
@@ -1056,6 +1187,7 @@ Update an existing environment's configuration.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -1065,9 +1197,10 @@ Update an existing environment's configuration.
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -1076,23 +1209,29 @@ Update an existing environment's configuration.
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1108,11 +1247,13 @@ Update an existing environment's configuration.
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -1140,19 +1281,23 @@ Update an existing environment's configuration.
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -1174,6 +1319,7 @@ Update an existing environment's configuration.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -1183,6 +1329,7 @@ Update an existing environment's configuration.
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -1218,16 +1365,31 @@ public final class Main {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1253,11 +1415,13 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 ### Parameters
 
 - `EnvironmentDeleteParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1310,13 +1474,16 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
+
   - `String id`
 
     Environment identifier
@@ -1324,6 +1491,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
   - `JsonValue; type "environment_deleted"constant`
 
     The type of response
+
     - `ENVIRONMENT_DELETED("environment_deleted")`
 
 ### Example
@@ -1367,11 +1535,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
 ### Parameters
 
 - `EnvironmentArchiveParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1424,16 +1594,19 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -1442,23 +1615,29 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1474,11 +1653,13 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -1506,19 +1687,23 @@ Archive an environment by ID. Archived environments cannot be used to create new
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -1540,6 +1725,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -1549,6 +1735,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -1584,16 +1771,31 @@ public final class Main {
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"
@@ -1615,20 +1817,25 @@ public final class Main {
 - `class BetaCloudConfig:`
 
   `cloud` environment configuration.
+
   - `Networking networking`
 
     Network configuration policy.
+
     - `class BetaUnrestrictedNetwork:`
 
       Unrestricted network access.
+
       - `JsonValue; type "unrestricted"constant`
 
         Network policy type
+
         - `UNRESTRICTED("unrestricted")`
 
     - `class BetaLimitedNetwork:`
 
       Limited network access.
+
       - `boolean allowMcpServers`
 
         Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1644,11 +1851,13 @@ public final class Main {
       - `JsonValue; type "limited"constant`
 
         Network policy type
+
         - `LIMITED("limited")`
 
   - `BetaPackages packages`
 
     Package manager configuration.
+
     - `List<String> apt`
 
       Ubuntu/Debian packages to install
@@ -1676,11 +1885,13 @@ public final class Main {
     - `Optional<Type> type`
 
       Package configuration type
+
       - `PACKAGES("packages")`
 
   - `JsonValue; type "cloud"constant`
 
     Environment type
+
     - `CLOUD("cloud")`
 
 ### Beta Cloud Config Params
@@ -1691,20 +1902,25 @@ public final class Main {
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `JsonValue; type "cloud"constant`
 
     Environment type
+
     - `CLOUD("cloud")`
 
   - `Optional<Networking> networking`
 
     Network configuration policy. Omit on update to preserve the existing value.
+
     - `class BetaUnrestrictedNetwork:`
 
       Unrestricted network access.
+
       - `JsonValue; type "unrestricted"constant`
 
         Network policy type
+
         - `UNRESTRICTED("unrestricted")`
 
     - `class BetaLimitedNetworkParams:`
@@ -1713,9 +1929,11 @@ public final class Main {
 
       Fields default to null; on update, omitted fields preserve the
       existing value.
+
       - `JsonValue; type "limited"constant`
 
         Network policy type
+
         - `LIMITED("limited")`
 
       - `Optional<Boolean> allowMcpServers`
@@ -1735,6 +1953,7 @@ public final class Main {
     Specify packages (and optionally their versions) available in this environment.
 
     When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
     - `Optional<List<String>> apt`
 
       Ubuntu/Debian packages to install
@@ -1762,6 +1981,7 @@ public final class Main {
     - `Optional<Type> type`
 
       Package configuration type
+
       - `PACKAGES("packages")`
 
 ### Beta Environment
@@ -1769,9 +1989,10 @@ public final class Main {
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `String id`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `Optional<String> archivedAt`
 
@@ -1780,23 +2001,29 @@ public final class Main {
   - `Config config`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `class BetaCloudConfig:`
 
       `cloud` environment configuration.
+
       - `Networking networking`
 
         Network configuration policy.
+
         - `class BetaUnrestrictedNetwork:`
 
           Unrestricted network access.
+
           - `JsonValue; type "unrestricted"constant`
 
             Network policy type
+
             - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
           Limited network access.
+
           - `boolean allowMcpServers`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1812,11 +2039,13 @@ public final class Main {
           - `JsonValue; type "limited"constant`
 
             Network policy type
+
             - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
         Package manager configuration.
+
         - `List<String> apt`
 
           Ubuntu/Debian packages to install
@@ -1844,19 +2073,23 @@ public final class Main {
         - `Optional<Type> type`
 
           Package configuration type
+
           - `PACKAGES("packages")`
 
       - `JsonValue; type "cloud"constant`
 
         Environment type
+
         - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
+
       - `JsonValue; type "self_hosted"constant`
 
         Environment type
+
         - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
@@ -1878,6 +2111,7 @@ public final class Main {
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
+
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
@@ -1887,6 +2121,7 @@ public final class Main {
   - `Optional<Scope> scope`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `ORGANIZATION("organization")`
 
     - `ACCOUNT("account")`
@@ -1896,6 +2131,7 @@ public final class Main {
 - `class BetaEnvironmentDeleteResponse:`
 
   Response after deleting an environment.
+
   - `String id`
 
     Environment identifier
@@ -1903,6 +2139,7 @@ public final class Main {
   - `JsonValue; type "environment_deleted"constant`
 
     The type of response
+
     - `ENVIRONMENT_DELETED("environment_deleted")`
 
 ### Beta Limited Network
@@ -1910,6 +2147,7 @@ public final class Main {
 - `class BetaLimitedNetwork:`
 
   Limited network access.
+
   - `boolean allowMcpServers`
 
     Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -1925,6 +2163,7 @@ public final class Main {
   - `JsonValue; type "limited"constant`
 
     Network policy type
+
     - `LIMITED("limited")`
 
 ### Beta Limited Network Params
@@ -1935,9 +2174,11 @@ public final class Main {
 
   Fields default to null; on update, omitted fields preserve the
   existing value.
+
   - `JsonValue; type "limited"constant`
 
     Network policy type
+
     - `LIMITED("limited")`
 
   - `Optional<Boolean> allowMcpServers`
@@ -1957,6 +2198,7 @@ public final class Main {
 - `class BetaPackages:`
 
   Packages (and their versions) available in this environment.
+
   - `List<String> apt`
 
     Ubuntu/Debian packages to install
@@ -1984,6 +2226,7 @@ public final class Main {
   - `Optional<Type> type`
 
     Package configuration type
+
     - `PACKAGES("packages")`
 
 ### Beta Packages Params
@@ -1993,6 +2236,7 @@ public final class Main {
   Specify packages (and optionally their versions) available in this environment.
 
   When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+
   - `Optional<List<String>> apt`
 
     Ubuntu/Debian packages to install
@@ -2020,6 +2264,7 @@ public final class Main {
   - `Optional<Type> type`
 
     Package configuration type
+
     - `PACKAGES("packages")`
 
 ### Beta Self Hosted Config
@@ -2027,9 +2272,11 @@ public final class Main {
 - `class BetaSelfHostedConfig:`
 
   Configuration for self-hosted environments.
+
   - `JsonValue; type "self_hosted"constant`
 
     Environment type
+
     - `SELF_HOSTED("self_hosted")`
 
 ### Beta Self Hosted Config Params
@@ -2037,9 +2284,11 @@ public final class Main {
 - `class BetaSelfHostedConfigParams:`
 
   Request params for `self_hosted` environment configuration.
+
   - `JsonValue; type "self_hosted"constant`
 
     Environment type
+
     - `SELF_HOSTED("self_hosted")`
 
 ### Beta Unrestricted Network
@@ -2047,9 +2296,11 @@ public final class Main {
 - `class BetaUnrestrictedNetwork:`
 
   Unrestricted network access.
+
   - `JsonValue; type "unrestricted"constant`
 
     Network policy type
+
     - `UNRESTRICTED("unrestricted")`
 
 # Work
@@ -2067,6 +2318,7 @@ Retrieve detailed information about a specific work item.
 ### Parameters
 
 - `WorkRetrieveParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -2074,6 +2326,7 @@ Retrieve detailed information about a specific work item.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -2126,7 +2379,9 @@ Retrieve detailed information about a specific work item.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -2137,9 +2392,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -2152,13 +2408,15 @@ Retrieve detailed information about a specific work item.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -2180,6 +2438,7 @@ Retrieve detailed information about a specific work item.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -2201,6 +2460,7 @@ Retrieve detailed information about a specific work item.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -2265,6 +2525,7 @@ Long poll for work items in the queue.
 ### Parameters
 
 - `WorkPollParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<Long> blockMs`
@@ -2278,6 +2539,7 @@ Long poll for work items in the queue.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -2330,7 +2592,9 @@ Long poll for work items in the queue.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> anthropicWorkerId`
 
@@ -2345,9 +2609,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -2360,13 +2625,15 @@ Long poll for work items in the queue.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -2388,6 +2655,7 @@ Long poll for work items in the queue.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -2409,6 +2677,7 @@ Long poll for work items in the queue.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -2470,6 +2739,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Parameters
 
 - `WorkAckParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -2477,6 +2747,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -2529,7 +2800,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -2540,9 +2813,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -2555,13 +2829,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -2583,6 +2859,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -2604,6 +2881,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -2668,6 +2946,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Parameters
 
 - `WorkHeartbeatParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -2683,6 +2962,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -2735,13 +3015,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -2753,6 +3036,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `State state`
 
     Current state of the work item (active/stopping/stopped)
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -2770,6 +3054,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `JsonValue; type "work_heartbeat"constant`
 
     The type of response
+
     - `WORK_HEARTBEAT("work_heartbeat")`
 
 ### Example
@@ -2822,6 +3107,7 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Parameters
 
 - `WorkStopParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -2829,6 +3115,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -2881,7 +3168,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `BetaSelfHostedWorkStopRequest betaSelfHostedWorkStopRequest`
 
@@ -2896,9 +3185,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -2911,13 +3201,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -2939,6 +3231,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -2960,6 +3253,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -3026,6 +3320,7 @@ List work items in an environment.
 ### Parameters
 
 - `WorkListParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<Long> limit`
@@ -3039,6 +3334,7 @@ List work items in an environment.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -3091,7 +3387,9 @@ List work items in an environment.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -3102,9 +3400,10 @@ List work items in an environment.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -3117,13 +3416,15 @@ List work items in an environment.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -3145,6 +3446,7 @@ List work items in an environment.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -3166,6 +3468,7 @@ List work items in an environment.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -3231,6 +3534,7 @@ Update work item metadata with merge semantics.
 ### Parameters
 
 - `WorkUpdateParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -3238,6 +3542,7 @@ Update work item metadata with merge semantics.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -3290,7 +3595,9 @@ Update work item metadata with merge semantics.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `BetaSelfHostedWorkUpdateRequest betaSelfHostedWorkUpdateRequest`
 
@@ -3305,9 +3612,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -3320,13 +3628,15 @@ Update work item metadata with merge semantics.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -3348,6 +3658,7 @@ Update work item metadata with merge semantics.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -3369,6 +3680,7 @@ Update work item metadata with merge semantics.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -3438,11 +3750,13 @@ Get statistics about the work queue for an environment.
 ### Parameters
 
 - `WorkStatsParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -3495,7 +3809,9 @@ Get statistics about the work queue for an environment.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -3504,6 +3820,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `long depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3519,6 +3836,7 @@ Get statistics about the work queue for an environment.
   - `JsonValue; type "work_queue_stats"constant`
 
     The type of object
+
     - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`
@@ -3569,9 +3887,10 @@ public final class Main {
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -3584,13 +3903,15 @@ public final class Main {
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -3612,6 +3933,7 @@ public final class Main {
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -3633,6 +3955,7 @@ public final class Main {
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -3640,6 +3963,7 @@ public final class Main {
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -3651,6 +3975,7 @@ public final class Main {
   - `State state`
 
     Current state of the work item (active/stopping/stopped)
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -3668,6 +3993,7 @@ public final class Main {
   - `JsonValue; type "work_heartbeat"constant`
 
     The type of response
+
     - `WORK_HEARTBEAT("work_heartbeat")`
 
 ### Beta Self Hosted Work List Response
@@ -3675,12 +4001,14 @@ public final class Main {
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `List<BetaSelfHostedWork> data`
 
     List of work items
+
     - `String id`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `Optional<String> acknowledgedAt`
 
@@ -3693,13 +4021,15 @@ public final class Main {
     - `BetaSessionWorkData data`
 
       The actual work to be performed
+
       - `String id`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonValue; type "session"constant`
 
         Type of work data
+
         - `SESSION("session")`
 
     - `String environmentId`
@@ -3721,6 +4051,7 @@ public final class Main {
     - `State state`
 
       Current state of the work item
+
       - `QUEUED("queued")`
 
       - `STARTING("starting")`
@@ -3742,6 +4073,7 @@ public final class Main {
     - `JsonValue; type "work"constant`
 
       The type of object (always 'work')
+
       - `WORK("work")`
 
   - `Optional<String> nextPage`
@@ -3755,6 +4087,7 @@ public final class Main {
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `long depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -3770,6 +4103,7 @@ public final class Main {
   - `JsonValue; type "work_queue_stats"constant`
 
     The type of object
+
     - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`
@@ -3781,6 +4115,7 @@ public final class Main {
 - `class BetaSelfHostedWorkStopRequest:`
 
   Request to stop a work item.
+
   - `Optional<Boolean> force`
 
     If true, immediately stop work without graceful shutdown
@@ -3790,6 +4125,7 @@ public final class Main {
 - `class BetaSelfHostedWorkUpdateRequest:`
 
   Request to update work item metadata.
+
   - `Metadata metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -3802,11 +4138,13 @@ public final class Main {
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `String id`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `JsonValue; type "session"constant`
 
     Type of work data
+
     - `SESSION("session")`

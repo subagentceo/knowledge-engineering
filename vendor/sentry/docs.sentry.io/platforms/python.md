@@ -19,6 +19,8 @@ Install the Sentry SDK using [`pip`](https://pip.pypa.io/en/stable/):
 pip install "sentry-sdk"
 ```
 
+*Other available variations of the above snippet: uv*
+
 ## [Configure](https://docs.sentry.io/platforms/python.md#configure)
 
 Choose the features you want to configure, and this guide will show you how:
@@ -31,7 +33,7 @@ Configuration should happen as **early as possible** in your application's lifec
 import sentry_sdk
 
 sentry_sdk.init(
-    dsn="___PUBLIC_DSN___",
+    dsn="https://<key>@o<orgId>.ingest.sentry.io/<projectId>",
     # Add request headers and IP for users,
     # see https://docs.sentry.io/platforms/python/data-management/data-collected/ for more info
     send_default_pii=True,

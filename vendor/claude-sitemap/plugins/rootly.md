@@ -1,13 +1,13 @@
 # rootly
 
-- Install in
-
-  Claude Code
-
-- Made by
-
-  Rootly
-
-- Installs
-
-  114
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+    Rootly
+    
+*   Installs
+    
+    209

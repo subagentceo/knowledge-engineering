@@ -12,13 +12,16 @@ Update Credential
 
 - `credential_id: String`
 
-- `auth: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams`
+- `auth: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams | BetaManagedAgentsEnvironmentVariableUpdateParams`
 
   Updated authentication details for a credential.
+
   - `class BetaManagedAgentsMCPOAuthUpdateParams`
 
     Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
     - `type: :mcp_oauth`
+
       - `:mcp_oauth`
 
     - `access_token: String`
@@ -32,6 +35,7 @@ Update Credential
     - `refresh: BetaManagedAgentsMCPOAuthRefreshUpdateParams`
 
       Parameters for updating OAuth refresh token configuration.
+
       - `refresh_token: String`
 
         Updated OAuth refresh token.
@@ -43,10 +47,13 @@ Update Credential
       - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
+
         - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
           Updated HTTP Basic authentication parameters for the token endpoint.
+
           - `type: :client_secret_basic`
+
             - `:client_secret_basic`
 
           - `client_secret: String`
@@ -56,7 +63,9 @@ Update Credential
         - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
           Updated POST body authentication parameters for the token endpoint.
+
           - `type: :client_secret_post`
+
             - `:client_secret_post`
 
           - `client_secret: String`
@@ -66,12 +75,50 @@ Update Credential
   - `class BetaManagedAgentsStaticBearerUpdateParams`
 
     Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
     - `type: :static_bearer`
+
       - `:static_bearer`
 
     - `token: String`
 
       Updated static bearer token value.
+
+  - `class BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+    Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+    - `type: :environment_variable`
+
+      - `:environment_variable`
+
+    - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+      Updated networking scope. Full replacement.
+
+      - `class BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+        Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+        - `type: :unrestricted`
+
+          - `:unrestricted`
+
+      - `class BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+        Substitute the secret only on requests to the listed hosts.
+
+        - `allowed_hosts: Array[String]`
+
+          Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+        - `type: :limited`
+
+          - `:limited`
+
+    - `secret_value: String`
+
+      Updated secret value.
 
 - `display_name: String`
 
@@ -84,9 +131,11 @@ Update Credential
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -139,13 +188,16 @@ Update Credential
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: String`
 
     Unique identifier for the credential.
@@ -154,17 +206,20 @@ Update Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `class BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: String`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: :mcp_oauth`
+
         - `:mcp_oauth`
 
       - `expires_at: Time`
@@ -174,6 +229,7 @@ Update Credential
       - `refresh: BetaManagedAgentsMCPOAuthRefreshResponse`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: String`
 
           OAuth client ID.
@@ -185,22 +241,29 @@ Update Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: :none`
+
               - `:none`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: :client_secret_basic`
+
               - `:client_secret_basic`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: :client_secret_post`
+
               - `:client_secret_post`
 
         - `resource: String`
@@ -214,12 +277,50 @@ Update Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: String`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: :static_bearer`
+
         - `:static_bearer`
+
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: :unrestricted`
+
+            - `:unrestricted`
+
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array[String]`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: :limited`
+
+            - `:limited`
+
+      - `secret_name: String`
+
+        Name of the environment variable.
+
+      - `type: :environment_variable`
+
+        - `:environment_variable`
 
   - `created_at: Time`
 
@@ -230,6 +331,7 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: :vault_credential`
+
     - `:vault_credential`
 
   - `updated_at: Time`

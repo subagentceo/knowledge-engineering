@@ -187,6 +187,8 @@ paths:
             monitor = client.monitor.update(
                 "monitor_id",
                 frequency="12h",
+                type="event_stream",
+                settings={"query": "Extract recent funding news about AI startups"},
             )
             print(monitor.frequency)
         - lang: TypeScript
@@ -197,6 +199,8 @@ paths:
 
             const monitor = await client.monitor.update('monitor_id', {
                 frequency: '12h',
+                type: 'event_stream',
+                settings: { query: 'Extract recent funding news about AI startups' },
             });
             console.log(monitor.frequency);
 components:
@@ -258,8 +262,8 @@ components:
             - type: 'null'
           description: >-
             Type-specific settings to update. Only valid when `type` is
-            `event_stream`. Pass `null` for `settings.advanced_settings` to
-            clear it.
+            `event_stream`. Pass `settings.query` to update the prompt, or
+            `null` for `settings.advanced_settings` to clear it.
       type: object
       title: UpdateMonitorRequest
       description: >-
@@ -273,9 +277,15 @@ components:
 
         type-specific settings on an `event_stream` monitor, include `type` and
 
-        `settings`; pass `null` for `settings.advanced_settings` to clear it.
+        `settings`; pass `settings.query` to update the prompt, or `null` for
 
-        At least one non-`type` field must be provided.
+        `settings.advanced_settings` to clear it. If `settings` is provided,
+        `type`
+
+        is required to identify the settings shape. The request must still
+        include
+
+        at least one field to update; empty updates fail validation.
     MonitorResponse:
       properties:
         type:
@@ -442,6 +452,18 @@ components:
       description: Webhook configuration for a monitor.
     UpdateMonitorEventStreamSettings:
       properties:
+        query:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Query
+          description: >-
+            Updated search query for the monitor. Use this for minor updates to
+            prompts and instructions only. Major changes to the query may lead
+            to unexpected results in change detection, as the monitor compares
+            new results with what was previously seen.
+          examples:
+            - Extract recent news about AI
         advanced_settings:
           anyOf:
             - $ref: '#/components/schemas/AdvancedMonitorSettings'

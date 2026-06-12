@@ -11,16 +11,19 @@ Create Session
 - `agent: String | BetaManagedAgentsAgentParams`
 
   Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
+
   - `String = String`
 
   - `class BetaManagedAgentsAgentParams`
 
     Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
+
     - `id: String`
 
       The `agent` ID.
 
     - `type: :agent`
+
       - `:agent`
 
     - `version: Integer`
@@ -38,14 +41,17 @@ Create Session
 - `resources: Array[BetaManagedAgentsGitHubRepositoryResourceParams | BetaManagedAgentsFileResourceParams | BetaManagedAgentsMemoryStoreResourceParam]`
 
   Resources (e.g. repositories, files) to mount into the session's container.
+
   - `class BetaManagedAgentsGitHubRepositoryResourceParams`
 
     Mount a GitHub repository into the session's container.
+
     - `authorization_token: String`
 
       GitHub authorization token used to clone the repository.
 
     - `type: :github_repository`
+
       - `:github_repository`
 
     - `url: String`
@@ -55,20 +61,25 @@ Create Session
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
 
       Branch or commit to check out. Defaults to the repository's default branch.
+
       - `class BetaManagedAgentsBranchCheckout`
+
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
+
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
+
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
+
           - `:commit`
 
     - `mount_path: String`
@@ -78,11 +89,13 @@ Create Session
   - `class BetaManagedAgentsFileResourceParams`
 
     Mount a file uploaded via the Files API into the session.
+
     - `file_id: String`
 
       ID of a previously uploaded file.
 
     - `type: :file`
+
       - `:file`
 
     - `mount_path: String`
@@ -92,16 +105,19 @@ Create Session
   - `class BetaManagedAgentsMemoryStoreResourceParam`
 
     Parameters for attaching a memory store to an agent session.
+
     - `memory_store_id: String`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
+
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
+
       - `:read_write`
 
       - `:read_only`
@@ -121,9 +137,11 @@ Create Session
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -176,26 +194,32 @@ Create Session
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
   - `id: String`
 
   - `agent: BetaManagedAgentsSessionAgent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
       - `name: String`
 
       - `type: :url`
+
         - `:url`
 
       - `url: String`
@@ -203,16 +227,27 @@ Create Session
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `BetaManagedAgentsModel = :"claude-opus-4-7" | :"claude-opus-4-6" | :"claude-sonnet-4-6" | 6 more`
+
+        - `BetaManagedAgentsModel = :"claude-fable-5" | :"claude-opus-4-8" | :"claude-opus-4-7" | 8 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `:"claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
+
           - `:"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -254,6 +289,7 @@ Create Session
       - `speed: :standard | :fast`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `:standard`
 
         - `:fast`
@@ -261,14 +297,17 @@ Create Session
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `agents: Array[BetaManagedAgentsSessionThreadAgent]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `id: String`
 
         - `description: String`
 
         - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
+
           - `name: String`
 
           - `type: :url`
@@ -282,12 +321,15 @@ Create Session
         - `name: String`
 
         - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
           - `class BetaManagedAgentsAnthropicSkill`
 
             A resolved Anthropic-managed skill.
+
             - `skill_id: String`
 
             - `type: :anthropic`
+
               - `:anthropic`
 
             - `version: String`
@@ -295,9 +337,11 @@ Create Session
           - `class BetaManagedAgentsCustomSkill`
 
             A resolved user-created custom skill.
+
             - `skill_id: String`
 
             - `type: :custom`
+
               - `:custom`
 
             - `version: String`
@@ -305,13 +349,17 @@ Create Session
         - `system_: String`
 
         - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
           - `class BetaManagedAgentsAgentToolset20260401`
+
             - `configs: Array[BetaManagedAgentsAgentToolConfig]`
+
               - `enabled: bool`
 
               - `name: :bash | :edit | :read | 5 more`
 
                 Built-in agent tool identifier.
+
                 - `:bash`
 
                 - `:edit`
@@ -331,26 +379,33 @@ Create Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `type: :always_allow`
+
                     - `:always_allow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
+
                   - `type: :always_ask`
+
                     - `:always_ask`
 
             - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `enabled: bool`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -360,10 +415,13 @@ Create Session
                   Tool calls require user confirmation before execution.
 
             - `type: :agent_toolset_20260401`
+
               - `:agent_toolset_20260401`
 
           - `class BetaManagedAgentsMCPToolset`
+
             - `configs: Array[BetaManagedAgentsMCPToolConfig]`
+
               - `enabled: bool`
 
               - `name: String`
@@ -371,6 +429,7 @@ Create Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -382,11 +441,13 @@ Create Session
             - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `enabled: bool`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -398,45 +459,47 @@ Create Session
             - `mcp_server_name: String`
 
             - `type: :mcp_toolset`
+
               - `:mcp_toolset`
 
           - `class BetaManagedAgentsCustomTool`
 
             A custom tool as returned in API responses.
+
             - `description: String`
 
             - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
               JSON Schema for custom tool input parameters.
-              - `properties: Hash[Symbol, untyped]`
-
-                JSON Schema properties defining the tool's input parameters.
-
-              - `required: Array[String]`
-
-                List of required property names.
 
               - `type: :object`
 
-                Must be 'object' for tool input schemas.
                 - `:object`
+
+              - `properties: Hash[Symbol, untyped]`
+
+              - `required: Array[String]`
 
             - `name: String`
 
             - `type: :custom`
+
               - `:custom`
 
         - `type: :agent`
+
           - `:agent`
 
         - `version: Integer`
 
       - `type: :coordinator`
+
         - `:coordinator`
 
     - `name: String`
 
     - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
+
       - `class BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
@@ -448,6 +511,7 @@ Create Session
     - `system_: String`
 
     - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
+
       - `class BetaManagedAgentsAgentToolset20260401`
 
       - `class BetaManagedAgentsMCPToolset`
@@ -457,6 +521,7 @@ Create Session
         A custom tool as returned in API responses.
 
     - `type: :agent`
+
       - `:agent`
 
     - `version: Integer`
@@ -476,6 +541,7 @@ Create Session
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `completed_at: Time`
 
       A timestamp in RFC 3339 format
@@ -494,17 +560,20 @@ Create Session
 
     - `outcome_id: String`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `result: String`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: :outcome_evaluation`
+
       - `:outcome_evaluation`
 
   - `resources: Array[BetaManagedAgentsSessionResource]`
+
     - `class BetaManagedAgentsGitHubRepositoryResource`
+
       - `id: String`
 
       - `created_at: Time`
@@ -514,6 +583,7 @@ Create Session
       - `mount_path: String`
 
       - `type: :github_repository`
+
         - `:github_repository`
 
       - `updated_at: Time`
@@ -523,23 +593,29 @@ Create Session
       - `url: String`
 
       - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
+
         - `class BetaManagedAgentsBranchCheckout`
+
           - `name: String`
 
             Branch name to check out.
 
           - `type: :branch`
+
             - `:branch`
 
         - `class BetaManagedAgentsCommitCheckout`
+
           - `sha: String`
 
             Full commit SHA to check out.
 
           - `type: :commit`
+
             - `:commit`
 
     - `class BetaManagedAgentsFileResource`
+
       - `id: String`
 
       - `created_at: Time`
@@ -551,6 +627,7 @@ Create Session
       - `mount_path: String`
 
       - `type: :file`
+
         - `:file`
 
       - `updated_at: Time`
@@ -560,16 +637,19 @@ Create Session
     - `class BetaManagedAgentsMemoryStoreResource`
 
       A memory store attached to an agent session.
+
       - `memory_store_id: String`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: :memory_store`
+
         - `:memory_store`
 
       - `access: :read_write | :read_only`
 
         Access mode for an attached memory store.
+
         - `:read_write`
 
         - `:read_only`
@@ -593,6 +673,7 @@ Create Session
   - `stats: BetaManagedAgentsSessionStats`
 
     Timing statistics for a session.
+
     - `active_seconds: Float`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -604,6 +685,7 @@ Create Session
   - `status: :rescheduling | :running | :idle | :terminated`
 
     SessionStatus enum
+
     - `:rescheduling`
 
     - `:running`
@@ -615,6 +697,7 @@ Create Session
   - `title: String`
 
   - `type: :session`
+
     - `:session`
 
   - `updated_at: Time`
@@ -624,9 +707,11 @@ Create Session
   - `usage: BetaManagedAgentsSessionUsage`
 
     Cumulative token usage for a session across all turns.
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `ephemeral_1h_input_tokens: Integer`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -650,6 +735,10 @@ Create Session
   - `vault_ids: Array[String]`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `deployment_id: String`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -827,6 +916,9 @@ puts(beta_managed_agents_session)
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

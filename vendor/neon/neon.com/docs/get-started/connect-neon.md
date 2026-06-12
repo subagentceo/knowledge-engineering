@@ -1,7 +1,6 @@
-> This page location: Start with Neon > 2 - Connect
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of connecting Neon to applications using standard Postgres connection strings, including examples for various programming languages and frameworks, and details on pooled versus direct connections.
+> Summary: Connecting to Neon uses a standard PostgreSQL connection string retrieved from the Project Dashboard. Code examples cover JavaScript (Neon serverless driver, Next.js, Drizzle, Prisma), Python (psycopg2), Go, .NET, Ruby, Rust, and psql. Use a pooled connection string when your application opens many concurrent connections; use a direct connection for migrations or session-level features. Choose this page to get a working DATABASE_URL and a first query running.
 
 # Connecting Neon to your stack
 
@@ -244,11 +243,4 @@ This covers the basics. For more connection options and detailed guidance:
 - [Framework guides](https://neon.com/docs/get-started/frameworks): Step-by-step guides for Next.js, Remix, Django, Rails, and more
 - [Language guides](https://neon.com/docs/get-started/languages): Connection examples for JavaScript, Python, Go, Rust, and other languages
 - [Serverless driver](https://neon.com/docs/serverless/serverless-driver): Connect from serverless and edge environments using HTTP or WebSockets
-
----
-
-## Related docs (Start with Neon)
-
-- [1 - Basics](https://neon.com/docs/get-started/signing-up)
-- [3 - Branching](https://neon.com/docs/get-started/workflow-primer)
-- [4 - Setup Neon Auth](https://neon.com/docs/auth/overview)
+- [Set up Neon Auth](https://neon.com/docs/auth/overview): Managed authentication that branches with your database

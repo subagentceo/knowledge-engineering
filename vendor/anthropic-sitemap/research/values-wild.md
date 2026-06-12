@@ -8,11 +8,13 @@ Apr 21, 2025
 
 Read the paper
 
+![Values in the wild: Discovering and analyzing values in real-world language model interactions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff10c4be60fa17dae2fbf01e18723ca8ee44e31f1-2000x1125.png&w=3840&q=75)
+
 People don’t just ask AIs for the answers to equations, or for purely factual information. Many of the questions they ask force the AI to make _value judgments_. Consider the following:
 
-- A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
-- A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
-- A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
+*   A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
+*   A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
+*   A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
 
 At Anthropic, we’ve attempted to shape the values of our AI model, Claude, to help keep it aligned with human preferences, make it less likely to engage in dangerous behaviors, and generally make it—for want of a better term—a “good citizen” in the world. Another way of putting it is that we want Claude to be _helpful_, _honest_, and _harmless_. Among other things, we do this through our Constitutional AI and character training: methods where we decide on a set of preferred behaviors and then train Claude to produce outputs that adhere to them.
 
@@ -78,20 +80,16 @@ If you’re interested in working with us on these or related questions, you sho
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Welcome to Arkose Labs!
 
 Bankrupting the business model of fraud.
@@ -61,11 +65,15 @@ Bankrupting the business model of fraud.
   `}
 </HTMLBlock>
 
-## Arkose Labs
+<br />
 
-Arkose Bot Manager's AI-powered platform combines defense-in-depth detection with dynamic attack response to navigate unclear trust signals without disrupting the good user experience.
+**Arkose Titan**
 
-* Arkose Bot Manager detects fraud and other attacks on your system via a mixture of Device Intelligence, Network and IP Intelligence, and Behavior Analysis added to rules and Machine Learning. For a more complete description.
-* Our enforcement component takes the detection abilities of Arkose Bot Manager detection and adds an adaptive approach to bot prevention & account security that doesn't disrupt good users' experiences. When it detects suspicious signals, it can send traffic through Arkose Labs’ proprietary challenge-response technology that expertly validates malicious intent. Targeted attack response lets good users pass uninterrupted, while meeting suspicious traffic with puzzles that bots can’t solve and which frustrates human fraudsters.
+It is the platform powering every Arkose Labs product — built around a single principle: make attacking expensive enough to be unprofitable. Rather than chasing each new evasion technique, Titan imposes real economic cost on bad actors across every surface they target: browsers, APIs, CDN edges, and non-browser devices alike.
 
-For a more complete description, visit [Arkose Bot Manager product page](https://www.arkoselabs.com/arkose-bot-manager/).
+**Our Products on the Titan Platform**
+
+* **Arkose Bot Manager** Stops bots and human fraud on browser-based flows through multi-layer detection and adaptive challenge-response. Combines Device Intelligence, Network & IP signals, and Behavioral Analysis to score risk — then routes high-risk traffic through Arkose's challenge stack, which defeats AI-powered solvers while legitimate users pass without friction.
+* **Arkose Device ID** Generates a single, persistent Arkose ID per device by combining deterministic signals with probabilistic fingerprinting. Every response includes a confidence score you can feed directly into your risk policies — enabling consistent device recognition across sessions, even when cookies or browser state are cleared.
+* **Arkose Edge** A lightweight server-side API that delivers bot detection and risk scoring at any endpoint — mobile backends, IoT devices, gaming consoles, and programmatic APIs — with no client-side code required. Pass signals like IP, TLS fingerprints, HTTP headers, and JA3/JA4; receive a risk score, risk band, and an allow/block/challenge recommendation.
+* **Arkose Scraping Protection** Deploys as a worker directly on your CDN to evaluate every inbound request before it reaches your origin server. Scrapers are stopped at the edge. Low-risk traffic passes silently; medium-to-high risk is routed through Arkose's challenge stack — protecting content APIs, cached pages, and origin infrastructure from AI-driven data harvesting at scale.

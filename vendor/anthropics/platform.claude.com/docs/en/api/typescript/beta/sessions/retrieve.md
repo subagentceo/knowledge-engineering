@@ -11,12 +11,15 @@ Get Session
 - `sessionID: string`
 
 - `params: SessionRetrieveParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -69,26 +72,32 @@ Get Session
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsSession`
 
   A Managed Agents `session`.
+
   - `id: string`
 
   - `agent: BetaManagedAgentsSessionAgent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
       - `name: string`
 
       - `type: "url"`
+
         - `"url"`
 
       - `url: string`
@@ -96,12 +105,23 @@ Get Session
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+
+        - `"claude-fable-5" | "claude-opus-4-8" | "claude-opus-4-7" | 8 more`
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
+
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -143,6 +163,7 @@ Get Session
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"`
 
         - `"fast"`
@@ -150,14 +171,17 @@ Get Session
     - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `id: string`
 
         - `description: string | null`
 
         - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+
           - `name: string`
 
           - `type: "url"`
@@ -171,12 +195,15 @@ Get Session
         - `name: string`
 
         - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
           - `BetaManagedAgentsAnthropicSkill`
 
             A resolved Anthropic-managed skill.
+
             - `skill_id: string`
 
             - `type: "anthropic"`
+
               - `"anthropic"`
 
             - `version: string`
@@ -184,9 +211,11 @@ Get Session
           - `BetaManagedAgentsCustomSkill`
 
             A resolved user-created custom skill.
+
             - `skill_id: string`
 
             - `type: "custom"`
+
               - `"custom"`
 
             - `version: string`
@@ -194,13 +223,17 @@ Get Session
         - `system: string | null`
 
         - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
           - `BetaManagedAgentsAgentToolset20260401`
+
             - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+
               - `enabled: boolean`
 
               - `name: "bash" | "edit" | "read" | 5 more`
 
                 Built-in agent tool identifier.
+
                 - `"bash"`
 
                 - `"edit"`
@@ -220,26 +253,33 @@ Get Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `type: "always_allow"`
+
                     - `"always_allow"`
 
                 - `BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
+
                   - `type: "always_ask"`
+
                     - `"always_ask"`
 
             - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `enabled: boolean`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -249,10 +289,13 @@ Get Session
                   Tool calls require user confirmation before execution.
 
             - `type: "agent_toolset_20260401"`
+
               - `"agent_toolset_20260401"`
 
           - `BetaManagedAgentsMCPToolset`
+
             - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+
               - `enabled: boolean`
 
               - `name: string`
@@ -260,6 +303,7 @@ Get Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -271,11 +315,13 @@ Get Session
             - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `enabled: boolean`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `BetaManagedAgentsAlwaysAllowPolicy`
 
                   Tool calls are automatically approved without user confirmation.
@@ -287,45 +333,47 @@ Get Session
             - `mcp_server_name: string`
 
             - `type: "mcp_toolset"`
+
               - `"mcp_toolset"`
 
           - `BetaManagedAgentsCustomTool`
 
             A custom tool as returned in API responses.
+
             - `description: string`
 
             - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
               JSON Schema for custom tool input parameters.
+
+              - `type: "object"`
+
+                - `"object"`
+
               - `properties?: Record<string, unknown> | null`
 
-                JSON Schema properties defining the tool's input parameters.
-
-              - `required?: Array<string>`
-
-                List of required property names.
-
-              - `type?: "object"`
-
-                Must be 'object' for tool input schemas.
-                - `"object"`
+              - `required?: Array<string> | null`
 
             - `name: string`
 
             - `type: "custom"`
+
               - `"custom"`
 
         - `type: "agent"`
+
           - `"agent"`
 
         - `version: number`
 
       - `type: "coordinator"`
+
         - `"coordinator"`
 
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
@@ -337,6 +385,7 @@ Get Session
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+
       - `BetaManagedAgentsAgentToolset20260401`
 
       - `BetaManagedAgentsMCPToolset`
@@ -346,6 +395,7 @@ Get Session
         A custom tool as returned in API responses.
 
     - `type: "agent"`
+
       - `"agent"`
 
     - `version: number`
@@ -365,6 +415,7 @@ Get Session
   - `outcome_evaluations: Array<BetaManagedAgentsOutcomeEvaluationResource>`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `completed_at: string | null`
 
       A timestamp in RFC 3339 format
@@ -383,17 +434,20 @@ Get Session
 
     - `outcome_id: string`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `result: string`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: "outcome_evaluation"`
+
       - `"outcome_evaluation"`
 
   - `resources: Array<BetaManagedAgentsSessionResource>`
+
     - `BetaManagedAgentsGitHubRepositoryResource`
+
       - `id: string`
 
       - `created_at: string`
@@ -403,6 +457,7 @@ Get Session
       - `mount_path: string`
 
       - `type: "github_repository"`
+
         - `"github_repository"`
 
       - `updated_at: string`
@@ -412,23 +467,29 @@ Get Session
       - `url: string`
 
       - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
         - `BetaManagedAgentsBranchCheckout`
+
           - `name: string`
 
             Branch name to check out.
 
           - `type: "branch"`
+
             - `"branch"`
 
         - `BetaManagedAgentsCommitCheckout`
+
           - `sha: string`
 
             Full commit SHA to check out.
 
           - `type: "commit"`
+
             - `"commit"`
 
     - `BetaManagedAgentsFileResource`
+
       - `id: string`
 
       - `created_at: string`
@@ -440,6 +501,7 @@ Get Session
       - `mount_path: string`
 
       - `type: "file"`
+
         - `"file"`
 
       - `updated_at: string`
@@ -449,16 +511,19 @@ Get Session
     - `BetaManagedAgentsMemoryStoreResource`
 
       A memory store attached to an agent session.
+
       - `memory_store_id: string`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: "memory_store"`
+
         - `"memory_store"`
 
       - `access?: "read_write" | "read_only" | null`
 
         Access mode for an attached memory store.
+
         - `"read_write"`
 
         - `"read_only"`
@@ -482,6 +547,7 @@ Get Session
   - `stats: BetaManagedAgentsSessionStats`
 
     Timing statistics for a session.
+
     - `active_seconds?: number`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -493,6 +559,7 @@ Get Session
   - `status: "rescheduling" | "running" | "idle" | "terminated"`
 
     SessionStatus enum
+
     - `"rescheduling"`
 
     - `"running"`
@@ -504,6 +571,7 @@ Get Session
   - `title: string | null`
 
   - `type: "session"`
+
     - `"session"`
 
   - `updated_at: string`
@@ -513,9 +581,11 @@ Get Session
   - `usage: BetaManagedAgentsSessionUsage`
 
     Cumulative token usage for a session across all turns.
+
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -540,17 +610,21 @@ Get Session
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
 
+  - `deployment_id?: string | null`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
+
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsSession = await client.beta.sessions.retrieve(
-  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  'sesn_011CZkZAtmR3yMPDzynEDxu7',
 );
 
 console.log(betaManagedAgentsSession.id);
@@ -717,6 +791,9 @@ console.log(betaManagedAgentsSession.id);
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

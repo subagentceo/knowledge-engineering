@@ -98,37 +98,137 @@ To create integrations, retrieve data, and automate your workflows, use the GitH
 
   The GitHub GraphQL API has limitations in place to protect against excessive or abusive calls to GitHub's servers.
 
-* [Queries](/en/graphql/reference/queries)
+* [Actions](/en/graphql/reference/actions)
 
-  The query type defines GraphQL operations that retrieve data from the server.
+  Reference documentation for GraphQL schema types in the Actions category.
 
-* [Mutations](/en/graphql/reference/mutations)
+* [Activity](/en/graphql/reference/activity)
 
-  The mutation type defines GraphQL operations that change data on the server.
+  Reference documentation for GraphQL schema types in the Activity category.
 
-* [Objects](/en/graphql/reference/objects)
+* [GitHub Apps](/en/graphql/reference/apps)
 
-  Objects in GraphQL represent the resources you can access.
+  Reference documentation for GraphQL schema types in the GitHub Apps category.
 
-* [Interfaces](/en/graphql/reference/interfaces)
+* [Branches](/en/graphql/reference/branches)
 
-  Interfaces serve as parent objects from which other objects can inherit.
+  Reference documentation for GraphQL schema types in the Branches category.
 
-* [Enums](/en/graphql/reference/enums)
+* [Checks](/en/graphql/reference/checks)
 
-  Enums represent possible sets of values for a field.
+  Reference documentation for GraphQL schema types in the Checks category.
 
-* [Unions](/en/graphql/reference/unions)
+* [Commits](/en/graphql/reference/commits)
 
-  A union is a type of object representing many objects.
+  Reference documentation for GraphQL schema types in the Commits category.
 
-* [Input objects](/en/graphql/reference/input-objects)
+* [Copilot](/en/graphql/reference/copilot)
 
-  Input objects can be described as "composable objects" because they include a set of input fields that define the object.
+  Reference documentation for GraphQL schema types in the Copilot category.
 
-* [Scalars](/en/graphql/reference/scalars)
+* [Dependabot](/en/graphql/reference/dependabot)
 
-  Scalars are primitive values Int, Float, String, Boolean, or ID.
+  Reference documentation for GraphQL schema types in the Dependabot category.
+
+* [Dependency graph](/en/graphql/reference/dependency-graph)
+
+  Reference documentation for GraphQL schema types in the Dependency graph category.
+
+* [Deploy keys](/en/graphql/reference/deploy-keys)
+
+  Reference documentation for GraphQL schema types in the Deploy keys category.
+
+* [Deployments](/en/graphql/reference/deployments)
+
+  Reference documentation for GraphQL schema types in the Deployments category.
+
+* [Discussions](/en/graphql/reference/discussions)
+
+  Reference documentation for GraphQL schema types in the Discussions category.
+
+* [Enterprise administration](/en/graphql/reference/enterprise-admin)
+
+  Reference documentation for GraphQL schema types in the Enterprise administration category.
+
+* [Gists](/en/graphql/reference/gists)
+
+  Reference documentation for GraphQL schema types in the Gists category.
+
+* [Git](/en/graphql/reference/git)
+
+  Reference documentation for GraphQL schema types in the Git category.
+
+* [Issues](/en/graphql/reference/issues)
+
+  Reference documentation for GraphQL schema types in the Issues category.
+
+* [Licenses](/en/graphql/reference/licenses)
+
+  Reference documentation for GraphQL schema types in the Licenses category.
+
+* [Meta](/en/graphql/reference/meta)
+
+  Reference documentation for GraphQL schema types in the Meta category.
+
+* [Migrations](/en/graphql/reference/migrations)
+
+  Reference documentation for GraphQL schema types in the Migrations category.
+
+* [Organizations](/en/graphql/reference/orgs)
+
+  Reference documentation for GraphQL schema types in the Organizations category.
+
+* [Packages](/en/graphql/reference/packages)
+
+  Reference documentation for GraphQL schema types in the Packages category.
+
+* [Projects](/en/graphql/reference/projects)
+
+  Reference documentation for GraphQL schema types in the Projects category.
+
+* [Projects (classic)](/en/graphql/reference/projects-classic)
+
+  Reference documentation for GraphQL schema types in the Projects (classic) category.
+
+* [Pull requests](/en/graphql/reference/pulls)
+
+  Reference documentation for GraphQL schema types in the Pull requests category.
+
+* [Reactions](/en/graphql/reference/reactions)
+
+  Reference documentation for GraphQL schema types in the Reactions category.
+
+* [Releases](/en/graphql/reference/releases)
+
+  Reference documentation for GraphQL schema types in the Releases category.
+
+* [Repositories](/en/graphql/reference/repos)
+
+  Reference documentation for GraphQL schema types in the Repositories category.
+
+* [Search](/en/graphql/reference/search)
+
+  Reference documentation for GraphQL schema types in the Search category.
+
+* [Security advisories](/en/graphql/reference/security-advisories)
+
+  Reference documentation for GraphQL schema types in the Security advisories category.
+
+* [Sponsors](/en/graphql/reference/sponsors)
+
+  Reference documentation for GraphQL schema types in the Sponsors category.
+
+* [Teams](/en/graphql/reference/teams)
+
+  Reference documentation for GraphQL schema types in the Teams category.
+
+* [Users](/en/graphql/reference/users)
+
+  Reference documentation for GraphQL schema types in the Users category.
+
+* [Other](/en/graphql/reference/other)
+
+  Reference documentation for GraphQL schema types in the Other category.
 
 * [Introduction to GraphQL](/en/graphql/guides/introduction-to-graphql)
 

@@ -8,11 +8,17 @@ Mar 14, 2023
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F598090233d64488d2c6fd8551c943b5a731e6e98-2880x1620.png&w=3840&q=75)
 
+  
+
 After working for the past few months with key partners like Notion, Quora, and DuckDuckGo in a closed alpha, we’ve been able to carefully test out our systems in the wild, and are ready to offer Claude more broadly so it can power crucial, cutting-edge use cases at scale.
 
 Claude is a next-generation AI assistant based on Anthropic’s research into training helpful, honest, and harmless AI systems. Accessible through chat interface and API in our developer console, Claude is capable of a wide variety of conversational and text processing tasks while maintaining a high degree of reliability and predictability.
 
 Claude can help with use cases including summarization, search, creative and collaborative writing, Q&A, coding, and more. Early customers report that Claude is much less likely to produce harmful outputs, easier to converse with, and more steerable - so you can get your desired output with less effort. Claude can also take direction on personality, tone, and behavior.
+
+  
+
+  
 
 We’re offering two versions of Claude today: Claude and Claude Instant. Claude is a state-of-the-art high-performance model, while Claude Instant is a lighter, less expensive, and much faster option. We plan to introduce even more updates in the coming weeks. As we develop these systems, we'll continually work to make them more helpful, honest, and harmless as we learn more from our safety research and our deployments.
 
@@ -42,22 +48,22 @@ Information-finding can be even harder in a document-heavy space like the legal 
 
 In addition to improving existing products, we are excited about the potential of AI to transform digital media. We are proud to partner with AssemblyAI, an innovative AI company that is partnering with Anthropic to help power its platform of APIs that transcribe and understand audio data at scale. Dylan Fox, Founder & CEO of AssemblyAI, says, “We're thrilled to partner with a pioneering company like Anthropic whose commitment to AI integrity and research directly helps us ship more robust, LLM-backed Generative AI and Conversation Intelligence capabilities to our customers faster. We look forward to seeing this partnership propel our AI initiatives forward.”
 
-We’re excited about the potential applications Claude can power across industries. If you think you could use the power of AI to innovate, improve your offerings and better serve your customers, please request access to Claude and we’ll be in touch!
+We’re excited about the potential applications Claude can power across industries. If you think you could use the power of AI to innovate, improve your offerings and better serve your customers, please request access to Claude and we’ll be in touch!  
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

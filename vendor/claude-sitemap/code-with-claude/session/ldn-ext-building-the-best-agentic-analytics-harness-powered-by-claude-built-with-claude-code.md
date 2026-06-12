@@ -2,6 +2,28 @@
 
 Omni built the best agentic harness for analytics tailored for and powered by Claude models, with 99% of the platform's code written using Claude Code. Cofounder & CTO Chris Merrick shows how they architect their multi-agent system, design and size their tools, and evaluate effectiveness.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+11:30 – 12:00
+
+Speaker(s)
+
+Chris Merrick
+
+Co-founder and CTO,
+
+Omni
+
 ## Watch recording
 
 Play videoPlay video

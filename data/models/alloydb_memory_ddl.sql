@@ -38,3 +38,15 @@ CREATE INDEX IF NOT EXISTS fact_memory_access_sk_idx
 ALTER TABLE dw.dim_memory DROP CONSTRAINT IF EXISTS dim_memory_curation_source_check;
 ALTER TABLE dw.dim_memory ADD CONSTRAINT dim_memory_curation_source_check
     CHECK (curation_source IN ('ingest','dreams','agent'));
+
+-- KAN-13: events_memory_access — raw read stream (events_memory_access.yaml v1.0.0).
+-- fact_memory_access stays the aggregated dreams input; this is the
+-- append-only events_ counterpart, including unmatched reads.
+CREATE TABLE IF NOT EXISTS dw.events_memory_access (
+    csl_id      TEXT        NOT NULL,
+    agent_id    TEXT        NOT NULL,
+    matched     BOOLEAN     NOT NULL,
+    occurred_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS events_memory_access_occurred_idx
+    ON dw.events_memory_access (occurred_at);

@@ -2,6 +2,28 @@
 
 Agent that improves itself daily by treating instructions as code: edited, reviewed, merged like any PR. Writing skills that teach agents how to think (not what to do). Closing feedback loop so team judgment flows back automatically.
 
+Details
+
+City
+
+London, UK
+
+Date
+
+20 May 2026
+
+Time
+
+10:00 – 10:30
+
+Speaker(s)
+
+Petra Donka
+
+Head of DevEx,
+
+Warp
+
 ## Watch recording
 
 Play videoPlay video

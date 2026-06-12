@@ -1,4 +1,6 @@
-[Home](https://sift.com)/[Solutions](https://sift.com/solutions/)/Content Scams
+# Outsmart Spam and Scams
+
+Home/Solutions/Content Scams
 
 # Outsmart Spam and Scams
 
@@ -10,7 +12,7 @@ Create a secure environment, accelerate trusted interactions, and minimize manua
 
 —Robbie Fritts, Fraud & Payments Director at Poshmark
 
-[See Sift in Action](/demo/)[See the case study](/resources/case-studies/poshmark/)
+See Sift in ActionSee the case study
 
 ![stat-shadow-yellow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
@@ -34,10 +36,10 @@ Reduction in manual moderation
 
 Overview
 
--   [Challenge](#challenge)
--   [Solution](#solution)
--   [Results](#result)
--   [Successes](#successes)
+*   Challenge
+*   Solution
+*   Results
+*   Successes
 
 ## Fake Content is Impacting the Bottom Line
 
@@ -47,15 +49,15 @@ Years of effort can be ruined in seconds. Whether it’s marketplaces, job listi
 
 68%
 
-Increase in the frequency of spam and scams\*
+Increase in the frequency of spam and scams*
 
-[\*Source: Sift research and analysis](/index-reports-ai-fraud-q2-2024/)
+*Source: Sift research and analysis
 
 79%
 
-Of consumers say user-generated content impacts their purchasing decisions\*
+Of consumers say user-generated content impacts their purchasing decisions*
 
-[\*Source: Stackla Survey](https://www.businesswire.com/news/home/20190220005302/en/Stackla-Survey-Reveals-Disconnect-Content-Consumers-Marketers)
+*Source: Stackla Survey
 
 ## Fortify Your Online Platform Against Spam and Scams
 
@@ -65,7 +67,7 @@ Of consumers say user-generated content impacts their purchasing decisions\*
 
 **Illuminate unknown threats**. Shine a light on hidden and emerging risk before harmful content can be created.
 
-**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **[Learn more](https://sift.com/solutions/sift-score-api/)**.
+**Building an internal risk engine?** The Sift Score API adds critical external context to internally-built risk models. Detect global & industry threats with real-time risk scores powered by 1T annual consortium events. Build the way you want, without sacrificing access to the powerful tools in the Sift Console. **Learn more**.
 
 ![ContentScams\_Solutions Overview Circle](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201188%201050'%3E%3C/svg%3E)
 
@@ -131,7 +133,7 @@ Lean on proven benchmarks that embed trust into your brand experience.
 
 ## AI-fueled Data and Decisioning Accelerates Secure Growth
 
-[View All Customer Stories](/resources/case-studies/)
+View All Customer Stories
 
 ![Poshmark logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20469%2099'%3E%3C/svg%3E)
 
@@ -147,7 +149,7 @@ Robbie Fritts
 
 Director, Fraud and Payments at Poshmark
 
-[read customer story](/resources/case-studies/poshmark/)
+read customer story
 
 ![case-study-poshmark](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -165,7 +167,7 @@ Marissa Gordon
 
 Director of Customer Success at Universe
 
-[read customer story](/resources/case-studies/universe/)
+read customer story
 
 ![Case Study Universe](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -183,7 +185,7 @@ Yin Stender
 
 Head of Fraud Prevention at Markt.de
 
-[read customer story](/resources/case-studies/markt-de-case-study/)
+read customer story
 
 ![case-Study-TapTap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20690'%3E%3C/svg%3E)
 
@@ -203,8 +205,6 @@ Fraud happens across the entire customer journey, from account creation to dispu
 
 ![shapes](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20539%20350'%3E%3C/svg%3E)
 
-[
-
 ![account-creation-2](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Account Creation
@@ -212,8 +212,6 @@ Account Creation
 Instantly identify and shut down risky accounts at creation with confidence.
 
 learn more
-
-](/solutions/account-creation/)[
 
 ![account-takeover](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
@@ -223,8 +221,6 @@ Make trusted users untouchable with bulletproof account protection.
 
 learn more
 
-](/solutions/ato/)[
-
 ![Payment Fraud](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2076'%3E%3C/svg%3E)
 
 Payment Fraud
@@ -233,8 +229,6 @@ Lockdown transactions and transfers at every point in the payment process.
 
 learn more
 
-](/solutions/payment-fraud/)[
-
 ![Policy Abuse](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E)
 
 Policy Abuse
@@ -242,8 +236,6 @@ Policy Abuse
 Master regulations and meet policy requirements at scale.
 
 learn more
-
-](/solutions/policy-abuse/)
 
 ### Start Your Digital Risk Assessment
 
@@ -255,13 +247,11 @@ Get Started
 
 ![yellow-shadow](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
-[Get Started](/risk-assessment/)
+Get Started
 
 ## What’s New at Sift
 
-[view all resources](/resources/)
-
-[
+view all resources
 
 ![Q1-2026-OG-Digital-Trust-Index](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20630'%3E%3C/svg%3E)
 
@@ -271,8 +261,6 @@ Report
 
 READ THE REPORT
 
-](/index-report-q1-2026/)[
-
 ![Q4 2025 digital trust index blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201920%201080'%3E%3C/svg%3E)
 
 Report
@@ -280,8 +268,6 @@ Report
 ### The Rising Impact of Chargebacks and Consumer Disputes
 
 READ THE REPORT
-
-](/index-reports-disputes-q4-2025/)[
 
 ![account-takeovers-in-the-era-of-agentic-ai](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201624%201412'%3E%3C/svg%3E)
 
@@ -291,13 +277,10 @@ Report
 
 READ THE REPORT
 
-](/index-reports-account-takeover-fraud-q3-2025/)
-
 ![action](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20924%20759'%3E%3C/svg%3E)
 
-## Take the  
-Next Step
+## Take theNext Step
 
 It’s time to elevate your payment fraud protection to the next level.
 
-[talk to an expert](/demo/)
+talk to an expert

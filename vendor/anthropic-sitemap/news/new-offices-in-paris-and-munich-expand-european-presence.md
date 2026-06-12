@@ -20,33 +20,33 @@ As some of Europe's largest economies, Germany and France are natural hubs for u
 
 As we scale across the region, we’re also building a world-class leadership team that’s focused on meeting the accelerating demand and unique needs of European enterprises and startups.
 
-- Guillaume Princen is serving as our Head of EMEA Startups, Mid-Market and Digital Native Businesses, and is focused on driving growth in these key segments.
-- Pip White, our new Head of EMEA North, will lead our go-to-market efforts across the UK and Ireland, Benelux, Nordics, and Israel, working from our London office. Pip brings 25 years of enterprise technology experience from companies including Salesforce, Google, and Slack, where she drove significant growth across UK and EMEA markets.
-- Thomas Remy, our new Head of EMEA South, will oversee France, Italy, Iberia, Middle East, and Africa, and be based in our new Paris office. Thomas spent the last 11 years at Google Cloud, where he played a pivotal role in helping build the business across the region. More recently he built and led the Data & AI Go-To-Market team for EMEA, driving strategy and growth in one of cloud computing's most dynamic sectors.
-- We are also going to announce a new Head of DACH & CEE, who will oversee Central and Eastern Europe, including Germany, Austria, and Switzerland, Poland, Czech Republic.
+*   Guillaume Princen is serving as our Head of EMEA Startups, Mid-Market and Digital Native Businesses, and is focused on driving growth in these key segments.
+*   Pip White, our new Head of EMEA North, will lead our go-to-market efforts across the UK and Ireland, Benelux, Nordics, and Israel, working from our London office. Pip brings 25 years of enterprise technology experience from companies including Salesforce, Google, and Slack, where she drove significant growth across UK and EMEA markets.
+*   Thomas Remy, our new Head of EMEA South, will oversee France, Italy, Iberia, Middle East, and Africa, and be based in our new Paris office. Thomas spent the last 11 years at Google Cloud, where he played a pivotal role in helping build the business across the region. More recently he built and led the Data & AI Go-To-Market team for EMEA, driving strategy and growth in one of cloud computing's most dynamic sectors.
+*   We are also going to announce a new Head of DACH & CEE, who will oversee Central and Eastern Europe, including Germany, Austria, and Switzerland, Poland, Czech Republic.
 
 To jumpstart our new operations in France and Germany, we’re also partnering with local educational institutions and cultural organizations:
 
-- We’re working with LAS Art Foundation to support a major exhibition to be held in Berlin next year. LAS commissions and exhibits works by internationally renowned artists at the intersection of art and technology.
-- We’re supporting two hackathons hosted by TUM.ai, a student initiative at the Technical University of Munich that helps train students in software development, artificial intelligence, and machine learning.
-- We’re teaming up with Unaite, a French organization that’s building developer communities and advancing AI education, in support of two hackathons to be held in 2026.
+*   We’re working with LAS Art Foundation to support a major exhibition to be held in Berlin next year. LAS commissions and exhibits works by internationally renowned artists at the intersection of art and technology.
+*   We’re supporting two hackathons hosted by TUM.ai, a student initiative at the Technical University of Munich that helps train students in software development, artificial intelligence, and machine learning.
+*   We’re teaming up with Unaite, a French organization that’s building developer communities and advancing AI education, in support of two hackathons to be held in 2026.
 
 In total, Anthropic now has offices in 12 cities, including in San Francisco, Seattle, New York, and Washington D.C. For information about career opportunities at Anthropic, including our new Paris and Munich offices, visit anthropic.com/careers.
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

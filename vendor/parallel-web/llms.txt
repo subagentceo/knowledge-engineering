@@ -10,8 +10,8 @@
 - [Cancel FindAll Run](https://docs.parallel.ai/api-reference/findall/cancel-findall-run.md): Cancel a FindAll run.
 - [Create FindAll Run](https://docs.parallel.ai/api-reference/findall/create-findall-run.md): Starts a FindAll run.
 - [Extend FindAll Run](https://docs.parallel.ai/api-reference/findall/extend-findall-run.md): Extend a FindAll run by adding additional matches to the current match limit.
+- [Fast Entity Search](https://docs.parallel.ai/api-reference/findall/fast-entity-search.md): Return ranked entities matching a natural language objective.
 - [FindAll Run Result](https://docs.parallel.ai/api-reference/findall/findall-run-result.md): Retrieve the FindAll run result at the time of the request.
-- [Generate FindAll Candidates](https://docs.parallel.ai/api-reference/findall/generate-findall-candidates.md): Return ranked entity candidates matching a natural language objective.
 - [Get FindAll Run Schema](https://docs.parallel.ai/api-reference/findall/get-findall-run-schema.md)
 - [Ingest FindAll Run](https://docs.parallel.ai/api-reference/findall/ingest-findall-run.md): Transforms a natural language search objective into a structured FindAll spec.
 - [Retrieve FindAll Run Status](https://docs.parallel.ai/api-reference/findall/retrieve-findall-run-status.md): Retrieve a FindAll run.
@@ -51,6 +51,7 @@
 - [Candidates](https://docs.parallel.ai/findall-api/core-concepts/findall-candidates.md): Understanding FindAll candidates, their structure, states, and how to exclude specific entities
 - [Generators](https://docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md): Choose the right FindAll generator (preview, base, core, pro) based on query complexity and expected match volume
 - [Run Lifecycle](https://docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md): Understand FindAll run statuses, termination reasons, and how to cancel runs
+- [Entity Search](https://docs.parallel.ai/findall-api/entity-search.md): Fast, synchronous people and company search within FindAll — describe what you need in natural language and get a structured set of matching results in seconds
 - [Cancel](https://docs.parallel.ai/findall-api/features/findall-cancel.md): Stop FindAll runs early to control costs
 - [Enrichments](https://docs.parallel.ai/findall-api/features/findall-enrich.md): Add non-boolean enrichment data to FindAll candidates without affecting match conditions
 - [Extend](https://docs.parallel.ai/findall-api/features/findall-extend.md): Increase the match limit of existing FindAll runs to get more results without changing query criteria
@@ -64,6 +65,7 @@
 - [Overview](https://docs.parallel.ai/getting-started/overview.md): Explore Parallel's web API products for building intelligent applications.
 - [Pricing](https://docs.parallel.ai/getting-started/pricing.md)
 - [Rate limits](https://docs.parallel.ai/getting-started/rate-limits.md): Default API rate limits for Search, Extract, Tasks, Chat, FindAll, and Monitor endpoints
+- [Account API](https://docs.parallel.ai/integrations/account-api.md): Authenticate with the Parallel Account API using device-based OAuth 2.0
 - [Agent Skills](https://docs.parallel.ai/integrations/agent-skills.md): Add Parallel web search, extraction, deep research, and data enrichment to any AI coding agent
 - [Agentic Payments (MPP & x402)](https://docs.parallel.ai/integrations/agentic-payments.md): Enable AI agents to make autonomous payments using Parallel and the Machine Payments Protocol via Stripe or Tempo stablecoins
 - [Anthropic Tool Calling](https://docs.parallel.ai/integrations/anthropic-tool-calling.md): Use Parallel Search as a tool with Anthropic's Claude models for real-time web access
@@ -113,6 +115,14 @@
 - [Search Migration Guide: Beta to GA](https://docs.parallel.ai/search/search-migration-guide.md): Migrate from Beta to GA (V1) Search API
 - [Search API Quickstart](https://docs.parallel.ai/search/search-quickstart.md): Execute natural language web searches and retrieve LLM-optimized excerpts with the Parallel Search API
 - [Source Policy](https://docs.parallel.ai/search/source-policy.md)
+- [Create App](https://docs.parallel.ai/service-api/apps/create-app.md): Create a new app for the authenticated organization
+- [Delete App](https://docs.parallel.ai/service-api/apps/delete-app.md): Delete an app from the authenticated organization
+- [List Apps](https://docs.parallel.ai/service-api/apps/list-apps.md): List all apps for the authenticated organization
+- [Add to Balance](https://docs.parallel.ai/service-api/balance/add-to-balance.md): Charge the organization's default payment method and add the amount to the prepaid credit balance. The default payment method configured on the org's Stripe customer is always used; no payment method id is accepted from the client.
+- [Get Balance](https://docs.parallel.ai/service-api/balance/get-balance.md): Get the authenticated organization's prepaid credit balance
+- [Create Key](https://docs.parallel.ai/service-api/keys/create-key.md): Create a new API key for an app
+- [Delete Key](https://docs.parallel.ai/service-api/keys/delete-key.md): Delete an API key from an app
+- [Task API Best Practices](https://docs.parallel.ai/task-api/best-practices.md): Best practices for writing Task Specs and caching outputs when using Parallel's agent products
 - [Interactive Research](https://docs.parallel.ai/task-api/examples/interactive-research.md): Build an interactive research app with multi-turn context chaining
 - [Task API Deep Research Quickstart](https://docs.parallel.ai/task-api/examples/task-deep-research.md): Transform natural language queries into comprehensive intelligence reports
 - [Task API Enrichment Quickstart](https://docs.parallel.ai/task-api/examples/task-enrichment.md): Enrich your structured data with web intelligence using the Task API
@@ -132,9 +142,10 @@
 
 ## OpenAPI Specs
 
+- [openapi](https://api.parallel.ai/account/service/openapi.json)
 - [public-openapi](https://docs.parallel.ai/public-openapi.json)
-- [docs-legacy-openapi](https://docs.parallel.ai/docs-legacy-openapi.json)
 - [docs-latest-openapi](https://docs.parallel.ai/docs-latest-openapi.json)
+- [docs-legacy-openapi](https://docs.parallel.ai/docs-legacy-openapi.json)
 
 ## Optional
 

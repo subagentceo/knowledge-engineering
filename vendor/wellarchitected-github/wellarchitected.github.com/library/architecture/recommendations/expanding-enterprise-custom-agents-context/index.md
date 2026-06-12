@@ -1,18 +1,20 @@
-[Content Library](/library/)
+# Expanding the context of Enterprise Custom Agents
 
-[📐 Architecture](/library/architecture/)
+Libraries
 
-[Recommendations](/library/architecture/recommendations/)
+Architecture
+
+Recommendations
 
 Expanding the context of Enterprise Custom Agents
 
 # Expanding the context of Enterprise Custom Agents
 
-Anthony Grutta·[@antgrutta](https://github.com/antgrutta)
+Anthony Grutta·@antgrutta
 
 March 11, 2026
 
-## Scenario overview[](#scenario-overview)
+## Scenario overview
 
 GitHub Enterprise Custom Agents enable organizations to create specialized coding agents tailored to their development workflows, coding standards, and internal processes. These agents are configured at the enterprise level and defined by markdown files stored in the `.github-private` repository of a configured organization, providing context and instructions to guide the Copilot Coding Agent’s behavior.
 
@@ -22,9 +24,9 @@ This limitation becomes particularly challenging for organizations that need to 
 
 This article provides a prescriptive approach to expanding the available context beyond the single markdown file by leveraging the Model Context Protocol (MCP) and GitHub’s built-in MCP server.
 
-## Key design strategies and checklist[](#key-design-strategies-and-checklist)
+## Key design strategies and checklist
 
-### Design strategies[](#design-strategies)
+### Design strategies
 
 **Centralized knowledge management.** Store additional context files in a structured knowledge directory within the `.github-private` repository. This keeps all custom agent resources in a single, version-controlled location that administrators can manage through standard Git workflows.
 
@@ -34,30 +36,30 @@ This article provides a prescriptive approach to expanding the available context
 
 **Structured content organization.** Organize knowledge files by domain, topic, or concern (e.g., security policies, Docker patterns, CI/CD best practices). This modular approach makes it easier to maintain and update specific areas of guidance as organizational standards evolve.
 
-### Implementation checklist[](#implementation-checklist)
+### Implementation checklist
 
--    Create a `knowledge` directory in the `.github-private` repository
--    Organize knowledge files using descriptive filenames and subdirectories
--    Update custom agent markdown to include instructions for fetching knowledge files
--    Generate a Personal Access Token (PAT) with `repo` scope for the `.github-private` repository
--    Configure the `copilot` environment in target repositories
--    Add the `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` secret to each repository environment
--    Test the agent to verify it successfully fetches and uses expanded context
--    Document the knowledge file structure and maintenance procedures for your team
+*    Create a `knowledge` directory in the `.github-private` repository
+*    Organize knowledge files using descriptive filenames and subdirectories
+*    Update custom agent markdown to include instructions for fetching knowledge files
+*    Generate a Personal Access Token (PAT) with `repo` scope for the `.github-private` repository
+*    Configure the `copilot` environment in target repositories
+*    Add the `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` secret to each repository environment
+*    Test the agent to verify it successfully fetches and uses expanded context
+*    Document the knowledge file structure and maintenance procedures for your team
 
-## Assumptions and preconditions[](#assumptions-and-preconditions)
+## Assumptions and preconditions
 
 Before implementing this solution, the following must be in place:
 
--   **GitHub Enterprise Custom Agents enabled.** Your organization has [GitHub Enterprise Custom Agents](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents) configured and the `.github-private` repository created.
--   **Model Context Protocol (MCP) configured.** The [Model Context Protocol](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agents/coding-agent/mcp-and-coding-agent) is enabled in your GitHub Enterprise settings, providing access to the GitHub MCP server.
--   **Administrative access.** You have admin access to the `.github-private` repository and permissions to configure environment secrets in target repositories.
--   **GitHub Enterprise Cloud.** This solution is designed for GitHub Enterprise Cloud, including EMU and Data Residency environments. It leverages features specific to these platforms.
--   **Understanding of custom agents.** Team members responsible for implementing this solution understand how custom agents are defined and invoked.
+*   **GitHub Enterprise Custom Agents enabled.** Your organization has GitHub Enterprise Custom Agents configured and the `.github-private` repository created.
+*   **Model Context Protocol (MCP) configured.** The Model Context Protocol is enabled in your GitHub Enterprise settings, providing access to the GitHub MCP server.
+*   **Administrative access.** You have admin access to the `.github-private` repository and permissions to configure environment secrets in target repositories.
+*   **GitHub Enterprise Cloud.** This solution is designed for GitHub Enterprise Cloud, including EMU and Data Residency environments. It leverages features specific to these platforms.
+*   **Understanding of custom agents.** Team members responsible for implementing this solution understand how custom agents are defined and invoked.
 
-## Recommended deployment[](#recommended-deployment)
+## Recommended deployment
 
-### Step 1: Create a knowledge directory structure[](#step-1-create-a-knowledge-directory-structure)
+### Step 1: Create a knowledge directory structure
 
 Create a dedicated `knowledge` directory in the `.github-private` repository to store additional context files. Organize files by domain or topic to make them easier to maintain and reference.
 
@@ -84,7 +86,7 @@ Create a dedicated `knowledge` directory in the `.github-private` repository to 
 
 Use markdown files (`.md`) for textual content as they are easy to edit, version control, and render in GitHub’s UI for team review.
 
-### Step 2: Author knowledge files[](#step-2-author-knowledge-files)
+### Step 2: Author knowledge files
 
 Create focused knowledge files that contain specific guidance, patterns, or standards. Keep each file focused on a single topic or concern to make them easier to maintain and reuse across multiple custom agents.
 
@@ -115,7 +117,7 @@ Create focused knowledge files that contain specific guidance, patterns, or stan
 - Version workflow files alongside application code
 ```
 
-### Step 3: Update custom agent instructions[](#step-3-update-custom-agent-instructions)
+### Step 3: Update custom agent instructions
 
 Modify the custom agent markdown file to include explicit instructions for fetching knowledge files using the GitHub MCP server. The GitHub MCP server is automatically available when Enterprise Custom Agents are enabled and handles authentication using the configured credentials.
 
@@ -162,7 +164,7 @@ Always reference the specific organizational standards from the knowledge files 
 
 The agent will use the GitHub MCP server’s `get_file_contents` tool to fetch these files at runtime. You can verify successful fetching by monitoring the agent panel during execution.
 
-### Step 4: Configure MCP authentication[](#step-4-configure-mcp-authentication)
+### Step 4: Configure MCP authentication
 
 The GitHub MCP server requires authentication to access private repositories. By default, it has limited read-only permissions for security. To enable access to the `.github-private` repository, configure a Personal Access Token as an environment secret.
 
@@ -194,26 +196,26 @@ For each repository where you want custom agents to access expanded context:
 
 This configuration must be repeated for each repository where you want to use custom agents with expanded context. Consider automating this setup using GitHub’s REST API or CLI for organizations with many repositories.
 
-### Step 5: Verify the configuration[](#step-5-verify-the-configuration)
+### Step 5: Verify the configuration
 
 Test that your custom agent can successfully access the expanded context:
 
 1.  Navigate to a repository where you configured the `copilot` environment secret
-2.  [Assign a task](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-the-agents-tab-or-panel) to your custom agent using the GitHub Copilot interface
-3.  Monitor the agent’s activity in the [agent panel](https://github.com/copilot/agents)
+2.  Assign a task to your custom agent using the GitHub Copilot interface
+3.  Monitor the agent’s activity in the agent panel
 4.  Look for log messages indicating **“Get file contents from GitHub”** or similar
 5.  Verify the agent’s responses reflect the guidance from your knowledge files
 
 If the agent cannot access the knowledge files:
 
--   Verify the environment name is exactly `copilot` (case-sensitive)
--   Confirm the secret name is exactly `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN`
--   Check that the PAT has the `repo` scope and hasn’t expired
--   Ensure the repository owner and name in the agent markdown match your `.github-private` repository
+*   Verify the environment name is exactly `copilot` (case-sensitive)
+*   Confirm the secret name is exactly `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN`
+*   Check that the PAT has the `repo` scope and hasn’t expired
+*   Ensure the repository owner and name in the agent markdown match your `.github-private` repository
 
-## Additional solution detail and trade-offs to consider[](#additional-solution-detail-and-trade-offs-to-consider)
+## Additional solution detail and trade-offs to consider
 
-### Why this approach is recommended[](#why-this-approach-is-recommended)
+### Why this approach is recommended
 
 **Overcomes character limits.** The primary benefit is bypassing the 30,000 character limitation of the agent definition file. Organizations can provide comprehensive guidance across dozens or hundreds of separate knowledge files, each focused on specific domains.
 
@@ -223,7 +225,7 @@ If the agent cannot access the knowledge files:
 
 **Centralizes organizational knowledge.** A single knowledge directory becomes the source of truth for organizational standards, patterns, and policies. Multiple custom agents can reference the same knowledge files, ensuring consistency across different agent specializations.
 
-### Trade-offs and considerations[](#trade-offs-and-considerations)
+### Trade-offs and considerations
 
 **Authentication complexity.** Each repository requires individual configuration of the environment secret. For organizations with hundreds or thousands of repositories, this can be a significant administrative burden. Consider automating this setup using:
 
@@ -241,64 +243,64 @@ done
 
 **Runtime performance.** Fetching knowledge files at the start of each agent invocation adds latency. For agents that reference many files, this can be noticeable. Balance comprehensiveness with performance by:
 
--   Keeping knowledge files focused and reasonably sized (under 10,000 characters per file)
--   Only requiring agents to fetch files directly relevant to their specialization
--   Consolidating very frequently used guidance into the agent’s main markdown file
+*   Keeping knowledge files focused and reasonably sized (under 10,000 characters per file)
+*   Only requiring agents to fetch files directly relevant to their specialization
+*   Consolidating very frequently used guidance into the agent’s main markdown file
 
 **Security considerations.** The PAT provides access to private repositories based on the scope granted. If a repository is compromised, the token could be extracted from environment secrets. Mitigate this by:
 
--   Using fine-grained Personal Access Tokens (PATs) scoped to only the `.github-private` repository with read-only contents permission
--   Falling back to classic PATs with `repo` scope only if fine-grained tokens are not available in your environment
--   Implementing IP allowlists for your organization
--   Monitoring audit logs for unusual access patterns
--   Using short-lived tokens with automated rotation
+*   Using fine-grained Personal Access Tokens (PATs) scoped to only the `.github-private` repository with read-only contents permission
+*   Falling back to classic PATs with `repo` scope only if fine-grained tokens are not available in your environment
+*   Implementing IP allowlists for your organization
+*   Monitoring audit logs for unusual access patterns
+*   Using short-lived tokens with automated rotation
 
-### Alternative approaches[](#alternative-approaches)
+### Alternative approaches
 
 **Inline all guidance in agent markdown.** For smaller organizations or simpler use cases, keeping all guidance within the 30,000 character limit may be sufficient. This eliminates authentication complexity and runtime latency.
 
 **Pros:**
 
--   No additional configuration required
--   Faster agent startup (no fetching needed)
--   Simpler to understand and maintain
+*   No additional configuration required
+*   Faster agent startup (no fetching needed)
+*   Simpler to understand and maintain
 
 **Cons:**
 
--   Limited to 30,000 characters total
--   Must edit agent file to update any guidance
--   Difficult to share guidance across multiple agents
+*   Limited to 30,000 characters total
+*   Must edit agent file to update any guidance
+*   Difficult to share guidance across multiple agents
 
 **Use external documentation systems.** Store organizational standards in external wikis, Confluence, or documentation platforms and have agents reference URLs.
 
 **Pros:**
 
--   Leverages existing documentation infrastructure
--   Can include rich media, diagrams, and interactive content
--   May already be maintained by technical writing teams
+*   Leverages existing documentation infrastructure
+*   Can include rich media, diagrams, and interactive content
+*   May already be maintained by technical writing teams
 
 **Cons:**
 
--   Agents cannot directly access content from URLs (requires summarizing in markdown)
--   External systems may not be accessible during agent execution
--   Version control and change tracking are external to the agent workflow
--   Authentication to external systems adds complexity
+*   Agents cannot directly access content from URLs (requires summarizing in markdown)
+*   External systems may not be accessible during agent execution
+*   Version control and change tracking are external to the agent workflow
+*   Authentication to external systems adds complexity
 
 **Public documentation in separate repository.** For guidance that isn’t sensitive, create a public or internal repository with knowledge files.
 
 **Pros:**
 
--   No authentication configuration needed for public repositories
--   Can be shared across organizations or with partners
--   Easier to manage access for external contributors
+*   No authentication configuration needed for public repositories
+*   Can be shared across organizations or with partners
+*   Easier to manage access for external contributors
 
 **Cons:**
 
--   Only suitable for non-sensitive guidance
--   Requires managing a separate repository
--   Still requires updating agents to reference the correct repository
+*   Only suitable for non-sensitive guidance
+*   Requires managing a separate repository
+*   Still requires updating agents to reference the correct repository
 
-### When not to use this approach[](#when-not-to-use-this-approach)
+### When not to use this approach
 
 **Small, simple use cases.** If your organizational guidance fits comfortably within the 30,000 character limit and doesn’t change frequently, the added complexity of expanded context may not be worthwhile.
 
@@ -306,7 +308,7 @@ done
 
 **Cross-organization sharing.** If you need to share custom agents across multiple GitHub organizations, managing authentication and knowledge access becomes significantly more complex. Consider using organization-independent guidance or implementing a centralized knowledge service.
 
-### Best practices for knowledge management[](#best-practices-for-knowledge-management)
+### Best practices for knowledge management
 
 **Maintain clear ownership.** Assign teams or individuals as owners for specific knowledge domains. Document this in the knowledge files themselves or in a central CODEOWNERS file:
 
@@ -320,10 +322,10 @@ ci-cd/ @your-org/devops-team
 
 **Use structured formats.** Within knowledge files, use consistent formatting to make it easier for agents to parse and reference:
 
--   Clear section headings
--   Bulleted lists for requirements or checkpoints
--   Code blocks for examples
--   Tables for comparing options
+*   Clear section headings
+*   Bulleted lists for requirements or checkpoints
+*   Code blocks for examples
+*   Tables for comparing options
 
 **Include metadata in knowledge files.** Add last-updated dates, version numbers, or review cycles to help teams track the currency of guidance:
 
@@ -365,45 +367,45 @@ Use kebab-case for filenames: `secure-coding-standards.md`
 4. Test in a development repository before merging
 ```
 
-## Seeking further assistance[](#seeking-further-assistance)
+## Seeking further assistance
 
-### GitHub Support[](#github-support)
+### GitHub Support
 
-Visit the [GitHub Support Portal](https://support.github.com/) for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
+Visit the GitHub Support Portal for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
 
-Can’t find what you’re looking for? You can contact GitHub Support by [opening a ticket](https://support.github.com/contact).
+Can’t find what you’re looking for? You can contact GitHub Support by opening a ticket.
 
-### GitHub Expert Services[](#github-expert-services)
+### GitHub Expert Services
 
-GitHub’s [Expert Services Team](https://github.com/services) is here to help you architect, implement, and optimize a solution that meets your unique needs. [Contact us](https://github.com/services#services-contact) to learn more about how we can help you.
+GitHub’s Expert Services Team is here to help you architect, implement, and optimize a solution that meets your unique needs. Contact us to learn more about how we can help you.
 
-### GitHub Partners[](#github-partners)
+### GitHub Partners
 
-GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs [here](https://portal.github.partners/#/page/directory).
+GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs here.
 
-### GitHub Community[](#github-community)
+### GitHub Community
 
-Join the [GitHub Community Forum](https://github.com/orgs/community/discussions?discussions_q=label%3A%22GitHub+Well-Architected%22) to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
+Join the GitHub Community Forum to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
 
-## Related links[](#related-links)
+## Related links
 
-### GitHub Documentation[](#github-documentation)
+### GitHub Documentation
 
-For more details about GitHub’s features and services, check out [GitHub Documentation](https://docs.github.com/).
+For more details about GitHub’s features and services, check out GitHub Documentation.
 
 Specifically, you may find the following links helpful:
 
--   [Prepare for GitHub Enterprise Custom Agents](https://docs.github.com/enterprise-cloud@latest/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
--   [Model Context Protocol (MCP) and Coding Agent](https://docs.github.com/enterprise-cloud@latest/copilot/concepts/agents/coding-agent/mcp-and-coding-agent)
--   [Creating a personal access token](https://docs.github.com/enterprise-cloud@latest/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
--   [Using environments for deployment](https://docs.github.com/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment)
--   [Customizing the built-in GitHub MCP server](https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#customizing-the-built-in-github-mcp-server)
+*   Prepare for GitHub Enterprise Custom Agents
+*   Model Context Protocol (MCP) and Coding Agent
+*   Creating a personal access token
+*   Using environments for deployment
+*   Customizing the built-in GitHub MCP server
 
-### External Resources[](#external-resources)
+### External Resources
 
--   [GitHub CLI Documentation](https://cli.github.com/)
--   [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
+*   GitHub CLI Documentation
+*   Model Context Protocol Documentation
 
 Last updated on March 11, 2026
 
-[Implementing polyrepo on GitHub](/library/architecture/recommendations/implementing-polyrepo-engineering/ "Implementing polyrepo on GitHub")
+OverviewImplementing polyrepo on GitHub

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -41,28 +40,27 @@ The following examples emit a hint for a plugin named `example-cli` in the offic
   }
   ```
 
-```python Python theme={null}
-import os, sys
+  ```python Python theme={null}
+  import os, sys
 
-if os.environ.get("CLAUDECODE"):
-    print(
-        '<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />',
-        file=sys.stderr,
-    )
-```
+  if os.environ.get("CLAUDECODE"):
+      print(
+          '<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />',
+          file=sys.stderr,
+      )
+  ```
 
-```go Go theme={null}
-if os.Getenv("CLAUDECODE") != "" {
-    fmt.Fprintln(os.Stderr,
-        `<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />`)
-}
-```
+  ```go Go theme={null}
+  if os.Getenv("CLAUDECODE") != "" {
+      fmt.Fprintln(os.Stderr,
+          `<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />`)
+  }
+  ```
 
-```shell Shell theme={null}
-[ -n "$CLAUDECODE" ] &&
-  printf '%s\n' '<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />' >&2
-```
-
+  ```shell Shell theme={null}
+  [ -n "$CLAUDECODE" ] &&
+    printf '%s\n' '<claude-code-hint v="1" type="plugin" value="example-cli@claude-plugins-official" />' >&2
+  ```
 </CodeGroup>
 
 Replace `example-cli` with your plugin's name in the official marketplace.
@@ -84,7 +82,7 @@ When the hint passes all checks, Claude Code shows a prompt like the following:
 
 ```text theme={null}
 ─────────────────────────────────────────────────────────────
-  Plugin Recommendation
+  Plugin recommendation
 
     The example-cli command suggests installing a plugin.
 
@@ -104,8 +102,8 @@ The prompt names the command that produced the hint so users can spot a mismatch
 
 Prompt frequency is bounded:
 
-- **Once per plugin**: after the prompt is shown, Claude Code records the plugin and never prompts for it again, regardless of the user's answer.
-- **Once per session**: across all CLIs on the machine, at most one hint prompt appears per Claude Code session.
+* **Once per plugin**: after the prompt is shown, Claude Code records the plugin and never prompts for it again, regardless of the user's answer.
+* **Once per session**: across all CLIs on the machine, at most one hint prompt appears per Claude Code session.
 
 Selecting **Yes** installs the plugin to user scope. Selecting **No, and don't show plugin installation hints again** disables all future hint prompts for the user.
 
@@ -129,15 +127,15 @@ Attribute values may be quoted with double quotes or left unquoted. Unquoted val
 
 Claude Code enforces two conditions before acting on a hint. Hints that fail either check are dropped:
 
-- **Own line**: the tag must occupy its own line. A tag embedded mid-line, for example inside a log statement, is ignored. Leading and trailing whitespace on the line is allowed.
-- **Official marketplace**: the `value` must reference a plugin in an Anthropic-controlled marketplace such as `claude-plugins-official`. Hints that point to other marketplaces are silently dropped.
+* **Own line**: the tag must occupy its own line. A tag embedded mid-line, for example inside a log statement, is ignored. Leading and trailing whitespace on the line is allowed.
+* **Official marketplace**: the `value` must reference a plugin in an Anthropic-controlled marketplace such as `claude-plugins-official`. Hints that point to other marketplaces are silently dropped.
 
 The hint line is always removed from the output before it reaches the model, even when the version or type is unrecognized, so the marker is never counted toward token usage.
 
 The remaining guidance is recommended but not enforced. Claude Code cannot observe whether your CLI follows it:
 
-- **Write to stderr**: stderr keeps the tag out of shell pipelines such as `example-cli deploy | jq`. Claude Code scans both streams, so stdout also works.
-- **Gate on `CLAUDECODE`**: only emit when the `CLAUDECODE` environment variable is set. This prevents the marker from appearing to users running your CLI directly.
+* **Write to stderr**: stderr keeps the tag out of shell pipelines such as `example-cli deploy | jq`. Claude Code scans both streams, so stdout also works.
+* **Gate on `CLAUDECODE`**: only emit when the `CLAUDECODE` environment variable is set. This prevents the marker from appearing to users running your CLI directly.
 
 ## Get your plugin into the official marketplace
 
@@ -145,6 +143,6 @@ The hint protocol only takes effect for plugins listed in the official Anthropic
 
 ## See also
 
-- [Create plugins](/en/plugins): build the plugin your CLI recommends
-- [Create and distribute a plugin marketplace](/en/plugin-marketplaces): host plugins outside the official marketplace
-- [Environment variables](/en/env-vars): full reference for `CLAUDECODE` and related variables
+* [Create plugins](/en/plugins): build the plugin your CLI recommends
+* [Create and distribute a plugin marketplace](/en/plugin-marketplaces): host plugins outside the official marketplace
+* [Environment variables](/en/env-vars): full reference for `CLAUDECODE` and related variables

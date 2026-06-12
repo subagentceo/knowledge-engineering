@@ -78,6 +78,7 @@ Explore guides and tutorials to start building on Cloudflare's platform.
 ## Developer platform
 
 - [Agent Lee](https://developers.cloudflare.com/agent-lee/llms.txt): An AI co-pilot built into the Cloudflare dashboard that helps you navigate, configure, and take actions on Cloudflare services
+- [Agent Memory](https://developers.cloudflare.com/agent-memory/llms.txt): Persistent AI-powered memory for agents and applications — automatically extract, classify, and recall knowledge from conversations
 - [Agents](https://developers.cloudflare.com/agents/llms.txt): Build AI-powered agents to perform tasks, persist state, browse the web, and communicate in real-time
 - [AI](https://developers.cloudflare.com/ai/llms.txt): Run AI models on Cloudflare's global network
 - [AI Gateway](https://developers.cloudflare.com/ai-gateway/llms.txt): Observe and control your AI applications
@@ -89,7 +90,6 @@ Explore guides and tutorials to start building on Cloudflare's platform.
 - [D1](https://developers.cloudflare.com/d1/llms.txt): Create managed, serverless databases with SQL semantics
 - [Durable Objects](https://developers.cloudflare.com/durable-objects/llms.txt): A special kind of Cloudflare Worker combining compute with storage
 - [Dynamic Workers](https://developers.cloudflare.com/dynamic-workers/llms.txt): Spin up isolated Workers on demand to execute code
-- [Email Routing](https://developers.cloudflare.com/email-routing/llms.txt): Create and manage email addresses and route to your preferred inbox
 - [Email Service](https://developers.cloudflare.com/email-service/llms.txt): Send transactional emails at scale with Cloudflare Email Service
 - [Flagship](https://developers.cloudflare.com/flagship/llms.txt): Feature flags evaluated at the edge for Cloudflare Workers
 - [Hyperdrive](https://developers.cloudflare.com/hyperdrive/llms.txt): Accelerate database queries to make databases fast globally

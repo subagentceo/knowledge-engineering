@@ -1,30 +1,30 @@
-# [](#github-action)GitHub Action
+# GitHub Action
 
 Table of contents
 
--   [GitHub Action](#github-action)
-    -   [Scan on pull request](#scan-on-pull-request)
-        -   [Instructions](#instructions)
-        -   [View results](#view-results)
-    -   [Scheduled scans](#scheduled-scans)
-        -   [Instructions](#instructions-1)
-        -   [View results](#view-results-1)
-    -   [Scan on release](#scan-on-release)
-        -   [View results](#view-results-2)
-    -   [Customization](#customization)
+*   GitHub Action
+    *   Scan on pull request
+        *   Instructions
+        *   View results
+    *   Scheduled scans
+        *   Instructions
+        *   View results
+    *   Scan on release
+        *   View results
+    *   Customization
 
 OSV-Scanner is available as a CI/CD Action. We currently offer two different reusable workflows for GitHub:
 
-1.  A workflow that triggers a scan with each [pull request](/osv-scanner/github-action/#scan-on-pull-request) and will only report new vulnerabilities introduced through the pull request.
-2.  A workflow that performs a full vulnerability scan, which can be configured to scan on pushes or a [regular schedule](/osv-scanner/github-action/#scheduled-scans). The full vulnerability scan can also be configured to run [on release](/osv-scanner/github-action/#scan-on-release) to prevent releasing with known vulnerabilities in dependencies.
+1.  A workflow that triggers a scan with each pull request and will only report new vulnerabilities introduced through the pull request.
+2.  A workflow that performs a full vulnerability scan, which can be configured to scan on pushes or a regular schedule. The full vulnerability scan can also be configured to run on release to prevent releasing with known vulnerabilities in dependencies.
 
 Currently, there is no prebuilt workflows for other platforms, but we welcome any contributions for this!
 
-## [](#scan-on-pull-request)Scan on pull request
+## Scan on pull request
 
-Scanning your project on each pull request can help you keep vulnerabilities out of your project. This GitHub Action compares a vulnerability scan of the target branch to a vulnerability scan of the feature branch, and will fail if there are new vulnerabilities introduced through the feature branch. You may choose to [prevent merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging) if new vulnerabilities are introduced, but by default the check will only warn users.
+Scanning your project on each pull request can help you keep vulnerabilities out of your project. This GitHub Action compares a vulnerability scan of the target branch to a vulnerability scan of the feature branch, and will fail if there are new vulnerabilities introduced through the feature branch. You may choose to prevent merging if new vulnerabilities are introduced, but by default the check will only warn users.
 
-### [](#instructions)Instructions
+### Instructions
 
 In your project repository, create a new file `.github/workflows/osv-scanner-pr.yml`.
 
@@ -53,7 +53,7 @@ jobs:
     uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8"
 ```
 
-### [](#view-results)View results
+### View results
 
 Results may be viewed by clicking on the details of the failed action, either from your project’s actions tab or directly on the PR.
 
@@ -67,11 +67,11 @@ PR Scanning Check Output
 
 Results are also included in GitHub annotations on the “Files changed” tab for the PR.
 
-## [](#scheduled-scans)Scheduled scans
+## Scheduled scans
 
 Regularly scanning your project for vulnerabilities can alert you to new vulnerabilities in your dependency tree. This GitHub Action will scan your project on a set schedule and report all known vulnerabilities. If vulnerabilities are found the action will return a failed status.
 
-### [](#instructions-1)Instructions
+### Instructions
 
 In your project repository, create a new file `.github/workflows/osv-scanner-scheduled.yml`.
 
@@ -100,9 +100,9 @@ jobs:
     uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8"
 ```
 
-As written, the scanner will run on 12:30 pm UTC every Monday, and also on every push to the main branch. You can change the schedule by following the instructions [here](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule).
+As written, the scanner will run on 12:30 pm UTC every Monday, and also on every push to the main branch. You can change the schedule by following the instructions here.
 
-### [](#view-results-1)View results
+### View results
 
 Maintainers can review results of the scan by navigating to their project’s `security > code scanning` tab. Vulnerability details can also be viewed by clicking on the details of the failed action.
 
@@ -114,7 +114,7 @@ Code Scanning Detailed Entry
 
 ![Image of details of specific in code scanning entry](/osv-scanner/images/github-action-code-details.png)
 
-## [](#scan-on-release)Scan on release
+## Scan on release
 
 Here is an example of blocking on release, though the actual implementation will heavily depend on your specific release process.
 
@@ -157,30 +157,30 @@ jobs:
       ...
 ```
 
-### [](#view-results-2)View results
+### View results
 
 Results may be viewed by clicking on the details of the failed release action from the action tab.
 
-## [](#customization)Customization
+## Customization
 
 The GitHub Actions have the following optional inputs:
 
--   `scan-args`: This value is passed to `osv-scanner` CLI after being split by each line. See the [usage](/osv-scanner/usage/) page for the available options. The `--format` and `--output` flags are already set by the reusable workflow and should not be overridden here. Default:
+*   `scan-args`: This value is passed to `osv-scanner` CLI after being split by each line. See the usage page for the available options. The `--format` and `--output` flags are already set by the reusable workflow and should not be overridden here. Default:
     
     ```
       --recursive # Recursively scan subdirectories
       ./ # Start the scan from the root of the repository
     ```
     
--   `results-file-name`: This is the name of the final SARIF file uploaded to GitHub. Default: `results.sarif`
--   `download-artifact`: Optional artifact to download for scanning. Can be used if you need to do some preprocessing to prepare the lockfiles for scanning. If the file names in the artifact are not standard lockfile names, make sure to add custom scan-args to specify the lockfile type and path (see [specify lockfiles](/osv-scanner/usage/#specify-lockfiles)).
--   `upload-sarif`: Whether to upload the results to Security > Code Scanning. Defaults to `true`.
--   `fail-on-vuln`: Whether to fail the workflow when a vulnerability is found. Defaults to `true`.
--   `matrix-property`: Optional, adds support for matrix strategies by inserting a unique variable per job run. (E.g. `amd64-`) Defaults to `""`.
+*   `results-file-name`: This is the name of the final SARIF file uploaded to GitHub. Default: `results.sarif`
+*   `download-artifact`: Optional artifact to download for scanning. Can be used if you need to do some preprocessing to prepare the lockfiles for scanning. If the file names in the artifact are not standard lockfile names, make sure to add custom scan-args to specify the lockfile type and path (see specify lockfiles).
+*   `upload-sarif`: Whether to upload the results to Security > Code Scanning. Defaults to `true`.
+*   `fail-on-vuln`: Whether to fail the workflow when a vulnerability is found. Defaults to `true`.
+*   `matrix-property`: Optional, adds support for matrix strategies by inserting a unique variable per job run. (E.g. `amd64-`) Defaults to `""`.
 
 Examples
 
-#### [](#scan-specific-lockfiles)Scan specific lockfiles
+#### Scan specific lockfiles
 
 ```
 jobs:
@@ -192,7 +192,7 @@ jobs:
         --lockfile=requirements.txt:./path/to/python-lockfile2.txt
 ```
 
-#### [](#default-arguments)Default arguments
+#### Default arguments
 
 ```
 jobs:
@@ -204,7 +204,7 @@ jobs:
         ./
 ```
 
-#### [](#using-download-artifact-input-to-support-preprocessing)Using download-artifact input to support preprocessing
+#### Using download-artifact input to support preprocessing
 
 ```
 jobs:
@@ -237,7 +237,7 @@ jobs:
       actions: read
 ```
 
-#### [](#using-download-artifact-with-matrix)Using download-artifact with matrix
+#### Using download-artifact with matrix
 
 ```
 jobs:
@@ -289,4 +289,4 @@ jobs:
 
 * * *
 
-This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.
+This site uses Just the Docs, a documentation theme for Jekyll.

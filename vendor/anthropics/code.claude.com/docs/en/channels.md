@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -21,11 +20,11 @@ When Claude replies through a channel, you see the inbound message in your termi
 
 This page covers:
 
-- [Supported channels](#supported-channels): Telegram, Discord, and iMessage setup
-- [Install and run a channel](#quickstart) with fakechat, a localhost demo
-- [Who can push messages](#security): sender allowlists and how you pair
-- [Enable channels for your organization](#enterprise-controls) if you manage a Team, Enterprise, or Console org
-- [How channels compare](#how-channels-compare) to web sessions, Slack, MCP, and Remote Control
+* [Supported channels](#supported-channels): Telegram, Discord, and iMessage setup
+* [Install and run a channel](#quickstart) with fakechat, a localhost demo
+* [Who can push messages](#security): sender allowlists and how you pair
+* [Enable channels for your organization](#enterprise-controls) if you manage a Team, Enterprise, or Console org
+* [How channels compare](#how-channels-compare) to web sessions, Slack, MCP, and Remote Control
 
 To build your own channel, see the [Channels reference](/en/channels-reference).
 
@@ -90,7 +89,6 @@ Each supported channel is a plugin that requires [Bun](https://bun.sh). For a ha
         ```
       </Step>
     </Steps>
-
   </Tab>
 
   <Tab title="Discord">
@@ -166,7 +164,6 @@ Each supported channel is a plugin that requires [Bun](https://bun.sh). For a ha
         ```
       </Step>
     </Steps>
-
   </Tab>
 
   <Tab title="iMessage">
@@ -215,7 +212,6 @@ Each supported channel is a plugin that requires [Bun](https://bun.sh). For a ha
         Handles are phone numbers in `+country` format or Apple ID emails like `user@example.com`.
       </Step>
     </Steps>
-
   </Tab>
 </Tabs>
 
@@ -229,9 +225,9 @@ Once you install and enable fakechat, you can type in the browser and the messag
 
 To try the fakechat demo, you'll need:
 
-- Claude Code [installed and authenticated](/en/quickstart#step-1-install-claude-code) with a claude.ai account or a Claude Console API key
-- [Bun](https://bun.sh) installed. The pre-built channel plugins are Bun scripts. Check with `bun --version`; if that fails, [install Bun](https://bun.sh/docs/installation).
-- **Team, Enterprise, or managed Console org**: your admin must [enable channels](#enterprise-controls) in managed settings
+* Claude Code [installed and authenticated](/en/quickstart#step-1-install-claude-code) with a claude.ai account or a Claude Console API key
+* [Bun](https://bun.sh) installed. The pre-built channel plugins are Bun scripts. Check with `bun --version`; if that fails, [install Bun](https://bun.sh/docs/installation).
+* **Team, Enterprise, or managed Console org**: your admin must [enable channels](#enterprise-controls) in managed settings
 
 <Steps>
   <Step title="Install the fakechat channel plugin">
@@ -242,7 +238,6 @@ To try the fakechat demo, you'll need:
     ```
 
     If Claude Code reports that the plugin is not found in any marketplace, your marketplace is either missing or outdated. Run `/plugin marketplace update claude-plugins-official` to refresh it, or `/plugin marketplace add anthropics/claude-plugins-official` if you haven't added it before. Then retry the install.
-
   </Step>
 
   <Step title="Restart with the channel enabled">
@@ -257,7 +252,6 @@ To try the fakechat demo, you'll need:
     <Tip>
       You can pass several plugins to `--channels`, space-separated.
     </Tip>
-
   </Step>
 
   <Step title="Push a message in">
@@ -268,11 +262,10 @@ To try the fakechat demo, you'll need:
     ```
 
     The message arrives in your Claude Code session as a `<channel source="fakechat">` event. Claude reads it, does the work, and calls fakechat's `reply` tool. The answer shows up in the chat UI.
-
   </Step>
 </Steps>
 
-If Claude hits a permission prompt while you're away from the terminal, the session pauses until you respond. Channel servers that declare the [permission relay capability](/en/channels-reference#relay-permission-prompts) can forward these prompts to you so you can approve or deny remotely. For unattended use, [`--dangerously-skip-permissions`](/en/permission-modes#skip-all-checks-with-bypasspermissions-mode) bypasses prompts entirely, but only use it in environments you trust.
+If Claude hits a permission prompt while you're away from the terminal, the session pauses until you respond. Channel servers that declare the [permission relay capability](/en/channels-reference#relay-permission-prompts) can forward these prompts to you so you can approve or deny remotely. For unattended use, [`--dangerously-skip-permissions`](/en/permission-modes#skip-all-checks-with-bypasspermissions-mode) bypasses prompts other than explicit ask rules, but only use it in environments you trust.
 
 When you run channels in non-interactive mode with `-p`, tools that need terminal input, such as multiple-choice questions and plan mode approval, are disabled so the session never stalls waiting for input.
 
@@ -299,8 +292,8 @@ The allowlist also gates [permission relay](/en/channels-reference#relay-permiss
 
 Admins control availability through two [managed settings](/en/settings) that users cannot override. The default depends on how you authenticate:
 
-- **claude.ai Team and Enterprise**: channels are blocked until an admin enables them.
-- **Anthropic Console with API key authentication**: channels are permitted by default. You only need this setting if your organization deploys managed settings.
+* **claude.ai Team and Enterprise**: channels are blocked until an admin enables them.
+* **Anthropic Console with API key authentication**: channels are permitted by default. You only need this setting if your organization deploys managed settings.
 
 In all cases, no channel runs until a user opts it in for the session with `--channels`.
 
@@ -359,13 +352,13 @@ Several Claude Code features connect to systems outside the terminal, each suite
 
 Channels fill the gap in that list by pushing events from non-Claude sources into your already-running local session.
 
-- **Chat bridge**: ask Claude something from your phone via Telegram, Discord, or iMessage, and the answer comes back in the same chat while the work runs on your machine against your real files.
-- **[Webhook receiver](/en/channels-reference#example-build-a-webhook-receiver)**: a webhook from CI, your error tracker, a deploy pipeline, or other external service arrives where Claude already has your files open and remembers what you were debugging.
+* **Chat bridge**: ask Claude something from your phone via Telegram, Discord, or iMessage, and the answer comes back in the same chat while the work runs on your machine against your real files.
+* **[Webhook receiver](/en/channels-reference#example-build-a-webhook-receiver)**: a webhook from CI, your error tracker, a deploy pipeline, or other external service arrives where Claude already has your files open and remembers what you were debugging.
 
 ## Next steps
 
 Once you have a channel running, explore these related features:
 
-- [Build your own channel](/en/channels-reference) for systems that don't have plugins yet
-- [Remote Control](/en/remote-control) to drive a local session from your phone instead of forwarding events into it
-- [Scheduled tasks](/en/scheduled-tasks) to poll on a timer instead of reacting to pushed events
+* [Build your own channel](/en/channels-reference) for systems that don't have plugins yet
+* [Remote Control](/en/remote-control) to drive a local session from your phone instead of forwarding events into it
+* [Scheduled tasks](/en/scheduled-tasks) to poll on a timer instead of reacting to pushed events

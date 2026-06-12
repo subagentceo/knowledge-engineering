@@ -1,6 +1,6 @@
 When you navigate to the [Claude Console](https://platform.claude.com), you will see two different options for logging in to your Console account.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1780164900&signature=dc64b4048a16271c0e1372d18bf441f59379c1c596b186fb91f328e61933adc4&req=dSkkE8l8m4dbX%2FMW1HO4zcrI54ntpoQE8vUNcPt4%2B72Ufx5Z69RyjT2%2B%2FgSb%0AT47Tvx3bC2bXvXpSniI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1781284500&amp;signature=317c7c3abdc150f3806a0a8226163048c2b099a464e64f5a485dc3347b6f5b31&amp;req=dSkkE8l8m4dbX%2FMW1HO4zcrI54juqIQI8vUNcPt4%2B73NOSqSLvvIU1DOybEY%0AcgYH4lg%2FzM%2FBhJ5tqgM%3D%0A)
 
 ## Continue with Google
 
@@ -8,7 +8,7 @@ Click "Continue with Google" if you want to use your Google account credentials 
 
 ## Continue with email
 
-If you'd prefer to use your email address to log in, enter it in the field pictured above, and click "Continue with email." This will send you an email with the subject line _"Secure link to log in to Claude Console"_ and a login link.
+If you'd prefer to use your email address to log in, enter it in the field pictured above, and click "Continue with email." This will send you an email with the subject line *"Secure link to log in to Claude Console"* and a login link.
 
 ### Clicking the link on the same device
 

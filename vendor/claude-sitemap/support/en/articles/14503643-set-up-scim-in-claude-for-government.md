@@ -6,12 +6,12 @@ For SCIM setup on Claude Enterprise, see **[Set up JIT or SCIM provisioning](htt
 
 Claude for Government uses a first-party SCIM implementation hosted within the FedRAMP-authorized environment. The commercial Claude Enterprise plan uses a different SCIM backend.
 
-| **Feature**                 | **Claude for Government**                  | **Claude Enterprise**           |
-| --------------------------- | ------------------------------------------ | ------------------------------- |
-| SCIM endpoint               | claude.fedstart.com/v1/scim/v2             | Configured via claude.ai        |
-| SCIM implementation         | Anthropic first-party (FedRAMP-authorized) | Third-party integration         |
-| API key management          | Self-service via identity settings page    | Self-service via admin settings |
-| Parent Organization Support | Yes — for multi-org identity management    | Not applicable                  |
+| **Feature** | **Claude for Government** | **Claude Enterprise** |
+| --- | --- | --- |
+| SCIM endpoint | claude.fedstart.com/v1/scim/v2 | Configured via claude.ai |
+| SCIM implementation | Anthropic first-party (FedRAMP-authorized) | Third-party integration |
+| API key management | Self-service via identity settings page | Self-service via admin settings |
+| Parent Organization Support | Yes — for multi-org identity management | Not applicable |
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ With SCIM, login and provisioning are separate. Your IdP tells Anthropic who sho
 
 **Important**: Store this key securely. It cannot be retrieved after you leave the page.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1780164900&signature=eca7cf9059b9c4cc57d578b85e7f9072b5770b27bf08c5266ae9da2811e180be&req=diIiEMl6nYBWX%2FMW1HO4zSrRlawebzIdyIvvU1hav7PqLqb2pZOMMTggFILx%0A73i5O1biqgpuKytrCSE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1781284500&amp;signature=3d2f668581ce75f7ffc80268771fe81b47544271a7823e459a3854010991910c&amp;req=diIiEMl6nYBWX%2FMW1HO4zSrRla0dYTIRyIvvU1hav7MQm1d3lxBFHhUyBpmy%0A1V4sGGo7SAW20inlqVg%3D%0A)
 
 ### Step 2: Configure SCIM in your Identity Provider
 
@@ -47,13 +47,13 @@ With SCIM, login and provisioning are separate. Your IdP tells Anthropic who sho
 
 2. Enter the following values:
 
-3. SCIM endpoint URL: **<https://claude.fedstart.com/v1/scim/v2>**
+  1. SCIM endpoint URL: **<https://claude.fedstart.com/v1/scim/v2>**
 
-4. API key / Bearer token: The key generated in Step 1
+  2. API key / Bearer token: The key generated in Step 1
 
-5. Configure the user attributes your IdP will sync (typically name and email).
+3. Configure the user attributes your IdP will sync (typically name and email).
 
-6. Assign users and groups to the SCIM integration within your IdP.
+4. Assign users and groups to the SCIM integration within your IdP.
 
 ### Step 3: Verify sync status
 
@@ -65,7 +65,7 @@ After enabling the integration in your IdP:
 
 **Warning**: When you fully enable SCIM provisioning, any users who were **not** synced via SCIM will be removed from the organization. Confirm that all expected users appear in the sync before proceeding.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1780164900&signature=b614ee9dabac71f1774ce7e41c03c0d19d018e12df9df7bd21a2c69f7404f58f&req=diIiEMl6nYBWUfMW1HO4zeLvMlhuTEjzoWupW8zJgMqeg9DIHL3Qd3cqLyuH%0A87B5gztawZGLVJOKkWs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1781284500&amp;signature=bc1cec1ad7641701c9169290b087ff2aa79707a23091b969f76d04683a07b245&amp;req=diIiEMl6nYBWUfMW1HO4zeLvMlltQkj%2FoWupW8zJgMpAzwpd9WHuXXY9yfuI%0AkNC763mIxRgM%2FflKOz8%3D%0A)
 
 ### Step 4: Map groups to roles and seat tiers
 
@@ -75,13 +75,13 @@ SCIM provisioning uses IdP groups to assign roles and seat tiers within Claude f
 
 2. For each IdP group, assign:
 
-3. Role — The user's role within the organization (e.g., Member, Owner).
+  1. Role — The user's role within the organization (e.g., Member, Owner).
 
-4. Seat tier — The license tier, if your organization has purchased multiple tiers.
+  2. Seat tier — The license tier, if your organization has purchased multiple tiers.
 
-5. Save your mappings.
+3. Save your mappings.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1780164900&signature=3538024a971d544dff8739a4c005e8da9a13ea1313fea4e40b64a20ed21d2356&req=diIiEMl7m4VbWPMW1HO4zaWhsXMjtEMSh340B79BYGap2mUJPrlSFQC56fzY%0A6M1e5NwKeujRkQnbC7A%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1781284500&amp;signature=03d34dcb9eb40776f9857cdc893a7cf72d3c6a76c44ec37c3e47d092132cce9d&amp;req=diIiEMl7m4VbWPMW1HO4zaWhsXIgukMeh340B79BYGYTZv%2BY2bcfP58RVCzS%0AwrJ2hwu6YON4224f03c%3D%0A)
 
 If you manage multiple organizations under a single parent (see below), each organization maintains its own role and seat tier mappings. Switch between organizations using the organization selector in the bottom-left corner of the page.
 

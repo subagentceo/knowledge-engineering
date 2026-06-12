@@ -1,10 +1,11 @@
 # followrabbit
 
-- Install in
-
-  Claude Code
-
-- Made by
-- Installs
-
-  1297
+*   Install in
+    
+    Claude Code
+    
+*   Made by
+    
+*   Installs
+    
+    1304

@@ -22,16 +22,20 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseTableSemantics, validateInheritance } from "../src/lib/table-semantics.js";
 import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
+import { shapeCacheStats } from "../src/lib/cache-stats.js";
+import { evaluateCacheSlo, formatSloLine } from "../src/lib/cache-slo.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
+const CACHE_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_cache_ddl.sql");
 const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
 const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
+const CACHE_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "cache-stats.json");
 
 async function main(): Promise<void> {
   const tables = readdirSync(ALLOYDB_DIR)
@@ -167,6 +171,92 @@ async function main(): Promise<void> {
       ) + "\n",
     );
     console.log(`semantics: wrote frontend/public/memories.json (${memories.rowCount} memories)`);
+
+    // KAN-7: dim_cache_key — SCD II catalog of tiered-cache keys seen in
+    // semantic_cache (L3) and the events_cache_access stream.
+    await pool.query(readFileSync(CACHE_DDL_PATH, "utf8"));
+    await pool.query(`
+      WITH observed AS (
+        SELECT key AS cache_key,
+               NULLIF(split_part(key, ':', 2), '') AS lane,
+               source_path
+        FROM semantic_cache
+        UNION
+        SELECT e.cache_key, e.lane, NULL
+        FROM dw.events_cache_access e
+        WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
+      )
+      UPDATE dw.dim_cache_key d
+      SET row_effective_to = NOW(), is_current = FALSE
+      FROM observed o
+      WHERE d.cache_key = o.cache_key AND d.is_current
+        AND d.source_path IS DISTINCT FROM o.source_path`);
+    const dimCache = await pool.query(`
+      WITH observed AS (
+        SELECT key AS cache_key,
+               NULLIF(split_part(key, ':', 2), '') AS lane,
+               source_path
+        FROM semantic_cache
+        UNION
+        SELECT e.cache_key, e.lane, NULL
+        FROM dw.events_cache_access e
+        WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
+      )
+      INSERT INTO dw.dim_cache_key (cache_key, lane, source_path)
+      SELECT o.cache_key, o.lane, o.source_path
+      FROM observed o
+      WHERE NOT EXISTS (
+        SELECT 1 FROM dw.dim_cache_key d WHERE d.cache_key = o.cache_key AND d.is_current)`);
+    console.log(`dim_cache_key: ${dimCache.rowCount} new SCD-II rows`);
+
+    // KAN-8: fact_cache_hits — idempotent per-day rollup of the access
+    // event stream onto the conformed cache-key dimension.
+    const factCache = await pool.query(`
+      INSERT INTO dw.fact_cache_hits (cache_key_sk, tier, date_key, hits, misses, promotions)
+      SELECT d.surrogate_key,
+             e.tier,
+             (EXTRACT(YEAR FROM e.occurred_at) * 10000
+              + EXTRACT(MONTH FROM e.occurred_at) * 100
+              + EXTRACT(DAY FROM e.occurred_at))::integer AS date_key,
+             COUNT(*) FILTER (WHERE e.op = 'hit'),
+             COUNT(*) FILTER (WHERE e.op = 'miss'),
+             COUNT(*) FILTER (WHERE e.op = 'promote')
+      FROM dw.events_cache_access e
+      JOIN dw.dim_cache_key d ON d.cache_key = e.cache_key AND d.is_current
+      GROUP BY 1, 2, 3
+      ON CONFLICT (cache_key_sk, tier, date_key) DO UPDATE
+        SET hits = EXCLUDED.hits,
+            misses = EXCLUDED.misses,
+            promotions = EXCLUDED.promotions`);
+    console.log(`fact_cache_hits: upserted ${factCache.rowCount} rows (grain: key × tier × day)`);
+
+    // KAN-10 feed: per-tier hit ratios + hottest keys for the frontend
+    // cache panel (KAN-11) and the vendor_cache_stats MCP tool (KAN-12).
+    const tierRollup = await pool.query(`
+      SELECT tier, SUM(hits)::bigint AS hits, SUM(misses)::bigint AS misses,
+             SUM(promotions)::bigint AS promotions
+      FROM dw.fact_cache_hits GROUP BY 1`);
+    const hotKeys = await pool.query(`
+      SELECT d.cache_key, d.lane, SUM(f.hits)::bigint AS hits
+      FROM dw.fact_cache_hits f
+      JOIN dw.dim_cache_key d ON d.surrogate_key = f.cache_key_sk AND d.is_current
+      GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 10`);
+    const cacheStats = shapeCacheStats(
+      tierRollup.rows.map((r) => ({
+        tier: String(r.tier),
+        hits: Number(r.hits),
+        misses: Number(r.misses),
+        promotions: Number(r.promotions),
+      })),
+      hotKeys.rows.map((r) => ({
+        cache_key: String(r.cache_key),
+        lane: r.lane === null ? null : String(r.lane),
+        hits: Number(r.hits),
+      })),
+    );
+    writeFileSync(CACHE_STATS_JSON, JSON.stringify(cacheStats, null, 2) + "\n");
+    console.log(`cache-stats: wrote frontend/public/cache-stats.json (${cacheStats.hottest_keys.length} hot keys)`);
+    console.log(`cache-slo: ${formatSloLine(evaluateCacheSlo(cacheStats))}`);
 
     // B14: rpt refreshes (load_type: full) + static feeds
     await pool.query("BEGIN");

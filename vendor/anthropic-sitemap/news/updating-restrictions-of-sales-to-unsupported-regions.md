@@ -16,22 +16,22 @@ To account for this reality and better align with our commitment to ensuring tha
 
 Consistent with this concern, we continue to advocate for policies like strong export controls to prevent authoritarian nations from developing frontier AI capabilities that could threaten national security, accelerating energy projects on US soil to build out large-scale infrastructure for AI scaling, and rigorously evaluating AI models for national security relevant capabilities, including those that could be exploited by US adversaries.
 
-The safety and security of AI development requires collective commitment to preventing its misuse by authoritarian adversaries. Responsible AI companies can and should take decisive action to ensure that transformative technologies serve US and allied strategic interests and support our democratic values.
+The safety and security of AI development requires collective commitment to preventing its misuse by authoritarian adversaries. Responsible AI companies can and should take decisive action to ensure that transformative technologies serve US and allied strategic interests and support our democratic values.  
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

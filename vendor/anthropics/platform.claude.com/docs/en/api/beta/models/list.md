@@ -27,9 +27,11 @@ The Models API response can be used to determine which models are available for 
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -82,21 +84,30 @@ The Models API response can be used to determine which models are available for 
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `data: array of BetaModelInfo`
+
   - `id: string`
 
     Unique model identifier.
 
+  - `allowed_fallback_models: array of string`
+
+    Model IDs this model accepts as `fallbacks[i].model` on the Messages API. An empty list means the `fallbacks` parameter is not supported for this model as primary.
+
   - `capabilities: BetaModelCapabilities`
 
     Model capability information.
+
     - `batch: BetaCapabilitySupport`
 
       Whether the model supports the Batch API.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -112,6 +123,7 @@ The Models API response can be used to determine which models are available for 
     - `context_management: BetaContextManagementCapability`
 
       Context management support and available strategies.
+
       - `clear_thinking_20251015: BetaCapabilitySupport`
 
         Indicates whether a capability is supported.
@@ -131,6 +143,7 @@ The Models API response can be used to determine which models are available for 
     - `effort: BetaEffortCapability`
 
       Effort (reasoning_effort) support and available levels.
+
       - `high: BetaCapabilitySupport`
 
         Whether the model supports high effort level.
@@ -170,6 +183,7 @@ The Models API response can be used to determine which models are available for 
     - `thinking: BetaThinkingCapability`
 
       Thinking capability and supported type configurations.
+
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -177,6 +191,7 @@ The Models API response can be used to determine which models are available for 
       - `types: BetaThinkingTypes`
 
         Supported thinking type configurations.
+
         - `adaptive: BetaCapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
@@ -206,6 +221,7 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
+
     - `"model"`
 
 - `first_id: string`
@@ -235,6 +251,9 @@ curl https://api.anthropic.com/v1/models \
   "data": [
     {
       "id": "claude-opus-4-6",
+      "allowed_fallback_models": [
+        "string"
+      ],
       "capabilities": {
         "batch": {
           "supported": true

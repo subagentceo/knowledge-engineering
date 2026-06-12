@@ -1,6 +1,14 @@
 # Clarify
 
-Retrieve, create, and update records using natural language. Analyze your sales pipeline, create tasks and lists automatically, and generate insights—all through conversation. Query deals, companies, people, and meetings without switching apps. Your Clarify data is retrieved in real-time, and permissions are respected. Stop clicking through interfaces. Just ask what you need.
+Connect Clarify and work with your CRM using natural language. Retrieve, create, and update records, analyze your pipeline, and generate insights—all through conversation.
+
+Query deals, companies, people, and meetings without switching apps. Find and import new leads that match your ICP directly from the conversation. Create tasks, lists, and outbound sequences automatically.
+
+Build and configure Clarify Agents from Claude to automate your entire GTM motion.
+
+Your Clarify data is retrieved in real-time, and permissions are respected.
+
+Stop clicking through interfaces. Just ask what you need.
 
 You can use Clarify to:
 

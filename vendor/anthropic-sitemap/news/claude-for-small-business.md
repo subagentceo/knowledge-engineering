@@ -26,31 +26,31 @@ It ships with **15 ready-to-run agentic workflows** across finance, operations, 
 
 These include:
 
-- **Planning payroll with confidence.** Settle your QuickBooks cash position against incoming PayPal settlements, build a 30-day forecast, rank what's overdue, and queue the reminders for you to approve and send.
-- **Closing the month with fewer errors.** Reconcile your books against settlements, flag what doesn't match, write a plain-English P&L, and export a close packet you can forward straight to your accountant through Intuit QuickBooks.
-- **Getting a pulse on your business.** Surface your most important business insights on a schedule, all on one page: view your cash position through Intuit QuickBooks, sales trend, pipeline movement, this week's commitments, and more.
-- **Running your next campaign.** Find the slow stretch in your revenue, analyze your HubSpot campaign performance, draft the promo strategy, and generate the assets in Canva to prepare your next send.
+*   **Planning payroll with confidence.** Settle your QuickBooks cash position against incoming PayPal settlements, build a 30-day forecast, rank what's overdue, and queue the reminders for you to approve and send.
+*   **Closing the month with fewer errors.** Reconcile your books against settlements, flag what doesn't match, write a plain-English P&L, and export a close packet you can forward straight to your accountant through Intuit QuickBooks.
+*   **Getting a pulse on your business.** Surface your most important business insights on a schedule, all on one page: view your cash position through Intuit QuickBooks, sales trend, pipeline movement, this week's commitments, and more.
+*   **Running your next campaign.** Find the slow stretch in your revenue, analyze your HubSpot campaign performance, draft the promo strategy, and generate the assets in Canva to prepare your next send.
 
 There's also an invoice chaser, margin analyzer, month-end prepper, tax-season organizer, contract reviewer, lead triager, content strategist, and more.
 
 ![Purity Coffee logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6e652b4a53149faa6fbba9866584e3bca6c113ec-917x853.png&w=256&q=75)
 
 > Not only could it problem-solve for me, it also showed me problems I didn't know I had.
->
+> 
 > Brian Ludviksen  
 > COO, Purity Coffee
 
 ![Simple Modern logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/4580f41e900eace291a4272a92e94920e9c41d6e-125x48.svg)
 
 > What we used to think were the constraints are just not constraints anymore. It's empowering. Hours of looking at stuff that doesn't matter are gone. I want an entire organization where everybody is using these tools daily.
->
+> 
 > Mike Beckham  
 > CEO, Simple Modern
 
 ![MidCentral Energy logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F67068cfb506dee23296d1f195f13ac0609242bb9-410x125.webp&w=256&q=75)
 
 > It's freeing up things that used to be a lot of very tedious clerical work for more value-add tasks.
->
+> 
 > Ryan Olson  
 > Technology and Innovation Manager, MidCentral Energy
 
@@ -60,32 +60,32 @@ There's also an invoice chaser, margin analyzer, month-end prepper, tax-season o
 
 Running through Claude Cowork, each connected tool handles a specific job:
 
-- **PayPal** powers settlements, invoicing, disputes, and refunds inside Claude.
-- **Intuit QuickBooks** handles payroll planning, the monthly close, and cash-flow, along with tools to help businesses prepare for tax season, and reconciliation work that touches every other system.
-- **HubSpot** runs lead triage, customer pulse, and campaign attribution.
-- **Canva** generates content for every channel, with the ability to collaborate and edit with your team, publish assets, and track performance.
-- **Docusign** sends contracts out for signature, tracks status, and files the executed copy back where it belongs.
+*   **PayPal** powers settlements, invoicing, disputes, and refunds inside Claude.
+*   **Intuit QuickBooks** handles payroll planning, the monthly close, and cash-flow, along with tools to help businesses prepare for tax season, and reconciliation work that touches every other system.
+*   **HubSpot** runs lead triage, customer pulse, and campaign attribution.
+*   **Canva** generates content for every channel, with the ability to collaborate and edit with your team, publish assets, and track performance.
+*   **Docusign** sends contracts out for signature, tracks status, and files the executed copy back where it belongs.
 
 The full list of skills, automations, and connectors is available on the solutions page.
 
 ![Intuit QuickBooks logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8b8585ff7c43d50c9b98099a3c8435076afbbc53-1100x300.png&w=256&q=75)
 
 > Small and mid-market businesses fuel our economies, and for decades, QuickBooks has been proud to be their trusted financial partner. By integrating the agentic AI capabilities of our QuickBooks platform into Claude for Small Business, we're providing small businesses with AI-powered automations and experiences that allow them to remove the complexities of managing their finances, accelerate payroll workflows, and generate data-backed insights that help them grow and scale with speed and confidence.
->
+> 
 > Joe Preston  
 > VP, Product Management, Intuit QuickBooks
 
 ![HubSpot logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9d3cc48409d490a361b2ca9b37f4c32d506165f4-3840x1124.png&w=256&q=75)
 
 > At HubSpot, our mission is to help scaling companies grow with AI. We partnered with Anthropic to build the first CRM connector for Claude so go-to-market teams can access their HubSpot context wherever they work. For small businesses, that means getting tailored answers, summaries, and visualizations directly from their customer platform so they can segment smarter, run better campaigns, and drive more leads.
->
+> 
 > Angela DeFranco  
 > GM and VP Product, Marketing Hub, HubSpot
 
 ![Canva logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdbe8719833c72c2740a7c7d8e8cb6427b63b9351-2560x825.png&w=256&q=75)
 
 > Small businesses need AI that moves at the speed they do. With Canva powering content creation in Claude for Small Business, a business owner can go from idea to published, on-brand design in one flow, while AI streamlines the work in between. It's part of our vision to make complex AI workflows simple, so we can help people achieve their goals through design.
->
+> 
 > Anwar Haneef  
 > GM and Head of Ecosystem, Canva
 
@@ -97,9 +97,9 @@ In a survey we ran with small business owners, half named data security as their
 
 With Claude for Small Business:
 
-- **You stay in the loop.** Every task and workflow you run within Claude is initiated by you. You approve the plan first or, when you're ready, let it run end-to-end.
-- **Your existing permissions hold.** If an employee can't see something in QuickBooks or Drive today, they can't see it through Claude.
-- **We don't train on your data by default** on our Team and Enterprise Plans.
+*   **You stay in the loop.** Every task and workflow you run within Claude is initiated by you. You approve the plan first or, when you're ready, let it run end-to-end.
+*   **Your existing permissions hold.** If an employee can't see something in QuickBooks or Drive today, they can't see it through Claude.
+*   **We don't train on your data by default** on our Team and Enterprise Plans.
 
 Full details are in the Trust Center.
 
@@ -135,18 +135,18 @@ To learn more about Claude for Small Business and access the AI Fluency for Smal
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

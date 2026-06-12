@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +7,13 @@
 > Configure Claude Code to use the Anthropic-operated Claude API with AWS authentication, IAM access control, and AWS Marketplace billing.
 
 export const ContactSalesCard = ({surface}) => {
-const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-<line x1="5" y1="12" x2="19" y2="12" />
-<polyline points="12 5 19 12 12 19" />
-</svg>;
-const STYLES = `.cc-cs {
+  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>;
+  const STYLES = `
+.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,133 +56,134 @@ const STYLES = `.cc-cs {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}`;
-return <div className="cc-cs not-prose">
-<style>{STYLES}</style>
-<div className="cc-cs-card">
-<div className="cc-cs-text">
-<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-</div>
-<div className="cc-cs-actions">
-<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-View plans
-</a>
-<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-Contact sales {iconArrowRight()}
-</a>
-</div>
-</div>
-</div>;
+}
+`;
+  return <div className="cc-cs not-prose">
+      <style>{STYLES}</style>
+      <div className="cc-cs-card">
+        <div className="cc-cs-text">
+          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+        </div>
+        <div className="cc-cs-actions">
+          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+            View plans
+          </a>
+          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+            Contact sales {iconArrowRight()}
+          </a>
+        </div>
+      </div>
+    </div>;
 };
 
 export const Experiment = ({flag, treatment, children}) => {
-const VID*KEY = 'exp_vid';
-const CONSENT_COUNTRIES = new Set(['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'RE', 'GP', 'MQ', 'GF', 'YT', 'BL', 'MF', 'PM', 'WF', 'PF', 'NC', 'AW', 'CW', 'SX', 'FO', 'GL', 'AX', 'GB', 'UK', 'AI', 'BM', 'IO', 'VG', 'KY', 'FK', 'GI', 'MS', 'PN', 'SH', 'TC', 'GG', 'JE', 'IM', 'CA', 'BR', 'IN']);
-const fnv1a = s => {
-let h = 0x811c9dc5;
-for (let i = 0; i < s.length; i++) {
-h ^= s.charCodeAt(i);
-h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
-}
-return h >>> 0;
-};
-const bucket = (seed, vid) => fnv1a(fnv1a(seed + vid) + '') % 10000 < 5000 ? 'control' : 'treatment';
-const [decision] = useState(() => {
-const params = new URLSearchParams(location.search);
-const preBucketed = document.documentElement.dataset['gb*' + flag.replace(/-/g, '\_')];
-const force = params.get('gb-force');
-if (force) {
-for (const p of force.split(',')) {
-const [k, v] = p.split(':');
-if (k === flag) return {
-variant: v || 'treatment',
-track: false
-};
-}
-}
-if (navigator.globalPrivacyControl) {
-return {
-variant: 'control',
-track: false
-};
-}
-const prefsMatch = document.cookie.match(/(?:^|; )anthropic-consent-preferences=([^;]+)/);
-if (prefsMatch) {
-try {
-if (JSON.parse(decodeURIComponent(prefsMatch[1])).analytics !== true) {
-return {
-variant: 'control',
-track: false
-};
-}
-} catch {
-return {
-variant: 'control',
-track: false
-};
-}
-} else {
-const country = params.get('country')?.toUpperCase() || (document.cookie.match(/(?:^|; )cf_geo=([A-Z]{2})/) || [])[1];
-if (!country || CONSENT_COUNTRIES.has(country)) {
-return {
-variant: 'control',
-track: false
-};
-}
-}
-let vid;
-try {
-const ajsMatch = document.cookie.match(/(?:^|; )ajs_anonymous_id=([^;]+)/);
-if (ajsMatch) {
-vid = decodeURIComponent(ajsMatch[1]).replace(/^"|"$/g, '');
+  const VID_KEY = 'exp_vid';
+  const CONSENT_COUNTRIES = new Set(['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'RE', 'GP', 'MQ', 'GF', 'YT', 'BL', 'MF', 'PM', 'WF', 'PF', 'NC', 'AW', 'CW', 'SX', 'FO', 'GL', 'AX', 'GB', 'UK', 'AI', 'BM', 'IO', 'VG', 'KY', 'FK', 'GI', 'MS', 'PN', 'SH', 'TC', 'GG', 'JE', 'IM', 'CA', 'BR', 'IN']);
+  const fnv1a = s => {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
+    }
+    return h >>> 0;
+  };
+  const bucket = (seed, vid) => fnv1a(fnv1a(seed + vid) + '') % 10000 < 5000 ? 'control' : 'treatment';
+  const [decision] = useState(() => {
+    const params = new URLSearchParams(location.search);
+    const preBucketed = document.documentElement.dataset['gb_' + flag.replace(/-/g, '_')];
+    const force = params.get('gb-force');
+    if (force) {
+      for (const p of force.split(',')) {
+        const [k, v] = p.split(':');
+        if (k === flag) return {
+          variant: v || 'treatment',
+          track: false
+        };
+      }
+    }
+    if (navigator.globalPrivacyControl) {
+      return {
+        variant: 'control',
+        track: false
+      };
+    }
+    const prefsMatch = document.cookie.match(/(?:^|; )anthropic-consent-preferences=([^;]+)/);
+    if (prefsMatch) {
+      try {
+        if (JSON.parse(decodeURIComponent(prefsMatch[1])).analytics !== true) {
+          return {
+            variant: 'control',
+            track: false
+          };
+        }
+      } catch {
+        return {
+          variant: 'control',
+          track: false
+        };
+      }
+    } else {
+      const country = params.get('country')?.toUpperCase() || (document.cookie.match(/(?:^|; )cf_geo=([A-Z]{2})/) || [])[1];
+      if (!country || CONSENT_COUNTRIES.has(country)) {
+        return {
+          variant: 'control',
+          track: false
+        };
+      }
+    }
+    let vid;
+    try {
+      const ajsMatch = document.cookie.match(/(?:^|; )ajs_anonymous_id=([^;]+)/);
+      if (ajsMatch) {
+        vid = decodeURIComponent(ajsMatch[1]).replace(/^"|"$/g, '');
       } else {
         vid = localStorage.getItem(VID_KEY);
         if (!vid) {
           vid = crypto.randomUUID();
         }
         document.cookie = `ajs_anonymous_id=${vid}; domain=.claude.com; path=/; Secure; SameSite=Lax; max-age=31536000`;
-}
-try {
-localStorage.setItem(VID_KEY, vid);
-} catch {}
-} catch {
-return {
-variant: 'control',
-track: false
-};
-}
-const variant = preBucketed === '1' ? 'treatment' : preBucketed === '0' ? 'control' : bucket(flag, vid);
-return {
-variant,
-track: true,
-vid
-};
-});
-useEffect(() => {
-if (!decision.track) return;
-fetch('https://api.anthropic.com/api/event_logging/v2/batch', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-'x-service-name': 'claude_code_docs'
-},
-body: JSON.stringify({
-events: [{
-event_type: 'GrowthbookExperimentEvent',
-event_data: {
-device_id: decision.vid,
-anonymous_id: decision.vid,
-timestamp: new Date().toISOString(),
-experiment_id: flag,
-variation_id: decision.variant === 'treatment' ? 1 : 0,
-environment: 'production'
-}
-}]
-}),
-keepalive: true
-}).catch(() => {});
-}, []);
-return decision.variant === 'treatment' ? treatment : children;
+      }
+      try {
+        localStorage.setItem(VID_KEY, vid);
+      } catch {}
+    } catch {
+      return {
+        variant: 'control',
+        track: false
+      };
+    }
+    const variant = preBucketed === '1' ? 'treatment' : preBucketed === '0' ? 'control' : bucket(flag, vid);
+    return {
+      variant,
+      track: true,
+      vid
+    };
+  });
+  useEffect(() => {
+    if (!decision.track) return;
+    fetch('https://api.anthropic.com/api/event_logging/v2/batch', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-service-name': 'claude_code_docs'
+      },
+      body: JSON.stringify({
+        events: [{
+          event_type: 'GrowthbookExperimentEvent',
+          event_data: {
+            device_id: decision.vid,
+            anonymous_id: decision.vid,
+            timestamp: new Date().toISOString(),
+            experiment_id: flag,
+            variation_id: decision.variant === 'treatment' ? 1 : 0,
+            environment: 'production'
+          }
+        }]
+      }),
+      keepalive: true
+    }).catch(() => {});
+  }, []);
+  return decision.variant === 'treatment' ? treatment : children;
 };
 
 <Experiment flag="docs-contact-sales-cta" treatment={<ContactSalesCard surface="claude_platform_on_aws" />} />
@@ -199,10 +200,10 @@ Use this guide to point Claude Code at a workspace you've already provisioned th
 
 Before configuring Claude Code, you need:
 
-- An active Claude Platform on AWS subscription through AWS Marketplace
-- A workspace in your AWS-linked Anthropic organization, with its workspace ID
-- An IAM principal with permission to invoke the Anthropic service, or an API key scoped to the workspace
-- AWS credentials in your environment, in `~/.aws/credentials`, or from an attached IAM role if you want SigV4 authentication. The AWS CLI is required only for the SSO login flow.
+* An active Claude Platform on AWS subscription through AWS Marketplace
+* A workspace in your AWS-linked Anthropic organization, with its workspace ID
+* An IAM principal with permission to invoke the Anthropic service, or an API key scoped to the workspace
+* AWS credentials in your environment, in `~/.aws/credentials`, or from an attached IAM role if you want SigV4 authentication. The AWS CLI is required only for the SSO login flow.
 
 ## Setup
 
@@ -263,11 +264,12 @@ Claude Platform on AWS is opt-in even when AWS credentials are present in your e
 
 ### 3. Pin model versions
 
-Claude Platform on AWS uses the same model IDs as the direct Claude API. The default aliases `opus`, `sonnet`, and `haiku` resolve to the latest versions available in your workspace.
+Claude Platform on AWS uses the same model IDs as the direct Claude API. The default aliases `fable`, `opus`, `sonnet`, and `haiku` resolve to Claude Code's built-in defaults for Claude Platform on AWS, which can lag the newest release. Without `ANTHROPIC_DEFAULT_OPUS_MODEL`, the `opus` alias resolves to Opus 4.7.
 
 If you deploy Claude Code to a team, pin the model IDs explicitly so a new release doesn't move everyone at once:
 
 ```bash theme={null}
+export ANTHROPIC_DEFAULT_FABLE_MODEL=claude-fable-5
 export ANTHROPIC_DEFAULT_OPUS_MODEL=claude-opus-4-7
 export ANTHROPIC_DEFAULT_SONNET_MODEL=claude-sonnet-4-6
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=claude-haiku-4-5
@@ -336,5 +338,5 @@ If you set `ANTHROPIC_AWS_API_KEY`, the key takes precedence over SigV4 and a st
 
 The Claude Platform on AWS subscription, workspace, and IAM setup that comes before configuring Claude Code is covered in the platform documentation:
 
-- [Claude Platform on AWS overview](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws): subscription, workspace setup, and product reference
-- [IAM action reference](https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions): permissions and managed policies
+* [Claude Platform on AWS overview](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws): subscription, workspace setup, and product reference
+* [IAM action reference](https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions): permissions and managed policies

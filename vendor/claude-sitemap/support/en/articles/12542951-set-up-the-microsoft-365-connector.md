@@ -64,14 +64,12 @@ M365 MCP Client for Claude:
 POST https://graph.microsoft.com/v1.0/servicePrincipals
 {"appId":"08ad6f98-a4f8-4635-bb8d-f1a3044760f0"}
 ```
-
 M365 MCP Server for Claude:
 
 ```
 POST https://graph.microsoft.com/v1.0/servicePrincipals
 {"appId":"07c030f6-5743-41b7-ba00-0a6e85f37c17"}
 ```
-
 **2. Grant admin consent**
 
 Construct and visit the following URLs in your browser, replacing {your-tenant-id} with your organization's tenant ID.
@@ -81,13 +79,11 @@ M365 MCP Client for Claude:
 ```
 https://login.microsoftonline.com/{your-tenant-id}/adminconsent?client_id=08ad6f98-a4f8-4635-bb8d-f1a3044760f0
 ```
-
 M365 MCP Server for Claude:
 
 ```
 https://login.microsoftonline.com/{your-tenant-id}/adminconsent?client_id=07c030f6-5743-41b7-ba00-0a6e85f37c17
 ```
-
 When you visit each URL, you'll be prompted to consent to the delegated permissions required by the integration on behalf of your organization.
 
 **3. Finish setup**
@@ -167,6 +163,8 @@ During authentication, the integration requests the following permissions:
 - `MailboxFolder.Read`: Read mailbox folder structure
 
 - `MailboxItem.Read`: Read items in mailbox
+
+**Note:** Shared mailbox access is included through the `Mail.Read.Shared` permission. Members can search shared mailboxes they have delegate access to in Microsoft 365, including full access and folder-level delegation. No setup is needed beyond standard admin consent and the delegate permissions already configured in Microsoft 365.
 
 **Calendar**
 

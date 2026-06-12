@@ -2,11 +2,12 @@
 
 GET /v1/namespaces
 
-Paginate through your namespaces.
+**List Namespaces** (Listing namespaces with a prefix filter.)
+- List Namespaces: p50=32ms, p90=41ms, p99=66ms
 
-Paginate through the list of namespaces, optionally with a given prefix. You can retrieve more information about a specific namespace with the [metadata endpoint](/docs/metadata).
+Paginate through your namespaces. Paginate through the list of namespaces, optionally with a given prefix. You can retrieve more information about a specific namespace with the [metadata endpoint](/docs/metadata).
 
-This endpoint is available to API keys with read-only, read/write, or admin permissions.
+This endpoint is available to API keys with list or admin permissions.
 
 ## Request
 
@@ -37,13 +38,18 @@ An array of namespace objects. Each namespace object contains:
 
 * `id` (string): the namespace identifier
 
-**Example:**
-
+Example:
 ```json
 [
-  {"id": "my-namespace"},
-  {"id": "test-namespace"},
-  {"id": "production-data"}
+  {
+    "id": "my-namespace"
+  },
+  {
+    "id": "test-namespace"
+  },
+  {
+    "id": "production-data"
+  }
 ]
 ```
 
@@ -55,6 +61,7 @@ A cursor for pagination. Pass this value as the `cursor` parameter in the next r
 
 <!-- multilang -->
 ```bash
+# choose best region: https://turbopuffer.com/docs/regions
 curl https://gcp-us-central1.turbopuffer.com/v1/namespaces?page_size=50 \
   --fail-with-body \
   -H "Authorization: Bearer $TURBOPUFFER_API_KEY"
@@ -79,7 +86,7 @@ curl https://gcp-us-central1.turbopuffer.com/v1/namespaces?page_size=50 \
 import turbopuffer
 
 tpuf = turbopuffer.Turbopuffer(
-    region='gcp-us-central1', # pick the right region: https://turbopuffer.com/docs/regions
+    region='gcp-us-central1', # choose best region: https://turbopuffer.com/docs/regions
 )
 
 # List all namespaces
@@ -91,7 +98,7 @@ for namespace in namespaces:
 import { Turbopuffer } from "@turbopuffer/turbopuffer";
 
 const tpuf = new Turbopuffer({
-  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", // choose best region: https://turbopuffer.com/docs/regions
 });
 
 for await (const namespace of tpuf.namespaces()) {
@@ -112,8 +119,7 @@ import (
 func main() {
 	ctx := context.Background()
 	tpuf := turbopuffer.NewClient(
-		// Pick the right region: https://turbopuffer.com/docs/regions
-		option.WithRegion("gcp-us-central1"),
+		option.WithRegion("gcp-us-central1"), // choose best region: https://turbopuffer.com/docs/regions
 	)
 
 	namespaces := tpuf.NamespacesAutoPaging(ctx, turbopuffer.NamespacesParams{})
@@ -135,8 +141,7 @@ public class Namespaces {
   public static void main(String[] args) {
     var tpuf = TurbopufferOkHttpClient.builder()
       .fromEnv()
-      // Pick the right region: https://turbopuffer.com/docs/regions
-      .region("gcp-us-central1")
+      .region("gcp-us-central1") // choose best region: https://turbopuffer.com/docs/regions
       .build();
 
     var namespaces = tpuf.namespaces();
@@ -146,11 +151,28 @@ public class Namespaces {
   }
 }
 ```
+```cs
+// dotnet add package Turbopuffer
+using System;
+using Turbopuffer;
+
+using var tpuf = new TurbopufferClient
+{
+    // Pick the right region: https://turbopuffer.com/docs/regions
+    Region = "gcp-us-central1",
+};
+
+var namespaces = await tpuf.Namespaces();
+await foreach (var ns in namespaces.Paginate())
+{
+    Console.WriteLine($"Namespace: {ns.ID}");
+}
+```
 ```ruby
 require "turbopuffer"
 
 tpuf = Turbopuffer::Client.new(
-  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1", # choose best region: https://turbopuffer.com/docs/regions
 )
 
 # List all namespaces
@@ -159,3 +181,12 @@ tpuf.namespaces.auto_paging_each do |namespace|
 end
 ```
 <!-- /multilang -->
+
+
+---
+
+This page: [/docs/namespaces.md](https://turbopuffer.com/docs/namespaces.md)
+
+All documentation pages: [/llms.txt](https://turbopuffer.com/llms.txt)
+
+All documentation in one file: [/llms-full.txt](https://turbopuffer.com/llms-full.txt)

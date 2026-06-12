@@ -3,6 +3,73 @@
     "apiVersion": "anthropic.com/v1",
     "kind": "AlloyDbTableSemantics",
     "metadata": {
+      "name": "dim_cache_key",
+      "labels": {
+        "lane": "semantic-cache",
+        "source": "scripts/load-citation-warehouse.ts"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Catalog of tiered-cache keys observed in semantic_cache (L3) and the events_cache_access stream. SCD II — a key whose source_path lineage changes closes its old row, so the provenance history of every cached fact stays auditable. Conformed dimension for fact_cache_hits.",
+      "columns": [
+        {
+          "name": "cache_key",
+          "sql_type": "text",
+          "description": "namespaced cache key (ke:<lane>:<id>), natural key",
+          "kind": "dimension"
+        },
+        {
+          "name": "lane",
+          "sql_type": "text",
+          "description": "lane parsed from the key namespace; NULL when unnamespaced",
+          "kind": "dimension"
+        },
+        {
+          "name": "source_path",
+          "sql_type": "text",
+          "description": "originating repo path from semantic_cache; NULL when synthesized",
+          "kind": "dimension"
+        },
+        {
+          "name": "row_effective_from",
+          "sql_type": "timestamptz",
+          "description": "SCD II validity start",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "row_effective_to",
+          "sql_type": "timestamptz",
+          "description": "SCD II validity end; infinity while current",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "is_current",
+          "sql_type": "boolean",
+          "description": "current-row flag",
+          "kind": "dimension"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "refreshed by every dw:load run",
+      "data_start_date": "2026-06-12",
+      "load_type": "incremental",
+      "allowed_operations": [
+        "read",
+        "scd2_rewrite"
+      ]
+    },
+    "table_kind": "dim",
+    "scd_type": 2
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
       "name": "dim_memory",
       "labels": {
         "lane": "citation-memory",
@@ -10,7 +77,7 @@
       }
     },
     "spec": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "schema": "dw",
       "description": "Citation memories in the managed-agents memory shape (path + content), one current row per memory path. SCD II — dreams-curated rewrites of a memory's content close the old row so curation history is auditable. Source memories are derived from csl_items; curated ones are written by the dreams consolidation job (B3).",
       "columns": [
@@ -35,7 +102,7 @@
         {
           "name": "curation_source",
           "sql_type": "text",
-          "description": "ingest | dreams — who wrote this version of the memory",
+          "description": "ingest | dreams | agent — who wrote this version of the memory",
           "kind": "dimension"
         },
         {
@@ -193,6 +260,67 @@
     "apiVersion": "anthropic.com/v1",
     "kind": "AlloyDbTableSemantics",
     "metadata": {
+      "name": "events_cache_access",
+      "labels": {
+        "lane": "semantic-cache",
+        "source": "src/cache/events.ts"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Append-only access log of the three-tier semantic cache. Every get/set against L1 (in-process LRU), L2 (Redis) and L3 (Postgres semantic_cache) appends one row. Never UPDATE, never DELETE — this is the raw event stream the fact_cache_hits rollup aggregates.",
+      "columns": [
+        {
+          "name": "cache_key",
+          "sql_type": "text",
+          "description": "namespaced cache key (ke:<lane>:<id>)",
+          "kind": "dimension"
+        },
+        {
+          "name": "tier",
+          "sql_type": "text",
+          "description": "cache tier the operation resolved at — L1, L2 or L3",
+          "kind": "dimension"
+        },
+        {
+          "name": "op",
+          "sql_type": "text",
+          "description": "operation outcome — hit, miss, set, invalidate or promote",
+          "kind": "dimension"
+        },
+        {
+          "name": "lane",
+          "sql_type": "text",
+          "description": "originating lane parsed from the key namespace; NULL when unnamespaced",
+          "kind": "dimension"
+        },
+        {
+          "name": "occurred_at",
+          "sql_type": "timestamptz",
+          "description": "operation wall-clock time",
+          "kind": "time_dimension"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append at access time via buffered sink; never mutated",
+      "data_start_date": "2026-06-12",
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
+    },
+    "table_kind": "events",
+    "grain": "one row per cache operation (tier × op × cache_key × occurred_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
       "name": "events_cache_promotion",
       "labels": {
         "lane": "semantic-cache",
@@ -250,6 +378,131 @@
     },
     "table_kind": "events",
     "grain": "one row per DurableStore.persistVolatile promotion (cache_key × occurred_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "events_memory_access",
+      "labels": {
+        "lane": "citation-memory",
+        "source": "src/lib/memory-access-log.ts"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Raw append-only stream of research-agent memory reads, the events_ counterpart of fact_memory_access (which stays the dreams job's aggregated input). One row per read regardless of whether a current dim_memory row matched — unmatched reads are the demand signal for memories that do not exist yet.",
+      "columns": [
+        {
+          "name": "csl_id",
+          "sql_type": "text",
+          "description": "requested citation id (memory natural key source)",
+          "kind": "dimension"
+        },
+        {
+          "name": "agent_id",
+          "sql_type": "text",
+          "description": "reading agent (session or coworker id)",
+          "kind": "dimension"
+        },
+        {
+          "name": "matched",
+          "sql_type": "boolean",
+          "description": "whether a current dim_memory row existed at read time",
+          "kind": "dimension"
+        },
+        {
+          "name": "occurred_at",
+          "sql_type": "timestamptz",
+          "description": "read wall-clock time",
+          "kind": "time_dimension"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append at read time; never mutated",
+      "data_start_date": "2026-06-12",
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
+    },
+    "table_kind": "events",
+    "grain": "one row per memory read event (csl_id × agent_id × occurred_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "fact_cache_hits",
+      "labels": {
+        "lane": "semantic-cache",
+        "feeds": "dreams L2 warming (KAN-9) + cache-stats.json (KAN-10)"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Daily rollup of dw.events_cache_access keyed on the conformed dim_cache_key dimension. One row per key × tier × day carrying hit, miss and promotion counts — the input for dreams-driven L2 warming and the per-tier hit-ratio feed on subagentknowledge.com.",
+      "columns": [
+        {
+          "name": "cache_key_sk",
+          "sql_type": "bigint",
+          "description": "FK → dw.dim_cache_key.surrogate_key (current row at rollup time)",
+          "kind": "dimension"
+        },
+        {
+          "name": "tier",
+          "sql_type": "text",
+          "description": "cache tier — L1, L2 or L3",
+          "kind": "dimension"
+        },
+        {
+          "name": "date_key",
+          "sql_type": "integer",
+          "description": "FK-style YYYYMMDD of the rolled-up day",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "hits",
+          "sql_type": "bigint",
+          "description": "hit events for the day",
+          "kind": "measure",
+          "measure_type": "sum"
+        },
+        {
+          "name": "misses",
+          "sql_type": "bigint",
+          "description": "miss events for the day",
+          "kind": "measure",
+          "measure_type": "sum"
+        },
+        {
+          "name": "promotions",
+          "sql_type": "bigint",
+          "description": "promote events for the day",
+          "kind": "measure",
+          "measure_type": "sum"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "rolled up by every dw:load run; idempotent per day",
+      "data_start_date": "2026-06-12",
+      "load_type": "incremental",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
+    },
+    "table_kind": "fact",
+    "grain": "one row per cache key per tier per day (cache_key_sk × tier × date_key)"
   },
   {
     "apiVersion": "anthropic.com/v1",

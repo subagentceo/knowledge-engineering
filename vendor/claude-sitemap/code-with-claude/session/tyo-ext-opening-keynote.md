@@ -1,4 +1,4 @@
-# Opening keynote
+# Community general session
 
 Details
 
@@ -16,21 +16,9 @@ Time
 
 Speaker(s)
 
-Angela Jiang
+Boris Cherny
 
-Head of Product, Claude Platform,
-
-Anthropic
-
-Cat Wu
-
-Head of Product, Claude Code,
-
-Anthropic
-
-Katelyn Lesse
-
-Head of Engineering, Claude Platform,
+Head of Claude Code,
 
 Anthropic
 
@@ -40,19 +28,23 @@ English
 
 Agenda
 
-**A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
+Demos and office hours run all day. Drop by for a demo between sessions. Sign up in advance for office hours. All times in Japan Standard Time (JST).
 
-Demos and office hours run all day. Drop by between sessions. All times in Japan Standard Time (JST).
+**A note on language.** Sessions run primarily in English with some in Japanese (marked on the agenda), and live simultaneous interpretation is available in both directions throughout the event. Office hours are held in English.
 
 Stages
 
-- All stages
+*   All stages
+    
 
-- Founder stage
+*   Founder stage
+    
 
-- Builder stage
+*   Builder stage
+    
 
-- Workshops
+*   Workshops
+    
 
 08:00 – 09:00
 
@@ -60,37 +52,29 @@ Check-in and breakfast
 
 09:30 – 09:45
 
-Opening keynote
+Community general session
 
 ·
-
-Angela Jiang
-
-Cat Wu
-
-Katelyn Lesse
-
-morning sessions
-
-10:00 – 10:30
-
-Claude Code native company building: How GenerativeX rewired every function around AI
 
 (
 
 Founder stage
 
- // presented in Japanese
-
 )
-
-Founder stage
 
 ·
 
-Rei Araki
+Boris Cherny
+
+Anthropic
+
+morning sessions
+
+10:00 – 10:30
 
 What happens when domain experts can finally build
+
+·
 
 (
 
@@ -104,9 +88,39 @@ Builder stage
 
 Jason Tangen
 
+University of Queensland
+
+Building AI-native across industries with NTT, Mizuho and Mercari
+
+·
+
+(
+
+Founder stage
+
+)
+
+Founder stage
+
+·
+
+Carlos Donderis
+
+Mercari
+
+Takashi Ebihara
+
+NTT Inc
+
+Tatsuto Fujii
+
+Mizuho Financial Group, Inc.
+
 10:00 – 10:45
 
 How we Claude Code
+
+·
 
 (
 
@@ -120,9 +134,13 @@ Workshop
 
 Jason Schwartz
 
+Anthropic
+
 10:45 – 11:15
 
 From Claude prototype to production: How Myrealtrip builds and ships AI workflows
+
+·
 
 (
 
@@ -136,7 +154,11 @@ Founder stage
 
 Wonjin Hur
 
-Aini: Enabling zero-language barrier chat with my girlfriend
+Myrealtrip
+
+Code for loved ones: Building customized software to bypass language barriers with my girlfriend
+
+·
 
 (
 
@@ -150,9 +172,13 @@ Builder stage
 
 Siyuan Yan (Matt)
 
+Kyushu University
+
 11:00 – 11:45
 
 Ship your first Managed Agent
+
+·
 
 (
 
@@ -166,9 +192,13 @@ Workshop
 
 Koki Yoshida
 
+Anthropic
+
 11:30 – 12:00
 
 The 1% problem: How domain expertise + Claude let a 2-person team hit #1 on a global classification benchmark
+
+·
 
 (
 
@@ -182,7 +212,11 @@ Founder stage
 
 Gahee Seo
 
-あなたの日常にClaudeを取り入れる方法 (How to integrate Claude into your daily life)
+Federation
+
+How to integrate Claude into your daily life
+
+·
 
 (
 
@@ -198,9 +232,13 @@ Builder stage
 
 Yuta Hayashi
 
+Determinant, Inc.
+
 12:00 – 12:45
 
 Agents that remember
+
+·
 
 (
 
@@ -214,6 +252,8 @@ Workshop
 
 Sam Jiang
 
+Anthropic
+
 11:45 – 13:30
 
 Lunch
@@ -223,6 +263,8 @@ afternoon sessions
 13:00 – 13:45
 
 Evals for taste: Hill-climbing a slide-generation agent
+
+·
 
 (
 
@@ -236,9 +278,13 @@ Workshop
 
 Jonah Dueck
 
+Anthropic
+
 13:15 – 13:45
 
-The model is ready. The harness is ready. The spec isn't.
+The last mile is the spec
+
+·
 
 (
 
@@ -254,9 +300,15 @@ Founder stage
 
 Hitoshi Tsuyuki
 
+Tsukumo Labs Inc.
+
 Sumiki Hori
 
+Tsukumo Labs Inc.
+
 Same model, three different worlds: Japan, India, Australia
+
+·
 
 (
 
@@ -270,15 +322,25 @@ Builder stage
 
 Jason Bigman
 
+Anthropic
+
 Rye Smith
+
+Spruik Co.
 
 Sumeet Doshi
 
+HaemoLink
+
 Yuta Hayashi
+
+Determinant, Inc.
 
 14:00 – 14:30
 
-Code less, query more: A co-founder's 30-day dive into Claude Code sub-agents
+Code less, query more with sub-agents and data
+
+·
 
 (
 
@@ -294,7 +356,11 @@ Founder stage
 
 Kenta Yamamoto
 
+primeNumber Inc.
+
 How I built a legal platform for 280 million people at the Claude Code Hackathon
+
+·
 
 (
 
@@ -308,9 +374,13 @@ Builder stage
 
 Ilham Firdausi Putra
 
+Pasal.id
+
 14:00 – 14:45
 
 Tool, skill, or subagent? Decomposing an agent that outgrew its prompt
+
+·
 
 (
 
@@ -324,9 +394,31 @@ Workshop
 
 Karan Sampath
 
+Anthropic
+
 14:45 – 15:15
 
-Blood, code & Claude: How I shipped a life-saving app solo
+Manager 11: How I finally shipped my dream football management game with Claude
+
+·
+
+(
+
+Founder stage
+
+)
+
+Founder stage
+
+·
+
+Rye Smith
+
+Spruik Co.
+
+How I shipped a life-saving app with Claude Code
+
+·
 
 (
 
@@ -340,9 +432,13 @@ Builder stage
 
 Sumeet Doshi
 
+HaemoLink
+
 15:00 – 15:45
 
 Agent Battle: Mine the most diamonds in 45 minutes
+
+·
 
 (
 
@@ -356,21 +452,27 @@ Workshop
 
 Liam Plambeck
 
+Anthropic
+
 15:30 – 16:00
 
-Manager 11: How I finally shipped my dream football management game with Claude
-
-(
-
-Builder stage
-
-)
-
-Builder stage
+Rewriting Bun in Rust
 
 ·
 
-Rye Smith
+(
+
+Founder stage
+
+)
+
+Founder stage
+
+·
+
+Jarred Sumner
+
+Anthropic
 
 Evening
 

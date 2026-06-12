@@ -9,6 +9,7 @@ Archive Credential
 ### Parameters
 
 - `CredentialArchiveParams parameters`
+
   - `required string vaultID`
 
     Path param: Path parameter vault_id
@@ -20,6 +21,7 @@ Archive Credential
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -72,13 +74,16 @@ Archive Credential
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `required string ID`
 
     Unique identifier for the credential.
@@ -90,14 +95,17 @@ Archive Credential
   - `required Auth Auth`
 
     Authentication details for a credential.
+
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
+
       - `required string McpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `required Type Type`
+
         - `"mcp_oauth"McpOAuth`
 
       - `DateTimeOffset? ExpiresAt`
@@ -107,6 +115,7 @@ Archive Credential
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `required string ClientID`
 
           OAuth client ID.
@@ -118,22 +127,29 @@ Archive Credential
         - `required TokenEndpointAuth TokenEndpointAuth`
 
           Token endpoint requires no client authentication.
+
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
+
             - `required Type Type`
+
               - `"none"None`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `required Type Type`
+
               - `"client_secret_basic"ClientSecretBasic`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `required Type Type`
+
               - `"client_secret_post"ClientSecretPost`
 
         - `string? Resource`
@@ -147,12 +163,50 @@ Archive Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
+
       - `required string McpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `required Type Type`
+
         - `"static_bearer"StaticBearer`
+
+    - `class BetaManagedAgentsEnvironmentVariableAuthResponse:`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `required Networking Networking`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `class BetaManagedAgentsUnrestrictedCredentialNetworkingResponse:`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `required Type Type`
+
+            - `"unrestricted"Unrestricted`
+
+        - `class BetaManagedAgentsLimitedCredentialNetworkingResponse:`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `required IReadOnlyList<string> AllowedHosts`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `required Type Type`
+
+            - `"limited"Limited`
+
+      - `required string SecretName`
+
+        Name of the environment variable.
+
+      - `required Type Type`
+
+        - `"environment_variable"EnvironmentVariable`
 
   - `required DateTimeOffset CreatedAt`
 
@@ -163,6 +217,7 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `required Type Type`
+
     - `"vault_credential"VaultCredential`
 
   - `required DateTimeOffset UpdatedAt`

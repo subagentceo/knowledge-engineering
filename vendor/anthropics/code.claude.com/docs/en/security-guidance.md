@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -15,9 +14,9 @@ The plugin is the in-session companion to [Code Review](/en/code-review), which 
 
 ## Prerequisites
 
-- Claude Code CLI version 2.1.144 or later
-- Python 3.8 or later on your `PATH`. The plugin tries `python3`, `python`, and `py -3` in that order
-- A git repository for the directory you work in. The end-of-turn and commit reviews diff against git state and skip silently outside a repository. The per-edit pattern check works anywhere
+* Claude Code CLI version 2.1.144 or later
+* Python 3.8 or later on your `PATH`. The plugin tries `python3`, `python`, and `py -3` in that order
+* A git repository for the directory you work in. The end-of-turn and commit reviews diff against git state and skip silently outside a repository. The per-edit pattern check works anywhere
 
 On first run the plugin creates a virtual environment under `~/.claude/security/` and installs the Claude Agent SDK into it, which requires `pip` and network access. If that install fails, the commit review falls back to a single-shot review instead of the agentic one. On Windows the virtual environment step is skipped, so the agentic commit review runs only if `claude-agent-sdk` is already importable and otherwise falls back the same way.
 
@@ -55,9 +54,9 @@ Administrators can enable the plugin organization-wide by setting [`enabledPlugi
 
 The plugin reviews Claude's work at three points, each at a different depth:
 
-- [On each file edit](#on-each-file-edit): a fast pattern match for risky calls, with no model call
-- [At the end of each turn](#at-the-end-of-each-turn): a background model review of everything that turn changed
-- [On each commit or push Claude makes](#on-each-commit-or-push-claude-makes): a deeper agentic review that reads surrounding code
+* [On each file edit](#on-each-file-edit): a fast pattern match for risky calls, with no model call
+* [At the end of each turn](#at-the-end-of-each-turn): a background model review of everything that turn changed
+* [On each commit or push Claude makes](#on-each-commit-or-push-claude-makes): a deeper agentic review that reads surrounding code
 
 You can extend each layer by [adding your own rules](#add-your-own-rules). Built-in checks cannot be removed individually, but you can [disable each layer](#disable-or-uninstall) independently.
 
@@ -67,10 +66,10 @@ When Claude writes to a file, the plugin scans the new content for known risky p
 
 Example pattern categories:
 
-- Dynamic code execution: `eval(`, `new Function`, `os.system`, `child_process.exec`
-- Unsafe deserialization: `pickle`
-- DOM injection: `dangerouslySetInnerHTML`, `.innerHTML =`, `document.write`
-- Workflow files: edits under `.github/workflows/`, which can grant repository-level permissions
+* Dynamic code execution: `eval(`, `new Function`, `os.system`, `child_process.exec`
+* Unsafe deserialization: `pickle`
+* DOM injection: `dangerouslySetInnerHTML`, `.innerHTML =`, `document.write`
+* Workflow files: edits under `.github/workflows/`, which can grant repository-level permissions
 
 The check runs after the edit lands and appends the warning to Claude's context for the next step. Each warning fires once per pattern per file per session, so repeat matches in the same file do not flood the conversation.
 
@@ -82,11 +81,11 @@ A turn is one round of Claude responding: you send a message, Claude works and r
 
 This catches issues a string match cannot, such as:
 
-- Authorization bypass
-- Insecure direct object references
-- Injection
-- Server-side request forgery
-- Weak cryptography
+* Authorization bypass
+* Insecure direct object references
+* Injection
+* Server-side request forgery
+* Weak cryptography
 
 You see both the finding and Claude's resolution directly in your session. The review covers up to 30 changed files per turn and fires at most three times in a row before yielding back to you.
 
@@ -227,14 +226,14 @@ The plugin writes runtime diagnostics to `~/.claude/security/log.txt`. Check the
 
 Common reasons a review layer skips without a message in the conversation:
 
-- The directory is not a git repository: the end-of-turn and commit reviews require git state and skip outside a repository
-- The session has no Anthropic authentication: the model-backed reviews skip and only the per-edit pattern check runs
-- A `security-patterns.yaml` file is present but PyYAML is not importable: the file is ignored. Use `security-patterns.json` instead
+* The directory is not a git repository: the end-of-turn and commit reviews require git state and skip outside a repository
+* The session has no Anthropic authentication: the model-backed reviews skip and only the per-edit pattern check runs
+* A `security-patterns.yaml` file is present but PyYAML is not importable: the file is ignored. Use `security-patterns.json` instead
 
 ## Related resources
 
 To go deeper on the pieces this page touches:
 
-- [Code Review](/en/code-review): set up the PR-time multi-agent review
-- [Automate workflows with hooks](/en/hooks-guide): build your own checks at the same lifecycle points
-- [Discover and install plugins](/en/discover-plugins#official-anthropic-marketplace): browse other official plugins
+* [Code Review](/en/code-review): set up the PR-time multi-agent review
+* [Automate actions with hooks](/en/hooks-guide): build your own checks at the same lifecycle points
+* [Discover and install plugins](/en/discover-plugins#official-anthropic-marketplace): browse other official plugins

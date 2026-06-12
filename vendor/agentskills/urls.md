@@ -1,7 +1,6 @@
 ---
 vendor: agentskills
 llms_txt: https://agentskills.io/llms.txt
-last_crawled: 2026-05-16T22:52:02.758Z
 count: 18
 transform: append-md-and-accept
 ---

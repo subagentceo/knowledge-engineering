@@ -6,29 +6,30 @@
 
 Claude 3 Haiku can now be fine-tuned in Amazon Bedrock with custom training data, enabling faster, more accurate performance at lower cost.
 
-- Category
-
-  Product announcements
-
-- Product
-
-  Claude Platform
-
-- Date
-
-  July 10, 2024
-
-- Reading time
-
-  5
-
-  min
-
-- Share
-
-  Copy link
-
-  https://claude.com/blog/fine-tune-claude-3-haiku
+*   Category
+    
+    Product announcements
+    
+*   Product
+    
+    Claude Platform
+    
+*   Date
+    
+    July 10, 2024
+    
+*   Reading time
+    
+    5
+    
+    min
+    
+*   Share
+    
+    Copy link
+    
+    https://claude.com/blog/fine-tune-claude-3-haiku
+    
 
 ![Graph showing fine-tuning with Claude 3 Haiku](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95d9554e6002385ccd593_aaf4aaf19584a566ab3687e64cd31da018b17b44-2880x1620.png)
 
@@ -46,11 +47,11 @@ To fine-tune Claude 3 Haiku, you first prepare a set of high quality prompt-comp
 
 Fine-tuning allows you to customize Claude 3 Haiku so it can acquire specialized business knowledge, leading to improved accuracy and consistency. Benefits include:
 
-- **Better results on specialized tasks**: Enhance performance for domain-specific actions such as classification, interactions with custom APIs, or industry-specific data interpretation. Fine-tuning allows Claude 3 Haiku to excel in areas crucial to your business compared to more general models by encoding company and domain knowledge.
-- **Faster speeds at lower cost**: Reduce costs for production deployments where Claude 3 Haiku can be used in place of Sonnet or Opus, while also returning results faster.
-- **Consistent, brand-aligned formatting**: Generate consistently structured outputs tailored to your exact specifications like standardized reports or custom schemas, ensuring compliance with regulatory requirements and internal protocols.
-- **Easy-to-use API**: Companies of all sizes can innovate efficiently without extensive in-house AI expertise or resources. Anyone can fine-tune models seamlessly, no deep technical expertise required.
-- **Safe and secure**: Proprietary training data remains within customers’ AWS environment. Anthropic’s fine-tuning technique preserves the Claude 3 model family’s low risk of harmful outputs.
+*   **Better results on specialized tasks**: Enhance performance for domain-specific actions such as classification, interactions with custom APIs, or industry-specific data interpretation. Fine-tuning allows Claude 3 Haiku to excel in areas crucial to your business compared to more general models by encoding company and domain knowledge.
+*   **Faster speeds at lower cost**: Reduce costs for production deployments where Claude 3 Haiku can be used in place of Sonnet or Opus, while also returning results faster.
+*   **Consistent, brand-aligned formatting**: Generate consistently structured outputs tailored to your exact specifications like standardized reports or custom schemas, ensuring compliance with regulatory requirements and internal protocols.
+*   **Easy-to-use API**: Companies of all sizes can innovate efficiently without extensive in-house AI expertise or resources. Anyone can fine-tune models seamlessly, no deep technical expertise required.
+*   **Safe and secure**: Proprietary training data remains within customers’ AWS environment. Anthropic’s fine-tuning technique preserves the Claude 3 model family’s low risk of harmful outputs.
 
 We fine-tuned Haiku to moderate online comments on internet forums1, including identifying insults, threats, and explicit content. Fine-tuning improved classification accuracy from 81.5% to 99.6% while reducing tokens per query by 85%.
 
@@ -64,7 +65,7 @@ SK Telecom, one of the largest telecommunications operators in South Korea, trai
 
 Thomson Reuters, a global content and technology company, has seen positive results with Claude 3 Haiku. The company, which serves professionals in legal, tax, accounting, compliance, government, and media, anticipates even faster and more relevant AI results by fine-tuning Claude with their industry expertise.
 
-“We are excited to fine-tune Anthropic’s Claude 3 Haiku model in Amazon Bedrock to further enhance our Claude-powered solutions. Thomson Reuters aims to provide accurate, fast, and consistent user experiences. By optimizing Claude around our industry expertise and specific requirements, we anticipate measurable improvements that deliver high-quality results at even faster speeds. **We’ve already seen positive results with Claude 3 Haiku, and fine-tuning will enable us to tailor AI assistance more precisely**,” said Joel Hron, Head of AI and Labs, Thomson Reuters.
+“We are excited to fine-tune Anthropic’s Claude 3 Haiku model in Amazon Bedrock to further enhance our Claude-powered solutions. Thomson Reuters aims to provide accurate, fast, and consistent user experiences. By optimizing Claude around our industry expertise and specific requirements, we anticipate measurable improvements that deliver high-quality results at even faster speeds. **We’ve already seen positive results with Claude 3 Haiku, and fine-tuning will enable us to tailor AI assistance more precisely**,” said Joel Hron, Head of AI and Labs, Thomson Reuters.  
 
 ## How to get started
 
@@ -94,6 +95,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+
+Apr 14, 2026
+
+### Introducing routines in Claude Code
+
+Product announcements
+
+Introducing routines in Claude CodeIntroducing routines in Claude Code
+
+Introducing routines in Claude CodeIntroducing routines in Claude Code
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
 
 May 28, 2026
@@ -106,41 +119,29 @@ Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Cla
 
 Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Claude Code
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690937bee860a953417a8eee_Object-CodeBrowserGlobe.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
 
-May 26, 2026
+Jun 9, 2026
 
-### Code w/ Claude London 2026: Rethinking how we build
-
-Product announcements
-
-Code w/ Claude London 2026: Rethinking how we buildCode w/ Claude London 2026: Rethinking how we build
-
-Code w/ Claude London 2026: Rethinking how we buildCode w/ Claude London 2026: Rethinking how we build
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22bed4b18b6703cd710_e750c875fbd7f08ffb6495efa180a8ed60de3611-1000x1000.svg)
-
-May 19, 2026
-
-### New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
+### New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
 
 Product announcements
 
-New in Claude Managed Agents: self-hosted sandboxes and MCP tunnelsNew in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
+New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
 
-New in Claude Managed Agents: self-hosted sandboxes and MCP tunnelsNew in Claude Managed Agents: self-hosted sandboxes and MCP tunnels
+New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e13864f88ea55c2d8_b5c98d26c46edc43193e7f7e28a00633a538bb9c-1000x1000.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
-May 12, 2026
+Jun 8, 2026
 
-### Code w/ Claude SF 2026 recap: Building on the AI exponential
+### Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
 Product announcements
 
-Code w/ Claude SF 2026 recap: Building on the AI exponential Code w/ Claude SF 2026 recap: Building on the AI exponential
+Building intelligent apps for Apple platforms with Claude in the Foundation Models frameworkBuilding intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
-Code w/ Claude SF 2026 recap: Building on the AI exponential Code w/ Claude SF 2026 recap: Building on the AI exponential
+Building intelligent apps for Apple platforms with Claude in the Foundation Models frameworkBuilding intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
 ## Transform how your organization operates with Claude
 

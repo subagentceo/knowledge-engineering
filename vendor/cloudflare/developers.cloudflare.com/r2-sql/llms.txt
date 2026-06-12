@@ -37,7 +37,7 @@ Cloudflare's serverless, distributed query engine for data stored in R2 Data Cat
 ## Platform
 
 - [Platform](https://developers.cloudflare.com/r2-sql/platform/index.md): R2 SQL platform details including pricing and configuration.
-- [Pricing](https://developers.cloudflare.com/r2-sql/platform/pricing/index.md): R2 SQL pricing details and billing information during open beta.
+- [Pricing](https://developers.cloudflare.com/r2-sql/platform/pricing/index.md): R2 SQL pricing based on data scanned, with free tier details and billing examples.
 
 ## Reference
 

@@ -35,22 +35,22 @@ Any organization that is bringing Claude to market is eligible to join the Claud
 _Below, our partners share more about their work with Claude:_
 
 > We're training 30,000 Accenture professionals on Claude because that's what it takes to meet the demand we're seeing. The Claude Partner Network gives us the structure to do that faster — the certification, the co-selling support, the shared investment. It matches how we actually build practices and deploy teams.
->
+> 
 > Alex Holt  
 > Vice Chair, Global Head Anthropic Business Group, Accenture
 
 > Enterprise AI needs to be powerful. The Claude Partner Network helps formalize and scale the work underway; the training, industry-focused solutions, and practical guidance for deploying AI.
->
+> 
 > Ranjit Bawa  
 > Global Technology and Ecosystems & Alliances Leader, Deloitte
 
 > We've opened Claude access across our global workforce—supporting an organization of roughly 350,000 associates—and we're embedding it into how we help clients modernize and transform. The Claude Partner Network gives us the co-investment and technical support to move faster, so our clients can advance pilot initiatives toward production without the usual delays.
->
+> 
 > Sandra Notardonato  
 > Head of Global Partnership Development and Influencer Relations, Cognizant
 
 > We are enabling clients to scale AI with confidence—built on robust governance, security, and trust by design. Our dedicated Anthropic Center of Excellence accelerates readiness and capability-building, aligned with Infosys’ AI-first value approach. With teams applying Claude Code in real-world delivery, we are helping clients unlock AI value across industries.
->
+> 
 > Anand Swaminathan  
 > Executive Vice President and Global Head – Communications, Media and Technology, Infosys
 
@@ -58,18 +58,18 @@ _Below, our partners share more about their work with Claude:_
 
 ## Related content
 
-### Anthropic raises $65B in Series H funding at $965B post-money valuation
+### Results from the first Anthropic Public Record
 
 Read more
 
-### Introducing Claude Opus 4.8
+### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
 
-An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
+We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
 
 Read more
 
-### Anthropic opens Milan office to support Italian enterprise, research, and developers
+### Introducing Claude Corps
 
-We're opening a new office in Milan, our sixth in Europe.
+We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

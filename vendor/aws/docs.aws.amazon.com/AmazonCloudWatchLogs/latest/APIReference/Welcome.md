@@ -3,22 +3,16 @@
 # Welcome
 <a name="Welcome"></a>
 
-Amazon CloudWatch Logs enables you to monitor, store, and access your system, application, and custom log files. This guide provides detailed information about CloudWatch Logs actions, data types, parameters, and errors. For more information about CloudWatch Logs features, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/).
+You can use Amazon CloudWatch Logs to monitor, store, and access your log files from EC2 instances, AWS CloudTrail, and other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console. Alternatively, you can use CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.
 
-Use the following links to get started using the CloudWatch Logs Query API:
-+ [Actions](API_Operations.md): An alphabetical list of all CloudWatch Logs actions.
-+ [Data Types](API_Types.md): An alphabetical list of all CloudWatch Logs data types.
-+ [Common Parameters](CommonParameters.md): Parameters that all Query actions can use.
-+ [Common Error Types](CommonErrors.md): Client and server errors that all actions can return.
-+ [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#cwl_region): Supported regions and endpoints for all AWS products.
+For more information about CloudWatch Logs features, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
 
-Alternatively, you can use one of the [AWS SDKs](https://aws.amazon.com/tools/#sdk) to access CloudWatch Logs using an API tailored to your programming language or platform.
+You can use CloudWatch Logs to:
++  **Monitor logs from EC2 instances in real time**: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs. Then, it can send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring so no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException"). You can also count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.
++  **Monitor AWS CloudTrail logged events**: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail. You can use the notification to perform troubleshooting.
++  **Archive log data**: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events earlier than this setting are automatically deleted. The CloudWatch Logs agent helps to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.
 
-Developers in the AWS developer community also provide their own libraries, which you can find at the following AWS developer centers:
-+ [Java Developer Center](http://aws.amazon.com/java/)
-+ [JavaScript Developer Center](http://aws.amazon.com/javascript/)
-+ [AWS Mobile Services](http://aws.amazon.com/mobile/)
-+ [PHP Developer Center](http://aws.amazon.com/php/)
-+ [Python Developer Center](http://aws.amazon.com/python/)
-+ [Ruby Developer Center](http://aws.amazon.com/ruby/)
-+ [Windows and .NET Developer Center](http://aws.amazon.com/net/)
+**Note**  
+CloudWatch Logs might log request contents for fields that aren't considered sensitive, such as API request parameters for CloudWatch Logs actions. This provides debugging information for failed API requests.
+
+This document was last published on June 12, 2026. 

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -179,9 +178,9 @@ Actions available in the `HistorySearch` context:
 
 Actions available in the `Task` context:
 
-| Action            | Default | Description             |
-| :---------------- | :------ | :---------------------- |
-| `task:background` | Ctrl+B  | Background current task |
+| Action            | Default               | Description                                                                                                                                 |
+| :---------------- | :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| `task:background` | Ctrl+B, Ctrl+X Ctrl+B | Background current task. {/* min-version: 2.1.169 */}The Ctrl+X Ctrl+B chord requires v2.1.169 or later and avoids the tmux prefix conflict |
 
 ### Theme actions
 
@@ -357,10 +356,10 @@ Actions available in the `Scroll` context when [fullscreen rendering](/en/fullsc
 
 Use modifier keys with the `+` separator:
 
-- `ctrl` or `control` - Control key
-- `shift` - Shift key
-- `alt`, `opt`, `option`, or `meta` - Alt key on Windows and Linux, Option key on macOS
-- `cmd`, `command`, `super`, or `win` - Command key on macOS, Windows key on Windows, Super key on Linux
+* `ctrl` or `control` - Control key
+* `shift` - Shift key
+* `alt`, `opt`, `option`, or `meta` - Alt key on Windows and Linux, Option key on macOS
+* `cmd`, `command`, `super`, or `win` - Command key on macOS, Windows key on Windows, Super key on Linux
 
 The `cmd` group is only detected in terminals that report the Super modifier, such as those supporting the Kitty keyboard protocol or xterm's `modifyOtherKeys` mode. Most terminals do not send it, so use `ctrl` or `meta` for bindings you want to work everywhere.
 
@@ -389,12 +388,12 @@ ctrl+k ctrl+s   Press Ctrl+K, release, then Ctrl+S
 
 ### Special keys
 
-- `escape` or `esc` - Escape key
-- `enter` or `return` - Enter key
-- `tab` - Tab key
-- `space` - Space bar
-- `up`, `down`, `left`, `right` - Arrow keys
-- `backspace`, `delete` - Delete keys
+* `escape` or `esc` - Escape key
+* `enter` or `return` - Enter key
+* `tab` - Tab key
+* `space` - Space bar
+* `up`, `down`, `left`, `right` - Arrow keys
+* `backspace`, `delete` - Delete keys
 
 ## Unbind default shortcuts
 
@@ -457,21 +456,21 @@ Some shortcuts may conflict with terminal multiplexers:
 
 When vim mode is enabled via `/config` → Editor mode, keybindings and vim mode operate independently:
 
-- **Vim mode** handles input at the text input level (cursor movement, modes, motions)
-- **Keybindings** handle actions at the component level (toggle todos, submit, etc.)
-- The Escape key in vim mode switches INSERT to NORMAL mode; it does not trigger `chat:cancel`
-- Most Ctrl+key shortcuts pass through vim mode to the keybinding system
-- In vim NORMAL mode, `?` shows the help menu (vim behavior)
-- In vim NORMAL mode, `/` opens history search, the same as Ctrl+R in standard mode
+* **Vim mode** handles input at the text input level (cursor movement, modes, motions)
+* **Keybindings** handle actions at the component level (toggle todos, submit, etc.)
+* The Escape key in vim mode switches INSERT to NORMAL mode; it does not trigger `chat:cancel`
+* Most Ctrl+key shortcuts pass through vim mode to the keybinding system
+* In vim NORMAL mode, `?` shows the help menu (vim behavior)
+* In vim NORMAL mode, `/` opens history search, the same as Ctrl+R in standard mode
 
 ## Validation
 
 Claude Code validates your keybindings and shows warnings for:
 
-- Parse errors (invalid JSON or structure)
-- Invalid context names
-- Reserved shortcut conflicts
-- Terminal multiplexer conflicts
-- Duplicate bindings in the same context
+* Parse errors (invalid JSON or structure)
+* Invalid context names
+* Reserved shortcut conflicts
+* Terminal multiplexer conflicts
+* Duplicate bindings in the same context
 
 Run `/doctor` to see any keybinding warnings.

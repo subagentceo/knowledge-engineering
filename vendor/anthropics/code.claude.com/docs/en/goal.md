@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -15,19 +14,19 @@ The `/goal` command sets a completion condition and Claude keeps working toward 
 
 Use a goal for substantial work with a verifiable end state:
 
-- Migrating a module to a new API until every call site compiles and tests pass
-- Implementing a design doc until all acceptance criteria hold
-- Splitting a large file into focused modules until each is under a size budget
-- Working through a labeled issue backlog until the queue is empty
+* Migrating a module to a new API until every call site compiles and tests pass
+* Implementing a design doc until all acceptance criteria hold
+* Splitting a large file into focused modules until each is under a size budget
+* Working through a labeled issue backlog until the queue is empty
 
 This page covers how to:
 
-- [Compare autonomous workflow approaches](#compare-to-other-autonomous-workflows): `/loop`, Stop hooks, and auto mode
-- [Set a goal](#set-a-goal) and [write an effective condition](#write-an-effective-condition)
-- [Check status](#check-status), [clear early](#clear-a-goal), and [run non-interactively](#run-non-interactively)
-- See [how evaluation works](#how-evaluation-works) and [requirements](#requirements)
+* [Compare ways to keep a session running](#compare-ways-to-keep-a-session-running): `/loop`, Stop hooks, and auto mode
+* [Set a goal](#set-a-goal) and [write an effective condition](#write-an-effective-condition)
+* [Check status](#check-status), [clear early](#clear-a-goal), and [run non-interactively](#run-non-interactively)
+* See [how evaluation works](#how-evaluation-works) and [requirements](#requirements)
 
-## Compare to other autonomous workflows
+## Compare ways to keep a session running
 
 Three approaches keep the current session running between prompts. Pick based on what should start the next turn:
 
@@ -71,9 +70,9 @@ The [evaluator](#how-evaluation-works) judges your condition against what Claude
 
 A condition that holds up across many turns usually has:
 
-- **One measurable end state**: a test result, a build exit code, a file count, an empty queue
-- **A stated check**: how Claude should prove it, such as "`npm test` exits 0" or "`git status` is clean"
-- **Constraints that matter**: anything that must not change on the way there, such as "no other test file is modified"
+* **One measurable end state**: a test result, a build exit code, a file count, an empty queue
+* **A stated check**: how Claude should prove it, such as "`npm test` exits 0" or "`git status` is clean"
+* **Constraints that matter**: anything that must not change on the way there, such as "no other test file is modified"
 
 The condition can be up to 4,000 characters.
 
@@ -89,11 +88,11 @@ Run `/goal` with no arguments to see the current state.
 
 If a goal is active, the status shows:
 
-- The condition
-- How long it has been running
-- How many turns have been evaluated
-- The current token spend
-- The evaluator's most recent reason
+* The condition
+* How long it has been running
+* How many turns have been evaluated
+* The current token spend
+* The evaluator's most recent reason
 
 If no goal is active but one was achieved earlier in the session, the status shows the achieved condition along with its duration, turn count, and token spend.
 
@@ -137,7 +136,7 @@ The evaluator runs on whichever provider your session is configured for. It does
 
 ## See also
 
-- [Run a prompt repeatedly with `/loop`](/en/scheduled-tasks#run-a-prompt-repeatedly-with-%2Floop): re-run on a time interval instead of until a condition holds
-- [Prompt-based hooks](/en/hooks-guide#prompt-based-hooks): write your own Stop hook when you need custom evaluation logic
-- [Auto mode](/en/auto-mode-config): approve tool calls automatically so each goal turn runs unattended
-- [Scheduling comparison](/en/scheduled-tasks#compare-scheduling-options): run work on a schedule independent of any open session
+* [Run a prompt repeatedly with `/loop`](/en/scheduled-tasks#run-a-prompt-repeatedly-with-%2Floop): re-run on a time interval instead of until a condition holds
+* [Prompt-based hooks](/en/hooks-guide#prompt-based-hooks): write your own Stop hook when you need custom evaluation logic
+* [Auto mode](/en/auto-mode-config): approve tool calls automatically so each goal turn runs unattended
+* [Scheduling comparison](/en/scheduled-tasks#compare-scheduling-options): run work on a schedule independent of any open session

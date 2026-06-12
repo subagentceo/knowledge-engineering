@@ -36,17 +36,9 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Learn how to get the most out of Copilot.
 
-* [Choosing your enterprise's plan for GitHub Copilot](/en/copilot/get-started/choose-enterprise-plan)
+* [Adopting GitHub Copilot in your enterprise](/en/copilot/get-started/enterprise-ai-governance)
 
-  Choose between Copilot Business and Copilot Enterprise.
-
-* [Achieving your company's engineering goals with GitHub Copilot](/en/copilot/get-started/achieve-company-goals)
-
-  Plan your rollout based on GitHub's recommended approach for driving and measuring improvements.
-
-* [Resources for getting approval of GitHub Copilot](/en/copilot/get-started/resources-for-approval)
-
-  Get ready to adopt Copilot by sending resources to legal and security teams in your company.
+  Adopt the latest GitHub Copilot features without compromising on control and governance.
 
 * [GitHub Copilot code suggestions in your IDE](/en/copilot/concepts/completions/code-suggestions)
 
@@ -71,6 +63,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [About custom agents](/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
 
   Custom agents enhance Copilot with assistance tailored to your needs.
+
+* [About Copilot automations](/en/copilot/concepts/agents/cloud-agent/about-automations)
+
+  Automations let you run Copilot cloud agent automatically, on a schedule or in response to events in a repository.
 
 * [Managing access to GitHub Copilot cloud agent](/en/copilot/concepts/agents/cloud-agent/access-management)
 
@@ -108,10 +104,6 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Plugins are installable packages that extend GitHub Copilot CLI with reusable agents, skills, hooks, and integrations.
 
-* [About enterprise-managed plugin standards for Copilot CLI](/en/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards)
-
-  Enterprise administrators can centrally define plugin policies for Copilot CLI, ensuring consistent plugin availability across their enterprise.
-
 * [Allowing GitHub Copilot CLI to work autonomously](/en/copilot/concepts/agents/copilot-cli/autopilot)
 
   The CLI's autopilot mode lets Copilot CLI work autonomously on a task, carrying out multiple steps until the task is complete.
@@ -126,7 +118,7 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [About GitHub Copilot CLI session data](/en/copilot/concepts/agents/copilot-cli/chronicle)
 
-  Copilot CLI records every session locally. You can resume previous sessions, ask Copilot questions about your interactions with the CLI, and use the `/chronicle` slash command for useful session-based insights.
+  Your Copilot CLI sessions build a searchable history of everything you have worked on. Query past sessions with natural language, generate standup reports, get personalized tips, and resume previous work.
 
 * [About the rubber duck agent](/en/copilot/concepts/agents/copilot-cli/rubber-duck)
 
@@ -146,19 +138,31 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [About GitHub Copilot code review](/en/copilot/concepts/agents/code-review)
 
-  Find out how Copilot can review pull requests for you.
+  Copilot reviews your pull requests, identifies issues, and suggests fixes you can apply in a couple of clicks.
+
+* [About GitHub Agentic Workflows](/en/copilot/concepts/agents/about-github-agentic-workflows)
+
+  Automate repetitive repository work with natural language instructions executed by AI coding agents in GitHub Actions.
 
 * [About GitHub Copilot Memory](/en/copilot/concepts/agents/copilot-memory)
 
-  Find out how Copilot can store repository-level facts and user-level preferences, and use that knowledge in future work.
+  Copilot Memory helps Copilot become more effective over time by remembering facts about your repositories and your personal coding preferences.
 
 * [About hooks for GitHub Copilot](/en/copilot/concepts/agents/hooks)
 
   Extend and customize GitHub Copilot agent behavior by executing custom shell commands at key points during agent execution.
 
-* [About third-party agents](/en/copilot/concepts/agents/about-third-party-agents)
+* [About enterprise-managed plugin standards](/en/copilot/concepts/agents/about-enterprise-plugin-standards)
 
-  You can incorporate coding agents into your development workflows on GitHub.
+  Enterprise administrators can centrally define plugin policies for users, ensuring consistent plugin availability.
+
+* [About third-party coding agents](/en/copilot/concepts/agents/about-third-party-coding-agents)
+
+  You can use third-party coding agents alongside Copilot cloud agent to work asynchronously on your development tasks on GitHub.
+
+* [About agent apps](/en/copilot/concepts/agents/agent-apps)
+
+  Agent apps let you use partner-built agents directly in your workflows on GitHub, powered by your Copilot subscription.
 
 * [OpenAI Codex](/en/copilot/concepts/agents/openai-codex)
 
@@ -175,6 +179,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Agent management for enterprises](/en/copilot/concepts/agents/enterprise-management)
 
   Maintain your enterprise's security and compliance standards and supercharge your developers by managing agents with AI Controls.
+
+* [About cloud and local sandboxes for GitHub Copilot](/en/copilot/concepts/about-cloud-and-local-sandboxes)
+
+  Cloud and local sandboxes for GitHub Copilot provide isolated execution environments that let Copilot safely interact with code, tools, filesystem, and network resources securely on your local machine or in fully isolated cloud environments.
 
 * [About GitHub Spark](/en/copilot/concepts/spark)
 
@@ -216,9 +224,21 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Integrate Copilot with other tools and platforms to streamline your workflow.
 
-* [About Copilot auto model selection](/en/copilot/concepts/auto-model-selection)
+* [Utility models](/en/copilot/concepts/models/utility-models)
 
-  Automatically select models for Copilot Chat, Copilot cloud agent, and third-party agents.
+  Utility models power background Copilot features.
+
+* [About Copilot auto model selection](/en/copilot/concepts/models/auto-model-selection)
+
+  Automatically select the best model for each task.
+
+* [FedRAMP-compliant models for GitHub Copilot](/en/copilot/concepts/models/fedramp-models)
+
+  Restrict users to models with FedRAMP Moderate certification.
+
+* [Base and long-term support (LTS) models](/en/copilot/concepts/models/fallback-and-lts-models)
+
+  Learn about base models, long-term support (LTS) models, and how they affect model availability for enterprises using GitHub Copilot.
 
 * [Usage limits for GitHub Copilot](/en/copilot/concepts/usage-limits)
 
@@ -226,31 +246,23 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [Usage-based billing for individuals](/en/copilot/concepts/billing/usage-based-billing-for-individuals)
 
-  Your Copilot plan will include a monthly allowance of GitHub AI Credits. If you exhaust your AI credits, you can pay extra to keep working.
+  Your Copilot plan includes a monthly allowance of GitHub AI Credits. If you exhaust your AI credits, you can pay extra to keep working.
 
 * [Usage-based billing for organizations and enterprises](/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises)
 
-  Prepare for the transition to usage-based billing for Copilot Business and Copilot Enterprise.
+  Under usage-based billing, Copilot usage in organizations and enterprises is measured in AI credits.
 
-* [Requests in GitHub Copilot](/en/copilot/concepts/billing/copilot-requests)
+* [Budgets for usage-based billing](/en/copilot/concepts/billing/budgets-for-usage-based-billing)
 
-  Learn about requests in Copilot, including premium requests, how they work, and how to manage your usage effectively.
+  Under usage-based billing, budget controls at the user, cost center, and enterprise levels determine how Copilot usage is served, metered, or blocked.
 
 * [About individual GitHub Copilot plans and benefits](/en/copilot/concepts/billing/individual-plans)
 
   GitHub offers several Copilot plans for individual developers, each with different features, model access, and usage limits to support a wide range of coding needs.
 
-* [About billing for individual GitHub Copilot plans](/en/copilot/concepts/billing/billing-for-individuals)
-
-  Learn how billing works for Copilot Pro and Copilot Pro+.
-
 * [About billing for GitHub Copilot in organizations and enterprises](/en/copilot/concepts/billing/organizations-and-enterprises)
 
   Learn about pricing and billing cycles for Copilot.
-
-* [Management methods for premium request usage in an enterprise](/en/copilot/concepts/billing/premium-request-management)
-
-  Learn about organization and user-based control of premium requests for enterprises.
 
 * [About enterprise accounts for Copilot Business](/en/copilot/concepts/about-enterprise-accounts-for-copilot-business)
 
@@ -264,17 +276,9 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   You can manage MCP server usage to provide your developers with valuable tools while maintaining security and compliance.
 
-* [FedRAMP-compliant models for GitHub Copilot](/en/copilot/concepts/fedramp-models)
-
-  Restrict users to models with FedRAMP Moderate certification.
-
 * [Network settings for GitHub Copilot](/en/copilot/concepts/network-settings)
 
   You can connect to GitHub Copilot through an HTTP proxy and use custom certificates.
-
-* [Base and long-term support (LTS) models](/en/copilot/concepts/fallback-and-lts-models)
-
-  Learn about base models, long-term support (LTS) models, and how they affect model availability for enterprises using GitHub Copilot.
 
 * [Preparing for new features and models](/en/copilot/concepts/preparing-for-new-features-and-models)
 
@@ -352,10 +356,6 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   You can modify Copilot's behavior and abilities when it works on particular tasks.
 
-* [Connect agents to external tools](/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/extend-cloud-agent-with-mcp)
-
-  Connect Copilot cloud agent to external tools and data sources through the Model Context Protocol (MCP).
-
 * [Customize agent workflows with hooks](/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/use-hooks)
 
   Run automated checks—like linting, formatting, or security scans—at key points during agent execution to enforce quality standards.
@@ -375,6 +375,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Testing and releasing custom agents in your organization or enterprise](/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/test-custom-agents)
 
   Ensure your custom agents are performant and compliant before releasing them to your company.
+
+* [Configure MCP servers for your repository](/en/copilot/how-tos/copilot-on-github/customize-copilot/configure-mcp-servers)
+
+  Configure Model Context Protocol (MCP) servers for your repository to give Copilot cloud agent and Copilot code review access to external tools and data sources.
 
 * [Creating GitHub Copilot Spaces](/en/copilot/how-tos/copilot-on-github/customize-copilot/copilot-spaces/create-copilot-spaces)
 
@@ -408,9 +412,9 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Perform deep research on a repository, create an implementation plan, and make iterative code changes on a branch, then create a pull request when you're ready.
 
-* [Manage and track Copilot cloud agent sessions](/en/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
+* [Managing agent sessions](/en/copilot/how-tos/copilot-on-github/use-copilot-agents/manage-and-track-agents)
 
-  Monitor your agent's progress in real time, steer it with follow-up prompts, and stop or archive sessions.
+  Monitor an agent's progress in real time, steer it with follow-up prompts, and stop or archive sessions.
 
 * [Using GitHub Copilot code review on GitHub](/en/copilot/how-tos/copilot-on-github/use-copilot-agents/copilot-code-review)
 
@@ -418,7 +422,7 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [Review output from Copilot](/en/copilot/how-tos/copilot-on-github/use-copilot-agents/review-copilot-output)
 
-  Copilot pull requests deserve the same thorough review as any contribution. Mention `@copilot` to request changes, or push commits directly to the branch.
+  Copilot pull requests deserve the same thorough review as any contribution.
 
 * [Setting up GitHub Copilot for yourself](/en/copilot/how-tos/set-up/set-up-for-self)
 
@@ -476,9 +480,17 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Control which tools Copilot CLI can use to avoid unintended changes.
 
+* [Use voice input with Copilot CLI](/en/copilot/how-tos/copilot-cli/use-copilot-cli/voice-input)
+
+  Speak your prompts to GitHub Copilot CLI instead of typing them, using the CLI's speech-to-text feature.
+
 * [Connecting GitHub Copilot CLI to VS Code](/en/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code)
 
   Connect Copilot CLI to VS Code to share context, trust settings, and output.
+
+* [Browsing issues, pull requests, and gists from GitHub Copilot CLI](/en/copilot/how-tos/copilot-cli/use-copilot-cli/browse-issues-prs-gists)
+
+  Use the tabs in an interactive Copilot CLI session to browse issues, pull requests and gists, without leaving the terminal.
 
 * [Rolling back changes made during a GitHub Copilot CLI session](/en/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes)
 
@@ -507,6 +519,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Running GitHub Copilot CLI programmatically](/en/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically)
 
   Use Copilot CLI in the terminal, in scripts, or in Actions workflows.
+
+* [Scheduling prompts in GitHub Copilot CLI](/en/copilot/how-tos/copilot-cli/automate-copilot-cli/schedule-prompts)
+
+  Use the `/every` and `/after` slash commands to submit a prompt to Copilot on a recurring schedule, or after a specified delay.
 
 * [Automating tasks with Copilot CLI and GitHub Actions](/en/copilot/how-tos/copilot-cli/automate-copilot-cli/automate-with-actions)
 
@@ -556,6 +572,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Control the use of Copilot CLI within your enterprise.
 
+* [Configuring local sandbox settings](/en/copilot/how-tos/cloud-and-local-sandboxes/configuring-local-sandbox-settings)
+
+  Use the `/sandbox` slash command in Copilot CLI to control how the local sandbox restricts filesystem access, network connectivity, and system capabilities.
+
 * [Getting started with the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/getting-started)
 
   Sign in to the GitHub Copilot app, ask your first question in a quick chat, and then create a full agent session to make changes to your code.
@@ -568,137 +588,206 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Run multiple isolated agent sessions simultaneously, each with its own branch, and steer them using different session modes, models, and tools.
 
+* [Working with canvas extensions in the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/working-with-canvas-extensions)
+
+  Use canvases in the GitHub Copilot app to build shared, agent-driven artifacts and interfaces for human-agent collaboration.
+
 * [Managing issues and pull requests with the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/managing-issues-and-pull-requests)
 
   Pick up an issue, direct an agent to implement changes, and land a pull request—all without leaving the GitHub Copilot app.
 
-* [Using scheduled workflows in the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/using-scheduled-workflows)
+* [Using automations in the GitHub Copilot app](/en/copilot/how-tos/github-copilot-app/using-automations)
 
   Automate recurring agent tasks so they run on a schedule or on demand, without manual intervention.
 
-* [Getting started with Copilot SDK](/en/copilot/how-tos/copilot-sdk/sdk-getting-started)
+* [Authentication](/en/copilot/how-tos/copilot-sdk/auth/authenticate)
 
-  Learn how to install Copilot SDK and send your first message.
+  The GitHub Copilot SDK supports multiple authentication methods to fit different use cases. Choose the method that best matches your deployment scenario.
 
-* [Choosing a setup path for Copilot SDK](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/choosing-a-setup-path)
+* [BYOK (bring your own key)](/en/copilot/how-tos/copilot-sdk/auth/byok)
 
-  Find the right setup guide that matches how you plan to use Copilot SDK.
+  BYOK allows you to use the Copilot SDK with your own API keys from model providers, bypassing GitHub Copilot authentication. This is useful for enterprise deployments, custom model hosting, or when you want direct billing with your model provider.
 
-* [Using Azure Managed Identity with Copilot SDK](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/azure-managed-identity)
+* [The agent loop](/en/copilot/how-tos/copilot-sdk/features/agent-loop)
 
-  Use Azure Managed Identity (Entra ID) to authenticate GitHub Copilot SDK with Azure AI Foundry models instead of static API keys.
+  How the Copilot CLI processes a user message end-to-end: from prompt to `session.idle`.
 
-* [Setting up Copilot SDK for backend services](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/backend-services)
+* [Cloud sessions](/en/copilot/how-tos/copilot-sdk/features/cloud-sessions)
 
-  Run GitHub Copilot SDK in server-side applications such as APIs, web backends, microservices, and background workers.
+  Run Copilot sessions on GitHub-hosted compute through Mission Control instead of local CLI sessions.
 
-* [Using a bundled CLI with Copilot SDK](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/bundled-cli)
+* [Custom agents and sub-agent orchestration](/en/copilot/how-tos/copilot-sdk/features/custom-agents)
 
-  Package Copilot CLI alongside your application so that users do not need to install or configure anything separately.
+  Define specialized agents with scoped tools and prompts, then let Copilot
+  orchestrate them as sub-agents within a single session.
 
-* [Using GitHub OAuth with Copilot SDK](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/github-oauth)
+* [Fleet mode](/en/copilot/how-tos/copilot-sdk/features/fleet-mode)
 
-  Let users authenticate with their GitHub accounts to use GitHub Copilot through your application.
+  Use fleet mode to split work across multiple sub-agents and combine their results in one parent session.
 
-* [Using a local CLI with Copilot SDK](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/local-cli)
+* [Working with hooks](/en/copilot/how-tos/copilot-sdk/features/hooks)
 
-  Use GitHub Copilot SDK with the CLI already signed in on your machine—the simplest configuration, with no auth code or infrastructure required.
+  Hooks let you plug custom logic into every stage of a Copilot session—from the moment it starts, through each user prompt and tool call, to the moment it ends. This guide walks through practical use cases so you can ship permissions, auditing, notifications, and more without modifying the core agent behavior.
 
-* [Scaling Copilot SDK deployments](/en/copilot/how-tos/copilot-sdk/set-up-copilot-sdk/scaling)
+* [Image input](/en/copilot/how-tos/copilot-sdk/features/image-input)
 
-  Design your GitHub Copilot SDK deployment to serve multiple users, handle concurrent sessions, and scale horizontally across infrastructure.
+  Send images to Copilot sessions as attachments. There are two ways to attach images:
 
-* [Authenticating with Copilot SDK](/en/copilot/how-tos/copilot-sdk/authenticate-copilot-sdk/authenticate-copilot-sdk)
+* [Using MCP servers with the GitHub Copilot SDK](/en/copilot/how-tos/copilot-sdk/features/mcp)
 
-  Choose the authentication method in GitHub Copilot SDK that best fits your deployment scenario.
+  The Copilot SDK can integrate with **MCP servers** (Model Context Protocol) to extend the assistant's capabilities with external tools. MCP servers run as separate processes and expose tools (functions) that Copilot can invoke during conversations.
 
-* [Bring your own key (BYOK)](/en/copilot/how-tos/copilot-sdk/authenticate-copilot-sdk/bring-your-own-key)
+* [Plugin directories](/en/copilot/how-tos/copilot-sdk/features/plugin-directories)
 
-  Use Copilot SDK with your own API keys from different model providers, bypassing GitHub Copilot authentication.
+  Use plugin directories to load skills, hooks, MCP servers, custom agents, and LSP settings from a single manifest.
 
-* [Working with hooks](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/working-with-hooks)
+* [Remote sessions](/en/copilot/how-tos/copilot-sdk/features/remote-sessions)
 
-  Use hooks to customize the behavior of your Copilot SDK sessions.
+  Remote sessions let users access their Copilot session from GitHub web and mobile via [Mission Control](https://github.com). When enabled, the SDK connects each session to Mission Control, producing a URL that can be shared as a link or QR code.
 
-* [Custom agents and sub-agent orchestration](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-agents)
+* [Session resume and persistence](/en/copilot/how-tos/copilot-sdk/features/session-persistence)
 
-  Define specialized agents with scoped tools and prompts, and let Copilot orchestrate them as sub-agents within a single session.
+  This guide walks you through the SDK's session persistence capabilities—how to pause work, resume it later, and manage sessions in production environments.
 
-* [Using image input with the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/image-input)
+* [Custom skills](/en/copilot/how-tos/copilot-sdk/features/skills)
 
-  Send images to Copilot SDK sessions as file or blob attachments.
+  Skills are reusable prompt modules that extend Copilot's capabilities. Load skills from directories to give Copilot specialized abilities for specific domains or workflows.
 
-* [Using MCP servers with the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/mcp-servers)
+* [Steering and queueing](/en/copilot/how-tos/copilot-sdk/features/steering-and-queueing)
 
-  Integrate MCP servers with the Copilot SDK to extend your application's capabilities with external tools.
+  Two interaction patterns let users send messages while the agent is already working: **steering** redirects the agent mid-turn, and **queueing** buffers messages for sequential processing after the current turn completes.
 
-* [Session persistence in the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/session-persistence)
+* [Streaming session events](/en/copilot/how-tos/copilot-sdk/features/streaming-events)
 
-  Pause, resume, and manage Copilot SDK sessions across restarts and deployments.
+  Every action the Copilot agent takes—thinking, writing code, running tools—is emitted as a **session event** you can subscribe to. This guide is a field-level reference for each event type so you know exactly what data to expect without reading the SDK source.
 
-* [Using custom skills with the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/custom-skills)
+* [Build your first Copilot-powered app](/en/copilot/how-tos/copilot-sdk/getting-started)
 
-  Use skills to extend Copilot's capabilities with reusable prompt modules.
+  In this tutorial, you'll use the Copilot SDK to build a command-line assistant. You'll start with the basics, add streaming responses, then add custom tools - giving Copilot the ability to call your code.
 
-* [Steering and queueing messages in the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/steering-and-queueing)
+* [Error handling hook](/en/copilot/how-tos/copilot-sdk/hooks/error-handling)
 
-  Send messages to an active Copilot SDK session to redirect it mid-turn or queue follow-up tasks.
+  The `onErrorOccurred` hook is called when errors occur during session execution. Use it to:
 
-* [Streaming events in the Copilot SDK](/en/copilot/how-tos/copilot-sdk/use-copilot-sdk/streaming-events)
+* [Session hooks](/en/copilot/how-tos/copilot-sdk/hooks/hooks-overview)
 
-  Reference session events emitted by the Copilot SDK and the data fields each event contains.
+  Hooks allow you to intercept and customize the behavior of Copilot sessions at key points in the conversation lifecycle. Use hooks to:
 
-* [Quickstart for hooks](/en/copilot/how-tos/copilot-sdk/use-hooks/quickstart)
+* [Post-tool use hook](/en/copilot/how-tos/copilot-sdk/hooks/post-tool-use)
 
-  Get started with hooks in Copilot SDK to control tool execution, transform results, add context, handle errors, and audit interactions.
+  The `onPostToolUse` hook is called **after** a tool executes **successfully**. Use it to:
 
-* [Pre-tool use hook](/en/copilot/how-tos/copilot-sdk/use-hooks/pre-tool-use)
+* [Pre-tool use hook](/en/copilot/how-tos/copilot-sdk/hooks/pre-tool-use)
 
-  Use the `onPreToolUse` hook to control tool execution, modify arguments, and add context before a tool runs in Copilot SDK.
+  The `onPreToolUse` hook is called **before** a tool executes. Use it to:
 
-* [Post-tool use hook](/en/copilot/how-tos/copilot-sdk/use-hooks/post-tool-use)
+* [Session lifecycle hooks](/en/copilot/how-tos/copilot-sdk/hooks/session-lifecycle)
 
-  Use the `onPostToolUse` hook to transform tool results, log tool execution, and add context after a tool runs in Copilot SDK.
+  Session lifecycle hooks let you respond to session start and end events. Use them to:
 
-* [User prompt submitted hook](/en/copilot/how-tos/copilot-sdk/use-hooks/user-prompt-submitted)
+* [User prompt submitted hook](/en/copilot/how-tos/copilot-sdk/hooks/user-prompt-submitted)
 
-  Use the `onUserPromptSubmitted` hook to modify prompts, add context, and filter user input in Copilot SDK.
+  The `onUserPromptSubmitted` hook is called when a user submits a message. Use it to:
 
-* [Session lifecycle hooks](/en/copilot/how-tos/copilot-sdk/use-hooks/session-lifecycle)
+* [Microsoft agent framework integration](/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
 
-  Use the `onSessionStart` and `onSessionEnd` hooks to initialize context, clean up resources, and track session metrics in Copilot SDK.
-
-* [Error handling hook](/en/copilot/how-tos/copilot-sdk/use-hooks/error-handling)
-
-  Use the `onErrorOccurred` hook to implement custom error logging, track error patterns, and provide user-friendly error messages in Copilot SDK.
+  Use the Copilot SDK as an agent provider inside the [Microsoft Agent Framework](https://devblogs.microsoft.com/semantic-kernel/build-ai-agents-with-github-copilot-sdk-and-microsoft-agent-framework/) (MAF) to compose multi-agent workflows alongside Azure OpenAI, Anthropic, and other providers.
 
 * [OpenTelemetry instrumentation for Copilot SDK](/en/copilot/how-tos/copilot-sdk/observability/opentelemetry)
 
-  Learn how to add OpenTelemetry tracing to your Copilot SDK applications.
+  This guide shows how to add OpenTelemetry tracing to your Copilot SDK applications.
 
-* [Microsoft Agent Framework integration](/en/copilot/how-tos/copilot-sdk/integrations/microsoft-agent-framework)
+* [Azure managed identity with BYOK](/en/copilot/how-tos/copilot-sdk/setup/azure-managed-identity)
 
-  Use Copilot SDK as an agent provider inside the Microsoft Agent Framework to build and orchestrate multi-agent workflows alongside other AI providers.
+  The Copilot SDK's BYOK (bring your own key) accepts static API keys, but Azure deployments often use Managed Identity (Entra ID) instead of long-lived keys. Since the SDK doesn't natively support Entra ID authentication, you can use a short-lived bearer token via the bearer\_token provider config field.
 
-* [SDK and CLI compatibility](/en/copilot/how-tos/copilot-sdk/troubleshooting/sdk-and-cli-compatibility)
+* [Backend services setup](/en/copilot/how-tos/copilot-sdk/setup/backend-services)
 
-  Compare which Copilot CLI features are available through Copilot SDK, identify CLI-only features, and find programmatic workarounds.
+  Run the Copilot SDK in server-side applications—APIs, web backends, microservices, and background workers. The CLI runs as a headless server that your backend code connects to over the network.
 
-* [Debugging Copilot SDK](/en/copilot/how-tos/copilot-sdk/troubleshooting/debug-copilot-sdk)
+* [Default setup (bundled CLI)](/en/copilot/how-tos/copilot-sdk/setup/bundled-cli)
 
-  Enable debug logging and resolve common connection, authentication, and tool execution issues in Copilot SDK.
+  The Node.js, Python, and .NET SDKs include the Copilot CLI as a dependency—your app ships with everything it needs, with no extra installation or configuration required.
 
-* [Debugging MCP servers in Copilot SDK](/en/copilot/how-tos/copilot-sdk/troubleshooting/debug-mcp-servers)
+* [Setup guides](/en/copilot/how-tos/copilot-sdk/setup/choosing-a-setup-path)
 
-  Diagnose and fix issues with MCP servers integrated with Copilot SDK, including server startup failures, tool discovery problems, and protocol errors.
+  These guides walk you through configuring the Copilot SDK for your specific use case—from personal side projects to production platforms serving thousands of users.
+
+* [GitHub OAuth setup](/en/copilot/how-tos/copilot-sdk/setup/github-oauth)
+
+  Let users authenticate with their GitHub accounts to use Copilot through your application. This supports individual accounts, organization memberships, and enterprise identities.
+
+* [Local CLI setup](/en/copilot/how-tos/copilot-sdk/setup/local-cli)
+
+  Use a specific CLI binary instead of the SDK's bundled CLI. This is an advanced option—you supply the CLI path explicitly, and you are responsible for ensuring version compatibility with the SDK.
+
+* [Multi-tenancy and server deployments](/en/copilot/how-tos/copilot-sdk/setup/multi-tenancy)
+
+  Run the Copilot SDK in multi-user server deployments with per-session isolation for state, authentication, and tools.
+
+* [Scaling and multi-tenancy](/en/copilot/how-tos/copilot-sdk/setup/scaling)
+
+  Design your Copilot SDK deployment to serve multiple users, handle concurrent sessions, and scale horizontally across infrastructure. This guide covers session isolation patterns, scaling topologies, and production best practices.
+
+* [SDK and CLI compatibility](/en/copilot/how-tos/copilot-sdk/troubleshooting/compatibility)
+
+  This document outlines which Copilot CLI features are available through the SDK and which are CLI-only.
+
+* [Debugging guide](/en/copilot/how-tos/copilot-sdk/troubleshooting/debugging)
+
+  This guide covers common issues and debugging techniques for the Copilot SDK across all supported languages.
+
+* [MCP server debugging guide](/en/copilot/how-tos/copilot-sdk/troubleshooting/mcp-debugging)
+
+  This guide covers debugging techniques specific to MCP (Model Context Protocol) servers when using the Copilot SDK.
 
 * [Starting GitHub Copilot sessions](/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions)
 
-  You can start Copilot cloud agent from many places, including the agents tab or panel on GitHub, GitHub Issues, Copilot Chat, and IDEs like Visual Studio Code.
+  Choose your preferred way to start Copilot cloud agent sessions.
 
-* [Tracking GitHub Copilot's sessions](/en/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions)
+* [Creating automations with Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-automations)
 
-  You can use the agents panel or page, Visual Studio Code, JetBrains IDEs, Eclipse, the GitHub CLI, Raycast and session logs to track Copilot's progress and understand its approach.
+  Create and manage automations to run Copilot cloud agent on a schedule or in response to events.
+
+* [Changing the AI model for GitHub Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model)
+
+  In supported entrypoints, when starting a task with Copilot cloud agent, you can select the model used.
+
+* [Configuring settings for GitHub Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings)
+
+  Learn how to configure settings for Copilot cloud agent
+
+* [Creating custom agents for Copilot cloud agent in your IDE](/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide)
+
+  You can create specialized agents with tailored expertise for specific development tasks.
+
+* [Using Copilot cloud agent on GitHub](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-github)
+
+  Start Copilot cloud agent sessions directly on GitHub, then iterate on the results without leaving your browser.
+
+* [Using Copilot cloud agent on GitHub Mobile](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-on-mobile)
+
+  Start and track Copilot cloud agent sessions from the GitHub Mobile app.
+
+* [Using agent apps](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-agent-apps)
+
+  Start a partner-built agent from an issue, a pull request comment, or the Agents UI on GitHub.
+
+* [Using Copilot cloud agent in your IDE](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-in-your-ide)
+
+  Start and track Copilot cloud agent sessions from Visual Studio Code, JetBrains IDEs, Eclipse, and Visual Studio.
+
+* [Using Copilot cloud agent via the API](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-via-the-api)
+
+  You can start and manage Copilot cloud agent tasks programmatically using the REST API.
+
+* [Using Copilot cloud agent from the GitHub CLI](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-from-cli)
+
+  Start and track Copilot cloud agent sessions from the GitHub CLI.
+
+* [Using Copilot cloud agent via the GitHub MCP Server](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-with-mcp)
+
+  Start Copilot cloud agent sessions from any IDE or agentic tool that supports Model Context Protocol (MCP).
 
 * [Integrating Copilot cloud agent with Jira](/en/copilot/how-tos/use-copilot-agents/cloud-agent/integrate-cloud-agent-with-jira)
 
@@ -720,21 +809,9 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Use the Copilot integration in Azure Boards to send work items directly to Copilot cloud agent and generate pull requests, all from within your Azure DevOps workspace.
 
-* [Using Copilot cloud agent via the API](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-via-the-api)
+* [Using Copilot cloud agent from Raycast](/en/copilot/how-tos/use-copilot-agents/cloud-agent/use-cloud-agent-from-raycast)
 
-  You can start and manage Copilot cloud agent tasks programmatically using the REST API.
-
-* [Changing the AI model for GitHub Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/changing-the-ai-model)
-
-  In supported entrypoints, when starting a task with Copilot cloud agent, you can select the model used.
-
-* [Configuring settings for GitHub Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/configuring-agent-settings)
-
-  Learn how to configure settings for Copilot cloud agent
-
-* [Creating custom agents for Copilot cloud agent in your IDE](/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide)
-
-  You can create specialized agents with tailored expertise for specific development tasks.
+  Start and track Copilot cloud agent sessions from the Raycast launcher.
 
 * [Troubleshooting GitHub Copilot cloud agent](/en/copilot/how-tos/use-copilot-agents/cloud-agent/troubleshoot-cloud-agent)
 
@@ -744,9 +821,13 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Learn how to request a code review from GitHub Copilot.
 
-* [Managing and curating Copilot Memory](/en/copilot/how-tos/use-copilot-agents/copilot-memory)
+* [Managing Copilot Memory for your personal account](/en/copilot/how-tos/use-copilot-agents/copilot-memory/manage-for-yourself)
 
-  Learn how to manage Copilot Memory settings, and how to view and delete stored repository-level facts and user-level preferences.
+  Review and manage the coding conventions, preferences, and other details that Copilot has stored from your interactions.
+
+* [Managing Copilot Memory for an organization or enterprise](/en/copilot/how-tos/use-copilot-agents/copilot-memory/manage-as-administrator)
+
+  Manage Copilot Memory settings and stored memories for an organization or enterprise.
 
 * [Changing the AI model for GitHub Copilot Chat](/en/copilot/how-tos/use-ai-models/change-the-chat-model)
 
@@ -812,29 +893,13 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Update your development environment to access a Copilot plan for an account on GHE.com.
 
-* [Preparing your organization for usage-based billing](/en/copilot/how-tos/manage-and-track-spending/prepare-for-usage-based-billing)
-
-  Review your estimated costs under usage-based billing and take steps to prepare your organization before the transition.
-
-* [Preparing for your move to usage-based billing](/en/copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing)
-
-  If you're on a Copilot Pro or Copilot Pro+ plan, review your estimated costs under usage-based billing and take steps to prepare before the transition.
-
-* [Monitoring your GitHub Copilot usage and entitlements](/en/copilot/how-tos/manage-and-track-spending/monitor-premium-requests)
-
-  Learn how you can monitor your monthly usage of Copilot and get the most value out of your Copilot plan.
-
-* [Managing the premium request allowance for your organization or enterprise](/en/copilot/how-tos/manage-and-track-spending/manage-request-allowances)
-
-  Configure policies and budgets for premium requests, or upgrade users to Copilot Enterprise.
-
 * [Managing your company's spending on GitHub Copilot](/en/copilot/how-tos/manage-and-track-spending/manage-company-spending)
 
   Learn how to track spending, view usage, and optimize license distribution.
 
 * [Getting started with a GitHub Copilot plan](/en/copilot/how-tos/manage-your-account/get-started-with-a-copilot-plan)
 
-  You can use Copilot for free, or choose a paid plan to unlock additional features, models, and request limits.
+  You can use Copilot for free, or choose a paid plan to unlock additional features, models, and limits.
 
 * [Viewing and changing your GitHub Copilot plan](/en/copilot/how-tos/manage-your-account/view-and-change-your-copilot-plan)
 
@@ -884,6 +949,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Configure the repository that stores custom agents for your organization.
 
+* [Managing default models](/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-default-models)
+
+  Configure which default Copilot models are available to members of your organization.
+
 * [Reviewing user activity data for GitHub Copilot in your organization](/en/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data)
 
   Review GitHub Copilot usage in your organization to make informed decisions about seat assignment.
@@ -932,7 +1001,7 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Set up your enterprise for custom agents by configuring their source organization and repository, availability, and management permissions.
 
-* [Configuring enterprise plugin standards for Copilot CLI](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)
+* [Configuring enterprise plugin standards](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)
 
   Configure enterprise plugin standards by defining a `settings.json` file in your enterprise's `.github-private` repository.
 
@@ -944,17 +1013,21 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Choose which organizations can use Copilot cloud agent and connect it to MCP servers.
 
-* [Blocking GitHub Copilot cloud agent in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-copilot-cloud-agent)
+* [Blocking agentic features in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/block-agentic-features)
 
-  Disable use of Copilot cloud agent for all users and repositories.
+  Disable features for all users and repositories.
 
-* [Managing GitHub Copilot code review in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/manage-copilot-code-review)
+* [Enabling GitHub Copilot code review in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/enable-copilot-code-review)
 
-  Enable members of your enterprise to use Copilot to review code and create pull request summaries.
+  Apply consistent standards by having Copilot review every pull request.
 
 * [Managing GitHub Spark in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark)
 
   Enable and manage GitHub Spark for your enterprise.
+
+* [Managing availability of default models](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-availability-of-default-models)
+
+  You can control which Copilot models are available to specific organizations.
 
 * [Using your LLM provider API keys with Copilot](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys)
 
@@ -1084,10 +1157,6 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   See per-token pricing for the models available in GitHub Copilot and reference rates for additional usage across plans.
 
-* [Model multipliers for annual plans staying on request-based billing](/en/copilot/reference/copilot-billing/model-multipliers-for-annual-plans)
-
-  After June 1, 2026, model multipliers will change for Copilot Pro and Copilot Pro+ subscribers staying on annual plans under request-based billing.
-
 * [GitHub Copilot billing cycle](/en/copilot/reference/copilot-billing/billing-cycle)
 
   Learn about the billing cycle for GitHub Copilot in organizations and enterprises.
@@ -1103,6 +1172,22 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [GitHub Copilot billing through Azure](/en/copilot/reference/copilot-billing/azure-billing)
 
   Learn how metered billing for GitHub Copilot works when you are connected to an Azure subscription, including billing cycles, invoicing, and usage tracking.
+
+* [What changed with Copilot billing (legacy)](/en/copilot/reference/copilot-billing/request-based-billing-legacy/what-changed-with-billing)
+
+  Learn about what changed with billing and what your options are as a Copilot Pro and Copilot Pro+ annual plan subscriber on the legacy billing model.
+
+* [Requests in GitHub Copilot (legacy)](/en/copilot/reference/copilot-billing/request-based-billing-legacy/copilot-requests)
+
+  Learn about requests in Copilot, including premium requests, how they work, and how to manage your usage effectively.
+
+* [Monitoring your GitHub Copilot usage and entitlements (legacy)](/en/copilot/reference/copilot-billing/request-based-billing-legacy/monitor-premium-requests)
+
+  Learn how you can monitor your monthly usage of Copilot and get the most value out of your Copilot plan.
+
+* [Model multipliers for annual plans on request-based billing (legacy)](/en/copilot/reference/copilot-billing/request-based-billing-legacy/model-multipliers-for-annual-plans)
+
+  Model multipliers for Copilot Pro and Copilot Pro+ subscribers staying on annual plans under request-based billing.
 
 * [Audit log events for agents](/en/copilot/reference/agentic-audit-log-events)
 
@@ -1140,139 +1225,143 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   See an example schema of the data returned by the Copilot usage metrics API.
 
-* [Creating templates](/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-templates)
+* [Creating templates](/en/copilot/tutorials/copilot-cookbook/communicate-effectively/creating-templates)
 
   Copilot Chat can help you create templates to streamline your workflow and ensure consistency across your projects.
 
-* [Extracting information](/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/extracting-information)
+* [Triage and summarize repository activity](/en/copilot/tutorials/copilot-cookbook/communicate-effectively/summarize-repository-activity)
 
-  Copilot Chat in GitHub can help you extract key information from issues and discussions.
+  Copilot can extract key information from repositories you follow to keep you up-to-date on recent activity.
 
-* [Synthesizing research](/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/synthesizing-research)
+* [Synthesizing research](/en/copilot/tutorials/copilot-cookbook/communicate-effectively/synthesizing-research)
 
   Copilot Chat can help you synthesize research findings and insights from multiple sources into a cohesive summary.
 
-* [Creating diagrams](/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams)
+* [Creating diagrams](/en/copilot/tutorials/copilot-cookbook/communicate-effectively/creating-diagrams)
 
   GitHub Copilot Chat can help you create diagrams to better understand your data and communicate insights.
 
-* [Generating tables](/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/generating-tables)
+* [Generating tables](/en/copilot/tutorials/copilot-cookbook/communicate-effectively/generating-tables)
 
   Copilot Chat can help you create tables to organize information and present it clearly.
 
-* [Debugging invalid JSON](/en/copilot/tutorials/copilot-chat-cookbook/debug-errors/debug-invalid-json)
+* [Debugging invalid JSON](/en/copilot/tutorials/copilot-cookbook/debug-errors/debug-invalid-json)
 
   Copilot Chat can identify and resolve syntax errors or structural issues in JSON data.
 
-* [Handling API rate limits](/en/copilot/tutorials/copilot-chat-cookbook/debug-errors/handle-api-rate-limits)
+* [Handling API rate limits](/en/copilot/tutorials/copilot-cookbook/debug-errors/handle-api-rate-limits)
 
   Copilot Chat can help handle API rate limits by suggesting code that detects them and implements retry logic.
 
-* [Diagnosing test failures](/en/copilot/tutorials/copilot-chat-cookbook/debug-errors/diagnose-test-failures)
+* [Diagnosing CI test failures](/en/copilot/tutorials/copilot-cookbook/debug-errors/diagnose-ci-test-failures)
 
-  Copilot Chat can help you understand why a test is failing and suggest how to fix it.
+  Use Copilot CLI to pull CI logs, correlate failures to local code, and fix issues without leaving the terminal.
 
-* [Exploring potential feature implementations](/en/copilot/tutorials/copilot-chat-cookbook/analyze-functionality/explore-implementations)
+* [Exploring potential feature implementations](/en/copilot/tutorials/copilot-cookbook/analyze-functionality/explore-implementations)
 
   Copilot Chat can help explore different approaches for implementing a single feature.
 
-* [Analyzing and incorporating user feedback](/en/copilot/tutorials/copilot-chat-cookbook/analyze-functionality/analyze-feedback)
+* [Analyzing and incorporating user feedback](/en/copilot/tutorials/copilot-cookbook/analyze-functionality/analyze-feedback)
 
   Copilot Chat can enhance the process of incorporating user feedback into your project.
 
-* [Improving code readability and maintainability](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/improve-code-readability)
+* [Implementing a feature from a GitHub Issue](/en/copilot/tutorials/copilot-cookbook/generate-code/implement-a-feature)
+
+  Give a GitHub issue to GitHub Copilot CLI, then steer the conversation to implement the feature.
+
+* [Improving code readability and maintainability](/en/copilot/tutorials/copilot-cookbook/refactor-code/improve-code-readability)
 
   Copilot Chat can suggest ways to make your code easier to understand and maintain.
 
-* [Fixing lint errors](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/fix-lint-errors)
+* [Fixing lint errors](/en/copilot/tutorials/copilot-cookbook/refactor-code/fix-lint-errors)
 
   Copilot Chat can suggest ways to fix issues identified by a code linter.
 
-* [Refactoring for performance optimization](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-for-optimization)
+* [Refactoring for performance optimization](/en/copilot/tutorials/copilot-cookbook/refactor-code/refactor-for-optimization)
 
   Copilot Chat can suggest ways to speed up slow-running code.
 
-* [Refactoring for environmental sustainability](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-for-sustainability)
+* [Refactoring for environmental sustainability](/en/copilot/tutorials/copilot-cookbook/refactor-code/refactor-for-sustainability)
 
   Copilot Chat can suggest ways to make code more environmentally friendly.
 
-* [Refactoring to implement a design pattern](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-design-patterns)
+* [Refactoring to implement a design pattern](/en/copilot/tutorials/copilot-cookbook/refactor-code/refactor-design-patterns)
 
   Copilot Chat can suggest design patterns that you can use to improve your code.
 
-* [Refactoring data access layers](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/refactor-data-access-layers)
+* [Refactoring data access layers](/en/copilot/tutorials/copilot-cookbook/refactor-code/refactor-data-access-layers)
 
   Copilot Chat can suggest ways to decouple your data access code from your business logic, making an application easier to maintain and scale.
 
-* [Decoupling business logic from UI components](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/decouple-business-logic)
+* [Decoupling business logic from UI components](/en/copilot/tutorials/copilot-cookbook/refactor-code/decouple-business-logic)
 
   Copilot Chat can help you separate your business logic from your user interface code, making it easier to maintain and scale your application.
 
-* [Handling cross-cutting concerns](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/handle-cross-cutting)
+* [Handling cross-cutting concerns](/en/copilot/tutorials/copilot-cookbook/refactor-code/handle-cross-cutting)
 
   Copilot Chat can help you avoid code that relates to a concern other than the core concern of the method or function in which the code is located.
 
-* [Simplifying complex inheritance hierarchies](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/simplify-inheritance-hierarchies)
+* [Simplifying complex inheritance hierarchies](/en/copilot/tutorials/copilot-cookbook/refactor-code/simplify-inheritance-hierarchies)
 
   Copilot Chat can help you to refactor code to avoid classes with multiple layers of inheritance.
 
-* [Fixing database deadlocks or data integrity issues](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/fix-database-deadlocks)
+* [Fixing database deadlocks or data integrity issues](/en/copilot/tutorials/copilot-cookbook/refactor-code/fix-database-deadlocks)
 
   Copilot Chat can help you avoid code that causes slow or blocked database operations, or tables with missing or incorrect data.
 
-* [Translating code to a different programming language](/en/copilot/tutorials/copilot-chat-cookbook/refactor-code/translate-code)
+* [Translating code to a different programming language](/en/copilot/tutorials/copilot-cookbook/refactor-code/translate-code)
 
   Copilot Chat can help you rewrite code to perform the same operations but in a different programming language.
 
-* [Creating issues](/en/copilot/tutorials/copilot-chat-cookbook/document-code/creating-issues)
+* [Filing issues without breaking your flow](/en/copilot/tutorials/copilot-cookbook/document-code/filing-issues-without-breaking-your-flow)
 
-  Copilot Chat can help you quickly create issues without filling out every field manually.
+  When something catches your attention mid-task, use Copilot CLI to file a GitHub issue with code context, linked PRs, and labels, then get back to what you were doing.
 
-* [Documenting legacy code](/en/copilot/tutorials/copilot-chat-cookbook/document-code/document-legacy-code)
+* [Documenting legacy code](/en/copilot/tutorials/copilot-cookbook/document-code/document-legacy-code)
 
   Copilot Chat can help with documenting legacy code.
 
-* [Explaining legacy code](/en/copilot/tutorials/copilot-chat-cookbook/document-code/explain-legacy-code)
+* [Explaining legacy code](/en/copilot/tutorials/copilot-cookbook/document-code/explain-legacy-code)
 
   Copilot Chat can help with explaining unfamiliar code.
 
-* [Explaining complex algorithms or logic](/en/copilot/tutorials/copilot-chat-cookbook/document-code/explain-complex-logic)
+* [Explaining complex algorithms or logic](/en/copilot/tutorials/copilot-cookbook/document-code/explain-complex-logic)
 
   Copilot Chat can help add clear and concise documentation on complex algorithms or logic.
 
-* [Syncing documentation with code changes](/en/copilot/tutorials/copilot-chat-cookbook/document-code/sync-documentation)
+* [Syncing documentation with code changes](/en/copilot/tutorials/copilot-cookbook/document-code/sync-documentation)
 
   Copilot Chat can help with keeping code documentation up-to-date.
 
-* [Writing discussions or blog posts](/en/copilot/tutorials/copilot-chat-cookbook/document-code/write-discussions-or-blog-posts)
+* [Writing discussions or blog posts](/en/copilot/tutorials/copilot-cookbook/document-code/write-discussions-or-blog-posts)
 
   Copilot Chat can help you generate ideas, outline, or draft discussions or blog posts.
 
-* [Generating unit tests](/en/copilot/tutorials/copilot-chat-cookbook/testing-code/generate-unit-tests)
+* [Generating unit tests](/en/copilot/tutorials/copilot-cookbook/testing-code/generate-unit-tests)
 
   Copilot Chat can help with generating unit tests for a function.
 
-* [Creating mock objects to abstract layers](/en/copilot/tutorials/copilot-chat-cookbook/testing-code/create-mock-objects)
+* [Creating mock objects to abstract layers](/en/copilot/tutorials/copilot-cookbook/testing-code/create-mock-objects)
 
   Copilot Chat can help with creating mock objects that you can use for unit tests.
 
-* [Creating end-to-end tests for a webpage](/en/copilot/tutorials/copilot-chat-cookbook/testing-code/create-end-to-end-tests)
+* [Creating end-to-end tests for a webpage](/en/copilot/tutorials/copilot-cookbook/testing-code/create-end-to-end-tests)
 
   Copilot Chat can help with generating end-to-end tests.
 
-* [Updating unit tests to match code changes](/en/copilot/tutorials/copilot-chat-cookbook/testing-code/update-unit-tests)
+* [Updating unit tests to match code changes](/en/copilot/tutorials/copilot-cookbook/testing-code/update-unit-tests)
 
   Copilot Chat can help with updating your tests.
 
-* [Securing your repository](/en/copilot/tutorials/copilot-chat-cookbook/analyze-security/secure-your-repository)
+* [Securing your repository](/en/copilot/tutorials/copilot-cookbook/analyze-security/secure-your-repository)
 
   Copilot Chat can help you to secure your repository and your code.
 
-* [Managing dependency updates](/en/copilot/tutorials/copilot-chat-cookbook/analyze-security/manage-dependency-updates)
+* [Managing dependency updates](/en/copilot/tutorials/copilot-cookbook/analyze-security/manage-dependency-updates)
 
   Copilot Chat can help you get set up with Dependabot to streamline dependency updates.
 
-* [Finding existing vulnerabilities in code](/en/copilot/tutorials/copilot-chat-cookbook/analyze-security/find-vulnerabilities)
+* [Finding existing vulnerabilities in code](/en/copilot/tutorials/copilot-cookbook/analyze-security/find-vulnerabilities)
 
   Copilot Chat can help find common vulnerabilities in your code and suggest fixes.
 
@@ -1372,6 +1461,14 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Get more out of Copilot by giving it access to approved MCP servers and internal packages.
 
+* [Getting started with budget controls](/en/copilot/tutorials/budgets/getting-started-with-budget-controls)
+
+  Set up budget guardrails for your enterprise before your team starts consuming AI credits.
+
+* [Optimizing your budget configuration](/en/copilot/tutorials/budgets/optimizing-your-budget-configuration)
+
+  Find the right combination of budget controls for your organization based on your size, structure, and spending goals.
+
 * [Your first spark](/en/copilot/tutorials/spark/your-first-spark)
 
   Learn how to build your first GitHub Spark app in minutes, without writing any code.
@@ -1404,6 +1501,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Learn how to use Copilot Spaces to help you with development work.
 
+* [Choosing your enterprise's plan for GitHub Copilot](/en/copilot/tutorials/roll-out-at-scale/assign-licenses/choose-enterprise-plan)
+
+  Choose between Copilot Business and Copilot Enterprise.
+
 * [Setting up a self-serve process for GitHub Copilot licenses](/en/copilot/tutorials/roll-out-at-scale/assign-licenses/set-up-self-serve-licenses)
 
   Learn how users can request a license and receive access immediately.
@@ -1416,9 +1517,17 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Use the GitHub API to identify inactive users and help them get started.
 
-* [Establishing AI managers in your enterprise](/en/copilot/tutorials/roll-out-at-scale/establish-ai-managers)
+* [Resources for getting approval of GitHub Copilot](/en/copilot/tutorials/roll-out-at-scale/govern-at-scale/resources-for-approval)
+
+  Get ready to adopt Copilot by sending resources to legal and security teams in your company.
+
+* [Establishing AI managers in your enterprise](/en/copilot/tutorials/roll-out-at-scale/govern-at-scale/establish-ai-managers)
 
   Reduce your administrative burden and empower your SMEs by creating a team of AI managers.
+
+* [Maintaining codebase standards in a GitHub Copilot rollout](/en/copilot/tutorials/roll-out-at-scale/govern-at-scale/maintain-codebase-standards)
+
+  Stay in control of your enterprise's code with rulesets, security features, and effective training.
 
 * [Driving GitHub Copilot adoption in your company](/en/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption)
 
@@ -1427,6 +1536,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Integrating agentic AI into your enterprise's software development lifecycle](/en/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents)
 
   See how agents can boost productivity across your enterprise.
+
+* [Achieving your company's engineering goals with GitHub Copilot](/en/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/achieve-company-goals)
+
+  Plan your rollout based on GitHub's recommended approach for driving and measuring improvements.
 
 * [Increasing test coverage in your company with GitHub Copilot](/en/copilot/tutorials/roll-out-at-scale/drive-downstream-impact/increase-test-coverage)
 
@@ -1443,10 +1556,6 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Measuring the success of a GitHub Copilot trial](/en/copilot/tutorials/roll-out-at-scale/measure-success)
 
   Measure the success of a Copilot trial by analyzing adoption, engagement, and early usage patterns using Copilot usage metrics.
-
-* [Maintaining codebase standards in a GitHub Copilot rollout](/en/copilot/tutorials/roll-out-at-scale/maintain-codebase-standards)
-
-  Stay in control of your enterprise's code with rulesets, security features, and effective training.
 
 * [Using GitHub Copilot to explore a codebase](/en/copilot/tutorials/explore-a-codebase)
 
@@ -1467,6 +1576,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Refactoring code with GitHub Copilot](/en/copilot/tutorials/refactor-code)
 
   Leverage Copilot artificial intelligence to help you refactor your code quickly and effectively.
+
+* [Improving agent quality to optimize AI usage](/en/copilot/tutorials/optimize-ai-usage)
+
+  Learn strategies for building higher-quality agents that complete tasks in fewer attempts and, as a result, use fewer AI credits.
 
 * [Build an optimized review process with Copilot](/en/copilot/tutorials/optimize-code-reviews)
 
@@ -1516,54 +1629,14 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Use Copilot CLI as an always-available subject matter expert to learn how a codebase works, so you can confidently maintain it or add new features.
 
-* [Responsible use of GitHub Copilot inline suggestions](/en/copilot/responsible-use/copilot-code-completion)
-
-  Learn how to use Copilot inline suggestions responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot Chat in your IDE](/en/copilot/responsible-use/chat-in-your-ide)
+* [Application card: GitHub Copilot Chat](/en/copilot/responsible-use/chat)
 
   Learn how to use GitHub Copilot Chat responsibly by understanding its purposes, capabilities, and limitations.
 
-* [Responsible use of GitHub Copilot Chat in GitHub](/en/copilot/responsible-use/chat-in-github)
+* [Application card: GitHub Copilot inline suggestions](/en/copilot/responsible-use/inline-suggestions)
 
-  Learn how to use GitHub Copilot Chat in GitHub responsibly by understanding its purposes, capabilities, and limitations.
+  Learn how to use GitHub Copilot inline suggestions responsibly by understanding their purposes, capabilities, and limitations.
 
-* [Responsible use of GitHub Copilot Chat in GitHub Mobile](/en/copilot/responsible-use/chat-in-github-mobile)
+* [Application card: GitHub Copilot Agents](/en/copilot/responsible-use/agents)
 
-  Learn how to use GitHub Copilot Chat responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot CLI](/en/copilot/responsible-use/copilot-cli)
-
-  Learn how to use GitHub Copilot CLI responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot in Windows Terminal](/en/copilot/responsible-use/copilot-in-windows-terminal)
-
-  Learn how to use GitHub Copilot responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot in GitHub Desktop](/en/copilot/responsible-use/copilot-in-github-desktop)
-
-  Learn how to use Copilot in GitHub Desktop responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot pull request summaries](/en/copilot/responsible-use/pull-request-summaries)
-
-  Learn how to use Copilot pull request summaries responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot commit message generation](/en/copilot/responsible-use/copilot-commit-message-generation)
-
-  Learn how to use Copilot commit message generation responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot code review](/en/copilot/responsible-use/code-review)
-
-  Learn how to use GitHub Copilot code review safely and responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot cloud agent on GitHub.com](/en/copilot/responsible-use/copilot-cloud-agent)
-
-  Learn how to use Copilot cloud agent on GitHub.com responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Spark](/en/copilot/responsible-use/spark)
-
-  Learn how to use GitHub Spark responsibly by understanding its purposes, capabilities, and limitations.
-
-* [Responsible use of GitHub Copilot Spaces](/en/copilot/responsible-use/copilot-spaces)
-
-  Learn how to use GitHub Copilot Spaces responsibly by understanding its purposes, capabilities, and limitations.
+  Learn how to use GitHub Copilot agentic features responsibly by understanding their purposes, capabilities, and limitations.

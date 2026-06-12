@@ -1,3 +1,5 @@
+# Pokémon Go Can Be More Than Just a Fad - Iterable
+
 ## Pokémon Go Can Be More Than Just a Fad
 
 **Published by**
@@ -16,9 +18,9 @@ But the jury is still out on whether engagement will continue over the long term
 
 We have several ̶o̶b̶s̶e̶s̶s̶e̶d̶ dedicated players here at the Iterable office and we’ve noticed that the game could do a slightly better job at engagement outside the game itself.
 
-Clearly, Nintendo/Niantic do not need our help making money right now. But we’re happy to chime in anyway. Here are three simple ideas they (or any other game/app developer) could easily implement with a [Growth Marketing Platform like Iterable](https://iterable.com?utm_source=blog&utm_medium=text&utm_campaign=post): a welcome series, milestone notifications, and a re-engagement/reactivation campaign.
+Clearly, Nintendo/Niantic do not need our help making money right now. But we’re happy to chime in anyway. Here are three simple ideas they (or any other game/app developer) could easily implement with a Growth Marketing Platform like Iterable: a welcome series, milestone notifications, and a re-engagement/reactivation campaign.
 
-#### **Welcome Series**
+#### Welcome Series
 
 When you first launch the app and log in, the game has a brief tutorial to get you started. But we really felt like we could have used more info on gameplay and what to look forward to later in the game. A simple welcome series could do the trick. Best of all, since the game uses Google login, they already have our email address!
 
@@ -73,10 +75,10 @@ In conclusion, we love capturing Pokémon. Or, at least some of us do.
 
 But we would love it even more if it engaged us when we aren’t in the game by:
 
--   Giving newbies a bit more info on how to play.
--   Sending us encouragements when we reach certain milestones.
--   Reminding us to come back to give Nintendo our hard-earned cash in exchange for Poké balls.
+*   Giving newbies a bit more info on how to play.
+*   Sending us encouragements when we reach certain milestones.
+*   Reminding us to come back to give Nintendo our hard-earned cash in exchange for Poké balls.
 
 And these are just basic examples — the sky really is the limit in terms of the user engagement campaigns that could be run around a great game like this.
 
-As always, let us know if you have any questions about how Iterable can help your company achieve the omni-channel relevance that captivates engagement by [requesting a demo](https://pages.iterable.com/demo/?utm_source=blog&utm_medium=text&utm_campaign=post) today!
+As always, let us know if you have any questions about how Iterable can help your company achieve the omni-channel relevance that captivates engagement by requesting a demo today!

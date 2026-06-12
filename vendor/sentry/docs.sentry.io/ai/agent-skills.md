@@ -25,11 +25,15 @@ Run this in your project (or from any directory for user-level install) to add S
 npx skills add getsentry/sentry-for-ai --skill sentry-fix-issues
 ```
 
+*Other available variations of the above snippet: dotagents*
+
 To add all Sentry skills:
 
 ```bash
 npx skills add getsentry/sentry-for-ai
 ```
+
+*Other available variations of the above snippet: dotagents*
 
 Alternatively, use [dotagents](https://docs.sentry.io/ai/dotagents.md) to manage skills declaratively with locked versions. Initialize your project, add Sentry skills, then install:
 
@@ -107,6 +111,8 @@ Each skill is a folder with a `SKILL.md` file. The file has YAML frontmatter (`n
 skill-name/
   SKILL.md        # Required: YAML frontmatter + markdown instructions
 ```
+
+*Other available variations of the above snippet: markdown*
 
 **Requirements:**
 

@@ -32,6 +32,7 @@ Some endpoints require more than one permission. Other endpoints work with any o
 |----------|--------|--------|------------------------|
 | `PUT /organizations/{org}/actions/cache/retention-limit` | write | PAT | ✗ |
 | `PUT /organizations/{org}/actions/cache/storage-limit` | write | PAT | ✗ |
+| `POST /organizations/{org}/settings/billing/budgets` | write | PAT | ✗ |
 | `PATCH /organizations/{org}/settings/billing/budgets/{budget_id}` | write | PAT | ✗ |
 | `DELETE /organizations/{org}/settings/billing/budgets/{budget_id}` | write | PAT | ✗ |
 | `PATCH /orgs/{org}` | write | PAT | ✗ |
@@ -88,6 +89,7 @@ Some endpoints require more than one permission. Other endpoints work with any o
 | `POST /orgs/{org}/{security_product}/{enablement}` | write | PAT | ✗ |
 | `GET /organizations/{org}/actions/cache/retention-limit` | read | PAT | ✗ |
 | `GET /organizations/{org}/actions/cache/storage-limit` | read | PAT | ✗ |
+| `GET /organizations/{org}/settings/billing/ai_credit/usage` | read | PAT | ✗ |
 | `GET /organizations/{org}/settings/billing/budgets` | read | PAT | ✗ |
 | `GET /organizations/{org}/settings/billing/budgets/{budget_id}` | read | PAT | ✗ |
 | `GET /organizations/{org}/settings/billing/premium_request/usage` | read | PAT | ✗ |
@@ -622,6 +624,8 @@ Some endpoints require more than one permission. Other endpoints work with any o
 | `POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users` | write | PAT | ✗ |
 | `PUT /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users` | write | PAT | ✗ |
 | `DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users` | write | PAT | ✗ |
+| `GET /repos/{owner}/{repo}/code-quality/setup` | write | PAT | ✗ |
+| `PATCH /repos/{owner}/{repo}/code-quality/setup` | write | PAT | ✗ |
 | `PATCH /repos/{owner}/{repo}/code-scanning/default-setup` | write | PAT | ✗ |
 | `PUT /repos/{owner}/{repo}/collaborators/{username}` | write | PAT | ✗ |
 | `DELETE /repos/{owner}/{repo}/collaborators/{username}` | write | PAT | ✗ |
@@ -1052,6 +1056,7 @@ Some endpoints require more than one permission. Other endpoints work with any o
 | `GET /repos/{owner}/{repo}/contributors` | read | PAT | ✗ |
 | `GET /repos/{owner}/{repo}/events` | read | PAT | ✗ |
 | `GET /repos/{owner}/{repo}/forks` | read | PAT | ✗ |
+| `GET /repos/{owner}/{repo}/hash-algorithm` | read | PAT | ✗ |
 | `GET /repos/{owner}/{repo}/languages` | read | PAT | ✗ |
 | `GET /repos/{owner}/{repo}/license` | read | PAT | ✗ |
 | `GET /repos/{owner}/{repo}/private-vulnerability-reporting` | read | PAT | ✗ |
@@ -1323,6 +1328,7 @@ Some endpoints require more than one permission. Other endpoints work with any o
 
 | Endpoint | Access | Tokens | Additional Permissions |
 |----------|--------|--------|------------------------|
+| `GET /users/{username}/settings/billing/ai_credit/usage` | read | PAT | ✗ |
 | `GET /users/{username}/settings/billing/premium_request/usage` | read | PAT | ✗ |
 | `GET /users/{username}/settings/billing/usage` | read | PAT | ✗ |
 | `GET /users/{username}/settings/billing/usage/summary` | read | PAT | ✗ |

@@ -9,4 +9,4 @@ Set up one or more AWS accounts as *monitoring accounts* and link them with mult
 
 When you set up a link, you can choose to share the metrics from all namespaces with the monitoring account, or filter to a subset of namespaces. And for CloudWatch Logs, you can choose to share all log groups with the monitoring account, or filter to a subset of log groups. 
 
-This document was last published on May 14, 2026. 
+This document was last published on June 12, 2026. 

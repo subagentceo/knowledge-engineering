@@ -2,6 +2,28 @@
 
 Frontier models are getting more capable, fast. Where the curve is going, and what it means for developers building on Claude.
 
+Details
+
+City
+
+San Francisco, USA
+
+Date
+
+May 6, 2026
+
+Time
+
+05:35PM – 06:05PM
+
+Speaker(s)
+
+Alex Albert
+
+Member of Technical Staff,
+
+Anthropic
+
 ## Watch recording
 
 Play videoPlay video

@@ -1284,6 +1284,1356 @@ Test payouts simulate a live payout but aren’t processed with the bank. Test a
 
 Use these test bank account numbers to test payouts. You can only use them with test API keys.
 
+#### United Arab Emirates
+
+| IBAN                      | Type                                           |
+| ------------------------- | ---------------------------------------------- |
+| `AE070331234567890123456` | Payout succeeds.                               |
+| `AE62370400440532013001`  | Payout fails with a no_account code.           |
+| `AE89370400440532013002`  | Payout fails with a account_closed code.       |
+| `AE89370400440532013003`  | Payout fails with a insufficient_funds code.   |
+| `AE89370400440532013004`  | Payout fails with a debit_not_authorized code. |
+| `AE89370400440532013005`  | Payout fails with a invalid_currency code.     |
+
+#### Antigua & Barbuda
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAAAGAGXYZ`    | `000123456789` | Payout succeeds.                               |
+| `AAAAAGAGXYZ`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAAGAGXYZ`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAAGAGXYZ`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAAGAGXYZ`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAAGAGXYZ`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Albania
+
+| SWIFT / BIC Code | IBAN                           | Type                                           |
+| ---------------- | ------------------------------ | ---------------------------------------------- |
+| `AAAAALTXXXX`    | `AL35202111090000000001234567` | Payout succeeds.                               |
+| `AAAAALTXXXX`    | `AL00000062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAALTXXXX`    | `AL00000089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAALTXXXX`    | `AL00000089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAALTXXXX`    | `AL00000089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAALTXXXX`    | `AL00000089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Armenia
+
+| SWIFT / BIC Code | Account       | Type                                           |
+| ---------------- | ------------- | ---------------------------------------------- |
+| `AAAAAMNNXXX`    | `00001234567` | Payout succeeds.                               |
+| `AAAAAMNNXXX`    | `11111111116` | Payout fails with a no_account code.           |
+| `AAAAAMNNXXX`    | `11111111113` | Payout fails with a account_closed code.       |
+| `AAAAAMNNXXX`    | `22222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAAMNNXXX`    | `33333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAAMNNXXX`    | `44444444440` | Payout fails with a invalid_currency code.     |
+
+#### Angola
+
+| SWIFT / BIC Code | IBAN                        | Type                                           |
+| ---------------- | --------------------------- | ---------------------------------------------- |
+| `AAAAAOAOXXX`    | `AO06004400006729503010102` | Payout succeeds.                               |
+| `AAAAAOAOXXX`    | `AO00062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAAOAOXXX`    | `AO00089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAAOAOXXX`    | `AO00089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAAOAOXXX`    | `AO00089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAAOAOXXX`    | `AO00089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Argentina
+
+| Account                  | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `0110000600000000000000` | Payout succeeds.                               |
+| `0110000600000000000017` | Payout fails with a no_account code.           |
+| `0110000600000000000024` | Payout fails with a account_closed code.       |
+| `0110000600000000000031` | Payout fails with a insufficient_funds code.   |
+| `0110000600000000000048` | Payout fails with a debit_not_authorized code. |
+| `0110000600000000000055` | Payout fails with a invalid_currency code.     |
+
+#### Austria
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `AT611904300234573201`   | Payout succeeds.                               |
+| `AT861904300235473202`   | Payout fails with a no_account code.           |
+| `AT89370400440532013002` | Payout fails with a account_closed code.       |
+| `AT981904300002222227`   | Payout fails with a insufficient_funds code.   |
+| `AT89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AT89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Australia
+
+| Routing  | Account     | Type                                                                                 |
+| -------- | ----------- | ------------------------------------------------------------------------------------ |
+| `110000` | `000123456` | Payout succeeds.                                                                     |
+| `110000` | `111111116` | Payout fails with a no_account code.                                                 |
+| `110000` | `111111113` | Payout fails with a account_closed code.                                             |
+| `110000` | `222222227` | Payout fails with a insufficient_funds code.                                         |
+| `110000` | `333333335` | Payout fails with a debit_not_authorized code.                                       |
+| `110000` | `444444440` | Payout fails with a invalid_currency code.                                           |
+| `110000` | `888888883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Azerbaijan
+
+| Routing         | IBAN                           | Type                                           |
+| --------------- | ------------------------------ | ---------------------------------------------- |
+| `123456-123456` | `AZ77ADJE12345678901234567890` | Payout succeeds.                               |
+| `123456-123456` | `AZ00000062370400440532013001` | Payout fails with a no_account code.           |
+| `123456-123456` | `AZ00000089370400440532013002` | Payout fails with a account_closed code.       |
+| `123456-123456` | `AZ00000089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `123456-123456` | `AZ00000089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `123456-123456` | `AZ00000089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Bosnia & Herzegovina
+
+| SWIFT / BIC Code | IBAN                   | Type                                           |
+| ---------------- | ---------------------- | ---------------------------------------------- |
+| `AAAABABAXXX`    | `BA095520001234567812` | Payout succeeds.                               |
+| `AAAABABAXXX`    | `BA370400440532013001` | Payout fails with a no_account code.           |
+| `AAAABABAXXX`    | `BA370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAABABAXXX`    | `BA370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAABABAXXX`    | `BA370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAABABAXXX`    | `BA370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Bangladesh
+
+| Routing     | Account         | Type                                           |
+| ----------- | --------------- | ---------------------------------------------- |
+| `110000000` | `0000123456789` | Payout succeeds.                               |
+| `110000000` | `0000000011116` | Payout fails with a no_account code.           |
+| `110000000` | `0000000011113` | Payout fails with a account_closed code.       |
+| `110000000` | `0000000022227` | Payout fails with a insufficient_funds code.   |
+| `110000000` | `0000000033335` | Payout fails with a debit_not_authorized code. |
+| `110000000` | `0000000044440` | Payout fails with a invalid_currency code.     |
+
+#### Belgium
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `BE62510007547061`       | Payout succeeds.                               |
+| `BE68539007547034`       | Payout fails with a no_account code.           |
+| `BE89370400440532013002` | Payout fails with a account_closed code.       |
+| `BE90510002222227`       | Payout fails with a insufficient_funds code.   |
+| `BE89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `BE89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Bulgaria
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `BG80BNBG96611020345678` | Payout succeeds.                               |
+| `BG62370400440532013001` | Payout fails with a no_account code.           |
+| `BG89370400440532013002` | Payout fails with a account_closed code.       |
+| `BG89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `BG89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `BG89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Bahrain
+
+| SWIFT / BIC Code | IBAN                     | Type                                           |
+| ---------------- | ------------------------ | ---------------------------------------------- |
+| `AAAABHBMXYZ`    | `BH29BMAG1299123456BH00` | Payout succeeds.                               |
+| `AAAABHBMXYZ`    | `BH62370400440532013001` | Payout fails with a no_account code.           |
+| `AAAABHBMXYZ`    | `BH89370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAABHBMXYZ`    | `BH89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAABHBMXYZ`    | `BH89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAABHBMXYZ`    | `BH89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Benin
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `BJ66BJ0610100100144390000769` | Payout succeeds.                               |
+| `BJ62370400440532013001`       | Payout fails with a no_account code.           |
+| `BJ89370400440532013002`       | Payout fails with a account_closed code.       |
+| `BJ89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `BJ89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `BJ89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Brunei
+
+| SWIFT / BIC Code | Account         | Type                                           |
+| ---------------- | --------------- | ---------------------------------------------- |
+| `AAAABNBBXXX`    | `0000123456789` | Payout succeeds.                               |
+| `AAAABNBBXXX`    | `0000000011116` | Payout fails with a no_account code.           |
+| `AAAABNBBXXX`    | `0000000011113` | Payout fails with a account_closed code.       |
+| `AAAABNBBXXX`    | `0000000022227` | Payout fails with a insufficient_funds code.   |
+| `AAAABNBBXXX`    | `0000000033335` | Payout fails with a debit_not_authorized code. |
+| `AAAABNBBXXX`    | `0000000044440` | Payout fails with a invalid_currency code.     |
+
+#### Bolivia
+
+| Account        | Type                                           |
+| -------------- | ---------------------------------------------- |
+| `000123456789` | Payout succeeds.                               |
+| `001111111116` | Payout fails with a no_account code.           |
+| `001111111113` | Payout fails with a account_closed code.       |
+| `002222222227` | Payout fails with a insufficient_funds code.   |
+| `003333333335` | Payout fails with a debit_not_authorized code. |
+| `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Brazil
+
+| Routing    | Account   | Type                                           |
+| ---------- | --------- | ---------------------------------------------- |
+| `110-0000` | `0001234` | Payout succeeds.                               |
+| `110-0000` | `1111116` | Payout fails with a no_account code.           |
+| `110-0000` | `1111113` | Payout fails with a account_closed code.       |
+| `110-0000` | `2222227` | Payout fails with a insufficient_funds code.   |
+| `110-0000` | `3333335` | Payout fails with a debit_not_authorized code. |
+| `110-0000` | `4444440` | Payout fails with a invalid_currency code.     |
+
+#### Bahamas
+
+| SWIFT / BIC Code | Account   | Type                                           |
+| ---------------- | --------- | ---------------------------------------------- |
+| `AAAABSNSXXX`    | `0001234` | Payout succeeds.                               |
+| `AAAABSNSXXX`    | `1111116` | Payout fails with a no_account code.           |
+| `AAAABSNSXXX`    | `1111113` | Payout fails with a account_closed code.       |
+| `AAAABSNSXXX`    | `2222227` | Payout fails with a insufficient_funds code.   |
+| `AAAABSNSXXX`    | `3333335` | Payout fails with a debit_not_authorized code. |
+| `AAAABSNSXXX`    | `4444440` | Payout fails with a invalid_currency code.     |
+
+#### Bhutan
+
+| SWIFT / BIC Code | Account         | Type                                           |
+| ---------------- | --------------- | ---------------------------------------------- |
+| `AAAABTBTXXX`    | `0000123456789` | Payout succeeds.                               |
+| `AAAABTBTXXX`    | `0000000011116` | Payout fails with a no_account code.           |
+| `AAAABTBTXXX`    | `0000000011113` | Payout fails with a account_closed code.       |
+| `AAAABTBTXXX`    | `0000000022227` | Payout fails with a insufficient_funds code.   |
+| `AAAABTBTXXX`    | `0000000033335` | Payout fails with a debit_not_authorized code. |
+| `AAAABTBTXXX`    | `0000000044440` | Payout fails with a invalid_currency code.     |
+
+#### Botswana
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAABWBWXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAABWBWXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAABWBWXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAABWBWXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAABWBWXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAABWBWXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Canada
+
+| Routing     | Account        | Type                                                                                 |
+| ----------- | -------------- | ------------------------------------------------------------------------------------ |
+| `11000-000` | `000123456789` | Payout succeeds.                                                                     |
+| `11000-000` | `000111111116` | Payout fails with a no_account code.                                                 |
+| `11000-000` | `000111111113` | Payout fails with a account_closed code.                                             |
+| `11000-000` | `000222222227` | Payout fails with a insufficient_funds code.                                         |
+| `11000-000` | `000333333335` | Payout fails with a debit_not_authorized code.                                       |
+| `11000-000` | `000444444440` | Payout fails with a invalid_currency code.                                           |
+| `11000-000` | `000888888883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Switzerland
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `CH9300762011623852957`  | Payout succeeds.                               |
+| `CH5362200119938136497`  | Payout fails with a no_account code.           |
+| `CH89370400440532013002` | Payout fails with a account_closed code.       |
+| `CH1800762000002222227`  | Payout fails with a insufficient_funds code.   |
+| `CH89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `CH89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Côte d’Ivoire
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `CI93CI0080111301134291200589` | Payout succeeds.                               |
+| `CI62370400440532013001`       | Payout fails with a no_account code.           |
+| `CI89370400440532013002`       | Payout fails with a account_closed code.       |
+| `CI89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `CI89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `CI89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Chile
+
+| Routing | Account        | Type                                           |
+| ------- | -------------- | ---------------------------------------------- |
+| `999`   | `000123456789` | Payout succeeds.                               |
+| `999`   | `001111111116` | Payout fails with a no_account code.           |
+| `999`   | `001111111113` | Payout fails with a account_closed code.       |
+| `999`   | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `999`   | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `999`   | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Colombia
+
+| Routing | Account        | Type                                           |
+| ------- | -------------- | ---------------------------------------------- |
+| `999`   | `000123456789` | Payout succeeds.                               |
+| `999`   | `001111111116` | Payout fails with a no_account code.           |
+| `999`   | `001111111113` | Payout fails with a account_closed code.       |
+| `999`   | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `999`   | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `999`   | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Costa Rica
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `CR04010212367856709123` | Payout succeeds.                               |
+| `CR62370400440532013001` | Payout fails with a no_account code.           |
+| `CR89370400440532013002` | Payout fails with a account_closed code.       |
+| `CR89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `CR89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `CR89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Cyprus
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `CY17002001280000001200527600` | Payout succeeds.                               |
+| `CY62370400440532013001`       | Payout fails with a no_account code.           |
+| `CY89370400440532013002`       | Payout fails with a account_closed code.       |
+| `CY89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `CY89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `CY89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Czechia
+
+| IBAN                       | Type                                           |
+| -------------------------- | ---------------------------------------------- |
+| `CZ6508000000192000145399` | Payout succeeds.                               |
+| `CZ62370400440532013001`   | Payout fails with a no_account code.           |
+| `CZ89370400440532013002`   | Payout fails with a account_closed code.       |
+| `CZ89370400440532013003`   | Payout fails with a insufficient_funds code.   |
+| `CZ89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `CZ89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### Germany
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `DE89370400440532013000` | Payout succeeds.                               |
+| `DE62370400440532013001` | Payout fails with a no_account code.           |
+| `DE89370400440532013002` | Payout fails with a account_closed code.       |
+| `DE65370400440002222227` | Payout fails with a insufficient_funds code.   |
+| `DE89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `DE89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Denmark
+
+| IBAN                     | Type                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| `DK5000400440116243`     | Payout succeeds.                                                                     |
+| `DK8003450003179681`     | Payout fails with a no_account code.                                                 |
+| `DK89370400440532013002` | Payout fails with a account_closed code.                                             |
+| `DK89370400440532013003` | Payout fails with a insufficient_funds code.                                         |
+| `DK89370400440532013004` | Payout fails with a debit_not_authorized code.                                       |
+| `DK89370400440532013005` | Payout fails with a invalid_currency code.                                           |
+| `DK5600400000888883`     | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Dominican Republic
+
+| Routing | Account        | Type                                           |
+| ------- | -------------- | ---------------------------------------------- |
+| `999`   | `000123456789` | Payout succeeds.                               |
+| `999`   | `001111111116` | Payout fails with a no_account code.           |
+| `999`   | `001111111113` | Payout fails with a account_closed code.       |
+| `999`   | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `999`   | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `999`   | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Algeria
+
+| SWIFT / BIC Code | Account                | Type                                           |
+| ---------------- | ---------------------- | ---------------------------------------------- |
+| `AAAADZDZXXX`    | `00001234567890123456` | Payout succeeds.                               |
+| `AAAADZDZXXX`    | `00001001001111111116` | Payout fails with a no_account code.           |
+| `AAAADZDZXXX`    | `00001001001111111113` | Payout fails with a account_closed code.       |
+| `AAAADZDZXXX`    | `00001001002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAADZDZXXX`    | `00001001003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAADZDZXXX`    | `00001001004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Ecuador
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAAECE1XXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAAECE1XXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAECE1XXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAECE1XXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAECE1XXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAECE1XXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Estonia
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `EE382200221020145685`   | Payout succeeds.                               |
+| `EE762200221020145680`   | Payout fails with a no_account code.           |
+| `EE89370400440532013002` | Payout fails with a account_closed code.       |
+| `EE672200000002222227`   | Payout fails with a insufficient_funds code.   |
+| `EE89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `EE89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Egypt
+
+| Routing       | IBAN                            | Type                                           |
+| ------------- | ------------------------------- | ---------------------------------------------- |
+| `AAAAEGCCXXX` | `EG800002000156789012345180002` | Payout succeeds.                               |
+| `AAAAEGCCXXX` | `EG62370400440532013001`        | Payout fails with a no_account code.           |
+| `AAAAEGCCXXX` | `EG89370400440532013002`        | Payout fails with a account_closed code.       |
+| `AAAAEGCCXXX` | `EG89370400440532013003`        | Payout fails with a insufficient_funds code.   |
+| `AAAAEGCCXXX` | `EG89370400440532013004`        | Payout fails with a debit_not_authorized code. |
+| `AAAAEGCCXXX` | `EG89370400440532013005`        | Payout fails with a invalid_currency code.     |
+
+#### Spain
+
+| IBAN                       | Type                                           |
+| -------------------------- | ---------------------------------------------- |
+| `ES0700120345030000067890` | Payout succeeds.                               |
+| `ES9121000418450200051332` | Payout fails with a no_account code.           |
+| `ES89370400440532013002`   | Payout fails with a account_closed code.       |
+| `ES1700120345000002222227` | Payout fails with a insufficient_funds code.   |
+| `ES89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `ES89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### Ethiopia
+
+| SWIFT / BIC Code | Account         | Type                                           |
+| ---------------- | --------------- | ---------------------------------------------- |
+| `AAAAETETXXX`    | `0000000012345` | Payout succeeds.                               |
+| `AAAAETETXXX`    | `0011111111112` | Payout fails with a no_account code.           |
+| `AAAAETETXXX`    | `0022222222223` | Payout fails with a account_closed code.       |
+| `AAAAETETXXX`    | `0033333333334` | Payout fails with a insufficient_funds code.   |
+| `AAAAETETXXX`    | `0044444444445` | Payout fails with a debit_not_authorized code. |
+| `AAAAETETXXX`    | `0055555555556` | Payout fails with a invalid_currency code.     |
+
+#### Finland
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `FI2112345600000785`     | Payout succeeds.                               |
+| `FI9112345600000786`     | Payout fails with a no_account code.           |
+| `FI89370400440532013002` | Payout fails with a account_closed code.       |
+| `FI6712345602222227`     | Payout fails with a insufficient_funds code.   |
+| `FI89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `FI89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### France
+
+| IBAN                          | Type                                           |
+| ----------------------------- | ---------------------------------------------- |
+| `FR1420041010050500013M02606` | Payout succeeds.                               |
+| `FR8420041010050500013M02607` | Payout fails with a no_account code.           |
+| `FR89370400440532013002`      | Payout fails with a account_closed code.       |
+| `FR9720041010050000002222227` | Payout fails with a insufficient_funds code.   |
+| `FR89370400440532013004`      | Payout fails with a debit_not_authorized code. |
+| `FR89370400440532013005`      | Payout fails with a invalid_currency code.     |
+
+#### Gabon
+
+| SWIFT / BIC Code | Account                   | Type                                           |
+| ---------------- | ------------------------- | ---------------------------------------------- |
+| `AAAAGAGAXXX`    | `00001234567890123456789` | Payout succeeds.                               |
+| `AAAAGAGAXXX`    | `00001001001111111111116` | Payout fails with a no_account code.           |
+| `AAAAGAGAXXX`    | `00001001001111111111113` | Payout fails with a account_closed code.       |
+| `AAAAGAGAXXX`    | `00001001002222222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAGAGAXXX`    | `00001001003333333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAGAGAXXX`    | `00001001004444444444440` | Payout fails with a invalid_currency code.     |
+
+#### United Kingdom
+
+| Sort Code | Account    | Type                                                                                 |
+| --------- | ---------- | ------------------------------------------------------------------------------------ |
+| `108800`  | `00012345` | Payout succeeds.                                                                     |
+| `108800`  | `11111116` | Payout fails with a no_account code.                                                 |
+| `108800`  | `11111113` | Payout fails with a account_closed code.                                             |
+| `108800`  | `22222227` | Payout fails with a insufficient_funds code.                                         |
+| `108800`  | `33333335` | Payout fails with a debit_not_authorized code.                                       |
+| `108800`  | `44444440` | Payout fails with a invalid_currency code.                                           |
+| `108800`  | `66666668` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### United Kingdom
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `GB82WEST12345698765432` | Payout succeeds.                               |
+| `GB55WEST12345698765433` | Payout fails with a no_account code.           |
+| `GB89370400440532013002` | Payout fails with a account_closed code.       |
+| `GB70WEST12345602222227` | Payout fails with a insufficient_funds code.   |
+| `GB89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `GB89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Ghana
+
+| Routing  | Account        | Type                                           |
+| -------- | -------------- | ---------------------------------------------- |
+| `022112` | `000123456789` | Payout succeeds.                               |
+| `022112` | `001111111116` | Payout fails with a no_account code.           |
+| `022112` | `001111111113` | Payout fails with a account_closed code.       |
+| `022112` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `022112` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `022112` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Gibraltar
+
+| IBAN                      | Type                                           |
+| ------------------------- | ---------------------------------------------- |
+| `GI75NWBK000000007099453` | Payout succeeds.                               |
+| `GI41SAFA461293238477751` | Payout fails with a no_account code.           |
+| `GI89370400440532013002`  | Payout fails with a account_closed code.       |
+| `GI14NWBK000000002222227` | Payout fails with a insufficient_funds code.   |
+| `GI89370400440532013004`  | Payout fails with a debit_not_authorized code. |
+| `GI89370400440532013005`  | Payout fails with a invalid_currency code.     |
+
+#### Gambia
+
+| SWIFT / BIC Code | Account              | Type                                           |
+| ---------------- | -------------------- | ---------------------------------------------- |
+| `AAAAGMGMXYZ`    | `000123000456000789` | Payout succeeds.                               |
+| `AAAAGMGMXYZ`    | `001000111000111116` | Payout fails with a no_account code.           |
+| `AAAAGMGMXYZ`    | `001000111000111113` | Payout fails with a account_closed code.       |
+| `AAAAGMGMXYZ`    | `002000222000222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAGMGMXYZ`    | `003000333000333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAGMGMXYZ`    | `004000444000444440` | Payout fails with a invalid_currency code.     |
+
+#### Greece
+
+| IBAN                          | Type                                           |
+| ----------------------------- | ---------------------------------------------- |
+| `GR1601101250000000012300695` | Payout succeeds.                               |
+| `GR62370400440532013001`      | Payout fails with a no_account code.           |
+| `GR89370400440532013002`      | Payout fails with a account_closed code.       |
+| `GR89370400440532013003`      | Payout fails with a insufficient_funds code.   |
+| `GR89370400440532013004`      | Payout fails with a debit_not_authorized code. |
+| `GR89370400440532013005`      | Payout fails with a invalid_currency code.     |
+
+#### Guatemala
+
+| SWIFT / BIC Code | IBAN                           | Type                                           |
+| ---------------- | ------------------------------ | ---------------------------------------------- |
+| `AAAAGTGCXYZ`    | `GT82TRAJ01020000001210029690` | Payout succeeds.                               |
+| `AAAAGTGCXYZ`    | `GT62370400440532013001`       | Payout fails with a no_account code.           |
+| `AAAAGTGCXYZ`    | `GT89370400440532013002`       | Payout fails with a account_closed code.       |
+| `AAAAGTGCXYZ`    | `GT89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `AAAAGTGCXYZ`    | `GT89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `AAAAGTGCXYZ`    | `GT89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Guyana
+
+| SWIFT / BIC Code       | Account        | Type                                           |
+| ---------------------- | -------------- | ---------------------------------------------- |
+| `AAAAGYGGXYZ-00000000` | `000123456789` | Payout succeeds.                               |
+| `AAAAGYGGXYZ-00000000` | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAGYGGXYZ-00000000` | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAGYGGXYZ-00000000` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAGYGGXYZ-00000000` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAGYGGXYZ-00000000` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Hong Kong SAR China
+
+| Routing   | Account      | Type                                                                                 |
+| --------- | ------------ | ------------------------------------------------------------------------------------ |
+| `110-000` | `000123-456` | Payout succeeds.                                                                     |
+| `110-000` | `111111-116` | Payout fails with a no_account code.                                                 |
+| `110-000` | `111111-113` | Payout fails with a account_closed code.                                             |
+| `110-000` | `222222-227` | Payout fails with a insufficient_funds code.                                         |
+| `110-000` | `333333-335` | Payout fails with a debit_not_authorized code.                                       |
+| `110-000` | `444444-440` | Payout fails with a invalid_currency code.                                           |
+| `110-000` | `888888-883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Croatia
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `HR7624020064583467589`  | Payout succeeds.                               |
+| `HR2725000096983499248`  | Payout fails with a no_account code.           |
+| `HR89370400440532013002` | Payout fails with a account_closed code.       |
+| `HR7424020060002222227`  | Payout fails with a insufficient_funds code.   |
+| `HR89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `HR89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Hungary
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `HU42117730161111101800000000` | Payout succeeds.                               |
+| `HU62370400440532013001`       | Payout fails with a no_account code.           |
+| `HU89370400440532013002`       | Payout fails with a account_closed code.       |
+| `HU89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `HU89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `HU89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Indonesia
+
+| Routing | Account        | Type                                           |
+| ------- | -------------- | ---------------------------------------------- |
+| `000`   | `000123456789` | Payout succeeds.                               |
+| `000`   | `001111111116` | Payout fails with a no_account code.           |
+| `000`   | `001111111113` | Payout fails with a account_closed code.       |
+| `000`   | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `000`   | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `000`   | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Ireland
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `IE29AIBK93115212345678` | Payout succeeds.                               |
+| `IE02AIBK93115212345679` | Payout fails with a no_account code.           |
+| `IE89370400440532013002` | Payout fails with a account_closed code.       |
+| `IE10AIBK93115202222227` | Payout fails with a insufficient_funds code.   |
+| `IE89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `IE89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Israel
+
+| IBAN                      | Type                                           |
+| ------------------------- | ---------------------------------------------- |
+| `IL620108000000099999999` | Payout succeeds.                               |
+| `IL62370400440532013001`  | Payout fails with a no_account code.           |
+| `IL89370400440532013002`  | Payout fails with a account_closed code.       |
+| `IL89370400440532013003`  | Payout fails with a insufficient_funds code.   |
+| `IL89370400440532013004`  | Payout fails with a debit_not_authorized code. |
+| `IL89370400440532013005`  | Payout fails with a invalid_currency code.     |
+
+#### India
+
+| Routing       | Account        | Type                                           |
+| ------------- | -------------- | ---------------------------------------------- |
+| `HDFC0000261` | `000123456789` | Payout succeeds.                               |
+| `HDFC0000261` | `001111111116` | Payout fails with a no_account code.           |
+| `HDFC0000261` | `001111111113` | Payout fails with a account_closed code.       |
+| `HDFC0000261` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `HDFC0000261` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `HDFC0000261` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Iceland
+
+| IBAN                         | Type                                           |
+| ---------------------------- | ---------------------------------------------- |
+| `IS140159260076545510730339` | Payout succeeds.                               |
+| `IS62370400440532013001`     | Payout fails with a no_account code.           |
+| `IS89370400440532013002`     | Payout fails with a account_closed code.       |
+| `IS89370400440532013003`     | Payout fails with a insufficient_funds code.   |
+| `IS89370400440532013004`     | Payout fails with a debit_not_authorized code. |
+| `IS89370400440532013005`     | Payout fails with a invalid_currency code.     |
+
+#### Italy
+
+| IBAN                          | Type                                           |
+| ----------------------------- | ---------------------------------------------- |
+| `IT40S0542811101000000123456` | Payout succeeds.                               |
+| `IT60X0542811101000000123456` | Payout fails with a no_account code.           |
+| `IT89370400440532013002`      | Payout fails with a account_closed code.       |
+| `IT89370400440532013003`      | Payout fails with a insufficient_funds code.   |
+| `IT89370400440532013004`      | Payout fails with a debit_not_authorized code. |
+| `IT89370400440532013005`      | Payout fails with a invalid_currency code.     |
+
+#### Jamaica
+
+| Routing     | Account        | Type                                           |
+| ----------- | -------------- | ---------------------------------------------- |
+| `111-00000` | `000123456789` | Payout succeeds.                               |
+| `111-00000` | `001111111116` | Payout fails with a no_account code.           |
+| `111-00000` | `001111111113` | Payout fails with a account_closed code.       |
+| `111-00000` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `111-00000` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `111-00000` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Jordan
+
+| SWIFT / BIC Code | IBAN                             | Type                                           |
+| ---------------- | -------------------------------- | ---------------------------------------------- |
+| `AAAAJOJOXXX`    | `JO32ABCJ0010123456789012345678` | Payout succeeds.                               |
+| `AAAAJOJOXXX`    | `JO0000000062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAJOJOXXX`    | `JO0000000089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAJOJOXXX`    | `JO0000000089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAJOJOXXX`    | `JO0000000089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAJOJOXXX`    | `JO0000000089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Japan
+
+| Routing   | Account   | Type                                           |
+| --------- | --------- | ---------------------------------------------- |
+| `1100000` | `0001234` | Payout succeeds.                               |
+| `1100000` | `1111116` | Payout fails with a no_account code.           |
+| `1100000` | `1111113` | Payout fails with a account_closed code.       |
+| `1100000` | `2222227` | Payout fails with a insufficient_funds code.   |
+| `1100000` | `3333335` | Payout fails with a debit_not_authorized code. |
+| `1100000` | `4444440` | Payout fails with a invalid_currency code.     |
+
+#### Kenya
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `TESTKENAXXX`    | `000123456789` | Payout succeeds.                               |
+| `TESTKENAXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `TESTKENAXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `TESTKENAXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `TESTKENAXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `TESTKENAXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Cambodia
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAAKHKHXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAAKHKHXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAKHKHXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAKHKHXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAKHKHXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAKHKHXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### South Korea
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `SGSEKRSLXXX`    | `000123456789` | Payout succeeds.                               |
+| `SGSEKRSLXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `SGSEKRSLXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `SGSEKRSLXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `SGSEKRSLXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `SGSEKRSLXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Kuwait
+
+| SWIFT / BIC Code | IBAN                             | Type                                           |
+| ---------------- | -------------------------------- | ---------------------------------------------- |
+| `AAAAKWKWXYZ`    | `KW81CBKU0000000000001234560101` | Payout succeeds.                               |
+| `AAAAKWKWXYZ`    | `KW62370400440532013001`         | Payout fails with a no_account code.           |
+| `AAAAKWKWXYZ`    | `KW89370400440532013002`         | Payout fails with a account_closed code.       |
+| `AAAAKWKWXYZ`    | `KW89370400440532013003`         | Payout fails with a insufficient_funds code.   |
+| `AAAAKWKWXYZ`    | `KW89370400440532013004`         | Payout fails with a debit_not_authorized code. |
+| `AAAAKWKWXYZ`    | `KW89370400440532013005`         | Payout fails with a invalid_currency code.     |
+
+#### Kazakhstan
+
+| SWIFT / BIC Code | IBAN                   | Type                                           |
+| ---------------- | ---------------------- | ---------------------------------------------- |
+| `AAAAKZKZXXX`    | `KZ221251234567890123` | Payout succeeds.                               |
+| `AAAAKZKZXXX`    | `KZ623704004405321001` | Payout fails with a no_account code.           |
+| `AAAAKZKZXXX`    | `KZ893704004405321002` | Payout fails with a account_closed code.       |
+| `AAAAKZKZXXX`    | `KZ893704004405321003` | Payout fails with a insufficient_funds code.   |
+| `AAAAKZKZXXX`    | `KZ893704004405321004` | Payout fails with a debit_not_authorized code. |
+| `AAAAKZKZXXX`    | `KZ893704004405321005` | Payout fails with a invalid_currency code.     |
+
+#### Laos
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAALALAXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAALALAXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAALALAXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAALALAXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAALALAXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAALALAXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### St. Lucia
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAALCLCXYZ`    | `000123456789` | Payout succeeds.                               |
+| `AAAALCLCXYZ`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAALCLCXYZ`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAALCLCXYZ`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAALCLCXYZ`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAALCLCXYZ`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Liechtenstein
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `LI0508800636123378777`  | Payout succeeds.                               |
+| `LI1208800143823175626`  | Payout fails with a no_account code.           |
+| `LI89370400440532013002` | Payout fails with a account_closed code.       |
+| `LI2408800000002222227`  | Payout fails with a insufficient_funds code.   |
+| `LI89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `LI89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Sri Lanka
+
+| Account      | Type                                           |
+| ------------ | ---------------------------------------------- |
+| `0000012345` | Payout succeeds.                               |
+| `0011111112` | Payout fails with a no_account code.           |
+| `0022222223` | Payout fails with a account_closed code.       |
+| `0033333334` | Payout fails with a insufficient_funds code.   |
+| `0044444445` | Payout fails with a debit_not_authorized code. |
+| `0055555556` | Payout fails with a invalid_currency code.     |
+
+#### Lithuania
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `LT121000011101001000`   | Payout succeeds.                               |
+| `LT821000011101001001`   | Payout fails with a no_account code.           |
+| `LT89370400440532013002` | Payout fails with a account_closed code.       |
+| `LT591000000002222227`   | Payout fails with a insufficient_funds code.   |
+| `LT89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `LT89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Luxembourg
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `LU280019400644750000`   | Payout succeeds.                               |
+| `LU980019400644750001`   | Payout fails with a no_account code.           |
+| `LU89370400440532013002` | Payout fails with a account_closed code.       |
+| `LU900010000002222227`   | Payout fails with a insufficient_funds code.   |
+| `LU89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `LU89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Latvia
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `LV80BANK0000435195001`  | Payout succeeds.                               |
+| `LV62370400440532013001` | Payout fails with a no_account code.           |
+| `LV89370400440532013002` | Payout fails with a account_closed code.       |
+| `LV89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `LV89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `LV89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Morocco
+
+| SWIFT / BIC Code | IBAN                           | Type                                           |
+| ---------------- | ------------------------------ | ---------------------------------------------- |
+| `AAAAMAMAXXX`    | `MA64011519000001205000534921` | Payout succeeds.                               |
+| `AAAAMAMAXXX`    | `MA62370400440532013001`       | Payout fails with a no_account code.           |
+| `AAAAMAMAXXX`    | `MA89370400440532013002`       | Payout fails with a account_closed code.       |
+| `AAAAMAMAXXX`    | `MA89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `AAAAMAMAXXX`    | `MA89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `AAAAMAMAXXX`    | `MA89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Monaco
+
+| IBAN                          | Type                                           |
+| ----------------------------- | ---------------------------------------------- |
+| `MC5810096180790123456789085` | Payout succeeds.                               |
+| `MC62370400440532013001`      | Payout fails with a no_account code.           |
+| `MC89370400440532013002`      | Payout fails with a account_closed code.       |
+| `MC89370400440532013003`      | Payout fails with a insufficient_funds code.   |
+| `MC89370400440532013004`      | Payout fails with a debit_not_authorized code. |
+| `MC89370400440532013005`      | Payout fails with a invalid_currency code.     |
+
+#### Moldova
+
+| SWIFT / BIC Code | IBAN                       | Type                                           |
+| ---------------- | -------------------------- | ---------------------------------------------- |
+| `AAAAMDMDXXX`    | `MD07AG123456789012345678` | Payout succeeds.                               |
+| `AAAAMDMDXXX`    | `MD0062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAMDMDXXX`    | `MD0089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAMDMDXXX`    | `MD0089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAMDMDXXX`    | `MD0089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAMDMDXXX`    | `MD0089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Madagascar
+
+| SWIFT / BIC Code | IBAN                          | Type                                           |
+| ---------------- | ----------------------------- | ---------------------------------------------- |
+| `AAAAMGMGXXX`    | `MG4800005000011234567890123` | Payout succeeds.                               |
+| `AAAAMGMGXXX`    | `MG0000062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAMGMGXXX`    | `MG0000062370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAMGMGXXX`    | `MG0000062370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAMGMGXXX`    | `MG0000062370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAMGMGXXX`    | `MG0000062370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### North Macedonia
+
+| SWIFT / BIC Code | IBAN                  | Type                                           |
+| ---------------- | --------------------- | ---------------------------------------------- |
+| `AAAAMK2XXXX`    | `MK49250120000058907` | Payout succeeds.                               |
+| `AAAAMK2XXXX`    | `MK70400440532013001` | Payout fails with a no_account code.           |
+| `AAAAMK2XXXX`    | `MK70400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAMK2XXXX`    | `MK70400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAMK2XXXX`    | `MK70400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAMK2XXXX`    | `MK70400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Mongolia
+
+| SWIFT / BIC Code | Account      | Type                                           |
+| ---------------- | ------------ | ---------------------------------------------- |
+| `AAAAMNUBXXX`    | `0002222001` | Payout succeeds.                               |
+| `AAAAMNUBXXX`    | `0002222002` | Payout fails with a no_account code.           |
+| `AAAAMNUBXXX`    | `0002222003` | Payout fails with a account_closed code.       |
+| `AAAAMNUBXXX`    | `0002222004` | Payout fails with a insufficient_funds code.   |
+| `AAAAMNUBXXX`    | `0002222005` | Payout fails with a debit_not_authorized code. |
+| `AAAAMNUBXXX`    | `0002222006` | Payout fails with a invalid_currency code.     |
+
+#### Macao SAR China
+
+| SWIFT / BIC Code | Account               | Type                                           |
+| ---------------- | --------------------- | ---------------------------------------------- |
+| `AAAAMOMXXXX`    | `0000000001234567897` | Payout succeeds.                               |
+| `AAAAMOMXXXX`    | `0000000111111111117` | Payout fails with a no_account code.           |
+| `AAAAMOMXXXX`    | `0000000111111111133` | Payout fails with a account_closed code.       |
+| `AAAAMOMXXXX`    | `0000000222222222224` | Payout fails with a insufficient_funds code.   |
+| `AAAAMOMXXXX`    | `0000000333333333331` | Payout fails with a debit_not_authorized code. |
+| `AAAAMOMXXXX`    | `0000000444444444448` | Payout fails with a invalid_currency code.     |
+
+#### Malta
+
+| IBAN                              | Type                                           |
+| --------------------------------- | ---------------------------------------------- |
+| `MT84MALT011000012345MTLCAST001S` | Payout succeeds.                               |
+| `MT62370400440532013001`          | Payout fails with a no_account code.           |
+| `MT89370400440532013002`          | Payout fails with a account_closed code.       |
+| `MT89370400440532013003`          | Payout fails with a insufficient_funds code.   |
+| `MT89370400440532013004`          | Payout fails with a debit_not_authorized code. |
+| `MT89370400440532013005`          | Payout fails with a invalid_currency code.     |
+
+#### Mauritius
+
+| IBAN                             | Type                                           |
+| -------------------------------- | ---------------------------------------------- |
+| `MU17BOMM0101101030300200000MUR` | Payout succeeds.                               |
+| `MU62370400440532013001`         | Payout fails with a no_account code.           |
+| `MU89370400440532013002`         | Payout fails with a account_closed code.       |
+| `MU89370400440532013003`         | Payout fails with a insufficient_funds code.   |
+| `MU89370400440532013004`         | Payout fails with a debit_not_authorized code. |
+| `MU89370400440532013005`         | Payout fails with a invalid_currency code.     |
+
+#### Mexico
+
+| Account              | Type                                           |
+| -------------------- | ---------------------------------------------- |
+| `000000001234567897` | Payout succeeds.                               |
+| `000000111111111117` | Payout fails with a no_account code.           |
+| `000000111111111133` | Payout fails with a account_closed code.       |
+| `000000222222222224` | Payout fails with a insufficient_funds code.   |
+| `000000333333333331` | Payout fails with a debit_not_authorized code. |
+| `000000444444444448` | Payout fails with a invalid_currency code.     |
+
+#### Malaysia
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `TESTMYKLXXX`    | `000123456000` | Payout succeeds.                               |
+| `TESTMYKLXXX`    | `111111111116` | Payout fails with a no_account code.           |
+| `TESTMYKLXXX`    | `111111111113` | Payout fails with a account_closed code.       |
+| `TESTMYKLXXX`    | `222222222227` | Payout fails with a insufficient_funds code.   |
+| `TESTMYKLXXX`    | `333333333335` | Payout fails with a debit_not_authorized code. |
+| `TESTMYKLXXX`    | `444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Mozambique
+
+| SWIFT / BIC Code | Account                 | Type                                           |
+| ---------------- | ----------------------- | ---------------------------------------------- |
+| `AAAAMZMXXXX`    | `001234567890123456789` | Payout succeeds.                               |
+| `AAAAMZMXXXX`    | `000000111111111111116` | Payout fails with a no_account code.           |
+| `AAAAMZMXXXX`    | `000000111111111111113` | Payout fails with a account_closed code.       |
+| `AAAAMZMXXXX`    | `000000222222222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAMZMXXXX`    | `000000333333333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAMZMXXXX`    | `000000444444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Namibia
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAANANXXYZ`    | `000123456789` | Payout succeeds.                               |
+| `AAAANANXXYZ`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAANANXXYZ`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAANANXXYZ`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAANANXXYZ`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAANANXXYZ`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Niger
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `NE58NE0380100100130305000268` | Payout succeeds.                               |
+| `NE62370400440532013001`       | Payout fails with a no_account code.           |
+| `NE89370400440532013002`       | Payout fails with a account_closed code.       |
+| `NE89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `NE89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `NE89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Nigeria
+
+| SWIFT / BIC Code | Account      | Type                                           |
+| ---------------- | ------------ | ---------------------------------------------- |
+| `AAAANGLAXXX`    | `1111111112` | Payout succeeds.                               |
+| `AAAANGLAXXX`    | `1111111116` | Payout fails with a no_account code.           |
+| `AAAANGLAXXX`    | `1111111113` | Payout fails with a account_closed code.       |
+| `AAAANGLAXXX`    | `2222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAANGLAXXX`    | `3333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAANGLAXXX`    | `4444444440` | Payout fails with a invalid_currency code.     |
+
+#### Netherlands
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `NL39RABO0300065264`     | Payout succeeds.                               |
+| `NL91ABNA0417164300`     | Payout fails with a no_account code.           |
+| `NL89370400440532013002` | Payout fails with a account_closed code.       |
+| `NL27RABO0002222227`     | Payout fails with a insufficient_funds code.   |
+| `NL89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `NL89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Norway
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `NO9386011117947`        | Payout succeeds.                               |
+| `NO6686011117948`        | Payout fails with a no_account code.           |
+| `NO89370400440532013002` | Payout fails with a account_closed code.       |
+| `NO0586012222227`        | Payout fails with a insufficient_funds code.   |
+| `NO89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `NO89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### New Zealand
+
+| Account            | Type                                           |
+| ------------------ | ---------------------------------------------- |
+| `1100000000000010` | Payout succeeds.                               |
+| `1100001111111016` | Payout fails with a no_account code.           |
+| `1100001111111013` | Payout fails with a account_closed code.       |
+| `1100002222222027` | Payout fails with a insufficient_funds code.   |
+| `1100003333333035` | Payout fails with a debit_not_authorized code. |
+| `1100004444444040` | Payout fails with a invalid_currency code.     |
+
+#### Oman
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAAOMOMXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAAOMOMXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAOMOMXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAOMOMXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAOMOMXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAOMOMXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Panama
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAAPAPAXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAAPAPAXXX`    | `001111111116` | Payout fails with a no_account code.           |
+| `AAAAPAPAXXX`    | `001111111113` | Payout fails with a account_closed code.       |
+| `AAAAPAPAXXX`    | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAAPAPAXXX`    | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAAPAPAXXX`    | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Peru
+
+| Account                | Type                                           |
+| ---------------------- | ---------------------------------------------- |
+| `99934500012345670024` | Payout succeeds.                               |
+| `99934500012345670122` | Payout fails with a no_account code.           |
+| `99934500012345670220` | Payout fails with a account_closed code.       |
+| `99934500012345670328` | Payout fails with a insufficient_funds code.   |
+| `99934500012345670426` | Payout fails with a debit_not_authorized code. |
+| `99934500012345670523` | Payout fails with a invalid_currency code.     |
+
+#### Philippines
+
+| SWIFT / BIC Code | Account             | Type                                           |
+| ---------------- | ------------------- | ---------------------------------------------- |
+| `BCDEFGHI123`    | `01567890123456789` | Payout succeeds.                               |
+| `BCDEFGHI123`    | `45111111111111116` | Payout fails with a no_account code.           |
+| `BCDEFGHI123`    | `45111111111111113` | Payout fails with a account_closed code.       |
+| `BCDEFGHI123`    | `45222222222222227` | Payout fails with a insufficient_funds code.   |
+| `BCDEFGHI123`    | `45333333333333335` | Payout fails with a debit_not_authorized code. |
+| `BCDEFGHI123`    | `45444444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Pakistan
+
+| SWIFT / BIC Code | IBAN                       | Type                                           |
+| ---------------- | -------------------------- | ---------------------------------------------- |
+| `AAAAPKKAXXX`    | `PK36SCBL0000001123456702` | Payout succeeds.                               |
+| `AAAAPKKAXXX`    | `PK0062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAPKKAXXX`    | `PK0089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAPKKAXXX`    | `PK0089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAPKKAXXX`    | `PK0089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAPKKAXXX`    | `PK0089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Poland
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `PL61109010140000071219812874` | Payout succeeds.                               |
+| `PL62370400440532013001`       | Payout fails with a no_account code.           |
+| `PL89370400440532013002`       | Payout fails with a account_closed code.       |
+| `PL89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `PL89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `PL89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### Portugal
+
+| IBAN                        | Type                                           |
+| --------------------------- | ---------------------------------------------- |
+| `PT50000201231234567890154` | Payout succeeds.                               |
+| `PT23000201231234567890155` | Payout fails with a no_account code.           |
+| `PT89370400440532013002`    | Payout fails with a account_closed code.       |
+| `PT05000201230000002222227` | Payout fails with a insufficient_funds code.   |
+| `PT89370400440532013004`    | Payout fails with a debit_not_authorized code. |
+| `PT89370400440532013005`    | Payout fails with a invalid_currency code.     |
+
+#### Paraguay
+
+| Routing | Account            | Type                                           |
+| ------- | ------------------ | ---------------------------------------------- |
+| `0`     | `0567890123456789` | Payout succeeds.                               |
+| `0`     | `0111111111111116` | Payout fails with a no_account code.           |
+| `0`     | `0111111111111113` | Payout fails with a account_closed code.       |
+| `0`     | `0222222222222227` | Payout fails with a insufficient_funds code.   |
+| `0`     | `0333333333333335` | Payout fails with a debit_not_authorized code. |
+| `0`     | `0444444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Qatar
+
+| SWIFT / BIC Code | IBAN                            | Type                                           |
+| ---------------- | ------------------------------- | ---------------------------------------------- |
+| `AAAAQAQAXXX`    | `QA87CITI123456789012345678901` | Payout succeeds.                               |
+| `AAAAQAQAXXX`    | `QA000000062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAAQAQAXXX`    | `QA000000089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAAQAQAXXX`    | `QA000000089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAAQAQAXXX`    | `QA000000089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAAQAQAXXX`    | `QA000000089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Romania
+
+| IBAN                       | Type                                           |
+| -------------------------- | ---------------------------------------------- |
+| `RO49AAAA1B31007593840000` | Payout succeeds.                               |
+| `RO62370400440532013001`   | Payout fails with a no_account code.           |
+| `RO89370400440532013002`   | Payout fails with a account_closed code.       |
+| `RO89370400440532013003`   | Payout fails with a insufficient_funds code.   |
+| `RO89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `RO89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### Serbia
+
+| SWIFT / BIC Code | IBAN                     | Type                                           |
+| ---------------- | ------------------------ | ---------------------------------------------- |
+| `TESTSERBXXX`    | `RS35105008123123123173` | Payout succeeds.                               |
+| `TESTSERBXXX`    | `RS62370400440532013001` | Payout fails with a no_account code.           |
+| `TESTSERBXXX`    | `RS89370400440532013002` | Payout fails with a account_closed code.       |
+| `TESTSERBXXX`    | `RS89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `TESTSERBXXX`    | `RS89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `TESTSERBXXX`    | `RS89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Rwanda
+
+| SWIFT / BIC Code | Account        | Type                                           |
+| ---------------- | -------------- | ---------------------------------------------- |
+| `AAAARWRWXXX`    | `000123456789` | Payout succeeds.                               |
+| `AAAARWRWXXX`    | `111111111116` | Payout fails with a no_account code.           |
+| `AAAARWRWXXX`    | `111111111113` | Payout fails with a account_closed code.       |
+| `AAAARWRWXXX`    | `222222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAARWRWXXX`    | `333333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAARWRWXXX`    | `444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Saudi Arabia
+
+| SWIFT / BIC Code | IBAN                       | Type                                           |
+| ---------------- | -------------------------- | ---------------------------------------------- |
+| `RIBLSARIXXX`    | `SA4420000001234567891234` | Payout succeeds.                               |
+| `RIBLSARIXXX`    | `SA62370400440532013001`   | Payout fails with a no_account code.           |
+| `RIBLSARIXXX`    | `SA89370400440532013002`   | Payout fails with a account_closed code.       |
+| `RIBLSARIXXX`    | `SA89370400440532013003`   | Payout fails with a insufficient_funds code.   |
+| `RIBLSARIXXX`    | `SA89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `RIBLSARIXXX`    | `SA89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### Sweden
+
+| IBAN                       | Type                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| `SE3550000000054910000003` | Payout succeeds.                                                                     |
+| `SE0850000000054910000004` | Payout fails with a no_account code.                                                 |
+| `SE89370400440532013002`   | Payout fails with a account_closed code.                                             |
+| `SE2850000000000002222227` | Payout fails with a insufficient_funds code.                                         |
+| `SE89370400440532013004`   | Payout fails with a debit_not_authorized code.                                       |
+| `SE89370400440532013005`   | Payout fails with a invalid_currency code.                                           |
+| `SE2750000000000000888883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Singapore
+
+| Routing    | Account     | Type                                                                                 |
+| ---------- | ----------- | ------------------------------------------------------------------------------------ |
+| `1100-000` | `000123456` | Payout succeeds.                                                                     |
+| `1100-000` | `111111116` | Payout fails with a no_account code.                                                 |
+| `1100-000` | `111111113` | Payout fails with a account_closed code.                                             |
+| `1100-000` | `222222227` | Payout fails with a insufficient_funds code.                                         |
+| `1100-000` | `333333335` | Payout fails with a debit_not_authorized code.                                       |
+| `1100-000` | `444444440` | Payout fails with a invalid_currency code.                                           |
+| `1100-000` | `888888883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Slovenia
+
+| IBAN                     | Type                                           |
+| ------------------------ | ---------------------------------------------- |
+| `SI56263300012039086`    | Payout succeeds.                               |
+| `SI62370400440532013001` | Payout fails with a no_account code.           |
+| `SI89370400440532013002` | Payout fails with a account_closed code.       |
+| `SI89370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `SI89370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `SI89370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Slovakia
+
+| IBAN                       | Type                                           |
+| -------------------------- | ---------------------------------------------- |
+| `SK3112000000198742637541` | Payout succeeds.                               |
+| `SK62370400440532013001`   | Payout fails with a no_account code.           |
+| `SK89370400440532013002`   | Payout fails with a account_closed code.       |
+| `SK89370400440532013003`   | Payout fails with a insufficient_funds code.   |
+| `SK89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `SK89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### San Marino
+
+| SWIFT / BIC Code | IBAN                          | Type                                           |
+| ---------------- | ----------------------------- | ---------------------------------------------- |
+| `AAAASMSMXXX`    | `SM86U0322509800000000270100` | Payout succeeds.                               |
+| `AAAASMSMXXX`    | `SM62370400440532013001`      | Payout fails with a no_account code.           |
+| `AAAASMSMXXX`    | `SM89370400440532013002`      | Payout fails with a account_closed code.       |
+| `AAAASMSMXXX`    | `SM89370400440532013003`      | Payout fails with a insufficient_funds code.   |
+| `AAAASMSMXXX`    | `SM89370400440532013004`      | Payout fails with a debit_not_authorized code. |
+| `AAAASMSMXXX`    | `SM89370400440532013005`      | Payout fails with a invalid_currency code.     |
+
+#### Senegal
+
+| IBAN                           | Type                                           |
+| ------------------------------ | ---------------------------------------------- |
+| `SN08SN0100152000048500003035` | Payout succeeds.                               |
+| `SN62370400440532013001`       | Payout fails with a no_account code.           |
+| `SN89370400440532013002`       | Payout fails with a account_closed code.       |
+| `SN89370400440532013003`       | Payout fails with a insufficient_funds code.   |
+| `SN89370400440532013004`       | Payout fails with a debit_not_authorized code. |
+| `SN89370400440532013005`       | Payout fails with a invalid_currency code.     |
+
+#### El Salvador
+
+| SWIFT / BIC Code | IBAN                           | Type                                           |
+| ---------------- | ------------------------------ | ---------------------------------------------- |
+| `AAAASVS1XXX`    | `SV44BCIE12345678901234567890` | Payout succeeds.                               |
+| `AAAASVS1XXX`    | `SV00000062370400440532013001` | Payout fails with a no_account code.           |
+| `AAAASVS1XXX`    | `SV00000089370400440532013002` | Payout fails with a account_closed code.       |
+| `AAAASVS1XXX`    | `SV00000089370400440532013003` | Payout fails with a insufficient_funds code.   |
+| `AAAASVS1XXX`    | `SV00000089370400440532013004` | Payout fails with a debit_not_authorized code. |
+| `AAAASVS1XXX`    | `SV00000089370400440532013005` | Payout fails with a invalid_currency code.     |
+
+#### Thailand
+
+| Routing    | Account        | Type                                           |
+| ---------- | -------------- | ---------------------------------------------- |
+| `999-0001` | `000123456789` | Payout succeeds.                               |
+| `999-0001` | `001111111116` | Payout fails with a no_account code.           |
+| `999-0001` | `001111111113` | Payout fails with a account_closed code.       |
+| `999-0001` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `999-0001` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `999-0001` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Tunisia
+
+| IBAN                       | Type                                           |
+| -------------------------- | ---------------------------------------------- |
+| `TN5904018104004942712345` | Payout succeeds.                               |
+| `TN62370400440532013001`   | Payout fails with a no_account code.           |
+| `TN89370400440532013002`   | Payout fails with a account_closed code.       |
+| `TN89370400440532013003`   | Payout fails with a insufficient_funds code.   |
+| `TN89370400440532013004`   | Payout fails with a debit_not_authorized code. |
+| `TN89370400440532013005`   | Payout fails with a invalid_currency code.     |
+
+#### Turkey
+
+| IBAN                         | Type                                           |
+| ---------------------------- | ---------------------------------------------- |
+| `TR320010009999901234567890` | Payout succeeds.                               |
+| `TR62370400440532013001`     | Payout fails with a no_account code.           |
+| `TR89370400440532013002`     | Payout fails with a account_closed code.       |
+| `TR89370400440532013003`     | Payout fails with a insufficient_funds code.   |
+| `TR89370400440532013004`     | Payout fails with a debit_not_authorized code. |
+| `TR89370400440532013005`     | Payout fails with a invalid_currency code.     |
+
+#### Trinidad & Tobago
+
+| Routing    | Account             | Type                                           |
+| ---------- | ------------------- | ---------------------------------------------- |
+| `99900001` | `00567890123456789` | Payout succeeds.                               |
+| `99900001` | `00111111111111116` | Payout fails with a no_account code.           |
+| `99900001` | `00111111111111113` | Payout fails with a account_closed code.       |
+| `99900001` | `00222222222222227` | Payout fails with a insufficient_funds code.   |
+| `99900001` | `00333333333333335` | Payout fails with a debit_not_authorized code. |
+| `99900001` | `00444444444444440` | Payout fails with a invalid_currency code.     |
+
+#### Taiwan
+
+| SWIFT / BIC Code | Account      | Type                                           |
+| ---------------- | ------------ | ---------------------------------------------- |
+| `AAAATWTXXXX`    | `0001234567` | Payout succeeds.                               |
+| `AAAATWTXXXX`    | `1111111116` | Payout fails with a no_account code.           |
+| `AAAATWTXXXX`    | `1111111113` | Payout fails with a account_closed code.       |
+| `AAAATWTXXXX`    | `2222222227` | Payout fails with a insufficient_funds code.   |
+| `AAAATWTXXXX`    | `3333333335` | Payout fails with a debit_not_authorized code. |
+| `AAAATWTXXXX`    | `4444444440` | Payout fails with a invalid_currency code.     |
+
+#### Tanzania
+
+| SWIFT / BIC Code | Account          | Type                                           |
+| ---------------- | ---------------- | ---------------------------------------------- |
+| `AAAATZTXXXX`    | `0000123456789`  | Payout succeeds.                               |
+| `AAAATZTXXXX`    | `1111111111166`  | Payout fails with a no_account code.           |
+| `AAAATZTXXXX`    | `111111111133`   | Payout fails with a account_closed code.       |
+| `AAAATZTXXXX`    | `2222222222278`  | Payout fails with a insufficient_funds code.   |
+| `AAAATZTXXXX`    | `33333333333569` | Payout fails with a debit_not_authorized code. |
+| `AAAATZTXXXX`    | `4444444444440`  | Payout fails with a invalid_currency code.     |
+
+#### United States
+
+| Routing     | Account        | Type                                                                                 |
+| ----------- | -------------- | ------------------------------------------------------------------------------------ |
+| `110000000` | `000123456789` | Payout succeeds.                                                                     |
+| `110000000` | `000111111116` | Payout fails with a no_account code.                                                 |
+| `110000000` | `000111111113` | Payout fails with a account_closed code.                                             |
+| `110000000` | `000222222227` | Payout fails with a insufficient_funds code.                                         |
+| `110000000` | `000333333335` | Payout fails with a debit_not_authorized code.                                       |
+| `110000000` | `000444444440` | Payout fails with a invalid_currency code.                                           |
+| `110000000` | `000888888883` | Payout fails if method is instant. Bank account is not eligible for Instant Payouts. |
+
+#### Uruguay
+
+| Routing | Account        | Type                                           |
+| ------- | -------------- | ---------------------------------------------- |
+| `999`   | `000123456789` | Payout succeeds.                               |
+| `999`   | `001111111116` | Payout fails with a no_account code.           |
+| `999`   | `001111111113` | Payout fails with a account_closed code.       |
+| `999`   | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `999`   | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `999`   | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### Uzbekistan
+
+| Account                | Type                                           |
+| ---------------------- | ---------------------------------------------- |
+| `99934500012345670024` | Payout succeeds.                               |
+| `99934500012345670122` | Payout fails with a no_account code.           |
+| `99934500012345670220` | Payout fails with a account_closed code.       |
+| `99934500012345670328` | Payout fails with a insufficient_funds code.   |
+| `99934500012345670426` | Payout fails with a debit_not_authorized code. |
+| `99934500012345670523` | Payout fails with a invalid_currency code.     |
+
+#### Vietnam
+
+| Routing    | Account        | Type                                           |
+| ---------- | -------------- | ---------------------------------------------- |
+| `01101100` | `000123456789` | Payout succeeds.                               |
+| `01101100` | `001111111116` | Payout fails with a no_account code.           |
+| `01101100` | `001111111113` | Payout fails with a account_closed code.       |
+| `01101100` | `002222222227` | Payout fails with a insufficient_funds code.   |
+| `01101100` | `003333333335` | Payout fails with a debit_not_authorized code. |
+| `01101100` | `004444444440` | Payout fails with a invalid_currency code.     |
+
+#### South Africa
+
+| SWIFT / BIC Code | Account     | Type                                           |
+| ---------------- | ----------- | ---------------------------------------------- |
+| `ZAZAZAZAXXX`    | `000001234` | Payout succeeds.                               |
+| `ZAZAZAZAXXX`    | `000011116` | Payout fails with a no_account code.           |
+| `ZAZAZAZAXXX`    | `000011113` | Payout fails with a account_closed code.       |
+| `ZAZAZAZAXXX`    | `000022227` | Payout fails with a insufficient_funds code.   |
+| `ZAZAZAZAXXX`    | `000033335` | Payout fails with a debit_not_authorized code. |
+| `ZAZAZAZAXXX`    | `000044440` | Payout fails with a invalid_currency code.     |
+
 ### Debit card numbers 
 
 Use these test debit card numbers to test payouts to a debit card. You can only use them with test API keys.

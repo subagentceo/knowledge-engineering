@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,11 +10,11 @@ A session is a saved conversation tied to a project directory. Claude Code store
 
 The [desktop app](/en/desktop#work-in-parallel-with-sessions), [Claude Code on the web](/en/claude-code-on-the-web), and the [VS Code extension](/en/vs-code#resume-past-conversations) each maintain their own session history. This page covers the CLI:
 
-- [Resume](#resume-a-session) a previous conversation by flag, name, or PR
-- [Name](#name-your-sessions) sessions so you can find them later
-- [Browse](#use-the-session-picker) sessions with the `/resume` picker
-- [Branch](#branch-a-session) a conversation to try a different approach
-- [Export](#export-and-locate-session-data) transcripts and find them on disk
+* [Resume](#resume-a-session) a previous conversation by flag, name, or PR
+* [Name](#name-your-sessions) sessions so you can find them later
+* [Browse](#use-the-session-picker) sessions with the `/resume` picker
+* [Branch](#branch-a-session) a conversation to try a different approach
+* [Export](#export-and-locate-session-data) transcripts and find them on disk
 
 ## Resume a session
 
@@ -29,11 +28,11 @@ Sessions are saved continuously to [local transcript files](#export-and-locate-s
 | `claude --from-pr <number>` | Resumes the session linked to that pull request                    |
 | `/resume`                   | Switches to a different conversation from inside an active session |
 
-Sessions created with [`claude -p`](/en/headless) or the [Agent SDK](/en/agent-sdk/overview) do not appear in the session picker, but you can still resume one by passing its session ID to `claude --resume <session-id>`.
+Sessions created with [`claude -p`](/en/headless) or the [Agent SDK](/en/agent-sdk/overview) do not appear in the session picker, but you can still resume one by passing its session ID to `claude --resume <session-id>`. Run this from the directory the session was started in: session ID lookup is scoped to the current project directory and its git worktrees, so a session created elsewhere reports `No conversation found with session ID: <session-id>`.
 
 ### Where the session picker looks
 
-Sessions are stored per project directory. By default the session picker shows interactive sessions from the current worktree, plus sessions started elsewhere that added the current directory with `/add-dir`. Use `Ctrl+W` to widen to all worktrees of the repository or `Ctrl+A` to widen to every project on this machine.
+Sessions are stored per project directory. By default the session picker shows interactive sessions from the current worktree, plus sessions started elsewhere that added the current directory with `/add-dir`. {/* min-version: 2.1.169 */}From v2.1.169, moving a session with [`/cd`](/en/commands) relocates it to the new directory's project storage, so it appears in that directory's picker afterward. Use `Ctrl+W` to widen to all worktrees of the repository or `Ctrl+A` to widen to every project on this machine.
 
 Selecting a session from another worktree of the same repository resumes it in place. Selecting a session from an unrelated project copies a `cd` and resume command to your clipboard instead.
 
@@ -102,9 +101,9 @@ For checkpoint-based rewind within a single session, see [Checkpointing](/en/che
 
 These commands control what's in the context window without leaving the session:
 
-- **`/clear`**: start fresh with an empty context. The previous conversation is saved and resumable
-- **`/compact [instructions]`**: replace history with a summary, optionally focused on what you specify
-- **`/context`**: show what is currently consuming context
+* **`/clear`**: start fresh with an empty context. The previous conversation is saved and resumable
+* **`/compact [instructions]`**: replace history with a summary, optionally focused on what you specify
+* **`/context`**: show what is currently consuming context
 
 For how compaction interacts with CLAUDE.md, skills, and rules, see the [context window guide](/en/context-window). For strategies on when to clear versus compact, see [Best practices](/en/best-practices#manage-your-session).
 
@@ -120,7 +119,7 @@ To suppress transcript writes entirely, set [`CLAUDE_CODE_SKIP_PROMPT_HISTORY`](
 
 These pages cover related session and parallelism mechanics:
 
-- [Worktrees](/en/worktrees): run isolated parallel sessions on separate branches
-- [Checkpointing](/en/checkpointing): rewind code and conversation to an earlier point
-- [Context window](/en/context-window): what fills context and what survives compaction
-- [Non-interactive mode](/en/headless): session behavior under `claude -p`
+* [Worktrees](/en/worktrees): run isolated parallel sessions on separate branches
+* [Checkpointing](/en/checkpointing): rewind code and conversation to an earlier point
+* [Context window](/en/context-window): what fills context and what survives compaction
+* [Non-interactive mode](/en/headless): session behavior under `claude -p`

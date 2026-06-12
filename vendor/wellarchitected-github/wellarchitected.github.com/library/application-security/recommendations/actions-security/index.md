@@ -1,28 +1,26 @@
-[Content Library](/library/)
+# Securing GitHub Actions Workflows
 
-[🔒 Application Security](/library/application-security/)
+Libraries
 
-[Recommendations](/library/application-security/recommendations/)
+Application Security
+
+Recommendations
 
 Securing GitHub Actions Workflows
 
 # Securing GitHub Actions Workflows
 
-[Greg Mohler](https://github.com/callmegreg) & [Kitty Chiu](https://github.com/kittychiu)
+Greg Mohler & Kitty Chiu
 
 August 16, 2024
 
-|
-
-Updated February 2, 2026
-
-## Scenario overview[](#scenario-overview)
+## Scenario overview
 
 Continuous integration and continuous delivery (CI/CD) are essential components of modern software development. GitHub Actions is a powerful tool that enables developers to automate repetitive tasks and reduce the risk of human error in manual workflows.
 
 However, CI/CD tools inherently provide remote code execution as a service, making them a prime attack vector for malicious actors. Securing GitHub Actions workflows is critical to prevent unauthorized access to the codebase and protect organizations from potential security breaches.
 
-## Key design strategies[](#key-design-strategies)
+## Key design strategies
 
 To secure GitHub Actions workflows, consider the following strategies:
 
@@ -34,58 +32,58 @@ To secure GitHub Actions workflows, consider the following strategies:
 6.  **Avoid actions with mutable dependencies**: Do not use actions that include mutable dependencies (e.g. `latest`) or pull in external binaries without verification, as they introduce supply chain risks.
 7.  **Avoid workflow injection**: Sanitize user input and avoid using expression values in sensitive contexts (such as `run` steps) to prevent injection attacks.
 8.  **Avoid `pull_request_target`**: This event runs workflows in the base repository context with elevated permissions. This can enable malicious execution using pull requests from forks.
-9.  **Secure `workflow_run` workflows**: Treat all artifacts, code, and data from triggering workflows as untrusted. Use [branch filters](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#limiting-your-workflow-to-run-based-on-branches) and validate all inputs.
+9.  **Secure `workflow_run` workflows**: Treat all artifacts, code, and data from triggering workflows as untrusted. Use branch filters and validate all inputs.
 10.  **Use `head.sha` instead of `head.ref`**: Where possible, reference by commit SHA instead of a user-provided branch name or tag (ref), especially in sensitive contexts (such as `run` steps). If require, use environment variable to store `head.ref` and reference it to prevent injection attack.
 11.  **Use caution with public repositories**: Anyone can suggest changes to public repositories. Review workflow triggers, and never use self-hosted runners with public repositories.
-12.  **Restrict allowed actions**: Use the [_Allow enterprise, and select non-enterprise, actions and reusable workflows_](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#controlling-access-to-public-actions-and-reusable-workflows) setting to control which actions can run.
+12.  **Restrict allowed actions**: Use the _Allow enterprise, and select non-enterprise, actions and reusable workflows_ setting to control which actions can run.
 
-## Assumptions and preconditions[](#assumptions-and-preconditions)
+## Assumptions and preconditions
 
-This article assumes readers are familiar with [GitHub Actions](https://docs.github.com/en/enterprise-cloud@latest/actions/about-github-actions/understanding-github-actions) and have experience creating and managing workflows. It also assumes a basic understanding of security best practices and concepts such as authentication, authorization, and OIDC.
+This article assumes readers are familiar with GitHub Actions and have experience creating and managing workflows. It also assumes a basic understanding of security best practices and concepts such as authentication, authorization, and OIDC.
 
-## Recommended implementation[](#recommended-implementation)
+## Recommended implementation
 
-### Use OpenID Connect (OIDC) for authentication[](#use-openid-connect-oidc-for-authentication)
+### Use OpenID Connect (OIDC) for authentication
 
-CI/CD platforms like GitHub Actions often require access to sensitive resources such as source code repositories, build artifacts, and deployment environments. To ensure that only authorized users and services can access these resources, [use OpenID Connect (OIDC) for authentication](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+CI/CD platforms like GitHub Actions often require access to sensitive resources such as source code repositories, build artifacts, and deployment environments. To ensure that only authorized users and services can access these resources, use OpenID Connect (OIDC) for authentication.
 
 OIDC eliminates the need for long-lived credentials in Actions secrets, reducing the risk of secret exfiltration. By establishing trust between GitHub Actions and a service that supports OIDC, attributes like organization, repository, workflow, or user can be used as conditions to approve or deny access.
 
-#### Configuring trust relationships with specific claims[](#configuring-trust-relationships-with-specific-claims)
+#### Configuring trust relationships with specific claims
 
-When [configuring OIDC trust relationships with cloud providers](https://docs.github.com/en/actions/reference/security/oidc#oidc-claims-used-to-define-trust-conditions-on-cloud-roles) or compliant services, specify granular claims to restrict access to trusted conditions. For example:
+When configuring OIDC trust relationships with cloud providers or compliant services, specify granular claims to restrict access to trusted conditions. For example:
 
--   **`sub` claim**: The primary OIDC subject identifier, uniquely representing the repository that requested the token. Use this claim to restrict access to specific repositories and environments. Prefer an exact match on a complete claim instead of wildcard matches.
--   **`job_workflow_ref` claim**: Specifies the exact workflow file path and commit SHA. Note that only a limited number of cloud providers support this custom claim (e.g. [Azure](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-flexible-federated-identity-credentials?tabs=github)).
+*   **`sub` claim**: The primary OIDC subject identifier, uniquely representing the repository that requested the token. Use this claim to restrict access to specific repositories and environments. Prefer an exact match on a complete claim instead of wildcard matches.
+*   **`job_workflow_ref` claim**: Specifies the exact workflow file path and commit SHA. Note that only a limited number of cloud providers support this custom claim (e.g. Azure).
 
-Define the most granular trust conditions wherever possible to prevent unauthorized access, even from legitimate repositories. [Customize the `sub` claim](https://docs.github.com/en/enterprise-cloud@latest/actions/reference/security/oidc#customizing-the-token-claims) when the cloud provider’s OIDC implementation does not support matching **custom claims** or you need immutable identifiers in the `sub`.
+Define the most granular trust conditions wherever possible to prevent unauthorized access, even from legitimate repositories. Customize the `sub` claim when the cloud provider’s OIDC implementation does not support matching **custom claims** or you need immutable identifiers in the `sub`.
 
--   Prefer **immutable identifiers** (e.g., `repository_owner_id:12345:repository_id:67890`) over mutable ones (e.g., `repo:github/some-repo`).
+*   Prefer **immutable identifiers** (e.g., `repository_owner_id:12345:repository_id:67890`) over mutable ones (e.g., `repo:github/some-repo`).
 
-#### Scaling with reusable workflows[](#scaling-with-reusable-workflows)
+#### Scaling with reusable workflows
 
-OIDC can also [secure reusable workflows](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows) across multiple organizations and repositories. Use `job_workflow_ref` to ensure only approved workflows access sensitive resources.
+OIDC can also secure reusable workflows across multiple organizations and repositories. Use `job_workflow_ref` to ensure only approved workflows access sensitive resources.
 
-### Configure repository rules[](#configure-repository-rules)
+### Configure repository rules
 
 Repository rulesets provide a strong defensive layer that complements workflow-level security measures. Consider these rules:
 
--   [Require pull requests before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-a-pull-request-before-merging): Enforce human review to detect malicious changes. For example, require human review and at least two reviewers to merge to the default branch.
--   [Require status checks to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-status-checks-to-pass-before-merging): Ensure automated validation checks pass before merging.
--   [Require code scanning results](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-code-scanning-results): Identify security vulnerabilities before merge.
--   [Require signed commits](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-signed-commits): Ensure all commits are signed to prove who authored them and that they haven’t been modified.
--   Restrict bypass permissions: Limit bypass capabilities to emergencies and monitor via audit logs.
+*   Require pull requests before merging: Enforce human review to detect malicious changes. For example, require human review and at least two reviewers to merge to the default branch.
+*   Require status checks to pass before merging: Ensure automated validation checks pass before merging.
+*   Require code scanning results: Identify security vulnerabilities before merge.
+*   Require signed commits: Ensure all commits are signed to prove who authored them and that they haven’t been modified.
+*   Restrict bypass permissions: Limit bypass capabilities to emergencies and monitor via audit logs.
 
-### Implement least privilege for workflow permissions[](#implement-least-privilege-for-workflow-permissions)
+### Implement least privilege for workflow permissions
 
-GitHub Actions workflows include a pre-defined `GITHUB_TOKEN` variable that grants [default permissions](https://docs.github.com/en/enterprise-cloud@latest/actions/security-for-github-actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) to jobs in the workflow. These default permissions can be configured as either **permissive** or **restricted** at the [organization level](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization) or at the [repository level](https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository).
+GitHub Actions workflows include a pre-defined `GITHUB_TOKEN` variable that grants default permissions to jobs in the workflow. These default permissions can be configured as either **permissive** or **restricted** at the organization level or at the repository level.
 
 Set the organization-level or repository-level default to **restricted** (read-only). Then, define permissions explicitly at the job level using the `jobs.<job_id>.permissions` section. Avoid setting workflow-level permissions globally (at the top of the workflow file) as this grants the same permissions to all jobs. This approach:
 
--   Forces each job to declare only the specific permissions it needs
--   Prevents accidental privilege escalation
--   Ensures new jobs default to no permissions rather than inherited elevated permissions
--   Reduces the attack surface if a job is compromised
+*   Forces each job to declare only the specific permissions it needs
+*   Prevents accidental privilege escalation
+*   Ensures new jobs default to no permissions rather than inherited elevated permissions
+*   Reduces the attack surface if a job is compromised
 
 For example, define minimal permissions on each job instead of all jobs:
 
@@ -110,19 +108,19 @@ jobs:
       - uses: actions/github-script@v8
 ```
 
-### Use Dependabot to protect the supply chain[](#use-dependabot-to-protect-the-supply-chain)
+### Use Dependabot to protect the supply chain
 
-[Dependabot](https://docs.github.com/en/enterprise-cloud@latest/code-security/getting-started/dependabot-quickstart-guide) is a GitHub feature that automatically identifies outdated or vulnerable dependencies across repositories and creates pull requests to update them. By enabling Dependabot, teams can ensure that:
+Dependabot is a GitHub feature that automatically identifies outdated or vulnerable dependencies across repositories and creates pull requests to update them. By enabling Dependabot, teams can ensure that:
 
--   Actions used in workflows are up to date
--   Container images, packages, and other dependencies in the repository are secure
--   The supply chain is monitored for vulnerabilities
+*   Actions used in workflows are up to date
+*   Container images, packages, and other dependencies in the repository are secure
+*   The supply chain is monitored for vulnerabilities
 
 ⚠️
 
-Dependabot will only create Dependabot alerts for vulnerable GitHub Actions that use semantic versioning. Actions pinned to SHAs will only receive version updates, not security alerts. For more information, see [About Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
+Dependabot will only create Dependabot alerts for vulnerable GitHub Actions that use semantic versioning. Actions pinned to SHAs will only receive version updates, not security alerts. For more information, see About Dependabot alerts.
 
-### Pin versions of actions[](#pin-versions-of-actions)
+### Pin versions of actions
 
 When using third-party actions in workflows, pin them to an immutable reference (a commit SHA or the tag from an immutable release) to avoid breaking changes, security vulnerabilities, and supply chain attacks from maliciously modified tags.
 
@@ -138,46 +136,46 @@ Including the version number in a comment helps teams track versions and makes i
 
 Security administrators can enforce policies requiring all GitHub Actions workflows and reusable workflow references to be pinned to full-length commit SHAs. This enforcement is available at the enterprise, organization, and repository levels and can be enabled via a dedicated checkbox in the allowed actions and reusable workflows policy settings.
 
-### Avoid actions with mutable dependencies[](#avoid-actions-with-mutable-dependencies)
+### Avoid actions with mutable dependencies
 
 Some actions include mutable dependencies or pull in code from external sources without verification. These actions remain mutable even after pinning to a specific commit hash, since they include components that can change behavior without altering the action’s source code. Using mutable actions dependencies introduces security risks and makes workflows vulnerable to supply chain attacks.
 
 To avoid using actions with mutable dependencies, review actions source code and ensure they do not include elements such as unpinned container images, unpinned composite actions, or scripts that download code from external sources without verification.
 
-### Avoid workflow injection[](#avoid-workflow-injection)
+### Avoid workflow injection
 
 Avoid inserting untrusted input into any executable context such as `run:` blocks using expressions. Values like issue titles, PR bodies, and branch names can be manipulated by attackers to inject malicious commands. Use environment variables to safely incorporate user input.
 
-For more details on the risk of workflow script injections and mitigation strategies, refer to [GitHub Docs](https://docs.github.com/en/enterprise-cloud@latest/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections).
+For more details on the risk of workflow script injections and mitigation strategies, refer to GitHub Docs.
 
-### Avoid `pull_request_target`[](#avoid-pull_request_target)
+### Avoid pull_request_target
 
 The `pull_request_target` event is a privileged workflow trigger that should be used with extreme caution. Unlike `pull_request`, which runs in the context of the pull request branch with read-only permissions and no access to secrets, `pull_request_target` runs in the context of the base repository with full access to repository secrets and write permissions.
 
-The risk arises when a workflow using `pull_request_target` explicitly checks out code from the pull request and executes it. Because the workflow runs with base repository privileges, this combination allows untrusted code to execute with elevated permissions. This scenario is known as a [“pwn request”](https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/).
+The risk arises when a workflow using `pull_request_target` explicitly checks out code from the pull request and executes it. Because the workflow runs with base repository privileges, this combination allows untrusted code to execute with elevated permissions. This scenario is known as a “pwn request”.
 
-#### When `pull_request_target` is appropriate[](#when-pull_request_target-is-appropriate)
+#### When pull_request_target is appropriate
 
 The `pull_request_target` trigger is designed for specific use cases where elevated permissions are required to interact with pull requests from forks, such as:
 
--   Posting comments or labels on pull requests
--   Updating pull request status or metadata
+*   Posting comments or labels on pull requests
+*   Updating pull request status or metadata
 
 Avoid this trigger for public repositories, and be cautious in implementing this trigger for internal repositories.
 
-### Secure `workflow_run` workflows[](#secure-workflow_run-workflows)
+### Secure workflow_run workflows
 
 The `workflow_run` event executes workflows after another workflow completes. While useful for privileged operations after validation, it carries security risks. Attackers can modify triggering workflows in pull requests, which then trigger existing `workflow_run` workflows with elevated permissions. Additionally, malicious artifacts uploaded by unprivileged workflows can poison privileged workflows that consume them.
 
 When implementing `workflow_run` workflows:
 
--   Use branch filters to limit where workflows can be triggered
--   Verify the event origin with `github.event.workflow_run.event != 'pull_request'`
--   Treat all artifacts as untrusted and validate contents before use
--   Download artifacts to temporary directories (e.g., `$RUNNER_TEMP`) to prevent workspace pollution
--   Avoid defining global environment variables in `$GITHUB_ENV` from untrusted data
+*   Use branch filters to limit where workflows can be triggered
+*   Verify the event origin with `github.event.workflow_run.event != 'pull_request'`
+*   Treat all artifacts as untrusted and validate contents before use
+*   Download artifacts to temporary directories (e.g., `$RUNNER_TEMP`) to prevent workspace pollution
+*   Avoid defining global environment variables in `$GITHUB_ENV` from untrusted data
 
-### Use caution with public repositories[](#use-caution-with-public-repositories)
+### Use caution with public repositories
 
 Public repositories enable open-source collaboration but introduce significant security considerations. The most critical risk is using self-hosted runners with public repositories.
 
@@ -185,13 +183,13 @@ Public repositories enable open-source collaboration but introduce significant s
 
 Avoid use self-hosted runners with public repositories. When a public repository is configured to use self-hosted runners, anyone who can create a fork can potentially run dangerous code on the self-hosted runner machine by creating a pull request that executes code in a workflow. This can lead to:
 
--   Malicious programs running on the machine
--   Escaping the machine’s runner sandbox
--   Exposing access to the machine’s network environment
--   Persisting unwanted or dangerous data on the machine
--   Poisoning caches that could affect other repositories or workflows
+*   Malicious programs running on the machine
+*   Escaping the machine’s runner sandbox
+*   Exposing access to the machine’s network environment
+*   Persisting unwanted or dangerous data on the machine
+*   Poisoning caches that could affect other repositories or workflows
 
-If allowing pull requests from forks, consider enabling “[require approval for all outside collaborators](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#controlling-changes-from-forks-to-workflows-in-public-repositories)” to require approval before workflows run on fork PRs.
+If allowing pull requests from forks, consider enabling “require approval for all outside collaborators” to require approval before workflows run on fork PRs.
 
 Even ephemeral self-hosted runners carry risks in public repository contexts, as attackers can exploit the window between job start and completion, or leverage shared resources like caches.
 
@@ -199,61 +197,61 @@ Even ephemeral self-hosted runners carry risks in public repository contexts, as
 
 GitHub-hosted runners are network isolated by default. They can make outbound calls but do not have access to other runners. Each GitHub-hosted runner is a clean isolated virtual machine that is destroyed at the end of the job execution.
 
-### Restrict allowed actions[](#restrict-allowed-actions)
+### Restrict allowed actions
 
-The [allowed actions and reusable workflows setting](https://docs.github.com/en/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-and-reusable-workflows-to-run) controls which actions can run (or not run) in your organization or enterprise. This provides centralized governance and makes it easy to respond to compromised actions without searching across repositories.
+The allowed actions and reusable workflows setting controls which actions can run (or not run) in your organization or enterprise. This provides centralized governance and makes it easy to respond to compromised actions without searching across repositories.
 
 Consider defining the list of allowed actions using policy as code (e.g., via Terraform or the REST API) to establish a request/approval process, track changes for audit purposes, and improve visibility into which actions are allowed.
 
-## Additional solution detail and trade-offs to consider[](#additional-solution-detail-and-trade-offs-to-consider)
+## Additional solution detail and trade-offs to consider
 
-### Pinning actions based on a version tag[](#pinning-actions-based-on-a-version-tag)
+### Pinning actions based on a version tag
 
-Although pinning to a commit hash is the most secure option, specifying a tag is more convenient and widely used. If specifying a tag, ensure the action’s creators are trusted. The [“Verified creator”](https://docs.github.com/en/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace#about-badges-in-github-marketplace) badge on GitHub Marketplace is a useful signal, but it is not a guarantee of security.
+Although pinning to a commit hash is the most secure option, specifying a tag is more convenient and widely used. If specifying a tag, ensure the action’s creators are trusted. The “Verified creator” badge on GitHub Marketplace is a useful signal, but it is not a guarantee of security.
 
 For the most secure footprint, trust no one, review the code, and always use commit SHAs.
 
-## Seeking further assistance[](#seeking-further-assistance)
+## Seeking further assistance
 
-### GitHub Support[](#github-support)
+### GitHub Support
 
-Visit the [GitHub Support Portal](https://support.github.com/) for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
+Visit the GitHub Support Portal for a comprehensive collection of articles, tutorials, and guides on using GitHub features and services.
 
-Can’t find what you’re looking for? You can contact GitHub Support by [opening a ticket](https://support.github.com/contact).
+Can’t find what you’re looking for? You can contact GitHub Support by opening a ticket.
 
-### GitHub Expert Services[](#github-expert-services)
+### GitHub Expert Services
 
-GitHub’s [Expert Services Team](https://github.com/services) is here to help you architect, implement, and optimize a solution that meets your unique needs. [Contact us](https://github.com/services#services-contact) to learn more about how we can help you.
+GitHub’s Expert Services Team is here to help you architect, implement, and optimize a solution that meets your unique needs. Contact us to learn more about how we can help you.
 
-### GitHub Partners[](#github-partners)
+### GitHub Partners
 
-GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs [here](https://portal.github.partners/#/page/directory).
+GitHub partners with the world’s leading technology and service providers to help our customers achieve their end-to-end business objectives. Find a GitHub Partner that can help you with your specific needs here.
 
-### GitHub Community[](#github-community)
+### GitHub Community
 
-Join the [GitHub Community Forum](https://github.com/orgs/community/discussions?discussions_q=label%3A%22GitHub+Well-Architected%22) to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
+Join the GitHub Community Forum to ask questions, share knowledge, and connect with other GitHub users. It’s a great place to get advice and solutions from experienced users.
 
-## Related links[](#related-links)
+## Related links
 
-### GitHub Documentation[](#github-documentation)
+### GitHub Documentation
 
-For more details about GitHub’s features and services, check out [GitHub Documentation](https://docs.github.com/).
+For more details about GitHub’s features and services, check out GitHub Documentation.
 
 Specific helpful articles:
 
--   [Security Hardening for GitHub Actions](https://docs.github.com/en/enterprise-cloud@latest/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
--   [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security)
--   [Events that trigger workflows](https://docs.github.com/en/enterprise-cloud@latest/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows)
--   [OIDC token claims](https://docs.github.com/en/enterprise-cloud@latest/actions/reference/security/oidc#oidc-token-claims)
--   [Secure use reference](https://docs.github.com/en/enterprise-cloud@latest/actions/reference/security/secure-use)
+*   Security Hardening for GitHub Actions
+*   Self-hosted runner security
+*   Events that trigger workflows
+*   OIDC token claims
+*   Secure use reference
 
-### External Resources[](#external-resources)
+### External Resources
 
--   [Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn requests](https://securitylab.github.com/resources/github-actions-preventing-pwn-requests/)
--   [Keeping your GitHub Actions and workflows secure Part 2: Untrusted input](https://securitylab.github.com/resources/github-actions-untrusted-input/)
--   [Keeping your GitHub Actions and workflows secure Part 3: How to trust your building blocks](https://securitylab.github.com/resources/github-actions-building-blocks/)
--   [Keeping your GitHub Actions and workflows secure Part 4: New vulnerability patterns and mitigation strategies](https://securitylab.github.com/resources/github-actions-new-patterns-and-mitigations/)
+*   Keeping your GitHub Actions and workflows secure Part 1: Preventing pwn requests
+*   Keeping your GitHub Actions and workflows secure Part 2: Untrusted input
+*   Keeping your GitHub Actions and workflows secure Part 3: How to trust your building blocks
+*   Keeping your GitHub Actions and workflows secure Part 4: New vulnerability patterns and mitigation strategies
 
-Last updated on February 2, 2026
+Last updated on August 16, 2024
 
-[Prioritizing Security Alert Remediation](/library/application-security/recommendations/prioritizing-alerts/ "Prioritizing Security Alert Remediation")[Enforce GitHub Advanced Security at Scale](/library/application-security/recommendations/enforce-ghas-at-scale/ "Enforce GitHub Advanced Security at Scale")
+Prioritizing Security Alert RemediationEnforce GitHub Advanced Security at Scale

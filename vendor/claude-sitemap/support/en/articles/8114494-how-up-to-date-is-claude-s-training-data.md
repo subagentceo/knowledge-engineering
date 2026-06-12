@@ -1,5 +1,7 @@
 While we're constantly updating Claude's data, each model has a knowledge cutoff:
 
+- Claude Fable 5 was trained on data up until January 2026.
+
 - Claude Opus 4.8 was trained on data up until January 2026.
 
 - Claude Opus 4.7 was trained on data up until January 2026.
@@ -7,8 +9,6 @@ While we're constantly updating Claude's data, each model has a knowledge cutoff
 - Claude Sonnet 4.6 was trained on data up until August 2025.
 
 - Claude Opus 4.6 was trained on data up until August 2025.
-
-- Claude Opus 4.5 was trained on data up until August 2025.
 
 - Claude Haiku 4.5 was trained on data up until July 2025.
 

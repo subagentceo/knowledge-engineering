@@ -35,7 +35,6 @@ To register a webhook for a FindAll run, include a `webhook` parameter in your F
     --url https://api.parallel.ai/v1beta/findall/runs \
     --header "Content-Type: application/json" \
     --header "x-api-key: $PARALLEL_API_KEY" \
-    --header "parallel-beta: findall-2025-09-15" \
     --data '{
       "objective": "Find all portfolio companies of Khosla Ventures",
       "entity_type": "companies",

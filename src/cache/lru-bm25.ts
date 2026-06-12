@@ -20,6 +20,7 @@ import { encode, decode } from "@msgpack/msgpack";
 import BM25 from "wink-bm25-text-search";
 import { z } from "zod";
 import type { Redis } from "ioredis";
+import { recordCacheEvent } from "./events.js";
 
 // 7 days aligned with Redis allkeys-lru TTL constant in infra/redis/redis.conf
 export const TTL_MS  = 7 * 24 * 60 * 60 * 1_000;
@@ -81,19 +82,28 @@ export async function get<T>(
   const l1 = lru.get(key);
   if (l1) {
     const parsed = schema.safeParse(decode(l1));
-    if (parsed.success) return parsed.data;
+    if (parsed.success) {
+      recordCacheEvent(key, "L1", "hit");
+      return parsed.data;
+    }
     lru.delete(key);
   }
+  recordCacheEvent(key, "L1", "miss");
 
   const raw = await redis.getBuffer(key);
-  if (!raw) return undefined;
+  if (!raw) {
+    recordCacheEvent(key, "L2", "miss");
+    return undefined;
+  }
 
   const parsed = schema.safeParse(decode(raw));
   if (!parsed.success) {
     await redis.del(key);
+    recordCacheEvent(key, "L2", "miss");
     return undefined;
   }
   lru.set(key, new Uint8Array(raw));
+  recordCacheEvent(key, "L2", "hit");
   return parsed.data;
 }
 
@@ -107,7 +117,9 @@ export async function set<T>(
 ): Promise<void> {
   const bytes = encode(value) as Uint8Array;
   lru.set(key, bytes);
+  recordCacheEvent(key, "L1", "set");
   await redis.set(key, Buffer.from(bytes), "EX", TTL_SEC);
+  recordCacheEvent(key, "L2", "set");
 }
 
 /**
@@ -116,6 +128,8 @@ export async function set<T>(
 export async function invalidate(redis: Redis, key: string): Promise<void> {
   lru.delete(key);
   await redis.del(key);
+  recordCacheEvent(key, "L1", "invalidate");
+  recordCacheEvent(key, "L2", "invalidate");
 }
 
 /**

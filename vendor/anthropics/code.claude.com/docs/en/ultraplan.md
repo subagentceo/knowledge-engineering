@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -15,9 +14,9 @@ Ultraplan hands a planning task from your local CLI to a [Claude Code on the web
 
 This is useful when you want a richer review surface than the terminal offers:
 
-- **Targeted feedback**: comment on individual sections of the plan instead of replying to the whole thing
-- **Hands-off drafting**: the plan is generated remotely, so your terminal stays free for other work
-- **Flexible execution**: approve the plan to run on the web and open a pull request, or send it back to your terminal
+* **Targeted feedback**: comment on individual sections of the plan instead of replying to the whole thing
+* **Hands-off drafting**: the plan is generated remotely, so your terminal stays free for other work
+* **Flexible execution**: approve the plan to run on the web and open a pull request, or send it back to your terminal
 
 Ultraplan requires a [Claude Code on the web](/en/claude-code-on-the-web) account and a GitHub repository. Because it runs on Anthropic's cloud infrastructure, it is not available when using Amazon Bedrock, Google Cloud Vertex AI, or Microsoft Foundry. The cloud session runs in your account's default [cloud environment](/en/claude-code-on-the-web#the-cloud-environment). If you don't have a cloud environment yet, ultraplan creates one automatically when it first launches.
 
@@ -25,9 +24,9 @@ Ultraplan requires a [Claude Code on the web](/en/claude-code-on-the-web) accoun
 
 From your local CLI session, you can launch ultraplan in three ways:
 
-- **Command**: run `/ultraplan` followed by your prompt
-- **Keyword**: include the word `ultraplan` anywhere in a normal prompt
-- **From a local plan**: when Claude finishes a local plan and shows the approval dialog, choose **No, refine with Ultraplan on Claude Code on the web** to send the draft to the cloud for further iteration
+* **Command**: run `/ultraplan` followed by your prompt
+* **Keyword**: include the word `ultraplan` anywhere in a normal prompt
+* **From a local plan**: when Claude finishes a local plan and shows the approval dialog, choose **No, refine with Ultraplan on Claude Code on the web** to send the draft to the cloud for further iteration
 
 For example, to plan a service migration with the command:
 
@@ -37,7 +36,7 @@ For example, to plan a service migration with the command:
 
 The command and keyword paths open a confirmation dialog before launching. The local plan path skips this dialog because that selection already serves as confirmation. If [Remote Control](/en/remote-control) is active, it disconnects when ultraplan starts because both features occupy the claude.ai/code interface and only one can be connected at a time.
 
-After the cloud session launches, your CLI's prompt input shows a status indicator while the remote session works:
+After the cloud session launches, your CLI's prompt input shows a status indicator while the cloud session works:
 
 | Status                         | Meaning                                                            |
 | :----------------------------- | :----------------------------------------------------------------- |
@@ -51,9 +50,9 @@ Run `/tasks` and select the ultraplan entry to open a detail view with the sessi
 
 When the status changes to `◆ ultraplan ready`, open the session link to view the plan on claude.ai. The plan appears in a dedicated review view:
 
-- **Inline comments**: highlight any passage and leave a comment for Claude to address
-- **Emoji reactions**: react to a section to signal approval or concern without writing a full comment
-- **Outline sidebar**: jump between sections of the plan
+* **Inline comments**: highlight any passage and leave a comment for Claude to address
+* **Emoji reactions**: react to a section to signal approval or concern without writing a full comment
+* **Outline sidebar**: jump between sections of the plan
 
 When you ask Claude to address your comments, it revises the plan and presents an updated draft. You can iterate as many times as needed before choosing where to execute.
 
@@ -71,15 +70,15 @@ Select **Approve plan and teleport back to terminal** in your browser to impleme
 
 Your terminal shows the plan in a dialog titled **Ultraplan approved** with three options:
 
-- **Implement here**: inject the plan into your current conversation and continue from where you left off
-- **Start new session**: clear the current conversation and begin fresh with only the plan as context
-- **Cancel**: save the plan to a file without executing it; Claude prints the file path so you can return to it later
+* **Implement here**: inject the plan into your current conversation and continue from where you left off
+* **Start new session**: clear the current conversation and begin fresh with only the plan as context
+* **Cancel**: save the plan to a file without executing it; Claude prints the file path so you can return to it later
 
 If you start a new session, Claude prints a `claude --resume` command at the top so you can return to your previous conversation later.
 
 ## Related resources
 
-- [Claude Code on the web](/en/claude-code-on-the-web): the cloud infrastructure ultraplan runs on
-- [Plan mode](/en/permission-modes#analyze-before-you-edit-with-plan-mode): how planning works in a local session
-- [Find bugs with ultrareview](/en/ultrareview): the code review counterpart to ultraplan for catching issues before merge
-- [Remote Control](/en/remote-control): use the claude.ai/code interface with a session running on your own machine
+* [Claude Code on the web](/en/claude-code-on-the-web): the cloud infrastructure ultraplan runs on
+* [Plan mode](/en/permission-modes#analyze-before-you-edit-with-plan-mode): how planning works in a local session
+* [Find bugs with ultrareview](/en/ultrareview): the code review counterpart to ultraplan for catching issues before merge
+* [Remote Control](/en/remote-control): use the claude.ai/code interface with a session running on your own machine

@@ -149,27 +149,23 @@ Esin Durmus and Deep Ganguli designed the experiments and wrote the blog post. E
 
 Appendices are available at this link. They include:
 
-- Appendix 1: The impact of steering on model generations (Table A1);
-- Appendix 2: List of features (Table A2);
-- Appendix 3: Additional results (Figures A1-A6);
-- Appendix 4: How does feature steering compare to prompting? (Tables A3-A8).
+*   Appendix 1: The impact of steering on model generations (Table A1);
+*   Appendix 2: List of features (Table A2);
+*   Appendix 3: Additional results (Figures A1-A6);
+*   Appendix 4: How does feature steering compare to prompting? (Tables A3-A8).
 
 ## Related content
+
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
 
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

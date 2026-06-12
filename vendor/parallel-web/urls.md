@@ -1,7 +1,6 @@
 ---
 vendor: parallel-web
 llms_txt: https://docs.parallel.ai/llms.txt
-last_crawled: 2026-05-16T05:48:42.194Z
 count: 60
 transform: append-md-and-accept
 ---
@@ -16,8 +15,8 @@ transform: append-md-and-accept
 | https://docs.parallel.ai/api-reference/findall/cancel-findall-run.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/cancel-findall-run.md` |
 | https://docs.parallel.ai/api-reference/findall/create-findall-run.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/create-findall-run.md` |
 | https://docs.parallel.ai/api-reference/findall/extend-findall-run.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/extend-findall-run.md` |
+| https://docs.parallel.ai/api-reference/findall/fast-entity-search.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/fast-entity-search.md` |
 | https://docs.parallel.ai/api-reference/findall/findall-run-result.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/findall-run-result.md` |
-| https://docs.parallel.ai/api-reference/findall/generate-findall-candidates.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/generate-findall-candidates.md` |
 | https://docs.parallel.ai/api-reference/findall/get-findall-run-schema.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/get-findall-run-schema.md` |
 | https://docs.parallel.ai/api-reference/findall/ingest-findall-run.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/ingest-findall-run.md` |
 | https://docs.parallel.ai/api-reference/findall/retrieve-findall-run-status.md | `vendor/parallel-web/docs.parallel.ai/api-reference/findall/retrieve-findall-run-status.md` |
@@ -57,6 +56,7 @@ transform: append-md-and-accept
 | https://docs.parallel.ai/findall-api/core-concepts/findall-candidates.md | `vendor/parallel-web/docs.parallel.ai/findall-api/core-concepts/findall-candidates.md` |
 | https://docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md | `vendor/parallel-web/docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md` |
 | https://docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md | `vendor/parallel-web/docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md` |
+| https://docs.parallel.ai/findall-api/entity-search.md | `vendor/parallel-web/docs.parallel.ai/findall-api/entity-search.md` |
 | https://docs.parallel.ai/findall-api/features/findall-cancel.md | `vendor/parallel-web/docs.parallel.ai/findall-api/features/findall-cancel.md` |
 | https://docs.parallel.ai/findall-api/features/findall-enrich.md | `vendor/parallel-web/docs.parallel.ai/findall-api/features/findall-enrich.md` |
 | https://docs.parallel.ai/findall-api/features/findall-extend.md | `vendor/parallel-web/docs.parallel.ai/findall-api/features/findall-extend.md` |
@@ -69,4 +69,3 @@ transform: append-md-and-accept
 | https://docs.parallel.ai/getting-started/glossary.md | `vendor/parallel-web/docs.parallel.ai/getting-started/glossary.md` |
 | https://docs.parallel.ai/getting-started/overview.md | `vendor/parallel-web/docs.parallel.ai/getting-started/overview.md` |
 | https://docs.parallel.ai/getting-started/pricing.md | `vendor/parallel-web/docs.parallel.ai/getting-started/pricing.md` |
-| https://docs.parallel.ai/getting-started/rate-limits.md | `vendor/parallel-web/docs.parallel.ai/getting-started/rate-limits.md` |

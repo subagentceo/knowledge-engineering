@@ -16,9 +16,9 @@ We’ve been pleased to see Petri being used by external organizations: for exam
 
 We’re now updating Petri to its third version. Here are some of the biggest changes:
 
-- _Adaptability._ Petri 3.0 involves major architectural changes that allow users to adapt it to more uses, in particular by splitting the auditor model and the target model into separate components that can be tweaked separately;
-- _Realism._ Despite the fact that alignment researchers try to make tests appear realistic, a model can often deduce from various artificialities in the setup that it’s actually part of a test. And if the model is aware it’s being evaluated, the researcher is no longer able to see how the model behaves _in general_. An add-on to Petri, which we’re calling “Dish,” makes the setup far more realistic, for example by running the tests using the model’s real system prompt and the real “scaffold” (the software that wraps around the model to help it meet its goals) that would be used in genuine model deployments;
-- _Depth_. We’ve now integrated Petri with our other open-source alignment tool, Bloom, which can perform much more in-depth assessments of specific chosen behaviors (in comparison to Petri’s wider-ranging approach).
+*   _Adaptability._ Petri 3.0 involves major architectural changes that allow users to adapt it to more uses, in particular by splitting the auditor model and the target model into separate components that can be tweaked separately;
+*   _Realism._ Despite the fact that alignment researchers try to make tests appear realistic, a model can often deduce from various artificialities in the setup that it’s actually part of a test. And if the model is aware it’s being evaluated, the researcher is no longer able to see how the model behaves _in general_. An add-on to Petri, which we’re calling “Dish,” makes the setup far more realistic, for example by running the tests using the model’s real system prompt and the real “scaffold” (the software that wraps around the model to help it meet its goals) that would be used in genuine model deployments;
+*   _Depth_. We’ve now integrated Petri with our other open-source alignment tool, Bloom, which can perform much more in-depth assessments of specific chosen behaviors (in comparison to Petri’s wider-ranging approach).
 
 We’re also giving Petri a new home. We have handed over its development to Meridian Labs, an AI evaluation nonprofit. This move—similar to when we donated the Model Context Protocol (MCP) to the Linux Foundation—will help ensure that Petri remains independent of any AI lab, so that its results will be seen as neutral and credible by those across the industry and beyond.
 
@@ -30,20 +30,16 @@ Instructions to install and use Petri can be found on the Petri website.
 
 ## Related content
 
+### Paving the way for agents in biology
+
+Read more
+
+### Making Claude a chemist
+
+Read more
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-Read more
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
 
 Read more

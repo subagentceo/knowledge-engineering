@@ -1,0 +1,72 @@
+# agent-session-cost-report.yml
+#
+# Produces the `agent-session-costs` artifact that agent-cost-gate.yml requires
+# on every PR touching apps/ or src/ — so PRs no longer need the skip-cost-gate
+# label to merge. Cost is deterministic: derived from (base, head) git state
+# via scripts/generate-session-cost.ts at claude-fable-5 pricing
+# ($10/MTok in, $50/MTok out — seeds/citations/fable-5-pricing.md).
+#
+# Auth: OAuth-only. ANTHROPIC_API_KEY must not be set (never added here).
+# @cite scripts/generate-session-cost.ts
+
+name: agent-session-cost-report
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-session-cost-report-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    if: github.event.pull_request.draft == false
+    name: Generate deterministic session cost
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate agent-session-costs.json
+        run: |
+          npx tsx scripts/generate-session-cost.ts \
+            --base "$BASE_SHA" \
+            --head "$HEAD_SHA" \
+            --session-id "pr-${PR_NUMBER}-${HEAD_SHA:0:7}" \
+            --pr-number "$PR_NUMBER" \
+            --branch "$HEAD_REF" \
+            --out agent-session-costs.json
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+
+      - name: Validate against the cost-gate schema
+        run: npx tsx scripts/check-agent-costs.ts --artifact-path agent-session-costs.json
+
+      - name: Upload agent-session-costs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-session-costs
+          path: agent-session-costs.json
+          if-no-files-found: error
+          retention-days: 30

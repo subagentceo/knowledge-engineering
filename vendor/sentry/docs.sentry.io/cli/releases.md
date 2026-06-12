@@ -67,6 +67,8 @@ In case you are deploying without access to the git repository, you can manually
 sentry-cli releases set-commits "$VERSION" --commit "repo-owner/repo-name@deadbeef"
 ```
 
+*Other available variations of the above snippet: bash (many repos)*
+
 To see which repos are available for the organization, you can run `sentry-cli repos list` which will return a list of configured repositories.
 
 Note that you need to refer to releases you need to use the actual full commit SHA. If you want to refer to tags or references (like *HEAD*), the repository needs to be checked out and reachable from the path where you invoke *sentry-cli*.

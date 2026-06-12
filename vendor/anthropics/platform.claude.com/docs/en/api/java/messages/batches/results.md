@@ -13,6 +13,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchResultsParams params`
+
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -22,6 +23,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `class MessageBatchIndividualResponse:`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
+
   - `String customId`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -33,8 +35,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
+
     - `class MessageBatchSucceededResult:`
+
       - `Message message`
+
         - `String id`
 
           Unique object identifier.
@@ -44,6 +49,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `Optional<Container> container`
 
           Information about the container used in the request (for the code execution tool)
+
           - `String id`
 
             Identifier for the container used in this request
@@ -61,7 +67,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{ "type": "text", "text": "Hi, I'm Claude." }]
+          [{"type": "text", "text": "Hi, I'm Claude."}]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -70,27 +76,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {
-              "role": "user",
-              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
-            },
-            { "role": "assistant", "content": "The best answer is (" }
+            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
+            {"role": "assistant", "content": "The best answer is ("}
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{ "type": "text", "text": "B)" }]
+          [{"type": "text", "text": "B)"}]
           ```
 
           - `class TextBlock:`
+
             - `Optional<List<TextCitation>> citations`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
+
               - `class CitationCharLocation:`
+
                 - `String citedText`
 
                 - `long documentIndex`
@@ -104,9 +110,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `long startCharIndex`
 
                 - `JsonValue; type "char_location"constant`
+
                   - `CHAR_LOCATION("char_location")`
 
               - `class CitationPageLocation:`
+
                 - `String citedText`
 
                 - `long documentIndex`
@@ -120,9 +128,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `long startPageNumber`
 
                 - `JsonValue; type "page_location"constant`
+
                   - `PAGE_LOCATION("page_location")`
 
               - `class CitationContentBlockLocation:`
+
                 - `String citedText`
 
                   The full text of the cited block range, concatenated.
@@ -146,9 +156,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   0-based index of the first cited block in the source's `content` array.
 
                 - `JsonValue; type "content_block_location"constant`
+
                   - `CONTENT_BLOCK_LOCATION("content_block_location")`
 
               - `class CitationsWebSearchResultLocation:`
+
                 - `String citedText`
 
                 - `String encryptedIndex`
@@ -156,11 +168,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> title`
 
                 - `JsonValue; type "web_search_result_location"constant`
+
                   - `WEB_SEARCH_RESULT_LOCATION("web_search_result_location")`
 
                 - `String url`
 
               - `class CitationsSearchResultLocation:`
+
                 - `String citedText`
 
                   The full text of the cited block range, concatenated.
@@ -188,51 +202,65 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> title`
 
                 - `JsonValue; type "search_result_location"constant`
+
                   - `SEARCH_RESULT_LOCATION("search_result_location")`
 
             - `String text`
 
             - `JsonValue; type "text"constant`
+
               - `TEXT("text")`
 
           - `class ThinkingBlock:`
+
             - `String signature`
 
             - `String thinking`
 
             - `JsonValue; type "thinking"constant`
+
               - `THINKING("thinking")`
 
           - `class RedactedThinkingBlock:`
+
             - `String data`
 
             - `JsonValue; type "redacted_thinking"constant`
+
               - `REDACTED_THINKING("redacted_thinking")`
 
           - `class ToolUseBlock:`
+
             - `String id`
 
             - `Caller caller`
 
               Tool invocation directly from the model.
+
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
+
                 - `JsonValue; type "direct"constant`
+
                   - `DIRECT("direct")`
 
               - `class ServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
+
                 - `String toolId`
 
                 - `JsonValue; type "code_execution_20250825"constant`
+
                   - `CODE_EXECUTION_20250825("code_execution_20250825")`
 
               - `class ServerToolCaller20260120:`
+
                 - `String toolId`
 
                 - `JsonValue; type "code_execution_20260120"constant`
+
                   - `CODE_EXECUTION_20260120("code_execution_20260120")`
 
             - `Input input`
@@ -240,14 +268,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String name`
 
             - `JsonValue; type "tool_use"constant`
+
               - `TOOL_USE("tool_use")`
 
           - `class ServerToolUseBlock:`
+
             - `String id`
 
             - `Caller caller`
 
               Tool invocation directly from the model.
+
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
@@ -261,6 +292,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Input input`
 
             - `Name name`
+
               - `WEB_SEARCH("web_search")`
 
               - `WEB_FETCH("web_fetch")`
@@ -276,12 +308,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
             - `JsonValue; type "server_tool_use"constant`
+
               - `SERVER_TOOL_USE("server_tool_use")`
 
           - `class WebSearchToolResultBlock:`
+
             - `Caller caller`
 
               Tool invocation directly from the model.
+
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
@@ -293,8 +328,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class ServerToolCaller20260120:`
 
             - `WebSearchToolResultBlockContent content`
+
               - `class WebSearchToolResultError:`
+
                 - `WebSearchToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -308,9 +346,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `REQUEST_TOO_LARGE("request_too_large")`
 
                 - `JsonValue; type "web_search_tool_result_error"constant`
+
                   - `WEB_SEARCH_TOOL_RESULT_ERROR("web_search_tool_result_error")`
 
               - `List<WebSearchResultBlock>`
+
                 - `String encryptedContent`
 
                 - `Optional<String> pageAge`
@@ -318,6 +358,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String title`
 
                 - `JsonValue; type "web_search_result"constant`
+
                   - `WEB_SEARCH_RESULT("web_search_result")`
 
                 - `String url`
@@ -325,12 +366,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String toolUseId`
 
             - `JsonValue; type "web_search_tool_result"constant`
+
               - `WEB_SEARCH_TOOL_RESULT("web_search_tool_result")`
 
           - `class WebFetchToolResultBlock:`
+
             - `Caller caller`
 
               Tool invocation directly from the model.
+
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
@@ -342,8 +386,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class ServerToolCaller20260120:`
 
             - `Content content`
+
               - `class WebFetchToolResultErrorBlock:`
+
                 - `WebFetchToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `URL_TOO_LONG("url_too_long")`
@@ -363,32 +410,43 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `UNAVAILABLE("unavailable")`
 
                 - `JsonValue; type "web_fetch_tool_result_error"constant`
+
                   - `WEB_FETCH_TOOL_RESULT_ERROR("web_fetch_tool_result_error")`
 
               - `class WebFetchBlock:`
+
                 - `DocumentBlock content`
+
                   - `Optional<CitationsConfig> citations`
 
                     Citation configuration for the document
+
                     - `boolean enabled`
 
                   - `Source source`
+
                     - `class Base64PdfSource:`
+
                       - `String data`
 
                       - `JsonValue; mediaType "application/pdf"constant`
+
                         - `APPLICATION_PDF("application/pdf")`
 
                       - `JsonValue; type "base64"constant`
+
                         - `BASE64("base64")`
 
                     - `class PlainTextSource:`
+
                       - `String data`
 
                       - `JsonValue; mediaType "text/plain"constant`
+
                         - `TEXT_PLAIN("text/plain")`
 
                       - `JsonValue; type "text"constant`
+
                         - `TEXT("text")`
 
                   - `Optional<String> title`
@@ -396,6 +454,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     The title of the document
 
                   - `JsonValue; type "document"constant`
+
                     - `DOCUMENT("document")`
 
                 - `Optional<String> retrievedAt`
@@ -403,6 +462,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   ISO 8601 timestamp when the content was retrieved
 
                 - `JsonValue; type "web_fetch_result"constant`
+
                   - `WEB_FETCH_RESULT("web_fetch_result")`
 
                 - `String url`
@@ -412,14 +472,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String toolUseId`
 
             - `JsonValue; type "web_fetch_tool_result"constant`
+
               - `WEB_FETCH_TOOL_RESULT("web_fetch_tool_result")`
 
           - `class CodeExecutionToolResultBlock:`
+
             - `CodeExecutionToolResultBlockContent content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
+
               - `class CodeExecutionToolResultError:`
+
                 - `CodeExecutionToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -429,13 +494,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
                 - `JsonValue; type "code_execution_tool_result_error"constant`
+
                   - `CODE_EXECUTION_TOOL_RESULT_ERROR("code_execution_tool_result_error")`
 
               - `class CodeExecutionResultBlock:`
+
                 - `List<CodeExecutionOutputBlock> content`
+
                   - `String fileId`
 
                   - `JsonValue; type "code_execution_output"constant`
+
                     - `CODE_EXECUTION_OUTPUT("code_execution_output")`
 
                 - `long returnCode`
@@ -445,12 +514,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stdout`
 
                 - `JsonValue; type "code_execution_result"constant`
+
                   - `CODE_EXECUTION_RESULT("code_execution_result")`
 
               - `class EncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
+
                 - `List<CodeExecutionOutputBlock> content`
+
                   - `String fileId`
 
                   - `JsonValue; type "code_execution_output"constant`
@@ -462,17 +534,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stderr`
 
                 - `JsonValue; type "encrypted_code_execution_result"constant`
+
                   - `ENCRYPTED_CODE_EXECUTION_RESULT("encrypted_code_execution_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "code_execution_tool_result"constant`
+
               - `CODE_EXECUTION_TOOL_RESULT("code_execution_tool_result")`
 
           - `class BashCodeExecutionToolResultBlock:`
+
             - `Content content`
+
               - `class BashCodeExecutionToolResultError:`
+
                 - `BashCodeExecutionToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -484,13 +562,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
                 - `JsonValue; type "bash_code_execution_tool_result_error"constant`
+
                   - `BASH_CODE_EXECUTION_TOOL_RESULT_ERROR("bash_code_execution_tool_result_error")`
 
               - `class BashCodeExecutionResultBlock:`
+
                 - `List<BashCodeExecutionOutputBlock> content`
+
                   - `String fileId`
 
                   - `JsonValue; type "bash_code_execution_output"constant`
+
                     - `BASH_CODE_EXECUTION_OUTPUT("bash_code_execution_output")`
 
                 - `long returnCode`
@@ -500,17 +582,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stdout`
 
                 - `JsonValue; type "bash_code_execution_result"constant`
+
                   - `BASH_CODE_EXECUTION_RESULT("bash_code_execution_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "bash_code_execution_tool_result"constant`
+
               - `BASH_CODE_EXECUTION_TOOL_RESULT("bash_code_execution_tool_result")`
 
           - `class TextEditorCodeExecutionToolResultBlock:`
+
             - `Content content`
+
               - `class TextEditorCodeExecutionToolResultError:`
+
                 - `TextEditorCodeExecutionToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -524,12 +612,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> errorMessage`
 
                 - `JsonValue; type "text_editor_code_execution_tool_result_error"constant`
+
                   - `TEXT_EDITOR_CODE_EXECUTION_TOOL_RESULT_ERROR("text_editor_code_execution_tool_result_error")`
 
               - `class TextEditorCodeExecutionViewResultBlock:`
+
                 - `String content`
 
                 - `FileType fileType`
+
                   - `TEXT("text")`
 
                   - `IMAGE("image")`
@@ -543,15 +634,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<Long> totalLines`
 
                 - `JsonValue; type "text_editor_code_execution_view_result"constant`
+
                   - `TEXT_EDITOR_CODE_EXECUTION_VIEW_RESULT("text_editor_code_execution_view_result")`
 
               - `class TextEditorCodeExecutionCreateResultBlock:`
+
                 - `boolean isFileUpdate`
 
                 - `JsonValue; type "text_editor_code_execution_create_result"constant`
+
                   - `TEXT_EDITOR_CODE_EXECUTION_CREATE_RESULT("text_editor_code_execution_create_result")`
 
               - `class TextEditorCodeExecutionStrReplaceResultBlock:`
+
                 - `Optional<List<String>> lines`
 
                 - `Optional<Long> newLines`
@@ -563,17 +658,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<Long> oldStart`
 
                 - `JsonValue; type "text_editor_code_execution_str_replace_result"constant`
+
                   - `TEXT_EDITOR_CODE_EXECUTION_STR_REPLACE_RESULT("text_editor_code_execution_str_replace_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "text_editor_code_execution_tool_result"constant`
+
               - `TEXT_EDITOR_CODE_EXECUTION_TOOL_RESULT("text_editor_code_execution_tool_result")`
 
           - `class ToolSearchToolResultBlock:`
+
             - `Content content`
+
               - `class ToolSearchToolResultError:`
+
                 - `ToolSearchToolResultErrorCode errorCode`
+
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -585,29 +686,37 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> errorMessage`
 
                 - `JsonValue; type "tool_search_tool_result_error"constant`
+
                   - `TOOL_SEARCH_TOOL_RESULT_ERROR("tool_search_tool_result_error")`
 
               - `class ToolSearchToolSearchResultBlock:`
+
                 - `List<ToolReferenceBlock> toolReferences`
+
                   - `String toolName`
 
                   - `JsonValue; type "tool_reference"constant`
+
                     - `TOOL_REFERENCE("tool_reference")`
 
                 - `JsonValue; type "tool_search_tool_search_result"constant`
+
                   - `TOOL_SEARCH_TOOL_SEARCH_RESULT("tool_search_tool_search_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "tool_search_tool_result"constant`
+
               - `TOOL_SEARCH_TOOL_RESULT("tool_search_tool_result")`
 
           - `class ContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
+
             - `String fileId`
 
             - `JsonValue; type "container_upload"constant`
+
               - `CONTAINER_UPLOAD("container_upload")`
 
         - `Model model`
@@ -615,6 +724,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5("claude-fable-5")`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `CLAUDE_MYTHOS_5("claude-mythos-5")`
+
+            Most capable model for cybersecurity and biology research
+
           - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
 
             Frontier intelligence for long-running agents and coding
@@ -692,19 +810,24 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
+
           - `ASSISTANT("assistant")`
 
         - `Optional<RefusalStopDetails> stopDetails`
 
           Structured information about a refusal.
+
           - `Optional<Category> category`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
+
             - `CYBER("cyber")`
 
             - `BIO("bio")`
+
+            - `REASONING_EXTRACTION("reasoning_extraction")`
 
           - `Optional<String> explanation`
 
@@ -713,6 +836,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
           - `JsonValue; type "refusal"constant`
+
             - `REFUSAL("refusal")`
 
         - `Optional<StopReason> stopReason`
@@ -720,14 +844,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-          - `"end_turn"`: the model reached a natural stopping point
-          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          - `"tool_use"`: the model invoked one or more tools
-          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+
+          * `"end_turn"`: the model reached a natural stopping point
+          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          * `"tool_use"`: the model invoked one or more tools
+          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
+
           - `END_TURN("end_turn")`
 
           - `MAX_TOKENS("max_tokens")`
@@ -751,6 +877,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Object type.
 
           For Messages, this is always `"message"`.
+
           - `MESSAGE("message")`
 
         - `Usage usage`
@@ -764,9 +891,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
           - `Optional<CacheCreation> cacheCreation`
 
             Breakdown of cached tokens by TTL
+
             - `long ephemeral1hInputTokens`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -803,6 +932,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This object provides a read-only decomposition for observability — for example,
             how many of the billed output tokens were spent on internal reasoning that may
             have been summarized before being returned to you.
+
             - `long thinkingTokens`
 
               Number of output tokens the model generated as internal reasoning, including
@@ -817,6 +947,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Optional<ServerToolUsage> serverToolUse`
 
             The number of server tool requests.
+
             - `long webFetchRequests`
 
               The number of web fetch tool requests.
@@ -828,6 +959,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Optional<ServiceTier> serviceTier`
 
             If the request used the priority, standard, or batch tier.
+
             - `STANDARD("standard")`
 
             - `PRIORITY("priority")`
@@ -835,79 +967,107 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `BATCH("batch")`
 
       - `JsonValue; type "succeeded"constant`
+
         - `SUCCEEDED("succeeded")`
 
     - `class MessageBatchErroredResult:`
+
       - `ErrorResponse error`
+
         - `ErrorObject error`
+
           - `class InvalidRequestError:`
+
             - `String message`
 
             - `JsonValue; type "invalid_request_error"constant`
+
               - `INVALID_REQUEST_ERROR("invalid_request_error")`
 
           - `class AuthenticationError:`
+
             - `String message`
 
             - `JsonValue; type "authentication_error"constant`
+
               - `AUTHENTICATION_ERROR("authentication_error")`
 
           - `class BillingError:`
+
             - `String message`
 
             - `JsonValue; type "billing_error"constant`
+
               - `BILLING_ERROR("billing_error")`
 
           - `class PermissionError:`
+
             - `String message`
 
             - `JsonValue; type "permission_error"constant`
+
               - `PERMISSION_ERROR("permission_error")`
 
           - `class NotFoundError:`
+
             - `String message`
 
             - `JsonValue; type "not_found_error"constant`
+
               - `NOT_FOUND_ERROR("not_found_error")`
 
           - `class RateLimitError:`
+
             - `String message`
 
             - `JsonValue; type "rate_limit_error"constant`
+
               - `RATE_LIMIT_ERROR("rate_limit_error")`
 
           - `class GatewayTimeoutError:`
+
             - `String message`
 
             - `JsonValue; type "timeout_error"constant`
+
               - `TIMEOUT_ERROR("timeout_error")`
 
           - `class ApiErrorObject:`
+
             - `String message`
 
             - `JsonValue; type "api_error"constant`
+
               - `API_ERROR("api_error")`
 
           - `class OverloadedError:`
+
             - `String message`
 
             - `JsonValue; type "overloaded_error"constant`
+
               - `OVERLOADED_ERROR("overloaded_error")`
 
         - `Optional<String> requestId`
 
         - `JsonValue; type "error"constant`
+
           - `ERROR("error")`
 
       - `JsonValue; type "errored"constant`
+
         - `ERRORED("errored")`
 
     - `class MessageBatchCanceledResult:`
+
       - `JsonValue; type "canceled"constant`
+
         - `CANCELED("canceled")`
 
     - `class MessageBatchExpiredResult:`
+
       - `JsonValue; type "expired"constant`
+
         - `EXPIRED("expired")`
 
 ### Example

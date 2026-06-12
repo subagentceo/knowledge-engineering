@@ -11,6 +11,7 @@ Create a memory store
 ### Parameters
 
 - `MemoryStoreCreateParams parameters`
+
   - `required string name`
 
     Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
@@ -26,6 +27,7 @@ Create a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -78,13 +80,16 @@ Create a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -98,6 +103,7 @@ Create a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
+
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -154,6 +160,7 @@ List memory stores
 ### Parameters
 
 - `MemoryStoreListParams parameters`
+
   - `DateTimeOffset createdAtGte`
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
@@ -177,6 +184,7 @@ List memory stores
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -229,16 +237,20 @@ List memory stores
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class MemoryStoreListPageResponse:`
 
   A page of `memory_store` results, ordered by `created_at` descending (newest first).
+
   - `IReadOnlyList<BetaManagedAgentsMemoryStore> Data`
 
     Memory stores on this page, newest first. Empty when there are no stores matching the filters.
+
     - `required string ID`
 
       Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -252,6 +264,7 @@ List memory stores
       Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
     - `required Type Type`
+
       - `"memory_store"MemoryStore`
 
     - `required DateTimeOffset UpdatedAt`
@@ -319,6 +332,7 @@ Retrieve a memory store
 ### Parameters
 
 - `MemoryStoreRetrieveParams parameters`
+
   - `required string memoryStoreID`
 
     Path parameter memory_store_id
@@ -326,6 +340,7 @@ Retrieve a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -378,13 +393,16 @@ Retrieve a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -398,6 +416,7 @@ Retrieve a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
+
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -457,6 +476,7 @@ Update a memory store
 ### Parameters
 
 - `MemoryStoreUpdateParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -476,6 +496,7 @@ Update a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -528,13 +549,16 @@ Update a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -548,6 +572,7 @@ Update a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
+
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -607,6 +632,7 @@ Delete a memory store
 ### Parameters
 
 - `MemoryStoreDeleteParams parameters`
+
   - `required string memoryStoreID`
 
     Path parameter memory_store_id
@@ -614,6 +640,7 @@ Delete a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -666,18 +693,22 @@ Delete a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemoryStore:`
 
   Confirmation that a `memory_store` was deleted.
+
   - `required string ID`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `required Type Type`
+
     - `"memory_store_deleted"MemoryStoreDeleted`
 
 ### Example
@@ -713,6 +744,7 @@ Archive a memory store
 ### Parameters
 
 - `MemoryStoreArchiveParams parameters`
+
   - `required string memoryStoreID`
 
     Path parameter memory_store_id
@@ -720,6 +752,7 @@ Archive a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -772,13 +805,16 @@ Archive a memory store
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -792,6 +828,7 @@ Archive a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
+
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -847,11 +884,13 @@ Console.WriteLine(betaManagedAgentsMemoryStore);
 - `class BetaManagedAgentsDeletedMemoryStore:`
 
   Confirmation that a `memory_store` was deleted.
+
   - `required string ID`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `required Type Type`
+
     - `"memory_store_deleted"MemoryStoreDeleted`
 
 ### Beta Managed Agents Memory Store
@@ -859,6 +898,7 @@ Console.WriteLine(betaManagedAgentsMemoryStore);
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
+
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -872,6 +912,7 @@ Console.WriteLine(betaManagedAgentsMemoryStore);
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
+
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -903,6 +944,7 @@ Create a memory
 ### Parameters
 
 - `MemoryCreateParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -922,6 +964,7 @@ Create a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -974,13 +1017,16 @@ Create a memory
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `required string ID`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1010,6 +1056,7 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `required Type Type`
+
     - `"memory"Memory`
 
   - `required DateTimeOffset UpdatedAt`
@@ -1063,6 +1110,7 @@ List memories
 ### Parameters
 
 - `MemoryListParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -1078,6 +1126,7 @@ List memories
   - `Order order`
 
     Query param: Query parameter for order
+
     - `"asc"Asc`
 
     - `"desc"Desc`
@@ -1101,6 +1150,7 @@ List memories
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1153,19 +1203,24 @@ List memories
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class MemoryListPageResponse:`
 
   Response payload for [List memories](/docs/en/api/beta/memory_stores/memories/list).
+
   - `IReadOnlyList<BetaManagedAgentsMemoryListItem> Data`
 
     One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
+
     - `class BetaManagedAgentsMemory:`
 
       A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
       - `required string ID`
 
         Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1195,6 +1250,7 @@ List memories
         Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
       - `required Type Type`
+
         - `"memory"Memory`
 
       - `required DateTimeOffset UpdatedAt`
@@ -1208,11 +1264,13 @@ List memories
     - `class BetaManagedAgentsMemoryPrefix:`
 
       A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
       - `required string Path`
 
         The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
       - `required Type Type`
+
         - `"memory_prefix"MemoryPrefix`
 
   - `string? NextPage`
@@ -1264,6 +1322,7 @@ Retrieve a memory
 ### Parameters
 
 - `MemoryRetrieveParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -1279,6 +1338,7 @@ Retrieve a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1331,13 +1391,16 @@ Retrieve a memory
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `required string ID`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1367,6 +1430,7 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `required Type Type`
+
     - `"memory"Memory`
 
   - `required DateTimeOffset UpdatedAt`
@@ -1419,6 +1483,7 @@ Update a memory
 ### Parameters
 
 - `MemoryUpdateParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -1446,6 +1511,7 @@ Update a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1498,13 +1564,16 @@ Update a memory
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `required string ID`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1534,6 +1603,7 @@ Update a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `required Type Type`
+
     - `"memory"Memory`
 
   - `required DateTimeOffset UpdatedAt`
@@ -1586,6 +1656,7 @@ Delete a memory
 ### Parameters
 
 - `MemoryDeleteParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -1601,6 +1672,7 @@ Delete a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1653,18 +1725,22 @@ Delete a memory
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemory:`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `required string ID`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `required Type Type`
+
     - `"memory_deleted"MemoryDeleted`
 
 ### Example
@@ -1695,7 +1771,9 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Conflict Error
 
 - `class BetaManagedAgentsConflictError:`
+
   - `required Type Type`
+
     - `"conflict_error"ConflictError`
 
   - `string Message`
@@ -1705,7 +1783,9 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsContentSha256Precondition:`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `required Type Type`
+
     - `"content_sha256"ContentSha256`
 
   - `string ContentSha256`
@@ -1717,69 +1797,85 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsDeletedMemory:`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+
   - `required string ID`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `required Type Type`
+
     - `"memory_deleted"MemoryDeleted`
 
 ### Beta Managed Agents Error
 
 - `class BetaManagedAgentsError: A class that can be one of several variants.union`
+
   - `class BetaInvalidRequestError:`
+
     - `required string Message`
 
     - `JsonElement Type "invalid_request_error"constant`
 
   - `class BetaAuthenticationError:`
+
     - `required string Message`
 
     - `JsonElement Type "authentication_error"constant`
 
   - `class BetaBillingError:`
+
     - `required string Message`
 
     - `JsonElement Type "billing_error"constant`
 
   - `class BetaPermissionError:`
+
     - `required string Message`
 
     - `JsonElement Type "permission_error"constant`
 
   - `class BetaNotFoundError:`
+
     - `required string Message`
 
     - `JsonElement Type "not_found_error"constant`
 
   - `class BetaRateLimitError:`
+
     - `required string Message`
 
     - `JsonElement Type "rate_limit_error"constant`
 
   - `class BetaGatewayTimeoutError:`
+
     - `required string Message`
 
     - `JsonElement Type "timeout_error"constant`
 
   - `class BetaApiError:`
+
     - `required string Message`
 
     - `JsonElement Type "api_error"constant`
 
   - `class BetaOverloadedError:`
+
     - `required string Message`
 
     - `JsonElement Type "overloaded_error"constant`
 
   - `class BetaManagedAgentsMemoryPreconditionFailedError:`
+
     - `required Type Type`
+
       - `"memory_precondition_failed_error"MemoryPreconditionFailedError`
 
     - `string Message`
 
   - `class BetaManagedAgentsMemoryPathConflictError:`
+
     - `required Type Type`
+
       - `"memory_path_conflict_error"MemoryPathConflictError`
 
     - `string ConflictingMemoryID`
@@ -1789,7 +1885,9 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
     - `string Message`
 
   - `class BetaManagedAgentsConflictError:`
+
     - `required Type Type`
+
       - `"conflict_error"ConflictError`
 
     - `string Message`
@@ -1799,6 +1897,7 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
   - `required string ID`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1828,6 +1927,7 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `required Type Type`
+
     - `"memory"Memory`
 
   - `required DateTimeOffset UpdatedAt`
@@ -1843,9 +1943,11 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsMemoryListItem: A class that can be one of several variants.union`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
+
   - `class BetaManagedAgentsMemory:`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
     - `required string ID`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1875,6 +1977,7 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `required Type Type`
+
       - `"memory"Memory`
 
     - `required DateTimeOffset UpdatedAt`
@@ -1888,17 +1991,21 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
   - `class BetaManagedAgentsMemoryPrefix:`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
     - `required string Path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `required Type Type`
+
       - `"memory_prefix"MemoryPrefix`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `class BetaManagedAgentsMemoryPathConflictError:`
+
   - `required Type Type`
+
     - `"memory_path_conflict_error"MemoryPathConflictError`
 
   - `string ConflictingMemoryID`
@@ -1910,7 +2017,9 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `class BetaManagedAgentsMemoryPreconditionFailedError:`
+
   - `required Type Type`
+
     - `"memory_precondition_failed_error"MemoryPreconditionFailedError`
 
   - `string Message`
@@ -1920,11 +2029,13 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsMemoryPrefix:`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
   - `required string Path`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `required Type Type`
+
     - `"memory_prefix"MemoryPrefix`
 
 ### Beta Managed Agents Memory View
@@ -1932,6 +2043,7 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `enum BetaManagedAgentsMemoryView:`
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
+
   - `"basic"Basic`
 
   - `"full"Full`
@@ -1941,7 +2053,9 @@ Console.WriteLine(betaManagedAgentsDeletedMemory);
 - `class BetaManagedAgentsPrecondition:`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
+
   - `required Type Type`
+
     - `"content_sha256"ContentSha256`
 
   - `string ContentSha256`
@@ -1961,6 +2075,7 @@ List memory versions
 ### Parameters
 
 - `MemoryVersionListParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -2004,6 +2119,7 @@ List memory versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2056,16 +2172,20 @@ List memory versions
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class MemoryVersionListPageResponse:`
 
   Response payload for [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+
   - `IReadOnlyList<BetaManagedAgentsMemoryVersion> Data`
 
     One page of `memory_version` objects, ordered by `created_at` descending (newest first), with `id` as tiebreak.
+
     - `required string ID`
 
       Unique identifier for this version (a `memver_...` value).
@@ -2085,6 +2205,7 @@ List memory versions
     - `required BetaManagedAgentsMemoryVersionOperation Operation`
 
       The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
       - `"created"Created`
 
       - `"modified"Modified`
@@ -2092,6 +2213,7 @@ List memory versions
       - `"deleted"Deleted`
 
     - `required Type Type`
+
       - `"memory_version"MemoryVersion`
 
     - `string? Content`
@@ -2109,30 +2231,37 @@ List memory versions
     - `BetaManagedAgentsActor CreatedBy`
 
       Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
       - `class BetaManagedAgentsSessionActor:`
 
         Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
         - `required string SessionID`
 
           ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
         - `required Type Type`
+
           - `"session_actor"SessionActor`
 
       - `class BetaManagedAgentsApiActor:`
 
         Attribution for a write made directly via the public API (outside of any session).
+
         - `required string ApiKeyID`
 
           ID of the API key that performed the write. This identifies the key, not the secret.
 
         - `required Type Type`
+
           - `"api_actor"ApiActor`
 
       - `class BetaManagedAgentsUserActor:`
 
         Attribution for a write made by a human user through the Anthropic Console.
+
         - `required Type Type`
+
           - `"user_actor"UserActor`
 
         - `required string UserID`
@@ -2212,6 +2341,7 @@ Retrieve a memory version
 ### Parameters
 
 - `MemoryVersionRetrieveParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -2227,6 +2357,7 @@ Retrieve a memory version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2279,13 +2410,16 @@ Retrieve a memory version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryVersion:`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `required string ID`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2305,6 +2439,7 @@ Retrieve a memory version
   - `required BetaManagedAgentsMemoryVersionOperation Operation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `"created"Created`
 
     - `"modified"Modified`
@@ -2312,6 +2447,7 @@ Retrieve a memory version
     - `"deleted"Deleted`
 
   - `required Type Type`
+
     - `"memory_version"MemoryVersion`
 
   - `string? Content`
@@ -2329,30 +2465,37 @@ Retrieve a memory version
   - `BetaManagedAgentsActor CreatedBy`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `class BetaManagedAgentsSessionActor:`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `required string SessionID`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `required Type Type`
+
         - `"session_actor"SessionActor`
 
     - `class BetaManagedAgentsApiActor:`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `required string ApiKeyID`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `required Type Type`
+
         - `"api_actor"ApiActor`
 
     - `class BetaManagedAgentsUserActor:`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `required Type Type`
+
         - `"user_actor"UserActor`
 
       - `required string UserID`
@@ -2422,6 +2565,7 @@ Redact a memory version
 ### Parameters
 
 - `MemoryVersionRedactParams parameters`
+
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -2433,6 +2577,7 @@ Redact a memory version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2485,13 +2630,16 @@ Redact a memory version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsMemoryVersion:`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `required string ID`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2511,6 +2659,7 @@ Redact a memory version
   - `required BetaManagedAgentsMemoryVersionOperation Operation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `"created"Created`
 
     - `"modified"Modified`
@@ -2518,6 +2667,7 @@ Redact a memory version
     - `"deleted"Deleted`
 
   - `required Type Type`
+
     - `"memory_version"MemoryVersion`
 
   - `string? Content`
@@ -2535,30 +2685,37 @@ Redact a memory version
   - `BetaManagedAgentsActor CreatedBy`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `class BetaManagedAgentsSessionActor:`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `required string SessionID`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `required Type Type`
+
         - `"session_actor"SessionActor`
 
     - `class BetaManagedAgentsApiActor:`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `required string ApiKeyID`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `required Type Type`
+
         - `"api_actor"ApiActor`
 
     - `class BetaManagedAgentsUserActor:`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `required Type Type`
+
         - `"user_actor"UserActor`
 
       - `required string UserID`
@@ -2624,30 +2781,37 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `class BetaManagedAgentsActor: A class that can be one of several variants.union`
 
   Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
   - `class BetaManagedAgentsSessionActor:`
 
     Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
     - `required string SessionID`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
     - `required Type Type`
+
       - `"session_actor"SessionActor`
 
   - `class BetaManagedAgentsApiActor:`
 
     Attribution for a write made directly via the public API (outside of any session).
+
     - `required string ApiKeyID`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
 
     - `required Type Type`
+
       - `"api_actor"ApiActor`
 
   - `class BetaManagedAgentsUserActor:`
 
     Attribution for a write made by a human user through the Anthropic Console.
+
     - `required Type Type`
+
       - `"user_actor"UserActor`
 
     - `required string UserID`
@@ -2659,11 +2823,13 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `class BetaManagedAgentsApiActor:`
 
   Attribution for a write made directly via the public API (outside of any session).
+
   - `required string ApiKeyID`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
 
   - `required Type Type`
+
     - `"api_actor"ApiActor`
 
 ### Beta Managed Agents Memory Version
@@ -2671,6 +2837,7 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `class BetaManagedAgentsMemoryVersion:`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+
   - `required string ID`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2690,6 +2857,7 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
   - `required BetaManagedAgentsMemoryVersionOperation Operation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
     - `"created"Created`
 
     - `"modified"Modified`
@@ -2697,6 +2865,7 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
     - `"deleted"Deleted`
 
   - `required Type Type`
+
     - `"memory_version"MemoryVersion`
 
   - `string? Content`
@@ -2714,30 +2883,37 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
   - `BetaManagedAgentsActor CreatedBy`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
+
     - `class BetaManagedAgentsSessionActor:`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
       - `required string SessionID`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `required Type Type`
+
         - `"session_actor"SessionActor`
 
     - `class BetaManagedAgentsApiActor:`
 
       Attribution for a write made directly via the public API (outside of any session).
+
       - `required string ApiKeyID`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `required Type Type`
+
         - `"api_actor"ApiActor`
 
     - `class BetaManagedAgentsUserActor:`
 
       Attribution for a write made by a human user through the Anthropic Console.
+
       - `required Type Type`
+
         - `"user_actor"UserActor`
 
       - `required string UserID`
@@ -2761,6 +2937,7 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `enum BetaManagedAgentsMemoryVersionOperation:`
 
   The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
+
   - `"created"Created`
 
   - `"modified"Modified`
@@ -2772,11 +2949,13 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `class BetaManagedAgentsSessionActor:`
 
   Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
+
   - `required string SessionID`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
   - `required Type Type`
+
     - `"session_actor"SessionActor`
 
 ### Beta Managed Agents User Actor
@@ -2784,7 +2963,9 @@ Console.WriteLine(betaManagedAgentsMemoryVersion);
 - `class BetaManagedAgentsUserActor:`
 
   Attribution for a write made by a human user through the Anthropic Console.
+
   - `required Type Type`
+
     - `"user_actor"UserActor`
 
   - `required string UserID`

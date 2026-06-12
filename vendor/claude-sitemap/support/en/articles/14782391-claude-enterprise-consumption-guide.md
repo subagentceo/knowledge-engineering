@@ -1,6 +1,6 @@
 Claude Enterprise gives your organization access to powerful AI across chat, Claude Code, and Claude Cowork. With that access comes the responsibility of managing consumption effectively—ensuring your team gets maximum value while keeping usage predictable and within budget.
 
-This guide walks Enterprise admins through the key levers available to control and optimize token consumption: setting spend caps, configuring role-based access controls, educating users, and choosing the right model for the right task.
+This guide walks Enterprise admins through the key levers available to control and optimize token consumption: setting spend caps, configuring role-based access controls, educating users, and choosing the right model and effort level for the right task.
 
 ---
 
@@ -14,10 +14,10 @@ Admins who proactively configure spend limits and educate users can reduce waste
 
 ## Understanding token intensity across surfaces
 
-| **Surface**   | **Token intensity and what drives it**                                                                                                                         |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Core Chat     | Lower intensity. Standard back-and-forth conversation, summarization, drafting, and Q&A. Token usage scales with message length and conversation history.      |
-| Claude Code   | Higher intensity. Each coding session includes system prompts, file context, tool calls, and multi-turn reasoning—more tokens per session than chat.           |
+| **Surface** | **Token intensity and what drives it** |
+| --- | --- |
+| Core Chat | Lower intensity. Standard back-and-forth conversation, summarization, drafting, and Q&A. Token usage scales with message length and conversation history. |
+| Claude Code | Higher intensity. Each coding session includes system prompts, file context, tool calls, and multi-turn reasoning—more tokens per session than chat. |
 | Claude Cowork | Higher intensity. Agentic workflows, multi-step task execution, and Skills generate significant intermediate token usage that may not be visible to end users. |
 
 **Admin tip: Set expectations with your team**
@@ -80,7 +80,7 @@ Note the following precedence rules:
 
 - **No limit anywhere = no limit.** If a member has no individual limit and none of their groups have a limit, their spend isn't capped.
 
-**How to configure:** Organization settings > Usage > By group. Set limits to either a specific dollar amount or "Unlimited."
+**How to configure:** Organization settings → Usage → By group. Set limits to either a specific dollar amount or "Unlimited."
 
 ### User-level spend caps
 
@@ -98,13 +98,13 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 **Recommended starting points**
 
-| **User type**   | **Code** | **Cowork** | **Chat** |
-| --------------- | -------- | ---------- | -------- |
-| Power (Top 10%) | $200     | $100       | $50      |
-| Typical (Mean)  | $85      | $50        | $20      |
-| Light (Median)  | $25      | $20        | $5       |
+| **User type** | **Code** | **Cowork** | **Chat** |
+| --- | --- | --- | --- |
+| Power (Top 10%) | $200 | $100 | $50 |
+| Typical (Mean) | $85 | $50 | $20 |
+| Light (Median) | $25 | $20 | $5 |
 
-\*_These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns._
+**These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns.*
 
 ---
 
@@ -112,13 +112,33 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 One of the most impactful things an admin can do is set clear guidance for users on which model to use for which tasks. Model choice has a direct and significant impact on token consumption—Opus can consume several times more tokens than Sonnet for the same task.
 
+Effort level is a second consumption lever. Users can choose how much thinking Claude applies to each response, and higher effort levels consume more tokens than lower ones. Encourage users to reserve Max effort for more complex work and to use lower effort for routine tasks.
+
 ### The right model for the right task
 
-| **Model**     | **Best for**                                  | **Token intensity** | **Recommended use**                                 |
-| ------------- | --------------------------------------------- | ------------------- | --------------------------------------------------- |
-| Claude Sonnet | Everyday tasks, writing, analysis, Q&A        | Moderate            | Default model for all users—set as org-wide default |
-| Claude Opus   | Complex reasoning, research, multi-step tasks | High                | Reserve for power users or specific workflows only  |
-| Claude Haiku  | Simple lookups, summaries, fast responses     | Low                 | High-volume, lightweight automation tasks           |
+| **Model** | **Best for** | **Token intensity** | **Recommended use** |
+| --- | --- | --- | --- |
+| Claude Sonnet | Everyday tasks, writing, analysis, Q&A | Moderate | Default model for all users—set as your org-wide default (see below) |
+| Claude Opus | Complex reasoning, research, multi-step tasks | High | Reserve for power users or specific workflows only |
+| Claude Haiku | Simple lookups, summaries, fast responses | Low | High-volume, lightweight automation tasks |
+
+### Setting your organization's default model (beta)
+
+Beyond guiding users toward the right model, you can set the model that new conversations start with for everyone in your org. This is one of the most direct consumption levers available—the default shapes what the majority of users run day to day.
+
+You have two options:
+
+- **Anthropic recommended** — automatically updates as new models ship, so your org always starts on our current recommended general-purpose model with no manual upkeep.
+
+- **Choose your own** — sets a specific model as the org default and holds it there until you change it. Use this when you want to standardize on a known model for consumption predictability (for example, defaulting to Sonnet rather than Opus).
+
+This setting applies to chat and Cowork only. Claude Code model defaults are managed separately through managed settings.
+
+You can also set model defaults by role through Custom Roles, so different groups can start on different models—for example, defaulting your engineering group to one model and the rest of the org to another. This pairs naturally with the RBAC groups you've already configured (see Section 2).
+
+**How to configure:** Organization settings → Models.
+
+**Note:** Users' current model selection for new conversations may be cleared, so they'll pick up the org default on their next conversation.
 
 ### Admin configuration recommendations
 
@@ -158,7 +178,7 @@ The Analytics page within the user menu (**claude.ai/analytics**) is the fastest
 
 ### Spend report CSV export
 
-If you need a one-off detailed breakdown, you can export a per-user, per-model spend report as a CSV from **Analytics > All Activity > Spend > Export Spend**. Choose MTD, last month, last 90 days, or a custom range up to 90 days back. The CSV includes user email, user ID, account UUID, product, model, request count, prompt and completion tokens, and net and gross spend in USD.
+If you need a one-off detailed breakdown, you can export a per-user, per-model spend report as a CSV from **Analytics → All Activity → Spend → Export Spend**. Choose MTD, last month, last 90 days, or a custom range up to 90 days back. The CSV includes user email, user ID, account UUID, product, model, request count, prompt and completion tokens, and net and gross spend in USD.
 
 ### Analytics chat
 
@@ -194,9 +214,13 @@ When you onboard users, share the following:
 
 - Sonnet is the default and handles most tasks well. Use Opus only when Sonnet isn't getting you where you need to go.
 
+- Your org has a default model set for new conversations; you can still switch models mid-conversation when a task needs it.
+
 - The model selector is visible in the interface—remind users to check it, especially if they're running complex tasks.
 
-- The model selector is sticky, so make it a practice to check that it's the model you want to use!
+- The model selector is sticky, so make it a practice to check that it's the model you want to use.
+
+- The effort level appears next to the model name. Higher effort means more thorough responses but higher token consumption, so match it to the task.
 
 **What happens when they hit a cap**
 

@@ -581,7 +581,7 @@ If you’ve created a [Connect application](https://docs.stripe.com/connect.md) 
 ```curl
 curl -X POST https://api.stripe.com/v2/core/event_destinations \
   -H "Authorization: Bearer <<YOUR_SECRET_KEY>>" \
-  -H "Stripe-Version: 2026-04-22.preview" \
+  -H "Stripe-Version: 2026-05-27.preview" \
   --json '{
     "name": "My event destination",
     "description": "This is my event destination, I like it a lot",

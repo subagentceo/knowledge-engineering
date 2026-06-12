@@ -1,7 +1,7 @@
 > This page location: Frontend & Frameworks > ORMs
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
-> Summary: Covers the setup of various ORMs, including Django, Laravel, and Prisma, for connecting to Neon Postgres databases, providing detailed instructions for each framework.
+> Summary: ORM integration guides for Neon Postgres, with per-ORM connection instructions for Django, Drizzle, Elixir Ecto, Kysely, Laravel, Prisma, Rails, SQLAlchemy, Tortoise ORM, and TypeORM. Use this page to find the right guide for your framework when connecting an ORM-backed application to a Neon serverless Postgres database.
 
 # Neon ORM guides
 

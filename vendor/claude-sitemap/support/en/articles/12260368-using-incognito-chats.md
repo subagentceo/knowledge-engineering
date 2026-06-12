@@ -5,6 +5,7 @@ Incognito chats are available to all Claude users (Free, Pro, Max, Team, and Ent
 Incognito chats are temporary conversations that aren't saved to your chat history or to **[Claude’s memory](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context)**. These differ from regular chats in several ways:
 
 - Incognito chats are not used for training. See our Privacy Center for more information:
+
   - **[Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)** (for Free, Pro, and Max plans)
 
   - **[Is my data used for model training?](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)** (for Team and Enterprise plans)
@@ -14,6 +15,7 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
 - Claude won’t pull information from incognito chats when searching previous conversations.
 
 - If you are using Claude’s memory:
+
   - Starting an incognito chat won’t use Claude’s existing memory.
 
   - Incognito chats will not be included in future memory summaries.
@@ -24,7 +26,7 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1780164900&signature=25296852e60131f364d82877e76a9bdacea497dac07739d22f9b355d7fa2ce43&req=dScmH854lYZbXfMW1HO4zeUcuwK8aOGCDCAt3Cx%2FSO0Rg6xVpZaJIWDhAXLQ%0Al0UMh6o5tyoidrgkuI8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1781284500&amp;signature=bcf47a733c0a410cdda46b4548090257d9dcba80e5b7b5b9e3e16271e5f7e00e&amp;req=dScmH854lYZbXfMW1HO4zeUcuwO%2FZuGODCAt3Cx%2FSO1fWrRhy9%2FTQdim12d3%0AYaWmcp3DA585Th9a35I%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 

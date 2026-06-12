@@ -35,17 +35,17 @@ EOF
 environment_id=$(jq -r '.id' <<< "$environment")
 
 echo "Environment ID: $environment_id"
+````
 
-`````
-
-
+  
 ````bash
 ant beta:environments create \
   --name "python-dev" \
   --config '{type: cloud, networking: {type: unrestricted}}'
-`````
+````
 
-```python
+  
+````python
 environment = client.beta.environments.create(
     name="python-dev",
     config={
@@ -55,9 +55,10 @@ environment = client.beta.environments.create(
 )
 
 print(f"Environment ID: {environment.id}")
-```
+````
 
-```typescript
+  
+````typescript
 const environment = await client.beta.environments.create({
   name: "python-dev",
   config: {
@@ -67,9 +68,10 @@ const environment = await client.beta.environments.create({
 });
 
 console.log(`Environment ID: ${environment.id}`);
-```
+````
 
-```csharp
+  
+````csharp
 var environment = await client.Beta.Environments.Create(new()
 {
     Name = "python-dev",
@@ -80,9 +82,10 @@ var environment = await client.Beta.Environments.Create(new()
 });
 
 Console.WriteLine($"Environment ID: {environment.ID}");
-```
+````
 
-```go
+  
+````go
 environment, err := client.Beta.Environments.New(ctx, anthropic.BetaEnvironmentNewParams{
 	Name: "python-dev",
 	Config: anthropic.BetaEnvironmentNewParamsConfigUnion{
@@ -98,9 +101,10 @@ if err != nil {
 }
 
 fmt.Printf("Environment ID: %s\n", environment.ID)
-```
+````
 
-```java
+  
+````java
 var environment = client.beta().environments().create(EnvironmentCreateParams.builder()
     .name("python-dev")
     .config(BetaCloudConfigParams.builder()
@@ -108,17 +112,19 @@ var environment = client.beta().environments().create(EnvironmentCreateParams.bu
         .build())
     .build());
 IO.println("Environment ID: " + environment.id());
-```
+````
 
-```php
+  
+````php
 $environment = $client->beta->environments->create(
     name: 'python-dev',
     config: ['type' => 'cloud', 'networking' => ['type' => 'unrestricted']],
 );
 echo "Environment ID: {$environment->id}\n";
-```
+````
 
-```ruby
+  
+````ruby
 environment = client.beta.environments.create(
   name: "python-dev",
   config: {
@@ -128,7 +134,7 @@ environment = client.beta.environments.create(
 )
 
 puts "Environment ID: #{environment.id}"
-```
+````
 
 </CodeGroup>
 
@@ -136,7 +142,7 @@ The `name` must be unique within your organization and workspace.
 
 ## Use the environment in a session
 
-Pass the environment ID as a string when creating a session.
+Pass the environment ID as a string when [creating a session](/docs/en/managed-agents/sessions).
 
 <CodeGroup>
   
@@ -155,29 +161,33 @@ EOF
 )
 ````
 
-```python
+  
+````python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
 )
-```
+````
 
-```typescript
+  
+````typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
 });
-```
+````
 
-```csharp
+  
+````csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
     EnvironmentID = environment.ID,
 });
-```
+````
 
-```go
+  
+````go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent: anthropic.BetaSessionNewParamsAgentUnion{
 		OfString: anthropic.String(agent.ID),
@@ -187,28 +197,31 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 var session = client.beta().sessions().create(SessionCreateParams.builder()
     .agent(agent.id())
     .environmentId(environment.id())
     .build());
-```
+````
 
-```php
+  
+````php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
 );
-```
+````
 
-```ruby
+  
+````ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id
 )
-```
+````
 
 </CodeGroup>
 
@@ -279,10 +292,10 @@ const environment = await client.beta.environments.create({
     type: "cloud",
     packages: {
       pip: ["pandas", "numpy", "scikit-learn"],
-      npm: ["express"],
+      npm: ["express"]
     },
-    networking: { type: "unrestricted" },
-  },
+    networking: { type: "unrestricted" }
+  }
 });
 ```
 
@@ -363,28 +376,27 @@ environment = client.beta.environments.create(
   }
 )
 ```
-
 </CodeGroup>
 
 Supported package managers:
 
-| Field   | Package manager           | Example                                     |
-| ------- | ------------------------- | ------------------------------------------- |
-| `apt`   | System packages (apt-get) | `"ffmpeg"`                                  |
-| `cargo` | Rust (cargo)              | `"ripgrep@14.0.0"`                          |
-| `gem`   | Ruby (gem)                | `"rails:7.1.0"`                             |
-| `go`    | Go modules                | `"golang.org/x/tools/cmd/goimports@latest"` |
-| `npm`   | Node.js (npm)             | `"express@4.18.0"`                          |
-| `pip`   | Python (pip)              | `"pandas==2.2.0"`                           |
+| Field | Package manager | Example |
+| --- | --- | --- |
+| `apt` | System packages (apt-get) | `"ffmpeg"` |
+| `cargo` | Rust (cargo) | `"ripgrep@14.0.0"` |
+| `gem` | Ruby (gem) | `"rails:7.1.0"` |
+| `go` | Go modules | `"golang.org/x/tools/cmd/goimports@latest"` |
+| `npm` | Node.js (npm) | `"express@4.18.0"` |
+| `pip` | Python (pip) | `"pandas==2.2.0"` |
 
 ### Networking
 
 The `networking` field controls the sandbox's outbound network access. It does not impact the `web_search` or `web_fetch` tools' allowed domains.
 
-| Mode           | Description                                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `unrestricted` | Full outbound network access, except for a general safety blocklist. This is the default.                                                              |
-| `limited`      | Restricts sandbox network access to the `allowed_hosts` list. Further access is enabled via the `allow_package_managers` and `allow_mcp_servers` bool. |
+| Mode | Description |
+| --- | --- |
+| `unrestricted` | Full outbound network access, except for a general safety blocklist. This is the default. |
+| `limited` | Restricts sandbox network access to the `allowed_hosts` list. Further access is enabled through the `allow_package_managers` and `allow_mcp_servers` bool.|
 
 <CodeGroup>
 ```bash curl
@@ -421,8 +433,8 @@ const config = {
     type: "limited",
     allowed_hosts: ["api.example.com"],
     allow_mcp_servers: true,
-    allow_package_managers: true,
-  },
+    allow_package_managers: true
+  }
 };
 ```
 
@@ -484,7 +496,6 @@ config = {
   }
 }
 ```
-
 </CodeGroup>
 
 <Info>
@@ -492,10 +503,9 @@ For production deployments, use `limited` networking with an explicit `allowed_h
 </Info>
 
 When using `limited` networking:
-
-- `allowed_hosts` specifies domains the sandbox can reach. These must be HTTPS-prefixed.
+- `allowed_hosts` specifies domains the sandbox can reach. Specify bare hostnames or wildcard patterns (such as `*.example.com`); do not include a URL scheme.
 - `allow_mcp_servers` permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
-- `allow_package_managers` permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+- `allow_package_managers` permits outbound access to public package registries (such as PyPI and npm) beyond those listed in the `allowed_hosts` array. Defaults to `false`.
 
 ## Environment lifecycle
 
@@ -516,29 +526,25 @@ environments=$(curl -fsS https://api.anthropic.com/v1/environments \
   -H "anthropic-beta: managed-agents-2026-04-01")
 
 # Retrieve a specific environment
-
 env=$(curl -fsS "https://api.anthropic.com/v1/environments/$environment_id" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: managed-agents-2026-04-01")
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01")
 
 # Archive an environment (read-only, existing sessions continue)
-
 curl -fsS -X POST "https://api.anthropic.com/v1/environments/$environment_id/archive" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: managed-agents-2026-04-01"
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01"
 
 # Delete an environment (only if no sessions reference it)
-
 curl -fsS -X DELETE "https://api.anthropic.com/v1/environments/$environment_id" \
- -H "x-api-key: $ANTHROPIC_API_KEY" \
- -H "anthropic-version: 2023-06-01" \
- -H "anthropic-beta: managed-agents-2026-04-01"
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "anthropic-beta: managed-agents-2026-04-01"
+````
 
-`````
-
-
+  
 ````bash
 # List environments
 ant beta:environments list
@@ -551,9 +557,10 @@ ant beta:environments archive --environment-id "$ENVIRONMENT_ID"
 
 # Delete an environment (only if no sessions reference it)
 ant beta:environments delete --environment-id "$ENVIRONMENT_ID"
-`````
+````
 
-```python
+  
+````python
 # List environments
 environments = client.beta.environments.list()
 
@@ -565,9 +572,10 @@ client.beta.environments.archive(environment.id)
 
 # Delete an environment (only if no sessions reference it)
 client.beta.environments.delete(environment.id)
-```
+````
 
-```typescript
+  
+````typescript
 // List environments
 const environments = await client.beta.environments.list();
 
@@ -579,9 +587,10 @@ await client.beta.environments.archive(environment.id);
 
 // Delete an environment (only if no sessions reference it)
 await client.beta.environments.delete(environment.id);
-```
+````
 
-```csharp
+  
+````csharp
 // List environments
 var environments = await client.Beta.Environments.List();
 
@@ -593,9 +602,10 @@ await client.Beta.Environments.Archive(environment.ID);
 
 // Delete an environment (only if no sessions reference it)
 await client.Beta.Environments.Delete(environment.ID);
-```
+````
 
-```go
+  
+````go
 // List environments
 environments, err := client.Beta.Environments.List(ctx, anthropic.BetaEnvironmentListParams{})
 if err != nil {
@@ -619,9 +629,10 @@ _, err = client.Beta.Environments.Delete(ctx, environment.ID, anthropic.BetaEnvi
 if err != nil {
 	panic(err)
 }
-```
+````
 
-```java
+  
+````java
 // List environments
 var environments = client.beta().environments().list();
 // Retrieve a specific environment
@@ -630,9 +641,10 @@ var env = client.beta().environments().retrieve(environment.id());
 client.beta().environments().archive(environment.id());
 // Delete an environment (only if no sessions reference it)
 client.beta().environments().delete(environment.id());
-```
+````
 
-```php
+  
+````php
 // List environments
 $environments = $client->beta->environments->list();
 // Retrieve a specific environment
@@ -641,9 +653,10 @@ $env = $client->beta->environments->retrieve($environment->id);
 $client->beta->environments->archive($environment->id);
 // Delete an environment (only if no sessions reference it)
 $client->beta->environments->delete($environment->id);
-```
+````
 
-```ruby
+  
+````ruby
 # List environments
 environments = client.beta.environments.list
 
@@ -655,7 +668,7 @@ client.beta.environments.archive(environment.id)
 
 # Delete an environment (only if no sessions reference it)
 client.beta.environments.delete(environment.id)
-```
+````
 
 </CodeGroup>
 

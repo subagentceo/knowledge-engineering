@@ -214,16 +214,18 @@ components:
           anyOf:
             - type: string
               enum:
+                - turbo
                 - basic
                 - advanced
             - type: 'null'
           title: Mode
           description: >-
-            Search mode preset: supported values are `basic` and `advanced`.
-            Basic mode offers the lowest latency and works best with 2-3
-            high-quality search_queries. Advanced mode provides higher quality
-            with more advanced retrieval and compression. Defaults to `advanced`
-            when omitted.
+            Search mode preset: supported values are `turbo`, `basic`, and
+            `advanced`. Turbo mode is optimized for the fastest responses. Basic
+            mode offers low latency and works best with 2-3 high-quality
+            search_queries. Advanced mode provides higher quality with more
+            advanced retrieval and compression. Defaults to `advanced` when
+            omitted.
         max_chars_total:
           anyOf:
             - type: integer
@@ -582,8 +584,7 @@ components:
           description: >-
             Optional upper bound on the total number of characters to include
             per url. Excerpts may contain fewer characters than this limit to
-            maximize relevance and token efficiency. Values below 1000 will be
-            automatically set to 1000.
+            maximize relevance and token efficiency.
       additionalProperties: false
       type: object
       title: V1ExcerptSettings
