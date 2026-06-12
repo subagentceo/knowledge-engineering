@@ -70,5 +70,6 @@
   "pdf_allow_prefixes": [
     "https://cdn.prod.website-files.com/"
   ],
-  "llms_txt": "https://www.claude.com/llms.txt"
+  "llms_txt": "https://www.claude.com/llms.txt",
+  "incremental": false
 }

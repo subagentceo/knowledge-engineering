@@ -37,5 +37,6 @@
       "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails",
       "link_regex": "href=\"(/docs/en/test-and-evaluate/strengthen-guardrails[^\"#?]*)\""
     }
-  ]
+  ],
+  "incremental": false
 }
