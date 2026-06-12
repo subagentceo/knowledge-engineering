@@ -1,0 +1,500 @@
+# REST Resource: projects.locations
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+Skip to main content
+
+ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v8b2f8e7f8a7704cc38c0519ef05e8f889c427cc26f7c8f743e84df2a01b1dee7/clouddocs/images/lockup_full_color.svg)
+
+Technology areas
+
+close
+
+*   AI and ML
+    
+*   Application development
+    
+*   Application hosting
+    
+*   Compute
+    
+*   Data analytics and pipelines
+    
+*   Databases
+    
+*   Distributed, hybrid, and multicloud
+    
+*   Industry solutions
+    
+*   Migration
+    
+*   Networking
+    
+*   Observability and monitoring
+    
+*   Security
+    
+*   Storage
+    
+
+Cross-product tools
+
+close
+
+*   Access and resources management
+    
+*   Costs and usage management
+    
+*   Infrastructure as code
+    
+*   SDK, languages, frameworks, and tools
+    
+
+/
+
+Console
+
+*   English
+*   Deutsch
+*   Español – América Latina
+*   Français
+*   Português – Brasil
+*   中文 – 简体
+*   日本語
+*   한국어
+
+Sign in
+
+ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/run-color.svg)
+
+*   Cloud Run
+*   Cloud Run functions
+
+Start free
+
+Overview Guides Reference Samples Resources Versions
+
+*   Site selector
+*   Cloud Run functions (Recommended)
+    
+    Deploy functions from source code using Cloud Run
+    
+*   Cloud Run functions
+    
+    Manage functions with gcloud functions or Cloud Functions v2 API
+    
+*   Cloud Run functions (1st gen)
+    
+    Manage functions with Cloud Run functions (1st gen) ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v8b2f8e7f8a7704cc38c0519ef05e8f889c427cc26f7c8f743e84df2a01b1dee7/clouddocs/images/lockup_full_color.svg)
+
+*   Technology areas
+    
+    *   More
+    
+    *   Overview
+    *   Guides
+    *   Reference
+    *   Samples
+    *   Resources
+    *   Versions
+        *   More
+*   Cross-product tools
+    *   More
+*   Console
+
+*   Cloud Functions v2 API
+    
+*   All APIs & references
+*   Client Libraries
+*   gcloud command reference
+*   Terraform reference
+    
+    *   Function
+    *   Terraform examples
+        
+        *   Terraform HTTP example
+        *   Terraform Pub/Sub example
+        
+    
+*   REST reference
+    
+    *   Overview
+    *   v1
+        
+        *   REST Resources
+            
+        *   operations
+            
+            *   Overview
+            *   get
+            *   list
+            
+        *   projects.locations
+            
+            *   Overview
+            *   list
+            
+        *   projects.locations.functions
+            
+            *   Overview
+            *   call
+            *   create
+            *   delete
+            *   generateDownloadUrl
+            *   generateUploadUrl
+            *   get
+            *   getIamPolicy
+            *   list
+            *   patch
+            *   setIamPolicy
+            *   testIamPermissions
+            
+        
+    *   v2
+        
+        *   REST Resources
+            
+        *   projects.locations
+            
+            *   Overview
+            *   list
+            
+        *   projects.locations.functions
+            
+            *   Overview
+            *   abortFunctionUpgrade
+            *   commitFunctionUpgrade
+            *   create
+            *   delete
+            *   detachFunction
+            *   generateDownloadUrl
+            *   generateUploadUrl
+            *   get
+            *   getIamPolicy
+            *   list
+            *   patch
+            *   redirectFunctionUpgradeTraffic
+            *   rollbackFunctionUpgradeTraffic
+            *   setIamPolicy
+            *   setupFunctionUpgradeConfig
+            *   testIamPermissions
+            
+        *   projects.locations.operations
+            
+            *   Overview
+            *   get
+            *   list
+            
+        *   projects.locations.runtimes
+            
+            *   Overview
+            *   list
+            
+        
+    *   v2alpha
+        
+        *   REST Resources
+            
+        *   projects.locations
+            
+            *   Overview
+            *   list
+            
+        *   projects.locations.functions
+            
+            *   Overview
+            *   abortFunctionUpgrade
+            *   commitFunctionUpgrade
+            *   create
+            *   delete
+            *   detachFunction
+            *   generateDownloadUrl
+            *   generateUploadUrl
+            *   get
+            *   getIamPolicy
+            *   list
+            *   patch
+            *   redirectFunctionUpgradeTraffic
+            *   rollbackFunctionUpgradeTraffic
+            *   setIamPolicy
+            *   setupFunctionUpgradeConfig
+            *   testIamPermissions
+            
+        *   projects.locations.operations
+            
+            *   Overview
+            *   get
+            *   list
+            
+        *   projects.locations.runtimes
+            
+            *   Overview
+            *   list
+            
+        
+    *   v2beta
+        
+        *   REST Resources
+            
+        *   projects.locations
+            
+            *   Overview
+            *   list
+            
+        *   projects.locations.functions
+            
+            *   Overview
+            *   abortFunctionUpgrade
+            *   commitFunctionUpgrade
+            *   create
+            *   delete
+            *   detachFunction
+            *   generateDownloadUrl
+            *   generateUploadUrl
+            *   get
+            *   getIamPolicy
+            *   list
+            *   patch
+            *   redirectFunctionUpgradeTraffic
+            *   rollbackFunctionUpgradeTraffic
+            *   setIamPolicy
+            *   setupFunctionUpgradeConfig
+            *   testIamPermissions
+            
+        *   projects.locations.operations
+            
+            *   Overview
+            *   get
+            *   list
+            
+        *   projects.locations.runtimes
+            
+            *   Overview
+            *   list
+            
+        
+    *   Types
+        
+    *   AuditConfig
+    *   Binding
+    *   Date
+    *   GetIamPolicyRequest
+    *   GetOperationRequest
+    *   ListLocationsRequest
+    *   ListLocationsResponse
+    *   ListOperationsRequest
+    *   ListOperationsResponse
+    *   LogType
+    *   Policy
+    *   SetIamPolicyRequest
+    *   TestIamPermissionsRequest
+    *   TestIamPermissionsResponse
+    
+*   RPC reference
+    
+    *   Overview
+    *   google.cloud.common
+    *   google.cloud.functions.v1
+    *   google.cloud.functions.v2
+    *   google.cloud.functions.v2alpha
+    *   google.cloud.functions.v2beta
+    *   google.cloud.location
+    *   google.iam.v1
+    *   google.longrunning
+    *   google.rpc
+    *   google.type
+    
+*   Secure and control access
+    
+    *   Security overview
+    *   Roles
+    *   Function identity
+    *   Use IAM to authorize access
+    *   Authenticate for invocation
+    *   Use customer-managed encryption keys
+    *   Restrict new deployments by product version
+    *   Manage function resources using custom constraints
+    *   Secure your execution environment
+    
+*   IAM reference
+    
+    *   Overview
+    *   Roles
+    *   Permissions
+    
+*   System packages
+*   Request headers
+*   Cloud audit logging
+
+*   AI and ML
+*   Application development
+*   Application hosting
+*   Compute
+*   Data analytics and pipelines
+*   Databases
+*   Distributed, hybrid, and multicloud
+*   Industry solutions
+*   Migration
+*   Networking
+*   Observability and monitoring
+*   Security
+*   Storage
+
+*   Access and resources management
+*   Costs and usage management
+*   Infrastructure as code
+*   SDK, languages, frameworks, and tools
+
+*   Site selector
+*   Cloud Run functions (Recommended)
+*   Cloud Run functions
+*   Cloud Run functions (1st gen)
+
+If you are creating a new function, see the Console Quickstart on Cloud Run.
+
+*   Home
+*   Documentation
+*   Application hosting
+*   Cloud Run
+*   Cloud Run functions
+*   Reference
+
+Send feedback
+
+# REST Resource: projects.locations Stay organized with collections Save and categorize content based on your preferences.
+
+*   Resource: Location
+    *   JSON representation
+*   Methods
+
+## Resource: Location
+
+A resource that represents a Google Cloud location.
+
+JSON representation
+
+{
+  "name": string,
+  "locationId": string,
+  "displayName": string,
+  "labels": {
+    string: string,
+    ...
+  },
+  "metadata": {
+    "@type": string,
+    field1: ...,
+    ...
+  }
+}
+
+ 
+
+Fields
+
+`name`
+
+`string`
+
+Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"`
+
+`locationId`
+
+`string`
+
+The canonical id for this location. For example: `"us-east1"`.
+
+`displayName`
+
+`string`
+
+The friendly name for this location, typically a nearby city name. For example, "Tokyo".
+
+`labels`
+
+`map (key: string, value: string)`
+
+Cross-service attributes for the location. For example
+
+```
+{"cloud.googleapis.com/region": "us-east1"}
+```
+
+An object containing a list of `"key": value` pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
+
+`metadata`
+
+`object`
+
+Service-specific metadata. For example the available capacity at the given location.
+
+An object containing fields of an arbitrary type. An additional field `"@type"` contains a URI identifying the type. Example: `{ "id": 1234, "@type": "types.example.com/standard/id" }`.
+
+ 
+
+## Methods
+
+### list
+
+Lists information about the supported locations for this service.
+
+Send feedback
+
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated 2025-10-01 UTC.
+
+*   ### Products and pricing
+    
+    *   See all products
+    *   Google Cloud pricing
+    *   Google Cloud Marketplace
+    *   Contact sales
+*   ### Support
+    
+    *   Community forums
+    *   Support
+    *   Release Notes
+    *   System status
+*   ### Resources
+    
+    *   GitHub
+    *   Getting Started with Google Cloud
+    *   Code samples
+    *   Cloud Architecture Center
+    *   Training and Certification
+*   ### Engage
+    
+    *   Blog
+    *   Events
+    *   X (Twitter)
+    *   Google Cloud on YouTube
+    *   Google Cloud Tech on YouTube
+
+*   About Google
+*   Privacy
+*   Site terms
+*   Google Cloud terms
+*   Manage cookies
+*   Our third decade of climate action: join us
+*   Sign up for the Google Cloud newsletter Subscribe
+
+*   English
+*   Deutsch
+*   Español – América Latina
+*   Français
+*   Português – Brasil
+*   中文 – 简体
+*   日本語
+*   한국어
