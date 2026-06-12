@@ -17,12 +17,30 @@
 //
 // @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/dreams.md
 // @cite data/models/alloydb/fact_memory_access.yaml
+// @cite data/models/alloydb/fact_cache_hits.yaml (KAN-9 L2 warming)
 
 export interface AccessStats {
   accesses: number;
   agents: number;
   first_at: string;
   last_at: string;
+}
+
+export interface HotKeyRow {
+  cache_key: string;
+  payload: unknown;
+  hits: number;
+}
+
+/**
+ * Pure selection: hottest keys first, zero-hit keys dropped, capped at
+ * `limit` so a warming pass never floods L1 (64 MiB) or Redis L2.
+ */
+export function pickWarmList(rows: HotKeyRow[], limit = 100): HotKeyRow[] {
+  return rows
+    .filter((r) => r.hits > 0)
+    .sort((a, b) => b.hits - a.hits)
+    .slice(0, limit);
 }
 
 const CURATION_RE = /\n## curation\n[\s\S]*$/;
@@ -92,6 +110,47 @@ async function main(): Promise<void> {
     console.log(
       `dreams: ${rows.length} memory(ies) at >=${minAccesses} accesses; curated ${curated} (SCD II)`,
     );
+
+    // KAN-9: warm Redis L2 with the hottest cached knowledge so the next
+    // session's reads resolve volatile instead of round-tripping to L3.
+    // Heat comes from fact_cache_hits; payloads from semantic_cache.
+    if (!process.argv.includes("--skip-warm")) {
+      const hot = await pool.query(
+        `SELECT s.key AS cache_key, s.payload, SUM(f.hits)::bigint AS hits
+         FROM dw.fact_cache_hits f
+         JOIN dw.dim_cache_key d ON d.surrogate_key = f.cache_key_sk AND d.is_current
+         JOIN semantic_cache s ON s.key = d.cache_key
+         GROUP BY 1, 2`,
+      );
+      const warmList = pickWarmList(
+        hot.rows.map((r) => ({
+          cache_key: String(r.cache_key),
+          payload: r.payload,
+          hits: Number(r.hits),
+        })),
+      );
+      if (warmList.length === 0) {
+        console.log("dreams: no hot cache keys to warm");
+      } else {
+        const { default: Redis } = await import("ioredis");
+        const { set } = await import("../src/cache/lru-bm25.js");
+        const redis = new Redis(process.env.REDIS_URL ?? "redis://127.0.0.1:6379", {
+          lazyConnect: true,
+          maxRetriesPerRequest: 1,
+        });
+        try {
+          await redis.connect();
+          for (const entry of warmList) {
+            await set(redis, entry.cache_key, entry.payload);
+          }
+          console.log(`dreams: warmed L2 with ${warmList.length} hot key(s) (curation_source=dreams)`);
+        } catch (err) {
+          console.log(`dreams: L2 warm skipped — ${(err as Error).message}`);
+        } finally {
+          redis.disconnect();
+        }
+      }
+    }
   } finally {
     await pool.end();
   }
