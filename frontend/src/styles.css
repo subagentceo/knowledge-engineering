@@ -38,6 +38,10 @@ body {
   background: #0a0a0a;
   border-bottom: 1px solid #1f1f1f;
   overflow: hidden;
+  /* min-height gives the particle grid real rows on first paint —
+     without it the pane sizes to empty content and the field renders
+     as a tiny blob */
+  min-height: 18svh;
   max-height: 28svh;
   flex: 0 0 auto;
   pointer-events: none; /* decorative — never swallow touches */
@@ -51,6 +55,45 @@ body {
   color: #51c4ff;
   letter-spacing: 0;
   user-select: none;
+  text-shadow: 0 0 6px rgba(81, 196, 255, 0.35);
+}
+
+#site-header {
+  padding: 10px 16px 12px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+#site-header h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f4f4f4;
+}
+
+#site-header p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #6a6a6a;
+}
+
+#site-footer {
+  padding: 16px;
+  border-top: 1px solid #1f1f1f;
+  font-size: 11px;
+  color: #6a6a6a;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+#site-footer a {
+  color: #51c4ff;
+  text-decoration: none;
+}
+
+#site-footer a:hover {
+  text-decoration: underline;
 }
 
 @media (min-width: 600px) {

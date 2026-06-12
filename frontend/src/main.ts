@@ -74,12 +74,19 @@ async function main(): Promise<void> {
     // small. Users can deep-link via the URL hash later (out of scope
     // for the first cut).
     const seen = new Set<string>();
-    for (const entry of manifest.pages) {
-      if (seen.has(entry.vendor)) continue;
+    const firstPages = manifest.pages.filter((entry) => {
+      if (seen.has(entry.vendor)) return false;
       seen.add(entry.vendor);
-      const html = await loadVendorPage(entry.vendor, entry.path);
-      accordion.addSection(entry.title, html, entry.vendor);
-    }
+      return true;
+    });
+    // Fetch all vendor pages in parallel — serial awaits made the
+    // accordion the slowest pane on the page (25 round-trips).
+    const bodies = await Promise.all(
+      firstPages.map((entry) => loadVendorPage(entry.vendor, entry.path)),
+    );
+    firstPages.forEach((entry, i) => {
+      accordion.addSection(entry.title, bodies[i] ?? "", entry.vendor);
+    });
     accordion.measure(Math.max(280, accordionRoot.clientWidth - 16));
     accordion.render();
     if (loadingEl) loadingEl.remove();
