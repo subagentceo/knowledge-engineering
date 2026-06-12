@@ -5,12 +5,21 @@
 // https://chenglou.me/pretext/variable-typographic-ascii/ "Monospace ×
 // Single Weight" variant. Pure visual; no semantic content.
 //
-// Pauses when the pane is offscreen (IntersectionObserver) and respects
-// prefers-reduced-motion (renders one static frame).
+// Three attractors orbit the center on offset phases, so the field
+// breathes and swirls instead of collapsing into a static center blob.
+// Pauses when the pane is offscreen (IntersectionObserver) or the tab
+// is hidden (visibilitychange), caps at 30fps, re-seeds on resize, and
+// respects prefers-reduced-motion (renders one static frame).
 //
 // Citation: seeds/citations/pretext.md
 
 const LUMA = " .:;+*xX$#@";
+const FRAME_MS = 1000 / 30;
+const ATTRACTORS = [
+  { radiusScale: 0.32, speed: 0.00045, phase: 0 },
+  { radiusScale: 0.22, speed: -0.0007, phase: 2.1 },
+  { radiusScale: 0.38, speed: 0.00055, phase: 4.2 },
+];
 
 interface Particle {
   x: number;
@@ -27,44 +36,76 @@ interface AsciiOptions {
 }
 
 export function startAsciiArt(target: HTMLPreElement): () => void {
-  const opts = computeOptions(target);
-  const particles = seedParticles(opts);
-  const buf = new Float32Array(opts.cols * opts.rows);
+  let opts = computeOptions(target);
+  let particles = seedParticles(opts);
+  let buf = new Float32Array(opts.cols * opts.rows);
   let raf: number | null = null;
   let running = true;
+  let lastFrame = 0;
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function frame() {
+  function frame(now: number) {
     if (!running) return;
-    step(particles, opts);
+    if (!reduce) raf = requestAnimationFrame(frame);
+    if (now - lastFrame < FRAME_MS) return;
+    lastFrame = now;
+    step(particles, opts, now);
     rasterize(particles, buf, opts);
     target.textContent = render(buf, opts);
+  }
+
+  function resume() {
+    if (running) return;
+    running = true;
     if (!reduce) raf = requestAnimationFrame(frame);
+  }
+
+  function pause() {
+    running = false;
+    if (raf !== null) cancelAnimationFrame(raf);
+    raf = null;
   }
 
   // Pause when offscreen.
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
-      if (e.isIntersecting) {
-        if (!running) {
-          running = true;
-          if (!reduce) frame();
-        }
-      } else {
-        running = false;
-        if (raf !== null) cancelAnimationFrame(raf);
-      }
+      if (e.isIntersecting) resume();
+      else pause();
     }
   });
   io.observe(target);
 
-  frame();
+  // Pause when the tab is hidden — rAF already throttles, but skipping
+  // the bookkeeping entirely is free battery on mobile.
+  const onVisibility = () => {
+    if (document.hidden) pause();
+    else resume();
+  };
+  document.addEventListener("visibilitychange", onVisibility);
+
+  // Re-derive grid + particles on resize/rotation; the original grid is
+  // wrong after an orientation change.
+  let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+  const onResize = () => {
+    if (resizeTimer !== null) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      opts = computeOptions(target);
+      particles = seedParticles(opts);
+      buf = new Float32Array(opts.cols * opts.rows);
+      if (reduce) frame(performance.now() + FRAME_MS);
+    }, 150);
+  };
+  window.addEventListener("resize", onResize);
+
+  frame(performance.now() + FRAME_MS);
 
   return () => {
-    running = false;
-    if (raf !== null) cancelAnimationFrame(raf);
+    pause();
     io.disconnect();
+    document.removeEventListener("visibilitychange", onVisibility);
+    window.removeEventListener("resize", onResize);
+    if (resizeTimer !== null) clearTimeout(resizeTimer);
   };
 }
 
@@ -77,7 +118,7 @@ function computeOptions(target: HTMLPreElement): AsciiOptions {
   const cellH = fontSize;
   const cols = Math.max(20, Math.floor(rect.width / cellW));
   const rows = Math.max(10, Math.floor(rect.height / cellH));
-  const particleCount = Math.min(36, Math.floor((cols * rows) / 80));
+  const particleCount = Math.min(48, Math.max(12, Math.floor((cols * rows) / 60)));
   const attractorRadius = Math.max(4, Math.floor(Math.min(cols, rows) / 4));
   return { cols, rows, particleCount, attractorRadius };
 }
@@ -95,18 +136,25 @@ function seedParticles(opts: AsciiOptions): Particle[] {
   return out;
 }
 
-function step(particles: Particle[], opts: AsciiOptions): void {
-  // Single attractor in the middle, pulling particles in. Particles
-  // bounce off the bounding box.
+function step(particles: Particle[], opts: AsciiOptions, t = 0): void {
+  // Three attractors orbit the center on offset phases and speeds, so
+  // the field never settles. Particles wrap at the bounding box.
   const cx = opts.cols / 2;
   const cy = opts.rows / 2;
+  const orbit = Math.min(opts.cols, opts.rows);
   for (const p of particles) {
-    const dx = cx - p.x;
-    const dy = cy - p.y;
-    const d2 = dx * dx + dy * dy + 1;
-    const pull = 0.06 / Math.sqrt(d2);
-    p.vx += dx * pull;
-    p.vy += dy * pull;
+    for (const a of ATTRACTORS) {
+      const angle = t * a.speed + a.phase;
+      const ax = cx + Math.cos(angle) * orbit * a.radiusScale;
+      // Halve vertical orbit so attractors stay in the (wide, short) pane.
+      const ay = cy + Math.sin(angle) * orbit * a.radiusScale * 0.5;
+      const dx = ax - p.x;
+      const dy = ay - p.y;
+      const d2 = dx * dx + dy * dy + 1;
+      const pull = 0.05 / Math.sqrt(d2);
+      p.vx += dx * pull;
+      p.vy += dy * pull;
+    }
     // Damping.
     p.vx *= 0.985;
     p.vy *= 0.985;
