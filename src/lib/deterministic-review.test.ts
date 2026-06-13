@@ -51,6 +51,18 @@ test("ignores context and removed lines", () => {
   assert.equal(findApiKeyIntroductions(diff).length, 0);
 });
 
+test("ignores bash fail-closed guard using :- default expansion", () => {
+  // docker-entrypoint.sh rejects the key via ${VAR:-} — not an assignment.
+  const diff = [
+    "+++ b/infra/claude-code-subprocessor/docker-entrypoint.sh",
+    '+if [[ -n "${ANTHROPIC_API_KEY:-}" ]]; then',
+    '+  echo "ERROR: ANTHROPIC_API_KEY must NOT be set." >&2',
+    '+  exit 1',
+    '+fi',
+  ].join("\n");
+  assert.equal(findApiKeyIntroductions(diff).length, 0);
+});
+
 test("flags test files missing citation or tdd headers", () => {
   // Fixture tags are built by concatenation so citation-guard doesn't parse
   // these literals as real citation directives in this file's source.
