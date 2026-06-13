@@ -1,0 +1,26 @@
+{
+  "//": "Drop-in mcpServers block for Claude Desktop (macOS / Windows 11). Replace the absolute path and PAT. See ./README.md.",
+  "mcpServers": {
+    "knowledge-bridge": {
+      "command": "node",
+      "args": ["/abs/path/to/knowledge-engineering/dist/mcp/bridge-server.js"]
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "-e",
+        "GITHUB_TOOLSETS",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "<fine-grained PAT>",
+        "GITHUB_TOOLSETS": "repos,issues,pull_requests,code_security"
+      }
+    }
+  }
+}
