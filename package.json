@@ -41,7 +41,7 @@
     "verify:admonitions": "tsx scripts/harvest-admonitions.ts --dry-run",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform init -backend=false -input=false && terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
-    "verify:env": "tsx infra/cloudflare/src/env-sanitize.test.ts",
+    "verify:env": "tsx infra/cloudflare/src/env-sanitize.test.ts && tsx infra/cloudflare/src/fm-relay.test.ts",
     "verify:project": "tsx scripts/verify-project.ts",
     "verify:security-posture": "tsx scripts/verify-security-posture.ts",
     "verify:secrets": "tsx scripts/verify-secrets-parity.ts",

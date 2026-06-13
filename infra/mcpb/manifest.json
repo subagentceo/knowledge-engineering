@@ -1,0 +1,46 @@
+{
+  "manifest_version": "0.3",
+  "name": "subagent-knowledge-bridge",
+  "display_name": "Subagent Knowledge Bridge",
+  "version": "0.1.0",
+  "description": "Knowledge-engineering MCP bridge — 55 tools across engineering/blog/support/llms/vendor lanes plus vendor_cache_stats.",
+  "long_description": "One-click local install of this repo's MCP bridge (src/mcp/bridge-server.ts). Pairs with the official github-mcp-server connector (see README) to give an Apple/Desktop client the same GitHub + vendor-docs surface this cloud session uses. OAuth-only: no ANTHROPIC_API_KEY anywhere.",
+  "author": {
+    "name": "subagentceo",
+    "url": "https://github.com/subagentceo/knowledge-engineering"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subagentceo/knowledge-engineering.git"
+  },
+  "homepage": "https://subagentknowledge.com",
+  "support": "https://github.com/subagentceo/knowledge-engineering/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/mcp/bridge-server.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/dist/mcp/bridge-server.js"],
+      "env": {
+        "DATABASE_URL": "${user_config.database_url}",
+        "REDIS_URL": "${user_config.redis_url}"
+      }
+    }
+  },
+  "user_config": {
+    "database_url": {
+      "type": "string",
+      "title": "Postgres URL (optional)",
+      "description": "AlloyDB/Postgres connection string for the warehouse-backed lanes (dim_/fact_/events_ + vendor_cache_stats). Leave blank to run docs-only.",
+      "sensitive": true,
+      "required": false
+    },
+    "redis_url": {
+      "type": "string",
+      "title": "Redis URL (optional)",
+      "description": "L2 cache. Leave blank to skip tiered-cache warming.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}

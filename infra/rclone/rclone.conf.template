@@ -1,0 +1,20 @@
+# rclone remote template — copy to ~/.config/rclone/rclone.conf and fill in.
+# Storage plane for the ephemeral cloud VM (Claude Code on the web). Anything
+# not committed to git is reclaimed when the container is; rclone sync pushes
+# regenerated artifacts (vendor mirror, public feeds, DW dumps) to durable
+# object storage. See https://github.com/anthropics/rclone and rclone.org.
+
+# Cloudflare R2 (S3-compatible). Endpoint is your account's R2 URL.
+[kestore]
+type = s3
+provider = Cloudflare
+access_key_id = <R2_ACCESS_KEY_ID>
+secret_access_key = <R2_SECRET_ACCESS_KEY>
+endpoint = https://<ACCOUNT_ID>.r2.cloudflarestorage.com
+acl = private
+
+# Backblaze B2 alternative.
+# [kestore-b2]
+# type = b2
+# account = <B2_KEY_ID>
+# key = <B2_APPLICATION_KEY>

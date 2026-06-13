@@ -71,6 +71,11 @@ interface Env {
   CLAUDE_CODE_OAUTH_TOKEN: SecretsStoreBinding;
   NEON_API_KEY: SecretsStoreBinding;
   GITHUB_TOKEN: SecretsStoreBinding;
+  // FM relay (POST /claude). Caller app token validated against this
+  // binding; the OAuth credential is added server-side so the Apple
+  // client (ClaudeForFoundationModels `.proxied`) ships NO key.
+  // Optional: absent → /claude returns 501 until the operator binds it.
+  APP_RELAY_TOKEN?: SecretsStoreBinding;
   // Worker var (non-secret).
   NEON_PROJECT_ID: string;
   IS_SANDBOX?: string;
@@ -202,10 +207,69 @@ async function createPR(sandbox: Sandbox, task: string, branch: string): Promise
   return prUrlMatch[0];
 }
 
+// ── FM relay (POST /claude) ─────────────────────────────────────────────
+//
+// The OAuth-only counterpart to ClaudeForFoundationModels `.apiKey`. The
+// Apple client uses `.proxied(headers:..., baseURL: <this>/claude)`, ships
+// no credential, and this relay injects the OAuth bearer server-side. The
+// env-sanitizer invariant holds: an OAuth token is a Bearer credential,
+// never ANTHROPIC_API_KEY.
+//
+// @cite docs/reference/anthropic-foundation-models-integration.md (§2 auth)
+// @cite https://github.com/anthropics/ClaudeForFoundationModels  (.proxied)
+// @cite https://github.com/modelcontextprotocol/ext-auth        (additive auth)
+// @cite seeds/prompts/operator-2026-05-10.md                    (OAuth-only posture)
+const RELAY_UPSTREAM = "https://api.anthropic.com/v1/messages";
+const RELAY_VERSION = "2023-06-01";
+
+/** Constant-time string compare so token validation is not a timing oracle. */
+export function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+async function handleClaudeRelay(request: Request, env: Env): Promise<Response> {
+  if (env.APP_RELAY_TOKEN === undefined) {
+    return new Response("relay not provisioned (bind APP_RELAY_TOKEN)", { status: 501 });
+  }
+  const presented = request.headers.get("X-App-Token") ?? "";
+  const expected = await env.APP_RELAY_TOKEN.get();
+  if (!presented || !timingSafeEqual(presented, expected)) {
+    return new Response("invalid X-App-Token", { status: 401 });
+  }
+  // Forbid a client smuggling its own key through the relay (defense in depth).
+  if (request.headers.has("x-api-key") || request.headers.has("anthropic-api-key")) {
+    return new Response("api-key headers are forbidden; relay is OAuth-only", { status: 400 });
+  }
+
+  const oauth = await env.CLAUDE_CODE_OAUTH_TOKEN.get();
+  const upstream = await fetch(RELAY_UPSTREAM, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "anthropic-version": RELAY_VERSION,
+      // OAuth substitution: Bearer credential, never x-api-key.
+      authorization: `Bearer ${oauth}`,
+    },
+    body: request.body,
+  });
+  // Pass the upstream response through verbatim (streaming-safe).
+  return new Response(upstream.body, {
+    status: upstream.status,
+    headers: { "content-type": upstream.headers.get("content-type") ?? "application/json" },
+  });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (request.method !== "POST" || new URL(request.url).pathname !== "/run") {
-      return new Response("POST /run { repoUrl, task }", { status: 405 });
+    const pathname = new URL(request.url).pathname;
+    if (request.method === "POST" && pathname === "/claude") {
+      return handleClaudeRelay(request, env);
+    }
+    if (request.method !== "POST" || pathname !== "/run") {
+      return new Response("POST /run { repoUrl, task } | POST /claude (FM relay)", { status: 405 });
     }
 
     const body = (await request.json()) as RunRequest;
