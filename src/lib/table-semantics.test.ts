@@ -28,6 +28,7 @@ const tables = readdirSync(ALLOYDB_DIR)
 // where the old bare count only said "10 !== 11".
 const EXPECTED_TABLES = [
   "dim_cache_key",
+  "dim_ecosystem_artifact",
   "dim_memory",
   "dim_research_doc",
   "dim_vendor",

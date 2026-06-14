@@ -75,6 +75,7 @@
     "ingest:citations": "tsx scripts/ingest-citations.ts",
     "cache:warm": "tsx scripts/warm-semantic-cache.ts",
     "dw:load": "tsx scripts/load-citation-warehouse.ts",
+    "dw:ecosystem": "tsx scripts/load-ecosystem-catalog.ts",
     "dreams:consolidate": "tsx scripts/dreams-consolidate.ts",
     "verify:dw": "tsx scripts/verify-dw.ts",
     "service:refresh": "npm run crawl:vendors && npm run service:refresh:local",
