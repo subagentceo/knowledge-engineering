@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_ecosystem_artifact
+  labels:
+    lane: ecosystem-catalog
+    source: src/cache/ecosystem-catalog.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: refreshed by load-ecosystem-catalog from seeds/ecosystem/artifacts.json
+  data_start_date: "2026-06-14"
+  allowed_operations:
+    - read
+    - scd1_overwrite
+  description: >-
+    Catalog of external ecosystem artifacts — GitHub repos and npm packages
+    across the anthropics, modelcontextprotocol, safety-research and redis
+    orgs (plus the @anthropic-ai / @modelcontextprotocol npm scopes). SCD I:
+    the current row is overwritten on reload. Fronted by the Redis object
+    EcosystemCatalog (L2 key ke:ecosystem:<org>/<name>); the dim is the
+    durable projection of that cache.
+  load_type: full
+  columns:
+    - name: org
+      kind: dimension
+      sql_type: text
+      description: GitHub org or npm scope (anthropics, modelcontextprotocol, safety-research, redis, anthropic-ai)
+    - name: name
+      kind: dimension
+      sql_type: text
+      description: repo name or scoped npm package name
+    - name: kind
+      kind: dimension
+      sql_type: text
+      description: artifact kind — repo | npm
+    - name: lang
+      kind: dimension
+      sql_type: text
+      description: primary language; NULL for npm packages
+    - name: license
+      kind: dimension
+      sql_type: text
+      description: SPDX-ish license label; NULL when unstated
+    - name: description
+      kind: dimension
+      sql_type: text
+      description: one-line description
+    - name: url
+      kind: dimension
+      sql_type: text
+      description: canonical URL (natural key with org+name+kind)
+    - name: stars
+      kind: measure
+      measure_type: max
+      sql_type: bigint
+      description: GitHub star count at load time; NULL for npm / unrecorded
+    - name: source_page
+      kind: dimension
+      sql_type: text
+      description: org/npm listing page the row was catalogued from
