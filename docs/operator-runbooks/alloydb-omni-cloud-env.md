@@ -1,10 +1,10 @@
 ---
 runbook: alloydb-omni-cloud-env
-outcome: AlloyDB Omni PG18 + Redis 7.0 available in every Claude Code cloud session within ~5s of session start, with no per-session image pull.
-unblocks: Local-DB-backed agents that need Postgres + columnar engine + Redis
+outcome: Cloud sessions get system PostgreSQL 16 + Redis 7 with the Kimball dw schema loaded at session start; AlloyDB Omni 18 runs on the operator's Docker Desktop host and is reached via the MCP_DOCKER gateway.
+unblocks: Local-DB-backed agents that need Postgres + Redis in-cloud, and the host-side AlloyDB Omni columnar engine via MCP_DOCKER
 operator-manual-steps:
-  - paste Setup script into the cloud environment's Setup script field
-  - set ALLOYDB_OMNI_PASSWORD in the cloud env UI
+  - enable the MCP_DOCKER connector (Connectors panel) to reach host AlloyDB Omni — takes effect in a new session
+  - (optional) set DATABASE_URL in the cloud env UI only to point at a host/tunnelled AlloyDB endpoint
 outcome_id: OKWP2
 ---
 
@@ -28,6 +28,46 @@ Two-file split per the operator's decomposition:
   start, idempotent.
 
 This is the pattern recommended by Claude Code's own cloud-env docs.
+
+## 2026-06-14 correction — two runtime contexts (READ FIRST)
+
+The original `docker run gcr.io/alloydb-omni/...` design in `start_services.sh`
+**cannot run inside a Claude Code cloud session.** Verified empirically:
+
+- The cloud session has **no persistent docker daemon** (`/var/run/docker.sock`
+  is absent; `service docker start` fails on a `ulimit` line). Starting `dockerd`
+  by hand gives an **empty** image store — the env's "connected" `alloydbomni:18`
+  image is not materialised on the in-session daemon.
+- `gcr.io/alloydb-omni` is a **private** registry (invite-only), and Docker Hub
+  rate-limits unauthenticated per-session pulls. So neither the private image nor
+  the public `postgres:16` fallback can be pulled reliably at session start.
+
+The fix splits the world into two contexts:
+
+| | Cloud session (this repo's hook) | Operator Docker Desktop host |
+| :-- | :-- | :-- |
+| Postgres | **system PostgreSQL 16** (`service postgresql start`) — pre-installed, no docker | **AlloyDB Omni 18** (`e2m-alloydb`, `alloydb-omni/alloydbomni:18`, `:5432`) + `alloydb-1` (`google/alloydbomni:15`, `:5433`) |
+| Redis | system **Redis 7** (`infra/redis/redis.conf`) | `e2m-redis` (`redis/redis-stack`, `:6379`) |
+| dw schema | loaded by `start_services.sh` into db `ke` (plain PG; no columnar engine) | loaded host-side |
+| Reached via | direct, in-session | **MCP_DOCKER** gateway connector (loads at session start; toggle in Connectors) |
+
+`scripts/start_services.sh` now targets the **cloud** context only: it starts
+system Redis + PG16, creates db `ke`, loads the `dw` schema (idempotent,
+sentinel-guarded on `dw.dim_ecosystem_artifact`), runs `npm ci` if
+`node_modules` is missing, publishes `DATABASE_URL`/`REDIS_URL` to
+`$CLAUDE_ENV_FILE`, and starts the A2A server. The `dw` DDL is plain PostgreSQL
+and runs unchanged on PG16 — the AlloyDB columnar engine is the only feature
+lost in-cloud.
+
+**To drive the real AlloyDB Omni 18**, open a session with the **MCP_DOCKER**
+connector enabled and use its gateway tools (container exec / code-mode) against
+the host `e2m-alloydb` container. The connector binds at session start, so
+toggling it only takes effect in a **new** session.
+
+`ALLOYDB_OMNI_PASSWORD` is therefore **no longer required** for the cloud start
+sequence; it remains relevant only if you reinstate a host/tunnelled AlloyDB
+endpoint via `DATABASE_URL` (a session/cloud-UI override always wins over the
+PG16 default).
 
 ## Scope
 
