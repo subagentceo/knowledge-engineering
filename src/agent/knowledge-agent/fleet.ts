@@ -35,13 +35,13 @@
 
 import { SubagentSpec, type BetaFeature, type SubagentSpec as Spec } from "../corpus-viewer/primitives.js";
 
-// Last verified against the bundled SDK (@anthropic-ai/claude-agent-sdk@0.2.138)
+// Last verified against the bundled SDK (@anthropic-ai/claude-agent-sdk@0.3.178)
 // + the mirrored agent-sdk docs on this date. Bump when re-checking.
 const VERIFIED = "2026-05-30T00:00:00.000Z";
 
 const AGENT_SDK_BETA: BetaFeature = {
   name: "claude-agent-sdk",
-  surface: "@anthropic-ai/claude-agent-sdk@0.2.138",
+  surface: "@anthropic-ai/claude-agent-sdk@0.3.178",
   rationale:
     "query() outputFormat:{type:'json_schema'} + result.structured_output is the structured-output surface that makes claude -p type-safe; minor versions move, so we pin and test.",
   citation: { source: "vendor/anthropics/code.claude.com/docs/en/agent-sdk/structured-outputs.md", last_fetched: VERIFIED },

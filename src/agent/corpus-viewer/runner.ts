@@ -82,7 +82,7 @@ export function toAgentsRecord(
 /**
  * The thinking config for query()'s top-level `thinking` option. Opus 4.8
  * supports only adaptive; we emit the SDK's adaptive shape, or disabled.
- * (Per-agent thinking isn't an AgentDefinition field in 0.2.x, so the build
+ * (Per-agent thinking isn't an AgentDefinition field in 0.3.x, so the build
  * sets thinking at the query level for the design subagents and the
  * mechanical bundler runs in its own query with thinking disabled.)
  *
