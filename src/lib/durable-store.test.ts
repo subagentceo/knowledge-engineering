@@ -16,17 +16,18 @@ import {
 // In-memory PgLike fake that interprets the exact statements DurableStore
 // issues. Keeps tests hermetic — no postgres needed in CI.
 function makeFakePg() {
-  const table = new Map<string, { payload: unknown; hits: number; lastHit: number }>();
+  const table = new Map<string, { payload: unknown; source_path: string | null; hits: number; lastHit: number }>();
   const log: string[] = [];
   const pg: PgLike = {
     async query(text, values = []) {
       log.push(text);
       if (text.startsWith("CREATE TABLE")) return { rows: [] };
       if (text.startsWith("INSERT INTO semantic_cache")) {
-        const [key, payload, , hits] = values as [string, string, unknown, number];
+        const [key, payload, sourcePath, hits] = values as [string, string, string | null, number];
         const existing = table.get(key);
         table.set(key, {
           payload: JSON.parse(payload),
+          source_path: sourcePath ?? null,
           hits: existing ? existing.hits + Math.max(hits, 1) : hits,
           lastHit: Date.now(),
         });
@@ -36,7 +37,7 @@ function makeFakePg() {
         const row = table.get(values[0] as string);
         if (!row) return { rows: [] };
         row.hits += 1;
-        return { rows: [{ payload: row.payload }] };
+        return { rows: [{ payload: row.payload, source_path: row.source_path }] };
       }
       if (text.startsWith("DELETE FROM semantic_cache")) return { rows: [] };
       throw new Error(`fake pg: unhandled statement: ${text.slice(0, 40)}`);
@@ -55,9 +56,12 @@ await store.init();
 assert.ok(log[0].includes("CREATE TABLE IF NOT EXISTS semantic_cache"));
 assert.ok(SEMANTIC_CACHE_DDL.includes("payload     jsonb NOT NULL"));
 
-// set → get round-trips through the zod schema
+// set → get round-trips through the zod schema; get() now returns { value, sourcePath }
 await store.set({ key: "k1", value: { title: "clio", tokens: 42 }, sourcePath: "vendor/x.md" }, Doc);
-assert.deepEqual(await store.get("k1", Doc), { title: "clio", tokens: 42 });
+const k1Result = await store.get("k1", Doc);
+assert.ok(k1Result !== undefined);
+assert.deepEqual(k1Result.value, { title: "clio", tokens: 42 });
+assert.equal(k1Result.sourcePath, "vendor/x.md");
 assert.equal(await store.get("missing", Doc), undefined);
 
 // schema violation fails closed at write time

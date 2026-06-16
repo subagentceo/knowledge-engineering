@@ -27,7 +27,7 @@
 import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { makeTurbopufferClient, getNamespace } from "../src/lib/turbopuffer-client.ts";
+import { makeTurbopufferClient, getNamespace } from "../src/lib/turbopuffer-client.js";
 
 function readKey(): string {
   const path = join(homedir(), ".config", "ke-turbopuffer-write-key.tmp");
