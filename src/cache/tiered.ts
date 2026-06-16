@@ -45,13 +45,18 @@ export async function tieredGet<T>(
     if (hits === PROMOTE_AFTER_HITS) {
       // B2: prefer caller-supplied sourcePath; fall back to path stored from L3 backfill.
       const resolvedSourcePath = sourcePath ?? volatileSourcePaths.get(key);
-      await cache.durable.persistVolatile(
-        [{ key, value: volatile, ...(resolvedSourcePath !== undefined && { sourcePath: resolvedSourcePath }), hits }],
-        schema,
-      );
-      // B1: evict after promotion so the map doesn't grow unbounded.
-      volatileHits.delete(key);
-      volatileSourcePaths.delete(key);
+      try {
+        await cache.durable.persistVolatile(
+          [{ key, value: volatile, ...(resolvedSourcePath !== undefined && { sourcePath: resolvedSourcePath }), hits }],
+          schema,
+        );
+      } finally {
+        // B1: evict after promotion so the map doesn't grow unbounded.
+        // try/finally ensures eviction even when persistVolatile throws so the key
+        // is not stuck at PROMOTE_AFTER_HITS and silently skipped forever.
+        volatileHits.delete(key);
+        volatileSourcePaths.delete(key);
+      }
     }
     return volatile;
   }
