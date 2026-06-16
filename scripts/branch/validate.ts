@@ -22,7 +22,7 @@ import {
   validateBranch,
   parseSessionTrailer,
   JIRA_BOARD,
-} from "../../src/lib/branch-topology.ts";
+} from "../../src/lib/branch-topology.js";
 
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(`--${name}`);
