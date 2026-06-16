@@ -50,6 +50,8 @@ PGDB="ke"
 DATABASE_URL_LOCAL="postgres://postgres:postgres@localhost:5432/${PGDB}"
 REDIS_URL_LOCAL="redis://localhost:6379"
 
+warn() { echo "start_services: WARN $*" >&2; }
+
 # ── Redis 7 (allkeys-lru + 7-day TTL from infra/redis/redis.conf) ─────────────
 if ! redis-cli ping >/dev/null 2>&1; then
   if [ -f "${REDIS_CONF}" ]; then
@@ -78,7 +80,17 @@ if pg_isready -q 2>/dev/null; then
   # the reload on resume. infra/postgres/init holds the model-registry lane; the
   # data/models/alloydb_*_ddl.sql files hold the cache/citations/memory/vendor/
   # events/ecosystem lanes.
-  if [ "$(sudo -u postgres psql -d "${PGDB}" -tAc "SELECT to_regclass('dw.dim_ecosystem_artifact')")" != "dw.dim_ecosystem_artifact" ]; then
+  #
+  # B5: check one sentinel per DDL file so a mid-run failure triggers a full
+  # re-run rather than silently leaving the schema partially initialised.
+  _psql_has() { [ "$(sudo -u postgres psql -d "${PGDB}" -tAc "SELECT to_regclass('$1')")" = "$1" ]; }
+  if ! _psql_has dw.dim_date \
+     || ! _psql_has dw.events_cache_access \
+     || ! _psql_has dw.dim_research_doc \
+     || ! _psql_has dw.dim_memory \
+     || ! _psql_has dw.dim_vendor \
+     || ! _psql_has dw.events_cache_promotion \
+     || ! _psql_has dw.dim_ecosystem_artifact; then
     for sql in "${PROJECT_DIR}/infra/postgres/init/"*.sql \
                "${PROJECT_DIR}/data/models/alloydb_cache_ddl.sql" \
                "${PROJECT_DIR}/data/models/alloydb_citations_ddl.sql" \
@@ -111,9 +123,19 @@ A2A_PID_FILE="/var/run/ke-a2a.pid"
 if [ -f "${PROJECT_DIR}/src/a2a/server.ts" ] \
    && { [ ! -f "${A2A_PID_FILE}" ] || ! kill -0 "$(cat "${A2A_PID_FILE}" 2>/dev/null)" 2>/dev/null; }; then
   mkdir -p "${PROJECT_DIR}/logs"
+  # B8: route stderr to a2a.log so crash output is diagnosable (previously lost).
   ( cd "${PROJECT_DIR}" \
     && DATABASE_URL="${DATABASE_URL_LOCAL}" REDIS_URL="${REDIS_URL_LOCAL}" \
-       nohup npx tsx src/a2a/server.ts >"${PROJECT_DIR}/logs/a2a.log" 2>&1 & echo $! > "${A2A_PID_FILE}" )
+       nohup npx tsx src/a2a/server.ts >>"${PROJECT_DIR}/logs/a2a.log" 2>&1 & echo $! > "${A2A_PID_FILE}" )
+  # B8: tsx cold-start takes 3-8 s; poll up to 12 s before warning.
+  _a2a_up=0
+  for _i in 1 2 3 4; do
+    sleep 3
+    if curl -sf --max-time 2 http://localhost:41241/.well-known/agent-card.json >/dev/null 2>&1; then
+      _a2a_up=1; break
+    fi
+  done
+  [ "${_a2a_up}" -eq 1 ] || warn "A2A server did not start — check ${PROJECT_DIR}/logs/a2a.log"
 fi
 
 log "ready"
