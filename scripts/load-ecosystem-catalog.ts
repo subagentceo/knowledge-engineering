@@ -16,6 +16,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { EcosystemCatalog } from "../src/cache/ecosystem-catalog.js";
+import { initCacheEvents, flushCacheEvents } from "../src/cache/events.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SEED = resolve(REPO_ROOT, "seeds", "ecosystem", "artifacts.json");
@@ -29,6 +30,28 @@ async function main(): Promise<void> {
     console.log(`  ${String(list.length).padStart(3)}  ${org}`);
   }
   if (process.argv.includes("--stats")) return;
+
+  const noPg = process.argv.includes("--no-pg");
+  const hasPg =
+    !noPg &&
+    (process.env.DATABASE_URL !== undefined || process.env.PGHOST !== undefined);
+
+  // B7: pool must be created before warm() so initCacheEvents can wire the sink
+  // that receives cache events recorded during warm. try/finally ensures pool.end()
+  // on any throw from initCacheEvents (e.g. DDL permission error on a fresh schema).
+  let pool: import("pg").Pool | null = null;
+  if (hasPg) {
+    const { default: pg } = await import("pg");
+    pool = new pg.Pool(
+      process.env.DATABASE_URL ? { connectionString: process.env.DATABASE_URL } : {},
+    );
+    try {
+      await initCacheEvents(pool);
+    } catch (err) {
+      await pool.end();
+      throw err;
+    }
+  }
 
   if (process.env.REDIS_URL !== undefined) {
     const { default: Redis } = await import("ioredis");
@@ -44,20 +67,25 @@ async function main(): Promise<void> {
     }
   }
 
-  if (process.argv.includes("--no-pg")) return;
-  if (process.env.DATABASE_URL === undefined && process.env.PGHOST === undefined) {
+  // Flush any cache events recorded during warm() before continuing to the dim load.
+  if (pool !== null) {
+    try {
+      await flushCacheEvents();
+    } catch (err) {
+      console.log(`ecosystem: cache event flush skipped — ${(err as Error).message}`);
+    }
+  }
+
+  if (noPg) return;
+  if (!hasPg) {
     console.log("ecosystem: no postgres env — skipping dim load (use --no-pg to silence)");
     return;
   }
 
-  const { default: pg } = await import("pg");
-  const pool = new pg.Pool(
-    process.env.DATABASE_URL ? { connectionString: process.env.DATABASE_URL } : {},
-  );
   try {
-    await pool.query(readFileSync(DDL, "utf8"));
+    await pool!.query(readFileSync(DDL, "utf8"));
     const c = catalog.toDimColumns();
-    const res = await pool.query(
+    const res = await pool!.query(
       `INSERT INTO dw.dim_ecosystem_artifact (org, name, kind, lang, license, description, url, stars, source_page)
        SELECT * FROM unnest(
          $1::text[], $2::text[], $3::text[], $4::text[], $5::text[], $6::text[], $7::text[], $8::bigint[], $9::text[])
@@ -70,7 +98,7 @@ async function main(): Promise<void> {
     );
     console.log(`dim_ecosystem_artifact: upserted ${res.rowCount} rows (SCD I)`);
   } finally {
-    await pool.end();
+    await pool!.end();
   }
 }
 
