@@ -22,9 +22,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { Pool } from "pg";
-import { Redis } from "ioredis";
 import { z } from "zod";
 import { get, set, invalidate, cacheKey } from "../../cache/lru-bm25.js";
+import { createRedisLike } from "../../lib/redis-adapter.js";
 
 // ── Canonical task shape (single source of truth) ────────────────────────────
 
@@ -43,7 +43,7 @@ const TaskListSchema = z.array(TaskSchema);
 // ── Infrastructure ────────────────────────────────────────────────────────────
 
 const pool  = new Pool({ connectionString: process.env.DATABASE_URL });
-const redis = new Redis(process.env.REDIS_URL ?? "redis://localhost:6379");
+const { redis } = await createRedisLike(process.env.REDIS_URL ?? "redis://localhost:6379");
 
 // ── MCP server ────────────────────────────────────────────────────────────────
 

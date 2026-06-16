@@ -34,9 +34,9 @@ import {
 } from "@a2a-js/sdk/server/express";
 import type { AgentCard, AgentSkill, Message, TextPart } from "@a2a-js/sdk";
 import Anthropic from "@anthropic-ai/sdk";
-import { Redis } from "ioredis";
 import { z } from "zod";
-import { get, set, cacheKey, indexDoc, search } from "../cache/lru-bm25.js";
+import { get, set, cacheKey, indexDoc, search, type RedisLike } from "../cache/lru-bm25.js";
+import { createRedisLike } from "../lib/redis-adapter.js";
 import { cachedInference } from "../cache/typed-inference.js";
 
 // ── Model registry Zod schema (single source of truth) ───────────────────────
@@ -63,7 +63,7 @@ export type ModelEntry = z.infer<typeof ModelEntrySchema>;
 
 // ── Infrastructure ────────────────────────────────────────────────────────────
 
-const redis  = new Redis(process.env.REDIS_URL ?? "redis://localhost:6379");
+const { redis } = await createRedisLike(process.env.REDIS_URL ?? "redis://localhost:6379");
 const client = new Anthropic();
 
 // ── Agent card ────────────────────────────────────────────────────────────────

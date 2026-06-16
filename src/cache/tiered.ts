@@ -16,7 +16,7 @@
  */
 
 import { z } from "zod";
-import type { Redis } from "ioredis";
+import type { RedisLike } from "./lru-bm25.js";
 import { get as volatileGet, set as volatileSet } from "./lru-bm25.js";
 import { DurableStore, PROMOTE_AFTER_HITS } from "./durable-store.js";
 
@@ -25,7 +25,7 @@ const volatileHits = new Map<string, number>();
 const volatileSourcePaths = new Map<string, string>();
 
 export interface TieredCache {
-  redis: Redis;
+  redis: RedisLike;
   durable: DurableStore;
 }
 

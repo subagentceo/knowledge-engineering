@@ -13,7 +13,7 @@
 import assert from "node:assert/strict";
 import { test, beforeEach } from "node:test";
 import { z } from "zod";
-import type { Redis } from "ioredis";
+import type { RedisLike } from "../cache/lru-bm25.js";
 import { tieredGet, tieredSet, __test as tieredTest } from "../cache/tiered.js";
 import { DurableStore, PROMOTE_AFTER_HITS, type PgLike } from "../cache/durable-store.js";
 import { invalidate } from "../cache/lru-bm25.js";
@@ -23,7 +23,7 @@ const Schema = z.object({ v: z.string() });
 
 function makeFakeRedis() {
   const store = new Map<string, Buffer>();
-  const redis = {
+  const redis: RedisLike = {
     async getBuffer(key: string) {
       return store.get(key) ?? null;
     },
@@ -34,7 +34,10 @@ function makeFakeRedis() {
     async del(key: string) {
       return store.delete(key) ? 1 : 0;
     },
-  } as unknown as Redis;
+    async expire(_key: string, _seconds: number) {
+      return 1;
+    },
+  };
   return { redis, store };
 }
 
