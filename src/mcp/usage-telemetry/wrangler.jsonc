@@ -1,0 +1,19 @@
+{
+  "name": "claude-telemetry",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ke-otel-usage",
+      "database_id": "b6786c24-50eb-42f0-bd3b-1e10e880e918",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "env": {
+    "production": {
+      "account_id": "e6294e3ea89f8207af387d459824aaae"
+    }
+  }
+}

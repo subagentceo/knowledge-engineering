@@ -33,6 +33,7 @@ import { registerCodeMode } from "./lanes/code-mode-lane.js";
 import { registerCitations } from "./lanes/citations.js";
 import { registerRepoMail } from "./lanes/mailbox.js";
 import { registerCacheStats } from "./lanes/cache-stats-lane.js";
+import { registerUsageTelemetry } from "./lanes/usage-telemetry.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -55,5 +56,6 @@ registerCodeMode(server);
 registerCitations(server);
 registerRepoMail(server);
 registerCacheStats(server);
+registerUsageTelemetry(server);
 
 await server.connect(new StdioServerTransport());
