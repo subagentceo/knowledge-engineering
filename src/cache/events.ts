@@ -17,6 +17,11 @@
 import { z } from "zod";
 import type { PgLike } from "./durable-store.js";
 
+// B3: data/models/alloydb_cache_ddl.sql is the DDL source of truth for
+// dw.events_cache_access.  This constant mirrors it so initCacheEvents()
+// works on a fresh DB that the loader has never touched.  Column-set parity
+// is asserted statically by scripts/verify-dw.ts; if you change column names
+// here you MUST update the .sql file and vice-versa.
 export const EVENTS_CACHE_ACCESS_DDL = `
 CREATE SCHEMA IF NOT EXISTS dw;
 CREATE TABLE IF NOT EXISTS dw.events_cache_access (
@@ -49,8 +54,18 @@ let buffer: CacheEvent[] = [];
 let sink: PgLike | null = null;
 let flushing = false;
 
-/** ke:<lane>:<id> → <lane>; null for keys outside the namespace. */
+/**
+ * Derive the DW lane label from a cache key.
+ *
+ *   ke:<lane>:<id>  → <lane>   (knowledge-engineering namespace)
+ *   csl:<id>        → 'citations'  (B6: citation-service-lookup namespace)
+ *   anything else   → null
+ *
+ * MUST stay aligned with the SQL lane derivation in
+ * scripts/load-citation-warehouse.ts (the WITH observed CTE).
+ */
 export function laneOf(cacheKey: string): string | null {
+  if (cacheKey.startsWith("csl:")) return "citations";
   const m = /^ke:([^:]+):/.exec(cacheKey);
   return m?.[1] ?? null;
 }
