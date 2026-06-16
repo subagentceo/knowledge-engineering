@@ -19,7 +19,7 @@ import {
   listTools,
   getTool,
   checkAccess,
-} from "./rovo-catalog.ts";
+} from "./rovo-catalog.js";
 
 test("catalog has 19 tools, all schema-valid", () => {
   assert.equal(CATALOG.length, 19);
