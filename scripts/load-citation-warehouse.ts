@@ -191,7 +191,9 @@ async function main(): Promise<void> {
                source_path
         FROM semantic_cache
         UNION
-        SELECT e.cache_key, e.lane, NULL
+        SELECT e.cache_key,
+               CASE WHEN e.cache_key LIKE 'csl:%' THEN 'citations' ELSE e.lane END,
+               NULL
         FROM dw.events_cache_access e
         WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
       )
@@ -210,7 +212,9 @@ async function main(): Promise<void> {
                source_path
         FROM semantic_cache
         UNION
-        SELECT e.cache_key, e.lane, NULL
+        SELECT e.cache_key,
+               CASE WHEN e.cache_key LIKE 'csl:%' THEN 'citations' ELSE e.lane END,
+               NULL
         FROM dw.events_cache_access e
         WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
       )
