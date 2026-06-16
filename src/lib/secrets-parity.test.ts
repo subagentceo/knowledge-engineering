@@ -11,7 +11,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { check } from "./secrets-parity.ts";
+import { check } from "./secrets-parity.js";
 
 const raw = readFileSync("docs/data/secrets-parity.json", "utf8");
 const table = JSON.parse(raw);

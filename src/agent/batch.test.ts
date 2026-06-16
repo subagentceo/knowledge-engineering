@@ -6,8 +6,8 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { submitBatch, pollBatch, collectBatch } from "./batch.ts";
-import type { BatchRequest, BatchStatus, BatchResult } from "./batch.ts";
+import { submitBatch, pollBatch, collectBatch } from "./batch.js";
+import type { BatchRequest, BatchStatus, BatchResult } from "./batch.js";
 
 const FAKE_TOKEN = "oauth-tok-test";
 
