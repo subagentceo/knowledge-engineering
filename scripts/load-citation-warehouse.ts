@@ -31,6 +31,9 @@ const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
 const CACHE_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_cache_ddl.sql");
+// B4: events DDL (dw.events_cache_promotion) was absent from the chain;
+// must execute after cache DDL so the schema exists.
+const EVENTS_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_events_ddl.sql");
 const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
 const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
@@ -175,14 +178,22 @@ async function main(): Promise<void> {
     // KAN-7: dim_cache_key — SCD II catalog of tiered-cache keys seen in
     // semantic_cache (L3) and the events_cache_access stream.
     await pool.query(readFileSync(CACHE_DDL_PATH, "utf8"));
+    // B4: events_cache_promotion absent on fresh DB without this step.
+    await pool.query(readFileSync(EVENTS_DDL_PATH, "utf8"));
+    // B6: csl:<id> keys must resolve to lane='citations' not the raw id
+    // segment.  CASE applied to match laneOf() in src/cache/events.ts.
     await pool.query(`
       WITH observed AS (
         SELECT key AS cache_key,
-               NULLIF(split_part(key, ':', 2), '') AS lane,
+               CASE WHEN key LIKE 'csl:%' THEN 'citations'
+                    ELSE NULLIF(split_part(key, ':', 2), '')
+               END AS lane,
                source_path
         FROM semantic_cache
         UNION
-        SELECT e.cache_key, e.lane, NULL
+        SELECT e.cache_key,
+               CASE WHEN e.cache_key LIKE 'csl:%' THEN 'citations' ELSE e.lane END,
+               NULL
         FROM dw.events_cache_access e
         WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
       )
@@ -190,15 +201,20 @@ async function main(): Promise<void> {
       SET row_effective_to = NOW(), is_current = FALSE
       FROM observed o
       WHERE d.cache_key = o.cache_key AND d.is_current
-        AND d.source_path IS DISTINCT FROM o.source_path`);
+        AND (d.source_path IS DISTINCT FROM o.source_path
+          OR d.lane IS DISTINCT FROM o.lane)`);
     const dimCache = await pool.query(`
       WITH observed AS (
         SELECT key AS cache_key,
-               NULLIF(split_part(key, ':', 2), '') AS lane,
+               CASE WHEN key LIKE 'csl:%' THEN 'citations'
+                    ELSE NULLIF(split_part(key, ':', 2), '')
+               END AS lane,
                source_path
         FROM semantic_cache
         UNION
-        SELECT e.cache_key, e.lane, NULL
+        SELECT e.cache_key,
+               CASE WHEN e.cache_key LIKE 'csl:%' THEN 'citations' ELSE e.lane END,
+               NULL
         FROM dw.events_cache_access e
         WHERE NOT EXISTS (SELECT 1 FROM semantic_cache s WHERE s.key = e.cache_key)
       )
