@@ -13,7 +13,7 @@ import {
   findBannedCommitSubjects,
   findTestHeaderGaps,
   renderReviewSummary,
-} from "../src/lib/deterministic-review.ts";
+} from "../src/lib/deterministic-review.js";
 
 function git(...args: string[]): string {
   return execFileSync("git", args, {

@@ -12,7 +12,7 @@
  */
 
 import { execSync } from "node:child_process";
-import { generateBranch } from "../../src/lib/branch-topology.ts";
+import { generateBranch } from "../../src/lib/branch-topology.js";
 
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(`--${name}`);

@@ -13,7 +13,7 @@
 
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { check, type Table } from "../src/lib/secrets-parity.ts";
+import { check, type Table } from "../src/lib/secrets-parity.js";
 
 const SKIP_GH = process.env.SKIP_GH === "1";
 

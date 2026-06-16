@@ -27,7 +27,7 @@ import {
   costUsd,
   estimateFable5Tokens,
   type Fable5Usage,
-} from "../src/lib/fable5-pricing.ts";
+} from "../src/lib/fable5-pricing.js";
 
 function git(...args: string[]): string {
   return execFileSync("git", args, {
