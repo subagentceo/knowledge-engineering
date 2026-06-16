@@ -12,7 +12,7 @@ import {
   findBannedCommitSubjects,
   findTestHeaderGaps,
   renderReviewSummary,
-} from "./deterministic-review.ts";
+} from "./deterministic-review.js";
 
 test("flags an added ANTHROPIC_API_KEY assignment in code paths", () => {
   const diff = [

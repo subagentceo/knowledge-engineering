@@ -14,7 +14,7 @@ import {
     setString,
     setRedisFactoryForTest,
     type RedisClient,
-} from "./redis-client.ts";
+} from "./redis-client.js";
 
 function makeMock() {
     const store = new Map<string, string>();

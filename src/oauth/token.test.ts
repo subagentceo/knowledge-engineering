@@ -10,7 +10,7 @@
 
 import { test, beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
-import { assertOAuthOnly, requireOAuth } from "./token.ts";
+import { assertOAuthOnly, requireOAuth } from "./token.js";
 
 const KEYS = [
   "ANTHROPIC_API_KEY",

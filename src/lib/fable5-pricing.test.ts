@@ -14,7 +14,7 @@ import {
   costUsd,
   estimateFable5Tokens,
   type Fable5Usage,
-} from "./fable5-pricing.ts";
+} from "./fable5-pricing.js";
 
 const ZERO: Fable5Usage = {
   uncached_input_tokens: 0,
