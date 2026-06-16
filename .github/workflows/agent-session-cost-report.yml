@@ -64,7 +64,7 @@ jobs:
         run: npx tsx scripts/check-agent-costs.ts --artifact-path agent-session-costs.json
 
       - name: Upload agent-session-costs artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: agent-session-costs
           path: agent-session-costs.json
