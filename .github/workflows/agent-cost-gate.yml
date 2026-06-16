@@ -173,20 +173,35 @@ jobs:
             const summaryPath = '/tmp/agent-costs/agent-session-costs.json';
             if (!fs.existsSync(summaryPath)) return;
             const sessions = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+            // Surface cache metrics: prompt-caching shifts spend from uncached input to
+            // cache reads/writes; a hit-rate column makes that visible per session.
+            // @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+            const cacheWrites = (s) =>
+              (s.cache_creation_5m_input_tokens ?? 0) + (s.cache_creation_1h_input_tokens ?? 0);
+            const totalInputOf = (s) =>
+              (s.uncached_input_tokens ?? 0) + (s.cache_read_input_tokens ?? 0) + cacheWrites(s);
+            const hitRate = (s) => {
+              const t = totalInputOf(s);
+              return t > 0 ? ((s.cache_read_input_tokens ?? 0) / t * 100).toFixed(1) : '0.0';
+            };
             const totalCost = sessions.reduce((sum, s) => sum + (s.cost_usd || 0), 0);
             // Correct schema field names: uncached_input_tokens and output_tokens
             const totalInput = sessions.reduce((sum, s) => sum + (s.uncached_input_tokens || 0), 0);
             const totalOutput = sessions.reduce((sum, s) => sum + (s.output_tokens || 0), 0);
+            const totalHits = sessions.reduce((sum, s) => sum + (s.cache_read_input_tokens || 0), 0);
+            const totalWrites = sessions.reduce((sum, s) => sum + cacheWrites(s), 0);
+            const totalAllInput = sessions.reduce((sum, s) => sum + totalInputOf(s), 0);
+            const overallHit = totalAllInput > 0 ? (totalHits / totalAllInput * 100).toFixed(1) : '0.0';
             const rows = sessions.map(s =>
-              `| \`${s.session_id}\` | ${s.model} | ${(s.uncached_input_tokens ?? 0).toLocaleString()} | ${(s.output_tokens ?? 0).toLocaleString()} | $${(s.cost_usd ?? 0).toFixed(4)} |`
+              `| \`${s.session_id}\` | ${s.model} | ${(s.uncached_input_tokens ?? 0).toLocaleString()} | ${(s.cache_read_input_tokens ?? 0).toLocaleString()} (${hitRate(s)}%) | ${cacheWrites(s).toLocaleString()} | ${(s.output_tokens ?? 0).toLocaleString()} | $${(s.cost_usd ?? 0).toFixed(4)} |`
             ).join('\n');
             const body = [
               `## Agent Session Cost Report`,
               ``,
-              `| Session | Model | Uncached In | Tokens Out | Cost |`,
-              `|---------|-------|-------------|------------|------|`,
+              `| Session | Model | Uncached In | Cache Hits (rate) | Cache Writes | Tokens Out | Cost |`,
+              `|---------|-------|-------------|-------------------|--------------|------------|------|`,
               rows,
-              `| **Total** | | **${totalInput.toLocaleString()}** | **${totalOutput.toLocaleString()}** | **$${totalCost.toFixed(4)}** |`,
+              `| **Total** | | **${totalInput.toLocaleString()}** | **${totalHits.toLocaleString()} (${overallHit}%)** | **${totalWrites.toLocaleString()}** | **${totalOutput.toLocaleString()}** | **$${totalCost.toFixed(4)}** |`,
             ].join('\n');
             // Use pull_request.number explicitly — context.issue.number is a fragile alias
             await github.rest.issues.createComment({

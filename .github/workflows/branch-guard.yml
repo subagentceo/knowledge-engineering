@@ -18,6 +18,16 @@ jobs:
   branch-guard:
     runs-on: ubuntu-latest
     steps:
+      # Fast exit for well-known exempt prefixes — no checkout/install needed.
+      - name: Skip — exempt prefix
+        run: |
+          case "${{ github.head_ref }}" in
+            claude/*|dependabot/*|release-please--*)
+              echo "Branch '${{ github.head_ref }}' matches exempt prefix — skipping."
+              exit 0
+              ;;
+          esac
+
       - name: Checkout
         uses: actions/checkout@v6 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
       - name: Setup Node
