@@ -119,7 +119,7 @@ test("npm-researcher run validates a PackageReport", async () => {
       structured_output: {
         kind: "PackageReport",
         packageName: "@anthropic-ai/claude-agent-sdk",
-        latestVersion: "0.2.138",
+        latestVersion: "0.3.178",
         recommendation: { useIt: true, rationale: "Canonical SDK for claude -p subagents." },
         citations: [{ source: "https://www.npmjs.com/package/@anthropic-ai/claude-agent-sdk", last_fetched: "2026-05-30" }],
       },

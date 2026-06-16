@@ -114,14 +114,39 @@ function logAccess(items: CslItem[]): void {
     .catch(() => undefined);
 }
 
-// B24 — lazily-connected L2/L3 tiers for the read-through cache
+// B24 — lazily-connected L2/L3 tiers for the read-through cache.
+// WHY: in-flight promise guard prevents TOCTOU: two concurrent callers share
+// the same connect() promise instead of each building their own client.
 let redisTier: RedisLike | null | undefined;
+let redisTierPromise: Promise<RedisLike | null> | null = null;
+
 async function maybeRedis(): Promise<RedisLike | null> {
   if (redisTier !== undefined) return redisTier;
+  if (redisTierPromise !== null) return redisTierPromise;
   if (process.env.REDIS_URL === undefined) { redisTier = null; return redisTier; }
-  const { default: Redis } = await import("ioredis");
-  redisTier = new Redis(process.env.REDIS_URL) as unknown as RedisLike;
-  return redisTier;
+  const redisUrl = process.env.REDIS_URL;
+  redisTierPromise = (async () => {
+    const { createClient } = await import("redis");
+    const nodeRedis = createClient({ url: redisUrl });
+    nodeRedis.on("error", (err: Error) => { console.error("Redis error:", err.message); });
+    await nodeRedis.connect();
+    // WHY: citation-cache.ts RedisLike uses set(key, value, "EX", ttlSec) — the
+    // ioredis 4-positional-arg form. node-redis 6 set() takes (key, value, options?),
+    // so we must wrap with an adapter that translates the positional form to the
+    // options-object form to preserve the TTL.
+    const adapter: RedisLike = {
+      get: (key) => nodeRedis.get(key),
+      set: (key, value, _mode, ttlSec) =>
+        nodeRedis.set(key, value, { EX: ttlSec }),
+    };
+    redisTier = adapter;
+    return redisTier;
+  })().catch(() => {
+    redisTierPromise = null;
+    redisTier = null;
+    return null;
+  });
+  return redisTierPromise;
 }
 
 // B19 — memory tools (memory.md path+content shape) over dw.dim_memory.
