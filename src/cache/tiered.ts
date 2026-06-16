@@ -21,6 +21,8 @@ import { get as volatileGet, set as volatileSet } from "./lru-bm25.js";
 import { DurableStore, PROMOTE_AFTER_HITS } from "./durable-store.js";
 
 const volatileHits = new Map<string, number>();
+// B2: tracks sourcePath from L3 backfill so promotion carries the correct path.
+const volatileSourcePaths = new Map<string, string>();
 
 export interface TieredCache {
   redis: Redis;
@@ -41,20 +43,32 @@ export async function tieredGet<T>(
     const hits = (volatileHits.get(key) ?? 0) + 1;
     volatileHits.set(key, hits);
     if (hits === PROMOTE_AFTER_HITS) {
+      // B2: prefer caller-supplied sourcePath; fall back to path stored from L3 backfill.
+      const resolvedSourcePath = sourcePath ?? volatileSourcePaths.get(key);
       await cache.durable.persistVolatile(
-        [{ key, value: volatile, ...(sourcePath !== undefined && { sourcePath }), hits }],
+        [{ key, value: volatile, ...(resolvedSourcePath !== undefined && { sourcePath: resolvedSourcePath }), hits }],
         schema,
       );
+      // B1: evict after promotion so the map doesn't grow unbounded.
+      volatileHits.delete(key);
+      volatileSourcePaths.delete(key);
     }
     return volatile;
   }
 
-  const durable = await cache.durable.get(key, schema);
-  if (durable === undefined) return undefined;
+  const durableResult = await cache.durable.get(key, schema);
+  if (durableResult === undefined) return undefined;
   // Backfill the volatile tiers so the next read resolves at L1.
-  await volatileSet(cache.redis, key, durable);
+  // B2: store sourcePath from L3 row so it threads through on promotion.
+  await volatileSet(cache.redis, key, durableResult.value);
   volatileHits.set(key, 0);
-  return durable;
+  // Always sync sourcePath — clear stale path when L3 row has none.
+  if (durableResult.sourcePath !== undefined) {
+    volatileSourcePaths.set(key, durableResult.sourcePath);
+  } else {
+    volatileSourcePaths.delete(key);
+  }
+  return durableResult.value;
 }
 
 /**
@@ -72,6 +86,12 @@ export async function tieredSet<T>(
   schema.parse(value);
   await volatileSet(cache.redis, key, value);
   volatileHits.set(key, 0);
+  // Always sync sourcePath — clear stale path when opts.sourcePath is absent.
+  if (opts.sourcePath !== undefined) {
+    volatileSourcePaths.set(key, opts.sourcePath);
+  } else {
+    volatileSourcePaths.delete(key);
+  }
   if (opts.durable === true) {
     await cache.durable.set(
       { key, value, ...(opts.sourcePath !== undefined && { sourcePath: opts.sourcePath }), hits: PROMOTE_AFTER_HITS },
@@ -84,8 +104,15 @@ export async function tieredSet<T>(
 export const __test = {
   reset(): void {
     volatileHits.clear();
+    volatileSourcePaths.clear();
   },
   hitsFor(key: string): number {
     return volatileHits.get(key) ?? 0;
+  },
+  hasKey(key: string): boolean {
+    return volatileHits.has(key);
+  },
+  sourcePathFor(key: string): string | undefined {
+    return volatileSourcePaths.get(key);
   },
 };

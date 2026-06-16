@@ -57,8 +57,9 @@ export async function getCitationCached(
   }
 
   if (tiers.pg != null) {
-    const item = await new DurableStore(tiers.pg).get(key, CslItem).catch(() => undefined);
-    if (item !== undefined) {
+    const result = await new DurableStore(tiers.pg).get(key, CslItem).catch(() => undefined);
+    if (result !== undefined) {
+      const item = result.value;
       L1.set(id, item);
       if (tiers.redis != null) {
         await tiers.redis.set(key, JSON.stringify(item), "EX", L2_TTL_SEC).catch(() => undefined);
