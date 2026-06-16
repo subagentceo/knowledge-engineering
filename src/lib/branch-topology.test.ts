@@ -20,7 +20,7 @@ import {
   normalizeDescription,
   sessionTrailer,
   parseSessionTrailer,
-} from "./branch-topology.ts";
+} from "./branch-topology.js";
 
 const GOOD = "alexjadecli/KENG-1037-canonical-branch-topology";
 

@@ -8,8 +8,8 @@
 
 import { test, afterEach } from "node:test";
 import assert from "node:assert/strict";
-import { RovoClient } from "./rovo-client.ts";
-import { listTools, getTool, checkAccess } from "./rovo-catalog.ts";
+import { RovoClient } from "./rovo-client.js";
+import { listTools, getTool, checkAccess } from "./rovo-catalog.js";
 
 const realFetch = globalThis.fetch;
 afterEach(() => {
