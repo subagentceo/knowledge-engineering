@@ -54,16 +54,19 @@ async function main(): Promise<void> {
   }
 
   if (process.env.REDIS_URL !== undefined) {
-    const { default: Redis } = await import("ioredis");
-    const redis = new Redis(process.env.REDIS_URL, { lazyConnect: true, maxRetriesPerRequest: 1 });
+    const { createClient } = await import("redis");
+    const { toRedisLike } = await import("../src/lib/redis-adapter.js");
+    const nodeRedis = createClient({ url: process.env.REDIS_URL });
+    nodeRedis.on("error", () => {});
     try {
-      await redis.connect();
+      await nodeRedis.connect();
+      const redis = toRedisLike(nodeRedis);
       const warmed = await catalog.warm(redis);
       console.log(`ecosystem: warmed ${warmed} keys into L2 (ke:ecosystem:*)`);
     } catch (err) {
       console.log(`ecosystem: L2 warm skipped — ${(err as Error).message}`);
     } finally {
-      redis.disconnect();
+      await nodeRedis.disconnect();
     }
   }
 

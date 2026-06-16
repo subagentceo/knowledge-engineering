@@ -29,6 +29,8 @@ function makeMock() {
                 calls.push(mode ? `set ${k} ${mode} ${ttl}` : `set ${k}`);
                 return "OK";
             },
+            ping: async () => "PONG",
+            close: async () => {},
         };
     };
     return { factory, builds: () => builds, calls };
@@ -117,21 +119,18 @@ async function withRedisUrlAsync<T>(
     }
 }
 
-// Live path — exercises the real ioredis build() against the local DragonflyDB
+// Live path — exercises the real node-redis 6 build() against the local DragonflyDB
 // container. Skips (does not fail) when :6379 is unreachable so CI without a
 // container stays green; locally it covers the build()/get/set wire path.
-test("live: real ioredis build() round-trips against DragonflyDB :6379", async (t) => {
+test("live: real node-redis build() round-trips against DragonflyDB :6379", async (t) => {
     setRedisFactoryForTest(null);
     await withRedisUrlAsync(DEFAULT_REDIS_URL, async () => {
-        const client = getClient() as unknown as {
-            ping(): Promise<string>;
-            quit(): Promise<unknown>;
-        } | null;
+        const client = getClient();
         assert.notEqual(client, null);
         try {
             await client!.ping();
         } catch {
-            await client!.quit().catch(() => {});
+            await client!.close().catch(() => {});
             setRedisFactoryForTest(null);
             t.skip("DragonflyDB :6379 unreachable — skipping live wire test");
             return;
@@ -139,7 +138,7 @@ test("live: real ioredis build() round-trips against DragonflyDB :6379", async (
         const key = `ke:test:${Date.now()}`;
         assert.equal(await setString(key, "live", { ex: 30 }), true);
         assert.equal(await getString(key), "live");
-        await client!.quit();
+        await client!.close();
     });
     setRedisFactoryForTest(null);
 });

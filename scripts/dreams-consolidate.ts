@@ -135,14 +135,14 @@ async function main(): Promise<void> {
       if (warmList.length === 0) {
         console.log("dreams: no hot cache keys to warm");
       } else {
-        const { default: Redis } = await import("ioredis");
+        const { createClient } = await import("redis");
+        const { toRedisLike } = await import("../src/lib/redis-adapter.js");
         const { set } = await import("../src/cache/lru-bm25.js");
-        const redis = new Redis(process.env.REDIS_URL ?? "redis://127.0.0.1:6379", {
-          lazyConnect: true,
-          maxRetriesPerRequest: 1,
-        });
+        const nodeRedis = createClient({ url: process.env.REDIS_URL ?? "redis://127.0.0.1:6379" });
+        nodeRedis.on("error", () => {});
         try {
-          await redis.connect();
+          await nodeRedis.connect();
+          const redis = toRedisLike(nodeRedis);
           for (const entry of warmList) {
             await set(redis, entry.cache_key, entry.payload);
           }
@@ -150,7 +150,7 @@ async function main(): Promise<void> {
         } catch (err) {
           console.log(`dreams: L2 warm skipped — ${(err as Error).message}`);
         } finally {
-          redis.disconnect();
+          await nodeRedis.disconnect();
         }
       }
     }

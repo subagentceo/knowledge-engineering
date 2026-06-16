@@ -1,5 +1,5 @@
 /**
- * LRU + BM25 cache layer — L1 in-process (lru-cache) + L2 Redis (ioredis).
+ * LRU + BM25 cache layer — L1 in-process (lru-cache) + L2 Redis (node-redis 6).
  *
  * Serialization: @msgpack/msgpack (canonical binary codec).
  * Eviction:      lru-cache v11 by isaacs — allkeys-LRU, 7-day TTL.
@@ -19,8 +19,16 @@ import { LRUCache } from "lru-cache";
 import { encode, decode } from "@msgpack/msgpack";
 import BM25 from "wink-bm25-text-search";
 import { z } from "zod";
-import type { Redis } from "ioredis";
 import { recordCacheEvent } from "./events.js";
+
+// Minimal interface for the L2 Redis tier. The live node-redis 6 adapter
+// (src/lib/redis-adapter.ts) and in-test fakes satisfy this shape.
+export interface RedisLike {
+  getBuffer(key: string): Promise<Buffer | null>;
+  set(key: string, value: Buffer | string, opts: { EX: number }): Promise<unknown>;
+  del(key: string): Promise<unknown>;
+  expire(key: string, seconds: number): Promise<unknown>;
+}
 
 // 7 days aligned with Redis allkeys-lru TTL constant in infra/redis/redis.conf
 export const TTL_MS  = 7 * 24 * 60 * 60 * 1_000;
@@ -75,7 +83,7 @@ export type Doc = z.infer<typeof DocSchema>;
  * On schema failure the entry is treated as a miss and evicted.
  */
 export async function get<T>(
-  redis: Redis,
+  redis: RedisLike,
   key:   string,
   schema: z.ZodType<T>,
 ): Promise<T | undefined> {
@@ -111,21 +119,21 @@ export async function get<T>(
  * set — writes validated value to L1 + L2 with 7-day TTL.
  */
 export async function set<T>(
-  redis: Redis,
+  redis: RedisLike,
   key:   string,
   value: T,
 ): Promise<void> {
   const bytes = encode(value) as Uint8Array;
   lru.set(key, bytes);
   recordCacheEvent(key, "L1", "set");
-  await redis.set(key, Buffer.from(bytes), "EX", TTL_SEC);
+  await redis.set(key, Buffer.from(bytes), { EX: TTL_SEC });
   recordCacheEvent(key, "L2", "set");
 }
 
 /**
  * invalidate — evicts from both tiers.
  */
-export async function invalidate(redis: Redis, key: string): Promise<void> {
+export async function invalidate(redis: RedisLike, key: string): Promise<void> {
   lru.delete(key);
   await redis.del(key);
   recordCacheEvent(key, "L1", "invalidate");

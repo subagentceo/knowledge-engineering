@@ -18,7 +18,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import type { MessageParam } from "@anthropic-ai/sdk/resources/messages.js";
 import { createHash } from "node:crypto";
 import { z } from "zod";
-import type { Redis } from "ioredis";
+import type { RedisLike } from "./lru-bm25.js";
 import { get, set, cacheKey, TTL_SEC } from "./lru-bm25.js";
 
 export interface InferenceOpts {
@@ -41,7 +41,7 @@ const DEFAULT_MODEL = "claude-sonnet-4-6";
  */
 export async function cachedInference<T>(
   client:     Anthropic,
-  redis:      Redis,
+  redis:      RedisLike,
   messages:   MessageParam[],
   schema:     z.ZodType<T>,
   schemaName: string,

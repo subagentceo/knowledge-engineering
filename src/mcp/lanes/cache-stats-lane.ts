@@ -91,16 +91,14 @@ export function registerCacheStats(server: McpServer): void {
       let redisKeys: number | null = null;
       if (process.env.REDIS_URL !== undefined) {
         try {
-          const { default: Redis } = await import("ioredis");
-          const redis = new Redis(process.env.REDIS_URL, {
-            lazyConnect: true,
-            maxRetriesPerRequest: 1,
-          });
+          const { createClient } = await import("redis");
+          const nodeRedis = createClient({ url: process.env.REDIS_URL });
+          nodeRedis.on("error", () => {});
           try {
-            await redis.connect();
-            redisKeys = await redis.dbsize();
+            await nodeRedis.connect();
+            redisKeys = await nodeRedis.dbSize();
           } finally {
-            redis.disconnect();
+            await nodeRedis.disconnect();
           }
         } catch {
           // L2 unreachable — report null block
