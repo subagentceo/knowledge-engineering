@@ -9,7 +9,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { TodoState } from "./todo-state.ts";
+import { TodoState } from "./todo-state.js";
 
 test("replaceAll seeds the list in order and assigns ids when missing", () => {
   const s = new TodoState();

@@ -21,7 +21,7 @@ import {
   passes,
   failures,
   versionGte,
-} from "./toolchain-parity.ts";
+} from "./toolchain-parity.js";
 
 const table = JSON.parse(
   readFileSync("docs/data/toolchain-parity.json", "utf8"),

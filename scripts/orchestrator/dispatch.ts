@@ -15,7 +15,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { WorkUnit } from "./units.ts";
+import type { WorkUnit } from "./units.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PASTE_PROMPTS_DIR = join(__dirname, "paste-prompts");

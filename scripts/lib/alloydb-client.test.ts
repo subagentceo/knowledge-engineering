@@ -20,7 +20,7 @@ import {
   exec,
   close,
   __setPoolFactoryForTests,
-} from "./alloydb-client.ts";
+} from "./alloydb-client.js";
 
 let queryCalls: Array<{ sql: string; params: unknown[] }> = [];
 let poolConstructions = 0;
