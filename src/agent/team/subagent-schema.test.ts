@@ -26,7 +26,7 @@ import {
   SessionState,
   WorkflowRun,
   OrchestratorView,
-} from "./subagent-schema.ts";
+} from "./subagent-schema.js";
 
 test("enum memberships match sub-agents.md verbatim", () => {
   assert.deepEqual(SubagentModelAlias.options, ["sonnet", "opus", "haiku", "inherit"]);

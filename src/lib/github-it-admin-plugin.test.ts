@@ -13,7 +13,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { lint } from "../../plugins/github-it-admin/skills/claude-action-lint/scripts/lint.ts";
+import { lint } from "../../plugins/github-it-admin/skills/claude-action-lint/scripts/lint.js";
 
 const PLUGIN = "plugins/github-it-admin";
 const SKILLS = [
