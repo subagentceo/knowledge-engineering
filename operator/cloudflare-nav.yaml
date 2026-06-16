@@ -1,0 +1,179 @@
+# cloudflare-nav.yaml
+# Stable, version-controlled model of the Cloudflare dashboard left-nav for
+# account e6294e3ea89f8207af387d459824aaae (Alex@jadecli.com's Account).
+#
+# Authored interactively via a Chrome-side Claude agent scraping the live
+# dashboard; pinned here so the nav topology is a stable target rather than a
+# per-session scrape. Account-scoped paths are prefixed with basePath at
+# resolve time; absolute:true items (Zero Trust) skip the prefix.
+#
+# Previously-dropped dynamic surfaces (Recents, zone-scoped entries) are now
+# modeled explicitly under `recents:` and `zones:` so they are stable too.
+
+accountId: e6294e3ea89f8207af387d459824aaae
+basePath: /e6294e3ea89f8207af387d459824aaae
+
+sections:
+  - id: domains
+    label: Domains
+    items:
+      - { label: Overview,      path: /domains/overview }
+      - { label: Registrations, path: /domains/registrations }
+      - { label: Transfers,     path: /domains/transfers }
+
+  - id: investigate
+    label: Investigate
+    group: Observe
+    items:
+      - { label: Log Explorer,    path: /log-explorer/log-search }
+      - { label: Manage datasets, path: /log-explorer/manage-sources }
+      - { label: Trace,           path: /trace, badge: beta }
+      - { label: Logpush,         path: /logs }
+
+  - id: analytics
+    label: Analytics
+    items:
+      - { label: Dashboards,        path: /dashboards, badge: new }
+      - { label: Account analytics, path: /analytics }
+      - { label: Web analytics,     path: /web-analytics }
+
+  - id: compute
+    label: Compute
+    group: Build
+    items:
+      - { label: Workers & Pages,       path: /workers-and-pages }
+      - { label: Observability,         path: /observability }
+      - { label: Workers for Platforms, path: /workers-for-platforms }
+      - { label: Containers,            path: /workers/containers }
+      - { label: Durable Objects,       path: /workers/durable-objects }
+      - { label: Queues,                path: /workers/queues }
+      - { label: Workflows,             path: /workers/workflows }
+      - { label: Browser Run,           path: /workers/browser-run }
+      - { label: VPC,                   path: /workers/vpc, badge: beta }
+
+  - id: email-service
+    label: Email Service
+    items:
+      - { label: Email Sending, path: /email-service/sending, badge: beta }
+      - { label: Email Routing, path: /email-service/routing }
+      - { label: Workers plans, path: /workers/plans }
+      - { label: Flagship,      path: /flagship, badge: beta }
+
+  - id: ai
+    label: AI
+    items:
+      - { label: Models,     path: /ai/models }
+      - { label: Workers AI, path: /ai/workers-ai }
+      - { label: AI Gateway, path: /ai/ai-gateway }
+      - { label: Vectorize,  path: /ai/vectorize }
+      - { label: AI Search,  path: /ai/ai-search, badge: beta }
+
+  - id: storage-databases
+    label: Storage & databases
+    items:
+      - { label: R2 Overview,               path: /r2/overview }
+      - { label: Data migration,            path: /r2/slurper }
+      - { label: R2 Data Catalog,           path: /data-catalog, badge: beta }
+      - { label: Postgres & MySQL Database, path: /workers/hyperdrive }
+      - { label: Workers KV,                path: /workers/kv/namespaces }
+      - { label: D1 SQLite Database,        path: /workers/d1 }
+      - { label: Analytics Engine,          path: /workers/analytics-engine }
+
+  - id: pipelines
+    label: Pipelines
+    badge: beta
+    items:
+      - { label: Pipelines,     path: /pipelines/overview }
+      - { label: Streams,       path: /pipelines/streams }
+      - { label: Sinks,         path: /pipelines/sinks }
+      - { label: Secrets Store, path: /secrets-store, badge: new }
+
+  - id: media
+    label: Media
+    items:
+      - { label: Stream Plans,    path: /stream/plans }
+      - { label: Transformations, path: /images/transformations }
+      - { label: Hosted images,   path: /images/hosted }
+      - { label: Images Plans,    path: /images/plans }
+
+  - id: realtime
+    label: Realtime
+    items:
+      - { label: RealtimeKit,    path: /realtime/kit, badge: beta }
+      - { label: TURN Server,    path: /realtime/turn }
+      - { label: Serverless SFU, path: /realtime/sfu }
+      - { label: MoQ Relay,      path: /realtime/moq, badge: alpha }
+      - { label: MoQ Bench,      path: /realtime/moq-bench }
+
+  - id: application-security
+    label: Application security
+    group: Protect & Connect
+    items:
+      - { label: Security insights, path: /security-center }
+      - { label: WAF,               path: /application-security/waf }
+      - { label: Investigate,       path: /application-security/investigate }
+      - { label: Infrastructure,    path: /security-center/inventory }
+      - { label: Turnstile,         path: /turnstile }
+      - { label: Zero Trust,        path: /one, absolute: true }
+
+  - id: networking
+    label: Networking
+    items:
+      - { label: Insights,      path: /magic-networks/overview, badge: new }
+      - { label: Network flow,  path: /networking-insights/analytics/network-analytics/flow-analytics }
+      - { label: Tunnels,       path: /tunnels, badge: new }
+      - { label: Mesh,          path: /mesh, badge: beta }
+      - { label: Address space, path: /ip-addresses/address-space }
+      - { label: Address maps,  path: /ip-addresses/proxy-ips }
+
+  - id: delivery-performance
+    label: Delivery & performance
+    items:
+      - { label: Bulk redirects, path: /bulk-redirects }
+      - { label: Load Balancing, path: /load-balancing }
+
+  - id: web-tag-management
+    label: Web tag management
+    items:
+      - { label: Tag setup,          path: /tag-management/zaraz }
+      - { label: Consent,            path: /tag-management/consent }
+      - { label: History,            path: /tag-management/history }
+      - { label: Monitoring,         path: /tag-management/monitoring }
+      - { label: Settings,           path: /tag-management/settings }
+      - { label: Zaraz plans,        path: /tag-management/plans }
+      - { label: Google Tag Gateway, path: /tag-management/google-tag-gateway }
+
+  - id: manage-account
+    label: Manage account
+    items:
+      - { label: Members,              path: /members }
+      - { label: Billing,              path: /billing }
+      - { label: Account API tokens,   path: /api-tokens }
+      - { label: OAuth clients,        path: /oauth-clients }
+      - { label: Audit logs,           path: /audit-log }
+      - { label: Notifications,        path: /notifications }
+      - { label: Shared config,        path: /shared-configurations, badge: alpha }
+      - { label: Blocked content,      path: /blocked-content }
+      - { label: Abuse reports,        path: /abuse-reports, badge: beta }
+      - { label: Carbon Impact Report, path: /carbon }
+      - { label: Configurations,       path: /configurations }
+      - { label: Tagged Resources,     path: /tags, badge: beta }
+
+# Previously dropped as "not stable" — now pinned to their resolved section
+# paths so the recents rail is reproducible across sessions.
+recents:
+  - { label: Manage datasets, path: /log-explorer/manage-sources }
+  - { label: Log Explorer,    path: /log-explorer/log-search }
+  - { label: Log search,      path: /log-explorer/log-search }
+  - { label: Dashboards,      path: /dashboards }
+  - { label: Analytics,       path: /analytics }
+  - { label: Workers Routes,  path: /workers-and-pages }
+
+# Zone-scoped entries (zone paths are keyed by zone name, not the account
+# basePath). Modeled explicitly so managedcoworkers.com is a stable target.
+zones:
+  - zone: managedcoworkers.com
+    items:
+      - { label: Domains,        path: /domains }
+      - { label: Analytics,      path: /analytics }
+      - { label: Workers Routes, path: /workers/routes }
