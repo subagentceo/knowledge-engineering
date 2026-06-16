@@ -30,12 +30,13 @@ log() { echo "start_services: $*" >&2; }
 # Guard on .package-lock.json (written only on successful npm ci) — not the
 # directory, which exists even after a partial/failed install.
 if [ ! -f "${PROJECT_DIR}/node_modules/.package-lock.json" ]; then
-  if ( cd "${PROJECT_DIR}" && npm ci --no-audit --no-fund 2>&1 | tail -3 >&2 ); then
+  if ( cd "${PROJECT_DIR}" && npm ci --no-audit --no-fund 2>&1 | tail -20 >&2 ); then
     log "npm ci done"
   else
     # Remove directory so the next session retries rather than running with
-    # a corrupt partial install.
-    rm -rf "${PROJECT_DIR}/node_modules"
+    # a corrupt partial install. `|| true` keeps the hook from aborting under
+    # set -e if rm lacks permission (e.g. a prior install ran as another user).
+    rm -rf "${PROJECT_DIR}/node_modules" || true
     log "npm ci failed — node_modules removed for retry"
   fi
 fi
