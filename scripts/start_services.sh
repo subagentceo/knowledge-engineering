@@ -1,8 +1,8 @@
 #!/bin/bash
 # SessionStart hook target. Wired in .claude/settings.json. Brings up the
-# per-session data plane for Claude Code cloud sessions: Redis 7 + the
-# pre-installed system PostgreSQL 16, with the Kimball `dw` schema loaded.
-# No-op on local sessions (CLAUDE_CODE_REMOTE guard).
+# per-session data plane: auto-installs Node deps unconditionally (local +
+# cloud), then starts Redis 7 + system PostgreSQL 16 with Kimball dw schema
+# in cloud sessions only (CLAUDE_CODE_REMOTE guard on the data-plane block).
 #
 # Runtime-context model (corrected 2026-06-14, OKWP2):
 #   * Cloud session (here): PostgreSQL 16 + Redis 7 ship pre-installed as system
@@ -20,18 +20,35 @@
 # @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
 set -euo pipefail
 
-# Only run in cloud; SessionStart hooks also fire locally otherwise.
+PROJECT_DIR="${CLAUDE_PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
+
+log() { echo "start_services: $*" >&2; }
+
+# ── Node deps (unconditional — node_modules is gitignored) ───────────────────
+# Runs on both local worktree sessions and cloud sessions so the verify chain
+# works immediately after clone/worktree without a manual `npm ci`. (OBUG1)
+# Guard on .package-lock.json (written only on successful npm ci) — not the
+# directory, which exists even after a partial/failed install.
+if [ ! -f "${PROJECT_DIR}/node_modules/.package-lock.json" ]; then
+  if ( cd "${PROJECT_DIR}" && npm ci --no-audit --no-fund 2>&1 | tail -3 >&2 ); then
+    log "npm ci done"
+  else
+    # Remove directory so the next session retries rather than running with
+    # a corrupt partial install.
+    rm -rf "${PROJECT_DIR}/node_modules"
+    log "npm ci failed — node_modules removed for retry"
+  fi
+fi
+
+# Remaining blocks (Redis, PostgreSQL, A2A server) are cloud-only.
 if [ "${CLAUDE_CODE_REMOTE:-false}" != "true" ]; then
   exit 0
 fi
 
-PROJECT_DIR="${CLAUDE_PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 REDIS_CONF="${PROJECT_DIR}/infra/redis/redis.conf"
 PGDB="ke"
 DATABASE_URL_LOCAL="postgres://postgres:postgres@localhost:5432/${PGDB}"
 REDIS_URL_LOCAL="redis://localhost:6379"
-
-log() { echo "start_services: $*" >&2; }
 
 # ── Redis 7 (allkeys-lru + 7-day TTL from infra/redis/redis.conf) ─────────────
 if ! redis-cli ping >/dev/null 2>&1; then
@@ -87,12 +104,6 @@ if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
     || printf 'export DATABASE_URL=%q\n' "${DATABASE_URL_LOCAL}" >> "${CLAUDE_ENV_FILE}"
   grep -q '^export REDIS_URL=' "${CLAUDE_ENV_FILE}" 2>/dev/null \
     || printf 'export REDIS_URL=%q\n' "${REDIS_URL_LOCAL}" >> "${CLAUDE_ENV_FILE}"
-fi
-
-# ── Node deps (SessionStart-hook responsibility per cloud docs) ──────────────
-if [ ! -d "${PROJECT_DIR}/node_modules" ]; then
-  ( cd "${PROJECT_DIR}" && npm ci --no-audit --no-fund >/dev/null 2>&1 ) \
-    && log "npm ci done" || log "npm ci skipped/failed"
 fi
 
 # ── A2A server (background, port 41241) ──────────────────────────────────────
