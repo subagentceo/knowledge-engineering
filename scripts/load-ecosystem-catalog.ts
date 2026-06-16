@@ -16,7 +16,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { EcosystemCatalog } from "../src/cache/ecosystem-catalog.js";
-import { initCacheEvents, flushCacheEvents } from "../src/cache/events.js";
+import { initCacheEvents, flushCacheEvents, detachCacheEventSink } from "../src/cache/events.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SEED = resolve(REPO_ROOT, "seeds", "ecosystem", "artifacts.json");
@@ -98,6 +98,7 @@ async function main(): Promise<void> {
     );
     console.log(`dim_ecosystem_artifact: upserted ${res.rowCount} rows (SCD I)`);
   } finally {
+    detachCacheEventSink();
     await pool!.end();
   }
 }
