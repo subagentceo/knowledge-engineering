@@ -4,7 +4,7 @@
  * Two independent conditional groups:
  *
  *   Group A — @anthropic-ai/sdk pin
- *     IF present in dependencies, its range must include >=0.95.0
+ *     IF present in dependencies, its range must include >=0.104.2
  *     (the version pinned today). Absent → SKIP.
  *
  *   Group B — OAuth-only invariant (OSL1)
@@ -74,11 +74,11 @@ const deps = pkg.dependencies ?? {};
 console.log("Anthropic SDK adoption policy eval (OAPI3)\n");
 
 // ── Group A ────────────────────────────────────────────────────────────────
-check("@anthropic-ai/sdk range covers >=0.95.0", () => {
+check("@anthropic-ai/sdk range covers >=0.104.2", () => {
   const range = deps["@anthropic-ai/sdk"];
   if (!range) return "skip";
   // Accept caret/tilde/explicit ranges of the form X.Y.Z; require major.minor
-  // such that the lower bound is >= 0.95.0. Pragmatic parser (no semver dep):
+  // such that the lower bound is >= 0.104.2. Pragmatic parser (no semver dep):
   // strip leading ^~>=v, take first numeric triple.
   const m = range.match(/(\d+)\.(\d+)\.(\d+)/);
   if (!m) throw new Error(`unparseable range: ${range}`);
@@ -86,11 +86,12 @@ check("@anthropic-ai/sdk range covers >=0.95.0", () => {
   const maj = Number(majS);
   const min = Number(minS);
   const pat = Number(patS);
-  // For 0.x, caret/tilde lock minor; require minor>=95.
-  if (maj === 0 && min < 95)
-    throw new Error(`range ${range} excludes >=0.95.0`);
-  if (maj === 0 && min === 95 && pat > 0 && !range.startsWith("^"))
-    throw new Error(`range ${range} may exclude 0.95.0`);
+  // For 0.x, caret/tilde lock minor; require minor>=104 and patch>=2.
+  // Drop the caret exemption: ^0.104.0 and ^0.104.1 resolve below 0.104.2.
+  if (maj === 0 && min < 104)
+    throw new Error(`range ${range} excludes >=0.104.2`);
+  if (maj === 0 && min === 104 && pat < 2)
+    throw new Error(`range ${range} may exclude 0.104.2`);
   return "ok";
 });
 

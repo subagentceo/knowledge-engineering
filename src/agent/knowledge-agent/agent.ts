@@ -37,7 +37,7 @@ import { Usage } from "./schemas.js";
  * unit-testable with a fake query() (no live API). At runtime, run.ts injects
  * the real `query` from @anthropic-ai/claude-agent-sdk. Every field used here
  * is a real field on the bundled SDK's Options / SDKResultMessage (verified
- * against node_modules/@anthropic-ai/claude-agent-sdk/sdk.d.ts @ 0.2.138):
+ * against node_modules/@anthropic-ai/claude-agent-sdk/sdk.d.ts @ 0.3.178):
  *   Options.outputFormat, Options.agents, Options.mcpServers, Options.systemPrompt
  *   SDKResultMessage.subtype 'success', .structured_output, .usage, .total_cost_usd
  */

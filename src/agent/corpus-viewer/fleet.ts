@@ -40,7 +40,7 @@ const VERIFIED = "2026-05-30T00:00:00.000Z";
 // and the freshness check flags them when the previews change.
 const AGENT_SDK_BETA: BetaFeature = {
   name: "claude-agent-sdk",
-  surface: "@anthropic-ai/claude-agent-sdk@0.2.x",
+  surface: "@anthropic-ai/claude-agent-sdk@0.3.x",
   rationale:
     "AgentDefinition.model/effort/thinking/memory and SYSTEM_PROMPT_DYNAMIC_BOUNDARY are the SDK surface; minor versions move, so we pin and test.",
   citation: { source: "vendor/anthropics/code.claude.com/docs/en/agent-sdk/subagents.md", last_fetched: VERIFIED },
