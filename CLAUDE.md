@@ -62,6 +62,16 @@ If you (Claude) are starting a session in this repo, do this first:
 | Grade a phase | `npm run grade -- phase-<N>` |
 | Install marketplace plugins | `npm run install:plugins` |
 
+## Worktree Bootstrap
+
+`node_modules/` and `dist/` are gitignored. Every worktree session (local or cloud) must bootstrap before running any verify or dev commands:
+
+```bash
+npm ci --no-audit --no-fund && npm run build
+```
+
+`scripts/start_services.sh` (the SessionStart hook) auto-runs `npm ci` when `node_modules` is absent, so interactive sessions bootstrapped via the hook are covered. For automated agents that bypass the hook (e.g. CI runners, raw `claude --dangerously-skip-permissions` invocations), run the two commands above manually at session start.
+
 ## OAuth-only invariant
 
 The repo's hard rule: `ANTHROPIC_API_KEY` is **never** set. Anywhere. The OAuth gate at `src/oauth/token.ts` fails closed when it's present. The Cloudflare Worker's env-sanitizer rejects it before passing env into the Sandbox.
