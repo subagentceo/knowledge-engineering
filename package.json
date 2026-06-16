@@ -1,6 +1,6 @@
 {
   "name": "@subagentceo/knowledge-engineering",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Four-lane knowledge bridge (anthropic.com/engineering, claude.com/blog, support.claude.com, llms.txt namespaces) over MCP SDK v2 to a Claude Agent SDK orchestrator with mode-aware Planner and OAuth-only billing.",
   "type": "module",
   "main": "dist/index.js",
