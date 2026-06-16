@@ -69,16 +69,21 @@ export class DurableStore {
     );
   }
 
-  async get<T>(key: string, schema: z.ZodType<T>): Promise<T | undefined> {
+  async get<T>(
+    key: string,
+    schema: z.ZodType<T>,
+  ): Promise<{ value: T; sourcePath: string | undefined } | undefined> {
     const { rows } = await this.pg.query(
       `UPDATE semantic_cache SET hits = hits + 1, last_hit_at = now()
-       WHERE key = $1 RETURNING payload`,
+       WHERE key = $1 RETURNING payload, source_path`,
       [key],
     );
     const row = rows[0];
     recordCacheEvent(key, "L3", row === undefined ? "miss" : "hit");
     if (row === undefined) return undefined;
-    return schema.parse(row.payload);
+    const value = schema.parse(row.payload);
+    const sourcePath = typeof row.source_path === "string" ? row.source_path : undefined;
+    return { value, sourcePath };
   }
 
   /**
