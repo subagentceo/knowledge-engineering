@@ -52,3 +52,6 @@ audit_container_results.jsonl
 
 # Phase 0 KG ingestion artifacts — generated locally, not tracked in git.
 .kg/
+
+# Redis AOF runtime data (SessionStart hook starts redis-server)
+appendonlydir/
