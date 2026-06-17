@@ -81,3 +81,43 @@ SADD "pgdurable:queues:registered" \
   "subagentknowledge:crawl:job" \
   "subagentknowledge:plan:pr-sync"
 EXPIRE "pgdurable:queues:registered" 604800
+
+# ── Tailscale mesh nodes (ts.subagentceo.io) ─────────────────────────────────
+# Source: infra/tailscale/README.md + tailnet-policy.hujson
+# Mirrors dw.dim_tailscale_node seeded by infra/postgres/init/04-tailscale-pr-context.sql
+# TypeScript: src/lib/tailscale-pr-context.ts#seedYesterday
+
+SET "ts:node:wsl2-dev" "{\"hostname\":\"wsl2-dev\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:dev\",\"os\":\"ubuntu-24.04\",\"status\":\"active\",\"metadata\":{\"claude_code_ports\":\"5000-5100\"}}"
+EXPIRE "ts:node:wsl2-dev" 604800
+
+SET "ts:node:macbook-m5" "{\"hostname\":\"macbook-m5\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:dev\",\"os\":\"macos-arm64\",\"status\":\"active\",\"metadata\":{\"claude_code_ports\":\"5000-5100\"}}"
+EXPIRE "ts:node:macbook-m5" 604800
+
+SET "ts:node:ke-alloydb" "{\"hostname\":\"ke-alloydb\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:container\",\"os\":\"docker\",\"status\":\"active\",\"metadata\":{\"port\":5432}}"
+EXPIRE "ts:node:ke-alloydb" 604800
+
+SET "ts:node:ke-redis" "{\"hostname\":\"ke-redis\",\"tailnet\":\"ts.subagentceo.io\",\"tag\":\"tag:container\",\"os\":\"docker\",\"status\":\"active\",\"metadata\":{\"port\":6379}}"
+EXPIRE "ts:node:ke-redis" 604800
+
+# Tag membership sets (JSON arrays for RedisLike interface — no SADD)
+SET "ts:nodes:tag:tag%3Adev" "[\"wsl2-dev\",\"macbook-m5\"]"
+EXPIRE "ts:nodes:tag:tag%3Adev" 604800
+SET "ts:nodes:tag:tag%3Acontainer" "[\"ke-alloydb\",\"ke-redis\",\"ke-cloud-agent\"]"
+EXPIRE "ts:nodes:tag:tag%3Acontainer" 604800
+
+# ── PRs merged 2026-06-16 PST (UTC-7, window: 2026-06-16T07:00Z → 2026-06-17T07:00Z) ─
+# Source: gh pr list --state merged | confirmed merged_at values
+# TypeScript: src/lib/tailscale-pr-context.ts#MERGED_2026_06_16_PST
+
+SET "pr:merge:499" "{\"pr_number\":499,\"title\":\"feat(coding-plugins): knowledge-coding marketplace + anduril-crawl-plugin (O1)\",\"branch\":\"claude/coding-plugins\",\"merged_at\":\"2026-06-17T03:30:22Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"feat\",\"scope\":\"coding-plugins\",\"files_changed\":10,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:499" 604800
+
+SET "pr:merge:498" "{\"pr_number\":498,\"title\":\"docs(container): setup.sh, doctor.sh, and web/mobile VM references (O1)\",\"branch\":\"claude/container-docs\",\"merged_at\":\"2026-06-17T03:10:11Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"docs\",\"scope\":\"container\",\"files_changed\":4,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:498" 604800
+
+SET "pr:merge:496" "{\"pr_number\":496,\"title\":\"feat(anduril): mirror developer.anduril.com Lattice SDK docs (O1)\",\"branch\":\"claude/session-20260617-0217\",\"merged_at\":\"2026-06-17T02:39:31Z\",\"semvar_date\":\"2026.06.16\",\"pr_type\":\"feat\",\"scope\":\"anduril\",\"files_changed\":67,\"initiating_node\":\"macbook-m5\",\"initiating_tag\":\"tag:dev\",\"repo\":\"subagentceo/knowledge-engineering\"}"
+EXPIRE "pr:merge:496" 604800
+
+# Dated list: all PRs merged 2026.06.16 PST (JSON array, most recent first)
+SET "pr:merged:2026.06.16" "[{\"pr_number\":499,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T03:30:22Z\",\"pr_type\":\"feat\",\"scope\":\"coding-plugins\",\"files_changed\":10},{\"pr_number\":498,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T03:10:11Z\",\"pr_type\":\"docs\",\"scope\":\"container\",\"files_changed\":4},{\"pr_number\":496,\"semvar_date\":\"2026.06.16\",\"merged_at\":\"2026-06-17T02:39:31Z\",\"pr_type\":\"feat\",\"scope\":\"anduril\",\"files_changed\":67}]"
+EXPIRE "pr:merged:2026.06.16" 604800

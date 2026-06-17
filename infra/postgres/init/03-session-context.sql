@@ -6,6 +6,26 @@
 
 BEGIN;
 
+-- @cube name=AgentSessions version=2026.06.17 type=dim-scd1
+-- @cube.sql_table    dw.agent_sessions
+-- @cube.description  One row per agent session (branch-YYYY-MM-DD slug). SCD Type I.
+--                    Links remote_session_id (CLAUDE_CODE_REMOTE_SESSION_ID) to branch and context.
+--                    Redis: session:<id>:context, session:remote:<cse_id>:context (TTL 7d).
+-- @cube.measure      count              COUNT(*)
+-- @cube.measure      count_open         COUNT(*) FILTER (WHERE status = 'open')
+-- @cube.measure      count_merged       COUNT(*) FILTER (WHERE status = 'merged')
+-- @cube.dimension    session_id         TEXT pk  "slug: branch-YYYY-MM-DD"
+-- @cube.dimension    branch             TEXT     "head ref (claude/* convention)"
+-- @cube.dimension    remote_session_id  TEXT     "CLAUDE_CODE_REMOTE_SESSION_ID (cse_*)"
+-- @cube.dimension    account_id         TEXT
+-- @cube.dimension    operator_email     TEXT
+-- @cube.dimension    status             TEXT enum[open,closed,merged]
+-- @cube.segment      open_sessions      {status = 'open'}
+-- @cube.segment      merged_sessions    {status = 'merged'}
+-- @cube.join         session_decisions: session_id = session_id
+-- @cube.join         crawl_runs:        session_id = session_id
+-- @cube.pre_agg      by_branch_status:  {dimensions:[branch,status], measures:[count]}
+
 -- ── Session tracking table ────────────────────────────────────────────────────
 -- One row per agent session. Linked to dw.events_cloudflare_agent via
 -- session_id. Redis caches hot sessions at session:<id>:context (TTL 7d).
@@ -35,6 +55,22 @@ ALTER TABLE dw.agent_sessions ADD COLUMN IF NOT EXISTS remote_session_id TEXT UN
 CREATE INDEX IF NOT EXISTS idx_sessions_branch ON dw.agent_sessions (branch);
 CREATE INDEX IF NOT EXISTS idx_sessions_status ON dw.agent_sessions (status);
 
+-- @cube name=SessionDecisions version=2026.06.17 type=fact-transactional
+-- @cube.sql_table    dw.session_decisions
+-- @cube.description  Normalized decisions per session. Each row is a single agent decision
+--                    with topic/decision text and approval status.
+-- @cube.measure      count                COUNT(*)
+-- @cube.measure      count_pending        COUNT(*) FILTER (WHERE status = 'pending')
+-- @cube.measure      count_approved       COUNT(*) FILTER (WHERE status = 'approved')
+-- @cube.dimension    session_id    TEXT fk  "→ dw.agent_sessions"
+-- @cube.dimension    topic         TEXT     "decision topic (terraform-provider-bump, worker-rename, ...)"
+-- @cube.dimension    decision      TEXT
+-- @cube.dimension    status        TEXT enum[pending,approved,rejected,deferred]
+-- @cube.dimension    decided_at    TIMESTAMPTZ
+-- @cube.segment      pending_decisions  {status = 'pending'}
+-- @cube.segment      approved_decisions {status = 'approved'}
+-- @cube.join         agent_sessions: session_id = session_id
+-- @cube.pre_agg      by_topic_status: {dimensions:[topic,status], measures:[count]}
 -- ── Decisions log (normalized from context jsonb) ────────────────────────────
 CREATE TABLE IF NOT EXISTS dw.session_decisions (
     id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -48,6 +84,24 @@ CREATE TABLE IF NOT EXISTS dw.session_decisions (
 );
 CREATE INDEX IF NOT EXISTS idx_decisions_session ON dw.session_decisions (session_id);
 
+-- @cube name=CrawlRuns version=2026.06.17 type=fact-transactional
+-- @cube.sql_table    dw.crawl_runs
+-- @cube.description  Append-only crawl run results per (session_id, vendor). Tracks fetched/
+--                    unchanged/preflight_304/failed counts for each vendor mirror run.
+-- @cube.measure      count                COUNT(*)
+-- @cube.measure      fetched_sum          SUM(fetched)
+-- @cube.measure      unchanged_sum        SUM(unchanged)
+-- @cube.measure      failed_sum           SUM(failed)
+-- @cube.measure      preflight_304_sum    SUM(preflight_304)
+-- @cube.measure      success_rate         (SUM(fetched) * 1.0) / NULLIF(SUM(fetched)+SUM(failed),0)
+-- @cube.dimension    session_id   TEXT fk  "→ dw.agent_sessions"
+-- @cube.dimension    vendor       TEXT     "vendor mirror name (anthropics, claude-sitemap, ...)"
+-- @cube.dimension    status       TEXT enum[ok,partial,error]
+-- @cube.dimension    ran_at       TIMESTAMPTZ
+-- @cube.segment      failed_runs  {failed > 0}
+-- @cube.segment      ok_runs      {status = 'ok'}
+-- @cube.join         agent_sessions: session_id = session_id
+-- @cube.pre_agg      by_vendor_status: {dimensions:[vendor,status], measures:[count,fetched_sum,failed_sum]}
 -- ── Crawl run log ─────────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS dw.crawl_runs (
     id              BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
