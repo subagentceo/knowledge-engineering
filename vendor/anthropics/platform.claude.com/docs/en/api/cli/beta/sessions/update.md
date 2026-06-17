@@ -34,22 +34,26 @@ Update Session
 
 ### Returns
 
-- `beta_managed_agents_session: object { id, agent, archived_at, 12 more }`
+- `beta_managed_agents_session: object { id, agent, archived_at, 13 more }`
 
   A Managed Agents `session`.
+
   - `id: string`
 
   - `agent: object { id, description, mcp_servers, 8 more }`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `id: string`
 
     - `description: string`
 
     - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
       - `name: string`
 
       - `type: "url"`
+
         - `"url"`
 
       - `url: string`
@@ -57,11 +61,21 @@ Update Session
     - `model: object { id, speed }`
 
       Model identifier and configuration.
-      - `id: "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more or string`
+
+      - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5"`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `"claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
+
         - `"claude-opus-4-7"`
 
           Frontier intelligence for long-running agents and coding
@@ -101,6 +115,7 @@ Update Session
       - `speed: optional "standard" or "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"`
 
         - `"fast"`
@@ -108,14 +123,17 @@ Update Session
     - `multiagent: object { agents, type }`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `agents: array of BetaManagedAgentsSessionThreadAgent`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `id: string`
 
         - `description: string`
 
         - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
+
           - `name: string`
 
           - `type: "url"`
@@ -125,7 +143,8 @@ Update Session
         - `model: object { id, speed }`
 
           Model identifier and configuration.
-          - `id: "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more or string`
+
+          - `id: "claude-fable-5" or "claude-opus-4-8" or "claude-opus-4-7" or 8 more or string`
 
             The model that will power your agent.
 
@@ -138,12 +157,15 @@ Update Session
         - `name: string`
 
         - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
           - `beta_managed_agents_anthropic_skill: object { skill_id, type, version }`
 
             A resolved Anthropic-managed skill.
+
             - `skill_id: string`
 
             - `type: "anthropic"`
+
               - `"anthropic"`
 
             - `version: string`
@@ -151,9 +173,11 @@ Update Session
           - `beta_managed_agents_custom_skill: object { skill_id, type, version }`
 
             A resolved user-created custom skill.
+
             - `skill_id: string`
 
             - `type: "custom"`
+
               - `"custom"`
 
             - `version: string`
@@ -161,13 +185,17 @@ Update Session
         - `system: string`
 
         - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
           - `beta_managed_agents_agent_toolset20260401: object { configs, default_config, type }`
+
             - `configs: array of BetaManagedAgentsAgentToolConfig`
+
               - `enabled: boolean`
 
               - `name: "bash" or "edit" or "read" or 5 more`
 
                 Built-in agent tool identifier.
+
                 - `"bash"`
 
                 - `"edit"`
@@ -187,26 +215,33 @@ Update Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `beta_managed_agents_always_allow_policy: object { type }`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `type: "always_allow"`
+
                     - `"always_allow"`
 
                 - `beta_managed_agents_always_ask_policy: object { type }`
 
                   Tool calls require user confirmation before execution.
+
                   - `type: "always_ask"`
+
                     - `"always_ask"`
 
             - `default_config: object { enabled, permission_policy }`
 
               Resolved default configuration for agent tools.
+
               - `enabled: boolean`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `beta_managed_agents_always_allow_policy: object { type }`
 
                   Tool calls are automatically approved without user confirmation.
@@ -216,10 +251,13 @@ Update Session
                   Tool calls require user confirmation before execution.
 
             - `type: "agent_toolset_20260401"`
+
               - `"agent_toolset_20260401"`
 
           - `beta_managed_agents_mcp_toolset: object { configs, default_config, mcp_server_name, type }`
+
             - `configs: array of BetaManagedAgentsMCPToolConfig`
+
               - `enabled: boolean`
 
               - `name: string`
@@ -227,6 +265,7 @@ Update Session
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `beta_managed_agents_always_allow_policy: object { type }`
 
                   Tool calls are automatically approved without user confirmation.
@@ -238,11 +277,13 @@ Update Session
             - `default_config: object { enabled, permission_policy }`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `enabled: boolean`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
+
                 - `beta_managed_agents_always_allow_policy: object { type }`
 
                   Tool calls are automatically approved without user confirmation.
@@ -254,45 +295,45 @@ Update Session
             - `mcp_server_name: string`
 
             - `type: "mcp_toolset"`
+
               - `"mcp_toolset"`
 
           - `beta_managed_agents_custom_tool: object { description, input_schema, name, type }`
 
             A custom tool as returned in API responses.
+
             - `description: string`
 
-            - `input_schema: object { properties, required, type }`
+            - `input_schema: object { type, properties, required }`
 
               JSON Schema for custom tool input parameters.
+
+              - `type: "object"`
+
               - `properties: optional map[unknown]`
 
-                JSON Schema properties defining the tool's input parameters.
-
               - `required: optional array of string`
-
-                List of required property names.
-
-              - `type: optional "object"`
-
-                Must be 'object' for tool input schemas.
-                - `"object"`
 
             - `name: string`
 
             - `type: "custom"`
+
               - `"custom"`
 
         - `type: "agent"`
+
           - `"agent"`
 
         - `version: number`
 
       - `type: "coordinator"`
+
         - `"coordinator"`
 
     - `name: string`
 
     - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
+
       - `beta_managed_agents_anthropic_skill: object { skill_id, type, version }`
 
         A resolved Anthropic-managed skill.
@@ -304,6 +345,7 @@ Update Session
     - `system: string`
 
     - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
+
       - `beta_managed_agents_agent_toolset20260401: object { configs, default_config, type }`
 
       - `beta_managed_agents_mcp_toolset: object { configs, default_config, mcp_server_name, type }`
@@ -313,6 +355,7 @@ Update Session
         A custom tool as returned in API responses.
 
     - `type: "agent"`
+
       - `"agent"`
 
     - `version: number`
@@ -332,6 +375,7 @@ Update Session
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `completed_at: string`
 
       A timestamp in RFC 3339 format
@@ -350,17 +394,20 @@ Update Session
 
     - `outcome_id: string`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `result: string`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: "outcome_evaluation"`
+
       - `"outcome_evaluation"`
 
   - `resources: array of BetaManagedAgentsSessionResource`
+
     - `beta_managed_agents_github_repository_resource: object { id, created_at, mount_path, 4 more }`
+
       - `id: string`
 
       - `created_at: string`
@@ -370,6 +417,7 @@ Update Session
       - `mount_path: string`
 
       - `type: "github_repository"`
+
         - `"github_repository"`
 
       - `updated_at: string`
@@ -379,23 +427,29 @@ Update Session
       - `url: string`
 
       - `checkout: optional BetaManagedAgentsBranchCheckout or BetaManagedAgentsCommitCheckout`
+
         - `beta_managed_agents_branch_checkout: object { name, type }`
+
           - `name: string`
 
             Branch name to check out.
 
           - `type: "branch"`
+
             - `"branch"`
 
         - `beta_managed_agents_commit_checkout: object { sha, type }`
+
           - `sha: string`
 
             Full commit SHA to check out.
 
           - `type: "commit"`
+
             - `"commit"`
 
     - `beta_managed_agents_file_resource: object { id, created_at, file_id, 3 more }`
+
       - `id: string`
 
       - `created_at: string`
@@ -407,6 +461,7 @@ Update Session
       - `mount_path: string`
 
       - `type: "file"`
+
         - `"file"`
 
       - `updated_at: string`
@@ -416,16 +471,19 @@ Update Session
     - `beta_managed_agents_memory_store_resource: object { memory_store_id, type, access, 4 more }`
 
       A memory store attached to an agent session.
+
       - `memory_store_id: string`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: "memory_store"`
+
         - `"memory_store"`
 
       - `access: optional "read_write" or "read_only"`
 
         Access mode for an attached memory store.
+
         - `"read_write"`
 
         - `"read_only"`
@@ -449,6 +507,7 @@ Update Session
   - `stats: object { active_seconds, duration_seconds }`
 
     Timing statistics for a session.
+
     - `active_seconds: optional number`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -460,6 +519,7 @@ Update Session
   - `status: "rescheduling" or "running" or "idle" or "terminated"`
 
     SessionStatus enum
+
     - `"rescheduling"`
 
     - `"running"`
@@ -471,6 +531,7 @@ Update Session
   - `title: string`
 
   - `type: "session"`
+
     - `"session"`
 
   - `updated_at: string`
@@ -480,9 +541,11 @@ Update Session
   - `usage: object { cache_creation, cache_read_input_tokens, input_tokens, output_tokens }`
 
     Cumulative token usage for a session across all turns.
+
     - `cache_creation: optional object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `ephemeral_1h_input_tokens: optional number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -506,6 +569,10 @@ Update Session
   - `vault_ids: array of string`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `deployment_id: optional string`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -676,6 +743,9 @@ ant beta:sessions update \
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

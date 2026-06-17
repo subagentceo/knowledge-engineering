@@ -1,6 +1,8 @@
-Organization data exports are only available to Team and Enterprise plan Primary Owners. Data exports include conversation data and the user data for your account.
+Organization data exports are only available to Team and Enterprise plan Primary Owners. Data exports include conversation data and the user data for your account. Individual members of Team and Enterprise organizations do not have a self-serve export option.
 
-Primary Owners of Team and Enterprise plans can export organization data from **[Organization settings > Data and Privacy](https://claude.ai/admin-settings/data-privacy-controls)** on the web app or Claude Desktop.
+If you're an individual Claude user on a Free, Pro, or Max plan looking to export your data, see **[Export your Claude data](https://support.claude.com/en/articles/9450526)**.
+
+Primary Owners of Team and Enterprise plans can export organization data from **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)** on the web app or Claude Desktop.
 
 Follow these steps to export your organization's data:
 

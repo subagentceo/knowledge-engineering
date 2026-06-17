@@ -22,14 +22,14 @@ People may experience one or more of the following when attempting to access you
 
 Ping Identity products allow granular attribute mapping at multiple levels (directory, IdP adapter, SP connector, application). SCIM and SSO can each traverse different paths through these layers, resulting in different email values reaching Claude:
 
-| **Ping attribute** | **Typical value** | **Commonly used by** |
-| --- | --- | --- |
-| `email` (PingOne) | `test.user.one@example.com` | Recommended for both SCIM and SAML/OIDC |
-| `username` (PingOne) | `testuser1` or `testuser1@example.com` | Default login identifier; may differ from email |
-| IdP adapter attribute (PingFederate) | Varies by adapter type (LDAP, HTML Form, etc.) | PingFederate identity sources |
-| LDAP `mail` attribute | `test.user.one@example.com` | Directory-sourced email in PingFederate |
-| LDAP `sAMAccountName` or uid | May be employee ID or short username | Sometimes mapped to email by mistake |
-| Custom population attributes | Custom fields defined per environment | Advanced PingOne configurations |
+| **Ping attribute**                   | **Typical value**                              | **Commonly used by**                            |
+| ------------------------------------ | ---------------------------------------------- | ----------------------------------------------- |
+| `email` (PingOne)                    | `test.user.one@example.com`                    | Recommended for both SCIM and SAML/OIDC         |
+| `username` (PingOne)                 | `testuser1` or `testuser1@example.com`         | Default login identifier; may differ from email |
+| IdP adapter attribute (PingFederate) | Varies by adapter type (LDAP, HTML Form, etc.) | PingFederate identity sources                   |
+| LDAP `mail` attribute                | `test.user.one@example.com`                    | Directory-sourced email in PingFederate         |
+| LDAP `sAMAccountName` or uid         | May be employee ID or short username           | Sometimes mapped to email by mistake            |
+| Custom population attributes         | Custom fields defined per environment          | Advanced PingOne configurations                 |
 
 Claude requires an exact string match between the SCIM-provisioned email and the SSO-asserted email.
 
@@ -135,14 +135,14 @@ After correcting the attribute mapping and completing the full sync:
 
 ## Common issues
 
-| **Issue** | **Solution** |
-| --- | --- |
-| PingOne `username` field used instead of `email` | Switch the SCIM mapping to PingOne's **Email Address** attribute. |
-| PingFederate attribute mismatch across contract layers | Trace the email attribute end-to-end: LDAP source → IdP adapter → adapter contract → SP connector → assertion. |
-| LDAP `sAMAccountName` or `uid` mapped as email source | Use the LDAP `mail` attribute instead. |
-| Incremental provisioning sync doesn't update existing records | A full re-sync is required after changing attribute mappings. |
-| Attribute contract updated in PingFederate but SCIM connector not updated | Both SP connection and outbound SCIM provisioning channel must be updated independently. |
-| Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
+| **Issue**                                                                 | **Solution**                                                                                                   |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| PingOne `username` field used instead of `email`                          | Switch the SCIM mapping to PingOne's **Email Address** attribute.                                              |
+| PingFederate attribute mismatch across contract layers                    | Trace the email attribute end-to-end: LDAP source → IdP adapter → adapter contract → SP connector → assertion. |
+| LDAP `sAMAccountName` or `uid` mapped as email source                     | Use the LDAP `mail` attribute instead.                                                                         |
+| Incremental provisioning sync doesn't update existing records             | A full re-sync is required after changing attribute mappings.                                                  |
+| Attribute contract updated in PingFederate but SCIM connector not updated | Both SP connection and outbound SCIM provisioning channel must be updated independently.                       |
+| Emails updated in SCIM but person still can't log in                      | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry.                                  |
 
 ---
 

@@ -15,9 +15,11 @@ Validate Credential
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -70,13 +72,16 @@ Validate Credential
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredentialValidation object { credential_id, has_refresh_token, mcp_probe, 5 more }`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -88,9 +93,11 @@ Validate Credential
   - `mcp_probe: BetaManagedAgentsMCPProbe`
 
     The failing step of an MCP validation probe.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse`
 
       An HTTP response captured during a credential validation probe.
+
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -114,6 +121,7 @@ Validate Credential
   - `refresh: BetaManagedAgentsRefreshObject`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse`
 
       An HTTP response captured during a credential validation probe.
@@ -121,6 +129,7 @@ Validate Credential
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `"succeeded"`
 
       - `"failed"`
@@ -132,6 +141,7 @@ Validate Credential
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
     Overall verdict of a credential validation probe.
+
     - `"valid"`
 
     - `"invalid"`
@@ -139,6 +149,7 @@ Validate Credential
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
+
     - `"vault_credential_validation"`
 
   - `validated_at: string`

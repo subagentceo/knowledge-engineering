@@ -36,7 +36,7 @@ Starting April 1, 2026. Consumption tax will be applied to all invoices from tha
 
 Please contact us using the details below depending on the nature of your inquiry.
 
-| **Inquiry details** | **Contact** |
-| --- | --- |
+| **Inquiry details**                    | **Contact**                                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------------------------- |
 | Regarding Tax Qualified Invoices (TQI) | Our **[Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** |
-| Consumption tax treatment | Your company's tax officer or accountant |
+| Consumption tax treatment              | Your company's tax officer or accountant                                                  |

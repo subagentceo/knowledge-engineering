@@ -22,12 +22,12 @@ People may experience one or more of the following when attempting to access you
 
 Microsoft Entra ID user accounts have multiple email-like attributes that can hold *different values*. SCIM provisioning and SSO authentication are configured in separate admin areas and each can pull from a different attribute:
 
-| **Entra attribute** | **Typical value** | **Commonly used by** |
-| --- | --- | --- |
-| `userPrincipalName` | `testuser1@example.com` (may be employee ID format) | Default SCIM userName mapping |
-| `mail` | `test.user.one@example.com` (standard email) | OIDC / SAML email claim |
-| `proxyAddresses` | `SMTP:test.user.one@example.com` | Exchange / M365 primary address |
-| `otherMails` | May contain aliases or secondary addresses | Alternative contact emails |
+| **Entra attribute** | **Typical value**                                   | **Commonly used by**            |
+| ------------------- | --------------------------------------------------- | ------------------------------- |
+| `userPrincipalName` | `testuser1@example.com` (may be employee ID format) | Default SCIM userName mapping   |
+| `mail`              | `test.user.one@example.com` (standard email)        | OIDC / SAML email claim         |
+| `proxyAddresses`    | `SMTP:test.user.one@example.com`                    | Exchange / M365 primary address |
+| `otherMails`        | May contain aliases or secondary addresses          | Alternative contact emails      |
 
 The mismatch occurs when SCIM pulls email from one attribute while SSO sends the email from another. Even a subtle difference blocks access—Claude requires an **exact string match**.
 
@@ -127,13 +127,13 @@ After correcting the attribute mapping and completing the full sync:
 
 ## Common issues
 
-| **Issue** | **Solution** |
-| --- | --- |
+| **Issue**                                                      | **Solution**                                                                                                                                                                           |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SCIM mapping updated but SSO claim not checked (or vice versa) | Both must be updated. SCIM under **Enterprise applications → Provisioning**; SSO claims under **Single sign-on → Attributes & Claims** or **App registrations → Token configuration**. |
-| userPrincipalName is in employee-ID format, not a real email | Switch SCIM to use the mail attribute instead. |
-| Incremental sync runs but emails don't update | **Restart provisioning** is required after an attribute mapping change. |
-| OIDC app email claim not configured as an optional claim | Add email under **App registrations → Token configuration**. |
-| Emails updated but person still can't log in | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
+| userPrincipalName is in employee-ID format, not a real email   | Switch SCIM to use the mail attribute instead.                                                                                                                                         |
+| Incremental sync runs but emails don't update                  | **Restart provisioning** is required after an attribute mapping change.                                                                                                                |
+| OIDC app email claim not configured as an optional claim       | Add email under **App registrations → Token configuration**.                                                                                                                           |
+| Emails updated but person still can't log in                   | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry.                                                                                                           |
 
 ---
 

@@ -1,6 +1,6 @@
-Claude Design by Anthropic Labs lets your team create on-brand designs, prototypes, presentations, and interactive microsites through conversation with Claude.
+Claude Design lets your team create on-brand designs, prototypes, presentations, and interactive microsites through conversation with Claude.
 
-Claude Design by Anthropic Labs is available in research preview to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
+Claude Design is available in beta to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
 
 Claude Design works best when a **design system** is set up for your organization first. This ensures every project your team creates stays true to your brand, typography, color palette, and component patterns. This guide walks you through enabling Claude Design, setting up the right foundation, and rolling it out to your team.
 
@@ -16,7 +16,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1781304300&amp;signature=a5f938d94b1ef5700693a115e558343ad1e5a837b95f2a2c92820f33232277a1&amp;req=diIvH8t6nYFdXPMW1HO4zahp3eMLGeImDIPtKBLQ9H9bTcpPrAy9lmOheYYD%0AYtEJ3yk%2B12TANGcLJkQ%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1781870400&amp;signature=4398d4af4992589ddfee38bc2e2243ef085c11314e51dedfabd68291ffd1a251&amp;req=diIvH8t6nYFdXPMW3nq%2BgfN19eUWlwuRL6iUW1g04y6APf5Rf7E35LdZqYf9%0AkMtp8ZxakLOImjtNAMlEszO8scE%3D%0A)
 
 ---
 
@@ -116,7 +116,7 @@ We have more tutorials available here:
 
 ## Monitor usage
 
-Claude Design is an Anthropic Labs release that doesn’t support audit logs or usage tracking yet.
+Claude Design doesn’t support audit logs or usage tracking yet.
 
 We recommend tracking adoption qualitatively during your rollout—check in with each group as they onboard, collect feedback, and sample a few projects periodically to assess design system compliance.
 

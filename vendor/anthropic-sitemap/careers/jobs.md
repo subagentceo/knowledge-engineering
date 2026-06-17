@@ -16,9 +16,9 @@ Location
 
 ## AI Research & Engineering
 
-62 Open Roles
+60 Open Roles
 
-62 Open Roles
+60 Open Roles
 
 [Expression of Interest] Research Manager, Interpretability
 
@@ -99,12 +99,6 @@ San Francisco, CA | New York City, NY
 Apply
 
 Machine Learning Systems Engineer, Research Tools
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
-Machine Learning Systems Engineer, RL Engineering
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
@@ -200,12 +194,6 @@ San Francisco, CA
 
 Apply
 
-Research Engineer, Environment Scaling
-
-Remote-Friendly (Travel Required) | San Francisco, CA
-
-Apply
-
 Research Engineer, Interpretability
 
 San Francisco, CA
@@ -248,12 +236,6 @@ Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY
 
 Apply
 
-Research Engineer, Model Evaluations
-
-Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY
-
-Apply
-
 Research Engineer, Performance RL (Reinforcement Learning)
 
 San Francisco, CA
@@ -290,6 +272,12 @@ Zürich, CH
 
 Apply
 
+Research Engineer, RL Engineering
+
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply
+
 Research Engineer, Safeguards Labs
 
 San Francisco, CA | New York City, NY
@@ -305,6 +293,12 @@ Apply
 Research Engineer, Universes
 
 Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY
+
+Apply
+
+Research Engineer/Research Scientist, Audio
+
+San Francisco, CA
 
 Apply
 
@@ -335,12 +329,6 @@ Apply
 Research Scientist, Life Sciences
 
 San Francisco, CA
-
-Apply
-
-Senior Research Scientist, Reward Models
-
-Remote-Friendly (Travel Required) | San Francisco, CA
 
 Apply
 
@@ -394,9 +382,9 @@ Apply
 
 ## Applied AI
 
-31 Open Roles
+28 Open Roles
 
-31 Open Roles
+28 Open Roles
 
 Applied AI Architect
 
@@ -472,6 +460,12 @@ Apply
 
 Applied AI Architect, Partnerships
 
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply
+
+Applied AI Architect, Partnerships
+
 Paris, France
 
 Apply
@@ -479,12 +473,6 @@ Apply
 Applied AI Architect, Public Sector
 
 London, UK
-
-Apply
-
-Applied AI Architect, Startups
-
-San Francisco, CA | New York City, NY
 
 Apply
 
@@ -503,12 +491,6 @@ Apply
 Applied AI Engineer
 
 Sydney, Australia
-
-Apply
-
-Applied AI Engineer, Life Sciences (Beneficial Deployments)
-
-San Francisco, CA | New York City, NY
 
 Apply
 
@@ -533,12 +515,6 @@ Apply
 Head of ANZ, Applied AI
 
 Sydney, Australia
-
-Apply
-
-Head of International Applied AI Architecture, Partnerships
-
-London, UK
 
 Apply
 
@@ -568,12 +544,6 @@ Apply
 
 Partner Solutions Architect, Applied AI
 
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
-Partner Solutions Architect, Applied AI
-
 Tokyo, Japan
 
 Apply
@@ -586,9 +556,9 @@ Apply
 
 ## Communications
 
-11 Open Roles
+12 Open Roles
 
-11 Open Roles
+12 Open Roles
 
 ANZ Communications Lead
 
@@ -632,6 +602,12 @@ San Francisco, CA | New York City, NY
 
 Apply
 
+Head of Social Communications
+
+San Francisco, CA | New York City, NY
+
+Apply
+
 Internal Communications Manager, Policy
 
 San Francisco, CA
@@ -658,9 +634,9 @@ Apply
 
 ## Compute
 
-13 Open Roles
+12 Open Roles
 
-13 Open Roles
+12 Open Roles
 
 Data Center Electrical Engineer
 
@@ -698,7 +674,7 @@ Sydney, Australia
 
 Apply
 
-Data Center OFE Strategic Sourcing Lead
+Data Center OFE Strategic Sourcing Lead (Mechanical)
 
 San Francisco, CA | New York City, NY
 
@@ -728,12 +704,6 @@ Sydney, Australia
 
 Apply
 
-Software Engineer, Compute Efficiency
-
-San Francisco, CA | New York City, NY
-
-Apply
-
 Transaction Principal
 
 Tokyo, Japan
@@ -742,51 +712,33 @@ Apply
 
 ## Data Science & Analytics
 
-6 Open Roles
+3 Open Roles
 
-6 Open Roles
+3 Open Roles
 
-Analytics Data Engineer
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
-Analytics Data Engineering Manager, Product
+Data Engineer
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
-Data Scientist, Developer Productivity
+Data Engineering Manager, Product
 
-San Francisco, CA | New York City, NY
-
-Apply
-
-Data Scientist, GTM
-
-New York City, NY; San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
-Data Scientist, Platform Product
+Lead Data Scientist, Platform Product
 
 New York City, NY | Seattle, WA; San Francisco, CA
 
 Apply
 
-Data Scientist, Policy
-
-New York City, NY; San Francisco, CA | New York City, NY; Washington, DC
-
-Apply
-
 ## Engineering & Design - Product
 
-24 Open Roles
+25 Open Roles
 
-24 Open Roles
+25 Open Roles
 
 Engineering Manager, Agent Prompts & Evals
 
@@ -801,6 +753,12 @@ San Francisco, CA | New York City, NY
 Apply
 
 Engineering Manager, Cybersecurity Products
+
+San Francisco, CA | New York City, NY
+
+Apply
+
+Engineering Manager, Enterprise
 
 San Francisco, CA | New York City, NY
 
@@ -854,12 +812,6 @@ San Francisco, CA | New York City, NY
 
 Apply
 
-Software Engineer, Claude Design
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
 Software Engineer, Cybersecurity Products
 
 San Francisco, CA | New York City, NY | Seattle, WA; Washington, DC
@@ -885,6 +837,12 @@ San Francisco, CA | New York City, NY | Seattle, WA
 Apply
 
 Staff Software Engineer, Billing Platform
+
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply
+
+Staff Software Engineer, Claude Design
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
@@ -934,13 +892,19 @@ Apply
 
 ## Finance
 
-28 Open Roles
+30 Open Roles
 
-28 Open Roles
+30 Open Roles
 
 Analytics, Finance & Strategy
 
 San Francisco, CA
+
+Apply
+
+Director, Compute Infrastructure Procurement Operations
+
+San Francisco, CA | New York City, NY
 
 Apply
 
@@ -950,9 +914,9 @@ San Francisco, CA | Seattle, WA
 
 Apply
 
-Director, Infrastructure Compute Procurement
+Director, Revenue Accounting
 
-San Francisco, CA | New York City, NY
+San Francisco, CA | Seattle, WA
 
 Apply
 
@@ -1046,6 +1010,12 @@ San Francisco, CA
 
 Apply
 
+Product Finance, Inference Capacity Lead
+
+San Francisco, CA
+
+Apply
+
 Senior Business Systems Analyst, Finance Systems
 
 San Francisco, CA | Seattle, WA
@@ -1070,6 +1040,12 @@ San Francisco, CA | Seattle, WA
 
 Apply
 
+Senior Manager, Compute Infrastructure Procurement Operations - Lease Administration
+
+San Francisco, CA | Seattle, WA
+
+Apply
+
 Senior Manager, Corporate Accounting
 
 San Francisco, CA | Seattle, WA
@@ -1079,12 +1055,6 @@ Apply
 Senior Manager, Order Management – Partnership NPI & Automation
 
 San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
-Senior Manager, Revenue Accounting
-
-San Francisco, CA | Seattle, WA
 
 Apply
 
@@ -1210,9 +1180,9 @@ Apply
 
 ## Marketing & Brand
 
-17 Open Roles
+16 Open Roles
 
-17 Open Roles
+16 Open Roles
 
 Art Director, Enterprise
 
@@ -1304,12 +1274,6 @@ San Francisco, CA | New York City, NY
 
 Apply
 
-Strategy & Operations Lead, Marketing
-
-San Francisco, CA | New York City, NY
-
-Apply
-
 Web Producer, CMS Publishing
 
 San Francisco, CA | New York City, NY
@@ -1318,9 +1282,9 @@ Apply
 
 ## People
 
-5 Open Roles
+8 Open Roles
 
-5 Open Roles
+8 Open Roles
 
 People Programs, M&A Lead
 
@@ -1328,7 +1292,25 @@ San Francisco, CA
 
 Apply
 
+People Research Scientist, People
+
+New York City, NY | Seattle, WA; San Francisco, CA | New York City, NY
+
+Apply
+
+People Research Scientist, Recruiting
+
+New York City, NY | Seattle, WA; San Francisco, CA | New York City, NY
+
+Apply
+
 Real Estate Portfolio Manager
+
+San Francisco, CA
+
+Apply
+
+Real Estate Program Coordinator
 
 San Francisco, CA
 
@@ -1354,9 +1336,9 @@ Apply
 
 ## Product Management, Support, & Operations
 
-15 Open Roles
+14 Open Roles
 
-15 Open Roles
+14 Open Roles
 
 Product Manager, Safeguards Rare Harms
 
@@ -1395,12 +1377,6 @@ San Francisco, CA | New York City, NY
 Apply
 
 Product Manager, Developer Productivity
-
-San Francisco, CA | New York City, NY
-
-Apply
-
-Product Manager, Enterprise
 
 San Francisco, CA | New York City, NY
 
@@ -1486,15 +1462,9 @@ Apply
 
 ## Public Policy
 
-2 Open Roles
+1 Open Role
 
-2 Open Roles
-
-National Security Policy Lead, Cyber
-
-Washington, DC
-
-Apply
+1 Open Role
 
 Solutions Architect, National Security
 
@@ -1516,7 +1486,7 @@ Apply
 
 Data Scientist, Safeguards
 
-New York City, NY; San Francisco, CA | New York City, NY; Seattle, WA
+New York City, NY; San Francisco, CA; Seattle, WA
 
 Apply
 
@@ -1600,9 +1570,9 @@ Apply
 
 ## Sales
 
-67 Open Roles
+63 Open Roles
 
-67 Open Roles
+63 Open Roles
 
 Account Executive - ASEAN
 
@@ -1676,9 +1646,15 @@ New York City, NY
 
 Apply
 
+Customer Success Manager, Public Sector
+
+New York City, NY; San Francisco, CA; Washington, DC
+
+Apply
+
 Customer Success Manager, Scaled
 
-Boston, MA; New York City, NY; San Francisco, CA; Seattle, WA
+New York City, NY; San Francisco, CA; Seattle, WA
 
 Apply
 
@@ -1706,12 +1682,6 @@ Tokyo, Japan
 
 Apply
 
-Enterprise Account Executive, Digital Native Business - Munich
-
-Munich, Germany
-
-Apply
-
 Enterprise Account Executive, DOD/IC
 
 Washington, DC
@@ -1731,12 +1701,6 @@ Washington, DC
 Apply
 
 Enterprise Account Executive, Federal Civilian Sales - Education & Workforce
-
-Washington, DC
-
-Apply
-
-Enterprise Account Executive, Federal Civilian Sales - State & International
 
 Washington, DC
 
@@ -1838,12 +1802,6 @@ Sydney, Australia
 
 Apply
 
-Head of Enterprise Sales, Industries
-
-New York City, NY; San Francisco, CA | New York City, NY
-
-Apply
-
 Head of GovTech Sales
 
 Washington, DC
@@ -1874,6 +1832,12 @@ San Francisco, CA | New York City, NY
 
 Apply
 
+Manager– Growth Sales (AI-Native)
+
+San Francisco, CA
+
+Apply
+
 Manager, Account Executive - Enterprise Sales
 
 San Francisco, CA | New York City, NY
@@ -1883,18 +1847,6 @@ Apply
 Manager, Account Executive - Strategic Sales
 
 San Francisco, CA | New York City, NY
-
-Apply
-
-Manager, Account Executive (AI Native)
-
-San Francisco, CA
-
-Apply
-
-Manager, Customer Success
-
-London, UK
 
 Apply
 
@@ -1930,7 +1882,7 @@ Apply
 
 Partner Enablement Lead, System Integrators
 
-London, UK; San Francisco, CA | New York City, NY
+San Francisco, CA | New York City, NY
 
 Apply
 
@@ -1976,12 +1928,6 @@ San Francisco, CA | New York City, NY
 
 Apply
 
-Strategic Account Executive, GSI
-
-New York City, NY; San Francisco, CA
-
-Apply
-
 Strategic Account Executive, Tech
 
 San Francisco, CA
@@ -2018,12 +1964,6 @@ San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
-Incident Manager - Detection & Response
-
-New York City, NY; San Francisco, CA | New York City, NY
-
-Apply
-
 IT Support Engineer
 
 Seattle, WA
@@ -2048,9 +1988,9 @@ Boston, MA; New York City, NY; Remote-Friendly (Travel-Required) | Washington, D
 
 Apply
 
-IT Systems Engineer, Enterprise SaaS
+Platform Hardware Security
 
-Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA
+San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
@@ -2063,6 +2003,12 @@ Apply
 Security Engineer - Threat Intel
 
 New York City, NY; Remote-Friendly (Travel-Required) | San Francisco, CA | Washington, DC; San Francisco, CA | New York City, NY
+
+Apply
+
+Security Engineer, Detection & Response
+
+San Francisco, CA | New York City, NY | Seattle, WA; Washington, DC
 
 Apply
 
@@ -2116,9 +2062,9 @@ Apply
 
 ## Software Engineering - Infrastructure
 
-29 Open Roles
+28 Open Roles
 
-29 Open Roles
+28 Open Roles
 
 Engineering Manager - Privacy Infrastructure
 
@@ -2138,18 +2084,24 @@ San Francisco, CA | New York City, NY
 
 Apply
 
-Infrastructure Engineer, Sandboxing
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
 Senior Software Engineer, Inference
 
 Dublin, IE
 
 Apply
 
+Senior Software Engineer, Inference
+
+London, UK
+
+Apply
+
+Senior Staff+ Infrastructure Engineer, Cluster Infrastructure
+
+San Francisco, CA | New York City, NY | Seattle, WA
+
+Apply
+
 Senior Staff+ Software Engineer, Kubernetes Platform
 
 San Francisco, CA | New York City, NY | Seattle, WA
@@ -2169,18 +2121,6 @@ San Francisco, CA | New York City, NY | Seattle, WA
 Apply
 
 Senior Staff+ Software Engineer, Node Infra
-
-London, UK
-
-Apply
-
-Software Engineer, Sandboxing (Systems)
-
-San Francisco, CA | New York City, NY
-
-Apply
-
-Sr. Software Engineer, Inference
 
 London, UK
 
@@ -2193,12 +2133,6 @@ San Francisco, CA | New York City, NY | Seattle, WA
 Apply
 
 Staff + Senior Software Engineer, Inference Deployment
-
-San Francisco, CA | New York City, NY | Seattle, WA
-
-Apply
-
-Staff + Sr. Software Engineer, AI Reliability
 
 San Francisco, CA | New York City, NY | Seattle, WA
 
@@ -2219,6 +2153,12 @@ Apply
 Staff Fiber Network Engineer
 
 San Francisco, CA | New York City, NY
+
+Apply
+
+Staff Software Engineer, AI Reliability
+
+San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 
@@ -2254,13 +2194,13 @@ Apply
 
 Staff+ Infrastructure Engineer, Cluster Infrastructure
 
-San Francisco, CA | New York City, NY | Seattle, WA
+London, UK
 
 Apply
 
-Staff+ Infrastructure Engineer, Cluster Infrastructure
+Staff+ Software Engineer, Claude App Infrastructure
 
-London, UK
+San Francisco, CA | New York City, NY | Seattle, WA
 
 Apply
 

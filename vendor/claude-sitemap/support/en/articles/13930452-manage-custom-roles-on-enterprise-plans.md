@@ -32,23 +32,23 @@ The key takeaway: the organization-level toggle is a main switch. Custom roles a
 
 Each custom role can grant or restrict access to the following capabilities:
 
-| **Capability** | **Description** |
-| --- | --- |
-| Chat | Access to chat on web, desktop, and mobile apps. |
-| Code execution and file creation | Ability to run code and create files in conversations. |
-| Memory | Ability to use memory across conversations. |
-| Web search | Ability to use web search in conversations. |
-| Public projects | Ability to share projects with everyone in your organization. |
-| Create skills | Ability to create or upload custom skills. |
-| Share skills with team members | Ability to share skills with specific people in your organization. |
-| Share skills with the full organization | Ability to share skills with everyone in your organization at once. |
-| Claude Code | Access to Claude Code. |
-| Fast mode | Access to faster model options for Claude Code. |
-| Claude Code dynamic workflows* | Access to dynamic workflows in Claude Code, which let Claude run large engineering tasks—migrations, audits, codebase-wide bug hunts—from start to finish in a single session. These runs can last for hours and use more tokens than a typical session. |
-| Claude Security | Find and fix security vulnerabilities in your code with Claude. |
-| Claude Design | Access to Claude Design to generate design artifacts. |
-| Claude Cowork | Access to Claude Cowork. |
-| Claude for Chrome | Access to Claude for Chrome, the browser extension that lets Claude browse and act on web pages on the user's behalf. |
+| **Capability**                          | **Description**                                                                                                                                                                                                                                          |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chat                                    | Access to chat on web, desktop, and mobile apps.                                                                                                                                                                                                         |
+| Code execution and file creation        | Ability to run code and create files in conversations.                                                                                                                                                                                                   |
+| Memory                                  | Ability to use memory across conversations.                                                                                                                                                                                                              |
+| Web search                              | Ability to use web search in conversations.                                                                                                                                                                                                              |
+| Public projects                         | Ability to share projects with everyone in your organization.                                                                                                                                                                                            |
+| Create skills                           | Ability to create or upload custom skills.                                                                                                                                                                                                               |
+| Share skills with team members          | Ability to share skills with specific people in your organization.                                                                                                                                                                                       |
+| Share skills with the full organization | Ability to share skills with everyone in your organization at once.                                                                                                                                                                                      |
+| Claude Code                             | Access to Claude Code.                                                                                                                                                                                                                                   |
+| Fast mode                               | Access to faster model options for Claude Code.                                                                                                                                                                                                          |
+| Claude Code dynamic workflows\*         | Access to dynamic workflows in Claude Code, which let Claude run large engineering tasks—migrations, audits, codebase-wide bug hunts—from start to finish in a single session. These runs can last for hours and use more tokens than a typical session. |
+| Claude Security                         | Find and fix security vulnerabilities in your code with Claude.                                                                                                                                                                                          |
+| Claude Design                           | Access to Claude Design to generate design artifacts.                                                                                                                                                                                                    |
+| Claude Cowork                           | Access to Claude Cowork.                                                                                                                                                                                                                                 |
+| Claude for Chrome                       | Access to Claude for Chrome, the browser extension that lets Claude browse and act on web pages on the user's behalf.                                                                                                                                    |
 
 *Claude Code dynamic workflows turn on for your whole organization by default on June 8, 2026. Because a single run can last for hours and use more tokens than a typical session, decide who should have access before that date. For members on custom roles, this capability follows the additive model like any other—a role must grant it for those members to use it. To restrict a specific group, leave this capability off in their role.
 
@@ -150,34 +150,34 @@ Within an area, you grant all of View or all of Manage. You can't grant or restr
 
 There are seven admin permission areas:
 
-| **Area** | **View** | **Manage** |
-| --- | --- | --- |
-| Identity & Access | SSO and SAML configuration, verified domains, domain memberships, IP allowlist, session settings, group definitions, role definitions, and provisioning settings | Edit SSO, manage domains, edit the IP allowlist, edit session settings, create and edit groups and roles, and configure provisioning |
-| Billing | Plan details, seat counts, invoices, billing addresses, and usage spend | Change seats, update payment methods, edit billing addresses, and configure spend limits and extra usage |
-| Analytics | Usage analytics, Claude Code analytics, and feature adoption metrics | Not available |
-| Privacy | Data retention settings, export configuration, sharing settings, geolocation settings, and encryption-key status | Edit retention periods, run data exports, change sharing settings, and configure geolocation and encryption |
-| User Management | Not available | Invite members, change member roles, remove members, and manage pending invitations |
-| Libraries | Not available | Add, edit, and remove organization-shared skills, plugins, and connectors. Also includes directory management. |
-| Directory management | Not available | Submit and manage directory listings, and view observability for listings your organization has published |
+| **Area**             | **View**                                                                                                                                                         | **Manage**                                                                                                                           |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Identity & Access    | SSO and SAML configuration, verified domains, domain memberships, IP allowlist, session settings, group definitions, role definitions, and provisioning settings | Edit SSO, manage domains, edit the IP allowlist, edit session settings, create and edit groups and roles, and configure provisioning |
+| Billing              | Plan details, seat counts, invoices, billing addresses, and usage spend                                                                                          | Change seats, update payment methods, edit billing addresses, and configure spend limits and extra usage                             |
+| Analytics            | Usage analytics, Claude Code analytics, and feature adoption metrics                                                                                             | Not available                                                                                                                        |
+| Privacy              | Data retention settings, export configuration, sharing settings, geolocation settings, US-only inference setting, and encryption-key status                      | Edit retention periods, run data exports, change sharing settings, and configure geolocation, US-only inference, and encryption      |
+| User Management      | Not available                                                                                                                                                    | Invite members, change member roles, remove members, and manage pending invitations                                                  |
+| Libraries            | Not available                                                                                                                                                    | Add, edit, and remove organization-shared skills, plugins, and connectors. Also includes directory management.                       |
+| Directory management | Not available                                                                                                                                                    | Submit and manage directory listings, and view observability for listings your organization has published                            |
 
 **Note:** A role with Identity & Access set to Manage can create and edit groups and roles, including its own role definition. Members with this permission can expand their own access, so reserve it for trusted security and IT administrators.
 
 ### **Available organization settings pages for each permission**
 
-| **Organization settings page** | **Required permission** | **Notes** |
-| --- | --- | --- |
-| Billing | Billing (View or Manage) | Plan, seats, addresses, and invoices |
-| Usage | Billing (View or Manage) | Spend limits, credits, and extra usage |
-| Members | User Management (Manage) | No view-only mode |
-| Groups | Identity & Access (View or Manage) |  |
-| Roles | Identity & Access (View or Manage) |  |
+| **Organization settings page**    | **Required permission**            | **Notes**                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Billing                           | Billing (View or Manage)           | Plan, seats, addresses, and invoices                                                                                                                                                                                                                                                                                                                                    |
+| Usage                             | Billing (View or Manage)           | Spend limits, credits, and extra usage                                                                                                                                                                                                                                                                                                                                  |
+| Members                           | User Management (Manage)           | No view-only mode                                                                                                                                                                                                                                                                                                                                                       |
+| Groups                            | Identity & Access (View or Manage) |                                                                                                                                                                                                                                                                                                                                                                         |
+| Roles                             | Identity & Access (View or Manage) |                                                                                                                                                                                                                                                                                                                                                                         |
 | Organization and access (partial) | Identity & Access (View or Manage) | Unlocks single sign-on (SSO/SAML, group mappings, provisioning), verified domains and domain memberships, IP allowlist, session settings, restrict organization creation, and organization merger requests. Other sections on this page, like the organization name, default capability settings, and the organization-wide system prompt, still require the Owner role |
-| Data and privacy | Privacy (View or Manage) |  |
-| Analytics | Analytics (View) | Reached through Analytics in the user menu, not organization settings |
-| Skills | Libraries (Manage) |  |
-| Plugins | Libraries (Manage) |  |
-| Connectors | Libraries (Manage) |  |
-| Directory | Directory management (Manage) |  |
+| Data and privacy                  | Privacy (View or Manage)           |                                                                                                                                                                                                                                                                                                                                                                         |
+| Analytics                         | Analytics (View)                   | Reached through Analytics in the user menu, not organization settings                                                                                                                                                                                                                                                                                                   |
+| Skills                            | Libraries (Manage)                 |                                                                                                                                                                                                                                                                                                                                                                         |
+| Plugins                           | Libraries (Manage)                 |                                                                                                                                                                                                                                                                                                                                                                         |
+| Connectors                        | Libraries (Manage)                 |                                                                                                                                                                                                                                                                                                                                                                         |
+| Directory                         | Directory management (Manage)      |                                                                                                                                                                                                                                                                                                                                                                         |
 
 ### What admin permissions don't cover
 
@@ -232,34 +232,34 @@ For members using Claude Code, one more layer applies: Managed Settings policies
 This table shows how the organization-wide tool policy and a member’s role grant combine:
 
 | **Organization-wide tool policy** | **Highest role grant across the member’s roles** | **Effective ceiling** | **Member’s personal options** |
-| --- | --- | --- | --- |
-| Always allow | Always allow | Always allow | Always allow, Ask, Never |
-| Always allow | Needs approval | Needs approval | Ask, Never |
-| Always allow | Blocked | Blocked | Tool grayed out |
-| Needs approval | Always allow | Needs approval | Ask, Never |
-| Needs approval | Blocked | Blocked | Tool grayed out |
-| Blocked | Any | Blocked | Tool grayed out |
+| --------------------------------- | ------------------------------------------------ | --------------------- | ----------------------------- |
+| Always allow                      | Always allow                                     | Always allow          | Always allow, Ask, Never      |
+| Always allow                      | Needs approval                                   | Needs approval        | Ask, Never                    |
+| Always allow                      | Blocked                                          | Blocked               | Tool grayed out               |
+| Needs approval                    | Always allow                                     | Needs approval        | Ask, Never                    |
+| Needs approval                    | Blocked                                          | Blocked               | Tool grayed out               |
+| Blocked                           | Any                                              | Blocked               | Tool grayed out               |
 
 ### Where connector permissions apply
 
 Connector permissions are enforced on Anthropic’s servers, so they apply across every Claude surface that routes connector traffic through Anthropic:
 
-| **Surface** | **Coverage** |
-| --- | --- |
-| Claude on web and desktop | Full enforcement. Blocked connectors are hidden, blocked tools are grayed out, and the personal approval menu is limited to what the ceiling allows. |
-| Claude Mobile (iOS and Android) | Enforced. Blocked tools are stripped from Claude’s view and calls to them are rejected. A blocked tool may still look active in mobile connector settings until interface updates ship, but it can’t be used. |
-| Claude Cowork (cloud and desktop) | Same as web. |
-| Claude Code | Enforced. Blocked tools are rejected and appear as disabled. See **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**. |
+| **Surface**                       | **Coverage**                                                                                                                                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claude on web and desktop         | Full enforcement. Blocked connectors are hidden, blocked tools are grayed out, and the personal approval menu is limited to what the ceiling allows.                                                          |
+| Claude Mobile (iOS and Android)   | Enforced. Blocked tools are stripped from Claude’s view and calls to them are rejected. A blocked tool may still look active in mobile connector settings until interface updates ship, but it can’t be used. |
+| Claude Cowork (cloud and desktop) | Same as web.                                                                                                                                                                                                  |
+| Claude Code                       | Enforced. Blocked tools are rejected and appear as disabled. See **[Claude Code settings](https://code.claude.com/docs/en/settings#settings-files)**.                                                         |
 
 Connector permissions govern connectors your organization has added under **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. They don’t govern connectors a member runs locally on their own machine, and they don’t govern Claude Cowork when it’s deployed on a third-party platform. For third-party Cowork deployments, use MDM instead. See **[Cowork on 3P: MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions).**
 
 ### What members see when a connector is restricted
 
-| **Restriction** | **What the member sees** |
-| --- | --- |
-| A connector is blocked for their role | The connector doesn’t appear in their connector menu. |
-| A tool is blocked on a visible connector | The tool is grayed out in their connector settings, with the message “This tool is not enabled for your role. Contact your administrator.” |
-| A tool is capped at “Needs approval” | The tool works, but the personal approval menu offers only “Ask” and “Never,” and Claude asks before each call. |
+| **Restriction**                          | **What the member sees**                                                                                                                                              |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A connector is blocked for their role    | The connector doesn’t appear in their connector menu.                                                                                                                 |
+| A tool is blocked on a visible connector | The tool is grayed out in their connector settings, with the message “This tool is not enabled for your role. Contact your administrator.”                            |
+| A tool is capped at “Needs approval”     | The tool works, but the personal approval menu offers only “Ask” and “Never,” and Claude asks before each call.                                                       |
 | Connector permissions can’t load briefly | A banner reports that connectors couldn’t load, with a retry. No blocked tool ever reaches the connected service. Access fails toward denying, never toward granting. |
 
 Members can’t tell which layer restricted a tool. The message is the same whether the limit comes from the organization-wide tool policy, a role grant, or both. To find the source, compare the organization-wide policy with the member’s role grants.
@@ -270,8 +270,8 @@ Members can’t tell which layer restricted a tool. The message is the same whet
 
 When a capability is restricted, here’s what members see. For connector and tool restrictions, see **Connector permissions** above.
 
-| **Reason** | **What the member sees** |
-| --- | --- |
-| Feature is disabled at the organization level | The feature appears greyed out or hidden, with the message "This feature is disabled for your organization." |
-| Member's roles don't grant the feature | The feature appears greyed out or hidden, with the message "Contact your admin to request access to this feature." |
-| Member's roles don't grant any product access | The member lands on their settings page when they sign in, with no products available to use. |
+| **Reason**                                    | **What the member sees**                                                                                           |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Feature is disabled at the organization level | The feature appears greyed out or hidden, with the message "This feature is disabled for your organization."       |
+| Member's roles don't grant the feature        | The feature appears greyed out or hidden, with the message "Contact your admin to request access to this feature." |
+| Member's roles don't grant any product access | The member lands on their settings page when they sign in, with no products available to use.                      |

@@ -1,3 +1,5 @@
+**Update June 12:** We've suspended access to Claude Fable 5 and Claude Mythos 5. **[Learn more here](https://anthropic.com/news/fable-mythos-access)**.
+
 Anthropic may designate certain models as “Covered Models” when they cross capability thresholds that warrant additional safeguards or other treatment. This page lists the models currently designated as Covered Models and describes the data handling, privacy, and access policies that apply to them.
 
 **Note:** These policies apply only to the models listed on this page. All other Claude models continue to operate under your existing agreement and configured retention settings.
@@ -10,10 +12,10 @@ Anthropic may designate certain models as "Covered Models" when their capabiliti
 
 ## Current Covered Models
 
-| **Model** | **Designation date** | **Status** | **Availability** |
-| --- | --- | --- | --- |
-| Claude Mythos 5 | June 9, 2026 | Limited availability | Limited access (approved partners) |
-| Claude Fable 5 | June 9, 2026 | Generally available | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
+| **Model**       | **Designation date**          | **Status**                                                                                                     | **Availability**                                                                                     |
+| --------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Claude Mythos 5 | June 9, 2026<br>June 12, 2026 | Limited availability<br>Suspended access (**[More](https://www.anthropic.com/news/fable-mythos-access)**.)<br> | Limited access (approved partners)                                                                   |
+| Claude Fable 5  | June 9, 2026<br>June 12, 2026 | Generally available<br>Suspended access (**[More](https://www.anthropic.com/news/fable-mythos-access)**.)      | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
 
 *We will update this list as new models are designated or as existing designations change.*
 

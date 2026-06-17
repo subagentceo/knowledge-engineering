@@ -9,11 +9,13 @@ Update User Profile
 ### Parameters
 
 - `UserProfileUpdateParams params`
+
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Update User Profile
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> externalId`
 
@@ -83,6 +87,7 @@ Update User Profile
   - `Optional<Relationship> relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -92,6 +97,7 @@ Update User Profile
 ### Returns
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,6 +113,7 @@ Update User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -116,9 +123,11 @@ Update User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -128,6 +137,7 @@ Update User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`

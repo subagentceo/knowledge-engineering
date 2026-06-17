@@ -10,9 +10,17 @@ Try ClaudeGet API access
 
 ## Announcements
 
-*   New
+*   Update
     
-    Claude Fable 5
+    Claude Fable 5 access unavailable
+    
+    Jun 12, 2026
+    
+    We apologize for this disruption to our customers and are working to restore access as soon as possible.
+    
+    Read more
+    
+*   Claude Fable 5
     
     Jun 9, 2026
     
@@ -23,9 +31,7 @@ Try ClaudeGet API access
 
 ## Availability and pricing
 
-For organizations taking on their hardest knowledge and coding work, Claude Fable 5 is available on the consumption-based Enterprise plan.
-
-For developers interested in building AI solutions that demand frontier intelligence, Claude Fable 5 is available on the Claude Platform natively, through available marketplaces, and in Amazon Web Services, Google Cloud, and Microsoft Foundry.
+Claude Fable 5 is currently unavailable. Learn more.
 
 Claude Fable 5 is priced at $10 per million input tokens and $50 per million output tokens, with the existing 90% input token discount for prompt caching. To learn more, check out our pricing page. To get started, use claude-fable-5 via the Claude API.
 

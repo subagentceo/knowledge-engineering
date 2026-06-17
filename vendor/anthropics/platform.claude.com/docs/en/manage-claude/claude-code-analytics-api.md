@@ -28,6 +28,10 @@ This API enables you to better monitor, analyze, and optimize your Claude Code a
 **Claude Platform on AWS:** The Claude Code Analytics API is not currently available. View Claude Code usage on the **Usage** page in the Claude Console instead.
 </Note>
 
+<Note>
+**Claude Enterprise organizations:** Claude Code activity for claude.ai users is reported by the Claude Enterprise Analytics API, which uses an Analytics API key instead of an Admin API key. See [Analytics APIs](/docs/en/manage-claude/analytics-api) to find which API and key type your organization needs.
+</Note>
+
 ## Quick start
 
 Get your organization's Claude Code analytics for a specific day:
@@ -62,7 +66,7 @@ Track Claude Code usage, productivity metrics, and developer activity across you
 - **Cursor-based pagination**: Handle large datasets with stable pagination using opaque cursors
 - **Data freshness**: Metrics are available with up to 1-hour delay for consistency
 
-For complete parameter details and response schemas, see the [Claude Code Analytics API reference](/docs/en/api/admin-api/claude-code/get-claude-code-usage-report).
+For complete parameter details and response schemas, see the [Claude Code Analytics API reference](/docs/en/api/admin/usage_report/retrieve_claude_code).
 
 ### Basic examples
 

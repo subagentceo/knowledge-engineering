@@ -11,9 +11,11 @@ Create User Profile
 ### Parameters
 
 - `UserProfileCreateParams params`
+
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Create User Profile
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> externalId`
 
@@ -83,6 +87,7 @@ Create User Profile
   - `Optional<Relationship> relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -92,6 +97,7 @@ Create User Profile
 ### Returns
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,6 +113,7 @@ Create User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -116,9 +123,11 @@ Create User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -128,6 +137,7 @@ Create User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -194,6 +204,7 @@ List User Profiles
 ### Parameters
 
 - `UserProfileListParams params`
+
   - `Optional<Long> limit`
 
     Query parameter for limit
@@ -201,6 +212,7 @@ List User Profiles
   - `Optional<Order> order`
 
     Query parameter for order
+
     - `ASC("asc")`
 
     - `DESC("desc")`
@@ -212,6 +224,7 @@ List User Profiles
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -264,11 +277,14 @@ List User Profiles
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -284,6 +300,7 @@ List User Profiles
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -293,9 +310,11 @@ List User Profiles
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -305,6 +324,7 @@ List User Profiles
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -376,11 +396,13 @@ Get User Profile
 ### Parameters
 
 - `UserProfileRetrieveParams params`
+
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -433,11 +455,14 @@ Get User Profile
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -453,6 +478,7 @@ Get User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -462,9 +488,11 @@ Get User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -474,6 +502,7 @@ Get User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -540,11 +569,13 @@ Update User Profile
 ### Parameters
 
 - `UserProfileUpdateParams params`
+
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -597,7 +628,9 @@ Update User Profile
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> externalId`
 
@@ -614,6 +647,7 @@ Update User Profile
   - `Optional<Relationship> relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -623,6 +657,7 @@ Update User Profile
 ### Returns
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -638,6 +673,7 @@ Update User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -647,9 +683,11 @@ Update User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -659,6 +697,7 @@ Update User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -725,11 +764,13 @@ Create Enrollment URL
 ### Parameters
 
 - `UserProfileCreateEnrollmentUrlParams params`
+
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -782,11 +823,14 @@ Create Enrollment URL
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaUserProfileEnrollmentUrl:`
+
   - `LocalDateTime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -794,6 +838,7 @@ Create Enrollment URL
   - `Type type`
 
     Object type. Always `enrollment_url`.
+
     - `ENROLLMENT_URL("enrollment_url")`
 
   - `String url`
@@ -836,6 +881,7 @@ public final class Main {
 ### Beta User Profile
 
 - `class BetaUserProfile:`
+
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -851,6 +897,7 @@ public final class Main {
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
+
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -860,9 +907,11 @@ public final class Main {
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
+
     - `Status status`
 
       Status of the trust grant.
+
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -872,6 +921,7 @@ public final class Main {
   - `Type type`
 
     Object type. Always `user_profile`.
+
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -889,6 +939,7 @@ public final class Main {
 ### Beta User Profile Enrollment URL
 
 - `class BetaUserProfileEnrollmentUrl:`
+
   - `LocalDateTime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -896,6 +947,7 @@ public final class Main {
   - `Type type`
 
     Object type. Always `enrollment_url`.
+
     - `ENROLLMENT_URL("enrollment_url")`
 
   - `String url`
@@ -905,9 +957,11 @@ public final class Main {
 ### Beta User Profile Trust Grant
 
 - `class BetaUserProfileTrustGrant:`
+
   - `Status status`
 
     Status of the trust grant.
+
     - `ACTIVE("active")`
 
     - `PENDING("pending")`

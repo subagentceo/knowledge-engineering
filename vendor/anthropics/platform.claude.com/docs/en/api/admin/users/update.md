@@ -15,6 +15,7 @@ Update User
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   New role for the User. Cannot be "admin".
+
   - `"user"`
 
   - `"developer"`
@@ -26,6 +27,7 @@ Update User
 ### Returns
 
 - `User object { id, added_at, email, 3 more }`
+
   - `id: string`
 
     ID of the User.
@@ -45,6 +47,7 @@ Update User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
+
     - `"user"`
 
     - `"developer"`
@@ -60,6 +63,7 @@ Update User
     Object type.
 
     For Users, this is always `"user"`.
+
     - `"user"`
 
 ### Example
@@ -68,7 +72,7 @@ Update User
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
     -d '{
           "role": "user"
         }'

@@ -73,8 +73,7 @@ Most people start with connectors and Instructions, write a skill after running 
 Once you're set up, additional Cowork features can take you further:
 
 *   **Scheduled tasks** run a prompt at a set time, with access to everything you've connected — so a Skill you've written can run every weekday at 9am without you starting it. Type /schedule in any session to set one up. More on scheduled tasks.
-*   **Live artifacts** are dashboards, trackers, and comparison views that stay in the sidebar between sessions. Open one any time and ask Claude to refresh it with current data from your connectors. More on live artifacts.
-*   **Dispatch** lets you start a task from your phone. The work runs in Cowork on your desktop with your connectors, Skills, and files; you get the result on your phone when it's done. Dispatch in Claude Cowork.
+*   **Artifacts** are dashboards, trackers, and comparison views that stay in the sidebar between sessions. Open one any time and ask Claude to refresh it with current data from your connectors. More on artifacts.
 
 For more on working in Cowork:
 

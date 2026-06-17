@@ -6,12 +6,12 @@
 
 Pick the command that matches your machine and paste it into a terminal.
 
-| **Your setup** | **Command** |
-| --- | --- |
-| macOS / Linux / WSL | `curl -fsSL <https://claude.ai/install.sh> |
-| Windows (PowerShell) | `irm <https://claude.ai/install.ps1> |
-| Homebrew | `brew install --cask claude-code` |
-| npm (Node 18+) | `npm install -g @anthropic-ai/claude-code` |
+| **Your setup**       | **Command**                                |
+| -------------------- | ------------------------------------------ |
+| macOS / Linux / WSL  | `curl -fsSL <https://claude.ai/install.sh> |
+| Windows (PowerShell) | `irm <https://claude.ai/install.ps1>       |
+| Homebrew             | `brew install --cask claude-code`          |
+| npm (Node 18+)       | `npm install -g @anthropic-ai/claude-code` |
 
 **Tip:** Do not run the npm install with `sudo`, as this causes file-permission problems later.
 
@@ -27,12 +27,12 @@ claude --version
 
 How you authenticate depends on how your organization has provisioned access. Pick one of the following:
 
-| **If your organization uses…** | **Do this** |
-| --- | --- |
-| Claude Enterprise seats | Run `claude`, then `/login` and approve the request in your browser (including SSO if prompted). This is the most common path. |
-| An Anthropic Console API key | Run `export ANTHROPIC_API_KEY=sk-ant-…`, then run `claude`. |
-| Amazon Bedrock | Run `export CLAUDE_CODE_USE_BEDROCK=1`, configure your AWS credentials, then run `claude`. |
-| Google Vertex AI | Run `export CLAUDE_CODE_USE_VERTEX=1`, configure your GCP credentials, then run `claude`. |
+| **If your organization uses…** | **Do this**                                                                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Claude Enterprise seats        | Run `claude`, then `/login` and approve the request in your browser (including SSO if prompted). This is the most common path. |
+| An Anthropic Console API key   | Run `export ANTHROPIC_API_KEY=sk-ant-…`, then run `claude`.                                                                    |
+| Amazon Bedrock                 | Run `export CLAUDE_CODE_USE_BEDROCK=1`, configure your AWS credentials, then run `claude`.                                     |
+| Google Vertex AI               | Run `export CLAUDE_CODE_USE_VERTEX=1`, configure your GCP credentials, then run `claude`.                                      |
 
 If you are unsure which method applies, check with your administrator or try `/login` first, which is the default for most organizations.
 
@@ -43,6 +43,7 @@ If you are unsure which method applies, check with your administrator or try `/l
 ```
 cd path/to/your/project claude
 ```
+
 Claude Code reads your files on demand, so there is nothing to upload or attach. Simply start it from inside the repository you want to work on.
 
 ---
@@ -70,6 +71,7 @@ Copy and paste these into the prompt one at a time. Each example demonstrates a 
 ```
 Give me a 5-bullet summary of what this codebase does and where the entry point is.
 ```
+
 *Why this is useful:* It shows how Claude explores files on its own, without being pointed at specific paths.
 
 ### 2. Find something
@@ -77,6 +79,7 @@ Give me a 5-bullet summary of what this codebase does and where the entry point 
 ```
 Where is user authentication handled? Show me the file and the key function.
 ```
+
 *Why this is useful:* It is often faster than `grep` when you do not know the exact symbol or filename.
 
 ### 3. Make a safe edit
@@ -84,6 +87,7 @@ Where is user authentication handled? Show me the file and the key function.
 ```
 Add a docstring to the function <name> in <file>. Keep it to 2 lines.
 ```
+
 *Why this is useful:* It lets you practice reviewing and approving a diff on a low-risk change.
 
 ### 4. Fix something real
@@ -91,6 +95,7 @@ Add a docstring to the function <name> in <file>. Keep it to 2 lines.
 ```
 This test is failing: <paste the error>. Find the cause and fix it.
 ```
+
 *Why this is useful:* This is the primary workflow—you describe the symptom, and Claude investigates and proposes a fix.
 
 ### 5. Let it handle git
@@ -98,6 +103,7 @@ This test is failing: <paste the error>. Find the cause and fix it.
 ```
 Stage my changes and write a commit message that follows our existing style.
 ```
+
 *Why this is useful:* Claude can run `git` on your behalf (with approval) and will match your repository's existing commit conventions.
 
 ---
@@ -109,6 +115,7 @@ Run this once per project:
 ```
 /init
 ```
+
 This generates a `CLAUDE.md` file at your project root that captures your codebase's conventions. Claude reads it automatically at the start of every session, so future responses will already be tailored to your project. It is the single highest-value setup step you can take.
 
 ---
