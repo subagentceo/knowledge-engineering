@@ -1,0 +1,2018 @@
+{
+  "https://www.anduril.com/": {
+    "sha256": "07d3d1b27bc407249942c2d2fc4f3664222c9c8dc8dfb9a176d6a3a1c0d73099",
+    "path": "vendor/anduril-www/www.anduril.com/index.md",
+    "section": "root",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/400": {
+    "sha256": "77988dbffaebe236de5c410ccfd4d90fa14caa7c5293af0c767db2f8d9247703",
+    "path": "vendor/anduril-www/www.anduril.com/400.md",
+    "section": "400",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/404": {
+    "sha256": "934f57952f13a84fc7a7f17a6626046a29bd6c6ccf9cc6927b27a62a55486382",
+    "path": "vendor/anduril-www/www.anduril.com/404.md",
+    "section": "404",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/air": {
+    "sha256": "f552141fc7e374bcfbd400b0e9551e7da6aee2a24b2ba110e409196482179f4e",
+    "path": "vendor/anduril-www/www.anduril.com/air.md",
+    "section": "air",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/air/air-dominance-and-strike": {
+    "sha256": "5771ceaeded4357285efc776de13cd2c32ead77a16b519e7fdbd23156f08365c",
+    "path": "vendor/anduril-www/www.anduril.com/air/air-dominance-and-strike.md",
+    "section": "air",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/air/tactical-reconnaissance-and-strike": {
+    "sha256": "50cdd64a578e8b7a0792e930fe675f4d93b16024032e0a40762f6fa29d471d53",
+    "path": "vendor/anduril-www/www.anduril.com/air/tactical-reconnaissance-and-strike.md",
+    "section": "air",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/altius": {
+    "sha256": "71eecba8ff8f0a53e6794137b82fe6d328f3d672cff4d4ea433ba8050dc5abe4",
+    "path": "vendor/anduril-www/www.anduril.com/altius.md",
+    "section": "altius",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/anduril-leadership": {
+    "sha256": "bccf8d954ae6b5dfcba5096de6c44ba633a37bb2d0a2aa3659532516f623068a",
+    "path": "vendor/anduril-www/www.anduril.com/anduril-leadership.md",
+    "section": "anduril-leadership",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/anvil": {
+    "sha256": "cedbb3b065a7085177790d56b27c5a7cb3157ff35801d7a87372eba67d9206f2",
+    "path": "vendor/anduril-www/www.anduril.com/anvil.md",
+    "section": "anvil",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/applicant-privacy-notice": {
+    "sha256": "7009969d30d382197f6d0f0b430f3954823317db6fbec4c6e4881d3a7c299cc7",
+    "path": "vendor/anduril-www/www.anduril.com/applicant-privacy-notice.md",
+    "section": "applicant-privacy-notice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/armory-terms": {
+    "sha256": "c343e553d6f4e32f997c4d9a7ee2b6b105041ad62fb728d0ac32f072921eacf6",
+    "path": "vendor/anduril-www/www.anduril.com/armory-terms.md",
+    "section": "armory-terms",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/arsenal-1": {
+    "sha256": "eb4bc51b388574784f3b82ab88c72020bad75018f20c0b5cd864d59467b98656",
+    "path": "vendor/anduril-www/www.anduril.com/arsenal-1.md",
+    "section": "arsenal-1",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/barracuda": {
+    "sha256": "ac818a1804ab37f2f743907bb027e3f1cba8a18580806b6c27529e39e25d1069",
+    "path": "vendor/anduril-www/www.anduril.com/barracuda.md",
+    "section": "barracuda",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/bolt": {
+    "sha256": "688015f12cd48c65168c045bbf3a7257708ad4cbb071d1f8e7ea8d5efb12b0f1",
+    "path": "vendor/anduril-www/www.anduril.com/bolt.md",
+    "section": "bolt",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/careers": {
+    "sha256": "fc896abaa6317d42bbcacf439c9f805e64b84aa9fbde0242f008da02f474addb",
+    "path": "vendor/anduril-www/www.anduril.com/careers.md",
+    "section": "careers",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/connected-warfare": {
+    "sha256": "8ee388842648f5a03aeb37715311181c1a39c5dbccee49e677ae50cb689022d1",
+    "path": "vendor/anduril-www/www.anduril.com/connected-warfare.md",
+    "section": "connected-warfare",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/copperhead": {
+    "sha256": "73b6bc71472210daaac0f588deb17e0c8ea9b20f90207cba305ce71cdd297fa9",
+    "path": "vendor/anduril-www/www.anduril.com/copperhead.md",
+    "section": "copperhead",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/counter-uas": {
+    "sha256": "0126d51b93a6c7b9bec7193a4da6070cec89379f56f50f52e97fa304fbd4b2e2",
+    "path": "vendor/anduril-www/www.anduril.com/counter-uas.md",
+    "section": "counter-uas",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/dive-ld": {
+    "sha256": "6bae939d897406293082f59b1e0d16997f564c2200c2cdc744a512b0f8840c1b",
+    "path": "vendor/anduril-www/www.anduril.com/dive-ld.md",
+    "section": "dive-ld",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/dive-xl": {
+    "sha256": "6e247f5e12df8b2a52035b03c3706959648413df74904a5cb7344bbba07506a7",
+    "path": "vendor/anduril-www/www.anduril.com/dive-xl.md",
+    "section": "dive-xl",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/eagleeye": {
+    "sha256": "bc705bee93590ec4887312870498bfd9d8de0ca41aef3e1e47bd3ac7bc691dfe",
+    "path": "vendor/anduril-www/www.anduril.com/eagleeye.md",
+    "section": "eagleeye",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/early-careers": {
+    "sha256": "042588172a5168c81a37264ca23724b307add95388776c728c055df6fcffed6e",
+    "path": "vendor/anduril-www/www.anduril.com/early-careers.md",
+    "section": "early-careers",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/fury": {
+    "sha256": "850e08a4960b0bff20ea798a212c9716a16b205e96f73e65036e538d0829373f",
+    "path": "vendor/anduril-www/www.anduril.com/fury.md",
+    "section": "fury",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/ghost": {
+    "sha256": "97810f95c7d30d1dfd8e91c20200d54c4eb2a210db84681d81acb0b5f661a1ab",
+    "path": "vendor/anduril-www/www.anduril.com/ghost.md",
+    "section": "ghost",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/investor-relations": {
+    "sha256": "2a3a9c9c13f97f33dacc42780848685fbf81a78abaf7689234be131810705ce5",
+    "path": "vendor/anduril-www/www.anduril.com/investor-relations.md",
+    "section": "investor-relations",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/land": {
+    "sha256": "201a729ca012372231e6df3197fd71b13ea588d0f85b1c31ece301c420cf3bdc",
+    "path": "vendor/anduril-www/www.anduril.com/land.md",
+    "section": "land",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/land/counter-intrusion": {
+    "sha256": "66749729d0441a7ab7a9997dd893b2f0e80d107312e7861b1e8e135c80f9ec6b",
+    "path": "vendor/anduril-www/www.anduril.com/land/counter-intrusion.md",
+    "section": "land",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice": {
+    "sha256": "9c7cb6ff08a9c6f0d3d5dc9a8d476437140eeab51c53cfe3708f86033ff3cbb2",
+    "path": "vendor/anduril-www/www.anduril.com/lattice.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice/command-and-control": {
+    "sha256": "d3c3ca0597654c1d3e852cda3110bf7f6bbb8b2a91e22f4b4bc92f109c685967",
+    "path": "vendor/anduril-www/www.anduril.com/lattice/command-and-control.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice/lattice-mesh": {
+    "sha256": "0700de088ee03cd3db9b04ede53e4d9bd1d0bae9ed580a4622547e4c07ae1b14",
+    "path": "vendor/anduril-www/www.anduril.com/lattice/lattice-mesh.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice/lattice-partner-program": {
+    "sha256": "e3f3f5be4459b586fe80efc95b73930434a88fbd1aa98c8d4d33f781af1d0808",
+    "path": "vendor/anduril-www/www.anduril.com/lattice/lattice-partner-program.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice/lattice-sdk": {
+    "sha256": "021f8e37de4f1d9829d23785b48e1ab03d651dbfc17243c86568333fdb647f61",
+    "path": "vendor/anduril-www/www.anduril.com/lattice/lattice-sdk.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/lattice/mission-autonomy": {
+    "sha256": "0ef14d26207ad070c5e2fc56cbce812125e3124072c79b9707877159d52c60bc",
+    "path": "vendor/anduril-www/www.anduril.com/lattice/mission-autonomy.md",
+    "section": "lattice",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/menace-i": {
+    "sha256": "1c4efc726b6833224ba8723563c6d02f7d5ae4476211e6965490176c6adc2993",
+    "path": "vendor/anduril-www/www.anduril.com/menace-i.md",
+    "section": "menace-i",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/menace-t": {
+    "sha256": "7a09172315b927e6a9ddbf440aff4649bc6cfc3e7058f1360ee6d2d188279a6a",
+    "path": "vendor/anduril-www/www.anduril.com/menace-t.md",
+    "section": "menace-t",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/menace-x": {
+    "sha256": "f0843702d975c22e7bd19cd80003c964357a9438d96eda9813353bd658580279",
+    "path": "vendor/anduril-www/www.anduril.com/menace-x.md",
+    "section": "menace-x",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/mission": {
+    "sha256": "febc36769f556d5191fa064f7e5be1db9f6569e151551a05c02f88038dd1b656",
+    "path": "vendor/anduril-www/www.anduril.com/mission.md",
+    "section": "mission",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/modern-anti-slavery-policy": {
+    "sha256": "39bb2f7d559128bcf7a1b98aadafd4fbb62b9595d80d08fef1f65b344445c665",
+    "path": "vendor/anduril-www/www.anduril.com/modern-anti-slavery-policy.md",
+    "section": "modern-anti-slavery-policy",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/news": {
+    "sha256": "5c09643b6e6975b38a2d0ee0bf77f88fa4f89cabfef3e49cbf84719879ca9cdd",
+    "path": "vendor/anduril-www/www.anduril.com/news.md",
+    "section": "news",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/news/a-new-testbed-for-sovereign-defence": {
+    "sha256": "e8831183a050106ca3456244e49a4823b158e4bed1073a3b13b39d93658dd9e1",
+    "path": "vendor/anduril-www/www.anduril.com/news/a-new-testbed-for-sovereign-defence.md",
+    "section": "news",
+    "datePublished": "2025-11-11",
+    "dateModified": "2025-11-11"
+  },
+  "https://www.anduril.com/news/ai-insight-forum-national-security": {
+    "sha256": "0d2be3b2f8e093f35168221d7f89da3260fabc4940f545bdbdff3f875b9c7e12",
+    "path": "vendor/anduril-www/www.anduril.com/news/ai-insight-forum-national-security.md",
+    "section": "news",
+    "datePublished": "2023-12-06",
+    "dateModified": "2023-12-06"
+  },
+  "https://www.anduril.com/news/air-force-ghost-selection": {
+    "sha256": "517780ac491185a02af4f2697ae49b4788c55b14ffdb941613a06166d1c6dadb",
+    "path": "vendor/anduril-www/www.anduril.com/news/air-force-ghost-selection.md",
+    "section": "news",
+    "datePublished": "2023-09-29",
+    "dateModified": "2023-09-29"
+  },
+  "https://www.anduril.com/news/altius-600-achieves-uk-milestone-in-ale-test-with-leonardo": {
+    "sha256": "17807932d6c2bbe3ade413cae510592c910601ad100da3bf2f5f9b54b2d1df8f",
+    "path": "vendor/anduril-www/www.anduril.com/news/altius-600-achieves-uk-milestone-in-ale-test-with-leonardo.md",
+    "section": "news",
+    "datePublished": "2023-02-03",
+    "dateModified": "2023-02-03"
+  },
+  "https://www.anduril.com/news/altius-700m-live-fire-test": {
+    "sha256": "5e0c7a2b95405cc5be48885ccaf30442f9f54f7b20ef521347a29d200a0ec9e0",
+    "path": "vendor/anduril-www/www.anduril.com/news/altius-700m-live-fire-test.md",
+    "section": "news",
+    "datePublished": "2024-03-14",
+    "dateModified": "2024-03-14"
+  },
+  "https://www.anduril.com/news/altius-air-launched-effects-demonstrated-advanced-teaming-at-us-army-project-edge-2022": {
+    "sha256": "c187d30318a0c93222e19375edb80a98cf1a255fb7f0187ea7ceead08b2e804d",
+    "path": "vendor/anduril-www/www.anduril.com/news/altius-air-launched-effects-demonstrated-advanced-teaming-at-us-army-project-edge-2022.md",
+    "section": "news",
+    "datePublished": "2022-05-19",
+    "dateModified": "2022-05-19"
+  },
+  "https://www.anduril.com/news/altius-open-architecture-for-a-changing-battlefield": {
+    "sha256": "9c0a4c91118e21e6b2eed44504a7c5846f4bcc2271f14a48764b5d7dac2e03fc",
+    "path": "vendor/anduril-www/www.anduril.com/news/altius-open-architecture-for-a-changing-battlefield.md",
+    "section": "news",
+    "datePublished": "2022-05-23",
+    "dateModified": "2022-05-23"
+  },
+  "https://www.anduril.com/news/anduril-250-race-the-base-nascar-cup-series-street-race-to-headline-nascar-san-diego-weekend": {
+    "sha256": "a1ca9101019b4f74d26b06c03cd177a9567db5ef86a9550e6d1fc4be095cfea1",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-250-race-the-base-nascar-cup-series-street-race-to-headline-nascar-san-diego-weekend.md",
+    "section": "news",
+    "datePublished": "2025-08-14",
+    "dateModified": "2025-08-14"
+  },
+  "https://www.anduril.com/news/anduril-acquires-blue-force-technologies": {
+    "sha256": "1514ab419ee4690c2bdb1dfccde2130b1df6836dbe0b4f1f6c9a338fcd375342",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-acquires-blue-force-technologies.md",
+    "section": "news",
+    "datePublished": "2023-09-07",
+    "dateModified": "2023-09-07"
+  },
+  "https://www.anduril.com/news/anduril-acquires-radar-and-command-and-control-businesses-of-numerica-corporation": {
+    "sha256": "fcff53d7bbc4247e5319bdd93d4fd708f4f3c3e9105e9d4ca935541cdaf0fec5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-acquires-radar-and-command-and-control-businesses-of-numerica-corporation.md",
+    "section": "news",
+    "datePublished": "2025-01-09",
+    "dateModified": "2025-01-09"
+  },
+  "https://www.anduril.com/news/anduril-adds-5g-comms-to-sentry-family-of-systems": {
+    "sha256": "3401d85cd458ab93d0053010639a5aa476f6fcd772d976fad67a0194500d8c64",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-adds-5g-comms-to-sentry-family-of-systems.md",
+    "section": "news",
+    "datePublished": "2026-04-30",
+    "dateModified": "2026-04-30"
+  },
+  "https://www.anduril.com/news/anduril-adds-two-executives-to-leadership-team": {
+    "sha256": "887db8665e75a9e0007345055c9a3479e2ecbc46c41dc2ff70a2c22365a6f3cc",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-adds-two-executives-to-leadership-team.md",
+    "section": "news",
+    "datePublished": "2020-09-16",
+    "dateModified": "2020-09-16"
+  },
+  "https://www.anduril.com/news/anduril-air-force-collaborative-combat-aircraft-CCA": {
+    "sha256": "53fe8a42fb62ce799f3dae69383d5ea78314d2863c8c0db652a83946d992f283",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-air-force-collaborative-combat-aircraft-CCA.md",
+    "section": "news",
+    "datePublished": "2024-04-24",
+    "dateModified": "2024-04-24"
+  },
+  "https://www.anduril.com/news/anduril-and-aalyria-partner-to-integrate-technologies-to-enhance-national-security-capabilities": {
+    "sha256": "1cdcd13d57282589a517f46db3e4f19ad1d70faaaeed053f5d20377971b17dd8",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-aalyria-partner-to-integrate-technologies-to-enhance-national-security-capabilities.md",
+    "section": "news",
+    "datePublished": "2023-05-09",
+    "dateModified": "2023-05-09"
+  },
+  "https://www.anduril.com/news/anduril-and-epirus-integration-leads-to-new-counter-uas-capability": {
+    "sha256": "bdb0e5cd825d02df931b65e65208c296d271e5855610914fc80b11114a4be912",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-epirus-integration-leads-to-new-counter-uas-capability.md",
+    "section": "news",
+    "datePublished": "2023-07-28",
+    "dateModified": "2023-07-28"
+  },
+  "https://www.anduril.com/news/anduril-and-impulse-space-expand-partnership-to-conduct-rpo-mission-demonstration-in-geo": {
+    "sha256": "f8ce76c9c4bcf7263d769fb39ff89d695ead469854822321a2eab6610fbf4489",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-impulse-space-expand-partnership-to-conduct-rpo-mission-demonstration-in-geo.md",
+    "section": "news",
+    "datePublished": "2025-09-16",
+    "dateModified": "2025-09-16"
+  },
+  "https://www.anduril.com/news/anduril-and-impulse-space-partner-on-highly-maneuverable-space-missions": {
+    "sha256": "0df6714ab84ffbe083b03e7740cdb503e312aff09b073630a23ae3331a3eadd8",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-impulse-space-partner-on-highly-maneuverable-space-missions.md",
+    "section": "news",
+    "datePublished": "2024-10-11",
+    "dateModified": "2024-10-11"
+  },
+  "https://www.anduril.com/news/anduril-and-meta-team-up-to-transform-xr-for-the-american-military": {
+    "sha256": "255c43ed679c532ab1cd74b69b71f84fbbff276de2e5f9886be176cec458b8eb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-meta-team-up-to-transform-xr-for-the-american-military.md",
+    "section": "news",
+    "datePublished": "2025-05-29",
+    "dateModified": "2025-05-29"
+  },
+  "https://www.anduril.com/news/anduril-and-microsoft-partner-to-advance-integrated-visual-augmentation-system-ivas-program-for": {
+    "sha256": "93b77f2717b65ddb06583f3354d4e6831a97cd04e0082c431643049cb8b54391",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-microsoft-partner-to-advance-integrated-visual-augmentation-system-ivas-program-for.md",
+    "section": "news",
+    "datePublished": "2025-02-11",
+    "dateModified": "2025-02-11"
+  },
+  "https://www.anduril.com/news/anduril-and-oracle-partner-to-deliver-ai-powered-defense-solutions-from-the-datacenter-to-the": {
+    "sha256": "e2ab8a772109c56ff095b1fe7d3ed7cc2b849e993b4eb1b9b3f7f703c4d28589",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-oracle-partner-to-deliver-ai-powered-defense-solutions-from-the-datacenter-to-the.md",
+    "section": "news",
+    "datePublished": "2024-09-10",
+    "dateModified": "2024-09-10"
+  },
+  "https://www.anduril.com/news/anduril-and-overland-ai-coordinating-autonomous-effects-across-air-and-land": {
+    "sha256": "b2b3888dbfd13cdfd864f2be4781d4cb65e018e3d2b17a7c766b5d2f0b85ea9d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-overland-ai-coordinating-autonomous-effects-across-air-and-land.md",
+    "section": "news",
+    "datePublished": "2025-10-10",
+    "dateModified": "2025-10-10"
+  },
+  "https://www.anduril.com/news/anduril-and-palantir-to-accelerate-ai-capabilities-for-national-security": {
+    "sha256": "3281be012fc4083d6b22dbe5d6635d318d307f3cbe3c38691ae04db2db86d58a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-palantir-to-accelerate-ai-capabilities-for-national-security.md",
+    "section": "news",
+    "datePublished": "2024-12-06",
+    "dateModified": "2024-12-06"
+  },
+  "https://www.anduril.com/news/anduril-and-raytheon-successfully-test-highly-loaded-grain-rocket-motor-for-air-to-air-weapons": {
+    "sha256": "27be3ce920b1f8e56d4646e2a293b5a5aff73130b39c30cb8f968f9ee19cbf60",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-raytheon-successfully-test-highly-loaded-grain-rocket-motor-for-air-to-air-weapons.md",
+    "section": "news",
+    "datePublished": "2025-10-07",
+    "dateModified": "2025-10-07"
+  },
+  "https://www.anduril.com/news/anduril-and-the-royal-australian-navy-to-partner-on-extra-large-autonomous-undersea-vehicles": {
+    "sha256": "c70291b0fd333645a64a9e260cb1428b08a2d3bb50d2fc773f8f4ef715408e58",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-the-royal-australian-navy-to-partner-on-extra-large-autonomous-undersea-vehicles.md",
+    "section": "news",
+    "datePublished": "2022-05-04",
+    "dateModified": "2022-05-04"
+  },
+  "https://www.anduril.com/news/anduril-and-u-s-customs-and-border-protection-expand-partnership-with-200-additional-extended-range-sentry-towers": {
+    "sha256": "9c0ac514558948a486f80bffab2a00363d3402cb0254e024c944b425a21b2537",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-and-u-s-customs-and-border-protection-expand-partnership-with-200-additional-extended-range-sentry-towers.md",
+    "section": "news",
+    "datePublished": "2026-06-12",
+    "dateModified": "2026-06-12"
+  },
+  "https://www.anduril.com/news/anduril-announces-autonomous-undersea-cable-inspection-project": {
+    "sha256": "e32840fa544dbc3a928110890bc28dd8ce2d9d9ee001b1f51a5632fe425d57b3",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-autonomous-undersea-cable-inspection-project.md",
+    "section": "news",
+    "datePublished": "2023-03-26",
+    "dateModified": "2023-03-26"
+  },
+  "https://www.anduril.com/news/anduril-announces-best-in-class-loitering-munition": {
+    "sha256": "49fd4a3f96bfadb92aff775a29303e994dde7094788693ceee1ba7a27c3c5504",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-best-in-class-loitering-munition.md",
+    "section": "news",
+    "datePublished": "2022-10-06",
+    "dateModified": "2022-10-06"
+  },
+  "https://www.anduril.com/news/anduril-announces-key-leadership-promotions": {
+    "sha256": "2893d71b20963885587e612b7c1976edf553d2f386538522c37db06a5367d338",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-key-leadership-promotions.md",
+    "section": "news",
+    "datePublished": "2025-01-23",
+    "dateModified": "2025-01-23"
+  },
+  "https://www.anduril.com/news/anduril-announces-major-california-expansion-with-new-long-beach-campus": {
+    "sha256": "24485a22e1988f62cd921533ae6028cce0a1b319eb39b37bf73ae26aef22bbec",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-major-california-expansion-with-new-long-beach-campus.md",
+    "section": "news",
+    "datePublished": "2026-01-22",
+    "dateModified": "2026-01-22"
+  },
+  "https://www.anduril.com/news/anduril-announces-menace-x-for-mobile-distributed-command-and-control": {
+    "sha256": "53f70f347b6146972a72630cdea8233d15a726556c7811a93227b1532d1adbe2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-menace-x-for-mobile-distributed-command-and-control.md",
+    "section": "news",
+    "datePublished": "2024-04-29",
+    "dateModified": "2024-04-29"
+  },
+  "https://www.anduril.com/news/anduril-announces-pulsar": {
+    "sha256": "4f38b307d1286c86d69c48a912f169a45cfb097cbd7bf9ef5019af4f5acf36bb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-pulsar.md",
+    "section": "news",
+    "datePublished": "2024-05-06",
+    "dateModified": "2024-05-06"
+  },
+  "https://www.anduril.com/news/anduril-announces-usd5b-series-h-raise": {
+    "sha256": "16b63812a2c6e7581019569a53c12d406260373eef8435adb9422d386a009f77",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-announces-usd5b-series-h-raise.md",
+    "section": "news",
+    "datePublished": "2026-05-13",
+    "dateModified": "2026-05-13"
+  },
+  "https://www.anduril.com/news/anduril-appoints-richard-drake-as-general-manager-of-anduril-uk-and-europe": {
+    "sha256": "0321a73280fbcf39b4353dc618eb2a5fcfd647f8333ec9715a33b706d140d3f5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-appoints-richard-drake-as-general-manager-of-anduril-uk-and-europe.md",
+    "section": "news",
+    "datePublished": "2023-11-20",
+    "dateModified": "2023-11-20"
+  },
+  "https://www.anduril.com/news/anduril-at-abms": {
+    "sha256": "09c1e601c81fb63f5987c1f0de1b69f4bd5af79ca01c0b7948164783d040751e",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-at-abms.md",
+    "section": "news",
+    "datePublished": "2020-09-08",
+    "dateModified": "2020-09-08"
+  },
+  "https://www.anduril.com/news/anduril-australia-and-asia-pacific-welcomes-pete-quinn-ao-csc-as-vice-president-strategy": {
+    "sha256": "00eb069997a98b768cdd10e534f9dd6b9872ebd2932179464abd7df15c50b2b8",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-australia-and-asia-pacific-welcomes-pete-quinn-ao-csc-as-vice-president-strategy.md",
+    "section": "news",
+    "datePublished": "2024-01-12",
+    "dateModified": "2024-01-12"
+  },
+  "https://www.anduril.com/news/anduril-australia-to-build-ghost-shark-factory": {
+    "sha256": "0a77ec615b87b4f72cf871628731b40bddc36b943edf61d7846718cc6a1ec544",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-australia-to-build-ghost-shark-factory.md",
+    "section": "news",
+    "datePublished": "2024-08-14",
+    "dateModified": "2024-08-14"
+  },
+  "https://www.anduril.com/news/anduril-awarded-10-year-642m-program-of-record-to-deliver-cuas-systems-for-u-s-marine-corps": {
+    "sha256": "a2d2a9ae449a865dabb4ad7112a7c01d55dc222ad889544a3bf445257db105d1",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-10-year-642m-program-of-record-to-deliver-cuas-systems-for-u-s-marine-corps.md",
+    "section": "news",
+    "datePublished": "2025-03-13",
+    "dateModified": "2025-03-13"
+  },
+  "https://www.anduril.com/news/anduril-awarded-contract-to-redefine-the-future-of-mixed-reality": {
+    "sha256": "67ce4806b8e90e0e535b5002b336f8055b0e547fd636a904262bf5cc14201263",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-contract-to-redefine-the-future-of-mixed-reality.md",
+    "section": "news",
+    "datePublished": "2025-09-08",
+    "dateModified": "2025-09-08"
+  },
+  "https://www.anduril.com/news/anduril-awarded-defense-production-act-investment-to-expand-solid-rocket-motors-industrial-base": {
+    "sha256": "04a1ade107234014614723eb2ab181a292d36b9cddf8fa97b7238ec430806896",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-defense-production-act-investment-to-expand-solid-rocket-motors-industrial-base.md",
+    "section": "news",
+    "datePublished": "2025-01-07",
+    "dateModified": "2025-01-07"
+  },
+  "https://www.anduril.com/news/anduril-awarded-dutch-ministry-of-defence-cuas-contract": {
+    "sha256": "0163318030800df957a2d1b97321bc209068553ff0cdcfb850c6f178432494c4",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-dutch-ministry-of-defence-cuas-contract.md",
+    "section": "news",
+    "datePublished": "2026-05-07",
+    "dateModified": "2026-05-07"
+  },
+  "https://www.anduril.com/news/anduril-awarded-program-of-record-space-surveillance-network": {
+    "sha256": "251ba9f0bd464ef25d68761d3aa8b5bffeb36159dc93c6bee2febad158dc15e4",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-program-of-record-space-surveillance-network.md",
+    "section": "news",
+    "datePublished": "2024-11-21",
+    "dateModified": "2024-11-21"
+  },
+  "https://www.anduril.com/news/anduril-awarded-usd23-9-million-contract-for-u-s-marine-corps-organic-precision-fires-light-program": {
+    "sha256": "5897ae4f28d994414c849ad242b0ba9f30907884584a0754d8a59213de8c0426",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-usd23-9-million-contract-for-u-s-marine-corps-organic-precision-fires-light-program.md",
+    "section": "news",
+    "datePublished": "2026-01-15",
+    "dateModified": "2026-01-15"
+  },
+  "https://www.anduril.com/news/anduril-awarded-usd99-6m-for-u-s-army-next-generation-command-and-control-prototype": {
+    "sha256": "a39e2314ae52b08ce41e51b6a2557d370c857c95c25c8692660c8cc9c1180207",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-awarded-usd99-6m-for-u-s-army-next-generation-command-and-control-prototype.md",
+    "section": "news",
+    "datePublished": "2025-07-18",
+    "dateModified": "2025-07-18"
+  },
+  "https://www.anduril.com/news/anduril-brings-unmanned-technology-to-navy-exercise": {
+    "sha256": "74ca1acf34b97ad405388378d587efcc66aec5a37d323c70442f03cc9ebbaab2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-brings-unmanned-technology-to-navy-exercise.md",
+    "section": "news",
+    "datePublished": "2022-02-21",
+    "dateModified": "2022-02-21"
+  },
+  "https://www.anduril.com/news/anduril-building-arsenal-1-hyperscale-manufacturing-facility-in-ohio": {
+    "sha256": "7bee0c194d5e044797787ad1ab73bec4cd2a57a3269c65c51a49cc28d30168ff",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-building-arsenal-1-hyperscale-manufacturing-facility-in-ohio.md",
+    "section": "news",
+    "datePublished": "2025-01-16",
+    "dateModified": "2025-01-16"
+  },
+  "https://www.anduril.com/news/anduril-celebrates-our-veterans": {
+    "sha256": "e90938cf14673eaf0ab72bdd2ff8f0de48aed915b20db2581fe36841374b515d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-celebrates-our-veterans.md",
+    "section": "news",
+    "datePublished": "2020-11-11",
+    "dateModified": "2020-11-11"
+  },
+  "https://www.anduril.com/news/anduril-delivers-commercial-data-transport-resilience-to-space-surveillance-network": {
+    "sha256": "e3d4588f8fa741c9b54711c71de6f975499ed1675197e4f3dda6a5e6065ad132",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-delivers-commercial-data-transport-resilience-to-space-surveillance-network.md",
+    "section": "news",
+    "datePublished": "2023-07-21",
+    "dateModified": "2023-07-21"
+  },
+  "https://www.anduril.com/news/anduril-demonstrates-and-delivers-counter-uas-capabilities-to-usnorthcom-at-falcon-peak-25-2": {
+    "sha256": "1bf99840c891526102dae6bcd3c12060af35f160ec19cfb40c6dbd55162b494f",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-demonstrates-and-delivers-counter-uas-capabilities-to-usnorthcom-at-falcon-peak-25-2.md",
+    "section": "news",
+    "datePublished": "2025-10-17",
+    "dateModified": "2025-10-17"
+  },
+  "https://www.anduril.com/news/anduril-demonstrates-connected-defense-on-nato-s-eastern-flank": {
+    "sha256": "6d045c1e95b2ab1e543e4f7b48154b1a7ebfc62af5433231f716d20763c8fc34",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-demonstrates-connected-defense-on-nato-s-eastern-flank.md",
+    "section": "news",
+    "datePublished": "2025-11-24",
+    "dateModified": "2025-11-24"
+  },
+  "https://www.anduril.com/news/anduril-demonstrates-lattice-for-mission-autonomy-controlling-teams-of-autonomous-assets-at-us": {
+    "sha256": "ab767427fcbdd631dfc07257f321372c1e53e769cae42df8570b253511e3cec2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-demonstrates-lattice-for-mission-autonomy-controlling-teams-of-autonomous-assets-at-us.md",
+    "section": "news",
+    "datePublished": "2023-06-01",
+    "dateModified": "2023-06-01"
+  },
+  "https://www.anduril.com/news/anduril-department-of-war-sign-production-agreement-for-surface-launched-barracuda-500m": {
+    "sha256": "27da4c58489fa8499b7389aef81e8850f43319ecc39af3ead8fd2bc821b40efb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-department-of-war-sign-production-agreement-for-surface-launched-barracuda-500m.md",
+    "section": "news",
+    "datePublished": "2026-05-13",
+    "dateModified": "2026-05-13"
+  },
+  "https://www.anduril.com/news/anduril-deploys-300th-autonomous-surveillance-tower-ast-advancing-capability-for-border-security": {
+    "sha256": "45778aa29ae741306060e64e72920682294141e4370e4d4d50c37b4e22853f09",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-deploys-300th-autonomous-surveillance-tower-ast-advancing-capability-for-border-security.md",
+    "section": "news",
+    "datePublished": "2024-09-26",
+    "dateModified": "2024-09-26"
+  },
+  "https://www.anduril.com/news/anduril-expanding-testing-operations-to-nevada-national-security-site": {
+    "sha256": "7f00e400054f40b50d01d662b4cfa92ec191c27a5a96d39437e2184300304f8d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expanding-testing-operations-to-nevada-national-security-site.md",
+    "section": "news",
+    "datePublished": "2022-08-10",
+    "dateModified": "2022-08-10"
+  },
+  "https://www.anduril.com/news/anduril-expands-commitment-to-taiwan-with-new-capabilities-partnerships-and-local-investment": {
+    "sha256": "9c063f195612fc14ef4a1215cc37e7e752a928bbc196f7a83e04474751dc6ff5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-commitment-to-taiwan-with-new-capabilities-partnerships-and-local-investment.md",
+    "section": "news",
+    "datePublished": "2025-08-05",
+    "dateModified": "2025-08-05"
+  },
+  "https://www.anduril.com/news/anduril-expands-global-presence-now-hiring-in-boston-and-london": {
+    "sha256": "efca5b86903574f3a8175db1db6d54e731eee3f1fda2f0b448b93479816fc8d2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-global-presence-now-hiring-in-boston-and-london.md",
+    "section": "news",
+    "datePublished": "2020-08-04",
+    "dateModified": "2020-08-04"
+  },
+  "https://www.anduril.com/news/anduril-expands-into-new-atlanta-office-research-development-and-production-facility": {
+    "sha256": "f449c58daaf15d5d6dfffdeb97d65ef70049c6706d9aad37020e990a74b86fa0",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-into-new-atlanta-office-research-development-and-production-facility.md",
+    "section": "news",
+    "datePublished": "2023-03-13",
+    "dateModified": "2023-03-13"
+  },
+  "https://www.anduril.com/news/anduril-expands-solid-rocket-motor-production-facility": {
+    "sha256": "30f12a8006c01c71715e383f4cdd0287c4f915dfb8778b5e68b336ffaec9fb35",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-solid-rocket-motor-production-facility.md",
+    "section": "news",
+    "datePublished": "2024-06-10",
+    "dateModified": "2024-06-10"
+  },
+  "https://www.anduril.com/news/anduril-expands-space": {
+    "sha256": "217afaea3bd9ca0d2e0a33c5c89e087fdfd831bdf2f3223594836d55b136b0fb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-space.md",
+    "section": "news",
+    "datePublished": "2024-09-13",
+    "dateModified": "2024-09-13"
+  },
+  "https://www.anduril.com/news/anduril-expands-to-japan-advancing-its-mission-to-transform-allied-defense": {
+    "sha256": "e1ccfdc5766f08a7e8b27177a4a2c31e5c23ee170c2ca0825537fab97320be0f",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-to-japan-advancing-its-mission-to-transform-allied-defense.md",
+    "section": "news",
+    "datePublished": "2025-12-03",
+    "dateModified": "2025-12-03"
+  },
+  "https://www.anduril.com/news/anduril-expands-to-republic-of-korea": {
+    "sha256": "3ee0bd81ed8bca4afce3649fbfab181eed23e5ed5dbeffd486d548136165b656",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-expands-to-republic-of-korea.md",
+    "section": "news",
+    "datePublished": "2025-08-07",
+    "dateModified": "2025-08-07"
+  },
+  "https://www.anduril.com/news/anduril-hires-keith-flynn-to-lead-manufacturing": {
+    "sha256": "0a5e7a896b80c855f7195e04a9a2365bf742425f816ad805ebba4b93da4211db",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-hires-keith-flynn-to-lead-manufacturing.md",
+    "section": "news",
+    "datePublished": "2023-10-25",
+    "dateModified": "2023-10-25"
+  },
+  "https://www.anduril.com/news/anduril-hires-lieutenant-general-neil-thurgood-announces-planned-expansion-to-huntsville-al": {
+    "sha256": "9f5dc6a0ae92f07919c2f62749c27a10028350587b448693233e786c748cb5bb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-hires-lieutenant-general-neil-thurgood-announces-planned-expansion-to-huntsville-al.md",
+    "section": "news",
+    "datePublished": "2023-06-05",
+    "dateModified": "2023-06-05"
+  },
+  "https://www.anduril.com/news/anduril-in-2023-a-year-in-review": {
+    "sha256": "5ecca88e724d64ef7834b05cdd1beb04a30800da18cae74232aaa95b1f9f6509",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-in-2023-a-year-in-review.md",
+    "section": "news",
+    "datePublished": "2023-12-22",
+    "dateModified": "2023-12-22"
+  },
+  "https://www.anduril.com/news/anduril-industries-achieves-as9100-certification": {
+    "sha256": "a7089a3e0f178c1f8e513a9a0dac339464251fb1140ac0854729c8c3b7929f15",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-achieves-as9100-certification.md",
+    "section": "news",
+    "datePublished": "2022-02-10",
+    "dateModified": "2022-02-10"
+  },
+  "https://www.anduril.com/news/anduril-industries-acquires-american-infrared-solutions": {
+    "sha256": "28e0fff479b422e4311f58f2e558c6e58dccdf89e0a725a2c538b37b65371c7e",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-acquires-american-infrared-solutions.md",
+    "section": "news",
+    "datePublished": "2025-10-20",
+    "dateModified": "2025-10-20"
+  },
+  "https://www.anduril.com/news/anduril-industries-acquires-area-i-adds-altius-capabilities-to-hardware-portfolio": {
+    "sha256": "88e0acc3cfc429a650e8082b379fd0628c6081894e55624cb0628f719007af25",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-acquires-area-i-adds-altius-capabilities-to-hardware-portfolio.md",
+    "section": "news",
+    "datePublished": "2021-04-01",
+    "dateModified": "2021-04-01"
+  },
+  "https://www.anduril.com/news/anduril-industries-acquires-copius-imaging": {
+    "sha256": "e3ff66089c24edc510c74153b3e62a26c468aabdb54333bc9759e919e6979659",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-acquires-copius-imaging.md",
+    "section": "news",
+    "datePublished": "2021-09-28",
+    "dateModified": "2021-09-28"
+  },
+  "https://www.anduril.com/news/anduril-industries-acquires-dive-technologies": {
+    "sha256": "d6714e5f2bedbe0e77ccd6f9dac4bb19b9da48cc0f658171c4e9af8cb7f1ae79",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-acquires-dive-technologies.md",
+    "section": "news",
+    "datePublished": "2022-02-02",
+    "dateModified": "2022-02-02"
+  },
+  "https://www.anduril.com/news/anduril-industries-acquires-solid-rocket-motor-manufacturer-adranos": {
+    "sha256": "c7fce8c9b10d4eea8922fb3a0f8e4881c53e3871d1b08cfbc08e6e0cc9064181",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-acquires-solid-rocket-motor-manufacturer-adranos.md",
+    "section": "news",
+    "datePublished": "2023-06-25",
+    "dateModified": "2023-06-25"
+  },
+  "https://www.anduril.com/news/anduril-industries-and-flacktek-partner-to-revolutionize-production-of-rocket-motor-systems": {
+    "sha256": "39511e25a13b4967d88228f525d048cded3e83c0f858cd51b5291e269dd1caed",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-and-flacktek-partner-to-revolutionize-production-of-rocket-motor-systems.md",
+    "section": "news",
+    "datePublished": "2024-10-03",
+    "dateModified": "2024-10-03"
+  },
+  "https://www.anduril.com/news/anduril-industries-and-hadrian-announce-strategic-partnership": {
+    "sha256": "b4fd3cba0e35605bb1e34b8a7879b62cad6f36796b5a2399ce3bc3b64377d40a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-and-hadrian-announce-strategic-partnership.md",
+    "section": "news",
+    "datePublished": "2023-06-14",
+    "dateModified": "2023-06-14"
+  },
+  "https://www.anduril.com/news/anduril-industries-and-rheinmetall-partner-to-design-and-manufacture-barracuda-fury-and-solid": {
+    "sha256": "3dbd59cc4697b9948b3b00d8814e297f1d78eee17f4cf958d95b432f0bb0db2f",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-and-rheinmetall-partner-to-design-and-manufacture-barracuda-fury-and-solid.md",
+    "section": "news",
+    "datePublished": "2025-06-18",
+    "dateModified": "2025-06-18"
+  },
+  "https://www.anduril.com/news/anduril-industries-and-team-lynx-win-contract-for-phase-3-and-4-of-the-u-s-army-s-optionally": {
+    "sha256": "ca99021fa76160666f6265e6ccca2610c4449f8a21f62bd586ed563dfef4cf19",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-and-team-lynx-win-contract-for-phase-3-and-4-of-the-u-s-army-s-optionally.md",
+    "section": "news",
+    "datePublished": "2023-07-25",
+    "dateModified": "2023-07-25"
+  },
+  "https://www.anduril.com/news/anduril-industries-awarded-air-defense-production-contract-with-department-of-defense": {
+    "sha256": "78503d4bbcee7a88dc8abf6816294b75e78d31643e52250d2dda3ba72246bda7",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-awarded-air-defense-production-contract-with-department-of-defense.md",
+    "section": "news",
+    "datePublished": "2024-10-08",
+    "dateModified": "2024-10-08"
+  },
+  "https://www.anduril.com/news/anduril-industries-awarded-gbp17-million-ministry-of-defence-force-protection-technology": {
+    "sha256": "955fbe0f3ddc6743b69e254232671f359658a4d5ec98ee9ed50b2a927548379a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-awarded-gbp17-million-ministry-of-defence-force-protection-technology.md",
+    "section": "news",
+    "datePublished": "2023-10-29",
+    "dateModified": "2023-10-29"
+  },
+  "https://www.anduril.com/news/anduril-industries-awarded-usd200-million-contract-to-develop-counter-unmanned-aerial-system": {
+    "sha256": "240f877894ac4adc86bc438c024e702c58b8e2b4d200a728916af638d009b903",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-awarded-usd200-million-contract-to-develop-counter-unmanned-aerial-system.md",
+    "section": "news",
+    "datePublished": "2024-11-19",
+    "dateModified": "2024-11-19"
+  },
+  "https://www.anduril.com/news/anduril-industries-demonstrates-globally-distributed-command-and-control-capabilities-during": {
+    "sha256": "2e268bc072b788d3dd872cea936c5807f2245a81ae1816ed8a96f8ed026baa4a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-demonstrates-globally-distributed-command-and-control-capabilities-during.md",
+    "section": "news",
+    "datePublished": "2024-06-19",
+    "dateModified": "2024-06-19"
+  },
+  "https://www.anduril.com/news/anduril-industries-joins-american-rheinmetall-vehicles-team-lynx-to-deliver-data-fusion-and": {
+    "sha256": "821850b92eca91df47b7351a99393074d8fc03c873a5b383ed6d510c45ce8f3c",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-joins-american-rheinmetall-vehicles-team-lynx-to-deliver-data-fusion-and.md",
+    "section": "news",
+    "datePublished": "2022-09-06",
+    "dateModified": "2022-09-06"
+  },
+  "https://www.anduril.com/news/anduril-industries-joins-palantir-technologies-titan-industry-team": {
+    "sha256": "17d3799653792b544990ee0a9ede3577864e497fe6ba97862ece0bed577823cb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-joins-palantir-technologies-titan-industry-team.md",
+    "section": "news",
+    "datePublished": "2021-03-02",
+    "dateModified": "2021-03-02"
+  },
+  "https://www.anduril.com/news/anduril-industries-marine-corps-northern-edge-lattice-c2": {
+    "sha256": "249a0e1963296d72875d864c057272ed136ce3b2125da1f01e3c2cc14879a02e",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-marine-corps-northern-edge-lattice-c2.md",
+    "section": "news",
+    "datePublished": "2023-08-29",
+    "dateModified": "2023-08-29"
+  },
+  "https://www.anduril.com/news/anduril-industries-named-official-sponsor-of-the-ohio-state-university-athletics": {
+    "sha256": "395230e2e78f3d0b1db1cef90a5597ab5c838be197ffccc36910c94f89728dbe",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-named-official-sponsor-of-the-ohio-state-university-athletics.md",
+    "section": "news",
+    "datePublished": "2025-08-21",
+    "dateModified": "2025-08-21"
+  },
+  "https://www.anduril.com/news/anduril-industries-successfully-test-fires-hypersonic-solid-rocket-motor-for-the-u-s-navy": {
+    "sha256": "930f28a892afdf4a0e0b6f6241900859621ad62826b9c7dd93600b1f807e73ef",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-successfully-test-fires-hypersonic-solid-rocket-motor-for-the-u-s-navy.md",
+    "section": "news",
+    "datePublished": "2025-04-08",
+    "dateModified": "2025-04-08"
+  },
+  "https://www.anduril.com/news/anduril-industries-sumisho-aero-systems-to-demonstrate-diverse-command-and-control-for-the-japan": {
+    "sha256": "e1eefdedc6c4673ae960b3412ff55806283033deb28ef89167aeb778a8cb9663",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-sumisho-aero-systems-to-demonstrate-diverse-command-and-control-for-the-japan.md",
+    "section": "news",
+    "datePublished": "2024-07-31",
+    "dateModified": "2024-07-31"
+  },
+  "https://www.anduril.com/news/anduril-industries-to-partner-with-palantir-technologies-to-deliver-phase-2-prototype-for-us": {
+    "sha256": "684633822a1133c6c2d23b26bbd06acefeccd09a11ced0da27f242daac4f8531",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-to-partner-with-palantir-technologies-to-deliver-phase-2-prototype-for-us.md",
+    "section": "news",
+    "datePublished": "2022-07-06",
+    "dateModified": "2022-07-06"
+  },
+  "https://www.anduril.com/news/anduril-industries-to-provide-advanced-force-protection-technology-to-uk-ministry-of-defence-s": {
+    "sha256": "ba655b7fb0949b8e2bf61c3d43f6b38a390b8340935388c6abbed4570e110c37",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-to-provide-advanced-force-protection-technology-to-uk-ministry-of-defence-s.md",
+    "section": "news",
+    "datePublished": "2021-09-09",
+    "dateModified": "2021-09-09"
+  },
+  "https://www.anduril.com/news/anduril-industries-uk-and-archer-supported-by-skyports-drone-services-and-atkinsrealis-team-up": {
+    "sha256": "e42a5d44740dfb2071856c01e75d09ad71a0b5cebaabe1580fb3531a14588db4",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-industries-uk-and-archer-supported-by-skyports-drone-services-and-atkinsrealis-team-up.md",
+    "section": "news",
+    "datePublished": "2025-05-19",
+    "dateModified": "2025-05-19"
+  },
+  "https://www.anduril.com/news/anduril-interns-building-core-tech-for-21st-century-defense": {
+    "sha256": "1e535f04c8ad4462385cead61551fca1774f7370f78ecee0a2af78c773c06f8a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-interns-building-core-tech-for-21st-century-defense.md",
+    "section": "news",
+    "datePublished": "2023-08-23",
+    "dateModified": "2023-08-23"
+  },
+  "https://www.anduril.com/news/anduril-introduces-ghost-4": {
+    "sha256": "27919f07cbb5298cd85c505f6f10eb2118e86e5fc50ab7a57a94c59d24f4397b",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-introduces-ghost-4.md",
+    "section": "news",
+    "datePublished": "2020-09-10",
+    "dateModified": "2020-09-10"
+  },
+  "https://www.anduril.com/news/anduril-introduces-menace-t-a-compact-field-deployable-c4-system-designed-for-the-tactical-edge": {
+    "sha256": "15cffc10b25440af1a68e46665588a9967ec94987c9b9e213dc9e10294c4abb5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-introduces-menace-t-a-compact-field-deployable-c4-system-designed-for-the-tactical-edge.md",
+    "section": "news",
+    "datePublished": "2025-05-05",
+    "dateModified": "2025-05-05"
+  },
+  "https://www.anduril.com/news/anduril-introduces-seabed-sentry": {
+    "sha256": "2a3644cca6fd95d5bdc77e636e1ac90f93bc4c4c5ee4ac979324171ce67011eb",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-introduces-seabed-sentry.md",
+    "section": "news",
+    "datePublished": "2025-04-03",
+    "dateModified": "2025-04-03"
+  },
+  "https://www.anduril.com/news/anduril-introduces-voyager-gateway-1-rugged-edge-compute-for-the-dismounted-operator": {
+    "sha256": "85170a3706351b9bee0f35e745d7f687fbb965e69f602987d6bc5302e4ff3cef",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-introduces-voyager-gateway-1-rugged-edge-compute-for-the-dismounted-operator.md",
+    "section": "news",
+    "datePublished": "2026-05-19",
+    "dateModified": "2026-05-19"
+  },
+  "https://www.anduril.com/news/anduril-is-ready-to-execute-america-s-first-ever-national-defense-industrial-strategy": {
+    "sha256": "558ce86dc06e7b72f19ba3c8ee88c67275232b3dd163741d3b44c124c37f5ff2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-is-ready-to-execute-america-s-first-ever-national-defense-industrial-strategy.md",
+    "section": "news",
+    "datePublished": "2024-01-17",
+    "dateModified": "2024-01-17"
+  },
+  "https://www.anduril.com/news/anduril-is-the-2026-official-title-sponsor-of-the-murph-challenge": {
+    "sha256": "cc4bbc9a1f30951b17572e3bff8d1bd33f662fec67b8452fc9a497925f072746",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-is-the-2026-official-title-sponsor-of-the-murph-challenge.md",
+    "section": "news",
+    "datePublished": "2026-04-08",
+    "dateModified": "2026-04-08"
+  },
+  "https://www.anduril.com/news/anduril-joins-hendrick-motorsports-as-a-primary-sponsor-of-william-byron-through-2028": {
+    "sha256": "f0051523cca9e4248092cd46f25f207881803bcce4e2dd2a2f29f95eb9262a70",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-joins-hendrick-motorsports-as-a-primary-sponsor-of-william-byron-through-2028.md",
+    "section": "news",
+    "datePublished": "2025-10-22",
+    "dateModified": "2025-10-22"
+  },
+  "https://www.anduril.com/news/anduril-launched-effects-inform-expand-us-army-apache-capabilities": {
+    "sha256": "ef67afa93928b0bf4293bba50360996cb585a225cb0bd871f59c6fce657f8e68",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-launched-effects-inform-expand-us-army-apache-capabilities.md",
+    "section": "news",
+    "datePublished": "2026-04-06",
+    "dateModified": "2026-04-06"
+  },
+  "https://www.anduril.com/news/anduril-launches-extended-range-sentry-tower-xrst": {
+    "sha256": "e7b4a7cc1a0b109f228382e1780308ff51d3554b7785e4f3239954a608a869bd",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-launches-extended-range-sentry-tower-xrst.md",
+    "section": "news",
+    "datePublished": "2024-05-20",
+    "dateModified": "2024-05-20"
+  },
+  "https://www.anduril.com/news/anduril-launches-the-ai-grand-prix-a-global-autonomous-drone-race": {
+    "sha256": "33d97f1f22ec963fc54000986d2b6154ea6fc53a69bdb2441bb87b17cb88498a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-launches-the-ai-grand-prix-a-global-autonomous-drone-race.md",
+    "section": "news",
+    "datePublished": "2026-01-27",
+    "dateModified": "2026-01-27"
+  },
+  "https://www.anduril.com/news/anduril-microsoft-army-ivas": {
+    "sha256": "522a025bc0b70fb40956719eb22912dc49266ef3d857d9b1443c0d165577d824",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-microsoft-army-ivas.md",
+    "section": "news",
+    "datePublished": "2024-09-19",
+    "dateModified": "2024-09-19"
+  },
+  "https://www.anduril.com/news/anduril-names-leading-national-security-experts-to-new-advisory-board": {
+    "sha256": "ff9a4cb6a1e394a261210e6f3a8097c1147bfa0dbb4c18a02978964962a90d04",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-names-leading-national-security-experts-to-new-advisory-board.md",
+    "section": "news",
+    "datePublished": "2021-08-03",
+    "dateModified": "2021-08-03"
+  },
+  "https://www.anduril.com/news/anduril-partners-with-general-dynamics-land-systems-advancing-layered-defense-for-ground-forces": {
+    "sha256": "d5f4428532aa7f8052d6f1f0209e8d6fac360ff8dc6af4917131f305490af76f",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-partners-with-general-dynamics-land-systems-advancing-layered-defense-for-ground-forces.md",
+    "section": "news",
+    "datePublished": "2025-10-10",
+    "dateModified": "2025-10-10"
+  },
+  "https://www.anduril.com/news/anduril-partners-with-kraken-technology-group-on-small-usvs": {
+    "sha256": "6209ac69aec97eeca277b4f7f2759cc5d194f0531d2128f635acb04070e361a5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-partners-with-kraken-technology-group-on-small-usvs.md",
+    "section": "news",
+    "datePublished": "2026-04-21",
+    "dateModified": "2026-04-21"
+  },
+  "https://www.anduril.com/news/anduril-partners-with-openai-to-advance-u-s-artificial-intelligence-leadership-and-protect-u-s": {
+    "sha256": "cca89a07c55e81d1e0ef8a23b8b762e3287a2e3d17d7eee76cea96cdeb15f0d5",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-partners-with-openai-to-advance-u-s-artificial-intelligence-leadership-and-protect-u-s.md",
+    "section": "news",
+    "datePublished": "2024-12-04",
+    "dateModified": "2024-12-04"
+  },
+  "https://www.anduril.com/news/anduril-project-crucible": {
+    "sha256": "930078fa42e7cb3b3de0b198880561cf3bcc643e0a85f2d8dcded26c1cae7287",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-project-crucible.md",
+    "section": "news",
+    "datePublished": "2024-03-21",
+    "dateModified": "2024-03-21"
+  },
+  "https://www.anduril.com/news/anduril-raises-usd1-48-billion-in-series-e-funding": {
+    "sha256": "ee2528236a82bf51144fa02331fee5a8aaa24dede05ab2854dbaf1cd9f2996dc",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-raises-usd1-48-billion-in-series-e-funding.md",
+    "section": "news",
+    "datePublished": "2022-12-01",
+    "dateModified": "2022-12-01"
+  },
+  "https://www.anduril.com/news/anduril-raises-usd1-5-billion-to-rebuild-the-arsenal-of-democracy": {
+    "sha256": "a44de2352aab99c5fe71d3e3cc3c59d283c78e9a25aad6966e6980b64faf590e",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-raises-usd1-5-billion-to-rebuild-the-arsenal-of-democracy.md",
+    "section": "news",
+    "datePublished": "2024-08-07",
+    "dateModified": "2024-08-07"
+  },
+  "https://www.anduril.com/news/anduril-raises-usd450-million-in-series-d-funding": {
+    "sha256": "5498d269287704026279ff97c19a5bb6d5cd91e76cc0d98e87ddc52d0dc3d8da",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-raises-usd450-million-in-series-d-funding.md",
+    "section": "news",
+    "datePublished": "2021-06-17",
+    "dateModified": "2021-06-17"
+  },
+  "https://www.anduril.com/news/anduril-reaches-agreement-to-acquire-exoanalytic-solutions-to-accelerate-space-domain-awareness-and-missile-defense-capabilities": {
+    "sha256": "2c2bb7b1de5d0c3e731d5e6329622be432e3733b96a63712c3d2864f6c66dd4b",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-reaches-agreement-to-acquire-exoanalytic-solutions-to-accelerate-space-domain-awareness-and-missile-defense-capabilities.md",
+    "section": "news",
+    "datePublished": "2026-03-11",
+    "dateModified": "2026-03-11"
+  },
+  "https://www.anduril.com/news/anduril-s-dive-xl-setting-new-standards-for-maritime-autonomy": {
+    "sha256": "9a93d18114fee9bcabe1d43945fc18ca118d106e721ebd3532271e6f10412ac4",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-dive-xl-setting-new-standards-for-maritime-autonomy.md",
+    "section": "news",
+    "datePublished": "2024-12-09",
+    "dateModified": "2024-12-09"
+  },
+  "https://www.anduril.com/news/anduril-s-eagleeye-puts-mission-command-and-ai-directly-into-the-warfighter-s-helmet": {
+    "sha256": "5bbbe6dcdefaf112255302fa3f52122ba1f628bfbd1a512c18246e06a23e161a",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-eagleeye-puts-mission-command-and-ai-directly-into-the-warfighter-s-helmet.md",
+    "section": "news",
+    "datePublished": "2025-10-13",
+    "dateModified": "2025-10-13"
+  },
+  "https://www.anduril.com/news/anduril-s-lattice-a-trusted-dual-use-commercial-and-military-platform-for-public-safety-security": {
+    "sha256": "5f1d01d637f91db4f756209df3b1a043b08e58eb72db97edb41e021e4f9dc904",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-lattice-a-trusted-dual-use-commercial-and-military-platform-for-public-safety-security.md",
+    "section": "news",
+    "datePublished": "2023-07-31",
+    "dateModified": "2023-07-31"
+  },
+  "https://www.anduril.com/news/anduril-s-lattice-showcased-in-u-s-central-command-s-desert-guardian-1-0": {
+    "sha256": "cd0e65c5b5ac2b9818c939da9e1aceed9fa864edf51261b320ba27f3d04362bf",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-lattice-showcased-in-u-s-central-command-s-desert-guardian-1-0.md",
+    "section": "news",
+    "datePublished": "2024-11-12",
+    "dateModified": "2024-11-12"
+  },
+  "https://www.anduril.com/news/anduril-s-menace-family-of-systems-becomes-preferred-hardware-platform-for-palantir-s-edge": {
+    "sha256": "5cee4a18148ec9f46660ae000ee6914f93cf0126dad79abf8493d23eaf1e8698",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-menace-family-of-systems-becomes-preferred-hardware-platform-for-palantir-s-edge.md",
+    "section": "news",
+    "datePublished": "2025-05-07",
+    "dateModified": "2025-05-07"
+  },
+  "https://www.anduril.com/news/anduril-s-menace-x-demonstrates-ai-enabled-rapid-targeting-solution-at-marine-exercise": {
+    "sha256": "a25d1521d2d8299cb0778b88075e4f53d54c6d365b286f36692a216029d0c73d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-s-menace-x-demonstrates-ai-enabled-rapid-targeting-solution-at-marine-exercise.md",
+    "section": "news",
+    "datePublished": "2023-12-11",
+    "dateModified": "2023-12-11"
+  },
+  "https://www.anduril.com/news/anduril-selected-for-air-force-collaborative-combat-aircraft-CCA": {
+    "sha256": "184c8684c4237777f52c5b0d1f45f1de3758bf2dd954f3b7a2889478544bdace",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-selected-for-air-force-collaborative-combat-aircraft-CCA.md",
+    "section": "news",
+    "datePublished": "2024-01-25",
+    "dateModified": "2024-01-25"
+  },
+  "https://www.anduril.com/news/anduril-selected-for-u-s-army-s-integrated-battle-command-system-maneuver-program": {
+    "sha256": "4bc39ae0f21360fe32f0bf41cab5f618f2d4e1d7e46d29af3f9c5cae3eb9f9fc",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-selected-for-u-s-army-s-integrated-battle-command-system-maneuver-program.md",
+    "section": "news",
+    "datePublished": "2025-11-10",
+    "dateModified": "2025-11-10"
+  },
+  "https://www.anduril.com/news/anduril-showcases-advanced-edge-computing-and-communications-capabilities-at-usmc-steel-knight": {
+    "sha256": "d4e7af126801df46e5e6ac2ef2212ad94f7f05d11103a5061beeb3011c2015af",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-showcases-advanced-edge-computing-and-communications-capabilities-at-usmc-steel-knight.md",
+    "section": "news",
+    "datePublished": "2025-02-14",
+    "dateModified": "2025-02-14"
+  },
+  "https://www.anduril.com/news/anduril-showcases-new-technology-at-indopacom-s-northern-edge-23-1-exercise": {
+    "sha256": "8e5701a260905dcdeb4f2e8f6c44a3c710d690d5862ff02cb666e9914777f731",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-showcases-new-technology-at-indopacom-s-northern-edge-23-1-exercise.md",
+    "section": "news",
+    "datePublished": "2023-06-26",
+    "dateModified": "2023-06-26"
+  },
+  "https://www.anduril.com/news/anduril-signs-three-year-contract-with-royal-australian-air-force-to-deliver-autonomous-security": {
+    "sha256": "1f27cf34474cac9e4699868a81d3311a4251808a0d48fc2d1ad79fd52d63aae6",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-signs-three-year-contract-with-royal-australian-air-force-to-deliver-autonomous-security.md",
+    "section": "news",
+    "datePublished": "2024-09-24",
+    "dateModified": "2024-09-24"
+  },
+  "https://www.anduril.com/news/anduril-team-of-partners-to-work-on-space-force-s-space-based-interceptors-for-golden-dome-for-america": {
+    "sha256": "2b6ecaa0d6d3bbde819626c288fc269c7ee1e85f07a12cd8e53d5d077045828b",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-team-of-partners-to-work-on-space-force-s-space-based-interceptors-for-golden-dome-for-america.md",
+    "section": "news",
+    "datePublished": "2026-05-05",
+    "dateModified": "2026-05-05"
+  },
+  "https://www.anduril.com/news/anduril-to-acquire-klas-to-build-the-future-of-tactical-compute-and-communications": {
+    "sha256": "878da3dfefb3aa0e88cd71efdeb11ee79164cd1e3a00debc0b514329037b3082",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-to-acquire-klas-to-build-the-future-of-tactical-compute-and-communications.md",
+    "section": "news",
+    "datePublished": "2025-05-05",
+    "dateModified": "2025-05-05"
+  },
+  "https://www.anduril.com/news/anduril-to-build-autonomous-warships": {
+    "sha256": "54dd5961e49ca68b0bf1edad5b0d058d6fa8ae0499a7498a9c8f493b95801c67",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-to-build-autonomous-warships.md",
+    "section": "news",
+    "datePublished": "2025-11-13",
+    "dateModified": "2025-11-13"
+  },
+  "https://www.anduril.com/news/anduril-to-deliver-battle-management-solution-for-missile-defense-in-the-western-pacific": {
+    "sha256": "fc799725ac728daf137f4c15a499c7fec4a3aa61cc1e9a403286d627b927560c",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-to-deliver-battle-management-solution-for-missile-defense-in-the-western-pacific.md",
+    "section": "news",
+    "datePublished": "2026-05-12",
+    "dateModified": "2026-05-12"
+  },
+  "https://www.anduril.com/news/anduril-to-demonstrate-rocket-motors-for-navy-standard-missile-6": {
+    "sha256": "8c111d079d9d5140699e8265e8773c10440b8722506df1aa63cc81f6cd56a362",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-to-demonstrate-rocket-motors-for-navy-standard-missile-6.md",
+    "section": "news",
+    "datePublished": "2024-06-12",
+    "dateModified": "2024-06-12"
+  },
+  "https://www.anduril.com/news/anduril-to-open-large-scale-production-facility-for-autonomous-underwater-vehicles": {
+    "sha256": "9a5362c95c239ca43b0b9db4fc436fd781846c3552ec02e4098a1e6a0e37c412",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-to-open-large-scale-production-facility-for-autonomous-underwater-vehicles.md",
+    "section": "news",
+    "datePublished": "2024-06-17",
+    "dateModified": "2024-06-17"
+  },
+  "https://www.anduril.com/news/anduril-uk-deepens-partnerships-with-uk-industry-for-british-army-s-project-nyx": {
+    "sha256": "d36f69a5b1f2dd84cbfbaa258910b8dc01b1b153ffff63861f17d69604cf5e62",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-uk-deepens-partnerships-with-uk-industry-for-british-army-s-project-nyx.md",
+    "section": "news",
+    "datePublished": "2025-12-09",
+    "dateModified": "2025-12-09"
+  },
+  "https://www.anduril.com/news/anduril-unveils-barracuda": {
+    "sha256": "e6bd1cdc22232a3940081c15e3f0ab533682d382f06ac2f8bf592082d24d908e",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-barracuda.md",
+    "section": "news",
+    "datePublished": "2024-09-12",
+    "dateModified": "2024-09-12"
+  },
+  "https://www.anduril.com/news/anduril-unveils-bolt-and-bolt-m": {
+    "sha256": "8aa37d0afb6f202e56c5f6806930272088646c7294a19ab24176b69d9eac5df9",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-bolt-and-bolt-m.md",
+    "section": "news",
+    "datePublished": "2024-10-10",
+    "dateModified": "2024-10-10"
+  },
+  "https://www.anduril.com/news/anduril-unveils-copperhead-a-new-era-of-autonomous-undersea-dominance": {
+    "sha256": "4bd4c9925687a505ba1730ac4bccc7f70e8bb9676105de3e362e6b8ec6b8838d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-copperhead-a-new-era-of-autonomous-undersea-dominance.md",
+    "section": "news",
+    "datePublished": "2025-04-07",
+    "dateModified": "2025-04-07"
+  },
+  "https://www.anduril.com/news/anduril-unveils-ghost-x": {
+    "sha256": "e03040fb040f2da699f844b0ac83ae0f3f968fc6f43f8e621461b7c11656aef2",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-ghost-x.md",
+    "section": "news",
+    "datePublished": "2023-09-12",
+    "dateModified": "2023-09-12"
+  },
+  "https://www.anduril.com/news/anduril-unveils-lattice-for-mission-autonomy": {
+    "sha256": "a7f07eec21b64aca5f791687bcc41ecf6814f96eb35ff846d5df8fa39976cf0d",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-lattice-for-mission-autonomy.md",
+    "section": "news",
+    "datePublished": "2023-05-02",
+    "dateModified": "2023-05-02"
+  },
+  "https://www.anduril.com/news/anduril-unveils-roadrunner-and-roadrunner-m": {
+    "sha256": "3d14edf6825485df15ab4871e77885ddec1afd0232cf3bdb8ad6f6e37cc68396",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-unveils-roadrunner-and-roadrunner-m.md",
+    "section": "news",
+    "datePublished": "2023-12-01",
+    "dateModified": "2023-12-01"
+  },
+  "https://www.anduril.com/news/anduril-welcomes-gregory-kausner-as-head-of-global-defense": {
+    "sha256": "dbffb924b727c116f33f036355cdcade917ea37bcc3e91e266fb188a7077bfb1",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-welcomes-gregory-kausner-as-head-of-global-defense.md",
+    "section": "news",
+    "datePublished": "2022-03-28",
+    "dateModified": "2022-03-28"
+  },
+  "https://www.anduril.com/news/anduril-wins-diu-production-ot-for-counter-uas-solutions-moves-from-prototype-to-production-in": {
+    "sha256": "6318254575618db28189bdf69c6e99ca7d086a6fe30c54ff359b0c384f054819",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-wins-diu-production-ot-for-counter-uas-solutions-moves-from-prototype-to-production-in.md",
+    "section": "news",
+    "datePublished": "2021-07-27",
+    "dateModified": "2021-07-27"
+  },
+  "https://www.anduril.com/news/anduril-yfq-44a-begins-flight-testing-for-the-collaborative-combat-aircraft-program": {
+    "sha256": "cfc37b2da595f7be35b0714069ccd4084dd86aafcccff7bd7cb8e07064c154f0",
+    "path": "vendor/anduril-www/www.anduril.com/news/anduril-yfq-44a-begins-flight-testing-for-the-collaborative-combat-aircraft-program.md",
+    "section": "news",
+    "datePublished": "2025-10-31",
+    "dateModified": "2025-10-31"
+  },
+  "https://www.anduril.com/news/anvil-m-launch": {
+    "sha256": "7bbb63981a955be5484bb4cfd71f3c4119d7ebfac135a07d88061270ba587f14",
+    "path": "vendor/anduril-www/www.anduril.com/news/anvil-m-launch.md",
+    "section": "news",
+    "datePublished": "2023-10-05",
+    "dateModified": "2023-10-05"
+  },
+  "https://www.anduril.com/news/apex-and-anduril-announce-partnership-to-advance-space-capabilities": {
+    "sha256": "c48da120512fc0e8c7f079f7f8cc549e330570708e3fc25cf123262697d44902",
+    "path": "vendor/anduril-www/www.anduril.com/news/apex-and-anduril-announce-partnership-to-advance-space-capabilities.md",
+    "section": "news",
+    "datePublished": "2024-10-01",
+    "dateModified": "2024-10-01"
+  },
+  "https://www.anduril.com/news/area-i-an-anduril-company-unveils-the-altius-700": {
+    "sha256": "ff782bec1c76fdae66f85e2f52b921b739956e17e469288265696e61c4beee02",
+    "path": "vendor/anduril-www/www.anduril.com/news/area-i-an-anduril-company-unveils-the-altius-700.md",
+    "section": "news",
+    "datePublished": "2021-11-02",
+    "dateModified": "2021-11-02"
+  },
+  "https://www.anduril.com/news/army-selects-anduril-and-palantir-to-deliver-titan": {
+    "sha256": "3ff3caddb3b40eabb77842f8452b5906130a5ca540ded1ad518885782e0a311c",
+    "path": "vendor/anduril-www/www.anduril.com/news/army-selects-anduril-and-palantir-to-deliver-titan.md",
+    "section": "news",
+    "datePublished": "2024-03-07",
+    "dateModified": "2024-03-07"
+  },
+  "https://www.anduril.com/news/arsenal-1-one-year-in": {
+    "sha256": "528bc621688d73f65581d741f84d8f06115c091007c3afabcb58002c1c36c82f",
+    "path": "vendor/anduril-www/www.anduril.com/news/arsenal-1-one-year-in.md",
+    "section": "news",
+    "datePublished": "2026-01-30",
+    "dateModified": "2026-01-30"
+  },
+  "https://www.anduril.com/news/artificial-intelligence-is-key-to-advancing-our-national-security": {
+    "sha256": "e3bb3c2728aab1de65f45f69af33fec5968e30b9422de8bd477a5650965089eb",
+    "path": "vendor/anduril-www/www.anduril.com/news/artificial-intelligence-is-key-to-advancing-our-national-security.md",
+    "section": "news",
+    "datePublished": "2024-10-28",
+    "dateModified": "2024-10-28"
+  },
+  "https://www.anduril.com/news/autonomy-for-every-intern-interns-at-anduril-2022": {
+    "sha256": "62ae326047250d4bfa02f0ed6f7fca9a2e8531c230492a46549608f761c0720c",
+    "path": "vendor/anduril-www/www.anduril.com/news/autonomy-for-every-intern-interns-at-anduril-2022.md",
+    "section": "news",
+    "datePublished": "2022-09-08",
+    "dateModified": "2022-09-08"
+  },
+  "https://www.anduril.com/news/barracuda-100m-completes-successful-flight-test-for-army-high-speed-maneuverable-missile": {
+    "sha256": "ff06ef9006c671a1a4ee9b2842ba9d6333f048defc2d6033751d6eb6f3b5f88e",
+    "path": "vendor/anduril-www/www.anduril.com/news/barracuda-100m-completes-successful-flight-test-for-army-high-speed-maneuverable-missile.md",
+    "section": "news",
+    "datePublished": "2025-07-16",
+    "dateModified": "2025-07-16"
+  },
+  "https://www.anduril.com/news/barracuda-500-selected-to-move-forward-on-the-enterprise-test-vehicle-prototype-project": {
+    "sha256": "7131b772634e8daa8f8dc89e7b258abe11cd9b8f6d6884603be07a19d85b351a",
+    "path": "vendor/anduril-www/www.anduril.com/news/barracuda-500-selected-to-move-forward-on-the-enterprise-test-vehicle-prototype-project.md",
+    "section": "news",
+    "datePublished": "2025-03-04",
+    "dateModified": "2025-03-04"
+  },
+  "https://www.anduril.com/news/boeing-anduril-team-on-bid-for-future-air-defense-system": {
+    "sha256": "caed553b8d40d0e4b4095fa391a947e151dd2c23d50cf69eb71f9d4757785afa",
+    "path": "vendor/anduril-www/www.anduril.com/news/boeing-anduril-team-on-bid-for-future-air-defense-system.md",
+    "section": "news",
+    "datePublished": "2025-12-18",
+    "dateModified": "2025-12-18"
+  },
+  "https://www.anduril.com/news/british-army-down-selects-anduril-uk-to-build-land-autonomous-collaborative-platforms": {
+    "sha256": "52d92a005505783040416728439b75d2a150db4f9fbf3767e48f9705424de102",
+    "path": "vendor/anduril-www/www.anduril.com/news/british-army-down-selects-anduril-uk-to-build-land-autonomous-collaborative-platforms.md",
+    "section": "news",
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15"
+  },
+  "https://www.anduril.com/news/building-royal-navy-2035-means-rebuilding-the-uk-defence-industrial-base": {
+    "sha256": "cddc786b1d81648d5156eddcd3982cdd78b065352033435e1ba9d4f492f0f88e",
+    "path": "vendor/anduril-www/www.anduril.com/news/building-royal-navy-2035-means-rebuilding-the-uk-defence-industrial-base.md",
+    "section": "news",
+    "datePublished": "2022-03-10",
+    "dateModified": "2022-03-10"
+  },
+  "https://www.anduril.com/news/cdao-awards-anduril-production-agreement-to-deliver-edge-data-mesh": {
+    "sha256": "8509b9d8c6c7fa1d438390cd86204935bb9beadd37af293b010b0af24aae2fdc",
+    "path": "vendor/anduril-www/www.anduril.com/news/cdao-awards-anduril-production-agreement-to-deliver-edge-data-mesh.md",
+    "section": "news",
+    "datePublished": "2024-12-03",
+    "dateModified": "2024-12-03"
+  },
+  "https://www.anduril.com/news/cobbs-anduril-and-nokia-join-forces-to-accelerate-sovereign-counter-drone-capability-in-belgium": {
+    "sha256": "c7cddf30710c5799298b56eb578cfcf3f756494aaa38faa7bbe5cd5dadba58b3",
+    "path": "vendor/anduril-www/www.anduril.com/news/cobbs-anduril-and-nokia-join-forces-to-accelerate-sovereign-counter-drone-capability-in-belgium.md",
+    "section": "news",
+    "datePublished": "2026-03-13",
+    "dateModified": "2026-03-13"
+  },
+  "https://www.anduril.com/news/continuing-resolutions-stifle-defense-innovation": {
+    "sha256": "baa9fa3d0f84d315a1997e4445fb9b3b2b15cdcaf7ee31119528e5930dfbe5bd",
+    "path": "vendor/anduril-www/www.anduril.com/news/continuing-resolutions-stifle-defense-innovation.md",
+    "section": "news",
+    "datePublished": "2022-01-18",
+    "dateModified": "2022-01-18"
+  },
+  "https://www.anduril.com/news/defence-technology-company-anduril-expands-globally-to-australia": {
+    "sha256": "4eeb43ec0e9f42a5f3e78294a064226e6b09dbe4df84404ef340d3c7ab218d6b",
+    "path": "vendor/anduril-www/www.anduril.com/news/defence-technology-company-anduril-expands-globally-to-australia.md",
+    "section": "news",
+    "datePublished": "2022-03-07",
+    "dateModified": "2022-03-07"
+  },
+  "https://www.anduril.com/news/denali-revolutionizing-hypersonic-propulsion-at-unprecedented-affordability": {
+    "sha256": "a778deadd6032d6f12967258aaa6f80e4ae1ba0c6e84919601bd932d2c9f85d4",
+    "path": "vendor/anduril-www/www.anduril.com/news/denali-revolutionizing-hypersonic-propulsion-at-unprecedented-affordability.md",
+    "section": "news",
+    "datePublished": "2024-11-22",
+    "dateModified": "2024-11-22"
+  },
+  "https://www.anduril.com/news/developing-the-future-of-precision-fires-and-affordable-mass-anduril-s-new-rocket-motor-for-the": {
+    "sha256": "1586d324c01219606f462ffca74f8f043e9e402b7bf89a4b20eb6a7e80b4c069",
+    "path": "vendor/anduril-www/www.anduril.com/news/developing-the-future-of-precision-fires-and-affordable-mass-anduril-s-new-rocket-motor-for-the.md",
+    "section": "news",
+    "datePublished": "2025-03-21",
+    "dateModified": "2025-03-21"
+  },
+  "https://www.anduril.com/news/diu-and-u-s-navy-select-anduril-for-xl-auv-program": {
+    "sha256": "270e41bb95e6ab525f5af0265781088db4654e33d7c2c6bcc6c5c19341176ca3",
+    "path": "vendor/anduril-www/www.anduril.com/news/diu-and-u-s-navy-select-anduril-for-xl-auv-program.md",
+    "section": "news",
+    "datePublished": "2026-03-12",
+    "dateModified": "2026-03-12"
+  },
+  "https://www.anduril.com/news/diu-awards-anduril-contract-to-innovate-new-capabilities-for-undersea-warfare": {
+    "sha256": "d6674e7629e31c093235c06a2980223fb46e7ce6dc603294dc41a1191fe50306",
+    "path": "vendor/anduril-www/www.anduril.com/news/diu-awards-anduril-contract-to-innovate-new-capabilities-for-undersea-warfare.md",
+    "section": "news",
+    "datePublished": "2024-02-08",
+    "dateModified": "2024-02-08"
+  },
+  "https://www.anduril.com/news/diu-rcv-software-architecture": {
+    "sha256": "179114af5eb4ba4fef0a68d75491b38f194e373e4f4ad043fd2274f281187d3f",
+    "path": "vendor/anduril-www/www.anduril.com/news/diu-rcv-software-architecture.md",
+    "section": "news",
+    "datePublished": "2024-04-03",
+    "dateModified": "2024-04-03"
+  },
+  "https://www.anduril.com/news/diu-selects-anduril-to-enable-collaborative-autonomy-for-replicator-systems": {
+    "sha256": "ff68c9f484487c0e35cadff16c578d1cf746ca087ca7585c3e825d54aa0e642c",
+    "path": "vendor/anduril-www/www.anduril.com/news/diu-selects-anduril-to-enable-collaborative-autonomy-for-replicator-systems.md",
+    "section": "news",
+    "datePublished": "2024-11-20",
+    "dateModified": "2024-11-20"
+  },
+  "https://www.anduril.com/news/dod-valley-of-death-closing-the-two-year-gap": {
+    "sha256": "1deed6cffec487b74193009b8ff0b5d7b655b87622756832efbbe6f0308b1357",
+    "path": "vendor/anduril-www/www.anduril.com/news/dod-valley-of-death-closing-the-two-year-gap.md",
+    "section": "news",
+    "datePublished": "2021-01-13",
+    "dateModified": "2021-01-13"
+  },
+  "https://www.anduril.com/news/dsta-and-the-rsaf-partner-with-anduril-to-explore-mission-autonomy-for-manned-unmanned-teaming": {
+    "sha256": "d6bf7c3570e27c49377e2c184de585e5ff17f8b059134315b521e1059c74e2a8",
+    "path": "vendor/anduril-www/www.anduril.com/news/dsta-and-the-rsaf-partner-with-anduril-to-explore-mission-autonomy-for-manned-unmanned-teaming.md",
+    "section": "news",
+    "datePublished": "2025-03-19",
+    "dateModified": "2025-03-19"
+  },
+  "https://www.anduril.com/news/edge-group-and-anduril-to-form-uae-us-joint-venture-to-develop-autonomous-systems": {
+    "sha256": "34fd50a73ea6535530cd44aee44d00245e03184df4cc8671482a0823e8fd1422",
+    "path": "vendor/anduril-www/www.anduril.com/news/edge-group-and-anduril-to-form-uae-us-joint-venture-to-develop-autonomous-systems.md",
+    "section": "news",
+    "datePublished": "2025-11-13",
+    "dateModified": "2025-11-13"
+  },
+  "https://www.anduril.com/news/enter-anduril-the-united-states-third-supplier-of-solid-rocket-motors": {
+    "sha256": "fd92d2de273939db6b25c0afc8138e1c226de0801cd88199dc1ac31dc3a062eb",
+    "path": "vendor/anduril-www/www.anduril.com/news/enter-anduril-the-united-states-third-supplier-of-solid-rocket-motors.md",
+    "section": "news",
+    "datePublished": "2025-08-05",
+    "dateModified": "2025-08-05"
+  },
+  "https://www.anduril.com/news/first-ghost-shark-debuts-in-australia": {
+    "sha256": "754220a50595c6e4959f6517a19e13c07cc666b50b87c0a6170fc20ee293ff96",
+    "path": "vendor/anduril-www/www.anduril.com/news/first-ghost-shark-debuts-in-australia.md",
+    "section": "news",
+    "datePublished": "2024-04-17",
+    "dateModified": "2024-04-17"
+  },
+  "https://www.anduril.com/news/general-scott-miller-joins-anduril-advisory-board": {
+    "sha256": "8e9f8b49e626544d23b9ae4b9bc52726624b2092cd8490c035616bf3f04f0574",
+    "path": "vendor/anduril-www/www.anduril.com/news/general-scott-miller-joins-anduril-advisory-board.md",
+    "section": "news",
+    "datePublished": "2022-03-03",
+    "dateModified": "2022-03-03"
+  },
+  "https://www.anduril.com/news/ghost-approved-for-the-blue-uas-cleared-list": {
+    "sha256": "cc3c9775f85aa52bca93acc92893d5598ab2297cc0fcdfcb23857ed96513c068",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-approved-for-the-blue-uas-cleared-list.md",
+    "section": "news",
+    "datePublished": "2024-06-18",
+    "dateModified": "2024-06-18"
+  },
+  "https://www.anduril.com/news/ghost-brings-autonomy-to-small-units-at-aewe": {
+    "sha256": "62ee91a5a1db5f8ee290af7c913aab3b0ca448db2e2fdcbe4b1b33949219a7a2",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-brings-autonomy-to-small-units-at-aewe.md",
+    "section": "news",
+    "datePublished": "2022-03-22",
+    "dateModified": "2022-03-22"
+  },
+  "https://www.anduril.com/news/ghost-shark-enters-program-of-record-from-prototype-to-fleet-in-three-years": {
+    "sha256": "91771a6444ab677aea165fa270f6e2ec4e7f01a205cfd11e1c8eeb47fd18c5c1",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-shark-enters-program-of-record-from-prototype-to-fleet-in-three-years.md",
+    "section": "news",
+    "datePublished": "2025-09-09",
+    "dateModified": "2025-09-09"
+  },
+  "https://www.anduril.com/news/ghost-shark-factory-opens-in-sydney-first-vehicle-off-the-line-ahead-of-schedule-ready-for": {
+    "sha256": "54b4c4808f32cf52c84498a9df7bad7f48f4261b80214119a714e8d1fbf02880",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-shark-factory-opens-in-sydney-first-vehicle-off-the-line-ahead-of-schedule-ready-for.md",
+    "section": "news",
+    "datePublished": "2025-10-31",
+    "dateModified": "2025-10-31"
+  },
+  "https://www.anduril.com/news/ghost-shark-xl-auv-arrives-in-the-united-states": {
+    "sha256": "cfb50aadf7d9e8b17f33dc728635bf910567036b86d094cb93ce843decc609ac",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-shark-xl-auv-arrives-in-the-united-states.md",
+    "section": "news",
+    "datePublished": "2024-08-20",
+    "dateModified": "2024-08-20"
+  },
+  "https://www.anduril.com/news/ghost-x-selected-for-u-s-army-s-company-level-suas-directed-requirement": {
+    "sha256": "c240d00fdb492d1e0911fd9dbb8a1296c3d2ee77c950830308c9a325942ed63d",
+    "path": "vendor/anduril-www/www.anduril.com/news/ghost-x-selected-for-u-s-army-s-company-level-suas-directed-requirement.md",
+    "section": "news",
+    "datePublished": "2024-09-25",
+    "dateModified": "2024-09-25"
+  },
+  "https://www.anduril.com/news/gm-defense-and-anduril-announce-teaming-agreement": {
+    "sha256": "fb2d047e4250911d375d60b4c77486274e6521eb0dbcc90e04276d358bea80ea",
+    "path": "vendor/anduril-www/www.anduril.com/news/gm-defense-and-anduril-announce-teaming-agreement.md",
+    "section": "news",
+    "datePublished": "2023-10-10",
+    "dateModified": "2023-10-10"
+  },
+  "https://www.anduril.com/news/hd-hyundai-and-anduril-industries-announce-strategic-partnership-on-maritime-systems-autonomy": {
+    "sha256": "cae843c8d0a143d82c6422cc51c80804ee24b4d9caeb67d91c7e7cca2892f9b0",
+    "path": "vendor/anduril-www/www.anduril.com/news/hd-hyundai-and-anduril-industries-announce-strategic-partnership-on-maritime-systems-autonomy.md",
+    "section": "news",
+    "datePublished": "2024-04-13",
+    "dateModified": "2024-04-13"
+  },
+  "https://www.anduril.com/news/how-anduril-and-the-army-are-rewriting-fire-missions-with-ngc2": {
+    "sha256": "bd447cffceb262620043c3d79e061be2519cc07d395290c2007b52ee455c9843",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-anduril-and-the-army-are-rewriting-fire-missions-with-ngc2.md",
+    "section": "news",
+    "datePublished": "2025-09-30",
+    "dateModified": "2025-09-30"
+  },
+  "https://www.anduril.com/news/how-defense-technology-actually-gets-built": {
+    "sha256": "21fb0328ec6e5585ac21811601a98d43b9ff031158f105731341b2098137f1d6",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-defense-technology-actually-gets-built.md",
+    "section": "news",
+    "datePublished": "2025-11-25",
+    "dateModified": "2025-11-25"
+  },
+  "https://www.anduril.com/news/how-does-working-on-self-driving-cars-compare-to-working-at-anduril": {
+    "sha256": "049adf40209e49ca06f45433e5d5bf6aa704694e8fc2c4b1fb35b87117988a2d",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-does-working-on-self-driving-cars-compare-to-working-at-anduril.md",
+    "section": "news",
+    "datePublished": "2022-04-12",
+    "dateModified": "2022-04-12"
+  },
+  "https://www.anduril.com/news/how-ngc2-is-expanding-the-battlefield-network-at-ivy-sting-2": {
+    "sha256": "9c6f8461e07dd79fbe50ea473aa81fae0696baed02e97462c4f89c46c86fa461",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-ngc2-is-expanding-the-battlefield-network-at-ivy-sting-2.md",
+    "section": "news",
+    "datePublished": "2025-11-19",
+    "dateModified": "2025-11-19"
+  },
+  "https://www.anduril.com/news/how-the-government-can-use-the-sbir-program-to-scale-innovation": {
+    "sha256": "cba0e636168cb7af2808603e10e5cd4f5d80fb7209f5f9042a4d472295929069",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-the-government-can-use-the-sbir-program-to-scale-innovation.md",
+    "section": "news",
+    "datePublished": "2021-07-15",
+    "dateModified": "2021-07-15"
+  },
+  "https://www.anduril.com/news/how-we-can-truly-unlock-the-full-potential-of-aukus": {
+    "sha256": "4ceaae6ba5dfc01979967e2bca941fa4d00a49ff987238533aed4f95dee50f59",
+    "path": "vendor/anduril-www/www.anduril.com/news/how-we-can-truly-unlock-the-full-potential-of-aukus.md",
+    "section": "news",
+    "datePublished": "2023-04-20",
+    "dateModified": "2023-04-20"
+  },
+  "https://www.anduril.com/news/ibp-24-1-command-and-control": {
+    "sha256": "1c8fac1180ad95e85c7c01cfefcba0a5a910c74d54fc684ed0c3a61f12141b69",
+    "path": "vendor/anduril-www/www.anduril.com/news/ibp-24-1-command-and-control.md",
+    "section": "news",
+    "datePublished": "2024-04-08",
+    "dateModified": "2024-04-08"
+  },
+  "https://www.anduril.com/news/in-the-21st-century-the-department-of-defense-must-think-software-first": {
+    "sha256": "3c58434fd439025a86e0f9005c4d29cd90b2b81fc7d33c3e44fc0814f23fa0e1",
+    "path": "vendor/anduril-www/www.anduril.com/news/in-the-21st-century-the-department-of-defense-must-think-software-first.md",
+    "section": "news",
+    "datePublished": "2021-03-16",
+    "dateModified": "2021-03-16"
+  },
+  "https://www.anduril.com/news/inside-ian-altius-launched-into-the-eye-of-hurricane": {
+    "sha256": "5b0cf682b87f6929f74a4155e3034f4bfb800c672ae12bc4ec94525ed8818a65",
+    "path": "vendor/anduril-www/www.anduril.com/news/inside-ian-altius-launched-into-the-eye-of-hurricane.md",
+    "section": "news",
+    "datePublished": "2022-09-29",
+    "dateModified": "2022-09-29"
+  },
+  "https://www.anduril.com/news/introducing-mobile-sentry": {
+    "sha256": "5f7be6b811a52c9c8c780bbd1a748243a533a77032cfff5cf31435a75d79aea6",
+    "path": "vendor/anduril-www/www.anduril.com/news/introducing-mobile-sentry.md",
+    "section": "news",
+    "datePublished": "2022-10-10",
+    "dateModified": "2022-10-10"
+  },
+  "https://www.anduril.com/news/introducing-pulsar-l-the-lightweight-ew-system-for-rapid-deployment": {
+    "sha256": "c424b0bedfb3b19e57107d3a84b5835451c7cf653cf67c865206ca8d5a3213cd",
+    "path": "vendor/anduril-www/www.anduril.com/news/introducing-pulsar-l-the-lightweight-ew-system-for-rapid-deployment.md",
+    "section": "news",
+    "datePublished": "2025-04-29",
+    "dateModified": "2025-04-29"
+  },
+  "https://www.anduril.com/news/jiatf-401-selects-lattice-as-enterprise-tactical-command-and-control-platform-for-c-uas": {
+    "sha256": "3e0fbf0b4b0dc36bc111ca6e4677ea1f52362d034fd1879e8d082b12a074a521",
+    "path": "vendor/anduril-www/www.anduril.com/news/jiatf-401-selects-lattice-as-enterprise-tactical-command-and-control-platform-for-c-uas.md",
+    "section": "news",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16"
+  },
+  "https://www.anduril.com/news/korean-air-and-anduril-explore-solutions-to-global-wildfire-response": {
+    "sha256": "2b847acbbd2de993f4552711db6af7ebf50970d2375b67d833c800badb67541a",
+    "path": "vendor/anduril-www/www.anduril.com/news/korean-air-and-anduril-explore-solutions-to-global-wildfire-response.md",
+    "section": "news",
+    "datePublished": "2025-09-30",
+    "dateModified": "2025-09-30"
+  },
+  "https://www.anduril.com/news/land-systems-software": {
+    "sha256": "08b6a058fdffc1232890c624049a8569bf681cec880eb1031492d3dda7993a58",
+    "path": "vendor/anduril-www/www.anduril.com/news/land-systems-software.md",
+    "section": "news",
+    "datePublished": "2023-10-09",
+    "dateModified": "2023-10-09"
+  },
+  "https://www.anduril.com/news/menace-i-brings-petabyte-scale-processing-to-the-warfighter-at-the-tactical-edge": {
+    "sha256": "151475d6cc74dc8fe8add1cb6283ddfe3ada711bd2273f6d5ede04685dca57cc",
+    "path": "vendor/anduril-www/www.anduril.com/news/menace-i-brings-petabyte-scale-processing-to-the-warfighter-at-the-tactical-edge.md",
+    "section": "news",
+    "datePublished": "2025-09-09",
+    "dateModified": "2025-09-09"
+  },
+  "https://www.anduril.com/news/ngc2-at-scale-how-team-anduril-and-the-army-took-lattice-across-the-4th-infantry-division": {
+    "sha256": "6298d38486282fe896ac42af6acff7c555da86e51a8edc7478e5bcd830d03ac4",
+    "path": "vendor/anduril-www/www.anduril.com/news/ngc2-at-scale-how-team-anduril-and-the-army-took-lattice-across-the-4th-infantry-division.md",
+    "section": "news",
+    "datePublished": "2026-05-21",
+    "dateModified": "2026-05-21"
+  },
+  "https://www.anduril.com/news/operating-at-scale-manufacturing-at-anduril": {
+    "sha256": "0b1ab35ff260760ac285642871b64901e7b7dedabd313babdb2b1e55e30e7014",
+    "path": "vendor/anduril-www/www.anduril.com/news/operating-at-scale-manufacturing-at-anduril.md",
+    "section": "news",
+    "datePublished": "2022-03-22",
+    "dateModified": "2022-03-22"
+  },
+  "https://www.anduril.com/news/operating-at-scale-patents-for-america": {
+    "sha256": "1587c845fd9e90812cc1cc2d3985dba58f1cc98c298598a602602d6d05d339ed",
+    "path": "vendor/anduril-www/www.anduril.com/news/operating-at-scale-patents-for-america.md",
+    "section": "news",
+    "datePublished": "2022-05-27",
+    "dateModified": "2022-05-27"
+  },
+  "https://www.anduril.com/news/powering-america-s-arsenal-anduril-expands-rocket-motor-production-with-additional-usd43-7m-in-defense-production-act-title-iii-funding": {
+    "sha256": "bf34d35746c3f1e71c99b8222b0e540e0cc0609ebc26527d872174b77190db74",
+    "path": "vendor/anduril-www/www.anduril.com/news/powering-america-s-arsenal-anduril-expands-rocket-motor-production-with-additional-usd43-7m-in-defense-production-act-title-iii-funding.md",
+    "section": "news",
+    "datePublished": "2026-02-19",
+    "dateModified": "2026-02-19"
+  },
+  "https://www.anduril.com/news/powering-integrated-operations-at-flytrap-5-0": {
+    "sha256": "b916ab4ea3f803fa163c5113dd831ae9ef9881d6b9fc7ee6864ee3f952718993",
+    "path": "vendor/anduril-www/www.anduril.com/news/powering-integrated-operations-at-flytrap-5-0.md",
+    "section": "news",
+    "datePublished": "2026-05-27",
+    "dateModified": "2026-05-27"
+  },
+  "https://www.anduril.com/news/president-biden-demanded-high-tech-capacity-for-border-security-anduril-s-towers-are-delivering": {
+    "sha256": "90d8662091292eb263dc177ea0f35661bd35c0e0e1367bcacc5b743e7903fd4f",
+    "path": "vendor/anduril-www/www.anduril.com/news/president-biden-demanded-high-tech-capacity-for-border-security-anduril-s-towers-are-delivering.md",
+    "section": "news",
+    "datePublished": "2021-09-16",
+    "dateModified": "2021-09-16"
+  },
+  "https://www.anduril.com/news/rebooting-the-arsenal-of-democracy-anduril-mission-document": {
+    "sha256": "a73a076338e31ffa6ecba21ae823c4cdb60149d9e3bc232210cc5bf4469c4642",
+    "path": "vendor/anduril-www/www.anduril.com/news/rebooting-the-arsenal-of-democracy-anduril-mission-document.md",
+    "section": "news",
+    "datePublished": "2022-06-05",
+    "dateModified": "2022-06-05"
+  },
+  "https://www.anduril.com/news/reimagining-base-defense": {
+    "sha256": "41d0c6caada22dabdc16ddf9d9f9b7b2809c6b308f7ee0d630bbd3de95606dd9",
+    "path": "vendor/anduril-www/www.anduril.com/news/reimagining-base-defense.md",
+    "section": "news",
+    "datePublished": "2021-06-04",
+    "dateModified": "2021-06-04"
+  },
+  "https://www.anduril.com/news/reward-winners-or-america-loses": {
+    "sha256": "0f0125b27d44c448bbc72299dc6fed6cc262dae4da97faa2266d9e17821ae0ab",
+    "path": "vendor/anduril-www/www.anduril.com/news/reward-winners-or-america-loses.md",
+    "section": "news",
+    "datePublished": "2021-03-03",
+    "dateModified": "2021-03-03"
+  },
+  "https://www.anduril.com/news/rheinmetall-and-anduril-join-forces-to-develop-c-suas-system": {
+    "sha256": "dbf16123808be4cb88114e370c3e1786e799469adf18614053af952a192afef7",
+    "path": "vendor/anduril-www/www.anduril.com/news/rheinmetall-and-anduril-join-forces-to-develop-c-suas-system.md",
+    "section": "news",
+    "datePublished": "2024-06-19",
+    "dateModified": "2024-06-19"
+  },
+  "https://www.anduril.com/news/riverside-research-and-anduril-collaborate-to-cyber-harden-critical-defense-capabilities": {
+    "sha256": "8103b354ec21858972fc991c72ee0c2ec10bd9e2376b8227583175bba033edff",
+    "path": "vendor/anduril-www/www.anduril.com/news/riverside-research-and-anduril-collaborate-to-cyber-harden-critical-defense-capabilities.md",
+    "section": "news",
+    "datePublished": "2025-06-17",
+    "dateModified": "2025-06-17"
+  },
+  "https://www.anduril.com/news/saab-chooses-anduril-rocket-motor-systems-to-design-and-produce-solid-rocket-motors-for-the": {
+    "sha256": "7e39dc2ed6772ce64f557741188da9c6290b837faf8e41ed1fef858072a60719",
+    "path": "vendor/anduril-www/www.anduril.com/news/saab-chooses-anduril-rocket-motor-systems-to-design-and-produce-solid-rocket-motors-for-the.md",
+    "section": "news",
+    "datePublished": "2025-06-20",
+    "dateModified": "2025-06-20"
+  },
+  "https://www.anduril.com/news/scaling-autonomous-surface-vessels-with-the-world-s-best-ship-builders-for-us-navy": {
+    "sha256": "25ca603821406fe1953371d1f50d0147ec5bafa6c636faff9482801c655096fb",
+    "path": "vendor/anduril-www/www.anduril.com/news/scaling-autonomous-surface-vessels-with-the-world-s-best-ship-builders-for-us-navy.md",
+    "section": "news",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20"
+  },
+  "https://www.anduril.com/news/scaling-next-generation-command-and-control-from-prototype-to-fight": {
+    "sha256": "15da65590d4e70deaa2dcd59d7cd152aac92e40661b6e45fcf7e2e4b4e7bb20a",
+    "path": "vendor/anduril-www/www.anduril.com/news/scaling-next-generation-command-and-control-from-prototype-to-fight.md",
+    "section": "news",
+    "datePublished": "2026-04-10",
+    "dateModified": "2026-04-10"
+  },
+  "https://www.anduril.com/news/scaling-up-anduril-expands-to-new-orange-county-headquarters": {
+    "sha256": "f33c6b133ca95e0d974405175e9a43696701c1614c08c29d55937e275c20a208",
+    "path": "vendor/anduril-www/www.anduril.com/news/scaling-up-anduril-expands-to-new-orange-county-headquarters.md",
+    "section": "news",
+    "datePublished": "2021-02-03",
+    "dateModified": "2021-02-03"
+  },
+  "https://www.anduril.com/news/special-operations-command-selects-anduril-as-mission-autonomy-systems-integration-partner": {
+    "sha256": "46d13f9a4322e282fe47f6ffcfc35b03815572b5e44159d819091ace5ed670dc",
+    "path": "vendor/anduril-www/www.anduril.com/news/special-operations-command-selects-anduril-as-mission-autonomy-systems-integration-partner.md",
+    "section": "news",
+    "datePublished": "2025-03-26",
+    "dateModified": "2025-03-26"
+  },
+  "https://www.anduril.com/news/special-operations-command-selects-anduril-industries-as-systems-integration-partner": {
+    "sha256": "84150b472f914f75234b16e5264cc0d4a14bf56427581a07472ac700813e582c",
+    "path": "vendor/anduril-www/www.anduril.com/news/special-operations-command-selects-anduril-industries-as-systems-integration-partner.md",
+    "section": "news",
+    "datePublished": "2022-01-25",
+    "dateModified": "2022-01-25"
+  },
+  "https://www.anduril.com/news/the-artist-engineer-nikhil-reddy": {
+    "sha256": "b062d14c1b2d4e0f61608cd9b683479fafccaaca44b208ce8d8c4e9f4942c77d",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-artist-engineer-nikhil-reddy.md",
+    "section": "news",
+    "datePublished": "2020-08-13",
+    "dateModified": "2020-08-13"
+  },
+  "https://www.anduril.com/news/the-blackhawk-pilot-kelsee-hober": {
+    "sha256": "8b4d73a55a45bef8c4143bde5d7fa19edf404e8f626177ba23712e09f0a8cafb",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-blackhawk-pilot-kelsee-hober.md",
+    "section": "news",
+    "datePublished": "2020-09-17",
+    "dateModified": "2020-09-17"
+  },
+  "https://www.anduril.com/news/the-contours-of-war-are-changing-we-must-prepare-for-interoperability-at-the-edge": {
+    "sha256": "d30591456c2515203c8ce3180442486dfe9b7001dfafbc8498fcfd6e9e4b7bfd",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-contours-of-war-are-changing-we-must-prepare-for-interoperability-at-the-edge.md",
+    "section": "news",
+    "datePublished": "2024-12-10",
+    "dateModified": "2024-12-10"
+  },
+  "https://www.anduril.com/news/the-corps-of-nato-s-strength": {
+    "sha256": "683817f8ac27a864e5f61257e2119abdaa167823ea0615334ba73c75215ecbd7",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-corps-of-nato-s-strength.md",
+    "section": "news",
+    "datePublished": "2022-03-07",
+    "dateModified": "2022-03-07"
+  },
+  "https://www.anduril.com/news/the-dod-should-pilot-a-new-category-of-software-data-rights": {
+    "sha256": "fb8ada752d46dc51fb00da308a503c7d1055af6eebeff0197391469afac110a1",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-dod-should-pilot-a-new-category-of-software-data-rights.md",
+    "section": "news",
+    "datePublished": "2022-03-02",
+    "dateModified": "2022-03-02"
+  },
+  "https://www.anduril.com/news/the-experiential-learner-nicole-storozhenko": {
+    "sha256": "acfed3a130ccbbeb7c585ab27731a94f7047cde8a503953a03a326ee539e3379",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-experiential-learner-nicole-storozhenko.md",
+    "section": "news",
+    "datePublished": "2021-03-30",
+    "dateModified": "2021-03-30"
+  },
+  "https://www.anduril.com/news/the-future-of-air-defense": {
+    "sha256": "09df47d60b251cca9fd10a8b818235d3441c232a27ca20fbb779a366ce60048b",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-future-of-air-defense.md",
+    "section": "news",
+    "datePublished": "2023-12-01",
+    "dateModified": "2023-12-01"
+  },
+  "https://www.anduril.com/news/the-future-of-solid-rocket-motor-manufacturing-raising-the-bar-on-quality-reliability-and": {
+    "sha256": "86dc1d6ca2ec99fb9b9b4f1eec07323b5a4c4b71bc5209e8b86887e243d1d9d3",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-future-of-solid-rocket-motor-manufacturing-raising-the-bar-on-quality-reliability-and.md",
+    "section": "news",
+    "datePublished": "2024-10-03",
+    "dateModified": "2024-10-03"
+  },
+  "https://www.anduril.com/news/the-heartful-engineer-adnan-esmail": {
+    "sha256": "9ea441cf13b156698777b267d26728db035ab85d76a4742b5ee761462e2b9852",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-heartful-engineer-adnan-esmail.md",
+    "section": "news",
+    "datePublished": "2020-11-17",
+    "dateModified": "2020-11-17"
+  },
+  "https://www.anduril.com/news/the-problem-solver-lindsay-trice": {
+    "sha256": "b4b9d6e51e72cba6b42db15a1c5bc5fee8cd885197c0a5b8036f5852e0977328",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-problem-solver-lindsay-trice.md",
+    "section": "news",
+    "datePublished": "2020-08-28",
+    "dateModified": "2020-08-28"
+  },
+  "https://www.anduril.com/news/the-self-made-engineer-ruby-granillo": {
+    "sha256": "99b8941a2c6a750f17c02c1ab1234b6e76c73cb06e21d77a120d96660ef2e693",
+    "path": "vendor/anduril-www/www.anduril.com/news/the-self-made-engineer-ruby-granillo.md",
+    "section": "news",
+    "datePublished": "2020-12-02",
+    "dateModified": "2020-12-02"
+  },
+  "https://www.anduril.com/news/turning-data-into-action-across-natos-eastern-flank": {
+    "sha256": "7102d008b85a781b93da676ca367532b30a7348881cbaecd951cc4350f29c1ab",
+    "path": "vendor/anduril-www/www.anduril.com/news/turning-data-into-action-across-natos-eastern-flank.md",
+    "section": "news",
+    "datePublished": "2026-04-02",
+    "dateModified": "2026-04-02"
+  },
+  "https://www.anduril.com/news/veteran-voices-of-anduril-hassahn-wade": {
+    "sha256": "264f6d7edeee0da79985fdbc2d62a1af1bf358eb69a0c7440584b749651db154",
+    "path": "vendor/anduril-www/www.anduril.com/news/veteran-voices-of-anduril-hassahn-wade.md",
+    "section": "news",
+    "datePublished": "2023-11-08",
+    "dateModified": "2023-11-08"
+  },
+  "https://www.anduril.com/news/veteran-voices-of-anduril-jack-bowrey": {
+    "sha256": "5909f7fcc3bfe52280b1b3d2cd50bcecd31aabff57a36a133388255955b558da",
+    "path": "vendor/anduril-www/www.anduril.com/news/veteran-voices-of-anduril-jack-bowrey.md",
+    "section": "news",
+    "datePublished": "2023-06-09",
+    "dateModified": "2023-06-09"
+  },
+  "https://www.anduril.com/news/veteran-voices-of-anduril-kim-bender": {
+    "sha256": "487f6a4631dacac696ef2a1dc258ea460c3671043e038e22bedac3116f3834f7",
+    "path": "vendor/anduril-www/www.anduril.com/news/veteran-voices-of-anduril-kim-bender.md",
+    "section": "news",
+    "datePublished": "2023-11-01",
+    "dateModified": "2023-11-01"
+  },
+  "https://www.anduril.com/news/veteran-voices-of-anduril-paul-hollingshead": {
+    "sha256": "9e79ef55f4e6a96e3ffeb3037ba623a94278495bb8ddfd31fa26a293630865ef",
+    "path": "vendor/anduril-www/www.anduril.com/news/veteran-voices-of-anduril-paul-hollingshead.md",
+    "section": "news",
+    "datePublished": "2023-06-23",
+    "dateModified": "2023-06-23"
+  },
+  "https://www.anduril.com/news/we-need-to-bring-innovation-to-the-department-of-defense-congress-is-listening": {
+    "sha256": "6c25022250e9b554021634fb8edac4a64d1d98d5dfc1270d403fe5b1fdd2d33d",
+    "path": "vendor/anduril-www/www.anduril.com/news/we-need-to-bring-innovation-to-the-department-of-defense-congress-is-listening.md",
+    "section": "news",
+    "datePublished": "2021-11-19",
+    "dateModified": "2021-11-19"
+  },
+  "https://www.anduril.com/news/why-replicator-is-critical-for-the-future-of-defense": {
+    "sha256": "40aca9b24f72d9a878f9667e58b298eab54323df763c02031ebcff9872c079ac",
+    "path": "vendor/anduril-www/www.anduril.com/news/why-replicator-is-critical-for-the-future-of-defense.md",
+    "section": "news",
+    "datePublished": "2023-12-19",
+    "dateModified": "2023-12-19"
+  },
+  "https://www.anduril.com/news/why-we-re-building-surface-launched-barracuda-500": {
+    "sha256": "95797db6295b59a304e3b0012e88a7a71b1051273a4e2b71802c19467bea687f",
+    "path": "vendor/anduril-www/www.anduril.com/news/why-we-re-building-surface-launched-barracuda-500.md",
+    "section": "news",
+    "datePublished": "2025-09-23",
+    "dateModified": "2025-09-23"
+  },
+  "https://www.anduril.com/news/work-with-impact-interns-at-anduril": {
+    "sha256": "8c392bac889c0b3d4bb2487d19b2344b0e64a8f7cd2df153c6fb9d9adca18144",
+    "path": "vendor/anduril-www/www.anduril.com/news/work-with-impact-interns-at-anduril.md",
+    "section": "news",
+    "datePublished": "2020-09-01",
+    "dateModified": "2020-09-01"
+  },
+  "https://www.anduril.com/news/yfq-44a-flies-with-mission-autonomy-software-from-anduril-and-shield-ai": {
+    "sha256": "047718eeceae3d2157791ce66a138839912fde4fba3b98b3f7824b0d68a6be35",
+    "path": "vendor/anduril-www/www.anduril.com/news/yfq-44a-flies-with-mission-autonomy-software-from-anduril-and-shield-ai.md",
+    "section": "news",
+    "datePublished": "2026-02-26",
+    "dateModified": "2026-02-26"
+  },
+  "https://www.anduril.com/news/yfq-44a-integrates-with-the-experimental-operations-unit": {
+    "sha256": "24fb9dbc563dba78c51c810f3f49a548a9f820b37ff4c15d26cebd6434b8d9ab",
+    "path": "vendor/anduril-www/www.anduril.com/news/yfq-44a-integrates-with-the-experimental-operations-unit.md",
+    "section": "news",
+    "datePublished": "2026-04-16",
+    "dateModified": "2026-04-16"
+  },
+  "https://www.anduril.com/omen": {
+    "sha256": "990653d9d362adccacef06e1183e137e18fe8ad59fdeb0401677da851ad39822",
+    "path": "vendor/anduril-www/www.anduril.com/omen.md",
+    "section": "omen",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/open-roles": {
+    "sha256": "031b0bb1943234204d1d4d77fa1ee37743c30117bfc0feb81f156a2ca70fdc90",
+    "path": "vendor/anduril-www/www.anduril.com/open-roles.md",
+    "section": "open-roles",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/press": {
+    "sha256": "63c2ede9403696f98904f5a1001037db263604755e1ce9409fde491625198db5",
+    "path": "vendor/anduril-www/www.anduril.com/press.md",
+    "section": "press",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/privacy-policy": {
+    "sha256": "b60802a9da6f3452b337663e6a3233b994ac8a4cef69ed57221c35d57eb4a8fa",
+    "path": "vendor/anduril-www/www.anduril.com/privacy-policy.md",
+    "section": "privacy-policy",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/pulsar": {
+    "sha256": "febd25009b6ef01bc02eb9cdec443f0f66a74b3a2a3f454000a36a955cd38a29",
+    "path": "vendor/anduril-www/www.anduril.com/pulsar.md",
+    "section": "pulsar",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/rebooting-the-arsenal": {
+    "sha256": "23e41d684f173f0ee435d2e37f9984d24d8b5f1ecfde31100fae287c4b71430d",
+    "path": "vendor/anduril-www/www.anduril.com/rebooting-the-arsenal.md",
+    "section": "rebooting-the-arsenal",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/rebuild-the-arsenal": {
+    "sha256": "a87706bed51b87f42f98a648961fb1a6f6e6060edbcb4db1988dbaf617d03520",
+    "path": "vendor/anduril-www/www.anduril.com/rebuild-the-arsenal.md",
+    "section": "rebuild-the-arsenal",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/roadrunner": {
+    "sha256": "5a20d1c99f77d11f710a94725d0468a9fdbb28413911e125815b48f9a3d85cd0",
+    "path": "vendor/anduril-www/www.anduril.com/roadrunner.md",
+    "section": "roadrunner",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/sea": {
+    "sha256": "e39a437ae40a1273ca3d733bed04192c7ab6da1536012f258fbb50ccae679e65",
+    "path": "vendor/anduril-www/www.anduril.com/sea.md",
+    "section": "sea",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/sea/seapower": {
+    "sha256": "4eb2e1486f58fd9f7deb4b0d8cc89a63d84db6b673d94f71555e5dbf053611e6",
+    "path": "vendor/anduril-www/www.anduril.com/sea/seapower.md",
+    "section": "sea",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/seabed-sentry": {
+    "sha256": "12c8a6d51583743695172dac826d320a2fd2043657e64dace22bda769dd3c485",
+    "path": "vendor/anduril-www/www.anduril.com/seabed-sentry.md",
+    "section": "seabed-sentry",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/sentry": {
+    "sha256": "ed02fdca5f6277685c6ce105e02d0c17e3f00d9ab2c8a64c98470826e14c49a5",
+    "path": "vendor/anduril-www/www.anduril.com/sentry.md",
+    "section": "sentry",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/solid-rocket-motors": {
+    "sha256": "00901962d10248efd9595cd1686dddd3ecb6ebb2a01b088dd23aedec9fc55c81",
+    "path": "vendor/anduril-www/www.anduril.com/solid-rocket-motors.md",
+    "section": "solid-rocket-motors",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/space": {
+    "sha256": "176e6716f40a8c41c0b8d4558b6ca0449890b41e481505445bcd8465789346a5",
+    "path": "vendor/anduril-www/www.anduril.com/space.md",
+    "section": "space",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/space/space": {
+    "sha256": "e9bcdee48b38a20c2638c6dab704030e88a4274b768d0d951650597bae3a28e3",
+    "path": "vendor/anduril-www/www.anduril.com/space/space.md",
+    "section": "space",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/spark": {
+    "sha256": "0d480d5b54ed54651864013a3156a6b68b4b5302e2bcaf72021e4a4a675ee229",
+    "path": "vendor/anduril-www/www.anduril.com/spark.md",
+    "section": "spark",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/spyglass": {
+    "sha256": "91d79ac106b36c90e8bb93177ca3f2c11797c79d7bee6f065bd46ed2174f2774",
+    "path": "vendor/anduril-www/www.anduril.com/spyglass.md",
+    "section": "spyglass",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/subterranean": {
+    "sha256": "0670ded9929d2c8f79b18a472ebd0eeffa830598986a0332c4e44ea04b92547d",
+    "path": "vendor/anduril-www/www.anduril.com/subterranean.md",
+    "section": "subterranean",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/subterranean/future-state": {
+    "sha256": "728917a1336716fa89c2ac6f7b923027934c9c9fb75cc7bc525f12d5109dcda3",
+    "path": "vendor/anduril-www/www.anduril.com/subterranean/future-state.md",
+    "section": "subterranean",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/terms-of-use": {
+    "sha256": "924249d68da40e78e368caba8ab9f47a35a9aeb1ec4871aa5cb588cd6ec0956d",
+    "path": "vendor/anduril-www/www.anduril.com/terms-of-use.md",
+    "section": "terms-of-use",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/uk": {
+    "sha256": "3a32d9962ff17138f038703e8ac767a448ccba99e30c3a2a98a77ad820639eef",
+    "path": "vendor/anduril-www/www.anduril.com/uk.md",
+    "section": "uk",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/uk-carbon-reduction-plan": {
+    "sha256": "6f5c06339cd2dd6309d78b2c7361ea72d8192f52e5a06b3384a4e658ae1bfa25",
+    "path": "vendor/anduril-www/www.anduril.com/uk-carbon-reduction-plan.md",
+    "section": "uk-carbon-reduction-plan",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/veteran-careers": {
+    "sha256": "9cf5aba15efff258ef48010a1d40671a99713725140cb23f8988cc5db61dcd9c",
+    "path": "vendor/anduril-www/www.anduril.com/veteran-careers.md",
+    "section": "veteran-careers",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/voyager": {
+    "sha256": "737be12ad06ff3bdbe0918d2b5cde9e554b4c9c398897faa0ef99a4ea170fdf5",
+    "path": "vendor/anduril-www/www.anduril.com/voyager.md",
+    "section": "voyager",
+    "datePublished": null,
+    "dateModified": null
+  },
+  "https://www.anduril.com/wisp": {
+    "sha256": "85633affdd9496adf9165ebe8443d2331fa612a1eeca594c2b26f02092cece48",
+    "path": "vendor/anduril-www/www.anduril.com/wisp.md",
+    "section": "wisp",
+    "datePublished": null,
+    "dateModified": null
+  }
+}
