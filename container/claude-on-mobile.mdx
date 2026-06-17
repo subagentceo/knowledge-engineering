@@ -1,0 +1,80 @@
+---
+title: "Claude Code on mobile — container reference"
+description: "Driving the knowledge-engineering remote container from the Claude iOS/Android app: same VM as web, what changes, and the mobile-first workflow."
+---
+
+import { Note, Warning } from "/snippets/callouts.mdx";
+
+The Claude mobile app (iOS / Android) starts and drives the **same** managed
+remote-execution VM as Claude Code on the web. There is no local compute on the
+phone — the container runs in the cloud and the app is a thin client over the
+session. Everything in `container/claude-on-web.mdx` applies; this page covers
+what is different when you are on a phone.
+
+<Note>
+  The VM is identical to the web reference: Ubuntu 24.04.4, kernel 6.18.5, 4
+  vCPU, 15 GiB RAM, 252 GB disk, Claude Code **2.1.179**, Node v22.22.2, Redis
+  7.0.15, PostgreSQL 16.13. Run `container/doctor.sh` to confirm for your
+  session.
+</Note>
+
+## Active session (measured)
+
+This document was authored from a session whose `Active sessions` list included
+**Claude (iOS)** and **Chrome Mobile iOS** clients (Seattle, WA), alongside
+desktop. The mobile client and the web client attach to the **same** ephemeral
+container — closing the app does not stop the VM; inactivity does.
+
+| Property    | Value                                                       |
+| :---------- | :---------------------------------------------------------- |
+| Surface     | Claude iOS / Android app                                    |
+| Compute     | cloud VM (no on-device execution)                           |
+| VM identity | `vm` — Ubuntu 24.04.4, kernel 6.18.5, x86-64, KVM guest     |
+| Claude Code | 2.1.179 (`/opt/claude-code/bin/claude`)                     |
+| Auth        | OAuth, in the native binary's credential store (no API key) |
+
+## What changes on mobile
+
+- **No local terminal.** You interact through chat; the agent runs tools
+  (`Bash`, `Edit`, MCP) inside the container. There is no shell on the phone.
+- **Output is chat-rendered.** Tool results and GitHub-flavored markdown are shown
+  in the app; large diffs are best reviewed on the PR (web) afterward.
+- **Push to persist — always.** A phone session is the easiest to lose to
+  inactivity. Commit and push before you background the app; the VM is reclaimed
+  after a period of inactivity and the working tree is gone with it.
+- **Proactive file delivery.** When an artifact is the deliverable (a report, a
+  generated file), the agent surfaces it to the app via the file-send path rather
+  than dumping it into chat.
+- **PR-event subscriptions** are the mobile-friendly way to track CI and reviews:
+  the session is woken by webhook events instead of you polling — ideal when the
+  app is backgrounded.
+
+## Mobile-first workflow
+
+```text
+open app ─▶ session attaches to cloud VM (already bootstrapped by SessionStart hook)
+   │
+   ├─ ask for the change in chat
+   ├─ agent edits + runs container/doctor.sh / npm run verify in the VM
+   ├─ agent commits + pushes to a claude/* branch and opens a PR (GitHub MCP)
+   └─ subscribe to PR activity ─▶ get woken on CI / review events
+```
+
+<Warning>
+  Do not assume the container survives the app being closed. It is
+  **ephemeral**. If a push has not happened, the work is not saved. Ask the
+  agent to push.
+</Warning>
+
+## Quick checks you can ask for
+
+- "run `container/doctor.sh`" — prints the live VM facts + capability PASS/WARN/FAIL
+- "what Claude Code version is pinned here?" — `claude --version` (2.1.179)
+- "is the data plane up?" — Redis / Postgres readiness
+- "push and open a PR" — persists the session's work before the VM is reclaimed
+
+## See also
+
+- `container/claude-on-web.mdx` — full VM/runtime/data-plane/network reference
+- `container/setup.sh` / `container/doctor.sh` — bootstrap & health probe
+- <https://code.claude.com/docs/en/claude-code-on-the-web> — official docs

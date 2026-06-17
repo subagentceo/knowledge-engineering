@@ -1,0 +1,121 @@
+---
+title: "Claude Code on the Web — container reference"
+description: "The remote-execution VM that backs claude.ai/code web sessions for knowledge-engineering: runtime facts, data plane, network policy, and lifecycle."
+---
+
+import { Note, Warning } from "/snippets/callouts.mdx";
+
+Claude Code on the web runs in a **managed remote-execution environment** — an
+isolated, ephemeral VM in the cloud rather than on your machine. The repository
+is cloned fresh when the container starts, and the container is reclaimed after a
+period of inactivity. Anything worth keeping must be committed and pushed first.
+
+<Note>
+  This page documents the **actual VM measured for this session**. Re-run
+  `container/doctor.sh` to print the live facts for your own session — values
+  like kernel build and free disk drift over time.
+</Note>
+
+## Runtime facts (measured)
+
+| Property          | Value                                            |
+| :---------------- | :----------------------------------------------- |
+| Host              | `vm`                                             |
+| OS                | Ubuntu 24.04.4 LTS (Noble Numbat)                |
+| Kernel            | Linux 6.18.5, `SMP PREEMPT_DYNAMIC`, x86-64      |
+| Virtualization    | KVM guest (root on `/dev/vda`; no `/.dockerenv`) |
+| CPU               | 4 vCPU — Intel Xeon @ 2.80 GHz                   |
+| Memory            | 15 GiB                                           |
+| Disk              | 252 GB root volume (~27 GB free, 28% used)       |
+| Working directory | `/home/user/knowledge-engineering`               |
+
+## Toolchain (measured)
+
+| Tool                           | Version              | Path / note                                                                                                                  |
+| :----------------------------- | :------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| Claude Code                    | **2.1.179**          | native binary `/opt/claude-code/bin/claude` (symlinked onto `PATH` via `/opt/node22/bin/claude`); ~251 MB self-contained ELF |
+| Node.js                        | v22.22.2             | `/opt/node22/bin/node`                                                                                                       |
+| npm                            | 10.9.7               |                                                                                                                              |
+| Python                         | 3.11.15              |                                                                                                                              |
+| git                            | 2.43.0               |                                                                                                                              |
+| Terraform                      | 1.9.8                | `verify:tf` needs provider cache; see notes                                                                                  |
+| Docker                         | 29.3.1 (client)      | **no persistent daemon** in cloud sessions                                                                                   |
+| jq / ripgrep / curl / prettier | present              |                                                                                                                              |
+| `gh`                           | **absent by design** | use the GitHub MCP server, not the `gh` CLI                                                                                  |
+
+<Warning>
+  There is also a stale npm-global `@anthropic-ai/claude-code@2.1.42` in the
+  image. It is **shadowed** by the native binary and does not execute. The
+  authoritative version is `claude --version` → **2.1.179**.
+</Warning>
+
+## Data plane
+
+Cloud sessions ship **Redis 7.0.15** and **PostgreSQL 16.13** pre-installed as
+system services. They are **not auto-started** by the image; the repo's
+`scripts/start_services.sh` SessionStart hook brings them up (Redis 7 + PG 16
+with the Kimball dw schema). For agents that bypass the hook, `container/setup.sh`
+does the same.
+
+| Service    | Version | Endpoint                                 | Started by                     |
+| :--------- | :------ | :--------------------------------------- | :----------------------------- |
+| Redis      | 7.0.15  | local socket / `redis-cli ping` → `PONG` | SessionStart hook / `setup.sh` |
+| PostgreSQL | 16.13   | `/var/run/postgresql:5432`               | SessionStart hook / `setup.sh` |
+
+<Note>
+  AlloyDB Omni cannot run in the cloud session — there is no persistent Docker
+  daemon and the image is private. The dw DDL is plain Postgres and runs on PG
+  16 unchanged (only the columnar engine is lost). See
+  `docs/operator-runbooks/alloydb-omni-cloud-env.md`.
+</Note>
+
+## Auth posture (OAuth-only)
+
+`ANTHROPIC_API_KEY` and `ANTHROPIC_ADMIN_API_KEY` are **absent** and must stay
+absent — the chassis fails closed if either is present (`src/oauth/token.ts`, the
+Worker env-sanitizer, the Sandbox env-sanitizer). Authentication is OAuth, held
+by the native `claude` binary's own credential store, not an env var.
+`container/doctor.sh` asserts this as a hard requirement.
+
+## Network policy
+
+Outbound access is governed by the environment's **network policy**, chosen when
+the environment was created. Egress is allowlist-based; the knowledge bridge is
+designed local-first (it reads the committed `vendor/` mirror) so `npm run verify`
+runs without network. Policy details and how environments/triggers/sources work:
+<https://code.claude.com/docs/en/claude-code-on-the-web>.
+
+## GitHub integration
+
+No `gh` CLI and no direct GitHub API. All GitHub operations (PRs, reviews, CI
+status, comments) go through the **GitHub MCP server** (`mcp__github__*`). The
+session is scoped to specific repositories; use `list_repos` / `add_repo` to widen
+scope.
+
+## Lifecycle
+
+```text
+container start ─▶ git clone (fresh) ─▶ SessionStart hook (start_services.sh)
+                                          │
+                                          ├─ npm ci + build
+                                          └─ redis + postgres up
+  …work… ─▶ commit + push (required to persist) ─▶ inactivity ─▶ VM reclaimed
+```
+
+The filesystem is **ephemeral**. `node_modules/`, `dist/`, and `third_party/` are
+gitignored and rebuilt per session. Commit and push before the container is
+reclaimed.
+
+## Bootstrap & verify
+
+```bash
+bash container/setup.sh    # idempotent: invariant check, npm ci, build, start data plane
+bash container/doctor.sh   # read-only health probe; non-zero exit on hard failure
+```
+
+## See also
+
+- `container/claude-on-mobile.mdx` — the same VM, accessed from the Claude iOS/Android app
+- `CLAUDE.md` — Worktree Bootstrap, OAuth-only invariant, tool surface
+- `scripts/start_services.sh` — the real SessionStart hook
+- <https://code.claude.com/docs/en/claude-code-on-the-web> — official docs
