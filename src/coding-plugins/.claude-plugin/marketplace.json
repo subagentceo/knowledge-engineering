@@ -1,0 +1,15 @@
+{
+  "name": "knowledge-coding-plugins",
+  "description": "Claude Code (coding-surface) plugins for the subagentceo knowledge-engineering repo. The engineering counterpart to anthropics/knowledge-work-plugins (Cowork-surface) and anthropics/claude-plugins-official (first-party developer tooling): these plugins automate code-grounded, repo-changing workflows — crawl pipelines, vendor mirrors, delta PRs — that run inside a Claude Code session and push commits.",
+  "owner": {
+    "name": "subagentceo (operator alex@jadecli.com)"
+  },
+  "plugins": [
+    {
+      "name": "anduril-crawl-plugin",
+      "displayName": "Anduril / Incremental Crawl",
+      "source": "./anduril-crawl-plugin",
+      "description": "Deterministic, content-addressed (sha256) incremental crawler packaged as skills. Mirrors a vendor doc surface to CommonMark, detects new + changed pages against a manifest, and PRs only the delta. Two modes: markdown-native (llms.txt + sitemap.xml → fetch .md; e.g. code.claude.com, developer.anduril.com) and structured-metadata (JS/WebGL SPAs with no prose DOM → title + meta + Open Graph + JSON-LD; e.g. www.anduril.com)."
+    }
+  ]
+}
