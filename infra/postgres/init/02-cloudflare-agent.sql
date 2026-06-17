@@ -8,11 +8,11 @@ BEGIN;
 -- @cube.sql_table    dw.dim_cloudflare_agent_setup
 -- @cube.description  Current install state per (account_id, layer, name). SCD Type I — last-write wins.
 --                    Tracks pg_durable task_id for in-flight deploys. UNIQUE on (account_id, layer, name).
--- @cube.measure      count                 COUNT(*)
--- @cube.measure      count_pending         COUNT(*) FILTER (WHERE status = 'pending')
--- @cube.measure      count_running         COUNT(*) FILTER (WHERE status = 'running')
--- @cube.measure      count_completed       COUNT(*) FILTER (WHERE status = 'completed')
--- @cube.measure      count_failed          COUNT(*) FILTER (WHERE status = 'failed')
+-- @cube.measure      count                 COUNT(*)  type:count
+-- @cube.measure      count_pending         COUNT(*) FILTER (WHERE status = 'pending')  type:count
+-- @cube.measure      count_running         COUNT(*) FILTER (WHERE status = 'running')  type:count
+-- @cube.measure      count_completed       COUNT(*) FILTER (WHERE status = 'completed')  type:count
+-- @cube.measure      count_failed          COUNT(*) FILTER (WHERE status = 'failed')  type:count
 -- @cube.dimension    account_id   TEXT      "CF account (e6294e3ea89f8207af387d459824aaae)"
 -- @cube.dimension    layer        TEXT enum[skills,mcp,worker]
 -- @cube.dimension    name         TEXT      "skill/server/worker name"
@@ -48,9 +48,9 @@ CREATE INDEX IF NOT EXISTS idx_cf_setup_status
 -- @cube.sql_table    dw.events_cloudflare_agent
 -- @cube.description  Append-only audit trail for CF agent setup events.
 --                    event_type encodes the pg_durable state transition that occurred.
--- @cube.measure      count                    COUNT(*)
--- @cube.measure      count_by_event_type      COUNT(*) GROUP BY event_type
--- @cube.measure      count_deployments        COUNT(*) FILTER (WHERE event_type = 'worker_deployed')
+-- @cube.measure      count                    COUNT(*)  type:count
+-- @cube.measure      count_by_event_type      COUNT(*) GROUP BY event_type  type:count
+-- @cube.measure      count_deployments        COUNT(*) FILTER (WHERE event_type = 'worker_deployed')  type:count
 -- @cube.dimension    account_id   TEXT        "CF account"
 -- @cube.dimension    layer        TEXT enum[skills,mcp,worker]
 -- @cube.dimension    name         TEXT        "skill/server/worker name"

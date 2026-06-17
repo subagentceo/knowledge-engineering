@@ -9,7 +9,7 @@ CREATE SCHEMA IF NOT EXISTS dw;
 -- @cube name=DimDate version=2026.06.17 type=dim-scd0
 -- @cube.sql_table    dw.dim_date
 -- @cube.description  Immutable calendar keyed by YYYYMMDD integer. SCD Type 0 — never updated.
--- @cube.measure      count             COUNT(*)
+-- @cube.measure      count             COUNT(*)  type:count
 -- @cube.dimension    date_key   INTEGER pk "YYYYMMDD surrogate key"
 -- @cube.dimension    full_date  DATE       "Calendar date"
 -- @cube.dimension    year       SMALLINT
@@ -43,10 +43,10 @@ ON CONFLICT DO NOTHING;
 -- @cube.sql_table    dw.dim_model
 -- @cube.description  SCD Type II model registry. Current row: is_current=TRUE. Versioned by
 --                    (api_model_id, row_effective_from). BM25 tsvector column for full-text search.
--- @cube.measure      count                   COUNT(*)
--- @cube.measure      count_current           COUNT(*) FILTER (WHERE is_current)
--- @cube.measure      avg_context_window_k    AVG(context_window_k)
--- @cube.measure      avg_price_input_mtok    AVG(price_input_mtok)
+-- @cube.measure      count                   COUNT(*)  type:count
+-- @cube.measure      count_current           COUNT(*) FILTER (WHERE is_current)  type:count
+-- @cube.measure      avg_context_window_k    AVG(context_window_k)  type:avg
+-- @cube.measure      avg_price_input_mtok    AVG(price_input_mtok)  type:avg
 -- @cube.dimension    api_model_id        TEXT     "Anthropic model ID (e.g. claude-sonnet-4-6)"
 -- @cube.dimension    display_name        TEXT
 -- @cube.dimension    family              TEXT     "claude-sonnet, claude-haiku, claude-opus, fable"
@@ -103,8 +103,8 @@ CREATE INDEX IF NOT EXISTS idx_dim_model_tsv     ON dw.dim_model USING GIN (tsv)
 -- @cube name=DimModelPlatform version=2026.06.17 type=dim-scd1
 -- @cube.sql_table    dw.dim_model_platform
 -- @cube.description  Per-model platform availability. SCD Type I — current state only.
--- @cube.measure      count                COUNT(*)
--- @cube.measure      count_available      COUNT(*) FILTER (WHERE available)
+-- @cube.measure      count                COUNT(*)  type:count
+-- @cube.measure      count_available      COUNT(*) FILTER (WHERE available)  type:count
 -- @cube.dimension    api_model_id  TEXT fk    "→ dw.dim_model"
 -- @cube.dimension    platform      TEXT       "api | batch | messages | tool_use | ..."
 -- @cube.dimension    available     BOOLEAN
@@ -127,8 +127,8 @@ CREATE INDEX IF NOT EXISTS idx_dim_model_platform_model ON dw.dim_model_platform
 -- @cube name=DimModelFeature version=2026.06.17 type=dim-scd1
 -- @cube.sql_table    dw.dim_model_feature
 -- @cube.description  Per-model feature flags. SCD Type I — beta flag can flip without versioning.
--- @cube.measure      count            COUNT(*)
--- @cube.measure      count_beta       COUNT(*) FILTER (WHERE beta)
+-- @cube.measure      count            COUNT(*)  type:count
+-- @cube.measure      count_beta       COUNT(*) FILTER (WHERE beta)  type:count
 -- @cube.dimension    api_model_id  TEXT fk  "→ dw.dim_model"
 -- @cube.dimension    feature       TEXT     "vision | tool_use | thinking | code_execution | ..."
 -- @cube.dimension    beta          BOOLEAN
@@ -153,9 +153,9 @@ CREATE INDEX IF NOT EXISTS idx_dim_model_feature_model ON dw.dim_model_feature (
 -- @cube.sql_table    dw.dim_model_access
 -- @cube.description  SCD Type III access tier. Stores current + prior tier, preserving exactly one
 --                    prior state. current_access_tier and prior_access_tier enum: ga|glasswing|deprecated.
--- @cube.measure      count                    COUNT(*)
--- @cube.measure      count_ga                 COUNT(*) FILTER (WHERE current_access_tier = 'ga')
--- @cube.measure      count_glasswing          COUNT(*) FILTER (WHERE current_access_tier = 'glasswing')
+-- @cube.measure      count                    COUNT(*)  type:count
+-- @cube.measure      count_ga                 COUNT(*) FILTER (WHERE current_access_tier = 'ga')  type:count
+-- @cube.measure      count_glasswing          COUNT(*) FILTER (WHERE current_access_tier = 'glasswing')  type:count
 -- @cube.dimension    api_model_id             TEXT pk fk "→ dw.dim_model"
 -- @cube.dimension    current_access_tier      TEXT enum[ga,glasswing,deprecated]
 -- @cube.dimension    prior_access_tier        TEXT enum[ga,glasswing,deprecated]
@@ -181,10 +181,10 @@ CREATE TABLE IF NOT EXISTS dw.dim_model_access (
 -- @cube.sql_table    dw.fact_model_pricing
 -- @cube.description  Daily pricing snapshot. One row per (date_key, model_sk). Periodic snapshot fact.
 --                    Grain: one day × one model version. Degenerate dims: price_input_mtok, price_output_mtok.
--- @cube.measure      count                  COUNT(*)
--- @cube.measure      avg_price_input_mtok   AVG(price_input_mtok)
--- @cube.measure      avg_price_output_mtok  AVG(price_output_mtok)
--- @cube.measure      min_price_input_mtok   MIN(price_input_mtok)
+-- @cube.measure      count                  COUNT(*)  type:count
+-- @cube.measure      avg_price_input_mtok   AVG(price_input_mtok)  type:avg
+-- @cube.measure      avg_price_output_mtok  AVG(price_output_mtok)  type:avg
+-- @cube.measure      min_price_input_mtok   MIN(price_input_mtok)  type:min
 -- @cube.dimension    date_key          INTEGER fk  "→ dw.dim_date"
 -- @cube.dimension    model_sk          BIGINT fk   "→ dw.dim_model"
 -- @cube.dimension    price_input_mtok  NUMERIC     "$ per million input tokens"
@@ -213,11 +213,11 @@ CREATE INDEX IF NOT EXISTS idx_fact_pricing_model ON dw.fact_model_pricing (mode
 -- @cube.sql_table    dw.fact_model_usage
 -- @cube.description  Transactional fact stub for per-model token usage. One row per
 --                    (date_key, model_sk, platform). Additive measures: input_tokens, output_tokens.
--- @cube.measure      count                COUNT(*)
--- @cube.measure      input_tokens_sum     SUM(input_tokens)
--- @cube.measure      output_tokens_sum    SUM(output_tokens)
--- @cube.measure      cache_read_sum       SUM(cache_read_tokens)
--- @cube.measure      refusal_count_sum    SUM(refusal_count)
+-- @cube.measure      count                COUNT(*)  type:count
+-- @cube.measure      input_tokens_sum     SUM(input_tokens)  type:sum
+-- @cube.measure      output_tokens_sum    SUM(output_tokens)  type:sum
+-- @cube.measure      cache_read_sum       SUM(cache_read_tokens)  type:sum
+-- @cube.measure      refusal_count_sum    SUM(refusal_count)  type:sum
 -- @cube.dimension    date_key      INTEGER fk "→ dw.dim_date"
 -- @cube.dimension    model_sk      BIGINT fk  "→ dw.dim_model"
 -- @cube.dimension    platform      TEXT       "api | batch | messages | ..."
@@ -245,9 +245,9 @@ CREATE INDEX IF NOT EXISTS idx_fact_usage_date_model ON dw.fact_model_usage (dat
 -- @cube.sql_table    dw.events_model
 -- @cube.description  Append-only model lifecycle audit trail. event_type encodes the specific
 --                    change; old_value/new_value carry the before/after JSONB diff.
--- @cube.measure      count                   COUNT(*)
--- @cube.measure      count_by_event_type     COUNT(*) GROUP BY event_type
--- @cube.measure      pricing_changes         COUNT(*) FILTER (WHERE event_type = 'pricing_changed')
+-- @cube.measure      count                   COUNT(*)  type:count
+-- @cube.measure      count_by_event_type     COUNT(*) GROUP BY event_type  type:count
+-- @cube.measure      pricing_changes         COUNT(*) FILTER (WHERE event_type = 'pricing_changed')  type:count
 -- @cube.dimension    api_model_id  TEXT      "model ID"
 -- @cube.dimension    event_type    TEXT enum[model_announced,model_ga,model_deprecated,pricing_changed,feature_added,feature_removed,platform_added,platform_removed,access_tier_changed,successor_linked]
 -- @cube.dimension    date_key      INTEGER fk "→ dw.dim_date"

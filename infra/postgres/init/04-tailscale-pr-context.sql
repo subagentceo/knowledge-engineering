@@ -14,9 +14,9 @@ BEGIN;
 -- @cube.sql_table    dw.dim_tailscale_node
 -- @cube.description  Current state per Tailscale node. SCD Type I — last-write wins.
 --                    Nodes belong to tailnet ts.subagentceo.io; tags from tailnet-policy.hujson.
--- @cube.measure      count               COUNT(*)
--- @cube.measure      count_active        COUNT(*) FILTER (WHERE status = 'active')
--- @cube.measure      count_by_tag        COUNT(*) GROUP BY tag
+-- @cube.measure      count               COUNT(*)  type:count
+-- @cube.measure      count_active        COUNT(*) FILTER (WHERE status = 'active')  type:count
+-- @cube.measure      count_by_tag        COUNT(*) GROUP BY tag  type:count
 -- @cube.dimension    hostname   TEXT pk   "MagicDNS short name (wsl2-dev, macbook-m5, ke-alloydb, ...)"
 -- @cube.dimension    tailnet    TEXT       "ts.subagentceo.io"
 -- @cube.dimension    ts_ip      TEXT       "100.x.y.z Tailscale IP"
@@ -53,10 +53,10 @@ CREATE INDEX IF NOT EXISTS idx_ts_node_status ON dw.dim_tailscale_node (status);
 -- @cube.description  Append-only PR merge events with Tailscale initiating-node context.
 --                    semvar_date is the PST calendar date of merge in yyyy.mm.dd format.
 --                    UTC bounds: semvar_date PDT (UTC-7) → window start = T+07:00:00Z.
--- @cube.measure      count                   COUNT(*)
--- @cube.measure      count_by_semvar_date    COUNT(*) GROUP BY semvar_date
--- @cube.measure      files_changed_sum       SUM(files_changed)
--- @cube.measure      avg_files_changed       AVG(files_changed)
+-- @cube.measure      count                   COUNT(*)  type:count
+-- @cube.measure      count_by_semvar_date    COUNT(*) GROUP BY semvar_date  type:count
+-- @cube.measure      files_changed_sum       SUM(files_changed)  type:sum
+-- @cube.measure      avg_files_changed       AVG(files_changed)  type:avg
 -- @cube.dimension    pr_number    INTEGER    "GitHub PR number"
 -- @cube.dimension    semvar_date  TEXT       "yyyy.mm.dd PST — deterministic version key"
 -- @cube.dimension    merged_at    TIMESTAMPTZ "UTC merge timestamp from GitHub API"
