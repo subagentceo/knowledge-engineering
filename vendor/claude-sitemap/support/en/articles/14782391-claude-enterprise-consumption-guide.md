@@ -14,10 +14,10 @@ Admins who proactively configure spend limits and educate users can reduce waste
 
 ## Understanding token intensity across surfaces
 
-| **Surface** | **Token intensity and what drives it** |
-| --- | --- |
-| Core Chat | Lower intensity. Standard back-and-forth conversation, summarization, drafting, and Q&A. Token usage scales with message length and conversation history. |
-| Claude Code | Higher intensity. Each coding session includes system prompts, file context, tool calls, and multi-turn reasoning—more tokens per session than chat. |
+| **Surface**   | **Token intensity and what drives it**                                                                                                                         |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Core Chat     | Lower intensity. Standard back-and-forth conversation, summarization, drafting, and Q&A. Token usage scales with message length and conversation history.      |
+| Claude Code   | Higher intensity. Each coding session includes system prompts, file context, tool calls, and multi-turn reasoning—more tokens per session than chat.           |
 | Claude Cowork | Higher intensity. Agentic workflows, multi-step task execution, and Skills generate significant intermediate token usage that may not be visible to end users. |
 
 **Admin tip: Set expectations with your team**
@@ -98,11 +98,11 @@ User-level caps let you set consumption limits for individual accounts. These ar
 
 **Recommended starting points**
 
-| **User type** | **Code** | **Cowork** | **Chat** |
-| --- | --- | --- | --- |
-| Power (Top 10%) | $200 | $100 | $50 |
-| Typical (Mean) | $85 | $50 | $20 |
-| Light (Median) | $25 | $20 | $5 |
+| **User type**   | **Code** | **Cowork** | **Chat** |
+| --------------- | -------- | ---------- | -------- |
+| Power (Top 10%) | $200     | $100       | $50      |
+| Typical (Mean)  | $85      | $50        | $20      |
+| Light (Median)  | $25      | $20        | $5       |
 
 **These figures are rough planning estimates. Actual consumption will vary based on your team's size, workflows, and usage patterns.*
 
@@ -116,11 +116,11 @@ Effort level is a second consumption lever. Users can choose how much thinking C
 
 ### The right model for the right task
 
-| **Model** | **Best for** | **Token intensity** | **Recommended use** |
-| --- | --- | --- | --- |
-| Claude Sonnet | Everyday tasks, writing, analysis, Q&A | Moderate | Default model for all users—set as your org-wide default (see below) |
-| Claude Opus | Complex reasoning, research, multi-step tasks | High | Reserve for power users or specific workflows only |
-| Claude Haiku | Simple lookups, summaries, fast responses | Low | High-volume, lightweight automation tasks |
+| **Model**     | **Best for**                                  | **Token intensity** | **Recommended use**                                                  |
+| ------------- | --------------------------------------------- | ------------------- | -------------------------------------------------------------------- |
+| Claude Sonnet | Everyday tasks, writing, analysis, Q&A        | Moderate            | Default model for all users—set as your org-wide default (see below) |
+| Claude Opus   | Complex reasoning, research, multi-step tasks | High                | Reserve for power users or specific workflows only                   |
+| Claude Haiku  | Simple lookups, summaries, fast responses     | Low                 | High-volume, lightweight automation tasks                            |
 
 ### Setting your organization's default model (beta)
 

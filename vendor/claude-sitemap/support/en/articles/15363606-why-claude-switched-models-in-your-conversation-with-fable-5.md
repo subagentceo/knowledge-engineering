@@ -1,3 +1,5 @@
+**Update June 12:** We've suspended access to Claude Fable 5. **[Learn more here](https://anthropic.com/news/fable-mythos-access)**.
+
 This article explains why a request might be blocked, what happens when your conversation switches to a different Claude model, and how to manage automatic switching.
 
 ## Why some requests get blocked

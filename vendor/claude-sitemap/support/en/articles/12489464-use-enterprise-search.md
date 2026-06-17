@@ -112,13 +112,13 @@ Claude will search your connected tools—such as SharePoint documents, Slack co
 
 ## Compare enterprise search to standard projects
 
-|  | **Projects** | **Enterprise Search** |
-| --- | --- | --- |
-| **System prompt** | Customizable by users | Managed by Anthropic (optimized for search) |
-| **Purpose** | General-purpose workspace | Specialized for organization knowledge search |
+|                     | **Projects**                   | **Enterprise Search**                         |
+| ------------------- | ------------------------------ | --------------------------------------------- |
+| **System prompt**   | Customizable by users          | Managed by Anthropic (optimized for search)   |
+| **Purpose**         | General-purpose workspace      | Specialized for organization knowledge search |
 | **Connector setup** | Manual configuration each time | Guided onboarding with recommended connectors |
-| **Availability** | User-created | Automatically provisioned for organization |
-| **Updates** | Static unless manually changed | Automatic improvements from Anthropic |
+| **Availability**    | User-created                   | Automatically provisioned for organization    |
+| **Updates**         | Static unless manually changed | Automatic improvements from Anthropic         |
 
 ## Use cases
 

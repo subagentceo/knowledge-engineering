@@ -8,9 +8,17 @@ Our most capable model for cybersecurity and biology research.
 
 ## Announcements
 
-*   NEW
+*   Update
     
-    Claude Mythos 5
+    Claude Mythos 5 is currently unavailable
+    
+    Jun 12, 2026
+    
+    We apologize for this disruption to our customers and are working to restore access as soon as possible.
+    
+    Read more
+    
+*   Claude Mythos 5
     
     Jun 9, 2026
     
@@ -45,7 +53,7 @@ Our most capable model for cybersecurity and biology research.
 
 ## Availability and pricing
 
-Claude Mythos 5 is available to a small set of initial testing partners for cybersecurity, and soon, biology research. We aim to expand our trusted access programs to safely allow more organizations to secure their code and create life-changing research.
+Claude Mythos 5 and Claude Fable 5 access is currently unavailable for Glasswing partners. Learn more.
 
 Pricing for Claude Mythos 5 starts at $10 per million input tokens and $50 per million output tokens.
 

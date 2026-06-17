@@ -11,6 +11,7 @@ Update Session Resource
 - `resourceID string`
 
 - `params BetaSessionResourceUpdateParams`
+
   - `SessionID param.Field[string]`
 
     Path param: Path parameter session_id
@@ -22,9 +23,11 @@ Update Session Resource
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -77,14 +80,18 @@ Update Session Resource
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaSessionResourceUpdateResponseUnion interface{…}`
 
   The updated session resource.
+
   - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
+
     - `ID string`
 
     - `CreatedAt Time`
@@ -94,6 +101,7 @@ Update Session Resource
     - `MountPath string`
 
     - `Type BetaManagedAgentsGitHubRepositoryResourceType`
+
       - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
 
     - `UpdatedAt Time`
@@ -103,23 +111,29 @@ Update Session Resource
     - `URL string`
 
     - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
+
       - `type BetaManagedAgentsBranchCheckout struct{…}`
+
         - `Name string`
 
           Branch name to check out.
 
         - `Type BetaManagedAgentsBranchCheckoutType`
+
           - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
 
       - `type BetaManagedAgentsCommitCheckout struct{…}`
+
         - `Sha string`
 
           Full commit SHA to check out.
 
         - `Type BetaManagedAgentsCommitCheckoutType`
+
           - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
 
   - `type BetaManagedAgentsFileResource struct{…}`
+
     - `ID string`
 
     - `CreatedAt Time`
@@ -131,6 +145,7 @@ Update Session Resource
     - `MountPath string`
 
     - `Type BetaManagedAgentsFileResourceType`
+
       - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
 
     - `UpdatedAt Time`
@@ -140,16 +155,19 @@ Update Session Resource
   - `type BetaManagedAgentsMemoryStoreResource struct{…}`
 
     A memory store attached to an agent session.
+
     - `MemoryStoreID string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type BetaManagedAgentsMemoryStoreResourceType`
+
       - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
 
     - `Access BetaManagedAgentsMemoryStoreResourceAccess`
 
       Access mode for an attached memory store.
+
       - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
 
       - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`

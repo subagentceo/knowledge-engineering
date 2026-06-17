@@ -95,6 +95,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
+
+Jun 17, 2026
+
+### Claude Design now stays on brand for daily work
+
+Product announcements
+
+Claude Design now stays on brand for daily workClaude Design now stays on brand for daily work
+
+Claude Design now stays on brand for daily workClaude Design now stays on brand for daily work
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
 
 Apr 14, 2026
@@ -130,18 +142,6 @@ Product announcements
 New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
 
 New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229b7f170bab528846d_0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
-
-Jun 8, 2026
-
-### Building intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-Product announcements
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models frameworkBuilding intelligent apps for Apple platforms with Claude in the Foundation Models framework
-
-Building intelligent apps for Apple platforms with Claude in the Foundation Models frameworkBuilding intelligent apps for Apple platforms with Claude in the Foundation Models framework
 
 ## Transform how your organization operates with Claude
 

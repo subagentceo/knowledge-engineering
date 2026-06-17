@@ -28,10 +28,10 @@ Admins and above can generate, copy, disable, and regenerate the invite link for
 
 ### Manage your invite link
 
-| **Action** | **What it does** |
-| --- | --- |
-| Disable the link | Immediately invalidates all existing links. No one can join via link until it's re-enabled. |
-| Regenerate the link | Creates a new link and immediately invalidates the previous one. |
+| **Action**          | **What it does**                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------- |
+| Disable the link    | Immediately invalidates all existing links. No one can join via link until it's re-enabled. |
+| Regenerate the link | Creates a new link and immediately invalidates the previous one.                            |
 
 ### How seat assignment works
 

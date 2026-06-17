@@ -14,11 +14,11 @@ You do not need to reference it in prompts or attach it manually. If the file ex
 
 Claude looks in a few places and merges what it finds, from broad to specific:
 
-| **Location** | **Scope** | **Good for** |
-| --- | --- | --- |
-| `~/.claude/CLAUDE.md` | Every project on your machine | Personal preferences (for example, "I use pnpm, not npm" or "always suggest tests"). |
-| `<repo-root>/CLAUDE.md` | This project | Architecture, conventions, and commands. **This is the main one.** |
-| `<subdir>/CLAUDE.md` | That subdirectory (loaded on demand when Claude reads files in that directory, not at session start) | Module-specific rules (for example, different conventions in `frontend/` vs `api/`). |
+| **Location**            | **Scope**                                                                                            | **Good for**                                                                         |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `~/.claude/CLAUDE.md`   | Every project on your machine                                                                        | Personal preferences (for example, "I use pnpm, not npm" or "always suggest tests"). |
+| `<repo-root>/CLAUDE.md` | This project                                                                                         | Architecture, conventions, and commands. **This is the main one.**                   |
+| `<subdir>/CLAUDE.md`    | That subdirectory (loaded on demand when Claude reads files in that directory, not at session start) | Module-specific rules (for example, different conventions in `frontend/` vs `api/`). |
 
 Most teams only need the project-root file. Commit it to git so the whole team benefits.
 
@@ -120,10 +120,10 @@ If the first answer is off, you do not need to rephrase the whole request. Simpl
 
 ## Quick reference
 
-| **Want to…** | **Do this** |
-| --- | --- |
-| Generate a starting `CLAUDE.md` | `/init` |
-| See what memory Claude is using | `/memory` |
-| Add a rule mid-session | Open `/memory`, or ask Claude to "remember" the rule |
-| Start fresh but keep project memory | `/clear` |
-| Reference a specific file in a prompt | `@path/to/file` |
+| **Want to…**                          | **Do this**                                          |
+| ------------------------------------- | ---------------------------------------------------- |
+| Generate a starting `CLAUDE.md`       | `/init`                                              |
+| See what memory Claude is using       | `/memory`                                            |
+| Add a rule mid-session                | Open `/memory`, or ask Claude to "remember" the rule |
+| Start fresh but keep project memory   | `/clear`                                             |
+| Reference a specific file in a prompt | `@path/to/file`                                      |

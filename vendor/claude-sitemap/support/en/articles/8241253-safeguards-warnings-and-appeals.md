@@ -10,9 +10,11 @@ As part of our safety process, we may ban an account for a variety of reasons:
 
 - **[Terms of Service](https://www.anthropic.com/legal/consumer-terms)** violations
 
-If you feel your account has been wrongly suspended or terminated, please fill out the appeal form linked below with your account information so our Safeguards team can further investigate why your account was disabled.
+If you feel your account has been wrongly suspended or terminated, please go to **[claude.ai](http://claude.ai)**, log in with your banned account, and fill out the appeal form linked below. Our Safeguards team can further investigate why your account was disabled.
 
 [Submit an appeal](https://claude.ai/restricted)
+
+**Important:** You must be logged in to access the appeal form.
 
 ## Warnings
 

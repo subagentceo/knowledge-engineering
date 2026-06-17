@@ -13,10 +13,10 @@ Your usage bundle balance is a single pool that applies across Claude, Claude De
 The discount you receive depends on the bundle size you purchase. Bigger bundles save you more.
 
 | **Bundle** | **Discount** | **You pay** |
-| --- | --- | --- |
-| $50 | 10% | $45 |
-| $250 | 20% | $200 |
-| $1000 | 30% | $700 |
+| ---------- | ------------ | ----------- |
+| $50        | 10%          | $45         |
+| $250       | 20%          | $200        |
+| $1000      | 30%          | $700        |
 
 Individual Pro and Max plan subscribers can purchase up to $2000 worth of discounted bundles per month. Any usage beyond this limit is billed at standard rates.
 

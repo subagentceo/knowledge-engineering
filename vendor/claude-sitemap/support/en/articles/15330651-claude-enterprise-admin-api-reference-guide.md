@@ -8,9 +8,9 @@ Claude Enterprise Admin API is currently in public beta and available to organiz
 
 There are eight endpoints across two resources:
 
-| **Resource** | **Endpoints** | **Use for** |
-| --- | --- | --- |
-| **Spend limits** | `GET /v1/organizations/spend_limits/effective`<br>`GET /v1/organizations/spend_limits/{spend_limit_id}`<br>`POST /v1/organizations/spend_limits`<br>`DELETE /v1/organizations/spend_limits/{spend_limit_id}` | Read each member's effective limit and period-to-date spend; set or clear a per-user override. |
+| **Resource**                      | **Endpoints**                                                                                                                                                                                                                                                  | **Use for**                                                                                                 |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Spend limits**                  | `GET /v1/organizations/spend_limits/effective`<br>`GET /v1/organizations/spend_limits/{spend_limit_id}`<br>`POST /v1/organizations/spend_limits`<br>`DELETE /v1/organizations/spend_limits/{spend_limit_id}`                                                   | Read each member's effective limit and period-to-date spend; set or clear a per-user override.              |
 | **Spend limit increase requests** | `GET /v1/organizations/spend_limit_increase_requests`<br>`GET /v1/organizations/spend_limit_increase_requests/{id}`<br>`POST /v1/organizations/spend_limit_increase_requests/{id}/approve`<br>`POST /v1/organizations/spend_limit_increase_requests/{id}/deny` | List members' requests for a higher limit, with the context needed to decide; approve or deny each request. |
 
 Use the **spend limits** endpoints to answer, “What limit applies to each member, where does it come from, and how close are they to it?" and to set a per-user override. Use the **spend limit increase requests** endpoints to work the queue of member-submitted requests.
@@ -59,20 +59,21 @@ user_ids[]=user_01AbCdEfGh&user_ids[]=user_01JkLmNoPq
 
 ## Error responses
 
-| **Status** | **Meaning** |
-| --- | --- |
-| 400 | Invalid input, unsupported parameter value, page cursor does not match current parameters, or a precondition is not met (see per-endpoint Validations). |
-| 401 | Missing `x-api-key` header. |
-| 403 | API key is missing the required scope (`read:spend_limits` or `write:spend_limits`). |
-| 404 | Resource not found, or API key is unknown, expired, or revoked. |
-| 429 | Rate limit exceeded. |
-| 500 | Internal error. |
+| **Status** | **Meaning**                                                                                                                                             |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400        | Invalid input, unsupported parameter value, page cursor does not match current parameters, or a precondition is not met (see per-endpoint Validations). |
+| 401        | Missing `x-api-key` header.                                                                                                                             |
+| 403        | API key is missing the required scope (`read:spend_limits` or `write:spend_limits`).                                                                    |
+| 404        | Resource not found, or API key is unknown, expired, or revoked.                                                                                         |
+| 429        | Rate limit exceeded.                                                                                                                                    |
+| 500        | Internal error.                                                                                                                                         |
 
 Error bodies have the shape:
 
 ```
 {"type": "error", "error": {"type": "<error_type>", "message": "..."}, "request_id": "req_..."}
 ```
+
 `error.type` is a status-dependent discriminator: `invalid_request_error` (400), `authentication_error` (401), `permission_error` (403), `not_found_error` (404), `rate_limit_error` (429), `api_error` (500). `request_id` is always present and is the value to quote when contacting support. The Validations table under each endpoint lists the specific messages.
 
 ---
@@ -89,12 +90,12 @@ Reading `GET /v1/organizations/spend_limits/effective` returns every current mem
 
 A scope identifies the level a spend limit is written or resolved at:
 
-| **Type** | **Fields** | **Meaning** |
-| --- | --- | --- |
-| `user` | `user_id` | A specific member. `user_id` matches the IDs returned by the Admin API users endpoints. |
-| `seat_tier` | `seat_tier` | A seat tier default. `seat_tier` values are fully-qualified identifiers such as `enterprise_standard` or `enterprise_tier_1`; additional values may be added. |
-| `rbac_group` | `rbac_group_id` | A group default, when your organization manages limits by group. |
-| `organization` | — | The organization-wide default. |
+| **Type**       | **Fields**      | **Meaning**                                                                                                                                                   |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user`         | `user_id`       | A specific member. `user_id` matches the IDs returned by the Admin API users endpoints.                                                                       |
+| `seat_tier`    | `seat_tier`     | A seat tier default. `seat_tier` values are fully-qualified identifiers such as `enterprise_standard` or `enterprise_tier_1`; additional values may be added. |
+| `rbac_group`   | `rbac_group_id` | A group default, when your organization manages limits by group.                                                                                              |
+| `organization` | —               | The organization-wide default.                                                                                                                                |
 
 `scope.type` is an open string. Clients should treat unknown values as opaque and fall through rather than fail. Additional scope types may be added in future.
 
@@ -116,11 +117,11 @@ All monetary values are strings in **minor units of the organization's billing c
 
 A **spend limit increase request** is created when a member clicks "request more usage" in claude.ai. Requests are not created via this API.
 
-| **Status** | **Meaning** |
-| --- | --- |
-| `pending` | Awaiting admin action. The request normally carries a live `spend_summary` so you can see the member's current effective limit and period-to-date spend while deciding. `spend_summary` may be `null` if it couldn’t be computed, so handle that case. |
+| **Status** | **Meaning**                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pending`  | Awaiting admin action. The request normally carries a live `spend_summary` so you can see the member's current effective limit and period-to-date spend while deciding. `spend_summary` may be `null` if it couldn’t be computed, so handle that case.                                                                                                                                                     |
 | `approved` | The request was resolved with approval: either an admin approved it explicitly (writing a per-user spend limit at the admin-supplied amount), another admin action made usage credits available to the member (for example, raising a seat-tier limit or enabling usage credit billing for the organization), or Anthropic support raised a limit on the organization's behalf. `spend_summary` is `null`. |
-| `denied` | An admin declined. `spend_summary` is `null`. Claude.ai hides that member's request button for 30 days from `resolved_at`; an admin can still raise the member's limit directly at any time. |
+| `denied`   | An admin declined. `spend_summary` is `null`. Claude.ai hides that member's request button for 30 days from `resolved_at`; an admin can still raise the member's limit directly at any time.                                                                                                                                                                                                               |
 
 Both `approved` and `denied` are terminal. A member has at most one `pending` request at a time.
 
@@ -147,16 +148,16 @@ A configured limit at one scope level.
 }
 ```
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `type` | string | Always `"spend_limit"`. |
-| `id` | string | Prefixed `spl_`. |
-| `created_at` | string (RFC 3339) | When this limit was first set. |
-| `updated_at` | string (RFC 3339) | When this limit was last changed. |
-| `scope` | Scope | The level this limit is written at. See the "Scope" section. |
-| `amount` | string or null | Limit for the `period`, in minor units. `null` means unlimited. |
-| `currency` | string | ISO 4217. The organization's billing currency. |
-| `period` | string | The recurring window over which `amount` is enforced. See the "Period" section. |
+| **Field**    | **Type**          | **Description**                                                                 |
+| ------------ | ----------------- | ------------------------------------------------------------------------------- |
+| `type`       | string            | Always `"spend_limit"`.                                                         |
+| `id`         | string            | Prefixed `spl_`.                                                                |
+| `created_at` | string (RFC 3339) | When this limit was first set.                                                  |
+| `updated_at` | string (RFC 3339) | When this limit was last changed.                                               |
+| `scope`      | Scope             | The level this limit is written at. See the "Scope" section.                    |
+| `amount`     | string or null    | Limit for the `period`, in minor units. `null` means unlimited.                 |
+| `currency`   | string            | ISO 4217. The organization's billing currency.                                  |
+| `period`     | string            | The recurring window over which `amount` is enforced. See the "Period" section. |
 
 ## The SpendSummary object
 
@@ -174,15 +175,15 @@ A computed per-member report row: the member's effective limit, where it came fr
 }
 ```
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `scope` | Scope (`type: "user"`) | The member this row is for. |
-| `amount` | string or null | The effective limit for the `period`, in minor units. `null` means unlimited; `"0"` means usage credits are disabled. |
-| `currency` | string | ISO 4217. |
-| `period` | string | The period of the spend limit that `source` resolved to. See the "Period" section. |
-| `source` | Scope | Where `amount` was resolved from in the hierarchy. Equals `scope` when the member has a per-user override. |
-| `spend_limit_id` | string | ID of the `SpendLimit` that `source` resolved to. Fetch it with `GET /v1/organizations/spend_limits/{spend_limit_id}`. |
-| `period_to_date_spend` | string | The member's usage credits accrued since the start of the current `period`, in minor units. |
+| **Field**              | **Type**               | **Description**                                                                                                        |
+| ---------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `scope`                | Scope (`type: "user"`) | The member this row is for.                                                                                            |
+| `amount`               | string or null         | The effective limit for the `period`, in minor units. `null` means unlimited; `"0"` means usage credits are disabled.  |
+| `currency`             | string                 | ISO 4217.                                                                                                              |
+| `period`               | string                 | The period of the spend limit that `source` resolved to. See the "Period" section.                                     |
+| `source`               | Scope                  | Where `amount` was resolved from in the hierarchy. Equals `scope` when the member has a per-user override.             |
+| `spend_limit_id`       | string                 | ID of the `SpendLimit` that `source` resolved to. Fetch it with `GET /v1/organizations/spend_limits/{spend_limit_id}`. |
+| `period_to_date_spend` | string                 | The member's usage credits accrued since the start of the current `period`, in minor units.                            |
 
 ## The SpendLimitIncreaseRequest object
 
@@ -212,26 +213,26 @@ A computed per-member report row: the member's effective limit, where it came fr
 }
 ```
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `type` | string | Always `"spend_limit_increase_request"`. |
-| `id` | string | Prefixed `slir_`. |
-| `created_at` | string (RFC 3339) | When the member submitted the request. |
-| `status` | string | `pending`, `approved`, or `denied`. |
-| `resolved_at` | string (RFC 3339) or null | When the request was approved or denied. `null` while pending. |
-| `resolved_by` | Actor or null | Who approved or denied the request: either a `user_actor` (an admin acted in claude.ai) or a `scoped_api_key_actor` (resolved via this API). When a request is auto-resolved by an admin action in claude.ai (for example, raising a seat-tier limit, enabling usage credit billing for the organization, or raising the member's limit), `resolved_by` is the acting admin's `user_actor`. `null` while pending, when the resolving admin's account has since been deleted, or when the request was resolved by Anthropic support. A `scoped_api_key_actor` may reference a key that has since been deleted or revoked. Treat `scoped_api_key_id` as a historical reference and tolerate lookup failures. |
-| `actor` | Actor (`user_actor`) | The member who submitted the request. |
-| `spend_summary` | SpendSummary or null | Live decision context for the requester: their effective limit and period-to-date spend. Present while `status` is pending (may be `null` if the summary couldn’t be computed); always `null` once resolved. |
+| **Field**       | **Type**                  | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`          | string                    | Always `"spend_limit_increase_request"`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `id`            | string                    | Prefixed `slir_`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `created_at`    | string (RFC 3339)         | When the member submitted the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `status`        | string                    | `pending`, `approved`, or `denied`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `resolved_at`   | string (RFC 3339) or null | When the request was approved or denied. `null` while pending.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `resolved_by`   | Actor or null             | Who approved or denied the request: either a `user_actor` (an admin acted in claude.ai) or a `scoped_api_key_actor` (resolved via this API). When a request is auto-resolved by an admin action in claude.ai (for example, raising a seat-tier limit, enabling usage credit billing for the organization, or raising the member's limit), `resolved_by` is the acting admin's `user_actor`. `null` while pending, when the resolving admin's account has since been deleted, or when the request was resolved by Anthropic support. A `scoped_api_key_actor` may reference a key that has since been deleted or revoked. Treat `scoped_api_key_id` as a historical reference and tolerate lookup failures. |
+| `actor`         | Actor (`user_actor`)      | The member who submitted the request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `spend_summary` | SpendSummary or null      | Live decision context for the requester: their effective limit and period-to-date spend. Present while `status` is pending (may be `null` if the summary couldn’t be computed); always `null` once resolved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ### Actor
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `type` | string | `user_actor` or `scoped_api_key_actor`. |
-| `user_id` | string | Present on `user_actor`. The user's ID; same value accepted by `actor_ids[]`. |
-| `name` | string or null | Present on `user_actor`. The user's name; `null` if the account has been deleted or the user has not set a name. |
-| `email_address` | string or null | Present on `user_actor`. The user's email; `null` if the account has been deleted. |
-| `scoped_api_key_id` | string | Present on `scoped_api_key_actor`. Prefixed `apikey_`. |
+| **Field**           | **Type**       | **Description**                                                                                                  |
+| ------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `type`              | string         | `user_actor` or `scoped_api_key_actor`.                                                                          |
+| `user_id`           | string         | Present on `user_actor`. The user's ID; same value accepted by `actor_ids[]`.                                    |
+| `name`              | string or null | Present on `user_actor`. The user's name; `null` if the account has been deleted or the user has not set a name. |
+| `email_address`     | string or null | Present on `user_actor`. The user's email; `null` if the account has been deleted.                               |
+| `scoped_api_key_id` | string         | Present on `scoped_api_key_actor`. Prefixed `apikey_`.                                                           |
 
 ---
 
@@ -242,24 +243,25 @@ A computed per-member report row: the member's effective limit, where it came fr
 ```
 GET /v1/organizations/spend_limits/effective
 ```
+
 Returns **every current member** of the organization with their resolved effective limit and period-to-date spend. Members without a per-user override appear with `source.type` of `seat_tier`, `rbac_group`, or `organization`. Ex-members aren’t listed.
 
 Requires scope: `read:spend_limits.`
 
 #### Query parameters
 
-| **Field** | **Type** | **Required** | **Default** | **Description** |
-| --- | --- | --- | --- | --- |
-| `user_ids[]` | string, max 100 entries | No | all members | Narrow to specific members. Accepts `user_...` IDs. An entry that isn’t a current member is silently omitted from `data`. |
-| `limit` | integer 1–1000 | No | 20 | Rows per page. |
-| `page` | opaque cursor string | No | — | The `next_page` value from a previous response. |
+| **Field**    | **Type**                | **Required** | **Default** | **Description**                                                                                                           |
+| ------------ | ----------------------- | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `user_ids[]` | string, max 100 entries | No           | all members | Narrow to specific members. Accepts `user_...` IDs. An entry that isn’t a current member is silently omitted from `data`. |
+| `limit`      | integer 1–1000          | No           | 20          | Rows per page.                                                                                                            |
+| `page`       | opaque cursor string    | No           | —           | The `next_page` value from a previous response.                                                                           |
 
 #### Response fields
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `data` | array of SpendSummary | One entry per member, ordered by when the member joined the organization (newest first). |
-| `next_page` | string or null | Opaque cursor for the next page; `null` when no more pages. |
+| **Field**   | **Type**              | **Description**                                                                          |
+| ----------- | --------------------- | ---------------------------------------------------------------------------------------- |
+| `data`      | array of SpendSummary | One entry per member, ordered by when the member joined the organization (newest first). |
+| `next_page` | string or null        | Opaque cursor for the next page; `null` when no more pages.                              |
 
 #### Example request
 
@@ -289,16 +291,16 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/effective?limit=20
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| `user_ids[]` entry malformed | 400 | `user_ids[]: entry is not a valid user ID` |
-| `user_ids[]` has more than 100 entries | 400 |  |
-| `limit` outside 1–1000 | 400 |  |
-| `page` cursor invalid | 400 | `page: invalid cursor` |
-| `page` cursor does not match current `user_ids[]` | 400 | `page: cursor does not match current query parameters` |
-| `page` cursor from a different API version | 400 | `page: cursor was issued by a different API version` |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                     | **Status** | **Message**                                                 |
+| ------------------------------------------------- | ---------- | ----------------------------------------------------------- |
+| `user_ids[]` entry malformed                      | 400        | `user_ids[]: entry is not a valid user ID`                  |
+| `user_ids[]` has more than 100 entries            | 400        |                                                             |
+| `limit` outside 1–1000                            | 400        |                                                             |
+| `page` cursor invalid                             | 400        | `page: invalid cursor`                                      |
+| `page` cursor does not match current `user_ids[]` | 400        | `page: cursor does not match current query parameters`      |
+| `page` cursor from a different API version        | 400        | `page: cursor was issued by a different API version`        |
+| Organization is not on an Enterprise plan         | 400        | `this endpoint is not supported for this organization type` |
+| Usage credit billing not enabled                  | 400        | `overage billing is not enabled for this organization`      |
 
 ---
 
@@ -307,15 +309,16 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/effective?limit=20
 ```
 GET /v1/organizations/spend_limits/{spend_limit_id}
 ```
+
 Returns a single spend limit by ID. Use this to inspect the row that a `SpendSummary.spend_limit_id` or a `POST` response referenced.
 
 Requires scope: `read:spend_limits`.
 
 #### Path parameters
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `spend_limit_id` | string | Prefixed `spl_`. |
+| **Field**        | **Type** | **Description**  |
+| ---------------- | -------- | ---------------- |
+| `spend_limit_id` | string   | Prefixed `spl_`. |
 
 #### Response
 
@@ -330,11 +333,11 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/spl_01AbCdEfGhIjKl
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| `spend_limit_id` not found in this organization | 404 |  |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                   | **Status** | **Message**                                                 |
+| ----------------------------------------------- | ---------- | ----------------------------------------------------------- |
+| `spend_limit_id` not found in this organization | 404        |                                                             |
+| Organization is not on an Enterprise plan       | 400        | `this endpoint is not supported for this organization type` |
+| Usage credit billing not enabled                | 400        | `overage billing is not enabled for this organization`      |
 
 ---
 
@@ -343,6 +346,7 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/spl_01AbCdEfGhIjKl
 ```
 POST /v1/organizations/spend_limits
 ```
+
 Sets a **per-user** spend limit override. Upsert: setting a limit for a user who already has one overwrites it in place.
 
 Only `scope.type: "user"` is accepted. Seat-tier, group, and organization-level defaults are configured in claude.ai settings.
@@ -353,11 +357,11 @@ Requires scope: `write:spend_limits`.
 
 #### Request body
 
-| **Field** | **Type** | **Required** | **Description** |
-| --- | --- | --- | --- |
-| `scope` | object | Yes | `{ "type": "user", "user_id": "user_..." }`. |
-| `amount` | string or null | Yes | New limit for the `period`, in minor units, as a non-negative integer decimal string. `"0"` disables usage credit for the member. `null` removes the limit (unlimited). |
-| `period` | string | No | Default `"monthly"`. See the "Period" section. |
+| **Field** | **Type**       | **Required** | **Description**                                                                                                                                                         |
+| --------- | -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `scope`   | object         | Yes          | `{ "type": "user", "user_id": "user_..." }`.                                                                                                                            |
+| `amount`  | string or null | Yes          | New limit for the `period`, in minor units, as a non-negative integer decimal string. `"0"` disables usage credit for the member. `null` removes the limit (unlimited). |
+| `period`  | string         | No           | Default `"monthly"`. See the "Period" section.                                                                                                                          |
 
 #### Response
 
@@ -389,15 +393,15 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limits" \
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| `scope.type` is not `"user"` | 400 | `scope.type: not yet supported` |
-| `scope.user_id` malformed | 400 | `scope.user_id: malformed` |
-| `scope.user_id` not a member of this organization | 400 | `scope.user_id: not a member of this organization` |
-| `amount` negative, fractional, or not a valid decimal string | 400 |  |
-| `period` is not `"monthly"` | 400 | `period: not yet supported` |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                                | **Status** | **Message**                                                 |
+| ------------------------------------------------------------ | ---------- | ----------------------------------------------------------- |
+| `scope.type` is not `"user"`                                 | 400        | `scope.type: not yet supported`                             |
+| `scope.user_id` malformed                                    | 400        | `scope.user_id: malformed`                                  |
+| `scope.user_id` not a member of this organization            | 400        | `scope.user_id: not a member of this organization`          |
+| `amount` negative, fractional, or not a valid decimal string | 400        |                                                             |
+| `period` is not `"monthly"`                                  | 400        | `period: not yet supported`                                 |
+| Organization is not on an Enterprise plan                    | 400        | `this endpoint is not supported for this organization type` |
+| Usage credit billing not enabled                             | 400        | `overage billing is not enabled for this organization`      |
 
 ---
 
@@ -406,15 +410,16 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limits" \
 ```
 DELETE /v1/organizations/spend_limits/{spend_limit_id}
 ```
+
 Removes a **per-user** override so the member falls back to the inherited limit (seat tier, group, or organization default). Seat-tier, group, and organization-level rows can’t be deleted via this endpoint.
 
 Requires scope: `write:spend_limits`.
 
 #### Path parameters
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `spend_limit_id` | string | Prefixed `spl_`. Must be the ID of a per-user override. |
+| **Field**        | **Type** | **Description**                                         |
+| ---------------- | -------- | ------------------------------------------------------- |
+| `spend_limit_id` | string   | Prefixed `spl_`. Must be the ID of a per-user override. |
 
 #### Response
 
@@ -431,12 +436,12 @@ curl -X DELETE "https://api.anthropic.com/v1/organizations/spend_limits/spl_01Rs
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| `spend_limit_id` not found in this organization | 404 |  |
-| `spend_limit_id` is a seat-tier, group, or organization row | 400 | `Only per-user spend limits can be deleted via this endpoint.` |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                               | **Status** | **Message**                                                    |
+| ----------------------------------------------------------- | ---------- | -------------------------------------------------------------- |
+| `spend_limit_id` not found in this organization             | 404        |                                                                |
+| `spend_limit_id` is a seat-tier, group, or organization row | 400        | `Only per-user spend limits can be deleted via this endpoint.` |
+| Organization is not on an Enterprise plan                   | 400        | `this endpoint is not supported for this organization type`    |
+| Usage credit billing not enabled                            | 400        | `overage billing is not enabled for this organization`         |
 
 ---
 
@@ -447,25 +452,26 @@ curl -X DELETE "https://api.anthropic.com/v1/organizations/spend_limits/spl_01Rs
 ```
 GET /v1/organizations/spend_limit_increase_requests
 ```
+
 Lists increase requests, most recent first. Requests whose requester is no longer a member of the organization are excluded.
 
 Requires scope: `read:spend_limits`.
 
 #### Query parameters
 
-| **Field** | **Type** | **Required** | **Default** | **Description** |
-| --- | --- | --- | --- | --- |
-| `status[]` | one or more of `pending`, `approved`, `denied` | No | all | Filter by status. Repeat the parameter for multiple values. |
-| `actor_ids[]` | string | No | all | Filter by requester. Accepts `user_...` IDs. |
-| `limit` | integer 1–1000 | No | 20 | Rows per page. |
-| `page` | opaque cursor string | No | — | The `next_page` value from a previous response. |
+| **Field**     | **Type**                                       | **Required** | **Default** | **Description**                                             |
+| ------------- | ---------------------------------------------- | ------------ | ----------- | ----------------------------------------------------------- |
+| `status[]`    | one or more of `pending`, `approved`, `denied` | No           | all         | Filter by status. Repeat the parameter for multiple values. |
+| `actor_ids[]` | string                                         | No           | all         | Filter by requester. Accepts `user_...` IDs.                |
+| `limit`       | integer 1–1000                                 | No           | 20          | Rows per page.                                              |
+| `page`        | opaque cursor string                           | No           | —           | The `next_page` value from a previous response.             |
 
 #### Response fields
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `data` | array of SpendLimitIncreaseRequest | Ordered by `created_at` descending. |
-| `next_page` | string or null | Opaque cursor for the next page; `null` when no more pages. |
+| **Field**   | **Type**                           | **Description**                                             |
+| ----------- | ---------------------------------- | ----------------------------------------------------------- |
+| `data`      | array of SpendLimitIncreaseRequest | Ordered by `created_at` descending.                         |
+| `next_page` | string or null                     | Opaque cursor for the next page; `null` when no more pages. |
 
 #### Example request
 
@@ -509,15 +515,15 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests?s
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| `actor_ids[]` entry malformed | 400 | `actor_ids[]: invalid tagged user ID` |
-| `limit` outside 1–1000 | 400 |  |
-| `page` cursor malformed | 400 | `invalid page cursor format` or `invalid page cursor` |
-| `page` cursor does not match current `status[]` or `actor_ids[]` | 400 | `page cursor does not match current query parameters` |
-| `page` cursor from a different API version | 400 | `page cursor was issued by a different API version; restart pagination` |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                                    | **Status** | **Message**                                                             |
+| ---------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------- |
+| `actor_ids[]` entry malformed                                    | 400        | `actor_ids[]: invalid tagged user ID`                                   |
+| `limit` outside 1–1000                                           | 400        |                                                                         |
+| `page` cursor malformed                                          | 400        | `invalid page cursor format` or `invalid page cursor`                   |
+| `page` cursor does not match current `status[]` or `actor_ids[]` | 400        | `page cursor does not match current query parameters`                   |
+| `page` cursor from a different API version                       | 400        | `page cursor was issued by a different API version; restart pagination` |
+| Organization is not on an Enterprise plan                        | 400        | `this endpoint is not supported for this organization type`             |
+| Usage credit billing not enabled                                 | 400        | `overage billing is not enabled for this organization`                  |
 
 ---
 
@@ -526,15 +532,16 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests?s
 ```
 GET /v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}
 ```
+
 Returns a single increase request.
 
 Requires scope: `read:spend_limits`.
 
 #### Path parameters
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `spend_limit_increase_request_id` | string | Prefixed `slir_`. |
+| **Field**                         | **Type** | **Description**   |
+| --------------------------------- | -------- | ----------------- |
+| `spend_limit_increase_request_id` | string   | Prefixed `slir_`. |
 
 #### Response
 
@@ -549,12 +556,12 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/s
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| Request not found in this organization | 404 |  |
-| Requester is no longer a member of this organization | 404 |  |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                        | **Status** | **Message**                                                 |
+| ---------------------------------------------------- | ---------- | ----------------------------------------------------------- |
+| Request not found in this organization               | 404        |                                                             |
+| Requester is no longer a member of this organization | 404        |                                                             |
+| Organization is not on an Enterprise plan            | 400        | `this endpoint is not supported for this organization type` |
+| Usage credit billing not enabled                     | 400        | `overage billing is not enabled for this organization`      |
 
 ---
 
@@ -563,23 +570,24 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/s
 ```
 POST /v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/approve
 ```
+
 Approves a pending request. Writes a **per-user spend limit** at `amount` for the requester and transitions the request to `approved`. The request doesn’t carry a requested amount, the admin supplies the new limit on approval.
 
 Requires scope: `write:spend_limits`.
 
 #### Path parameters
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `spend_limit_increase_request_id` | string | Prefixed `slir_`. |
+| **Field**                         | **Type** | **Description**   |
+| --------------------------------- | -------- | ----------------- |
+| `spend_limit_increase_request_id` | string   | Prefixed `slir_`. |
 
 #### Request body
 
-| **Field** | **Type** | **Required** | **Default** | **Description** |
-| --- | --- | --- | --- | --- |
-| `amount` | string | Yes | — | New per-user limit for the `period`, in minor units, as a non-negative integer decimal string. |
-| `period` | string | No | `"monthly"` | See the "Period" section. |
-| `suppress_notification` | boolean | No | `false` | If `true`, Anthropic doesn’t email the member that their request was approved. |
+| **Field**               | **Type** | **Required** | **Default** | **Description**                                                                                |
+| ----------------------- | -------- | ------------ | ----------- | ---------------------------------------------------------------------------------------------- |
+| `amount`                | string   | Yes          | —           | New per-user limit for the `period`, in minor units, as a non-negative integer decimal string. |
+| `period`                | string   | No           | `"monthly"` | See the "Period" section.                                                                      |
+| `suppress_notification` | boolean  | No           | `false`     | If `true`, Anthropic doesn’t email the member that their request was approved.                 |
 
 #### Response
 
@@ -629,15 +637,15 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_re
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| Request not found in this organization | 404 |  |
-| Requester is no longer a member of this organization | 404 |  |
-| Request already `approved` or `denied` | 400 | `spend limit increase request is already resolved` |
-| `amount` negative, fractional, or not a valid decimal string | 400 |  |
-| `period` is not `"monthly"` | 400 | `period: not yet supported` |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                                | **Status** | **Message**                                                 |
+| ------------------------------------------------------------ | ---------- | ----------------------------------------------------------- |
+| Request not found in this organization                       | 404        |                                                             |
+| Requester is no longer a member of this organization         | 404        |                                                             |
+| Request already `approved` or `denied`                       | 400        | `spend limit increase request is already resolved`          |
+| `amount` negative, fractional, or not a valid decimal string | 400        |                                                             |
+| `period` is not `"monthly"`                                  | 400        | `period: not yet supported`                                 |
+| Organization is not on an Enterprise plan                    | 400        | `this endpoint is not supported for this organization type` |
+| Usage credit billing not enabled                             | 400        | `overage billing is not enabled for this organization`      |
 
 ---
 
@@ -646,21 +654,22 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_re
 ```
 POST /v1/organizations/spend_limit_increase_requests/{spend_limit_increase_request_id}/deny
 ```
+
 Denies a pending request. Idempotent on `denied`: denying an already-denied request returns 200 with the existing resource. Denying an already-approved request is rejected so automation can distinguish a retry from a conflicting decision.
 
 Requires scope: `write:spend_limits`.
 
 #### Path parameters
 
-| **Field** | **Type** | **Description** |
-| --- | --- | --- |
-| `spend_limit_increase_request_id` | string | Prefixed `slir_`. |
+| **Field**                         | **Type** | **Description**   |
+| --------------------------------- | -------- | ----------------- |
+| `spend_limit_increase_request_id` | string   | Prefixed `slir_`. |
 
 #### Request body
 
-| **Field** | **Type** | **Required** | **Default** | **Description** |
-| --- | --- | --- | --- | --- |
-| `suppress_notification` | boolean | No | `false` | If `true`, Anthropic doesn’t email the member that their request was denied. |
+| **Field**               | **Type** | **Required** | **Default** | **Description**                                                              |
+| ----------------------- | -------- | ------------ | ----------- | ---------------------------------------------------------------------------- |
+| `suppress_notification` | boolean  | No           | `false`     | If `true`, Anthropic doesn’t email the member that their request was denied. |
 
 #### Response
 
@@ -677,11 +686,11 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_re
 
 #### Validations
 
-| **Condition** | **Status** | **Message** |
-| --- | --- | --- |
-| Request not found in this organization | 404 |  |
-| Requester is no longer a member of this organization | 404 |  |
-| Request already `approved` | 400 | `spend limit increase request is already approved` |
-| Request already `denied` | — (200, idempotent) |  |
-| Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
-| Usage credits not enabled | 400 | `overage billing is not enabled for this organization` |
+| **Condition**                                        | **Status**          | **Message**                                                 |
+| ---------------------------------------------------- | ------------------- | ----------------------------------------------------------- |
+| Request not found in this organization               | 404                 |                                                             |
+| Requester is no longer a member of this organization | 404                 |                                                             |
+| Request already `approved`                           | 400                 | `spend limit increase request is already approved`          |
+| Request already `denied`                             | — (200, idempotent) |                                                             |
+| Organization is not on an Enterprise plan            | 400                 | `this endpoint is not supported for this organization type` |
+| Usage credits not enabled                            | 400                 | `overage billing is not enabled for this organization`      |

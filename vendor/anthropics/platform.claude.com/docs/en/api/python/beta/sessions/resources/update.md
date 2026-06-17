@@ -19,9 +19,11 @@ Update Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -74,14 +76,18 @@ Update Session Resource
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceUpdateResponse`
 
   The updated session resource.
+
   - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -91,6 +97,7 @@ Update Session Resource
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
+
       - `"github_repository"`
 
     - `updated_at: datetime`
@@ -100,23 +107,29 @@ Update Session Resource
     - `url: str`
 
     - `checkout: Optional[Checkout]`
+
       - `class BetaManagedAgentsBranchCheckout: …`
+
         - `name: str`
 
           Branch name to check out.
 
         - `type: Literal["branch"]`
+
           - `"branch"`
 
       - `class BetaManagedAgentsCommitCheckout: …`
+
         - `sha: str`
 
           Full commit SHA to check out.
 
         - `type: Literal["commit"]`
+
           - `"commit"`
 
   - `class BetaManagedAgentsFileResource: …`
+
     - `id: str`
 
     - `created_at: datetime`
@@ -128,6 +141,7 @@ Update Session Resource
     - `mount_path: str`
 
     - `type: Literal["file"]`
+
       - `"file"`
 
     - `updated_at: datetime`
@@ -137,16 +151,19 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: str`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
+
       - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`

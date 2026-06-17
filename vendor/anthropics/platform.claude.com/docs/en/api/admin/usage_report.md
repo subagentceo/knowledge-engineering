@@ -24,6 +24,7 @@ Get Messages Usage Report
 - `bucket_width: optional "1d" or "1m" or "1h"`
 
   Time granularity of the response data.
+
   - `"1d"`
 
   - `"1m"`
@@ -33,6 +34,7 @@ Get Messages Usage Report
 - `context_window: optional array of "0-200k" or "200k-1M"`
 
   Restrict usage returned to the specified context window(s).
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -44,6 +46,7 @@ Get Messages Usage Report
 - `group_by: optional array of "api_key_id" or "workspace_id" or "model" or 6 more`
 
   Group by any subset of the available options. Grouping by `speed` requires the `fast-mode-2026-02-01` beta header.
+
   - `"api_key_id"`
 
   - `"workspace_id"`
@@ -65,6 +68,7 @@ Get Messages Usage Report
 - `inference_geos: optional array of "global" or "us" or "not_available"`
 
   Restrict usage returned to the specified inference geo(s). Use `not_available` for models that do not support specifying `inference_geo`.
+
   - `"global"`
 
   - `"us"`
@@ -95,6 +99,7 @@ Get Messages Usage Report
 - `service_tiers: optional array of "standard" or "batch" or "priority" or 3 more`
 
   Restrict usage returned to the specified service tier(s).
+
   - `"standard"`
 
   - `"batch"`
@@ -111,6 +116,7 @@ Get Messages Usage Report
 
   Restrict usage returned to the specified speed(s) (Claude Code research preview).
   Requires the `fast-mode-2026-02-01` beta header.
+
   - `"standard"`
 
   - `"fast"`
@@ -130,14 +136,17 @@ Get Messages Usage Report
 ### Returns
 
 - `MessagesUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
     - `results: array of object { account_id, api_key_id, cache_creation, 10 more }`
 
-      List of usage items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+      List of usage items for this time bucket.  There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `account_id: string`
 
         ID of the user account that made the request. `null` if not grouping by account or for non-OAuth requests.
@@ -149,6 +158,7 @@ Get Messages Usage Report
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         The number of input tokens for cache creation.
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -164,6 +174,7 @@ Get Messages Usage Report
       - `context_window: "0-200k" or "200k-1M"`
 
         Context window used. `null` if not grouping by context window.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -184,6 +195,7 @@ Get Messages Usage Report
       - `server_tool_use: object { web_search_requests }`
 
         Server-side tool usage metrics.
+
         - `web_search_requests: number`
 
           The number of web search requests made.
@@ -195,6 +207,7 @@ Get Messages Usage Report
       - `service_tier: "standard" or "batch" or "priority" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
+
         - `"standard"`
 
         - `"batch"`
@@ -232,7 +245,7 @@ Get Messages Usage Report
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/messages \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -296,31 +309,39 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ### Returns
 
 - `ClaudeCodeUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { actor, core_metrics, customer_type, 6 more }`
 
     List of Claude Code usage records for the requested date.
+
     - `actor: object { email_address, type }  or object { api_key_name, type }`
 
       The user or API key that performed the Claude Code actions.
+
       - `UserActor object { email_address, type }`
+
         - `email_address: string`
 
           Email address of the user who performed Claude Code actions.
 
         - `type: "user_actor"`
+
           - `"user_actor"`
 
       - `APIActor object { api_key_name, type }`
+
         - `api_key_name: string`
 
           Name of the API key used to perform Claude Code actions.
 
         - `type: "api_actor"`
+
           - `"api_actor"`
 
     - `core_metrics: object { commits_by_claude_code, lines_of_code, num_sessions, pull_requests_by_claude_code }`
 
       Core productivity metrics measuring Claude Code usage and impact.
+
       - `commits_by_claude_code: number`
 
         Number of git commits created through Claude Code's commit functionality.
@@ -328,6 +349,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `lines_of_code: object { added, removed }`
 
         Statistics on code changes made through Claude Code.
+
         - `added: number`
 
           Total number of lines of code added across all files by Claude Code.
@@ -347,6 +369,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `customer_type: "api" or "subscription"`
 
       Type of customer account (api for API customers, subscription for Pro/Team customers).
+
       - `"api"`
 
       - `"subscription"`
@@ -358,9 +381,11 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
       Token usage and cost breakdown by AI model used.
+
       - `estimated_cost: object { amount, currency }`
 
         Estimated cost for using this model
+
         - `amount: number`
 
           Estimated cost amount in minor currency units (e.g., cents for USD).
@@ -376,6 +401,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
       - `tokens: object { cache_creation, cache_read, input, output }`
 
         Token usage breakdown for this model
+
         - `cache_creation: number`
 
           Number of cache creation tokens consumed by this model.
@@ -403,6 +429,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `tool_actions: map[object { accepted, rejected } ]`
 
       Breakdown of tool action acceptance and rejection rates by tool type.
+
       - `accepted: number`
 
         Number of tool action proposals that the user accepted.
@@ -414,6 +441,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
     - `subscription_type: optional "enterprise" or "team"`
 
       Subscription tier for subscription customers. `null` for API customers.
+
       - `"enterprise"`
 
       - `"team"`
@@ -431,7 +459,7 @@ Enables organizations to analyze developer productivity and build custom dashboa
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
@@ -516,31 +544,39 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 ### Claude Code Usage Report
 
 - `ClaudeCodeUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { actor, core_metrics, customer_type, 6 more }`
 
     List of Claude Code usage records for the requested date.
+
     - `actor: object { email_address, type }  or object { api_key_name, type }`
 
       The user or API key that performed the Claude Code actions.
+
       - `UserActor object { email_address, type }`
+
         - `email_address: string`
 
           Email address of the user who performed Claude Code actions.
 
         - `type: "user_actor"`
+
           - `"user_actor"`
 
       - `APIActor object { api_key_name, type }`
+
         - `api_key_name: string`
 
           Name of the API key used to perform Claude Code actions.
 
         - `type: "api_actor"`
+
           - `"api_actor"`
 
     - `core_metrics: object { commits_by_claude_code, lines_of_code, num_sessions, pull_requests_by_claude_code }`
 
       Core productivity metrics measuring Claude Code usage and impact.
+
       - `commits_by_claude_code: number`
 
         Number of git commits created through Claude Code's commit functionality.
@@ -548,6 +584,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `lines_of_code: object { added, removed }`
 
         Statistics on code changes made through Claude Code.
+
         - `added: number`
 
           Total number of lines of code added across all files by Claude Code.
@@ -567,6 +604,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `customer_type: "api" or "subscription"`
 
       Type of customer account (api for API customers, subscription for Pro/Team customers).
+
       - `"api"`
 
       - `"subscription"`
@@ -578,9 +616,11 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `model_breakdown: array of object { estimated_cost, model, tokens }`
 
       Token usage and cost breakdown by AI model used.
+
       - `estimated_cost: object { amount, currency }`
 
         Estimated cost for using this model
+
         - `amount: number`
 
           Estimated cost amount in minor currency units (e.g., cents for USD).
@@ -596,6 +636,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `tokens: object { cache_creation, cache_read, input, output }`
 
         Token usage breakdown for this model
+
         - `cache_creation: number`
 
           Number of cache creation tokens consumed by this model.
@@ -623,6 +664,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `tool_actions: map[object { accepted, rejected } ]`
 
       Breakdown of tool action acceptance and rejection rates by tool type.
+
       - `accepted: number`
 
         Number of tool action proposals that the user accepted.
@@ -634,6 +676,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
     - `subscription_type: optional "enterprise" or "team"`
 
       Subscription tier for subscription customers. `null` for API customers.
+
       - `"enterprise"`
 
       - `"team"`
@@ -649,14 +692,17 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
 ### Messages Usage Report
 
 - `MessagesUsageReport object { data, has_more, next_page }`
+
   - `data: array of object { ending_at, results, starting_at }`
+
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
     - `results: array of object { account_id, api_key_id, cache_creation, 10 more }`
 
-      List of usage items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
+      List of usage items for this time bucket.  There may be multiple items if one or more `group_by[]` parameters are specified.
+
       - `account_id: string`
 
         ID of the user account that made the request. `null` if not grouping by account or for non-OAuth requests.
@@ -668,6 +714,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         The number of input tokens for cache creation.
+
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -683,6 +730,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `context_window: "0-200k" or "200k-1M"`
 
         Context window used. `null` if not grouping by context window.
+
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -703,6 +751,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `server_tool_use: object { web_search_requests }`
 
         Server-side tool usage metrics.
+
         - `web_search_requests: number`
 
           The number of web search requests made.
@@ -714,6 +763,7 @@ curl https://api.anthropic.com/v1/organizations/usage_report/claude_code \
       - `service_tier: "standard" or "batch" or "priority" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
+
         - `"standard"`
 
         - `"batch"`

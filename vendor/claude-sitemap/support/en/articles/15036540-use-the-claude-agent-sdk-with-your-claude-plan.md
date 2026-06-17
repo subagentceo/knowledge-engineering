@@ -1,3 +1,9 @@
+**Update June 15:** We're pausing the changes to Claude Agent SDK usage described below. For now, nothing has changed: Claude Agent SDK, `claude -p`, and third-party app usage still draw from your subscription's usage limits. The previously announced monthly credit, which would have been available to eligible claimants in connection with these changes, isn't available. We’re working to update the plan to better support how users build with Claude subscriptions. When we have an update, we'll share it before anything takes effect.
+
+---
+
+**The content below reflects the page before June 15. It's preserved for reference but is no longer taking effect on June 15.**
+
 Claude subscription plans are now eligible to receive a monthly Agent SDK credit. This credit covers Claude Agent SDK usage, the `claude -p` command, and third-party apps built on the Agent SDK. This article explains what the credit covers, how it works, and how to claim it.
 
 Available on Pro, Max, Team, and Enterprise plans starting on June 15, 2026. Claude Platform accounts using an API key don’t receive a credit. Pay-as-you-go billing continues as before.
@@ -10,15 +16,15 @@ To support Agent SDK use, eligible Pro, Max, Team, and Enterprise plan users can
 
 ## Monthly credit by plan
 
-| **Plan** | **Monthly credit** |
-| --- | --- |
-| Pro | $20 |
-| Max 5x | $100 |
-| Max 20x | $200 |
-| Team (Standard seats) | $20 |
-| Team (Premium seats) | $100 |
-| Enterprise (usage-based) | $20 |
-| Enterprise (seat-based Premium seats*) | $200 |
+| **Plan**                                | **Monthly credit** |
+| --------------------------------------- | ------------------ |
+| Pro                                     | $20                |
+| Max 5x                                  | $100               |
+| Max 20x                                 | $200               |
+| Team (Standard seats)                   | $20                |
+| Team (Premium seats)                    | $100               |
+| Enterprise (usage-based)                | $20                |
+| Enterprise (seat-based Premium seats\*) | $200               |
 
 *Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
 

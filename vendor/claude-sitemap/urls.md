@@ -1,7 +1,7 @@
 ---
 vendor: claude-sitemap
 llms_txt: https://www.claude.com/llms.txt
-count: 1826
+count: 1825
 transform: html-extract
 ---
 
@@ -126,6 +126,7 @@ transform: html-extract
 | https://claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything | `vendor/claude-sitemap/blog/lessons-from-building-claude-code-prompt-caching-is-everything.md` |
 | https://claude.com/blog/making-claude-a-better-electrical-engineer | `vendor/claude-sitemap/blog/making-claude-a-better-electrical-engineer.md` |
 | https://claude.com/blog/max-plan | `vendor/claude-sitemap/blog/max-plan.md` |
+| https://claude.com/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon | `vendor/claude-sitemap/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon.md` |
 | https://claude.com/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon | `vendor/claude-sitemap/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon.md` |
 | https://claude.com/blog/memory | `vendor/claude-sitemap/blog/memory.md` |
 | https://claude.com/blog/message-batches-api | `vendor/claude-sitemap/blog/message-batches-api.md` |
@@ -497,6 +498,7 @@ transform: html-extract
 | https://claude.com/connectors/intuit-quickbooks | `vendor/claude-sitemap/connectors/intuit-quickbooks.md` |
 | https://claude.com/connectors/intuit-turbotax | `vendor/claude-sitemap/connectors/intuit-turbotax.md` |
 | https://claude.com/connectors/ironclad-contracts | `vendor/claude-sitemap/connectors/ironclad-contracts.md` |
+| https://claude.com/connectors/isolved | `vendor/claude-sitemap/connectors/isolved.md` |
 | https://claude.com/connectors/jam | `vendor/claude-sitemap/connectors/jam.md` |
 | https://claude.com/connectors/jentic | `vendor/claude-sitemap/connectors/jentic.md` |
 | https://claude.com/connectors/jotform | `vendor/claude-sitemap/connectors/jotform.md` |
@@ -517,6 +519,7 @@ transform: html-extract
 | https://claude.com/connectors/local-falcon | `vendor/claude-sitemap/connectors/local-falcon.md` |
 | https://claude.com/connectors/london-stock-exchange-group | `vendor/claude-sitemap/connectors/london-stock-exchange-group.md` |
 | https://claude.com/connectors/lorikeet | `vendor/claude-sitemap/connectors/lorikeet.md` |
+| https://claude.com/connectors/lovable | `vendor/claude-sitemap/connectors/lovable.md` |
 | https://claude.com/connectors/lucid | `vendor/claude-sitemap/connectors/lucid.md` |
 | https://claude.com/connectors/lumin | `vendor/claude-sitemap/connectors/lumin.md` |
 | https://claude.com/connectors/lunarcrush | `vendor/claude-sitemap/connectors/lunarcrush.md` |
@@ -1079,6 +1082,7 @@ transform: html-extract
 | https://claude.com/plugins/jfrog | `vendor/claude-sitemap/plugins/jfrog.md` |
 | https://claude.com/plugins/knowledge-catalog | `vendor/claude-sitemap/plugins/knowledge-catalog.md` |
 | https://claude.com/plugins/kotlin-lsp | `vendor/claude-sitemap/plugins/kotlin-lsp.md` |
+| https://claude.com/plugins/langfuse-observability | `vendor/claude-sitemap/plugins/langfuse-observability.md` |
 | https://claude.com/plugins/laravel-boost | `vendor/claude-sitemap/plugins/laravel-boost.md` |
 | https://claude.com/plugins/learning-output-style | `vendor/claude-sitemap/plugins/learning-output-style.md` |
 | https://claude.com/plugins/legal | `vendor/claude-sitemap/plugins/legal.md` |
@@ -1513,7 +1517,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/10504844-manage-user-feedback-settings-on-team-and-enterprise-plans | `vendor/claude-sitemap/support/en/articles/10504844-manage-user-feedback-settings-on-team-and-enterprise-plans.md` |
 | https://support.claude.com/en/articles/10504853-manage-user-feedback-settings-on-claude-console | `vendor/claude-sitemap/support/en/articles/10504853-manage-user-feedback-settings-on-claude-console.md` |
 | https://support.claude.com/en/articles/10534883-using-the-claude-widget-on-android | `vendor/claude-sitemap/support/en/articles/10534883-using-the-claude-widget-on-android.md` |
-| https://support.claude.com/en/articles/10593882-sharing-and-unsharing-chats | `vendor/claude-sitemap/support/en/articles/10593882-sharing-and-unsharing-chats.md` |
+| https://support.claude.com/en/articles/10593882-share-and-unshare-chats | `vendor/claude-sitemap/support/en/articles/10593882-share-and-unshare-chats.md` |
 | https://support.claude.com/en/articles/10684626-enable-and-use-web-search | `vendor/claude-sitemap/support/en/articles/10684626-enable-and-use-web-search.md` |
 | https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude | `vendor/claude-sitemap/support/en/articles/10684638-reporting-blocking-and-removing-content-from-claude.md` |
 | https://support.claude.com/en/articles/10722177-sharing-prompts-in-the-claude-console | `vendor/claude-sitemap/support/en/articles/10722177-sharing-prompts-in-the-claude-console.md` |
@@ -1595,18 +1599,12 @@ transform: html-extract
 | https://support.claude.com/en/articles/12738598-adapting-to-new-model-personas-after-deprecations | `vendor/claude-sitemap/support/en/articles/12738598-adapting-to-new-model-personas-after-deprecations.md` |
 | https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry | `vendor/claude-sitemap/support/en/articles/12864745-use-claude-in-microsoft-foundry.md` |
 | https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans | `vendor/claude-sitemap/support/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans.md` |
-| https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits | `vendor/claude-sitemap/support/en/articles/12893767-getting-started-with-claude-for-nonprofits.md` |
 | https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting | `vendor/claude-sitemap/support/en/articles/12902405-claude-in-chrome-troubleshooting.md` |
 | https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely | `vendor/claude-sitemap/support/en/articles/12902428-using-claude-in-chrome-safely.md` |
 | https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide | `vendor/claude-sitemap/support/en/articles/12902446-claude-in-chrome-permissions-guide.md` |
 | https://support.claude.com/en/articles/12922490-remote-mcp-server-submission-guide | `vendor/claude-sitemap/support/en/articles/12922490-remote-mcp-server-submission-guide.md` |
 | https://support.claude.com/en/articles/12922832-local-mcp-server-submission-guide | `vendor/claude-sitemap/support/en/articles/12922832-local-mcp-server-submission-guide.md` |
 | https://support.claude.com/en/articles/12922929-building-desktop-extensions-with-mcpb | `vendor/claude-sitemap/support/en/articles/12922929-building-desktop-extensions-with-mcpb.md` |
-| https://support.claude.com/en/articles/12923221-using-the-blackbaud-connector-in-claude | `vendor/claude-sitemap/support/en/articles/12923221-using-the-blackbaud-connector-in-claude.md` |
-| https://support.claude.com/en/articles/12923227-using-the-benevity-connector-in-claude | `vendor/claude-sitemap/support/en/articles/12923227-using-the-benevity-connector-in-claude.md` |
-| https://support.claude.com/en/articles/12923235-using-the-candid-connector-in-claude | `vendor/claude-sitemap/support/en/articles/12923235-using-the-candid-connector-in-claude.md` |
-| https://support.claude.com/en/articles/12923668-claude-for-nonprofits-partnership-success-guide-for-admins | `vendor/claude-sitemap/support/en/articles/12923668-claude-for-nonprofits-partnership-success-guide-for-admins.md` |
-| https://support.claude.com/en/articles/12923901-claude-for-nonprofits-partnership-guide-for-all-users | `vendor/claude-sitemap/support/en/articles/12923901-claude-for-nonprofits-partnership-guide-for-all-users.md` |
 | https://support.claude.com/en/articles/12938627-how-to-gift-a-claude-subscription | `vendor/claude-sitemap/support/en/articles/12938627-how-to-gift-a-claude-subscription.md` |
 | https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription | `vendor/claude-sitemap/support/en/articles/12938695-how-to-redeem-a-claude-gift-subscription.md` |
 | https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation | `vendor/claude-sitemap/support/en/articles/12997130-understanding-your-billing-address-and-tax-calculation.md` |
@@ -1655,7 +1653,6 @@ transform: html-extract
 | https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans | `vendor/claude-sitemap/support/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans.md` |
 | https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization | `vendor/claude-sitemap/support/en/articles/13837433-manage-plugins-for-your-organization.md` |
 | https://support.claude.com/en/articles/13837440-use-plugins-in-claude | `vendor/claude-sitemap/support/en/articles/13837440-use-plugins-in-claude.md` |
-| https://support.claude.com/en/articles/13851150-install-financial-services-plugins | `vendor/claude-sitemap/support/en/articles/13851150-install-financial-services-plugins.md` |
 | https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork | `vendor/claude-sitemap/support/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork.md` |
 | https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps | `vendor/claude-sitemap/support/en/articles/13892150-work-across-microsoft-365-apps.md` |
 | https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch | `vendor/claude-sitemap/support/en/articles/13917817-google-workspace-sso-scim-email-mismatch.md` |
@@ -1733,9 +1730,11 @@ transform: html-extract
 | https://support.claude.com/en/articles/15330651-claude-enterprise-admin-api-reference-guide | `vendor/claude-sitemap/support/en/articles/15330651-claude-enterprise-admin-api-reference-guide.md` |
 | https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5 | `vendor/claude-sitemap/support/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5.md` |
 | https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise | `vendor/claude-sitemap/support/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise.md` |
+| https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization | `vendor/claude-sitemap/support/en/articles/15422948-enable-us-only-inference-for-your-organization.md` |
 | https://support.claude.com/en/articles/15425695-covered-models | `vendor/claude-sitemap/support/en/articles/15425695-covered-models.md` |
 | https://support.claude.com/en/articles/15425996-data-retention-practices-for-mythos-class-models | `vendor/claude-sitemap/support/en/articles/15425996-data-retention-practices-for-mythos-class-models.md` |
 | https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa | `vendor/claude-sitemap/support/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa.md` |
+| https://support.claude.com/en/articles/15505325-what-are-customer-managed-encryption-keys-cmek | `vendor/claude-sitemap/support/en/articles/15505325-what-are-customer-managed-encryption-keys-cmek.md` |
 | https://support.claude.com/en/articles/7996845-what-are-some-things-i-can-use-claude-for | `vendor/claude-sitemap/support/en/articles/7996845-what-are-some-things-i-can-use-claude-for.md` |
 | https://support.claude.com/en/articles/7996853-introduction-to-prompt-design | `vendor/claude-sitemap/support/en/articles/7996853-introduction-to-prompt-design.md` |
 | https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer | `vendor/claude-sitemap/support/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer.md` |
@@ -1809,7 +1808,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy | `vendor/claude-sitemap/support/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy.md` |
 | https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors | `vendor/claude-sitemap/support/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors.md` |
 | https://support.claude.com/en/articles/9402418-why-was-my-card-declined | `vendor/claude-sitemap/support/en/articles/9402418-why-was-my-card-declined.md` |
-| https://support.claude.com/en/articles/9450526-how-can-i-export-my-claude-data | `vendor/claude-sitemap/support/en/articles/9450526-how-can-i-export-my-claude-data.md` |
+| https://support.claude.com/en/articles/9450526-export-your-claude-data | `vendor/claude-sitemap/support/en/articles/9450526-export-your-claude-data.md` |
 | https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them | `vendor/claude-sitemap/support/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them.md` |
 | https://support.claude.com/en/articles/9517075-what-are-projects | `vendor/claude-sitemap/support/en/articles/9517075-what-are-projects.md` |
 | https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects | `vendor/claude-sitemap/support/en/articles/9519177-how-can-i-create-and-manage-projects.md` |
@@ -1817,7 +1816,7 @@ transform: html-extract
 | https://support.claude.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information | `vendor/claude-sitemap/support/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information.md` |
 | https://support.claude.com/en/articles/9528712-exceptions-to-our-usage-policy | `vendor/claude-sitemap/support/en/articles/9528712-exceptions-to-our-usage-policy.md` |
 | https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console | `vendor/claude-sitemap/support/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console.md` |
-| https://support.claude.com/en/articles/9547008-publishing-and-sharing-artifacts | `vendor/claude-sitemap/support/en/articles/9547008-publishing-and-sharing-artifacts.md` |
+| https://support.claude.com/en/articles/9547008-publish-and-share-artifacts | `vendor/claude-sitemap/support/en/articles/9547008-publish-and-share-artifacts.md` |
 | https://support.claude.com/en/articles/9612887-install-claude-for-android | `vendor/claude-sitemap/support/en/articles/9612887-install-claude-for-android.md` |
 | https://support.claude.com/en/articles/9612889-how-can-i-uninstall-claude-for-android | `vendor/claude-sitemap/support/en/articles/9612889-how-can-i-uninstall-claude-for-android.md` |
 | https://support.claude.com/en/articles/9612892-how-do-i-sign-up-for-claude-pro-on-claude-for-android | `vendor/claude-sitemap/support/en/articles/9612892-how-do-i-sign-up-for-claude-pro-on-claude-for-android.md` |

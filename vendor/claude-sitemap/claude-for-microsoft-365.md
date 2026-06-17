@@ -1,4 +1,4 @@
-# CLAUDE FOR MICROSOFT 365
+# Claude for Microsoft 365
 
 Work without the window shuffle
 

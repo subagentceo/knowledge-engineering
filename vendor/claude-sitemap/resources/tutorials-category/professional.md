@@ -476,6 +476,42 @@ Product
 
 Features
 
+![Customize Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
+
+Customize Claude Cowork
+
+Professional
+
+Author
+
+Professional
+
+Author
+
+Claude Cowork
+
+Author
+
+Cowork
+
+Connectors
+
+Projects
+
+Skills
+
+Browser Use
+
+Read use case
+
+Read use caseRead use case
+
+Customize Claude CoworkCustomize Claude Cowork
+
+Text Link
+
+Professional
+
 ![Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b07c298f5447ab02125e60_Screenshot%202026-03-10%20at%201.16.31%E2%80%AFPM.png)
 
 Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
@@ -593,42 +629,6 @@ Read use case
 Read use caseRead use case
 
 Delegating your first task in Claude CoworkDelegating your first task in Claude Cowork
-
-Text Link
-
-Professional
-
-![Customize Claude Cowork](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f20fbd94c0c5ae1f42dcfc_Screenshot%202026-04-29%20at%207.03.33%E2%80%AFAM.png)
-
-Customize Claude Cowork
-
-Professional
-
-Author
-
-Professional
-
-Author
-
-Claude Cowork
-
-Author
-
-Cowork
-
-Connectors
-
-Projects
-
-Skills
-
-Browser Use
-
-Read use case
-
-Read use caseRead use case
-
-Customize Claude CoworkCustomize Claude Cowork
 
 Text Link
 

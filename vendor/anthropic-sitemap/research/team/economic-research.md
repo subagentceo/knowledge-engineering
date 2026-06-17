@@ -54,6 +54,9 @@ Search
 
 DateCategoryTitle
 
+*   Jun 16, 2026Economic Research
+    
+    Agentic coding and persistent returns to expertise
 *   May 27, 2026Economic Research
     
     Coding agents in the social sciences
@@ -81,10 +84,7 @@ DateCategoryTitle
 *   Jan 15, 2026Economic Research
     
     Anthropic Economic Index report: Economic primitives
-*   Nov 25, 2025Economic Research
-    
-    Estimating AI productivity gains from Claude conversations
 
 See more
 
-![Coding agents in the social sciences](https://www-cdn.anthropic.com/images/4zrzovbb/website/225a673c4c38ae4b0d89639836c93b27e363f185-1000x1000.svg)
+![Agentic coding and persistent returns to expertise ](https://www-cdn.anthropic.com/images/4zrzovbb/website/f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
