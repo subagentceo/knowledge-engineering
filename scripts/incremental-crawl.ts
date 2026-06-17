@@ -101,10 +101,14 @@ async function collectSitemap(url: string): Promise<string[]> {
 function harvestLlmsMdLinks(body: string, host: string): string[] {
   // Markdown-mode: pull absolute https://<host>/...md links from the llms.txt
   // body, return the page URL WITHOUT the .md so the fetch step re-adds it.
-  const re = new RegExp(`(https://${host.replace(/\./g, "\\.")}/[^\\s)]+?)\\.md`, "g");
+  // Single greedy character class (no adjacent variable quantifier) keeps this
+  // linear — no polynomial backtracking on the network-fetched body.
+  const re = new RegExp(`https://${host.replace(/\./g, "\\.")}/[^\\s)"']*`, "g");
   const out: string[] = [];
   let m: RegExpExecArray | null;
-  while ((m = re.exec(body)) !== null) out.push(m[1]!);
+  while ((m = re.exec(body)) !== null) {
+    if (m[0].endsWith(".md")) out.push(m[0].slice(0, -3));
+  }
   return out;
 }
 
@@ -121,10 +125,23 @@ async function toCommonMark(md: string): Promise<string> {
 // ---- structured-metadata extraction (JS-SPA surfaces) -------------------------
 
 function metaContent(html: string, key: string): string | null {
-  const re = new RegExp(`<meta[^>]+(?:name|property)="${key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"[^>]*>`, "i");
-  const tag = html.match(re)?.[0];
-  const c = tag?.match(/content="([^"]*)"/i)?.[1];
-  return c ? decodeEntities(c) : null;
+  // Linear string scan over <meta …> tags — avoids a polynomial regex on the
+  // network-fetched html and a regex built from a variable key.
+  const needleA = `name="${key}"`;
+  const needleB = `property="${key}"`;
+  let idx = 0;
+  for (;;) {
+    const start = html.indexOf("<meta", idx);
+    if (start < 0) return null;
+    const end = html.indexOf(">", start);
+    if (end < 0) return null;
+    const tag = html.slice(start, end);
+    idx = end + 1;
+    if (tag.includes(needleA) || tag.includes(needleB)) {
+      const c = tag.match(/content="([^"]*)"/i)?.[1]; // [^"]* is linear
+      if (c !== undefined) return decodeEntities(c);
+    }
+  }
 }
 
 function firstString(v: unknown): string | null {
@@ -138,14 +155,20 @@ async function renderStructured(url: string, html: string): Promise<{ md: string
   const section = path === "" ? "root" : (path.split("/")[0] ?? "root");
   const title = (html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? "").trim() || null;
 
+  // indexOf slicing rather than a lazy [\s\S]*? regex — no backtracking on the
+  // network-fetched html.
   let ld: Record<string, unknown> = {};
-  const ldRaw = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i)?.[1];
-  if (ldRaw) {
-    try {
-      const p = JSON.parse(ldRaw);
-      ld = Array.isArray(p) ? (p[0] ?? {}) : p;
-    } catch {
-      /* ignore */
+  const ldOpen = '<script type="application/ld+json">';
+  const ldStart = html.indexOf(ldOpen);
+  if (ldStart >= 0) {
+    const ldEnd = html.indexOf("</script>", ldStart + ldOpen.length);
+    if (ldEnd >= 0) {
+      try {
+        const p = JSON.parse(html.slice(ldStart + ldOpen.length, ldEnd));
+        ld = Array.isArray(p) ? (p[0] ?? {}) : p;
+      } catch {
+        /* ignore */
+      }
     }
   }
   const fields = {
