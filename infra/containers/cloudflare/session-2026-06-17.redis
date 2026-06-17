@@ -8,6 +8,21 @@
 # @cite src/cache/lru-bm25.ts         (cacheKey convention: namespace:id)
 # @cite src/mcp/ext-tasks/index.ts    (task:<queue>:<uuid> eviction pattern)
 # @cite infra/postgres/init/03-session-context.sql
+# @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+#         § "Link artifacts back to the session" — CLAUDE_CODE_REMOTE_SESSION_ID
+
+# ── Remote session ID lookup (CLAUDE_CODE_REMOTE_SESSION_ID) ─────────────────
+# Set at runtime by the SessionStart hook once the env var is available.
+# Key pattern: session:remote:<cse_id>:context → agent_sessions context blob
+# Key pattern: session:remote:<cse_id>:branch  → git branch for this session
+# Transcript URL: https://claude.ai/code/${CLAUDE_CODE_REMOTE_SESSION_ID/#cse_/session_}
+# Source: vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+#
+# To populate when running in a web session:
+#   redis-cli SET "session:remote:${CLAUDE_CODE_REMOTE_SESSION_ID}:context" \
+#     "$(redis-cli GET session:2026-06-17:context)" EX 604800
+#   redis-cli SET "session:remote:${CLAUDE_CODE_REMOTE_SESSION_ID}:branch" \
+#     "$(redis-cli GET session:2026-06-17:branch)" EX 604800
 
 # ── Session context ───────────────────────────────────────────────────────────
 

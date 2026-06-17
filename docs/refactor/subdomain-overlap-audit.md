@@ -1,6 +1,7 @@
 # Refactor / Elimination Audit — Post-Subdomain Addition
 
 <!-- @cite infra/containers/cloudflare/subdomains-plan.md -->
+<!-- @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md -->
 <!-- @cite src/mcp/ext-tasks/index.ts -->
 <!-- @cite src/lib/vendor-mirror.ts -->
 <!-- @cite src/lib/schemas/crawl-config.ts -->

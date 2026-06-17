@@ -1,6 +1,7 @@
 # Claude Code + Cloudflare Integration
 
 <!-- @cite https://developers.cloudflare.com/agent-setup/claude-code/index.md -->
+<!-- @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md -->
 <!-- @cite src/mcp/ext-tasks/index.ts -->
 <!-- @cite infra/postgres/init/00-extensions.sql -->
 <!-- @cite src/lib/turbopuffer-alloydb-bridge.ts -->
@@ -202,8 +203,101 @@ REDIS_URL: `redis://localhost:6379` (default) or `REDIS_URL` env var.
 
 ---
 
+## Claude Code on the web — session_id, Redis, Postgres, Docker
+
+> @cite `vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md`
+> Source: `https://code.claude.com/docs/en/claude-code-on-the-web`
+
+Claude Code on the web (claude.ai/code) runs each session in an
+Anthropic-managed VM. The environment ships with the exact services this
+repo's pg_durable + Redis + AlloyDB topology depends on:
+
+### Pre-installed services (from the Installed tools table)
+
+| Category | Included |
+|---|---|
+| **Databases** | **PostgreSQL 16**, **Redis 7.0** |
+| **Docker** | docker, dockerd, docker compose |
+| **Node.js** | 20, 21, 22 via nvm + npm/yarn/pnpm/bun |
+| **Utilities** | git, jq, ripgrep, tmux |
+
+PostgreSQL and Redis are pre-installed **but not running by default**.
+Start them at session boot via a SessionStart hook or setup script:
+
+```bash
+service postgresql start
+service redis-server start
+```
+
+Or use a `SessionStart` hook in `.claude/settings.json`:
+```json
+{
+  "hooks": {
+    "SessionStart": [{
+      "matcher": "startup",
+      "hooks": [{ "type": "command", "command": "service postgresql start && service redis-server start" }]
+    }]
+  }
+}
+```
+
+Docker is available for `docker compose up` — `ke-cloud-agent`'s
+`infra/cloudflare/Dockerfile` Sandbox container runs on this foundation.
+Docker images pulled in the setup script are cached in the environment
+snapshot; containers themselves must be restarted each session.
+
+### CLAUDE_CODE_REMOTE_SESSION_ID → dw.agent_sessions.remote_session_id
+
+Every cloud session exposes its own ID as an env var:
+
+```bash
+# prints the transcript URL for this session
+echo "https://claude.ai/code/${CLAUDE_CODE_REMOTE_SESSION_ID/#cse_/session_}"
+```
+
+The `cse_` prefix in the env var maps to `session_` in the transcript URL.
+This ID is the canonical link between a Claude.ai web session and the
+`dw.agent_sessions` row that tracks it. The `remote_session_id` column
+(added in `03-session-context.sql`) stores it so the session context table
+is bidirectionally navigable: AlloyDB row → claude.ai transcript URL.
+
+Redis key for hot session lookup:
+```
+session:remote:<cse_id>:context   → agent_sessions row (TTL 7d)
+session:remote:<cse_id>:branch    → git branch for this session
+```
+
+### Environment variables in cloud sessions
+
+Set via the environment settings dialog at claude.ai/code, `.env` format:
+
+```
+DATABASE_URL=postgres://localhost:5432/ke
+REDIS_URL=redis://localhost:6379
+CLAUDE_CODE_REMOTE=true
+```
+
+`CLAUDE_CODE_REMOTE=true` is set automatically by Anthropic in all web
+sessions. Use it in SessionStart hooks to gate cloud-only setup:
+```bash
+if [ "$CLAUDE_CODE_REMOTE" != "true" ]; then exit 0; fi
+npm ci --no-audit --no-fund && npm run build
+```
+
+### Resource limits in cloud sessions
+
+- 4 vCPUs, 16 GB RAM, 30 GB disk
+- PostgreSQL 16 + Redis 7.0 fit comfortably within these limits for
+  development workloads (AlloyDB Omni in production replaces the local PG)
+- Environment cache (setup script snapshot) persists ~7 days — Docker
+  images and installed packages survive session restarts within that window
+
+---
+
 ## See also
 
+- `vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md` — full web session doc
+- `vendor/anthropics/code.claude.com/docs/en/sandbox-environments.md` — isolation comparison
 - `src/mcp/ext-tasks/index.ts` — pg_durable MCP server (create/get/complete/list)
 - `infra/postgres/init/00-extensions.sql` — pg_durable extension bootstrap
 - `src/cache/durable-store.ts` — L3 AlloyDB semantic cache (promote-after-3-hits)

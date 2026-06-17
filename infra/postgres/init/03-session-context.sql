@@ -1,5 +1,6 @@
 -- Agent session context store + this session's state.
 -- @cite infra/containers/cloudflare/cloudflare-claude-code-index.md
+-- @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
 -- @cite src/mcp/ext-tasks/index.ts
 -- @cite infra/postgres/init/02-cloudflare-agent.sql
 
@@ -9,17 +10,28 @@ BEGIN;
 -- One row per agent session. Linked to dw.events_cloudflare_agent via
 -- session_id. Redis caches hot sessions at session:<id>:context (TTL 7d).
 
+-- remote_session_id: value of CLAUDE_CODE_REMOTE_SESSION_ID env var (cse_* prefix)
+-- Set by a SessionStart hook:
+--   UPDATE dw.agent_sessions SET remote_session_id = current_setting('app.remote_session_id')
+--   WHERE session_id = current_setting('app.session_id');
+-- Transcript URL: https://claude.ai/code/${remote_session_id/#cse_/session_}
+-- Redis key: session:remote:<cse_id>:context → this row (TTL 7d)
+-- Source: vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+--         § "Link artifacts back to the session"
 CREATE TABLE IF NOT EXISTS dw.agent_sessions (
-    session_id      TEXT        PRIMARY KEY,              -- slug: branch-YYYY-MM-DD
-    branch          TEXT        NOT NULL,
-    started_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    closed_at       TIMESTAMPTZ,
-    account_id      TEXT        NOT NULL DEFAULT 'e6294e3ea89f8207af387d459824aaae',
-    operator_email  TEXT        NOT NULL DEFAULT 'admin@jadecli.com',
-    context         JSONB       NOT NULL DEFAULT '{}',    -- decisions, research, pending
-    status          TEXT        NOT NULL DEFAULT 'open'
-                        CHECK (status IN ('open', 'closed', 'merged'))
+    session_id        TEXT        PRIMARY KEY,              -- slug: branch-YYYY-MM-DD
+    branch            TEXT        NOT NULL,
+    remote_session_id TEXT        UNIQUE,                  -- CLAUDE_CODE_REMOTE_SESSION_ID (cse_*)
+    started_at        TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    closed_at         TIMESTAMPTZ,
+    account_id        TEXT        NOT NULL DEFAULT 'e6294e3ea89f8207af387d459824aaae',
+    operator_email    TEXT        NOT NULL DEFAULT 'admin@jadecli.com',
+    context           JSONB       NOT NULL DEFAULT '{}',   -- decisions, research, pending
+    status            TEXT        NOT NULL DEFAULT 'open'
+                          CHECK (status IN ('open', 'closed', 'merged'))
 );
+-- Idempotent migration for sessions tables created before remote_session_id was added
+ALTER TABLE dw.agent_sessions ADD COLUMN IF NOT EXISTS remote_session_id TEXT UNIQUE;
 CREATE INDEX IF NOT EXISTS idx_sessions_branch ON dw.agent_sessions (branch);
 CREATE INDEX IF NOT EXISTS idx_sessions_status ON dw.agent_sessions (status);
 
