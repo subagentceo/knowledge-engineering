@@ -9,7 +9,13 @@
     "https://developer.anduril.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 120,
+  "page_cap": 0,
   "sitemap_xml_sources": ["https://developer.anduril.com/sitemap.xml"],
+  "html_index_sources": [
+    {
+      "url": "https://developer.anduril.com/llms.txt",
+      "link_regex": "(https://developer\\.anduril\\.com/[^\\s)]+?)\\.md"
+    }
+  ],
   "llms_txt": "https://developer.anduril.com/llms.txt"
 }
