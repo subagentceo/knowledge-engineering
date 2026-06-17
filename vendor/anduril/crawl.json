@@ -1,0 +1,15 @@
+{
+  "name": "anduril",
+  "homepage": "https://developer.anduril.com",
+  "llms_txt_candidates": [
+    "https://developer.anduril.com/llms.txt"
+  ],
+  "transform": "append-md",
+  "allow_prefixes": [
+    "https://developer.anduril.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 120,
+  "sitemap_xml_sources": ["https://developer.anduril.com/sitemap.xml"],
+  "llms_txt": "https://developer.anduril.com/llms.txt"
+}

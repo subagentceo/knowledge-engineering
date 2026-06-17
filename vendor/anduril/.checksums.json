@@ -1,0 +1,246 @@
+{
+  "https://developer.anduril.com/": {
+    "sha256": "38925d21bd83b075dbce57eb9fad12239f048dc58deff0e3ec8c2217f33cd81b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/changelog": {
+    "sha256": "38925d21bd83b075dbce57eb9fad12239f048dc58deff0e3ec8c2217f33cd81b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/best-practices/choose-a-protocol": {
+    "sha256": "4e72a2f632e17cfba233468674c52175a9fb6697b5f47308f0d0c78d76aeb1c1",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/best-practices/connect-offline": {
+    "sha256": "b855ed98dec142e0c2ba0992fd79805d9f48fa64127bd7f7c5d7a737b0cc9d74",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/best-practices/retry-connections": {
+    "sha256": "8af75805a83583692217f1471656da998de569ecff01285affd3f68acad7aca7",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/concepts/overview": {
+    "sha256": "a1ed181211a15e848ae640680caccdf1599e4fd8823e89e9ba086c5a041403d5",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/concepts/principles": {
+    "sha256": "32b18b05084bfa3ce918407e5c03794e2c18fc8ba18feccb573440dd6d73a851",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/developer-tools/sandboxes": {
+    "sha256": "9c3881df196104dce1d5da2e6609fa33419203a6ee6fb6c9d29bf0ac9ac027e9",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/entities/overview": {
+    "sha256": "31f9cc615154270ca66c10e59e30201795f6984fd9d7587d9615c57aa4bf1a4c",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/entities/publish": {
+    "sha256": "b2dc66e03cf1afc35f0b25e25a2740b5bfad590411013024dffe8ab67d71f7ea",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/entities/watch": {
+    "sha256": "4c8549e780adad203231e82ac2bf418a727e7ceed0ee938ade311a5f1115e67b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/getting-started/authenticate": {
+    "sha256": "39c539f8c2a12ebc6ae9aee2f4f0a7abb470d5136c2cf8a0cd4e4dd6b6f73fad",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/getting-started/quickstart": {
+    "sha256": "2582b4358986ce4cee0eedccafe37a74becfd0e42085cbd0446496fe60f2cfc7",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/getting-started/set-up": {
+    "sha256": "ecc8f86ee1c0dca66be76039e82fde75306c996b6bc19230c0c06741b18fc7cc",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/objects/download": {
+    "sha256": "2450ed13b71c128178e88744c4581ce48d59df23351f2b9b82207550664278bc",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/objects/manage": {
+    "sha256": "56e74dba767c5b2792afcc004c2b66369c03774942b2c5af43db35391cd28784",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/objects/overview": {
+    "sha256": "0daaec06eb1240e6de67e7d8550ba3852c182a961ec230f3441a6ed3befeb1e0",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/objects/upload": {
+    "sha256": "a90a5506ca815f5ca5d01d9e27bfe9cb90be70ff17bad18b9a32fdc7608a01c9",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/tasks/listen": {
+    "sha256": "024fde92dab0d29037c3b8a01af1625f14c652dd546fb06e0a8212e75942c67b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/tasks/operate": {
+    "sha256": "d50bb2a9b858eab20fad104ea86554c18fd7dd4a3e1655166d1a41d16eaec3bc",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/tasks/overview": {
+    "sha256": "dee7fd6397ed310244ed423592d83e3c75d376f22158bf8e4663587ec9c38801",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/guides/tasks/update": {
+    "sha256": "5cdb59903bed58ec0df94ae983e78534202c3e382639ce60e67381cb5b4ae9f7",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/license": {
+    "sha256": "741b4eb9f5bb87455c2a3dd02a26b562f1e4b7c615639ffa1f01e587fcdf823e",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-get-entity": {
+    "sha256": "a8abcb43a494b3ce48102e51190adba5e0b4cddd27bd10b0069ae190dab0040c",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-override-entity": {
+    "sha256": "aa71c143824e034ac79822d168e04879d19210da5bc33666ce8fa2bbf5e8d3dc",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-publish-entities": {
+    "sha256": "29d2ec8e1b6434e281ac4453ac567f93aa67386615c80f7bba87c381d2db1e84",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-publish-entity": {
+    "sha256": "345b8a55827213b76f7e62ac8c4f56783ec751dad2edca6d74f196c78d10ebd9",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-remove-entity-override": {
+    "sha256": "a6c48aceae5fd484aa6ed3a6410ece7b13ec0e53caaed656d3f659689e5d5d36",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-entitymanager-v-1/entity-manager-api/anduril-entitymanager-v-1-stream-entity-components": {
+    "sha256": "2492892e25a31bf481cec7273156e1018cbb24792320bf7f2f8d964ea672f135",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-cancel-task": {
+    "sha256": "64e2486ce9ce532d0eb2af94c92ca85f456c46f11b177ae06fb580b509a54d6f",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-create-task": {
+    "sha256": "2bb39dc6f4456d9bf6ab361765d1812fb87dc3628eab2154840fbc26e878154e",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-get-task": {
+    "sha256": "8bb575d30f71c58b5bbdc68af83bfbd8ef6746dcb05f3ab50ee108c7605744c5",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-listen-as-agent": {
+    "sha256": "cf22dfe92e38e07481f56f0a0db5e6f6992d86c622e170c431a6adff86d4127b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-listen-for-manual-control-frames": {
+    "sha256": "bd1b95bbaaf54a429d06b6e643a1dccc19b09fd4070d24df160e979ba401b0e6",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-query-tasks": {
+    "sha256": "b8a7d8acdd28837d04d1b2fba5e9ff99a2fbd9c6d66039a08df4fcbdfe0ffa91",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-stream-tasks": {
+    "sha256": "b2c3a743c11319014b467a78f618265af60917088ebd230bddd262b23f0aeab1",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/grpc/anduril-taskmanager-v-1/task-manager-api/anduril-taskmanager-v-1-update-status": {
+    "sha256": "bfd181594f3456a3c2df2929c3098f43970355bf9ab97347e2ac374ae7aac6aa",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/overview/overview": {
+    "sha256": "985f2c291aa9269fafcea09ab5a0fb90289c267c5d6d0addd04033ee3d1eddba",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/overview/versioning/migrating-to-v2": {
+    "sha256": "ddb69f31769e28c5d031401d409a62985e0544384c724e90c3847bc24c96732e",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/get-entity": {
+    "sha256": "2beb0b8da7a7ad7efeb08d08500d2e136bef10743de99fcb6af5ad719972c077",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/long-poll-entity-events": {
+    "sha256": "d0a936e3912ea2dd76c95ea0f75bc98809bd09a0a7e80b9d310052a66ce3245b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/override-entity": {
+    "sha256": "ab2b460d08f0c6888c5d330c59e7a87660c726c1928daf3b169df5c4d7cc7b06",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/publish-entity": {
+    "sha256": "8935407cd385e11f95167b59793e7dde09bab423bad46c501868cd5c7b570a7c",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/remove-entity-override": {
+    "sha256": "16f81680e83bd07abebadeeacc129fcb03b338017369b50430a68807df26a3f6",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/entities/stream-entities": {
+    "sha256": "dc48ef87d31e6c115331d388c873472b46023c5a6f0795e6a94ca9831c392bd5",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/oauth/get-token": {
+    "sha256": "0765477512507af5ffb7ffc0dcf0d321b4858686c7275b15e00029e16c0eb047",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/objects/delete-object": {
+    "sha256": "5700c75a2cb7468cd2c60d67d1b894180c93ca1bc13505d5f6bfe575340a517d",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/objects/get-object": {
+    "sha256": "c3e131b55d594038dbdb2164764c3cad1561ac647d502f936b5b1ed5545824fe",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/objects/get-object-metadata": {
+    "sha256": "e04a7768bbd42c9c955f41ffdbe8e36000525517e6992edfa54deddda505d789",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/objects/list-objects": {
+    "sha256": "28f80dcba7459853bd42f7e8bb6b0abae8658e27ebeb849983dd83643c59022c",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/objects/upload-object": {
+    "sha256": "1c8ac88a45ac642e66b916292d666277765a0a6bfdc2e09e9fc6232d22810f3b",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/cancel-task": {
+    "sha256": "869d8e4a14131bb29e7b9f7bcb7f07481c34976fb747b24ee0a8eb16d3c9d6da",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/create-task": {
+    "sha256": "501cbba18670ce5f3ae7b8f91e3dd2e7ac42264cee4fed32bc066745e9064c26",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/get-task": {
+    "sha256": "457a3516644e182da278308f9d8f9631f01bb2ba5f347165d5c47489630f3031",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/listen-as-agent": {
+    "sha256": "110ad98d9b6b8301739bb26a1d1942184d26574ae2e6ef3db2130363b7247efb",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/query-tasks": {
+    "sha256": "8005394733d9312c2f9ef23764672f3128be8477d0f8c406f3f577157466b75e",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/stream-as-agent": {
+    "sha256": "12f6dd2765f3931dde83e2307b180363b848b65fe84f571e5f265d73e88caa72",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/stream-manual-control-frames": {
+    "sha256": "eb1e481fae88dc0f67e3cb8e8a6dc81b9ac7bad7ddb0f87bf4aaa779cb94c0f2",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/stream-tasks": {
+    "sha256": "9f28bd6a756eba5d21e26437da4b3b07a9c79fb9b94882aaa4815acbac29ecfd",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/reference/rest/tasks/update-task-status": {
+    "sha256": "8f8deaea6dea861c16609d3ec7d694957253780f926e26bce82569d826eec442",
+    "lastStatus": 200
+  },
+  "https://developer.anduril.com/samples/overview": {
+    "sha256": "98f831eed120f10fddc76a0ece1da75f6f3b33f6c2d05b5bfa596a0fa31b137e",
+    "lastStatus": 200
+  }
+}
