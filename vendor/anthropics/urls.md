@@ -1,7 +1,7 @@
 ---
 vendor: anthropics
 llms_txt: https://code.claude.com/llms.txt
-count: 1696
+count: 1700
 transform: verbatim
 ---
 
@@ -151,6 +151,8 @@ transform: verbatim
 | https://code.claude.com/docs/en/whats-new/2026-w20.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w20.md` |
 | https://code.claude.com/docs/en/whats-new/2026-w21.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w21.md` |
 | https://code.claude.com/docs/en/whats-new/2026-w22.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w22.md` |
+| https://code.claude.com/docs/en/whats-new/2026-w23.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w23.md` |
+| https://code.claude.com/docs/en/whats-new/2026-w24.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w24.md` |
 | https://code.claude.com/docs/en/whats-new/index.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/index.md` |
 | https://code.claude.com/docs/en/workflows.md | `vendor/anthropics/code.claude.com/docs/en/workflows.md` |
 | https://code.claude.com/docs/en/worktrees.md | `vendor/anthropics/code.claude.com/docs/en/worktrees.md` |
@@ -196,6 +198,22 @@ transform: verbatim
 | https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool.md | `vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool.md` |
 | https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool.md | `vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool.md` |
 | https://platform.claude.com/docs/en/api/admin.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/chat_projects.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/chat_projects.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/chat_projects/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/chat_projects/list.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/connectors.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/connectors.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/connectors/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/connectors/list.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/cost.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/cost.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/cost/list_by_user.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/cost/list_by_user.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/cost/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/cost/list.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/retrieve_summaries.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/retrieve_summaries.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/skills.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/skills/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/skills/list.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/usage.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/usage.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/usage/list_by_user.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/usage/list_by_user.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/usage/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/usage/list.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/users.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/users.md` |
+| https://platform.claude.com/docs/en/api/admin/analytics/users/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/analytics/users/list.md` |
 | https://platform.claude.com/docs/en/api/admin/api_keys.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/api_keys.md` |
 | https://platform.claude.com/docs/en/api/admin/api_keys/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/api_keys/list.md` |
 | https://platform.claude.com/docs/en/api/admin/api_keys/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/api_keys/retrieve.md` |
@@ -207,6 +225,22 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/admin/external_keys/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/external_keys/delete.md` |
 | https://platform.claude.com/docs/en/api/admin/external_keys/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/external_keys/list.md` |
 | https://platform.claude.com/docs/en/api/admin/external_keys/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/external_keys/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/external_keys/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/external_keys/update.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers/archive.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers/create.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers/list.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_issuers/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_issuers/update.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/archive.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/create.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/list.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/update.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/workspaces/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/workspaces/create.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/workspaces/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/workspaces/delete.md` |
+| https://platform.claude.com/docs/en/api/admin/federation_rules/workspaces/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/federation_rules/workspaces/list.md` |
 | https://platform.claude.com/docs/en/api/admin/invites.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/invites.md` |
 | https://platform.claude.com/docs/en/api/admin/invites/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/invites/create.md` |
 | https://platform.claude.com/docs/en/api/admin/invites/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/invites/delete.md` |
@@ -227,11 +261,33 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/admin/organizations/me.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/organizations/me.md` |
 | https://platform.claude.com/docs/en/api/admin/rate_limits.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/rate_limits.md` |
 | https://platform.claude.com/docs/en/api/admin/rate_limits/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/rate_limits/list.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/archive.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/create.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/list.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/update.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/workspaces/create.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/workspaces/delete.md` |
+| https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/service_accounts/workspaces/list.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/create.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/delete.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/increase_requests.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/approve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/approve.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/deny.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/deny.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/list.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/increase_requests/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/list_effective.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/list_effective.md` |
+| https://platform.claude.com/docs/en/api/admin/spend_limits/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/spend_limits/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/usage_report.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/usage_report.md` |
 | https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_claude_code.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/usage_report/retrieve_claude_code.md` |
 | https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/usage_report/retrieve_messages.md` |
+| https://platform.claude.com/docs/en/api/admin/users.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/users.md` |
 | https://platform.claude.com/docs/en/api/admin/users/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/users/delete.md` |
 | https://platform.claude.com/docs/en/api/admin/users/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/users/list.md` |
 | https://platform.claude.com/docs/en/api/admin/users/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/users/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/users/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/users/update.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/archive.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/create.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/list.md` |
@@ -240,9 +296,17 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/admin/workspaces/members/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/members/delete.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/members/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/members/list.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/members/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/members/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/members/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/members/update.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/rate_limits.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/rate_limits.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/rate_limits/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/rate_limits/list.md` |
 | https://platform.claude.com/docs/en/api/admin/workspaces/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts/create.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts/delete.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts/list.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts/retrieve.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/service_accounts/update.md` |
+| https://platform.claude.com/docs/en/api/admin/workspaces/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/admin/workspaces/update.md` |
 | https://platform.claude.com/docs/en/api/beta.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta.md` |
 | https://platform.claude.com/docs/en/api/beta/agents.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/agents.md` |
 | https://platform.claude.com/docs/en/api/beta/agents/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/agents/archive.md` |
@@ -277,11 +341,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files.md` |
 | https://platform.claude.com/docs/en/api/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/memory_stores/create.md` |
@@ -326,6 +392,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/threads/archive.md` |
@@ -334,6 +401,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills/delete.md` |
@@ -344,10 +412,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials.md` |
@@ -355,11 +425,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/create.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/delete.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/list.md` |
+| https://platform.claude.com/docs/en/api/beta/vaults/credentials/mcp_oauth_validate.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/mcp_oauth_validate.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/retrieve.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/credentials/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/credentials/update.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/agents.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/agents.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/agents/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/agents/archive.md` |
@@ -394,11 +466,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/cli/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/memory_stores/create.md` |
@@ -443,6 +517,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/threads/archive.md` |
@@ -451,6 +526,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills/delete.md` |
@@ -461,10 +537,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/cli/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials.md` |
@@ -472,11 +550,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/create.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/delete.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/list.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/mcp_oauth_validate.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/mcp_oauth_validate.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/retrieve.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/credentials/update.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/cli/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/cli/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/cli/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/completions.md` |
 | https://platform.claude.com/docs/en/api/cli/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/completions/create.md` |
 | https://platform.claude.com/docs/en/api/cli/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/cli/messages.md` |
@@ -544,6 +624,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/compliance/organizations/roles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/compliance/organizations/roles/retrieve.md` |
 | https://platform.claude.com/docs/en/api/compliance/organizations/settings.md | `vendor/anthropics/platform.claude.com/docs/en/api/compliance/organizations/settings.md` |
 | https://platform.claude.com/docs/en/api/compliance/organizations/settings/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/compliance/organizations/settings/retrieve.md` |
+| https://platform.claude.com/docs/en/api/compliance/organizations/users.md | `vendor/anthropics/platform.claude.com/docs/en/api/compliance/organizations/users.md` |
 | https://platform.claude.com/docs/en/api/compliance/organizations/users/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/compliance/organizations/users/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/agents.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/agents.md` |
@@ -579,11 +660,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/memory_stores/create.md` |
@@ -628,6 +711,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/threads/archive.md` |
@@ -636,6 +720,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills/delete.md` |
@@ -646,10 +731,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials.md` |
@@ -657,11 +744,14 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/delete.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/list.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/mcp_oauth_validate.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/mcp_oauth_validate.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/retrieve.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/credentials/update.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/csharp/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/csharp/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/beta/vaults/update.md` |
+| https://platform.claude.com/docs/en/api/csharp/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/completions.md` |
 | https://platform.claude.com/docs/en/api/csharp/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/completions/create.md` |
 | https://platform.claude.com/docs/en/api/csharp/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/messages.md` |
 | https://platform.claude.com/docs/en/api/csharp/messages/batches.md | `vendor/anthropics/platform.claude.com/docs/en/api/csharp/messages/batches.md` |
@@ -710,11 +800,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/go/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/go/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/go/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/go/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/go/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files.md` |
 | https://platform.claude.com/docs/en/api/go/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/go/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/go/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/go/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/go/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/go/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/go/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/memory_stores/create.md` |
@@ -759,6 +851,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/go/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/go/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/threads/archive.md` |
@@ -767,6 +860,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/go/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/go/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/go/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/go/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/go/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills/delete.md` |
@@ -777,10 +871,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/go/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/go/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/go/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/go/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/go/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/go/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/go/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials.md` |
@@ -788,11 +884,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/create.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/delete.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/list.md` |
+| https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/mcp_oauth_validate.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/mcp_oauth_validate.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/retrieve.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/credentials/update.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/go/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/go/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/go/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/completions.md` |
 | https://platform.claude.com/docs/en/api/go/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/completions/create.md` |
 | https://platform.claude.com/docs/en/api/go/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/go/messages.md` |
@@ -842,11 +940,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/java/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/java/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/java/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/java/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/java/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files.md` |
 | https://platform.claude.com/docs/en/api/java/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/java/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/java/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/java/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/java/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/java/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/java/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/memory_stores/create.md` |
@@ -891,6 +991,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/java/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/java/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/threads/archive.md` |
@@ -899,6 +1000,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/java/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/java/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/java/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/java/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/java/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills/delete.md` |
@@ -909,10 +1011,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/java/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/java/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/java/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/java/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/java/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/java/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/java/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/java/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/java/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/java/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/credentials.md` |
@@ -925,6 +1029,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/java/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/java/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/java/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/java/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/java/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/completions.md` |
 | https://platform.claude.com/docs/en/api/java/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/completions/create.md` |
 | https://platform.claude.com/docs/en/api/java/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/java/messages.md` |
@@ -987,11 +1092,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/php/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/php/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/php/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/php/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files.md` |
 | https://platform.claude.com/docs/en/api/php/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/php/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/php/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/php/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/php/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/php/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/php/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/memory_stores/create.md` |
@@ -1036,6 +1143,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/php/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/threads/archive.md` |
@@ -1044,6 +1152,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/php/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/php/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/php/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/php/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills/delete.md` |
@@ -1054,10 +1163,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/php/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/php/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/php/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/php/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/php/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/php/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/credentials.md` |
@@ -1070,6 +1181,8 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/php/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/php/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/php/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/beta/vaults/update.md` |
+| https://platform.claude.com/docs/en/api/php/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/completions.md` |
 | https://platform.claude.com/docs/en/api/php/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/completions/create.md` |
 | https://platform.claude.com/docs/en/api/php/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/messages.md` |
 | https://platform.claude.com/docs/en/api/php/messages/batches.md | `vendor/anthropics/platform.claude.com/docs/en/api/php/messages/batches.md` |
@@ -1118,11 +1231,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/python/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/python/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/python/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/python/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/python/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files.md` |
 | https://platform.claude.com/docs/en/api/python/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/python/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/python/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/python/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/python/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/python/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/python/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/memory_stores/create.md` |
@@ -1167,6 +1282,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/python/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/python/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/threads/archive.md` |
@@ -1175,6 +1291,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/python/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/python/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/python/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/python/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/python/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills/delete.md` |
@@ -1185,10 +1302,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/python/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/python/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/python/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/python/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/python/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/python/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/python/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/python/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/python/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/python/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/credentials.md` |
@@ -1201,6 +1320,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/python/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/python/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/python/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/python/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/python/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/completions.md` |
 | https://platform.claude.com/docs/en/api/python/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/completions/create.md` |
 | https://platform.claude.com/docs/en/api/python/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/python/messages.md` |
@@ -1250,11 +1370,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/ruby/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/memory_stores/create.md` |
@@ -1299,6 +1421,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/threads/archive.md` |
@@ -1307,6 +1430,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills/delete.md` |
@@ -1317,10 +1441,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/credentials.md` |
@@ -1333,6 +1459,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/ruby/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/ruby/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/ruby/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/completions.md` |
 | https://platform.claude.com/docs/en/api/ruby/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/completions/create.md` |
 | https://platform.claude.com/docs/en/api/ruby/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/ruby/messages.md` |
@@ -1374,6 +1501,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/delete.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/environments/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/ack.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/ack.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/heartbeat.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/heartbeat.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/list.md` |
@@ -1381,11 +1509,13 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/retrieve.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/stats.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/stats.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/environments/work/stop.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/stop.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/environments/work/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/environments/work/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/files.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/files/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files/delete.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/files/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files/download.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/files/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/files/retrieve_metadata.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files/retrieve_metadata.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/files/upload.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/files/upload.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/memory_stores.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/memory_stores.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/memory_stores/archive.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/memory_stores/create.md` |
@@ -1430,6 +1560,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/resources/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/resources/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/resources/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/retrieve.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/threads.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/threads/archive.md` |
@@ -1438,6 +1569,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/events/stream.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/threads/events/stream.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/threads/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/threads/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/sessions/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/sessions/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/skills.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/skills/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills/create.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/skills/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills/delete.md` |
@@ -1448,10 +1580,12 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/skills/versions/download.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills/versions/download.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/skills/versions/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills/versions/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/skills/versions/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/skills/versions/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/user_profiles.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/create_enrollment_url.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles/create_enrollment_url.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles/create.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/user_profiles/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/archive.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/archive.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/create.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/credentials.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/credentials.md` |
@@ -1464,6 +1598,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/delete.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/delete.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/list.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/list.md` |
 | https://platform.claude.com/docs/en/api/typescript/beta/vaults/retrieve.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/retrieve.md` |
+| https://platform.claude.com/docs/en/api/typescript/beta/vaults/update.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/beta/vaults/update.md` |
 | https://platform.claude.com/docs/en/api/typescript/completions.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/completions.md` |
 | https://platform.claude.com/docs/en/api/typescript/completions/create.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/completions/create.md` |
 | https://platform.claude.com/docs/en/api/typescript/messages.md | `vendor/anthropics/platform.claude.com/docs/en/api/typescript/messages.md` |
@@ -1517,6 +1652,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/intro.md | `vendor/anthropics/platform.claude.com/docs/en/intro.md` |
 | https://platform.claude.com/docs/en/manage-claude/access-transparency.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/access-transparency.md` |
 | https://platform.claude.com/docs/en/manage-claude/admin-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/admin-api.md` |
+| https://platform.claude.com/docs/en/manage-claude/analytics-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/analytics-api.md` |
 | https://platform.claude.com/docs/en/manage-claude/api-and-data-retention.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/api-and-data-retention.md` |
 | https://platform.claude.com/docs/en/manage-claude/authentication.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/authentication.md` |
 | https://platform.claude.com/docs/en/manage-claude/claude-code-analytics-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/claude-code-analytics-api.md` |
@@ -1534,6 +1670,7 @@ transform: verbatim
 | https://platform.claude.com/docs/en/manage-claude/compliance-org-data.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/compliance-org-data.md` |
 | https://platform.claude.com/docs/en/manage-claude/data-residency.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/data-residency.md` |
 | https://platform.claude.com/docs/en/manage-claude/rate-limits-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/rate-limits-api.md` |
+| https://platform.claude.com/docs/en/manage-claude/spend-limits-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/spend-limits-api.md` |
 | https://platform.claude.com/docs/en/manage-claude/usage-cost-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/usage-cost-api.md` |
 | https://platform.claude.com/docs/en/manage-claude/wif-admin-api.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/wif-admin-api.md` |
 | https://platform.claude.com/docs/en/manage-claude/wif-providers/aws.md | `vendor/anthropics/platform.claude.com/docs/en/manage-claude/wif-providers/aws.md` |

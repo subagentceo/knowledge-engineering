@@ -1,4 +1,4 @@
-# JetBrains Pioneers Multi-Agent IDE Experience with Claude Agent
+# JetBrains pioneers multi-agent IDE experience with Claude Agent
 
 _Millions of developers now benefit from the Claude Agent SDK, the same underlying technology that powers Claude Code, natively inside of JetBrains_
 

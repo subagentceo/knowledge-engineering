@@ -13,14 +13,17 @@ Update Session
 - `agent: Optional[BetaManagedAgentsSessionAgentUpdateParam]`
 
   Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+
   - `mcp_servers: Optional[List[BetaManagedAgentsURLMCPServerParams]]`
 
     Replacement MCP server list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+
     - `name: str`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     - `type: Literal["url"]`
+
       - `"url"`
 
     - `url: str`
@@ -30,18 +33,23 @@ Update Session
   - `tools: Optional[List[Tool]]`
 
     Replacement tool list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+
     - `class BetaManagedAgentsAgentToolset20260401Params: …`
 
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+
       - `type: Literal["agent_toolset_20260401"]`
+
         - `"agent_toolset_20260401"`
 
       - `configs: Optional[List[BetaManagedAgentsAgentToolConfigParams]]`
 
         Per-tool configuration overrides.
+
         - `name: Literal["bash", "edit", "read", 5 more]`
 
           Built-in agent tool identifier.
+
           - `"bash"`
 
           - `"edit"`
@@ -65,21 +73,27 @@ Update Session
         - `permission_policy: Optional[PermissionPolicy]`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
+
             - `type: Literal["always_allow"]`
+
               - `"always_allow"`
 
           - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
             Tool calls require user confirmation before execution.
+
             - `type: Literal["always_ask"]`
+
               - `"always_ask"`
 
       - `default_config: Optional[BetaManagedAgentsAgentToolsetDefaultConfigParams]`
 
         Default configuration for all tools in a toolset.
+
         - `enabled: Optional[bool]`
 
           Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -87,6 +101,7 @@ Update Session
         - `permission_policy: Optional[PermissionPolicy]`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -98,16 +113,19 @@ Update Session
     - `class BetaManagedAgentsMCPToolsetParams: …`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
+
       - `mcp_server_name: str`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       - `type: Literal["mcp_toolset"]`
+
         - `"mcp_toolset"`
 
       - `configs: Optional[List[BetaManagedAgentsMCPToolConfigParams]]`
 
         Per-tool configuration overrides.
+
         - `name: str`
 
           Name of the MCP tool to configure. 1-128 characters.
@@ -119,6 +137,7 @@ Update Session
         - `permission_policy: Optional[PermissionPolicy]`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -130,6 +149,7 @@ Update Session
       - `default_config: Optional[BetaManagedAgentsMCPToolsetDefaultConfigParams]`
 
         Default configuration for all tools from an MCP server.
+
         - `enabled: Optional[bool]`
 
           Whether tools are enabled by default. Defaults to true if not specified.
@@ -137,6 +157,7 @@ Update Session
         - `permission_policy: Optional[PermissionPolicy]`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
             Tool calls are automatically approved without user confirmation.
@@ -148,6 +169,7 @@ Update Session
     - `class BetaManagedAgentsCustomToolParams: …`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
+
       - `description: str`
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -155,24 +177,21 @@ Update Session
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `type: Literal["object"]`
+
+          - `"object"`
+
         - `properties: Optional[Dict[str, object]]`
 
-          JSON Schema properties defining the tool's input parameters.
-
         - `required: Optional[List[str]]`
-
-          List of required property names.
-
-        - `type: Optional[Literal["object"]]`
-
-          Must be 'object' for tool input schemas.
-          - `"object"`
 
       - `name: str`
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
       - `type: Literal["custom"]`
+
         - `"custom"`
 
 - `metadata: Optional[Dict[str, Optional[str]]]`
@@ -190,9 +209,11 @@ Update Session
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -245,26 +266,32 @@ Update Session
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaManagedAgentsSession: …`
 
   A Managed Agents `session`.
+
   - `id: str`
 
   - `agent: BetaManagedAgentsSessionAgent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `id: str`
 
     - `description: Optional[str]`
 
     - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
+
       - `name: str`
 
       - `type: Literal["url"]`
+
         - `"url"`
 
       - `url: str`
@@ -272,16 +299,21 @@ Update Session
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
+
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-        - `Literal["claude-opus-4-7", "claude-opus-4-6", "claude-sonnet-4-6", 6 more]`
+
+        - `Literal["claude-fable-5", "claude-opus-4-8", "claude-opus-4-7", 8 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
+          - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
           - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
           - `claude-opus-4-6` - Most intelligent model for building agents and coding
           - `claude-sonnet-4-6` - Best combination of speed and intelligence
@@ -291,6 +323,14 @@ Update Session
           - `claude-opus-4-5-20251101` - Premium model combining maximum intelligence with practical performance
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
@@ -333,6 +373,7 @@ Update Session
       - `speed: Optional[Literal["standard", "fast"]]`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `"standard"`
 
         - `"fast"`
@@ -340,14 +381,17 @@ Update Session
     - `multiagent: Optional[BetaManagedAgentsSessionMultiagentCoordinator]`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `agents: List[BetaManagedAgentsSessionThreadAgent]`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `id: str`
 
         - `description: Optional[str]`
 
         - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
+
           - `name: str`
 
           - `type: Literal["url"]`
@@ -361,12 +405,15 @@ Update Session
         - `name: str`
 
         - `skills: List[Skill]`
+
           - `class BetaManagedAgentsAnthropicSkill: …`
 
             A resolved Anthropic-managed skill.
+
             - `skill_id: str`
 
             - `type: Literal["anthropic"]`
+
               - `"anthropic"`
 
             - `version: str`
@@ -374,9 +421,11 @@ Update Session
           - `class BetaManagedAgentsCustomSkill: …`
 
             A resolved user-created custom skill.
+
             - `skill_id: str`
 
             - `type: Literal["custom"]`
+
               - `"custom"`
 
             - `version: str`
@@ -384,13 +433,17 @@ Update Session
         - `system: Optional[str]`
 
         - `tools: List[Tool]`
+
           - `class BetaManagedAgentsAgentToolset20260401: …`
+
             - `configs: List[BetaManagedAgentsAgentToolConfig]`
+
               - `enabled: bool`
 
               - `name: Literal["bash", "edit", "read", 5 more]`
 
                 Built-in agent tool identifier.
+
                 - `"bash"`
 
                 - `"edit"`
@@ -410,26 +463,33 @@ Update Session
               - `permission_policy: PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `type: Literal["always_allow"]`
+
                     - `"always_allow"`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
                   Tool calls require user confirmation before execution.
+
                   - `type: Literal["always_ask"]`
+
                     - `"always_ask"`
 
             - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `enabled: bool`
 
               - `permission_policy: PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
                   Tool calls are automatically approved without user confirmation.
@@ -439,10 +499,13 @@ Update Session
                   Tool calls require user confirmation before execution.
 
             - `type: Literal["agent_toolset_20260401"]`
+
               - `"agent_toolset_20260401"`
 
           - `class BetaManagedAgentsMCPToolset: …`
+
             - `configs: List[BetaManagedAgentsMCPToolConfig]`
+
               - `enabled: bool`
 
               - `name: str`
@@ -450,6 +513,7 @@ Update Session
               - `permission_policy: PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
                   Tool calls are automatically approved without user confirmation.
@@ -461,11 +525,13 @@ Update Session
             - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `enabled: bool`
 
               - `permission_policy: PermissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
                   Tool calls are automatically approved without user confirmation.
@@ -477,45 +543,47 @@ Update Session
             - `mcp_server_name: str`
 
             - `type: Literal["mcp_toolset"]`
+
               - `"mcp_toolset"`
 
           - `class BetaManagedAgentsCustomTool: …`
 
             A custom tool as returned in API responses.
+
             - `description: str`
 
             - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
               JSON Schema for custom tool input parameters.
+
+              - `type: Literal["object"]`
+
+                - `"object"`
+
               - `properties: Optional[Dict[str, object]]`
 
-                JSON Schema properties defining the tool's input parameters.
-
               - `required: Optional[List[str]]`
-
-                List of required property names.
-
-              - `type: Optional[Literal["object"]]`
-
-                Must be 'object' for tool input schemas.
-                - `"object"`
 
             - `name: str`
 
             - `type: Literal["custom"]`
+
               - `"custom"`
 
         - `type: Literal["agent"]`
+
           - `"agent"`
 
         - `version: int`
 
       - `type: Literal["coordinator"]`
+
         - `"coordinator"`
 
     - `name: str`
 
     - `skills: List[Skill]`
+
       - `class BetaManagedAgentsAnthropicSkill: …`
 
         A resolved Anthropic-managed skill.
@@ -527,6 +595,7 @@ Update Session
     - `system: Optional[str]`
 
     - `tools: List[Tool]`
+
       - `class BetaManagedAgentsAgentToolset20260401: …`
 
       - `class BetaManagedAgentsMCPToolset: …`
@@ -536,6 +605,7 @@ Update Session
         A custom tool as returned in API responses.
 
     - `type: Literal["agent"]`
+
       - `"agent"`
 
     - `version: int`
@@ -555,6 +625,7 @@ Update Session
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `completed_at: Optional[datetime]`
 
       A timestamp in RFC 3339 format
@@ -573,17 +644,20 @@ Update Session
 
     - `outcome_id: str`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `result: str`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: Literal["outcome_evaluation"]`
+
       - `"outcome_evaluation"`
 
   - `resources: List[BetaManagedAgentsSessionResource]`
+
     - `class BetaManagedAgentsGitHubRepositoryResource: …`
+
       - `id: str`
 
       - `created_at: datetime`
@@ -593,6 +667,7 @@ Update Session
       - `mount_path: str`
 
       - `type: Literal["github_repository"]`
+
         - `"github_repository"`
 
       - `updated_at: datetime`
@@ -602,23 +677,29 @@ Update Session
       - `url: str`
 
       - `checkout: Optional[Checkout]`
+
         - `class BetaManagedAgentsBranchCheckout: …`
+
           - `name: str`
 
             Branch name to check out.
 
           - `type: Literal["branch"]`
+
             - `"branch"`
 
         - `class BetaManagedAgentsCommitCheckout: …`
+
           - `sha: str`
 
             Full commit SHA to check out.
 
           - `type: Literal["commit"]`
+
             - `"commit"`
 
     - `class BetaManagedAgentsFileResource: …`
+
       - `id: str`
 
       - `created_at: datetime`
@@ -630,6 +711,7 @@ Update Session
       - `mount_path: str`
 
       - `type: Literal["file"]`
+
         - `"file"`
 
       - `updated_at: datetime`
@@ -639,16 +721,19 @@ Update Session
     - `class BetaManagedAgentsMemoryStoreResource: …`
 
       A memory store attached to an agent session.
+
       - `memory_store_id: str`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: Literal["memory_store"]`
+
         - `"memory_store"`
 
       - `access: Optional[Literal["read_write", "read_only"]]`
 
         Access mode for an attached memory store.
+
         - `"read_write"`
 
         - `"read_only"`
@@ -672,6 +757,7 @@ Update Session
   - `stats: BetaManagedAgentsSessionStats`
 
     Timing statistics for a session.
+
     - `active_seconds: Optional[float]`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -683,6 +769,7 @@ Update Session
   - `status: Literal["rescheduling", "running", "idle", "terminated"]`
 
     SessionStatus enum
+
     - `"rescheduling"`
 
     - `"running"`
@@ -694,6 +781,7 @@ Update Session
   - `title: Optional[str]`
 
   - `type: Literal["session"]`
+
     - `"session"`
 
   - `updated_at: datetime`
@@ -703,9 +791,11 @@ Update Session
   - `usage: BetaManagedAgentsSessionUsage`
 
     Cumulative token usage for a session across all turns.
+
     - `cache_creation: Optional[BetaManagedAgentsCacheCreationUsage]`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `ephemeral_1h_input_tokens: Optional[int]`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -729,6 +819,10 @@ Update Session
   - `vault_ids: List[str]`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `deployment_id: Optional[str]`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -906,6 +1000,9 @@ print(beta_managed_agents_session.id)
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

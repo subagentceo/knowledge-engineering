@@ -4,11 +4,11 @@ Before setting up SSO for your Claude or Claude Console organization, review thi
 
 Our single sign-on feature uses the concept of a "parent organization." This is an entity that stores SSO settings that can be shared across multiple Claude or Console organizations. Your plan type determines whether or not you have a parent organization by default:
 
-| **Plan type** | **Parent organization** |
-| --- | --- |
-| Enterprise plan | Created automatically when the organization is set up |
-| Team plan | Created when SSO is enabled for the first time |
-| Claude Console | Not created automatically; requires action (see below) |
+| **Plan type**   | **Parent organization**                                |
+| --------------- | ------------------------------------------------------ |
+| Enterprise plan | Created automatically when the organization is set up  |
+| Team plan       | Created when SSO is enabled for the first time         |
+| Claude Console  | Not created automatically; requires action (see below) |
 
 ### Key things to know
 
@@ -87,10 +87,10 @@ Once your organization's domains are verified, owners will see a **Restrict orga
 Once SSO is configured, you can choose how users are provisioned to your organization.
 
 | **Provisioning method** | **Team plan** | **Enterprise plan** | **Console org** |
-| --- | --- | --- | --- |
-| Invite only | ✓ | ✓ | ✓ |
-| JIT | ✓ | ✓ | ✓ |
-| SCIM | ✗ | ✓ | ✓* |
+| ----------------------- | ------------- | ------------------- | --------------- |
+| Invite only             | ✓             | ✓                   | ✓               |
+| JIT                     | ✓             | ✓                   | ✓               |
+| SCIM                    | ✗             | ✓                   | ✓\*             |
 
 ***Note:** Only Enterprise plan organizations can enable SCIM provisioning; if a Console organization is merged with a Team plan’s parent org, it will not have access to SCIM provisioning.
 

@@ -9,11 +9,13 @@ Update Session
 ### Parameters
 
 - `SessionUpdateParams params`
+
   - `Optional<String> sessionId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,7 +68,9 @@ Update Session
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<BetaManagedAgentsSessionAgentUpdate> agent`
 
@@ -89,19 +93,23 @@ Update Session
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
+
   - `String id`
 
   - `BetaManagedAgentsSessionAgent agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+
     - `String id`
 
     - `Optional<String> description`
 
     - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
+
       - `String name`
 
       - `Type type`
+
         - `URL("url")`
 
       - `String url`
@@ -109,11 +117,21 @@ Update Session
     - `BetaManagedAgentsModelConfig model`
 
       Model identifier and configuration.
+
       - `BetaManagedAgentsModel id`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `CLAUDE_FABLE_5("claude-fable-5")`
+
+          Next generation of intelligence for the hardest knowledge work and coding problems
+
+        - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+          Frontier intelligence for long-running agents and coding
+
         - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
           Frontier intelligence for long-running agents and coding
@@ -153,6 +171,7 @@ Update Session
       - `Optional<Speed> speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
         - `STANDARD("standard")`
 
         - `FAST("fast")`
@@ -160,14 +179,17 @@ Update Session
     - `Optional<BetaManagedAgentsSessionMultiagentCoordinator> multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
+
       - `List<BetaManagedAgentsSessionThreadAgent> agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
+
         - `String id`
 
         - `Optional<String> description`
 
         - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
+
           - `String name`
 
           - `Type type`
@@ -181,12 +203,15 @@ Update Session
         - `String name`
 
         - `List<Skill> skills`
+
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
+
             - `String skillId`
 
             - `Type type`
+
               - `ANTHROPIC("anthropic")`
 
             - `String version`
@@ -194,9 +219,11 @@ Update Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
+
             - `String skillId`
 
             - `Type type`
+
               - `CUSTOM("custom")`
 
             - `String version`
@@ -204,13 +231,17 @@ Update Session
         - `Optional<String> system`
 
         - `List<Tool> tools`
+
           - `class BetaManagedAgentsAgentToolset20260401:`
+
             - `List<BetaManagedAgentsAgentToolConfig> configs`
+
               - `boolean enabled`
 
               - `Name name`
 
                 Built-in agent tool identifier.
+
                 - `BASH("bash")`
 
                 - `EDIT("edit")`
@@ -230,26 +261,33 @@ Update Session
               - `PermissionPolicy permissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
+
                   - `Type type`
+
                     - `ALWAYS_ALLOW("always_allow")`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
+
                   - `Type type`
+
                     - `ALWAYS_ASK("always_ask")`
 
             - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
               Resolved default configuration for agent tools.
+
               - `boolean enabled`
 
               - `PermissionPolicy permissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -259,10 +297,13 @@ Update Session
                   Tool calls require user confirmation before execution.
 
             - `Type type`
+
               - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
           - `class BetaManagedAgentsMcpToolset:`
+
             - `List<BetaManagedAgentsMcpToolConfig> configs`
+
               - `boolean enabled`
 
               - `String name`
@@ -270,6 +311,7 @@ Update Session
               - `PermissionPolicy permissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -281,11 +323,13 @@ Update Session
             - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
+
               - `boolean enabled`
 
               - `PermissionPolicy permissionPolicy`
 
                 Permission policy for tool execution.
+
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
@@ -297,45 +341,47 @@ Update Session
             - `String mcpServerName`
 
             - `Type type`
+
               - `MCP_TOOLSET("mcp_toolset")`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
+
             - `String description`
 
             - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
               JSON Schema for custom tool input parameters.
+
+              - `JsonValue; type "object"constant`
+
+                - `OBJECT("object")`
+
               - `Optional<Properties> properties`
 
-                JSON Schema properties defining the tool's input parameters.
-
               - `Optional<List<String>> required`
-
-                List of required property names.
-
-              - `Optional<Type> type`
-
-                Must be 'object' for tool input schemas.
-                - `OBJECT("object")`
 
             - `String name`
 
             - `Type type`
+
               - `CUSTOM("custom")`
 
         - `Type type`
+
           - `AGENT("agent")`
 
         - `long version`
 
       - `Type type`
+
         - `COORDINATOR("coordinator")`
 
     - `String name`
 
     - `List<Skill> skills`
+
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
@@ -347,6 +393,7 @@ Update Session
     - `Optional<String> system`
 
     - `List<Tool> tools`
+
       - `class BetaManagedAgentsAgentToolset20260401:`
 
       - `class BetaManagedAgentsMcpToolset:`
@@ -356,6 +403,7 @@ Update Session
         A custom tool as returned in API responses.
 
     - `Type type`
+
       - `AGENT("agent")`
 
     - `long version`
@@ -375,6 +423,7 @@ Update Session
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+
     - `Optional<LocalDateTime> completedAt`
 
       A timestamp in RFC 3339 format
@@ -393,17 +442,20 @@ Update Session
 
     - `String outcomeId`
 
-      Server-generated outc\_ ID for this outcome.
+      Server-generated outc_ ID for this outcome.
 
     - `String result`
 
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `Type type`
+
       - `OUTCOME_EVALUATION("outcome_evaluation")`
 
   - `List<BetaManagedAgentsSessionResource> resources`
+
     - `class BetaManagedAgentsGitHubRepositoryResource:`
+
       - `String id`
 
       - `LocalDateTime createdAt`
@@ -413,6 +465,7 @@ Update Session
       - `String mountPath`
 
       - `Type type`
+
         - `GITHUB_REPOSITORY("github_repository")`
 
       - `LocalDateTime updatedAt`
@@ -422,23 +475,29 @@ Update Session
       - `String url`
 
       - `Optional<Checkout> checkout`
+
         - `class BetaManagedAgentsBranchCheckout:`
+
           - `String name`
 
             Branch name to check out.
 
           - `Type type`
+
             - `BRANCH("branch")`
 
         - `class BetaManagedAgentsCommitCheckout:`
+
           - `String sha`
 
             Full commit SHA to check out.
 
           - `Type type`
+
             - `COMMIT("commit")`
 
     - `class BetaManagedAgentsFileResource:`
+
       - `String id`
 
       - `LocalDateTime createdAt`
@@ -450,6 +509,7 @@ Update Session
       - `String mountPath`
 
       - `Type type`
+
         - `FILE("file")`
 
       - `LocalDateTime updatedAt`
@@ -459,16 +519,19 @@ Update Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
+
       - `String memoryStoreId`
 
-        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `Type type`
+
         - `MEMORY_STORE("memory_store")`
 
       - `Optional<Access> access`
 
         Access mode for an attached memory store.
+
         - `READ_WRITE("read_write")`
 
         - `READ_ONLY("read_only")`
@@ -492,6 +555,7 @@ Update Session
   - `BetaManagedAgentsSessionStats stats`
 
     Timing statistics for a session.
+
     - `Optional<Double> activeSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -503,6 +567,7 @@ Update Session
   - `Status status`
 
     SessionStatus enum
+
     - `RESCHEDULING("rescheduling")`
 
     - `RUNNING("running")`
@@ -514,6 +579,7 @@ Update Session
   - `Optional<String> title`
 
   - `Type type`
+
     - `SESSION("session")`
 
   - `LocalDateTime updatedAt`
@@ -523,9 +589,11 @@ Update Session
   - `BetaManagedAgentsSessionUsage usage`
 
     Cumulative token usage for a session across all turns.
+
     - `Optional<BetaManagedAgentsCacheCreationUsage> cacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
+
       - `Optional<Long> ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -549,6 +617,10 @@ Update Session
   - `List<String> vaultIds`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
+
+  - `Optional<String> deploymentId`
+
+    Deployment ID when the session was created from a deployment reference. Null otherwise.
 
 ### Example
 
@@ -732,6 +804,9 @@ public final class Main {
     "input_tokens": 0,
     "output_tokens": 0
   },
-  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+  "vault_ids": [
+    "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+  ],
+  "deployment_id": "deployment_id"
 }
 ```

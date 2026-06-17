@@ -28,6 +28,10 @@ Enterprise includes everything in the Team plan, plus the following:
 
   - **Analytics API:** Programmatically access aggregated engagement and adoption metrics for your organization.
 
+  - **Customer-managed encryption keys:** Provision an encryption key in your own cloud provider that your organization controls, and have Anthropic use it to protect your team's chats, projects, and files in Claude.
+
+  - **US-only inference:** Keep your organization's inference within the United States.
+
 - **Usage-based pricing**
 
   - The seat fee only covers access to the platform and doesn't include any usage. All usage across Claude, Claude Code, and Cowork is billed separately at standard API rates, based on what your team actually consumes. There are no per-seat usage limits and no included token allowance.
@@ -66,14 +70,14 @@ On usage-based Enterprise plans, there's no token allowance to divide up. Instea
 
 Both self-serve and sales-assisted Enterprise plans include the same features and the same seat pricing. The differences are in how you purchase, pay, and manage your plan:
 
-|  | **Self-serve** | **Sales-assisted** |
-| --- | --- | --- |
-| **How to purchase** | **[Online](https://claude.ai/create/enterprise?utm_source=support&utm_medium=article&utm_content=enterprise-plan_self-serve_intro)** | Through our **[Sales team](https://claude.com/contact-sales?utm_source=support&utm_medium=article&utm_content=enterprise-plan_contact-sales_intro)** |
-| **Minimum number of seats** | 20 | 50 |
-| **Payment methods** | Credit card, ACH* | Credit card, ACH, invoicing |
-| **Accepted currency** | USD only | Multi-currency supported |
-| **Usage billing** | Credits purchased upfront | Billed monthly in arrears |
-| **HIPAA-readiness / BAA** | Not available | Available |
+|                             | **Self-serve**                                                                                                                       | **Sales-assisted**                                                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **How to purchase**         | **[Online](https://claude.ai/create/enterprise?utm_source=support&utm_medium=article&utm_content=enterprise-plan_self-serve_intro)** | Through our **[Sales team](https://claude.com/contact-sales?utm_source=support&utm_medium=article&utm_content=enterprise-plan_contact-sales_intro)** |
+| **Minimum number of seats** | 20                                                                                                                                   | 50                                                                                                                                                   |
+| **Payment methods**         | Credit card, ACH\*                                                                                                                   | Credit card, ACH, invoicing                                                                                                                          |
+| **Accepted currency**       | USD only                                                                                                                             | Multi-currency supported                                                                                                                             |
+| **Usage billing**           | Credits purchased upfront                                                                                                            | Billed monthly in arrears                                                                                                                            |
+| **HIPAA-readiness / BAA**   | Not available                                                                                                                        | Available                                                                                                                                            |
 
 *ACH bank transfers are only available when creating new self-serve Enterprise organizations, not when upgrading a Team organization to Enterprise.
 

@@ -1,6 +1,6 @@
 Creating a design system allows Claude Design to produce outputs that fit your specifications. It extracts reusable components, colors, typography, and patterns from the assets you provide—codebases, slide decks, or other design references—and uses them as the foundation for every project created within your account.
 
-Claude Design by Anthropic Labs is now available in research preview to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
+Claude Design is now available in beta to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
 
 This guide is for the designer or brand owner who will set up the design system. You only need to do this once; after setup, all team members’ projects automatically use it (for Team and Enterprise plans).
 
@@ -70,7 +70,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1781304300&amp;signature=acbd0124f44453cdf13f1cc21ee9913b68205714e0c3b94d533ca9646bd89339&amp;req=diIvEcx8moFfXvMW1HO4zWNHF%2FOIDj8UIQKNMXlu0T9g54TuvvDTer6Z9q%2FX%0Ae%2BmP%2BG2nN6Wz4SdJjDA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1781870400&amp;signature=f60ad30289b68dd1aa02ab1edbb646bf4c996e3c537e5ac49b791e843421a24c&amp;req=diIvEcx8moFfXvMW3nq%2BgXXF9DaJXXawMii1OlB9RQunhrw1rz7uXrk6LSOL%0A%2F%2BxeSTkPqWbCIhK7M%2F9Zee0K0Mo%3D%0A)
 
 ---
 

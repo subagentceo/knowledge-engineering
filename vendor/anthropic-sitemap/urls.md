@@ -1,7 +1,7 @@
 ---
 vendor: anthropic-sitemap
 llms_txt: 
-count: 410
+count: 427
 transform: html-extract
 ---
 
@@ -174,7 +174,6 @@ transform: html-extract
 | https://www.anthropic.com/news/economic-futures-uk-europe | `vendor/anthropic-sitemap/news/economic-futures-uk-europe.md` |
 | https://www.anthropic.com/news/election-safeguards-update | `vendor/anthropic-sitemap/news/election-safeguards-update.md` |
 | https://www.anthropic.com/news/elections-ai-2024 | `vendor/anthropic-sitemap/news/elections-ai-2024.md` |
-| https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously | `vendor/anthropic-sitemap/news/enabling-claude-code-to-work-more-autonomously.md` |
 | https://www.anthropic.com/news/enterprise-ai-services-company | `vendor/anthropic-sitemap/news/enterprise-ai-services-company.md` |
 | https://www.anthropic.com/news/eu-code-practice | `vendor/anthropic-sitemap/news/eu-code-practice.md` |
 | https://www.anthropic.com/news/expanded-legal-protections-api-improvements | `vendor/anthropic-sitemap/news/expanded-legal-protections-api-improvements.md` |
@@ -182,6 +181,7 @@ transform: html-extract
 | https://www.anthropic.com/news/expanding-global-operations-to-india | `vendor/anthropic-sitemap/news/expanding-global-operations-to-india.md` |
 | https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services | `vendor/anthropic-sitemap/news/expanding-our-use-of-google-cloud-tpus-and-services.md` |
 | https://www.anthropic.com/news/expanding-project-glasswing | `vendor/anthropic-sitemap/news/expanding-project-glasswing.md` |
+| https://www.anthropic.com/news/fable-mythos-access | `vendor/anthropic-sitemap/news/fable-mythos-access.md` |
 | https://www.anthropic.com/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule | `vendor/anthropic-sitemap/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule.md` |
 | https://www.anthropic.com/news/finance-agents | `vendor/anthropic-sitemap/news/finance-agents.md` |
 | https://www.anthropic.com/news/fine-tune-claude-3-haiku | `vendor/anthropic-sitemap/news/fine-tune-claude-3-haiku.md` |
@@ -251,6 +251,7 @@ transform: html-extract
 | https://www.anthropic.com/news/salesforce-partnership | `vendor/anthropic-sitemap/news/salesforce-partnership.md` |
 | https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule | `vendor/anthropic-sitemap/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule.md` |
 | https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific | `vendor/anthropic-sitemap/news/seoul-becomes-third-anthropic-office-in-asia-pacific.md` |
+| https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem | `vendor/anthropic-sitemap/news/seoul-office-partnerships-korean-ai-ecosystem.md` |
 | https://www.anthropic.com/news/series-h | `vendor/anthropic-sitemap/news/series-h.md` |
 | https://www.anthropic.com/news/servicenow-anthropic-claude | `vendor/anthropic-sitemap/news/servicenow-anthropic-claude.md` |
 | https://www.anthropic.com/news/services-track-partner-hub | `vendor/anthropic-sitemap/news/services-track-partner-hub.md` |
@@ -275,7 +276,6 @@ transform: html-extract
 | https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan | `vendor/anthropic-sitemap/news/thoughts-on-america-s-ai-action-plan.md` |
 | https://www.anthropic.com/news/uk-ai-safety-summit | `vendor/anthropic-sitemap/news/uk-ai-safety-summit.md` |
 | https://www.anthropic.com/news/updates-to-our-consumer-terms | `vendor/anthropic-sitemap/news/updates-to-our-consumer-terms.md` |
-| https://www.anthropic.com/news/updating-our-usage-policy | `vendor/anthropic-sitemap/news/updating-our-usage-policy.md` |
 | https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions | `vendor/anthropic-sitemap/news/updating-restrictions-of-sales-to-unsupported-regions.md` |
 | https://www.anthropic.com/news/us-elections-readiness | `vendor/anthropic-sitemap/news/us-elections-readiness.md` |
 | https://www.anthropic.com/news/usage-policy-update | `vendor/anthropic-sitemap/news/usage-policy-update.md` |
@@ -301,8 +301,10 @@ transform: html-extract
 | https://www.anthropic.com/research/anthropic-institute-agenda | `vendor/anthropic-sitemap/research/anthropic-institute-agenda.md` |
 | https://www.anthropic.com/research/anthropic-interviewer | `vendor/anthropic-sitemap/research/anthropic-interviewer.md` |
 | https://www.anthropic.com/research/assistant-axis | `vendor/anthropic-sitemap/research/assistant-axis.md` |
+| https://www.anthropic.com/research/attack-navigator | `vendor/anthropic-sitemap/research/attack-navigator.md` |
 | https://www.anthropic.com/research/auditing-hidden-objectives | `vendor/anthropic-sitemap/research/auditing-hidden-objectives.md` |
 | https://www.anthropic.com/research/automated-alignment-researchers | `vendor/anthropic-sitemap/research/automated-alignment-researchers.md` |
+| https://www.anthropic.com/research/biorisk | `vendor/anthropic-sitemap/research/biorisk.md` |
 | https://www.anthropic.com/research/bloom | `vendor/anthropic-sitemap/research/bloom.md` |
 | https://www.anthropic.com/research/building-ai-cyber-defenders | `vendor/anthropic-sitemap/research/building-ai-cyber-defenders.md` |
 | https://www.anthropic.com/research/building-effective-agents | `vendor/anthropic-sitemap/research/building-effective-agents.md` |
@@ -312,7 +314,9 @@ transform: html-extract
 | https://www.anthropic.com/research/circuits-updates-june-2024 | `vendor/anthropic-sitemap/research/circuits-updates-june-2024.md` |
 | https://www.anthropic.com/research/circuits-updates-may-2023 | `vendor/anthropic-sitemap/research/circuits-updates-may-2023.md` |
 | https://www.anthropic.com/research/circuits-updates-sept-2024 | `vendor/anthropic-sitemap/research/circuits-updates-sept-2024.md` |
+| https://www.anthropic.com/research/claude-4-cyber | `vendor/anthropic-sitemap/research/claude-4-cyber.md` |
 | https://www.anthropic.com/research/claude-character | `vendor/anthropic-sitemap/research/claude-character.md` |
+| https://www.anthropic.com/research/claude-code-expertise | `vendor/anthropic-sitemap/research/claude-code-expertise.md` |
 | https://www.anthropic.com/research/claude-personal-guidance | `vendor/anthropic-sitemap/research/claude-personal-guidance.md` |
 | https://www.anthropic.com/research/clio | `vendor/anthropic-sitemap/research/clio.md` |
 | https://www.anthropic.com/research/coding-agents-social-sciences | `vendor/anthropic-sitemap/research/coding-agents-social-sciences.md` |
@@ -320,7 +324,11 @@ transform: html-extract
 | https://www.anthropic.com/research/confidential-inference-trusted-vms | `vendor/anthropic-sitemap/research/confidential-inference-trusted-vms.md` |
 | https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback | `vendor/anthropic-sitemap/research/constitutional-ai-harmlessness-from-ai-feedback.md` |
 | https://www.anthropic.com/research/constitutional-classifiers | `vendor/anthropic-sitemap/research/constitutional-classifiers.md` |
+| https://www.anthropic.com/research/critical-infrastructure-defense | `vendor/anthropic-sitemap/research/critical-infrastructure-defense.md` |
 | https://www.anthropic.com/research/crosscoder-model-diffing | `vendor/anthropic-sitemap/research/crosscoder-model-diffing.md` |
+| https://www.anthropic.com/research/cyber-competitions | `vendor/anthropic-sitemap/research/cyber-competitions.md` |
+| https://www.anthropic.com/research/cyber-toolkits | `vendor/anthropic-sitemap/research/cyber-toolkits.md` |
+| https://www.anthropic.com/research/cyber-toolkits-update | `vendor/anthropic-sitemap/research/cyber-toolkits-update.md` |
 | https://www.anthropic.com/research/decomposing-language-models-into-understandable-components | `vendor/anthropic-sitemap/research/decomposing-language-models-into-understandable-components.md` |
 | https://www.anthropic.com/research/deprecation-commitments | `vendor/anthropic-sitemap/research/deprecation-commitments.md` |
 | https://www.anthropic.com/research/deprecation-updates-opus-3 | `vendor/anthropic-sitemap/research/deprecation-updates-opus-3.md` |
@@ -343,6 +351,8 @@ transform: html-extract
 | https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions | `vendor/anthropic-sitemap/research/evaluating-and-mitigating-discrimination-in-language-model-decisions.md` |
 | https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench | `vendor/anthropic-sitemap/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench.md` |
 | https://www.anthropic.com/research/evaluating-feature-steering | `vendor/anthropic-sitemap/research/evaluating-feature-steering.md` |
+| https://www.anthropic.com/research/exploit | `vendor/anthropic-sitemap/research/exploit.md` |
+| https://www.anthropic.com/research/exploit-evals | `vendor/anthropic-sitemap/research/exploit-evals.md` |
 | https://www.anthropic.com/research/exploring-model-welfare | `vendor/anthropic-sitemap/research/exploring-model-welfare.md` |
 | https://www.anthropic.com/research/features-as-classifiers | `vendor/anthropic-sitemap/research/features-as-classifiers.md` |
 | https://www.anthropic.com/research/forecasting-rare-behaviors | `vendor/anthropic-sitemap/research/forecasting-rare-behaviors.md` |
@@ -366,8 +376,11 @@ transform: html-extract
 | https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning | `vendor/anthropic-sitemap/research/measuring-faithfulness-in-chain-of-thought-reasoning.md` |
 | https://www.anthropic.com/research/measuring-model-persuasiveness | `vendor/anthropic-sitemap/research/measuring-model-persuasiveness.md` |
 | https://www.anthropic.com/research/measuring-progress-on-scalable-oversight-for-large-language-models | `vendor/anthropic-sitemap/research/measuring-progress-on-scalable-oversight-for-large-language-models.md` |
+| https://www.anthropic.com/research/mythos-preview | `vendor/anthropic-sitemap/research/mythos-preview.md` |
+| https://www.anthropic.com/research/n-days | `vendor/anthropic-sitemap/research/n-days.md` |
 | https://www.anthropic.com/research/natural-language-autoencoders | `vendor/anthropic-sitemap/research/natural-language-autoencoders.md` |
 | https://www.anthropic.com/research/next-generation-constitutional-classifiers | `vendor/anthropic-sitemap/research/next-generation-constitutional-classifiers.md` |
+| https://www.anthropic.com/research/nuclear-safeguards-for-ai | `vendor/anthropic-sitemap/research/nuclear-safeguards-for-ai.md` |
 | https://www.anthropic.com/research/open-source-circuit-tracing | `vendor/anthropic-sitemap/research/open-source-circuit-tracing.md` |
 | https://www.anthropic.com/research/persona-selection-model | `vendor/anthropic-sitemap/research/persona-selection-model.md` |
 | https://www.anthropic.com/research/persona-vectors | `vendor/anthropic-sitemap/research/persona-vectors.md` |
@@ -379,6 +392,7 @@ transform: html-extract
 | https://www.anthropic.com/research/project-vend-1 | `vendor/anthropic-sitemap/research/project-vend-1.md` |
 | https://www.anthropic.com/research/project-vend-2 | `vendor/anthropic-sitemap/research/project-vend-2.md` |
 | https://www.anthropic.com/research/prompt-injection-defenses | `vendor/anthropic-sitemap/research/prompt-injection-defenses.md` |
+| https://www.anthropic.com/research/property-based-testing | `vendor/anthropic-sitemap/research/property-based-testing.md` |
 | https://www.anthropic.com/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning | `vendor/anthropic-sitemap/research/question-decomposition-improves-the-faithfulness-of-model-generated-reasoning.md` |
 | https://www.anthropic.com/research/reasoning-models-dont-say-think | `vendor/anthropic-sitemap/research/reasoning-models-dont-say-think.md` |
 | https://www.anthropic.com/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned | `vendor/anthropic-sitemap/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned.md` |
@@ -388,6 +402,7 @@ transform: html-extract
 | https://www.anthropic.com/research/shade-arena-sabotage-monitoring | `vendor/anthropic-sitemap/research/shade-arena-sabotage-monitoring.md` |
 | https://www.anthropic.com/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training | `vendor/anthropic-sitemap/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training.md` |
 | https://www.anthropic.com/research/small-samples-poison | `vendor/anthropic-sitemap/research/small-samples-poison.md` |
+| https://www.anthropic.com/research/smart-contracts | `vendor/anthropic-sitemap/research/smart-contracts.md` |
 | https://www.anthropic.com/research/softmax-linear-units | `vendor/anthropic-sitemap/research/softmax-linear-units.md` |
 | https://www.anthropic.com/research/specific-versus-general-principles-for-constitutional-ai | `vendor/anthropic-sitemap/research/specific-versus-general-principles-for-constitutional-ai.md` |
 | https://www.anthropic.com/research/statistical-approach-to-model-evals | `vendor/anthropic-sitemap/research/statistical-approach-to-model-evals.md` |
@@ -397,6 +412,7 @@ transform: html-extract
 | https://www.anthropic.com/research/teaching-claude-why | `vendor/anthropic-sitemap/research/teaching-claude-why.md` |
 | https://www.anthropic.com/research/team/alignment | `vendor/anthropic-sitemap/research/team/alignment.md` |
 | https://www.anthropic.com/research/team/economic-research | `vendor/anthropic-sitemap/research/team/economic-research.md` |
+| https://www.anthropic.com/research/team/frontier-red-team | `vendor/anthropic-sitemap/research/team/frontier-red-team.md` |
 | https://www.anthropic.com/research/team/interpretability | `vendor/anthropic-sitemap/research/team/interpretability.md` |
 | https://www.anthropic.com/research/team/societal-impacts | `vendor/anthropic-sitemap/research/team/societal-impacts.md` |
 | https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models | `vendor/anthropic-sitemap/research/the-capacity-for-moral-self-correction-in-large-language-models.md` |
@@ -411,6 +427,7 @@ transform: html-extract
 | https://www.anthropic.com/research/values-wild | `vendor/anthropic-sitemap/research/values-wild.md` |
 | https://www.anthropic.com/research/vibe-physics | `vendor/anthropic-sitemap/research/vibe-physics.md` |
 | https://www.anthropic.com/research/visible-extended-thinking | `vendor/anthropic-sitemap/research/visible-extended-thinking.md` |
+| https://www.anthropic.com/research/zero-days | `vendor/anthropic-sitemap/research/zero-days.md` |
 | https://www.anthropic.com/responsible-disclosure-policy | `vendor/anthropic-sitemap/responsible-disclosure-policy.md` |
 | https://www.anthropic.com/responsible-scaling-policy | `vendor/anthropic-sitemap/responsible-scaling-policy.md` |
 | https://www.anthropic.com/responsible-scaling-policy/roadmap | `vendor/anthropic-sitemap/responsible-scaling-policy/roadmap.md` |

@@ -1,4 +1,4 @@
-# Hostinger Helps Non-Technical Users Build a Website in Minutes with Claude
+# Hostinger helps non-technical users build a website in minutes with Claude
 
 Growing from a bootstrapped startup into a web services platform serving more than 3.5 million users across 150+ countries, Hostinger is on a mission to make the internet accessible to everyone. Their diverse customer base ranges from first-time bloggers to professional design firms, all drawn by Hostinger’s core pillars: reliable, high-performance web solutions, 24/7 user support, and exceptional affordability. Now the company has partnered with Anthropic to launch Hostinger Horizons, a website and app builder that transforms natural language prompts into fully functional online presences.
 

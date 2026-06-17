@@ -170,6 +170,8 @@ Custom connectors connect to your MCP server from Anthropic's cloud, not from yo
 
 All data transfers are encrypted. When using connectors, you can only sync content to Claude that you have permission to view in the original source.
 
+Connected services process data on their own infrastructure, under their own terms, which may be located outside the United States. Settings that control where Claude's inference runs, like the US-only inference setting on Enterprise plans, don't change where third-party services operate.
+
 When connecting to services from the directory, review what access the service is requesting during the connection process. Disconnect services you no longer need or use.
 
 **For Team and Enterprise plans:**

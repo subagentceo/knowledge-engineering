@@ -27,22 +27,22 @@ This work is already underway. For example:
 
 “We built Claude to be safe, trusted, and helpful, particularly in contexts where accuracy matters most,” said Dario Amodei, Co-founder and CEO of Anthropic. “This partnership deepens our commitment to India, our second-largest market, with TCS bringing Claude to enterprises and professionals across the region and globally.”
 
+“This partnership reflects our shared conviction that AI will be foundational and transformative for enterprises worldwide,” said N Chandrasekaran, Chairman, Tata Sons. “By combining Anthropic's capabilities with Tata Group’s scale, trusted relationships, and nation-building commitment, we will accelerate enterprise reinvention and equip India’s youth with the skills to lead in the AI era.”
+
 To learn more about the Claude Partner Network, visit anthropic.com/partners.
 
 ## Related content
 
+### Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem
+
+Read more
+
+### Statement on the US government directive to suspend access to Fable 5 and Mythos 5
+
+The US government has issued an export control directive to suspend all access to Fable 5 and Mythos 5.
+
+Read more
+
 ### Results from the first Anthropic Public Record
-
-Read more
-
-### DXC will integrate Claude into the systems banks, airlines, and other regulated industries rely on
-
-We’re announcing a multi-year global alliance with DXC Technology, one of the world’s largest IT services companies.
-
-Read more
-
-### Introducing Claude Corps
-
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

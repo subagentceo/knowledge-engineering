@@ -68,5 +68,3 @@ This acceleration enables entirely new workflows. Early users have shared compel
 Beyond individual productivity, Claude also democratizes who can contribute to product development. Mullans observed, "Product managers who think in spreadsheets and data tables can now create visual prototypes to communicate their ideas. Engineers can quickly mock up interfaces without spending time with CSS. Everyone across the organization can contribute more effectively to the design process."
 
 The shift goes deeper than tools—it's changing how teams approach product development. Now, engineers can design, product managers can prototype, and designers can ship software. Figma Make is blurring the boundaries between different roles, helping everyone visualize an idea, participate in the design process, and bring a product to life.
-
-‍

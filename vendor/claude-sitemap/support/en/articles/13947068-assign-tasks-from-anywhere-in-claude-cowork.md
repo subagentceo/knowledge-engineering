@@ -44,11 +44,11 @@ Follow these steps to get started:
 
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1781304300&amp;signature=4438a56069c5ce95bda398a84252851b7dbe61c6bb87562dfd6316d0bd3d17dd&amp;req=diEhH8B7mYFXX%2FMW1HO4zSZP0pOIFQr8B32drIe5EDkfBc1fEvdpA%2FbcN36L%0APWbG%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1781740800&amp;signature=27d9c662fca2a1877493c670e8a3bad2c7498a293b975e51dd880a5ad033ad07&amp;req=diEhH8B7mYFXX%2FMW3nq%2BgUgtmyeeX442AZy4NuMmOh5Cb5XzmLFKyRpIi9d8%0AGHDewX24c%2BFMkaoZp7RmlWTDuGE%3D%0A)
 
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1781304300&amp;signature=f1d979b49ede1544b5194cdcf54542db7d9ec441677b3d3d99e521097f48e16d&amp;req=diEhH8B7mIFXW%2FMW1HO4zaZWs9ubXQUdepuGRb1rD3KjSH%2B20pp6RP7B4Vb3%0AsV0%2F%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1781740800&amp;signature=b7d97b5e09ec2a426ac37243e848ed128fa424d3176fdc8cd9161f0fd8fd169b&amp;req=diEhH8B7mIFXW%2FMW3nq%2BgctAEttDyfRpCvIGaHdOkUTJTkrB4Cz0p8%2BsBRtp%0AHyDaZnjxJ0OKShUiSRvVgz3Uib8%3D%0A)
 
 7. Click “Finish setup.”
 
@@ -100,7 +100,7 @@ For details on how computer use works, permissions, and safety guidance, see **[
 
 From your phone, you can now access everything on your desktop through Claude—including files, connectors, any plugins you've installed, and your apps through computer use.
 
-Giving a mobile AI agent remote control of a desktop AI agent creates a chain where instructions from your phone can trigger real actions on your computer—including reading, moving, or deleting local files, interacting with connected services, and controlling your browser, and using your desktop apps.. This is powerful, but it also means mistakes (or malicious content the model encounters along the way) can have real consequences. A manipulated instruction, an unexpected command, or a phishing link opened in your browser could cascade into actions that are difficult or impossible to undo.
+Giving a mobile AI agent remote control of a desktop AI agent creates a chain where instructions from your phone can trigger real actions on your computer—including reading, moving, or deleting local files, interacting with connected services, and controlling your browser, and using your desktop apps. This is powerful, but it also means mistakes (or malicious content the model encounters along the way) can have real consequences. A manipulated instruction, an unexpected command, or a phishing link opened in your browser could cascade into actions that are difficult or impossible to undo.
 
 Before enabling this, make sure you:
 

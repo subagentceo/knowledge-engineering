@@ -11,6 +11,7 @@ Update Session Resource
 - `resourceID: string`
 
 - `params: ResourceUpdateParams`
+
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -22,9 +23,11 @@ Update Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -77,14 +80,18 @@ Update Session Resource
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
+
   - `BetaManagedAgentsGitHubRepositoryResource`
+
     - `id: string`
 
     - `created_at: string`
@@ -94,6 +101,7 @@ Update Session Resource
     - `mount_path: string`
 
     - `type: "github_repository"`
+
       - `"github_repository"`
 
     - `updated_at: string`
@@ -103,23 +111,29 @@ Update Session Resource
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
+
       - `BetaManagedAgentsBranchCheckout`
+
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
+
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
+
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
+
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
+
     - `id: string`
 
     - `created_at: string`
@@ -131,6 +145,7 @@ Update Session Resource
     - `mount_path: string`
 
     - `type: "file"`
+
       - `"file"`
 
     - `updated_at: string`
@@ -140,16 +155,19 @@ Update Session Resource
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
+
     - `memory_store_id: string`
 
-      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
+
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
+
       - `"read_write"`
 
       - `"read_only"`
@@ -173,19 +191,16 @@ Update Session Resource
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const resource = await client.beta.sessions.resources.update(
-  "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
-  {
-    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    authorization_token: "ghp_exampletoken",
-  },
-);
+const resource = await client.beta.sessions.resources.update('sesrsc_011CZkZBJq5dWxk9fVLNcPht', {
+  session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
+  authorization_token: 'ghp_exampletoken',
+});
 
 console.log(resource);
 ```

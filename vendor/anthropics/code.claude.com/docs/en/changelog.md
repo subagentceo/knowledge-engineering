@@ -10,6 +10,69 @@ This page is generated from the [CHANGELOG.md on GitHub](https://github.com/anth
 
 Run `claude --version` to check your installed version.
 
+<Update label="2.1.179" description="June 16, 2026">
+  * Fixed mid-stream connection drops: partial responses are now preserved instead of showing a raw error, and the spinner no longer gets stuck at "running tool"
+  * Fixed mouse-wheel scrolling in WSL2 under Windows Terminal and VS Code (regression in 2.1.172)
+  * Fixed a sandbox `denyRead`/`allowRead` glob over a large directory tree making the Bash tool description enormous and the session unusable on Linux
+  * Fixed the feedback survey capturing a single-digit reply as a session rating immediately after a turn completes
+  * Fixed the welcome screen stacking multiple promotional banners — at most one promo now shows per session
+  * Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent
+  * Fixed clicking the prompt input not returning focus from the subagent/footer panel
+  * Fixed remote session background tasks appearing stuck as "still running" between turns
+  * Improved plugin loading performance in remote sessions
+</Update>
+
+<Update label="2.1.178" description="June 15, 2026">
+  * Added `Tool(param:value)` syntax for permission rules to match a tool's input parameters (with `*` wildcard), e.g. `Agent(model:opus)` to block Opus subagents
+  * Skills in nested `.claude/skills` directories now load when working on files there; on a name clash, the nested skill appears as `<dir>:<name>` so both stay available
+  * Nested `.claude/` directories: the agent, workflow, and output-style closest to the working directory now wins when names collide; project-scope workflow saves now target the closest existing `.claude/workflows/`
+  * Improved auto mode: subagent spawns are now evaluated by the classifier before launch, closing a gap where a subagent could request a blocked action without review
+  * Improved `/doctor` with consistent flat tree layout across all sections, clearer section status icons, and highlighted command names
+  * Improved the skill listing truncation warning to show how many skill descriptions are affected
+  * Changed the workflow prompt keyword to use a purple shimmer highlight and trigger only on explicit phrases like "run a workflow" or "workflow:", not on any mention of the word
+  * Improved Remote Control error messages: connection failures now show a persistent red "/rc failed" indicator in the footer, and the "not yet enabled" error now explains whether it's a gate, a check failure, stale entitlement, or org policy
+  * `/bug` now requires a description before submitting, and no longer uses model-refusal text as the GitHub issue title
+  * Fixed a crash (out-of-memory) when the CLI inherits a stale websocket/OAuth file-descriptor environment variable from a parent process
+  * Fixed Claude in Chrome silently failing to connect when the OAuth token belongs to a different account than the Claude Code login
+  * Fixed nested `.claude/skills` skills with directory-qualified names being blocked by permission prompts in non-interactive runs
+  * Fixed several subagent issues: viewing a subagent's transcript now shows tool results and live progress, messages sent while it finishes its turn are no longer dropped, and backgrounding a running subagent (ctrl+b) no longer restarts it from scratch
+  * Fixed `claude agents` workers failing with `401 Invalid bearer token` when the daemon was started from a shell with a custom API gateway via `ANTHROPIC_BASE_URL` and `ANTHROPIC_AUTH_TOKEN`
+  * Fixed compaction not honoring `--fallback-model`: compaction now falls back to the configured fallback model chain on overload or model-availability errors
+  * Fixed model requests continuing to fail with auth errors after credentials were refreshed outside the session, due to a stale cached request configuration
+  * Fixed background sessions created with `/bg` or `←←` after a turn finished showing "Working" forever in the agents list
+  * Fixed Linux sandbox failing to start when `.claude/skills` or `.claude/hooks` is a symlink
+  * Fixed `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE=1` preventing fresh marketplace installs from cloning
+  * Fixed MCP server-level specs (`mcp__server`, `mcp__server__*`, `mcp__*`) in subagent `disallowedTools` being silently ignored
+  * Fixed vim mode undo: `u` now steps through NORMAL/VISUAL-mode commands one at a time instead of merging commands in quick succession into a single undo step
+  * Fixed statusline links with custom URI schemes (e.g. `vscode://`) not opening when clicked in `claude agents`
+  * \[VSCode] Fixed pressing Esc to dismiss a CJK IME candidate window canceling the running Claude task
+</Update>
+
+<Update label="2.1.176" description="June 12, 2026">
+  * Session titles are now generated in the language of your conversation (set the `language` setting to pin a specific language)
+  * Added `footerLinksRegexes` setting for regex-matched link badges in the footer row, configurable via user or managed settings
+  * Improved Bedrock credential caching: credentials from `awsCredentialExport` are now cached until their `Expiration` instead of a fixed 1 hour
+  * Fixed `availableModels` enforcement: alias model picks can no longer be redirected to a blocked model via `ANTHROPIC_DEFAULT_*_MODEL` environment variables, and `/fast` now refuses to toggle when it would switch to a model outside the allowlist
+  * Fixed auto mode failing on Fable 5 for organizations without Opus 4.8 enabled — the classifier now falls back to the best available Opus model
+  * Fixed hook `if` conditions for Read/Edit/Write tool paths: documented patterns like `Edit(src/**)`, `Read(~/.ssh/**)`, and `Read(.env)` now match correctly
+  * Fixed Linux sandbox failing to start when `.claude/settings.json` is a symlink with an absolute target
+  * Fixed `/copy` and mouse-selection copy not reaching the system clipboard inside tmux over SSH, and tmux paste buffer not loading on versions older than 3.2
+  * Fixed Remote Control connecting from web/mobile silently switching the session's model
+  * Fixed Remote Control disconnect notifications showing a bare numeric code instead of a human-readable reason, and connection failures adding a duplicate line to the conversation transcript
+  * Fixed Remote Control sessions not disconnecting when you sign in to a different account
+  * Fixed `/cd` and worktree moves leaving the session reporting the previous directory's git branch
+  * Fixed `claude agents`: pressing back in one window no longer detaches other windows attached to the same session
+  * Fixed backgrounded sessions showing "Working" forever when `/bg` mid-turn had nothing left to continue
+  * Fixed background agent search by PR URL: PRs opened during scheduled wakeups or while a job was blocked now appear in `claude agents` search
+  * Fixed the agents view input showing no text cursor on Windows
+  * Fixed `claude --bg -cn <name>` not seeding the session name
+  * Fixed background sessions to neutralize Windows network paths in persisted state before respawn
+  * Fixed background-session respawn rejecting malformed resume IDs from corrupted state files
+  * Fixed the Windows background-service daemon not starting when `~/.claude/daemon` has the ReadOnly attribute set
+  * Fixed cloud sessions failing with "Could not resolve authentication method" when idle for too long before being claimed
+  * Background sessions now show clearer guidance when a window left open across an auto-update can't submit a reply, and `claude daemon status` explains version-skew behavior
+</Update>
+
 <Update label="2.1.175" description="June 12, 2026">
   * Added `enforceAvailableModels` managed setting — when enabled, the `availableModels` allowlist also constrains the Default model (a Default that would resolve to a disallowed model now falls back to the first allowed model), and user or project settings can no longer widen a managed `availableModels` list
 </Update>

@@ -34,13 +34,13 @@ Choose from three options:
 
 ## Which mode should I use?
 
-| **Your situation** | **Recommended mode** |
-| --- | --- |
-| Fewer than 10 connectors, all used frequently | Always available |
-| 10–30 tools with mixed usage | Auto |
-| 30+ tools or multiple connectors connected | On demand or Auto |
-| A specific connector needs to work every time without fail | Always available |
-| Conversations are hitting length limits | On demand |
+| **Your situation**                                         | **Recommended mode** |
+| ---------------------------------------------------------- | -------------------- |
+| Fewer than 10 connectors, all used frequently              | Always available     |
+| 10–30 tools with mixed usage                               | Auto                 |
+| 30+ tools or multiple connectors connected                 | On demand or Auto    |
+| A specific connector needs to work every time without fail | Always available     |
+| Conversations are hitting length limits                    | On demand            |
 
 ---
 

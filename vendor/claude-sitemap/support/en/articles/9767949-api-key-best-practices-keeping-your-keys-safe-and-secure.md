@@ -45,11 +45,13 @@ If you are storing secrets locally using dotenv, you must add your `.env` files 
 ```
 ANTHROPIC_API_KEY=your-api-key-here
 ```
+
 3. Install the `python-dotenv` package:
 
 ```
 pip install python-dotenv
 ```
+
 4. Load the API key in your Python script:
 
 ```
@@ -60,6 +62,7 @@ import os
 load_dotenv()
 my_api_key = os.getenv("ANTHROPIC_API_KEY")
 ```
+
 5. If you are deploying your application to a cloud hosting environment, refer to your cloud provider’s documentation on how to add your Claude API Key and share it with your application ([AWS](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html), [GCP](https://cloud.google.com/security/products/secret-manager?hl=en#how-it-works), [Azure](https://learn.microsoft.com/en-us/azure/key-vault/general/overview), [Vercel](https://vercel.com/docs/cli/secrets), [Heroku](https://devcenter.heroku.com/articles/config-vars)). Some providers offer multiple ways to securely inject environment variables into your app.
 
 ### 4. Rotate API Keys Regularly
