@@ -1,0 +1,6 @@
+{
+  "name": "anduril-crawl-plugin",
+  "version": "1.0.0",
+  "description": "Deterministic, content-addressed (sha256) incremental crawler for vendor doc surfaces. Mirrors to CommonMark, detects new + changed pages against a manifest, and PRs only the delta. Grounded in scripts/incremental-crawl.ts and scripts/crawl-anduril-www.ts.",
+  "author": { "name": "subagentceo (operator alex@jadecli.com)" }
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "anduril-www",
+    "mode": "structured",
+    "host": "www.anduril.com",
+    "out_dir": "vendor/anduril-www",
+    "sitemap_xml": "https://www.anduril.com/sitemap.xml",
+    "allow_prefix": "https://www.anduril.com/",
+    "page_cap": 0
+  },
+  {
+    "name": "anduril-dev",
+    "mode": "markdown",
+    "host": "developer.anduril.com",
+    "out_dir": "vendor/anduril",
+    "sitemap_xml": "https://developer.anduril.com/sitemap.xml",
+    "llms_txt": "https://developer.anduril.com/llms.txt",
+    "allow_prefix": "https://developer.anduril.com/",
+    "page_cap": 0
+  },
+  {
+    "name": "code-claude",
+    "mode": "markdown",
+    "host": "code.claude.com",
+    "out_dir": "vendor/code-claude-incremental",
+    "sitemap_xml": "https://code.claude.com/sitemap.xml",
+    "llms_txt": "https://code.claude.com/docs/llms.txt",
+    "allow_prefix": "https://code.claude.com/",
+    "page_cap": 0
+  }
+]
