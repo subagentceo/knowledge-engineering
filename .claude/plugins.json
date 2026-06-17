@@ -31,6 +31,13 @@
       "repo": "redis/agent-skills",
       "ref": "main",
       "comment": "Official Redis plugin directory (https://github.com/redis/agent-skills). Provides the redis-development plugin bundling 9 skills: redis-core, redis-connections, redis-query-engine, redis-vector-search, redis-semantic-cache, redis-clustering, redis-observability, redis-security, iris-development (Redis Agent Memory). Adopted 2026-06-03 alongside our existing ioredis@^5.4.1 client in src/lib/redis-client.ts."
+    },
+    {
+      "name": "knowledge-coding",
+      "repo": "subagentceo/knowledge-engineering",
+      "ref": "main",
+      "path": "src/coding-plugins",
+      "comment": "Local Claude Code (coding-surface) marketplace. The engineering counterpart to knowledge-work (Cowork) and official (first-party dev tooling): repo-changing automations grounded in this repo's scripts/ + src/. Ships anduril-crawl-plugin (deterministic sha256 incremental crawl → CommonMark mirror → delta PR). See src/coding-plugins/README.md."
     }
   ],
   "install": [
