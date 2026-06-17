@@ -52,27 +52,53 @@ interface ManifestEntry {
 }
 type Manifest = Record<string, ManifestEntry>;
 
+// SSRF guard: every outbound fetch must resolve to https on a host explicitly
+// allowed by the active target. Populated at the start of run(); breaks the
+// config-file-data → network-request dataflow with a host allowlist sanitizer.
+const ALLOWED_HOSTS = new Set<string>();
+
+function assertAllowedUrl(raw: string): URL {
+  let u: URL;
+  try {
+    u = new URL(raw);
+  } catch {
+    throw new Error(`refusing non-absolute URL: ${raw}`);
+  }
+  if (u.protocol !== "https:") throw new Error(`refusing non-https URL: ${raw}`);
+  if (!ALLOWED_HOSTS.has(u.hostname)) throw new Error(`refusing URL outside allowlist: ${raw}`);
+  return u;
+}
+
 function sha256(s: string): string {
   return createHash("sha256").update(s).digest("hex");
 }
 
+const NAMED_ENTITIES: Record<string, string> = {
+  "&quot;": '"',
+  "&lt;": "<",
+  "&gt;": ">",
+  "&nbsp;": " ",
+  "&amp;": "&",
+};
+
 function decodeEntities(s: string): string {
-  return s
-    .replace(/&#x27;|&#39;/g, "'")
-    .replace(/&#x2F;/g, "/")
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
+  // Single left-to-right pass over every entity token. One pass means a decoded
+  // "&" can never be re-read as the start of another entity (no double-unescape),
+  // and "&amp;" is handled by the same scan as the rest.
+  return s.replace(/&(?:#x[0-9a-fA-F]+|#\d+|[a-zA-Z]+);/g, (m) => {
+    if (m[1] === "#") {
+      const code = m[2] === "x" || m[2] === "X" ? parseInt(m.slice(3, -1), 16) : Number(m.slice(2, -1));
+      return Number.isFinite(code) ? String.fromCodePoint(code) : m;
+    }
+    return NAMED_ENTITIES[m] ?? m;
+  });
 }
 
 async function fetchText(url: string, accept: string): Promise<string | null> {
+  const safe = assertAllowedUrl(url);
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const r = await fetch(url, { headers: { Accept: accept, "User-Agent": "ke-incremental-crawl" } });
+      const r = await fetch(safe.toString(), { headers: { Accept: accept, "User-Agent": "ke-incremental-crawl" } });
       if (r.ok) return await r.text();
       if (r.status === 404) return null;
     } catch {
@@ -103,7 +129,7 @@ function harvestLlmsMdLinks(body: string, host: string): string[] {
   // body, return the page URL WITHOUT the .md so the fetch step re-adds it.
   // Single greedy character class (no adjacent variable quantifier) keeps this
   // linear — no polynomial backtracking on the network-fetched body.
-  const re = new RegExp(`https://${host.replace(/\./g, "\\.")}/[^\\s)"']*`, "g");
+  const re = new RegExp(`https://${host.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/[^\\s)"']*`, "g");
   const out: string[] = [];
   let m: RegExpExecArray | null;
   while ((m = re.exec(body)) !== null) {
@@ -113,9 +139,22 @@ function harvestLlmsMdLinks(body: string, host: string): string[] {
 }
 
 function mdPathFor(t: Target, url: string): string {
-  const path = new URL(url).pathname.replace(/^\/|\/$/g, "");
-  const rel = path === "" ? "index" : path;
+  // Path-traversal guard: build the relative path from sanitized URL segments
+  // only (no "", ".", ".."), so a hostile URL can never escape <out_dir>/<host>.
+  const segments = new URL(url).pathname
+    .split("/")
+    .filter((s) => s !== "" && s !== "." && s !== "..");
+  const rel = segments.length === 0 ? "index" : segments.join("/");
   return join(t.out_dir, t.host, `${rel}.md`);
+}
+
+// Containment sanitizer for the network-data → file-write flow: the resolved
+// target must stay under <REPO_ROOT>/<out_dir>.
+function assertContained(outDirAbs: string, absPath: string): void {
+  const root = outDirAbs.endsWith("/") ? outDirAbs : `${outDirAbs}/`;
+  if (absPath !== outDirAbs && !absPath.startsWith(root)) {
+    throw new Error(`refusing write outside out_dir: ${absPath}`);
+  }
 }
 
 async function toCommonMark(md: string): Promise<string> {
@@ -247,6 +286,12 @@ async function pool<T>(items: T[], n: number, fn: (t: T) => Promise<void>): Prom
 }
 
 async function run(target: Target, changedOnly: boolean, pageCapOverride?: number): Promise<void> {
+  ALLOWED_HOSTS.clear();
+  ALLOWED_HOSTS.add(target.host);
+  for (const u of [target.sitemap_xml, target.llms_txt]) {
+    if (u) ALLOWED_HOSTS.add(new URL(u).hostname);
+  }
+
   const outAbs = resolve(REPO_ROOT, target.out_dir);
   mkdirSync(outAbs, { recursive: true });
   const manifestPath = join(outAbs, "manifest.json");
@@ -287,6 +332,7 @@ async function run(target: Target, changedOnly: boolean, pageCapOverride?: numbe
     const existing = prev[url];
     next[url] = { sha256: rendered.hash, path: relPath };
     const abs = resolve(REPO_ROOT, relPath);
+    assertContained(outAbs, abs);
 
     if (existing && existing.sha256 === rendered.hash && existsSync(abs)) {
       unchanged++;
