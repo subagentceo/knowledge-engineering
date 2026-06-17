@@ -223,6 +223,7 @@ const LEGACY_ALLOW = new Set([
   "docker",                // 2026-05-30 — docs.docker.com mirror via sitemap.xml + html-extract; operator-requested study surface, not in v2 catalog
   "xcode",                 // 2026-05-30 — developer.apple.com/documentation/xcode DocC mirror via docc-json render + topic-graph discovery; not in v2 catalog
   "commonmark",            // 2026-05-30 — spec.commonmark.org/0.31.2 spec (verbatim from the commonmark-spec study clone); the normalization ANCHOR, not a subprocessor. See docs/reference/commonmark-normalization.md
+  "anduril",               // 2026-06-17 — developer.anduril.com Lattice SDK docs via append-md (sitemap + llms.txt); operator-requested study surface, not in v2 catalog
 ]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {
