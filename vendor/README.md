@@ -31,7 +31,7 @@ vendor/<name>/
 | Strategy | Behavior | Used by |
 |---|---|---|
 | `verbatim` | URL already has `.md`; fetch as-is | turbopuffer |
-| `append-md` | Append `.md` | modelcontextprotocol |
+| `append-md` | Append `.md` | modelcontextprotocol, anduril |
 | `append-md-and-accept` | + `Accept: text/markdown` | stripe, twilio, sentry |
 | `cloudflare-index-md` | `developers.cloudflare.com` → `/index.md`; reject HTML | cloudflare |
 | `anthropic-mdfirst` | `code.claude.com` / `platform.claude.com` / `claude.com/docs` / `neon.com/guides` → `.md`; reject HTML | anthropics, neon |
