@@ -1,0 +1,65 @@
+// infra/workers/plan.wrangler.jsonc
+// plan.subagentknowledge.com — PR × pg_durable state machine visualizer
+//
+// Each open PR renders as MDX with a Mermaid state diagram driven by
+// dw.events_cloudflare_agent rows for the PR's pg_durable task_id.
+//
+// @cite infra/containers/cloudflare/subdomains-plan.md
+// @cite src/mcp/ext-tasks/index.ts   (pg_durable MCP: task states)
+// @cite infra/postgres/init/02-cloudflare-agent.sql
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "subagentknowledge-plan",
+  "main": "../../src/subdomains/plan/worker.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+
+  "routes": [
+    { "pattern": "plan.subagentknowledge.com", "custom_domain": true },
+    { "pattern": "plan.subagentknowledge.com/*", "custom_domain": true }
+  ],
+
+  "kv_namespaces": [
+    { "binding": "PLAN_CACHE", "id": "PLACEHOLDER_KV_PLAN_CACHE" }
+  ],
+
+  // D1 = edge-local copy of events_cloudflare_agent, synced every 5min by cron
+  "d1_databases": [
+    { "binding": "PR_INDEX", "database_id": "PLACEHOLDER_D1_ID" }
+  ],
+
+  // Hyperdrive → AlloyDB Omni (source of truth for pg_durable task state)
+  "hyperdrive": [
+    { "binding": "DB", "id": "PLACEHOLDER_HYPERDRIVE_ID" }
+  ],
+
+  // Cron: sync dw.events_cloudflare_agent → D1 every 5 minutes
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
+
+  "secrets_store_secrets": [
+    {
+      "binding": "GITHUB_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "GITHUB_TOKEN"
+    },
+    {
+      "binding": "CF_API_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "CLOUDFLARE_API_TOKEN"
+    }
+  ],
+
+  "vars": {
+    "SITE_NAME": "subagentknowledge-plan",
+    "GITHUB_REPO": "subagentceo/knowledge-engineering",
+    "PG_DURABLE_QUEUE": "subagentknowledge:plan:pr-sync",
+    "REDIS_KEY_PREFIX": "gh:pr",
+    // State machine task state TTL in Redis (seconds)
+    "TASK_STATE_TTL": "30",
+    // PR meta TTL in Redis (seconds)
+    "PR_META_TTL": "300"
+  }
+}

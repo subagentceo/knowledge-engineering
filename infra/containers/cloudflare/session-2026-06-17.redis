@@ -1,0 +1,68 @@
+# Redis seed for session 2026-06-17
+# branch: claude/refresh-anthropic-claude-vendors
+# account: e6294e3ea89f8207af387d459824aaae (alex@jadecli.com)
+#
+# Run: redis-cli < infra/containers/cloudflare/session-2026-06-17.redis
+# TTLs match allkeys-lru 7-day convention from src/cache/durable-store.ts
+#
+# @cite src/cache/lru-bm25.ts         (cacheKey convention: namespace:id)
+# @cite src/mcp/ext-tasks/index.ts    (task:<queue>:<uuid> eviction pattern)
+# @cite infra/postgres/init/03-session-context.sql
+
+# ── Session context ───────────────────────────────────────────────────────────
+
+SET "session:2026-06-17:branch" "claude/refresh-anthropic-claude-vendors"
+EXPIRE "session:2026-06-17:branch" 604800
+
+SET "session:2026-06-17:context" "{\"operator\":\"admin@jadecli.com\",\"cf_account\":\"e6294e3ea89f8207af387d459824aaae\",\"domains\":108,\"daily_req\":80000,\"workers\":41,\"pages\":6,\"branch\":\"claude/refresh-anthropic-claude-vendors\",\"status\":\"open\",\"subdomains_planned\":[\"crawl\",\"pages\",\"workers\",\"plan\"]}"
+EXPIRE "session:2026-06-17:context" 604800
+
+# ── Decisions (LPUSH so latest is index 0) ───────────────────────────────────
+
+DEL "session:2026-06-17:decisions"
+LPUSH "session:2026-06-17:decisions" \
+  "{\"topic\":\"terraform-provider-bump\",\"decision\":\"bump ~>4.52 to ~>5.11\",\"status\":\"pending\"}" \
+  "{\"topic\":\"worker-rename\",\"decision\":\"create subagentknowledge-frontend alongside outcomesdk-frontend\",\"status\":\"pending\"}" \
+  "{\"topic\":\"subdomains\",\"decision\":\"crawl+pages+workers+plan subdomains on subagentknowledge.com\",\"status\":\"pending\"}" \
+  "{\"topic\":\"skills-sh\",\"decision\":\"install workerd + cloudflare-docs skills\",\"status\":\"pending\"}"
+EXPIRE "session:2026-06-17:decisions" 604800
+
+# ── Crawl run results ─────────────────────────────────────────────────────────
+
+SET "crawl:vendor:anthropics:last_run" "{\"fetched\":201,\"unchanged\":1499,\"preflight_304\":0,\"failed\":0,\"status\":\"ok\",\"ran_at\":\"2026-06-17\",\"page_cap\":1700}"
+EXPIRE "crawl:vendor:anthropics:last_run" 604800
+
+SET "crawl:vendor:anthropic-sitemap:last_run" "{\"fetched\":367,\"unchanged\":60,\"preflight_304\":0,\"failed\":2,\"status\":\"partial\",\"ran_at\":\"2026-06-17\",\"page_cap\":500}"
+EXPIRE "crawl:vendor:anthropic-sitemap:last_run" 604800
+
+SET "crawl:vendor:claude-sitemap:last_run" "{\"fetched\":245,\"unchanged\":1382,\"preflight_304\":198,\"failed\":7,\"status\":\"partial\",\"ran_at\":\"2026-06-17\",\"page_cap\":2000}"
+EXPIRE "crawl:vendor:claude-sitemap:last_run" 604800
+
+# ── Subdomain plan ────────────────────────────────────────────────────────────
+
+SET "subagentknowledge:subdomains:plan" "{\"crawl\":{\"worker\":\"subagentknowledge-crawl\",\"queue\":\"subagentknowledge:crawl:job\",\"bindings\":[\"KV\",\"Queue\",\"BrowserRendering\",\"Hyperdrive\"]},\"pages\":{\"worker\":\"subagentknowledge-pages\",\"bindings\":[\"KV\",\"Hyperdrive\"]},\"workers\":{\"worker\":\"subagentknowledge-workers\",\"bindings\":[\"KV\",\"Hyperdrive\"]},\"plan\":{\"worker\":\"subagentknowledge-plan\",\"bindings\":[\"KV\",\"Hyperdrive\",\"D1\"]}}"
+EXPIRE "subagentknowledge:subdomains:plan" 604800
+
+# ── CF account inventory ──────────────────────────────────────────────────────
+# Sourced from workers_list API call this session (41 workers confirmed)
+
+SET "cf:account:e6294e3ea89f8207af387d459824aaae:stats" "{\"workers\":41,\"pages\":6,\"domains\":108,\"daily_requests\":80000,\"tier\":\"paid\",\"as_of\":\"2026-06-17\"}"
+EXPIRE "cf:account:e6294e3ea89f8207af387d459824aaae:stats" 3600
+
+# ── Workers inventory (key workers for subagentknowledge topology) ────────────
+
+SET "cf:workers:outcomesdk-frontend:meta" "{\"name\":\"outcomesdk-frontend\",\"custom_domains\":[\"subagentknowledge.com\",\"www.subagentknowledge.com\"],\"modified\":\"2026-06-10\",\"note\":\"legacy name — rename blocked by custom domain attachment\"}"
+EXPIRE "cf:workers:outcomesdk-frontend:meta" 3600
+
+SET "cf:workers:ke-cloud-agent:meta" "{\"name\":\"ke-cloud-agent\",\"purpose\":\"agent runtime sandbox\",\"bindings\":[\"Containers\",\"DurableObjects\",\"SecretsStore\"]}"
+EXPIRE "cf:workers:ke-cloud-agent:meta" 3600
+
+# ── pg_durable queues registered this session ─────────────────────────────────
+
+SADD "pgdurable:queues:registered" \
+  "cloudflare:skills:install" \
+  "cloudflare:mcp:connect" \
+  "cloudflare:worker:deploy" \
+  "subagentknowledge:crawl:job" \
+  "subagentknowledge:plan:pr-sync"
+EXPIRE "pgdurable:queues:registered" 604800
