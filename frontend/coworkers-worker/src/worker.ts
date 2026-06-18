@@ -342,13 +342,126 @@ function coworkersPage(coworkHost: string): string {
 </head>
 <body>
 <div id="app">
-  <div id="ascii-pane"><pre id="ascii">
-   ██████╗ ██████╗ ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗
-  ██╔════╝██╔═══██╗██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝
-  ██║     ██║   ██║██║ █╗ ██║██║   ██║██████╔╝█████╔╝
-  ██║     ██║   ██║██║███╗██║██║   ██║██╔══██╗██╔═██╗
-  ╚██████╗╚██████╔╝╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗
-   ╚═════╝ ╚═════╝  ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝</pre></div>
+  <div id="ascii-pane"><pre id="ascii"></pre></div>
+  <script>
+  (function(){
+    var LUMA=" .:;+*xX$#@";
+    var FRAME_MS=1000/30;
+    var ATTRACTORS=[
+      {radiusScale:0.32,speed:0.00045,phase:0},
+      {radiusScale:0.22,speed:-0.0007,phase:2.1},
+      {radiusScale:0.38,speed:0.00055,phase:4.2}
+    ];
+    var el=document.getElementById("ascii");
+    var running=true,raf=null,lastFrame=0;
+    var opts,particles,buf;
+    var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    function computeOpts(){
+      var rect=el.parentElement.getBoundingClientRect();
+      var fs=parseFloat(getComputedStyle(el).fontSize)||11;
+      var cellW=fs*0.6,cellH=fs;
+      var cols=Math.max(20,Math.floor(rect.width/cellW));
+      var rows=Math.max(4,Math.floor(rect.height/cellH));
+      var pc=Math.min(60,Math.max(16,Math.floor((cols*rows)/55)));
+      var ar=Math.max(4,Math.floor(Math.min(cols,rows)/4));
+      return{cols:cols,rows:rows,particleCount:pc,attractorRadius:ar};
+    }
+    function seed(o){
+      var out=[];
+      for(var i=0;i<o.particleCount;i++){
+        out.push({x:Math.random()*o.cols,y:Math.random()*o.rows,
+                  vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.4});
+      }
+      return out;
+    }
+    function step(t){
+      var cx=opts.cols/2,cy=opts.rows/2;
+      var orb=Math.min(opts.cols,opts.rows);
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        for(var j=0;j<ATTRACTORS.length;j++){
+          var a=ATTRACTORS[j];
+          var angle=t*a.speed+a.phase;
+          var ax=cx+Math.cos(angle)*orb*a.radiusScale;
+          var ay=cy+Math.sin(angle)*orb*a.radiusScale*0.5;
+          var dx=ax-p.x,dy=ay-p.y;
+          var d2=dx*dx+dy*dy+1;
+          var pull=0.05/Math.sqrt(d2);
+          p.vx+=dx*pull; p.vy+=dy*pull;
+        }
+        p.vx*=0.985; p.vy*=0.985;
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0)p.x+=opts.cols; if(p.x>=opts.cols)p.x-=opts.cols;
+        if(p.y<0)p.y+=opts.rows; if(p.y>=opts.rows)p.y-=opts.rows;
+      }
+    }
+    function rasterize(){
+      buf.fill(0);
+      var r=opts.attractorRadius;
+      for(var i=0;i<particles.length;i++){
+        var p=particles[i];
+        var xi=Math.floor(p.x),yi=Math.floor(p.y);
+        for(var dy=-r;dy<=r;dy++){
+          for(var dx=-r;dx<=r;dx++){
+            var x=xi+dx,y=yi+dy;
+            if(x<0||x>=opts.cols||y<0||y>=opts.rows)continue;
+            var dist=Math.sqrt(dx*dx+dy*dy);
+            if(dist>r)continue;
+            var idx=y*opts.cols+x;
+            buf[idx]=(buf[idx]||0)+(1-dist/r);
+          }
+        }
+      }
+    }
+    function renderBuf(){
+      var max=0;
+      for(var i=0;i<buf.length;i++){if(buf[i]>max)max=buf[i];}
+      var norm=max>0?1/max:0;
+      var lines=[];
+      for(var y=0;y<opts.rows;y++){
+        var line="";
+        for(var x=0;x<opts.cols;x++){
+          var v=(buf[y*opts.cols+x]||0)*norm;
+          var idx2=Math.min(LUMA.length-1,Math.max(0,Math.floor(v*(LUMA.length-1))));
+          line+=LUMA[idx2];
+        }
+        lines.push(line);
+      }
+      return lines.join("\\n");
+    }
+    function frame(now){
+      if(!running)return;
+      if(!reduce)raf=requestAnimationFrame(frame);
+      if(now-lastFrame<FRAME_MS)return;
+      lastFrame=now;
+      step(now);
+      rasterize();
+      el.textContent=renderBuf();
+    }
+    function init(){
+      opts=computeOpts();
+      particles=seed(opts);
+      buf=new Float32Array(opts.cols*opts.rows);
+    }
+    init();
+    if(reduce){step(0);rasterize();el.textContent=renderBuf();}
+    else{raf=requestAnimationFrame(frame);}
+    var io=new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){running=true;if(!reduce)raf=requestAnimationFrame(frame);}
+      else{running=false;if(raf)cancelAnimationFrame(raf);raf=null;}
+    });
+    io.observe(el);
+    document.addEventListener("visibilitychange",function(){
+      if(document.hidden){running=false;if(raf)cancelAnimationFrame(raf);raf=null;}
+      else{running=true;if(!reduce)raf=requestAnimationFrame(frame);}
+    });
+    var rt=null;
+    window.addEventListener("resize",function(){
+      if(rt)clearTimeout(rt);
+      rt=setTimeout(function(){init();if(reduce){step(0);rasterize();el.textContent=renderBuf();}},150);
+    });
+  })();
+  </script>
 
   <nav>
     <a href="https://${coworkHost}">cowork/</a>
