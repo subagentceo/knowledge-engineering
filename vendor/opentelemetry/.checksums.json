@@ -1,4 +1,9 @@
 {
+  "https://opentelemetry.io/community/index.md": {
+    "sha256": "6da8b1e5e5fa54b2d986d112f1dbdf296c7669fbc110df0c9120bd33302a489d",
+    "lastStatus": 200,
+    "etag": "W/\"390206ad7183527299b6801095c8303c-ssl-df\""
+  },
   "https://opentelemetry.io/docs/collector/index.md": {
     "sha256": "6a0a40d46b018b95c928c4423b8b44fe4db86ad01c70fd8e91866d7665acf0bd",
     "lastStatus": 200,
@@ -55,13 +60,33 @@
     "etag": "W/\"d5d11e8625a4107c9d7447463fd70d0b-ssl-df\""
   },
   "https://opentelemetry.io/docs/specs/index.md": {
-    "sha256": "0299508a245f875ae514ab479282719ec0395c3d281e18fc3660aa1708cd9279",
+    "sha256": "408893fa120e599060d18e33a0bd13dd46fe0b20a850584c955a1739e1384320",
     "lastStatus": 200,
-    "etag": "W/\"b3726dd11226ae464d75ae8aea25631e-ssl\""
+    "etag": "W/\"5f82d9176b89924f6a835c7bb2caa5bf-ssl\""
   },
   "https://opentelemetry.io/docs/zero-code/index.md": {
     "sha256": "032361264bc3f2e121ea9d09b4af4c9b475890ac8c6d1d801cb9ce70f75da88f",
     "lastStatus": 200,
     "etag": "W/\"8793050e9c39761dd3da9b8ff581b7b3-ssl-df\""
+  },
+  "https://opentelemetry.io/ecosystem/index.md": {
+    "sha256": "c4e3f0516d16a4f352c6ad654df869813e7f3b6f6f748ea13d878c23eb240d56",
+    "lastStatus": 200,
+    "etag": "W/\"1087b94029116bd9a82e28fbb38357ae-ssl\""
+  },
+  "https://opentelemetry.io/index.md": {
+    "sha256": "88f3a98d6773ff3176e79cd32232e41902e46e08250ead66660f84d529220b81",
+    "lastStatus": 200,
+    "etag": "W/\"75ca827df0fab57dc99fff610492c387-ssl-df\""
+  },
+  "https://opentelemetry.io/status/index.md": {
+    "sha256": "84851fd0f5785302aa884afc014ba80c1caf7095aa824fbad72301ff97e344cf",
+    "lastStatus": 200,
+    "etag": "W/\"e8634360f06919a5dbc520d0d15b2e40-ssl-df\""
+  },
+  "https://opentelemetry.io/training/index.md": {
+    "sha256": "014abe3aa15bec2dd74b0aed243af8118aedadf6eac06ccfbd260ff775f756f6",
+    "lastStatus": 200,
+    "etag": "W/\"e21d075cd3cfba00017651c3297cc0c3-ssl-df\""
   }
 }

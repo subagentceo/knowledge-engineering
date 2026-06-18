@@ -4,55 +4,95 @@
     "lastStatus": 200,
     "lastModified": "Thu, 14 May 2026 18:07:58 GMT"
   },
+  "https://modelcontextprotocol.io/community/antitrust": {
+    "sha256": "efc7d5ce2696e4bc5a1f43b0ee7f61060087e16f7cb41491cde335c2886c0a60",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
+  },
   "https://modelcontextprotocol.io/community/antitrust.md": {
     "sha256": "efc7d5ce2696e4bc5a1f43b0ee7f61060087e16f7cb41491cde335c2886c0a60",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
   },
   "https://modelcontextprotocol.io/community/auth/charter.md": {
     "sha256": "52c07de33937cb444956c568b809fbfae944bb1c2a8a267cfa8e3d703694c9d7",
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
   },
-  "https://modelcontextprotocol.io/community/charter-template.md": {
-    "sha256": "941fc64af0e8a1fc4d75ff008c3ef3f18935706c0cdfa8b33c21f760dcc019dd",
+  "https://modelcontextprotocol.io/community/charter-template": {
+    "sha256": "49f31fd821bb3e6575c76e104f281300ac279eeda2c5de5058a79fbc443afa7b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/charter-template.md": {
+    "sha256": "49f31fd821bb3e6575c76e104f281300ac279eeda2c5de5058a79fbc443afa7b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/communication": {
+    "sha256": "91a59ce9354448efc72af20126dddad0fa06c8a5dc8b8d2c52e75e1a58856ed1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
   },
   "https://modelcontextprotocol.io/community/communication.md": {
     "sha256": "91a59ce9354448efc72af20126dddad0fa06c8a5dc8b8d2c52e75e1a58856ed1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
+  },
+  "https://modelcontextprotocol.io/community/contributing": {
+    "sha256": "6ee11e6fc2e5655803029aa6f9d597e8220d972738e6d44ec61f8d468dd2327b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
   },
   "https://modelcontextprotocol.io/community/contributing.md": {
     "sha256": "6ee11e6fc2e5655803029aa6f9d597e8220d972738e6d44ec61f8d468dd2327b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:41 GMT"
+  },
+  "https://modelcontextprotocol.io/community/contributor-ladder": {
+    "sha256": "6303bfa3972cbe38c8c19c8e6145b0bf5f8bc0c657a359903166717d5eb6a83f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
   },
   "https://modelcontextprotocol.io/community/contributor-ladder.md": {
     "sha256": "6303bfa3972cbe38c8c19c8e6145b0bf5f8bc0c657a359903166717d5eb6a83f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/design-principles": {
+    "sha256": "fd88f54d8ac8159393d3a90a36b7400c2d3b35b78dff0e9ccb64f5a027021876",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
   },
   "https://modelcontextprotocol.io/community/design-principles.md": {
     "sha256": "fd88f54d8ac8159393d3a90a36b7400c2d3b35b78dff0e9ccb64f5a027021876",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/feature-lifecycle": {
+    "sha256": "1adf6de48ec94d42a1278f9a100d6361e220e68fa6bfb684ca93853f3fdaf5bb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
   },
   "https://modelcontextprotocol.io/community/feature-lifecycle.md": {
     "sha256": "1adf6de48ec94d42a1278f9a100d6361e220e68fa6bfb684ca93853f3fdaf5bb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
   },
   "https://modelcontextprotocol.io/community/file-uploads/charter.md": {
     "sha256": "51601612ab4cead8e45309a11e52fb7eb2c719ff0b8f7cadf474f7354eceeebd",
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
   },
+  "https://modelcontextprotocol.io/community/governance": {
+    "sha256": "45789e2cac7a32c0b8725523c61e3b3cd020f1a055669f727507a6b42e7b8ae8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
   "https://modelcontextprotocol.io/community/governance.md": {
     "sha256": "45789e2cac7a32c0b8725523c61e3b3cd020f1a055669f727507a6b42e7b8ae8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:37 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
   },
   "https://modelcontextprotocol.io/community/inspector-v2/charter.md": {
     "sha256": "98660fea7303e4de7225d1bb5bd64e7f79ec5d66807832b4fa4362f61c2a7e73",
@@ -64,25 +104,75 @@
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
   },
+  "https://modelcontextprotocol.io/community/interest-groups/auth": {
+    "sha256": "c3f501251f3c7d4ae72ed74d714fa324377a6d6efbd61f122ec8bcfa74ef0f6d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/auth.md": {
+    "sha256": "c3f501251f3c7d4ae72ed74d714fa324377a6d6efbd61f122ec8bcfa74ef0f6d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/enterprise-managed-authorization": {
+    "sha256": "683dc01ea118f874980b21ea2cd375ac6eaa1f4129f39d0ab6014e06d9a86843",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/enterprise-managed-authorization.md": {
+    "sha256": "683dc01ea118f874980b21ea2cd375ac6eaa1f4129f39d0ab6014e06d9a86843",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/security": {
+    "sha256": "0f67814467b57d42ded86baf31b4f7b8d45aaf971081dad8be441b2440403369",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/security.md": {
+    "sha256": "0f67814467b57d42ded86baf31b4f7b8d45aaf971081dad8be441b2440403369",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:42 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/tool-annotations": {
+    "sha256": "912d1750fe944a88806a07518c6b17df972775ce05adad426a49ebfaca26f1e8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/interest-groups/tool-annotations.md": {
+    "sha256": "912d1750fe944a88806a07518c6b17df972775ce05adad426a49ebfaca26f1e8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
   "https://modelcontextprotocol.io/community/registry/charter.md": {
     "sha256": "3cb8de1bd1c0234d0f0fb3f2875bb2b55705b205db988f67f1a5fe8736291c0f",
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
   },
+  "https://modelcontextprotocol.io/community/sdk-tiers": {
+    "sha256": "e4d5036afc1fb64b2db109b568ada93527e00ef3633c9c6f9fdbba59534cfc3c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
   "https://modelcontextprotocol.io/community/sdk-tiers.md": {
     "sha256": "e4d5036afc1fb64b2db109b568ada93527e00ef3633c9c6f9fdbba59534cfc3c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
   },
   "https://modelcontextprotocol.io/community/sdk/charter.md": {
     "sha256": "029857a3ce4129bc3b888f9a011c3e8cd05e781d6ee875bf2d4f6509a5d63183",
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
   },
+  "https://modelcontextprotocol.io/community/sep-guidelines": {
+    "sha256": "1d1a432f6338e87288d025ea3de847ac8c7b975386357daf7bbff5a8e45f5972",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
   "https://modelcontextprotocol.io/community/sep-guidelines.md": {
     "sha256": "1d1a432f6338e87288d025ea3de847ac8c7b975386357daf7bbff5a8e45f5972",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
   },
   "https://modelcontextprotocol.io/community/server-card/charter.md": {
     "sha256": "7894127681cd94ecc14d8c863c66cb8267b75b848f2e68d27f1f2b218024c009",
@@ -104,509 +194,1544 @@
     "lastStatus": 200,
     "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
   },
-  "https://modelcontextprotocol.io/community/working-interest-groups.md": {
-    "sha256": "ff4bfd0ff2f6c2bd9cff201908f1ff205ccef307fce042c633db2d88e0349f4d",
+  "https://modelcontextprotocol.io/community/working-groups/file-uploads": {
+    "sha256": "51601612ab4cead8e45309a11e52fb7eb2c719ff0b8f7cadf474f7354eceeebd",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/file-uploads.md": {
+    "sha256": "51601612ab4cead8e45309a11e52fb7eb2c719ff0b8f7cadf474f7354eceeebd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/inspector-v2": {
+    "sha256": "98660fea7303e4de7225d1bb5bd64e7f79ec5d66807832b4fa4362f61c2a7e73",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/inspector-v2.md": {
+    "sha256": "98660fea7303e4de7225d1bb5bd64e7f79ec5d66807832b4fa4362f61c2a7e73",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/interceptors": {
+    "sha256": "696bdf7eb5fbf1911a0247740a53e6435da474737cfd3fed5f8988d9a8e25215",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/interceptors.md": {
+    "sha256": "696bdf7eb5fbf1911a0247740a53e6435da474737cfd3fed5f8988d9a8e25215",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/registry": {
+    "sha256": "3cb8de1bd1c0234d0f0fb3f2875bb2b55705b205db988f67f1a5fe8736291c0f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/registry.md": {
+    "sha256": "3cb8de1bd1c0234d0f0fb3f2875bb2b55705b205db988f67f1a5fe8736291c0f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:43 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/sdk": {
+    "sha256": "029857a3ce4129bc3b888f9a011c3e8cd05e781d6ee875bf2d4f6509a5d63183",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/sdk.md": {
+    "sha256": "029857a3ce4129bc3b888f9a011c3e8cd05e781d6ee875bf2d4f6509a5d63183",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/server-card": {
+    "sha256": "7894127681cd94ecc14d8c863c66cb8267b75b848f2e68d27f1f2b218024c009",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/server-card.md": {
+    "sha256": "7894127681cd94ecc14d8c863c66cb8267b75b848f2e68d27f1f2b218024c009",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/skills-over-mcp": {
+    "sha256": "4a0a3f43370a0cca38f19c5542e813f142ccb9d6d998290eae2494d0f115a9c2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/skills-over-mcp.md": {
+    "sha256": "4a0a3f43370a0cca38f19c5542e813f142ccb9d6d998290eae2494d0f115a9c2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/triggers-events": {
+    "sha256": "cd7df03ce79c6ad7d6b51fb545926ab14e54962d6b26e0e75c0adebb1b21c4e5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-groups/triggers-events.md": {
+    "sha256": "cd7df03ce79c6ad7d6b51fb545926ab14e54962d6b26e0e75c0adebb1b21c4e5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-interest-groups": {
+    "sha256": "20428b3de810913b283efc4eec85c932a5fd8e3b529c88d393f9f06e13d32f6a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/community/working-interest-groups.md": {
+    "sha256": "20428b3de810913b283efc4eec85c932a5fd8e3b529c88d393f9f06e13d32f6a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/development/roadmap": {
+    "sha256": "61d08aaa113b333fc32ce41e19545da839501a99c0a894cee1c469ade4977f25",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
   },
   "https://modelcontextprotocol.io/development/roadmap.md": {
     "sha256": "61d08aaa113b333fc32ce41e19545da839501a99c0a894cee1c469ade4977f25",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-client": {
+    "sha256": "38403b86822e6c2c2c079539af84e5eeb38653b3bb50d5198f5adeaf9acb9633",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/build-client.md": {
     "sha256": "38403b86822e6c2c2c079539af84e5eeb38653b3bb50d5198f5adeaf9acb9633",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:44 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-server": {
+    "sha256": "7616ad54ebe254578ca3aebd84cc34651aaed94c0b3189c9363270b262effba2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/build-server.md": {
     "sha256": "7616ad54ebe254578ca3aebd84cc34651aaed94c0b3189c9363270b262effba2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-with-agent-skills": {
+    "sha256": "8d110eeaddd07100f906f52f01067ada62add6914651b96a0dad172edea3e22b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/build-with-agent-skills.md": {
     "sha256": "8d110eeaddd07100f906f52f01067ada62add6914651b96a0dad172edea3e22b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/clients/client-best-practices": {
+    "sha256": "1881a84b19de1f4f10a1f087d5f593272628a5a9721643d942b2c7e88a0da84c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/clients/client-best-practices.md": {
     "sha256": "1881a84b19de1f4f10a1f087d5f593272628a5a9721643d942b2c7e88a0da84c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/connect-local-servers": {
+    "sha256": "d75ceac3aceb584d53a5c7d62b900931862c64bdeaab7093a26ff519b98801a3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/connect-local-servers.md": {
     "sha256": "d75ceac3aceb584d53a5c7d62b900931862c64bdeaab7093a26ff519b98801a3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/develop/connect-remote-servers": {
+    "sha256": "eb47432ba30a8c58705c53828d2c1331f6fd5cd7fa88131952ea0e0db19cba7c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/develop/connect-remote-servers.md": {
     "sha256": "eb47432ba30a8c58705c53828d2c1331f6fd5cd7fa88131952ea0e0db19cba7c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/getting-started/intro": {
+    "sha256": "afc7f8ed389983537c3e2cf56b817caa0b2050e931577ca3c2edfbee63df4330",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/getting-started/intro.md": {
     "sha256": "afc7f8ed389983537c3e2cf56b817caa0b2050e931577ca3c2edfbee63df4330",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:38 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/learn/architecture": {
+    "sha256": "e0479803a8de8962c89f779b4ca221e5c08f19ed78831c3ab48f54cd2fc7022c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/learn/architecture.md": {
     "sha256": "e0479803a8de8962c89f779b4ca221e5c08f19ed78831c3ab48f54cd2fc7022c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/learn/client-concepts": {
+    "sha256": "82525f1c3c817ae623a42ee486c95b3d9396c69782df4579e4140b0e53a927b3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/learn/client-concepts.md": {
     "sha256": "82525f1c3c817ae623a42ee486c95b3d9396c69782df4579e4140b0e53a927b3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/learn/server-concepts": {
+    "sha256": "b92012b6296794870047b463fb815b8966d0d8329bdfee90fb1203fe7164bcbb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/learn/server-concepts.md": {
     "sha256": "b92012b6296794870047b463fb815b8966d0d8329bdfee90fb1203fe7164bcbb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/learn/versioning": {
+    "sha256": "93b4d213b3fb9c2d39216fc0cfdd8380904bdaa655adba7a98f0e8a169907759",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
   },
   "https://modelcontextprotocol.io/docs/learn/versioning.md": {
     "sha256": "93b4d213b3fb9c2d39216fc0cfdd8380904bdaa655adba7a98f0e8a169907759",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:45 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/sdk": {
+    "sha256": "40e1aadc7991efde9705b836bcebbca276078e0db4d7f9fb6b78cd17d05dd849",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
   },
   "https://modelcontextprotocol.io/docs/sdk.md": {
     "sha256": "40e1aadc7991efde9705b836bcebbca276078e0db4d7f9fb6b78cd17d05dd849",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/tools/debugging": {
+    "sha256": "fd4c991762022ec81ccb25bde86656a5fb52a07168371c36dc86486771d20d23",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
   },
   "https://modelcontextprotocol.io/docs/tools/debugging.md": {
     "sha256": "fd4c991762022ec81ccb25bde86656a5fb52a07168371c36dc86486771d20d23",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/tools/inspector": {
+    "sha256": "1a94fd07ff9f422b6bc94fcbe1ef0d81f5c0c8e1085d241274a5790e821ee40c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
   },
   "https://modelcontextprotocol.io/docs/tools/inspector.md": {
     "sha256": "1a94fd07ff9f422b6bc94fcbe1ef0d81f5c0c8e1085d241274a5790e821ee40c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/tutorials/security/authorization": {
+    "sha256": "702ff45f18cfd3892bdc001216ee5f8d7c0065fecf8f6f376601d032441aa731",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
   },
   "https://modelcontextprotocol.io/docs/tutorials/security/authorization.md": {
     "sha256": "702ff45f18cfd3892bdc001216ee5f8d7c0065fecf8f6f376601d032441aa731",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
+  },
+  "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices": {
+    "sha256": "dc9da5e4171385ca2671f1bf7e24bff7ad135f2d4bbab072ac32ac6651f5d8bf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
   },
   "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices.md": {
     "sha256": "dc9da5e4171385ca2671f1bf7e24bff7ad135f2d4bbab072ac32ac6651f5d8bf",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
+  },
+  "https://modelcontextprotocol.io/examples": {
+    "sha256": "502a0b110bc1c553a56b787b9bd15a69b64ff19306afe95a6408af698a599241",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
   },
   "https://modelcontextprotocol.io/examples.md": {
     "sha256": "502a0b110bc1c553a56b787b9bd15a69b64ff19306afe95a6408af698a599241",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:46 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/apps/build": {
+    "sha256": "33a0bbdc1c7e175c69a3171cef37888a961794c907684f9032adbed646a7be38",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
   },
   "https://modelcontextprotocol.io/extensions/apps/build.md": {
     "sha256": "33a0bbdc1c7e175c69a3171cef37888a961794c907684f9032adbed646a7be38",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/apps/overview": {
+    "sha256": "d9d2f2d141dc13c049325656e2be68d7d2facc342103e8f6dbe8df97891171ed",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
   },
   "https://modelcontextprotocol.io/extensions/apps/overview.md": {
     "sha256": "d9d2f2d141dc13c049325656e2be68d7d2facc342103e8f6dbe8df97891171ed",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization": {
+    "sha256": "a00451781bcc0ec1f7c74c10b5c21ac1c5b8b68fffd8b50b670bad1d1c89d9e9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
   },
   "https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization.md": {
     "sha256": "a00451781bcc0ec1f7c74c10b5c21ac1c5b8b68fffd8b50b670bad1d1c89d9e9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:39 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:47 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials": {
+    "sha256": "fc817679af33ce94f567fc278f36c25c6b016163a5e04be100d2113f273979a5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials.md": {
     "sha256": "fc817679af33ce94f567fc278f36c25c6b016163a5e04be100d2113f273979a5",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/auth/overview": {
+    "sha256": "8876a56f3079115f63de54e9e83c6ec7bcdaa084b98e2cf8880249ff63c84378",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/extensions/auth/overview.md": {
     "sha256": "8876a56f3079115f63de54e9e83c6ec7bcdaa084b98e2cf8880249ff63c84378",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/client-matrix": {
+    "sha256": "53f992b35a979819b8a328c530fedb54a612be48829d8899c608902f3b016797",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/extensions/client-matrix.md": {
     "sha256": "53f992b35a979819b8a328c530fedb54a612be48829d8899c608902f3b016797",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/overview": {
+    "sha256": "85be91a50f6aee0d7389b001a7c44e68903e92fc156dfcd66d7d40d31040fd12",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/extensions/overview.md": {
     "sha256": "85be91a50f6aee0d7389b001a7c44e68903e92fc156dfcd66d7d40d31040fd12",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/extensions/tasks/overview": {
+    "sha256": "54420ce4c499bdd537be3a10cc5c7eb8c5dbc8e5712fc9fecfad8952ec0ebed5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/extensions/tasks/overview.md": {
     "sha256": "54420ce4c499bdd537be3a10cc5c7eb8c5dbc8e5712fc9fecfad8952ec0ebed5",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/about": {
+    "sha256": "99acf6511a5a8c8e7a6a4926ead632497ce1747684521842afde4b384d119cb8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/registry/about.md": {
     "sha256": "99acf6511a5a8c8e7a6a4926ead632497ce1747684521842afde4b384d119cb8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/authentication": {
+    "sha256": "53f5371fcba4059100203fbdb38d9eb4b2a62283a6af909f8b7cdd59646ae1b4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/registry/authentication.md": {
     "sha256": "53f5371fcba4059100203fbdb38d9eb4b2a62283a6af909f8b7cdd59646ae1b4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/faq": {
+    "sha256": "b2626e628221c2d6d83dc0c88fd4961e098e4787317c5d5bc9077ba326af679f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
   },
   "https://modelcontextprotocol.io/registry/faq.md": {
     "sha256": "b2626e628221c2d6d83dc0c88fd4961e098e4787317c5d5bc9077ba326af679f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:48 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/github-actions": {
+    "sha256": "1be2796dc084b36d0ffeacf26fabd59d91e823df67f17b7d286f2b0102c2bfe9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/github-actions.md": {
     "sha256": "1be2796dc084b36d0ffeacf26fabd59d91e823df67f17b7d286f2b0102c2bfe9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/moderation-policy": {
+    "sha256": "5910f0b03e6cacfb6e2f587995288d9939e73ad49472090e9a6de55729855c63",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/moderation-policy.md": {
     "sha256": "5910f0b03e6cacfb6e2f587995288d9939e73ad49472090e9a6de55729855c63",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/package-types": {
+    "sha256": "a57f08e32bfc27d05d277ac2c078fd80c1fc51d014ebfca9dd34e3e2a5352f2c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/package-types.md": {
     "sha256": "a57f08e32bfc27d05d277ac2c078fd80c1fc51d014ebfca9dd34e3e2a5352f2c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/quickstart": {
+    "sha256": "8ede597156efe4d894a1596616f27637822ac9cd76f46016990237d5760868d9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/quickstart.md": {
     "sha256": "8ede597156efe4d894a1596616f27637822ac9cd76f46016990237d5760868d9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/registry-aggregators": {
+    "sha256": "d6a7b6c85417d85b823582f8408d7f43c8a3d1781c86add2dac8b7db88ab1432",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/registry-aggregators.md": {
     "sha256": "d6a7b6c85417d85b823582f8408d7f43c8a3d1781c86add2dac8b7db88ab1432",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/remote-servers": {
+    "sha256": "ed83c6eff942a2e96a354bda43d534923b8e85c741e81e4c0353f640366f9e92",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/remote-servers.md": {
     "sha256": "ed83c6eff942a2e96a354bda43d534923b8e85c741e81e4c0353f640366f9e92",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/terms-of-service": {
+    "sha256": "642afe9282b674bcaa646b8e98ad470bc01cc0a48e57c70a97bfcacead11d16f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/terms-of-service.md": {
     "sha256": "642afe9282b674bcaa646b8e98ad470bc01cc0a48e57c70a97bfcacead11d16f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/registry/versioning": {
+    "sha256": "b9d2223df15076b5e5ee5ff5498d0d89a0e5c32a54cdb11ddf444fd6f69894ca",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
   },
   "https://modelcontextprotocol.io/registry/versioning.md": {
     "sha256": "b9d2223df15076b5e5ee5ff5498d0d89a0e5c32a54cdb11ddf444fd6f69894ca",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:49 GMT"
+  },
+  "https://modelcontextprotocol.io/seps": {
+    "sha256": "0091a4262f82f958b61d6f4b256dd4b7172cddb1682cca05660aa26c9bff7a15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-": {
+    "sha256": "cdda8e48abb3696536bb700e85f256cdd6822832748b05bcbda9a62b8dc6d16b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-.md": {
     "sha256": "cdda8e48abb3696536bb700e85f256cdd6822832748b05bcbda9a62b8dc6d16b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1034--support-default-values-for-all-primitive-types-in": {
+    "sha256": "f9d97d8264f960fd51f9ed793aff6e0e1023c795e6524ceeff5f6652de30e254",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1034--support-default-values-for-all-primitive-types-in.md": {
     "sha256": "f9d97d8264f960fd51f9ed793aff6e0e1023c795e6524ceeff5f6652de30e254",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1036-url-mode-elicitation-for-secure-out-of-band-intera": {
+    "sha256": "8a24d3832e0464eb0b1863b56073ac6b4d7737a96eb86c2253cfd0d76ae7fdf3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1036-url-mode-elicitation-for-secure-out-of-band-intera.md": {
     "sha256": "8a24d3832e0464eb0b1863b56073ac6b4d7737a96eb86c2253cfd0d76ae7fdf3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza": {
+    "sha256": "f11fdf8a06340d8fb35221760685ed1fb6dbcb9ac0a36b0a3386e904cf4dbecd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza.md": {
     "sha256": "f11fdf8a06340d8fb35221760685ed1fb6dbcb9ac0a36b0a3386e904cf4dbecd",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1302-formalize-working-groups-and-interest-groups-in-mc": {
+    "sha256": "61db525091b5e5a7d12f4dc8d9fc9e2f5d328220215b6715e3b9bcafe86a2378",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1302-formalize-working-groups-and-interest-groups-in-mc.md": {
     "sha256": "61db525091b5e5a7d12f4dc8d9fc9e2f5d328220215b6715e3b9bcafe86a2378",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1303-input-validation-errors-as-tool-execution-errors": {
+    "sha256": "e31f897068403409427c0d0461719261c87c45ca588a0bf98c3ecea6bcca248a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1303-input-validation-errors-as-tool-execution-errors.md": {
     "sha256": "e31f897068403409427c0d0461719261c87c45ca588a0bf98c3ecea6bcca248a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:40 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1319-decouple-request-payload-from-rpc-methods-definiti": {
+    "sha256": "6cb2415889dadad8980185882fb6c00dbff40d36f0776a29ae81bbb006834ca9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1319-decouple-request-payload-from-rpc-methods-definiti.md": {
     "sha256": "6cb2415889dadad8980185882fb6c00dbff40d36f0776a29ae81bbb006834ca9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1330-elicitation-enum-schema-improvements-and-standards": {
+    "sha256": "19e18aa7fcf7079c7cbcdf9213852c6baa9c9367d30e293a9a109e2e7b68cf0c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
   },
   "https://modelcontextprotocol.io/seps/1330-elicitation-enum-schema-improvements-and-standards.md": {
     "sha256": "19e18aa7fcf7079c7cbcdf9213852c6baa9c9367d30e293a9a109e2e7b68cf0c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:50 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1577--sampling-with-tools": {
+    "sha256": "55be31add9f48ad069ee81481b0a83c71413e884b9fbe9bc8d79f1cd3b8d506d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1577--sampling-with-tools.md": {
     "sha256": "55be31add9f48ad069ee81481b0a83c71413e884b9fbe9bc8d79f1cd3b8d506d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1613-establish-json-schema-2020-12-as-default-dialect-f": {
+    "sha256": "0c2bfd156e3e872631d847622481cd7b067a944dabd595b43e6d968b3db5319d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1613-establish-json-schema-2020-12-as-default-dialect-f.md": {
     "sha256": "0c2bfd156e3e872631d847622481cd7b067a944dabd595b43e6d968b3db5319d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1686-tasks": {
+    "sha256": "17a2f5253dc6a4b9da809584c5188f4f8dcdd23596a0f89a54990f4d1fff0e73",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1686-tasks.md": {
     "sha256": "17a2f5253dc6a4b9da809584c5188f4f8dcdd23596a0f89a54990f4d1fff0e73",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1699-support-sse-polling-via-server-side-disconnect": {
+    "sha256": "d3f7fc4240b32c36f09800fa9210ae5d5364e647e97ce8f0d5fbcfcd6e672292",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1699-support-sse-polling-via-server-side-disconnect.md": {
     "sha256": "d3f7fc4240b32c36f09800fa9210ae5d5364e647e97ce8f0d5fbcfcd6e672292",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1730-sdks-tiering-system": {
+    "sha256": "33f78127feb62bb44b8267e8a196b755b4ed61dade771ddc025a8257df37f633",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1730-sdks-tiering-system.md": {
     "sha256": "33f78127feb62bb44b8267e8a196b755b4ed61dade771ddc025a8257df37f633",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1850-pr-based-sep-workflow": {
+    "sha256": "68006a2d32a4f1606b2b6ceb72751965dd655521d161b2dc4f23767949058f53",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1850-pr-based-sep-workflow.md": {
     "sha256": "68006a2d32a4f1606b2b6ceb72751965dd655521d161b2dc4f23767949058f53",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp": {
+    "sha256": "85bcb4fbfb83cfc08e2cdef93bf252cd7bd03e43c6f721a28c5016b1c03b7a15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp.md": {
     "sha256": "85bcb4fbfb83cfc08e2cdef93bf252cd7bd03e43c6f721a28c5016b1c03b7a15",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2085-governance-succession-and-amendment": {
+    "sha256": "4374fb283e1ff26e0b5473323a0af9f902057b9134b63eb1ffc7227a1ee89348",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
   },
   "https://modelcontextprotocol.io/seps/2085-governance-succession-and-amendment.md": {
     "sha256": "4374fb283e1ff26e0b5473323a0af9f902057b9134b63eb1ffc7227a1ee89348",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:51 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2106-json-schema-2020-12": {
+    "sha256": "9f2a087315ab925edd2c41f52c21835475dca7eb79726eb20463afb91d9e2002",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:52 GMT"
   },
   "https://modelcontextprotocol.io/seps/2106-json-schema-2020-12.md": {
     "sha256": "9f2a087315ab925edd2c41f52c21835475dca7eb79726eb20463afb91d9e2002",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:52 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2133-extensions": {
+    "sha256": "d7bb1ed6403f4e88c6cdb625838c0b1a275642b5b2f4366291985f7f1983ef19",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:52 GMT"
   },
   "https://modelcontextprotocol.io/seps/2133-extensions.md": {
     "sha256": "d7bb1ed6403f4e88c6cdb625838c0b1a275642b5b2f4366291985f7f1983ef19",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:52 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2148-contributor-ladder": {
+    "sha256": "1c7d57f520d9afb23ac90c7c787c72fc9f73bd3663e877d4ed646c4ffa0c0092",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2148-contributor-ladder.md": {
     "sha256": "1c7d57f520d9afb23ac90c7c787c72fc9f73bd3663e877d4ed646c4ffa0c0092",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:41 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2149-working-group-charter-template": {
+    "sha256": "c2055dd5d038365beb5e7e069881b8afc05e1f370a353682e9b0eeaf3be5d38c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2149-working-group-charter-template.md": {
     "sha256": "c2055dd5d038365beb5e7e069881b8afc05e1f370a353682e9b0eeaf3be5d38c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2164-resource-not-found-error": {
+    "sha256": "beddd614b41163c97eec7412d9280f9686ab8297bbc36e14c0088dcd5a095b69",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2164-resource-not-found-error.md": {
     "sha256": "beddd614b41163c97eec7412d9280f9686ab8297bbc36e14c0088dcd5a095b69",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance": {
+    "sha256": "82167ca7b86fa928ea8231beec8d393fb817d44f9867ddbd130972a00b68b25e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance.md": {
     "sha256": "82167ca7b86fa928ea8231beec8d393fb817d44f9867ddbd130972a00b68b25e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2243-http-standardization": {
+    "sha256": "5caed590cdfdedb5852ba7c35398a3e5b31dc153060b77fcf95f211d91532b75",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2243-http-standardization.md": {
     "sha256": "5caed590cdfdedb5852ba7c35398a3e5b31dc153060b77fcf95f211d91532b75",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests": {
+    "sha256": "71fea08e821603ab4e3e95f95ca70b6526ad58cfdd87f11aeb9a48e96944587c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests.md": {
     "sha256": "71fea08e821603ab4e3e95f95ca70b6526ad58cfdd87f11aeb9a48e96944587c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2322-MRTR": {
+    "sha256": "467d44ab73686d55666e3843cd683a8d0a6cd82802585821035410e2e0695479",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2322-MRTR.md": {
     "sha256": "467d44ab73686d55666e3843cd683a8d0a6cd82802585821035410e2e0695479",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth": {
+    "sha256": "b6796d9a52fdd41fc95a986043492e6cefb1235b46f76b18376d99e5ce3fbcd4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
   },
   "https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth.md": {
     "sha256": "b6796d9a52fdd41fc95a986043492e6cefb1235b46f76b18376d99e5ce3fbcd4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:53 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps": {
+    "sha256": "d5e221bc58ba4a44143aa8a0bb5276a6d05b3607371e2b6ad5bcbd36da4af736",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md": {
     "sha256": "d5e221bc58ba4a44143aa8a0bb5276a6d05b3607371e2b6ad5bcbd36da4af736",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2549-TTL-for-list-results": {
+    "sha256": "56c07f83cb33fcbede73f487b7a4422581e00eed5ddd95524756502e1af24c2f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2549-TTL-for-list-results.md": {
     "sha256": "56c07f83cb33fcbede73f487b7a4422581e00eed5ddd95524756502e1af24c2f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md": {
     "sha256": "521c3e438e9baa13693aa5854dec8a4d7604fa6a525b2994171743c21cc26ff4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2575-stateless-mcp": {
+    "sha256": "d35195f59f257050a71d60bc242b9fbcf7d548d4bbabe18041b301463c16d9b6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2575-stateless-mcp.md": {
     "sha256": "d35195f59f257050a71d60bc242b9fbcf7d548d4bbabe18041b301463c16d9b6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging": {
+    "sha256": "e0a4777120136c8604c78e0c42faac45644f517a06d418ee9b4bca83e2e3987a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md": {
     "sha256": "e0a4777120136c8604c78e0c42faac45644f517a06d418ee9b4bca83e2e3987a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2596-spec-feature-lifecycle-and-deprecation": {
+    "sha256": "909c759c5edfd76e4913cfbb889244558071df5858dc6012d04123863423983f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/2596-spec-feature-lifecycle-and-deprecation.md": {
     "sha256": "909c759c5edfd76e4913cfbb889244558071df5858dc6012d04123863423983f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/2663-tasks-extension": {
+    "sha256": "9f3a050362dc30b8dad90e5933f83096f252a6bff29dbc4a550cd6e3a5036034",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
   },
   "https://modelcontextprotocol.io/seps/2663-tasks-extension.md": {
     "sha256": "9f3a050362dc30b8dad90e5933f83096f252a6bff29dbc4a550cd6e3a5036034",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/414-request-meta": {
+    "sha256": "aba112b3802d6d64544f4f428df2201df2786db22b1f13c56ccbef852ee02750",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/414-request-meta.md": {
     "sha256": "aba112b3802d6d64544f4f428df2201df2786db22b1f13c56ccbef852ee02750",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/932-model-context-protocol-governance": {
+    "sha256": "c1522c242ba7bcace4785bdb834119cbe977a0541d4f5258ebde6d171c53b6f0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
   },
   "https://modelcontextprotocol.io/seps/932-model-context-protocol-governance.md": {
     "sha256": "c1522c242ba7bcace4785bdb834119cbe977a0541d4f5258ebde6d171c53b6f0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:54 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res": {
+    "sha256": "7b4315ca2f37af379bc29a94e01c243481742be805191c4a874b5dc5a61b3620",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
   },
   "https://modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res.md": {
     "sha256": "7b4315ca2f37af379bc29a94e01c243481742be805191c4a874b5dc5a61b3620",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf": {
+    "sha256": "67799d069e41aeeee6acf5696c91aca086c0bbc6828c7e101cddb791d19a7c64",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
   },
   "https://modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf.md": {
     "sha256": "67799d069e41aeeee6acf5696c91aca086c0bbc6828c7e101cddb791d19a7c64",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/986-specify-format-for-tool-names": {
+    "sha256": "d3d59f79be1077ec8acab3b163c9eca143c5a45572ede73d9e9090a4f7c97365",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
   },
   "https://modelcontextprotocol.io/seps/986-specify-format-for-tool-names.md": {
     "sha256": "d3d59f79be1077ec8acab3b163c9eca143c5a45572ede73d9e9090a4f7c97365",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o": {
+    "sha256": "3e3d31836705f83d7e5fc236fb9c4744703278073202116faa9b75f47d3a2656",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
   },
   "https://modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o.md": {
     "sha256": "3e3d31836705f83d7e5fc236fb9c4744703278073202116faa9b75f47d3a2656",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:55 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c": {
+    "sha256": "9e8dffbce48e4ce07a5da2fc76223517a5d45ecde11938cf54f8c99eec5ab741",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
   },
   "https://modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c.md": {
     "sha256": "9e8dffbce48e4ce07a5da2fc76223517a5d45ecde11938cf54f8c99eec5ab741",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/seps/994-shared-communication-practicesguidelines": {
+    "sha256": "2c83272930cd33a3e51ce7af02eadee3914ec2c6c8e03b00a1ee0a8926472f29",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
   },
   "https://modelcontextprotocol.io/seps/994-shared-communication-practicesguidelines.md": {
     "sha256": "2c83272930cd33a3e51ce7af02eadee3914ec2c6c8e03b00a1ee0a8926472f29",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
   },
   "https://modelcontextprotocol.io/seps/index.md": {
     "sha256": "0091a4262f82f958b61d6f4b256dd4b7172cddb1682cca05660aa26c9bff7a15",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05": {
+    "sha256": "588feb4a1c35a6ac51ab7aa39624e02ebd310cfb85f4e46d20ae85b49ee65456",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/architecture": {
+    "sha256": "fecb14b89652356b86801f8e93c5e891a896496b32e6ec02dc84997e98f38f3d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic": {
+    "sha256": "8dc82449239b998d98ea7b2ba46bf20878deb5f7ffbb1cdfb3cb54cf30bb14b0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/lifecycle": {
+    "sha256": "7f33d6ba5015ea2f997262ec24a6609b22191beb78d52ca20fdbf93468e96c4d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/messages": {
+    "sha256": "9c7bb4a49c8b70c9e3729538c7ea1de98ca4696013650cdb00e7f0a8dc8a84d9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/transports": {
+    "sha256": "c35909550e534d5be4f62f341a7b15d74cde08e8017110ed37ec191f694e9c48",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/utilities/cancellation": {
+    "sha256": "d2f3b785062228681eada359a8810cbff5173d5c7cad07a73ec775cb415e8454",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/utilities/ping": {
+    "sha256": "b595e5b0f38e869a134781ef49ca4c832e4ddb9d982d0916e40891a51d55c072",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/basic/utilities/progress": {
+    "sha256": "9a378b9059cdd8dd9ff02dfc600731a9defc1d6dbff5ca2cc3bb9cd879a40ac5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/client/roots": {
+    "sha256": "9c4cf8f8525b09a20096c051bfa4d0d65f64de433163636c35e199e382a74b50",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/client/sampling": {
+    "sha256": "4f9c3ae3b8fa0253b3882b5f2820315b87836c4751f0354a95a9278f82b1f3a0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:56 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server": {
+    "sha256": "28ca36419be9c5cbc54be875fbb66ff5c528988096093edfa7f6b48912520d86",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/prompts": {
+    "sha256": "5fa889a4a3e6b261fcbebd914a78d55b0a03a848eabb44c8d63a2675340bfc9f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/resources": {
+    "sha256": "bee6f791116bb53e4e2c9190322eb572342dff02c8c7e1c4af23f23b3d6ea5fb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/tools": {
+    "sha256": "9c39136d3114c0f142c74ab5da9be26783e5892704064519fac11a1a175c7453",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/utilities/completion": {
+    "sha256": "5a31982fac47b24ac121c2550b6de724c573f22012b2149136a26ed48f6449ca",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/utilities/logging": {
+    "sha256": "3f7e9ff131103160f4a8f4dc538c36998ff42c22e2e99fb153aa499c48b38a52",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2024-11-05/server/utilities/pagination": {
+    "sha256": "1266e0ab470649c34047a3253c5408802b916f77d32b864aabb75c5737e811c9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:57 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26": {
+    "sha256": "8d1c04935e57c658d020c6f56a6947b194508593f664e8385a2bfe795b3e281f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/architecture": {
+    "sha256": "3ab5c8facaf834a6a9ec1e0baf762123ff6bb0d4f28c5fc8c7c13b1ae8aa0e40",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic": {
+    "sha256": "24108e528c34713b3f00ac02583ecca4a02a1a7399bdfb9181b6c5254b038c11",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization": {
+    "sha256": "08659595d1eb45abe7d26e51632a0765477e8ddde8d1150d2562a4841e0d0580",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/lifecycle": {
+    "sha256": "545a9a89be1304baa9f2ed6d9e4c769e1558e27c75ce52d36d58d04db0932432",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports": {
+    "sha256": "39154677ecfafd49c3b4d8f4dea9e6383b7810e59ed9636535fe8bb37ba736ca",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/utilities/cancellation": {
+    "sha256": "d2f3b785062228681eada359a8810cbff5173d5c7cad07a73ec775cb415e8454",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/utilities/ping": {
+    "sha256": "b595e5b0f38e869a134781ef49ca4c832e4ddb9d982d0916e40891a51d55c072",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/basic/utilities/progress": {
+    "sha256": "bfce4d83ff73a3be472723a6fb5b99028f6562fa55babcbbabade373c6ad93aa",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/changelog": {
+    "sha256": "8e1ff8e5359e15779c980b8858a56d943c70598db7b3eb4d2fd61aa4497b66ae",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/client/roots": {
+    "sha256": "65eb3a22ffa2c5c88b119fabccbf4f272bec4236816d4f3ad82f19d7a7d2e2f6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/client/sampling": {
+    "sha256": "df6edf59be481d6926efae8c3ced436ea70b1df49a9d7300abc3eb22174eff7a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server": {
+    "sha256": "7dbdfdd2b71afd12ff2b4bb853bbc445a815d1a2a96d717001bbd02809025f6f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/prompts": {
+    "sha256": "bb2646739440b3feabfa8e5e715297c5f14a522c9b74efe696aad0cb07a9796b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/resources": {
+    "sha256": "0cabce11fe4e44b2daf29afcbcd1f3401aacbe0bf573bc3527b2a09a161db359",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/tools": {
+    "sha256": "6be6fb433551c6891d9834fcdb2b661b718cc428a1d469ea68a1ce15b11c2fb9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:58 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/utilities/completion": {
+    "sha256": "6aa1852bcef19cd6189b2e312de611531c41da5ec019edde5ba223fe209c3002",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/utilities/logging": {
+    "sha256": "3f7e9ff131103160f4a8f4dc538c36998ff42c22e2e99fb153aa499c48b38a52",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-03-26/server/utilities/pagination": {
+    "sha256": "1266e0ab470649c34047a3253c5408802b916f77d32b864aabb75c5737e811c9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18": {
+    "sha256": "30820c0010820ab0059435655263afb6799de706f6bbac749c5979a400674599",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/architecture": {
+    "sha256": "0b883ba161a0c8084ac346cf5a18ecdf165f9b62259da7c122f7e251e67021f8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic": {
+    "sha256": "a2e5c407e4a7aad47e1be75450dffc4a7f29e4e338c137c270fa042bb3bcfe22",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization": {
+    "sha256": "e76d5a4a04655204ee1640d68290b17313d231139c8c3d73d599a776579763f7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle": {
+    "sha256": "a70df88f043e6bba615e437359b7576e87967033f6c4bc0aaebcf10c91604682",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports": {
+    "sha256": "e4df3c146b524d58f282d3c56e19b2f2df365fbf160c89cdabaed9a182811675",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/cancellation": {
+    "sha256": "60ea9ca7e1a75dd7b2ea8a960023487fc4edc3173de97ba065d9ba9171d451f3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:41:59 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/ping": {
+    "sha256": "2702be9d7f427a1fcfd120ee8c1f7e26554b690a5d29492a9e259afade53ba15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress": {
+    "sha256": "dd91ed70692032d61bf6cf0092b3f62f6ed10495929cba7bc3aeebd5e42e962c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/changelog": {
+    "sha256": "32a61078c8680e51e82ac43f67bdf1a237e01edd18d43e4eb5ae9b54886a1d2d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation": {
+    "sha256": "6ed618ab747edebb8d0401d2823039578e984f81e8e2ca56a38dea234037e716",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/client/roots": {
+    "sha256": "ae50e2ed7a56052547512fff5a814c9ce598bfc9069ff801d2ff20c9f5f6667a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/client/sampling": {
+    "sha256": "4c7cf39afef6521f742e2f3d3eb2969c71ba723137117e6a65f32974a03135a3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/schema": {
+    "sha256": "5559171ece4fde3da580f98216ba945b8b4eafb1dd523d35f34d5d515ad3515b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server": {
+    "sha256": "91ce97cd6b17134eb3aa6456c7a7823f93fd073bb039bab864cd4fdb44aa2a69",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts": {
+    "sha256": "9fca3cd392e549a88f7ac83c17822ca0b30efaa6d7c9ad67312d04a9fcd49619",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/resources": {
+    "sha256": "a1433b43a7e57a0f4e64e0bc3b05cf6b81d73c44972df0435f0dde6ef96f2e5c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/tools": {
+    "sha256": "b500aee8a25af2bca9a8212922f3d31461503137c2ff10f58ab29152656cce77",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/completion": {
+    "sha256": "7010065fe07bd1f6e3e38da68b8919a82078c728e6257f96186b3c426235ceb4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:00 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/logging": {
+    "sha256": "b287e6ef9e1178be2b0b782c169d8ad261b69c2b04e30b9fed96662a7a219eb2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-06-18/server/utilities/pagination": {
+    "sha256": "e59fbe4c002a467a3fad723d73d74275d2cfa6a068b0fa060be83c6a2d064954",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25": {
+    "sha256": "37bf1590e3e51df1f06b64c8cc80683cec309305fca4fbe7a4a4146231c3eb8f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/architecture": {
+    "sha256": "0b6ac42ddf2e9ed2099f142689ac4e8c28915dc5b5f86e8678abeb22ece111fb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/architecture/index.md": {
     "sha256": "0b6ac42ddf2e9ed2099f142689ac4e8c28915dc5b5f86e8678abeb22ece111fb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic": {
+    "sha256": "a504a34039368f1cb715096d664f234ce7e1af4511e6ad3fd41e901d8040b97e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization": {
+    "sha256": "b5eaaf20d167e073d93bfbdfdc6e3f643bf12d9adeddf28e121c23dc13ff21c3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization.md": {
     "sha256": "b5eaaf20d167e073d93bfbdfdc6e3f643bf12d9adeddf28e121c23dc13ff21c3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/index.md": {
     "sha256": "a504a34039368f1cb715096d664f234ce7e1af4511e6ad3fd41e901d8040b97e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle": {
+    "sha256": "884720004be3ab0e2c65562c33ce8903b30e7c763c4764baed04a2ef8dfd7fa6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle.md": {
     "sha256": "884720004be3ab0e2c65562c33ce8903b30e7c763c4764baed04a2ef8dfd7fa6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:01 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports": {
+    "sha256": "5a86d66ae0ab08f29460229f3b7f56d504388d1f106e21097575621717fc0e7a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports.md": {
     "sha256": "5a86d66ae0ab08f29460229f3b7f56d504388d1f106e21097575621717fc0e7a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation": {
+    "sha256": "a52208278358eebe5d91061d78122247c8e0b348701547386393aa7fbbabdf2e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation.md": {
     "sha256": "a52208278358eebe5d91061d78122247c8e0b348701547386393aa7fbbabdf2e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping": {
+    "sha256": "2702be9d7f427a1fcfd120ee8c1f7e26554b690a5d29492a9e259afade53ba15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping.md": {
     "sha256": "2702be9d7f427a1fcfd120ee8c1f7e26554b690a5d29492a9e259afade53ba15",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/progress": {
+    "sha256": "8f5b562e852e9af90255d9959b485f8fd7a39318ca7fbf8833f3d996dc688efb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/progress.md": {
     "sha256": "8f5b562e852e9af90255d9959b485f8fd7a39318ca7fbf8833f3d996dc688efb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:49 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks": {
+    "sha256": "8df00bee0b51564154e467448edf9b2ab43a5e9cc91b72ee1a185a801a7b6b5e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks.md": {
     "sha256": "8df00bee0b51564154e467448edf9b2ab43a5e9cc91b72ee1a185a801a7b6b5e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/changelog": {
+    "sha256": "0c6f3a313c714462168ef29d3ba07b45e185405ef1fd06d324c7c6eea51250a1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/changelog.md": {
     "sha256": "0c6f3a313c714462168ef29d3ba07b45e185405ef1fd06d324c7c6eea51250a1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation": {
+    "sha256": "01bfb448d361caee08861e093e8a40f27906e30d71ca28e297a1ad6b8d83274f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation.md": {
     "sha256": "01bfb448d361caee08861e093e8a40f27906e30d71ca28e297a1ad6b8d83274f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/client/roots": {
+    "sha256": "992d141a6f75e02c6305adfd6543541bc9a954a6848a7e177a1fe88bef0fe52f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/client/roots.md": {
     "sha256": "992d141a6f75e02c6305adfd6543541bc9a954a6848a7e177a1fe88bef0fe52f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:43 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:02 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/client/sampling": {
+    "sha256": "3498fca5668fae8df57d2936845fb4f2bb14be3eb67ecb55634a26d7841b0bf2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/client/sampling.md": {
     "sha256": "3498fca5668fae8df57d2936845fb4f2bb14be3eb67ecb55634a26d7841b0bf2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/index.md": {
     "sha256": "37bf1590e3e51df1f06b64c8cc80683cec309305fca4fbe7a4a4146231c3eb8f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/schema": {
+    "sha256": "8768b244a46f829c92e227a8d9009fb0a10bd570a95f997c8bf0c713affc3f9f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:04 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/schema.md": {
     "sha256": "8768b244a46f829c92e227a8d9009fb0a10bd570a95f997c8bf0c713affc3f9f",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:45 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:04 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server": {
+    "sha256": "ddb8b9b444adfde1e5d17298a368d4fd80acd6c8f7dab9633be6cfde685bb3b2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:04 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/index.md": {
     "sha256": "ddb8b9b444adfde1e5d17298a368d4fd80acd6c8f7dab9633be6cfde685bb3b2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts": {
+    "sha256": "a17e89016c56051719df5a395a6b95f2308f1ea24b117ba74ad4e602799dfa42",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/prompts.md": {
     "sha256": "a17e89016c56051719df5a395a6b95f2308f1ea24b117ba74ad4e602799dfa42",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/resources": {
+    "sha256": "37de412ba819a7cc9816c2ac619c881620d5cb46ffbc805b41cf9f487b953dfc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/resources.md": {
     "sha256": "37de412ba819a7cc9816c2ac619c881620d5cb46ffbc805b41cf9f487b953dfc",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:44 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/tools": {
+    "sha256": "8ed43301d44f1b15317963b8553eb025c3bd72f433ee873565338e727b106b55",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/tools.md": {
     "sha256": "8ed43301d44f1b15317963b8553eb025c3bd72f433ee873565338e727b106b55",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:45 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion": {
+    "sha256": "88cd5f33cd8f5f04fb0d1263f6bf668b3095c2b847a55d117b4493641efb66e1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion.md": {
     "sha256": "88cd5f33cd8f5f04fb0d1263f6bf668b3095c2b847a55d117b4493641efb66e1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:45 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging": {
+    "sha256": "b287e6ef9e1178be2b0b782c169d8ad261b69c2b04e30b9fed96662a7a219eb2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
   },
   "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging.md": {
     "sha256": "b287e6ef9e1178be2b0b782c169d8ad261b69c2b04e30b9fed96662a7a219eb2",
     "lastStatus": 200,
-    "lastModified": "Thu, 04 Jun 2026 04:31:05 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/pagination": {
+    "sha256": "e59fbe4c002a467a3fad723d73d74275d2cfa6a068b0fa060be83c6a2d064954",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/pagination.md": {
+    "sha256": "e59fbe4c002a467a3fad723d73d74275d2cfa6a068b0fa060be83c6a2d064954",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:03 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft": {
+    "sha256": "ddb23908b117a1e2ee4c0c4605a5932d3b32404716e5cff20db67756cfbb80ea",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/architecture": {
+    "sha256": "7a175eb7d142dd632f7ef20c36dfbfcdeb094148908cb30327319e2bf3d1d749",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic": {
+    "sha256": "3762a04f36525caeb92eaf1a4851205c74fb8efbf9a90b9a4e24d44f631ce699",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:04 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/authorization": {
+    "sha256": "b8cfbc8e744330c5a2371c6b170125528bdf01b4b07ace0be2b95917cb98d510",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/authorization/authorization-server-discovery": {
+    "sha256": "b21e5749ebde18fcdd18f7c05ba1bbf7f869b9425f65b060f9b33a8322f61543",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/authorization/client-registration": {
+    "sha256": "abba3ccc3a17981dbd32046d42b51ae5175daf1bdf28c2d423cfadc3a2e85454",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/authorization/security-considerations": {
+    "sha256": "237cbfeb73ac3e71cae98911c99b83b1e1f56b4f09f2f43f0a3226483993b3dd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/patterns": {
+    "sha256": "595cb9618c7d8f60d7c6be2d30e30cf6fdc6173164b0053937b42303a5295092",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/patterns/cancellation": {
+    "sha256": "d25941757311194a70e5eeb6cf4a4ca6fb2bcd6526b3b4060838c49c1e6fc0d8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/patterns/mrtr": {
+    "sha256": "46525443cc85f1d98267cb84fec5bde4cff1bbc35e80b08beee6a4fcf3970334",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/patterns/progress": {
+    "sha256": "47866943e1f4ff0c8e79250ce6ff633545ca41d3ec7e45fe4d5367ca817084bd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/patterns/subscriptions": {
+    "sha256": "8ff09ff7bd03e11323baddf40222fccdfc7cfc8d3ede922cae20540efec296d0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/transports": {
+    "sha256": "36112775073ea0cb0f2fe785b2ce3972fe2212d64994af97eab7b8ee26960a74",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:05 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/transports/stdio": {
+    "sha256": "959ad9b3de4723f7aa5c0d878e6702f884aafeb410c4c806f7c758e051ea152d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/transports/streamable-http": {
+    "sha256": "9d53da04ce82c12b5ac8fa92c07e2064a30f73fdf4f4a8902e42c231e9719880",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/basic/versioning": {
+    "sha256": "4c0ce7a931de047f412d491a176dd644b12ddd99b84ba4637bd4f29c2df6cf5f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/changelog": {
+    "sha256": "6a172bb0b31154da68e89c3e5ff9ee773cf3077b9beacd6ed716c924a28115e2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/client/elicitation": {
+    "sha256": "ac41d9f0dc212fc1065ac569b7c6817ae22716f8a090b5667a3e3adbe41c2075",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/client/roots": {
+    "sha256": "b8c928244b0419dec6db4d774fa5ecb7531e21306618304175cd0c89787a3e05",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/client/sampling": {
+    "sha256": "349cf6d240d69bccfa4e5e35baa7a61a713c50d216cc4a39ede159606cba3380",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/deprecated": {
+    "sha256": "3c02748ed5648c43e1f670945cd0b4bec8d103eae41bb98e4aa1b09e43527ee0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:06 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/schema": {
+    "sha256": "d142f2f268a181c1a18878c45f25a5efbc5392b42648b453932265883c0a9181",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:10 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server": {
+    "sha256": "c8197454469de2f50e6eaca9198e638831a9bfdd49942529ebef8b0f7bd1ee8c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/discover": {
+    "sha256": "27cabc3809ce9612087c74f82067002360923daa3544bccc2e20bba51b26e6b9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/prompts": {
+    "sha256": "0d48554afd8548f838c775398111d881b06ca70f599c4658cf4a64dc5e9ee9bd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/resources": {
+    "sha256": "c9994ddd95d7d91e44be3c5e4d208d5b1558617a0832375ceb8cfa1689bfae4e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:10 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/tools": {
+    "sha256": "49c23c02a0244db258c652bfed0f3c6010787c41ac76c229cd69c072d509a66b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/utilities/caching": {
+    "sha256": "f7811d63fbc6ca058849cb330c336e6b564ab23a5f3d637cc86fde3d3bd78671",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/utilities/completion": {
+    "sha256": "f0cdcca5e81a4484655e65475534ef4a7f0cd01316a9fa14939a795fb1831ae6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:07 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/utilities/logging": {
+    "sha256": "747e2b5b4e005f356c5fed6ecb4f8f35f82210ab66f7d127f9814231c9306739",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:08 GMT"
+  },
+  "https://modelcontextprotocol.io/specification/draft/server/utilities/pagination": {
+    "sha256": "706fe4d22e0e5d33ea356dd11d2b1526aa0b2bfc8ae680ce3f4e3ec62fc086bd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:42:08 GMT"
   }
 }

@@ -1,0 +1,69 @@
+---
+title: Select SDK(s)
+description: Choose between RealtimeKit UI Kit and Core SDK for your platform and framework.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/realtime/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Select SDK(s)
+
+Note
+
+If you have not already, we recommend trying out our [demo app ↗](https://examples.realtime.cloudflare.com/meeting?demo=Default) to get a feel for what RealtimeKit can do.
+
+### Offerings
+
+RealtimeKit provides two ways to build real-time media applications:
+
+**UI Kit**:  Recommended  UI library of pre-built, customizable components for rapid development — sits on top of the Core SDK.
+
+**Core SDK**: Client SDK built on top of Realtime SFU that provides a full set of APIs for managing video calls, from joining and leaving sessions to muting, unmuting, and toggling audio and video.
+
+Note
+
+When you use our UI Kit, you also get access to the core SDK with it, which can be used to build additional features based on your needs.
+
+### Select your framework
+
+RealtimeKit support all the popular frameworks for web and mobile platforms. Please select the Platform and Framework that you are building on.
+
+| Framework/Library                  | Core SDK                                                                                                     | UI Kit                                                                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Web-Components (HTML, Vue, Svelte) | [@cloudflare/realtimekit ↗](https://www.npmjs.com/package/@cloudflare/realtimekit)                           | [@cloudflare/realtimekit-ui ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-ui)                               |
+| React                              | [@cloudflare/realtimekit-react ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-react)               | [@cloudflare/realtimekit-react-ui ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-react-ui)                   |
+| Angular                            | [@cloudflare/realtimekit ↗](https://www.npmjs.com/package/@cloudflare/realtimekit)                           | [@cloudflare/realtimekit-angular-ui ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-angular-ui)               |
+| Android                            | [com.cloudflare.realtimekit:core ↗](https://central.sonatype.com/artifact/com.cloudflare.realtimekit/core)   | [com.cloudflare.realtimekit:ui-android ↗](https://central.sonatype.com/artifact/com.cloudflare.realtimekit/ui-android) |
+| iOS                                | [RealtimeKit ↗](https://github.com/dyte-in/RealtimeKitCoreiOS)                                               | [RealtimeKitUI ↗](https://github.com/dyte-in/RealtimeKitUI)                                                            |
+| Flutter                            | [realtimekit\_core ↗](https://pub.dev/packages/realtimekit%5Fcore)                                           | [realtimekit\_ui ↗](https://pub.dev/packages/realtimekit%5Fui)                                                         |
+| React Native                       | [@cloudflare/realtimekit-react-native ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-react-native) | [@cloudflare/realtimekit-react-native-ui ↗](https://www.npmjs.com/package/@cloudflare/realtimekit-react-native-ui)     |
+
+### Technical comparison
+
+Here is a comprehensive guide to help you choose the right option for your project. This comparison will help you understand the trade-offs between using the Core SDK alone versus combining it with the UI Kit.
+
+| Feature                | Core SDK only                                                          | UI Kit                                                                   |
+| ---------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **What you get**       | Core APIs for managing media, host controls, chat, recording and more. | prebuilt UI components along with Core APIs.                             |
+| **Bundle size**        | Minimal (media/network only)                                           | Larger (includes Core SDK + UI components)                               |
+| **Time to ship**       | Longer (build UI from scratch). Typically 5-6 days.                    | Faster (UI Kit handles Core SDK calls). Can build an ship under 2 hours. |
+| **Customization**      | Complete control, manual implementation. Need to build you own UI      | High level of customization with plug and play component library.        |
+| **State management**   | Needs to be manually handled.                                          | Automatic, UI Kit takes care of state management.                        |
+| **UI flexibility**     | Unlimited (build anything)                                             | High (component library + add-ons)                                       |
+| **Learning curve**     | Steeper (learn Core SDK APIs directly)                                 | Gentler (declarative components wrap Core SDK)                           |
+| **Maintenance**        | More code to maintain. Larger project.                                 | Less code, component updates included                                    |
+| **Design system**      | Headless, integrates with any design system.                           | Allows you to provide your theme.                                        |
+| **Access to Core SDK** | Direct API access                                                      | Direct API access + UI components                                        |
+
+Note
+
+If you are building with our Core SDK only, you can reference our [open source repos ↗](https://github.com/orgs/cloudflare/repositories?q=realtimekit) for implementation examples to speed up your development.
+
+```json
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://developers.cloudflare.com/realtime/realtimekit/sdk-selection/#page","headline":"Select SDK(s) · Cloudflare Realtime docs","description":"Choose between RealtimeKit UI Kit and Core SDK for your platform and framework.","url":"https://developers.cloudflare.com/realtime/realtimekit/sdk-selection/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-06-12","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/realtime/","name":"Realtime"}},{"@type":"ListItem","position":3,"item":{"@id":"/realtime/realtimekit/","name":"RealtimeKit"}},{"@type":"ListItem","position":4,"item":{"@id":"/realtime/realtimekit/sdk-selection/","name":"Select SDK(s)"}}]}
+```

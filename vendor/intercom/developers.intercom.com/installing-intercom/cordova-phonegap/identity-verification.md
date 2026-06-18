@@ -18,7 +18,6 @@ If you have then enabling identity verification will stop old versions of your a
 Your app server authentication code needs to be modified so that it uses the Intercom Android and iOS API Secrets to create a HMAC digest (hash based message authentication code) from the **user id or email address** for that user.
 With a Cordova/Phonegap app we have to use the correct secret per platform. I would suggest passing in the platform to your app server authentication code. The example below shows how you might call a method on your server providing it the mobile platform.
 
-
 ```javascript
 yourApi.authenticateUser(user_id_or_email, password, device.platform);
 ```
@@ -26,7 +25,6 @@ yourApi.authenticateUser(user_id_or_email, password, device.platform);
 Then it returns the HMAC digest to your Cordova/Phonegap app. Note that identity verification does not apply to unidentified users, for whom you do not have a user id or email address.
 
 The HMAC is computed as a SHA-256 digest as follows:
-
 
 ```ruby
 def authenticateUser (user_id_or_email, password, platform)
@@ -44,7 +42,6 @@ If you wish to generate a HMAC in a different programming language we have a com
 ## Set the User Hash in your Cordova/Phonegap App
 
 When your Cordova/Phonegap app initializes Intercom if the user is identified (i.e., you have a user id or email address), pass in a String of the HMAC returned from your server's authentication call. This should be called before making the `loginUserWithUserAttributes` call:
-
 
 ```javascript
 intercom.setUserHash("your_hmac_of_user_id_or_email");

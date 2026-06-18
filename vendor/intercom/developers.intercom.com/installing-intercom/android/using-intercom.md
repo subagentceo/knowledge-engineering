@@ -26,18 +26,15 @@ The option you choose should be informed by the design of your app, namely wheth
 1. First you'll have to create an user
 
 
-
 ```Kotlin
 val registration = Registration.create().withUserId("123456")
 ```
-
 
 ```Java
 Registration registration = Registration.create().withUserId("123456");
 ```
 
 1. Then can login your user, like this:
-
 
 
 ```Kotlin
@@ -59,7 +56,6 @@ private fun successfulLogin() {
         )
 }
 ```
-
 
 ```Java
 private void successfulLogin() {
@@ -85,7 +81,6 @@ If you don't have a unique userId to use here, or if you have a userId and an em
 1. You’ll also need to register your user anywhere they sign in. Just call:
 
 
-
 ```Kotlin
 if (loggedIn) {
 /* We're logged in, we can register the user with Intercom */
@@ -105,7 +100,6 @@ if (loggedIn) {
         )
 }
 ```
-
 
 ```Java
 if (loggedIn) {
@@ -129,7 +123,6 @@ if (loggedIn) {
 
 Follow these instructions to login your unidentified users:
 
-
 ```Kotlin
 override fun onCreate() {
     super.onCreate()
@@ -148,7 +141,6 @@ override fun onCreate() {
         )
 }
 ```
-
 
 ```Java
 @Override public void onCreate() {
@@ -173,7 +165,6 @@ override fun onCreate() {
 1. First, you’ll need to login your user, like this:
 
 
-
 ```Kotlin
 private fun successfulLogin() {
     /* For best results, use a unique user_id if you have one. */
@@ -191,7 +182,6 @@ private fun successfulLogin() {
             });
 }
 ```
-
 
 ```Java
 private void successfulLogin() {
@@ -215,7 +205,6 @@ No User ID?
 If you don't have a unique userId to use here, or if you have a userId and an email, you can use with `withEmail(String email)` on the Registration object.
 
 1. You’ll also need to login your user anywhere they sign in. Just call:
-
 
 
 ```Kotlin
@@ -249,7 +238,6 @@ if (loggedIn) {
         });
 }
 ```
-
 
 ```Java
 if (loggedIn) {
@@ -287,7 +275,6 @@ if (loggedIn) {
 
 When users want to log out of your app, simply call logout like so:
 
-
 ```Kotlin
 private fun logout() {
     /* This clears the Intercom SDK's cache of your user's identity
@@ -295,7 +282,6 @@ private fun logout() {
     Intercom.client().logout()
 }
 ```
-
 
 ```Java
 private void logout() {
@@ -316,14 +302,12 @@ Intercom knows when your app is backgrounded and comes alive again, so you won�
 
 ## Update a user
 
-
 ```Kotlin
 updateUser(
         userAttributes: UserAttributes,
         intercomStatusCallback: IntercomStatusCallback
 )
 ```
-
 
 ```Java
 void updateUser(
@@ -344,7 +328,6 @@ You can send any data you like to Intercom from standard user attributes that ar
 
 The complete list of standard user attributes that can be updated are described in the UserAttributes object. Standard user attributes such as a user's name or email address can be updated by calling:
 
-
 ```Kotlin
 val userAttributes = UserAttributes.Builder()
         .withName("Bob")
@@ -363,7 +346,6 @@ Intercom.client().updateUser(
             }
         )
 ```
-
 
 ```Java
 UserAttributes userAttributes = new UserAttributes.Builder()
@@ -385,7 +367,6 @@ Intercom.client().updateUser(userAttributes, new IntercomStatusCallback() {
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by calling withCustomAttribute(key, value) on the UserAttributes object.
 
-
 ```Kotlin
 val userAttributes = UserAttributes.Builder()
         .withCustomAttribute("paid_subscriber", "Yes")
@@ -405,7 +386,6 @@ Intercom.client().updateUser(
             }
         )
 ```
-
 
 ```Java
 UserAttributes userAttributes = new UserAttributes.Builder()
@@ -431,7 +411,6 @@ Custom attributes must be created in Intercom using one of the methods described
 
 You can also set company data on your user with the Company object, like:
 
-
 ```Kotlin
 val company = Company.Builder()
         .withName("My Company")
@@ -453,7 +432,6 @@ Intercom.client().updateUser(
             }
         )
 ```
-
 
 ```Java
 Company company = new Company.Builder()
@@ -481,11 +459,9 @@ ID required for Company objects
 
 ## Submit an event
 
-
 ```Kotlin
 logEvent(name: String?, metaData: Map<String, *>?)
 ```
-
 
 ```Java
 void logEvent(String name, Map<String, *> metaData);
@@ -501,7 +477,6 @@ void logEvent(String name, Map<String, *> metaData);
 
 You can [log events in Intercom ](https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Data-Events/data_event/)that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
 
-
 ```Kotlin
 val eventData = mapOf(
     "order_date" to "1392036272",
@@ -509,7 +484,6 @@ val eventData = mapOf(
 )
 Intercom.client().logEvent("sent_invitation", eventData)
 ```
-
 
 ```Java
 Map<String, Object> eventData = new HashMap<>();
@@ -522,11 +496,9 @@ You’ll find more details about how events work and how to submit them [here](h
 
 ## Present Intercom Spaces
 
-
 ```Kotlin
 present(space: IntercomSpace)
 ```
-
 
 ```Java
 void present(IntercomSpace space);
@@ -549,11 +521,9 @@ Spaces are different areas of the messenger that you can open directly. Intercom
 
 These spaces can be presented by:
 
-
 ```Kotlin
 Intercom.client().present(space = IntercomSpace.Home)
 ```
-
 
 ```Java
 Intercom.client().present(IntercomSpace.Home);
@@ -566,11 +536,9 @@ Not providing `space` and calling `Intercom.client().present()` will open Home b
 
 ## Present Intercom Content
 
-
 ```Kotlin
 presentContent(content: IntercomContent)
 ```
-
 
 ```Java
 void presentContent(IntercomContent content);
@@ -596,11 +564,9 @@ To present an Intercom content you create the respective `IntercomContent` objec
 
 For example, you can present an Article as follows
 
-
 ```Kotlin
 Intercom.client().presentContent(content = IntercomContent.Article(id = "12345"))
 ```
-
 
 ```Java
 Intercom.client().presentContent(IntercomContent.Article(id = "12345"));
@@ -613,11 +579,9 @@ A piece of content must be ‘live’ to be used in this feature. If it is in a 
 
 You may also present conversations using their IDs.
 
-
 ```Kotlin
 Intercom.client().presentContent(content = IntercomContent.Conversation(id = "12345"))
 ```
-
 
 ```Java
 Intercom.client().presentContent(IntercomContent.Conversation(id = "12345"));
@@ -635,11 +599,9 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 If you’d like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```Kotlin
 Intercom.client().setLauncherVisibility(Visibility.VISIBLE)
 ```
-
 
 ```Java
 Intercom.client().setLauncherVisibility(Visibility.VISIBLE);
@@ -647,11 +609,9 @@ Intercom.client().setLauncherVisibility(Visibility.VISIBLE);
 
 If you want to set the bottom padding for the Messenger, which dictates how far from the bottom of the screen the default launcher and in-app messages will appear, you can call:
 
-
 ```Kotlin
 Intercom.client().setBottomPadding(bottomPadding)
 ```
-
 
 ```Java
 Intercom.client().setBottomPadding(int bottomPadding);
@@ -665,11 +625,9 @@ However, if you’d like the Messenger to open from another location in your mob
 
 If you have a custom launcher, you can call:
 
-
 ```Kotlin
 Intercom.client().present()
 ```
-
 
 ```Java
 Intercom.client().present();
@@ -677,11 +635,9 @@ Intercom.client().present();
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
 
-
 ```Kotlin
 Intercom.client().displayMessageComposer("Message")
 ```
-
 
 ```Java
 Intercom.client().displayMessageComposer("Message");
@@ -695,11 +651,9 @@ Now you can show how many unread conversations your user has on your custom laun
 
 Just grab the current count with this method:
 
-
 ```Kotlin
 Intercom.client().getUnreadConversationCount()
 ```
-
 
 ```Java
 Intercom.client().getUnreadConversationCount();
@@ -707,11 +661,9 @@ Intercom.client().getUnreadConversationCount();
 
 Then, start listening for updates using:
 
-
 ```Kotlin
 Intercom.client().addUnreadConversationCountListener(listener)
 ```
-
 
 ```Java
 Intercom.client().addUnreadConversationCountListener(listener);
@@ -726,7 +678,6 @@ Intercom.client().addUnreadConversationCountListener(listener);
 
 You can implement the `UnreadConversationCountListener` interface to receive updates:
 
-
 ```Kotlin
 val listener = object : UnreadConversationCountListener {
     override fun onCountChanged(unreadCount: Int) {
@@ -736,7 +687,6 @@ val listener = object : UnreadConversationCountListener {
 }
 Intercom.client().addUnreadConversationCountListener(listener)
 ```
-
 
 ```Java
 UnreadConversationCountListener listener = new UnreadConversationCountListener() {
@@ -751,11 +701,9 @@ Intercom.client().addUnreadConversationCountListener(listener);
 
 Don't forget to remove the listener when you no longer need it:
 
-
 ```Kotlin
 Intercom.client().removeUnreadConversationCountListener(listener)
 ```
-
 
 ```Java
 Intercom.client().removeUnreadConversationCountListener(listener);
@@ -763,11 +711,9 @@ Intercom.client().removeUnreadConversationCountListener(listener);
 
 ## Set theme mode
 
-
 ```Kotlin
 setThemeMode(themeMode: ThemeMode?)
 ```
-
 
 ```Java
 void setThemeMode(ThemeMode themeMode);
@@ -782,7 +728,6 @@ void setThemeMode(ThemeMode themeMode);
 
 You can override the server-provided theme setting for the current session only. The theme mode controls whether the SDK displays in light mode, dark mode, or follows the system theme. The theme selection will be reset when the app restarts.
 
-
 ```Kotlin
 // Enable dark mode
 Intercom.client().setThemeMode(ThemeMode.DARK)
@@ -796,7 +741,6 @@ Intercom.client().setThemeMode(ThemeMode.SYSTEM)
 // Clear override and use server-provided theme
 Intercom.client().setThemeMode(null)
 ```
-
 
 ```Java
 // Enable dark mode
@@ -817,11 +761,9 @@ This method was introduced in version 17.0.0 of the Android SDK.
 
 ## Change workspace
 
-
 ```Kotlin
 changeWorkspace(apiKey: String?, appId: String?)
 ```
-
 
 ```Java
 void changeWorkspace(String apiKey, String appId);
@@ -837,11 +779,9 @@ void changeWorkspace(String apiKey, String appId);
 
 Use this to change the workspace that the SDK is connected to. This will also logout the current user and clear all data from Intercom SDK. Once called, the SDK will no longer communicate with Intercom until a further registration is made.
 
-
 ```Kotlin
 Intercom.client().changeWorkspace("your_new_api_key", "your_new_app_id")
 ```
-
 
 ```Java
 Intercom.client().changeWorkspace("your_new_api_key", "your_new_app_id");
@@ -857,11 +797,9 @@ This method will automatically logout the current user and clear all SDK data. Y
 
 You can prevent in app messages from popping up in certain parts of your app by calling:
 
-
 ```Kotlin
 Intercom.client().setInAppMessageVisibility(Visibility.GONE)
 ```
-
 
 ```Java
 Intercom.client().setInAppMessageVisibility(Visibility.GONE);
@@ -873,11 +811,9 @@ The method *setInAppMessageVisibility* does not apply to Mobile Carousels or Sur
 
 You can hide any Intercom screen in your app, by calling:
 
-
 ```Kotlin
 Intercom.client().hideIntercom()
 ```
-
 
 ```Java
 Intercom.client().hideIntercom();

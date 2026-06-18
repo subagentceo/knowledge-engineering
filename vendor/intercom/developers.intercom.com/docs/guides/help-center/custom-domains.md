@@ -220,7 +220,6 @@ If you wish to host your own security certificates, you can do so through a [TLS
 
 Here are the basic instructions to set up your own SSL using Apache and Nginx webservers:
 
-
 ```html
 # Prerequisites: mod_ssl, mod_proxy and mod_proxy_http should be enabled
 
@@ -251,7 +250,6 @@ Here are the basic instructions to set up your own SSL using Apache and Nginx we
 </VirtualHost>
 </IfModule>
 ```
-
 
 ```text
 # Prerequisites: ngx_http_ssl_module and ngx_http_proxy_module should be enabled
@@ -331,7 +329,6 @@ For example, if your domain is **www.exampleapp.com**, create a CNAME record wit
 ### Create a Cloudflare Worker
 
 Go to 'Workers & Pages' in Cloudflare and create a new Worker. Update the Worker code to route requests to Intercom through your CNAME record:
-
 
 ```javascript
 export default {

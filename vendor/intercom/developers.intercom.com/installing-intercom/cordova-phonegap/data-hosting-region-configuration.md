@@ -8,7 +8,6 @@ This is usually present in `/<YOUR_APP_DIR>/config.xml`
 
 You can add a String entry into your `info.plist` by adding the following to `config.xml` file.
 
-
 ```xml
 <widget>
 ...
@@ -32,7 +31,6 @@ Valid options for value are
 ## Android
 
 You can add a `meta-data` into `AndroidManifest.xml` by adding the following to `config.xml` file
-
 
 ```xml
 <widget>

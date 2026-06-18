@@ -14,7 +14,6 @@ The conversation count supplies global counts about your App's conversations
 | conversation.unassigned | number | Contains the number of unassigned conversations |
 
 
-
 ```json
 {
     "type": "count",
@@ -27,14 +26,12 @@ The conversation count supplies global counts about your App's conversations
 }
 ```
 
-
 ```bash
 # Conversation Counts
 $ curl 'https://api.intercom.io/counts?type=conversation' \
 -H 'Authorization:Bearer <Your access token>' \
 -H 'Accept:application/json'
 ```
-
 
 ```curl
 # Conversation App Counts
@@ -51,11 +48,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ```ruby
 intercom.counts.for_type(type: 'conversation')
 ```
-
 
 ```php
 <?php
@@ -63,7 +58,6 @@ $counts = $intercom->counts->getCounts(["type" => "conversation"]);
 print_r($counts);
 ?>
 ```
-
 
 ```java
 // Conversation Counts

@@ -6,7 +6,6 @@ Using Intercom you can embed a deep link in your in-app messages or as the URI f
 
 You will need to set up a deep link in your apps AndroidManifest.xml. Android supports both *app://page* and *[http://www.app.com/page](http://www.app.com/page)* type schemes.
 
-
 ```xml
 <activity android:name="app.SettingsActivity">    
     <intent-filter>

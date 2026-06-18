@@ -20,7 +20,6 @@ The total count object contains the summary of the following fields in a workspa
 
 The count of tags and segments includes archived tags and segments.
 
-
 ```json
 {
     "type": "count.hash",
@@ -42,14 +41,12 @@ The count of tags and segments includes archived tags and segments.
 }
 ```
 
-
 ```bash
 # App Counts
 $ curl 'https://api.intercom.io/counts' \
 -H 'Authorization:Bearer <Your access token>' \
 -H 'Accept:application/json'
 ```
-
 
 ```curl
 # App Total Counts
@@ -75,11 +72,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ```ruby
 intercom.counts.for_app
 ```
-
 
 ```php
 <?php
@@ -87,7 +82,6 @@ intercom.counts.for_app
 $intercom->counts->getCounts([]);
 ?>
 ```
-
 
 ```java
 // Global App Counts

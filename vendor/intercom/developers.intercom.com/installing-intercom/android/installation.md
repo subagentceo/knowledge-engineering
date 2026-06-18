@@ -29,14 +29,12 @@ Then you have two options:
 
 Add the following dependency to your app's `build.gradle` file:
 
-
 ```groovy
 dependencies {
     implementation 'io.intercom.android:intercom-sdk:latest.release'
     implementation 'com.google.firebase:firebase-messaging:23.1.+'
 }
 ```
-
 
 ```Kotlin
 dependencies {
@@ -51,13 +49,11 @@ Instead of `latest.release`, it is best practice to replace it with the latest v
 
 If you'd rather not have push notifications in your app, you can use this dependency:
 
-
 ```groovy
 dependencies {
     implementation 'io.intercom.android:intercom-sdk-base:latest.release'
 }
 ```
-
 
 ```Kotlin
 dependencies {
@@ -71,7 +67,6 @@ If you choose this method you won’t be able to send push messages.
 
 Intercom is hosted on maven central. You will need to add maven central to your root **build.gradle** file.
 
-
 ```xml
 allprojects {
     repositories {
@@ -84,7 +79,6 @@ allprojects {
 
 We include the [INTERNET](http://developer.android.com/reference/android/Manifest.permission.html#INTERNET) permission by default as we need it to make network requests:
 
-
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
@@ -92,7 +86,6 @@ We include the [INTERNET](http://developer.android.com/reference/android/Manifes
 **Image Attachments**: No additional permissions are required for image attachments on modern Android versions (Android 10+). The SDK uses the system photo picker and scoped storage APIs that don't require storage permissions.
 
 You can also include [VIBRATE](http://developer.android.com/reference/android/Manifest.permission.html#VIBRATE) to enable vibration in push notifications:
-
 
 ```xml
 <uses-permission android:name="android.permission.VIBRATE"/>
@@ -107,18 +100,15 @@ For the exact version numbers we are using, please check the [dependency graph](
 
 Initialize Intercom by calling the following in the `onCreate()` method of your application class:
 
-
 ```Kotlin
 Intercom.initialize(this, "your api key", "your app id")
 ```
-
 
 ```Java
 Intercom.initialize(this, "your api key", "your app id");
 ```
 
 If you don't currently implement a custom application, you’ll need to create one. A custom application looks like this:
-
 
 ```Kotlin
 class CustomApplication : Application() {
@@ -128,7 +118,6 @@ class CustomApplication : Application() {
     }
 }
 ```
-
 
 ```Java
 public class CustomApplication extends Application {
@@ -140,7 +129,6 @@ public class CustomApplication extends Application {
 ```
 
 You’ll need to update your manifest to use your application:
-
 
 ```xml
 <application

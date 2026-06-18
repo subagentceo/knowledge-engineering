@@ -1,0 +1,119 @@
+---
+title: Role scopes
+description: Choose account, domain, or resource-level scopes to control where Cloudflare member permissions apply.
+image: https://developers.cloudflare.com/core-services-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/fundamentals/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Role scopes
+
+Scopes are one of three constituent parts of a policy that allows granting of access to users.
+
+To allow for flexible combinations of access to users, Cloudflare currently has account-level scopes, domain scopes, and resource-specific scopes. Each scope is associated with a different set of [roles](https://developers.cloudflare.com/fundamentals/manage-members/roles/).
+
+* **Account scope:** Use when the member needs access across the entire account, for example, billing or account-level settings.
+* **Specific domains:** Use when the member should only manage certain domains, for example, a developer who works on staging domains but should not modify production.
+* **Domain groups:** Use when you have related domains that share the same access needs, for example, all production domains.
+* **Specific resources:** Use when access should be limited to individual resources.
+
+---
+
+## Choose the scope of roles
+
+Each policy has a limitation of a single scope, but you can assign multiple policies to a given user.
+
+You can choose the scope of a policy when you [add a member](https://developers.cloudflare.com/fundamentals/manage-members/manage/).
+
+### Account scope
+
+If you want the member to have a policy that applies across your account, use the following combination of fields.
+
+| Field    | Value         |
+| -------- | ------------- |
+| Operator | _Include_     |
+| Type     | _All domains_ |
+
+Note
+
+You can only assign [account-scoped roles](https://developers.cloudflare.com/fundamentals/manage-members/roles/#account-scoped-roles) as part of these types of policies
+
+### Specific domains
+
+If you want the member to have a policy that applies to a specific domain, use the following combination of fields. When applying these roles to this policy, only domain-scoped roles can be used.
+
+| Field    | Value               |
+| -------- | ------------------- |
+| Operator | _Include_           |
+| Type     | _A specific domain_ |
+| Name     | _A specific domain_ |
+
+### Domain groups
+
+If you have a set of domains that are all categorized similarly (e.g. all of your sensitive/production domains, all domains around a given project or geography), you can pre-assign them into a domain group and then create policies that provide access to all domains within this group.
+
+#### Create group
+
+To create a domain group:
+
+1. In the Cloudflare dashboard, go to the **Settings** \> **Lists** page. (You must be logged in as a **Super Administrator** and have a [verified email address](https://developers.cloudflare.com/fundamentals/user-profiles/verify-email-address/)).  
+[ Go to **Configurations** ](https://dash.cloudflare.com/?to=/:account/configurations)
+2. For **Domain Group Manager**, select **Create**.
+3. Create your domain group:  
+   1. Select the domains to include.  
+   2. Add a **Name**.  
+   3. Select **Create**.
+
+You can also edit and delete these groups as needed.
+
+#### Use group
+
+To assign a member permissions to a domain group, use the following combination of fields:
+
+| Field    | Value           |
+| -------- | --------------- |
+| Operator | _Include_       |
+| Type     | _Domain Group_  |
+| Name     | _Example Group_ |
+
+Note
+
+With Domain Groups, you can only assign [domain-scoped roles](https://developers.cloudflare.com/fundamentals/manage-members/roles/#domain-scoped-roles) to these members.
+
+### Specific resources
+
+If you want the member to have a policy that applies to a specific resource, use the following combination of fields.
+
+| Field    | Value               |
+| -------- | ------------------- |
+| Operator | _Include_           |
+| Type     | _Granular_          |
+| Product  | _Product Name_      |
+| Resource | _Specific Resource_ |
+
+#### Available scopes
+
+You can assign the following resource-specific scopes to members:
+
+| Scope                                       | Description                                                                                                                                                                        |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Individual Access applications              | Grant access to manage a specific [Access application](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/).                                            |
+| Individual Access identity providers (IdPs) | Grant access to manage a specific [Cloudflare One identity provider (IdP)](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/).                     |
+| Individual Access policies                  | Grant access to manage a specific [Access policy](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/).                                                     |
+| Individual Access service tokens            | Grant access to manage a specific [Access service token](https://developers.cloudflare.com/cloudflare-one/access-controls/service-credentials/service-tokens/).                    |
+| Individual Access infrastructure targets    | Grant access to manage a specific [Access for Infrastructure target](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/non-http/infrastructure-apps/). |
+| Individual Cloudflare Tunnel instances      | Grant access to manage a specific [Cloudflare Tunnel](https://developers.cloudflare.com/tunnel/) instance.                                                                         |
+| Individual Cloudflare Mesh nodes            | Grant access to manage a specific [Cloudflare Mesh](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/) node.                                   |
+
+Note
+
+When using scopes for specific resources, you can only assign [resource-scoped roles](https://developers.cloudflare.com/fundamentals/manage-members/roles/#resource-scoped-roles) to these members.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/fundamentals/manage-members/scope/#page","headline":"Role scopes · Cloudflare Fundamentals docs","description":"Choose account, domain, or resource-level scopes to control where Cloudflare member permissions apply.","url":"https://developers.cloudflare.com/fundamentals/manage-members/scope/","inLanguage":"en","image":"https://developers.cloudflare.com/core-services-preview.png","dateModified":"2026-05-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/fundamentals/","name":"Cloudflare Fundamentals"}},{"@type":"ListItem","position":3,"item":{"@id":"/fundamentals/manage-members/","name":"Members and permissions"}},{"@type":"ListItem","position":4,"item":{"@id":"/fundamentals/manage-members/scope/","name":"Role scopes"}}]}
+```

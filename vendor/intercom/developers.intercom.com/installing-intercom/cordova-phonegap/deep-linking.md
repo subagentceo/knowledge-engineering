@@ -8,7 +8,6 @@ You'll need to set up a deep link in your app's `config.xml`, which Cordova tran
 
 Add the following inside the `<platform name="android">` section of your `config.xml`:
 
-
 ```xml
 <platform name="android">
     <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:name='MainActivity']">
@@ -33,7 +32,6 @@ Please follow the [instructions for Universal Links](https://developers.intercom
 
 Add the following inside the `<platform name="ios">` section of your `config.xml`:
 
-
 ```xml
 <platform name="ios">
     <config-file target="*-Info.plist" parent="CFBundleURLTypes">
@@ -54,7 +52,6 @@ Replace `myapp` with your own custom URL scheme.
 ## Handling Deep Links in Your App
 
 When a deep link opens your Cordova app, you can handle it using the global `handleOpenURL` function:
-
 
 ```javascript
 function handleOpenURL(url) {

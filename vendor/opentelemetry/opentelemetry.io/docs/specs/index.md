@@ -11,4 +11,4 @@ Section pages:
 - [OpenTelemetry Specification 1.57.0](/docs/specs/otel/)
 - [OTLP Specification 1.10.0](/docs/specs/otlp/)
 - [Open Agent Management Protocol](/docs/specs/opamp/)
-- [OpenTelemetry semantic conventions 1.41.1](/docs/specs/semconv/)
+- [OpenTelemetry semantic conventions 1.42.0](/docs/specs/semconv/)

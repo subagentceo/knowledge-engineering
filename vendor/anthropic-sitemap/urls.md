@@ -1,7 +1,7 @@
 ---
 vendor: anthropic-sitemap
 llms_txt: 
-count: 428
+count: 429
 transform: html-extract
 ---
 
@@ -108,6 +108,7 @@ transform: html-extract
 | https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education | `vendor/anthropic-sitemap/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education.md` |
 | https://www.anthropic.com/news/anthropic-teach-for-all | `vendor/anthropic-sitemap/news/anthropic-teach-for-all.md` |
 | https://www.anthropic.com/news/anthropics-responsible-scaling-policy | `vendor/anthropic-sitemap/news/anthropics-responsible-scaling-policy.md` |
+| https://www.anthropic.com/news/apple-xcode-claude-agent-sdk | `vendor/anthropic-sitemap/news/apple-xcode-claude-agent-sdk.md` |
 | https://www.anthropic.com/news/australia-MOU | `vendor/anthropic-sitemap/news/australia-MOU.md` |
 | https://www.anthropic.com/news/bengaluru-office-partnerships-across-india | `vendor/anthropic-sitemap/news/bengaluru-office-partnerships-across-india.md` |
 | https://www.anthropic.com/news/build-ai-in-america | `vendor/anthropic-sitemap/news/build-ai-in-america.md` |

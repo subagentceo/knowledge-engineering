@@ -1,0 +1,64 @@
+---
+title: rtk-draft-attachment-view
+description: API reference for rtk-draft-attachment-view component (Web Components (HTML) Library)
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/realtime/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# rtk-draft-attachment-view
+
+A component which renders the draft attachment to send
+
+## Properties
+
+| Property   | Type                                     | Required | Default         | Description           |
+| ---------- | ---------------------------------------- | -------- | --------------- | --------------------- |
+| attachment | { type: 'image' \| 'file'; file: File; } | ✅        | \-              | Attachment to display |
+| iconPack   | IconPack1                                | ❌        | defaultIconPack | Icon pack             |
+| t          | RtkI18n1                                 | ❌        | useLanguage()   | Language              |
+
+## Usage Examples
+
+### Basic Usage
+
+```
+
+<rtk-draft-attachment-view></rtk-draft-attachment-view>
+
+
+```
+
+### With Properties
+
+```
+
+<rtk-draft-attachment-view>
+
+</rtk-draft-attachment-view>
+
+
+```
+
+```
+
+<script>
+
+  const el = document.querySelector("rtk-draft-attachment-view");
+
+
+  el.attachment= {};
+
+</script>
+
+
+```
+
+```json
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://developers.cloudflare.com/realtime/realtimekit/ui-kit/api-reference/core/rtk-draft-attachment-view/#page","headline":"rtk-draft-attachment-view · Cloudflare Realtime docs","description":"API reference for rtk-draft-attachment-view component (Web Components (HTML) Library)","url":"https://developers.cloudflare.com/realtime/realtimekit/ui-kit/api-reference/core/rtk-draft-attachment-view/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/realtime/","name":"Realtime"}},{"@type":"ListItem","position":3,"item":{"@id":"/realtime/realtimekit/","name":"RealtimeKit"}},{"@type":"ListItem","position":4,"item":{"@id":"/realtime/realtimekit/ui-kit/","name":"Build using UI Kit"}},{"@type":"ListItem","position":5,"item":{"@id":"/realtime/realtimekit/ui-kit/api-reference/","name":"Component Reference"}},{"@type":"ListItem","position":6,"item":{"@id":"/realtime/realtimekit/ui-kit/api-reference/core/","name":"Web Components (HTML)"}},{"@type":"ListItem","position":7,"item":{"@id":"/realtime/realtimekit/ui-kit/api-reference/core/rtk-draft-attachment-view/","name":"rtk-draft-attachment-view"}}]}
+```

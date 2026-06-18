@@ -13,11 +13,9 @@ Intercom for Android supports **API 21** and above.
 
 To install Intercom you'll need to add the wrapper to your React Native project using the following snippet:
 
-
 ```text
 yarn add @intercom/intercom-react-native
 ```
-
 
 ```text
 npm install @intercom/intercom-react-native
@@ -37,7 +35,6 @@ If you're using React Native v0.60 or above, the library will be linked automati
 
 To automatically link the Intercom React Native wrapper in v0.59 of React Native run the following command:
 
-
 ```text
 react-native link @intercom/intercom-react-native
 ```
@@ -46,14 +43,12 @@ react-native link @intercom/intercom-react-native
 
 If you prefer to manually link libraries, add the following snippet to `android/settings.gradle`:
 
-
 ```groovy
 include ':intercom-react-native'
 project(':intercom-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/@intercom/intercom-react-native/android')
 ```
 
 Inside the dependancies block of `android/app/build.gradle` add the following line:
-
 
 ```groovy
 dependencies {
@@ -86,7 +81,6 @@ You'll need to update the `MainApplication.java` class.  First add the import `c
 
 Then in the `onCreate` method, add the snippet below using the `apiKey` and `appId` found in your [workspace settings](https://app.intercom.com/a/apps/_/settings/android).
 
-
 ```java
 import com.intercom.reactnative.IntercomModule; //  <-- Add this line
 
@@ -112,7 +106,6 @@ Add below permissions to `AndroidManifest.xml`
 **Image Attachments**: No additional permissions are required for image attachments on modern Android versions (Android 10+). The SDK uses the system photo picker and scoped storage APIs that don't require storage permissions.
 
 You can also include [VIBRATE](http://developer.android.com/reference/android/Manifest.permission.html#VIBRATE) to enable vibration in push notifications:
-
 
 ```xml
 <uses-permission android:name="android.permission.VIBRATE"/>
@@ -144,7 +137,6 @@ For Objective-C, open `iOS/AppDelegate.m` and import `<IntercomModule.h>`.
 
 For Swift, open `iOS/AppDelegate.swift` and import `intercom_react_native`.
 
-
 ```objectivec
 #import "AppDelegate.h"
 #import <React/RCTBridge.h>
@@ -154,13 +146,11 @@ For Swift, open `iOS/AppDelegate.swift` and import `intercom_react_native`.
 #import <IntercomModule.h> // <-- Add This
 ```
 
-
 ```swift
 import intercom_react_native
 ```
 
 Next, in the method `didFinishLaunchingWithOptions` you'll need to initialize Intercom. Add the snippet below using the `apiKey` and `appId` found in your [workspace settings](https://app.intercom.com/a/apps/_/settings/ios).
-
 
 ```objectivec
 // ...
@@ -171,7 +161,6 @@ Next, in the method `didFinishLaunchingWithOptions` you'll need to initialize In
   return YES;
   }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -184,7 +173,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 #### iOS Permissions
 
 Add these permissions to your `Info.plist`:
-
 
 ```xml
 <!-- Optional: Camera access for taking photos in conversations -->

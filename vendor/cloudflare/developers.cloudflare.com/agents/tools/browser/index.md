@@ -1,0 +1,595 @@
+---
+title: Browser
+description: Give Agents full Chrome DevTools Protocol access to inspect pages, scrape data, and capture screenshots with Browser Run.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/agents/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Browser
+
+Agents can use [Browser Run](https://developers.cloudflare.com/browser-run/) to inspect and interact with web pages through the [Chrome DevTools Protocol (CDP)](https://developers.cloudflare.com/browser-run/cdp/). Beta Browser tools are useful when an agent needs to understand rendered pages, capture screenshots, debug frontend behavior, or extract information that is only available after JavaScript runs.
+
+Instead of a fixed set of browser actions (click, screenshot, navigate), the model writes code that runs CDP commands against a live browser session through the `cdp` connector — accessing all domains, commands, events, and types in the protocol. Executions are recorded on a durable codemode runtime (abort-and-replay), so a run can pause for approval and resume with its browser session intact.
+
+Use browser tools when you want an agent to:
+
+* Open and inspect live web pages.
+* Capture screenshots or page state.
+* Scrape rendered content that is not present in static HTML.
+* Debug frontend issues using CDP commands.
+* Combine page inspection with other tools, such as RAG or Sandbox.
+
+## How it works
+
+Browser Run provides isolated browser sessions that agents can control with CDP. The agent can navigate pages, evaluate JavaScript, read DOM state, capture screenshots, and inspect network or console output.
+
+Because browser sessions run outside the Worker isolate, use them for work that needs a real browser environment rather than lightweight HTTP fetches.
+
+## Basic pattern
+
+Create browser tools with the Browser Run and Worker Loader bindings, then pass those tools to your model call.
+
+* [  JavaScript ](#tab-panel-6505)
+* [  TypeScript ](#tab-panel-6506)
+
+JavaScript
+
+```
+
+import { AIChatAgent } from "@cloudflare/ai-chat";
+
+import { createBrowserTools } from "agents/browser/ai";
+
+import { streamText, convertToModelMessages, stepCountIs } from "ai";
+
+import { createWorkersAI } from "workers-ai-provider";
+
+
+export class BrowserAgent extends AIChatAgent {
+
+  async onChatMessage() {
+
+    const workersai = createWorkersAI({ binding: this.env.AI });
+
+    const browserTools = createBrowserTools({
+
+      ctx: this.ctx,
+
+      browser: this.env.BROWSER,
+
+      loader: this.env.LOADER,
+
+    });
+
+
+    const result = streamText({
+
+      model: workersai("@cf/zai-org/glm-4.7-flash"),
+
+      system: "You can inspect web pages with browser tools.",
+
+      messages: await convertToModelMessages(this.messages),
+
+      tools: browserTools,
+
+      stopWhen: stepCountIs(10),
+
+    });
+
+
+    return result.toUIMessageStreamResponse();
+
+  }
+
+}
+
+
+```
+
+TypeScript
+
+```
+
+import { AIChatAgent } from "@cloudflare/ai-chat";
+
+import { createBrowserTools } from "agents/browser/ai";
+
+import { streamText, convertToModelMessages, stepCountIs } from "ai";
+
+import { createWorkersAI } from "workers-ai-provider";
+
+
+export class BrowserAgent extends AIChatAgent<Env> {
+
+  async onChatMessage() {
+
+    const workersai = createWorkersAI({ binding: this.env.AI });
+
+    const browserTools = createBrowserTools({
+
+      ctx: this.ctx,
+
+      browser: this.env.BROWSER,
+
+      loader: this.env.LOADER,
+
+    });
+
+
+    const result = streamText({
+
+      model: workersai("@cf/zai-org/glm-4.7-flash"),
+
+      system: "You can inspect web pages with browser tools.",
+
+      messages: await convertToModelMessages(this.messages),
+
+      tools: browserTools,
+
+      stopWhen: stepCountIs(10),
+
+    });
+
+
+    return result.toUIMessageStreamResponse();
+
+  }
+
+}
+
+
+```
+
+Browser tools must be created from inside a Durable Object (such as an Agent) — the durable runtime facet and the session store live on its `ctx`. The helper exposes one durable CDP tool plus stateless Quick Action tools when a `browser` binding is present:
+
+| Tool              | Description                                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| browser\_execute  | Run sandboxed code against a live browser over CDP — screenshots, DOM reads, JavaScript evaluation, and more. |
+| browser\_markdown | Read a page or raw HTML as Markdown.                                                                          |
+| browser\_extract  | Extract structured data from a page with AI.                                                                  |
+| browser\_links    | List links on a page.                                                                                         |
+| browser\_scrape   | Scrape specific elements by CSS selector.                                                                     |
+
+To discover protocol surface, the model calls `cdp.spec()` (the live, normalized CDP protocol description) or the runtime's built-in `codemode.search` / `codemode.describe`.
+
+## Configuration
+
+Add the Browser Run and Worker Loader bindings to `wrangler.jsonc`.
+
+* [  wrangler.jsonc ](#tab-panel-6491)
+* [  wrangler.toml ](#tab-panel-6492)
+
+JSONC
+
+```
+
+{
+
+  "compatibility_flags": ["nodejs_compat"],
+
+  "browser": {
+
+    "binding": "BROWSER"
+
+  },
+
+  "worker_loaders": [
+
+    {
+
+      "binding": "LOADER"
+
+    }
+
+  ]
+
+}
+
+
+```
+
+TOML
+
+```
+
+compatibility_flags = [ "nodejs_compat" ]
+
+
+[browser]
+
+binding = "BROWSER"
+
+
+[[worker_loaders]]
+
+binding = "LOADER"
+
+
+```
+
+The durable runtime behind the tool lives in a Durable Object facet, so your Worker entry must export it (the `@cloudflare/codemode/vite` plugin does this automatically):
+
+* [  JavaScript ](#tab-panel-6493)
+* [  TypeScript ](#tab-panel-6494)
+
+JavaScript
+
+```
+
+export { CodemodeRuntime } from "agents/browser";
+
+
+```
+
+TypeScript
+
+```
+
+export { CodemodeRuntime } from "agents/browser";
+
+
+```
+
+`agents/browser` re-exports the codemode runtime for browser tool setups. Codemode-specific examples can also import `CodemodeRuntime` from `@cloudflare/codemode`.
+
+## Session lifecycle
+
+By default each execution gets a fresh browser session, torn down when the run ends (`one-shot`). Pass a `session` option for two more modes:
+
+* [  JavaScript ](#tab-panel-6495)
+* [  TypeScript ](#tab-panel-6496)
+
+JavaScript
+
+```
+
+createBrowserTools({
+
+  ctx: this.ctx,
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  session: { mode: "dynamic" }, // or { mode: "reuse", key: "main" }
+
+});
+
+
+```
+
+TypeScript
+
+```
+
+createBrowserTools({
+
+  ctx: this.ctx,
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  session: { mode: "dynamic" }, // or { mode: "reuse", key: "main" }
+
+});
+
+
+```
+
+* **`one-shot`** (default) — fresh session per execution; deterministic cleanup when the execution reaches a terminal status.
+* **`reuse`** — a named shared session that persists across executions until explicitly closed or swept.
+* **`dynamic`** — starts one-shot; the model can promote the session with `cdp.startSession()` (for example, after logging in to a page) so later executions continue in the same browser.
+
+In `reuse` and `dynamic` modes the sandbox additionally gets `cdp.startSession()`, `cdp.sessionInfo()`, `cdp.closeSession()`, and `cdp.resetSession()`.
+
+Sessions are tracked durably in the Durable Object's storage, so they survive hibernation and approval pauses — a run that pauses for human approval resumes with its browser session, tabs, and cookies intact. If Browser Run expires the session while a pause waits, the resume surfaces a clear error and the model starts over.
+
+For host-side wiring (session inspection, cleanup, reclaiming stale pauses), use `createBrowserRuntime`, which returns `{ runtime, connector, tools }`. Call `connector.sweep()` from a scheduled task to reclaim expired or stale sessions, and `runtime.expirePaused()` to reject stale never-approved pauses.
+
+## Quick actions
+
+Use `browser_execute` for interactive, multi-step automation. For one-shot browsing tasks, use [Browser Run Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/). Quick Actions need only the `browser` binding, so they do not need a Worker Loader or sandbox.
+
+* [  JavaScript ](#tab-panel-6497)
+* [  TypeScript ](#tab-panel-6498)
+
+JavaScript
+
+```
+
+import { createQuickActionTools } from "agents/browser/ai";
+
+
+const tools = createQuickActionTools({ browser: this.env.BROWSER });
+
+// browser_markdown, browser_extract, browser_links, browser_scrape
+
+
+```
+
+TypeScript
+
+```
+
+import { createQuickActionTools } from "agents/browser/ai";
+
+
+const tools = createQuickActionTools({ browser: this.env.BROWSER });
+
+// browser_markdown, browser_extract, browser_links, browser_scrape
+
+
+```
+
+By default, `createBrowserTools` and `createBrowserRuntime` include Quick Action tools whenever a `browser` binding is present. Pass `quickActions: false` to keep only `browser_execute`, or pass `quickActions: { actions, maxChars, options }` to configure the stateless tools.
+
+* [  JavaScript ](#tab-panel-6499)
+* [  TypeScript ](#tab-panel-6500)
+
+JavaScript
+
+```
+
+createBrowserTools({
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  quickActions: { maxChars: 20_000 },
+
+});
+
+
+```
+
+TypeScript
+
+```
+
+createBrowserTools({
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  quickActions: { maxChars: 20_000 },
+
+});
+
+
+```
+
+Every Quick Action result is bounded to `maxChars` to protect the model context window while preserving the result shape. Host-supplied request options, such as `cookies`, `authenticate`, `gotoOptions`, and `viewport`, are passed once through `options` and are not exposed to the model.
+
+Quick Actions require a Worker `compatibility_date` of `2026-03-24` or later and `remote: true` on the browser binding for local `wrangler dev`.
+
+## Live View and human-in-the-loop
+
+[Live View](https://developers.cloudflare.com/browser-run/features/live-view/) lets a human watch or control a running browser session in real time. Use it for human-in-the-loop steps such as login, MFA, CAPTCHA, or sensitive input.
+
+Because the codemode runtime can pause a run with the browser session intact, a handoff follows this pattern:
+
+1. The model calls `cdp.getLiveViewUrl()` to get a link to the current tab.
+2. The agent surfaces the link to the user.
+3. The model makes an approval-gated call, so the run pauses durably.
+4. After approval, the run resumes against the same session.
+
+* [  JavaScript ](#tab-panel-6501)
+* [  TypeScript ](#tab-panel-6502)
+
+JavaScript
+
+```
+
+async () => {
+
+  const { targetId } = await cdp.send({
+
+    method: "Target.createTarget",
+
+    params: { url: "https://example.com/login" },
+
+  });
+
+
+  const { url } = await cdp.getLiveViewUrl({ targetId, mode: "tab" });
+
+  return { needsHumanLogin: url };
+
+};
+
+
+```
+
+TypeScript
+
+```
+
+async () => {
+
+  const { targetId } = await cdp.send({
+
+    method: "Target.createTarget",
+
+    params: { url: "https://example.com/login" },
+
+  });
+
+
+  const { url } = await cdp.getLiveViewUrl({ targetId, mode: "tab" });
+
+  return { needsHumanLogin: url };
+
+};
+
+
+```
+
+Pass `mode: "tab"` for an interactive page view, or `mode: "devtools"` for the full DevTools inspector. The URL is valid for about five minutes. Call `cdp.getLiveViewUrl()` again to create a fresh URL.
+
+From the host side, `connector.liveView()` returns Live View URLs for the shared session's tabs. Each tab includes its current `pageUrl`, so an agent UI can label tabs and skip blank or internal pages.
+
+## Session recording
+
+[Session recording](https://developers.cloudflare.com/browser-run/features/session-recording/) captures a Browser Run session as structured rrweb events. Use recordings to audit or debug what an autonomous browser run did after the session closes.
+
+Opt in per session with `recording: true`:
+
+* [  JavaScript ](#tab-panel-6503)
+* [  TypeScript ](#tab-panel-6504)
+
+JavaScript
+
+```
+
+import { createBrowserRuntime } from "agents/browser/ai";
+
+
+const { connector } = createBrowserRuntime({
+
+  ctx: this.ctx,
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  session: { mode: "reuse", key: "main", recording: true },
+
+});
+
+
+```
+
+TypeScript
+
+```
+
+import { createBrowserRuntime } from "agents/browser/ai";
+
+
+const { connector } = createBrowserRuntime({
+
+  ctx: this.ctx,
+
+  browser: this.env.BROWSER,
+
+  loader: this.env.LOADER,
+
+  session: { mode: "reuse", key: "main", recording: true },
+
+});
+
+
+```
+
+A recording is finalized after the session closes. Capture the session ID while the session is alive, then fetch the recording from the Browser Rendering REST API:
+
+* [  JavaScript ](#tab-panel-6507)
+* [  TypeScript ](#tab-panel-6508)
+
+JavaScript
+
+```
+
+import { getBrowserRecording } from "agents/browser";
+
+
+const { sessionId } = (await connector.sessionInfo()) ?? {};
+
+if (!sessionId) {
+
+  throw new Error("No active browser session");
+
+}
+
+
+const recording = await getBrowserRecording({
+
+  accountId: this.env.CF_ACCOUNT_ID,
+
+  apiToken: this.env.CF_API_TOKEN,
+
+  sessionId,
+
+});
+
+
+```
+
+TypeScript
+
+```
+
+import { getBrowserRecording } from "agents/browser";
+
+
+const { sessionId } = (await connector.sessionInfo()) ?? {};
+
+if (!sessionId) {
+
+  throw new Error("No active browser session");
+
+}
+
+
+const recording = await getBrowserRecording({
+
+  accountId: this.env.CF_ACCOUNT_ID,
+
+  apiToken: this.env.CF_API_TOKEN,
+
+  sessionId,
+
+});
+
+
+```
+
+Recordings are retained for 30 days and capped at two hours per session. Be deliberate with recording on shared `reuse` and `dynamic` sessions because the recording spans the full session lifetime.
+
+## CDP connector API
+
+Inside `browser_execute`, the `cdp` namespace provides the following methods. All methods take a single object argument:
+
+| Method                                                | Description                                                                     |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------- |
+| cdp.send({ method, params?, sessionId?, timeoutMs? }) | Send a CDP command and wait for the response.                                   |
+| cdp.attachToTarget({ targetId, timeoutMs? })          | Attach to a target; returns { sessionId } for page-scoped send calls.           |
+| cdp.spec()                                            | The searchable, normalized CDP protocol spec.                                   |
+| cdp.getDebugLog({ limit? })                           | Recent CDP traffic (sends, receives, warnings) for this execution's connection. |
+| cdp.clearDebugLog()                                   | Clear the debug log buffer.                                                     |
+| cdp.getLiveViewUrl({ targetId?, mode? })              | Create a Live View URL for a tab.                                               |
+| cdp.startSession() _(reuse/dynamic)_                  | Promote or ensure the shared session; returns its info.                         |
+| cdp.sessionInfo() _(reuse/dynamic)_                   | Shared session info, or null.                                                   |
+| cdp.closeSession() _(reuse/dynamic)_                  | Close the shared session.                                                       |
+| cdp.resetSession() _(reuse/dynamic)_                  | Close and replace the shared session.                                           |
+
+Every `cdp.*` call is recorded in the runtime's durable log. If a run pauses (for approval) or the sandbox aborts, resuming replays the log and continues — so connector calls must be sequential and deterministic. Model code must not `Promise.all` CDP calls (the tool instructions enforce this), and the returned `sessionId` is a stable session handle that stays valid across pause/resume reconnects.
+
+Note
+
+Using `@cloudflare/think`? The unified execute tool (`createExecuteTool(this)`) already includes `cdp.*` alongside `state.*` and `tools.*` when `env.BROWSER` is bound. Refer to [Think tools](https://developers.cloudflare.com/agents/harnesses/think/tools/).
+
+## Build a browser agent
+
+For a complete walkthrough, including Browser Run setup, tool definitions, and screenshot capture, use the browser agent example.
+
+[ Browser agent ](https://developers.cloudflare.com/agents/examples/browser-agent/) Build an agent that can browse the web, inspect pages, capture screenshots, and debug frontend issues. 
+
+## Related resources
+
+[ Browser Run ](https://developers.cloudflare.com/browser-run/) Run browser automation on Cloudflare. 
+
+[ Chrome DevTools Protocol ](https://developers.cloudflare.com/browser-run/cdp/) Use CDP commands, events, and types with Browser Run. 
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/agents/tools/browser/#page","headline":"Browser · Cloudflare Agents docs","description":"Give Agents full Chrome DevTools Protocol access to inspect pages, scrape data, and capture screenshots with Browser Run.","url":"https://developers.cloudflare.com/agents/tools/browser/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-06-16","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/agents/","name":"Agents"}},{"@type":"ListItem","position":3,"item":{"@id":"/agents/tools/","name":"Tools"}},{"@type":"ListItem","position":4,"item":{"@id":"/agents/tools/browser/","name":"Browser"}}]}
+```

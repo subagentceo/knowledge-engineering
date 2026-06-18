@@ -19,7 +19,6 @@ To complete this tutorial you need:
 
 This is the full sample code of what you will build:
 
-
 ```javascript
 import express from "express";
 import bodyParser from "body-parser";
@@ -174,7 +173,6 @@ We're using [Express](https://expressjs.com/) as the framework and have set that
 
 First look at `initialCanvas`:
 
-
 ```javascript
 const initialCanvas = {
   canvas: {
@@ -227,7 +225,6 @@ const initialCanvas = {
 This is a [Canvas object](https://developers.intercom.com/docs/references/canvas-kit/responseobjects/canvas/), which defines what will display to the teammate in the Inbox app. In this example it contains a content object with components that display text with list a checkboxes, and a submit button.
 
 If you look at `/initialize` in the same file, you will see that when this endpoint is hit, it will send the `initialCanvas` object whenever the app is added to the Inbox, or when a teammate views a conversation with the app added to the Inbox.
-
 
 ```javascript
 app.post("/initialize", (request, response) => {
@@ -287,7 +284,6 @@ If you can see your app is running but you get an error when trying to add it to
 
 The button on our initial canvas object has a [submit action](https://developers.intercom.com/docs/references/canvas-kit/actioncomponents/submit-action/):
 
-
 ```javascript
 {
   type: "button",
@@ -303,7 +299,6 @@ The button on our initial canvas object has a [submit action](https://developers
 This means that when clicked, it will trigger a [submit request](/docs/canvas-kit#submit-request) and hit the submit endpoint. You can call the submit request as many times as you would like in a teammate's session with your app.
 
 After the initial canvas displays and the button is clicked, we've set it up so that it will go to the submit endpoint.
-
 
 ```javascript
 app.post("/submit", (request, response) => {

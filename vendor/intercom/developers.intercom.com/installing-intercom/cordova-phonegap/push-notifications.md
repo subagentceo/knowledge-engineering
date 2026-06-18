@@ -6,7 +6,6 @@ Intercom for mobile supports Push Notifications on iOS and Firebase Cloud Messag
 
 To enable iOS push notifications, simply call the following anywhere in your code:
 
-
 ```javascript
 intercom.registerForPush();
 ```
@@ -14,7 +13,6 @@ intercom.registerForPush();
 ## Android
 
 To enable Android FCM push notifications, copy your `google-services.json` file into the root directory of your project and add the lines to `config.xml`
-
 
 ```xml
 <preference name="intercom-android-push-type" value="FCM"/>

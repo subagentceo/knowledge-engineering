@@ -23,7 +23,6 @@ The option you choose should be informed by the design of your app, namely wheth
 
 ### Login your unidentified users (visitors)
 
-
 ```javascript
 loginUnidentifiedUser: () => Promise<boolean>;
 ```
@@ -35,7 +34,6 @@ Login a unidentified user.
 This is a user that doesn't have any identifiable information such as a `userId` or `email`.
 
 Login an unidentified user in your application like so:
-
 
 ```javascript
 try {
@@ -50,7 +48,6 @@ If the call fails, you can check against our list of [error codes](https://devel
 If a request to login a user fails, the underlying native SDK will retry before the Promise is rejected. Furthermore, if all login retries have failed, you can still attempt to call other Intercom methods, as the Intercom SDK will first try to log the user in if previous login attempts have failed.
 
 ### Login your identified (logged in) users into Intercom
-
 
 ```javascript
 loginUserWithUserAttributes: (params: UserAttributes) => Promise<boolean>;
@@ -68,7 +65,6 @@ Valid identifiers are `userId` and `email` which must be set in the UserAttribut
 
 You can login your user like this:
 
-
 ```javascript
 try {
   await Intercom.loginUserWithUserAttributes({
@@ -85,7 +81,6 @@ If the call fails, you can check against our list of [error codes](https://devel
 ## Register both unidentified (non-logged in) and identified (logged in) users
 
 If you have an app with both unidentified and identified users, you will need to either conditionally choose which registration to call:
-
 
 ```javascript
 try {
@@ -113,7 +108,6 @@ Or you can login with `Intercom.loginUnidentifiedUser()` and if a user signs up/
 
 ## How to logout an identified user
 
-
 ```javascript
 logout(): Promise<boolean>;
 ```
@@ -126,7 +120,6 @@ This will dismiss any Intercom UI and clear Intercom's local cache.
 You should only logout an identified user. Logging out an unidentified user will result in orphan records that cannot be merged in future.
 
 When users want to log out of your app, simply call:
-
 
 ```javascript
 try {
@@ -141,7 +134,6 @@ Intercom knows when your app is backgrounded and comes alive again, so you won�
 
 
 ## Update a user
-
 
 ```javascript
 updateUser(userAttributes: UserAttributes): Promise<boolean>;
@@ -159,7 +151,6 @@ Update a user in Intercom with data specified in ` UserAttributes`.
 You can send any data you like to Intercom from standard user attributes that are common to all Intercom users to custom user attributes that are unique to your app.
 
 Standard user attributes can be updated by calling:
-
 
 ```javascript
 try {
@@ -181,7 +172,6 @@ If the call fails, you can check against our list of [error codes](https://devel
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by passing in customAttributes object to `updateUser`:
 
-
 ```javascript
 Intercom.updateUser({
   customAttributes: {
@@ -193,7 +183,6 @@ Intercom.updateUser({
 ```
 
 You can also set company data on your user with the Company object, like:
-
 
 ```javascript
 Intercom.updateUser({
@@ -212,7 +201,6 @@ Intercom.updateUser({
 
 ## Submit an event
 
-
 ```javascript
 logEvent(eventName: string, metaData?: MetaData): Promise<boolean>;
 ```
@@ -224,7 +212,6 @@ logEvent(eventName: string, metaData?: MetaData): Promise<boolean>;
 
 
 You can log [events in Intercom](https://developers.intercom.com/intercom-api-reference/reference/event-model) that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
-
 
 ```javascript
 Intercom.logEvent('order-item', {itemId:'item-1', orderDate:"1392036272"})
@@ -241,7 +228,6 @@ Spaces are different areas of the messenger that you can open directly. Intercom
 
 These spaces can be presented by:
 
-
 ```javascript
 present(): Promise<boolean>;
 ```
@@ -251,13 +237,11 @@ present(): Promise<boolean>;
 Present Intercom as a modal overlay in your app.
 The `Home` space is displayed by default.
 
-
 ```javascript
 Intercom.present();
 ```
 
 If you want to present to a specific space
-
 
 ```javascript
 presentSpace(space: Space): Promise<boolean>;
@@ -272,7 +256,6 @@ presentSpace(space: Space): Promise<boolean>;
 
 Present an Intercom `space` as a modal overlay in your app
 
-
 ```javascript
 Intercom.presentSpace(Space.home);
 ```
@@ -282,7 +265,6 @@ This opens Intercom and displays Home space.
 Similarly, you can present HelpCenter and Messages by passing the respective `Space`.
 
 ## Present Intercom Content
-
 
 ```javascript
 presentContent(content: Content): Promise<boolean>;
@@ -310,7 +292,6 @@ To present an Intercom content you create the respective `IntercomContent` objec
 
 For instance, you create an "article" IntercomContent as follows:
 
-
 ```javascript
 IntercomContent.articleWithArticleId('123456')
 ```
@@ -319,7 +300,6 @@ Similarly, you can can create surveys, carousels and help center collections.
 
 You can then present such content using:
 
-
 ```javascript
 Intercom.presentContent(
       IntercomContent.articleWithArticleId('123456')
@@ -327,7 +307,6 @@ Intercom.presentContent(
 ```
 
 Or, you can present a conversation using conversation ID:
-
 
 ```
 Intercom.presentContent(
@@ -351,7 +330,6 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 You can control whether the Intercom Messenger appears in light mode, dark mode, or follows the system theme setting:
 
-
 ```javascript
 setThemeMode(themeMode: ThemeMode): Promise<boolean>;
 ```
@@ -367,7 +345,6 @@ setThemeMode(themeMode: ThemeMode): Promise<boolean>;
 #### Usage
 
 This allows you to override the server-provided theme setting for the current session only. The theme selection will be reset when the app restarts.
-
 
 ```javascript
 import Intercom, { ThemeMode } from '@intercom/intercom-react-native';
@@ -390,13 +367,11 @@ The theme mode setting is session-based and will revert to the default (server-p
 
 If you’d like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```javascript
 Intercom.setLauncherVisibility(Visibility.VISIBLE)
 ```
 
 If you want to set the bottom padding for the Messenger, which dictates how far from the bottom of the screen the default launcher and in-app messages will appear, you can call:
-
 
 ```javascript
 Intercom.setBottomPadding(120)
@@ -410,20 +385,17 @@ However, if you’d like the Messenger to open from another location in your mob
 
 If you have a custom launcher, you can call `Intercom.present();`
 
-
 ```javascript
 <Button title="Open Intercom Messenger" onPress={()=>{Intercom.present();}}/>
 ```
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
 
-
 ```javascript
 Intercom.presentMessageComposer("Message")
 ```
 
 You can also open the composer without pre-populated text:
-
 
 ```javascript
 Intercom.presentMessageComposer()
@@ -433,13 +405,11 @@ Intercom.presentMessageComposer()
 
 Grab the current count with this method:
 
-
 ```javascript
 Intercom.getUnreadConversationCount()
 ```
 
 Then, start listening for updates using:
-
 
 ```javascript
 import { NativeEventEmitter, NativeModules } from 'react-native';
@@ -478,7 +448,6 @@ The React Native SDK provides several event listeners to notify your app of Inte
 
 ### Setup Requirements
 
-
 ```javascript
 import { NativeEventEmitter, NativeModules } from 'react-native';
 import Intercom, { IntercomEvents } from '@intercom/intercom-react-native';
@@ -487,7 +456,6 @@ import Intercom, { IntercomEvents } from '@intercom/intercom-react-native';
 ### Usage Examples
 
 **Listen for conversation unread count changes:**
-
 
 ```javascript
 useEffect(() => {
@@ -511,7 +479,6 @@ useEffect(() => {
 ```
 
 **Listen for Messenger show/hide events:**
-
 
 ```javascript
 useEffect(() => {
@@ -548,13 +515,11 @@ useEffect(() => {
 
 You can prevent in app messages from popping up in certain parts of your app, by calling:
 
-
 ```javascript
 Intercom.setInAppMessageVisibility(Visibility.GONE)
 ```
 
 You can hide any Intercom screen in your app, by calling:
-
 
 ```javascript
 Intercom.hideIntercom();

@@ -8,7 +8,6 @@ This tutorial will walk you through creating an Article inside a Collection via 
 
 To create a collection in Intercom, you need to make a call to [Collections API](https://developers.intercom.com/intercom-api-reference/reference/createcollection):
 
-
 ```curl
 curl --request POST \
      --url https://api.intercom.io/help_center/collections \
@@ -32,7 +31,6 @@ To create an article, you need to provide the id of its author. In this tutorial
 
 We provide a dedicated API to find the admin user who is logged in:
 
-
 ```curl
 curl --request GET \
      --url https://api.intercom.io/me \
@@ -45,7 +43,6 @@ This will return the Admin object. You'll need its id in Step 3.
 ## Step 3: Create an article
 
 To create an article in Intercom, you need to make a call to Articles API :
-
 
 ```curl
 curl --request POST \
@@ -66,7 +63,6 @@ curl --request POST \
 ```
 
 Once the article is created, you may also choose to make it public by making an update to its state via [the API](https://developers.intercom.com/intercom-api-reference/reference/updatearticle):
-
 
 ```curl
 curl --request PUT \

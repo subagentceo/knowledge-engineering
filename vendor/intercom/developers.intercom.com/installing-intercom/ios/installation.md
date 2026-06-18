@@ -27,7 +27,6 @@ Then you have three options:
 
 Using the [latest version of Cocoapods](https://github.com/CocoaPods/CocoaPods/releases/latest), add Intercom to your Podfile and run `pod install --repo-update`
 
-
 ```ruby
 target :YourTargetName do
   pod 'Intercom'
@@ -65,7 +64,6 @@ You can also optionally add an entry for `NSMicrophoneUsageDescription`. This is
 
 Initialize Intercom by importing Intercom and adding the following to your application delegate:
 
-
 ```swift
 import Intercom 
   
@@ -73,7 +71,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
      Intercom.setApiKey("<Your iOS API Key>", forAppId: "<Your App ID>")
 }
 ```
-
 
 ```objectivec
 @import Intercom;
@@ -85,7 +82,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 If your app is using a **UISceneDelegate** you will need to put your Intercom initialisation code into your `SceneDelegate`
 
-
 ```swift
 import Intercom 
 
@@ -93,7 +89,6 @@ func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options conn
  	Intercom.setApiKey("<Your iOS API Key>", forAppId: "<Your App ID>")
 }
 ```
-
 
 ```objectivec
 @import Intercom;

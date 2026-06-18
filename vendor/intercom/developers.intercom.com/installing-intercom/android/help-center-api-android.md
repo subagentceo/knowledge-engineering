@@ -8,11 +8,9 @@ Check [here](https://www.intercom.com/help/en/articles/56660-resources-to-help-w
 
 To display an Activity with your Help Center content, call the following method:
 
-
 ```Kotlin
 Intercom.client().present(space = IntercomSpace.HelpCenter)
 ```
-
 
 ```Java
 Intercom.client().present(IntercomSpace.HelpCenter);
@@ -26,11 +24,9 @@ If you don't have Help Center enabled in your Intercom settings the method `disp
 
 To present an Article programatically, pass in an articleID from your Intercom workspace to the following method:
 
-
 ```Kotlin
 Intercom.client().presentContent(content = IntercomContent.Article(id = "123456"))
 ```
-
 
 ```Java
 Intercom.client().presentContent(IntercomContent.Article(id = "123456"));
@@ -44,7 +40,6 @@ An article must be ‘live’ to be used in this way. If it is in a draft or pau
 
 You can pass in 1 or more collection IDs to filter the Help Center. This will display the same Activity as calling `present(IntercomSpace.HelpCenter);` but the collections list will only show the IDs passed in.
 
-
 ```Kotlin
 Intercom.client().presentContent(
   content = IntercomContent.HelpCenterCollections(
@@ -52,7 +47,6 @@ Intercom.client().presentContent(
   )
 )
 ```
-
 
 ```Java
 Intercom.client().presentContent(
@@ -74,11 +68,9 @@ From version 10.0.0 you can now fetch the data directly and build your own UI. T
 
 To fetch a list of all Collections call:
 
-
 ```Kotlin
 Intercom.client().fetchHelpCenterCollections(collectionRequestCallback)
 ```
-
 
 ```Java
 Intercom.client().fetchHelpCenterCollections(collectionRequestCallback);
@@ -102,11 +94,9 @@ The `HelpCenterCollection` object contains the follow values:
 
 To get a list of sections/articles for a collections call:
 
-
 ```Kotlin
 Intercom.client().fetchHelpCenterCollection("COLLECTION_ID", collectionContentCallback)
 ```
-
 
 ```Java
 Intercom.client().fetchHelpCenterCollection("COLLECTION_ID", collectionContentCallback);
@@ -146,11 +136,9 @@ The `HelpCenterArticle` model can be found both inside of sections, or at the to
 
 To get a list of articles in the Help Center, filtered by a search term call:
 
-
 ```Kotlin
 Intercom.client().searchHelpCenter("SEARCH_TERM", searchCallback)
 ```
-
 
 ```Java
 Intercom.client().searchHelpCenter("SEARCH_TERM", searchCallback);

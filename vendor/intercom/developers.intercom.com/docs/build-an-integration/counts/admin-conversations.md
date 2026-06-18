@@ -15,7 +15,6 @@ The admin conversation count supplies per Admin counts
 | conversation.admin.name | string | Contains the Admin name |
 
 
-
 ```text
 {
   "type": "count",
@@ -38,14 +37,12 @@ The admin conversation count supplies per Admin counts
 }
 ```
 
-
 ```bash
 # Conversation Admin Counts
 $ curl 'https://api.intercom.io/counts?type=conversation&count=admin' \
 -H 'Authorization:Bearer <Your access token>' \
 -H 'Accept:application/json'
 ```
-
 
 ```curl
 # Conversation Admin Counts
@@ -72,11 +69,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ```ruby
 intercom.counts.for_type(type: 'conversation', count: 'admin')
 ```
-
 
 ```php
 <?php
@@ -85,7 +80,6 @@ $counts = $intercom->counts->getCounts(["type" => "conversation", "count" => "ad
 print_r($counts);
 ?>
 ```
-
 
 ```java
 // Conversation Admin Count

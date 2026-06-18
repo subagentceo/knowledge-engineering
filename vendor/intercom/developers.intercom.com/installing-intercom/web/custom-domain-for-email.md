@@ -171,7 +171,6 @@ If you wish to host your own security certificates, you can do so through a [TLS
 
 Here are the basic instructions to set up your own SSL using Apache webserver:
 
-
 ```html
 # Prerequisites: mod_ssl, mod_proxy and mod_proxy_http should be enabled
 
