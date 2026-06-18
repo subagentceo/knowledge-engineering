@@ -22,11 +22,13 @@ if ! git rev-parse --show-toplevel >/dev/null 2>&1; then
 fi
 
 # Skip if no GitHub token available (gh would prompt).
-if ! gh auth status >/dev/null 2>&1; then
+# timeout 15: gh auth status can hang on slow networks; SessionStart hooks
+# must not block indefinitely (B-GHAUTH1).
+if ! timeout 15 gh auth status >/dev/null 2>&1; then
   exit 0
 fi
 
-mapfile -t PRS < <(gh pr list \
+mapfile -t PRS < <(timeout 30 gh pr list \
   --state open \
   --label automerge \
   --json number,isDraft,mergeStateStatus \
@@ -39,7 +41,7 @@ fi
 echo "[rebase-stale-prs] ${#PRS[@]} BEHIND PR(s): ${PRS[*]}" >&2
 
 for n in "${PRS[@]}"; do
-  if gh pr update-branch "$n" >/dev/null 2>&1; then
+  if timeout 30 gh pr update-branch "$n" >/dev/null 2>&1; then
     echo "[rebase-stale-prs] rebased #$n" >&2
   else
     echo "[rebase-stale-prs] could not rebase #$n (conflict?)" >&2
