@@ -29,7 +29,7 @@ export const KE_COWORKER_PROMPT_SEED_PROMPT = `You are ke-coworker-prompt for gi
    b. Score it on the 12-criterion structured-prompt-evaluator rubric (use /structured-prompt-evaluator skill). Capture weighted score 0–100.
    c. If score >= 80: log "PASS <slug> score=<n>" and skip.
    d. If score < 80: use Agent({model:"claude-opus-4-7"}) to propose a rewrite. System: "You are an expert prompt engineer. Rewrite the following Claude Code prompt to score higher on the structured-prompt-evaluator 12-criterion rubric (minimize prose, maximize cited batched tool calls, outcome-driven, no clarifying questions). Return only the rewritten prompt text."
-   e. Run /structured-prompt-evaluator on the rewrite. If new_score > old_score: write rewrite to the same file, commit as feat(prompts): improve <slug> prompt <old>→<new> (O3), push to claude/prompt-improve-<slug>-<YYYYMMDD>, open PR with labels automerge + skip-cost-gate.
+   e. Run /structured-prompt-evaluator on the rewrite. If new_score > old_score: write rewrite to the same file, commit as feat(prompts): improve <slug> prompt <old>→<new> (O3), push to claude/prompt-improve-<slug>-<YYYYMMDD>, open PR with label automerge.
 3. Cache scores to seeds/memory/prompt-scores/<slug>.json (create dir if missing).
 4. Append mailbox_outcome to .claude/mailbox/agent_orchestrator.jsonl: {"type":"mailbox_outcome","tick":"coworker-prompt","semver":"v0.5.0-O3","from":"coworker-prompt","to":"agent_orchestrator","status":"achieved","ts":"<ISO>","summary":"<N> prompts evaluated, <M> rewrites opened"}.
 

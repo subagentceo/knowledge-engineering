@@ -8,7 +8,7 @@ Loaded every session. Governs how Claude creates, monitors, and rescues pull req
 |---|---|
 | `github-actions[bot]` "Auto-reopen: triggering PR-event workflows after App-pushed rebase (OAUTO17)" | Silent skip — rescue bot working correctly |
 | PR closed → reopened in sequence (bot-authored) | Silent skip |
-| `conclusion: failure` on `Agent session cost gate` | Add `skip-cost-gate` label via `mcp__github__issue_write` |
+| `conclusion: failure` on `Agent session cost gate` | Informational only — not a required check; `agent-session-cost-report.yml` auto-generates the artifact |
 | `conclusion: failure` on `npm run verify` | Investigate and fix |
 | `conclusion: failure` on `OSV-Scanner (PR)` | Investigate and fix |
 | Human review comment | Read, assess, fix if ≤20 lines; ask if ambiguous |
@@ -22,10 +22,10 @@ Loaded every session. Governs how Claude creates, monitors, and rescues pull req
 2. git push -u origin claude/<slug>
 3. mcp__github__create_pull_request      # creates PR
 4. mcp__github__issue_write              # add labels IMMEDIATELY
-   labels: ["automerge", "skip-cost-gate"]
+   labels: ["automerge"]
 ```
 
-Never create PR then wait to add labels — cost-gate fires within seconds.
+`agent-session-cost-report.yml` auto-generates the cost artifact on every PR touching `apps/` or `src/`. No `skip-cost-gate` needed for normal PRs.
 
 ## Branch name rescue (worktree-agent-* branches)
 
@@ -54,11 +54,11 @@ Both must show `conclusion: success` on the PR head SHA:
 | Checks haven't run yet (App-pushed rebase) | Wait for rescue bot close/reopen cycle |
 | PR behind main (`strict` policy) | Rescue bot rebases automatically |
 | Both checks passed, state stale | Wait ~60s for GitHub to refresh; auto-merge fires |
-| `skip-cost-gate` label missing | Add label; cost-gate was blocking |
+| `skip-cost-gate` label missing | Not needed — gate is informational, not required |
 
 ## Label reference
 
 | Label | Effect |
 |---|---|
 | `automerge` | Enable rebase auto-merge once required checks pass |
-| `skip-cost-gate` | Bypass agent-session cost gate (use for all agent-created PRs) |
+| `skip-cost-gate` | Emergency bypass of cost gate — not needed for normal PRs; `agent-session-cost-report.yml` auto-generates the artifact (OCOST1) |
