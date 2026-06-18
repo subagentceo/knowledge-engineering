@@ -1,8 +1,8 @@
 /**
  * @tdd green
- * @cite infra/postgres/init/04-tailscale-pr-context.sql
- * @cite src/lib/tailscale-pr-context.ts
- * @cite src/cache/lru-bm25.ts  (RedisLike interface)
+ * @cite data/models/alloydb/dim_tailscale_node.yaml
+ * @cite data/models/alloydb/events_pr_merge.yaml
+ * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
