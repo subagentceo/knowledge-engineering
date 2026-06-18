@@ -1,6 +1,6 @@
 # Building AI for cyber defenders
 
-Policy
+PolicyFrontier Red Team
 
 # Building AI for cyber defenders
 
@@ -9,8 +9,6 @@ Oct 3, 2025
 ![Building AI for cyber defenders](https://www-cdn.anthropic.com/images/4zrzovbb/website/97cf99624aa60f59b75f9e08cdf0f00d33c34804-1000x1000.svg)
 
 **AI models are now useful for cybersecurity tasks in practice, not just theory. As research and experience demonstrated the utility of frontier AI as a tool for cyber attackers, we invested in improving Claude’s ability to help defenders detect, analyze, and remediate vulnerabilities in code and deployed systems. This work allowed Claude Sonnet 4.5 to match or eclipse Opus 4.1, our frontier model released only two months prior, in discovering code vulnerabilities and other cyber skills. Adopting and experimenting with AI will be key for defenders to keep pace.**
-
-[@portabletext/react] Unknown block type "horizontalRule", specify a component for it in the `components.types` prop
 
 We believe we are now at an inflection point for AI’s impact on cybersecurity.
 
@@ -54,7 +52,7 @@ When we give Claude Sonnet 4.5 10 attempts at the Cybench evaluation, it succeed
 
 ![Claude Sonnet 4.5 outperforms other models at Cybench](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fea02c36272de121f033e474a8afda8a039f0ec2c-3000x1800.png&w=3840&q=75)
 
-Model Performance on Cybench. Claude Sonnet 4.5 significantly outperforms all previous models given k=1, 10, or 30 trials, where probability of success is measured as the expectation over the proportion of problems where at least one of k trials succeeds. Note that these results are on a subset of 37 of the 40 original Cybench problems, where 3 problems were excluded due to implementation difficulties.  
+**Figure 1**: Model Performance on Cybench. Claude Sonnet 4.5 significantly outperforms all previous models given k=1, 10, or 30 trials, where probability of success is measured as the expectation over the proportion of problems where at least one of k trials succeeds. Note that these results are on a subset of 37 of the 40 original Cybench problems, where 3 problems were excluded due to implementation difficulties.  
 
 ### CyberGym
 
@@ -64,13 +62,13 @@ Claude Sonnet 4.5 scores significantly better than either Claude Sonnet 4 or Cla
 
 ![Model Performance on CyberGym — Sonnet 4.5 is more likely to be successful, both after one trial and after thirty.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc35c81850f6f90e9b5f8064acf5c9effba71b1fe-3493x1640.png&w=3840&q=75)
 
-Model Performance on CyberGym. Sonnet 4.5 outperforms all previous models, including Opus 4.1. *Note that Opus 4.1, given its higher price, did not follow the same $2 cost constraint as the other models in the 1 trial scenario.
+**Figure 2**: Model Performance on CyberGym. Sonnet 4.5 outperforms all previous models, including Opus 4.1. Note that Opus 4.1, given its higher price, did not follow the same $2 cost constraint as the other models in the 1 trial scenario.
 
 Equally interesting is the rate at which Claude Sonnet 4.5 discovers new vulnerabilities. While the CyberGym leaderboard shows that Claude Sonnet 4 only discovers vulnerabilities in about 2% of targets, Sonnet 4.5 discovers new vulnerabilities in 5% of cases. By repeating the trial 30 times it discovers new vulnerabilities in over 33% of projects.
 
 ![Model Performance on CyberGym new vulnerability discovery](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff00cf63cfc5bd5dd2e5e94d4aabde7ec8fb43f6c-3000x1800.png&w=3840&q=75)
 
-Model Performance on CyberGym. Sonnet 4.5 outperforms Sonnet 4 at new vulnerability discovery with only one trial and dramatically outstrips its performance when given 30 trials.
+**Figure 3**: Model Performance on CyberGym. Sonnet 4.5 outperforms Sonnet 4 at new vulnerability discovery with only one trial and dramatically outstrips its performance when given 30 trials.
 
 ### Further research into patching
 
@@ -96,8 +94,6 @@ Claude Sonnet 4.5 represents a meaningful improvement, but we know that many of 
 
 But even building and adopting to advantage defenders is only part of the solution. We also need conversations about making digital infrastructure more resilient and new software secure by design—including with help from frontier AI models. We look forward to these discussions with industry, government, and civil society as we navigate the moment when AI’s impact on cybersecurity transitions from being a future concern to a present-day imperative.
 
-_This article was originally posted on September 29 2025 on the Frontier Red Team's blog, red.anthropic.com._
-
 #### Footnotes
 
 1. Andy K Zhang et al., "Cybench: A Framework for Evaluating Cybersecurity Capabilities and Risks of Language Models," in The Thirteenth International Conference on Learning Representations (2025), https://openreview.net/forum?id=tc90LV0yRL.
@@ -106,16 +102,20 @@ _This article was originally posted on September 29 2025 on the Frontier Red Tea
 
 ## Related content
 
+### Agentic coding and persistent returns to expertise
+
+Read more
+
 ### Paving the way for agents in biology
 
 Read more
 
-### Making Claude a chemist
+### Measuring LLMs’ impact on N-day exploits
+
+In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
 
 Read more
 
-### Coding agents in the social sciences
+## Subscribe to the Frontier Red Team newsletter
 
-Results from a survey of 1,260 social scientists about AI and coding agent use.
-
-Read more
+Get updates on our latest red-teaming research and findings.

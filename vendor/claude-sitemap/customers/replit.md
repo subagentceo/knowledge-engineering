@@ -1,4 +1,4 @@
-# Replit opens software creation to 50 million people with Claude
+# Replit democratizes software development with Claude on Google Cloud
 
 Replit, an agentic software creation platform, uses Claude on Google Cloud's Agent Platform to help anyone build and deploy software applications without coding experience. Its AI agent, powered by Claude, has grown that audience to more than 50 million people.
 

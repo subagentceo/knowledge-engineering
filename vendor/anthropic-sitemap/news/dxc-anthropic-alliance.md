@@ -39,18 +39,16 @@ To learn more about the Claude Partner Network, visit anthropic.com/partners.
 
 ## Related content
 
+### Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem
+
+Read more
+
+### Statement on the US government directive to suspend access to Fable 5 and Mythos 5
+
+The US government has issued an export control directive to suspend all access to Fable 5 and Mythos 5.
+
+Read more
+
 ### Results from the first Anthropic Public Record
-
-Read more
-
-### TCS and Anthropic partner to bring Claude to regulated industries
-
-We’re announcing a partnership with Tata Consultancy Services (TCS). TCS will provide Claude to 50,000 of its own employees across 56 countries; build Claude-powered products for clients in financial services, healthcare, the public sector, and other regulated industries; and join the Claude Partner Network.
-
-Read more
-
-### Introducing Claude Corps
-
-We’re launching Claude Corps, a national fellowship program for people early in their careers who are passionate about extending the benefits of AI to communities across America.
 
 Read more

@@ -17,9 +17,11 @@ Update work item metadata with merge semantics.
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 25 more`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -72,7 +74,9 @@ Update work item metadata with merge semantics.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Body Parameters
 
@@ -89,9 +93,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string`
 
@@ -104,13 +109,15 @@ Update work item metadata with merge semantics.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -132,6 +139,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" or "starting" or "active" or 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -153,6 +161,7 @@ Update work item metadata with merge semantics.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example

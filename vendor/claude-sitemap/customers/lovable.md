@@ -1,4 +1,4 @@
-# Lovable builds on Claude so anyone can create software 20x faster
+# Lovable helps anyone create software 20x faster with Claude
 
 Lovable turns a plain-language description of an app into production-grade software. Users shape it through a back-and-forth conversation, refining until it matches what they had in mind. Since its launch in November 2024, people have built more than 50 million projects on Lovable.
 

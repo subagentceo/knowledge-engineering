@@ -32,6 +32,8 @@ You're charged for the number of seats on your plan at the start of your annual 
 
 On usage-based Enterprise plans, usage is charged separately from your seat fee and is based on actual token consumption at standard API rates. For current per-model pricing, see our **[API pricing page](https://www.anthropic.com/pricing#api)**.
 
+**Important:** If your organization has the US-only inference setting turned on, usage is billed at 1.1x standard API rates for Claude Opus 4.6, Claude Sonnet 4.6, and later models. This applies to both self-serve and sales-assisted plans. Learn more about **[enabling US-only inference for your organization](https://support.claude.com/en/articles/15422948)**.
+
 How and when you're billed for usage depends on your plan type:
 
 ### Self-serve Enterprise

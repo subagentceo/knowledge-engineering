@@ -100,9 +100,9 @@ Some existing usage-based Enterprise organizations currently have two seat types
 
 ### Seat types
 
-| **Seat type** | **What's included** |
-| --- | --- |
-| **Chat** | Claude on web, desktop, and mobile apps |
+| **Seat type**          | **What's included**                         |
+| ---------------------- | ------------------------------------------- |
+| **Chat**               | Claude on web, desktop, and mobile apps     |
 | **Chat + Claude Code** | Everything in Chat, plus Claude Code access |
 
 You can mix and match seat types based on your team's needs. Assign Chat + Claude Code seats to team members who need coding workflows, while keeping others on Chat seats.
@@ -159,10 +159,10 @@ Some Enterprise organizations are on older seat-based plans with a different bil
 
 ### Seat types
 
-| **Seat type** | **What's included** |
-| --- | --- |
-| **Standard** | Core Enterprise features and usage limits |
-| **Premium** | Everything in Standard, plus higher usage limits |
+| **Seat type** | **What's included**                              |
+| ------------- | ------------------------------------------------ |
+| **Standard**  | Core Enterprise features and usage limits        |
+| **Premium**   | Everything in Standard, plus higher usage limits |
 
 ### Reassign users between seat types
 

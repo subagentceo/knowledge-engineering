@@ -31,6 +31,7 @@ For manual installation on individual machines, use the following PowerShell com
 Add-AppxPackage -Path "Claude.msix"
 ```
 ```
+
 For more details, see Microsoft's **[Add-AppxPackage](https://learn.microsoft.com/en-us/powershell/module/appx/add-appxpackage?view=windowsserver2022-ps)** documentation.
 
 ### Install for all users (provisions machine-wide)
@@ -40,6 +41,7 @@ For more details, see Microsoft's **[Add-AppxPackage](https://learn.microsoft.co
 Add-AppxProvisionedPackage -Online -PackagePath "Claude.msix" -SkipLicense -Regions "all"
 ```
 ```
+
 For more details, see Microsoft's **[Add-AppxProvisionedPackage](https://learn.microsoft.com/en-us/powershell/module/dism/add-appxprovisionedpackage?view=windowsserver2022-ps)** documentation.
 
 ## Deploy via MDM

@@ -109,6 +109,8 @@ Try Claude (opens in new tab)
 
 Usage limits apply. Prices shown don't include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 
+Usage limits apply. Price and plans are subject to change at Anthropic's discretion.
+
 ## Start a task from your phone, come back to a pull request
 
 Route tasks to the desktop app from the Claude mobile app. Claude runs on your local machine and can open your apps, click through your UI, and test what it built. Now in research preview on Pro and Max plans.

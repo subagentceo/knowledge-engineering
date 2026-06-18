@@ -48,7 +48,7 @@ For Claude Platform, contact your Anthropic sales team. Review **[Compliance API
 
 - **Bloom Security:** Bloom uses the Claude Compliance API to enforce security policies across Claude and surface risky behavior before it becomes a liability—scanning artifacts and files for secrets and detecting new skills, plugins, and MCP servers—and to meet legal and regulatory demands in minutes. To set up this integration, see the **[Bloom Security setup guide](https://bloom.security/anthropic-compliance-api-integration)**.
 
-- **Bold AI LTD.:** Prevent sensitive data from being misused by users or AI agents with real-time protection directly on the endpoint. To set up this integration, see the **[Bold AI LTD. setup guide](https://www.bold.security/blog/bold-security-extends-ai-data-protection-through-claudes-compliance-api)**.
+- **Bold Security:** Prevent sensitive data from being misused by users or AI agents with real-time protection directly on the endpoint. To set up this integration, see the **[Bold Security setup guide](https://www.bold.security/blog/bold-security-extends-ai-data-protection-through-claudes-compliance-api)**.
 
 - **Brava Security:** Brava ingests the Claude activity feed via the Compliance API and turns it into fully-leveraged security telemetry—routed into your existing SIEM, data lake, and archive, and searchable for investigation—so one feed powers monitoring, insider risk, retention, and governance with no custom collectors. To set up this integration, see the **[Brava Security setup guide](https://brava.security/integrations/anthropic-claude)**.
 

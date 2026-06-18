@@ -1,6 +1,6 @@
-**[Claude Design](http://claude.ai/design)** by Anthropic Labs lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
+**[Claude Design](http://claude.ai/design)** lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
 
-Claude Design by Anthropic Labs is now available in research preview to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
+Claude Design is now available in beta to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans. You can use it on the web at claude.ai/design or from the sidebar in Claude Desktop.
 
 This guide assumes your organization’s design system has already been set up, so everything you create will automatically use your brand’s colors, typography, and component patterns. If you’re a design lead who needs to set up or modify the design system itself, see **[Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)**.
 
@@ -8,25 +8,41 @@ This guide assumes your organization’s design system has already been set up, 
 
 ## How Claude Design works
 
-Claude Design has two main areas: a chat interface on the left and a canvas on the right. You describe what you want in the chat, and Claude generates a working design on the canvas. From there, you iterate—refining through conversation and inline comments until it’s right.
+Claude Design has two main areas: a chat interface on the left and a canvas on the right. You describe what you want in the chat, and Claude generates a working design on the canvas. From there, you iterate—refining through conversation, inline comments, and directly on the canvas until it’s right.
 
 The typical flow is:
 
-1. Create a project and add any relevant context (screenshots, a codebase).
+1. Create a project.
 
-2. Describe what you want to build.
+2. Attach or import the design system you want Claude to build with.
 
-3. Review what Claude generates on the canvas.
+3. Add any relevant context (screenshots, a codebase).
 
-4. Iterate using chat messages and inline comments.
+4. Describe what you want to build.
 
-5. Export or share when you’re happy with the result.
+5. Review what Claude generates on the canvas.
+
+6. Refine through chat, edit directly on the canvas, or leave inline comments.
+
+7. Export or share when you’re happy with the result.
+
+### Move between Claude Design and Claude Code
+
+You can move between working in Claude Design and Claude Code while keeping your work synced. Use `/design-sync` to pull in your design system, so everything you build in Claude Design starts from your existing components. When a design is ready to become software, you can hand it off to Claude Code, which continues from your existing work instead of starting over from a screenshot.
+
+If you prefer to begin your design project from Claude Code, you can create, edit, and sync your work without leaving your terminal using `/design`. Import a design into your codebase, export your code as a live prototype, or let Claude build the whole thing from start to finish.
 
 ---
 
 ## Create a new project
 
 When you create a project, it automatically inherits your organization’s design system. You don’t need to upload brand assets or configure anything—your brand colors, fonts, and components are already in place.
+
+### Attach or import your design system
+
+Bring in one or several design systems from a GitHub repo, design files, raw uploads, or your local codebase using the `/design-sync` command in Claude Code. Claude builds with your real design system components, checks its own output against your design system, and makes corrections before you see them.
+
+For larger teams, the Claude Design Admin custom role lets an admin approve a standard system and lock down edits, so the work always matches your company guidelines.
 
 ### Add context to your project
 
@@ -56,7 +72,7 @@ Here are some examples of prompts that work well:
 
 ---
 
-## Iterate on your design
+## Refine your design
 
 The first generation is a starting point. The real value comes from iterating.
 
@@ -90,13 +106,19 @@ Examples of good inline comments:
 
 **Note:** If your comments aren’t being picked up, paste the feedback directly into the chat instead. This is a known workaround for an intermittent issue where comments can disappear before Claude reads them.
 
-### When to use chat vs. comments
+### Edit directly on the canvas
 
-Use **comments** for targeted, component-level changes (“fix this button,” “adjust this spacing”). Use **chat** for structural changes, new sections, aesthetic shifts, or anything that requires explanation or context.
+Use rich layout controls for quick visual and aesthetic shifts, specifically to drag, resize, and align elements directly.
+
+### When to use chat vs. comments vs. edit directly
+
+Use **comments** for targeted, component-level changes (“fix this button,” “adjust this spacing”). Use **chat** for structural changes, new sections, or anything that requires explanation or context. **Edit directly** for quick visual and aesthetic changes.
 
 ## Manage versions and revisions
 
 If you want to explore a different direction without losing your current work, tell Claude: “Save what we have and try a completely different approach.” Claude will save your current project and confirm where it’s saved, so you can reference earlier iterations in the conversation easily.
+
+---
 
 ## Export and share
 
@@ -114,25 +136,33 @@ Use the “Export” button in the upper right corner when viewing your project 
 
 - Export as standalone HTML
 
+- Send to the tools you already use, including Adobe, Base44, Canva, Gamma, Lovable, Miro, Replit, Vercel, and Wix, with more destinations coming soon.
+
 - Handoff to Claude Code
 
   - Send to local coding agent
 
   - Send to Claude Code Web
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1781304300&amp;signature=5386dcbd40c557b9ddc41d9e323f2df2b6f5b27f308f48d4c5c5a30a3de7dfb6&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4S1Zm2l3nfz9ljnuyXSBdveNY46oMCanCk67%0A9esa3ZoWZXl2Bov4pKg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1781870400&amp;signature=b2ba4833b4ae8821f98939a6bb901240dc853503bd697dde1c2664f8f47639e4&amp;req=diIvEcx%2FnYhaW%2FMW3nq%2BgeY03psVHLTHSOSDLaDjt0fx9UzkRo8NvYyPVZrQ%0AA6znHAZbxKYZVcvB0yRV0Z48bf0%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 
 ---
 
-## Subscription usage and pricing
+## Usage and pricing
 
-See here for more details: **[Claude Design subscription usage and pricing](https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing)**.
+Claude Design counts toward the same usage limits as the rest of Claude. Design activity draws from the shared pool you use for chat, Claude Code, and Cowork, so there's no separate Claude Design allowance to track. Complex projects with large codebases or many iterations consume more usage.
+
+If you reach your usage limits, Claude Design is unavailable until your limits reset. If you've enabled usage credits, you can keep working after reaching your included limits. Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
+
+**Note:** Claude Design previously had its own weekly allowance, separate from your other usage limits. All Claude Design activity now counts toward your plan's shared limits.
 
 ---
 
 ## Tips for best results
+
+- **Import a complete design system.** Import a complete design system that includes your styles, fonts, and components.
 
 - **Start simple, then layer in complexity.** Begin with the core layout and content, then add interactions, edge cases, and polish. Claude responds well to incremental requests.
 
@@ -150,12 +180,18 @@ See here for more details: **[Claude Design subscription usage and pricing](http
 
 ## Known limitations
 
-Claude Design is available as an experimental preview from Anthropic Labs. A few things to be aware of:
+Claude Design is now available in beta. A few things to be aware of:
 
-- **Comment persistence:** Inline comments occasionally disappear before Claude reads them. To work around this, paste the comment text into the chat.
+- **Comment persistence:** Inline comments occasionally don't appear on the page, but you can still see them by opening the comments view.
 
-- **Save errors in compact view:** The compact layout mode can trigger save errors. If this happens, switch to full view and retry.
+- **Large codebases:** Consider  linking very large repositories from Claude Code to avoid lag or browser issues. To sync a design system, use `/design-sync` from Claude Code. Design straight from Claude Code using the `/design` skill.
 
-- **Large codebases:** Linking very large repositories may cause lag or browser issues. Link specific subdirectories rather than entire monorepos.
+- **Design skills in Claude Code:** If you don't see `/design` or `/design-sync` in Claude Code, try running `/update` to get the latest version of these skills. Only new sessions in Claude Code will have this skill.
 
-- **Chat errors:** If you hit a “chat upstream error,” try starting a new chat tab within the same project.
+- **Chat errors:** If you hit a "chat upstream error," try starting a new chat tab within the same project.
+
+- **Availability:** Claude Design is available on web and desktop only.
+
+- **Multi-person editing:** Two or more people editing a design project at the same time is still basic and may not work reliably.
+
+- **Design system import:** Design system import is only as good as its source. A messy codebase or an incomplete file will show up in the output.

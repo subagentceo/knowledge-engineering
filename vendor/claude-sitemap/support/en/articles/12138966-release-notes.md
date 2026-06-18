@@ -1,5 +1,9 @@
 ## June 2026
 
+### June 12, 2026
+
+We've suspended access to Claude Fable 5 and Claude Mythos 5. We aim to return access as quickly as we can. See **[our statement](https://anthropic.com/news/fable-mythos-access)** for more information.
+
 ### June 9, 2026
 
 **Claude Fable 5 launch**

@@ -6,10 +6,10 @@ This guide explains which model you are using, how usage is metered, and how to 
 
 How you signed in determines how usage is metered. Everything else about Claude Code behaves the same way regardless.
 
-| **You signed in with…** | **You get** | **What "running out" looks like** |
-| --- | --- | --- |
-| Claude Enterprise seat (via `/login`) | A pool of usage included in your organization's plan, reset on a rolling window. | A "limit reached, resets at *time*" message. |
-| API key (Console, Bedrock, Vertex, or Microsoft Foundry) | Pay-as-you-go, billed per token to that cloud or Console account. | No hard stop; the account is charged for what it uses. |
+| **You signed in with…**                                  | **You get**                                                                      | **What "running out" looks like**                      |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Claude Enterprise seat (via `/login`)                    | A pool of usage included in your organization's plan, reset on a rolling window. | A "limit reached, resets at *time*" message.           |
+| API key (Console, Bedrock, Vertex, or Microsoft Foundry) | Pay-as-you-go, billed per token to that cloud or Console account.                | No hard stop; the account is charged for what it uses. |
 
 If you signed in with an Enterprise seat, you generally do not need to think about tokens until you reach a limit. If you are using an API key, the **`/cost`** command shows your running spend for the current session.
 
@@ -111,10 +111,10 @@ A plan costs a few hundred tokens. A wrong 400-line diff that you revert and reg
 
 ## Quick reference
 
-| **Command** | **What it does** |
-| --- | --- |
-| `/model` | See and switch available models. |
-| `/cost` | Show this session's token and dollar usage (API billing). |
-| `/clear` | Start a fresh conversation (project memory stays). |
-| `/compact` | Summarize history to free up context. |
-| `/context` | Inspect what is currently loaded into context. |
+| **Command** | **What it does**                                          |
+| ----------- | --------------------------------------------------------- |
+| `/model`    | See and switch available models.                          |
+| `/cost`     | Show this session's token and dollar usage (API billing). |
+| `/clear`    | Start a fresh conversation (project memory stays).        |
+| `/compact`  | Summarize history to free up context.                     |
+| `/context`  | Inspect what is currently loaded into context.            |

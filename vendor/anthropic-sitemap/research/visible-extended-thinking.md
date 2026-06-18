@@ -110,16 +110,16 @@ You can use Claude 3.7 Sonnet now at Claude.ai or on our API. And just as Claude
 
 ## Related content
 
+### Agentic coding and persistent returns to expertise
+
+Read more
+
 ### Paving the way for agents in biology
 
 Read more
 
-### Making Claude a chemist
+### Measuring LLMs’ impact on N-day exploits
 
-Read more
-
-### Coding agents in the social sciences
-
-Results from a survey of 1,260 social scientists about AI and coding agent use.
+In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
 
 Read more

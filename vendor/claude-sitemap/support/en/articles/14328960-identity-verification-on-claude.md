@@ -86,7 +86,11 @@ As part of our safety process, we may ban an account for a variety of reasons:
 
 - Under-18 usage
 
-If you feel your account has been wrongly banned, please **[fill out the appeal form](https://docs.google.com/forms/d/e/1FAIpQLSdcTocgFJXSJzFJzVc47nxKmjeVhXDfgRaifH3DUZhYarA8vA/viewform?usp=dialog)** with your account information so our Safeguards team can further investigate why your account was disabled.
+If you feel your account has been wrongly suspended or terminated, please go to **[claude.ai](http://claude.ai)**, log in with your banned account, and fill out the appeal form linked below. Our Safeguards team can further investigate why your account was disabled.
+
+[Submit an appeal](https://claude.ai/restricted)
+
+**Important:** You must be logged in to access the appeal form.
 
 ## Questions?
 

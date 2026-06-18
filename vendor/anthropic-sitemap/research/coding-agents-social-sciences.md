@@ -152,16 +152,16 @@ Wilmers, N., & Engzell, P. (2026). The Paper Factory. SocArXiv Preprints.
 
 ## Related content
 
+### Agentic coding and persistent returns to expertise
+
+Read more
+
 ### Paving the way for agents in biology
 
 Read more
 
-### Making Claude a chemist
+### Measuring LLMs’ impact on N-day exploits
 
-Read more
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
+In cybersecurity, a large fraction of real-world harm comes from N-days: vulnerabilities that have already been publicly disclosed, but only patched on some devices. In this post, we evaluate how much large language models can accelerate and automate the process of developing N-day exploits.
 
 Read more

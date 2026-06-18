@@ -52,12 +52,12 @@ Both toggles are off by default. You can enable either or both in **[Organizatio
 
 ### How shared skills differ from provisioned skills
 
-|  | **Owner-provisioned** | **Shared peer-to-peer** | **Shared org-wide** |
-| --- | --- | --- | --- |
-| **Who can share** | Owners only | Any member (if enabled) | Any member (if enabled) |
-| **Where it appears** | Everyone's skills list | Recipient's "Shared with you" section | Organization directory |
-| **Can recipients remove it?** | Disable only | Disable or delete | Disable only |
-| **Requires owner approval?** | Owner uploads directly | No | No |
+|                               | **Owner-provisioned**  | **Shared peer-to-peer**               | **Shared org-wide**     |
+| ----------------------------- | ---------------------- | ------------------------------------- | ----------------------- |
+| **Who can share**             | Owners only            | Any member (if enabled)               | Any member (if enabled) |
+| **Where it appears**          | Everyone's skills list | Recipient's "Shared with you" section | Organization directory  |
+| **Can recipients remove it?** | Disable only           | Disable or delete                     | Disable only            |
+| **Requires owner approval?**  | Owner uploads directly | No                                    | No                      |
 
 **Important:** There's no approval workflow for org-wide sharing. If you enable **Share with organization**, any member can publish a skill to the directory without review. Consider enabling peer-to-peer sharing only if this is a concern.
 

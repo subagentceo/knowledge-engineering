@@ -9,6 +9,7 @@ Validate Credential
 ### Parameters
 
 - `CredentialMcpOAuthValidateParams parameters`
+
   - `required string vaultID`
 
     Path param: Path parameter vault_id
@@ -20,6 +21,7 @@ Validate Credential
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -72,13 +74,16 @@ Validate Credential
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaManagedAgentsCredentialValidation:`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `required string CredentialID`
 
     Unique identifier of the credential that was validated.
@@ -90,9 +95,11 @@ Validate Credential
   - `required BetaManagedAgentsMcpProbe? McpProbe`
 
     The failing step of an MCP validation probe.
+
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
       An HTTP response captured during a credential validation probe.
+
       - `required string Body`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -116,6 +123,7 @@ Validate Credential
   - `required BetaManagedAgentsRefreshObject? Refresh`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
       An HTTP response captured during a credential validation probe.
@@ -123,6 +131,7 @@ Validate Credential
     - `required Status Status`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `"succeeded"Succeeded`
 
       - `"failed"Failed`
@@ -134,6 +143,7 @@ Validate Credential
   - `required BetaManagedAgentsCredentialValidationStatus Status`
 
     Overall verdict of a credential validation probe.
+
     - `"valid"Valid`
 
     - `"invalid"Invalid`
@@ -141,6 +151,7 @@ Validate Credential
     - `"unknown"Unknown`
 
   - `required Type Type`
+
     - `"vault_credential_validation"VaultCredentialValidation`
 
   - `required DateTimeOffset ValidatedAt`

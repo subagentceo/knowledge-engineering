@@ -1,4 +1,4 @@
-Accessing artifacts in the sidebar and Claude-powered artifacts are supported on free, Pro, Max, Team, and Enterprise plans.
+Accessing artifacts in the sidebar and Claude-powered artifacts are supported on Free, Pro, Max, Team, and Enterprise plans.
 
 Artifacts allow you to turn ideas into shareable apps, tools, or content—build tools, visualizations, and experiences by simply describing what you need. Claude can share substantial, standalone content with you in a dedicated window separate from the main conversation. This makes it easy to work with significant pieces of content that you may want to modify, build upon, or reference later.
 
@@ -32,7 +32,7 @@ Common examples of artifact content include:
 
 ---
 
-## Enabling or disabling artifacts
+## Enable or disable artifacts
 
 To adjust your artifacts preferences:
 
@@ -42,11 +42,13 @@ To adjust your artifacts preferences:
 
 3. Find **Artifacts** and toggle it on or off.
 
+4. If toggling **Artifacts** on, you'll also need to enable **Code execution and file creation** to create and use artifacts in the VM-based environment.
+
 **Note:** Team and Enterprise administrators may manage some artifact settings at the organization level.
 
 ---
 
-## Accessing your artifacts
+## Access your artifacts
 
 You can access all your artifacts through the dedicated artifacts space in your Claude sidebar. This space allows you to:
 
@@ -60,7 +62,7 @@ You can access all your artifacts through the dedicated artifacts space in your 
 
 ---
 
-## Working with artifacts
+## Work with artifacts
 
 When Claude creates an artifact, you'll see the content displayed in a dedicated window to the right of the main chat.
 
@@ -110,7 +112,7 @@ If an artifact generates an error, look for the “Try fixing with Claude” but
 
 You can build artifacts that embed AI capabilities, turning them into AI-powered apps. Users of your artifacts can access Claude's intelligence through a text-based API—answering questions, generating creative content, providing personalized coaching, playing games, solving problems, and adapting responses based on input.
 
-### Creating AI-powered artifacts
+### Create AI-powered artifacts
 
 1. Describe what you want to Claude.
 
@@ -170,4 +172,4 @@ When you interact with an artifact that uses shared storage for the first time, 
 
 ## Learn more
 
-To share your artifacts publicly, embed them on websites, or discover artifacts created by others, see **[Publishing and sharing artifacts](https://support.claude.com/en/articles/9547008-publishing-and-sharing-artifacts)**.
+To share your artifacts publicly, embed them on websites, or discover artifacts created by others, see **[Publish and share artifacts](https://support.claude.com/en/articles/9547008)**.

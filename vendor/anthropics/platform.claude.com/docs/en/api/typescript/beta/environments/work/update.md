@@ -13,6 +13,7 @@ Update work item metadata with merge semantics.
 - `workID: string`
 
 - `params: WorkUpdateParams`
+
   - `environment_id: string`
 
     Path param
@@ -24,9 +25,11 @@ Update work item metadata with merge semantics.
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -79,7 +82,9 @@ Update work item metadata with merge semantics.
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -90,9 +95,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: string | null`
 
@@ -105,13 +111,15 @@ Update work item metadata with merge semantics.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: "session"`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: string`
@@ -133,6 +141,7 @@ Update work item metadata with merge semantics.
   - `state: "queued" | "starting" | "active" | 2 more`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -154,24 +163,22 @@ Update work item metadata with merge semantics.
   - `type: "work"`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaSelfHostedWork = await client.beta.environments.work.update(
-  "work_id",
-  {
-    environment_id: "env_011CZkZ9X2dpNyB7HsEFoRfW",
-    metadata: { foo: "string" },
-  },
-);
+const betaSelfHostedWork = await client.beta.environments.work.update('work_id', {
+  environment_id: 'env_011CZkZ9X2dpNyB7HsEFoRfW',
+  metadata: { foo: 'string' },
+});
 
 console.log(betaSelfHostedWork.id);
 ```

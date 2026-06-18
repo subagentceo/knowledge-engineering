@@ -49,6 +49,7 @@
 - [Installation and setup](https://claude.com/docs/cowork/3p/installation.md): Roll out Cowork on 3P to your organization, from a single evaluation machine to a fleet-wide MDM deployment
 - [Legal and compliance](https://claude.com/docs/cowork/3p/legal.md): Legal agreements, compliance, and security information for Cowork on 3P
 - [Desktop and filesystem access](https://claude.com/docs/cowork/3p/local-access.md): How Cowork on 3P reads and writes files on the user's machine, and how to constrain it
+- [Using Cowork on 3P with Amazon Bedrock Mantle](https://claude.com/docs/cowork/3p/mantle.md): Configure Cowork on 3P to use Claude models through Bedrock Mantle's Anthropic-native API surface
 - [Overview](https://claude.com/docs/cowork/3p/overview.md): Run Cowork against your own cloud inference provider
 - [Telemetry and egress](https://claude.com/docs/cowork/3p/telemetry.md): What Cowork on 3P sends to Anthropic, how to disable it, and the network paths your firewall needs to allow
 - [Deploy Cowork on 3P with Google Cloud's Vertex AI](https://claude.com/docs/cowork/3p/vertex.md): Set up Google Cloud, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Vertex AI

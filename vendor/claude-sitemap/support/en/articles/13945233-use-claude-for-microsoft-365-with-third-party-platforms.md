@@ -64,35 +64,35 @@ The add-in needs to reach specific domains to function. Which domains depend on 
 
 Use this table if people in your organization sign in with a Claude account and inference goes to api.anthropic.com.
 
-| **Domain** | **Required when** | **Purpose** |
-| --- | --- | --- |
-| pivot.claude.ai | Always | Add-in host. Serves the task pane UI and proxies analytics, icon search, skill downloads, and telemetry. |
-| claude.ai | Always | Anthropic OAuth sign-in and feature-flag evaluation. |
-| api.anthropic.com | Always | Claude inference API, file uploads, code-execution containers, and the MCP connector registry. |
-| appsforoffice.microsoft.com | Always | Microsoft Office.js runtime script. Required by every Office add-in. |
-| o1158394.ingest.us.sentry.io | Optional | Crash and error reporting. Blocking this degrades diagnostics only; the add-in still works. |
-| mcp-proxy.anthropic.com | If using MCP connectors | Proxy for MCP connector tool calls. |
-| bridge.claudeusercontent.com | If using work across apps | WebSocket bridge for the work across apps feature. |
+| **Domain**                   | **Required when**         | **Purpose**                                                                                              |
+| ---------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| pivot.claude.ai              | Always                    | Add-in host. Serves the task pane UI and proxies analytics, icon search, skill downloads, and telemetry. |
+| claude.ai                    | Always                    | Anthropic OAuth sign-in and feature-flag evaluation.                                                     |
+| api.anthropic.com            | Always                    | Claude inference API, file uploads, code-execution containers, and the MCP connector registry.           |
+| appsforoffice.microsoft.com  | Always                    | Microsoft Office.js runtime script. Required by every Office add-in.                                     |
+| o1158394.ingest.us.sentry.io | Optional                  | Crash and error reporting. Blocking this degrades diagnostics only; the add-in still works.              |
+| mcp-proxy.anthropic.com      | If using MCP connectors   | Proxy for MCP connector tool calls.                                                                      |
+| bridge.claudeusercontent.com | If using work across apps | WebSocket bridge for the work across apps feature.                                                       |
 
 ### Third-party platforms (3P)
 
 Use this table if people in your organization sign in with Microsoft Entra ID and inference goes to your LLM gateway, Bedrock, or Vertex AI.
 
-| **Domain** | **Required when** | **Purpose** |
-| --- | --- | --- |
-| pivot.claude.ai | Always | Add-in host. Serves the task pane UI and proxies analytics, icon search, and telemetry. |
-| claude.ai/api/ | Always | Feature-flag evaluation. No sign-in; the add-in only fetches its configuration from here. |
-| appsforoffice.microsoft.com | Always | Microsoft Office.js runtime script (required by every Office add-in). |
-| login.microsoftonline.com | Always | Microsoft Entra ID sign-in via Nested App Auth. Reads admin-provisioned gateway config and issues tokens for direct-cloud auth. |
-| o1158394.ingest.us.sentry.io | Optional | Crash and error reporting. Blocking this degrades diagnostics only; the add-in still works. |
-| Your LLM gateway URL | If using an LLM gateway | Your organization's LLM gateway (LiteLLM, Portkey, Kong, etc.). Inference goes here instead of api.anthropic.com. |
-| sts.amazonaws.com | If using Bedrock direct | AWS STS. Exchanges the Entra ID token for temporary Bedrock credentials. |
-| bedrock-runtime.<region>.amazonaws.com | If using Bedrock direct | Bedrock inference endpoint. Replace <region> with your configured AWS region (for example, us-east-1). |
-| accounts.google.com | If using Vertex AI direct | Google OAuth consent screen. |
-| oauth2.googleapis.com | If using Vertex AI direct | Google OAuth token exchange and refresh. |
-| aiplatform.googleapis.com | If using Vertex AI direct | Vertex AI global inference endpoint. |
-| <region>-aiplatform.googleapis.com | If using Vertex AI direct | Vertex AI regional inference endpoint. Replace <region> with your configured GCP region (for example, us-east5). |
-| <resource>.services.ai.azure.com<br> | If using Foundry direct | Azure AI Foundry inference endpoint. Replace <resource> with your resource name. |
+| **Domain**                             | **Required when**         | **Purpose**                                                                                                                     |
+| -------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| pivot.claude.ai                        | Always                    | Add-in host. Serves the task pane UI and proxies analytics, icon search, and telemetry.                                         |
+| claude.ai/api/                         | Always                    | Feature-flag evaluation. No sign-in; the add-in only fetches its configuration from here.                                       |
+| appsforoffice.microsoft.com            | Always                    | Microsoft Office.js runtime script (required by every Office add-in).                                                           |
+| login.microsoftonline.com              | Always                    | Microsoft Entra ID sign-in via Nested App Auth. Reads admin-provisioned gateway config and issues tokens for direct-cloud auth. |
+| o1158394.ingest.us.sentry.io           | Optional                  | Crash and error reporting. Blocking this degrades diagnostics only; the add-in still works.                                     |
+| Your LLM gateway URL                   | If using an LLM gateway   | Your organization's LLM gateway (LiteLLM, Portkey, Kong, etc.). Inference goes here instead of api.anthropic.com.               |
+| sts.amazonaws.com                      | If using Bedrock direct   | AWS STS. Exchanges the Entra ID token for temporary Bedrock credentials.                                                        |
+| bedrock-runtime.<region>.amazonaws.com | If using Bedrock direct   | Bedrock inference endpoint. Replace <region> with your configured AWS region (for example, us-east-1).                          |
+| accounts.google.com                    | If using Vertex AI direct | Google OAuth consent screen.                                                                                                    |
+| oauth2.googleapis.com                  | If using Vertex AI direct | Google OAuth token exchange and refresh.                                                                                        |
+| aiplatform.googleapis.com              | If using Vertex AI direct | Vertex AI global inference endpoint.                                                                                            |
+| <region>-aiplatform.googleapis.com     | If using Vertex AI direct | Vertex AI regional inference endpoint. Replace <region> with your configured GCP region (for example, us-east5).                |
+| <resource>.services.ai.azure.com<br>   | If using Foundry direct   | Azure AI Foundry inference endpoint. Replace <resource> with your resource name.                                                |
 
 ---
 
@@ -109,6 +109,7 @@ claude plugin marketplace add anthropics/financial-services-plugins
 claude plugin install claude-in-office@financial-services-plugins
 /claude-in-office:setup
 ```
+
 The wizard walks you through your connection path:
 
 - **LLM gateway**: Collects your gateway URL and token, determines which API format to use, generates the manifest, and handles Azure admin consent.
@@ -125,14 +126,14 @@ When the wizard completes, the add-in is ready to deploy tenant-wide.
 
 You can use the following commands inside a `claude-in-office` session:
 
-| **Command** | **What it does** |
-| --- | --- |
-| `/claude-in-office:setup` | Interactive wizard—provisions cloud resources, admin consent, writes manifest |
-| `/claude-in-office:manifest` | Generates the customized add-in manifest XML |
-| `/claude-in-office:consent` | Generates the Azure admin consent URL for the add-in's app registration |
-| `/claude-in-office:update-user-attrs` | Writes per-user config via Microsoft Graph extension attributes |
-| `/claude-in-office:bootstrap` | Walks you through building a bootstrap endpoint—per-user MCP servers, skills, and dynamic config |
-| `/claude-in-office:debug` | Diagnoses deployment issues—stale config, connect failures, missing add-in |
+| **Command**                           | **What it does**                                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `/claude-in-office:setup`             | Interactive wizard—provisions cloud resources, admin consent, writes manifest                    |
+| `/claude-in-office:manifest`          | Generates the customized add-in manifest XML                                                     |
+| `/claude-in-office:consent`           | Generates the Azure admin consent URL for the add-in's app registration                          |
+| `/claude-in-office:update-user-attrs` | Writes per-user config via Microsoft Graph extension attributes                                  |
+| `/claude-in-office:bootstrap`         | Walks you through building a bootstrap endpoint—per-user MCP servers, skills, and dynamic config |
+| `/claude-in-office:debug`             | Diagnoses deployment issues—stale config, connect failures, missing add-in                       |
 
 ### Custom inference headers
 
@@ -262,25 +263,25 @@ The endpoints your gateway must expose depend on which API format it speaks. Set
 
 **gateway_api_format: anthropic (default)**
 
-| **Endpoint** | **Description** |
-| --- | --- |
+| **Endpoint**      | **Description**                                                               |
+| ----------------- | ----------------------------------------------------------------------------- |
 | POST /v1/messages | Send messages to Claude. Supports both streaming and non-streaming responses. |
-| GET /v1/models | List available models. |
+| GET /v1/models    | List available models.                                                        |
 
 **gateway_api_format: bedrock**
 
-| **Endpoint** | **Description** |
-| --- | --- |
-| POST /model/{model-id}/invoke | Send a message and receive a complete response. |
+| **Endpoint**                                       | **Description**                                  |
+| -------------------------------------------------- | ------------------------------------------------ |
+| POST /model/{model-id}/invoke                      | Send a message and receive a complete response.  |
 | POST /model/{model-id}/invoke-with-response-stream | Send a message and receive a streaming response. |
 
 Native Bedrock InvokeModel pass-through. `gateway_url` must point at the pass-through prefix (for example, <https://litellm.example.com/bedrock>).
 
 **gateway_api_format: vertex**
 
-| **Endpoint** | **Description** |
-| --- | --- |
-| POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:rawPredict | Send a message and receive a complete response. |
+| **Endpoint**                                                                                        | **Description**                                  |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:rawPredict       | Send a message and receive a complete response.  |
 | POST /projects/{project}/locations/{region}/publishers/anthropic/models/{model-id}:streamRawPredict | Send a message and receive a streaming response. |
 
 Native Vertex pass-through. `gateway_url` must include the API-version segment (for example, <https://litellm.example.com/vertex_ai/v1>). Also requires `gcp_project_id` and `gcp_region` so the add-in can build the path.
@@ -303,12 +304,12 @@ On login, the add-in attempts to discover available Claude models via GET /v1/mo
 
 ### Differences from Claude Code gateway setup
 
-| **Aspect** | **Claude Code** | **Claude for Excel, PowerPoint, Word, and Outlook** |
-| --- | --- | --- |
-| Credential storage | OS keychain or environment variables | Browser localStorage (sandboxed iframe) |
+| **Aspect**         | **Claude Code**                                      | **Claude for Excel, PowerPoint, Word, and Outlook**                                      |
+| ------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Credential storage | OS keychain or environment variables                 | Browser localStorage (sandboxed iframe)                                                  |
 | Auth configuration | Environment variables, settings file, helper scripts | Manual entry in add-in UI (gateway), Entra ID (direct cloud), or Azure API key (Foundry) |
-| Token refresh | Supports helper scripts for rotation | Manual re-entry in settings (gateway) or automatic via Entra ID (direct cloud) |
-| Custom model names | Configurable via environment variables | Not configurable in v1 |
+| Token refresh      | Supports helper scripts for rotation                 | Manual re-entry in settings (gateway) or automatic via Entra ID (direct cloud)           |
+| Custom model names | Configurable via environment variables               | Not configurable in v1                                                                   |
 
 ---
 
@@ -389,6 +390,7 @@ model_list:
 litellm_settings:
   drop_params: true
 ```
+
 For detailed setup instructions, refer to **[LiteLLM's Anthropic format documentation](https://docs.litellm.ai/)**.
 
 ---
@@ -411,15 +413,15 @@ When you sign in with a Claude account, the add-ins connect directly to Anthropi
 
 Some features that rely on having a Claude account aren't available through third-party platforms yet, but we're working on adding support:
 
-| **Feature** | **Claude account** | **Third-party platform** |
-| --- | --- | --- |
-| Chat with your spreadsheet, deck, or document | ✓ | ✓ |
-| Read and edit cells, slides, formulas, and document text | ✓ | ✓ |
-| Connectors (S&P, FactSet, etc.) | ✓ | ✓ |
-| Working across apps | ✓ | — |
-| Skills | ✓ | ✓ |
-| File uploads | ✓ | ✓ |
-| Web search | ✓ | Vertex only |
+| **Feature**                                              | **Claude account** | **Third-party platform** |
+| -------------------------------------------------------- | ------------------ | ------------------------ |
+| Chat with your spreadsheet, deck, or document            | ✓                  | ✓                        |
+| Read and edit cells, slides, formulas, and document text | ✓                  | ✓                        |
+| Connectors (S&P, FactSet, etc.)                          | ✓                  | ✓                        |
+| Working across apps                                      | ✓                  | —                        |
+| Skills                                                   | ✓                  | ✓                        |
+| File uploads                                             | ✓                  | ✓                        |
+| Web search                                               | ✓                  | Vertex only              |
 
 If your team needs these features, talk to your Claude admin about which sign-in path fits your organization.
 
