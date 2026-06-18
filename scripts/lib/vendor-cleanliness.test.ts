@@ -72,26 +72,6 @@ const EXCEPTIONS: Record<string, VendorException> = {
     reason:
       "opentelemetry.io homepage embeds inline <style> blocks for hero background-image responsive variants. Upstream CMS content, not a turndown extraction leak.",
   },
-  "crates.io": {
-    skipPopulated: true,
-    reason:
-      "Stub API-backed vendor (kind: crates-api); .checksums.json absent — crawl has never run. Plugin wires crates.io REST API, not a scrape target.",
-  },
-  "github.com": {
-    skipPopulated: true,
-    reason:
-      "Stub API-backed vendor (kind: github-api); .checksums.json absent — crawl has never run.",
-  },
-  "npmjs.com": {
-    skipPopulated: true,
-    reason:
-      "Stub API-backed vendor (kind: npm-registry-api); .checksums.json absent — npm-registry MCP server is the live data source, not a crawled mirror.",
-  },
-  "pypi.org": {
-    skipPopulated: true,
-    reason:
-      "Stub API-backed vendor (kind: pypi-api); .checksums.json absent — crawl has never run.",
-  },
   intercom: {
     skipHeadline: true,
     reason:
