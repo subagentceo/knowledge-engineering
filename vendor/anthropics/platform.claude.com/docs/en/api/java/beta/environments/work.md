@@ -13,6 +13,7 @@ Retrieve detailed information about a specific work item.
 ### Parameters
 
 - `WorkRetrieveParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -20,6 +21,7 @@ Retrieve detailed information about a specific work item.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -72,7 +74,9 @@ Retrieve detailed information about a specific work item.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -83,9 +87,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -98,13 +103,15 @@ Retrieve detailed information about a specific work item.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -126,6 +133,7 @@ Retrieve detailed information about a specific work item.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -147,6 +155,7 @@ Retrieve detailed information about a specific work item.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -211,6 +220,7 @@ Long poll for work items in the queue.
 ### Parameters
 
 - `WorkPollParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<Long> blockMs`
@@ -224,6 +234,7 @@ Long poll for work items in the queue.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -276,7 +287,9 @@ Long poll for work items in the queue.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `Optional<String> anthropicWorkerId`
 
@@ -291,9 +304,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -306,13 +320,15 @@ Long poll for work items in the queue.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -334,6 +350,7 @@ Long poll for work items in the queue.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -355,6 +372,7 @@ Long poll for work items in the queue.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -416,6 +434,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Parameters
 
 - `WorkAckParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -423,6 +442,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -475,7 +495,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -486,9 +508,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -501,13 +524,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -529,6 +554,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -550,6 +576,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -614,6 +641,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Parameters
 
 - `WorkHeartbeatParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -629,6 +657,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -681,13 +710,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -699,6 +731,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `State state`
 
     Current state of the work item (active/stopping/stopped)
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -716,6 +749,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `JsonValue; type "work_heartbeat"constant`
 
     The type of response
+
     - `WORK_HEARTBEAT("work_heartbeat")`
 
 ### Example
@@ -768,6 +802,7 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Parameters
 
 - `WorkStopParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -775,6 +810,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -827,7 +863,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `BetaSelfHostedWorkStopRequest betaSelfHostedWorkStopRequest`
 
@@ -842,9 +880,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -857,13 +896,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -885,6 +926,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -906,6 +948,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -972,6 +1015,7 @@ List work items in an environment.
 ### Parameters
 
 - `WorkListParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<Long> limit`
@@ -985,6 +1029,7 @@ List work items in an environment.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1037,7 +1082,9 @@ List work items in an environment.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -1048,9 +1095,10 @@ List work items in an environment.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -1063,13 +1111,15 @@ List work items in an environment.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -1091,6 +1141,7 @@ List work items in an environment.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -1112,6 +1163,7 @@ List work items in an environment.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -1177,6 +1229,7 @@ Update work item metadata with merge semantics.
 ### Parameters
 
 - `WorkUpdateParams params`
+
   - `String environmentId`
 
   - `Optional<String> workId`
@@ -1184,6 +1237,7 @@ Update work item metadata with merge semantics.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1236,7 +1290,9 @@ Update work item metadata with merge semantics.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
   - `BetaSelfHostedWorkUpdateRequest betaSelfHostedWorkUpdateRequest`
 
@@ -1251,9 +1307,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -1266,13 +1323,15 @@ Update work item metadata with merge semantics.
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -1294,6 +1353,7 @@ Update work item metadata with merge semantics.
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -1315,6 +1375,7 @@ Update work item metadata with merge semantics.
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Example
@@ -1384,11 +1445,13 @@ Get statistics about the work queue for an environment.
 ### Parameters
 
 - `WorkStatsParams params`
+
   - `Optional<String> environmentId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1441,7 +1504,9 @@ Get statistics about the work queue for an environment.
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
@@ -1450,6 +1515,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `long depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1465,6 +1531,7 @@ Get statistics about the work queue for an environment.
   - `JsonValue; type "work_queue_stats"constant`
 
     The type of object
+
     - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`
@@ -1515,9 +1582,10 @@ public final class Main {
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `String id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `Optional<String> acknowledgedAt`
 
@@ -1530,13 +1598,15 @@ public final class Main {
   - `BetaSessionWorkData data`
 
     The actual work to be performed
+
     - `String id`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonValue; type "session"constant`
 
       Type of work data
+
       - `SESSION("session")`
 
   - `String environmentId`
@@ -1558,6 +1628,7 @@ public final class Main {
   - `State state`
 
     Current state of the work item
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -1579,6 +1650,7 @@ public final class Main {
   - `JsonValue; type "work"constant`
 
     The type of object (always 'work')
+
     - `WORK("work")`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -1586,6 +1658,7 @@ public final class Main {
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `String lastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1597,6 +1670,7 @@ public final class Main {
   - `State state`
 
     Current state of the work item (active/stopping/stopped)
+
     - `QUEUED("queued")`
 
     - `STARTING("starting")`
@@ -1614,6 +1688,7 @@ public final class Main {
   - `JsonValue; type "work_heartbeat"constant`
 
     The type of response
+
     - `WORK_HEARTBEAT("work_heartbeat")`
 
 ### Beta Self Hosted Work List Response
@@ -1621,12 +1696,14 @@ public final class Main {
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `List<BetaSelfHostedWork> data`
 
     List of work items
+
     - `String id`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `Optional<String> acknowledgedAt`
 
@@ -1639,13 +1716,15 @@ public final class Main {
     - `BetaSessionWorkData data`
 
       The actual work to be performed
+
       - `String id`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonValue; type "session"constant`
 
         Type of work data
+
         - `SESSION("session")`
 
     - `String environmentId`
@@ -1667,6 +1746,7 @@ public final class Main {
     - `State state`
 
       Current state of the work item
+
       - `QUEUED("queued")`
 
       - `STARTING("starting")`
@@ -1688,6 +1768,7 @@ public final class Main {
     - `JsonValue; type "work"constant`
 
       The type of object (always 'work')
+
       - `WORK("work")`
 
   - `Optional<String> nextPage`
@@ -1701,6 +1782,7 @@ public final class Main {
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `long depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1716,6 +1798,7 @@ public final class Main {
   - `JsonValue; type "work_queue_stats"constant`
 
     The type of object
+
     - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`
@@ -1727,6 +1810,7 @@ public final class Main {
 - `class BetaSelfHostedWorkStopRequest:`
 
   Request to stop a work item.
+
   - `Optional<Boolean> force`
 
     If true, immediately stop work without graceful shutdown
@@ -1736,6 +1820,7 @@ public final class Main {
 - `class BetaSelfHostedWorkUpdateRequest:`
 
   Request to update work item metadata.
+
   - `Metadata metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1748,11 +1833,13 @@ public final class Main {
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `String id`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `JsonValue; type "session"constant`
 
     Type of work data
+
     - `SESSION("session")`

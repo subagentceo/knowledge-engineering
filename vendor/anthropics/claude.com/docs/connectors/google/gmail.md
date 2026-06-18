@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -21,25 +20,25 @@ Simply ask Claude a question that needs email information. Claude automatically 
 
 **Example questions:**
 
-- "What did Sarah say about the project deadline?"
-- "Find emails about the Q4 budget review"
-- "Summarize my conversation with the sales team last week"
+* "What did Sarah say about the project deadline?"
+* "Find emails about the Q4 budget review"
+* "Summarize my conversation with the sales team last week"
 
 ### 2. Review Claude's response
 
 Claude provides answers that include:
 
-- Clear answers to your questions
-- Citations indicating which emails were used
-- Links to original sources when applicable
+* Clear answers to your questions
+* Citations indicating which emails were used
+* Links to original sources when applicable
 
 ### 3. Follow up
 
 You can ask for more details, such as:
 
-- Requesting additional email information
-- Finding related threads
-- Summarizing longer conversations
+* Requesting additional email information
+* Finding related threads
+* Summarizing longer conversations
 
 ## Understanding citations
 
@@ -53,10 +52,10 @@ You must authenticate directly to your Google account. For Claude for Work (Team
 
 ### Data access
 
-- Claude accesses only data from your connected Google account
-- Access occurs only when you explicitly request it
-- Minimum information is retrieved to answer your question
-- Your existing Gmail permissions are mirrored
+* Claude accesses only data from your connected Google account
+* Access occurs only when you explicitly request it
+* Minimum information is retrieved to answer your question
+* Your existing Gmail permissions are mirrored
 
 ## Limitations
 

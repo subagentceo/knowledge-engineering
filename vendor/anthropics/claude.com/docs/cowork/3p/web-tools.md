@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,8 +8,8 @@
 
 Cowork includes two built-in tools for reaching the web:
 
-- **Web Search** runs a search-engine query and returns ranked results.
-- **Web Fetch** retrieves the contents of a specific URL.
+* **Web Search** runs a search-engine query and returns ranked results.
+* **Web Fetch** retrieves the contents of a specific URL.
 
 In Cowork on third-party (3P), both are subject to your configuration: search depends on your inference provider, and fetch is gated by the sandbox network allowlist.
 
@@ -23,11 +22,23 @@ Web Search is a **server-side tool** executed by your inference provider, not by
 | Google Cloud's Vertex AI | Available                                                                 |
 | Microsoft Foundry        | Available                                                                 |
 | Amazon Bedrock           | Not available                                                             |
+| Anthropic API            | Available                                                                 |
 | Gateway                  | Available if your gateway implements Anthropic's `web_search` server tool |
 
 Because the search runs on the provider's infrastructure, queries and results travel over the same path as model inference and are subject to your provider's data-handling terms. No additional firewall rules are needed beyond the inference endpoint itself.
 
-If your provider doesn't support search, or you want to use a different search backend, deploy a search MCP server via [`managedMcpServers`](/cowork/3p/configuration#managedmcpservers) and disable the built-in tool (below).
+<Note>
+  `coworkEgressAllowedHosts` does **not** apply to Web Search. The allowlist governs client-side egress — Web Fetch and in-sandbox shell network activity — while search executes server-side at your inference provider. To let the agent fetch pages it finds via search, add the relevant hosts to `coworkEgressAllowedHosts` or set it to `["*"]`. To disable search, add `"WebSearch"` to `disabledBuiltinTools`.
+</Note>
+
+### Workarounds for Bedrock
+
+Amazon Bedrock does not implement Anthropic's `web_search` server tool. Two common patterns restore search:
+
+* **Route through a LiteLLM gateway.** Configure `inferenceProvider: "gateway"` pointing at a LiteLLM instance that fronts Bedrock, and enable LiteLLM's web-search handling so the gateway executes search on the model's behalf. See LiteLLM's [proxy configuration for Claude web search](https://docs.litellm.ai/docs/tutorials/claude_code_websearch#proxy-configuration). This keeps the built-in Web Search tool working unchanged and is a common pattern in production deployments.
+* **Add a search MCP server.** Deploy a search server via [`managedMcpServers`](/cowork/3p/configuration#managedmcpservers) — for example [Brave Search MCP](https://github.com/brave/brave-search-mcp-server) (requires a Brave Search API key) or [Exa](https://exa.ai/mcp) — and add `"WebSearch"` to `disabledBuiltinTools` so the model uses the MCP tool instead.
+
+The same options apply if your provider supports search but you want a different backend.
 
 ## Web Fetch
 

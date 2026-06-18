@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,10 +10,10 @@ Cowork uses the same agentic architecture that powers Claude Code, accessible wi
 
 ## Key capabilities
 
-- **Works directly on your computer** — Claude reads and writes local files without requiring manual uploads or downloads.
-- **Claude in Chrome** — Pair [Claude in Chrome](https://claude.com/chrome) with Cowork to automate your tasks on any website.
-- **Sub-agent coordination** — Complex work gets divided into smaller tasks with parallel workstreams for faster results.
-- **Professional outputs** — Creates polished deliverables including Excel spreadsheets with functional formulas, PowerPoint presentations, and formatted documents.
+* **Works directly on your computer** — Claude reads and writes local files without requiring manual uploads or downloads.
+* **Claude in Chrome** — Pair [Claude in Chrome](https://claude.com/chrome) with Cowork to automate your tasks on any website.
+* **Sub-agent coordination** — Complex work gets divided into smaller tasks with parallel workstreams for faster results.
+* **Professional outputs** — Creates polished deliverables including Excel spreadsheets with functional formulas, PowerPoint presentations, and formatted documents.
 
 ## Extend Cowork with integrations
 

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -23,30 +22,31 @@ The tables below compare the feature set of Cowork on third-party (3P) to Claude
 
 ## User features
 
-| Feature                         | Claude Enterprise | Cowork on 3P |
-| ------------------------------- | :---------------: | :----------: |
-| Cowork tab                      |         ✓         |      ✓       |
-| Code tab                        |         ✓         |      ✓       |
-| Chat tab                        |         ✓         |      —       |
-| Projects                        |         ✓         |      ✓       |
-| Code execution for analysis     |         ✓         |      ✓       |
-| File access, upload, and export |         ✓         |      ✓       |
-| Local MCP                       |         ✓         |      ✓       |
-| Remote MCP                      |         ✓         |      ✓       |
-| Anthropic 1P Connectors         |         ✓         |     — \*     |
-| Skills, plugins, and hooks      |         ✓         |      ✓       |
-| Artifacts                       |         ✓         |      ✓       |
-| Memory                          |         ✓         |     ✓ †      |
-| Scheduled tasks                 |         ✓         |      ✓       |
-| Global languages                |         ✓         |      ✓       |
-| Project and plugin sharing      |         ✓         |      —       |
-| Plugin Marketplaces             |         ✓         |    ✓ \*\*    |
-| Dispatch / mobile               |         ✓         |      —       |
-| Voice mode                      |         ✓         |      —       |
-| Claude in Chrome                |         ✓         |      —       |
-| Computer use                    |         —         |      —       |
+| Feature                         | Claude Enterprise |   Cowork on 3P   |
+| ------------------------------- | :---------------: | :--------------: |
+| Cowork tab                      |         ✓         |         ✓        |
+| Code tab                        |         ✓         |         ✓        |
+| Auto mode / Act without asking  |         ✓         | ✓ (admin opt-in) |
+| Chat tab                        |         ✓         |         ✓        |
+| Projects                        |         ✓         |         ✓        |
+| Code execution for analysis     |         ✓         |         ✓        |
+| File access, upload, and export |         ✓         |         ✓        |
+| Local MCP                       |         ✓         |         ✓        |
+| Remote MCP                      |         ✓         |         ✓        |
+| Anthropic 1P Connectors         |         ✓         |       — \*       |
+| Skills, plugins, and hooks      |         ✓         |         ✓        |
+| Artifacts                       |         ✓         |         ✓        |
+| Memory                          |         ✓         |        ✓ †       |
+| Scheduled tasks                 |         ✓         |         ✓        |
+| Global languages                |         ✓         |         ✓        |
+| Project and plugin sharing      |         ✓         |         —        |
+| Plugin Marketplaces             |         ✓         |      ✓ \*\*      |
+| Dispatch / mobile               |         ✓         |         —        |
+| Voice mode                      |         ✓         |         —        |
+| Claude in Chrome                |         ✓         |         —        |
+| Computer use                    |         —         |         —        |
 
-\* The Anthropic M365 Connectors and Google Workspace are not currently supported in Cowork on 3P, but will be available soon; we will update our docs when they become available.
+\* The Anthropic Microsoft 365 connector is available in Cowork on 3P; see the [setup guide](/cowork/3p/connectors-m365). For Google Workspace availability, see [Productivity suites](/cowork/3p/extensions#productivity-suites).
 
 \*\* Plugins distributed via the [org-plugins directory](/cowork/3p/extensions#organization-plugins-admin) appear to users as an organization marketplace. The public Anthropic plugin marketplace is not available.
 
@@ -54,18 +54,18 @@ The tables below compare the feature set of Cowork on third-party (3P) to Claude
 
 ## Admin features
 
-| Feature                                       | Claude Enterprise  |   Cowork on 3P   |
+| Feature                                       |  Claude Enterprise |   Cowork on 3P   |
 | --------------------------------------------- | :----------------: | :--------------: |
-| Endpoint / gateway configuration              |         —          |        ✓         |
-| Skills, hooks, and plugins distribution       |         ✓          |        ✓         |
-| MCP server allowlist                          |         ✓          |        ✓         |
-| Feature toggles (web search, local MCP, etc.) |         ✓          |        ✓         |
-| Auto-updates                                  |         ✓          | ✓ (configurable) |
+| Endpoint / gateway configuration              |          —         |         ✓        |
+| Skills, hooks, and plugins distribution       |          ✓         |         ✓        |
+| MCP server allowlist                          |          ✓         |         ✓        |
+| Feature toggles (web search, local MCP, etc.) |          ✓         |         ✓        |
+| Auto-updates                                  |          ✓         | ✓ (configurable) |
 | Per-user spend caps                           | ✓ (differentiated) | ✓ (blanket only) |
-| Compliance API                                |         ✓          |       — ‡        |
-| Analytics API                                 |         ✓          |       — ‡        |
-| OpenTelemetry export                          |         ✓          |        ✓         |
-| User management via UI                        |         ✓          |        —         |
-| RBAC                                          |         ✓          |     via MDM      |
+| Compliance API                                |          ✓         |        — ‡       |
+| Analytics API                                 |          ✓         |        — ‡       |
+| OpenTelemetry export                          |          ✓         |         ✓        |
+| User management via UI                        |          ✓         |         —        |
+| RBAC                                          |          ✓         |      via MDM     |
 
 ‡ Many of these capabilities can be achieved via OpenTelemetry export to your own collector. See [Monitoring](/cowork/monitoring).

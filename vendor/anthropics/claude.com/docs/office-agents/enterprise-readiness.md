@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -19,16 +18,18 @@ prompts, document content, and responses flow between the Office
 add-ins, Claude, and your infrastructure. Review the diagram that
 matches your deployment mode before rollout.
 
-- **Anthropic first-party**: users sign in with their Claude accounts
+* **Anthropic first-party**: users sign in with their Claude accounts
   and requests go directly to Claude. See the
-  [first-party architecture overview](https://trust.anthropic.com/resources?s=e3n7pvyjnxjyahmdmqujcx&name=claude-for-excel,-powerpoint,-word:-architecture-overview-%28anthropic-first-party%29).
-- **Third-party platforms**: requests route through Amazon Bedrock, Google
+  [first-party architecture overview](https://trust.anthropic.com/resources?s=e3n7pvyjnxjyahmdmqujcx\&name=claude-for-excel,-powerpoint,-word:-architecture-overview-%28anthropic-first-party%29).
+* **Third-party platforms**: requests route through Amazon Bedrock, Google
   Cloud Vertex AI, Azure AI Foundry, or an LLM gateway. The companion
   third-party architecture diagram is listed alongside the first-party
   one in the [Trust Center resources](https://trust.anthropic.com/resources?s=e3n7pvyjnxjyahmdmqujcx);
-  filter for "Claude for Excel, PowerPoint, Word". See
+  filter for "Claude for Excel, PowerPoint, Word".
   [Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
-  for deployment guidance.
+  has per-mode request-flow diagrams for the [LLM gateway](/office-agents/third-party-platforms#llm-gateway)
+  and [Bedrock, Vertex AI, or Foundry direct](/office-agents/third-party-platforms#bedrock-vertex-ai-or-foundry-direct)
+  paths, plus deployment guidance.
 
 ## Audit and observability
 
@@ -79,5 +80,5 @@ for the steps to generate and download a report.
 The pages below cover deployment paths and plugins relevant to
 enterprise admins.
 
-- [Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
-- [Install financial services plugins for Cowork](/office-agents/fsi-plugins)
+* [Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
+* [Install financial services plugins for Cowork](/office-agents/fsi-plugins)

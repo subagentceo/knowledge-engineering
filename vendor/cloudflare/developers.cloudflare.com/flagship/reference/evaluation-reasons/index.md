@@ -37,8 +37,8 @@ When an evaluation error occurs, the method returns the default value you provid
 
 The following example inspects evaluation details returned by `getBooleanDetails`:
 
-* [  JavaScript ](#tab-panel-8378)
-* [  TypeScript ](#tab-panel-8379)
+* [  JavaScript ](#tab-panel-8553)
+* [  TypeScript ](#tab-panel-8554)
 
 JavaScript
 
@@ -147,5 +147,6 @@ if (details.errorCode) {
 ```
 
 ```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/flagship/reference/evaluation-reasons/#page","headline":"Evaluation reasons and error codes · Cloudflare Flagship docs","description":"Flagship evaluation reason values and error codes returned by binding details methods and the OpenFeature SDK.","url":"https://developers.cloudflare.com/flagship/reference/evaluation-reasons/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/flagship/","name":"Flagship"}},{"@type":"ListItem","position":3,"item":{"@id":"/flagship/reference/","name":"Reference"}},{"@type":"ListItem","position":4,"item":{"@id":"/flagship/reference/evaluation-reasons/","name":"Evaluation reasons and error codes"}}]}
 ```

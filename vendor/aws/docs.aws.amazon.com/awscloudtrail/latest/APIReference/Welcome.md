@@ -12,4 +12,4 @@ As an alternative to the API, you can use one of the AWS SDKs, which consist of 
 
 See the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) for information about the data that is included with each AWS API call listed in the log files.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

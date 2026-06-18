@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -17,7 +16,7 @@ Plugin updates are pushed via your GitHub repo. CI mirrors changes to the public
 
 ## Update your listing
 
-A self-serve dashboard for editing your logo, description, screenshots, and other listing metadata is rolling out in Claude.ai. Until it reaches you, email `mcp-review@anthropic.com` for listing edits.
+Edit your description, categories, icon, and other listing metadata from the submissions dashboard at [Admin settings > Directory](https://claude.ai/admin-settings/directory/submissions) in Claude.ai. See [Managing your listing](/connectors/building/managing-your-listing) for what you can edit directly and which changes require review.
 
 ## Slugs are permanent
 

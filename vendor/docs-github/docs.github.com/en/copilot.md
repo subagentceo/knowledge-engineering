@@ -254,7 +254,7 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [Budgets for usage-based billing](/en/copilot/concepts/billing/budgets-for-usage-based-billing)
 
-  Under usage-based billing, budget controls at the user, cost center, and enterprise levels determine how Copilot usage is served, metered, or blocked.
+  Under usage-based billing, budget controls at the user, organization, cost center, and enterprise levels determine how Copilot usage is served, metered, or blocked.
 
 * [About individual GitHub Copilot plans and benefits](/en/copilot/concepts/billing/individual-plans)
 
@@ -268,9 +268,9 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Learn about the option to create an enterprise account to manage only Copilot Business licenses without adopting GitHub Enterprise.
 
-* [GitHub Copilot policies to control availability of features and models](/en/copilot/concepts/policies)
+* [GitHub Copilot policies for enterprises and organizations](/en/copilot/concepts/policies)
 
-  Learn about the policies that control the availability of GitHub Copilot features and models for users granted a license through your organization or an organization in your enterprise.
+  Control the availability of GitHub Copilot features and models for your users.
 
 * [MCP server usage in your company](/en/copilot/concepts/mcp-management)
 
@@ -893,6 +893,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   Update your development environment to access a Copilot plan for an account on GHE.com.
 
+* [Monitoring your GitHub AI Credits usage](/en/copilot/how-tos/manage-and-track-spending/monitor-ai-usage)
+
+  Learn how to monitor the AI credits you consume when using Copilot.
+
 * [Managing your company's spending on GitHub Copilot](/en/copilot/how-tos/manage-and-track-spending/manage-company-spending)
 
   Learn how to track spending, view usage, and optimize license distribution.
@@ -1003,7 +1007,11 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
 * [Configuring enterprise plugin standards](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/configure-enterprise-plugin-standards)
 
-  Configure enterprise plugin standards by defining a `settings.json` file in your enterprise's `.github-private` repository.
+  Configure enterprise plugin standards by defining a `managed-settings.json` file in your enterprise's `.github-private` repository.
+
+* [Disabling automatic command approval in Copilot clients](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/disable-automatic-commands)
+
+  Disable yolo mode to stop agents from running commands without approval.
 
 * [Monitoring agentic activity in your enterprise](/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity)
 
@@ -1077,6 +1085,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 
   This guide describes common issues with Spark and how to resolve them.
 
+* [Troubleshooting slow responses from GitHub Copilot](/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-copilot-slowness)
+
+  Troubleshooting help for slow responses from GitHub Copilot.
+
 * [GitHub Copilot Chat cheat sheet](/en/copilot/reference/chat-cheat-sheet)
 
   Use this cheat sheet to quickly reference the most common commands and options for using GitHub Copilot Chat.
@@ -1140,6 +1152,10 @@ You can use GitHub Copilot to enhance your productivity and assist as you work o
 * [Feature availability when GitHub Copilot policies conflict in organizations](/en/copilot/reference/policy-conflicts)
 
   Learn how delegating Copilot policy decisions to organizations affects users granted a license by organizations with different policies.
+
+* [Supported surfaces for GitHub Copilot policies](/en/copilot/reference/supported-surfaces-for-policies)
+
+  Which policies affect which Copilot features and surfaces?
 
 * [Copilot allowlist reference](/en/copilot/reference/copilot-allowlist-reference)
 

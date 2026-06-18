@@ -1328,7 +1328,7 @@ jobs:
           path: pr/
 ```
 
-When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the GitHub REST API to download the artifact that was uploaded by the above workflow, unzips the downloaded artifact, and comments on the pull request whose number was uploaded as an artifact.
+When a run of the above workflow completes, it triggers a run of the following workflow. The following workflow uses the `github.event.workflow_run` context and the actions/download-artifact\@v5 action to download the artifact that was uploaded by the above workflow, then comments on the pull request whose number was uploaded as an artifact.
 
 ```yaml
 name: Use the data
@@ -1344,33 +1344,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v8
+        uses: actions/download-artifact@v5
         with:
-          script: |
-            let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               run_id: context.payload.workflow_run.id,
-            });
-            let matchArtifact = allArtifacts.data.artifacts.filter((artifact) => {
-              return artifact.name == "pr_number"
-            })[0];
-            let download = await github.rest.actions.downloadArtifact({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
-               artifact_id: matchArtifact.id,
-               archive_format: 'zip',
-            });
-            const fs = require('fs');
-            const path = require('path');
-            const temp = '${{ runner.temp }}/artifacts';
-            if (!fs.existsSync(temp)){
-              fs.mkdirSync(temp);
-            }
-            fs.writeFileSync(path.join(temp, 'pr_number.zip'), Buffer.from(download.data));
-
-      - name: 'Unzip artifact'
-        run: unzip "${{ runner.temp }}/artifacts/pr_number.zip" -d "${{ runner.temp }}/artifacts"
+          name: pr_number
+          # do not extract in the workspace dir that may contain executable scripts
+          path: ${{ runner.temp }}/artifacts
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Comment on PR'
         uses: actions/github-script@v8
@@ -1380,7 +1360,11 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const temp = '${{ runner.temp }}/artifacts';
-            const issue_number = Number(fs.readFileSync(path.join(temp, 'pr_number')));
+            const issue_number_raw = fs.readFileSync(path.join(temp, 'pr_number'), 'utf8').trim();
+            const issue_number = Number(issue_number_raw);
+            if (!Number.isInteger(issue_number)) {
+              throw new Error(`Invalid PR number in pr_number artifact: "${issue_number_raw}"`);
+            }
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,

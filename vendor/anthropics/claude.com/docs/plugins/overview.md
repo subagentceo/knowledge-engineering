@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -60,7 +59,7 @@ A sales plugin, for example, could connect Claude to your CRM and knowledge base
 
 ## Availability
 
-Plugin support in Cowork is available as a research preview for all paid Claude users. Plugins are currently saved locally to your machine. Org-wide sharing and management are coming in the weeks ahead.
+Plugin support in Cowork is available as a beta for all paid Claude users. Plugins are currently saved locally to your machine. Org-wide sharing and management are coming in the weeks ahead.
 
 | Platform          | Plugin support                                                     |
 | ----------------- | ------------------------------------------------------------------ |

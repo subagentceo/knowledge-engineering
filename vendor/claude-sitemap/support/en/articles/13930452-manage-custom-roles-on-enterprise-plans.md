@@ -4,9 +4,9 @@ Custom roles are available for Enterprise plan organizations. Owners, Primary Ow
 
 Custom roles let you define which features your members can access. Each custom role contains a set of permissions that grant or restrict access to specific capabilities like chat, Claude Cowork, Claude Code, and web search, plus the connectors your organization has added, such as Slack or Google Drive. Custom roles can also grant admin permissions, which give members access to specific administrative areas like billing, identity, or privacy without making them Owners.
 
-Custom roles work alongside groups. The typical workflow is: create custom roles, assign them to groups, and then set members' roles to “Custom roles” so their access is governed entirely by the custom roles assigned to their groups.
+Custom roles work alongside groups. The typical workflow is: create custom roles, assign them to groups, and then set members' roles to “Custom” so their access is governed entirely by the custom roles assigned to their groups.
 
-**Note:** Custom roles only affect members whose role is set to “Custom roles.” Members with the User, Admin, or Owner roles get their permissions from those roles directly, not from custom roles.
+**Note:** Custom roles only affect members whose role is set to “Custom.” Members with the User, Admin, or Owner roles get their permissions from those roles directly, not from custom roles.
 
 ---
 
@@ -40,7 +40,7 @@ Each custom role can grant or restrict access to the following capabilities:
 | Web search                              | Ability to use web search in conversations.                                                                                                                                                                                                              |
 | Public projects                         | Ability to share projects with everyone in your organization.                                                                                                                                                                                            |
 | Create skills                           | Ability to create or upload custom skills.                                                                                                                                                                                                               |
-| Share skills with team members          | Ability to share skills with specific people in your organization.                                                                                                                                                                                       |
+| Share skills with org members           | Ability to share skills with specific people in your organization.                                                                                                                                                                                       |
 | Share skills with the full organization | Ability to share skills with everyone in your organization at once.                                                                                                                                                                                      |
 | Claude Code                             | Access to Claude Code.                                                                                                                                                                                                                                   |
 | Fast mode                               | Access to faster model options for Claude Code.                                                                                                                                                                                                          |
@@ -66,7 +66,7 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 1. Navigate to **[Organization settings > Roles](https://claude.ai/admin-settings/roles)**.
 
-2. Click “+ Add role.”
+2. Click “Add role.”
 
 3. Enter a name for the role (for example, “Developer,” “Standard Access,” or “Restricted”).
 
@@ -74,15 +74,11 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 5. Toggle each capability on or off to define what this role grants.
 
-6. Click “Next: Configure permissions.”
+6. Configure permissions. You can choose No access, Can view, and Can manage for each admin setting.
 
-7. Configure permissions. You can choose No access, Can view, and Can manage for each admin setting.
+7. Configure connectors. You can choose Always allowed, Ask, and Blocked for all connectors, or customize per connector or connector tool.
 
-8. Click “Next: Configure connectors.”
-
-9. Configure connectors. You can choose Always allowed, Ask, and Blocked for all connectors, or customize per connector or connector tool.
-
-10. Click “Add role.”
+8. Click “Save role.”
 
 ## Edit a custom role
 
@@ -92,7 +88,7 @@ Custom roles also govern access to admin permissions and connectors, which are c
 
 3. Update the name and groups, or toggle capabilities, permissions, and connectors as needed.
 
-4. Click “Edit role” to save your changes.
+4. Click “Save role” to save your changes.
 
 Capability and connector changes take effect within one minute. Admin permission changes can take up to 15 minutes, and members may need to refresh their browser. All members in groups assigned to this role are affected.
 
@@ -112,7 +108,7 @@ Custom roles are assigned to groups, not directly to individual members. To assi
 
 3. In the groups selector, select one or more groups.
 
-4. Click "Save."
+4. Click "Save role."
 
 You can also assign custom roles when creating or editing a group in **[Organization settings > Groups](http://claude.ai/admin-settings/groups)**. See **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**.
 
@@ -132,7 +128,7 @@ This means you can't use one role to remove a permission granted by another role
 
 Custom roles can grant admin permissions in addition to capabilities and connector permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without making them Owners. You can configure admin permissions in the **Permissions** tab of the role editor.
 
-**Note:** Admin permissions only apply to members whose role is set to "Custom roles." Members with the User, Admin, Owner, or Primary Owner roles keep the access those roles grant.
+**Note:** Admin permissions only apply to members whose role is set to "Custom." Members with the User, Admin, Owner, or Primary Owner roles keep the access those roles grant.
 
 ### **Admin permission levels**
 
@@ -201,7 +197,7 @@ If a member doesn’t have access to a specific admin permission, the section do
 
 Custom roles also control which connectors, and which tools on those connectors, a role can use. Where capabilities cover Claude’s built-in features, connector permissions cover the apps and services you’ve connected to your organization, such as Slack, Google Drive, or Jira. You set them on the **Connectors** tab of the role editor, next to the **Capabilities** and **Permissions** tabs.
 
-**Note:** Connector permissions apply only to members whose role is set to “Custom roles.” Members with the User, Admin, or Owner roles see every connector enabled for your organization, subject to your organization-wide tool policies per connector. Owners and Admins always see every connector so they can configure it, regardless of any role’s connector permissions.
+**Note:** Connector permissions apply only to members whose role is set to “Custom.” Members with the User, Admin, or Owner roles see every connector enabled for your organization, subject to your organization-wide tool policies per connector. Owners and Admins always see every connector so they can configure it, regardless of any role’s connector permissions.
 
 ### Permission levels
 

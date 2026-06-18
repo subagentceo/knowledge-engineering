@@ -1,0 +1,172 @@
+# AWS Architecture Center
+> This file provides structured access to AWS Architecture Center for large language models, which includes reference architecture examples and diagrams.
+
+## Guides
+
+
+
+- [Active/Active and Active/Passive Configurations in AWS Direct Connect Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/active-active-and-active-passive-configurations-in-aws-direct-connect.md): This architecture enables you to build configuration with Virtual Interfaces (VIFs) for maximum resiliency.
+
+- [Amazon Virtual Andon AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/amazon-virtual-andon/amazon-virtual-andon.md): This architecture provides a scalable Andon system to help optimize processes, support the transition to predictive maintenance, and prevent future equipment issues.
+
+- [Amazon VPC Lattice Reference Architectures Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/amazon-vpc-lattice-use-cases/amazon-vpc-lattice-use-cases.md): Amazon VPC Lattice is an application layer service that consistently connects, monitors, and secures communications between your services.
+
+- [Automotive Call Center Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/automotive-call-center-architecture/automotive-call-center-architecture.md): This architecture enables you to build an automotive call center solution as part of connected vehicle platform to enhance customer safety with emergency (eCall) and breakdown (bCall) call services using Connect Customer.
+
+- [Aerospace Virtual Desktop Infrastructure (VDI) and High Performance Computing (HPC) on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-aerospace-vdi-reference-architecture/aws-aerospace-vdi-reference-architecture.md): This architectural diagram shows the process for running computer-aided engineering (CAE) computations and visualizations in the cloud with desktop access.
+
+- [AWS Connected Vehicle Reference Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-connected-vehicle/aws-connected-vehicle.md): This architecture enables you to use AWS IoT Core to modernize workloads, process vehicle data, and secure your connected vehicles.
+
+- [AWS DevOps Monitoring Dashboard AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-devops-monitoring-dashboard/aws-devops-monitoring-dashboard.md): This architecture automates the process of ingesting, analyzing, and visualizing continuous integration/continuous delivery (CI/CD) metrics.
+
+- [AWS Innovation Sandbox AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-innovation-sandbox/aws-innovation-sandbox.md): This architecture enables you to deploy secure, self-contained, isolated environments to allow developers, security professionals, and infrastructure teams to safely experiment with AWS services and third-party applications that run on AWS.
+
+- [AWS Media Insights Engine AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-media-insights-engine/aws-media-insights-engine.md): This architecture enables you to create a development framework that applies machine learning services to media workflows.
+
+- [Build a Healthcare Data Pipeline on AWS with IBM Cloud Pak for Data Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/build-healthcare-data-pipeline-on-aws-ibm-cp4d/build-healthcare-data-pipeline-on-aws-ibm-cp4d.md): This architecture helps you build data pipelines and use machine learning (ML) models to predict patient treatment outcome, readmission rate, or disease progression.
+
+- [Connected Aircraft Solution Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/connected-aircraft-solution-architecture/connected-aircraft-solution-architecture.md): This reference architecture shows how you can onboard flight data collection for fleet-wide analytics and predictive maintenance using AWS IoT Greengrass, Amazon S3, Amazon Managed Service for Apache Flink, and Amazon SageMaker AI.
+
+- [Connected Mobility Data Lake Connected Mobility Data Lake](https://docs.aws.amazon.com/architecture-diagrams/latest/connected-mobility-data-lake/connected-mobility-data-lake.md): This architecture enables you to create connected mobility data products and democratize data access with a serverless data mesh architecture.
+
+- [Connected Mobility Platform Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/connected-mobility-platform-on-aws/connected-mobility-platform-on-aws.md): This architecture addresses three elements of the connected platform: in-vehicle, external infrastructure, and backend services on the cloud.
+
+- [Data Lake Architecture for Renewable Energy Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/data-lake-architecture-for-renewable-energy/data-lake-architecture-for-renewable-energy.md): This architecture enables you to build a renewable energy data lake that includes telemetry data from IoT devices, and business application data for near real-time monitoring.
+
+- [Datavant Switchboard with AWS Clean Rooms Connect and collaborate to accelerate clinical and patient insights on AWS](https://docs.aws.amazon.com/architecture-diagrams/latest/datavant-switchboard-with-aws-clean-rooms/datavant-switchboard-with-aws-clean-rooms.md): Datavant’s data de-identification and tokenization tools enable healthcare and life sciences companies to replace their private patient information with an encrypted “token” that can’t be reverse-engineered to reveal sensitive information.
+
+- [Delivering Industrial DataOps on Industrial Data Fabric Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/delivering-dataops-on-industrial-data-fabric/delivering-dataops-on-industrial-data-fabric.md): This version of the diagram has been archived.
+
+- [DescribeForMe Web App Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/describe-for-me-web-app/describe-for-me-web-app.md): The DescribeForMe web app uses the AWS Cloud to help the visually impaired review images.
+
+- [Detect Malware Threats Using AWS Transfer Family Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/detect-malware-threats-using-aws-transfer-family/detect-malware-threats-using-aws-transfer-family.md): Use this architecture to securely share files over SFTP, FTP, and FTPS within many business-to-business (B2B) workflows across various industries including retail, advertising, and regulated environments like healthcare and financial services.
+
+- [Edit in the Cloud on AWS AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/edit-in-cloud-on-aws/edit-in-cloud-on-aws.md): This architecture helps you build a virtual, video editing environment on AWS to collaborate with your editors and creative professionals.
+
+- [Electric Vehicle Charging OCPP Handler Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/electric-vehicle-charging-ocpp-handler/electric-vehicle-charging-ocpp-handler.md): This reference architecture demonstrates how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.
+
+- [Electric Vehicle Charging Station Management System Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/electric-vehicle-charging-station-management-software/electric-vehicle-charging-station-management-software.md): Build charging station management software for electric vehicles.
+
+- [Electro-Optical Imagery Reference Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/electro-optical-imagery-architecture/electro-optical-imagery-architecture.md): This architecture enables you to process electro-optical imagery on AWS.
+
+- [Electro-Optical Imagery Reference Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/electro-optical-imagery/electro-optical-imagery.md): This diagram demonstrates how to extract, process, and store electro-optical satellite imagery by using AWS.
+
+- [Element Analytics Unify on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/element-analytics-unify-on-aws/element-analytics-unify-on-aws.md): This diagram has been archived.
+
+- [Embedded ML models using Amazon SageMaker AI on AWS Marketplace Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/embedded-ml-models-using-sagemaker-on-aws-marketplace/embedded-ml-models-using-sagemaker-on-aws-marketplace.md): This architecture creates an environment where a buyer can consume a seller’s application into their own virtual private cloud (VPC), protecting the buyer’s data privacy while also protecting the seller’s application intellectual property through isolated network access controls and subscription authorization.
+
+- [Exploring Real-Time Streaming for Retrieval Augmented Generation in GenerativeAI Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/exploring-real-time-streaming-for-retrieval-augmented-generation/exploring-real-time-streaming-for-retrieval-augmented-generation.md): This architecture demonstrates the integration of streaming data services on AWS with Retrieval Augmented Generation(RAG) in Generative AI applications.
+
+- [Financial Advisor Chat Assistant Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/financial-advisor-chat-assistant/financial-advisor-chat-assistant.md): This architecture enables you to .....
+
+- [Fleet Management Solution for Connected Farm Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/fleet-management-for-connected-farm/fleet-management-for-connected-farm.md): This architecture enables you to to create an intelligent fleet management solution for farming, using data from Internet of Things (IoT) sensors and cameras at strategic locations and in assets such as tractors and combine harvesters.
+
+- [Flight Information Management System (FIMS) Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/flight-information-management-system/flight-information-management-system.md): This architecture enables you to manage and operate services required for unmanned aerial systems on AWS.
+
+- [Fraud ring detection using Neo4j and graphs Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/fraud-ring-detection-using-Neo4j-and-graphs/fraud-ring-detection-using-Neo4j-and-graphs.md): This architecture helps you to set up detection of fraud rings using graphs.
+
+- [Game Production in the Cloud - Workstations Stream Game Development from anywhere with NICE DCV](https://docs.aws.amazon.com/architecture-diagrams/latest/game-production-in-the-cloud-workstations/game-production-in-the-cloud-workstations.md): This architecture, which is agnostic of game engine and software, walks through the use of streaming remote workstations with the NICE DCV protocol.
+
+- [Payor Strategic Focus Areas Unleash data-driven innovation to modernize core payor functions, leverage advanced analytics for business value, and deliver superior customer experiences on AWS](https://docs.aws.amazon.com/architecture-diagrams/latest/healthcare-payor-strategic-focus-areas/healthcare-payor-strategic-focus-areas.md): This set of reference architectures illustrates how payors can leverage advanced analytics and harness structured and unstructured healthcare data to enhance customer experiences, optimize resource allocation, and make informed decisions across the healthcare continuum.
+
+- [High Performance Computing on AWS AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/high-performance-computing-on-aws/high-performance-computing-on-aws.md): This architecture enables you to deploy and burst a suite of high performance computing (HPC) cases to the cloud directly from the desktop.
+
+- [Cross-Account Amazon EC2 Status Monitoring for HPC Clusters Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/hpc-cluster-monitoring/hpc-cluster-monitoring.md): This reference architecture demonstrates how to build a mechanism to monitor Amazon Elastic Compute Cloud (Amazon EC2) state changes for high performance computing (HPC) clusters across multiple AWS accounts.
+
+- [IBM DataStage on AWS with IBM CP4D Cloud-native data integration and insights platform](https://docs.aws.amazon.com/architecture-diagrams/latest/ibm-datastage-on-aws-with-ibm-cp4d/ibm-datastage-on-aws-with-ibm-cp4d.md): This architecture shows how to build a modern, cloud-native, secure data integration solution to collect, transform, enrich, and deliver data at any scale and complexity.
+
+- [IBM Planning Analytics with Watson on AWS Increase service availability by deploying IBM TM1 Server on AWS](https://docs.aws.amazon.com/architecture-diagrams/latest/ibm-planning-analytics-with-watson/ibm-planning-analytics-with-watson.md): Increase service availability by deploying IBM TM1 Server on AWS.
+
+- [iMDSoft MetaVision Suite on AWS Clinical Information System](https://docs.aws.amazon.com/architecture-diagrams/latest/imdsoft-metavision-suite-on-aws/imdsoft-metavision-suite-on-aws.md): This architecture helps you deploy MetaVision Suite on AWS.
+
+- [Industrial Data Lake for Predictive Maintenance using Amazon Monitron and Amazon Kinesis Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/industrial-data-lake-for-predictive-maintenance-using-amazon-monitron-and-amazon-kinesis/industrial-data-lake-for-predictive-maintenance-using-amazon-monitron-and-amazon-kinesis.md): This architecture diagram shows you how to build a data lake using AWS IoT sensors, real-time data streams, alerts, visualization, and integrated workflow with Enterprise Resource Planning (ERP) to analyze factory data for predictive maintenance and improve equipment uptime.
+
+- [Industrial DataOps using HighByte Intelligence Hub and Element Unify: Solution guidance for Industrial Data Fabric (IDF) Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/industrial-dataops-using-highbyte-hub-and-element-unify/industrial-dataops-using-highbyte-hub-and-element-unify.md): This version of the diagram has been archived.
+
+- [Intelligent Supply Chain - Retail Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/intelligent-supply-chain-retail/intelligent-supply-chain-retail.md): This architecture shows a track and trace use case for a generic retailer.
+
+- [Near Real-Time IoT Analytics with AWS and IBM CP4D Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/iot-analytics-with-aws-ibm-cp4d/iot-analytics-with-aws-ibm-cp4d.md): This architecture demonstrates how to build near real-time IOT analytics with machine learning by using IBM Cloud Pak for DATA (CP4D) running on AWS.
+
+- [Kelvin AI on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/kelvin-ai-on-aws/kelvin-ai-on-aws.md): Kelvin’s solution, built on AWS Cloud, allows enterprises to scale faster, optimize their industrial operations in real time, and accelerate their digital transformation initiatives.
+
+- [Knowledge Graphs and GraphRAG with AWS and Neo4j Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/knowledge-graphs-and-graphrag-with-neo4j/knowledge-graphs-and-graphrag-with-neo4j.md): This reference architecture demonstrates how AWS services and Neo4j can be used to create knowledge graphs.
+
+- [Life Sciences Data Collection, Storage, and Processing Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/life-sciences-data-collection-storage-processing/life-sciences-data-collection-storage-processing.md): This architecture diagram helps you learn how to transfer life sciences data files to the cloud and provide data access using Amazon Web Services (AWS).
+
+- [Livestock Counting at the Edge Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/livestock-counting-at-the-edge/livestock-counting-at-the-edge.md): This architecture enables you to build a near real-time, automated counting application for livestock.
+
+- [Local Clusters for Amazon EKS on AWS Outposts Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/local-clusters-for-amazon-eks-on-aws-outposts/local-clusters-for-amazon-eks-on-aws-outposts.md): This reference architecture diagram helps you deploy a local cluster for Amazon Elastic Kubernetes Service (Amazon EKS) on AWS Outposts.
+
+- [Location-enabled Data Science with Precisely on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/location-enabled-data-science-with-precisely/location-enabled-data-science-with-precisely.md): This reference architecture shows how you can deploy Precisely’s geo addressing capabilities on Amazon SageMaker AI or Amazon EMR Studio to enhance experiments with location-aware data.
+
+- [Location Services with Real-Time ML Forecasting Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/location-services-with-machine-learning-forecasting/location-services-with-machine-learning-forecasting.md): This reference architecture provides guidance on creating a provider-customer location-based platform to create a real-time inference pipeline to forecast demand.
+
+- [LUMINAI Refinery Advisor on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/luminai-refinery-advisor-on-aws/luminai-refinery-advisor-on-aws.md): This reference architecture illustrates a highly scalable deployment of Beyond Limits’ LUMINAI Refinery Advisor on AWS using Amazon Elastic Container Service (Amazon ECS), Amazon Aurora, Amazon MQ, and other AWS managed services.
+
+- [Mobile Apps for Location-based Engagement AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/mobile-apps-location-based-engagement/mobile-apps-location-based-engagement.md): Mobile users carry their devices all the time and everywhere.
+
+- [Modern Data Analytics Reference Architecture on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/modern-data-analytics-on-aws/modern-data-analytics-on-aws.md): This architecture enables customers to build data analytics pipelines using a Modern Data Analytics approach to derive insights from the data.
+
+- [Modernize Applications with Microservices Using Amazon EKS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/modernize-applications-with-microservices-using-amazon-eks/modernize-applications-with-microservices-using-amazon-eks.md): This architecture enables you to integrate Amazon Elastic Kubernetes Service (Amazon EKS) with VMware Cloud on AWS.
+
+- [Moodle for High Availability on AWS Highly available, scalable and elastic open source Learning Management System](https://docs.aws.amazon.com/architecture-diagrams/latest/moodle-for-high-availability-on-aws/moodle-for-high-availability-on-aws.md): This architecture helps you implement Moodle, an open source learning management system that supports distributed online learning on AWS.
+
+- [Moodle Reference Architecture Moodle Reference Architecture](https://docs.aws.amazon.com/architecture-diagrams/latest/moodle-learning-management-system-on-aws/moodle-learning-management-system-on-aws.md): Moodle is a learning platform designed to provide educators, administrators and learners with a single robust, secure, and integrated system to create personalized learning environments.
+
+- [Multi-region API Gateway with CloudFront AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/multi-region-api-gateway-with-cloudfront/multi-region-api-gateway-with-cloudfront.md): This architecture shows how you can reduce latency for end-users, while increasing an application’s availability by providing API Gateway endpoints in multiple AWS Regions.
+
+- [Multiplayer Session-based Game Hosting on AWS Architecture Diagrams Game Tech](https://docs.aws.amazon.com/architecture-diagrams/latest/multiplayer-session-based-game-hosting-on-aws/multiplayer-session-based-game-hosting-on-aws.md): This architecture enables you to use Amazon GameLift Servers multi-Region fleets and a serverless backend solution to host a session-based multiplayer game.
+
+- [Omni-channel Customer Engagement for Airlines Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/omni-channel-customer-engagement-for-airlines/omni-channel-customer-engagement-for-airlines.md): This reference architecture provides a unified user interface for customer service teams (both centralized and on location) at Travel and Hospitality companies to provide personalized customer service across all channels at every stage of their customer's journey.
+
+- [Open edX on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/open-edx-for-high-availability-on-aws/open-edx-for-high-availability-on-aws.md): Open edX is an open-source, distributed learning platform that, when implemented on AWS, can scale flexibly to optimize cost and maximize availability.
+
+- [OpenText InfoArchive Architecture Using Amazon EKS and Amazon RDS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/opentext-infoarchive-architecture-using-amazon-eks/opentext-infoarchive-architecture-using-amazon-eks.md): This architecture enables you to run OpenText InfoArchive on Amazon Elastic Kubernetes Service (Amazon EKS) and Amazon Relational Database Service (Amazon RDS).
+
+- [Oracle E-Business Suite on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/oracle-e-business-suite-on-aws/oracle-e-business-suite-on-aws.md): This reference architecture can be used to deploy Oracle E-Business Suite on AWS by showing how to configure high availability for the database and application tier.
+
+- [Oracle PeopleSoft on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/oracle-peoplesoft-on-aws/oracle-peoplesoft-on-aws.md): This architecture shows how to deploy a highly available and resilient Oracle PeopleSoft production environment on AWS.
+
+- [Payment System Interface Modernization on AWS Modern Cloud-Native Payment Systems](https://docs.aws.amazon.com/architecture-diagrams/latest/payment-system-interface-modernization/payment-system-interface-modernization.md): This architecture shows you how to build a microservices-based payment system to handle scale and optimized performance with improved container-based deployment, and using API and event-based models for handling different channels in payment.
+
+- [Plagiarism Detection Architecture Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/plagiarism-detection-architecture/plagiarism-detection-architecture.md): This architecture helps you create a plagiarism-detection service using AWS Step Functions, AWS Lambda, Amazon SageMaker AI, and OpenSearch Service.
+
+- [Power Grid Simulation with High Performance Computing on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/power-grid-simulation-with-high-performance-computing/power-grid-simulation-with-high-performance-computing.md): This architecture enables you to run large-scale grid simulations with high performance computing (HPC) on AWS and use cloud-native, fully-managed services to perform advanced analytics on the study results.
+
+- [Powering Multiple Contact Centers with GenAI Using Amazon Bedrock Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.md): Many contact center operators have a hybrid setup of using multiple vendors, where each contact center has its own artificial intelligence and machine learning (AI/ML) support.
+
+- [Protegrity Data Protection for Amazon S3 and Snowflake Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/protegrity-data-protection-for-amazon-s3-and-snowflake/protegrity-data-protection-for-amazon-s3-and-snowflake.md): This architecture shows how Protegrity on AWS can be used to protect sensitive data in Amazon S3 and then show the same data as clear text based on permissions from Snowflake.
+
+- [PTC Creo on Amazon WorkSpaces Applications – Amazon EC2-based File Share for Users Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/ptc-creo-deployment-options-on-aws/ptc-creo-deployment-options-on-aws.md): This architecture gives you a blueprint for providing secure access to PTC Creo hosted in the AWS Cloud using Amazon S3 for the private user folder, and an Amazon EC2-based file share folder for collaboration with other users before committing their computer-aided designs (CADs) into PTC Windchill product lifecycle management (PLM).
+
+- [Real-Time Casino Player Analytics AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/real-time-player-casino-analytics/real-time-player-casino-analytics.md): This architecture enables casino customers or game developers to build a real-time analytics pipeline and promote advertising offers to customers during the game session.
+
+- [Routing Scenarios with AWS Direct Connect SiteLink Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/routing-scenarios-with-aws-direct-connect-sitelink/routing-scenarios-with-aws-direct-connect-sitelink.md): This architecture enables you to .....
+
+- [Satellite Mission Operations Center Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/satellite-mission-operations-center/satellite-mission-operations-center.md): welcome
+
+- [Scale Geospatial Data Lakes on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/scale-geospatial-data-lakes/template-ref-arch.md): This reference architecture shows you how to build scalable geospatial data repositories on AWS.
+
+- [Secure HTAP Data Architecture Using TiDB Cloud Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/secure-htap-data-architecture-with-tidb-cloud/secure-htap-data-architecture-with-tidb-cloud.md): This reference architecture outlines a modern hybrid transactional/analytical processing (HTAP) data stack on AWS.
+
+- [Security-rich API Management Using IBM API Connect on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/security-rich-api-management-using-ibm-api-connect/security-rich-api-management-using-ibm-api-connect.md): Take advantage of agility, security, and elasticity to create, manage, secure, and socialize all of your APIs across the cloud in order to power digital applications with a market-leading and scalable API management solution.
+
+- [Serverless In-Game Screenshot Processor Pipeline for Game Studios AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/serverless-in-game-screenshot-processor-pipeline-game-studios.md): This architecture helps you build a serverless image processing pipeline for your games that receives players’ in-game screenshots, checks them for profanity, performs transformation, and stores them in the cloud.
+
+- [Serverless Web Hosting on AWS App Runner Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/serverless-web-hosting-aws-app-runner.md): This reference architecture details how to run run serverless, containerized web applications without the need to provision or manage infrastructure.
+
+- [Smart Farm on AWS Smart Farm on AWS Architecture](https://docs.aws.amazon.com/architecture-diagrams/latest/smart-farm-on-aws/smart-farm-on-aws.md): This Connected Farm reference architecture enables sensors, computer vision, and edge inference in agriculture by focusing on ensuring scalability, elasticity, and a responsiveness for each operation’s growing and changing needs.
+
+- [Smart Metering for Water Utilities AWS Reference Architecture Diagram](https://docs.aws.amazon.com/architecture-diagrams/latest/smart-metering-for-water-utilities/smart-metering-for-water-utilities.md): Use AWS IoT Core for LoRaWAN to reliably collect water meter readings from multiple metering devices.
+
+- [Sports Betting Architecture on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/sports-betting-architecture/sports-betting-architecture.md): This reference architecture describes how sports betting application can be deployed to address different regulatory requirements.
+
+- [Telecom Charging (OCS/CHF) on AWS Outposts Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/telecom-charging-ocs-chf-on-aws-outposts/telecom-charging-ocs-chf-on-aws-outposts.md): This architecture enables you to deploy a fully automated, resilient, low latency, and highly available Telecom Online Charging System (OCS) / Charging Function (CHF) on AWS Outposts to run in the country of (or close to) the operator core network in cases of country data residency regulations or low latency requirements.
+
+- [Traffic Segmentation Options in AWS Direct Connect Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/traffic-segmentation-aws-direct-connect.md): This architecture shows traffic segmentation options in AWS Direct Connect, include using several private VIFs in the VPC or Direct Connect gateway, using AWS Transit Gateway Connect attachments over transit VIF, and using AWS Site-to-Site VPN connections over transit VIF.
+
+- [Using VMware VCDR and NetApp CVO for Disaster Recovery (DR) Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/using-vmware-vcdr-and-netapp-cvo-for-disaster-recovery-architecture/using-vmware-vcdr-and-netapp-cvo-for-disaster-recovery-architecture.md): This architecture shows you how to bring Disaster-Recovery-as-a-Service (DRaaS) and the power of AWS to your on-premises VMware workloads.
+
+- [Wafer Inspection with Machine Learning Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/wafer-inspection-with-machine-learning-architecture/wafer-inspection-with-machine-learning-architecture.md): This architecture shows you how computer vision wafer inspection accelerates defect detection and reduces human error in detecting (ring/scratch and so on), improving fab productivity.
+
+- [Web3 Decentralized Applications on AWS Architecture Diagrams](https://docs.aws.amazon.com/architecture-diagrams/latest/web3-decentralized-applications-on-aws/web3-decentralized-applications-on-aws.md): Use this architecture as a reference for developing static hosted web applications that communicate with a blockchain network through an Amazon Managed Blockchain node.

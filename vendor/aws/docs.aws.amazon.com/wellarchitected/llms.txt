@@ -1,0 +1,104 @@
+# AWS Well-Architected
+> This file provides structured access to AWS Well-Architected for large language models, which helps cloud architects build secure, high-performing, resilient, and efficient infrastructure for a variety of applications and workloads.
+
+## Guides
+
+
+
+- [AWS Well-Architected Framework (2022-03-31)](https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/llms.txt)
+
+- [AWS Well-Architected Framework (2023-04-10)](https://docs.aws.amazon.com/wellarchitected/2023-04-10/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/2023-04-10/framework/llms.txt)
+
+- [AWS Well-Architected Framework Framework](https://docs.aws.amazon.com/wellarchitected/2023-10-03/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/2023-10-03/framework/llms.txt)
+
+- [AWS Well-Architected Framework Framework](https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/2024-06-27/framework/llms.txt)
+
+- [AWS Well-Architected Framework Framework](https://docs.aws.amazon.com/wellarchitected/2025-02-25/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/2025-02-25/framework/llms.txt)
+
+- [AWS Well-Architected Tool API Reference](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/Welcome.md): This is the AWS Well-Architected Tool API Reference. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/llms.txt)
+
+- [Agentic AI Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentic-ai-lens.md): The AWS Well-Architected Agentic AI Lens provides architectural guidance for designing, deploying, and operating agentic AI systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/llms.txt)
+
+- [Amazon OpenSearch Service Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/amazon-opensearch-service-lens.md): The AWS Well-Architected Amazon OpenSearch Service Lens serves as a valuable resource for engineering and implementing secure, efficient, and high-performing OpenSearch Service workloads. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/llms.txt)
+
+- [Data Analytics Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/analytics-lens.md): This document describes the AWS Well-Architected Data Analytics Lens, a collection of customer-proven best practices for designing well-architected analytics workloads. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/llms.txt)
+
+- [Change Enablement in the Cloud AWS Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/change-enablement-in-the-cloud/change-enablement-in-the-cloud.md): Like every business function, change management should provide the capability for your organization to succeed. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/change-enablement-in-the-cloud/llms.txt)
+
+- [Connected Mobility Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/connected-mobility-lens.md): This paper describes the Connected Mobility Lens for the AWS Well-Architected Framework, which enables you to review and improve your cloud-based architectures and better understand the impact of design decisions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/connected-mobility-lens/llms.txt)
+
+- [Container Build Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/container-build-lens.md): This whitepaper describes the Container Build Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/llms.txt)
+
+- [Cost Optimization Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.md): This whitepaper focuses on the cost optimization pillar of the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/llms.txt)
+
+- [Data Residency and Hybrid Cloud Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/data-residency-with-hybrid-cloud-services-lens.md): This paper describes the Data Residency with Hybrid Cloud Services Lens (DRHC) Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/llms.txt)
+
+- [DevOps Guidance AWS Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/devops-guidance.md): The AWS Well-Architected Framework DevOps Guidance offers a structured approach that organizations of all sizes can follow to cultivate a high-velocity, security-focused culture capable of delivering substantial business value using modern technologies and DevOps best practices. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/llms.txt)
+
+- [End User Computing (EUC) Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/end-user-computing-lens.md): This document describes the End User Computing (EUC) Lens for the AWS Well-Architected Framework, a collection of customer-proven best practices for designing and operating cloud-based virtual desktop and application streaming solutions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/llms.txt)
+
+- [Financial Services Industry Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/financial-services-industry-lens.md): This document describes the Financial Services Industry Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/llms.txt)
+
+- [AWS Well-Architected Framework Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.md): The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/framework/llms.txt)
+
+- [Games Industry Lens AWS Whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/games-industry-lens.md): In this lens, we focus on how to design, deploy, and architect your games workloads in the AWS Cloud. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/llms.txt)
+
+- [Generative AI Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/generative-ai-lens.md): The AWS Well-Architected Generative AI Lens is an essential resource for organizations seeking to harness the power of generative AI technologies on AWS. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/llms.txt)
+
+- [Government Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/government-lens.md): This whitepaper describes the Government Lens for the AWS Well-Architected Framework including general design principles, best practices, government-specific guidance for the pillars of the Framework, and an additional chapter for government service outcomes. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/government-lens/llms.txt)
+
+- [Healthcare Industry Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/healthcare-industry-lens.md): This paper describes the Healthcare Industry Lens for the AWS Well-Architected Framework, which enables customers to review and improve their cloud-based architectures and better understand the business impact of design decisions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/healthcare-industry-lens/llms.txt)
+
+- [High Performance Computing Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/high-performance-computing-lens.md): The AWS Well-Architected High Performance Computing (HPC) Lens describes user scenarios, questions related to the AWS Well-Architected pillars, best practices, and prescriptive guidance for customers building their workloads. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/llms.txt)
+
+- [Hybrid Networking Lens - AWS Well-Architected Framework AWS Whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/hybrid-networking-lens.md): The AWS Well-Architected Hybrid Networking Lens serves as a valuable resource for engineering and implementing secure, efficient, and high-performing hybrid network connectivity. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/hybrid-networking-lens/llms.txt)
+
+- [Internet of Things (IoT) Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/iot-lens.md): This whitepaper describes the AWS IoT Lens for the AWS Well-Architected Framework, which you can use to review and improve your cloud-based architectures and better understand the business impact of your design decisions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/llms.txt)
+
+- [Life Sciences Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/life-sciences-lens/life-sciences-lens.md): This paper describes the Life Sciences Lens for the AWS Well-Architected Framework, which enables you to review and improve your cloud-based architectures and better understand the impact of design decisions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/life-sciences-lens/llms.txt)
+
+- [Machine Learning Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.md): Machine learning (ML) has evolved from research and development to the mainstream, driven by the exponential growth of data sources, generative AI and scalable cloud-based compute resources. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/llms.txt)
+
+- [Management and Governance Cloud Environment Guide AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/management-and-governance-cloud-environment-guide.md): The Management and Governance Cloud Environment Guide (M&G Guide) provides prescriptive guidance on how to manage your AWS workloads so that you have environments that are migration-ready, scale-ready and cost-efficient. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/llms.txt)
+
+- [Māori Data Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/maori-lens.md): This AWS Well-Architected custom lens provides prescriptive guidance and customer best practices related to Māori data and digital considerations. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/llms.txt)
+
+- [Mergers and Acquisitions Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/mergers-and-acquisitions-lens.md): This paper describes the Mergers and Acquisitions (M&A) Lens for the AWS Well-Architected Framework, which helps acquiring entities align with AWS best practices and guidance in the six pillars of the Well-Architected Framework for workload integration and migration to the cloud. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/mergers-and-acquisitions-lens/llms.txt)
+
+- [Microsoft Workloads Lens - AWS Well-Architected Framework AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/microsoft-workloads-lens.md): This whitepaper describes the Microsoft Workloads Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/llms.txt)
+
+- [Migration Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/migration-lens.md): Migration lens [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/llms.txt)
+
+- [Modern Industrial Data Technology Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/modern-industrial-data-technology-lens.md): This whitepaper describes the AWS Well-Architected Framework Lens on modern industrial data technology. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/llms.txt)
+
+- [Operational Excellence Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.md): The focus of this paper is the operational excellence pillar of the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/llms.txt)
+
+- [Operational Readiness Reviews (ORR) AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/operational-readiness-reviews/wa-operational-readiness-reviews.md): AWS created the Operational Readiness Review (ORR) to distill the learnings from AWS operational incidents into curated questions with best practice guidance. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/operational-readiness-reviews/llms.txt)
+
+- [Performance Efficiency Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.md): This whitepaper focuses on the performance efficiency pillar of the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/llms.txt)
+
+- [Reducing the Scope of Impact with Cell-Based Architecture AWS Well-Architected](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/reducing-scope-of-impact-with-cell-based-architecture.md): This whitepaper aims to demonstrate how to increase the resilience of critical applications, bringing the same fault isolation concepts that AWS applies in its Availability Zones and Regions to the level of your workload architecture. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/llms.txt)
+
+- [Reliability Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.md): The focus of this paper is the reliability pillar of the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/llms.txt)
+
+- [Responsible AI Lens AWS Whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/responsible-ai-lens.md): The AWS Well-Architected Framework Responsible AI Lens assists builder teams succeed at responsibly building and operating AI solutions that solve specific AI use cases. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/llms.txt)
+
+- [SaaS Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/saas-lens.md): This paper describes the SaaS Lens for the AWS Well-Architected Framework, which enables customers to review and improve their cloud-based architectures and better understand the business impact of their design decisions. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/llms.txt)
+
+- [SAP Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/sap-lens.md): This paper describes the SAP Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/llms.txt)
+
+- [Security Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.md): The focus of this paper is the security pillar of the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/llms.txt)
+
+- [Serverless Applications Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.md): This document describes the Serverless Applications Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/llms.txt)
+
+- [Streaming Media Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/streaming-media-lens.md): This whitepaper describes the AWS Streaming Media Lens for the AWS Well-Architected Framework, which helps customers apply best practices in the design, delivery, and maintenance of their cloud-based streaming media workloads. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/llms.txt)
+
+- [Supply Chain Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/supply-chain-lens.md): The Well-Architected Supply Chain Lens describes the customer user scenarios and pillar questions, best practices, and Implementation guidance for customers building and managing their workloads. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/llms.txt)
+
+- [Sustainability Pillar AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.md): This whitepaper focuses on the sustainability pillar of the Amazon Web Services (AWS) Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/llms.txt)
+
+- [Telco Lens AWS Whitepaper](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telco-lens.md): This paper describes the Telco Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/llms.txt)
+
+- [AWS Well-Architected Tool User Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.md): AWS Well-Architected Tool is a service in the cloud that provides a consistent process for measuring your architecture using AWS best practices. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/userguide/llms.txt)
+
+- [Video Streaming Advertising Lens AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/video-streaming-advertising-lens.md): This paper describes the Video Streaming Advertising (VSA) Lens for the AWS Well-Architected Framework. [llms.txt](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/llms.txt)

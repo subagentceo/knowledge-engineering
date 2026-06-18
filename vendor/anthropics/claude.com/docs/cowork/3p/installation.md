@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,7 +10,7 @@ Cowork on third-party (3P) is the standard Claude Desktop application plus a man
 
 ## Recommended rollout
 
-For most organizations, we recommend a three-stage rollout:
+For most organizations, we recommend the following rollout:
 
 <Steps>
   <Step title="Evaluate on a single machine">
@@ -33,11 +32,25 @@ For most organizations, we recommend a three-stage rollout:
 
 Deploying the configuration before the app means end users open Claude for the first time and land directly in Cowork, with no opportunity to sign in to claude.ai by mistake.
 
+## Check device readiness
+
+Before installing Claude Desktop, you can confirm that a device supports Cowork by running the readiness check: a small standalone program that requires no installation or sign-in.
+
+| Platform      | Download                                                                                                                     |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| macOS         | [Cowork readiness check for macOS](https://claude.ai/api/desktop/darwin/universal/cowork-readiness-check/latest/redirect)    |
+| Windows (Arm) | [Cowork readiness check for Windows arm64](https://claude.ai/api/desktop/win32/arm64/cowork-readiness-check/latest/redirect) |
+| Windows (x64) | [Cowork readiness check for Windows x64](https://claude.ai/api/desktop/win32/x64/cowork-readiness-check/latest/redirect)     |
+
+Open the downloaded program to run the check. If it reports **This computer is ready for Cowork**, the device can run Cowork.
+
+For fleet deployments, run the check on a representative device of each hardware model in your fleet before the broad rollout, so unsupported models are identified before users hit them.
+
 ## Admin installation
 
 ### 1. Install Claude Desktop
 
-Download the installer for your platform from [claude.com/download](https://claude.com/download).
+Download the installer for your platform from [claude.com/download](https://claude.com/download). If you're not sure the machine supports Cowork, run the [readiness check](#check-device-readiness) first.
 
 | Platform | Installer | Notes                                                       |
 | -------- | --------- | ----------------------------------------------------------- |
@@ -54,7 +67,6 @@ Launch Claude Desktop. **Do not sign in or create an Anthropic account** — sta
 
     1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
     2. Then go to **Developer → Configure third-party inference** to open the configuration window.
-
   </Tab>
 
   <Tab title="Windows">
@@ -62,11 +74,10 @@ Launch Claude Desktop. **Do not sign in or create an Anthropic account** — sta
 
     1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
     2. Then go to **Developer → Configure third-party inference** to open the configuration window.
-
   </Tab>
 </Tabs>
 
-The window is organized into seven sections in the left sidebar. Work through them in order; each maps to a group of [configuration keys](/cowork/3p/configuration), and the window validates values as you enter them.
+The window is organized into sections in the left sidebar. Work through them in order; each maps to a group of [configuration keys](/cowork/3p/configuration), and the window validates values as you enter them.
 
 <table>
   <thead>
@@ -79,7 +90,7 @@ The window is organized into seven sections in the left sidebar. Work through th
 
       <td>
         <ul>
-          <li>Inference provider (Gateway, Vertex, Bedrock, or Foundry) and its credentials</li>
+          <li>Inference provider (Gateway, Anthropic API, Vertex AI, Bedrock, or Foundry) and its credentials</li>
           <li>Model list</li>
           <li>Organization UUID</li>
           <li>Optional credential-helper script</li>
@@ -88,11 +99,11 @@ The window is organized into seven sections in the left sidebar. Work through th
     </tr>
 
     <tr>
-      <td><strong>Sandbox & workspace</strong></td>
+      <td><strong>Workspace restrictions</strong></td>
 
       <td>
         <ul>
-          <li>Whether the Code tab is shown</li>
+          <li>Which tabs (Cowork, Code) are enabled</li>
           <li>Allowed egress hosts for the sandbox</li>
           <li>Disabled built-in tools</li>
           <li>Allowed workspace folders</li>
@@ -137,6 +148,16 @@ The window is organized into seven sections in the left sidebar. Work through th
     </tr>
 
     <tr>
+      <td><strong>Appearance</strong></td>
+
+      <td>
+        <ul>
+          <li>Persistent banner shown across the app window</li>
+        </ul>
+      </td>
+    </tr>
+
+    <tr>
       <td><strong>Plugins & skills</strong></td>
 
       <td>
@@ -158,6 +179,16 @@ The window is organized into seven sections in the left sidebar. Work through th
       </td>
     </tr>
 
+    <tr>
+      <td><strong>Source</strong></td>
+
+      <td>
+        <ul>
+          <li>Optional bootstrap URL to fetch this configuration remotely</li>
+          <li>Bootstrap-delivered configuration takes priority over MDM-delivered values: it replaces them wholesale rather than merging key by key</li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
 
@@ -173,15 +204,17 @@ The configuration window is the recommended way to author configurations. It val
 
 Once your configuration tests successfully, click **Export** and choose a format:
 
-| Format          | Platform | Deploy with                                                                                                     |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
-| `.mobileconfig` | macOS    | Jamf, Kandji, Mosyle, Workspace ONE, or any Apple MDM                                                           |
-| `.reg`          | Windows  | Group Policy (import into a GPO), Intune (via custom ADMX or script), or any MDM that can write registry policy |
+| Format                      | Platform | Deploy with                                                                                                     |
+| --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `.mobileconfig`             | macOS    | Jamf, Kandji, Mosyle, Workspace ONE, or any Apple MDM                                                           |
+| `.reg`                      | Windows  | Group Policy (import into a GPO), Intune (via custom ADMX or script), or any MDM that can write registry policy |
+| `.zip` (ADMX template)      | Windows  | Schema-only template for Intune or Group Policy; you enter values in the management console                     |
+| `.plist` (Profile Manifest) | macOS    | Schema-only template for Jamf, ProfileCreator, or similar macOS tools                                           |
 
 The two actions in the configuration window do different things:
 
-- **Apply locally** writes the selected configuration to your own machine's Claude settings and relaunches the app, so you can test it end to end before deploying it.
-- **Export** writes a `.mobileconfig` or `.reg` file and leaves your local settings untouched.
+* **Apply locally** writes the selected configuration to your own machine's Claude settings and relaunches the app, so you can test it end to end before deploying it.
+* **Export** writes a `.mobileconfig` or `.reg` file and leaves your local settings untouched.
 
 #### Creating profiles for multiple user groups
 
@@ -189,10 +222,10 @@ Many organizations deploy distinct configurations to different populations: for 
 
 The configuration window can hold multiple named configurations. Use the picker in the top-right of the window:
 
-- **New configuration** creates an empty configuration.
-- **Duplicate** copies the current configuration as a starting point for a variant.
-- **Rename** and **Delete** manage the list.
-- **Reveal in Finder** opens the on-disk location where saved configurations are stored.
+* **New configuration** creates an empty configuration.
+* **Duplicate** copies the current configuration as a starting point for a variant.
+* **Rename** and **Delete** manage the list.
+* **Reveal in Finder** opens the on-disk location where saved configurations are stored.
 
 Selecting a configuration in the picker loads it for editing; the **applied** badge marks the one currently active on your machine. **Apply locally** and **Export** each act on whichever configuration is selected, so you can test each one locally and export them independently.
 
@@ -217,7 +250,6 @@ Push the exported configuration through your MDM. The app reads from these locat
     | Local (user)       | `~/Library/Application Support/Claude-3p/configLibrary/`                   | Lowest     |
 
     A `.mobileconfig` profile delivered by MDM lands in the Managed Preferences locations automatically. Both managed paths are read; where a key appears in both, the per-user value wins.
-
   </Tab>
 
   <Tab title="Windows">
@@ -228,7 +260,6 @@ Push the exported configuration through your MDM. The app reads from these locat
     | Local (user)   | `%LOCALAPPDATA%\Claude-3p\configLibrary\` | Lowest     |
 
     A Group Policy Object or Intune configuration profile writes to the registry policy paths. Both hives are read; where a key appears in both, the machine (`HKLM`) value wins.
-
   </Tab>
 </Tabs>
 
@@ -238,11 +269,7 @@ When **any** managed source is present, it takes effect and the in-app configura
 
 Deploy the Claude Desktop installer to enrolled devices using your standard software-distribution mechanism. On launch, the app reads the managed configuration, detects the configured inference provider and credentials, and the sign-in screen offers users the option to start in Cowork on 3P.
 
-### 7. Configure the Code tab (if enabled)
-
-Anthropic is working on achieving settings parity between the Cowork and Code tabs. Today, some Cowork on 3P configuration keys do not yet propagate identically to Code-tab sessions. To configure the Code tab directly, deploy a Claude Code `managed-settings.json` alongside your profile, or disable the Code tab with `isClaudeCodeForDesktopEnabled: false`. See [Code tab](/cowork/3p/code).
-
-### 8. Deploy organization plugins (optional)
+### 7. Deploy organization plugins (optional)
 
 If you're distributing [organization plugins](/cowork/3p/extensions#organization-plugins-admin), push the plugin bundles to the org-plugins directory on each device alongside the configuration profile. Plugins are picked up at the next app launch.
 
@@ -250,7 +277,7 @@ If you're distributing [organization plugins](/cowork/3p/extensions#organization
 
 For pilots, evaluations, or organizations that don't use MDM, individual users can configure 3P mode themselves.
 
-1. Install Claude Desktop from [claude.com/download](https://claude.com/download).
+1. Install Claude Desktop from [claude.com/download](https://claude.com/download). If you're not sure your computer supports Cowork, run the [readiness check](#check-device-readiness) first.
 2. Launch the app. **Do not sign in or create an Anthropic account.** From the macOS menu bar (or on Windows, the application menu ☰ in the top-left of the login screen), go to **Help → Troubleshooting → Enable Developer Mode**, then **Developer → Configure third-party inference**.
 3. Enter the provider, endpoint, and credential values supplied by your administrator.
 4. Click **Apply locally**. The app relaunches and the sign-in screen now offers the option to start in Cowork on 3P using the configuration you entered.
@@ -263,10 +290,10 @@ On any configured device, open Claude Desktop and go to **Help → Troubleshooti
 
 If the app shows the standard claude.ai sign-in screen instead of Cowork, the configuration was not read. Common causes:
 
-- `inferenceProvider` is missing, misspelled, or set to an unrecognized value
-- The configuration was applied while the app was running (fully quit and relaunch)
-- The configuration was written to the local config file but you're checking the managed location (or vice versa)
-- A required key for the chosen provider is missing; check **Help → Troubleshooting** or the application log at `~/Library/Logs/Claude/main.log` (macOS) / `%APPDATA%\Claude\logs\main.log` (Windows)
+* `inferenceProvider` is missing, misspelled, or set to an unrecognized value
+* The configuration was applied while the app was running (fully quit and relaunch)
+* The configuration was written to the local config file but you're checking the managed location (or vice versa)
+* A required key for the chosen provider is missing; check **Help → Troubleshooting** or the application log at `~/Library/Logs/Claude-3p/main.log` (macOS) / `%LOCALAPPDATA%\Claude-3p\Logs\main.log` (Windows)
 
 ## Troubleshooting
 
@@ -290,8 +317,8 @@ The agent helper is a signed binary that Claude Desktop installs under its user-
 
 The helper is Developer ID signed and notarized:
 
-- Team ID: `Q6L2SF6YDW` (Anthropic PBC)
-- Signing ID: `com.anthropic.claude-code`
+* Team ID: `Q6L2SF6YDW` (Anthropic PBC)
+* Signing ID: `com.anthropic.claude-code`
 
 For Santa, a `TEAMID` allow rule for `Q6L2SF6YDW` covers the helper across version updates. Standard (non-3P) installs use `~/Library/Application Support/Claude/` with the same subpath.
 
@@ -307,7 +334,7 @@ The helper is Authenticode-signed with publisher `Anthropic, PBC`. For Defender 
 
 By default, Claude Desktop checks Anthropic's update server and applies updates automatically. In 3P deployments you can:
 
-- **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Use `autoUpdaterEnforcementHours` to bound how long users can defer a pending update.
-- **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for air-gapped environments but means your IT team owns the update pipeline.
+* **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Use `autoUpdaterEnforcementHours` to bound how long users can defer a pending update.
+* **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for air-gapped environments but means your IT team owns the update pipeline.
 
 See [Telemetry and egress](/cowork/3p/telemetry) for the network paths the updater uses.

@@ -25,10 +25,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -94,10 +91,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -164,10 +158,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -238,10 +229,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -318,10 +306,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -398,10 +383,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 
@@ -485,10 +467,7 @@ To use Copilot, you’ll need a personal GitHub account with access to a Copilot
 * Start with Copilot Free to explore limited features without subscribing to a plan.
 * Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max to unlock more features, models, and request limits.
 
-  > \[!IMPORTANT]
-  >
-  > * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-  > * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
+  > \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 For more information about the different plans for GitHub Copilot, see [Plans for GitHub Copilot](/en/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 

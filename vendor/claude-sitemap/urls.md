@@ -1,7 +1,7 @@
 ---
 vendor: claude-sitemap
 llms_txt: https://www.claude.com/llms.txt
-count: 1825
+count: 1830
 transform: html-extract
 ---
 
@@ -50,6 +50,7 @@ transform: html-extract
 | https://claude.com/blog/claude-code-on-the-web | `vendor/claude-sitemap/blog/claude-code-on-the-web.md` |
 | https://claude.com/blog/claude-code-plugins | `vendor/claude-sitemap/blog/claude-code-plugins.md` |
 | https://claude.com/blog/claude-code-remote-mcp | `vendor/claude-sitemap/blog/claude-code-remote-mcp.md` |
+| https://claude.com/blog/claude-design-stays-on-brand-for-daily-work | `vendor/claude-sitemap/blog/claude-design-stays-on-brand-for-daily-work.md` |
 | https://claude.com/blog/claude-excel-powerpoint-updates | `vendor/claude-sitemap/blog/claude-excel-powerpoint-updates.md` |
 | https://claude.com/blog/claude-for-chrome | `vendor/claude-sitemap/blog/claude-for-chrome.md` |
 | https://claude.com/blog/claude-for-enterprise | `vendor/claude-sitemap/blog/claude-for-enterprise.md` |
@@ -171,6 +172,7 @@ transform: html-extract
 | https://claude.com/blog/web-search-api | `vendor/claude-sitemap/blog/web-search-api.md` |
 | https://claude.com/blog/what-is-model-context-protocol | `vendor/claude-sitemap/blog/what-is-model-context-protocol.md` |
 | https://claude.com/blog/whats-new-in-claude-managed-agents | `vendor/claude-sitemap/blog/whats-new-in-claude-managed-agents.md` |
+| https://claude.com/blog/workload-identity-federation | `vendor/claude-sitemap/blog/workload-identity-federation.md` |
 | https://claude.com/blog/workspaces | `vendor/claude-sitemap/blog/workspaces.md` |
 | https://claude.com/blog/your-thinking-partner | `vendor/claude-sitemap/blog/your-thinking-partner.md` |
 | https://claude.com/blog/zero-trust-for-ai-agents | `vendor/claude-sitemap/blog/zero-trust-for-ai-agents.md` |
@@ -405,6 +407,7 @@ transform: html-extract
 | https://claude.com/connectors/context7 | `vendor/claude-sitemap/connectors/context7.md` |
 | https://claude.com/connectors/cortellis-regulatory | `vendor/claude-sitemap/connectors/cortellis-regulatory.md` |
 | https://claude.com/connectors/coupler-io | `vendor/claude-sitemap/connectors/coupler-io.md` |
+| https://claude.com/connectors/coursera | `vendor/claude-sitemap/connectors/coursera.md` |
 | https://claude.com/connectors/courtlistener | `vendor/claude-sitemap/connectors/courtlistener.md` |
 | https://claude.com/connectors/courtroom5 | `vendor/claude-sitemap/connectors/courtroom5.md` |
 | https://claude.com/connectors/craft | `vendor/claude-sitemap/connectors/craft.md` |
@@ -454,6 +457,7 @@ transform: html-extract
 | https://claude.com/connectors/gainsight-cs | `vendor/claude-sitemap/connectors/gainsight-cs.md` |
 | https://claude.com/connectors/gainsight-staircase-ai | `vendor/claude-sitemap/connectors/gainsight-staircase-ai.md` |
 | https://claude.com/connectors/gamma | `vendor/claude-sitemap/connectors/gamma.md` |
+| https://claude.com/connectors/github | `vendor/claude-sitemap/connectors/github.md` |
 | https://claude.com/connectors/gitlab | `vendor/claude-sitemap/connectors/gitlab.md` |
 | https://claude.com/connectors/glean | `vendor/claude-sitemap/connectors/glean.md` |
 | https://claude.com/connectors/glovo | `vendor/claude-sitemap/connectors/glovo.md` |
@@ -586,7 +590,6 @@ transform: html-extract
 | https://claude.com/connectors/postman | `vendor/claude-sitemap/connectors/postman.md` |
 | https://claude.com/connectors/privacy | `vendor/claude-sitemap/connectors/privacy.md` |
 | https://claude.com/connectors/process-street | `vendor/claude-sitemap/connectors/process-street.md` |
-| https://claude.com/connectors/protocols-io | `vendor/claude-sitemap/connectors/protocols-io.md` |
 | https://claude.com/connectors/pubmed | `vendor/claude-sitemap/connectors/pubmed.md` |
 | https://claude.com/connectors/pylon | `vendor/claude-sitemap/connectors/pylon.md` |
 | https://claude.com/connectors/qlik | `vendor/claude-sitemap/connectors/qlik.md` |
@@ -598,6 +601,7 @@ transform: html-extract
 | https://claude.com/connectors/razorpay | `vendor/claude-sitemap/connectors/razorpay.md` |
 | https://claude.com/connectors/read-ai | `vendor/claude-sitemap/connectors/read-ai.md` |
 | https://claude.com/connectors/relativity | `vendor/claude-sitemap/connectors/relativity.md` |
+| https://claude.com/connectors/replit | `vendor/claude-sitemap/connectors/replit.md` |
 | https://claude.com/connectors/resy | `vendor/claude-sitemap/connectors/resy.md` |
 | https://claude.com/connectors/retool | `vendor/claude-sitemap/connectors/retool.md` |
 | https://claude.com/connectors/rillet | `vendor/claude-sitemap/connectors/rillet.md` |
@@ -808,6 +812,7 @@ transform: html-extract
 | https://claude.com/customers/jetbrains | `vendor/claude-sitemap/customers/jetbrains.md` |
 | https://claude.com/customers/jetbrains-2 | `vendor/claude-sitemap/customers/jetbrains-2.md` |
 | https://claude.com/customers/jumpcut | `vendor/claude-sitemap/customers/jumpcut.md` |
+| https://claude.com/customers/juno | `vendor/claude-sitemap/customers/juno.md` |
 | https://claude.com/customers/kindora | `vendor/claude-sitemap/customers/kindora.md` |
 | https://claude.com/customers/kodif | `vendor/claude-sitemap/customers/kodif.md` |
 | https://claude.com/customers/law-and-company | `vendor/claude-sitemap/customers/law-and-company.md` |

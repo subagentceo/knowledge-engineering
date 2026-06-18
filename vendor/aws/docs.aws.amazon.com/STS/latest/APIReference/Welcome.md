@@ -12,4 +12,4 @@ For information about setting up signatures and authorization through the API, s
 
 For information about AWS STS endpoints, see [AWS STS Regions and endpoints](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_region-endpoints.html) in the *IAM User Guide*. For information about logging AWS STS API calls, see [Logging IAM and AWS STS API calls with AWS CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html) in the *IAM User Guide*.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

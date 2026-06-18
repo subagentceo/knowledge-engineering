@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -29,10 +28,10 @@ deployment. End users see the same interface regardless.
 
 All paths need:
 
-- Claude for Excel, PowerPoint, Word, or Outlook installed from
+* Claude for Excel, PowerPoint, Word, or Outlook installed from
   Microsoft AppSource or via admin deployment.
-- Microsoft 365 with Entra ID for admin consent and token issuance.
-- For Outlook: Microsoft Graph admin consent for `Mail.ReadWrite`,
+* Microsoft 365 with Entra ID for admin consent and token issuance.
+* For Outlook: Microsoft Graph admin consent for `Mail.ReadWrite`,
   `Calendars.Read`, `User.Read`, and `offline_access`, granted via
   Anthropic's app or your own Entra app registration.
 
@@ -101,44 +100,53 @@ AI Foundry.
 
 ## Deploy the add-in for your organization
 
-Use the `claude-in-office` plugin to configure and deploy the add-in
+Use the `claude-for-msft-365-install` plugin to configure and deploy the add-in
 across your organization. The plugin provisions cloud resources (for
 Bedrock or Vertex AI direct), generates the add-in manifest, and obtains
 admin consent in a single guided flow.
 
 ### Run the setup wizard
 
-[Install the plugin](https://github.com/anthropics/financial-services-plugins/tree/main/claude-in-office)
+[Install the plugin](https://github.com/anthropics/financial-services/tree/main/claude-for-msft-365-install)
 from the financial services marketplace, then run the setup wizard
 from inside Claude.
 
 Add the marketplace in your shell:
 
 ```bash theme={null}
-claude plugin marketplace add anthropics/financial-services-plugins
+claude plugin marketplace add anthropics/financial-services
 ```
 
 Install the plugin:
 
 ```bash theme={null}
-claude plugin install claude-in-office@financial-services-plugins
+claude plugin install claude-for-msft-365-install@claude-for-financial-services
+```
+
+Keep the plugin current before each deployment. List installed plugins
+with `claude plugin list` and compare your version against the
+[latest published version](https://github.com/anthropics/financial-services/blob/main/claude-for-msft-365-install/.claude-plugin/plugin.json).
+If yours is older, update it:
+
+```bash theme={null}
+claude plugin update claude-for-msft-365-install@claude-for-financial-services
 ```
 
 Then, from inside Claude, run the setup wizard:
 
 ```
-/claude-in-office:setup
+/claude-for-msft-365-install:setup
 ```
 
 The wizard walks you through the path you chose:
 
-- **LLM gateway**: collects the gateway URL and token, determines the
+* **LLM gateway**: collects the gateway URL and token, determines the
   API format, generates the manifest, handles Azure admin consent.
-- **Bedrock direct**: creates the IAM OIDC identity provider and role,
+* **Bedrock direct**: creates the IAM OIDC identity provider and role,
   generates the manifest, handles Azure admin consent.
-- **Vertex AI direct**: walks through Google OAuth client creation,
+* **Vertex AI direct**: walks through Google OAuth client creation,
   generates the manifest, handles Azure admin consent.
-- **Foundry direct**: captures `azure_resource_name` and
+* **Foundry direct**: captures `azure_resource_name` and
   `azure_api_key`, then generates the manifest.
 
 When complete, the add-in is ready for tenant-wide deployment.
@@ -153,12 +161,20 @@ When complete, the add-in is ready for tenant-wide deployment.
 
 The plugin exposes the following slash commands once installed.
 
-| Command                               | Function                                                                                |
-| ------------------------------------- | --------------------------------------------------------------------------------------- |
-| `/claude-in-office:setup`             | Interactive wizard: provisions cloud resources, handles admin consent, writes manifest. |
-| `/claude-in-office:manifest`          | Generates a customized add-in manifest XML.                                             |
-| `/claude-in-office:consent`           | Generates the Azure admin-consent URL for the add-in's app registration.                |
-| `/claude-in-office:update-user-attrs` | Writes per-user configuration via Microsoft Graph extension attributes.                 |
+| Command                                          | Function                                                                                                                                                                                      |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/claude-for-msft-365-install:setup`             | Interactive wizard: provisions cloud resources, handles admin consent, writes manifest.                                                                                                       |
+| `/claude-for-msft-365-install:manifest`          | Generates a customized add-in manifest XML.                                                                                                                                                   |
+| `/claude-for-msft-365-install:consent`           | Generates the Azure admin-consent URL for the add-in's app registration.                                                                                                                      |
+| `/claude-for-msft-365-install:update-user-attrs` | Writes per-user configuration via Microsoft Graph extension attributes.                                                                                                                       |
+| `/claude-for-msft-365-install:bootstrap`         | Builds a bootstrap endpoint for per-user MCP servers, skills, and dynamic config.                                                                                                             |
+| `/claude-for-msft-365-install:debug`             | Diagnoses deployment issues: stale config after a manifest update, connection failures, an add-in that does not appear, sign-in or admin-consent loops, and reading the add-in's error paste. |
+
+Run `/claude-for-msft-365-install:debug` whenever a connection or sign-in
+does not behave as expected. It triages from the symptom, reads the "Copy
+error details" paste from the connection-failed screen, and explains how
+each connection path works, so you can resolve most third-party platform
+questions without escalating.
 
 ### What the wizard provisions
 
@@ -175,9 +191,19 @@ connection path you choose.
 ### Per-user configuration
 
 If values vary per user, such as different gateway tokens or AWS roles
-for different teams, run `/claude-in-office:update-user-attrs`
+for different teams, run `/claude-for-msft-365-install:update-user-attrs`
 with per-user keys after initial setup to write configuration via
 Microsoft Graph extension attributes.
+
+At load, the add-in resolves each configuration key from three sources in
+order of precedence: a bootstrap endpoint, Microsoft Entra ID extension
+attributes, then manifest parameters. Per-user attributes override the
+manifest defaults, so one deployed manifest can serve teams with
+different settings.
+
+<Frame caption="Configuration resolution at add-in load: bootstrap, Entra ID attributes, then manifest parameters.">
+  <img src="https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/config-discovery.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=b6c750272cf3ad9765ec2563af436806" alt="The add-in resolves each configuration key from a bootstrap endpoint, then Entra ID extension attributes, then manifest parameters." width="2398" height="1670" data-path="images/office-agents/architecture/config-discovery.png" />
+</Frame>
 
 ### Deploy to Outlook
 
@@ -237,6 +263,11 @@ appears under Tools, Add-ins on Mac or Home, Add-ins on Windows in
 Excel, PowerPoint, and Word once deployed. In Outlook it appears in the
 message ribbon when an email is open.
 
+Custom manifest deployment is where most issues surface: the add-in does
+not appear, users see old configuration after an update, or sign-in
+fails. Run `/claude-for-msft-365-install:debug` to diagnose these, or to
+sideload and validate a manifest locally before a tenant-wide upload.
+
 <Note>
   Start with a pilot group to confirm functionality, then widen
   assignment. You can change assignment later without redeploying.
@@ -281,6 +312,13 @@ Microsoft applications, it cannot use your OS keychain the way Claude
 Code does. Only enter gateway-issued tokens, not raw cloud-provider
 credentials.
 
+In this path, every request travels from the add-in to your gateway,
+which forwards it to the provider you configured.
+
+<Frame caption="LLM gateway request flow: the add-in calls your gateway, which routes to your chosen provider.">
+  <img src="https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/gateway.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=287ef25266391992109b8673f97e3f93" alt="Requests flow from the add-in to your LLM gateway, which forwards them to the configured model provider." width="2540" height="1030" data-path="images/office-agents/architecture/gateway.png" />
+</Frame>
+
 ### Bedrock, Vertex AI, or Foundry direct
 
 <Steps>
@@ -308,6 +346,24 @@ credentials.
 
 If you see an error at sign-in, confirm with your IT team that your
 account is in the group assigned to the add-in.
+
+In a direct connection, the add-in authenticates with your identity
+provider and calls the model provider without an intermediary gateway.
+The flow differs by provider.
+
+Bedrock direct uses your Microsoft Entra ID token to assume an AWS role,
+then calls Amazon Bedrock.
+
+<Frame caption="Bedrock direct flow: the add-in exchanges an Entra ID token for an AWS role, then calls Bedrock.">
+  <img src="https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/bedrock-direct.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=51c8233f704717f0ff1c3897356621cd" alt="The add-in uses a Microsoft Entra ID token to assume an AWS role and call Amazon Bedrock directly." width="2540" height="1030" data-path="images/office-agents/architecture/bedrock-direct.png" />
+</Frame>
+
+Vertex AI direct authenticates through Google OAuth, then calls Vertex
+AI.
+
+<Frame caption="Vertex AI direct flow: the add-in authenticates with Google OAuth, then calls Vertex AI.">
+  <img src="https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/vertex-direct.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=a33063abcecbfc36e346621f735453ef" alt="The add-in authenticates through Google OAuth and calls Google Cloud Vertex AI directly." width="2540" height="1030" data-path="images/office-agents/architecture/vertex-direct.png" />
+</Frame>
 
 ### Change or update your gateway connection
 
@@ -522,6 +578,104 @@ contact your IT team.
 To route a full audit trail, including prompts, tool inputs, tool
 outputs, and document references, to your own infrastructure, see
 [Configure a custom OpenTelemetry collector for Claude for M365](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents).
+
+## Why sign-in redirects through pivot.claude.ai
+
+During Google sign-in for Vertex AI, Anthropic sign-in, or Microsoft admin
+consent, your identity provider redirects the browser to
+`https://pivot.claude.ai/auth/callback`. Security reviewers sometimes ask
+whether this means access tokens for your cloud provider or mailbox pass
+through Anthropic's servers. They do not. This section explains what the
+redirect carries in each flow and why the page cannot obtain a token.
+
+### OAuth authorization-code redirects
+
+Google sign-in for Vertex AI, Anthropic sign-in, and MCP connector
+authorization all use the OAuth 2.0 authorization-code grant. When the
+identity provider redirects to `pivot.claude.ai/auth/callback`, the URL
+contains two query parameters:
+
+* `code`: a one-time authorization code, not an access token
+* `state`: a random value the add-in generated before sign-in started
+
+The callback page is a static page served from `pivot.claude.ai`. It reads
+those two parameters from the URL, shows a Copy button, and instructs you
+to paste the value back into the add-in inside Office. The page has no
+server-side logic that stores, forwards, or exchanges the code.
+
+An authorization code on its own cannot be redeemed for an access token.
+The token endpoint requires an additional secret that only the add-in
+running on your machine holds:
+
+* **Anthropic sign-in and MCP connector authorization**: a Proof Key for
+  Code Exchange (PKCE) verifier. The add-in generates a random verifier
+  locally, sends only its SHA-256 hash to the identity provider when
+  sign-in starts, and keeps the verifier in browser session storage. The
+  token endpoint rejects any exchange that does not present the original
+  verifier.
+* **Google sign-in for Vertex AI**: the `client_secret` belonging to the
+  Google OAuth client your organization created during setup. This value
+  is provisioned into the add-in's configuration on each user's machine
+  and is sent only to `oauth2.googleapis.com` during token exchange.
+  Anthropic does not have this value.
+
+The add-in also verifies that the `state` value pasted back matches the
+one it generated and stored locally before sign-in. A mismatch is
+rejected. This prevents an attacker from tricking a user into completing
+a sign-in the attacker initiated.
+
+After the add-in exchanges the code, the resulting access and refresh
+tokens are held in the browser's local storage inside the Office add-in
+sandbox. The add-in presents the access token only to the inference or
+MCP-proxy endpoint for your sign-in path, and presents the refresh token
+only to the OAuth token endpoint. Each of these endpoints appears in the
+[Network allowlist](#network-allowlist). These tokens never reach
+`pivot.claude.ai`.
+
+### Why the redirect cannot target localhost
+
+Office add-ins run inside a sandboxed browser frame hosted by Microsoft
+365\. There is no local web server to receive a loopback redirect, and the
+browser tab that handles sign-in is isolated from the add-in frame's
+storage. The redirect must therefore target a registered HTTPS URL, and
+the callback page at `pivot.claude.ai` bridges the two contexts by
+displaying the code for you to paste back into the add-in.
+
+### Microsoft admin-consent redirects
+
+The Microsoft Graph consent link in
+[Grant Microsoft Graph consent](/office-agents/outlook#grant-microsoft-graph-consent)
+uses Microsoft's
+[admin-consent endpoint](https://learn.microsoft.com/en-us/entra/identity-platform/v2-admin-consent).
+By Microsoft's specification, the redirect back to
+`pivot.claude.ai/auth/callback` carries only the consent outcome: an
+`admin_consent` boolean and the `tenant` ID. It never carries an access
+token or an authorization code. The callback page displays a confirmation
+message and nothing else.
+
+The Microsoft Graph access token itself is obtained separately through
+[Nested App Authentication](https://learn.microsoft.com/en-us/office/dev/add-ins/develop/enable-nested-app-authentication-in-your-add-in),
+where the Office host brokers the token directly into the add-in on the
+user's machine. The Microsoft Authentication Library (MSAL) caches it in
+the browser's local storage, and the add-in calls `graph.microsoft.com`
+directly. The Graph token never reaches `pivot.claude.ai` or any other
+Anthropic endpoint.
+
+### Verify this in your own environment
+
+You can confirm every claim above with a network capture on a test
+machine:
+
+* The redirect to `pivot.claude.ai/auth/callback` carries `code` and
+  `state`, or `admin_consent` and `tenant`, in the query string. No
+  `access_token` parameter appears.
+* The `POST` that exchanges the code goes to `oauth2.googleapis.com` for
+  Vertex AI or to `claude.ai` for Anthropic sign-in, originates from the
+  add-in frame, and includes the `code_verifier` or `client_secret` that
+  never appeared in any request to `pivot.claude.ai`.
+* Microsoft Graph calls go directly to `graph.microsoft.com` with a
+  bearer token that was issued by `login.microsoftonline.com` and never
+  transited an Anthropic domain.
 
 ## Differences from signing in with a Claude account
 

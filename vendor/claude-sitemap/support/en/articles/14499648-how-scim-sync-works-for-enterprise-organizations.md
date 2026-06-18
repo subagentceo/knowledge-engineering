@@ -36,7 +36,7 @@ Some actions trigger a manual sync immediately, and you can also run one on dema
 
 **Note:** When you update seat provisioning or seat roles through group mappings, existing members aren't resynced automatically. Trigger a manual sync to apply the changes.
 
-When you disable group mappings, you regain the ability to manually assign member roles and seat tiers. Existing members keep their current roles. New members are assigned the User role—change their role to "Custom Roles" if you want to enable custom role permissions.
+When you disable group mappings, you regain the ability to manually assign member roles and seat tiers. Existing members keep their current roles. New members are assigned the User role—change their role to "Custom" if you want to enable custom role permissions.
 
 ## How to manually trigger a sync
 
@@ -48,7 +48,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 2. Click "Check for updates" under **SCIM sync**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1781729100&amp;signature=3201c3d72c0ef54e1f4891dc9b47ba4277250f7ded375de5bfbc535104165157&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gbDSqN8S1rgfl7PnOiumySBsUlmhAV2XZWVBa%0AGJqf%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1781870400&amp;signature=d42f5a7704f09612500055f64753cc98f8df67924d3679e07a47b334925e65b8&amp;req=diMmFM9%2FnoRbUfMW3nq%2Bgagh6LSUTKvKbvL4knc3ZiS0VbK5sy5z%2FerI8xoM%0AajN69Cv4%2BIo5V5o%2F4aFEbrUi6BA%3D%0A)
 
 3. Select whether to sync members, groups, or both.
 
@@ -60,7 +60,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 3. Select whether to sync members, groups, or both:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1781729100&amp;signature=bcd4e779c7d85100c8704619aa9ea521cb508cf4c7291788d867263e38a77974&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frv3yTIe43OpyTHzM9RJtZZg%2B5Vtr%2B3rO8uw%0Al0Jf%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1781870400&amp;signature=841e9484d2cac051eeebdba19eaf5ec288db0df7a0571e4ed3c8972a3dccfc8a&amp;req=diMmFM9%2BlYBeUPMW3nq%2BgVEwMWRqZSlx13vyLxrNCaQ4LEIpvZG3Kpw5L8EE%0AiS2jObzL4uwuwlVWYxpaK9YxNOI%3D%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
@@ -68,7 +68,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 When you trigger a manual sync, you can choose to sync members, groups, or both. Here's what each does:
 
-- **Member sync** updates your organization's record of which members are mapped to seats, seat tiers, and seat roles (Custom Roles, User, Admin, Owner). This can affect members' login access to Claude.
+- **Member sync** updates your organization's record of which members are mapped to seats, seat tiers, and seat roles (Custom, User, Admin, Owner). This can affect members' login access to Claude.
 
 - **Group sync** updates your organization's record of which SCIM groups exist and who belongs to them. Group membership determines which capabilities members with custom roles can use, along with group spend limits.
 

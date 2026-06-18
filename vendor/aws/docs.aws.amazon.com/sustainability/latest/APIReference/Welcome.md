@@ -1,0 +1,19 @@
+
+
+# Welcome
+<a name="Welcome"></a>
+
+The AWS Sustainability service provides programmatic access to estimated carbon emissions data for your AWS usage. Use the AWS Sustainability service to retrieve, analyze, and track the carbon footprint of your cloud infrastructure over time. 
+
+With the AWS Sustainability service, you can:
++ Retrieve estimated carbon emissions for your AWS usage across different time periods 
++ Group emissions data by dimensions such as account, region, and service
++ Filter emissions data to focus on specific accounts, regions, or services
++ Access multiple emissions calculation methodologies including Location-based Method (LBM) and Market-based Method (MBM) 
++ Aggregate emissions data at various time granularities including monthly, quarterly, and yearly periods 
+
+ The API supports pagination for efficient data retrieval and provides dimension values to help you understand the available grouping and filtering options for your account. 
+
+ All emissions values are calculated using methodologies aligned with the Greenhouse Gas (GHG) Protocol and are provided in metric tons of carbon dioxide-equivalent (MTCO2e). 
+
+This document was last published on June 17, 2026. 

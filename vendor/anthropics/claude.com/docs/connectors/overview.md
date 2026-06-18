@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -13,8 +12,8 @@ Connectors extend Claude's capabilities by connecting it to external tools and d
 
 Connectors can do two things:
 
-- **Provide tools and information** — Give Claude access to external data and the ability to take actions (search files, read emails, create issues, etc.)
-- **Surface UI components** — Render interactive visual elements directly in the conversation through [MCP Apps](/connectors/building/mcp-apps/getting-started)
+* **Provide tools and information** — Give Claude access to external data and the ability to take actions (search files, read emails, create issues, etc.)
+* **Surface UI components** — Render interactive visual elements directly in the conversation through [MCP Apps](/connectors/building/mcp-apps/getting-started)
 
 <Note>
   **Building for Claude?** Most partners ship both a remote MCP server and a plugin that wraps it with skills. See [what to build](/connectors/building/what-to-build) for the decision guide.
@@ -62,11 +61,11 @@ You can build and connect your own MCP servers for proprietary tools or workflow
 
 Prebuilt integrations and directory connectors work across all Claude products:
 
-- **Claude.ai** — Full remote MCP support & MCP Apps
-- **Claude Desktop** — Full MCP support and local desktop extensions
-- **Claude Mobile** — Remote MCP access
-- **Claude Code** — Remote MCP access and plugins
-- **Claude Cowork** — Full MCP and plugin support
+* **Claude.ai** — Full remote MCP support & MCP Apps
+* **Claude Desktop** — Full MCP support and local desktop extensions
+* **Claude Mobile** — Remote MCP access
+* **Claude Code** — Remote MCP access and plugins
+* **Claude Cowork** — Full MCP and plugin support
 
 ## Next steps
 

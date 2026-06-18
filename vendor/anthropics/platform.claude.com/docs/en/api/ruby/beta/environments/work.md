@@ -19,9 +19,11 @@ Retrieve detailed information about a specific work item.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -74,7 +76,9 @@ Retrieve detailed information about a specific work item.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -85,9 +89,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -100,13 +105,15 @@ Retrieve detailed information about a specific work item.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -128,6 +135,7 @@ Retrieve detailed information about a specific work item.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -149,6 +157,7 @@ Retrieve detailed information about a specific work item.
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -212,9 +221,11 @@ Long poll for work items in the queue.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -267,7 +278,9 @@ Long poll for work items in the queue.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 - `anthropic_worker_id: String`
 
@@ -282,9 +295,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -297,13 +311,15 @@ Long poll for work items in the queue.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -325,6 +341,7 @@ Long poll for work items in the queue.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -346,6 +363,7 @@ Long poll for work items in the queue.
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -403,9 +421,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -458,7 +478,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -469,9 +491,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -484,13 +507,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -512,6 +537,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -533,6 +559,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -598,9 +625,11 @@ Record a heartbeat for a work item to maintain the lease.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -653,13 +682,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: String`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -671,6 +703,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `:queued`
 
     - `:starting`
@@ -688,6 +721,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `type: :work_heartbeat`
 
     The type of response
+
     - `:work_heartbeat`
 
 ### Example
@@ -737,9 +771,11 @@ Stop a work item, initiating graceful or forced shutdown.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -792,7 +828,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -803,9 +841,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -818,13 +857,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -846,6 +887,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -867,6 +909,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -930,9 +973,11 @@ List work items in an environment.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -985,7 +1030,9 @@ List work items in an environment.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -996,9 +1043,10 @@ List work items in an environment.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -1011,13 +1059,15 @@ List work items in an environment.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -1039,6 +1089,7 @@ List work items in an environment.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -1060,6 +1111,7 @@ List work items in an environment.
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -1126,9 +1178,11 @@ Update work item metadata with merge semantics.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -1181,7 +1235,9 @@ Update work item metadata with merge semantics.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1192,9 +1248,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -1207,13 +1264,15 @@ Update work item metadata with merge semantics.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -1235,6 +1294,7 @@ Update work item metadata with merge semantics.
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -1256,6 +1316,7 @@ Update work item metadata with merge semantics.
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Example
@@ -1313,9 +1374,11 @@ Get statistics about the work queue for an environment.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -1368,7 +1431,9 @@ Get statistics about the work queue for an environment.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1377,6 +1442,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: Integer`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1392,6 +1458,7 @@ Get statistics about the work queue for an environment.
   - `type: :work_queue_stats`
 
     The type of object
+
     - `:work_queue_stats`
 
   - `workers_polling: Integer`
@@ -1433,9 +1500,10 @@ puts(beta_self_hosted_work_queue_stats)
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: String`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: String`
 
@@ -1448,13 +1516,15 @@ puts(beta_self_hosted_work_queue_stats)
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: String`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: :session`
 
       Type of work data
+
       - `:session`
 
   - `environment_id: String`
@@ -1476,6 +1546,7 @@ puts(beta_self_hosted_work_queue_stats)
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item
+
     - `:queued`
 
     - `:starting`
@@ -1497,6 +1568,7 @@ puts(beta_self_hosted_work_queue_stats)
   - `type: :work`
 
     The type of object (always 'work')
+
     - `:work`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -1504,6 +1576,7 @@ puts(beta_self_hosted_work_queue_stats)
 - `class BetaSelfHostedWorkHeartbeatResponse`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: String`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1515,6 +1588,7 @@ puts(beta_self_hosted_work_queue_stats)
   - `state: :queued | :starting | :active | 2 more`
 
     Current state of the work item (active/stopping/stopped)
+
     - `:queued`
 
     - `:starting`
@@ -1532,6 +1606,7 @@ puts(beta_self_hosted_work_queue_stats)
   - `type: :work_heartbeat`
 
     The type of response
+
     - `:work_heartbeat`
 
 ### Beta Self Hosted Work List Response
@@ -1539,12 +1614,14 @@ puts(beta_self_hosted_work_queue_stats)
 - `class BetaSelfHostedWorkListResponse`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: Array[BetaSelfHostedWork]`
 
     List of work items
+
     - `id: String`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: String`
 
@@ -1557,13 +1634,15 @@ puts(beta_self_hosted_work_queue_stats)
     - `data: BetaSessionWorkData`
 
       The actual work to be performed
+
       - `id: String`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: :session`
 
         Type of work data
+
         - `:session`
 
     - `environment_id: String`
@@ -1585,6 +1664,7 @@ puts(beta_self_hosted_work_queue_stats)
     - `state: :queued | :starting | :active | 2 more`
 
       Current state of the work item
+
       - `:queued`
 
       - `:starting`
@@ -1606,6 +1686,7 @@ puts(beta_self_hosted_work_queue_stats)
     - `type: :work`
 
       The type of object (always 'work')
+
       - `:work`
 
   - `next_page: String`
@@ -1619,6 +1700,7 @@ puts(beta_self_hosted_work_queue_stats)
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: Integer`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1634,6 +1716,7 @@ puts(beta_self_hosted_work_queue_stats)
   - `type: :work_queue_stats`
 
     The type of object
+
     - `:work_queue_stats`
 
   - `workers_polling: Integer`
@@ -1645,6 +1728,7 @@ puts(beta_self_hosted_work_queue_stats)
 - `class BetaSelfHostedWorkStopRequest`
 
   Request to stop a work item.
+
   - `force: bool`
 
     If true, immediately stop work without graceful shutdown
@@ -1654,6 +1738,7 @@ puts(beta_self_hosted_work_queue_stats)
 - `class BetaSelfHostedWorkUpdateRequest`
 
   Request to update work item metadata.
+
   - `metadata: Hash[Symbol, String]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1666,11 +1751,13 @@ puts(beta_self_hosted_work_queue_stats)
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `id: String`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `type: :session`
 
     Type of work data
+
     - `:session`

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -15,8 +14,8 @@ Custom connectors allow Claude to operate within your preferred software and lev
 
 You can:
 
-- Connect Claude to existing remote MCP servers
-- Build your own remote MCP servers for any tool
+* Connect Claude to existing remote MCP servers
+* Build your own remote MCP servers for any tool
 
 ### Finding connectors
 
@@ -70,25 +69,25 @@ To remove or edit connectors:
 
 ### Best practices
 
-- Only connect to servers from trusted organizations
-- Carefully review requested permission scopes during authentication
-- Be aware of prompt injection risks; Claude has built-in protections
-- Monitor for unexpected changes in tool behavior
+* Only connect to servers from trusted organizations
+* Carefully review requested permission scopes during authentication
+* Be aware of prompt injection risks; Claude has built-in protections
+* Monitor for unexpected changes in tool behavior
 
 ### Tool actions
 
 Remote MCP servers enable Claude to invoke tools that can:
 
-- Read data from applications
-- Create, modify, or delete data
-- Take actions on your behalf
+* Read data from applications
+* Create, modify, or delete data
+* Take actions on your behalf
 
 **Usage guidelines:**
 
-- Monitor Claude's actions for unintended effects
-- Review tool approval requests carefully
-- Only click "Allow always" for trusted servers
-- Disable irrelevant tools via the "Search and tools" menu
+* Monitor Claude's actions for unintended effects
+* Review tool approval requests carefully
+* Only click "Allow always" for trusted servers
+* Disable irrelevant tools via the "Search and tools" menu
 
 ## Reporting issues
 

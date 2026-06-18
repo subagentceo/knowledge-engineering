@@ -283,17 +283,21 @@ Add to Slack (opens in new tab)Learn more
 
 ## Latest feature announcements
 
-### Redesigned Desktop app: Built to help you run more Claude Code tasks at once.
+### Dynamic workflows: Tackle the most challenging tasks by executing across 10s to 100s of parallel subagents, and checking its work before anything reaches you.
 
-BlogApr 14, 2026
+BlogMay 28, 2026
+
+### Agent view: One place to manage all your Claude Code sessions.
+
+BlogMay 11, 2026
 
 ### Routines: Configure a routine once, and it can run on a schedule, from an API call, or in response to an event.
 
 BlogApr 14, 2026
 
-### Auto mode: A safer long-running alternative to --dangerously-skip-permissions
+### Computer use: Claude now opens your apps, navigates your browser, and runs your dev tools to complete tasks.
 
-BlogMar 24, 2026
+BlogMar 23, 2026
 
 View changelog(opens in new tab)
 
@@ -376,10 +380,6 @@ Claude Code runs in your terminal and works alongside your preferred IDE and dev
 ### Is Claude Code secure?
 
 Yes. Claude Code runs locally in your terminal and talks directly to model APIs without requiring a backend server or remote code index. It also asks for permission before making changes to your files or running commands.
-
-### Which models does Claude Code use?
-
-Claude Code works with the Fable 5, Opus 4.8, Sonnet 4.6, and Haiku 4.5 models. Enterprise users can run Claude Code using models in existing Amazon Bedrock or Google Cloud Vertex AI instances.
 
 ### What are the system requirements to run Claude Code?
 

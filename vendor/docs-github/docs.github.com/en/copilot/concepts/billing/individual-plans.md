@@ -2,10 +2,6 @@
 
 GitHub offers several Copilot plans for individual developers, each with different features, model access, and usage limits to support a wide range of coding needs.
 
-> \[!IMPORTANT]
->
-> * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-
 GitHub offers multiple Copilot plans for individual developers, as well as a dedicated student offering, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.
 
 You can choose from the following plans.
@@ -51,8 +47,6 @@ For developers who need maximum flexibility, premium access to available models,
 * Ideal for AI power users and developers who want cutting-edge tools
 
 ## GitHub Copilot Max
-
-> \[!IMPORTANT] **Beginning June 1, 2026**, the new Copilot Max plan is only available for upgrade to users with existing Copilot plans.
 
 Designed for sustained, high-volume Copilot users.
 
@@ -100,11 +94,11 @@ For a detailed comparison of features and benefits, see [Plans for GitHub Copilo
 
 Consider the following to decide which plan is right for you:
 
-* **Just getting started?** Try GitHub Copilot Free to explore basic functionality at no cost.
+* **Just getting started?** [Try GitHub Copilot Free](https://github.com/copilot?ref_product=copilot\&ref_type=engagement\&ref_style=text\&ref_plan=free) to explore basic functionality at no cost.
 * **Studying?** Choose Copilot Student to access premium features at no cost.
-* **Coding regularly with AI?** Upgrade to GitHub Copilot Pro for more flexibility and access to premium features.
-* **Want the best performance and premium model access?** Go with GitHub Copilot Pro+ to unlock everything Copilot has to offer.
-* **Doing sustained high-volume Copilot development?** GitHub Copilot Max offers the highest monthly allowance of AI credits for individual plans.
+* **Coding regularly with AI?** [Subscribe to GitHub Copilot Pro](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=pro) for more flexibility and access to premium features.
+* **Want the best performance and premium model access?** [Go with GitHub Copilot Pro+](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=pro-plus) to unlock everything Copilot has to offer.
+* **Doing sustained high-volume Copilot development?** [Subscribe to GitHub Copilot Max](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=max), which offers the highest monthly allowance of AI credits for individual plans.
 
 To learn how to set up the plan that’s right for you, see [Getting started with a GitHub Copilot plan](/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan).
 

@@ -1,0 +1,15 @@
+
+
+# What is Amazon Managed Blockchain (AMB) Access Ethereum
+<a name="managed-blockchain-ethereum-overview"></a>
+
+Amazon Managed Blockchain (AMB) Access provides you with public blockchain nodes for Ethereum and Bitcoin, and you can also create private blockchain networks with the Hyperledger Fabric framework. Choose from various methods to engage with public blockchains, including fully managed, single-tenant (dedicated), and serverless multi-tenant API operations to public blockchain nodes. For use cases where access controls are important, you can choose from fully managed private blockchain networks. Standardized API operations give you instant scalability on a fully managed, resilient infrastructure, so you can build blockchain applications.
+
+AMB Access gives you two distinct types of blockchain infrastructure services: multi-tenant blockchain network access API operations and dedicated blockchain nodes and networks. With dedicated blockchain infrastructure, you can create and use public Ethereum blockchain nodes and private Hyperledger Fabric blockchain networks for your own use. Multi-tenant, API-based offerings, however, such as AMB Access Bitcoin, are composed of a fleet of Bitcoin nodes behind an API layer where the underlying blockchain node infrastructure is shared among customers.
+
+Ethereum is a decentralized and programmable blockchain network on which users around the world can transact, collaborate, and build applications. The Ethereum virtual machine (EVM) helps developers create powerful and composable decentralized applications (dApps) in the form of smart contracts. Use Amazon Managed Blockchain (AMB) Access Ethereum to build Ethereum dApps on Mainnet and select testnets with Ethereum full nodes using the go-ethereum (Geth) execution client and the Lighthouse consensus client. You can use your dedicated (single-tenant) Ethereum node(s) to invoke the Ethereum JSON-RPC APIs for both the Execution and Consensus layers to build and test smart contracts, perform fungible or non-fungible token (NFT) transactions, or query data from the Ethereum blockchain.
+
+**Important**  
+Ethereum Mainnet has merged with the Beacon chain's proof-of-stake system. Ethereum nodes on Amazon Managed Blockchain (AMB) support this change and require no further action on your part. For more information on using the Consensus API to query the Beacon chain, see [Supported Consensus API methods](supported-consensus-apis.md). For more information on the merge, see [The Merge]( https://ethereum.org/en/upgrades/merge/) topic on the Ethereum website.
+
+This guide covers the how to create and manage Ethereum blockchain resources using Amazon Managed Blockchain (AMB) Access Ethereum. For information about working with AMB Access Hyperledger Fabric, see [Amazon Managed Blockchain (AMB) Hyperledger Fabric Developer Guide](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/).

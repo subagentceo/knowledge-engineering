@@ -51,6 +51,7 @@ Observe and control your AI applications
 - [WebSockets API](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/index.md): Use persistent WebSocket connections through AI Gateway for real-time and non-realtime AI interactions.
 - [Non-realtime WebSockets API](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/non-realtime-api/index.md): Establish persistent WebSocket connections for AI requests through AI Gateway without real-time streaming.
 - [Realtime WebSockets API](https://developers.cloudflare.com/ai-gateway/usage/websockets-api/realtime-api/index.md): Connect to AI providers that support real-time WebSocket interactions through AI Gateway.
+- [Workers Bindings](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/index.md): Reference for the AI binding with AI Gateway. Call Workers AI and third-party models with env.AI.run(), access log IDs, and use gateway methods for feedback, logging, and URLs.
 
 ## Features
 
@@ -74,9 +75,11 @@ Observe and control your AI applications
 - [Integrations](https://developers.cloudflare.com/ai-gateway/integrations/index.md): Connect AI Gateway with Workers bindings, Vercel AI SDK, and other platforms.
 - [Agents](https://developers.cloudflare.com/agents/index.md): Build AI-powered Agents on Cloudflare
 - [Set up Workers AI with AI Gateway](https://developers.cloudflare.com/ai-gateway/integrations/aig-workers-ai-binding/index.md): This guide will walk you through setting up and deploying a Workers AI project. You will use Workers, an AI Gateway binding, and a large language model (LLM) to deploy your first AI-powered application on the Cloudflare global network.
-- [Coding agents](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/index.md): Route coding agents such as Claude Code through AI Gateway for observability, caching, rate limiting, and cost tracking.
+- [Coding agents](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/index.md): Route coding agents such as Claude Code, GitHub Copilot CLI, and Pi through AI Gateway for observability, caching, rate limiting, and cost tracking.
+- [Claude Code](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/index.md): Route Claude Code through AI Gateway using your own Anthropic API key.
+- [GitHub Copilot CLI](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/github-copilot-cli/index.md): Route GitHub Copilot CLI through AI Gateway using the REST API and Unified Billing.
+- [Pi](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/pi/index.md): Route the Pi coding agent through AI Gateway using its built-in Cloudflare AI Gateway provider.
 - [Vercel AI SDK](https://developers.cloudflare.com/ai-gateway/integrations/vercel-ai-sdk/index.md): Route Vercel AI SDK requests through AI Gateway using the ai-gateway-provider package.
-- [Workers Bindings](https://developers.cloudflare.com/ai-gateway/integrations/worker-binding-methods/index.md): Reference for the AI binding with AI Gateway. Call Workers AI and third-party models with env.AI.run(), access log IDs, and use gateway methods for feedback, logging, and URLs.
 
 ## Tutorials
 

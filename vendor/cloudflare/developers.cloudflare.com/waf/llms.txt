@@ -42,6 +42,10 @@ Filter incoming traffic and protect against web app vulnerabilities
 - [Example rules](https://developers.cloudflare.com/waf/detections/malicious-uploads/example-rules/index.md): Example rules for handling detected malicious file uploads.
 - [Get started](https://developers.cloudflare.com/waf/detections/malicious-uploads/get-started/index.md): Enable malicious upload detection for file upload endpoints.
 - [Terraform configuration examples](https://developers.cloudflare.com/waf/detections/malicious-uploads/terraform-examples/index.md): Configure malicious upload detection using Terraform.
+- [Threat intelligence](https://developers.cloudflare.com/waf/detections/threat-intelligence/index.md): Match incoming requests against Cloudforce One threat intelligence in WAF rules.
+- [Example rules](https://developers.cloudflare.com/waf/detections/threat-intelligence/example-rules/index.md): Mitigate high-risk traffic using threat intelligence fields in WAF rules.
+- [Threat intelligence fields](https://developers.cloudflare.com/waf/detections/threat-intelligence/fields/index.md): Fields available for threat intelligence detection in rule expressions.
+- [Get started](https://developers.cloudflare.com/waf/detections/threat-intelligence/get-started/index.md): Create a WAF rule using Cloudforce One threat intelligence fields.
 
 ## Custom rules
 

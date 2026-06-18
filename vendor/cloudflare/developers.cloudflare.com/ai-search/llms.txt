@@ -31,7 +31,7 @@ Create fully managed RAG pipelines for your AI applications
 - [Chunking](https://developers.cloudflare.com/ai-search/configuration/indexing/chunking/index.md): Configure how AI Search splits content into chunks for embedding and retrieval.
 - [Hybrid search](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/index.md): Combine vector and keyword search in AI Search for broader, more accurate retrieval results.
 - [Keyword search](https://developers.cloudflare.com/ai-search/configuration/indexing/keyword-search/index.md): Enable BM25 keyword search in AI Search to match documents containing exact query terms.
-- [Metadata](https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/index.md): Use metadata attributes and custom schemas in AI Search to filter and contextualize search results.
+- [Metadata attributes](https://developers.cloudflare.com/ai-search/configuration/indexing/metadata/index.md): Define built-in and custom metadata attributes on indexed documents.
 - [Path filtering](https://developers.cloudflare.com/ai-search/configuration/indexing/path-filtering/index.md): Control which files or URLs AI Search indexes by defining include and exclude path patterns.
 - [Service API token](https://developers.cloudflare.com/ai-search/configuration/indexing/service-api-token/index.md): Create a service API token to grant AI Search read access to R2 buckets for indexing.
 - [Syncing](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/index.md): Understand how AI Search automatically syncs and indexes content from connected data sources.
@@ -41,10 +41,11 @@ Create fully managed RAG pipelines for your AI applications
 - [Relevance boosting](https://developers.cloudflare.com/ai-search/configuration/retrieval/boosting/index.md): Bias AI Search results toward documents with specific metadata using relevance boosting.
 - [Similarity cache](https://developers.cloudflare.com/ai-search/configuration/retrieval/cache/index.md): Speed up AI Search responses by caching and reusing answers for semantically similar queries.
 - [UI snippets](https://developers.cloudflare.com/ai-search/configuration/retrieval/embed-search-snippets/index.md): Add AI Search to your website using pre-built, customizable web components for search and chat.
+- [Filtering](https://developers.cloudflare.com/ai-search/configuration/retrieval/filtering/index.md): Filter AI Search results by metadata attributes at query time.
 - [Public endpoint settings](https://developers.cloudflare.com/ai-search/configuration/retrieval/public-endpoint/index.md): Expose AI Search instances through public MCP, chat, and search endpoints without authentication.
 - [Query rewriting](https://developers.cloudflare.com/ai-search/configuration/retrieval/query-rewriting/index.md): Improve AI Search retrieval quality by enabling query rewriting to rephrase user queries.
 - [Reranking](https://developers.cloudflare.com/ai-search/configuration/retrieval/reranking/index.md): Enable reranking in AI Search to reorder retrieved results by semantic relevance.
-- [Result filtering](https://developers.cloudflare.com/ai-search/configuration/retrieval/result-filtering/index.md): Control AI Search result count and minimum score thresholds for returned results.
+- [Result controls](https://developers.cloudflare.com/ai-search/configuration/retrieval/result-controls/index.md): Control AI Search result count and minimum score thresholds for returned results.
 - [System prompt](https://developers.cloudflare.com/ai-search/configuration/retrieval/system-prompt/index.md): Guide AI Search query rewriting and response generation behavior with custom system prompts.
 
 ## REST API

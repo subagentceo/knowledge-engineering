@@ -60,7 +60,7 @@ Most people see rate limiting for select models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all Copilot  users and should not affect typical or even deeply engaged Copilot usage. We are aware of some use cases that are affected by it. GitHub is iterating on Copilot’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
-If you are rate limited, the error message will contain the suggested retry time for a successful request. For more information about alternative actions you can take while your limit resets, see [Usage limits for GitHub Copilot](/en/copilot/concepts/usage-limits#what-to-do-if-you-hit-a-limit).
+If you are rate limited, the error message may tell you to wait for your limit to reset, suggest a retry time, or prompt you to upgrade your plan for additional usage. For more information about what to do while your limit resets, see [Usage limits for GitHub Copilot](/en/copilot/concepts/usage-limits#what-to-do-if-you-hit-a-limit).
 
 In case you experience repeated rate limiting in Copilot contact [GitHub Support](https://support.github.com).
 

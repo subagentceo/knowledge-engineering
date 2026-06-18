@@ -1,0 +1,58 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Streaming
+
+The ElevenLabs API supports real-time audio streaming for select endpoints, returning raw audio bytes (e.g., MP3 data) directly over HTTP using chunked transfer encoding. This allows clients to process or play audio incrementally as it is generated.
+
+Our official [Node](https://github.com/elevenlabs/elevenlabs-js) and [Python](https://github.com/elevenlabs/elevenlabs-python) libraries include utilities to simplify handling this continuous audio stream.
+
+Streaming is supported for the [Text to Speech API](/docs/api-reference/text-to-speech/stream), [Voice Changer API](/docs/api-reference/speech-to-speech/stream) & [Audio Isolation API](/docs/api-reference/audio-isolation/stream). This section focuses on how streaming works for requests made to the Text to Speech API.
+
+In Python, a streaming request looks like:
+
+```python
+from elevenlabs import stream
+from elevenlabs.client import ElevenLabs
+
+elevenlabs = ElevenLabs()
+
+audio_stream = elevenlabs.text_to_speech.stream(
+    text="This is a test",
+    voice_id="JBFqnCBsd6RMkjVDRZzb",
+    model_id="eleven_multilingual_v2"
+)
+
+# option 1: play the streamed audio locally
+stream(audio_stream)
+
+# option 2: process the audio bytes manually
+for chunk in audio_stream:
+    if isinstance(chunk, bytes):
+        print(chunk)
+```
+
+In Node / Typescript, a streaming request looks like:
+
+```javascript maxLines=0
+import { ElevenLabsClient, stream } from "@elevenlabs/elevenlabs-js";
+import { Readable } from "stream";
+
+const elevenlabs = new ElevenLabsClient();
+
+async function main() {
+  const audioStream = await elevenlabs.textToSpeech.stream("JBFqnCBsd6RMkjVDRZzb", {
+    text: "This is a test",
+    modelId: "eleven_v3",
+  });
+
+  // option 1: play the streamed audio locally
+  await stream(Readable.from(audioStream));
+
+  // option 2: process the audio manually
+  for await (const chunk of audioStream) {
+    console.log(chunk);
+  }
+}
+
+main();
+```

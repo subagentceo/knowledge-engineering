@@ -19,9 +19,11 @@ Retrieve detailed information about a specific work item.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -74,7 +76,9 @@ Retrieve detailed information about a specific work item.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -85,9 +89,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -100,13 +105,15 @@ Retrieve detailed information about a specific work item.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -128,6 +135,7 @@ Retrieve detailed information about a specific work item.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -149,6 +157,7 @@ Retrieve detailed information about a specific work item.
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -216,9 +225,11 @@ Long poll for work items in the queue.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -271,7 +282,9 @@ Long poll for work items in the queue.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 - `anthropic_worker_id: Optional[str]`
 
@@ -286,9 +299,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -301,13 +315,15 @@ Long poll for work items in the queue.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -329,6 +345,7 @@ Long poll for work items in the queue.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -350,6 +367,7 @@ Long poll for work items in the queue.
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -410,9 +428,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -465,7 +485,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -476,9 +498,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -491,13 +514,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -519,6 +544,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -540,6 +566,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -609,9 +636,11 @@ Record a heartbeat for a work item to maintain the lease.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -664,13 +693,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse: …`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: str`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -682,6 +714,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -699,6 +732,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `type: Literal["work_heartbeat"]`
 
     The type of response
+
     - `"work_heartbeat"`
 
 ### Example
@@ -752,9 +786,11 @@ Stop a work item, initiating graceful or forced shutdown.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -807,7 +843,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -818,9 +856,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -833,13 +872,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -861,6 +902,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -882,6 +924,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -949,9 +992,11 @@ List work items in an environment.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1004,7 +1049,9 @@ List work items in an environment.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1015,9 +1062,10 @@ List work items in an environment.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -1030,13 +1078,15 @@ List work items in an environment.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -1058,6 +1108,7 @@ List work items in an environment.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1079,6 +1130,7 @@ List work items in an environment.
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -1149,9 +1201,11 @@ Update work item metadata with merge semantics.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1204,7 +1258,9 @@ Update work item metadata with merge semantics.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1215,9 +1271,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -1230,13 +1287,15 @@ Update work item metadata with merge semantics.
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -1258,6 +1317,7 @@ Update work item metadata with merge semantics.
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1279,6 +1339,7 @@ Update work item metadata with merge semantics.
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Example
@@ -1339,9 +1400,11 @@ Get statistics about the work queue for an environment.
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 25 more]`
+
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -1394,7 +1457,9 @@ Get statistics about the work queue for an environment.
 
     - `"thinking-token-count-2026-05-13"`
 
-    - `"mid-conversation-system-2026-04-07"`
+    - `"server-side-fallback-2026-06-01"`
+
+    - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1403,6 +1468,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: int`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1418,6 +1484,7 @@ Get statistics about the work queue for an environment.
   - `type: Literal["work_queue_stats"]`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: Optional[int]`
@@ -1462,9 +1529,10 @@ print(beta_self_hosted_work_queue_stats.depth)
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `id: str`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `acknowledged_at: Optional[str]`
 
@@ -1477,13 +1545,15 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `data: BetaSessionWorkData`
 
     The actual work to be performed
+
     - `id: str`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `type: Literal["session"]`
 
       Type of work data
+
       - `"session"`
 
   - `environment_id: str`
@@ -1505,6 +1575,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item
+
     - `"queued"`
 
     - `"starting"`
@@ -1526,6 +1597,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `type: Literal["work"]`
 
     The type of object (always 'work')
+
     - `"work"`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -1533,6 +1605,7 @@ print(beta_self_hosted_work_queue_stats.depth)
 - `class BetaSelfHostedWorkHeartbeatResponse: …`
 
   Response after recording a heartbeat for a work item.
+
   - `last_heartbeat: str`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1544,6 +1617,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `state: Literal["queued", "starting", "active", 2 more]`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"`
 
     - `"starting"`
@@ -1561,6 +1635,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `type: Literal["work_heartbeat"]`
 
     The type of response
+
     - `"work_heartbeat"`
 
 ### Beta Self Hosted Work List Response
@@ -1568,12 +1643,14 @@ print(beta_self_hosted_work_queue_stats.depth)
 - `class BetaSelfHostedWorkListResponse: …`
 
   Response when listing work items with cursor-based pagination.
+
   - `data: List[BetaSelfHostedWork]`
 
     List of work items
+
     - `id: str`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `acknowledged_at: Optional[str]`
 
@@ -1586,13 +1663,15 @@ print(beta_self_hosted_work_queue_stats.depth)
     - `data: BetaSessionWorkData`
 
       The actual work to be performed
+
       - `id: str`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `type: Literal["session"]`
 
         Type of work data
+
         - `"session"`
 
     - `environment_id: str`
@@ -1614,6 +1693,7 @@ print(beta_self_hosted_work_queue_stats.depth)
     - `state: Literal["queued", "starting", "active", 2 more]`
 
       Current state of the work item
+
       - `"queued"`
 
       - `"starting"`
@@ -1635,6 +1715,7 @@ print(beta_self_hosted_work_queue_stats.depth)
     - `type: Literal["work"]`
 
       The type of object (always 'work')
+
       - `"work"`
 
   - `next_page: Optional[str]`
@@ -1648,6 +1729,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `depth: int`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1663,6 +1745,7 @@ print(beta_self_hosted_work_queue_stats.depth)
   - `type: Literal["work_queue_stats"]`
 
     The type of object
+
     - `"work_queue_stats"`
 
   - `workers_polling: Optional[int]`
@@ -1674,6 +1757,7 @@ print(beta_self_hosted_work_queue_stats.depth)
 - `class BetaSelfHostedWorkStopRequest: …`
 
   Request to stop a work item.
+
   - `force: Optional[bool]`
 
     If true, immediately stop work without graceful shutdown
@@ -1683,6 +1767,7 @@ print(beta_self_hosted_work_queue_stats.depth)
 - `class BetaSelfHostedWorkUpdateRequest: …`
 
   Request to update work item metadata.
+
   - `metadata: Dict[str, Optional[str]]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1695,11 +1780,13 @@ print(beta_self_hosted_work_queue_stats.depth)
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `id: str`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `type: Literal["session"]`
 
     Type of work data
+
     - `"session"`

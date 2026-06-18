@@ -95,6 +95,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
+
+Jun 17, 2026
+
+### Secure access to the Claude Platform with Workload Identity Federation
+
+Product announcements
+
+Secure access to the Claude Platform with Workload Identity FederationSecure access to the Claude Platform with Workload Identity Federation
+
+Secure access to the Claude Platform with Workload Identity FederationSecure access to the Claude Platform with Workload Identity Federation
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22949f86cd1968deb9f_33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
 
 Jun 17, 2026
@@ -130,18 +142,6 @@ Product announcements
 Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Claude Code
 
 Introducing dynamic workflows in Claude CodeIntroducing dynamic workflows in Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
-
-Jun 9, 2026
-
-### New in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-Product announcements
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
-
-New in Claude Managed Agents: run agents on a schedule and store environment variables in vaultsNew in Claude Managed Agents: run agents on a schedule and store environment variables in vaults
 
 ## Transform how your organization operates with Claude
 

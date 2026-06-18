@@ -1,0 +1,457 @@
+# AWS Whitepapers
+> This file provides structured access to AWS Whitepapers for large language models, which expand your knowledge of the cloud with AWS technical content authored by AWS and the AWS community.
+
+## Whitepapers
+
+
+- [ETSI NFVO Compliant Orchestration in the Kubernetes/Cloud Native World AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/ETSI-NFVO-compliant-orchestration-in-kubernetes/ETSI-NFVO-compliant-orchestration-in-kubernetes.md): This whitepaper examines the network functions virtualization (NFV) orchestration requirements and specification as put forth by the European Telecommunication Standard Institute (ETSI), in the context of the Kubernetes way of orchestrating services and applications. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/ETSI-NFVO-compliant-orchestration-in-kubernetes/llms.txt)
+
+- [Accenture Enterprise AI – Scaling Machine Learning and Deep Learning Models AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/accenture-ai-scaling-ml-and-deep-learning-models/accenture-ai-scaling-ml-and-deep-learning-models.md): Today, there is a real-time, global, tectonic shift in the workplace caused by digital transformation. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/accenture-ai-scaling-ml-and-deep-learning-models/llms.txt)
+
+- [Access Amazon WorkSpaces with Common Access Cards Installation Guide](https://docs.aws.amazon.com/whitepapers/latest/access-workspaces-with-access-cards/access-workspaces-with-access-cards.md): This implementation guide provides step-by-step guidance for implementing pre-authorization and in-session CAC access by DoD personnel into WorkSpaces. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/access-workspaces-with-access-cards/llms.txt)
+
+- [Accreditation Models for Secure Cloud Adoption AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/accreditation-models-for-secure-cloud-adoption/accreditation-models-for-secure-cloud-adoption.md): Notice: This whitepaper has been archived.
+
+- [Active Directory Domain Services on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/active-directory-domain-services/active-directory-domain-services.md): Cloud is now the center of most enterprise IT strategies. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/active-directory-domain-services/llms.txt)
+
+- [Advanced Multi-AZ Resilience Patterns Detecting and Mitigating Gray Failures](https://docs.aws.amazon.com/whitepapers/latest/advanced-multi-az-resilience-patterns/advanced-multi-az-resilience-patterns.md): Many customers run their workloads in highly available, multi-Availability Zone (AZ) configurations. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/advanced-multi-az-resilience-patterns/llms.txt)
+
+- [Amazon Aurora MySQL Database Administrator’s Handbook AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/amazon-aurora-mysql-db-admin-handbook.md): This paper outlines the best practices for managing database connections, setting server connection parameters, and configuring client programs, drivers, and connectors. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amazon-aurora-mysql-db-admin-handbook/llms.txt)
+
+- [Amazon Aurora MySQL Migration Handbook AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amazon-aurora-mysql-migration-handbook/amazon-aurora-mysql-migration-handbook.md): This paper provides best practices for planning, implementing, and troubleshooting database migrations from MySQL-compatible and non- MySQL-compatible database products to Amazon Aurora. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amazon-aurora-mysql-migration-handbook/llms.txt)
+
+- [Amazon CloudFront for Media AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amazon-cloudfront-media/amazon-cloudfront-media.md): This whitepaper is for media organizations interested in delivering streaming media content to their viewers using Amazon CloudFront. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amazon-cloudfront-media/llms.txt)
+
+- [Amazon Connect Data Lake Best Practices AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amazon-connect-data-lake-best-practices/amazon-connect-data-lake-best-practices.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amazon-connect-data-lake-best-practices/llms.txt)
+
+- [Amazon MSK Migration Guide AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amazon-msk-migration-guide/amazon-msk-migration-guide.md): This guide covers options for your Apache Kafka migration to Amazon Managed Streaming for Apache Kafka (Amazon MSK). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amazon-msk-migration-guide/llms.txt)
+
+- [Amdocs Digital Brand Experience Platform in AWS Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amdocs-digital-brand-experience-platform/amdocs-digital-brand-experience-platform.md): Notice: This whitepaper has been archived.
+
+- [Amplify DataStore: Use Cases and Implementation AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/amplify-datastore-implementation/welcome.md): Abstract [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/amplify-datastore-implementation/llms.txt)
+
+- [Applying Security Practices to a Network Workload on AWS for Communications Service Providers AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/applying-security-practices-to-network-workload-for-csps/welcome.md): This whitepaper provides recommendations to Communication Service Providers (CSPs) on securing their telecommunications (telco) network workload on Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/applying-security-practices-to-network-workload-for-csps/llms.txt)
+
+- [Architecting for HIPAA Security and Compliance on Amazon EKS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/architecting-hipaa-security-and-compliance-on-amazon-eks/architecting-hipaa-security-and-compliance-on-amazon-eks.md): Notice: This whitepaper has been archived.
+
+- [Architecting for HIPAA Security and Compliance on Amazon Web Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/architecting-hipaa-security-and-compliance-on-aws/architecting-hipaa-security-and-compliance-on-aws.md): Notice: This whitepaper has been archived.
+
+- [Automating PeopleSoft Environments in the AWS Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/automating-peoplesoft-environments/automating-peoplesoft-environments.md): Notice: This whitepaper has been archived.
+
+- [Autosphere iRPA on AWS for Telecom Enterprise Automation AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/autosphere-irpa-on-aws-for-telecom-enterprise-automation/autosphere-irpa-on-aws-for-telecom-enterprise-automation.md): Notice: This whitepaper has been archived.
+
+- [Availability and Beyond: Understanding and Improving the Resilience of Distributed Systems on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/availability-and-beyond-improving-resilience.md): Today, businesses operate complex, distributed systems both in the cloud and on-premises. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/availability-and-beyond-improving-resilience/llms.txt)
+
+- [AWS Best Practices for DDoS Resiliency AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/aws-best-practices-ddos-resiliency.md): In this whitepaper, AWS provides you with prescriptive DDoS guidance to improve the resiliency of applications running on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-best-practices-ddos-resiliency/llms.txt)
+
+- [AWS Cloud Adoption Framework: Business Perspective AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-business-perspective/aws-caf-business-perspective.md): As the proliferation of digital technologies continues to disrupt market segments and industries, adopting Amazon Web Services (AWS) can help you transform your organization to meet the changing business conditions and evolving customer needs. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-business-perspective/llms.txt)
+
+- [AWS Cloud Adoption Framework for Artificial Intelligence, Machine Learning, and Generative AI AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/aws-caf-for-ai.md): In this document, we outline the AWS Cloud Adoption Framework for Artificial Intelligence (AI), Machine Learning (ML), and generative AI, a framework that describes a mental model for organizations that strive to generate business value from Artificial Intelligence. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-for-ai/llms.txt)
+
+- [AWS Cloud Adoption Framework: Governance Perspective AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-governance-perspective/aws-caf-governance-perspective.md): As the proliferation of digital technologies continues to disrupt market segments and industries, adopting Amazon Web Services (AWS) can help you transform your organization to meet the changing business conditions and evolving customer needs. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-governance-perspective/llms.txt)
+
+- [AWS Cloud Adoption Framework: Operations Perspective AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.md): The AWS Cloud Adoption Framework (AWS CAF) uses AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-operations-perspective/llms.txt)
+
+- [AWS Cloud Adoption Framework: People Perspective AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.md): As the proliferation of digital technologies continues to disrupt market segments and industries, adopting Amazon Web Services (AWS) can help you transform your organization to meet the changing business conditions and evolving customer needs. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-people-perspective/llms.txt)
+
+- [AWS Cloud Adoption Framework: Security Perspective AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-security-perspective/aws-caf-security-perspective.md): The AWS-Cloud; Adoption Framework (AWS CAF) uses AWS best practices to help you accelerate your business outcomes. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-security-perspective/llms.txt)
+
+- [AWS Cloud Data Ingestion Patterns and Practices Patterns and Considerations for using AWS Services to Move Data into a Modern Data Architecture](https://docs.aws.amazon.com/whitepapers/latest/aws-cloud-data-ingestion-patterns-practices/aws-cloud-data-ingestion-patterns-practices.md): Today, many organizations want to gain further insight using the vast amount of data they generate or have access to. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-cloud-data-ingestion-patterns-practices/llms.txt)
+
+- [AWS Direct Connect for Amazon Connect AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-direct-connect-for-amazon-connect/aws-direct-connect-for-amazon-connect.md): Many contact centers and security architects want to use Amazon Connect in conjunction with AWS Direct Connect. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-direct-connect-for-amazon-connect/llms.txt)
+
+- [AWS Fault Isolation Boundaries AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/abstract-and-introduction.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/llms.txt)
+
+- [AWS User Guide to Financial Services Regulations and Guidelines in Australia AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-financial-services-guidance-australia/aws-financial-services-guidance-australia.md): This document provides information to assist financial services institutions in Australia that are regulated by the Australian Prudential Regulation Authority (APRA) as they accelerate their use of Amazon Web Services (AWS) Cloud services. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-financial-services-guidance-australia/llms.txt)
+
+- [AWS Glue Best Practices: Building an Operationally Efficient Data Pipeline AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-efficient-data-pipeline/aws-glue-best-practices-build-efficient-data-pipeline.md): Data integration is a critical element in building a data lake and a data warehouse. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-efficient-data-pipeline/llms.txt)
+
+- [AWS Glue Best Practices: Building a Performant and Cost Optimized Data Pipeline AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-performant-data-pipeline/aws-glue-best-practices-build-performant-data-pipeline.md): Data integration is a critical element in building a data lake and a data warehouse. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-performant-data-pipeline/llms.txt)
+
+- [AWS Glue Best Practices: Building a Secure and Reliable Data Pipeline AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-secure-data-pipeline/aws-glue-best-practices-build-secure-data-pipeline.md): Data integration is a critical element in building a data lake and a data warehouse. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-glue-best-practices-build-secure-data-pipeline/llms.txt)
+
+- [AWS Governance at Scale AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-governance-at-scale/aws-governance-at-scale.md): Modern Application Development on AWS
+
+- [AWS Graviton Performance Testing: Tips for Independent Software Vendors AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-graviton-performance-testing/aws-graviton-performance-testing.md): AWS Graviton processors are custom-built by AWS to deliver the best price performance for cloud workloads running in Amazon EC2. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-graviton-performance-testing/llms.txt)
+
+- [AWS Graviton2 for Independent Software Vendors How AWS Graviton helps Independent Software Vendors accelerate growth and improve their margins on AWS](https://docs.aws.amazon.com/whitepapers/latest/aws-graviton2-for-isv/welcome.md): abstract
+
+- [AWS Migration Whitepaper AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-migration-whitepaper/welcome.md): Notice: This whitepaper has been archived.
+
+- [Amazon Web Services' Approach to Operational Resilience in the Financial Sector & Beyond AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-operational-resilience/aws-operational-resilience.md): The purpose of this paper is to describe how Amazon Web Services (AWS) and our customers in the financial services industry achieve operational resilience using AWS services. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-operational-resilience/llms.txt)
+
+- [AWS Outposts High Availability Design and Architecture Considerations AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-outposts-high-availability-design/aws-outposts-high-availability-design.md): This whitepaper discusses architecture considerations and recommended practices that IT managers and system architects can apply to build highly available on-premises application environments with AWS Outposts. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-outposts-high-availability-design/llms.txt)
+
+- [Amazon Web Services: Overview of Security Processes AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-overview-security-processes/welcome.md): welcome
+
+- [Overview of Amazon Web Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.md): AWS offers over 200 global, on-demand, pay-as-you-go cloud services for compute, storage, databases, networking, AI, ML, IoT, and more. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/llms.txt)
+
+- [Securely Access Services Over AWS PrivateLink AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/aws-privatelink.md): Amazon Virtual Private Cloud (Amazon VPC) gives AWS customers the ability to define a virtual private network within the AWS Cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-privatelink/llms.txt)
+
+- [Amazon Web Services: Risk and Compliance AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/welcome.md): abstract [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/llms.txt)
+
+- [AWS Security Best Practices AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-security-best-practices/welcome.md): welcome
+
+- [AWS Security Incident Response Guide AWS Technical Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md): This guide presents an overview of the fundamentals of responding to security incidents within a customer’s Amazon Web Services (AWS) Cloud environment. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/llms.txt)
+
+- [AWS Serverless Data Analytics Pipeline AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-serverless-data-analytics-pipeline/aws-serverless-data-analytics-pipeline.md): This whitepaper discusses a layered, component-oriented, and logical architecture of modern analytics platforms. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-serverless-data-analytics-pipeline/llms.txt)
+
+- [AWS Storage Services Overview AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-storage-services-overview/welcome.md): This paper has been archived.
+
+- [AWS Systems Manager Operational Capabilities AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-systems-manager-operational-capabilities/aws-systems-manager-operational-capabilities.md): This whitepaper provides an overview of several capabilities of AWS Systems Manager and explains how you can effectively use this service to meet your operational needs. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-systems-manager-operational-capabilities/llms.txt)
+
+- [Amazon Virtual Private Cloud Connectivity Options AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/welcome.md): Amazon Virtual Private Cloud (Amazon VPC) lets customers provision a private, isolated section of the Amazon Web Services (AWS) Cloud where they can launch AWS resources in a virtual network using customer-defined IP address ranges. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/llms.txt)
+
+- [Best Practices for Designing Amazon API Gateway Private APIs and Private Integration AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-api-gateway-private-apis-integration/best-practices-api-gateway-private-apis-integration.md): For many enterprise customers, AWS Direct Connect or a virtual private network (VPN) is often used to build a network connection between an on-premises network and an Amazon Web Services (AWS) virtual private cloud (VPC). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-api-gateway-private-apis-integration/llms.txt)
+
+- [Best Practices for Building a Data Lake on AWS for Games AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-building-data-lake-for-games/best-practices-building-data-lake-for-games.md): Many customers run their Digital Games on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-building-data-lake-for-games/llms.txt)
+
+- [Best Practices for Deploying WorkSpaces AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-amazon-workspaces/best-practices-deploying-amazon-workspaces.md): This whitepaper outlines a set of best practices for the deployment of Amazon WorkSpaces The paper covers network considerations, directory services and user authentication, security, and monitoring and logging. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-amazon-workspaces/llms.txt)
+
+- [Best Practices for Deploying ClioSoft SOS on AWS AWS Whitepapers](https://docs.aws.amazon.com/whitepapers/latest/best-practices-deploying-cliosoft-sos-on-aws/best-practices-deploying-cliosoft-sos-on-aws.md): Notice: This whitepaper has been archived.
+
+- [Best Practices for Deploying Amazon AppStream 2.0](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/best-practices-for-deploying-amazon-appstream-2.md): This whitepaper outlines a set of best practices for the deployment of Amazon AppStream 2.0 . [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-amazon-appstream-2/llms.txt)
+
+- [Best Practices for Deploying Microsoft SQL Server on Amazon EC2 AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-microsoft-sql-server/best-practices-for-deploying-microsoft-sql-server.md): This whitepaper focuses on best practices to attain the most value for the least cost when running Microsoft SQL Server on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-microsoft-sql-server/llms.txt)
+
+- [Best Practices for Deploying SAS Server on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-sas-server/best-practices-for-deploying-sas-server.md): Many SAS customers are moving their SAS applications from on-premises data centers to the AWS Cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-deploying-sas-server/llms.txt)
+
+- [Best Practices for Migrating from RDBMS to Amazon DynamoDB Leverage the Power of NoSQL for Suitable Workloads](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-migrating-from-rdbms-to-dynamodb/welcome.md): This whitepaper highlights the best practices for migrating these workloads from an RDBMS to DynamoDB. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-for-migrating-from-rdbms-to-dynamodb/llms.txt)
+
+- [Best Practices for WordPress on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/best-practices-wordpress/welcome.md): This whitepaper provides system administrators with specific guidance on how to get started with WordPress on Amazon Web Services (AWS) and how to improve both the cost efficiency of the deployment as well as the end user experience. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/best-practices-wordpress/llms.txt)
+
+- [Big Data Analytics Options on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/welcome.md): This whitepaper helps architects, data scientists, and developers understand the big data analytics options available in the Amazon Web Services (AWS) Cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/llms.txt)
+
+- [Blue/Green Deployments on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/blue-green-deployments/welcome.md): Blue/green deployment is a technique for releasing applications by shifting traffic between two identical environments running different versions of the application. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/blue-green-deployments/llms.txt)
+
+- [Architectural Patterns to Build End-to-End Data Driven Applications on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/build-e2e-data-driven-applications/build-e2e-data-driven-applications.md): Successful customers use multiple Amazon Web Services (AWS) services between event-driven Internet of Things (IoT) to collect and manage billions of devices and purpose-built databases. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/build-e2e-data-driven-applications/llms.txt)
+
+- [Build Modern Data Streaming Architectures on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/build-modern-data-streaming-analytics-architectures/build-modern-data-streaming-analytics-architectures.md): Modern data architecture is about using the right tool for the job. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/build-modern-data-streaming-analytics-architectures/llms.txt)
+
+- [Build a Secure Enterprise Machine Learning Platform on AWS AWS Technical Guide](https://docs.aws.amazon.com/whitepapers/latest/build-secure-enterprise-ml-platform/build-secure-enterprise-ml-platform.md): This whitepaper helps cloud engineers, security engineers, Machine Learning Ops (MLOps) engineers, and data scientists understand the various components of building a secure enterprise machine learning (ML) platform. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/build-secure-enterprise-ml-platform/llms.txt)
+
+- [Hosting Static Websites on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/build-static-websites-aws/build-static-websites-aws.md): This whitepaper covers comprehensive architectural guidance for developing, deploying, and managing static websites on Amazon Web Services (AWS) while keeping operational simplicity and business requirements in mind. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/build-static-websites-aws/llms.txt)
+
+- [Building A Data Perimeter on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/building-a-data-perimeter-on-aws/building-a-data-perimeter-on-aws.md): Many organizations want to implement perimeter controls to protect against unintended access and configuration errors through always-on permissions guardrails. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/building-a-data-perimeter-on-aws/llms.txt)
+
+- [Building a Cloud Operating Model AWS Whitepapers](https://docs.aws.amazon.com/whitepapers/latest/building-cloud-operating-model/welcome.md): welcome [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/building-cloud-operating-model/llms.txt)
+
+- [Storage Best Practices for Data and Analytics Applications AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/building-data-lakes/building-data-lake-aws.md): Amazon Simple Storage Service (Amazon S3) and Amazon Glacier (Amazon Glacier) provide ideal storage solutions for data lakes. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/building-data-lakes/llms.txt)
+
+- [Building a Scalable and Secure Multi-VPC AWS Network Infrastructure AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/welcome.md): This whitepaper describes best practices for creating scalable and secure network architectures in a large network using AWS services like Amazon VPC, AWS Transit Gateway, AWS PrivateLink, and Direct Connect Gateway. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/llms.txt)
+
+- [Cerner HealtheDataLab Overview AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cerner-healthedatalab-overview/cerner-healthedatalab-overview.md): Notice: This whitepaper has been archived.
+
+- [Choosing an AWS NoSQL Database AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/choosing-an-aws-nosql-database/choosing-an-aws-nosql-database.md): To help navigate the selection process, this whitepaper provides guidance on selecting the right NoSQL database for specific use cases. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/choosing-an-aws-nosql-database/llms.txt)
+
+- [Continuous Integration and Continuous Delivery for 5G Networks on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cicd_for_5g_networks_on_aws/cicd_for_5g_networks_on_aws.md): This whitepaper introduces continuous integration and continuous delivery (CI/CD) for 5G networks, and how AWS tools and services can be used to fully automate the deployment and upgrades of 5G network functions. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cicd_for_5g_networks_on_aws/llms.txt)
+
+- [Classic Intrusion Analysis Frameworks for AWS Environments: Application and Enhancement AWS Whitepapers](https://docs.aws.amazon.com/whitepapers/latest/classic-intrusion-analysis-frameworks-for-aws-environments/classic-intrusion-analysis-frameworks-for-aws-environments.md): This paper provides background context on classic intrusion analysis frameworks, and shows how the transition to the cloud undermines some of its key premises, naturally disrupting modern attacker intrusion methods, i.e. “breaking intrusion kill chains”. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/classic-intrusion-analysis-frameworks-for-aws-environments/llms.txt)
+
+- [Cloud Automation for 5G Network AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cloud-automation-5g-network/cloud-automation-5g-network.md): Notice: This whitepaper has been archived.
+
+- [Cloud-Driven Enterprise Transformation on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cloud-driven-enterprise-transformation-on-aws/cloud-driven-enterprise-transformation-on-aws.md): Cloud-driven enterprise transformation on AWS [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cloud-driven-enterprise-transformation-on-aws/llms.txt)
+
+- [Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/comparing-dynamodb-and-hbase-for-nosql/welcome.md): One challenge that architects and developers face today is how to process large volumes of data in a timely, cost effective, and reliable manner. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/comparing-dynamodb-and-hbase-for-nosql/llms.txt)
+
+- [Computational Fluid Dynamics on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/computational-fluid-dynamics-on-aws/computational-fluid-dynamics-on-aws.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/computational-fluid-dynamics-on-aws/llms.txt)
+
+- [Ten Considerations for a Cloud Procurement AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/considerations-for-cloud-procurement/considerations-for-cloud-procurement.md): Cloud procurement presents an opportunity to reevaluate existing procurement strategies so you can create a flexible acquisition process that enables your public sector organization to extract the full benefits of the cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/considerations-for-cloud-procurement/llms.txt)
+
+- [Containers on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/containers-on-aws/containers-on-aws.md): This whitepaper provides guidance and options for running containers on AWS, including container orchestration and compute options such as AWS App Runner, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and AWS Fargate and key considerations for container workloads on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/containers-on-aws/llms.txt)
+
+- [Cost Management in the AWS Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-management/introduction.md): Cost Management in the AWS Cloud
+
+- [Cost Modeling Data Lakes for Beginners How to start your journey into data analytics](https://docs.aws.amazon.com/whitepapers/latest/cost-modeling-data-lakes/welcome.md): This whitepaper focuses on helping you understand and address the first challenge of your data lake journey: how much will it cost? [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cost-modeling-data-lakes/llms.txt)
+
+- [Automating Elasticity AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-automating-elasticity/introduction.md): This paper has been archived.
+
+- [Laying the Foundation: Setting Up Your Environment for Cost Optimization AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-laying-the-foundation/introduction.md): This paper discusses core pillars of cost optimization and the key mechanisms for achieving them. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-laying-the-foundation/llms.txt)
+
+- [Overview of Amazon EC2 Spot Instances AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/cost-optimization-leveraging-ec2-spot-instances.md): This paper seeks to empower you to maximize value from your investments, improve forecasting accuracy and cost predictability, create a culture of ownership and cost transparency, and continuously measure your optimization status. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-leveraging-ec2-spot-instances/llms.txt)
+
+- [Amazon EC2 Reserved Instances and Other AWS Reservation Models AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/welcome.md): This document is part of a series of AWS whitepapers designed to support your cloud journey, and discusses Amazon EC2 Reserved Instances and reservation models for other AWS services. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-reservation-models/llms.txt)
+
+- [Right Sizing: Provisioning Instances to Match Workloads AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md): This is one in a series of whitepapers designed to support your cloud journey. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-right-sizing/llms.txt)
+
+- [AWS Storage Optimization AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/cost-optimization-storage-optimization.md): DEPRECATED: AWS Storage Optimization
+
+- [Creating a Culture of Cost Transparency and Accountability AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-transparency-accountability/introduction.md): Notice: This whitepaper has been archived.
+
+- [Digital Strategies for Vaccine Distribution and Administration AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/covid-19-vaccine-digital-communication/covid-19-vaccine-digital-communication.md): Notice: This whitepaper has been archived.
+
+- [Cross-Domain Solutions with AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/cross-domain-solutions/welcome.md): Some organizations’ users need to interact with multiple domains simultaneously. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/cross-domain-solutions/llms.txt)
+
+- [Data Classification AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification.md): This paper provides insight into data classification categories for public and private organizations to consider when moving data to the cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/data-classification/llms.txt)
+
+- [Data Warehousing on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/data-warehousing-on-aws/data-warehousing-on-aws.md): Enterprises across the globe want to migrate data warehousing to the cloud to improve performance and lower costs. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/data-warehousing-on-aws/llms.txt)
+
+- [Database Caching Strategies Using Redis AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/welcome.md): This whitepaper describes some of the caching strategies and implementation approaches that address the limitations and challenges associated with disk-based databases. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/llms.txt)
+
+- [Demand Forecasting AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/demand-forecasting/demand-forecasting.md): Amazon Web Services (AWS) customers look for easier, faster, more accurate, and more cost-effective ways to forecast the demand for their products, services, and materials. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/demand-forecasting/llms.txt)
+
+- [Deploying Oracle SOA Suite 12c on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/deploying-oracle-soa-suite-12c/deploying-oracle-soa-suite-12c.md): This whitepaper provides guidance for deploying Oracle SOA Suite 12c applications on Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/deploying-oracle-soa-suite-12c/llms.txt)
+
+- [Derive Insights from AWS Modern Data AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/derive-insights-from-aws-modern-data/derive-insights-from-aws-modern-data.md): Modern Data architecture enables you to query data across your data warehouse, data lake, and operational databases to gain faster and deeper insights that would not be possible otherwise. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/derive-insights-from-aws-modern-data/llms.txt)
+
+- [Designing MQTT Topics for AWS IoT Core AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/designing-mqtt-topics-aws-iot-core/designing-mqtt-topics-aws-iot-core.md): This whitepaper focuses on best practices for MQTT topic design in Amazon Web Services (AWS) Internet of Things (IoT). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/designing-mqtt-topics-aws-iot-core/llms.txt)
+
+- [Designing Next Generation Vehicle Communication with AWS IoT Core and MQTT AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/designing-next-generation-vehicle-communication-aws-iot/designing-next-generation-vehicle-communication-aws-iot.md): This whitepaper outlines the best practices for implementing an extensible, scalable and resilient communication architecture for the next generation of vehicles on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/designing-next-generation-vehicle-communication-aws-iot/llms.txt)
+
+- [Determining IOPS Needs for Oracle Database on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/determining-iops-needs-oracle-db-on-aws/determining-iops-needs-oracle-db-on-aws.md): Amazon Web Services (AWS) provides a comprehensive set of services and tools for deploying Oracle Database on the AWS Cloud infrastructure, one of the most reliable and secure cloud computing services available today. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/determining-iops-needs-oracle-db-on-aws/llms.txt)
+
+- [Developing and Deploying .NET Applications on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/develop-deploy-dotnet-apps-on-aws/develop-deploy-dotnet-apps-on-aws.md): This whitepaper introduces the AWS tools and services that are directly suited for .NET development and deployment [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/develop-deploy-dotnet-apps-on-aws/llms.txt)
+
+- [Development and Test on Amazon Web Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/development-and-test-on-aws/development-and-test-on-aws.md): This whitepaper describes how Amazon Web Services (AWS) adds value in the various phases of the software development cycle, with specific focus on development and test. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/development-and-test-on-aws/llms.txt)
+
+- [Device Manufacturing and Provisioning with X.509 Certificates in AWS IoT Core AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/device-manufacturing-provisioning/device-manufacturing-provisioning.md): This whitepaper focuses on onboarding Internet of Things (IoT) devices in AWS IoT Core using unique identities. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/device-manufacturing-provisioning/llms.txt)
+
+- [Digital Transformation and IT Modernization for Elections in AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/digital-transformation-it-modernization-elections/digital-transformation-it-modernization-elections.md): Notice: This whitepaper has been archived.
+
+- [The DigitalRoute Usage Engine Private Edition on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/digitalroute-usage-engine-private-edition-on-aws/welcome.md): Notice: This whitepaper has been archived.
+
+- [Disaster Recovery of On-Premises Applications to AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-of-on-premises-applications-to-aws/abstract-and-introduction.md): This whitepaper outlines the best practices for planning, implementing, and maintaining disaster recovery for on-premises applications and workloads using AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-of-on-premises-applications-to-aws/llms.txt)
+
+- [Disaster Recovery of Workloads on AWS: Recovery in the Cloud AWS Well-Architected Framework](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.md): This paper outlines the best practices for planning and testing disaster recovery for any workload deployed to AWS, and offers different approaches to improve resilience and mitigate risks and meet the Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for that workload. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/llms.txt)
+
+- [Amazon EC2 Overview and Networking Introduction for Telecom Companies AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/ec2-networking-for-telecom/ec2-networking-for-telecom.md): Many telecom providers are considering the AWS Cloud for their telecom workloads such as Core Networking, Operation Support System (OSS), Business Support System (BSS), Radio Access Network (RAN), Value Added Services (VAS) and Information Technology (IT).
+
+- [Encrypting File Data with Amazon Elastic File System AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/efs-encrypted-file-systems/efs-encrypted-file-systems.md): This paper outlines best practices for encrypting shared file systems on AWS using Amazon Elastic File System (Amazon EFS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/efs-encrypted-file-systems/llms.txt)
+
+- [Enterprise Data Governance Catalog AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/enterprise-data-governance-catalog/enterprise-data-governance-catalog.md): This whitepaper outlines the benefits and strategies for implementing an enterprise-wide unified Data Governance Platform to enable business users and stakeholder with the ability to find, manage, understand, access, and trust their data to make better data-driven business decisions. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/enterprise-data-governance-catalog/llms.txt)
+
+- [Establishing Enterprise Architecture on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/establishing-enterprise-architecture/jntroduction.md): Notice: This whitepaper has been archived.
+
+- [Establishing Your Cloud Foundation on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/establishing-your-cloud-foundation-on-aws/welcome.md): This whitepaper introduces a guided path approach to help customers build and evolve their AWS Cloud environment based on a consolidated set of definitions, scenarios, guidance, and automations. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/establishing-your-cloud-foundation-on-aws/llms.txt)
+
+- [Fault-Tolerant Components on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/fault-tolerant-components/welcome.md): Notice: This whitepaper has been archived.
+
+- [File Gateway for Hybrid Cloud Storage Architectures AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/file-gateway-hybrid-cloud-storage-architectures/welcome.md): DEPRECATED: File Gateway for Hybrid Cloud Storage Architectures
+
+- [Financial Services Grid Computing on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/financial-services-grid-computing/financial-services-grid-computing.md): Financial services organizations rely on high performance computing (HPC) infrastructure grids to calculate risk, value portfolios, and provide reports to their internal control functions and external regulators. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/financial-services-grid-computing/llms.txt)
+
+- [Genomics Data Transfer, Analytics, and Machine Learning using AWS Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/genomics-data-transfer-analytics-and-machine-learning/welcome.md): This Genomics Data Transfer, Analytics, and Machine Learning using AWS Services whitepaper answers some of the critical questions that many organizations that work with genomics data have, by showing how to build a next-generation sequencing (NGS) platform from instrument to interpretation using AWS services. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/genomics-data-transfer-analytics-and-machine-learning/llms.txt)
+
+- [Getting Started with Amazon DocumentDB (with MongoDB Compatibility) AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/get-started-documentdb/get-started-documentdb.md): Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly available, and fully managed document database service that supports MongoDB workloads. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/get-started-documentdb/llms.txt)
+
+- [Guavus 5G-IQ NWDAF on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/guavus-5G-iq-nwdaf-on-aws/guavus-5G-iq-nwdaf-on-aws.md): Notice: This whitepaper has been archived.
+
+- [Guidance for NHS Trusts Adopting AWS Cloud Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/guidance-for-nhs-trusts-adopting-aws/guidance-for-nhs-trusts-adopting-aws.md): Notice: This whitepaper has been archived.
+
+- [Guidelines for Implementing AWS WAF AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/guidelines-for-implementing-aws-waf/guidelines-for-implementing-aws-waf.md): AWS WAF is a web application firewall (WAF) that helps you protect your websites andweb applications against various attack vectors at the application layer (OSI Layer 7).This whitepaper outlines recommendations for implementing AWS WAF to protect existing and new web applications. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/guidelines-for-implementing-aws-waf/llms.txt)
+
+- [GxP Systems on AWS AWS Whitepapers](https://docs.aws.amazon.com/whitepapers/latest/gxp-systems-on-aws/gxp-systems-on-aws.md): This whitepaper provides information on how AWS approaches GxP-related compliance and security and provides customers guidance on using AWS services in the context of GxP. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/gxp-systems-on-aws/llms.txt)
+
+- [Healthcare Data Analytics Framework for the Opioid Crisis AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/healthcare-data-analytics-framework-opioid-crisis/healthcare-data-analytics-framework-opioid-crisis.md): Notice: This whitepaper has been archived.
+
+- [Healthcare Digital Signage Using Amazon Kindle AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/healthcare-digital-signage-using-amazon-kindle/healthcare-digital-signage-using-amazon-kindle.md): Notice: This whitepaper has been archived.
+
+- [How AWS Pricing Works AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/abstract-and-introduction.md): Amazon Web Services (AWS) helps you move faster, reduce IT costs, and attain global scale through a broad set of global compute, storage, database, analytics, application, and deployment services. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/llms.txt)
+
+- [How Customers Can Work With AWS and Our APN Partners AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/how-customers-can-work-with-aws-and-our-apn-partners/how-customers-can-work-with-aws-and-our-apn-partners.md): This paper outlines how this relationship works in practice, for customers and organizations interested in becoming an APN Partner. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/how-customers-can-work-with-aws-and-our-apn-partners/llms.txt)
+
+- [Hybrid Architectures to Address Personal Data Processing Requirements AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/hybrid-architectures-to-address-personal-data-processing-requirements/hybrid-architectures-to-address-personal-data-processing-requirements.md): This document was created to assist customers that have presence or business in countries which have no AWS infrastructure (AWS Region) to develop hybrid cloud architectures by using the reference architecture diagrams provided in this whitepaper. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/hybrid-architectures-to-address-personal-data-processing-requirements/llms.txt)
+
+- [Hybrid Cloud DNS Options for Amazon VPC AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/hybrid-cloud-dns-options-for-vpc/hybrid-cloud-dns-options-for-vpc.md): The Domain Name System (DNS) is a foundational element of the internet that underpins many services offered by Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/hybrid-cloud-dns-options-for-vpc/llms.txt)
+
+- [Hybrid Cloud with AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/hybrid-cloud-with-aws/hybrid-cloud-with-aws.md): This whitepaper outlines major use cases, defines hybrid architectural tenets, describes an implementation framework, and provides AWS solutions to guide you in creating a hybrid cloud strategy, and to design and implement a hybrid cloud environment with AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/hybrid-cloud-with-aws/llms.txt)
+
+- [Hybrid Connectivity AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/hybrid-connectivity.md): This whitepaper describes AWS building blocks and the key requirements to consider when deciding which hybrid connectivity model is right for you. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/hybrid-connectivity/llms.txt)
+
+- [Hybrid Machine Learning AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/hybrid-machine-learning/hybrid-machine-learning.md): Notice: This whitepaper has been archived.
+
+- [Implementing Low-Power Wide-Area Network (LPWAN) Solutions with AWS IoT AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/implementing-lpwan-solutions-with-aws/implementing-lpwan-solutions-with-aws.md): This whitepaper helps Amazon Web Services (AWS) customers to implement their Internet of Things (IoT) solutions with low-power wide-area network (LPWAN) connectivity technologies. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/implementing-lpwan-solutions-with-aws/llms.txt)
+
+- [Industrial IoT Architecture Patterns AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/industrial-iot-architecture-patterns/industrial-iot-architecture-patterns.md): This whitepaper outlines the design considerations for industrial IoT architectures which use the industrial edge. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/industrial-iot-architecture-patterns/llms.txt)
+
+- [Internal Revenue Service Publication 1075 Compliance in AWS Internal Revenue Service Publication 1075 Compliance in AWS](https://docs.aws.amazon.com/whitepapers/latest/internal-revenue-service-publication-1075-compliance-in-aws/welcome.md): abstract
+
+- [Introduction to AWS Security by Design AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/intro-security-by-design/welcome.md): Introduction to AWS Security by Design: A Solution to Automate Security, Compliance, and Auditing in AWS
+
+- [Introduction to AWS Security AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/introduction-aws-security/welcome.md): Amazon Web Services (AWS) delivers a scalable cloud computing platform designed for high availability and dependability, providing the tools that enable you to run a wide range of applications. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/introduction-aws-security/llms.txt)
+
+- [Introduction to DevOps on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-to-devops.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/llms.txt)
+
+- [IPv6 on AWS Best practices for adopting and designing IPv6-based networks on AWS](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.md): This whitepaper focuses on best practices for adopting and designing IPv6-based networks on the Amazon Web Services (AWS) Cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/llms.txt)
+
+- [It’s Time to Evolve: End User Windows Application Delivery In the 2020s Introduction to a software binary taxonomy](https://docs.aws.amazon.com/whitepapers/latest/its-time-to-evolve-end-user-windows-application-delivery-in-the-2020s/abstract-and-introduction.md): Notice: This whitepaper has been archived.
+
+- [Load, Store, and Protect Linux- Based NFS Workloads in AWS A Cloud Migration Guide with AWS DataSync, Amazon Elastic File System, and AWS Backup](https://docs.aws.amazon.com/whitepapers/latest/load-store-protect-linux-nfs/load-store-protect-linux.md): Notice: This whitepaper has been archived.
+
+- [Logical Separation on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/logical-separation/welcome.md): This paper examines the topic of logical separation for customers using Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/logical-separation/llms.txt)
+
+- [Leveraging AWS Marketplace Storage Solutions for Microsoft SharePoint AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/marketplace-storage-softnas-sharepoint/introduction.md): Notice: This whitepaper has been archived.
+
+- [Implementing Microservices on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/microservices-on-aws.md): Microservices offer a streamlined approach to software development that accelerates deployment, encourages innovation, and enhances maintenance and scalability. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/llms.txt)
+
+- [Migrating to Apache HBase on Amazon S3 on Amazon EMR Guidelines and Best Practices](https://docs.aws.amazon.com/whitepapers/latest/migrate-apache-hbase-s3/migrate-apache-hbase-s3.md): This whitepaper provides an overview of Apache HBase on Amazon S3 and guides data engineers and software developers in the migration of an on- premises or HDFS backed Apache HBase cluster to Apache HBase on Amazon S3.
+
+- [Migrating Your Databases to Amazon Aurora AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/migrating-databases-to-amazon-aurora/migrating-databases-to-amazon-aurora.md): Amazon Aurora is a MySQL and PostgreSQL-compatible, enterprise grade relational database engine. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/migrating-databases-to-amazon-aurora/llms.txt)
+
+- [Migrating Magento Open Source or Adobe Commerce on Cloud Infrastructure Self-Service to AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/migrating-magento-open-source-adobe-commerce-to-aws/migrating-magento-open-source-adobe-commerce-to-aws.md): This whitepaper outlines the benefits of cloud hosting and considerations for migrating Magento Open Source or Adobe Commerce on Cloud Infrastructure Self-Service installation to AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/migrating-magento-open-source-adobe-commerce-to-aws/llms.txt)
+
+- [Migrating Oracle E-Business Suite on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/migrating-oracle-e-business-suite/migrating-oracle-e-business-suite.md): This whitepaper covers the migration of Oracle E-Business Suite to Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/migrating-oracle-e-business-suite/llms.txt)
+
+- [Migration and Modernization Strategy for Integrated Eligibility Systems AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/migration-modernization-strategy-for-ies/migration-modernization-strategy-for-ies.md): This whitepaper provides a strategy and a roadmap for IES cloud migration and modernization.
+
+- [Machine Learning Best Practices in Healthcare and Life Sciences AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/ml-best-practices-healthcare-life-sciences/ml-best-practices-healthcare-life-sciences.md): This whitepaper describes how AWS approaches machine learning (ML) in a regulated environment and provides guidance on good ML practices using AWS products. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/ml-best-practices-healthcare-life-sciences/llms.txt)
+
+- [Machine Learning Best Practices for Public Sector Organizations AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/ml-best-practices-public-sector-organizations/ml-best-practices-public-sector-organizations.md): This whitepaper outlines some of the challenges for US public sector agencies in adoption and implementation of ML, and provides best practices to address these challenges. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/ml-best-practices-public-sector-organizations/llms.txt)
+
+- [Next-Generation Mobile Private Networks Powered by AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/mobile-private-networks/mobile-private-networks.md): Notice: This whitepaper has been archived.
+
+- [Model Based Systems Engineering (MBSE) on AWS: From Migration to Innovation AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/model-based-systems-engineering/model-based-systems-engineering.md): Model Based Systems Engineering (MBSE) is a modern approach to the conventional practice of document-based systems engineering. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/model-based-systems-engineering/llms.txt)
+
+- [Model Explainability with AWS Artificial Intelligence and Machine Learning Solutions AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/model-explainability-aws-ai-ml/model-explainability-aws-ai-ml.md): Notice: This whitepaper has been archived.
+
+- [Moderating Image Content in Slack with Amazon Rekognition and Amazon AppFlow Technical guide](https://docs.aws.amazon.com/whitepapers/latest/moderating-image-content-in-slack/moderating-image-content-in-slack.md): This technical guide shows you how to use Amazon Rekognition and Amazon AppFlow to build a fully serverless content moderation pipeline for messages posted in a Slack channel.
+
+- [Modern Application Development on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/modern-application-development-on-aws/welcome.md): Modern Application Development on AWS
+
+- [Modern Data Architecture Rationales on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/modern-data-architecture-rationales-on-aws/modern-data-architecture-rationales-on-aws.md): This whitepaper lays out the traditional analytics approaches and their challenges. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/modern-data-architecture-rationales-on-aws/llms.txt)
+
+- [Monitoring River Levels Using LoRaWAN Implementation Guide](https://docs.aws.amazon.com/whitepapers/latest/monitoring-river-levels-using-lorawan/monitoring-river-levels-using-lorawan.md): Authorities around the world have the important responsibility of monitoring river and sea levels, so both public institutions and private citizens can be better informed of flood risks. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/monitoring-river-levels-using-lorawan/llms.txt)
+
+- [SaaS Storage Strategies Building a multitenant storage model on AWS](https://docs.aws.amazon.com/whitepapers/latest/multi-tenant-saas-storage-strategies/multi-tenant-saas-storage-strategies.md): Multitenant storage represents one of the more challenging aspects of building and delivering Software as a Service (SaaS) solutions. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/multi-tenant-saas-storage-strategies/llms.txt)
+
+- [Navigating GDPR Compliance on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/navigating-gdpr-compliance/navigating-gdpr-compliance-on-aws.md): Publication date: February 19, 2026 (Document history) [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/navigating-gdpr-compliance/llms.txt)
+
+- [Navigating the security landscape of generative AI AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/navigating-security-landscape-genai.md): This whitepaper provides an approach for CISOs to navigate risks, offering detailed mitigation strategies, including enhanced input validation, real-time monitoring, and modular system architecture. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/navigating-security-landscape-genai/llms.txt)
+
+- [Netcracker Active Resource Inventory on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/netcracker-active-resource-inventory-on-aws/netcracker-active-resource-inventory-on-aws.md): Notice: This whitepaper has been archived.
+
+- [Next-Generation OSS with AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/next-generation-oss/next-generation-oss.md): This whitepaper outlines the best practices for developing OSS applications on the AWS Cloud platform, and offers reference architectures to guide organizations in the delivery of OSS solutions spanning domain management, service assurance, service fulfillment, service orchestration, and network analytics. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/next-generation-oss/llms.txt)
+
+- [Using AWS in the Context of NHS Cloud Security Guidance AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/nhs-cloud-security-guidance-using-aws/nhs-cloud-security-guidance-using-aws.md): Guidance was issued in early 2018 on the use of hyperscale cloud services by UK public sector healthcare organisations and their business partners. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/nhs-cloud-security-guidance-using-aws/llms.txt)
+
+- [Open Radio Access Network Architecture on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/open-radio-access-network-architecture-on-aws/open-radio-access-network-architecture-on-aws.md): The Open Radio Access Network, or O-RAN, is an approach to transform the radio access network to a disaggregated, open, virtualized, and fully inter-operable mobile network. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/open-radio-access-network-architecture-on-aws/llms.txt)
+
+- [Optimizing AWS Database Migration Service Performance with Amazon Redshift as Target AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/optimizing-dms-with-amazon-redshift/optimizing-dms-with-amazon-redshift.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/optimizing-dms-with-amazon-redshift/llms.txt)
+
+- [Optimizing Enterprise Economics with Serverless Architectures AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/optimizing-enterprise-economics-with-serverless/optimizing-enterprise-economics-with-serverless.md): This whitepaper covers the basics of serverless approaches and the AWS serverless portfolio. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/optimizing-enterprise-economics-with-serverless/llms.txt)
+
+- [Optimizing MySQL Running on Amazon EC2 Using Amazon EBS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/optimizing-mysql-on-ec2-using-amazon-ebs/optimizing-mysql-on-ec2-using-amazon-ebs.md): This whitepaper is intended for Amazon Web Services (AWS) customers who are considering deploying their MySQL database on Amazon Elastic Compute Cloud (Amazon EC2) using Amazon Elastic Block Store (Amazon EBS) volumes. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/optimizing-mysql-on-ec2-using-amazon-ebs/llms.txt)
+
+- [Optimizing PostgreSQL Running on Amazon EC2 Using Amazon EBS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/optimizing-postgresql-on-ec2-using-ebs/optimizing-postgresql-on-ec2-using-ebs.md): This whitepaper is intended for Amazon Web Services (AWS) customers who are considering deploying their PostgreSQL database on Amazon Elastic Compute Cloud (Amazon EC2) using Amazon Elastic Block Store (Amazon EBS) volumes. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/optimizing-postgresql-on-ec2-using-ebs/llms.txt)
+
+- [Best Practices for Running Oracle Database on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/oracle-database-aws-best-practices/oracle-database-aws-best-practices.md): Amazon Web Services (AWS) offers you the ability to run your Oracle Database in a cloud environment. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/oracle-database-aws-best-practices/llms.txt)
+
+- [Organizing Your AWS Environment Using Multiple Accounts AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md): Businesses that are starting to adopt Amazon Web Services (AWS), expanding their footprint on AWS, or planning to enhance an established AWS environment need to ensure they have a foundation on AWS for their cloud environment. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/llms.txt)
+
+- [An Overview of the AWS Cloud Adoption Framework AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/welcome.md): The AWS Cloud Adoption Framework (AWS CAF) leverages AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/llms.txt)
+
+- [An Overview of AWS Cloud Data Migration Services AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-data-migration-services/overview-aws-cloud-data-migration-services.md): Amazon Web Services (AWS) provides multiple services for moving data, and each solution offers various levels of speed, security, cost, and performance. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-data-migration-services/llms.txt)
+
+- [Overview of the AWS European Sovereign Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-european-sovereign-cloud/introduction.md): In November 2022, AWS introduced the AWS Digital Sovereignty Pledge, our commitment to offering all AWS customers the most advanced set of sovereignty controls and features available in the cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/overview-aws-european-sovereign-cloud/llms.txt)
+
+- [Overview of Deployment Options on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/welcome.md): This whitepaper is intended for individuals looking for an overview of the different deployment services offered by AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/llms.txt)
+
+- [Overview of Oracle E-Business Suite on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/overview-oracle-e-business-suite/overview-oracle-e-business-suite.md): Oracle E-Business Suite is a popular suite of integrated business applications for automating enterprise-wide processes like customer relationship management, financial management, and supply chain management. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/overview-oracle-e-business-suite/llms.txt)
+
+- [Patterns for Ingesting SaaS Data into AWS Data Lakes AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/patterns-for-ingesting-saas-data-into-aws-data-lakes/patterns-for-ingesting-saas-data-into-aws-data-lakes.md): This paper outlines different patterns using Amazon Web Services (AWS) services to ingest SaaS data into a data lake on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/patterns-for-ingesting-saas-data-into-aws-data-lakes/llms.txt)
+
+- [Payment Card Industry Data Security Standard (PCI DSS) 3.2.1 on AWS Compliance Guide](https://docs.aws.amazon.com/whitepapers/latest/pci-dss-3-2-1-on-aws/pci-dss-3-2-1-on-aws.md): Notice: This version has been archived.
+
+- [Planning your AI-Powered Business Journey with Accenture on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/planning-ai-business-journey-with-accenture-on-aws/planning-ai-business-journey-with-accenture-on-aws.md): Notice: This whitepaper has been archived.
+
+- [Practicing Continuous Integration and Continuous Delivery on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/practicing-continuous-integration-continuous-delivery/welcome.md): This paper explains the features and benefits of using continuous integration and continuous delivery (CI/CD) along with Amazon Web Services (AWS) tooling in your software development environment. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/practicing-continuous-integration-continuous-delivery/llms.txt)
+
+- [Public Sector Cloud Transformation An AWS how-to guide](https://docs.aws.amazon.com/whitepapers/latest/public-sector-cloud-transformation/public-sector-cloud-transformation.md): This whitepaper provides a phased approach to digital transformation that governments can use to break down steps into segments. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/public-sector-cloud-transformation/llms.txt)
+
+- [Ransomware Risk Management on AWS Using the NIST Cyber Security Framework (CSF) AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/ransomware-risk-management-on-aws-using-nist-csf/ransomware-risk-management-on-aws-using-nist-csf.md): This document is intended for cybersecurity professionals, risk management officers, or other organization-wide decision makers considering the implementation of security controls to manage the risks associated with ransomware and other destructive events using the NIST cybersecurity framework in their organization. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/ransomware-risk-management-on-aws-using-nist-csf/llms.txt)
+
+- [Reactive Systems on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/reactive-systems-on-aws/reactive-systems-on-aws.md): Today, architects and developers are expected to implement highly scalable and resilient distributed system on Amazon Web Services (AWS). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/reactive-systems-on-aws/llms.txt)
+
+- [Real-Time Communication on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/welcome.md): Today, many organizations are looking to reduce cost and attain scalability for real-time voice, messaging, and multimedia workloads. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/real-time-communication-on-aws/llms.txt)
+
+- [Replatform .NET Applications with Windows Containers AWS Technical Guide](https://docs.aws.amazon.com/whitepapers/latest/replatform-dotnet-apps-with-windows-containers/replatform-dotnet-apps-with-windows-containers.md): This guide outlines a methodology to assess applications that are suitable to move to Windows containers, describes the business and technical benefits, and offers a prescriptive procedure using a sample application and reference architecture to guide organizations in the delivery of this process. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/replatform-dotnet-apps-with-windows-containers/llms.txt)
+
+- [Run Semiconductor Design Workflows on AWS AWS Technical Guide](https://docs.aws.amazon.com/whitepapers/latest/run-semiconductor-workflows-on-aws/run-semiconductor-design-workflows-on-aws.md): This implementation guide provides you with information and guidance to run production semiconductor workflows on AWS, from customer specification, to front-end design and verification, back-end fabrication, packaging, and assembly. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/run-semiconductor-workflows-on-aws/llms.txt)
+
+- [Running Containerized Microservices on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/running-containerized-microservices/welcome.md): This whitepaper is intended for architects and developers who want to run containerized applications at scale in production on Amazon Web Services (AWS).
+
+- [Running Oracle Hypervisors on Amazon EC2 Bare Metal AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/running-oracle-hypervisors-ec2-bare-metal/running-oracle-hypervisors-ec2-bare-metal.md): Notice: This whitepaper has been archived.
+
+- [Best Practices Design Patterns: Optimizing Amazon S3 Performance AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/s3-optimizing-performance-best-practices/welcome.md): When building applications that upload and retrieve storage from Amazon S3, follow our best practices guidelines to optimize performance. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/s3-optimizing-performance-best-practices/llms.txt)
+
+- [SaaS Architecture Fundamentals AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.md): The goal of this document is to better define the fundamental elements of SaaS and create a clearer picture of patterns, terms, and value systems that are applied when designing and delivering a SaaS system on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/saas-architecture-fundamentals/llms.txt)
+
+- [SaaS Journey Framework: Building a New SaaS Solution on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/saas-journey-framework/saas-journey-framework.md): This whitepaper provides guidance for companies building a new software-as-a-service (SaaS) product, transitioning to a SaaS business model from traditional software and technology delivery models, or optimizing an existing SaaS solution. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/saas-journey-framework/llms.txt)
+
+- [SaaS Solutions on AWS: Tenant Isolation Architectures AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/saas-solutions-tenant-isolation-architectures/welcome.md): Welcome
+
+- [SaaS Tenant Isolation Strategies: Isolating Resources in a Multi-Tenant Environment AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/saas-tenant-isolation-strategies/saas-tenant-isolation-strategies.md): In this whitepaper, we outline many of the common patterns and strategies that are used to implement tenant isolation on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/saas-tenant-isolation-strategies/llms.txt)
+
+- [SageMaker Studio Administration Best Practices AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/sagemaker-studio-admin-best-practices/sagemaker-studio-admin-best-practices.md): Amazon SageMaker Studio provides a single, web-based visual interface where you can perform all machine learning (ML) development steps, which improves data science team productivity. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/sagemaker-studio-admin-best-practices/llms.txt)
+
+- [Overview of the Samsung Push to Talk (PTT) Solution on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/samsung-ptt-aws/samsung-ptt-aws.md): Notice: This whitepaper has been archived.
+
+- [Performance at Scale with Amazon ElastiCache AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/scale-performance-elasticache/scale-performance-elasticache.md): In-memory caching improves application performance by storing frequently accessed data items in memory, so that they can be retrieved without access to the primary data store. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/scale-performance-elasticache/llms.txt)
+
+- [SDDC Deployment and Best Practices Guide on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/sddc-deployment-and-best-practices/sddc-deployment-and-best-practices.md): This guide is intended for IT infrastructure architects, administrators, and IT professionals who are planning to implement a VMware Cloud Software Defined Data Center (SDDC). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/sddc-deployment-and-best-practices/llms.txt)
+
+- [Secure Content Delivery with Amazon CloudFront AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/secure-content-delivery-amazon-cloudfront/secure-content-delivery-with-amazon-cloudfront.md): abstract [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/secure-content-delivery-amazon-cloudfront/llms.txt)
+
+- [Securing Internet of Things (IoT) with AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/securing-iot-with-aws/securing-iot-with-aws.md): This whitepaper is a detailed look at how customers can use AWS security services to secure their Internet of Things (IoT) workloads in consumer and industrial environments. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/securing-iot-with-aws/llms.txt)
+
+- [Security at the Edge: Core Principles AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-at-the-edge/security-at-the-edge.md): This whitepaper provides security executives the foundations for implementing a defense in depth security strategy at the edge by addressing three areas of security at the edge. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-at-the-edge/llms.txt)
+
+- [Security Best Practices for Manufacturing OT AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-best-practices-for-manufacturing-ot/security-best-practices-for-manufacturing-ot.md): Abstract and introduction [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-best-practices-for-manufacturing-ot/llms.txt)
+
+- [The Security Design of the AWS Nitro System AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/security-design-of-aws-nitro-system.md): Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-design-of-aws-nitro-system/llms.txt)
+
+- [Security in Amazon CodeGuru Profiler AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-in-codeguru-profiler/security-in-codeguru-profiler.md): This paper presents a deep dive into Amazon CodeGuru through a security lens. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-in-codeguru-profiler/llms.txt)
+
+- [Security Overview of Amazon API Gateway AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-overview-amazon-api-gateway/abstract-and-introduction.md): Security Overview of Amazon API Gateway [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-overview-amazon-api-gateway/llms.txt)
+
+- [Security Overview of Amazon EKS Auto Mode AWS Whitepapers](https://docs.aws.amazon.com/whitepapers/latest/security-overview-amazon-eks-auto-mode/security-overview-amazon-eks-auto-mode.md): This paper is intended for existing and potential Amazon EKS customers who are using or considering EKS Auto Mode. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-overview-amazon-eks-auto-mode/llms.txt)
+
+- [Security Overview of AWS Lambda AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-overview-aws-lambda/security-overview-aws-lambda.md): This whitepaper presents a deep dive of the AWS Lambda service through a security lens. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-overview-aws-lambda/llms.txt)
+
+- [Security Overview of Amazon CodeGuru Reviewer AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-overview-of-amazon-codeguru-reviewer/security-overview-of-amazon-codeguru-reviewer.md): This whitepaper provides a security overview of Amazon CodeGuru and how it safeguards customer’s data, manages data retention, and how intelligent recommendations are generated and published. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-overview-of-amazon-codeguru-reviewer/llms.txt)
+
+- [Security Practices for Multi-Tenant SaaS Applications using Amazon EKS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/security-practices-multi-tenant-saas-applications-eks/security-practices-multi-tenant-saas-applications-eks.md): This guide shows you how to securely manage and operate multi-tenant software-as-a-service (SaaS) applications on Amazon Elastic Kubernetes Service (Amazon EKS) clusters. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/security-practices-multi-tenant-saas-applications-eks/llms.txt)
+
+- [Semiconductor Design on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/semiconductor-design-on-aws/semiconductor-design-on-aws.md): This whitepaper presents an overview of the semiconductor design flow, a migration path for moving design and verification workflows to AWS, and the AWS architectural components needed to optimize semiconductor design workloads on AWS. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/semiconductor-design-on-aws/llms.txt)
+
+- [Serverless Architectures with AWS Lambda AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/serverless-architectures-lambda/welcome.md): DEPRECATED: Serverless Architectures with AWS Lambda
+
+- [Serverless 3D Data Optimization Pipelines on AWS](https://docs.aws.amazon.com/whitepapers/latest/serverless-data-optimization-pipelines-on-aws/document-revisions.md): Document revisions
+
+- [AWS Serverless Multi-Tier Architectures with Amazon API Gateway and AWS Lambda AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/welcome.md): This whitepaper illustrates how innovations from Amazon Web Services (AWS) can be used to change the way you design multi-tier architectures and implement popular patterns such as microservices, mobile backends, and single-page applications. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/serverless-multi-tier-architectures-api-gateway-lambda/llms.txt)
+
+- [Setting Up Multi-User Environments in AWS (for Classroom Training and Research) AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/setting-up-multi-user-environments/setting-up-multi-user-environments.md): Amazon Web Services (AWS) can provide the ideal environment for classroom training and research. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/setting-up-multi-user-environments/llms.txt)
+
+- [Strategies for Migrating Oracle Databases to AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/strategies-migrating-oracle-db-to-aws/strategies-migrating-oracle-db-to-aws.md): This whitepaper describes the preferred methods for migrating an Oracle Database to AWS, and helps you choose the method that is best for your business. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/strategies-migrating-oracle-db-to-aws/llms.txt)
+
+- [Streaming Data Solutions on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/streaming-data-solutions-amazon-kinesis/welcome.md): Data engineers, data analysts, and big data developers are looking to evolve their analytics from batch to real-time so their companies can learn about what their customers, applications, and products are doing right now and react promptly.
+
+- [Streamline Amazon WorkSpaces Management with Intune Implementation Guide](https://docs.aws.amazon.com/whitepapers/latest/streamline-workspaces-with-intune/streamline-workspaces-with-intune.md): This guide walks you through the process of setting up Windows Intune and Amazon WorkSpaces using Hybrid Azure Active Directory Join. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/streamline-workspaces-with-intune/llms.txt)
+
+- [SWIFT Customer Security Controls Framework (v2022) on AWS Best Practices to Implement Security Controls for SWIFT Connectivity](https://docs.aws.amazon.com/whitepapers/latest/swift-customer-security-controls-framework-2021/swift-customer-security-controls-framework-2021.md): The SWIFT Customer Security Programme (CSP) was introduced to support SWIFT customers and drive industry-wide collaboration in the fight against cyber fraud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/swift-customer-security-controls-framework-2021/llms.txt)
+
+- [Tableau Desktop on Amazon AppStream 2.0 AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/tableau-desktop-on-amazon-appstream2.0/tableau-desktop-on-amazon-appstream2.0.md): This guide provides best practices for deploying Tableau Desktop to Amazon AppStream 2.0 as well as instructions to launch and configure the AppStream 2.0 resources needed for this use case. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/tableau-desktop-on-amazon-appstream2.0/llms.txt)
+
+- [Best Practices for Tagging AWS Resources AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.md): This whitepaper focuses on AWS tagging use-cases, strategies, techniques, and tools that enable you to categorize resources by purpose, team, environment, or other criteria relevant to your business. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/llms.txt)
+
+- [Teaching Big Data Skills with Amazon EMR AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/teaching-big-data-skills-with-amazon-emr/welcome.md): This document discusses multiple deployment options available to higher-education organizations, enabling them to provide a modern AWS infrastructure to support a big data class offering using Amazon EMR. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/teaching-big-data-skills-with-amazon-emr/llms.txt)
+
+- [Telco Edge Workloads on Red Hat OpenShift - Wavelength and Local Zones Reference Architecture, Deployment Topology, and Value Proposition](https://docs.aws.amazon.com/whitepapers/latest/telco-edge-workloads-on-red-hat-openshift/telco-edge-workloads-on-red-hat-openshift.md): Technology modernization is one of the core strategic initiatives by chief technology officers (CTOs) and chief information officers (CIOs) to apply innovative technologies. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/telco-edge-workloads-on-red-hat-openshift/llms.txt)
+
+- [Time Series Forecasting Principles with Amazon Forecast AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/time-series-forecasting-principles-with-amazon-forecast/time-series-forecasting-principles-with-amazon-forecast.md): This paper introduces forecasting, its terminology, challenges, and use cases. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/time-series-forecasting-principles-with-amazon-forecast/llms.txt)
+
+- [Unpicking Vendor Lock-in A guide to understanding and mitigating switching costs when changing your Cloud Services Provider](https://docs.aws.amazon.com/whitepapers/latest/unpicking-vendor-lock-in/unpicking-vendor-lock-in.md): This whitepaper looks at what customers should require from CSPs so they have the freedom to choose the innovative services they need, coupled with the ability to turn things off and move, should they decide to do so. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/unpicking-vendor-lock-in/llms.txt)
+
+- [Using Altair Breeze for EDA Workload Migration to AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/using-ellexus-breeze-eda-workload-migration/welcome.md): Notice: This whitepaper has been archived.
+
+- [Using Microsoft Power BI with the AWS Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/using-power-bi-with-aws-cloud/using-power-bi-with-aws-cloud.md): This whitepaper discusses how to integrate and use Microsoft Power BI (Desktop, Service, and on-premises data gateway) with the Amazon Web Services (AWS) Cloud. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/using-power-bi-with-aws-cloud/llms.txt)
+
+- [Virtualize Cloud Managed Satellite Operations Centers on AWS AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/virtualize-satellite-operations-on-aws/welcome.md): welcome
+
+- [VMware vSphere Backups to Amazon S3 AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/vmware-vsphere-backups-to-amazon-s3/vmware-vsphere-backups-to-amazon-s3.md): This paper acts as an introduction to the features, Amazon Web Services (AWS) services, and architectural components relevant when you back up an on-premises virtualization environment based on VMware vSphere to Amazon Simple Storage Service (Amazon S3). [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/vmware-vsphere-backups-to-amazon-s3/llms.txt)
+
+- [Use AWS WAF to Mitigate OWASP’s Top 10 Web Application Vulnerabilities AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/waf-mitigate-owasp-web-vulnerabilities/welcome.md): DEPRECATED: Use AWS WAF to Mitigate OWASP’s Top 10 Web Application Vulnerabilities
+
+- [Web Application Hosting in the AWS Cloud AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/welcome.md): Amazon Web Services (AWS) provides a reliable, scalable, secure, and highly performing infrastructure for the most demanding web applications. [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/web-application-hosting-best-practices/llms.txt)
+
+- [Best practices to prepare your Amazon WorkSpaces for Linux images AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/welcome.md): abstract [llms.txt](https://docs.aws.amazon.com/whitepapers/latest/workspaces-linux-best-practices/llms.txt)
