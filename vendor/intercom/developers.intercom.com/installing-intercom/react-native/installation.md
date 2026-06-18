@@ -21,11 +21,9 @@ Enable the [Android](https://app.intercom.com/a/apps/_/settings/android) and [iO
 
 To install Intercom you'll need to add the wrapper to your React Native project using the following snippet:
 
-
 ```text
 yarn add @intercom/intercom-react-native
 ```
-
 
 ```text
 npm install @intercom/intercom-react-native
@@ -45,7 +43,6 @@ If you're using React Native v0.60 or above, the library will be linked automati
 
 To automatically link the Intercom React Native wrapper in v0.59 of React Native run the following command:
 
-
 ```text
 react-native link @intercom/intercom-react-native
 ```
@@ -54,14 +51,12 @@ react-native link @intercom/intercom-react-native
 
 If you prefer to manually link libraries, add the following snippet to `android/settings.gradle`:
 
-
 ```groovy
 include ':intercom-react-native'
 project(':intercom-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/@intercom/intercom-react-native/android')
 ```
 
 Inside the dependancies block of `android/app/build.gradle` add the following line:
-
 
 ```groovy
 dependencies {
@@ -74,7 +69,6 @@ React Native versions below 0.65 use OkHttp 3. The Intercom SDK currently uses O
 There is a problem with compatibility between those two versions which may result in crashes.
 
 If you need to use a React Native version < 0.65, prevent the compatibility issue by adding an explicit dependency on `okhttp-urlconnection` to dependencies in `app/build.gradle`:
-
 
 ```
 dependencies {
@@ -96,7 +90,6 @@ In the dependencies block of the `build.gradle` make sure that `com.android.tool
 You'll need to update the `MainApplication.java` class. First add the import `com.intercom.reactnative.IntercomModule` at the top of the class.
 
 Then in the `onCreate` method, add the snippet below using the `apiKey` and `appId` found in your [workspace settings](https://app.intercom.com/a/apps/_/settings/android).
-
 
 ```java
 import com.intercom.reactnative.IntercomModule; //  <-- Add this line
@@ -123,7 +116,6 @@ Add below permissions to `AndroidManifest.xml`
 **Image Attachments**: No additional permissions are required for image attachments on modern Android versions (Android 10+). The SDK uses the system photo picker and scoped storage APIs that don't require storage permissions.
 
 You can also include [VIBRATE](http://developer.android.com/reference/android/Manifest.permission.html#VIBRATE) to enable vibration in push notifications:
-
 
 ```xml
 <uses-permission android:name="android.permission.VIBRATE"/>
@@ -158,7 +150,6 @@ For Objective-C, open `iOS/AppDelegate.m` and import `<IntercomModule.h>`.
 
 For Swift, open `iOS/AppDelegate.swift` and import `intercom_react_native`.
 
-
 ```objectivec
 #import "AppDelegate.h"
 #import <React/RCTBridge.h>
@@ -168,13 +159,11 @@ For Swift, open `iOS/AppDelegate.swift` and import `intercom_react_native`.
 #import <IntercomModule.h> // <-- Add This
 ```
 
-
 ```swift
 import intercom_react_native
 ```
 
 Next, in the method `didFinishLaunchingWithOptions` you'll need to initialize Intercom. Add the snippet below using the `apiKey` and `appId` found in your [workspace settings](https://app.intercom.com/a/apps/_/settings/ios).
-
 
 ```objectivec
 // ...
@@ -185,7 +174,6 @@ Next, in the method `didFinishLaunchingWithOptions` you'll need to initialize In
   return YES;
   }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -198,7 +186,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 #### iOS Permissions
 
 Add these permissions to your `Info.plist`:
-
 
 ```xml
 <!-- Optional: Camera access for taking photos in conversations -->
@@ -241,7 +228,6 @@ Even with manual initialization, you still need to configure platform-specific p
 
 These permissions are required for Intercom features like image/video uploads, regardless of how you initialize the SDK.
 
-
 ```javascript
 import { Platform } from 'react-native';
 import Intercom from '@intercom/intercom-react-native';
@@ -270,7 +256,6 @@ Note that this validation only checks the format of your API keys, not whether t
 
 ### Example: Preventing messages during onboarding
 
-
 ```javascript
 // Hide messages before initializing
 await Intercom.setInAppMessageVisibility('GONE');
@@ -292,7 +277,6 @@ If you have an app with no login option (like Angry Birds or a flashlight app), 
 
 Just register an unidentified user in your application like so:
 
-
 ```javascript
 Intercom.loginUnidentifiedUser();
 ```
@@ -308,7 +292,6 @@ If people must log in to access your app (as with Facebook, Instagram or Slack) 
 - Don’t use an email address as a userId as this field cannot be changed later. If you choose provide only an email address, the email address must not be associated with any other users on your workspace.
 
 
-
 ```javascript
 Intercom.loginUserWithUserAttributes({
   email: "bob@example.com",
@@ -319,7 +302,6 @@ Intercom.loginUserWithUserAttributes({
 ## Register both unidentified (non-logged in) and identified (logged in) users
 
 If you have an app with both unidentified and identified users (like Google Maps or YouTube), you will need to either conditionally choose which registration to call:
-
 
 ```javascript
 if (loggedIn) {
@@ -340,7 +322,6 @@ You should only unregister an identified user. Unregistering an unidentified use
 
 When users want to log out of your app, simply call:
 
-
 ```javascript
 Intercom.logout();
 ```
@@ -351,7 +332,6 @@ Intercom knows when your app is backgrounded and comes alive again, so you won't
 
 If you are using Expo, you can use the built-in plugin.
 After installing the **intercom-react-native** package, add the [config plugin](https://docs.expo.io/guides/config-plugins/) to the [`plugins`](https://docs.expo.io/versions/latest/config/app/#plugins) array of your `app.json` or `app.config.js`:
-
 
 ```json
 {
@@ -375,7 +355,6 @@ When `useManualInit` is `false` (automatic initialization), the following proper
 
 
 When `useManualInit` is `true` (manual initialization), these properties are not required as you'll provide them when calling `Intercom.initialize()` from your JavaScript code.
-
 
 ```json
 {
@@ -401,7 +380,6 @@ Next, rebuild your app as described in the ["Adding custom native code"](https:/
 
 To enable camera and microphone features in your Expo app, add the following to your `app.json` or `app.config.js`:
 
-
 ```json
 {
   "expo": {
@@ -423,7 +401,6 @@ After adding these permissions, run `npx expo prebuild` to regenerate the native
 
 For Expo apps, use the `useManualInit` option in your plugin configuration to delay initialization:
 
-
 ```json
 {
   "expo": {
@@ -444,7 +421,6 @@ When `useManualInit` is `true`, you don't need to provide `appId`, `androidApiKe
 
 Then initialize Intercom manually in your JavaScript code using Platform.select for platform-specific API keys:
 
-
 ```javascript
 import { Platform } from 'react-native';
 import Intercom from '@intercom/intercom-react-native';
@@ -463,7 +439,6 @@ await Intercom.loginUserWithUserAttributes({
 ```
 
 You can also control message visibility around initialization:
-
 
 ```javascript
 // Hide messages before initializing

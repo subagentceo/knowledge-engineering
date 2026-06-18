@@ -8,17 +8,17 @@ It’s how we’ve brought Claude’s capabilities directly to Slack, bringing A
 
 **Direct message with Claude**: Start a private conversation with @Claude.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755143775/0ac74968f16b0c304ad05c1501c3/8f870a90-c622-449d-9eba-0a2edf5d63f1?expires=1781747100&amp;signature=e7c76481fae3bc3c7278183f5d8dae93b78c2aba2780479ce0c98f89ceda6c00&amp;req=dSciE8h6noZYXPMW1HO4zb2WCgQEEoN25mlLMjhGEMEl4vtcCH%2FOdzZ2wD2W%0AVeH3xiTcxPMt1DAzci8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755143775/0ac74968f16b0c304ad05c1501c3/8f870a90-c622-449d-9eba-0a2edf5d63f1?expires=1781748900&amp;signature=f0d0f3f92229579b090c9fef2ff41f4e704973f54906b2a7cba4fc81b43c22d8&amp;req=dSciE8h6noZYXPMW1HO4zb2WCgQEEox%2B5mlLMjhGEMFl91M0KH8db0IY%2Bu%2BA%0AbdiVVO5Z1svfmtxajnU%3D%0A)
 
 **AI assistant panel**: Click the Claude icon in Slack's AI assistant header to open a panel on the right side of your Slack window, allowing you to access Claude from anywhere in the Slack app.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755144720/47781e38d6f97597aa494e0aeb2d/38f88d2c-aa96-4d35-8a02-7ad6b23f8699?expires=1781747100&amp;signature=b78275c9b426af51c0fd505ad411de48fdb02146542b90e084f2c3ed5ec25d93&amp;req=dSciE8h6mYZdWfMW1HO4zUifzTDeE6SlPUSeDntyEuVaH0JdU5pm%2FJqMSBy6%0A2ow6h9VFEySU4S%2Ffmpk%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755144720/47781e38d6f97597aa494e0aeb2d/38f88d2c-aa96-4d35-8a02-7ad6b23f8699?expires=1781748900&amp;signature=50154aa6669d3a4e9c56c5e083855c94564fe6666b44b17785fe4b7808e53241&amp;req=dSciE8h6mYZdWfMW1HO4zUifzTDeE6utPUSeDntyEuVlM%2FEWBiIdnekZ3y0H%0At9L5CJIR%2FgWq88rHUMU%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755145556/3155c34bba5a64e0ab7b760e78c2/5c54e519-3c0d-4ffa-a555-0b9d9660ea53?expires=1781747100&amp;signature=eafe48debe2a0816d90d2a4b005fdaa7f5202e89f488b38e7f0d1a3faf461689&amp;req=dSciE8h6mIRaX%2FMW1HO4zXrVUtl79IjCBGejWRiWDiJM1WnTU%2FVW2DRdkG4k%0Ao2o6n7u4nmgFX73NtwA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755145556/3155c34bba5a64e0ab7b760e78c2/5c54e519-3c0d-4ffa-a555-0b9d9660ea53?expires=1781748900&amp;signature=2e7424a1fafbb7ebdd47f7ded40d1a5fda5cb76592fbcf4117cb9447d0c77776&amp;req=dSciE8h6mIRaX%2FMW1HO4zXrVUtl79IfKBGejWRiWDiIZG%2Fn0bZrBsdsj40Sv%0AkBpuR8Oz1GjkzcxgTC8%3D%0A)
 
 **Thread participation**: Mention @Claude in any thread to get Claude's help with the conversation.
 
-![A Slack thread where a user @mentions Claude and asks for a summary. Claude replies in the thread with a short bulleted summary of the conversation.](https://downloads.intercomcdn.com/i/o/lupk8zyo/2398958204/25a1254c9c17bb0af6bf64ac99d3/Slack_Claude_Thread.png?expires=1781747100&amp;signature=deb7d13e9580fb27ec1bd76105564c0f1859c318f1cd4dd59f591a712b354f06&amp;req=diMuHsB7lYNfXfMW1HO4zdOLiZoqKOypZVaRIDJSo4Ik6ERyrScwDwmcDV6w%0ATWTC6k7AuLc32NhskS8%3D%0A)
+![A Slack thread where a user @mentions Claude and asks for a summary. Claude replies in the thread with a short bulleted summary of the conversation.](https://downloads.intercomcdn.com/i/o/lupk8zyo/2398958204/25a1254c9c17bb0af6bf64ac99d3/Slack_Claude_Thread.png?expires=1781748900&amp;signature=62d3aa34f43c1ba2d883fd80d82cd54f6df2e7b4cb3bc58f590de909e740cd9f&amp;req=diMuHsB7lYNfXfMW1HO4zdOLiZoqKOOhZVaRIDJSo4JUlh86EI%2By7mp6T4gF%0AA3OdjcXJ%2BXD8QeHai4Y%3D%0A)
 
 All surfaces provide the same capabilities that you have enabled in Claude, including web search and connections to your integrated tools, allowing you to seamlessly integrate AI assistance into your existing workflow.
 
@@ -56,17 +56,17 @@ Once your Slack admin has approved Claude (or if you're on a personal Slack plan
 
 2. Click "Connect Account” to be prompted to connect your Claude account:
 
-  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755147280/abac53f0415690817c630a420091/98c15ecd-761c-4e0d-aeae-1c52d38e52c8?expires=1781747100&amp;signature=6cc96bcfe1c12472b1e45f9d862838409e11de536340bb69011ae8645e74524e&amp;req=dSciE8h6moNXWfMW1HO4zRIwhU27QSdn%2Fy7g3WAjXh4BqBpWmnnbnu2WRcVH%0AnF7b%0A)
+  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755147280/abac53f0415690817c630a420091/98c15ecd-761c-4e0d-aeae-1c52d38e52c8?expires=1781748900&amp;signature=e56c9d714bd78cf6b45740da738ef4dbc98af3983fe48081395cca97ba35b3c2&amp;req=dSciE8h6moNXWfMW1HO4zRIwhU27QShv%2Fy7g3WAjXh7pi3uS8scbdgcl9EtE%0Asxdw%0A)
 
 3. In the window that opens, select which organization you would like to connect with Claude for Slack.
 
 4. Click “Authorize” to allow Claude in Slack to access your Claude chat account:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755147985/57be4bd15a4720466d9114ef9e0d/5944ab3f-20b9-43f7-b475-127b98a3eef4?expires=1781747100&amp;signature=08b807f083b18d79f1a8b4c2ea932e94970eddcd9a41bd40cbe48a33051ec765&amp;req=dSciE8h6mohXXPMW1HO4zcpXSpQ8FgqVFQ%2BRWX0w%2Fe4EKoed9u4NhomKErKU%0AAsFs%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755147985/57be4bd15a4720466d9114ef9e0d/5944ab3f-20b9-43f7-b475-127b98a3eef4?expires=1781748900&amp;signature=e689419a55d9ecf14994b1d2b3c39d9cb89160ccfd407995a60aa18bde72dd37&amp;req=dSciE8h6mohXXPMW1HO4zcpXSpQ8FgWdFQ%2BRWX0w%2Fe4egXEBp%2FTeBoZWOMVU%0ARQZ4%0A)
 
 5. You should see a confirmation message upon successful connection:
 
-  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755148657/71571a264d97c7a145c399b3e653/f0d32375-bf8f-47d5-89e3-c165eb3a1d41?expires=1781747100&amp;signature=2ae6ce4d1d1bfd41e3b56b546447a1cb2a3843ebba5c7dcbf38bc0e40ff833ce&amp;req=dSciE8h6lYdaXvMW1HO4zZ9S6jAecJZqXLLzhWuBjzOU6rbcg9TVfEbFCkug%0ANG6c%0A)
+  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755148657/71571a264d97c7a145c399b3e653/f0d32375-bf8f-47d5-89e3-c165eb3a1d41?expires=1781748900&amp;signature=4b3f8555fffc0ada061c88957bcf70a801e55562842a8923a68f7e7277272737&amp;req=dSciE8h6lYdaXvMW1HO4zZ9S6jAecJliXLLzhWuBjzPuDy5u6hD86stagypU%0AcLiq%0A)
 
 6. After successful authentication, return to Slack.
 
@@ -138,7 +138,7 @@ To disconnect your Claude account from Slack:
 
 3. Confirm the disconnection.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755149744/97a579fedf87deb5e5b6abf48963/4cab9f61-9f98-40c4-969a-f590716dfb38?expires=1781747100&amp;signature=97c86b7c2813ebcb3f0e0a6dfacfd3cced0975a7de2ae515629f2cbf88caa313&amp;req=dSciE8h6lIZbXfMW1HO4zdIAvZRMaraRQgg7UiXQlE1uNqFYyY7BzcOL3ram%0AP3JP7HjlwwyRoQZDXJc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755149744/97a579fedf87deb5e5b6abf48963/4cab9f61-9f98-40c4-969a-f590716dfb38?expires=1781748900&amp;signature=6e21aecaf1018ba0b1858fa32bbeff7c6eb09e3330247d0d2fcf9b1bbf60624c&amp;req=dSciE8h6lIZbXfMW1HO4zdIAvZRMarmZQgg7UiXQlE03zB9YNwLPo8bPIQLE%0A20OU2aCVZ4IqzAfFPks%3D%0A)
 
 Disconnecting will:
 

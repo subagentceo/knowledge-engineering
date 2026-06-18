@@ -1,9 +1,99 @@
 {
+  "https://brave.com/search/api/": {
+    "sha256": "0ab0d8b04b302fd28c858e73cf3b947660788320d56cd4178625c4a958a0e4b6",
+    "lastStatus": 200,
+    "etag": "W/\"700674c4c3515c6f4d4ff5b16c200081\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
   "https://brave.com/search/api/guides/": {
     "sha256": "d6f22671c303084f02c0aee6b179e452a61a8bd194939d65fdc2bb9a05b52016",
     "lastStatus": 304,
     "etag": "W/\"21e29b9239a03b34660f969d49f2b34a\"",
     "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
+  "https://brave.com/search/api/guides/brave-search-api-vs-bing-api/": {
+    "sha256": "f8bba7e1b1e6ec90957adc97f5c2813e16329481ba48e9563c95163429bc108b",
+    "lastStatus": 200,
+    "etag": "W/\"53842368ef2c4ac6bf6e2f642c93ece4\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/category/": {
+    "sha256": "0efa8da76d79c1175e43435e381ceb5ad8d75828358db1a1e7711f60bd79aec6",
+    "lastStatus": 200,
+    "etag": "W/\"bcd7ffe57eae66d9228062ee03bbfdb8\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
+  "https://brave.com/search/api/guides/category/an-intro-to-search-apis/": {
+    "sha256": "de80cdf234914e2812c7831724b23eb10ef8413e176b2c435d5a1169dc333f8e",
+    "lastStatus": 200,
+    "etag": "W/\"45928cc0f27331862a7f4db2aebe51df\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
+  "https://brave.com/search/api/guides/category/comparison-guides/": {
+    "sha256": "25273026c23fc0f78cb607f4980bc43d18d4636dee512d63107f711051b27a5f",
+    "lastStatus": 200,
+    "etag": "W/\"da29bd48dec495c458eecffc7f0b16b3\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
+  "https://brave.com/search/api/guides/category/cookbooks/": {
+    "sha256": "ad6990a3f5317ebfbe1e41fa5f1e9e66f2d16e3a9b2b78ccb602aef721c0bed9",
+    "lastStatus": 200,
+    "etag": "W/\"3e7f04a1fc1b43141598f4d85014dfd2\"",
+    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+  },
+  "https://brave.com/search/api/guides/mapping-the-ai-landscape/": {
+    "sha256": "c51afa40d9e780742f8e1435559e4d28c2443c0db27e71e81e4145fd02f28032",
+    "lastStatus": 200,
+    "etag": "W/\"bc66753b6659acc698dd0e10f38b18ab\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/use-with-claude-desktop-with-mcp/": {
+    "sha256": "5fc565b429d10326e1ac3dccbc6c31e6bdcce8f5f1c94d628712f7cd4b49a460",
+    "lastStatus": 200,
+    "etag": "W/\"948a17ca80ea823d777d3b1d6ca4f612\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/use-with-dify/": {
+    "sha256": "8dfe211adbeebb0aaf356a96d7022bcbe68a97853a6b7f6b4bb9f2da74460b57",
+    "lastStatus": 200,
+    "etag": "W/\"14239c092b00c107a2b055063bb99d66\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/use-with-n8n/": {
+    "sha256": "0ca053db62029af1fe79ed39a7c3556aa9a28de5d0b366ec9d78260d30f19aa2",
+    "lastStatus": 200,
+    "etag": "W/\"e0e4a50efdef43c47c4b9c79fe880a3e\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/use-with-open-webui/": {
+    "sha256": "59ae828d515455546f641738c85f3f6547ac18663426885113a09fe97a71d570",
+    "lastStatus": 200,
+    "etag": "W/\"d06ac59282a493a1419e4445f2ca2bf4\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/use-with-openclaw/": {
+    "sha256": "b872e18f6b26b2a2ef689103dddd5ae1fbf7c293fae17a3328eda99694aff7f2",
+    "lastStatus": 200,
+    "etag": "W/\"ad228a0653d58d551247a7a598c220e4\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/using-brave-search-api/": {
+    "sha256": "a15e7c986f7bcebbf0ce3311fdb35a1649740f85cd337205bc7dfeeb699a1a06",
+    "lastStatus": 200,
+    "etag": "W/\"2f90b7e082e830a1f3574c55698eba95\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/what-is-search-engine-api/": {
+    "sha256": "91cc306d0099755a49b0a15b29dedeae053ab90a467c4ff1a1f7c60a1edad55a",
+    "lastStatus": 200,
+    "etag": "W/\"728f06a8a5ea69688a35ed2000552408\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
+  },
+  "https://brave.com/search/api/guides/what-sets-brave-search-api-apart/": {
+    "sha256": "897579d16e04c16024232d080b2d6501ac8d12dd821c14dd9cfe741a8e8d3e6b",
+    "lastStatus": 200,
+    "etag": "W/\"7b1f063c37bff7a7d14241d625855b36\"",
+    "lastModified": "Mon, 15 Jun 2026 15:57:33 GMT"
   },
   "https://brave.com/search/api/styles.min.fd51ef8255dcfe8c85e4c4e651ce33090b0ff321e0d8f5f63e70c7765cee6619.css": {
     "sha256": "6d4764f43ae522a49a9e267846cdaf957f502a3a15f096a5a1a870f6d7a40475",
@@ -13,7 +103,7 @@
   },
   "https://brave.com/search/api/tools/": {
     "sha256": "86dcdf3317b39021a603c3e91fe980d6df4db055860c846781ece4a4e80215b6",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"78d51fe3184868c5cbeec3e3ff930f29\"",
     "lastModified": "Wed, 17 Jun 2026 21:28:23 GMT"
   },

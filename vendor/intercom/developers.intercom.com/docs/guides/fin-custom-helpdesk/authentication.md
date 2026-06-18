@@ -23,7 +23,6 @@ When Fin calls your API endpoints, you need to verify that the requests are comi
 
 Each API request will include the following header containing the OAuth access token issued by your token API:
 
-
 ```http
 Authorization: Bearer your-secret-token
 ```

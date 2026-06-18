@@ -14,7 +14,6 @@ In this tutorial, we'll use Sinatra (Ruby) to power the ticket form on your webs
 
 For this app, you'll need two endpoints: `get /index` to display the form and `post /tickets` to create the ticket. To create a ticket, the app will make a call to [Tickets API](https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Tickets/ticket/):
 
-
 ```ruby
 require 'sinatra'
 require 'json'
@@ -64,7 +63,6 @@ The code above maps Ticket Types to hardcoded numbers for simplicity sake. In a 
 ## Step 2: Create a  ticket form
 
 Add the following code to `index.erb` template to display the ticket form:
-
 
 ```html
 <!DOCTYPE html>

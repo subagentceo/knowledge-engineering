@@ -27,7 +27,6 @@ To get started, open up [Replit](https://replit.com/@IntercomDevs/Integrate-Fin-
 
 This is the full sample code:
 
-
 ```javascript
 import axios from "axios";
 import express from "express";
@@ -540,7 +539,6 @@ Choose Webhooks from the sidebar and then paste in your unique Replit link where
 
 From the topics dropdown, choose `conversation.operator.replied` and click save. You should see a green banner on the top of the screen indicating the test ping to your endpoint was successful. If you navigate back to your console in Replit, you should also see the below logged output:
 
-
 ```
 📝 Received Intercom webhook payload: {
   "type": "notification_event",
@@ -568,7 +566,6 @@ From the topics dropdown, choose `conversation.operator.replied` and click save.
 ## Set up the Slack app
 
 Go to [Your apps](https://api.slack.com/apps) and click "Create New App". Select the choice From a manifest, and edit the below manifest to add your own app details, and most importantly add your own Slack events endpoint in the `request_url` field, similarly to what you did previously for the Intercom endpoint.
-
 
 ```json
 {
@@ -621,7 +618,6 @@ Next go to Install App and follow the prompts to install the app into your works
 The last step is to add the App to the Slack channel where you would like for Fin to reply. Go to the channel and navigate to More Actions >  Settngs > Integrations and click "Add an App". The app should now be available and ready to use in the channel.
 
 Now in your Replit console you should see something similar to the below logged:
-
 
 ```json
 Received Slack request: {
@@ -694,7 +690,6 @@ Here's a brief overview of what is happening in the code
 
 Here you are creating a database to track incoming requests so that it is possible to match them in the Slack threads. You alternatively could do this using custom data attributes, with `slack_thread_ts` and `slack_channel_id` as conversation attributes.
 
-
 ```
 db.serialize(() => {
   db.run(`
@@ -720,7 +715,6 @@ db.serialize(() => {
 
 When a message comes in from Slack, you need to relay it to Intercom in order to create the conversation, or create the reply. Note that the conversation endpoints for create and reply slightly differ, which is why they are handled differently.
 
-
 ```js
 app.post("/slack-events", async (req, res) => {
   console.log("Received Slack request:", JSON.stringify(req.body, null, 2));
@@ -739,7 +733,6 @@ app.post("/slack-events", async (req, res) => {
 ```
 
 You will also need to add the thread to the database on the first call.
-
 
 ```js
 await new Promise((resolve, reject) => {
@@ -766,7 +759,6 @@ await new Promise((resolve, reject) => {
 You might notice here we call a function to try and get or create the Intercom contact using the Slack User ID.
 For this example, we'll assume that you've saved the Slack User ID as an Intercom External Contact ID.
 
-
 ```js
     try {
       const contactId = await setUpContact(slackUserId);
@@ -788,7 +780,6 @@ For this example, we'll assume that you've saved the Slack User ID as an Interco
 ```
 
 Using this pattern, you can use the Intercom [get contact by external ID endpoint](https://developers.intercom.com/docs/references/preview/rest-api/api.intercom.io/contacts/showcontactbyexternalid) along with the Slack [users.info](https://api.slack.com/methods/users.info) method to get the contact details and match it in both systems.
-
 
 ```js
 // Set up the contact
@@ -854,7 +845,6 @@ async function getSlackUserInfo(userId) {
 
 The Intercom endpoint is waiting for the Operator replies to come through and handling them accordingly. It's checking to find the webhook ID in the database, and then passing the Fin reply into the Slack API. You also have a function that will strip out the HTML formatting from the response body in the message so that it will appear nicely in the Slack message.
 
-
 ```js
 // 2️⃣ Listen for Intercom replies
 app.post("/intercom-webhook", async (req, res) => {
@@ -885,7 +875,6 @@ Next, you can set up the app to also include admin replies and handle them simil
 
 The webhook payload contains these  fields to identify AI-generated responses:
 
-
 ```js
 // Example of a conversation part in the webhook payload
 {
@@ -909,7 +898,6 @@ The webhook payload contains these  fields to identify AI-generated responses:
 
 You can use these fields to handle AI and non-AI responses differently:
 
-
 ```js
 // Check if the response is from Fin AI
 if (conversationPart.author && conversationPart.author.from_ai_agent) {
@@ -925,7 +913,6 @@ if (conversationPart.author && conversationPart.author.from_ai_agent) {
 You will also need to subscribe to the Admin replied webhook topic in order to access Admin replies.
 
 You also might want to handle quick reply buttons used in workflows by utilizing the [quick reply objects in the API and webhook payloads](https://developers.intercom.com/docs/references/preview/changelog#send-quick-replies-via-the-api). Here's how you could approach formatting the Intercom-defined quick reply button values in Slack.
-
 
 ```js
 // Enhanced webhook handling for quick replies

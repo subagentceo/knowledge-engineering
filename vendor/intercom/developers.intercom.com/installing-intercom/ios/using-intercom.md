@@ -21,11 +21,9 @@ The option you choose should be informed by the design of your app, namely wheth
 
 If you have an app with no login option (like Angry Birds or a flashlight app), you should only login unidentified users.
 
-
 ```objectivec
 + (void)loginUnidentifiedUserWithSuccess:(void(^ __nullable)(void))success failure:(void(^ __nullable)(NSError *_Nonnull error))failure NS_REFINED_FOR_SWIFT;
 ```
-
 
 ```swift
 public class func Intercom.loginUnidentifiedUser(completion: ((Result<Void, Error>) -> Void)?)
@@ -49,7 +47,6 @@ We recommend this is called from within the application delegate's `didFinishLau
 
 Just login as an unidentified user in your application's delegate, like so:
 
-
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Intercom loginUnidentifiedUserWithSuccess:^{
@@ -59,7 +56,6 @@ Just login as an unidentified user in your application's delegate, like so:
     }];
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -82,11 +78,9 @@ If a request to login a user fails, it will be retried before calling the failur
 
 If people must log in to access your app (as in with Facebook, Instagram or Slack) you should follow these instructions to login identified users to Intercom only.
 
-
 ```objectivec
 + (void)loginUserWithUserAttributes:(ICMUserAttributes *)userAttributes success:(void(^ __nullable)(void))success failure:(void(^ __nullable)(NSError *_Nonnull error))failure
 ```
-
 
 ```swift
 public class func loginUser(with attributes: ICMUserAttributes, completion: ((Result<Void, Error>) -> Void)? = nil)
@@ -116,7 +110,6 @@ As well as the `email` and `userId` fields, you can populate the other user attr
 1. First, you'll need to log your user into Intercom when your app launches, like this:
 
 
-
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ICMUserAttributes *userAttributes = [ICMUserAttributes new];
@@ -128,7 +121,6 @@ As well as the `email` and `userId` fields, you can populate the other user attr
     }];
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -152,7 +144,6 @@ If you don't have a unique userId to use here, you can create an `ICMUserAttribu
 1. You'll also need to log your users into Intercom anywhere they login to your app:
 
 
-
 ```objectivec
 - (void)successfulLogin {
     ICMUserAttributes *userAttributes = [ICMUserAttributes new];
@@ -164,7 +155,6 @@ If you don't have a unique userId to use here, you can create an `ICMUserAttribu
     }];
 }
 ```
-
 
 ```swift
 func successfulLogin() {
@@ -196,7 +186,6 @@ If you have an app with both unidentified and identified users (like Google Maps
 1. First, you'll need to log your users into Intercom when your app launches, like this:
 
 
-
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     if (loggedIn) {
@@ -216,7 +205,6 @@ If you have an app with both unidentified and identified users (like Google Maps
     }
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -249,7 +237,6 @@ If you don't have a unique userId to use here, you can create an `ICMUserAttribu
 1. You'll also need to log your users into Intercom anywhere they login to your app:
 
 
-
 ```objectivec
 - (void)successfulLogin {
     ICMUserAttributes *userAttributes = [ICMUserAttributes new];
@@ -261,7 +248,6 @@ If you don't have a unique userId to use here, you can create an `ICMUserAttribu
     }];
 }
 ```
-
 
 ```swift
 func successfulLogin() {
@@ -286,13 +272,11 @@ You should only log out an identified user. Logging out an unidentified user wil
 
 When users want to log out of your app simply call:
 
-
 ```objectivec
 - (void)logout {
     [Intercom logout];
 }
 ```
-
 
 ```swift
 func logout() {
@@ -304,11 +288,9 @@ Intercom knows when your app is backgrounded and comes alive again, so you won't
 
 ## Update a user
 
-
 ```objectivec
 + (void)updateUser:(ICMUserAttributes *)userAttributes success:(void(^ __nullable)(void))success failure:(void(^ __nullable)(NSError *_Nonnull error))failure NS_REFINED_FOR_SWIFT;
 ```
-
 
 ```swift
 public class func updateUser(with: ICMAttributes, completion: ((Result<Void, Error>) -> Void)?)
@@ -331,7 +313,6 @@ You can send any data you like to Intercom from standard user attributes that ar
 
 The complete list of standard user attributes that can be updated are described in the `ICMUserAttributes` object. Standard user attributes such as a user's name or email address can be updated by calling:
 
-
 ```objectivec
 ICMUserAttributes *userAttributes = [ICMUserAttributes new];
 userAttributes.name = @"Bob";
@@ -342,7 +323,6 @@ userAttributes.email = @"bob@example.com";
    // Handle error
 }];
 ```
-
 
 ```swift
 let userAttributes = ICMUserAttributes()
@@ -362,7 +342,6 @@ If the failure block of the above call is executed, you can check against our li
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by setting the `customAttributes` on the `ICMUserAttributes` object with a dictionary.
 
-
 ```objectivec
 ICMUserAttributes *userAttributes = [ICMUserAttributes new];
 userAttributes.customAttributes = @{@"paid_subscriber" : @YES,
@@ -374,7 +353,6 @@ userAttributes.customAttributes = @{@"paid_subscriber" : @YES,
    // Handle error
 }];
 ```
-
 
 ```swift
 let userAttributes = ICMUserAttributes()
@@ -397,7 +375,6 @@ Custom attributes must be created in Intercom using one of the methods described
 
 You can also set company data by setting an array of `ICMCompany` objects on the `ICMUserAttributes` object, like:
 
-
 ```objectivec
 ICMCompany *company = [ICMCompany new];
 company.name = @"My Company";
@@ -411,7 +388,6 @@ userAttributes.companies = @[company];
    // Handle error
 }];
 ```
-
 
 ```swift
 let company = ICMCompany()
@@ -436,11 +412,9 @@ ID required for Company objects
 
 ## Submit an event
 
-
 ```objectivec
 + (void)logEventWithName:(NSString *)name metaData:(NSDictionary *)metaData;
 ```
-
 
 ```swift
 public class func logEvent(withName: String, metaData: [AnyHashable: Any])
@@ -458,7 +432,6 @@ public class func logEvent(withName: String, metaData: [AnyHashable: Any])
 
 You can [log events in Intercom](https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Data-Events/data_event/) that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
 
-
 ```objectivec
 [Intercom logEventWithName:@"ordered_item" metaData: @{
     @"order_date": @1392036272,
@@ -468,7 +441,6 @@ You can [log events in Intercom](https://developers.intercom.com/docs/references
       @"url": @"https://example.org/orders/3434-3434"}
  }];
 ```
-
 
 ```swift
 Intercom.logEvent(withName: "ordered_item", metaData:[
@@ -482,11 +454,9 @@ Intercom.logEvent(withName: "ordered_item", metaData:[
 
 ## Present Intercom Spaces
 
-
 ```objectivec
 + (void)presentIntercom;
 ```
-
 
 ```swift
 public class func present()
@@ -506,11 +476,9 @@ Spaces are different areas of the messenger that you can open directly. Intercom
 
 These spaces can be presented using:
 
-
 ```objectivec
 + (void)presentIntercom:(Space)space;
 ```
-
 
 ```swift
 public class func present(_ space: Space)
@@ -529,11 +497,9 @@ There are various `IntercomContent` that you can present. The available types ar
 
 You create an `IntercomContent` by passing the content's Id to the respective function. For instance, you create an "article" IntercomContent as follows:
 
-
 ```objectivec
 [IntercomContent articleWithId:@"12345"]
 ```
-
 
 ```swift
 Intercom.Content.article(id: "12345")
@@ -543,11 +509,9 @@ Similarly, you can can create surveys, carousels and help center collections.
 
 You can then present such content using:
 
-
 ```objectivec
 [Intercom presentContent:[IntercomContent articleWithId:"12345"]];
 ```
-
 
 ```swift
 Intercom.presentContent(Intercom.Content.article(id: "12345"))
@@ -558,11 +522,9 @@ Content must be 'live' to be used in this feature. If it is in a draft or paused
 
 You may also present a conversation using the ID.
 
-
 ```objectivec
 [Intercom presentContent:[IntercomContent conversationWithId:"12345"]];
 ```
-
 
 ```swift
 Intercom.presentContent(Intercom.Content.conversation(id: "12345"))
@@ -580,11 +542,9 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 If you'd like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```objectivec
 [Intercom setLauncherVisible:YES];
 ```
-
 
 ```swift
 Intercom.setLauncherVisible(true)
@@ -592,11 +552,9 @@ Intercom.setLauncherVisible(true)
 
 If you want to set the bottom padding for the Messenger, which dictates how far from the bottom of the screen the default launcher and in-app messages will appear, you can call:
 
-
 ```objectivec
 [Intercom setBottomPadding: bottomPadding];
 ```
-
 
 ```swift
 Intercom.setBottomPadding(bottomPadding)
@@ -610,11 +568,9 @@ However, if you'd like the Messenger to open from another location in your mobil
 
 If you have a custom launcher, you can call:
 
-
 ```objectivec
 [Intercom presentIntercom];
 ```
-
 
 ```swift
 Intercom.present()
@@ -622,11 +578,9 @@ Intercom.present()
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
 
-
 ```objectivec
 [Intercom presentMessageComposer:@"Message"];
 ```
-
 
 ```swift
 Intercom.presentMessageComposer("Message")
@@ -640,11 +594,9 @@ Now you can show how many unread conversations your user has on your custom laun
 
 Just grab the current count with this method:
 
-
 ```objectivec
 [Intercom unreadConversationCount];
 ```
-
 
 ```swift
 Intercom.unreadConversationCount()
@@ -652,14 +604,12 @@ Intercom.unreadConversationCount()
 
 Then, start listening for updates by observing an `NSNotification`
 
-
 ```objectivec
 [[NSNotificationCenter defaultCenter] addObserver:self
      selector:@selector(updateUnreadCount:)
          name:IntercomUnreadConversationCountDidChangeNotification
        object:nil];
 ```
-
 
 ```swift
 NotificationCenter.default.addObserver(self, 
@@ -672,11 +622,9 @@ NotificationCenter.default.addObserver(self,
 
 You can prevent in app messages from popping up in certain parts of your app, by calling:
 
-
 ```objectivec
 [Intercom setInAppMessagesVisible:NO];
 ```
-
 
 ```swift
 Intercom.setInAppMessagesVisible(false)
@@ -687,11 +635,9 @@ The method `setInAppMessagesVisible` does not apply to Mobile Carousels or Surve
 
 You can hide any Intercom screen in your app, by calling:
 
-
 ```objectivec
 [Intercom hideIntercom];
 ```
-
 
 ```swift
 Intercom.hideIntercom()
@@ -706,7 +652,6 @@ The following notifications are fired during the Messenger presentation and dism
 If the user taps on that In App message, these notifications will not be fired again as the Intercom window (In App message) is already displayed.
 
 When the user closes the messenger, `IntercomWindowWillHideNotification` and `IntercomWindowDidHideNotification` will be fired. This allows developers to perform certain actions in their app when the Intercom window is closed.
-
 
 ```objectivec
 // Listen for Messenger show/hide events
@@ -730,7 +675,6 @@ When the user closes the messenger, `IntercomWindowWillHideNotification` and `In
          name:IntercomWindowDidHideNotification
        object:nil];
 ```
-
 
 ```swift
 // Listen for Messenger show/hide events
@@ -758,14 +702,12 @@ NotificationCenter.default.addObserver(self,
 **Starting a New Conversation**
 The notification `IntercomDidStartNewConversationNotification` is fired when a new conversation is started. By listening to this notification, developers can perform certain actions in their app like presenting the `Allow Notifications` alert to users so that they can receive push notifications replies to that conversation.
 
-
 ```objectivec
 [[NSNotificationCenter defaultCenter] addObserver:self
      selector:@selector(newConversationStarted:)
          name:IntercomDidStartNewConversationNotification
        object:nil];
 ```
-
 
 ```swift
 NotificationCenter.default.addObserver(self,
@@ -777,14 +719,12 @@ NotificationCenter.default.addObserver(self,
 **Unread Ticket Count Changes**
 The notification `IntercomUnreadTicketCountDidChangeNotification` is fired when the number of unread tickets changes.
 
-
 ```objectivec
 [[NSNotificationCenter defaultCenter] addObserver:self
      selector:@selector(unreadTicketCountChanged:)
          name:IntercomUnreadTicketCountDidChangeNotification
        object:nil];
 ```
-
 
 ```swift
 NotificationCenter.default.addObserver(self,
@@ -797,11 +737,9 @@ NotificationCenter.default.addObserver(self,
 
 If you wish to change your status bar's style or visibility while the Intercom Launcher or an Intercom in-app is displayed on screen, you will need to call `[Intercom setNeedsStatusBarAppearanceUpdate]` to ensure that Intercom's window can reflect these changes accordingly.
 
-
 ```objectivec
 + (void)setNeedsStatusBarAppearanceUpdate;
 ```
-
 
 ```swift
 func setNeedsStatusBarAppearanceUpdate()
@@ -809,11 +747,9 @@ func setNeedsStatusBarAppearanceUpdate()
 
 ## Enable debug logging
 
-
 ```objectivec
 + (void)enableLogging;
 ```
-
 
 ```swift
 public class func enableLogging()
@@ -824,11 +760,9 @@ Enable logging for Intercom for iOS. By calling this method, Intercom will displ
 
 ## Set theme override
 
-
 ```objectivec
 + (void)setThemeOverride:(ICMThemeOverride)themeOverride;
 ```
-
 
 ```swift
 public class func setThemeOverride(_ themeOverride: ICMThemeOverride)
@@ -845,7 +779,6 @@ public class func setThemeOverride(_ themeOverride: ICMThemeOverride)
 
 This method allows you to override the server-provided theme setting for the current session only. The theme mode controls whether the SDK displays in light mode, dark mode, or follows the system theme. The theme selection will be reset when the app restarts.
 
-
 ```objectivec
 // Enable dark mode
 [Intercom setThemeOverride:ICMThemeOverrideDark];
@@ -859,7 +792,6 @@ This method allows you to override the server-provided theme setting for the cur
 // Clear override and use server-provided theme
 [Intercom setThemeOverride:ICMThemeOverrideNone];
 ```
-
 
 ```swift
 // Enable dark mode

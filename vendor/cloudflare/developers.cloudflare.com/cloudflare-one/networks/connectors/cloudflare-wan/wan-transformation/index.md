@@ -1,0 +1,91 @@
+---
+title: WAN transformation
+description: How WAN transformation works in Zero Trust networking.
+image: https://developers.cloudflare.com/zt-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/cloudflare-one/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# WAN transformation
+
+Traditional wide area networks (WANs) were designed for a world where applications ran in corporate data centers and employees worked from offices. These architectures rely on private circuits like Multiprotocol Label Switching (MPLS), hub-and-spoke routing through central data centers, and dedicated hardware at every branch.
+
+As organizations adopt cloud services and support remote work, this model creates bottlenecks. Backhauling traffic to a central data center adds latency for cloud-bound traffic, and branch hardware requires ongoing maintenance and capital investment. WAN transformation replaces this architecture with cloud-native networking — routing traffic through a distributed global network instead of private circuits, and applying security inline rather than at a central chokepoint.
+
+With Cloudflare One, your corporate WAN runs over Cloudflare's global network. You connect sites through anycast IPsec or GRE tunnels, and Cloudflare handles routing, security inspection, and traffic optimization at the nearest point of presence.
+
+## Why transform your WAN
+
+### Reduce cost and rigidity
+
+MPLS circuits require multi-year contracts and take weeks or months to provision. Adding a new site means ordering a new circuit. Cloudflare One uses standard Internet circuits with anycast tunnels — you can connect a new site in minutes using any Internet connection and any device that supports IPsec or GRE.
+
+### Eliminate Internet breakout tradeoffs
+
+With traditional WANs, you have two options for Internet-bound traffic: backhaul it to a central data center for security inspection (adding latency), or break out directly at the branch (bypassing security controls). Cloudflare One eliminates this tradeoff. Traffic from every site reaches the nearest Cloudflare data center, where security policies are applied without the backhaul penalty.
+
+### Avoid vendor lock-in
+
+Proprietary SD-WAN appliances create dependency on a single vendor's hardware and software ecosystem. Cloudflare One uses open standards — IPsec, GRE, and BGP — and works with your existing third-party routers and firewalls. You can also use the [Cloudflare One Appliance](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/) for zero-touch provisioning at branch sites.
+
+### Simplify operations
+
+On-premises network and security appliances require manual firmware updates, patching, and capacity planning at every location. With Cloudflare One, networking and security services run in the cloud. Cloudflare manages updates and scaling globally, reducing the operational burden on your team.
+
+## Compare WAN approaches
+
+| Traditional WAN (MPLS) | SD-WAN                                                                                                | Cloudflare One                                                                                     |                                                                                                                  |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Performance**        | Predictable but limited to circuit capacity. High latency for cloud-bound traffic due to backhauling. | Improved path selection across multiple links. Still relies on branch appliances for processing.   | Traffic routed to the nearest Cloudflare data center. Cloud-bound traffic egresses locally without backhauling.  |
+| **Cost model**         | High fixed costs. Multi-year contracts for private circuits. Per-site hardware investment.            | Lower circuit costs (uses Internet links). Per-site appliance licensing and hardware costs remain. | Internet circuit costs only. No per-site hardware required (optional). Pay-as-you-grow model.                    |
+| **Agility**            | Weeks to months to provision new circuits. Rigid topology changes.                                    | Faster site deployment over Internet circuits. Still requires appliance staging and configuration. | Connect a new site in minutes. Tunnels auto-establish from any Internet connection.                              |
+| **Security**           | Security applied at central data center or per-site firewalls.                                        | Varies by vendor. Some offer integrated security, others require separate appliances.              | Integrated security at every data center — firewall, secure web gateway, and Zero Trust policies applied inline. |
+| **Management**         | Separate management for WAN circuits, routers, and security appliances.                               | Single console for WAN, but security often managed separately.                                     | Single dashboard for network connectivity, routing, firewall rules, and security policies.                       |
+
+## Plan your migration
+
+WAN transformation is not an all-or-nothing change. Most organizations follow an incremental approach, adding capabilities over time while decommissioning legacy infrastructure as each phase proves out.
+
+### 1\. Secure user access
+
+Start by replacing VPN concentrators with Zero Trust Network Access (ZTNA). Deploy the Cloudflare One Client on user devices and use Cloudflare Access to enforce identity-based policies for application access. This step secures remote and hybrid workers without changing your existing network infrastructure.
+
+For more information, refer to [Cloudflare One](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/).
+
+### 2\. Connect your networks
+
+Set up site-to-site connectivity by establishing IPsec or GRE tunnels from your existing routers, deploying the Cloudflare One Appliance at branch locations, or using Cloudflare Network Interconnect for private connectivity. Your sites communicate through Cloudflare's network, and you manage routing through the dashboard or API.
+
+* [Get started](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/get-started/) with Cloudflare WAN
+* Review [connectivity options](https://developers.cloudflare.com/cloudflare-one/networks/connectivity-options/) to choose the right on-ramp
+* Explore all available [on-ramps](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/on-ramps/)
+
+### 3\. Secure Internet egress
+
+Enable Cloudflare Gateway to apply secure web gateway (SWG) policies to Internet-bound traffic from your sites. Add Cloudflare Network Firewall rules to enforce packet-level filtering. Traffic from every site is inspected at the nearest Cloudflare data center — no backhaul required.
+
+For a complete overview of which security services apply to WAN traffic, refer to [Secure WAN traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/security-services/). For configuration details, refer to [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-policies/) and [Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-network-firewall/).
+
+### 4\. Reduce infrastructure
+
+As Cloudflare handles routing and security in the cloud, you can begin decommissioning branch firewalls, VPN concentrators, and MPLS circuits. The end state is what some call "coffee shop networking" — every location, whether a corporate office, a home office, or a coffee shop, provides the same secure, performant experience. The network is managed centrally through Cloudflare, and local infrastructure is minimal.
+
+Organizations that start with Cloudflare WAN for site-to-site connectivity and packet-level security can follow this same incremental path. Cloudflare One builds on the same network infrastructure, so you can add identity-based access controls, secure web gateway policies, and user-level security as your requirements grow — without re-architecting your deployment.
+
+---
+
+## Next steps
+
+* [Get started](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/get-started/): Set up Cloudflare WAN with the Cloudflare One Appliance or a third-party device.
+* [Connectivity options](https://developers.cloudflare.com/cloudflare-one/networks/connectivity-options/): Compare all Cloudflare One connectivity options and choose the right combination for your deployment.
+* [On-ramps](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/on-ramps/): Review the full list of supported on-ramps for connecting your networks.
+* [SASE reference architecture](https://developers.cloudflare.com/reference-architecture/architectures/sase/): Explore the architecture of Cloudflare One as a SASE platform.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/#page","headline":"WAN transformation · Cloudflare One docs","description":"How WAN transformation works in Zero Trust networking.","url":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/","inLanguage":"en","image":"https://developers.cloudflare.com/zt-preview.png","dateModified":"2026-04-17","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/cloudflare-one/","name":"Cloudflare One"}},{"@type":"ListItem","position":3,"item":{"@id":"/cloudflare-one/networks/","name":"Networks"}},{"@type":"ListItem","position":4,"item":{"@id":"/cloudflare-one/networks/connectors/","name":"Connectors"}},{"@type":"ListItem","position":5,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/","name":"Cloudflare WAN"}},{"@type":"ListItem","position":6,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/","name":"WAN transformation"}}]}
+```

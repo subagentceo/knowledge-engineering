@@ -30,7 +30,6 @@ This happens when one of your classes class references another class in a framew
 
 To workaround this issue, you can disable swizzling in the Intercom SDK by adding the following to your `Info.plist` file:
 
-
 ```xml
 <key>IntercomDisableSwizzling</key>
 <true/>

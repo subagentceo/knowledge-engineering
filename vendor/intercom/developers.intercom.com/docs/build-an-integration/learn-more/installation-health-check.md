@@ -14,7 +14,6 @@ We will make an API call to the endpoint you provide in the Installation Status 
 
 You will receive a POST request with a JSON payload that will include the `workspace_id`:
 
-
 ```json
 {
   "workspace_id": "exampl3"
@@ -45,7 +44,6 @@ Returned payloads can contain the following attributes:
 | cta_url | Any stringMax 2084 characters | Only if `cta_type` is `URL_CTA` | A URL where the teammate can fix the problem. Best practice is to navigate to a settings page. |
 
 
-
 ```json
 {
   "state": "UNHEALTHY",
@@ -71,7 +69,6 @@ At the moment, we send these notifications once per day. Rather than waiting for
 You'll need to make a POST request to `<https://api.intercom.io/app_install/status`> with the same payload as shown in the [Response](#response) section.
 
 Please note that this endpoint is only available from Version 2.2 and upward. You will need to [update your API version](/docs/build-an-integration/learn-more/rest-apis/update-your-api-version) for this request to be accepted.
-
 
 ```curl
 $ curl https://api.intercom.io/app_install/status \

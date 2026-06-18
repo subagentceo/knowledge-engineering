@@ -24,7 +24,6 @@ A [notification](/docs/webhooks/webhook-notifications) is the event object deliv
 
 If you look at the webhook payload on the `ticket.created` topic for example, it will look like this:
 
-
 ```json
 {
   type: 'notification_event',
@@ -90,7 +89,6 @@ Australia: https://static.intercomcdn.com/intercom-ips/au/intercom-ip-ranges.jso
 The JSON files contain IP ranges categorized by service type. For webhook allowlisting, you need to use the IP addresses with the service type **"INTERCOM-OUTBOUND"**.
 
 When you view the files above, the JSON structure should look like this:
-
 
 ```json
 {

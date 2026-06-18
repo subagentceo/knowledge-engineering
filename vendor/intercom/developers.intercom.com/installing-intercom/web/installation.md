@@ -40,7 +40,6 @@ In the code, you will need your own workspace ID at the placeholder that says `"
 
 You can find this value in the URL when you are logged into Intercom. It will be a string of numbers and letters directly after `apps/`. So for `https://app.intercom.com/a/apps/ecahpwf5/home` the workspace ID is `ecahpwf5`.
 
-
 ```JavaScript
 <script>
   const APP_ID = "Your-Workspace-ID" // IMPORTANT: Replace with your workspace ID
@@ -59,7 +58,6 @@ You can find this value in the URL when you are logged into Intercom. It will be
 (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
 </script>
 ```
-
 
 ```NPM
 import Intercom from "@intercom/messenger-js-sdk";
@@ -82,14 +80,12 @@ The snippet above is set to use the US as the default regional data host. If you
 | Australia | `https://api-iam.au.intercom.io` |
 
 
-
 ```JavaScript
 window.intercomSettings = {
     app_id: REGIONAL_APP_ID,
     api_base: `see table above`
   };
 ```
-
 
 ```NPM
 Intercom({
@@ -103,7 +99,6 @@ Intercom({
 The examples so far have been for logged-in users, which allows the Messenger to display information like customer names and previous conversations across devices. This is the recommended approach.
 
 However, you may install the Messenger for anonymous website visitors who arenâ€™t logged in by excluding the user details from the settings object. Conversations will be saved in the browser via a cookie.
-
 
 ```JavaScript
 <script>
@@ -120,7 +115,6 @@ However, you may install the Messenger for anonymous website visitors who arenâ€
   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
 </script>
 ```
-
 
 ```NPM
 import Intercom from "@intercom/messenger-js-sdk";
@@ -142,7 +136,6 @@ Intercom({
 
 For a single-page app, add the below before the  tag or in your Node.js file.
 
-
 ```JavaScript
 <script>
   const APP_ID = "Your-Workspace-ID" // IMPORTANT: Replace with your workspace ID
@@ -150,7 +143,6 @@ For a single-page app, add the below before the  tag or in your Node.js file.
   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
 </script>
 ```
-
 
 ```NPM
 import Intercom from "@intercom/messenger-js-sdk";
@@ -173,7 +165,6 @@ Now you can setup the Messenger to start up. Replace the example variables below
 
 This step is not needed for installations with NPM Package.
 
-
 ```javascript
 window.Intercom("boot", {
   api_base: "https://api-iam.intercom.io",
@@ -185,7 +176,6 @@ The above example is the most basic way you can launch the Messenger. It does no
 
 If you have the launcher on page where a user need to sign in to get to then you can include more info in that boot code.
 
-
 ```JavaScript
 window.Intercom('boot', {
   app_id: APP_ID,
@@ -194,7 +184,6 @@ window.Intercom('boot', {
   created_at: 1234567890,
 });
 ```
-
 
 ```NPM
 Intercom({
@@ -207,7 +196,6 @@ Intercom({
 
 You may update Intercom whenever the view or URL changes in your app. This will allow people to receive your most recent messages.
 
-
 ```javascript
 window.Intercom("update");
 ```
@@ -218,20 +206,17 @@ If you have a Rails app then you can use our Rails gem to install Intercom.
 
 First, add Intercom to your Gemfile.
 
-
 ```ruby
 gem "intercom-rails"
 ```
 
 Make sure Intercom is installed by running this command:
 
-
 ```ruby
 bundle install
 ```
 
 Generate a config file with this command:
-
 
 ```ruby
 rails generate intercom:config <YOUR APP ID>
@@ -240,7 +225,6 @@ rails generate intercom:config <YOUR APP ID>
 You can find your workspace ID in the URL when you are logged into Intercom. It will be a string of numbers and letters directly after `apps/`. So for `https://app.intercom.com/a/apps/ecahpwf5/home` the workspace ID is `ecahpwf5`.
 
 Add the below line to the config file:
-
 
 ```ruby
 config.api_base = "https://api-iam.intercom.io"

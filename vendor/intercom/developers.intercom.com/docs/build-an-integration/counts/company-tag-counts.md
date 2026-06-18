@@ -11,7 +11,6 @@
 | company.user | array | Contains an array of companies with their name and their number of users |
 
 
-
 ```bash
 # Company Tag Count
 $ curl 'https://api.intercom.io/counts?type=company&count=tag&per_page=5' \
@@ -28,7 +27,6 @@ $ curl 'https://api.intercom.io/counts?type=company&count=user' \
 -H 'Authorization:Bearer <Your access token>' \
 -H 'Accept:application/json'
 ```
-
 
 ```curl
 # Company Tag Count
@@ -110,13 +108,11 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ```ruby
 intercom.counts.for_type(type: 'company', count: 'tag')
 intercom.counts.for_type(type: 'company', count: 'segment')
 intercom.counts.for_type(type: 'company', count: 'user')
 ```
-
 
 ```php
 <?php
@@ -134,7 +130,6 @@ print_r($counts);
 
 ?>
 ```
-
 
 ```java
 // Company User Count

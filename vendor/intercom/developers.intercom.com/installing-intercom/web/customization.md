@@ -8,7 +8,6 @@ By default the Messenger will appear on the bottom right corner of your site, bu
 
 Add the following to your installation script:
 
-
 ```javascript
 window.intercomSettings = {
   app_id: 'abc123',
@@ -21,7 +20,6 @@ window.intercomSettings = {
 ## Messenger z-index
 
 You can choose the z-index of the Intercom Messenger by providing the following attribute in your `intercomSettings`.
-
 
 ```javascript
 ​window.IntercomSettings = {
@@ -47,7 +45,6 @@ The z-index can also be updated programmatically via an [API call](/installing-i
 
 If you have multiple brand or style configurations set up in your Intercom workspace, you can specify which style the Messenger should load at boot time using `messenger_style_id`.
 
-
 ```javascript
 window.intercomSettings = {
   app_id: 'abc123',
@@ -56,7 +53,6 @@ window.intercomSettings = {
 ```
 
 You can also switch styles dynamically without a full page reload:
-
 
 ```javascript
 Intercom('update', { messenger_style_id: '789012' });

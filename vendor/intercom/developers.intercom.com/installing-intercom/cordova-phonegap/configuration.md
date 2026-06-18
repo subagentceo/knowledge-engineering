@@ -8,13 +8,11 @@ You can send any data you like to Intercom from [standard user attributes](https
 
 Standard user attributes such as a user's name or email address can be updated by calling:
 
-
 ```javascript
 intercom.updateUser({ email: "bob@example.com", name: "Bob" });
 ```
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by passing a custom_attributes map. A detailed description of the [user model is available here](https://developers.intercom.com/reference#user-model).
-
 
 ```javascript
 intercom.updateUser({
@@ -32,7 +30,6 @@ intercom.updateUser({
 
 
 You can also set company data by submitting an attribute map, like:
-
 
 ```javascript
 intercom.updateUser({
@@ -54,7 +51,6 @@ intercom.updateUser({
 ## Submit an event
 
 You can [log events in Intercom ](https://developers.intercom.com/reference#events)that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
-
 
 ```javascript
 intercom.logEvent("ordered_item", {
@@ -80,7 +76,6 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 If you’d like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```javascript
 intercom.setLauncherVisibility('VISIBLE');
 ```
@@ -93,13 +88,11 @@ However, if you’d like the Messenger to open from another location in your mob
 
 If you have a custom launcher, you can call:
 
-
 ```javascript
 intercom.displayMessenger();
 ```
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
-
 
 ```javascript
 intercom.displayMessageComposer("Message");
@@ -113,7 +106,6 @@ Now you can show how many unread conversations your user has on your custom laun
 
 Just grab the current count with this method:
 
-
 ```javascript
 intercom.unreadConversationCount();
 ```
@@ -122,13 +114,11 @@ intercom.unreadConversationCount();
 
 You can prevent in app messages from popping up in certain parts of your app by calling:
 
-
 ```javascript
 intercom.setInAppMessageVisibility('GONE');
 ```
 
 You can hide the Intercom Messenger in your app by calling:
-
 
 ```javascript
 intercom.hideMessenger();
@@ -150,7 +140,6 @@ If you don't have Help Center enabled in your Intercom settings the method `disp
 
 From version 9.3.0 of the Cordova plugin you can programmatically display an Article. To display an Article, pass in an articleID from your Intercom workspace to the following method:
 
-
 ```javascript
 intercom.displayArticle(“123456”);
 ```
@@ -163,7 +152,6 @@ An article must be ‘live’ to be used in this feature. If it is in a draft or
 
 From version 9.3.0 of the Cordova plugin you can programmatically display a Carousel. To display a Carousel, pass in a carouselID from your Intercom workspace to the following method:
 
-
 ```javascript
 intercom.displayCarousel(“123456”);
 ```
@@ -175,7 +163,6 @@ A carousel must be ‘live’ to be used in this feature. If it is in a draft or
 ## Present a Survey Programmatically
 
 From version 12.1.0 of the Cordova plugin you can programmatically display a Survey. To display a Survey, pass in a surveyID from your Intercom workspace to the following method:
-
 
 ```javascript
 intercom.displaySurvey(“123456”);

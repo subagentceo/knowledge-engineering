@@ -25,7 +25,6 @@ Your app server needs to be modified to generate a JWT for your users. The JWT s
 
 The JWT payload should include the following claims:
 
-
 ```json
 {
   "user_id": "123456",    // Your user's ID (required)
@@ -43,7 +42,6 @@ You can also include any standard and custom attributes in the JWT payload. This
 
 Here's an example of generating a JWT in different languages:
 
-
 ```ruby
 require 'jwt'
 
@@ -58,7 +56,6 @@ payload = {
 
 token = JWT.encode(payload, YOUR_INTERCOM_IOS_SECRET, 'HS256')
 ```
-
 
 ```python
 import jwt
@@ -75,7 +72,6 @@ payload = {
 
 token = jwt.encode(payload, YOUR_INTERCOM_IOS_SECRET, algorithm='HS256')
 ```
-
 
 ```javascript
 const jwt = require('jsonwebtoken');
@@ -99,11 +95,9 @@ Minimum SDK version
 
 When your iOS app initializes Intercom, pass in the JWT returned from your server's authentication call. This should be done before making any user registration calls:
 
-
 ```objectivec
 [Intercom setUserJwt:@"your_jwt_token_from_server"];
 ```
-
 
 ```swift
 Intercom.setUserJwt("your_jwt_token_from_server")
@@ -147,7 +141,6 @@ Your app server authentication code needs to be modified so that is uses the Int
 
 The HMAC is computed as a SHA-256 digest as follows:
 
-
 ```ruby
 OpenSSL::HMAC.hexdigest('sha256', api_key.secret, user_id_or_email)
 ```
@@ -158,11 +151,9 @@ If you wish to generate a HMAC in a different programming language we have a com
 
 When your iOS app initializes Intercom if the user is identified (i.e., you have a user id or email address), pass in a String of the HMAC returned from your server's authentication call. This should be called before any registration calls:
 
-
 ```objectivec
 [Intercom setUserHash:@"your_hmac_of_user_id_or_email"];
 ```
-
 
 ```swift
 Intercom.setUserHash("your_hmac_of_user_id_or_email")

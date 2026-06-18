@@ -8,7 +8,6 @@ There are comprehensive guides on enabling deep links on both platforms [here](h
 
 You'll need to set up a deep link in your apps `AndroidManifest.xml`. Android supports both *app://page* and *[http://www.app.com/page](http://www.app.com/page)* type schemes.
 
-
 ```xml
 <activity
   android:name=".MainActivity"
@@ -37,14 +36,12 @@ You'll need to set up a deep link in your apps `AndroidManifest.xml`. Android su
 
 To ensure your app navigates to the correct screen when a deep link is used, add the following code to your `MainActivity`
 
-
 ```Kotlin
 override fun onNewIntent(intent: Intent) {
   super.onNewIntent(intent)
   setIntent(intent)
 }
 ```
-
 
 ```Java
 @Override
@@ -61,7 +58,6 @@ Please follow the [instructions for Universal Links](https://developers.intercom
 
 You'll also need to add the import to your `AppDelegate.m`
 
-
 ```objectivec
 #import "AppDelegate.h"
 
@@ -73,7 +69,6 @@ You'll also need to add the import to your `AppDelegate.m`
 ```
 
 Add finally include this snippet code in your `AppDelegate.m` above `@end`
-
 
 ```objectivec
 - (BOOL)application:(UIApplication *)application

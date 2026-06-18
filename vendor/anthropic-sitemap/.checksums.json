@@ -709,7 +709,7 @@
   },
   "https://www.anthropic.com/news/fine-tune-claude-3-haiku": {
     "sha256": "4d28a93420ac13041c0295a7621be5a9fe8acda956d27e49c32d61e8cde5c067",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "lastModified": "Thu, 18 Jun 2026 01:05:25 GMT"
   },
   "https://www.anthropic.com/news/frontier-model-security": {

@@ -1,0 +1,110 @@
+---
+title: Disk encryption
+description: Disk encryption in Zero Trust.
+image: https://developers.cloudflare.com/zt-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/cloudflare-one/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Disk encryption
+
+The Disk Encryption device posture attribute ensures that disks are encrypted on a device.
+
+## Prerequisites
+
+* Cloudflare One Client is [deployed](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/) on the device. For a list of supported modes and operating systems, refer to [Cloudflare One Client Checks](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/).
+
+## Enable the disk encryption check
+
+1. In the [Cloudflare dashboard ↗](https://dash.cloudflare.com/), go to **Zero Trust** \> **Reusable components** \> **Posture checks**.
+2. Go to **Cloudflare One Client checks** and select **Add a check**.
+3. Select **Disk Encryption**.
+4. Enter a descriptive name for the check.
+5. Select your operating system.
+6. Either enable disk encryption for all volumes, or input the specific volume(s) you want to check for encryption (for example, `C`).
+7. Select **Save**.
+
+Next, go to **Insights** \> **Logs** \> **Posture logs** and verify that the disk encryption check is returning the expected results.
+
+## Validate disk encryption status
+
+The following commands will return the disk encryption status on various operating systems. The results can help you validate if the posture check is working as expected.
+
+### macOS
+
+1. Open a terminal window.
+2. Run the `/usr/sbin/system_profiler SPStorageDataType` command to return a list of drivers on the system and note the value of **Mount Point**.  
+Terminal window  
+```  
+/usr/sbin/system_profiler SPStorageDataType  
+```  
+```  
+Storage:  
+   Data:  
+     Free: 428.52 GB (428,519,702,528 bytes)  
+     Capacity: 494.38 GB (494,384,795,648 bytes)  
+     Mount Point: /System/Volumes/Data  
+```
+3. Run the `diskutil info` command for a specific **Mount Point** and look for the value returned for **FileVault**. It must show **Yes** for the disk to be considered encrypted.  
+Terminal window  
+```  
+diskutil info /System/Volumes/Data | grep FileVault  
+```  
+```  
+ FileVault:                 Yes  
+```
+
+### Windows
+
+1. Open a PowerShell window.
+2. Run the `Get-BitLockerVolume` command to list all volumes detected on the system.
+3. **Protection Status** must be set to **On** for the disk to be considered encrypted.
+
+### Linux
+
+List all hard drives on the system:
+
+Terminal window
+
+```
+
+lsblk
+
+
+```
+
+```
+
+NAME                        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+
+nvme0n1                     259:0    0 476.9G  0 disk
+
+├─nvme0n1p1                 259:1    0   512M  0 part  /boot/efi
+
+├─nvme0n1p2                 259:2    0   488M  0 part  /boot
+
+└─nvme0n1p3                 259:3    0   476G  0 part
+
+  └─nvme0n1p3_crypt         253:0    0 475.9G  0 crypt
+
+    ├─my--vg-root   253:1            0 474.9G  0 lvm   /
+
+    └─my--vg-swap_1 253:2            0   976M  0 lvm   [SWAP]
+
+
+```
+
+On Linux, encryption is reported per mounted partition, not physical drive. In the example above, the root and swap partitions are considered encrypted because they are located within a `crypt` container. The `/boot` and `/boot/efi` partitions remain unencrypted.
+
+### iOS, Android and ChromeOS
+
+These platforms are always encrypted and so no disk encryption check is supported.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/disk-encryption/#page","headline":"Disk encryption · Cloudflare One docs","description":"Disk encryption in Zero Trust.","url":"https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/disk-encryption/","inLanguage":"en","image":"https://developers.cloudflare.com/zt-preview.png","dateModified":"2026-05-01","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"},"keywords":["Posture"]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/cloudflare-one/","name":"Cloudflare One"}},{"@type":"ListItem","position":3,"item":{"@id":"/cloudflare-one/reusable-components/","name":"Reusable components"}},{"@type":"ListItem","position":4,"item":{"@id":"/cloudflare-one/reusable-components/posture-checks/","name":"Posture checks"}},{"@type":"ListItem","position":5,"item":{"@id":"/cloudflare-one/reusable-components/posture-checks/client-checks/","name":"Cloudflare One Client checks"}},{"@type":"ListItem","position":6,"item":{"@id":"/cloudflare-one/reusable-components/posture-checks/client-checks/disk-encryption/","name":"Disk encryption"}}]}
+```

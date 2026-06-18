@@ -1,0 +1,76 @@
+---
+title: Compatibility dates
+description: Opt into a specific version of the Workers runtime for your Workers project.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/workers/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Compatibility dates
+
+Cloudflare regularly updates the Workers runtime. These updates apply to all Workers globally and should never cause a Worker that is already deployed to stop functioning. Sometimes, though, some changes may be backwards-incompatible. In particular, there might be bugs in the runtime API that existing Workers may inadvertently depend upon. Cloudflare implements bug fixes that new Workers can opt into while existing Workers will continue to see the buggy behavior to prevent breaking deployed Workers.
+
+The compatibility date and flags are how you, as a developer, opt into these runtime changes. [Compatibility flags](https://developers.cloudflare.com/workers/configuration/compatibility-flags) will often have a date in which they are enabled by default, and so, by specifying a `compatibility_date` for your Worker, you can quickly enable all of these various compatibility flags up to, and including, that date.
+
+## Setting compatibility date
+
+When you start your project, you should always set `compatibility_date` to the current date. You should occasionally update the `compatibility_date` field. When updating, you should refer to the [compatibility flags](https://developers.cloudflare.com/workers/configuration/compatibility-flags) page to find out what has changed, and you should be careful to test your Worker to see if the changes affect you, updating your code as necessary. The new compatibility date takes effect when you next run the [npx wrangler deploy](https://developers.cloudflare.com/workers/wrangler/commands/general/#deploy) command.
+
+There is no need to update your `compatibility_date` if you do not want to. The Workers runtime will support old compatibility dates forever. If, for some reason, Cloudflare finds it is necessary to make a change that will break live Workers, Cloudflare will actively contact affected developers. That said, Cloudflare aims to avoid this if at all possible.
+
+However, even though you do not need to update the `compatibility_date` field, it is a good practice to do so for two reasons:
+
+1. Sometimes, new features can only be made available to Workers that have a current `compatibility_date`. To access the latest features, you need to stay up-to-date.
+2. Generally, other than the [compatibility flags](https://developers.cloudflare.com/workers/configuration/compatibility-flags) page, the Workers documentation may only describe the current `compatibility_date`, omitting information about historical behavior. If your Worker uses an old `compatibility_date`, you will need to continuously refer to the compatibility flags page in order to check if any of the APIs you are using have changed.
+
+#### Via Wrangler
+
+The compatibility date can be set in a Worker's [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/).
+
+* [  wrangler.jsonc ](#tab-panel-11432)
+* [  wrangler.toml ](#tab-panel-11433)
+
+JSONC
+
+```
+
+{
+
+  // Opt into backwards-incompatible changes through April 5, 2022.
+
+  "compatibility_date": "2022-04-05"
+
+}
+
+
+```
+
+TOML
+
+```
+
+compatibility_date = "2022-04-05"
+
+
+```
+
+#### Via the Cloudflare Dashboard
+
+When a Worker is created through the Cloudflare Dashboard, the compatibility date is automatically set to the current date.
+
+The compatibility date can be updated in the Workers settings on the [Cloudflare dashboard ↗](https://dash.cloudflare.com/).
+
+#### Via the Cloudflare API
+
+The compatibility date can be set when uploading a Worker using the [Workers Script API](https://developers.cloudflare.com/api/resources/workers/subresources/scripts/methods/update/) or [Workers Versions API](https://developers.cloudflare.com/api/resources/workers/subresources/scripts/subresources/versions/methods/create/) in the request body's `metadata` field.
+
+If a compatibility date is not specified on upload via the API, it defaults to the oldest compatibility date, before any flags took effect (2021-11-02). When creating new Workers, it is highly recommended to set the compatibility date to the current date when uploading via the API.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/workers/configuration/compatibility-dates/#page","headline":"Compatibility dates · Cloudflare Workers docs","description":"Opt into a specific version of the Workers runtime for your Workers project.","url":"https://developers.cloudflare.com/workers/configuration/compatibility-dates/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-23","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/workers/","name":"Workers"}},{"@type":"ListItem","position":3,"item":{"@id":"/workers/configuration/","name":"Configuration"}},{"@type":"ListItem","position":4,"item":{"@id":"/workers/configuration/compatibility-dates/","name":"Compatibility dates"}}]}
+```

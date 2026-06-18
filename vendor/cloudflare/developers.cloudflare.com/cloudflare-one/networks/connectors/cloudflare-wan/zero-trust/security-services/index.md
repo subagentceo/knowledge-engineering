@@ -1,0 +1,117 @@
+---
+title: Secure WAN traffic
+description: Which security services apply to WAN traffic and when to use them.
+image: https://developers.cloudflare.com/zt-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/cloudflare-one/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Secure WAN traffic
+
+A key benefit of routing your network traffic through Cloudflare is that you can apply security policies without deploying additional hardware at each site. Once traffic reaches Cloudflare through WAN on-ramps (IPsec tunnels, GRE tunnels, CNI, or Appliance), multiple security services inspect it inline at the nearest Cloudflare data center. This page explains which services apply to WAN traffic, when to use each one, and how they work together.
+
+## Traffic types
+
+Cloudflare WAN carries three types of traffic, and different security services apply to each:
+
+* **Outbound (site-to-Internet)**: Traffic from WAN-connected sites to the public Internet. For example, employees at a branch office browsing the web or accessing SaaS applications.
+* **East-west (site-to-site)**: Traffic between WAN-connected locations routed through Cloudflare. For example, a branch office accessing an application hosted in a data center.
+* **Inbound (Internet-to-site)**: Traffic from the Internet destined for customer networks. This typically applies to [Magic Transit](https://developers.cloudflare.com/magic-transit/) scenarios where you advertise your own IP prefixes (BYOIP) through Cloudflare.
+
+## Security services
+
+### Cloudflare Network Firewall
+
+[Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-one/traffic-policies/packet-filtering/network-firewall-overview/) provides packet-level filtering at layers 3 and 4\. You define allow or block rules based on IP addresses, ports, and protocols.
+
+* **Applies to**: inbound, outbound, and east-west traffic
+* **Included with**: Cloudflare WAN by default for [standard features](https://developers.cloudflare.com/cloudflare-network-firewall/plans/)
+
+Use Network Firewall when you need to control traffic at the packet level — for example, blocking specific IP ranges, restricting traffic to certain ports, or filtering protocols between sites.
+
+### Gateway (Secure Web Gateway)
+
+[Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-policies/) inspects traffic at layers 4 through 7 and supports three policy types:
+
+* **DNS policies**: Filter and log DNS queries from your sites. You configure the DNS resolver for your WAN networks to point to Gateway's resolver IPs.
+* **Network policies**: Filter TCP, UDP, and ICMP traffic based on IP, port, protocol, and identity attributes.
+* **HTTP policies**: Inspect HTTP and HTTPS traffic for threats, content categories, and application-level controls.
+
+HTTP inspection requires TLS decryption and a Cloudflare root certificate installed on client devices. You must also enable the Gateway proxy for your WAN traffic.
+
+* **Applies to**: outbound and east-west traffic
+
+Gateway provides the deepest inspection for WAN traffic, covering DNS, network, and HTTP layers. For detailed setup instructions, refer to [Connect to Cloudflare Gateway with Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-gateway/).
+
+### Browser Isolation
+
+[Browser Isolation](https://developers.cloudflare.com/cloudflare-one/remote-browser-isolation/) runs web content in a remote browser on Cloudflare's network and streams a visual representation to the user's device. No web code executes locally.
+
+* **Applies to**: outbound web traffic
+* **Triggered by**: Gateway HTTP policies using the **Isolate** action
+
+Use Browser Isolation when users at branch offices need to access untrusted or uncategorized websites without exposing local devices to web-based threats.
+
+### Data Loss Prevention (DLP)
+
+[Data Loss Prevention (DLP)](https://developers.cloudflare.com/cloudflare-one/data-loss-prevention/) scans HTTP uploads and downloads for sensitive data patterns such as Social Security numbers, credit card numbers, and custom regular expressions.
+
+* **Applies to**: outbound HTTP traffic
+* **Requires**: Gateway HTTP filtering with TLS decryption enabled
+
+You define DLP profiles with detection rules and reference those profiles in Gateway HTTP policies. When a policy matches, Gateway can block, log, or allow the transfer.
+
+### Cloud Access Security Broker (CASB)
+
+[CASB](https://developers.cloudflare.com/cloudflare-one/cloud-and-saas-findings/) provides visibility and control over SaaS application usage through two modes:
+
+* **Applies to**: outbound traffic to SaaS applications
+* **API-based scanning**: Connects to your SaaS applications (Google Workspace, Microsoft 365, and others) to detect misconfigurations and security posture issues.
+* **Inline remediation**: Gateway HTTP policies can block unsanctioned SaaS application usage detected by CASB — for example, preventing file uploads to unapproved cloud storage services.
+
+### AI visibility
+
+The [AI Security Report](https://developers.cloudflare.com/cloudflare-one/insights/analytics/ai-security/) provides visibility into AI application usage across your organization. It shows which AI tools employees are using, how frequently, and what data is being shared.
+
+AI visibility is not a separate inline security service. It is an analytics feature powered by Gateway — it requires Gateway to be inspecting outbound traffic from your sites.
+
+## Use-case mapping
+
+| Traffic scenario                                     | Recommended services                                                                           |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Block traffic between sites by IP, port, or protocol | Network Firewall                                                                               |
+| Filter DNS queries from branch offices               | Gateway DNS policies                                                                           |
+| Block malware downloads from branch offices          | Gateway HTTP policies                                                                          |
+| Prevent sensitive data uploads to the Internet       | DLP (via Gateway HTTP policies)                                                                |
+| Isolate risky web browsing from branch users         | Browser Isolation (via Gateway HTTP policies)                                                  |
+| Detect and block unsanctioned SaaS applications      | CASB + Gateway HTTP policies                                                                   |
+| Monitor employee AI tool usage                       | AI Security Report (via Gateway)                                                               |
+| Protect against DDoS on customer-owned IPs           | Network Firewall (inbound) + [Magic Transit](https://developers.cloudflare.com/magic-transit/) |
+
+## How services compose
+
+Traffic on the Cloudflare network passes through a single-pass inspection pipeline. You do not need to backhaul traffic between services — all inspection happens at the nearest Cloudflare data center.
+
+The evaluation order is:
+
+1. **Network Firewall (L3/L4)**: Packet-level rules are evaluated first.
+2. **Gateway (L4-L7 proxy)**: If traffic passes the Network Firewall, Gateway inspects it. Within Gateway, policies are evaluated in order: DNS → Network → HTTP.
+3. **DLP, Browser Isolation, and CASB**: These services are triggered through Gateway HTTP policies. A single HTTP policy can reference a DLP profile, apply an Isolate action, or block a CASB-flagged application.
+
+This means you can layer multiple security services on the same traffic flow without adding network hops or latency.
+
+## Next steps
+
+* [Connect to Cloudflare Gateway with Cloudflare WAN](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-gateway/): Detailed setup guide for Gateway integration with WAN traffic.
+* [Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-one/traffic-policies/packet-filtering/network-firewall-overview/): Configure packet-level filtering rules.
+* [SASE reference architecture](https://developers.cloudflare.com/reference-architecture/architectures/sase/): Explore the full architecture of Cloudflare One as a SASE platform.
+* [WAN transformation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/wan-transformation/): Plan your migration from traditional WAN to Cloudflare.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/security-services/#page","headline":"Secure WAN traffic · Cloudflare One docs","description":"Which security services apply to WAN traffic and when to use them.","url":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/security-services/","inLanguage":"en","image":"https://developers.cloudflare.com/zt-preview.png","dateModified":"2026-04-17","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"},"keywords":["DNS"]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/cloudflare-one/","name":"Cloudflare One"}},{"@type":"ListItem","position":3,"item":{"@id":"/cloudflare-one/networks/","name":"Networks"}},{"@type":"ListItem","position":4,"item":{"@id":"/cloudflare-one/networks/connectors/","name":"Connectors"}},{"@type":"ListItem","position":5,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/","name":"Cloudflare WAN"}},{"@type":"ListItem","position":6,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/","name":"Cloudflare One integration"}},{"@type":"ListItem","position":7,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/security-services/","name":"Secure WAN traffic"}}]}
+```

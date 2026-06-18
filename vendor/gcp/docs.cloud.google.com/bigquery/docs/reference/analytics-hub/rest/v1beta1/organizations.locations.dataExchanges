@@ -1,0 +1,41 @@
+# REST Resource: organizations.locations.dataExchanges
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+*   Home
+*   Documentation
+*   Data analytics
+*   BigQuery
+*   Reference
+
+Send feedback
+
+# REST Resource: organizations.locations.dataExchanges Stay organized with collections Save and categorize content based on your preferences.
+
+*   Resource
+*   Methods
+
+## Resource
+
+There is no persistent data associated with this resource.
+
+ 
+
+## Methods
+
+### list
+
+Lists all data exchanges from projects in a given organization and location.
+
+Send feedback

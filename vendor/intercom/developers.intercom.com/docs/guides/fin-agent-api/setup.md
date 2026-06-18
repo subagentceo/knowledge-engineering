@@ -110,7 +110,6 @@ We compute the value of this `X-Fin-Agent-API-Webhook-Signature` header by creat
 
 The signature is the hexadecimal (64-byte) representation of a SHA-256 signature computed using the HMAC algorithm as defined in [RFC6234](https://datatracker.ietf.org/doc/html/rfc6234).
 
-
 ```http
 POST https://example.org/hooks
 X-Fin-Agent-API-Webhook-Signature: sha256=21ff2e149e0fdcac6f947740f6177f6434bda921
@@ -124,8 +123,6 @@ Content-Type: application/json
 Enable SSE to receive events via a real-time stream. When enabled, the `/fin/start` and `/fin/reply` responses include an `sse_subscription_url` that you can connect to directly.
 
 See [SSE (Server-Sent Events)](/docs/guides/fin-agent-api/#sse-server-sent-events) in the overview guide for connection details and token lifecycle.
-
- 
 
 #### Streaming
 

@@ -61,7 +61,6 @@ Universal search tool for finding conversations and contacts using a query DSL a
 
 **Example Queries:**
 
-
 ```
 object_type:conversations state:open source_type:email
 object_type:contacts email_domain:"example.com"
@@ -256,7 +255,6 @@ The examples below are generic templates. **Always refer to your specific LLM pr
 
 For **OAuth authentication** (recommended):
 
-
 ```json
 {
   "mcpServers": {
@@ -272,7 +270,6 @@ For **OAuth authentication** (recommended):
 ```
 
 For **Bearer token authentication**:
-
 
 ```json
 {
@@ -320,7 +317,6 @@ All search and list tools support pagination to handle large result sets efficie
 
 Using the `search` tool:
 
-
 ```
 object_type:conversations state:open limit:50
 ```
@@ -328,7 +324,6 @@ object_type:conversations state:open limit:50
 **2. Response with More Results**
 
 If more results exist, you'll receive:
-
 
 ```json
 {
@@ -352,7 +347,6 @@ If more results exist, you'll receive:
 
 Use the cursor from the response:
 
-
 ```
 object_type:conversations state:open limit:50 starting_after:cursor_abc123
 ```
@@ -364,7 +358,6 @@ Keep paginating until the response no longer includes `pages.next` or `_note`, i
 ### Tool-Specific Pagination
 
 For **`search_conversations`** and **`search_contacts`**, use the `starting_after` parameter:
-
 
 ```json
 {
@@ -388,7 +381,6 @@ The Intercom MCP server requires the following permissions to access your worksp
 ## MCP Inspector for Server Exploration
 
 Test the connection using:
-
 
 ```bash
 npx @modelcontextprotocol/inspector

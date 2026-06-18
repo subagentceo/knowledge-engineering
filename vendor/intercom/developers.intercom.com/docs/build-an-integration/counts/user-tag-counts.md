@@ -14,7 +14,6 @@ Count Object includes count for users and leads.
 | user.tag | array | Contains a list of tag counts |
 
 
-
 ```json
 {
   "type": "count",
@@ -27,7 +26,6 @@ Count Object includes count for users and leads.
   }
 }
 ```
-
 
 ```json
 {
@@ -54,7 +52,6 @@ Count Object includes count for users and leads.
 }
 ```
 
-
 ```bash
 # User Tag Count
 $ curl 'https://api.intercom.io/counts?type=user&count=tag' \
@@ -66,7 +63,6 @@ $ curl 'https://api.intercom.io/counts?type=user&count=segment' \
 -H 'Authorization:Bearer <Your access token>' \
 -H 'Accept:application/json'
 ```
-
 
 ```curl
 # User Tag Count
@@ -110,12 +106,10 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ```ruby
 intercom.counts.for_type(type: 'user', count: 'tag')
 intercom.counts.for_type(type: 'user', count: 'segment')
 ```
-
 
 ```php
 <?php
@@ -127,7 +121,6 @@ print_r($counts);
 $counts = $intercom->counts->getCounts(["type" => "user", "count" => "segment"]);
 ?>
 ```
-
 
 ```java
 // User Tag Count

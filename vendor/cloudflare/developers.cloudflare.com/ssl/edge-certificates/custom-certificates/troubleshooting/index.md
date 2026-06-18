@@ -1,0 +1,279 @@
+---
+title: Troubleshooting
+description: Troubleshoot issues with custom certificates.
+image: https://developers.cloudflare.com/core-services-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/ssl/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Troubleshooting
+
+## Generic troubleshooting
+
+### Make sure your key and certificate match
+
+You can use an external tool such as the [SSLShopper Certificate Key Matcher ↗](https://www.sslshopper.com/certificate-key-matcher.html) to check your certificate and make sure the key matches.
+
+Alternatively, use `openssl` to verify the match by comparing the public key hash of both files. This method works for both RSA and ECDSA certificates:
+
+Terminal window
+
+```
+
+openssl x509 -noout -pubkey -in certificate.crt | openssl md5
+
+openssl pkey -pubout -in private.key | openssl md5
+
+
+```
+
+If the two outputs match, the certificate and key are a valid pair.
+
+### Check the certificate details
+
+You can use `openssl` to check all the details of your certificate:
+
+Terminal window
+
+```
+
+openssl x509 -in certificate.crt -noout -text
+
+
+```
+
+Then, make sure all the information is correct before uploading.
+
+### Remove password from private key
+
+Cloudflare does not accept password-protected private keys. If your private key requires a password, remove it before uploading. The following command works for both RSA and ECDSA keys:
+
+Terminal window
+
+```
+
+openssl pkey -in protected.key -out unprotected.key
+
+
+```
+
+Use the `unprotected.key` file when uploading to Cloudflare. For detailed instructions, refer to [Remove key file password](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/remove-file-key-password/).
+
+### Private key format requirements
+
+Private keys must be in one of the following unencrypted formats:
+
+* PKCS#8
+* PKCS#1
+* Elliptic Curve
+
+## Moved domains
+
+If you move a domain without deleting the custom certificate from the previous zone, the certificate may still [take precedence](https://developers.cloudflare.com/ssl/reference/certificate-and-hostname-priority/) and be presented to your visitors, until the previous zone is [deleted](https://developers.cloudflare.com/dns/zone-setups/reference/domain-status/).
+
+Refer to [Move a domain between Cloudflare accounts](https://developers.cloudflare.com/fundamentals/manage-domains/move-domain/#issue-new-certificates) for details.
+
+## Let's Encrypt chain update
+
+As Let's Encrypt - one of the [certificate authorities (CAs)](https://developers.cloudflare.com/ssl/reference/certificate-authorities/) used by Cloudflare - has announced changes in its [chain of trust](https://developers.cloudflare.com/ssl/concepts/#chain-of-trust), you may face issues.
+
+If you are using a Let's Encrypt certificate uploaded by yourself as a custom certificate, consider the following:
+
+* If you use **compatible** or **modern** [bundle method](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/bundling-methodologies/) and have uploaded your certificate before September 9, 2024, [update your custom certificate](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/uploading/#update-an-existing-custom-certificate) so that it can be bundled with the new chain.
+* If you use **user-defined** bundle method, make sure that your certificates uploaded after September 30, 2024, do not use the Let's Encrypt cross-signed chain.
+
+## Error codes
+
+### Invalid certificate. (Code: 1002)
+
+**Root cause**
+
+The certificate you are trying to upload is invalid. For example, there might be extra lines, or the BEGIN/END text is not correct, or extra characters are added following a copy/paste.
+
+In the case of an update with the [PATCH API call](https://developers.cloudflare.com/api/resources/custom%5Fcertificates/methods/edit/), it can mean the path parameter `{custom_certificate_id}` is invalid.
+
+**Solution**
+
+Carefully check the content of the certificate. You may use `openssl` to check all the details of your certificate:
+
+Terminal window
+
+```
+
+openssl x509 -in certificate.crt -noout -text
+
+
+```
+
+When using the API, carefully check the `{custom_certificate_id}` path parameter. You can confirm the certificate ID by [listing the existing custom certificates](https://developers.cloudflare.com/api/resources/custom%5Fcertificates/methods/list/) (`id` in the response).
+
+### You have reached the maximum number of custom certificates. (Code: 1212)
+
+**Root cause**
+
+You have used up your custom certificate quota.
+
+**Solution**
+
+Delete some existing certificates to add a new one. If you are an Enterprise customer, you can contact your account team to acquire more custom certificates.
+
+### This certificate has already been submitted. (Code: 1220)
+
+**Root cause**
+
+You are trying to upload a custom certificate that you have already uploaded.
+
+**Solution**
+
+Delete the existing one and try again.
+
+### You already have a certificate of this signature type. (Code: 1228)
+
+**Root cause**
+
+A custom certificate pack can only have one certificate per signature algorithm (for example, one RSA and one ECDSA certificate).
+
+**Solution**
+
+Instead of uploading a new certificate, update the existing certificate using the edit option in the dashboard or the [PATCH API endpoint](https://developers.cloudflare.com/api/resources/custom%5Fcertificates/methods/edit/).
+
+### This certificate cannot be deleted at this time. (Code: 1305)
+
+**Root cause**
+
+This error occurs when there is an issue with the certificate pack structure. You must delete other certificates in the pack before deleting this one.
+
+**Solution**
+
+Delete the other certificates in the certificate pack first, then delete this certificate. If the issue persists, [contact Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).
+
+### Only root CA certificate is allowed. (Code: 1411)
+
+**Root cause**
+
+You are trying to upload a certificate to the [custom origin trust store](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/#custom-origin-trust-store), but the certificate is not a valid root CA certificate.
+
+**Solution**
+
+When creating a self-signed root CA certificate, ensure you use the `-extensions v3_ca` option with OpenSSL. Refer to [this community post ↗](https://community.cloudflare.com/t/only-root-ca-certificate-is-allowed-code-1411/505318) for more details.
+
+### The SSL attribute is invalid. Please refer to the API documentation, check your input and try again. (Code: 1434)
+
+**Root cause**
+
+You are trying to upload a custom certificate that does not support any cipher that is needed by Chromium-based browsers.
+
+**Solution**
+
+Modify the certificate so that it supports chromium-supported ciphers and try again.
+
+### You have reached your quota for the requested resource. (Code: 2005)
+
+**Root cause**
+
+The quota for custom certificates depends on the **type** of certificate (**Custom Legacy** vs **Custom Modern**).
+
+If you try to upload a certificate **type** but have already reached your quota, you will receive this error.
+
+**Solution**
+
+First, check your custom certificate entitlements on the [**Edge Certificates** ↗](https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/edge-certificates) page.
+
+Then, when actually uploading or editing the certificate, make sure you select the appropriate option for **Legacy Client Support**.
+
+### The certificate chain you uploaded cannot be bundled using Cloudflare's trust store. Please check your input and try again. (Code: 2100)
+
+**Root cause**
+
+You are trying to upload a custom certificate that contains the root and leaf certificate at the same time.
+
+**Solution**
+
+Upload the leaf certificate only.
+
+### The certificate chain you uploaded has no leaf certificates. Please check your input and try again. (Code: 2101)
+
+**Root cause**
+
+You are trying to upload a root + intermediate + intermediate `.crt` file, but the actual leaf certificate is in a separate file.
+
+**Solution**
+
+Add the leaf to the `.crt` file, or just use the leaf by itself since the Certificate Authority has a public chain of trust in our trust store.
+
+### The certificate chain you uploaded does not include any hostnames from your zone. Please check your input and try again. (Code: 2103)
+
+**Root cause**
+
+Cloudflare verifies that uploaded custom certificates include a hostname for the associated zone. Moreover, this hostname must be included as a Subject Alternative Name (SAN). This is following the standard set by the [CA/Browser Forum ↗](https://cabforum.org/wp-content/uploads/BRv1.2.5.pdf#page=16).
+
+**Solution**
+
+Make sure your certificate contains a Subject Alternative Name (SAN) specifying a hostname in your zone. You can use the `openssl` command below and look for `Subject Alternative Name` in the output.
+
+Terminal window
+
+```
+
+openssl x509 -in certificateFile.pem -noout -text
+
+
+```
+
+If it does not exist, you will need to request a new certificate.
+
+### The private key you uploaded is invalid. Please check your input and try again. (Code: 2106)
+
+**Root cause**
+
+Cloudflare requires separate, pem-encoded files for the SSL private key and certificate.
+
+**Solution**
+
+Contact your Certificate Authority (CA) to confirm whether your current certificate meets this requirement or request your CA to assist with certificate format conversion.
+
+Make sure your certificate complies with these [requirements](https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/uploading/#certificate-requirements).
+
+Check that the certificate and private keys match before uploading the certificate in the Cloudflare dashboard. This [external resource ↗](https://www.sslshopper.com/article-most-common-openssl-commands.html) might help.
+
+### The certificate and private key pair you uploaded is invalid. (Code: 2200)
+
+**Root cause**
+
+The certificate and private key you uploaded do not form a valid pair. The private key does not correspond to the public key in the certificate. This can happen when the wrong key file is selected during upload.
+
+**Solution**
+
+Ensure the private key corresponds to the certificate you are uploading. You can verify this by comparing the public key hash of both files. This method works for both RSA and ECDSA certificates:
+
+Terminal window
+
+```
+
+openssl x509 -noout -pubkey -in certificate.crt | openssl md5
+
+openssl pkey -pubout -in private.key | openssl md5
+
+
+```
+
+If the outputs do not match, you have mismatched the certificate and key.
+
+### An unknown error has occurred. (Code: 2000)
+
+**Root cause**
+
+An internal error occurred while processing your request.
+
+**Solution**
+
+Wait a few minutes and try again. If the issue persists, [contact Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/) with a [HAR file](https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/gathering-information-for-troubleshooting-sites/#generate-a-har-file) capturing the failed upload attempt.
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/troubleshooting/#page","headline":"Troubleshooting · Cloudflare SSL/TLS docs","description":"Troubleshoot issues with custom certificates.","url":"https://developers.cloudflare.com/ssl/edge-certificates/custom-certificates/troubleshooting/","inLanguage":"en","image":"https://developers.cloudflare.com/core-services-preview.png","dateModified":"2026-06-10","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/ssl/","name":"SSL/TLS"}},{"@type":"ListItem","position":3,"item":{"@id":"/ssl/edge-certificates/","name":"Edge certificates"}},{"@type":"ListItem","position":4,"item":{"@id":"/ssl/edge-certificates/custom-certificates/","name":"Custom certificates"}},{"@type":"ListItem","position":5,"item":{"@id":"/ssl/edge-certificates/custom-certificates/troubleshooting/","name":"Troubleshooting"}}]}
+```

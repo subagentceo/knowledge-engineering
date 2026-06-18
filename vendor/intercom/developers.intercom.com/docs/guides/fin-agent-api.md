@@ -43,7 +43,6 @@ Discover capabilities, Ask Fin, and Run a procedure are currently available in t
 
 #### Example request
 
-
 ```bash
 curl -X POST https://api.intercom.io/fin/capabilities \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
@@ -53,7 +52,6 @@ curl -X POST https://api.intercom.io/fin/capabilities \
 ```
 
 #### Example response
-
 
 ```json
 {
@@ -90,7 +88,6 @@ curl -X POST https://api.intercom.io/fin/capabilities \
 
 #### Example request
 
-
 ```bash
 curl -X POST https://api.intercom.io/fin/ask \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
@@ -116,7 +113,6 @@ curl -X POST https://api.intercom.io/fin/ask \
 
 
 #### Example response
-
 
 ```json
 {
@@ -151,7 +147,6 @@ This endpoint requires `user.id`, the same as the other orchestration endpoints.
 
 
 **Request Payload Example**
-
 
 ```json
 {
@@ -194,7 +189,6 @@ This endpoint requires `user.id`, the same as the other orchestration endpoints.
 
 **Response Example**
 
-
 ```json
 {
   "conversation_id": "ext-123",
@@ -230,7 +224,6 @@ This endpoint requires `user.id`, the same as the other orchestration endpoints.
 
 #### Example request
 
-
 ```bash
 curl -X POST https://api.intercom.io/fin/procedures/12345/run \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
@@ -256,7 +249,6 @@ curl -X POST https://api.intercom.io/fin/procedures/12345/run \
 
 
 #### Example response
-
 
 ```json
 {
@@ -307,7 +299,6 @@ Initialise Fin by passing it the user's message along with some conversation his
 
 
 **Request Payload Example**
-
 
 ```json
 {
@@ -375,7 +366,6 @@ Initialise Fin by passing it the user's message along with some conversation his
 
 **Response Example**
 
-
 ```json
 {
   "conversation_id": "ext-123",
@@ -427,7 +417,6 @@ You can receive events via Server-Sent Events (SSE) using the `sse_subscription_
 
 The `sse_subscription_url` follows this format:
 
-
 ```
 https://primary-realtime.intercom-messenger.com/event-stream?channels={channel}&accessToken={token}&rewind={duration}
 ```
@@ -459,7 +448,6 @@ Token lifetime
 Do not cache or reuse `sse_subscription_url` values across multiple interactions. Each URL contains a short-lived token scoped to a single Fin response cycle.
 
 #### Example: Connecting to SSE
-
 
 ```javascript
 // After calling an endpoint that returns an sse_subscription_url (e.g. /fin/ask)
@@ -520,7 +508,6 @@ Fin will report its status to the client via this event.
 
 **Status Update Example (Escalated)**
 
-
 ```json
 {
   "event_name": "fin_status_updated",
@@ -534,7 +521,6 @@ Fin will report its status to the client via this event.
 
 **Status Update Example (Resolved)**
 
-
 ```json
 {
   "event_name": "fin_status_updated",
@@ -546,7 +532,6 @@ Fin will report its status to the client via this event.
 ```
 
 **Status Update Example (Awaiting User Reply)**
-
 
 ```json
 {
@@ -581,7 +566,6 @@ The `replying` status for intermediate `fin_replied` events is currently only av
 
 
 **Fin Reply Example (Intermediate)**
-
 
 ```json
 {
@@ -621,7 +605,6 @@ SSE with streaming only
 
 
 **Fin Reply Chunk Example**
-
 
 ```json
 {

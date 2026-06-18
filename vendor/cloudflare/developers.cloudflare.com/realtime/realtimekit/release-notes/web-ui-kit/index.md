@@ -1,0 +1,219 @@
+---
+title: Web UI Kit
+description: Release notes and changelog for the RealtimeKit Web UI Kit SDK.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/realtime/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Web UI Kit
+
+[ Subscribe to RSS ](https://developers.cloudflare.com/realtime/realtimekit/release-notes/web-ui-kit/index.xml)
+
+## 2026-05-28
+
+**RealtimeKit Web UI Kit 1.2.0**
+
+**Compatibility:** Works best with RealtimeKit Web Core 1.5.1 or later.
+
+**Features**
+
+* When a user fails to join a meeting, `rtk-idle-screen` and `rtk-setup-screen` now display a troubleshooting link to help resolve common connection issues such as firewall restrictions and permission errors.
+* If the meeting preset allows transcripts, the transcription panel is now shown by default without requiring manual activation.
+
+**Enhancements**
+
+* Raw SDK error codes and messages are no longer shown to end users on join failure. Error messages are now mapped to clear, user-friendly, localized text with a small reference code (for example, `Error code: 0002`) for support and debugging.
+
+**Fixes**
+
+* Corrected several typos and spacing issues in the default language pack.
+
+## 2026-03-31
+
+**RealtimeKit Web UI Kit 1.1.2**
+
+**Enhancements**
+
+* AI sidebar component now uses `activeSidebar` state instead of `activeAI` state, streamlining all sidebar components under a single state.
+
+## 2026-03-10
+
+**RealtimeKit Web UI Kit 1.1.1**
+
+**Compatibility:** Works best with RealtimeKit Web Core 1.2.5 or later.
+
+**Enhancements**
+
+* Improved error handling for room join failures to display actionable error messages instead of showing an infinite loader.
+
+**Fixes**
+
+* Corrected typos in UI strings:  
+   * `occured` → `occurred`  
+   * `On you device` → `On your device`  
+   * `Grant acess` → `Grant access`
+* Fixed default language pack keys:  
+   * `ai.chat.summerise` → `ai.chat.summarize`  
+   * `date.yesteday` → `date.yesterday`
+
+## 2026-01-30
+
+**RealtimeKit Web UI Kit 1.1.0**
+
+**Compatibility:** Works best with RealtimeKit Web Core 1.2.4 or later.
+
+**Features**
+
+* Chat message operations (edit, delete, pin) are now available to all participants.
+* Chat pagination with infinite scroll for improved performance in meetings with high message volume.
+* Pinned messages are now displayed in a dedicated view for easy access.
+* Added `overrides` prop support on `rtk-meeting` and `rtk-ui-provider` for easier UI customization. Available overrides include:  
+   * `disablePrivateChat` \- Disable private chat functionality.  
+   * `disableEmojiPicker` \- Hide emoji picker in chat component.  
+```tsx  
+<RtkMeeting meeting={meeting} overrides={{  
+  disablePrivateChat: true,  
+  disableEmojiPicker: true  
+}} />  
+```
+
+**New components**
+
+* `rtk-chat-header` \- Header component with pinned messages and private chat selector.
+* `rtk-pinned-message-selector` \- Displays all pinned messages with paginated infinite scroll.
+* `rtk-chat-selector` \- Switch between public chat and private chats with specific participants.
+
+**Component enhancements**
+
+* `rtk-chat-composer-view` now accepts `isSending` prop to display sender messages on the right and other messages on the left with different colors.
+* `rtk-chat-messages-ui-paginated` now accepts `privateChatRecipient` prop for displaying paginated private chat messages.
+* `rtk-chat-messages-ui-paginated` now emits `editMessage`, `deleteMessage`, and `pinMessage` events for message operations.
+* `rtk-menu-item` and `rtk-menu-list` now accept `menuVariant` prop for different color schemes based on user actions.
+* `rtk-message-view` now accepts `isEdited`, `isSelf`, `messageType`, and `pinned` props for appropriate message rendering.
+* Added automatic scrolling to new messages.
+
+**Breaking changes**
+
+Removed non-operational chat channel components to streamline the SDK. `rtk-chat` remains fully operational.
+
+* Removed `rtk-channel-creator`.
+* Removed `rtk-channel-header`.
+* Removed `rtk-channel-details`.
+* Removed `rtk-channel-selector-ui`.
+* Removed `rtk-channel-selector-view`.
+* `rtk-chat-composer-ui` no longer accepts `channelId` prop.
+* `rtk-chat` no longer accepts `disablePrivateChat` prop. Use preset configuration instead, or pass as override:  
+```tsx  
+<RtkMeeting meeting={meeting} overrides={{disablePrivateChat: true}} />  
+```
+
+**Deprecations**
+
+* `rtk-chat-composer-ui` is deprecated due to scalability limitations and lack of pagination support.
+
+**Known limitations**
+
+* Total message count for public and private chats is not currently displayed.
+
+## 2025-12-17
+
+**RealtimeKit Web UI Kit 1.0.8**
+
+**Fixes**
+
+* Fixed iOS issue where the chat compose view would zoom when typing a message.
+
+## 2025-11-18
+
+**RealtimeKit Web UI Kit 1.0.7**
+
+**Fixes**
+
+* Fixed alignment issues with unread chat message count, unread polls count, and pending participant stage request count.
+* Resolved issue where action toggles were incorrectly displayed in participant video preview in the settings component.
+
+## 2025-10-30
+
+**RealtimeKit Web UI Kit 1.0.6**
+
+**Fixes**
+
+* Fixed an issue where `rtk-debugger` displayed audio and video bitrate as `0`.
+* Resolved menu visibility for the last participant when the participants list is long.
+* Fixed `rtk-polls` not rendering when props were provided after initial mount.
+* Improved `rtk-participant-tile` audio visualizer appearance when muted (no longer shows as a single dot).
+* Prevented large notifications from overflowing their container.
+* Fixed a memory leak in the `mediaConnectionUpdate` event listener.
+* Corrected `rtk-ui-provider` prop passing to children during consecutive meetings on the same page.
+
+## 2025-08-14
+
+**RealtimeKit Web UI Kit 1.0.5**
+
+**Fixes**
+
+* Fixed Safari CSS issues where the `rtk-settings` component was not visible and the Audio Playback modal was not taking the proper height.
+
+**Enhancements**
+
+* Livestream viewer now has a seeker and DVR functionality.
+
+## 2025-07-17
+
+**RealtimeKit Web UI Kit 1.0.4**
+
+**Fixes**
+
+* Fixed Angular integration issues.
+
+**Enhancements**
+
+* Added support for multiple meetings on the same page in RealtimeKit.
+* Enhanced the `rtk-ui-provider` component to serve as a parent component for sharing common props (`meeting`, `config`, `iconPack`) with all child components.
+
+## 2025-07-08
+
+**RealtimeKit Web UI Kit 1.0.3**
+
+**Fixes**
+
+* Resolved `TypeError` that occurred for meetings without titles.
+* Implemented minor UI improvements for chat components.
+
+**Features**
+
+* Made Livestream feature available to all beta users.
+
+## 2025-07-02
+
+**RealtimeKit Web UI Kit 1.0.2**
+
+**Performance**
+
+* Fixed dependency issues to enhance performance and Angular integration.
+
+## 2025-06-30
+
+**RealtimeKit Web UI Kit 1.0.1**
+
+**Deprecated API**
+
+* Discontinued Vue UI support.
+
+## 2025-05-29
+
+**RealtimeKit Web UI Kit 1.0.0**
+
+**Features**
+
+* Initial release of Cloudflare RealtimeKit with support for group calls, webinars, livestreaming, polls, and chat.
+
+```json
+{"@context":"https://schema.org","@type":"BlogPosting","@id":"https://developers.cloudflare.com/realtime/realtimekit/release-notes/web-ui-kit/#page","headline":"Web UI Kit · Cloudflare Realtime docs","description":"Release notes and changelog for the RealtimeKit Web UI Kit SDK.","url":"https://developers.cloudflare.com/realtime/realtimekit/release-notes/web-ui-kit/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/realtime/","name":"Realtime"}},{"@type":"ListItem","position":3,"item":{"@id":"/realtime/realtimekit/","name":"RealtimeKit"}},{"@type":"ListItem","position":4,"item":{"@id":"/realtime/realtimekit/release-notes/","name":"Release Notes"}},{"@type":"ListItem","position":5,"item":{"@id":"/realtime/realtimekit/release-notes/web-ui-kit/","name":"Web UI Kit"}}]}
+```
