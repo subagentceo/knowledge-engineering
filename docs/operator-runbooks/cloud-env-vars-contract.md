@@ -19,7 +19,7 @@ Closes #120.
 | Org-read inheritor | admin@jadecli.com / admin-jadecli (via vendor team/org features when supported) |
 | GitHub secrets target | `subagentceo/knowledge-engineering` |
 | CF Secrets Store target | account `e6294e3ea89f8207af387d459824aaae` (alex@jadecli.com's CF account), store id `565244614fc34be7aa8488ce46112f60` |
-| Neon project | `divine-cloud-27295848` |
+| WSL persistent backend | `wsl-ubuntu2604-jadecli` (Tailscale `100.112.152.5`) — AlloyDB Omni + Redis (OWSL1) |
 
 ## Outcome (binary pass/fail)
 
@@ -34,20 +34,22 @@ Phase 8+ CI/CD runs successfully end-to-end with NO placeholder values in any st
 | `CLOUDFLARE_API_TOKEN` | GH secret | <https://dash.cloudflare.com/profile/api-tokens> with `Workers Scripts:Edit` + `Secrets Store:Write` scopes | `.github/workflows/cloudflare-preview.yml` (deploy + Secrets Store bootstrap) | `cf-api-token.md` runbook OR `npm run setup:cf-ci-token` (CLI path if a `User > API Tokens > Edit` bootstrap token exists in macOS Keychain at `cf-bootstrap`) | ❌ MISSING — **the CI/CD gate** |
 | `CLOUDFLARE_ACCOUNT_ID` | GH secret | `dash.cloudflare.com` sidebar; value = `e6294e3ea89f8207af387d459824aaae` | `cloudflare-preview.yml` (account targeting) | `gh secret set` or `cf-account-id.md` runbook | ✅ set `2026-05-15T08:43:34Z` |
 | `CLAUDE_CODE_OAUTH_TOKEN` | GH secret + CF Secrets Store | `claude setup-token` (browser OAuth flow) | `bootstrap-secrets` job pipes into Secrets Store id `e22122884fda46ae901659c9ab808c90`; Worker's `env.CLAUDE_CODE_OAUTH_TOKEN.get()` forwards into Sandbox env so `claude --dangerously-skip-permissions -p ...` authenticates | `npm run rotate:claude-oauth` (`scripts/mint-claude-oauth-secret.ts` — leak-safe interactive flow) | ⚠ GH stale `2026-05-10`; CF placeholder. Tracked in #115. |
-| `NEON_API_KEY` | GH secret + CF Secrets Store | `POST https://console.neon.tech/api/v2/api_keys` with neonctl OAuth bearer | `bootstrap-secrets` job pipes into Secrets Store id `f3d15d4730494d48834481ced8dc0b4e`; Worker's `createApiClient({ apiKey })` mints per-task DB branches | `npm run rotate:neon` (`scripts/mint-neon-api-secret.ts` — closes #116) | ⚠ GH side stale `2026-05-10` (revoked-and-replaced; new id 3075749 only in CF store as of `2026-05-15T03:32:31Z`). Tracked in #116. |
+| ~~`NEON_API_KEY`~~ | ~~GH secret + CF Secrets Store~~ | ~~Neon console~~ | ~~Removed 2026-06-04 (ADR: 2026-06-04-neon-removed-alloydb-omni-replacement.md). Neon is no longer used.~~ | — | ❌ REMOVED |
 | `GITHUB_TOKEN` | CF Secrets Store ONLY (CI workflows use the auto-provided `secrets.GITHUB_TOKEN`) | `gh auth token` in this session OR Actions auto-provided per-run | Worker's `git push` + `gh pr create` from inside Sandbox | One-shot `gh auth token` capture + `wrangler secrets-store secret create/update --remote` via stdin | ✅ CF entry id `6fa4f835ef374911b38ee85955f517a0`, comment `admin-jadecli gh auth token, seeded 2026-05-15. Long-lived; rotate when admin-jadecli's gh PAT changes.` |
 | `TURBOPUFFER_API_KEY_WRITE` | GH secret + CF Secrets Store | `https://turbopuffer.com/dashboard` (operator's premium $64/mo account) | `src/lib/turbopuffer-client.ts` (future chassis crawl pipeline integration) | One-shot stdin pipe to `wrangler secrets-store secret create --remote` | ✅ temp bootstrap landed in commit 2335179; auto-revoke EOD 2026-05-15 PT. Production key tracked in #122. |
 | `PARALLELAI_API_KEY` | GH secret + CF Secrets Store (planned) | parallel.ai dashboard (operator has $70 credit on alex@jadecli.com) | `src/lib/parallel-ai-client.ts` (planned per #128) | `claude --chrome` paste-block (planned per #128) | ❌ MISSING. Tracked in #128. |
 | `OLLAMA_API_KEY` | GH secret + CF Secrets Store (planned) | ollama.com cloud dashboard (operator has $20 paid tier on alex@jadecli.com) | `src/lib/ollama-client.ts` (planned per #129; depends on #131 vendor crawl) | `claude --chrome` paste-block (planned per #129) | ❌ MISSING. Tracked in #129. |
 | `NIMBLEWAY_API_KEY` | GH secret + CF Secrets Store (planned) | <https://online.nimbleway.com/account-settings/api-keys> | `src/lib/nimbleway-client.ts` (planned per #130) + hosted MCP server at `mcp.nimbleway.com/mcp` | `claude --chrome` paste-block (planned per #130) | ❌ MISSING. Tracked in #130. |
-| `ALLOYDB_OMNI_PASSWORD` | Cloud-env variable (NOT a GH/CF secret) | Operator-generated strong password | `scripts/start_services.sh` SessionStart hook → `docker run -e POSTGRES_PASSWORD` for the `alloydb-omni` container | Operator pastes into the Claude Code cloud env's Environment variables UI; see [`alloydb-omni-cloud-env.md`](./alloydb-omni-cloud-env.md) | ⚠ pending operator paste. Visible to anyone with edit access to the cloud env config. |
+| ~~`ALLOYDB_OMNI_PASSWORD`~~ | ~~Cloud-env variable~~ | — | ~~Superseded by OWSL1. DATABASE_URL now embeds credentials.~~ | — | ❌ SUPERSEDED |
+| `DATABASE_URL` | Cloud-env variable | Cloudflare Tunnel URL to WSL AlloyDB Omni | `scripts/start_services.sh` + A2A server; published to `CLAUDE_ENV_FILE` | Operator pastes into cloud env UI. Format: `postgres://postgres:<pw>@<tunnel-host>/ke` | ⚠ pending operator paste. See [`alloydb-omni-cloud-env.md`](./alloydb-omni-cloud-env.md) and ADR OWSL1 |
+| `REDIS_URL` | Cloud-env variable | Cloudflare Tunnel URL to WSL Redis | `scripts/start_services.sh` + A2A server; published to `CLAUDE_ENV_FILE` | Operator pastes into cloud env UI. Format: `redis://<tunnel-host>:6379` | ⚠ pending operator paste |
 
 ### Variables (non-secret routing/config)
 
 | Name | Type | Value | Consumer | Current state |
 | - | - | - | - | - |
 | `CLOUDFLARE_WORKER_NAME` | GH var | `ke-cloud-agent` | `cloudflare-preview.yml` workflow `if:` gate | ✅ set `2026-05-15T08:43:35Z` |
-| `NEON_PROJECT_ID` | GH var | `divine-cloud-27295848` | `cloudflare-preview.yml` + Worker (`wrangler.jsonc:88`) | ✅ set `2026-05-10` |
+| ~~`NEON_PROJECT_ID`~~ | ~~GH var~~ | ~~`divine-cloud-27295848`~~ | ~~Removed 2026-06-04 (Neon removed).~~ | ❌ REMOVED |
 
 ### Cloudflare Worker bindings (`infra/cloudflare/wrangler.jsonc`)
 
@@ -55,9 +57,9 @@ Phase 8+ CI/CD runs successfully end-to-end with NO placeholder values in any st
 | - | - | - | - |
 | `Sandbox` | Durable Object (sqlite) | `@cloudflare/sandbox@^0.10.1` | Per-task ephemeral sandbox container |
 | `CLAUDE_CODE_OAUTH_TOKEN` | Secrets Store binding | Secret id `e22122884fda46ae901659c9ab808c90` | Read via `env.CLAUDE_CODE_OAUTH_TOKEN.get()` |
-| `NEON_API_KEY` | Secrets Store binding | Secret id `f3d15d4730494d48834481ced8dc0b4e` | Read via `env.NEON_API_KEY.get()` |
+| ~~`NEON_API_KEY`~~ | ~~Secrets Store binding~~ | ~~Secret id `f3d15d4730494d48834481ced8dc0b4e`~~ | ~~Removed 2026-06-04 (Neon removed)~~ |
 | `GITHUB_TOKEN` | Secrets Store binding | Secret id `6fa4f835ef374911b38ee85955f517a0` | Read via `env.GITHUB_TOKEN.get()` |
-| `NEON_PROJECT_ID` | `vars` | `divine-cloud-27295848` | Plain string |
+| ~~`NEON_PROJECT_ID`~~ | ~~`vars`~~ | ~~`divine-cloud-27295848`~~ | ~~Removed 2026-06-04~~ |
 | `IS_SANDBOX` | `vars` | `"0"` at Worker; flipped to `"1"` inside Sandbox via `setEnvVars` | Identity flag |
 | `FLAGSHIP` | Flagship binding (DEFERRED) | Commented out in `wrangler.jsonc:91-117` | Re-enable after #117 lands |
 
@@ -65,7 +67,8 @@ Phase 8+ CI/CD runs successfully end-to-end with NO placeholder values in any st
 
 | Name | Purpose | Source | Note |
 | - | - | - | - |
-| `NEON_DATABASE_URL` | Local crawler dual-write to production Neon branch | Operator exports manually OR derived via API | See `docs/operator-runbooks/neon-secrets-matrix.md` |
+| ~~`NEON_DATABASE_URL`~~ | ~~Local crawler dual-write to Neon~~ | — | ~~Removed 2026-06-04. Replaced by `ALLOYDB_DATABASE_URL`.~~ |
+| `ALLOYDB_DATABASE_URL` | Local sessions connect to WSL AlloyDB Omni via Tailscale | `postgres://postgres:<pw>@100.112.152.5:5432/ke` | ADR OWSL1 |
 | `CF_BOOTSTRAP_TOKEN` | `npm run setup:cf-ci-token` (CLI-only CF API token mint path) | macOS Keychain entry `cf-bootstrap` | Operator mints once via dashboard; reused by mint script |
 | `CLAUDE_CODE_OAUTH_TOKEN` (keychain) | The Agent SDK + Claude Code CLI auth | macOS Keychain entry `Claude Code-credentials`, account `alexzh` | Read via `security find-generic-password -s "Claude Code-credentials" -w \| jq -r '.claudeAiOauth.accessToken'` |
 | `NEON_OAUTH` (in scripts/mint-neon-api-secret.ts) | Mint new programmatic Neon API keys | `jq -r '.access_token' ~/.config/neonctl/credentials.json` (refresh via `neonctl auth` if expired) | Never echoed |
@@ -86,7 +89,7 @@ If any future runbook needs to reference Claude auth, the contract is `CLAUDE_CO
 | - | - | - | - |
 | `CLOUDFLARE_API_TOKEN` | 1 year (per its TTL) | `cf-api-token.md` paste-block OR `npm run setup:cf-ci-token` | #114 |
 | `CLAUDE_CODE_OAUTH_TOKEN` | Annually OR post-leak | `npm run rotate:claude-oauth` | #115 |
-| `NEON_API_KEY` | No expiry; rotate post-leak or annually | `npm run rotate:neon` (when #116 lands) | #116 |
+| ~~`NEON_API_KEY`~~ | ~~Removed 2026-06-04~~ | — | — |
 | `GITHUB_TOKEN` | Per CI run (auto-provided); manual entry rotated when admin-jadecli's PAT changes | One-shot `gh auth token \| wrangler secrets-store secret update --remote` | N/A (auto) |
 | `TURBOPUFFER_API_KEY_WRITE` | EOD 2026-05-15 (one-time bootstrap) | Operator dashboard delete; #122 covers replacement | #122 |
 | `PARALLELAI_API_KEY`, `OLLAMA_API_KEY`, `NIMBLEWAY_API_KEY` | Annually | Per-vendor paste-blocks (#128, #129, #130) | #128, #129, #130 |
