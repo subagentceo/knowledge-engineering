@@ -2,19 +2,16 @@
   "name": "brave-search",
   "homepage": "https://brave.com/search/api/",
   "llms_txt_candidates": [],
+  "sitemap_xml_sources": [
+    "https://brave.com/en/sitemap.xml"
+  ],
   "transform": "html-extract",
   "allow_prefixes": [
     "https://brave.com/search/api/"
   ],
   "deny_prefixes": [],
-  "page_cap": 50,
+  "page_cap": 0,
   "html_extract": {
     "selector": "main"
-  },
-  "html_index_sources": [
-    {
-      "url": "https://brave.com/search/api/",
-      "link_regex": "href=\"(/search/api/[^\"#]+)\""
-    }
-  ]
+  }
 }

@@ -6,9 +6,20 @@
   ],
   "transform": "append-md-and-accept",
   "allow_prefixes": [
-    "https://opentelemetry.io/docs/"
+    "https://opentelemetry.io/"
   ],
-  "deny_prefixes": [],
-  "page_cap": 200,
+  "deny_prefixes": [
+    "https://opentelemetry.io/bn/",
+    "https://opentelemetry.io/es/",
+    "https://opentelemetry.io/fr/",
+    "https://opentelemetry.io/ja/",
+    "https://opentelemetry.io/pl/",
+    "https://opentelemetry.io/pt/",
+    "https://opentelemetry.io/ro/",
+    "https://opentelemetry.io/uk/",
+    "https://opentelemetry.io/zh/",
+    "https://opentelemetry.io/blog/"
+  ],
+  "page_cap": 0,
   "llms_txt": "https://opentelemetry.io/llms.txt"
 }
