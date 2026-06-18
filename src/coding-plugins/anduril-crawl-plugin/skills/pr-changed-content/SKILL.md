@@ -34,7 +34,7 @@ git commit -m "feat(<target>): refresh mirror — N new, M changed pages (O1)"
 # 6. push + PR (labels BEFORE CI per pr-ops.md), enable automerge
 git push -u origin HEAD
 # mcp__github__create_pull_request ...
-# mcp__github__issue_write labels=["automerge","skip-cost-gate"]
+# mcp__github__issue_write labels=["automerge"]
 # mcp__github__enable_pr_auto_merge mergeMethod=REBASE
 ```
 
@@ -72,8 +72,7 @@ when upstream is unchanged (step 3 short-circuits), so it is safe to run often.
 ## Guardrails
 
 - **Branch name** must start with `claude/` (branch-guard).
-- **Labels before CI**: `automerge` + `skip-cost-gate` immediately after PR
-  creation, or the cost-gate blocks merge (`.claude/rules/pr-ops.md`).
+- **Labels before CI**: `automerge` immediately after PR creation. `agent-session-cost-report.yml` auto-generates the cost artifact — `skip-cost-gate` is not needed (OCOST1).
 - **Stage only the mirror dir** so unrelated working-tree changes don't ride along.
 - **Commit format**: Conventional Commits ending in `(O<N>)`.
 
