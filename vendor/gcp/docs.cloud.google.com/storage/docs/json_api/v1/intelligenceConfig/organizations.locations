@@ -1,0 +1,40 @@
+# REST Resource: organizations.locations
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+*   Home
+*   Documentation
+*   Storage
+*   Cloud Storage
+*   Reference
+
+Send feedback
+
+# REST Resource: organizations.locations Stay organized with collections Save and categorize content based on your preferences.
+
+*   Methods
+
+ 
+
+## Methods
+
+### getIntelligenceConfig
+
+Gets the `IntelligenceConfig` resource associated with your organization.
+
+### updateIntelligenceConfig
+
+Updates the `IntelligenceConfig` resource associated with your organization.
+
+Send feedback
