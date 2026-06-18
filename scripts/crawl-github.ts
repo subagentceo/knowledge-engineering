@@ -101,11 +101,18 @@ async function ghFetch(path: string): Promise<Response> {
 
 // ── Path helpers ──────────────────────────────────────────────────────────────
 
+const GH_SLUG_RE = /^[a-zA-Z0-9._-]+$/;
+
 // Topology: strip branch segment from raw.githubusercontent.com path.
 // raw path: /<org>/<repo>/<branch>/<path> → <org>/<repo>/<path>.md
 function repoFilePath(org: string, repo: string, filePath: string): string {
+  if (!GH_SLUG_RE.test(org) || !GH_SLUG_RE.test(repo)) {
+    throw new Error(`invalid org/repo slug: ${org}/${repo}`);
+  }
   const clean = filePath.replace(/\.(md|mdx)$/, "") + ".md";
-  return resolve(GH_VENDOR, org, repo, clean);
+  const abs = resolve(GH_VENDOR, org, repo, clean);
+  if (!abs.startsWith(GH_VENDOR + "/")) throw new Error(`path traversal rejected: ${filePath}`);
+  return abs;
 }
 
 function isMarkdown(path: string): boolean {

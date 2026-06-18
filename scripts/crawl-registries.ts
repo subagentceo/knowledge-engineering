@@ -20,6 +20,14 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { loadChecksums, saveChecksums } from "./lib/checksums.js";
 
+function safeOutPath(base: string, relPath: string): string {
+  const abs = resolve(base, relPath);
+  if (!abs.startsWith(base + "/")) throw new Error(`path traversal rejected: ${relPath}`);
+  return abs;
+}
+
+const GH_REPO_RE = /^[a-zA-Z0-9._-]+\/[a-zA-Z0-9._-]+$/;
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..");
 const VENDOR_ROOT = resolve(REPO_ROOT, "vendor");
@@ -38,7 +46,7 @@ async function crawlNpm(): Promise<void> {
   let written = 0;
 
   for (const [pkg, spec] of Object.entries(cfg.packages)) {
-    const encoded = pkg.replace("/", "%2F");
+    const encoded = pkg.replace(/\//g, "%2F");
     const apiUrl = `https://registry.npmjs.org/${encoded}`;
 
     try {
@@ -64,10 +72,10 @@ async function crawlNpm(): Promise<void> {
       const sha256 = createHash("sha256").update(readme).digest("hex");
       if (checksums[pkg]?.sha256 === sha256) continue;
 
-      const outPath = resolve(VENDOR_ROOT, "npmjs.com", spec.path);
+      const outPath = safeOutPath(resolve(VENDOR_ROOT, "npmjs.com"), spec.path);
       mkdirSync(dirname(outPath), { recursive: true });
 
-      const header = `<!-- source: ${apiUrl} latest: ${latest ?? "unknown"} -->\n\n`;
+      const header = `<!-- source: https://registry.npmjs.org/ latest: ${latest ?? "unknown"} -->\n\n`;
       writeFileSync(outPath, header + readme, "utf8");
 
       checksums[pkg] = { sha256, lastStatus: 200 };
@@ -119,10 +127,10 @@ async function crawlPypi(): Promise<void> {
       const sha256 = createHash("sha256").update(description).digest("hex");
       if (checksums[pkg]?.sha256 === sha256) continue;
 
-      const outPath = resolve(VENDOR_ROOT, "pypi.org", spec.path);
+      const outPath = safeOutPath(resolve(VENDOR_ROOT, "pypi.org"), spec.path);
       mkdirSync(dirname(outPath), { recursive: true });
 
-      const header = `<!-- source: ${apiUrl} version: ${data.info.version ?? "unknown"} -->\n\n`;
+      const header = `<!-- source: https://pypi.org/pypi/ version: ${data.info.version ?? "unknown"} -->\n\n`;
       writeFileSync(outPath, header + description, "utf8");
 
       checksums[pkg] = { sha256, lastStatus: 200 };
@@ -176,18 +184,15 @@ async function crawlCrates(): Promise<void> {
 
       // If crate has a github repo listed, try to fetch README from raw.githubusercontent.com
       let readme: string | null = null;
-      const ghRepo = spec.github ?? data.crate.repository?.replace("https://github.com/", "");
+      const rawGhRepo = spec.github ?? data.crate.repository?.replace("https://github.com/", "");
+      const ghRepo = rawGhRepo && GH_REPO_RE.test(rawGhRepo) ? rawGhRepo : null;
 
       if (ghRepo) {
-        const rawUrl = `https://raw.githubusercontent.com/${ghRepo}/main/README.md`;
-        const rawRes = await fetch(rawUrl, { headers: { "User-Agent": ua } });
-        if (rawRes.ok) readme = await rawRes.text();
-        // fallback to master
+        const base = "https://raw.githubusercontent.com";
+        const mainRes = await fetch(`${base}/${ghRepo}/main/README.md`, { headers: { "User-Agent": ua } });
+        if (mainRes.ok) readme = await mainRes.text();
         if (!readme) {
-          const masterRes = await fetch(
-            `https://raw.githubusercontent.com/${ghRepo}/master/README.md`,
-            { headers: { "User-Agent": ua } },
-          );
+          const masterRes = await fetch(`${base}/${ghRepo}/master/README.md`, { headers: { "User-Agent": ua } });
           if (masterRes.ok) readme = await masterRes.text();
         }
       }
@@ -199,10 +204,10 @@ async function crawlCrates(): Promise<void> {
       const sha256 = createHash("sha256").update(readme).digest("hex");
       if (checksums[crate]?.sha256 === sha256) continue;
 
-      const outPath = resolve(VENDOR_ROOT, "crates.io", spec.path);
+      const outPath = safeOutPath(resolve(VENDOR_ROOT, "crates.io"), spec.path);
       mkdirSync(dirname(outPath), { recursive: true });
 
-      const header = `<!-- source: ${apiUrl} version: ${data.crate.newest_version ?? "unknown"} -->\n\n`;
+      const header = `<!-- source: https://crates.io/api/v1/crates/ version: ${data.crate.newest_version ?? "unknown"} -->\n\n`;
       writeFileSync(outPath, header + readme, "utf8");
 
       checksums[crate] = { sha256, lastStatus: 200 };
