@@ -33,7 +33,7 @@ plugins {
 }
 // ___PRODUCT_OPTION_START___ profiling
 dependencies {
-  implementation 'io.sentry:sentry-async-profiler:8.43.2'
+  implementation 'io.sentry:sentry-async-profiler:8.44.0'
 }
 // ___PRODUCT_OPTION_END___ profiling
 ```
@@ -78,7 +78,7 @@ dependencies {
   <dependency>
       <groupId>io.sentry</groupId>
       <artifactId>sentry-async-profiler</artifactId>
-      <version>8.43.2</version>
+      <version>8.44.0</version>
   </dependency>
 </dependencies>
 // ___PRODUCT_OPTION_END___ profiling
@@ -87,9 +87,9 @@ dependencies {
 **SBT**
 
 ```scala
-libraryDependencies += "io.sentry" % "sentry" % "8.43.2"
+libraryDependencies += "io.sentry" % "sentry" % "8.44.0"
 // ___PRODUCT_OPTION_START___ profiling
-libraryDependencies += "io.sentry" % "sentry-async-profiler" % "8.43.2"
+libraryDependencies += "io.sentry" % "sentry-async-profiler" % "8.44.0"
 // ___PRODUCT_OPTION_END___ profiling
 ```
 
@@ -99,16 +99,16 @@ If you are manually adding multiple Sentry dependencies, you can add a [bill of 
 
 When running your application, please add our `sentry-opentelemetry-agent` to the `java` command.
 
-Download the latest version of the `sentry-opentelemetry-agent-8.43.2.jar` from [MavenCentral](https://search.maven.org/artifact/io.sentry/sentry-opentelemetry-agent):
+Download the latest version of the `sentry-opentelemetry-agent-8.44.0.jar` from [MavenCentral](https://search.maven.org/artifact/io.sentry/sentry-opentelemetry-agent):
 
 ```bash
-curl https://repo1.maven.org/maven2/io/sentry/sentry-opentelemetry-agent/8.43.2/sentry-opentelemetry-agent-8.43.2.jar -o sentry-opentelemetry-agent-8.43.2.jar
+curl https://repo1.maven.org/maven2/io/sentry/sentry-opentelemetry-agent/8.44.0/sentry-opentelemetry-agent-8.44.0.jar -o sentry-opentelemetry-agent-8.44.0.jar
 ```
 
 Then run your application with:
 
 ```bash
-SENTRY_PROPERTIES_FILE=sentry.properties JAVA_TOOL_OPTIONS="-javaagent:sentry-opentelemetry-agent-8.43.2.jar" java -jar your-application.jar
+SENTRY_PROPERTIES_FILE=sentry.properties JAVA_TOOL_OPTIONS="-javaagent:sentry-opentelemetry-agent-8.44.0.jar" java -jar your-application.jar
 ```
 
 *Other available variations of the above snippet: Java CLI argument*

@@ -201,17 +201,6 @@ Manage Neon Auth.
 | `neonctl neon-auth user delete <user-id>`          | Delete an auth user                 |
 | `neonctl neon-auth user set-role <user-id>`        | Set roles for an auth user          |
 
-### functions (alias: `function`)
-
-Manage Neon Functions.
-
-| Subcommand                        | Description                              |
-| --------------------------------- | ---------------------------------------- |
-| `neonctl functions deploy <slug>` | Deploy a function from a local directory |
-| `neonctl functions list`          | List functions on the branch             |
-| `neonctl functions get <slug>`    | Show a function's details                |
-| `neonctl functions delete <slug>` | Delete a function on the branch          |
-
 ### dev
 
 Run Neon Functions locally with a dev server.
@@ -246,21 +235,32 @@ Manage a branch's Neon env variables locally.
 
 Manage branch object-storage buckets and their objects.
 
-| Subcommand                              | Description                                      |
-| --------------------------------------- | ------------------------------------------------ |
-| `neonctl bucket create <name>`          | Create a bucket on a branch                      |
-| `neonctl bucket list`                   | List the buckets on a branch                     |
-| `neonctl bucket delete <name>`          | Delete a bucket from a branch                    |
-| `neonctl bucket object list <target>`   | List objects in a bucket                         |
-| `neonctl bucket object get <target>`    | Download an object from a bucket to a local file |
-| `neonctl bucket object put <target>`    | Upload a local file to a bucket as an object     |
-| `neonctl bucket object delete <target>` | Delete an object, or every object under a prefix |
+| Subcommand                              | Description                                                                                                                     |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `neonctl bucket create <name>`          | Create a bucket on a branch                                                                                                     |
+| `neonctl bucket list`                   | List the buckets on a branch                                                                                                    |
+| `neonctl bucket delete <name>`          | Delete a bucket from a branch                                                                                                   |
+| `neonctl bucket object list <target>`   | List objects in a bucket. By default folders are collapsed (like "aws s3 ls"); pass --recursive for a flat listing of every key |
+| `neonctl bucket object get <target>`    | Download an object from a bucket to a local file                                                                                |
+| `neonctl bucket object put <target>`    | Upload a local file to a bucket as an object                                                                                    |
+| `neonctl bucket object delete <target>` | Delete an object, or every object under a prefix                                                                                |
 
 ### bootstrap
 
 Scaffold a new project from a Neon starter template.
 
 Usage: `neonctl bootstrap [directory] [options]`
+
+### functions (alias: `function`)
+
+Manage Neon Functions.
+
+| Subcommand                        | Description                              |
+| --------------------------------- | ---------------------------------------- |
+| `neonctl functions deploy <slug>` | Deploy a function from a local directory |
+| `neonctl functions list`          | List functions on the branch             |
+| `neonctl functions get <slug>`    | Show a function's details                |
+| `neonctl functions delete <slug>` | Delete a function on the branch          |
 
 ## Agent mode
 

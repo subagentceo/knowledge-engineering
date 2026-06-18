@@ -20,9 +20,9 @@ Based on these settings, SSO user profiles returned from WorkOS will include a r
 
 ### Sample scenario
 
-Consider the fictional SaaS company *HireOS*. *HireOS* has set up an SSO Connection and configured group-based role assignment. For example, a *HireOS* customer would like to assign their engineering team to the application. The customer’s IT contact would take the following steps:
+Consider the fictional SaaS company *HireOS*. *HireOS* has set up an SSO Connection and configured group-based role assignment. For example, a *HireOS* customer would like to assign their engineering team to the application. The customer's IT contact would take the following steps:
 
-1. Create an “Engineering” group using their identity provider.
+1. Create an "Engineering" group using their identity provider.
 2. Configure the `groups` attribute in their SAML app to return the group memberships.
 3. Provide the developer with the IdP Group ID for the "Engineering" group.
 
@@ -96,10 +96,10 @@ Your customers will store role information in different forms, depending on thei
 
 - Your customer must explicitly map the SAML `groups` attribute in the SSO setup so that you can retrieve that attribute in the SSO profile.
 - SSO groups need to be manually defined.
-- Your app will receive updates to this user’s group data only once they sign-in with SSO again. This delay can allow unauthorized users to access resources using a stale role.
+- Your app will receive updates to this user's group data only once they sign-in with SSO again. This delay can allow unauthorized users to access resources using a stale role.
 
 ### Directory group role assignment
 
 Directory Sync supports [group-based role assignment](https://workos.com/docs/directory-sync/identity-provider-role-assignment/directory-group-role-assignment) and avoids the pitfalls mentioned above. For organizations with a directory, this method of group-based role assignment is preferred.
 
-It’s recommended to use only one method of role assignment—either from a Directory or an SSO Connection—to avoid overlap.
+It's recommended to use only one method of role assignment—either from a Directory or an SSO Connection—to avoid overlap.

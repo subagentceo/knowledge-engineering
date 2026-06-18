@@ -39,9 +39,9 @@ The data available to Stripe can vary based on your financial account, your perm
 To link a bank account, go to [Linked external accounts](https://dashboard.stripe.com/settings/linked-accounts) in your Dashboard. If we request that you link an account, your Dashboard displays a **Link bank account** prompt that you can click.
 
 1. From the settings page, click **+ Add account**. If, instead, you clicked the prompt, click **Link bank account**.
-1. Choose your bank account provider and enter your bank account login details.
-1. Select the account types you want to link, then click **Link accounts**.
-1. To link more accounts, click **Link another account**. Otherwise, click **Done**.
+2. Choose your bank account provider and enter your bank account login details.
+3. Select the account types you want to link, then click **Link accounts**.
+4. To link more accounts, click **Link another account**. Otherwise, click **Done**.
 
 You can confirm the linked accounts on the [Linked external accounts](https://dashboard.stripe.com/settings/linked-accounts) page.
 

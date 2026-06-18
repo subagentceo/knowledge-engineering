@@ -1,7 +1,7 @@
 ---
 vendor: parallel-web
 llms_txt: https://docs.parallel.ai/llms.txt
-count: 60
+count: 137
 transform: append-md-and-accept
 ---
 
@@ -49,6 +49,8 @@ transform: append-md-and-accept
 | https://docs.parallel.ai/data-integrations/snowflake.md | `vendor/parallel-web/docs.parallel.ai/data-integrations/snowflake.md` |
 | https://docs.parallel.ai/data-integrations/spark.md | `vendor/parallel-web/docs.parallel.ai/data-integrations/spark.md` |
 | https://docs.parallel.ai/data-integrations/supabase.md | `vendor/parallel-web/docs.parallel.ai/data-integrations/supabase.md` |
+| https://docs.parallel.ai/docs-latest-openapi.json | `vendor/parallel-web/docs.parallel.ai/docs-latest-openapi.json` |
+| https://docs.parallel.ai/docs-legacy-openapi.json | `vendor/parallel-web/docs.parallel.ai/docs-legacy-openapi.json` |
 | https://docs.parallel.ai/extract/advanced-extract-settings.md | `vendor/parallel-web/docs.parallel.ai/extract/advanced-extract-settings.md` |
 | https://docs.parallel.ai/extract/best-practices.md | `vendor/parallel-web/docs.parallel.ai/extract/best-practices.md` |
 | https://docs.parallel.ai/extract/extract-migration-guide.md | `vendor/parallel-web/docs.parallel.ai/extract/extract-migration-guide.md` |
@@ -69,3 +71,78 @@ transform: append-md-and-accept
 | https://docs.parallel.ai/getting-started/glossary.md | `vendor/parallel-web/docs.parallel.ai/getting-started/glossary.md` |
 | https://docs.parallel.ai/getting-started/overview.md | `vendor/parallel-web/docs.parallel.ai/getting-started/overview.md` |
 | https://docs.parallel.ai/getting-started/pricing.md | `vendor/parallel-web/docs.parallel.ai/getting-started/pricing.md` |
+| https://docs.parallel.ai/getting-started/rate-limits.md | `vendor/parallel-web/docs.parallel.ai/getting-started/rate-limits.md` |
+| https://docs.parallel.ai/integrations/account-api.md | `vendor/parallel-web/docs.parallel.ai/integrations/account-api.md` |
+| https://docs.parallel.ai/integrations/agent-skills.md | `vendor/parallel-web/docs.parallel.ai/integrations/agent-skills.md` |
+| https://docs.parallel.ai/integrations/agentic-payments.md | `vendor/parallel-web/docs.parallel.ai/integrations/agentic-payments.md` |
+| https://docs.parallel.ai/integrations/anthropic-tool-calling.md | `vendor/parallel-web/docs.parallel.ai/integrations/anthropic-tool-calling.md` |
+| https://docs.parallel.ai/integrations/aws-marketplace.md | `vendor/parallel-web/docs.parallel.ai/integrations/aws-marketplace.md` |
+| https://docs.parallel.ai/integrations/browseruse.md | `vendor/parallel-web/docs.parallel.ai/integrations/browseruse.md` |
+| https://docs.parallel.ai/integrations/claude-code-marketplace.md | `vendor/parallel-web/docs.parallel.ai/integrations/claude-code-marketplace.md` |
+| https://docs.parallel.ai/integrations/clawhub.md | `vendor/parallel-web/docs.parallel.ai/integrations/clawhub.md` |
+| https://docs.parallel.ai/integrations/cli.md | `vendor/parallel-web/docs.parallel.ai/integrations/cli.md` |
+| https://docs.parallel.ai/integrations/cursor-marketplace.md | `vendor/parallel-web/docs.parallel.ai/integrations/cursor-marketplace.md` |
+| https://docs.parallel.ai/integrations/developer-quickstart.md | `vendor/parallel-web/docs.parallel.ai/integrations/developer-quickstart.md` |
+| https://docs.parallel.ai/integrations/google-cloud-marketplace.md | `vendor/parallel-web/docs.parallel.ai/integrations/google-cloud-marketplace.md` |
+| https://docs.parallel.ai/integrations/google-gemini-enterprise.md | `vendor/parallel-web/docs.parallel.ai/integrations/google-gemini-enterprise.md` |
+| https://docs.parallel.ai/integrations/gsuite.md | `vendor/parallel-web/docs.parallel.ai/integrations/gsuite.md` |
+| https://docs.parallel.ai/integrations/langchain.md | `vendor/parallel-web/docs.parallel.ai/integrations/langchain.md` |
+| https://docs.parallel.ai/integrations/mcp/programmatic-use.md | `vendor/parallel-web/docs.parallel.ai/integrations/mcp/programmatic-use.md` |
+| https://docs.parallel.ai/integrations/mcp/quickstart.md | `vendor/parallel-web/docs.parallel.ai/integrations/mcp/quickstart.md` |
+| https://docs.parallel.ai/integrations/mcp/search-mcp.md | `vendor/parallel-web/docs.parallel.ai/integrations/mcp/search-mcp.md` |
+| https://docs.parallel.ai/integrations/mcp/task-mcp.md | `vendor/parallel-web/docs.parallel.ai/integrations/mcp/task-mcp.md` |
+| https://docs.parallel.ai/integrations/n8n.md | `vendor/parallel-web/docs.parallel.ai/integrations/n8n.md` |
+| https://docs.parallel.ai/integrations/oauth-provider.md | `vendor/parallel-web/docs.parallel.ai/integrations/oauth-provider.md` |
+| https://docs.parallel.ai/integrations/ollama-tool-calling.md | `vendor/parallel-web/docs.parallel.ai/integrations/ollama-tool-calling.md` |
+| https://docs.parallel.ai/integrations/openai-tool-calling.md | `vendor/parallel-web/docs.parallel.ai/integrations/openai-tool-calling.md` |
+| https://docs.parallel.ai/integrations/opencode-plugin.md | `vendor/parallel-web/docs.parallel.ai/integrations/opencode-plugin.md` |
+| https://docs.parallel.ai/integrations/openrouter.md | `vendor/parallel-web/docs.parallel.ai/integrations/openrouter.md` |
+| https://docs.parallel.ai/integrations/pi-extension.md | `vendor/parallel-web/docs.parallel.ai/integrations/pi-extension.md` |
+| https://docs.parallel.ai/integrations/superhuman.md | `vendor/parallel-web/docs.parallel.ai/integrations/superhuman.md` |
+| https://docs.parallel.ai/integrations/vercel.md | `vendor/parallel-web/docs.parallel.ai/integrations/vercel.md` |
+| https://docs.parallel.ai/integrations/zapier.md | `vendor/parallel-web/docs.parallel.ai/integrations/zapier.md` |
+| https://docs.parallel.ai/monitor-api/monitor-events.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-events.md` |
+| https://docs.parallel.ai/monitor-api/monitor-migration-guide.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-migration-guide.md` |
+| https://docs.parallel.ai/monitor-api/monitor-quickstart.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-quickstart.md` |
+| https://docs.parallel.ai/monitor-api/monitor-slack.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-slack.md` |
+| https://docs.parallel.ai/monitor-api/monitor-task.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-task.md` |
+| https://docs.parallel.ai/monitor-api/monitor-webhooks.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/monitor-webhooks.md` |
+| https://docs.parallel.ai/monitor-api/quickstart-snapshot.md | `vendor/parallel-web/docs.parallel.ai/monitor-api/quickstart-snapshot.md` |
+| https://docs.parallel.ai/public-openapi.json | `vendor/parallel-web/docs.parallel.ai/public-openapi.json` |
+| https://docs.parallel.ai/resources/changelog.md | `vendor/parallel-web/docs.parallel.ai/resources/changelog.md` |
+| https://docs.parallel.ai/resources/crawler.md | `vendor/parallel-web/docs.parallel.ai/resources/crawler.md` |
+| https://docs.parallel.ai/resources/faqs.md | `vendor/parallel-web/docs.parallel.ai/resources/faqs.md` |
+| https://docs.parallel.ai/resources/source-policy.md | `vendor/parallel-web/docs.parallel.ai/resources/source-policy.md` |
+| https://docs.parallel.ai/resources/warnings-and-errors.md | `vendor/parallel-web/docs.parallel.ai/resources/warnings-and-errors.md` |
+| https://docs.parallel.ai/resources/webhook-setup.md | `vendor/parallel-web/docs.parallel.ai/resources/webhook-setup.md` |
+| https://docs.parallel.ai/search/advanced-search-settings.md | `vendor/parallel-web/docs.parallel.ai/search/advanced-search-settings.md` |
+| https://docs.parallel.ai/search/best-practices.md | `vendor/parallel-web/docs.parallel.ai/search/best-practices.md` |
+| https://docs.parallel.ai/search/modes.md | `vendor/parallel-web/docs.parallel.ai/search/modes.md` |
+| https://docs.parallel.ai/search/search-mcp.md | `vendor/parallel-web/docs.parallel.ai/search/search-mcp.md` |
+| https://docs.parallel.ai/search/search-migration-guide.md | `vendor/parallel-web/docs.parallel.ai/search/search-migration-guide.md` |
+| https://docs.parallel.ai/search/search-quickstart.md | `vendor/parallel-web/docs.parallel.ai/search/search-quickstart.md` |
+| https://docs.parallel.ai/search/source-policy.md | `vendor/parallel-web/docs.parallel.ai/search/source-policy.md` |
+| https://docs.parallel.ai/service-api/apps/create-app.md | `vendor/parallel-web/docs.parallel.ai/service-api/apps/create-app.md` |
+| https://docs.parallel.ai/service-api/apps/delete-app.md | `vendor/parallel-web/docs.parallel.ai/service-api/apps/delete-app.md` |
+| https://docs.parallel.ai/service-api/apps/list-apps.md | `vendor/parallel-web/docs.parallel.ai/service-api/apps/list-apps.md` |
+| https://docs.parallel.ai/service-api/balance/add-to-balance.md | `vendor/parallel-web/docs.parallel.ai/service-api/balance/add-to-balance.md` |
+| https://docs.parallel.ai/service-api/balance/get-balance.md | `vendor/parallel-web/docs.parallel.ai/service-api/balance/get-balance.md` |
+| https://docs.parallel.ai/service-api/keys/create-key.md | `vendor/parallel-web/docs.parallel.ai/service-api/keys/create-key.md` |
+| https://docs.parallel.ai/service-api/keys/delete-key.md | `vendor/parallel-web/docs.parallel.ai/service-api/keys/delete-key.md` |
+| https://docs.parallel.ai/task-api/best-practices.md | `vendor/parallel-web/docs.parallel.ai/task-api/best-practices.md` |
+| https://docs.parallel.ai/task-api/examples/interactive-research.md | `vendor/parallel-web/docs.parallel.ai/task-api/examples/interactive-research.md` |
+| https://docs.parallel.ai/task-api/examples/task-deep-research.md | `vendor/parallel-web/docs.parallel.ai/task-api/examples/task-deep-research.md` |
+| https://docs.parallel.ai/task-api/examples/task-enrichment.md | `vendor/parallel-web/docs.parallel.ai/task-api/examples/task-enrichment.md` |
+| https://docs.parallel.ai/task-api/group-api.md | `vendor/parallel-web/docs.parallel.ai/task-api/group-api.md` |
+| https://docs.parallel.ai/task-api/guides/access-research-basis.md | `vendor/parallel-web/docs.parallel.ai/task-api/guides/access-research-basis.md` |
+| https://docs.parallel.ai/task-api/guides/choose-a-processor.md | `vendor/parallel-web/docs.parallel.ai/task-api/guides/choose-a-processor.md` |
+| https://docs.parallel.ai/task-api/guides/execute-task-run.md | `vendor/parallel-web/docs.parallel.ai/task-api/guides/execute-task-run.md` |
+| https://docs.parallel.ai/task-api/guides/interactions.md | `vendor/parallel-web/docs.parallel.ai/task-api/guides/interactions.md` |
+| https://docs.parallel.ai/task-api/guides/specify-a-task.md | `vendor/parallel-web/docs.parallel.ai/task-api/guides/specify-a-task.md` |
+| https://docs.parallel.ai/task-api/ingest-api.md | `vendor/parallel-web/docs.parallel.ai/task-api/ingest-api.md` |
+| https://docs.parallel.ai/task-api/mcp-tool-call.md | `vendor/parallel-web/docs.parallel.ai/task-api/mcp-tool-call.md` |
+| https://docs.parallel.ai/task-api/source-policy.md | `vendor/parallel-web/docs.parallel.ai/task-api/source-policy.md` |
+| https://docs.parallel.ai/task-api/task-mcp.md | `vendor/parallel-web/docs.parallel.ai/task-api/task-mcp.md` |
+| https://docs.parallel.ai/task-api/task-quickstart.md | `vendor/parallel-web/docs.parallel.ai/task-api/task-quickstart.md` |
+| https://docs.parallel.ai/task-api/task-sse.md | `vendor/parallel-web/docs.parallel.ai/task-api/task-sse.md` |
+| https://docs.parallel.ai/task-api/webhooks.md | `vendor/parallel-web/docs.parallel.ai/task-api/webhooks.md` |

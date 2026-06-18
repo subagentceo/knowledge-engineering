@@ -16,12 +16,12 @@
 
 ## What is FindAll?
 
-FindAll is a web-scale entity discovery system that turns natural language queries into structured, enriched databases. It answers questions like <u>"FindAll AI companies that raised Series A funding in the last 3 months"</u> by combining intelligent search, evaluation, and enrichment capabilities.
+FindAll is a web-scale entity discovery system that turns natural language queries into structured, enriched databases of companies, people, and other real-world entities. It answers questions like <u>"FindAll AI companies that raised Series A funding in the last 3 months"</u> by combining intelligent search, evaluation, and enrichment capabilities.
 
 Unlike traditional search APIs that return a fixed set of results, FindAll generates candidates from web data, validates them against your criteria, and optionally enriches matches with additional structured information—all from a single natural language query.
 
 <Tip>
-  **Need results in seconds?** [Entity Search](/findall-api/entity-search) is a fast, synchronous people-and-company search within FindAll. Use it for real-time, human-in-the-loop, and latency-sensitive workflows where you want a quick candidate set rather than a comprehensive, enriched, cited list.
+  **Need results in seconds?** [Entity Search](/findall-api/entity-search) is FindAll's fast, synchronous counterpart for people-and-company search, optimized for recall and speed where FindAll is optimized for precision. It returns a set of matching results in seconds, without FindAll's verification, enrichment, or citations. Use it when latency matters more than precision.
 </Tip>
 
 ## Key Features & Use Cases
@@ -45,6 +45,7 @@ FindAll excels at entity discovery and research tasks that require both breadth 
 * **Market Mapping**: <u>"FindAll fintech companies offering earned-wage access in Brazil."</u>
 * **Competitive Intelligence**: <u>"FindAll AI infrastructure providers that raised Series B funding in the last 6 months."</u>
 * **Lead Generation**: <u>"FindAll residential roofing companies in Charlotte, NC."</u>
+* **People Search & Recruiting**: <u>"FindAll engineering leaders at Series B fintech companies headquartered in Berlin."</u>
 * **Financial Research**: <u>"FindAll S\&P 500 stocks that dropped X% in last 30 days and listed tariffs as a key risk."</u>
 
 ### What Happens During a Run

@@ -1,5 +1,8 @@
 # Theme Customization
 
+import * as theme from "./theme.props";
+import { PropsTableHydrator } from "../../../../components/props-table-hydrator";
+
 ## Using the `theme` prop
 
 The `theme` prop can be used to customize the overall appearance of WorkOS Widgets.
@@ -7,13 +10,6 @@ The `theme` prop can be used to customize the overall appearance of WorkOS Widge
 `theme` support relies on external stylesheets from Radix Themes and WorkOS Widgets. Start by importing both stylesheets into your application.
 
 #### CSS imports
-
-```css
-/* Provides styles for Radix Themes components and its theming API */
-@import '@radix-ui/themes/styles.css';
-/* Provides additional styles specific to WorkOS Widgets */
-@import '@workos-inc/widgets/styles.css';
-```
 
 ### `theme` properties
 
@@ -24,33 +20,6 @@ See the [Radix Themes API reference](https://www.radix-ui.com/themes/docs/compon
 Underlying components can be styled using the `elements` prop. This object is a mapping of component names to their respective Radix Theme component props.
 
 #### Elements customization
-
-```js
-function App({ children }) {
-  return (
-    <WorkOsWidgets
-      elements={{
-        avatar: {
-          size: '1',
-          radius: 'full',
-        },
-        primaryButton: {
-          color: 'amber',
-          highContrast: true,
-          variant: 'surface',
-        },
-        dialog: {
-          align: 'center',
-          maxHeight: '80svh',
-          maxWidth: '80svw',
-        },
-      }}
-    >
-      {children}
-    </WorkOsWidgets>
-  );
-}
-```
 
 ### `elements` properties
 

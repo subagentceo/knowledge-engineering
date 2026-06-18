@@ -9,6 +9,7 @@ transform: verbatim
 
 | URL | Local |
 |---|---|
+| https://turbopuffer.com/docs/api-overview.md | `vendor/turbopuffer/turbopuffer.com/docs/api-overview.md` |
 | https://turbopuffer.com/docs/architecture.md | `vendor/turbopuffer/turbopuffer.com/docs/architecture.md` |
 | https://turbopuffer.com/docs/audit-logs.md | `vendor/turbopuffer/turbopuffer.com/docs/audit-logs.md` |
 | https://turbopuffer.com/docs/backups.md | `vendor/turbopuffer/turbopuffer.com/docs/backups.md` |
@@ -32,7 +33,6 @@ transform: verbatim
 | https://turbopuffer.com/docs/limits.md | `vendor/turbopuffer/turbopuffer.com/docs/limits.md` |
 | https://turbopuffer.com/docs/metadata.md | `vendor/turbopuffer/turbopuffer.com/docs/metadata.md` |
 | https://turbopuffer.com/docs/namespaces.md | `vendor/turbopuffer/turbopuffer.com/docs/namespaces.md` |
-| https://turbopuffer.com/docs/overview.md | `vendor/turbopuffer/turbopuffer.com/docs/overview.md` |
 | https://turbopuffer.com/docs/performance.md | `vendor/turbopuffer/turbopuffer.com/docs/performance.md` |
 | https://turbopuffer.com/docs/permissions.md | `vendor/turbopuffer/turbopuffer.com/docs/permissions.md` |
 | https://turbopuffer.com/docs/pinning.md | `vendor/turbopuffer/turbopuffer.com/docs/pinning.md` |

@@ -20,6 +20,8 @@ Our SDK for Godot Engine builds on top of existing Sentry SDKs, extending them w
 
 * Automatically capture Godot runtime errors, such as script and shader errors
 
+* Capture errors from [C# (.NET) code](https://docs.sentry.io/platforms/godot/dotnet.md), with scope and traces shared across both languages
+
 * GDScript stack traces with optional [local and member variable](https://docs.sentry.io/platforms/godot/configuration/options.md#logger_include_variables) information
 
 * Include surrounding script source code with events when available at runtime
@@ -30,7 +32,7 @@ Our SDK for Godot Engine builds on top of existing Sentry SDKs, extending them w
 
 * Information about user configuration like GPU, CPU, platform and such
 
-* [Filter and customize events](https://docs.sentry.io/platforms/godot/data-management/sensitive-data.md#scrubbing-data) in `before_send` callback (in GDScript)
+* [Filter and customize events](https://docs.sentry.io/platforms/godot/data-management/sensitive-data.md#scrubbing-data) in `before_send` callback
 
 * [Log-file attachments](https://docs.sentry.io/platforms/godot/configuration/options.md#attach_log) for events
 
@@ -68,12 +70,29 @@ Your configuration is saved in the `project.godot` file along with other project
 
 Add a `Node` to your test scene and attach a script with the following content:
 
-```GDScript
+**GDScript**
+
+```gdscript
 extends Node
 
 func _ready():
 	SentrySDK.add_breadcrumb(SentryBreadcrumb.create("Just about to welcome the World."))
 	SentrySDK.capture_message("Hello, World!")
+```
+
+**C#**
+
+```csharp
+using Godot;
+
+public partial class SentryTest : Node
+{
+    public override void _Ready()
+    {
+        SentrySdk.AddBreadcrumb("Just about to welcome the World.");
+        SentrySdk.CaptureMessage("Hello, World!");
+    }
+}
 ```
 
 This snippet includes message capturing, so you can test that everything is working as soon as you set it up.
@@ -90,6 +109,7 @@ To view and resolve the recorded error, log into [sentry.io](https://sentry.io) 
 
 - [Configuration](https://docs.sentry.io/platforms/godot/configuration.md)
 - [Usage](https://docs.sentry.io/platforms/godot/usage.md)
+- [C#/.NET](https://docs.sentry.io/platforms/godot/dotnet.md)
 - [Enriching Events](https://docs.sentry.io/platforms/godot/enriching-events.md)
 - [Data Management](https://docs.sentry.io/platforms/godot/data-management.md)
 - [Logs](https://docs.sentry.io/platforms/godot/logs.md)

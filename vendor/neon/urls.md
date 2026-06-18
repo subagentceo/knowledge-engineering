@@ -29,7 +29,6 @@ transform: verbatim
 | https://neon.com/docs/cli/me.md | `vendor/neon/neon.com/docs/cli/me.md` |
 | https://neon.com/docs/cli/neon-auth.md | `vendor/neon/neon.com/docs/cli/neon-auth.md` |
 | https://neon.com/docs/cli/operations.md | `vendor/neon/neon.com/docs/cli/operations.md` |
-| https://neon.com/docs/cli/orgs.md | `vendor/neon/neon.com/docs/cli/orgs.md` |
 | https://neon.com/docs/connect/choose-connection.md | `vendor/neon/neon.com/docs/connect/choose-connection.md` |
 | https://neon.com/docs/connect/connect-from-any-app.md | `vendor/neon/neon.com/docs/connect/connect-from-any-app.md` |
 | https://neon.com/docs/connect/connect-intro.md | `vendor/neon/neon.com/docs/connect/connect-intro.md` |
@@ -50,6 +49,7 @@ transform: verbatim
 | https://neon.com/docs/get-started/full-backend-quickstart.md | `vendor/neon/neon.com/docs/get-started/full-backend-quickstart.md` |
 | https://neon.com/docs/get-started/languages.md | `vendor/neon/neon.com/docs/get-started/languages.md` |
 | https://neon.com/docs/get-started/orms.md | `vendor/neon/neon.com/docs/get-started/orms.md` |
+| https://neon.com/docs/get-started/platform-private-preview.md | `vendor/neon/neon.com/docs/get-started/platform-private-preview.md` |
 | https://neon.com/docs/get-started/production-checklist.md | `vendor/neon/neon.com/docs/get-started/production-checklist.md` |
 | https://neon.com/docs/get-started/production-readiness.md | `vendor/neon/neon.com/docs/get-started/production-readiness.md` |
 | https://neon.com/docs/get-started/query-with-neon-sql-editor.md | `vendor/neon/neon.com/docs/get-started/query-with-neon-sql-editor.md` |

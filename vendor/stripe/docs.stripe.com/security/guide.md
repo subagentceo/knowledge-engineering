@@ -47,7 +47,7 @@ You can [test your integration](https://docs.stripe.com/testing.md) without usin
 To set up TLS:
 
 1. Purchase a certificate from a suitable provider.
-1. Configure your server to use the certificate. This step is complex, so follow the installation guide of the provider you use.
+2. Configure your server to use the certificate. This step is complex, so follow the installation guide of the provider you use.
 
 As TLS is a complex suite of cryptographic tools, it’s easy to miss a few details. We recommend using the [SSL Server Test](https://www.ssllabs.com/ssltest/) by Qualys SSL Labs to make sure you set up everything in a secure way.
 

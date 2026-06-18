@@ -424,7 +424,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -530,7 +530,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -609,7 +609,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -712,7 +712,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -816,7 +816,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -833,7 +833,7 @@ export const ExampleButtons = () => {
 
               ## When to use it
 
-              Use FindAll to build a list from scratch — you describe what you're looking for in natural language, it searches the web, evaluates candidates against your match conditions, and returns verified matches. If you already have the list and just need to populate fields about each entity, use the Task API (enrichment) instead.
+              Use FindAll to build a list of companies, people, or other entities from scratch — you describe what you're looking for in natural language, it searches the web, evaluates candidates against your match conditions, and returns verified matches. If you already have the list and just need to populate fields about each entity, use the Task API (enrichment) instead. If you require results in seconds rather than verified matches, use Entity Search, FindAll's real-time counterpart, instead.
 
               ## Setup
 
@@ -910,7 +910,7 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
+              | **Entity Search** | One round-trip; natural-language people/company search → set of matching results | Latency-sensitive workflows that require a fast starting set of people or companies to filter or enrich downstream |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>
@@ -923,11 +923,11 @@ export const ExampleButtons = () => {
               ````markdown theme={"system"}
               # Parallel Entity Search — Setup Prompt
 
-              You're integrating **Parallel Entity Search** (beta): a fast, synchronous people-and-company search. Describe the people or companies you want in plain language and get back a ranked, structured set of matches in seconds.
+              You're integrating **Parallel Entity Search** (beta): a fast, synchronous people-and-company search. Describe the people or companies you want in plain language and get back a set of matching results in seconds.
 
               ## When to use it
 
-              Use Entity Search for real-time, human-in-the-loop, and latency-sensitive workflows — producing a candidate set of people or companies to evaluate, enrich, or pass into deeper research. It's part of FindAll and is distinct from the Search API (which retrieves pages and excerpts across the whole web). For comprehensive, verified, enriched list building, use FindAll instead.
+              Use Entity Search for real-time, human-in-the-loop, and latency-sensitive workflows — producing a starting set of people or companies to evaluate, enrich, or pass into deeper research. It is optimized for recall and speed: depending on the specificity of the objective, some results may not satisfy every requirement, so filter or review them downstream. For precision — verified, enriched, cited list building — use FindAll instead, which checks every result against your match conditions.
 
               ## Setup
 
@@ -983,7 +983,6 @@ export const ExampleButtons = () => {
               | **Extract** | URL → clean markdown (handles JS pages and PDFs) | Pulling the contents of a specific page, usually after narrowing via Search |
               | **Task** | Multi-hop research agent; runs seconds to hours (webhooks for long tiers) | Deep research with cited structured output; answers you can't get in one search |
               | **FindAll** | NL criteria → verified list of matching entities | Building a list from scratch (lead gen, competitive mapping, datasets) |
-              | **Entity Search** | One round-trip; natural-language people/company search → ranked structured matches | Latency-sensitive entity lookup when you need results in seconds, not minutes |
               | **Monitor** | Scheduled NL query + webhook notifications on change | Continuous tracking (news, regulatory, competitive watchlists) |
               ````
             </div>

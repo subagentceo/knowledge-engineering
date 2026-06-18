@@ -1,13 +1,19 @@
 {
+  "https://turbopuffer.com/docs/api-overview.md": {
+    "sha256": "11e8a44b607a2ea7729f05820b775e5033b502f4632a95c31a7d317c62d1aae3",
+    "lastStatus": 200,
+    "etag": "W/\"4f7cfd0a1e8e8ee64391748651e48ff2\"",
+    "lastModified": "Thu, 18 Jun 2026 01:57:06 GMT"
+  },
   "https://turbopuffer.com/docs/architecture.md": {
     "sha256": "c80e332d21e943a41c9382b95f21a88d9a20742f1ce565abdbea26dc8eb25513",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"279b928ba803c14dfb0b0da30122a16a\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/audit-logs.md": {
     "sha256": "4420dfb1f4775c765dbcf4cb25c372ffbae06796c6190560d2ea5a6d6445e607",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"5f5b7e479f33de4e243e86c204c3a68c\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
@@ -19,55 +25,55 @@
   },
   "https://turbopuffer.com/docs/backups.md": {
     "sha256": "4bfe632b400183a4b5261cf1887cc29f65260abacb7b6fc8deff9753b6a0312b",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"32aacbc3b653caa59c07dd2c345ff373\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/branching.md": {
     "sha256": "753e0eeb806d068f29e19d08d40d7bba818a7ad3a5ddddd63f21400b99109697",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"9cb9e34840f7df09fce94d733364770d\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/byoc.md": {
     "sha256": "60235bbeac71b5b34c0fbcd121b353bfe6cd1cd544ed4788466a4cd7967b909a",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"af0f337426be9cee2de05839bf875262\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/byoc/configuration.md": {
-    "sha256": "a5809a0b568d7d4839aabdbb4e19684b28e519d76e0e4867f3a70658c5c63342",
+    "sha256": "dd3af755bd3ac85efe983bcde653c2d7caa2307b3f3783ead1cd5960631ca022",
     "lastStatus": 200,
-    "etag": "W/\"f26c94fba4609793098b2f2009fde00b\"",
-    "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
+    "etag": "W/\"90d44c657cc0419a802bcf7e9dc4740c\"",
+    "lastModified": "Thu, 18 Jun 2026 01:57:06 GMT"
   },
   "https://turbopuffer.com/docs/byoc/control-plane.md": {
     "sha256": "2b45a78332e209ad77cb9c6bc89357528d85c54c639b0a104f04753808945afc",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"bec7a70580aec96a8293d281b31e41c9\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/byoc/deployment.md": {
     "sha256": "1a239bb00ae8c22d0e22b861c4a725ad93ff22ee9b807d9ae88402c30719aeb5",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"9498a76525fb4f54784d416e9cdaab69\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/byoc/operations.md": {
     "sha256": "f2e46189936e8b181214838b672a088b4f348d34429e620d6584a3a9d53c1642",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"71aa7bc6aa4aa6fc5292ca25c07fbe88\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/byoc/requirements.md": {
     "sha256": "f3ef043d0a2ebaa0f78c6ff10ea7d7d83f9a364b0ac68d2d18afe2dcbab23b6e",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"9647846c37d5c805302a46db9a0e5b51\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/chunking.md": {
     "sha256": "49bc2488151f0c6fac2878c7bb3946927fcbcbdee6e7dc65456413dd49179ec8",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"b92eb3565439bb00a779804a0789ad4a\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
@@ -79,73 +85,73 @@
   },
   "https://turbopuffer.com/docs/concepts.md": {
     "sha256": "f4f3978a19711e9df14b01dfbb4fa90cb91956e5587a010acfb6bcb4c4f4ba77",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"a73f3da983686ccaf0eb436fcc202234\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/delete-namespace.md": {
     "sha256": "9cb3c4b1e2e47230ba0d862c15a90a15ff9854416769f28e0ab4b0f9f223d1f3",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"e66c9e7e3d32e6c49ace5a41636ca0a8\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/encryption.md": {
     "sha256": "31db757639b7a3af2503a57c508212697e8c1009e3643ea44fe77a3e1748ad02",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"0b9021e9357c56c9bb49cd9c4320451f\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/export.md": {
     "sha256": "bf0d4ba852af5b5939fab0d8968d8276c46ac6a9dfdf66d8b510696915c031f9",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"e673a8d6ee482321af380ef1aad0294c\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/fts.md": {
     "sha256": "7deda7c01caff001d607a942f845df361805f7e66cabadf0c8f98a5107e90aaf",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"0ff840a597ee4e85073fef19324b26de\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/guarantees.md": {
     "sha256": "ed5a8ed919212fcd8289ab237d4f25bd0ef8fbac0b93b7b90c714d53ab5ac5e1",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"5f802633779158790382bd605c0900ea\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/hybrid.md": {
     "sha256": "850e2e5a200bf41f9b0e2562a20ef822c7bb466fb2b10ed91d050fc301fb2354",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7abb09c4cea893570b40332ec32e1166\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/index.md": {
     "sha256": "5805046c950507f0ca2bb6fc139f89330b6cd358effe24b088117420f3b400fd",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"d13599bc6d0a75e2189b22e3f72b1285\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/ingestion.md": {
     "sha256": "5f9c593bab9fdfaeb57446c77fd6c49eac58e9b7520effd82e403d33783bf621",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"115266edb689c3c0518283d71a85c3a9\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/limits.md": {
     "sha256": "63083688648c73ff6e33368de8beee549eec9f6240a13c226b55bd98288b7728",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7be0ceabb36d9b6f366de08a278166c2\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/metadata.md": {
     "sha256": "6d15ffd1c3d72060d53cc20e2cb8ce10ee3b957f06e76b72e153d6a71f41ff06",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"26bbe19848744264200c45284ede934a\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/namespaces.md": {
     "sha256": "8dcc91d971a26102494d16b6f14e7e2c9704074130d3c0298761469a730e8ffe",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7f1d2607511eb7e6b73112968f82ba1d\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
@@ -157,92 +163,92 @@
   },
   "https://turbopuffer.com/docs/performance.md": {
     "sha256": "2d5f88497dbb698748f9e9de5db31a58c5bd49dde4402362fd8a4d0ab62d1100",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"42fbe83ba0bad92a093fb8b9b37afa02\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
   },
   "https://turbopuffer.com/docs/permissions.md": {
-    "sha256": "a9ba8191b72f0ff7ba42484e449f43d34de0a77762dca336304082f1fe22180f",
+    "sha256": "2d3612bde916ca8d88a05639691ff9570541ae766bd6736d5871c1bbbe02b7b2",
     "lastStatus": 200,
-    "etag": "W/\"eedf2af2cd731a7ba59e75bc9400de86\"",
-    "lastModified": "Fri, 12 Jun 2026 17:14:38 GMT"
+    "etag": "W/\"76e41434538adec36553143730853772\"",
+    "lastModified": "Thu, 18 Jun 2026 01:57:07 GMT"
   },
   "https://turbopuffer.com/docs/pinning.md": {
     "sha256": "998b7536e8a978e0fae014f4ef922d022360dd1cb6f1a8fd9a5cf628686ee514",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7366e2d7c17d7f134ea4ebdd66f5d432\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/private-networking.md": {
     "sha256": "e96367b4148f18c497f4f4802ea246d7dece555c927b0fbb0be3da97df3cd3df",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"fd5fd0cec04966bb7894c0520030fe8b\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/query.md": {
     "sha256": "46eb2bc5bd3d0ac1f15cbf24f4ce9370fac3ecca4fd6ff06216d14a66aff4396",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"cc169d5bfabd686a92c428ccb42a664e\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/quickstart.md": {
     "sha256": "7cbc0208e955f7ef4fbba6531f9a0d61afe4df9d9635837744a148a689a73910",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"4d04b2c56c974398c7c8b3d3f78c0aa1\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/recall.md": {
-    "sha256": "1e5d41af1b0a680d6f3110a9d8200add69f1457f5368b858fb1757766701f262",
+    "sha256": "2fa685e3a695a8f48b5673d732bea4ad953445ca4025d9e8dd52bc5bd67a5a42",
     "lastStatus": 200,
-    "etag": "W/\"01b12e92bef7e82c409df751d937e26a\"",
-    "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
+    "etag": "W/\"f9e1a9404769203d43a91584c39cbebd\"",
+    "lastModified": "Thu, 18 Jun 2026 01:57:07 GMT"
   },
   "https://turbopuffer.com/docs/regions.md": {
     "sha256": "7d7749ef0164031e716f9569a716e5d1f3f5f060259ded0ca0aff712bd3acf21",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"e886abcc2b04dfe2e162a0edbc7ca5cc\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/roadmap.md": {
-    "sha256": "a710a20a63391b444552d66f060d24e990c8ca3eb389c11e6f858b4c90a25069",
+    "sha256": "32828203e7564fdae750c8a88d1c3cad9c36c5e6d3f0db41187de07aa9b1ccb6",
     "lastStatus": 200,
-    "etag": "W/\"dccc5df50e0d6b0da0cd2e6b395d8f73\"",
-    "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
+    "etag": "W/\"66504fd33d082de392dfb385a08a2d51\"",
+    "lastModified": "Thu, 18 Jun 2026 01:57:07 GMT"
   },
   "https://turbopuffer.com/docs/security.md": {
     "sha256": "029fc7fe00adf695f46bb883106406e1fbbfc36644f8ab3258794f83d87d1a99",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"a297a91b087e5cca543acb810a7c9a81\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/testing.md": {
     "sha256": "8429de1ebcc97a469829b1f19f5d95504d8e53a8dbc31efc227c3dd7f80350f4",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"693044d767460c26956229324f0f238f\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/tradeoffs.md": {
     "sha256": "ae7427d659b8cb41f20df8e66488ebb45308b365e4ef7e24d586a1cc0a15ab2c",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"4ad5283867a7074943d7143bdee60d11\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/vector.md": {
     "sha256": "b623995987441ab1919ba71578f7491b484613df888c0ecdbf0f16a75f7cdd42",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"49ea9822ac6ede4d2ab4468641d679b0\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/warm-cache.md": {
     "sha256": "8e8e40d5489a9b6cf859f1ed2b9794a429b7a272641d58b5f46c3cc702bb2af8",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"ab942b5f846e1125af0f30241bb03744\"",
     "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
   },
   "https://turbopuffer.com/docs/write.md": {
-    "sha256": "7501e279c27c9c6a956e89e758975231b2e8fa239c07ef4d0be36c14ac4e77f6",
+    "sha256": "1b6c87d586d2becf6276bf903e5b959d3043a82ccc5f46aa2de8eef0c03dcb09",
     "lastStatus": 200,
-    "etag": "W/\"5d29f50b88950d2296dcd7913623fbb1\"",
-    "lastModified": "Fri, 12 Jun 2026 17:14:39 GMT"
+    "etag": "W/\"649e84a0770b5c3a3dcdad67b23216a7\"",
+    "lastModified": "Wed, 17 Jun 2026 16:00:02 GMT"
   }
 }

@@ -1,28 +1,28 @@
-# [](#usage)Usage
+# Usage
 
-This documentation is for the V2 release. For the older, V1 release documentation, check out [https://google.github.io/osv-scanner-v1](https://google.github.io/osv-scanner-v1).
+This documentation is for the V2 release. For the older, V1 release documentation, check out https://google.github.io/osv-scanner-v1.
 
 Table of contents
 
--   [Usage](#usage)
-    -   [Core Concept](#core-concept)
-    -   [Subcommands](#subcommands)
-        -   [The `scan` Subcommand](#the-scan-subcommand)
-    -   [Post-Extraction Flags](#post-extraction-flags)
-        -   [Saving to File](#saving-to-file)
-        -   [Setting Output Format](#setting-output-format)
-        -   [Override config file](#override-config-file)
-        -   [Set verbosity level](#set-verbosity-level)
-        -   [Serve HTML report locally](#serve-html-report-locally)
-        -   [Offline vulnerability match](#offline-vulnerability-match)
-        -   [Licenses scanning](#licenses-scanning)
-        -   [Show all packages](#show-all-packages)
-        -   [Other features](#other-features)
-    -   [Pre-Commit Integration](#pre-commit-integration)
-        -   [Examples](#examples)
-    -   [Running in a Docker Container](#running-in-a-docker-container)
+*   Usage
+    *   Core Concept
+    *   Subcommands
+        *   The `scan` Subcommand
+    *   Post-Extraction Flags
+        *   Saving to File
+        *   Setting Output Format
+        *   Override config file
+        *   Set verbosity level
+        *   Serve HTML report locally
+        *   Offline vulnerability match
+        *   Licenses scanning
+        *   Show all packages
+        *   Other features
+    *   Pre-Commit Integration
+        *   Examples
+    *   Running in a Docker Container
 
-## [](#core-concept)Core Concept
+## Core Concept
 
 OSV-Scanner operates in a two-step process:
 
@@ -31,7 +31,7 @@ OSV-Scanner operates in a two-step process:
 2.  **Vulnerability Matching**: The extracted package information is then matched against known vulnerability databases to identify potential security issues.
     
 
-## [](#subcommands)Subcommands
+## Subcommands
 
 OSV-Scanner V2 is divided into several subcommands:
 
@@ -43,44 +43,44 @@ Quick Example
 
 `scan`
 
-[Further down this page](/osv-scanner/usage/#scan-subcommand)
+Further down this page
 
 `osv-scanner scan -r ./my-project-dir/`
 
 `scan source`
 
-[Source Project Scanning](/osv-scanner/usage/scan-source)
+Source Project Scanning
 
 Source scanning is default, so the example is the same as above.
 
 `scan image`
 
-[Container Scanning](/osv-scanner/usage/scan-image)
+Container Scanning
 
 `osv-scanner scan image my-docker-img:latest`
 
 `fix`
 
-[Guided Remediation](/osv-scanner/experimental/guided-remediation/)
+Guided Remediation
 
 `osv-scanner fix -M path/to/package.json -L path/to/package-lock.json`
 
 Guided remediation (the `fix` command) can be risky when run on untrusted projects. It may trigger the package manager to execute scripts or follow external registries specified in the project. Please ensure you trust the source code and artifacts before proceeding.
 
-### [](#the-scan-subcommand)The `scan` Subcommand
+### The scan Subcommand
 
 The `scan` subcommand is the primary way to initiate vulnerability scans. It has two subcommands of its own: `source` (default) and `image`.
 
--   **`scan source`**: Scans source code directories for package dependencies and vulnerabilities. See the [Scanning Source documentation](/osv-scanner/usage/scan-source) for more details.
+*   **`scan source`**: Scans source code directories for package dependencies and vulnerabilities. See the Scanning Source documentation for more details.
     
--   **`scan image`**: Scans container images for vulnerabilities. See the [Scanning Container Images documentation](/osv-scanner/usage/scan-image) for more details.
+*   **`scan image`**: Scans container images for vulnerabilities. See the Scanning Container Images documentation for more details.
     
 
 Both `scan source` and `scan image` share a common set of flags for configuring the scan and output.
 
-## [](#post-extraction-flags)Post-Extraction Flags
+## Post-Extraction Flags
 
-### [](#saving-to-file)Saving to File
+### Saving to File
 
 The `--output-file` flag can be used to save the scan results to a file instead of being printed on the stdout:
 
@@ -88,27 +88,27 @@ The `--output-file` flag can be used to save the scan results to a file instead 
 osv-scanner scan -L package-lock.json --output-file scan-results.txt
 ```
 
-### [](#setting-output-format)Setting Output Format
+### Setting Output Format
 
 The `--format` flag can be used to specify the output format osv-scanner gives.
 
-See [Output](/osv-scanner/output/) page for more details.
+See Output page for more details.
 
 ```
 osv-scanner scan -L package-lock.json --format json
 ```
 
-### [](#override-config-file)Override config file
+### Override config file
 
 The `--config` flag can be used to specify a global config override to apply to all the files you are scanning.
 
-See [Config](/osv-scanner/configuration/) for more details.
+See Config for more details.
 
 ```
 osv-scanner scan -L package-lock.json --config ./my-osv-scanner-config.toml
 ```
 
-### [](#set-verbosity-level)Set verbosity level
+### Set verbosity level
 
 The `--verbosity` flag can be used to set the verbosity level. See `--help` output for possible levels.
 
@@ -116,7 +116,7 @@ The `--verbosity` flag can be used to set the verbosity level. See `--help` outp
 osv-scanner scan -L package-lock.json --verbosity info
 ```
 
-### [](#serve-html-report-locally)Serve HTML report locally
+### Serve HTML report locally
 
 The `--serve` flag is a helper flag to set the output format to HTML, and serve the report locally on port 8000.
 
@@ -124,7 +124,7 @@ The `--serve` flag is a helper flag to set the output format to HTML, and serve 
 osv-scanner scan -L package-lock.json --serve
 ```
 
-### [](#offline-vulnerability-match)Offline vulnerability match
+### Offline vulnerability match
 
 The `--offline-vulnerabilities` flag can be used to check for vulnerabilities using local databases that are already cached
 
@@ -132,9 +132,9 @@ The `--offline-vulnerabilities` flag can be used to check for vulnerabilities us
 osv-scanner --offline-vulnerabilities --download-offline-databases ./path/to/your/dir
 ```
 
-See [offline vulnerabilities](/osv-scanner/usage/offline-mode/) for more details.
+See offline vulnerabilities for more details.
 
-### [](#licenses-scanning)Licenses scanning
+### Licenses scanning
 
 The `--licenses` flag can be used to report license violations based on an allowlist
 
@@ -146,29 +146,29 @@ osv-scanner --licenses path/to/repository
 osv-scanner --licenses="comma-separated list of allowed licenses" path/to/directory
 ```
 
-See [licenses scanning](/osv-scanner/usage/license-scanning/) for more details.
+See licenses scanning for more details.
 
-### [](#show-all-packages)Show all packages
+### Show all packages
 
 The `--all-packages` flag can be used to output all packages in JSON format (make sure to set `--format=json`).
 
 Note that the `PackageOverrides` configuration, specifically the `ignore` action, takes precedence over this flag.
 
-See [configuration](/osv-scanner/configuration/#override-packages) for more details.
+See configuration for more details.
 
 ```
 osv-scanner --all-packages --format=json path/to/repository
 ```
 
-### [](#other-features)Other features
+### Other features
 
 Several other features are available through flags. See their respective documentation pages for more details:
 
--   `--no-resolve`: Disables [transitive dependency resolution](/osv-scanner/supported-languages-and-lockfiles/#transitive-dependency-scanning).
+*   `--no-resolve`: Disables transitive dependency resolution.
 
-## [](#pre-commit-integration)Pre-Commit Integration
+## Pre-Commit Integration
 
-OSV-Scanner can be integrated as a [pre-commit](https://pre-commit.com) hook in your project.
+OSV-Scanner can be integrated as a pre-commit hook in your project.
 
 1.  Add the `osv-scanner` hook to your `.pre-commit-config.yaml` file.
     
@@ -181,7 +181,7 @@ OSV-Scanner can be integrated as a [pre-commit](https://pre-commit.com) hook in 
 pre-commit run --all-files --verbose osv-scanner
 ```
 
-### [](#examples)Examples
+### Examples
 
 ```
 # Scan the current directory.
@@ -220,7 +220,7 @@ repos:
           - "debian:trixie" # replace with your chosen image (the tag is mandatory)
 ```
 
-## [](#running-in-a-docker-container)Running in a Docker Container
+## Running in a Docker Container
 
 The OSV-Scanner Docker image can be pulled from the GitHub Container Registry:
 
@@ -244,11 +244,11 @@ docker run -v ${PWD}:/src ghcr.io/google/osv-scanner -L /src/go.mod
 
 ## Table of contents
 
--   [Container Image Scanning](/osv-scanner/usage/scan-image)
--   [Project Source Scanning](/osv-scanner/usage/scan-source)
--   [License Scanning](/osv-scanner/usage/license-scanning/)
--   [Offline Mode](/osv-scanner/usage/offline-mode/)
+*   Container Image Scanning
+*   Project Source Scanning
+*   License Scanning
+*   Offline Mode
 
 * * *
 
-This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.
+This site uses Just the Docs, a documentation theme for Jekyll.

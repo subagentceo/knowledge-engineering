@@ -7,7 +7,7 @@
 
 Manage a branch with a neon.ts policy: status, plan, and apply
 
-The `config` command manages a branch declaratively with a `neon.ts` policy file: inspect the branch's live state, preview what an apply would change, and apply the policy. For the `neon.ts` file format, see the [neon.ts reference](https://neon.com/docs/compute/functions/reference/neon-ts).
+The `config` command manages a branch declaratively with a `neon.ts` policy file: inspect the branch's live state, preview what an apply would change, and apply the policy. For the `neon.ts` file format, see the [neon.ts reference](https://neon.com/docs/reference/neon-ts).
 
 Subcommands: [status](https://neon.com/docs/cli/config#status), [plan](https://neon.com/docs/cli/config#plan), [apply](https://neon.com/docs/cli/config#apply)
 

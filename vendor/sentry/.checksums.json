@@ -13,13 +13,13 @@
   },
   "https://docs.sentry.io/ai/agent-skills.md": {
     "sha256": "636381d7b4e5c2a9acef3ca4bdd4aa2b7d843e532cec2f1e49f20802b89b47b4",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"6883c0e5a4d4145a227ffdf47be2f632\"",
     "lastModified": "Fri, 12 Jun 2026 10:02:03 GMT"
   },
   "https://docs.sentry.io/ai/dotagents.md": {
     "sha256": "0a08ce43ce506c497b4a154fa2fea080928ee0e505b8f918b8d953ae3021a3c9",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"8cb471b0eb1494fa5f3c8e461eeadd37\"",
     "lastModified": "Fri, 12 Jun 2026 14:31:22 GMT"
   },
@@ -49,19 +49,19 @@
   },
   "https://docs.sentry.io/api/discover.md": {
     "sha256": "efdc991b916c08708fa299619ec5f94399353266f3f90a9de7355cb63bb6dcd2",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"3528dc81c7eb19430503c3b4271d3d83\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
   "https://docs.sentry.io/api/environments.md": {
     "sha256": "a3b6959f64ded2faaca71e6d2775d5a370b41f20b7d55c34d01c741ee3a1322c",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"656e89283830799e5fd497b24f6cfa8b\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
   "https://docs.sentry.io/api/events.md": {
     "sha256": "3880d2009fd4671d0619ed41cb98de77d06b9fdca822b7dbefdf4c3d1e766359",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"dbdea6457fd82a59d08027236969d084\"",
     "lastModified": "Fri, 12 Jun 2026 11:00:43 GMT"
   },
@@ -103,7 +103,7 @@
   },
   "https://docs.sentry.io/api/pagination.md": {
     "sha256": "be711da87a735f31be8cc5b9836d1518633eca10779124d06fffa46f180285c8",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"c81e043a380ce574ec15c4ab38ec17d3\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
@@ -121,13 +121,13 @@
   },
   "https://docs.sentry.io/api/profiling.md": {
     "sha256": "246cdaba21a84e4bcaef7b97d1c69304f55682022a2709ff59fbb5e0907c8df0",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "\"bebc7a00f0b1b9315c73f754d538d305\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
   "https://docs.sentry.io/api/projects.md": {
     "sha256": "52d03eabdd8ad99b1bfa98bb56996925c7b6bcc0dbae739aeedf8094746b3d92",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"9ba91f86995a7d66627436f6a3ce08b0\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
@@ -139,7 +139,7 @@
   },
   "https://docs.sentry.io/api/releases.md": {
     "sha256": "e4934b0dd681b9acd5e7d06a7c4e015196a36d5357ee7fcbd620e7a0b0f53e80",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"b0859dff1287ceaaa2566afedc1abfee\"",
     "lastModified": "Fri, 12 Jun 2026 09:58:01 GMT"
   },
@@ -151,7 +151,7 @@
   },
   "https://docs.sentry.io/api/requests.md": {
     "sha256": "f916635454ffeb0fc90b8d0c1b4096280e5dd20f3207f08631d18abed0693198",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"448e77ae3c5a9b8665435e8b485b2bbb\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
@@ -169,7 +169,7 @@
   },
   "https://docs.sentry.io/api/snapshots.md": {
     "sha256": "127b08e9fc886188109c2e4d4818be49ab68689ca62a5443451e7e4dd5f027ef",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"a902913a3d594388cc7dabb7c2384f7d\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
@@ -199,19 +199,19 @@
   },
   "https://docs.sentry.io/cli/code-mappings.md": {
     "sha256": "c951bea1cdf004427e491ef6049c2785431bcfacb9343dc508ac87cf0e03f59d",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7d87a31fd032ae6f4291ed61bf5d41f1\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
   "https://docs.sentry.io/cli/configuration.md": {
     "sha256": "0b5286e31a81f997a5f62fdedf8f83107ce895db6f0e3a14de8ea792e5923915",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"98bcd36d105bb93d5db3c5d3e2a929d7\"",
     "lastModified": "Fri, 12 Jun 2026 09:49:51 GMT"
   },
   "https://docs.sentry.io/cli/crons.md": {
     "sha256": "d51a8bfd90568ff0ffc6f7620e4a864f64cea8322ce396cec8ca92234577c90b",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"23b3f6c8adc29abce21330b843a12b3f\"",
     "lastModified": "Fri, 12 Jun 2026 10:24:33 GMT"
   },
@@ -222,32 +222,32 @@
     "lastModified": "Sat, 16 May 2026 03:42:27 GMT"
   },
   "https://docs.sentry.io/cli/installation.md": {
-    "sha256": "41fbf39eb574a3d052de4ce3ea576590c1c34c1bbc7839bf17db440409efcf80",
+    "sha256": "9086454c44ff48a12e1a925a6858e415cb2c1bdcfeb5812ffcc7a71794d04f16",
     "lastStatus": 200,
-    "etag": "W/\"7c2c9b1d3ff70f3d500f2b19f88b9901\"",
-    "lastModified": "Fri, 12 Jun 2026 10:12:20 GMT"
+    "etag": "W/\"d51a19efb49b6b09c5f794f8dfc621d6\"",
+    "lastModified": "Thu, 18 Jun 2026 01:45:51 GMT"
   },
   "https://docs.sentry.io/cli/logs.md": {
     "sha256": "f960f0467dab57011d4e556983c2b81538ce29be3e0eb2e0252a68b6da9093c1",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"f4e651d86acb7e1a50b047cd620f6bd0\"",
     "lastModified": "Fri, 12 Jun 2026 15:08:49 GMT"
   },
   "https://docs.sentry.io/cli/releases.md": {
     "sha256": "c9d5654ab7fcdc562615611def2886e63c10838e92291e10140439c95af22ad3",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"81657b83d6b2c1124569748e0b8ab57b\"",
     "lastModified": "Fri, 12 Jun 2026 10:03:35 GMT"
   },
   "https://docs.sentry.io/cli/send-event.md": {
     "sha256": "90ae5dff580fb646a55a1c13bf452e661fc08b20c0c4b7c87abe6988ea0f064a",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"16f2dc85925513e12ca2877c502f6b7b\"",
     "lastModified": "Fri, 12 Jun 2026 15:08:49 GMT"
   },
   "https://docs.sentry.io/cli/snapshots.md": {
     "sha256": "c8d142c5f2b0a1a8cd2e303e28dce831610b6fb8b62ba665c804e220ab3d4ca6",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"aecad2ec2c469146f4611ed0e14ab3cd\"",
     "lastModified": "Fri, 12 Jun 2026 17:02:35 GMT"
   },
@@ -289,25 +289,25 @@
   },
   "https://docs.sentry.io/guides/custom-spans.md": {
     "sha256": "d16f70ee657604414fc47440e24d147e2e3564b61edb3d61d9fb25b2acc44732",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7f0ad83efb54167602788d6a1bc3ffd0\"",
     "lastModified": "Fri, 12 Jun 2026 15:49:03 GMT"
   },
   "https://docs.sentry.io/guides/issues-errors.md": {
     "sha256": "0c806dc14ea22919adfbfe5b154804e34a3bfdd9c52dce4d6970a7243323ff00",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"3e25259333ee2ef1439e8c5fadd86d15\"",
     "lastModified": "Fri, 12 Jun 2026 11:27:28 GMT"
   },
   "https://docs.sentry.io/guides/logs.md": {
     "sha256": "1d448607437b6fb05980dbab69379222ff2a9f991df92042e772c3c8ff2203af",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"af35fdc13835e3e2742665259dd4435e\"",
     "lastModified": "Fri, 12 Jun 2026 11:27:11 GMT"
   },
   "https://docs.sentry.io/guides/metrics.md": {
     "sha256": "72aa35ca4be36b2baab544ff514e1f6738d61c036d3f25e0a4b27d7c3494714b",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"8351946a8730d05821d43737a67d706a\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:25 GMT"
   },
@@ -349,7 +349,7 @@
   },
   "https://docs.sentry.io/integrations/debugging.md": {
     "sha256": "71f927031f35be663088f34c38d4b7299a0442d23843867d41b8d0fdf9677e32",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"29cf01027c21c2d164bcd5e5f301caed\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:26 GMT"
   },
@@ -415,7 +415,7 @@
   },
   "https://docs.sentry.io/organization/data-storage-location.md": {
     "sha256": "3280771d5e5d74c512108380df040d8339873ad7cc07c3771bee9fbdb954622f",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"324cb643009df6b9c4093e3d0693472a\"",
     "lastModified": "Fri, 12 Jun 2026 09:48:20 GMT"
   },
@@ -445,7 +445,7 @@
   },
   "https://docs.sentry.io/platforms/android.md": {
     "sha256": "ddf161e85d3877a809a6345a943edac486e66f518441de5d82957c857b938644",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"c5d3e65fdc6c8c416cafbcfa5b376f37\"",
     "lastModified": "Fri, 12 Jun 2026 15:53:56 GMT"
   },
@@ -457,45 +457,45 @@
   },
   "https://docs.sentry.io/platforms/dart.md": {
     "sha256": "77bb8f56512e6c33e69e3548bbda217f1b8769a840f70f4dc3212c95ffb16255",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7edd17ba5993cd8cdf55d3de3a0dd643\"",
     "lastModified": "Fri, 12 Jun 2026 12:00:44 GMT"
   },
   "https://docs.sentry.io/platforms/dotnet.md": {
     "sha256": "db07a3a8348b08712426017905db3eb6b0ebe70294924a7e33d419a5e536cb7a",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"907d9e06d7b892baa2b620c5b43af84c\"",
     "lastModified": "Fri, 12 Jun 2026 11:30:34 GMT"
   },
   "https://docs.sentry.io/platforms/elixir.md": {
     "sha256": "c18ceb1a8cdbcb0e1ca9fc488d5381e7e51eebc3573bf21ecd69e20f253f9a89",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7e1c571f05d11f95861e947b44b0fa5b\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:26 GMT"
   },
   "https://docs.sentry.io/platforms/go.md": {
-    "sha256": "e1ba905d1cbefc95af9f218a1290c1400f61a96e613e85b589899af98cc3eec0",
+    "sha256": "9e32d315dd815ac876951be904688742bd1ca5e24ddc6b9130809b169584e0b2",
     "lastStatus": 200,
-    "etag": "W/\"55c0348a5776f41351156a1f7e63e0e3\"",
-    "lastModified": "Fri, 12 Jun 2026 14:41:23 GMT"
+    "etag": "W/\"91fc5a15ba2300289ec6b436b433ca52\"",
+    "lastModified": "Thu, 18 Jun 2026 01:36:53 GMT"
   },
   "https://docs.sentry.io/platforms/godot.md": {
-    "sha256": "149fb7edcc540874df41fa50b7eda563e1b542701f7437652ab92ae9eab64145",
-    "lastStatus": 304,
-    "etag": "W/\"991d00b25e9dc8ebb37eefcc99d00c6d\"",
-    "lastModified": "Sat, 16 May 2026 05:32:07 GMT"
+    "sha256": "c5894bade6aef5d2d219bd44d9dcf4cc8a9abcd86e2db3b9b799cac910e7e0cf",
+    "lastStatus": 200,
+    "etag": "W/\"5db7d3b476172c4e7f06b49406ed3731\"",
+    "lastModified": "Thu, 18 Jun 2026 01:50:47 GMT"
   },
   "https://docs.sentry.io/platforms/java.md": {
-    "sha256": "d78ac2d216ca3d605ed22add51ec9131690ca2adc99fbc8c84bed5a11d3f6ed3",
+    "sha256": "7702dd8ab7064001194ae9d97a795117a5a3c905e58e5cf1caa9c16bb0588703",
     "lastStatus": 200,
-    "etag": "W/\"958313d20ab70c63ab7495cbc9c79a24\"",
-    "lastModified": "Fri, 12 Jun 2026 11:29:03 GMT"
+    "etag": "W/\"b84523cd71fdaa01e5046ffe37ef67fb\"",
+    "lastModified": "Thu, 18 Jun 2026 01:50:47 GMT"
   },
   "https://docs.sentry.io/platforms/javascript.md": {
-    "sha256": "9e1f88748dec14713cc2e31218d4d96de0fb8e60eae52920c87358ac95f0b530",
+    "sha256": "05dd4e5f40ba03021710ef521230769435318c49c2e5f7e9d0c55c7c2a9ebbbb",
     "lastStatus": 200,
-    "etag": "W/\"c1ab55252a08b1f19ddf32940cc80a2a\"",
-    "lastModified": "Fri, 12 Jun 2026 09:50:30 GMT"
+    "etag": "W/\"38100d06112d722eb04302dd8257987a\"",
+    "lastModified": "Wed, 17 Jun 2026 22:25:03 GMT"
   },
   "https://docs.sentry.io/platforms/kotlin.md": {
     "sha256": "4fa2fbbbc22f4a8990fd9e1b86a9801ddbd4c39c2798daa0379b5b48f0a62f69",
@@ -505,7 +505,7 @@
   },
   "https://docs.sentry.io/platforms/native.md": {
     "sha256": "0400e85416c8a28393cf4e1f84a5cf1da6a998a87cd2f7439a4ee71f32050a7a",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"517c32623779c0e0b99f0afbc90ab1f3\"",
     "lastModified": "Fri, 12 Jun 2026 16:35:22 GMT"
   },
@@ -517,7 +517,7 @@
   },
   "https://docs.sentry.io/platforms/php.md": {
     "sha256": "9068b614cfea13436ba021ec2710978a00924859691c7a6b029bab50f076baae",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"e37f614a99444e38b314d42f0fc1b680\"",
     "lastModified": "Fri, 12 Jun 2026 11:02:05 GMT"
   },
@@ -529,43 +529,43 @@
   },
   "https://docs.sentry.io/platforms/powershell.md": {
     "sha256": "0f40b4152639c516f77e278de93d3acf077f71136ff8ac492c150fa8b8b7af63",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"1909e0a5997f1dc0a9266cb87f88aa50\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:26 GMT"
   },
   "https://docs.sentry.io/platforms/python.md": {
-    "sha256": "c2f5010461e796b1b1710a66e8a8f0d44da0a6391ca7e85e32073161e1f74a6c",
+    "sha256": "9b27689b075d2d984dc4552f46d8adf377e18eea0f9076076a2bda601e848e02",
     "lastStatus": 200,
-    "etag": "W/\"28ff6afab05dfd0bd86f976f9acaa72f\"",
-    "lastModified": "Fri, 12 Jun 2026 11:29:01 GMT"
+    "etag": "W/\"d4cf1e1249f82a52bc5f4a8d14b8c8c8\"",
+    "lastModified": "Wed, 17 Jun 2026 22:49:31 GMT"
   },
   "https://docs.sentry.io/platforms/react-native.md": {
     "sha256": "13e9e9b5d5429480c9735e52e7f4b4787e31fc081f72b12b2cb2906f7ab6fec6",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"8e7f747bdb7d9230d01b8e8d8052a696\"",
     "lastModified": "Fri, 12 Jun 2026 11:35:14 GMT"
   },
   "https://docs.sentry.io/platforms/ruby.md": {
     "sha256": "0ce744f0a1d38f5fc198a2e3f886b1a0a4a462391631431e24a38e5692746525",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"fca07708be387cd6fc09602ab329713e\"",
     "lastModified": "Fri, 12 Jun 2026 12:06:41 GMT"
   },
   "https://docs.sentry.io/platforms/rust.md": {
     "sha256": "2ca73e3e2ddde9b7929af980382372d0dd12c7f2ec63bad9cfbf5a8c7b9a1164",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"f7e23767f03219baa70fc4708181ffdd\"",
     "lastModified": "Fri, 12 Jun 2026 15:14:08 GMT"
   },
   "https://docs.sentry.io/platforms/unity.md": {
     "sha256": "e219a091fb6ee81439fdaf146b16807914d6bf607c625d14d6f03e38f6437956",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"7849cb55b46299de2f2a0943c3801de2\"",
     "lastModified": "Fri, 12 Jun 2026 10:09:58 GMT"
   },
   "https://docs.sentry.io/platforms/unreal.md": {
     "sha256": "1dc5349f92c8f46a8f923f661ef818a2a0744f1302c2f33dfa30a7c4dd57df9a",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"150951ed3a204b491f56529d275da948\"",
     "lastModified": "Fri, 12 Jun 2026 10:17:17 GMT"
   },
@@ -582,14 +582,14 @@
     "lastModified": "Fri, 15 May 2026 23:34:30 GMT"
   },
   "https://docs.sentry.io/product/ai-in-sentry.md": {
-    "sha256": "ec82168f1846b07d04379bcc831cfaae9c200f00e0d2b7e3894f6e0ca4282df4",
-    "lastStatus": 304,
-    "etag": "W/\"3f09762fe39162f91fc6a4e2bfb787b4\"",
-    "lastModified": "Sat, 16 May 2026 05:32:07 GMT"
+    "sha256": "a38b48fa4d5256cf1c624adf2ca629c4bb116ef8ca293c9fc633c4fb88248876",
+    "lastStatus": 200,
+    "etag": "W/\"f4d33b3919928179a9c831ff99c514b4\"",
+    "lastModified": "Thu, 18 Jun 2026 01:50:47 GMT"
   },
   "https://docs.sentry.io/product/build-distribution.md": {
     "sha256": "ca7b5645be3e4c4e012d979bf23c716e4101e6298096576fb653a0ad37ef2683",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"d323f5276c016abcc93c970d543c2875\"",
     "lastModified": "Fri, 12 Jun 2026 17:13:26 GMT"
   },
@@ -678,14 +678,14 @@
     "lastModified": "Sat, 16 May 2026 05:32:08 GMT"
   },
   "https://docs.sentry.io/product/size-analysis.md": {
-    "sha256": "5b58b2f917d96b33f848d2937b124dff8e38adaace875ffd02f320de75e70665",
-    "lastStatus": 304,
-    "etag": "W/\"7166798cdd245dd1318904d247cf5cdc\"",
-    "lastModified": "Sat, 16 May 2026 04:17:20 GMT"
+    "sha256": "d0aee1294c18ccd4c3053e3614be94dabdadaa2652ddf3a6b2c41eb5a01e37ac",
+    "lastStatus": 200,
+    "etag": "W/\"d27e8eabb390466f17eace0e7dabf23e\"",
+    "lastModified": "Thu, 18 Jun 2026 01:50:47 GMT"
   },
   "https://docs.sentry.io/product/snapshots.md": {
     "sha256": "43855be2e69abc2fc76eca48b7b7e4040dc7dffe040d8719f96c90b78b5dd3a7",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"8ce5ad71126c02c990e8337b1b5769f2\"",
     "lastModified": "Fri, 12 Jun 2026 10:20:12 GMT"
   },

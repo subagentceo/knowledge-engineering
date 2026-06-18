@@ -16,7 +16,7 @@
 | Extract       | \$          | Page content retrieval                     | -         | Synchronous  | 1-20s     |
 | Chat          | \$          | Grounded chat completions                  | Low       | Synchronous  | 1-3s      |
 | Task          | \$-\$\$\$\$ | Deep research, enrichment, custom research | Low-High  | Asynchronous | 10s - 2hr |
-| FindAll       | \$-\$\$\$\$ | List / database building                   | Low-High  | Asynchronous | 10s - 2hr |
+| FindAll       | \$-\$\$\$\$ | Verified list / database building          | Low-High  | Asynchronous | 10s - 2hr |
 | Entity Search | \$          | People & company search                    | -         | Synchronous  | 1-3s      |
 | Monitor       | \$-\$\$     | Always-on web monitoring                   | Low       | Asynchronous | Ambient   |
 
@@ -119,7 +119,7 @@ If you add [enrichments](/findall-api/features/findall-enrich), each enrichment 
 
 #### Entity Search
 
-[Entity Search](/findall-api/entity-search) is a fast, synchronous people-and-company search within FindAll. It is priced per request, including 100 results by default.
+[Entity Search](/findall-api/entity-search) is a fast, synchronous people-and-company search, the real-time counterpart to FindAll. It is priced per request, including 100 results by default.
 
 | Component                                | Cost (\$/1000) |
 | ---------------------------------------- | -------------- |

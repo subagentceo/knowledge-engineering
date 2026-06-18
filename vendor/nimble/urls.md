@@ -1,7 +1,7 @@
 ---
 vendor: nimble
 llms_txt: https://docs.nimbleway.com/llms.txt
-count: 60
+count: 123
 transform: append-md-and-accept
 ---
 
@@ -28,6 +28,7 @@ transform: append-md-and-accept
 | https://docs.nimbleway.com/api-reference/map/map.md | `vendor/nimble/docs.nimbleway.com/api-reference/map/map.md` |
 | https://docs.nimbleway.com/api-reference/media/media-download-async.md | `vendor/nimble/docs.nimbleway.com/api-reference/media/media-download-async.md` |
 | https://docs.nimbleway.com/api-reference/media/media-download.md | `vendor/nimble/docs.nimbleway.com/api-reference/media/media-download.md` |
+| https://docs.nimbleway.com/api-reference/openapi.json | `vendor/nimble/docs.nimbleway.com/api-reference/openapi.json` |
 | https://docs.nimbleway.com/api-reference/search/search.md | `vendor/nimble/docs.nimbleway.com/api-reference/search/search.md` |
 | https://docs.nimbleway.com/api-reference/serp/serp-async.md | `vendor/nimble/docs.nimbleway.com/api-reference/serp/serp-async.md` |
 | https://docs.nimbleway.com/api-reference/serp/serp-batch.md | `vendor/nimble/docs.nimbleway.com/api-reference/serp/serp-batch.md` |
@@ -53,12 +54,15 @@ transform: append-md-and-accept
 | https://docs.nimbleway.com/integrations/connectors/anthropic/sdk.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/anthropic/sdk.md` |
 | https://docs.nimbleway.com/integrations/connectors/google-adk.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/google-adk.md` |
 | https://docs.nimbleway.com/integrations/connectors/langchain.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/langchain.md` |
+| https://docs.nimbleway.com/integrations/connectors/omnigent.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/omnigent.md` |
 | https://docs.nimbleway.com/integrations/connectors/openai.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/openai.md` |
 | https://docs.nimbleway.com/integrations/connectors/smithery.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/smithery.md` |
+| https://docs.nimbleway.com/integrations/connectors/vercel-ai-sdk.md | `vendor/nimble/docs.nimbleway.com/integrations/connectors/vercel-ai-sdk.md` |
 | https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md | `vendor/nimble/docs.nimbleway.com/integrations/mcp-server/mcp-docs.md` |
 | https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md | `vendor/nimble/docs.nimbleway.com/integrations/mcp-server/mcp-server.md` |
 | https://docs.nimbleway.com/integrations/partnerships/databricks.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks.md` |
 | https://docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md` |
+| https://docs.nimbleway.com/integrations/partnerships/databricks/genie-code.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/genie-code.md` |
 | https://docs.nimbleway.com/integrations/partnerships/databricks/genie.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/genie.md` |
 | https://docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md` |
 | https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md` |
@@ -69,3 +73,62 @@ transform: append-md-and-accept
 | https://docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md | `vendor/nimble/docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md` |
 | https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md` |
 | https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/android.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/ios.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/ios.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/macos.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/macos.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/puppeteer.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/puppeteer.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/scrapy.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/scrapy.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/selenium.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/selenium.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/switchyomega.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/switchyomega.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/vm-login.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/vm-login.md` |
+| https://docs.nimbleway.com/integrations/proxy/integration-guides/windows.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/integration-guides/windows.md` |
+| https://docs.nimbleway.com/integrations/proxy/overview.md | `vendor/nimble/docs.nimbleway.com/integrations/proxy/overview.md` |
+| https://docs.nimbleway.com/nimble-sdk/admin/account-management.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/admin/account-management.md` |
+| https://docs.nimbleway.com/nimble-sdk/admin/callbacks-and-delivery.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/admin/callbacks-and-delivery.md` |
+| https://docs.nimbleway.com/nimble-sdk/admin/legacy-docs.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/admin/legacy-docs.md` |
+| https://docs.nimbleway.com/nimble-sdk/admin/pricing.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/admin/pricing.md` |
+| https://docs.nimbleway.com/nimble-sdk/admin/rate-limits.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/admin/rate-limits.md` |
+| https://docs.nimbleway.com/nimble-sdk/agentic/agent-creation.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/agentic/agent-creation.md` |
+| https://docs.nimbleway.com/nimble-sdk/agentic/agent-gallery.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/agentic/agent-gallery.md` |
+| https://docs.nimbleway.com/nimble-sdk/agentic/agents.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/agentic/agents.md` |
+| https://docs.nimbleway.com/nimble-sdk/agentic/jobs.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/agentic/jobs.md` |
+| https://docs.nimbleway.com/nimble-sdk/agentic/studio.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/agentic/studio.md` |
+| https://docs.nimbleway.com/nimble-sdk/getting-started/installation.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/getting-started/installation.md` |
+| https://docs.nimbleway.com/nimble-sdk/getting-started/overview.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/getting-started/overview.md` |
+| https://docs.nimbleway.com/nimble-sdk/getting-started/quickstart.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/getting-started/quickstart.md` |
+| https://docs.nimbleway.com/nimble-sdk/getting-started/sdk-examples.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/getting-started/sdk-examples.md` |
+| https://docs.nimbleway.com/nimble-sdk/sdks/cli.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/sdks/cli.md` |
+| https://docs.nimbleway.com/nimble-sdk/sdks/go.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/sdks/go.md` |
+| https://docs.nimbleway.com/nimble-sdk/sdks/node.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/sdks/node.md` |
+| https://docs.nimbleway.com/nimble-sdk/sdks/python.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/sdks/python.md` |
+| https://docs.nimbleway.com/nimble-sdk/sdks/skills.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/sdks/skills.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/crawl.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/crawl.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/domain-knowledge.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/domain-knowledge.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/advanced-options.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/advanced-options.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/async.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/async.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/browser-actions.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/browser-actions.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/formats.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/formats.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/geo-targeting.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/geo-targeting.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/headers-and-cookies.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/headers-and-cookies.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/js-rendering.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/js-rendering.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/network-capture.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/network-capture.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/parsing-schema.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/parsing-schema.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/stealth-mode.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/features/stealth-mode.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/extract/quickstart.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/extract/quickstart.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/fast-serp.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/fast-serp.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/map.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/map.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/media.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/media.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/authentication.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/authentication.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/geotargeting.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/geotargeting.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/quickstart.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/quickstart.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/response-codes.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/response-codes.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/session-control.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/session-control.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/unlocker-proxy.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/proxy/unlocker-proxy.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/search-depth.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/search-depth.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/search.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/search.md` |
+| https://docs.nimbleway.com/nimble-sdk/web-tools/serp.md | `vendor/nimble/docs.nimbleway.com/nimble-sdk/web-tools/serp.md` |

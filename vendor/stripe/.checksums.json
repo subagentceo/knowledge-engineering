@@ -1,6 +1,46 @@
 {
+  "https://docs.stripe.com/acceptable-verification-documents.md": {
+    "sha256": "caa8ee3a8b2df59bb5b6234a9a92bb66f078dd61e65294ca95f5b4094245095e",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/api.md": {
     "sha256": "ade82f857f8dcde45dcccdeab9702c0060dc00772c58c13e9fef3d658a8cf008",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/balance.md": {
+    "sha256": "d168c536b4467c1c2d141c7c66d3e86456d8a0d880bc5d5a5015a6bdbe8f96df",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/balance/balance_object.md": {
+    "sha256": "a7a2923666d02c3de71e61e332a4b3bcb52069570293b73fc76bfe9d216fc3e9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/checkout/sessions.md": {
+    "sha256": "2ffa3cab33b75e95711f82a63d9e609723038ac4f57ba5f715fff7b7b77e5d41",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/checkout/sessions/create.md": {
+    "sha256": "2787da24c43dffe5cc09ff20ea44cb583e505e3f7fa235283a7bab6a40bc959b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/checkout/sessions/object.md": {
+    "sha256": "85b377b3a540fdff72b6667e9954b4b9cea6db148fc602d3c53cd49d138d5d94",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/customer_balance_transactions.md": {
+    "sha256": "7e55e898285ee2e2c49fe02fcd4524551540a4ac2152c381b3d50488a23bb92f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/customer_balance_transactions/object.md": {
+    "sha256": "d5e0195a222f0b2bab18c0516bc6015fab359b181b0d112c898c10ef7a6c2dcc",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/customers.md": {
+    "sha256": "3bfe2ee2bc3f446591bec1e8d42a2b5e55cb96e7eec04a6c625685c789721c20",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/customers/object.md": {
+    "sha256": "f377a8b9a5039483474c40ce7824367620bc2f7055215a6acae5db36ccfdea9f",
     "lastStatus": 200
   },
   "https://docs.stripe.com/api/errors.md": {
@@ -11,12 +51,224 @@
     "sha256": "c174a03932f259aa05071f2c5fd9ae28cde102dd8b5a8937dd616c40e39c3878",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/api/invoices.md": {
+    "sha256": "d68acd9e74afeb75b6f56dc5711a09875ec7011f6450ec4a8f520b19514a1296",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/invoices/object.md": {
+    "sha256": "b2d5269c261181bd394cffd291676ccf8cc9abe58a43880a10036998108e5523",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment-link.md": {
+    "sha256": "3ad0c4e0c91f377b9fa07ef86c5d3a84a21d3c71d5bf0fcf6194dafc4c9a1833",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment-link/object.md": {
+    "sha256": "a0cd135cd9991398e15c743fbe5add427463bdc036b0f3fb8630617730bcf429",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_intents.md": {
+    "sha256": "1f5400ba5be95d24b1ffb453263ba6d186ac30ffb2c6bd46c26b7427cbf351e6",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_intents/create.md": {
+    "sha256": "a360c9b56549d530e2d9cb888a983052a32d696d46593f1ffa41709eaaf07ea5",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_intents/object.md": {
+    "sha256": "23394186cf7926dbfb7e5e965e3ccab520d39aba91eaaaeaac1f8ad6310a8cbe",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_methods.md": {
+    "sha256": "6d36cfd1d57b4b38610f0fc0265e096d2e91e17536a948f9b49eb8b6b27bd459",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_methods/create.md": {
+    "sha256": "d7a027f9571f74fbfa17c07635ea051a48188b807f27144b6880e774af835351",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/payment_methods/object.md": {
+    "sha256": "ec0108a464ad31c2c78e4bfa21b99d073208d182dd35c64587bbf26084a74f1b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/subscriptions.md": {
+    "sha256": "46109b4c2310b12c988b8111ac4aba9de3e5b68aedec2f3082cd0426ab27a53c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/subscriptions/create.md": {
+    "sha256": "ea98adbc866b1341751defb01783a391214b1df41c8a86818707f82e76b9af6a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/subscriptions/object.md": {
+    "sha256": "f55907230a947e054bea3f91603a81a5133dcd5ed90ff3439cd9061bc074a362",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/tax_ids/object.md": {
+    "sha256": "bfb0c7c0cb9a6226ce9eb57119ef8569bb11def5dd94c7fb9e8f7c12ff818307",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/api/versioning.md": {
     "sha256": "902bae7543a12a08d3b28f9a1de01a334b241383e61c9ba8ea6e3f97e0d19009",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/atlas/83b-election.md": {
+    "sha256": "4e049cfad8a4576f8f21cc00be4097430120857abdc7a943668da608b88bc23a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/83b-elections-non-us-founders.md": {
+    "sha256": "4e635fef21ea9e504ff87efca520b581c004b5bde97b9d6df8475e5a01d87282",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/business-taxes.md": {
+    "sha256": "509a11ecb0418e1013c0a42e61ba1e2edec7642b6c32321cf9ce1aee2e15b3cb",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/company-types.md": {
+    "sha256": "6677eaf3ba924ce41a74414e665cf3a384f3931eae82125bb2834acc24efa165",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/incorporation-documents.md": {
+    "sha256": "fd859fb064628dc93c682ac200020666979581fdb08da680ba5f3e417177e3c4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/payments-business-bank.md": {
+    "sha256": "a0297ec4ec87f75e544f17042228a0c0d8299d4446b30aa00802f2625227829f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/atlas/signup.md": {
+    "sha256": "27ded1e347b609150c833c45ee8014c441287bdc5fd954593d980b2c2c59ea54",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/billing-apis.md": {
+    "sha256": "b940b9400431dd4eaeede1435143040ea5d835c6ca16bab2cf315d0dca48da40",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/customer.md": {
+    "sha256": "05677cace9163d617bb11bf8a0248204630147e8d01346df33432d523578a980",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/customer/tax-ids.md": {
+    "sha256": "4e3d89080806286ff608653865a7787e7a0cf09d36822894a8fcdb4f2a508215",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/entitlements.md": {
+    "sha256": "3e0ae904018fe01c81d7cc4519d9b3bd1608c073fb635d850e6d38a42787d213",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/billing/quickstart.md": {
     "sha256": "67d476b2636bf65698e8370911a1fb64b2cb33527a833c386ac261532b44b76b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/revenue-recovery.md": {
+    "sha256": "fff1669e43acc66272fd06461c47b4b48700bdc99988f1860413d6318b478c5f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/billing-cycle.md": {
+    "sha256": "c50d64ae8c64a9a419790aef094379b673f034d7f09652bc13bacf25292457a0",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/cancel.md": {
+    "sha256": "9e1f7dbf1ecaae1381a52b8f849aef84ed0e76a826242d9910cc4fcda5969f7b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/change-price.md": {
+    "sha256": "246e85f6ef7bb531954592702b93157dde3864e801f03498530a718cd7f8a6f9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/change.md": {
+    "sha256": "7e99796fa93770231c1aef1411d126ef943de12a748d9ce31740bfef1dce8ec7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/coupons.md": {
+    "sha256": "93907d65ae4a44130def2f7a2dedef2e861c533a10772b9ada328aeeca765183",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/design-an-integration.md": {
+    "sha256": "9473c39f6d6c9837d097ebcffd4d335d9d0481061bc7175e1900d60a10e6b7bd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/import-subscriptions-toolkit.md": {
+    "sha256": "043595dbde20a4143a32d040b197a1d12678c7fd7668ccb133a32de8347d77cc",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/migrate-subscriptions.md": {
+    "sha256": "de971cccad7b69dd3af001c05405a9fc6a830aa3d7c036e43e579fc8f331290d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/pause-payment.md": {
+    "sha256": "f7cc0296205851aa142400b9a26023571168a7deb32d2f98f7ae6ffe8bb69a19",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/payment-methods-setting.md": {
+    "sha256": "f1dfe34be1c1090c606f9905c8b2f522b224c3c7f6d50320988f7f0e3d74d18c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/quantities.md": {
+    "sha256": "61efc625626db445fb54f8fce9f75e89f3983f7d3e4e55106adbd104df36f7f9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/usage-based/implementation-guide.md": {
+    "sha256": "283207f365db867e4201a0223c7073bf2e8685e22385480a1bc7f1139b36704d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/usage-based/recording-usage.md": {
+    "sha256": "94d0121231a6c3dfa71410fbbeac806503e87445342ddf8b21cc6b0a3250ab6b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/subscriptions/use-cases.md": {
+    "sha256": "b21232f7863ebdf817597517895c4cd6e73e4964263a5fedbf1b9f346abcf77d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/taxes/collect-taxes.md": {
+    "sha256": "b7f558ee78ce305cde817da9b68aa093a6a9f64d571eec2a8a4a7f440ea776ea",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/api-integration.md": {
+    "sha256": "67e1cbb279df52e8668cebfc5235287dd931c403d5401084ed43035968f8a8be",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/getting-started.md": {
+    "sha256": "253e1726eb7aeb5b95614436985f46db1779443302c7f8af1d45d83667a638dc",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/how-capital-for-platforms-works.md": {
+    "sha256": "09a14f62f5e2e3eef447ae29464df2d1667be5db6aa1a0d5532bd68d154509fd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/how-stripe-capital-works.md": {
+    "sha256": "9098cda234785ac41f0f97f075f12c550791302b5029e1d6ab9c5c35211d4e1f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/marketing.md": {
+    "sha256": "576d09bf7be14e3e01d6d020b2029eda69f849db9c5898969b9ff3fc7ce8fd94",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/refills.md": {
+    "sha256": "c037253a756c4457020c61501863d8d2aeeeddf71511680698a1a1b01dc7c3bd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/regulatory-compliance.md": {
+    "sha256": "3ac6d896fb7f14ae84542da23ced6ae01ccc5218551574de496c3b97576e137e",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/replacements.md": {
+    "sha256": "021582bdae2e0466596fd100337ee21f618ce76ba4977dada3c95566d10919fa",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/reporting.md": {
+    "sha256": "56a2a0a5bccf242ca4bfbcbd82b108e9a4c95a9989e04750a7a7941a2722725a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/capital/servicing.md": {
+    "sha256": "a0a5408815bdab127682c3c96a9b4cf2186ae90f918cc496ac4f6c08e3f99e69",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/changelog.md": {
+    "sha256": "ce336aaa48f5ecab46d378bf98c119ec54e2de082674f1e4a4f005d26273ebef",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/checkout/elements-with-checkout-sessions-api/changelog.md": {
+    "sha256": "2b3e794c57276470b5be723a2aa656d5a3748e94874a031cb34786be8fd1e95d",
     "lastStatus": 200
   },
   "https://docs.stripe.com/checkout/embedded/quickstart.md": {
@@ -31,8 +283,120 @@
     "sha256": "a3415620d91f22bbd90fce8269896b63a0c9a7606f43b92e8f124f0a8a70dc0b",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/climate/commitments.md": {
+    "sha256": "f4ac518662dd207c2c709c458eee76aec348d3d38dfe5d2830b938b19ce815c2",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders.md": {
+    "sha256": "ba73c503aab1c9df98ac12cd9a55953d4c876f34eb4663b9ddc70bb112c5d8f9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders/carbon-removal-inventory.md": {
+    "sha256": "2a2acb0e7674f0c4d04639c96c7fa7b843258a97596a6b2ba34eff7d7e46403e",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders/how-it-works.md": {
+    "sha256": "f34393bbcadd4cc07814f41676984a8d019704878fb8e1820341617c264f0756",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders/order-carbon-removal.md": {
+    "sha256": "5f900304bf6d5e34eda6ada655f87d093593e2f0ddd8a12b4ac54e14bdb6da57",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders/quickstart.md": {
+    "sha256": "8d9bdc10a01085ccf6f27503f00000334767f26c74a00306f5a7a40f67df47f2",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/climate/orders/webhooks.md": {
+    "sha256": "91e7abf016b40a63d941e8af9616d9cddec8ad0ae43a30a891e1d8ee8961ce20",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/connect.md": {
     "sha256": "320a1d5872a6cc5e64835353e4b9821e5d9b755f8c8cb7f7a3f32bc323660862",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/1099-K.md": {
+    "sha256": "81b7694947a6a958bf610e412dd34098f46a2fbe7c3030f0141f5492f723529c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/1099-NEC.md": {
+    "sha256": "3d59344a0b0f8740360801ee9ef94c572c0347fa9965d18fb52eff1fab96fadf",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/account-capabilities.md": {
+    "sha256": "8cff5b65cd52ca58214718f7bcecf84a5797543560ca19eb19746ffe72dba3a6",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/accounts-v2.md": {
+    "sha256": "9c2242b106a5c3c9dada4cfe0e1ae0158f06f7cc30412df611b37e7c2b15b6d5",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/accounts.md": {
+    "sha256": "ffe46d47ccca56d78f3a44d680cb0e9c2b5b55ba34b2eb88ccce2d65fcaec073",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/authentication.md": {
+    "sha256": "42617f75516fd915404d614bf30adda05c5024ac87d53710e75216f9f0d1030a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/charges.md": {
+    "sha256": "435df84aa8d007516ca00a0afabd6a443e7c11cd3c7d39189f74c270dd96cc04",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/custom-accounts.md": {
+    "sha256": "b1273d9eb4b80fcf6025cf21d9e8080f8ea6e2ba73f2c68057d7d390ac83cdec",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/dashboard.md": {
+    "sha256": "fa4602cc3cd823a65e0538220ce9d6741439c18ce6694d7a7b4201ed1288add0",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/disputes.md": {
+    "sha256": "fc767a9db71fdf6515fd7fc2dd0f03e1b5f2fbc59c4cc96f906999de01717c4b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/express-dashboard.md": {
+    "sha256": "688a917398981704bb36b3c8d081306e8274ee6665d3e12d7e27c611db787583",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/get-started-tax-reporting.md": {
+    "sha256": "24cf4141b50871c3e1e153dd7aa2f16208d4d9bebccdcdeb9551e3fff56e4082",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/hosted-onboarding.md": {
+    "sha256": "69aedf764c10eee19d6d0c04ffce9b8cfa771798fe6a2e7bda3ac7493c69c6e4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/how-connect-works.md": {
+    "sha256": "06fc74ed3fedc79857d2d68091a092c1ad1bcbb9032bbea3eaafc0d6c035ed72",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/identity-verification.md": {
+    "sha256": "1e3849f17d1348daf79c138382905a84425c47818ecb13c0337ba7f0982b6c64",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/interactive-platform-guide.md": {
+    "sha256": "51de3cb01ba6acbebdd6a889ac513b77b1db164e3d1b6811231283d400352a61",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/manual-payouts.md": {
+    "sha256": "b90698b0d97a5e2cd2fea32f36b02fb23f3ad09856354567193a3abd8ce6656d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/marketplace.md": {
+    "sha256": "14ef9c8e345e3ab4dd27abfde67f70ec83816b2134bd707bba896c5e4cddb8b2",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/marketplace/quickstart.md": {
+    "sha256": "ddefa6591e0d0f4896362749f4c9872408cb96a8d359be5703013299075c74f2",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/modify-tax-forms.md": {
+    "sha256": "7dcdbbfd41f62300b3d5cf1b5a73c45fb16fe710ec8a3a3a4e3176809bebc76b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect/onboarding.md": {
+    "sha256": "82ffd2e6ae5488345a5822ef0b5144a9eff5b2b6b22708135a35f8db3c16c5da",
     "lastStatus": 200
   },
   "https://docs.stripe.com/currencies.md": {
@@ -43,16 +407,204 @@
     "sha256": "42a2d44a427b2fc629aa3389b9e5e4cb40eba5f713559b5921a7897947addd43",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/disputes/api/visa-ce3.md": {
+    "sha256": "ed2ff9dae20d2a119993c29f83f5e0ef6697f55d2b52de0df4e21710c97aea09",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/api/visa-compliance.md": {
+    "sha256": "29205bf91c426d47f6aec8ae3266cbb1f191d7c04344b02719be536b6001379c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/match.md": {
+    "sha256": "806653177bc802bb72dc4016fbb6c43c8ecfd6b87d306ee03f8e4917187b60ed",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/measuring.md": {
+    "sha256": "54084984b7e51d186015447b7e94bf5675b1c12c2af05cf39725a5750d5b5da4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/monitoring-programs.md": {
+    "sha256": "909cda9d657490200c8578ea6204fb3523b23483eb3eabedc2046c6c7d2195e4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention.md": {
+    "sha256": "9e4a3cc45ec0a018229e3883d433cd72d238d2a2b7e204951498bebc3a941620",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection.md": {
+    "sha256": "aa6506e7caafbdda02868011e7af0d3a7da06eb40f5718ce289465f1ae32ef36",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/best-practices.md": {
+    "sha256": "1991c084c3e93ab9f0ea64439409b13ab5aee6b07d7d5cafc30d3d0e90a9f67f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/card-testing.md": {
+    "sha256": "423bbf079ba604bcd514427eca09fc885ee29b3d93eebbd4ff0e270597d283cc",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/fraud-types.md": {
+    "sha256": "6becfb76c694948243a476f61a63dc49ffc54b68e00ca33267d054014f4c9f54",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/identifying-fraud.md": {
+    "sha256": "2f46248a3265888379aee4b71e24970826b6b9e01ac79b7d46ff5a6ae78fe757",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/disputes/prevention/verification.md": {
+    "sha256": "c3b0f8a8aa91ef70924b28818a74c18f8d438a1eeeaac243d57c7ffd68fa8740",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/elements/address-element.md": {
+    "sha256": "1376f01d251c5de4dc830f205667a48d635e621151352f80dcf9d2f2a5a88e64",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/elements/appearance-api/mobile.md": {
+    "sha256": "740bb753858e01d588f22dcdbb80d90bc0705c78eb8445450c5d21b4a9acf014",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/event-destinations.md": {
-    "sha256": "e2702db1cca36e837eb90121ff82ef10dc5afbbfeb07a77ff001952b2d2bb753",
+    "sha256": "8a5c2f3ae59371d7374d9ce0b7ddee5e87db6e0ad84b09a2ae1f732920a4e4bb",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/ach-direct-debit-payments.md": {
+    "sha256": "ae0a7f173650f00707110298dca59456b53b33254799e988117433182ebfac8a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/connect-payouts.md": {
+    "sha256": "d25fc06133f716c367631caef8f803123f8391e094c88119722db971b0710215",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/disconnections.md": {
+    "sha256": "5bf2a4f02cf4f6ac582b5f3ac3806ae8c823bb1f751c771bb188d3d0dcef1a3b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/fundamentals.md": {
+    "sha256": "1ef9c5f79156118777b7bdf33a592e9ddef816a61b1d22b44ba37539bb54f922",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/supported-institutions.md": {
+    "sha256": "8fb6150d5d8b985fd4be0029d5fff488b829dd7a5b6369b97d7d51fe5e4c3395",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/testing.md": {
+    "sha256": "8bba776b68bd07564a17675f65476918236b2ccac6690ab7795874a36d646903",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/financial-connections/use-cases.md": {
+    "sha256": "8f57fec57f079be9c0ee9c63cd72c07bd8a679c5a0fd268163d9aafba994e575",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/account/add-funds.md": {
+    "sha256": "99e1fc38e3d4939096acfb057dcf4af46997954bbc579b3a40d42922601deb5b",
     "lastStatus": 200
   },
   "https://docs.stripe.com/get-started/account/linked-external-accounts.md": {
-    "sha256": "88c82edbafbaf494470ce308c689235705afa5b629bf3c7c1b72c8280532191a",
+    "sha256": "bd6caaf732166ac2b7649a98b3872e136d498e051ad1da9e057b4fa05c30beec",
     "lastStatus": 200
   },
   "https://docs.stripe.com/get-started/account/teams.md": {
-    "sha256": "7183d4392d11d580766f45ac412595a3b4dc92ce7412f030eb81d0c686cbb098",
+    "sha256": "ae41cac73cb026e18e037a39b36c4ae3248e92108859f32403ba1dbf20095d23",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/checklist/go-live.md": {
+    "sha256": "8732022f34d79004a758a0bf69f55b1a6889085e54d2fcb69a400db191e4d1ea",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/data-migrations/overview.md": {
+    "sha256": "541fa9eaa35e81f097c62680b37994394395002676da40a322fede2c71992f67",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/development-environment.md": {
+    "sha256": "df8001aadc9b2deff8390a2a5cec845b970a60f5cac95efba6c29cded9db4300",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/test-developer-integration.md": {
+    "sha256": "13c69d69fdada571223bd3880947c0d414fa44a7a8028d4234c0307b9b6ab3de",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/access-verification-results.md": {
+    "sha256": "2a3d07d51393b7d70b6f6d9ff5d34dd42fadc2e33e3ed608912de5fece9f12ae",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/before-going-live.md": {
+    "sha256": "553991cafacb010e2979d1cd39b32b01520cd8877f6a380538f7a768b8d455e1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/explaining-identity.md": {
+    "sha256": "2bac40b428dcd67b4ae87b949ddf17a58bc61ebe2e5f502708123e9c01987bed",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/review-tools.md": {
+    "sha256": "387bc1aa0b3e5037d56aa5c6b0454123e06f847ea7923a17ed388394a7537d34",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/use-cases.md": {
+    "sha256": "974d9d218523841a66833318077fc2137646b45616fdac3fb972c30dd098d6e1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/verification-checks.md": {
+    "sha256": "bc3226ba39ad9f01eb40e952c09f4fbdf9d1b279826a5c0e4420aa72486d6906",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/verification-flows.md": {
+    "sha256": "69d1826b8908e743de6fac3918b4878e36529ad0d0dde48e924a40d1b6441516",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/verification-sessions.md": {
+    "sha256": "03cfe5e06a6c2c270f231c89dd80de979eaaa670a7ff411ce2f9a2957479e424",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/identity/verify-identity-documents.md": {
+    "sha256": "e60092d1b90d7fff14823a86bea1e1aad4b2572589cd9f01202f23f3ab3da8f3",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/ach-direct-debit.md": {
+    "sha256": "2cd795303564aa2388bb7dc369f2eee57a1fda5c2b2ea88e3a200c249d22676f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/automatic-charging.md": {
+    "sha256": "a385c03e894b1ba67694172ec896545220a6b6defc53911055d487565a9062d9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/bulk-update-line-item.md": {
+    "sha256": "9e51a2147202879747c667076d2f9062b9ded2a8e6a4f32c767594d9ac75db9f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/customer.md": {
+    "sha256": "bbc1e23dc39be599a259bebe6acf8dcc5d0244c683c38245cf34724d34cd4dd7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/customer/tax-ids.md": {
+    "sha256": "41ae371f1222373f650dc0879c4780a37720ce358c8e7b70bc81a05039833f53",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/customize.md": {
+    "sha256": "bdfe6d146f3ad5e97506eded557030357fc84bfe114621e65d9674b1f1154cee",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/dashboard/credit-notes.md": {
+    "sha256": "60b85bd0eac7d24aad997117c29c4eb32b1eed30e8f6e28ce59e2850ad1b5945",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/dashboard/manage-invoices.md": {
+    "sha256": "5355352b76151b6283e16f552a94d16c6543326b8d5dd6115e8ab9baf91b3ad1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/global-invoices.md": {
+    "sha256": "8379f7e52b54b8dc5fe7f04f96b0fd6e49cae2a305e757485c58bcd9bf2ccca8",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/hosted-invoice-page/scheduled-payments.md": {
+    "sha256": "a2a853e15c5909fdbbb94fc8f66d2656acf766fc349f07e438eb83c377f0038c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/integration.md": {
+    "sha256": "0215df7a9ebd4187921c3828591b3ac37f79d16fc05f52e778c1bd91535a1282",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/invoicing/integration/automatic-advancement-collection.md": {
+    "sha256": "74094a7a781d368d67245f3d11f638802fcf724afa2da3d6e2831a642206b5c7",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/affirm.md": {
@@ -107,12 +659,20 @@
     "sha256": "e712daaf315cb24c7ee2f7d0deb5081d217b09a1efa69e64f1503b05489d6dc7",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/payments/checkout/custom-shipping-options.md": {
+    "sha256": "a770d88053348b24992ee45c2471e46247f5b724ab1872e2a7789b7819b561cb",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/payments/checkout/custom-success-page.md": {
     "sha256": "357a6d1ce179981eacdb1f5142aea8c1a62c010a67e7fc66e98e78fc6d3f046c",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/checkout/customization.md": {
     "sha256": "a3f2f3a0a2041908df79da66589e966c4fa2dbdb3e8dd300ee943069133f4a1e",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/customization/card-brands.md": {
+    "sha256": "de82690e5d9be55cc1d23fa2f5e114ddb81d6aed8843d5237475cd93f6f8da90",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/checkout/discounts.md": {
@@ -127,12 +687,56 @@
     "sha256": "352605a045247faa4cd22d2970370d1f51db8d28dd0ba70524495865a3a03261",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/payments/checkout/localize-prices/manual-currency-prices.md": {
+    "sha256": "9536e5e9cb2ea35855ff7a67c0604eed35b77de6dca31809c2254cf435d5e6e8",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/migrating-prices.md": {
+    "sha256": "aa488dea817096367f4c167165c14d233a3be1966ff82baf3825482e5e10e765",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/no-cost-orders.md": {
+    "sha256": "bccca9cbdb93c9e675244d3a2e355eac4b066a580cb24cabbb2cfbb5318a3f73",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/pay-what-you-want.md": {
+    "sha256": "2df02f7414ce5f506d378a821007443ca535f2612ea03c5165e09d65874d8c12",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/payments/checkout/payment-methods.md": {
     "sha256": "0f2b3490ffa8a6060f23f7010bc79dc261861fa393980b8d57a716ca8baa6327",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/payments/checkout/phone-numbers.md": {
+    "sha256": "ffc577908cd8331d82016a03a70d5c93ba83b67b096abc4ec6205063b791311c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/pricing-table.md": {
+    "sha256": "18b707ba0f73573c555d25277e2bbdb14bbad06d488bb34dd2c140a1b89c4dd1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/promotions.md": {
+    "sha256": "f4628e0d394738e6ba3281a82a9789a5ad2cb92b99f4e91334999cde7dd75d3d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/save-and-reuse.md": {
+    "sha256": "f8d1e4da42dd8e4e61f4ed618243204e54acab9e91d9d7996e2e7a5727067a6b",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/save-during-payment.md": {
+    "sha256": "682dce10ab555b8b6b1be749344fb3c4382991b20702c8f4168fdfd5b91bac36",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/payments/checkout/taxes.md": {
     "sha256": "2b04560e1082e4e1b8053de5efbbf6570bacf2c21d723dba72fb6bddea705c9a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/upsells.md": {
+    "sha256": "7f61545d22fbd362e061a9728a883ca612c158f78eca514467ecfde9180e7367",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/collect-addresses.md": {
+    "sha256": "97fbe30c92dbdd1040136f91cab8426bd750a74796a63c5d0a96cf3efa06a99d",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/during-payment/charge-shipping.md": {
@@ -143,16 +747,104 @@
     "sha256": "ebb43d5f6847bc6bcc0471850045dbb04f63816d7aa6d43a91dc1bc3850f7221",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/payments/elements/contact-details-element.md": {
+    "sha256": "a7764a98f51a686ae59d8cc32d172f5cb377bbf399cb1ce3da302b598291d745",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/forwarding-third-party-processors.md": {
+    "sha256": "8835593fed4503267e4ae1cd6525053e7c0fd1d594a52c8779a24fe9f6270367",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/payments/klarna.md": {
-    "sha256": "2bce15646d98553bc4f0def022baf7c5c22c058439f192da1c5042219ad06235",
+    "sha256": "ce6f75764f617308e1b3dc41b3bafef90df88c8d83dcf24845e1dd125cb7cb26",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/card-element-link.md": {
+    "sha256": "9fc7609e08c0eae80500eb085f61e21d001ba5fe630e5e2ba715129709d98aec",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/checkout-link.md": {
+    "sha256": "2f73d1fe4255704c4339df632be453b49760f7dff65693163a5fbb97c149b0fe",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/contact-details-element.md": {
+    "sha256": "a4f2cfd2ab050124d8c4e1cfdb29bfbc11789e5e3ea893b5bc6eba6226b371a7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/express-checkout-element-link.md": {
+    "sha256": "1e82c44a960e6ab9f851228f3d3c657bd3eecf91e3f06bdea78994bdda1f52b1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/instant-bank-payments.md": {
+    "sha256": "e7f9230b0edae2bc79eabe5e5dd2549bfaa650eac3294fc7d08db4228136fbb4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/invoicing.md": {
+    "sha256": "efde9a35a6a9ee4b3fdf4c226613c1322a24a736eea8659155f8394422f0be31",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/link-payment-integrations.md": {
+    "sha256": "d029bd9eb9d37a3accac9138a7cb22b399f74cea5ad26a38be3e4814ce75119c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/mobile-payment-element-link.md": {
+    "sha256": "42738e59ebb7d3e009d9d91aec47deb2de79be2651d75de7118d99b88fcd3d6d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/link/payment-element-link.md": {
+    "sha256": "c09bcb7155e5284bb917a059357f3d4a57d1efec885c759d40de33f9df4626bd",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/local-markets.md": {
     "sha256": "152f4cf34888950c7a6a6742ca798776db48b7b774210a14f1c90ccdfb763d77",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/payments/mobile/address-element.md": {
+    "sha256": "09b911bd00f98aba1fdb4e0dd548aa5adf3fbd31907a84b8c8d0932fddb3f9cf",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/mobile/charge-shipping.md": {
+    "sha256": "0d46e96d3c3124bb4b3399d0b218d36da4a74578eee0f83963966e4fd40b568c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/mobile/collect-addresses.md": {
+    "sha256": "6073a713d391992cdf340b358523a07fb4d9ffb637a8b1595ae5d9e5bc1f098d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/mobile/embedded.md": {
+    "sha256": "0675dcbe4759df14084e618a93c3a27d6d672ca81cf6d04c53f714e2e80226a2",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/mobile/migrating-to-mobile-payment-element-from-basic-integration.md": {
+    "sha256": "2439f80df7c7afa8e271681b8cade9e01f258c08b8f85cb23d9de1366ea8ebb7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/mobile/payment-sheet.md": {
+    "sha256": "9ed59fbb4244333d102c92ab4b73217865c8c47ea8f3198804099d41cad5594d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/no-code/charge-shipping.md": {
+    "sha256": "30de3ac1a2e1022763a0537708d9c2ddbc97d8513aeafaef2efabcd451627d60",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/payments/orchestration.md": {
     "sha256": "9dd91de60b7198ac885d0d11beb408e552b2f1e302655ff3fc599eff47bdbad9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-element/control-billing-details-collection.md": {
+    "sha256": "0e1ea52fab27ac160d502212ce5c56753801a46473aa7ab73125dadaf0e77ef7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-element/migration-ct.md": {
+    "sha256": "f8cbc7ec1d160e0aea121b51c92ca1ce653579229a2cbc1c836cd4a304ba37bf",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-intents.md": {
+    "sha256": "9a1dd93299c53418bc2779c189dd4c2fae3ff1dad3a1221d727bb238f87ef3e0",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-intents/verifying-status.md": {
+    "sha256": "31c76f53eb833634e2d7e25da700be14d98d2a60741860687632c18bd4af5d5d",
     "lastStatus": 200
   },
   "https://docs.stripe.com/payments/payment-methods.md": {
@@ -207,6 +899,74 @@
     "sha256": "28477d9f391fbd991c79b32b345945c618ad3a5d567142c86b06a077d809a8e1",
     "lastStatus": 200
   },
+  "https://docs.stripe.com/revenue-recognition/methodology.md": {
+    "sha256": "35083fcdf7e2da0eb5979aae3dfbc4cd5611b23fcb8615662abe2583dc7c2efd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/methodology/multi-currency.md": {
+    "sha256": "8d48441e05fdebfb7bff208c1d76cbfb2f46f89f79c36bb91221946c28914991",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/methodology/refunds-and-disputes.md": {
+    "sha256": "3c6bb0f34c16797eb5900e6963bad5bba7271b9f74cb45ec793fe23938be8510",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/methodology/subscriptions-and-invoicing.md": {
+    "sha256": "1ab4cf382e8a585efbbbc3410183ac8267a140f3db541a432adc5c15e434a83f",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/overrides.md": {
+    "sha256": "58e20e3498ef9b89d3f1fc78ebcc0852637b76501cd864cca05a1d3431c125df",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/performance-obligations-api.md": {
+    "sha256": "59ac3a69b91e5a86295b6a26c58da5d343b94ad79dd808b6dfc2bf63cdce22dd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports.md": {
+    "sha256": "2b9cbe6aa1e311de6bed7a0aa27fc07c19a38bfb965765d07503ee3cbbeee097",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/audit-numbers.md": {
+    "sha256": "ca88b4e951999fdbfe0f21c9a0e8898cede03362461f2bcba1761132e47e1ee1",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/income-statement.md": {
+    "sha256": "ff82e155d5bffb9a0bc1d7687d09292d384648546d0636b96a2030b6f48bff75",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/monthly-summary.md": {
+    "sha256": "e65977ba2d9924ec9f5120470dcc4ec1796b03af8499eeda27f8c8e3adcaf0a4",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/sigma-and-sdp.md": {
+    "sha256": "84a432b86bc1b42ef80252f0af851a02b829af6cddc11c4abdc261843b5af922",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/trial-balance.md": {
+    "sha256": "8250c29e188720cb17f0ad72b803ae18ac5a21f263b68d01ad71fb5818af25b7",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/reports/waterfall.md": {
+    "sha256": "a791acd07f5cf79ae35bab20bb83c4548e2cd6d7eefcd41b941216702921837c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/revenue-settings/accounting-period-control.md": {
+    "sha256": "bb92207e754fdaec610f35eb1ca7fc3ed51c37d2e905669c3558b625b56c0d33",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/revenue-recognition/rules.md": {
+    "sha256": "882ca9d4ba92038798190cebaef5f88c36174931b258316c00e9820545e3fed8",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/saas.md": {
+    "sha256": "7284fc89618abee5f6632019d8b4fc31757d5c2e36db62d2518e81bc2a5bc967",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/samples/identity/redirect.md": {
+    "sha256": "b554b47d9c368e44a733acbf2ab1adeec67e8a837b38510842f96a80850311b1",
+    "lastStatus": 200
+  },
   "https://docs.stripe.com/sdks.md": {
     "sha256": "7b0008fde1b901ffee2b37f27ed9bdd8c5b03fec59b6169b0cadbf24906e3233",
     "lastStatus": 200
@@ -216,7 +976,119 @@
     "lastStatus": 200
   },
   "https://docs.stripe.com/security/guide.md": {
-    "sha256": "aba37a0443c5357cb82d4a672415443758e2e2ec49366898dddbb6117ce685bb",
+    "sha256": "f1f46fbe4cbc4afd38ae24837bfd096a0862cad5a6b85631b7fecfcdd7e1a2dd",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax.md": {
+    "sha256": "ee8d1abda9d730bdfbbc04e253495966d334cbf52b8caf1cf8d66ca8711e52fe",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/calculating.md": {
+    "sha256": "62b2968c277cd27faa37c1ee09f6ab2dd926c417dabd98cca1eec4d075a2a3c6",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/checkout.md": {
+    "sha256": "5252758d35211c8c73d7b031e06c3834d713b981ba5407275901ff702559f1d9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/checkout/tax-ids.md": {
+    "sha256": "c07fc27deb08206b7e8f2df6767ab766bad8297657fda52ed5e5a4033893600c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/connect.md": {
+    "sha256": "e0ad0e708754681745753904c6baa091710d21325f08b7cd3f45999fb89fb35a",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/how-tax-works.md": {
+    "sha256": "25b1b7491a511ebbd33a21756f0a36c7d3949498170da377c81da66932e08b03",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/invoicing.md": {
+    "sha256": "4c5b948a7c795dfb7c8ba5b3b15c837447ab1855264281de1a20aa8253e162ab",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/invoicing/tax-ids.md": {
+    "sha256": "77667a4837728dca4720baab3198c7a6c2e67157397736107b86907864c02736",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/payment-links.md": {
+    "sha256": "64d2d0bbb30b8946784536e574268e951a0369de47b7a4581b2affc5f81c2066",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/products-prices-tax-codes-tax-behavior.md": {
+    "sha256": "7762876835e94d2c5abbf12d968c27491819c125a089733a12e9cfd3a0ebb702",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/registrations-api.md": {
+    "sha256": "d27757e5168a932cf60d9b7bd790e0737a3dbc7870824b3c4fd963eb42a65b5c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/set-up.md": {
+    "sha256": "ce3be0cc8970686eb98f7e6fbda3a1a094f4aa7830fff0ad598f497a8c4d9d00",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/settings-api.md": {
+    "sha256": "c2317ee431f39a96a4dbc193115ab45a2756f83f370a4bf4ab1d20978bee7aed",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/standalone-tax-api.md": {
+    "sha256": "45e645c45a13e61d809376b6d0465b1c61c42c510e1f350a92b403080aceba30",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/subscriptions.md": {
+    "sha256": "6098f747ba293847e9f6e182565c1a9bfcc34ec676a05e11d55bc5dea5e4908c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/subscriptions/update.md": {
+    "sha256": "25a26d94d6bba08c114d2fccd949dc5fbbcc204505ff75357e2e00126641a134",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/supported-countries.md": {
+    "sha256": "2ed87be63f1b628058192ed3fd8586e4d5de653c6e7e99211ca80fee655d2c9c",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/supported-countries/asia-pacific.md": {
+    "sha256": "8b65d12524ecb054cf1dd9b55977f9331a776e95c26e69fb893919610f920354",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/tax-codes.md": {
+    "sha256": "3e5f129048a879fd99d10d0f9e1660faf7c85129909dd9b574a09184f18ce581",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/tax-customizations.md": {
+    "sha256": "2afd57e2c279fc75ef04dfcce3950c1293139fa8ad455d31d915cb4505721ddf",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/tax-for-marketplaces.md": {
+    "sha256": "84dee1de57c3633126adf9824336b023ba4c2f8d7927206f60125302ffb4ad70",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/tax-for-platforms.md": {
+    "sha256": "ce6d8b3b52e2b72b3083655441d71604aea4d0db07b41dbb5790a83efc2bbcfe",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/tax-rates.md": {
+    "sha256": "fdabd490b9f0f9af96c012f2d87e66a3ef322c12ef3fdff8f2d9c80892a7caf9",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/testing.md": {
+    "sha256": "2705df45256a8bb8032f9c8576067cbd9cffdb0b1d9b672440a8e14f9a85ffde",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/tax/zero-tax.md": {
+    "sha256": "f7756ebf237cb5e3d9ec58d3903bacca9f760e639d23a70c0f35d080280b5514",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/terminal/example-applications.md": {
+    "sha256": "fdd565cd817ff33319e9b7e7d10a53dae9f758878b629f258f7d20de877cd39d",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/terminal/features/apps-on-devices/build.md": {
+    "sha256": "f774a93102922cf9b29c09ec6fc68e2245dfc2b277271798c6023335e24e5347",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/terminal/features/apps-on-devices/overview.md": {
+    "sha256": "3a452372a6a29b294202c82acf53e6046680bda009dc9833efa68d26a94f1b82",
     "lastStatus": 200
   },
   "https://docs.stripe.com/testing.md": {

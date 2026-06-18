@@ -1,0 +1,74 @@
+# Functions Overview
+
+Functions let you create your own sources and destinations directly within your workspace to bring new types of data into Segment and send data to new tools with just a few lines of JavaScript - no additional infrastructure required.
+
+> \[!NOTE]
+>
+> Functions is available to all customer plan types with a free allotment of usage hours. Read more about [Functions usage limits](/docs/segment/connections/functions/usage/), or see [your workspace's Functions usage stats](https://app.segment.com/goto-my-workspace/settings/usage?metric=functions).
+
+![Segment functions overview with source and destination logos, code snippet, and flow paths.](https://docs-resources.prod.twilio.com/cf30f54217abc607c624f61bd83c72b48b6d3eafe06c8d97f0356e1e04d0bff5.png)
+
+## What can you do with Functions?
+
+Functions can help you bring external data into Segment ([Source functions](/docs/segment/connections/functions/source-functions)) and send data in Segment out to external destinations ([Destination functions](/docs/segment/connections/functions/destination-functions)). Use [Insert functions](/docs/segment/connections/functions/insert-functions) to transform data before it reaches your downstream destinations. Functions are scoped to your specific workspace. If you're a technology partner and want to build a new integration and publish it in Segment's catalog, see the [Developer Center documentation](/docs/segment/partners/).
+
+### Variable scoping in Functions
+
+Functions are powered by AWS Lambda functions on the backend. This means you will need to declare any settings variables you create in the function handler rather than globally in your function.
+
+* For source functions, the handler is `onRequest()`.
+* For destination and insert functions, the handler is event-specific. For example, `onTrack()` or `onIdentify()`.
+
+If you declare functions globally in your function code, you risk leaking those settings values across function instances if you have more than one per function codebase. Make sure that you scope settings to the handler functions and pass those settings values as arguments to any helper functions that may need them to ensure context remains scoped to each function instance.
+
+Learn more about this in the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html#:~:text=Avoid%20global%20variables,static%20initialization%20performance).
+
+#### Source functions
+
+Source functions receive external data from a webhook and can create Segment events, objects, or both. Source functions have access to the full power of JavaScript so you can validate and transform the incoming data and even make external API requests to annotate your data.
+
+Use cases:
+
+* Ingest data into Segment from a source that's unavailable in the catalog.
+* Transform or reject data before it's received by Segment.
+* Enrich incoming data using external APIs.
+
+Learn more about [source functions](/docs/segment/connections/functions/source-functions).
+
+#### Destination functions
+
+Destination functions can take events from a Segment source, transform the events, and deliver them to external APIs. Destination functions can make arbitrary requests to annotate data, as well.
+
+Use cases:
+
+* Send data from Segment to a service that's unavailable in the catalog.
+* Transform data before sending it downstream.
+* Enrich outgoing data using external APIs.
+
+Learn more about [destination functions](/docs/segment/connections/functions/destination-functions).
+
+#### Destination insert functions
+
+Destination insert functions help you enrich your data with code before you send it to downstream destinations.
+
+Use cases:
+
+* Implement custom logic and enrich data with third party sources.
+* Transform outgoing data with advanced filtration and computation.
+* Ensure data compliance by performing tokenization, encryption, or decryption before sending data downstream.
+
+To learn more, visit [destination insert functions](/docs/segment/connections/functions/insert-functions).
+
+#### Functions Copilot
+
+With Functions Copilot, you can instrument custom integrations, enrich and transform data, and even secure sensitive data nearly instantaneously without writing a line of code.
+
+To learn more, visit the [Functions Copilot documentation](/docs/segment/connections/functions/copilot/).
+
+#### IP Allowlisting
+
+IP Allowlisting uses a NAT gateway to route outbound Functions traffic from Segment's servers to your destinations through a limited range of IP addresses, which can prevent malicious actors from establishing TCP and UDP connections with your integrations.
+
+IP Allowlisting is available for customers on Business Tier plans.
+
+To learn more, visit [Segment's IP Allowlisting documentation](/docs/segment/connections/destinations/#ip-allowlisting).

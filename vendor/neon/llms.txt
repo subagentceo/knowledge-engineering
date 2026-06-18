@@ -39,6 +39,7 @@ First-time setup: org/project creation, connection strings, driver installation,
 - [Neon framework guides](https://neon.com/docs/get-started/frameworks.md): Find detailed instructions for connecting to Neon from various frameworks
 - [Neon language guides](https://neon.com/docs/get-started/languages.md): Find detailed instructions for connecting to Neon from various languages
 - [Neon ORM guides](https://neon.com/docs/get-started/orms.md): Find detailed instructions for connecting to Neon from various ORMs
+- [Neon Platform private preview guide](https://neon.com/docs/get-started/platform-private-preview.md): Get started with Neon Functions, Storage, and AI Gateway
 - [Our DX Principles](https://neon.com/docs/get-started/dev-experience.md): Neon adapts to your workflow, not the other way around.
 - [Query with Neon's SQL Editor](https://neon.com/docs/get-started/query-with-neon-sql-editor.md): Query your database from the Neon Console using the Neon SQL Editor
 - [Tour the Neon Console](https://neon.com/docs/get-started/signing-up.md): Sign up and explore Neon's core features — the SQL Editor, branching, the Tables view, and Neon Auth
@@ -264,6 +265,7 @@ API reference, SDKs, Terraform provider, Postgres compatibility, and platform-le
 - [Neon RSS feeds](https://neon.com/docs/reference/feeds.md): Stay updated with the latest news from Neon
 - [Neon SDKs](https://neon.com/docs/reference/sdk.md)
 - [Neon TypeScript SDK](https://neon.com/docs/reference/javascript-sdk.md): Reference documentation for authentication and Data API database queries
+- [neon.ts](https://neon.com/docs/reference/neon-ts.md): Infrastructure-as-code config for your Neon project.
 - [Postgres compatibility](https://neon.com/docs/reference/compatibility.md): Learn about Neon as a managed Postgres service
 - [Python SDK (Neon API)](https://neon.com/docs/reference/python-sdk.md): Programmatically manage Neon projects, branches, databases, and other platform resources
 - [The @neondatabase/toolkit](https://neon.com/docs/reference/neondatabase-toolkit.md): A terse client for AI agents that can spin up Postgres in seconds and run SQL queries
@@ -310,9 +312,43 @@ Contributor guides, component architecture, and documentation standards.
 - [Docs contribution guide](https://neon.com/docs/community/contribution-guide.md): Learn how to contribute to the Neon documentation
 - [Getting Neon docs as Markdown](https://neon.com/docs/community/llms-markdown-guide.md): How to get our documentation as plain Markdown for LLMs, tools, and scripts
 
+## Ai Gateway
+
+- [AI Gateway authentication](https://neon.com/docs/ai-gateway/authentication.md): How Neon credentials work with AI Gateway
+- [AI Gateway models](https://neon.com/docs/ai-gateway/models.md): Available models and how to specify them
+- [AI Gateway troubleshooting](https://neon.com/docs/ai-gateway/troubleshooting.md): Common errors and how to fix them
+- [Anthropic Messages API](https://neon.com/docs/ai-gateway/anthropic-messages.md): Use the Anthropic SDK with Neon AI Gateway
+- [Chat completions](https://neon.com/docs/ai-gateway/chat-completions.md): The OpenAI-compatible unified endpoint
+- [Gemini API](https://neon.com/docs/ai-gateway/gemini.md): Use the Google Gemini API with Neon AI Gateway
+- [Get started with Neon AI Gateway](https://neon.com/docs/ai-gateway/get-started.md): Make your first inference request in minutes
+- [Neon AI Gateway](https://neon.com/docs/ai-gateway/overview.md): One API for all frontier & open-source models. At-cost rates.
+- [OpenAI Responses API](https://neon.com/docs/ai-gateway/openai-responses.md): Use the OpenAI Responses API with Neon AI Gateway
+
+## Compute
+
+### Functions
+
+- [Deploy and manage functions](https://neon.com/docs/compute/functions/deploy.md): CLI and API reference for deploying and managing Neon Functions.
+- [Environment variables](https://neon.com/docs/compute/functions/environment-variables.md): Neon-injected variables and how to set your own secrets.
+- [Get started](https://neon.com/docs/compute/functions/get-started.md): Deploy your first Neon Function and call it over HTTP.
+- [Neon Functions](https://neon.com/docs/compute/functions/overview.md): Long-running Node.js compute, deployed on Neon.
+- [Preview access](https://neon.com/docs/compute/functions/preview-access.md): What's included in the Neon Functions private preview.
+- [Runtime limits](https://neon.com/docs/compute/functions/reference/runtime-limits.md): Hard constraints for Neon Functions.
+- [WebSocket servers](https://neon.com/docs/compute/functions/websockets.md): Host persistent WebSocket connections on Neon Functions.
+
 ## Postgres
 
 - [Neon Postgres](https://neon.com/docs/postgres/overview.md): The serverless database in the Neon backend
+
+## Storage
+
+- [Buckets](https://neon.com/docs/storage/buckets.md): Create and manage storage buckets
+- [Get started with Neon Storage](https://neon.com/docs/storage/get-started.md): Upload your first file in minutes
+- [Neon Storage](https://neon.com/docs/storage/overview.md): S3-compatible object storage that branches with your database
+- [Objects](https://neon.com/docs/storage/objects.md): Upload, download, list, and delete files
+- [S3 compatibility](https://neon.com/docs/storage/s3-compatibility.md): Which S3 operations Neon Storage supports
+- [Storage authentication](https://neon.com/docs/storage/authentication.md): How Neon credentials map to S3 access keys
+- [Storage troubleshooting](https://neon.com/docs/storage/troubleshooting.md): Common errors and how to fix them
 
 ## Additional Resources
 

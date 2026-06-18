@@ -28,7 +28,7 @@ This test simulates users authenticating with an email domain different from the
 
 ### Error response
 
-This test simulates a generic [error response](https://workos.com/docs/reference/sso/get-authorization-url/error-codes) from the user’s identity provider. In this scenario, SSO authentication has failed for the user. Below is an example of the error-related parameters passed to the [redirect URI](https://workos.com/docs/sso/redirect-uris) in your application.
+This test simulates a generic [error response](https://workos.com/docs/reference/sso/get-authorization-url/error-codes) from the user's identity provider. In this scenario, SSO authentication has failed for the user. Below is an example of the error-related parameters passed to the [redirect URI](https://workos.com/docs/sso/redirect-uris) in your application.
 
 ***
 
@@ -56,10 +56,10 @@ The setup link goes to Admin Portal, where your customers get the exact instruct
 
 ### Follow the Admin Portal instructions
 
-To complete the integration, you’ll have to also create an account with the identity provider you want to test with. After you have signed up with an identity provider of your choice, follow the corresponding Admin Portal instructions from the setup link. Once done, you can start testing your SSO integration with that identity provider.
+To complete the integration, you'll have to also create an account with the identity provider you want to test with. After you have signed up with an identity provider of your choice, follow the corresponding Admin Portal instructions from the setup link. Once done, you can start testing your SSO integration with that identity provider.
 
 ![Admin Portal setup instructions](https://images.workoscdn.com/images/0ee15c3d-5356-4f41-a26a-440f95355b28.png?auto=format\&fit=clip\&q=80)
 
-The setup instructions you’ve seen in the Admin Portal are also available directly in the docs if you want to create a connection manually:
+The setup instructions you've seen in the Admin Portal are also available directly in the docs if you want to create a connection manually:
 
 ***

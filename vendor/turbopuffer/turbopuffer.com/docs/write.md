@@ -393,7 +393,7 @@ Example (cross-region, cross-org copy):
 ```
 
 Copies of large namespaces can run asynchronously.
-See [Asynchronous requests](/docs/overview#asynchronous-requests).
+See [Asynchronous requests](/docs/api-overview#asynchronous-requests).
 
 ---
 

@@ -10,27 +10,27 @@ User provisioning is the process of creating a user account and associated ident
 : Provisioning is the process of creating a user and setting attributes for them inside an app.
 
 **JIT user provisioning**
-: Just-in-time user provisioning creates a user in an app when the user attempts to sign in for the first time. The account and respective role don’t exist until the app creates them – just-in-time.
+: Just-in-time user provisioning creates a user in an app when the user attempts to sign in for the first time. The account and respective role don't exist until the app creates them – just-in-time.
 
 **Identity**
 : An identity is a collection of attributes associated with a user or entity in an identity provider. For example, an identity includes at least one unique identifier, such as id, and user profile attributes, such as name and email.
 
 **Role**
-: A primitive in your app that defines specific permissions for the users. Roles are often defined as an ability or a job title, for example, “Editor” or “Accountant”.
+: A primitive in your app that defines specific permissions for the users. Roles are often defined as an ability or a job title, for example, "Editor" or "Accountant".
 
 ## User provisioning strategies
 
-User provisioning is the process of creating a user account with associated identity data in your app. Your app needs to determine a unique identifier for an identity, create a unique account for that user, and link the identity profile attributes to that user’s account. There are many strategies to provision users in an app, but the main three are:
+User provisioning is the process of creating a user account with associated identity data in your app. Your app needs to determine a unique identifier for an identity, create a unique account for that user, and link the identity profile attributes to that user's account. There are many strategies to provision users in an app, but the main three are:
 
 1. Self-registration
 2. Provisioning users via [Directory Sync](https://workos.com/docs/directory-sync)
 3. JIT provisioning via SSO
 
-The type of provisioning needed will depend on your app’s architecture and level of enterprise feature support:
+The type of provisioning needed will depend on your app's architecture and level of enterprise feature support:
 
 | Strategy               | Description                                                           | Usage                                                                                                |
 | ---------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Self-registration      | Users fill out a registration form to create an account in the app    | For users that don’t have an SSO service, usually the first authentication mechanism built in an app |
+| Self-registration      | Users fill out a registration form to create an account in the app    | For users that don't have an SSO service, usually the first authentication mechanism built in an app |
 | Pre-provisioning users | Use a service like Directory Sync to create users in the app          | Required by large enterprises to automatically provision users                                       |
 | JIT provisioning       | Create a user account when a user signs in via SSO for the first time | Leverage user identity from an SSO provider to create an account in your app                         |
 
@@ -42,7 +42,7 @@ JIT provisioning creates a user account with associated identity information whe
 
 Consider the fictional SaaS company *HireOS*, which offers recruiting software to other businesses. *HireOS* is an online app allowing customers to track leads, candidates, and interviews.
 
-*HireOS* has integrated SSO using WorkOS and supports JIT provisioning. For example, a *HireOS* customer would like their users to have accounts automatically provisioned in *HireOS* when they first log in. The customer’s IT contact will only need to assign the users to the *HireOS* SAML app in their identity provider. When users log into *HireOS* via SSO, they will have accounts created in *HireOS*, just in time.
+*HireOS* has integrated SSO using WorkOS and supports JIT provisioning. For example, a *HireOS* customer would like their users to have accounts automatically provisioned in *HireOS* when they first log in. The customer's IT contact will only need to assign the users to the *HireOS* SAML app in their identity provider. When users log into *HireOS* via SSO, they will have accounts created in *HireOS*, just in time.
 
 A usual account setup flow using JIT provisioning follows these steps:
 

@@ -22,8 +22,6 @@ All Sentry accounts have an included 100 builds of Size Analysis per month. Belo
 
 Control which builds get uploaded by configuring your CI workflow triggers. For example, upload when commits land on main or release branches:
 
-`.github/workflows/size_analysis.yml`
-
 ```yml
 on:
   push:

@@ -29,9 +29,12 @@ Under the hood, `init` runs `npx skills add neondatabase/agent-skills --skill ne
 
 ## Options
 
-| Option          | Description                                                                                  | Type   | Default | Required |
-| --------------- | -------------------------------------------------------------------------------------------- | ------ | ------- | :------: |
-| `--agent`, `-a` | Agent to configure. Supported values: `cursor`, `copilot` (VS Code), `claude` (Claude Code). | string | —       |    No    |
+| Option              | Description                                                                              | Type    | Default | Required |
+| ------------------- | ---------------------------------------------------------------------------------------- | ------- | ------- | :------: |
+| `--preview`         | Enable preview features (e.g. project bootstrapping from templates).                     | boolean | `false` |    No    |
+| `--skip-migrations` | Skip the migrations phase.                                                               | boolean | `false` |    No    |
+| `--data`            | JSON object with a "step" field to route to a specific phase and phase-specific options. | string  | —       |    No    |
+| `--agent`, `-a`     | Enable agent/JSON mode (agent type is auto-detected).                                    | boolean | `false` |    No    |
 
 Use `--agent` to configure a specific editor, skipping the interactive selection prompt. Without `--agent`, `init` runs an interactive wizard that detects installed tools and lets you choose which to configure; if nothing is detected, you go straight to that list.
 

@@ -18,13 +18,6 @@ WorkOS Widgets are powered by Radix Themes, which provides beautiful default sty
 
 #### CSS imports
 
-```css
-/* Provides styles for Radix Themes components and its theming API */
-@import '@radix-ui/themes/styles.css';
-/* Provides additional styles specific to WorkOS Widgets */
-@import '@workos-inc/widgets/styles.css';
-```
-
 > Widgets can be customized using the `theme` prop or with plain CSS. See the [styling guide](https://workos.com/docs/widgets/styling) for more details.
 
 ## Root component
@@ -32,12 +25,6 @@ WorkOS Widgets are powered by Radix Themes, which provides beautiful default sty
 The `WorkOsWidgets` component should be rendered at the top of your application. This component is responsible for managing context for data fetching and providing theme styles to all Widgets.
 
 #### Root component
-
-```js
-function App({ children }) {
-  return <WorkOsWidgets>{children}</WorkOsWidgets>;
-}
-```
 
 ## CORS configuration
 

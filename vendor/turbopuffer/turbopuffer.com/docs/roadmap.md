@@ -30,7 +30,7 @@
 - 🗺️ View [namespace metadata](https://x.com/turbopuffer/status/2054275230584201665) in the dashboard
 - #️⃣ [C# API client](https://github.com/turbopuffer/turbopuffer-csharp)
 - 🔤 [`word_v4` tokenizer](/docs/fts#tokenizers), ~3x faster than `word_v3`
-- ⏱️ Make [asynchronous requests](/docs/overview#asynchronous-requests) to `copy_from_namespace` and `recall` endpoints
+- ⏱️ Make [asynchronous requests](/docs/api-overview#asynchronous-requests) to `copy_from_namespace` and `recall` endpoints
 - 📋 New API key permission to [`list` namespaces](/docs/namespaces)
 
 ### April 2026

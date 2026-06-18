@@ -1,0 +1,27 @@
+# Scheduling Email
+
+There are three ways to schedule your emails; use the [Marketing Campaigns](/docs/sendgrid/ui/sending-email/how-to-send-email-with-marketing-campaigns/), use the [SMTP API](/docs/sendgrid/for-developers/sending-email/scheduling-parameters/) header, or use the API.
+
+> \[!NOTE]
+>
+> If you have the flexibility, it's better to schedule mail for off-peak times. Most emails are scheduled and sent at the top of the hour or half hour. Scheduling email to avoid those times (for example, scheduling at 10:53) can result in lower deferral rates because it won't be going through our servers at the same times as everyone else's mail.
+
+## 1. Marketing Campaigns
+
+If you are using Marketing Campaigns, you can schedule a time to send your campaign from the Settings tab by turning Off the option to Send Immediately. Next, verify that you are using the correct time zone, and then choose the date and time that you would like to send your campaign at.
+
+You can also schedule your campaigns with the [Marketing Campaigns API](https://sendgrid.api-docs.io/v3.0/single-sends/schedule-single-send).
+
+## 2. API
+
+You can schedule a time to send your email by using the `send_at` object of the `POST /mail/send` method of the [V3 API](/docs/sendgrid/api-reference). For more information about scheduling and stopping scheduled sends with the API, see [Can I Stop an in-progress send](/docs/sendgrid/for-developers/sending-email/stopping-an-in-progress-send/).
+
+## 3. SMTP API
+
+You can use the [SMTP API](/docs/sendgrid/for-developers/sending-email/scheduling-parameters/) header to schedule your emails when sending via [SMTP](/docs/sendgrid/for-developers/sending-email/getting-started-smtp/) or our [mail.send API endpoint](https://sendgrid.api-docs.io/v3.0/mail-send/v3-mail-send). SendGrid will allow you to queue batches of emails targeting individual recipients by using a UNIX time stamp parameter in your SMTP API header.
+
+This parameter allows SendGrid to begin processing your email requests before sending. SendGrid will then queue those messages and release them when the specified time rolls around.
+
+Here's an example of how this timestamp might look in your SMTP API JSON header:
+
+`{ "send_at": 1409348513 }`
