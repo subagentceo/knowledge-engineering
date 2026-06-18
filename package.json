@@ -57,6 +57,7 @@
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
     "crawl:vendors": "tsx scripts/crawl-vendors.ts",
     "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
+    "crawl:anduril-www": "tsx scripts/crawl-anduril-www.ts",
     "crawl:audit": "tsx scripts/crawl-vendor-audit.ts",
     "crawl:github": "tsx scripts/crawl-github.ts",
     "crawl:github:org": "tsx scripts/crawl-github.ts --org",
