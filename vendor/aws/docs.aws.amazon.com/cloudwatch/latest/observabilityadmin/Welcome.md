@@ -7,4 +7,4 @@
 
 For information on the permissions you need to use this API, see [Identity and access management for Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html) in the CloudWatch User Guide.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

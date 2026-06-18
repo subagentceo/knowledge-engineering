@@ -1,6 +1,6 @@
 # Tools for getting started with the Brave Search API
 
-![Tools for getting started with the Brave Search API OG image](/avante_16293237876087772244_hu2c2f93d59ec5f82fca0cf488f117c921_0_1200x630_fill_box_center_3.png)
+![Tools for getting started with the Brave Search API OG image](/avante_11384578829987645181_hu2c2f93d59ec5f82fca0cf488f117c921_0_1200x630_fill_box_center_3.png)
 
 ## Avante
 

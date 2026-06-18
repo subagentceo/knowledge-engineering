@@ -97,5 +97,6 @@ Flagship uses context attributes to match targeting rules and to determine perce
 During the brief propagation window after a flag change, some regions may still serve the previous flag value. After propagation completes, all subsequent evaluations return the updated value.
 
 ```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/flagship/concepts/#page","headline":"Concepts · Cloudflare Flagship docs","description":"Understand Flagship core concepts including apps, flags, variations, targeting rules, evaluation context, and flag propagation.","url":"https://developers.cloudflare.com/flagship/concepts/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/flagship/","name":"Flagship"}},{"@type":"ListItem","position":3,"item":{"@id":"/flagship/concepts/","name":"Concepts"}}]}
 ```

@@ -35,9 +35,6 @@ You can start using Copilot in several ways, depending on your role and needs.
 
 ### Individuals
 
-> \[!IMPORTANT]
-> **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-
 * **Try Copilot for free.** Use Copilot Free to explore core features with no paid plan required.
 * **Subscribe to a paid plan.** Upgrade to Copilot Pro, Copilot Pro+, or Copilot Max for access to premium features, increased access to models, and higher available monthly allowance of AI credits.
 * **Get free access if you're eligible.** Students, teachers, and open source maintainers may qualify for access to premium features at no cost. See [Access GitHub Copilot for free as a student](/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students) and [Access Copilot Pro for free as a teacher or open source maintainer](/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-teachers-and-os-maintainers).

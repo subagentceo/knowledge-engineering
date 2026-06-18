@@ -45,6 +45,7 @@ Store, transform, optimize, and deliver images at scale
 ## optimization
 
 - [Optimize with Workers](https://developers.cloudflare.com/images/optimization/binding/index.md): Use the Images binding to optimize, resize, and manipulate images directly in a Worker from any source.
+- [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/index.md): Add watermarks, logos, and overlay images over other images using Workers.
 - [Features](https://developers.cloudflare.com/images/optimization/features/index.md): Available Cloudflare Images optimization parameters for resizing, cropping, format conversion, and visual effects.
 - [Apply blur](https://developers.cloudflare.com/images/optimization/hosted-images/blur-variants/index.md): Add a blur effect to Cloudflare Images variants using the dashboard or flexible variants API.
 - [Browser TTL](https://developers.cloudflare.com/images/optimization/hosted-images/browser-ttl/index.md): Configure cache-control settings for Cloudflare Images at the account or variant level.
@@ -56,7 +57,7 @@ Store, transform, optimize, and deliver images at scale
 - [Serve uploaded images](https://developers.cloudflare.com/images/optimization/hosted-images/serve-uploaded-images/index.md): Construct delivery URLs to serve images uploaded to Cloudflare Images using your account hash, image ID, and variant name.
 - [Make responsive images](https://developers.cloudflare.com/images/optimization/make-responsive-images/index.md): Automatically resize images for optimal display on every device.
 - [Control origin access](https://developers.cloudflare.com/images/optimization/transformations/control-origin-access/index.md): Hide original image sources and restrict access using Cloudflare Workers with image transformations.
-- [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/transformations/draw-overlays/index.md): Add watermarks, logos, and overlay images on top of transformed images using Cloudflare Workers.
+- [Draw overlays and watermarks](https://developers.cloudflare.com/images/optimization/draw-overlays/index.md): Add watermarks, logos, and overlay images on top of transformed images using Cloudflare Workers.
 - [Create transformation flows](https://developers.cloudflare.com/images/optimization/transformations/flows/index.md)
 - [Integrate with frameworks](https://developers.cloudflare.com/images/optimization/transformations/integrate-with-frameworks/index.md): Use Cloudflare Images transformations with Next.js and Nuxt image components.
 - [Overview](https://developers.cloudflare.com/images/optimization/transformations/overview/index.md): Cloudflare Images transformations optimize and cache remote images from any origin at the edge.

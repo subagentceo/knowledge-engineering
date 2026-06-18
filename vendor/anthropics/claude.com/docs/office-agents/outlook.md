@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -22,16 +21,16 @@ consultants tracking multiple client threads.
 
 With Claude for Outlook, you can:
 
-- Triage your unread inbox into what needs you, what Claude can handle,
+* Triage your unread inbox into what needs you, what Claude can handle,
   and what is noise.
-- Draft replies, reply-alls, and forwards in your voice, landed unsent in
+* Draft replies, reply-alls, and forwards in your voice, landed unsent in
   Outlook's compose pane.
-- Summarize long threads into decisions made, open items, and who owes
+* Summarize long threads into decisions made, open items, and who owes
   what, with per-email citations.
-- Read `.docx` and `.xlsx` attachments inline without opening them.
-- Find meeting times across attendees and draft invites into Outlook's
+* Read `.docx` and `.xlsx` attachments inline without opening them.
+* Find meeting times across attendees and draft invites into Outlook's
   native appointment form.
-- Prep for your next meeting with a one-page brief of recent threads and
+* Prep for your next meeting with a one-page brief of recent threads and
   attached documents.
 
 ## Get started with Claude for Outlook
@@ -40,10 +39,10 @@ With Claude for Outlook, you can:
 
 Claude for Outlook runs on the following Outlook clients.
 
-- Outlook on the web
-- Outlook on Windows, both new Outlook and classic Outlook, with a
+* Outlook on the web
+* Outlook on Windows, both new Outlook and classic Outlook, with a
   Microsoft 365 subscription
-- Outlook on Mac with a Microsoft 365 subscription
+* Outlook on Mac with a Microsoft 365 subscription
 
 The following are not supported: Outlook 2016 and 2019 perpetual or
 volume-licensed editions, Outlook on iOS, Outlook on Android, and
@@ -165,6 +164,11 @@ take up to 24 hours.
 If this step is skipped, every user sees a "Need admin approval" message
 when Claude first tries to read mail or calendar data.
 
+The redirect to `pivot.claude.ai` after consent carries only the consent
+outcome, never a token or authorization code. See
+[Why sign-in redirects through pivot.claude.ai](/office-agents/third-party-platforms#why-sign-in-redirects-through-pivotclaudeai)
+for what each redirect carries and how to verify it in a network capture.
+
 #### Use your own Entra app instead
 
 If your organization's policy does not permit consenting to a third-party
@@ -204,6 +208,33 @@ With this option, skip the admin consent link entirely. Users do not see a
 Microsoft permissions prompt because your tenant has already consented to
 your own application.
 
+### Deploy in a US Government or national cloud
+
+If your Microsoft 365 tenant is in GCC High, DoD, or 21Vianet, register
+your own Entra application with `graph_client_id` as described above
+(Anthropic's multi-tenant application exists only in the global cloud)
+and set `graph_cloud` to the matching value:
+
+| Tenant            | `graph_cloud`                      |
+| ----------------- | ---------------------------------- |
+| Commercial or GCC | `global` (default; may be omitted) |
+| GCC High          | `us-gov-high`                      |
+| DoD               | `us-gov-dod`                       |
+| 21Vianet (China)  | `china`                            |
+
+For a DoD tenant the manifest URL ends with:
+
+```
+?graph_client_id=YOUR_CLIENT_ID&graph_cloud=us-gov-dod
+```
+
+For GCC High and 21Vianet tenants, `graph_cloud` may be omitted: the
+add-in detects those clouds at sign-in from the authority host Outlook
+reports. Setting it explicitly is still recommended when your compliance
+program requires the endpoints to be fixed in the reviewed manifest
+rather than derived at runtime. DoD tenants share an authority host with
+GCC High, so `graph_cloud=us-gov-dod` is always required for DoD.
+
 ### Connect through a third-party platform
 
 If your organization routes API traffic through an internal LLM gateway,
@@ -225,9 +256,9 @@ documents, arrive pre-drafted.
 
 Prompts to try:
 
-- "What needs me?"
-- "Draft replies for everything you can handle"
-- "Archive all the calendar responses and newsletters"
+* "What needs me?"
+* "Draft replies for everything you can handle"
+* "Archive all the calendar responses and newsletters"
 
 ## Draft replies in your voice
 
@@ -241,9 +272,9 @@ anyone who was not on the thread.
 
 Prompts to try:
 
-- "Reply to this and agree to the extension, push back on the fee"
-- "Reply-all thanking everyone and confirming Thursday works"
-- "Forward this to Dana with a two-line summary"
+* "Reply to this and agree to the extension, push back on the fee"
+* "Reply-all thanking everyone and confirming Thursday works"
+* "Forward this to Dana with a two-line summary"
 
 ## Summarize long threads
 
@@ -254,8 +285,8 @@ citation opens that message in Outlook.
 
 Prompts to try:
 
-- "What's been decided and what's still open?"
-- "Who owes what on this thread?"
+* "What's been decided and what's still open?"
+* "Who owes what on this thread?"
 
 ## Read attachments inline
 
@@ -268,8 +299,8 @@ sidebar instead.
 
 Prompts to try:
 
-- "Summarize the attached memo"
-- "What's in the spreadsheet on this email?"
+* "Summarize the attached memo"
+* "What's in the spreadsheet on this email?"
 
 ## Search your mailbox
 
@@ -279,8 +310,8 @@ you can verify every answer against the original email.
 
 Prompts to try:
 
-- "When did we last discuss the cap with Fernwood?"
-- "Find the email where Dana sent the revised term sheet"
+* "When did we last discuss the cap with Fernwood?"
+* "Find the email where Dana sent the revised term sheet"
 
 ## Find time and create events
 
@@ -291,8 +322,8 @@ and agenda for you to review and send.
 
 Prompts to try:
 
-- "Find 30 minutes with Dana and the Fernwood team next week"
-- "Block Thursday afternoon for deep work"
+* "Find 30 minutes with Dana and the Fernwood team next week"
+* "Block Thursday afternoon for deep work"
 
 ## Prep for meetings
 
@@ -302,8 +333,8 @@ open items and what each person last said.
 
 Prompts to try:
 
-- "Prep me for my 2pm"
-- "What's open with Dana before our call?"
+* "Prep me for my 2pm"
+* "What's open with Dana before our call?"
 
 ## Work across M365 apps
 
@@ -328,13 +359,35 @@ gateway, Opus 4.7 is the only officially supported model.
 Claude reads the email or event you have open via Office.js. For anything
 that spans your mailbox or calendar, including thread retrieval, search,
 free/busy lookups, and move or flag operations, Claude uses Microsoft
-Graph. Mailbox content is fetched on demand and not persisted on
-Anthropic's servers. The Graph access token stays in the browser's MSAL
-cache and is never sent to Anthropic.
+Graph. All Graph calls run in your browser, and the Graph access token
+stays in the browser's MSAL cache and is never sent to Anthropic.
 
 Claude never sends mail or invites on its own. The add-in does not request
 the `Mail.Send` permission. Every draft lands unsent in Outlook's compose
 or appointment form, and you click Send.
+
+<Frame caption="Outlook mailbox access: the open item comes through Office.js, broader mailbox actions use Microsoft Graph, and the Graph token stays in the browser.">
+  <img src="https://mintcdn.com/claude-ai/-4jzPa4NasvobarI/images/office-agents/architecture/outlook-graph.png?fit=max&auto=format&n=-4jzPa4NasvobarI&q=85&s=3760f3ba806ce4cb2f835cfa2e409eae" alt="Claude reads the open item via Office.js and uses Microsoft Graph for mailbox-wide actions; the Graph token stays in the browser." width="2540" height="1294" data-path="images/office-agents/architecture/outlook-graph.png" />
+</Frame>
+
+Where mailbox content goes after Claude reads it depends on how you sign
+in.
+
+### When you sign in with a Claude account
+
+Mailbox content that Claude reads becomes part of the prompt sent to
+`api.anthropic.com`. Standard API retention applies: see
+[Data retention and audit](#data-retention-and-audit). The add-in does not
+keep a server-side copy or index of your mailbox.
+
+### When you connect through a third-party platform
+
+The prompt goes only to the inference endpoint you configured, such as
+Vertex AI, Azure AI Foundry, or an LLM gateway. No mailbox content reaches
+Anthropic. See
+[Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
+for configuration details. The add-in does not keep a server-side copy or
+index of your mailbox.
 
 ## Chat history
 
@@ -381,21 +434,21 @@ working with email from external or untrusted senders.
 
 As a beta feature, Claude for Outlook is not recommended for:
 
-- Unattended sending. Claude never sends mail or invites on its own; every
+* Unattended sending. Claude never sends mail or invites on its own; every
   draft lands unsent for your review.
-- Client-facing or counterparty correspondence without reading the draft
+* Client-facing or counterparty correspondence without reading the draft
   first.
-- Replacing your judgment on which emails matter or how to handle a
+* Replacing your judgment on which emails matter or how to handle a
   relationship.
-- Mailboxes containing privileged or regulated data without appropriate
+* Mailboxes containing privileged or regulated data without appropriate
   organizational controls.
 
 To use Claude for Outlook safely and effectively:
 
-- Review drafted replies and invites before sending, especially recipient
+* Review drafted replies and invites before sending, especially recipient
   lists.
-- Verify thread summaries against the cited source emails for high-stakes
+* Verify thread summaries against the cited source emails for high-stakes
   conversations.
-- Apply appropriate Microsoft 365 permissions and Conditional Access
+* Apply appropriate Microsoft 365 permissions and Conditional Access
   policies for the add-in.
-- Maintain human oversight for anything leaving your organization.
+* Maintain human oversight for anything leaving your organization.

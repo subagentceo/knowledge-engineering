@@ -17,4 +17,4 @@ Use the following links to get started with the Audit Manager API:
 
 If you're new to AWS Audit Manager, we recommend that you review the [AWS Audit Manager User Guide](https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html).
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -95,5 +94,5 @@ When Claude Desktop is running, your computer registers as a Dispatch host. From
 
 ## Related
 
-- [Organize work with projects](/cowork/guide/projects) for the project context Dispatch routes knowledge work into
-- [Cowork overview](/cowork/overview) for how Dispatch fits alongside sessions and projects
+* [Organize work with projects](/cowork/guide/projects) for the project context Dispatch routes knowledge work into
+* [Cowork overview](/cowork/overview) for how Dispatch fits alongside sessions and projects

@@ -11,6 +11,7 @@ Create Skill Version
 ### Parameters
 
 - `VersionCreateParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -26,6 +27,7 @@ Create Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -78,11 +80,14 @@ Create Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionCreateResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -163,6 +168,7 @@ List Skill Versions
 ### Parameters
 
 - `VersionListParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -182,6 +188,7 @@ List Skill Versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -234,14 +241,18 @@ List Skill Versions
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionListPageResponse:`
+
   - `required IReadOnlyList<VersionListResponse> Data`
 
     List of skill versions.
+
     - `required string ID`
 
       Unique identifier for the skill version.
@@ -338,6 +349,7 @@ Download a skill version's content as a zip archive.
 ### Parameters
 
 - `VersionDownloadParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -353,6 +365,7 @@ Download a skill version's content as a zip archive.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -405,7 +418,9 @@ Download a skill version's content as a zip archive.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Example
 
@@ -432,6 +447,7 @@ Get Skill Version
 ### Parameters
 
 - `VersionRetrieveParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -447,6 +463,7 @@ Get Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -499,11 +516,14 @@ Get Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionRetrieveResponse:`
+
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -588,6 +608,7 @@ Delete Skill Version
 ### Parameters
 
 - `VersionDeleteParams parameters`
+
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -603,6 +624,7 @@ Delete Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -655,11 +677,14 @@ Delete Skill Version
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class VersionDeleteResponse:`
+
   - `required string ID`
 
     Version identifier for the skill.

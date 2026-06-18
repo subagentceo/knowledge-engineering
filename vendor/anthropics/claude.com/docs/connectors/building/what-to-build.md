@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -16,7 +15,7 @@ Build a **remote MCP server with OAuth** first to provide connectivity and core 
 |                  | MCP server                                       | Plugin                                           |
 | ---------------- | ------------------------------------------------ | ------------------------------------------------ |
 | **What it is**   | A live tool surface Claude calls over HTTP       | An installable bundle of skills and connectors   |
-| **Mental model** | "Claude can call your API"                       | "Claude knows how to _use_ your product"         |
+| **Mental model** | "Claude can call your API"                       | "Claude knows how to *use* your product"         |
 | **Contains**     | Tools, prompts, resources, optionally MCP App UI | Skills, MCP connector references, slash commands |
 | **Works in**     | Claude.ai, Desktop, mobile, Cowork, Claude Code  | Claude Code, Cowork                              |
 
@@ -30,10 +29,10 @@ Build a **remote MCP server with OAuth** first to provide connectivity and core 
 
 A plugin can contain any combination of:
 
-- Skills only
-- A single MCP connector reference
-- Skills plus one or more MCP connectors
-- Multiple MCP connectors
+* Skills only
+* A single MCP connector reference
+* Skills plus one or more MCP connectors
+* Multiple MCP connectors
 
 Plugins can reference both remote and local MCP servers. A remote MCP works on every Claude surface (web, mobile, Cowork, Desktop, Claude Code); a local MCP works only in Claude Desktop and Claude Code. Most MCP servers are remote.
 

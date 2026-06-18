@@ -7,4 +7,4 @@ This is an interface reference for Amazon Aurora DSQL. It contains documentation
 
 Amazon Aurora DSQL is a serverless, distributed SQL database suitable for workloads of any size. is available in both single-Region and multi-Region configurations, so your clusters and databases are always available even if an Availability Zone or an AWS Region are unavailable. lets you focus on using your data to acquire new insights for your business and customers.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

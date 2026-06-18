@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Verify API Response Fields and Examples
 
 ## Session Characteristics
@@ -7,19 +11,19 @@ These fields contain information about the session itself.
 <Table align={["left","left","left","left"]}>
   <thead>
     <tr>
-      <th style={{ textAlign: "left" }}>
+      <th>
         Field Name
       </th>
 
-      <th style={{ textAlign: "left" }}>
+      <th>
         Description
       </th>
 
-      <th style={{ textAlign: "left" }}>
+      <th>
         Example Values
       </th>
 
-      <th style={{ textAlign: "left" }}>
+      <th>
         Applicable Component
       </th>
     </tr>
@@ -27,365 +31,359 @@ These fields contain information about the session itself.
 
   <tbody>
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `solved`
       </td>
 
-      <td style={{ textAlign: "left" }}>
-        When a session's risk level does not qualify it for transparent mode (no challenge) it is shown an interactive challenge. In that case, this field's value indicates if the challenge was successfully solved or not.
-
-        If it was in transparent mode, the field value for a valid session is `true`.
+      <td>
+        When a session's risk level does not qualify it for transparent mode (no challenge) it is shown an interactive challenge. In that case, this field's value indicates if the challenge was successfully solved or not.If it was in transparent mode, the field value for a valid session is `true`.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `session`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A unique token for the Arkose Labs session. A session is the whole experience from solution load to verification.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A unique token, e.g. `3595d2c014d3c5f01.1116018803`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `session_created`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         An ISO 8601 UTC timestamp signifying the time the session was created
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         e.g. `2019-07-15T02:45:13+00:00`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `check_answer`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         An ISO 8601 UTC timestamp signifying the time that the Enforcement Challenge user supplied answered were evaluated
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         e.g. `2019-07-15T02:45:13+00:00`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `verified`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         An ISO 8601 UTC timestamp signifying the time that the request to the verify endpoint was made.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         e.g. \`\`2019-07-15T02:45:13+00:00
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `attempted`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Whether the user attempted to solve the Enforcement Challenge, or not.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `security_level`
       </td>
 
-      <td style={{ textAlign: "left" }}>
-        A number that indicates the security level used for this session.
-
-        Be aware that `security_level` can have a null value - usually because the session was an audio mode session. Audio mode does not use `security_level`.
+      <td>
+        A number that indicates the security level used for this session.Be aware that `security_level` can have a null value - usually because the session was an audio mode session. Audio mode does not use `security_level`.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A security level, e.g. `20`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `session_is_legit`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates if Arkose Labs certifies there are no telltales of non-legitimate activity in the session.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `previously_verified`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates if a session has already been verified.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `session_timed_out`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates if a session timed out before it was solved
 
-        * *Note:* \*The default timeout value / token lifespan is 30 minutes.
+        - _Note:_ \*The default timeout value / token lifespan is 30 minutes.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `suppress_limited`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates if the session qualified for low security, but failed verification. Low security is when a session has qualified to run in transparent mode, or use a no wrong answer enforcement challenge, such as the pick your favorite color challenge.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `theme_arg_invalid`
       </td>
 
-      <td style={{ textAlign: "left" }}>
-        Whether the theme arg setting at verification matched the original theme arg passed in at session setup.
-
-        A theme arg is a parameter passed by a customer to Arkose Labs. It requests a security tier or UX test mode.
+      <td>
+        Whether the theme arg setting at verification matched the original theme arg passed in at session setup.A theme arg is a parameter passed by a customer to Arkose Labs. It requests a security tier or UX test mode.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `suppressed`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Suppressed is the old name for transparent mode. This field shows if the the user was offered transparent mode.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `punishable_actioned`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Punishable is an attack mitigation tactic, which randomly fails verification attempts, even if the response was correct. This field indicates if punishable was activated.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`,` false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `telltale_user`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         The winning telltale from the list of telltales that were identified as possible candidates (telltale\_list field) during a session
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A string such as `999b-fwh`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `telltale_origin`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates the source configuration of a `telltale_user`.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A string such as `999b-fwh`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `failed_low_sec_validation`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Indicates that the intention was to offer the user a low security session, but they failed to qualify for it when the verification was attempted.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `lowsec_error`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         An identifier showing why a user was denied a low security session.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `"user_credits"`, `"rate_limit_local"`, `"validation_checks"`, `"rate_limit_global"`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `lowsec_level_denied`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         The low security level that was denied to the user.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A security level, e.g. `5`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `ua`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         The User Agent string for the user that interacted with the EC.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         ```
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
         AppleWebKit/537.36 (KHTML, like Gecko)
@@ -393,43 +391,39 @@ These fields contain information about the session itself.
         ```
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `ip_rep_list`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         An identifier which specifies which IP reputation database this IP address has been seen at.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `optional`
       </td>
 
-      <td style={{ textAlign: "left" }}>
-        An object containing optional return values such as `client_encrypted_mode_key` or `get_pass values`.
-
-        Also, relevant data being sent to Arkose Labs via our accepted methods (see: [Data Exchange](https://support.arkoselabs.com/hc/en-us/articles/4410529474323-Data-Exchange-Enhanced-Detection-and-API-Source-Validation) (Requires Support login)) appears in this object.
-
-        The specific keys and values inside this object vary based on implementation
+      <td>
+        An object containing optional return values such as `client_encrypted_mode_key` or `get_pass values`.Also, relevant data being sent to Arkose Labs via our accepted methods (see: [Data Exchange](https://support.arkoselabs.com/hc/en-us/articles/4410529474323-Data-Exchange-Enhanced-Detection-and-API-Source-Validation) (Requires Support login)) appears in this object.The specific keys and values inside this object vary based on implementation
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         ```
         {"blob":
         "lHpwagBqx3JOI7t9Ka0KUdIeHZbIjAYPPB72k
@@ -439,79 +433,79 @@ These fields contain information about the session itself.
         , or null
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `game_number_limit_reached`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Game number limit is an optional setting that restricts the number of attempts a user can have at solving the EC. This field can show if the user reached the number of attempts allowed.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         `true`, `false`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `user_language_shown`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Shows the language code of the language in which the challenge was presented to the user.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A string such as `“en“` or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `telltale_list`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         The list of telltales that were identified as possible candidates during a session.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A string e.g. `"999b-fwh"`, or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
 
     <tr>
-      <td style={{ textAlign: "left" }}>
+      <td>
         `challenge_type`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         The type of challenge that the end-user solved.
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         A string e.g. `"audio"`, `"transparent"`, `"visual"`, `“pow"`, `"pow+visual"`, `“pow+audio`" or `null`
       </td>
 
-      <td style={{ textAlign: "left" }}>
+      <td>
         Detection Enforcement
       </td>
     </tr>
@@ -991,7 +985,7 @@ These fields contain information related to and derived from the IP address asso
       <td>
         A string, e.g. `WiFi` or `null`
 
-        <br />
+
       </td>
 
       <td>
@@ -1183,13 +1177,28 @@ This field contains risk score related to the session derived by triggered tellt
       </td>
 
       <td>
-        Detection Enforcement
+        Detection Enforcemen
       </td>
     </tr>
   </tbody>
 </Table>
 
 <br />
+
+### Agent Trust Fields
+
+This object contains information about the agent trust detection and Web-Bot-Auth verification outcome for the session.
+
+| Field Name              | Description                                                                                                                                                               | Example Values                                                                                                                 | Applicable Component |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------- | :------------------- |
+| `detected`              | Whether the session was classified as an agent trust client. Set to false if an agent was detected but no name could be resolved.                                         | `true`, `false`                                                                                                                | Enforcement          |
+| `agent.name`            | Canonical name of the detected agent. Present only when detected is true.                                                                                                 | `"ClaudeBot", "GPTBot", "Atlas", "Fellou", "PerplexityBot", "Opera Neon"`                                                      | Enforcement          |
+| `web_bot_auth`          | Outcome of RFC 9421 Web-Bot-Auth header verification captured at setup-session. Independent signal from detected/agent — a verified payload with detected=false is valid. | `{...}`, `null`                                                                                                                | Enforcement          |
+| `provided`              | Whether WBA headers were present on the setup-session request.                                                                                                            | `true`, `false`                                                                                                                | Enforcement          |
+| `agent`                 | Bare URI of the bot operator's JWKS directory origin.                                                                                                                     | `https://openai.com`, `null`                                                                                                   | Enforcement          |
+| `key_id`                | RFC 7638 thumbprint of the signing key used to sign the request.                                                                                                          | `NzbLsXh8uDCcd-6MNwXF4W_7noWXFZAfHkxZsRGC9Xs`, `null`                                                                          | Enforcement          |
+| `signature_verified`    | Whether the RFC 9421 signature cryptographically verified.                                                                                                                | `true`, `false`                                                                                                                | Enforcement          |
+| `signature_fail_reason` | Reason verification failed; null on success.                                                                                                                              | `bad_signature`, `missing_key`, `directory_unreachable`, `malformed_input`, `signature_expired`, `unsupported_profile`, `null` | Enforcement          |
 
 <br />
 
@@ -1199,258 +1208,162 @@ The following examples show different Verify API responses. They show the typica
 
 ```json Sucessfully Solved EC
 {
-  "session_details": {
-    "solved": true,
-    "session": "43217b823752a4848.1388061501",
-    "session_created": "2026-02-28T21:17:26Z",
-    "check_answer": "2026-02-28T21:17:36Z",
-    "verified": "2026-02-28T21:17:47Z",
-    "attempted": true,
-    "security_level": 20,
-    "session_is_legit": true,
-    "previously_verified": false,
-    "session_timed_out": false,
-    "suppress_limited": false,
-    "theme_arg_invalid": false,
-    "suppressed": false,
-    "punishable_actioned": false,
-    "telltale_user": "g-reputation-hosting",
-    "telltale_origin": "example-telltale-e-app",
-    "failed_low_sec_validation": false,
-    "lowsec_error": null,
-    "lowsec_level_denied": null,
-    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
-    "ip_rep_list": null,
-    "optional": null,
-    "game_number_limit_reached": false,
-    "user_language_shown": "en",
-    "telltale_list": [
-      "g-reputation-hosting",
-      "g-reputation-vpn"
-    ],
-    "challenge_type": "visual",
-    "stateless_device_id": {
-      "device_id": "a91cd4e726f8b3051d6e4a7c9f2b8d3e1c5a7f9b2d4e6a8c0f1b3d5e7a9c2b4",
-      "device_id_previous": "3f5a7c9e1b2d4f6a8c0e2b4d6f8a1c3e5b7d9f1a3c5e7b9d2f4a6c8e0b1d3f5",
-      "device_id_previous_version": "1.2",
-      "device_id_version": "2.0"
-    }
-  },
-
-  "data_exchange": {
-    "blob_decrypted": null,
-    "blob_received": null
-  },
-
-  "aggregations": {
-    "error": null,
-    "ip": {
-      "short_term": {
-        "count": 2,
-        "interval_minutes": 60,
-        "threshold": 360
-      },
-      "long_term": {
-        "count": 2,
-        "interval_minutes": 1440,
-        "threshold": 100
-      }
-    }
-  },
-
-  "device_id": {
-    "arkose_id": "f83be5d914c7a2069e5f8b1d4a3c6e9f2b7d1a4c8e3f5b9d2a6c0e4f7b1d3a8",
-    "confidence_score": "99.986305",
-    "device_first_seen": "2025-03-22T08:15:44Z",
-    "device_last_seen": "2026-01-09T11:37:21Z",
-    "device_spoofing_detected": "0",
-    "stateful_challenge_bypassed": true,
-    "stateful_challenges_bypassed": 1,
-    "stateful_change_reasons": [
-      "invalid_id",
-      "invalid_nonce"
-    ],
-    "stateful_device_id": "8dd4a9dc-81de-4c3d-a685-b8eb546b382b",
-    "stateless_device_id": "a91cd4e726f8b3051d6e4a7c9f2b8d3e1c5a7f9b2d4e6a8c0f1b3d5e7a9c2b4",
-    "stateless_device_id_previous": "3f5a7c9e1b2d4f6a8c0e2b4d6f8a1c3e5b7d9f1a3c5e7b9d2f4a6c8e0b1d3f5",
-    "stateless_device_id_previous_version": "1.2",
-    "stateless_device_id_version": "2.0"
-  },
-
-  "stateful_device_id": {
-    "stateful_device_id": "8dd4a9dc-81de-4c3d-a685-b8eb546b382b",
-    "challenge_bypassed": true,
-    "challenges_bypassed": 1,
-    "change_reasons": [
-      "invalid_id",
-      "invalid_nonce"
-    ]
-  },
-
-  "session_risk": {
-    "risk_band": "Low",
-    "risk_category": "BOT-STD",
-    "global": {
-      "score": 36,
-      "telltales": [
-        {
-          "name": "g-reputation-hosting",
-          "weight": 20
+    "session_details": {
+        "solved": true,
+        "session": "43217b823752a4848.1388061501",
+        "session_created": "2024-02-28T21:17:26Z",
+        "check_answer": "2024-02-28T21:17:36Z",
+        "verified": "2024-02-28T21:17:47Z",
+        "attempted": true,
+        "security_level": 20,
+        "session_is_legit": true,
+        "previously_verified": false,
+        "session_timed_out": false,
+        "suppress_limited": false,
+        "theme_arg_invalid": false,
+        "suppressed": false,
+        "punishable_actioned": false,
+        "telltale_user": "example-telltale-e-app--2023-10-19-1718",
+        "telltale_origin":"example-telltale-e-app",
+        "failed_low_sec_validation": false,
+        "lowsec_error": null,
+        "lowsec_level_denied": null,
+        "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "ip_rep_list": null,
+        "optional": null,
+        "game_number_limit_reached": false,
+        "user_language_shown": "en",
+        "device_id": "null",
+        "telltale_list": [
+            "g-reputation-hosting",
+            "g-reputation-vpn",
+            "example-telltale-e-app--2023-10-19-1718"
+        ],
+        "challenge_type": "visual"
+    },
+    "fingerprint": {
+        "browser_characteristics": {
+            "browser_name": "Chrome",
+            "browser_version": "120.0.0.0",
+            "color_depth": 24,
+            "session_storage": true,
+            "indexed_database": true,
+            "canvas_fingerprint": 1131944312
         },
-        {
-          "name": "g-reputation-vpn",
-          "weight": 20
+        "device_characteristics": {
+            "operating_system": "OS X",
+            "operating_system_version": "10.15.7",
+            "screen_resolution": [
+                1920,
+                1080
+            ],
+            "max_resolution_supported": [
+                1920,
+                1055
+            ],
+            "behavior": false,
+            "cpu_class": "unknown",
+            "platform": "MacIntel",
+            "touch_support": false,
+            "hardware_concurrency": 8
+        },
+        "user_preferences": {
+            "timezone_offset": 360
         }
-      ]
     },
-    "custom": {
-      "score": 0,
-      "telltales": []
-    }
-  },
-
-  "fingerprint": {
-    "browser_characteristics": {
-      "browser_name": "Chrome",
-      "browser_version": "120.0.0.0",
-      "color_depth": 24,
-      "session_storage": true,
-      "indexed_database": true,
-      "canvas_fingerprint": 1131944312
+    "ip_intelligence": {
+        "user_ip": "104.133.177.84",
+        "is_proxy": false,
+        "is_vpn": false,
+        "is_tor": false,
+        "country": "US",
+        "region": "ca",
+        "city": "mountain view",
+        "isp": "google inc.",
+        "public_access_point": false,
+        "connection_type": "wired",
+        "latitude": "37.41",
+        "longitude": "-122.08",
+        "timezone": "america/los_angeles",
+        "asn": 36384
     },
-    "device_characteristics": {
-      "behavior": false,
-      "cpu_class": "X86",
-      "hardware_concurrency": 8,
-      "ja4_hash": "t13d1517h2_8daaf6152771_b6f405a00624",
-      "max_resolution_supported": [1920, 1055],
-      "operating_system": "OS X",
-      "operating_system_version": "10.15.7",
-      "platform": "MacIntel",
-      "screen_resolution": [1920, 1080],
-      "touch_support": false
+    "session_risk": {
+        "risk_category": "BOT-STD",
+        "risk_band": "Low",
+        "global": {
+            "score": 36,
+            "telltales": [
+                {
+                    "name": "g-reputation-hosting",
+                    "weight": 20
+                },
+                {
+                    "name": "g-reputation-vpn",
+                    "weight": 20
+                }
+            ]
+        },
+        "custom": {
+            "score": 0,
+            "telltales": []
+        }
     },
-    "user_preferences": {
-      "timezone_offset": 360
-    }
-  },
-
-  "ip_intelligence": {
-    "user_ip": "18.190.53.157",
-    "is_tor": false,
-    "is_vpn": true,
-    "is_proxy": true,
-    "country": "US",
-    "region": "Ohio",
-    "city": "Columbus",
-    "isp": "Amazon.com",
-    "public_access_point": false,
-    "connection_type": "Data Center",
-    "proxy_type": "data center",
-    "latitude": "39.9587",
-    "longitude": "-82.9987",
-    "timezone": "America/New_York",
-    "asn": 55256,
-    "network_info_rtt": 100ms
-  },
-
-  "proof_of_work": {
-    "challenged": false,
-    "attempted": false,
-    "passed": false,
-    "difficulty_level": "high",
-    "transparent": false
-  },
-  "email_intelligence": {
-        "email_assessment": {
-            "email_address": "anansmith@gmail.com",
-            "detumbled_email_address": "anansmith@gmail.com",
-            "deenumerated_email_address": "anansmith@gmail.com",
-            "suggested_action": "email_no_risk",
-            "email_risk_score": 0,
-            "email_domain": "gmail.com",
-            "email_handle_length": 9,
-            "is_tumbled_email": false,
-            "is_enumerated_email": false,
-            "deenumerated_email_handle_length": 9,
-            "is_invalid_email": false,
-            "is_role_email": false,
-            "is_private_relay": false,
-            "detumbled_email_first_seen": "2026-03-11T01:56:18Z",
-            "detumbled_email_first_seen_in_days": 0,
-            "domain_relative_usage_factor": 2,
-            "domain_enrichment": {
-                "is_domain_missing": false,
-                "domain_age": 11168,
-                "domain_creation_date": "1995-08-13",
-                "domain_org": "Google LLC",
-                "domain_name_servers": [
-                    "ns1.google.com",
-                    "ns4.google.com",
-                    "ns3.google.com",
-                    "ns2.google.com"
-                ],
-                "is_disposable": false,
-                "domain_registration_country": "us"
+    "aggregations": {
+        "ip": {
+            "short_term": {
+                "interval_minutes": 60,
+                "count": 2,
+                "threshold": 360
             },
-            "is_suspicious_email_handle": false,
-            "domain_shannon_entropy": 2.95,
-            "domain_metric_entropy": 0.3277777777777778,
-            "deenumerated_domain_length": 9,
-            "anomalous_handle_composition": false,
-            "is_mx_record_present": true,
-            "is_mx_valid": true
-        },
-        "detumbled_email_stats": {
-            "handle_length": 9,
-            "handle_num_alpha_chars": 9,
-            "handle_num_vowels": 3,
-            "handle_num_consonants": 6,
-            "handle_num_numeric_chars": 0,
-            "handle_num_special_chars": 0,
-            "handle_qwerty_typing_distance": 31.169465219861685,
-            "handle_dvorak_typing_distance": 34.39834563766817
-        },
-        "total_email_counts": {
-            "short_term_count": 1,
-            "short_term_period_minutes": 360,
-            "long_term_count": 3,
-            "long_term_period_minutes": 10080
-        },
-        "detumbled_email_unique_counts": {
-            "short_term_count": 1,
-            "short_term_period_minutes": 1440,
-            "long_term_count": 1,
-            "long_term_period_minutes": 21600
-        },
-        "deenumerated_email_unique_counts": {
-            "short_term_count": 1,
-            "short_term_period_minutes": 360
-        },
-        "domain_instance_counts": {
-            "short_term_count": 1,
-            "short_term_period_minutes": 360,
-            "long_term_count": 1,
-            "long_term_period_minutes": 10080
-        },
-        "domain_stats": {
-            "domain_length": 9,
-            "domain_num_alpha_chars": 8,
-            "domain_num_vowels": 3,
-            "domain_num_consonants": 0,
-            "domain_num_numeric_chars": 0,
-            "domain_num_special_chars": 1,
-            "domain_qwerty_typing_distance": 32.95709432711953,
-            "domain_dvorak_typing_distance": 40.36356408778201,
-            "domain_max_consec_consonants": 2,
-            "domain_max_consec_vowels": 2
+            "long_term": {
+                "interval_minutes": 1440,
+                "count": 2,
+                "threshold": 100
+            }
         }
     },
-    
-   
+    "data_exchange": {
+        "blob_decrypted": null,
+        "blob_received": null
+    },
+    "stateful_device_id": {
+        "stateful_device_id": "8dd4a9dc-81de-4c3d-a685-b8eb546b382b",
+        "challenge_bypassed": true,
+        "challenges_bypassed": 1,
+        "change_reasons": ["invalid_id", "invalid_nonce"]
+    },
+    "stateless_device_id": {
+        "device_id": “a325ssa5323a”,        
+        "device_id_version": “1.3”,        
+        "device_id_previous": “a325ssa5323b”,        
+        "device_id_previous_version":“1.2” 
+    },
+    "mics_verdict": {
+        "app_check_account_check": "VALID",
+        "app_check_activity_level": "LEVEL_1",
+        "app_check_cert_check": "VALID",
+        "app_check_platform": "ANDROID",
+        "app_check_result": "PASSED",
+        "app_check_risk_level": "LOW",
+        "device_check_platform": "ANDROID",
+        "device_check_result": "PASSED",
+        "mics_response": "SUCCESS"
+    },
+    "agent_trust": {
+        "detected": true,
+        "agent": {
+            "name": "ClaudeBot"
+        },
+        "web_bot_auth": {
+            "provided": true,
+            "agent": "https://www.anthropic.com/",
+            "key_id": "xxxxxxXXXXXXXXXXxxxXXXXxxxxxxxxxxxxxx",
+            "signature_verified": true,
+            "signature_fail_reason": null
+        }
+    }
 }
 ```
-
 ```json Failed EC
 {
     "session_details": {
@@ -1469,7 +1382,7 @@ The following examples show different Verify API responses. They show the typica
         "suppressed": false,
         "punishable_actioned": false,
         "telltale_user": "example-telltale-e-app--2023-10-19-1718",
-        "telltale_origin": "example-telltale-e-app",       
+        "telltale_origin": "example-telltale-e-app",
         "failed_low_sec_validation": false,
         "lowsec_error": null,
         "lowsec_level_denied": null,
@@ -1478,14 +1391,13 @@ The following examples show different Verify API responses. They show the typica
         "optional": null,
         "game_number_limit_reached": true,
         "user_language_shown": "en",
-        "device_id": null,
+        "device_id": "null",
         "telltale_list": [
             "g-reputation-hosting",
             "g-reputation-vpn",
             "example-telltale-e-app--2023-10-19-1718"
         ],
-        "challenge_type": null,
-        "stateless_device_id": null                       
+        "challenge_type": null
     },
     "fingerprint": {
         "browser_characteristics": {
@@ -1499,35 +1411,39 @@ The following examples show different Verify API responses. They show the typica
         "device_characteristics": {
             "operating_system": "OS X",
             "operating_system_version": "10.15.7",
-            "screen_resolution": [1920, 1080],
-            "max_resolution_supported": [1920, 1055],
+            "screen_resolution": [
+                1920,
+                1080
+            ],
+            "max_resolution_supported": [
+                1920,
+                1055
+            ],
             "behavior": false,
             "cpu_class": "unknown",
             "platform": "MacIntel",
             "touch_support": false,
-            "hardware_concurrency": 8,
-            "ja4_hash": null                               
+            "hardware_concurrency": 8
         },
         "user_preferences": {
             "timezone_offset": 360
         }
     },
     "ip_intelligence": {
-        "user_ip": "18.190.53.157",
+        "user_ip": "104.133.177.84",
+        "is_proxy": false,
+        "is_vpn": false,
         "is_tor": false,
-        "is_vpn": true,
-        "is_proxy": true,
         "country": "US",
-        "region": "Ohio",
-        "city": "Columbus",
-        "isp": "Amazon.com",
+        "region": "ca",
+        "city": "mountain view",
+        "isp": "google inc.",
         "public_access_point": false,
-        "connection_type": "WiFi",
-        "latitude": "39.9587",
-        "longitude": "-82.9987",
-        "timezone": "America/New_York",
-        "asn": null,                                       
-        "network_info_rtt": null                           
+        "connection_type": "wired",
+        "latitude": "37.41",
+        "longitude": "-122.08",
+        "timezone": "america/los_angeles",
+        "asn": 36384
     },
     "session_risk": {
         "risk_category": "BOT-STD",
@@ -1535,8 +1451,14 @@ The following examples show different Verify API responses. They show the typica
         "global": {
             "score": 36,
             "telltales": [
-                { "name": "g-reputation-hosting", "weight": 20 },
-                { "name": "g-reputation-vpn", "weight": 20 }
+                {
+                    "name": "g-reputation-hosting",
+                    "weight": 20
+                },
+                {
+                    "name": "g-reputation-vpn",
+                    "weight": 20
+                }
             ]
         },
         "custom": {
@@ -1545,7 +1467,6 @@ The following examples show different Verify API responses. They show the typica
         }
     },
     "aggregations": {
-        "error": null,                                     
         "ip": {
             "short_term": {
                 "interval_minutes": 60,
@@ -1570,27 +1491,43 @@ The following examples show different Verify API responses. They show the typica
         "change_reasons": ["invalid_id", "invalid_nonce"]
     },
     "stateless_device_id": {
-        "device_id": "a325ssa5323a",
-        "device_id_version": "1.3",
-        "device_id_previous": "a325ssa5323b",
-        "device_id_previous_version": "1.2"
+        "device_id": “a325ssa5323a”,        
+        "device_id_version": “1.3”,        
+        "device_id_previous": “a325ssa5323b”,        
+        "device_id_previous_version":“1.2” 
     },
-    "proof_of_work": {                                    
-        "challenged": false,
-        "attempted": false,
-        "passed": false,
-        "difficulty_level": null
+    "mics_verdict": {
+        "app_check_account_check": "VALID",
+        "app_check_activity_level": "LEVEL_1",
+        "app_check_cert_check": "VALID",
+        "app_check_platform": "ANDROID",
+        "app_check_result": "PASSED",
+        "app_check_risk_level": "LOW",
+        "device_check_platform": "ANDROID",
+        "device_check_result": "PASSED",
+        "mics_response": "SUCCESS"
+    },
+    "agent_trust": {
+        "detected": true,
+        "agent": {
+            "name": "ClaudeBot"
+        },
+        "web_bot_auth": {
+            "provided": true,
+            "agent": "https://www.anthropic.com/",
+            "key_id": "xxxxxxXXXXXXXXXXxxxXXXXxxxxxxxxxxxxxx",
+            "signature_verified": true,
+            "signature_fail_reason": null
+        }
     }
 }
 ```
-
 ```json Failed EC With Error Message
 {
     "error": "DENIED ACCESS",
     "verified": "2021-08-30T22:15:00+00:00"
 }
 ```
-
 ```json Successfully Solved EC With lowsec Error
 {
     "session_details": {
@@ -1608,8 +1545,8 @@ The following examples show different Verify API responses. They show the typica
         "theme_arg_invalid": false,
         "suppressed": false,
         "punishable_actioned": false,
-        "telltale_user": "g-reputation-hosting",
-        "telltale_origin": "example-telltale-e-app",       // ✅ ADDED
+        "telltale_user": "example-telltale-e-app--2023-10-19-1718",
+        "telltale_origin": "example-telltale-e-app",
         "failed_low_sec_validation": false,
         "lowsec_error": "user_credits",
         "lowsec_level_denied": null,
@@ -1618,12 +1555,13 @@ The following examples show different Verify API responses. They show the typica
         "optional": null,
         "game_number_limit_reached": false,
         "user_language_shown": "en",
+        "device_id": "60116465c81ab3f640655106e42bf05994dd2e27b3afafb7e61a5cac0928c2e6",
         "telltale_list": [
             "g-reputation-hosting",
-            "g-reputation-vpn"
+            "g-reputation-vpn",
+            "example-telltale-e-app--2023-10-19-1718"
         ],
-        "challenge_type": "visual",
-        "stateless_device_id": null                        // ✅ ADDED (null when unavailable)
+        "challenge_type": "visual"
     },
     "fingerprint": {
         "browser_characteristics": {
@@ -1637,35 +1575,39 @@ The following examples show different Verify API responses. They show the typica
         "device_characteristics": {
             "operating_system": "OS X",
             "operating_system_version": "10.15.7",
-            "screen_resolution": [1920, 1080],
-            "max_resolution_supported": [1920, 1055],
+            "screen_resolution": [
+                1920,
+                1080
+            ],
+            "max_resolution_supported": [
+                1920,
+                1055
+            ],
             "behavior": false,
             "cpu_class": "unknown",
             "platform": "MacIntel",
             "touch_support": false,
-            "hardware_concurrency": 8,
-            "ja4_hash": null                               // ✅ ADDED
+            "hardware_concurrency": 8
         },
         "user_preferences": {
             "timezone_offset": 360
         }
     },
     "ip_intelligence": {
-        "user_ip": "18.190.53.157",
+        "user_ip": "104.133.177.84",
+        "is_proxy": false,
+        "is_vpn": false,
         "is_tor": false,
-        "is_vpn": true,
-        "is_proxy": true,
         "country": "US",
-        "region": "Ohio",
-        "city": "Columbus",
-        "isp": "Amazon.com",
+        "region": "ca",
+        "city": "mountain view",
+        "isp": "google inc.",
         "public_access_point": false,
-        "connection_type": "WiFi",
-        "latitude": "39.9587",
-        "longitude": "-82.9987",
-        "timezone": "America/New_York",
-        "asn": null,                                       // ✅ ADDED
-        "network_info_rtt": null                           // ✅ ADDED
+        "connection_type": "wired",
+        "latitude": "37.41",
+        "longitude": "-122.08",
+        "timezone": "america/los_angeles",
+        "asn": 36384
     },
     "session_risk": {
         "risk_category": "BOT-STD",
@@ -1673,8 +1615,14 @@ The following examples show different Verify API responses. They show the typica
         "global": {
             "score": 36,
             "telltales": [
-                { "name": "g-reputation-hosting", "weight": 20 },
-                { "name": "g-reputation-vpn", "weight": 20 }
+                {
+                    "name": "g-reputation-hosting",
+                    "weight": 20
+                },
+                {
+                    "name": "g-reputation-vpn",
+                    "weight": 20
+                }
             ]
         },
         "custom": {
@@ -1683,7 +1631,6 @@ The following examples show different Verify API responses. They show the typica
         }
     },
     "aggregations": {
-        "error": null,                                     // ✅ ADDED
         "ip": {
             "short_term": {
                 "interval_minutes": 60,
@@ -1701,42 +1648,33 @@ The following examples show different Verify API responses. They show the typica
         "blob_decrypted": null,
         "blob_received": null
     },
-    "device_id": {                                         // ✅ ADDED (entire block)
-        "arkose_id": null,
-        "confidence_score": null,
-        "device_first_seen": null,
-        "device_last_seen": null,
-        "device_spoofing_detected": null,
-        "stateful_challenge_bypassed": null,
-        "stateful_challenges_bypassed": null,
-        "stateful_change_reasons": null,
-        "stateful_device_id": null,
-        "stateless_device_id": null,
-        "stateless_device_id_previous": null,
-        "stateless_device_id_previous_version": null,
-        "stateless_device_id_version": null
+    "stateful_device_id": {
+        "stateful_device_id": "8dd4a9dc-81de-4c3d-a685-b8eb546b382b",
+        "challenge_bypassed": true,
+        "challenges_bypassed": 1,
+        "change_reasons": ["invalid_id", "invalid_nonce"]
     },
-    "stateful_device_id": {                                // ✅ ADDED (entire block)
-        "stateful_device_id": null,
-        "challenge_bypassed": false,
-        "challenges_bypassed": 0,
-        "change_reasons": null
+    "stateless_device_id": {
+        "device_id": “a325ssa5323a”,        
+        "device_id_version": “1.3”,        
+        "device_id_previous": “a325ssa5323b”,        
+        "device_id_previous_version":“1.2” 
     },
-    "stateless_device_id": {                               // ✅ ADDED (entire block)
-        "device_id": null,
-        "device_id_version": null,
-        "device_id_previous": null,
-        "device_id_previous_version": null
-    },
-    "proof_of_work": {                                     // ✅ ADDED (entire block)
-        "challenged": false,
-        "attempted": false,
-        "passed": false,
-        "difficulty_level": null
+    "agent_trust": {
+        "detected": true,
+        "agent": {
+            "name": "ClaudeBot"
+        },
+        "web_bot_auth": {
+            "provided": true,
+            "agent": "https://www.anthropic.com/",
+            "key_id": "xxxxxxXXXXXXXXXXxxxXXXXxxxxxxxxxxxxxx",
+            "signature_verified": true,
+            "signature_fail_reason": null
+        }
     }
 }
 ```
-
 ```json Failed EC With Optional Data
 {
     "session_details": {
@@ -1754,7 +1692,7 @@ The following examples show different Verify API responses. They show the typica
         "theme_arg_invalid": false,
         "suppressed": false,
         "punishable_actioned": false,
-        "telltale_user": "g-reputation-hosting",
+        "telltale_user": "example-telltale-e-app--2023-10-19-1718",
         "telltale_origin": "example-telltale-e-app",
         "failed_low_sec_validation": false,
         "lowsec_error": null,
@@ -1762,17 +1700,17 @@ The following examples show different Verify API responses. They show the typica
         "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "ip_rep_list": null,
         "optional": {
-            "blob": "BbfYFeKzwEwnGCAU.fCWy85IOHQ2j2SomSW6bf6Mibfgdlqn7MWyoY8JbYkVskPsLbqBqryeAR0EVC1pi5XosVJjPfvWZ4H6EBQgC5XYnHVeKwQ=="
+           "blob": "BbfYFeKzwEwnGCAU.fCWy85IOHQ2j2SomSW6bf6Mibfgdlqn7MWyoY8JbYkVskPsLbqBqryeAR0EVC1pi5XosVJjPfvWZ4H6EBQgC5XYnHVeKwQ=="
         },
         "game_number_limit_reached": true,
         "user_language_shown": "en",
-        "device_id": null,
+        "device_id": "null",
         "telltale_list": [
             "g-reputation-hosting",
-            "g-reputation-vpn"
+            "g-reputation-vpn",
+            "example-telltale-e-app--2023-10-19-1718"
         ],
-        "challenge_type": null,
-        "stateless_device_id": null                        
+        "challenge_type": null
     },
     "fingerprint": {
         "browser_characteristics": {
@@ -1786,35 +1724,39 @@ The following examples show different Verify API responses. They show the typica
         "device_characteristics": {
             "operating_system": "OS X",
             "operating_system_version": "10.15.7",
-            "screen_resolution": [1920, 1080],
-            "max_resolution_supported": [1920, 1055],
+            "screen_resolution": [
+                1920,
+                1080
+            ],
+            "max_resolution_supported": [
+                1920,
+                1055
+            ],
             "behavior": false,
             "cpu_class": "unknown",
             "platform": "MacIntel",
             "touch_support": false,
-            "hardware_concurrency": 8,
-            "ja4_hash": null                               
+            "hardware_concurrency": 8
         },
         "user_preferences": {
             "timezone_offset": 360
         }
     },
     "ip_intelligence": {
-        "user_ip": "18.190.53.157",
+        "user_ip": "104.133.177.84",
+        "is_proxy": false,
+        "is_vpn": false,
         "is_tor": false,
-        "is_vpn": true,
-        "is_proxy": true,
         "country": "US",
-        "region": "Ohio",
-        "city": "Columbus",
-        "isp": "Amazon.com",
+        "region": "ca",
+        "city": "mountain view",
+        "isp": "google inc.",
         "public_access_point": false,
-        "connection_type": "WiFi",
-        "latitude": "39.9587",
-        "longitude": "-82.9987",
-        "timezone": "America/New_York",
-        "asn": 14618,
-        "network_info_rtt": 50
+        "connection_type": "wired",
+        "latitude": "37.41",
+        "longitude": "-122.08",
+        "timezone": "america/los_angeles",
+        "asn": 36384
     },
     "session_risk": {
         "risk_category": "BOT-STD",
@@ -1822,8 +1764,14 @@ The following examples show different Verify API responses. They show the typica
         "global": {
             "score": 36,
             "telltales": [
-                { "name": "g-reputation-hosting", "weight": 20 },
-                { "name": "g-reputation-vpn", "weight": 20 }
+                {
+                    "name": "g-reputation-hosting",
+                    "weight": 20
+                },
+                {
+                    "name": "g-reputation-vpn",
+                    "weight": 20
+                }
             ]
         },
         "custom": {
@@ -1832,7 +1780,6 @@ The following examples show different Verify API responses. They show the typica
         }
     },
     "aggregations": {
-        "error": null,                                     
         "ip": {
             "short_term": {
                 "interval_minutes": 60,
@@ -1850,23 +1797,30 @@ The following examples show different Verify API responses. They show the typica
         "blob_decrypted": null,
         "blob_received": null
     },
-    "stateful_device_id": {                                
+    "stateful_device_id": {
         "stateful_device_id": "8dd4a9dc-81de-4c3d-a685-b8eb546b382b",
-        "challenge_bypassed": false,
-        "challenges_bypassed": 0,
-        "change_reasons": null
+        "challenge_bypassed": true,
+        "challenges_bypassed": 1,
+        "change_reasons": ["invalid_id", "invalid_nonce"]
     },
-    "stateless_device_id": {                               
-        "device_id": null,
-        "device_id_version": null,
-        "device_id_previous": null,
-        "device_id_previous_version": null
+    "stateless_device_id": {
+        "device_id": “a325ssa5323a”,        
+        "device_id_version": “1.3”,        
+        "device_id_previous": “a325ssa5323b”,        
+        "device_id_previous_version":“1.2” 
     },
-    "proof_of_work": {                                    
-        "challenged": false,
-        "attempted": false,
-        "passed": false,
-        "difficulty_level": null
+    "agent_trust": {
+        "detected": true,
+        "agent": {
+            "name": "ClaudeBot"
+        },
+        "web_bot_auth": {
+            "provided": true,
+            "agent": "https://www.anthropic.com/",
+            "key_id": "xxxxxxXXXXXXXXXXxxxXXXXxxxxxxxxxxxxxx",
+            "signature_verified": true,
+            "signature_fail_reason": null
+        }
     }
 }
 ```
@@ -1900,3 +1854,5 @@ The following examples show different Verify API responses. They show the typica
 > 📘 Proof of Work Response Structure
 >
 > To view the full Proof of Work Response Structure please visit [Proof of Work (Beta Preview)](https://support.arkoselabs.com/hc/en-us/articles/35531758890003-Proof-of-Work-Beta-Preview) (needs Zendesk authentication).
+
+<br />

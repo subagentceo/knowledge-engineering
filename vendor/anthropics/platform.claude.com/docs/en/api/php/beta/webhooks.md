@@ -5,6 +5,7 @@
 ### Beta Webhook Event
 
 - `BetaWebhookEvent`
+
   - `string id`
 
     Unique event identifier for idempotency.
@@ -22,10 +23,12 @@
 ### Beta Webhook Event Data
 
 - `BetaWebhookEventData`
+
   - `BetaWebhookSessionCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -34,9 +37,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionPendingEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -45,9 +49,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionRunningEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -56,9 +61,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -67,9 +73,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionRequiresActionEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -78,9 +85,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -89,9 +97,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -100,9 +109,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusRescheduledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -111,9 +121,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusRunStartedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -122,9 +133,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -133,9 +145,10 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionStatusTerminatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -144,42 +157,58 @@
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_created" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadIdledEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_idled" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionThreadTerminatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
+
+    - `string sessionThreadID`
+
+      ID of the session thread this event refers to.
 
     - `"session.thread_terminated" type`
 
     - `string workspaceID`
 
   - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the session that triggered the event.
 
     - `string organizationID`
 
@@ -188,9 +217,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -199,9 +229,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -210,9 +241,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault that triggered the event.
 
     - `string organizationID`
 
@@ -221,9 +253,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialCreatedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -236,9 +269,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialArchivedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -251,9 +285,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialDeletedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -266,9 +301,10 @@
     - `string workspaceID`
 
   - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
     - `string id`
 
-      ID of the resource that triggered the event.
+      ID of the vault credential that triggered the event.
 
     - `string organizationID`
 
@@ -283,9 +319,10 @@
 ### Beta Webhook Session Archived Event Data
 
 - `BetaWebhookSessionArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -296,9 +333,10 @@
 ### Beta Webhook Session Created Event Data
 
 - `BetaWebhookSessionCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -309,9 +347,10 @@
 ### Beta Webhook Session Deleted Event Data
 
 - `BetaWebhookSessionDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -322,9 +361,10 @@
 ### Beta Webhook Session Idled Event Data
 
 - `BetaWebhookSessionIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -335,9 +375,10 @@
 ### Beta Webhook Session Outcome Evaluation Ended Event Data
 
 - `BetaWebhookSessionOutcomeEvaluationEndedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -348,9 +389,10 @@
 ### Beta Webhook Session Pending Event Data
 
 - `BetaWebhookSessionPendingEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -361,9 +403,10 @@
 ### Beta Webhook Session Requires Action Event Data
 
 - `BetaWebhookSessionRequiresActionEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -374,9 +417,10 @@
 ### Beta Webhook Session Running Event Data
 
 - `BetaWebhookSessionRunningEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -387,9 +431,10 @@
 ### Beta Webhook Session Status Idled Event Data
 
 - `BetaWebhookSessionStatusIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -400,9 +445,10 @@
 ### Beta Webhook Session Status Rescheduled Event Data
 
 - `BetaWebhookSessionStatusRescheduledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -413,9 +459,10 @@
 ### Beta Webhook Session Status Run Started Event Data
 
 - `BetaWebhookSessionStatusRunStartedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -426,9 +473,10 @@
 ### Beta Webhook Session Status Terminated Event Data
 
 - `BetaWebhookSessionStatusTerminatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
 
@@ -439,11 +487,16 @@
 ### Beta Webhook Session Thread Created Event Data
 
 - `BetaWebhookSessionThreadCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_created" type`
 
@@ -452,11 +505,16 @@
 ### Beta Webhook Session Thread Idled Event Data
 
 - `BetaWebhookSessionThreadIdledEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_idled" type`
 
@@ -465,11 +523,16 @@
 ### Beta Webhook Session Thread Terminated Event Data
 
 - `BetaWebhookSessionThreadTerminatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the session that triggered the event.
 
   - `string organizationID`
+
+  - `string sessionThreadID`
+
+    ID of the session thread this event refers to.
 
   - `"session.thread_terminated" type`
 
@@ -478,9 +541,10 @@
 ### Beta Webhook Vault Archived Event Data
 
 - `BetaWebhookVaultArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -491,9 +555,10 @@
 ### Beta Webhook Vault Created Event Data
 
 - `BetaWebhookVaultCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -504,9 +569,10 @@
 ### Beta Webhook Vault Credential Archived Event Data
 
 - `BetaWebhookVaultCredentialArchivedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -521,9 +587,10 @@
 ### Beta Webhook Vault Credential Created Event Data
 
 - `BetaWebhookVaultCredentialCreatedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -538,9 +605,10 @@
 ### Beta Webhook Vault Credential Deleted Event Data
 
 - `BetaWebhookVaultCredentialDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -555,9 +623,10 @@
 ### Beta Webhook Vault Credential Refresh Failed Event Data
 
 - `BetaWebhookVaultCredentialRefreshFailedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault credential that triggered the event.
 
   - `string organizationID`
 
@@ -572,9 +641,10 @@
 ### Beta Webhook Vault Deleted Event Data
 
 - `BetaWebhookVaultDeletedEventData`
+
   - `string id`
 
-    ID of the resource that triggered the event.
+    ID of the vault that triggered the event.
 
   - `string organizationID`
 
@@ -585,6 +655,7 @@
 ### Unwrap Webhook Event
 
 - `UnwrapWebhookEvent`
+
   - `string id`
 
     Unique event identifier for idempotency.

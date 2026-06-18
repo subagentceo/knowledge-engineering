@@ -29,8 +29,8 @@ In this example, you will create a boolean flag called `new-checkout` that contr
 
 Add the Flagship binding in your Wrangler configuration file so your Worker can evaluate flags through a binding.
 
-* [  wrangler.jsonc ](#tab-panel-8368)
-* [  wrangler.toml ](#tab-panel-8369)
+* [  wrangler.jsonc ](#tab-panel-8543)
+* [  wrangler.toml ](#tab-panel-8544)
 
 JSONC
 
@@ -76,8 +76,8 @@ After updating the Wrangler configuration, run `npx wrangler types` to generate 
 
 Use the `env.FLAGS` binding to evaluate the flag. The binding provides type-safe methods that return the flag value and fall back to the default you provide if evaluation fails.
 
-* [  JavaScript ](#tab-panel-8370)
-* [  TypeScript ](#tab-panel-8371)
+* [  JavaScript ](#tab-panel-8545)
+* [  TypeScript ](#tab-panel-8546)
 
 JavaScript
 
@@ -213,13 +213,13 @@ bun add @cloudflare/flagship @openfeature/server-sdk
 
 Evaluate flags using the OpenFeature client:
 
-* [ With binding ](#tab-panel-8376)
-* [ With app ID ](#tab-panel-8377)
+* [ With binding ](#tab-panel-8551)
+* [ With app ID ](#tab-panel-8552)
 
 Pass the Flagship binding directly to the provider. This avoids additional HTTP requests and is the recommended approach inside a Worker. Authentication is handled automatically through the binding.
 
-* [  JavaScript ](#tab-panel-8374)
-* [  TypeScript ](#tab-panel-8375)
+* [  JavaScript ](#tab-panel-8549)
+* [  TypeScript ](#tab-panel-8550)
 
 JavaScript
 
@@ -317,8 +317,8 @@ export default {
 
 Use an app ID, account ID, and an API token when running outside of a Worker (for example, in Node.js). The provider makes HTTP requests to the Flagship evaluation endpoint. Generate an [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) from your Cloudflare account with Flagship Evaluate permission.
 
-* [  JavaScript ](#tab-panel-8372)
-* [  TypeScript ](#tab-panel-8373)
+* [  JavaScript ](#tab-panel-8547)
+* [  TypeScript ](#tab-panel-8548)
 
 JavaScript
 
@@ -401,5 +401,6 @@ Refer to the [SDK documentation](https://developers.cloudflare.com/flagship/sdk/
 * Read about [percentage rollouts](https://developers.cloudflare.com/flagship/targeting/percentage-rollouts/) for gradual feature releases.
 
 ```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/flagship/get-started/#page","headline":"Get started · Cloudflare Flagship docs","description":"Create your first Flagship feature flag and evaluate it inside a Cloudflare Worker using the binding API.","url":"https://developers.cloudflare.com/flagship/get-started/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-30","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/flagship/","name":"Flagship"}},{"@type":"ListItem","position":3,"item":{"@id":"/flagship/get-started/","name":"Get started"}}]}
 ```

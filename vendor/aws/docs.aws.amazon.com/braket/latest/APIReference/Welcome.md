@@ -26,4 +26,4 @@ To learn about the permissions required to call an Amazon Braket API action, see
  **Code examples from the Amazon Braket Tutorials GitHub repository:** 
 +  [Amazon Braket Examples](https://github.com/amazon-braket/amazon-braket-examples) 
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

@@ -9,4 +9,4 @@ The AWS Supply Chain API supports configuration data import for Supply Planning.
 
  All AWS Supply chain API operations are Amazon-authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles to help facilitate access, trust, and permission policies. 
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

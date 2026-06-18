@@ -1,3 +1,7 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://developer.arkoselabs.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
 # Verify Request and Response Schemas
 
 The Verify request and response schemas follow the JSON Schema standard. See [JSON Schema](https://json-schema.org/) for more information about the standard.
@@ -27,7 +31,6 @@ When making a Verify request using POST (and only when using POST), you can incl
     ]
 }
 ```
-
 ```json Response Schema
 {
   "oneOf": [
@@ -55,6 +58,116 @@ When making a Verify request using POST (and only when using POST), you can incl
     },
     {
       "properties": {
+        "agent_trust": {
+          "properties": {
+            "agent": {
+              "oneOf": [
+                {
+                  "additionalProperties": false,
+                  "description": "Agent metadata when available; present only when detected is true",
+                  "properties": {
+                    "name": {
+                      "description": "Name of the detected agent trust agent",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "detected": {
+              "default": false,
+              "description": "Whether the session was classified as an agent trust client",
+              "type": "boolean"
+            },
+            "web_bot_auth": {
+              "oneOf": [
+                {
+                  "additionalProperties": false,
+                  "description": "Outcome of RFC 9421 Web-Bot-Auth header verification captured at setup-session. Independent signal from detected/agent: a verified web_bot_auth payload with detected=false is valid (cryptographic proof of identity without matching the heuristic allowlist)",
+                  "properties": {
+                    "agent": {
+                      "oneOf": [
+                        {
+                          "default": null,
+                          "description": "Bare URI of the bot operator's JWKS directory origin",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "key_id": {
+                      "oneOf": [
+                        {
+                          "default": null,
+                          "description": "RFC 7638 thumbprint of the signing key",
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "provided": {
+                      "default": false,
+                      "description": "Whether WBA headers were present on the setup-session request",
+                      "type": "boolean"
+                    },
+                    "signature_fail_reason": {
+                      "oneOf": [
+                        {
+                          "default": null,
+                          "description": "Reason verification failed; null on success",
+                          "enum": [
+                            "bad_signature",
+                            "missing_key",
+                            "directory_unreachable",
+                            "malformed_input",
+                            "signature_expired",
+                            "unsupported_profile",
+                            null
+                          ],
+                          "type": "string"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "signature_verified": {
+                      "default": false,
+                      "description": "Whether the RFC 9421 signature cryptographically verified",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "provided",
+                    "agent",
+                    "key_id",
+                    "signature_verified",
+                    "signature_fail_reason"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "detected"
+          ],
+          "type": "object"
+        },
         "aggregations": {
           "properties": {
             "error": {
@@ -172,66 +285,6 @@ When making a Verify request using POST (and only when using POST), you can incl
                   "type": "null"
                 }
               ]
-            }
-          },
-          "type": "object"
-        },
-        "device_id": {
-          "properties": {
-            "arkose_id": {
-              "description": "Composite key of stateful \u0026 stateless id",
-              "type": "string"
-            },
-            "confidence_score": {
-              "description": "Confidence of the uniqueness of the arkose id",
-              "type": "number"
-            },
-            "device_first_seen": {
-              "description": "When the device was first seen",
-              "type": "string"
-            },
-            "device_last_seen": {
-              "description": "When the device was last seen",
-              "type": "string"
-            },
-            "device_spoofing_detected": {
-              "description": "Whether the current user has been detected spoofing their device",
-              "type": "boolean"
-            },
-            "stateful_challenge_bypassed": {
-              "description": "Whether the current challenge was bypassed",
-              "type": "boolean"
-            },
-            "stateful_challenges_bypassed": {
-              "description": "Number of challenges the user has been allowed to bypass since their last solve",
-              "type": "integer"
-            },
-            "stateful_change_reasons": {
-              "description": "Reasons why a challenge may have been presented",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            },
-            "stateful_device_id": {
-              "description": "The Stateful Device ID attributed to this user",
-              "type": "string"
-            },
-            "stateless_device_id": {
-              "description": "The current device ID",
-              "type": "string"
-            },
-            "stateless_device_id_previous": {
-              "description": "Previous Stateless Device ID",
-              "type": "string"
-            },
-            "stateless_device_id_previous_version": {
-              "description": "Version of the previous Stateless Device ID",
-              "type": "string"
-            },
-            "stateless_device_id_version": {
-              "description": "Version of the Stateless Device ID",
-              "type": "string"
             }
           },
           "type": "object"
@@ -960,21 +1013,6 @@ When making a Verify request using POST (and only when using POST), you can incl
                 }
               ]
             },
-            "proxy_type": {
-              "default": "not a proxy",
-              "description": "Type of proxy service",
-              "examples": [
-                "anonymous",
-                "transparent",
-                "corporate",
-                "consumer-privacy",
-                "public",
-                "edu",
-                "data center",
-                "not a proxy"
-              ],
-              "type": "string"
-            },
             "public_access_point": {
               "default": false,
               "description": "Whether the IP is from a public access point",
@@ -1032,7 +1070,6 @@ When making a Verify request using POST (and only when using POST), you can incl
             "isp",
             "public_access_point",
             "connection_type",
-            "proxy_type",
             "latitude",
             "longitude",
             "timezone"
@@ -1105,19 +1142,13 @@ When making a Verify request using POST (and only when using POST), you can incl
               "default": false,
               "description": "Indicates that PoW attempt was passed by the user",
               "type": "boolean"
-            },
-            "transparent": {
-              "default": false,
-              "description": "Indicates that no UI was shown to the user",
-              "type": "boolean"
             }
           },
           "required": [
             "challenged",
             "attempted",
             "passed",
-            "difficulty_level",
-            "transparent"
+            "difficulty_level"
           ],
           "type": "object"
         },

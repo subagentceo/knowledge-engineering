@@ -1,7 +1,7 @@
 {
   "https://brave.com/search/api/guides/": {
     "sha256": "d6f22671c303084f02c0aee6b179e452a61a8bd194939d65fdc2bb9a05b52016",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"21e29b9239a03b34660f969d49f2b34a\"",
     "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
   },
@@ -12,14 +12,14 @@
     "lastModified": "Thu, 19 Feb 2026 19:30:25 GMT"
   },
   "https://brave.com/search/api/tools/": {
-    "sha256": "847929e618189484dc5fb881a06356f96936896011faab08dcc5eed64b3ac615",
+    "sha256": "86dcdf3317b39021a603c3e91fe980d6df4db055860c846781ece4a4e80215b6",
     "lastStatus": 200,
-    "etag": "W/\"f8b330daf51a99a0dca5f1a6131994c8\"",
-    "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
+    "etag": "W/\"78d51fe3184868c5cbeec3e3ff930f29\"",
+    "lastModified": "Wed, 17 Jun 2026 21:28:23 GMT"
   },
   "https://brave.com/search/api/use-cases/": {
     "sha256": "c380e42f86e671a616ff95fc28b4f631c6061907b78987e615c0b3d527776f43",
-    "lastStatus": 200,
+    "lastStatus": 304,
     "etag": "W/\"6275a55fa0d82f0aa17ef4dfe87ca020\"",
     "lastModified": "Thu, 11 Jun 2026 23:38:15 GMT"
   }

@@ -5,7 +5,6 @@
 ## Instructions for AI Agents
 
 - For clean Markdown of any page, append `.md` to the page URL
-- For a complete documentation index, see https://elevenlabs.io/docs/llms.txt
 - For section-specific indexes, append `/llms.txt` to any section URL
 - For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://elevenlabs.io/docs/_mcp/server
 
@@ -93,6 +92,8 @@
 - [Models](https://elevenlabs.io/docs/eleven-agents/customization/llm.md): Learn how to choose the right model for your use-case
 - [Workflows](https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows.md): Build sophisticated conversation flows with visual graph-based workflows
 - [Procedures](https://elevenlabs.io/docs/eleven-agents/customization/procedures.md): Task-specific instructions your agent loads when relevant
+- [Free-form procedures](https://elevenlabs.io/docs/eleven-agents/customization/procedures/free-form-procedures.md): Task-specific instructions written in natural language
+- [Structured procedures](https://elevenlabs.io/docs/eleven-agents/customization/procedures/structured-procedures.md): A fixed sequence of typed steps your agent runs the same way every time
 - [Conversation flow](https://elevenlabs.io/docs/eleven-agents/customization/conversation-flow.md): Configure how your assistant handles timeouts, interruptions, and turn-taking during conversations.
 - [Guardrails](https://elevenlabs.io/docs/eleven-agents/best-practices/guardrails.md): Control how agents behave in production with protections to keep responses safe, compliant, and reliable.
 - [Voice customization](https://elevenlabs.io/docs/eleven-agents/customization/voice.md): Learn how to customize your AI agent's voice and speech patterns.
@@ -107,7 +108,7 @@
 - [Retrieval-Augmented Generation](https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base/rag.md): Enhance your agent with large knowledge bases using RAG.
 - [Tools](https://elevenlabs.io/docs/eleven-agents/customization/tools.md): Enhance ElevenLabs agents with custom functionalities and external integrations.
 - [Client tools](https://elevenlabs.io/docs/eleven-agents/customization/tools/client-tools.md): Empower your assistant to trigger client-side operations.
-- [Server tools](https://elevenlabs.io/docs/eleven-agents/customization/tools/server-tools.md): Connect your assistant to external data & systems.
+- [Webhook tools](https://elevenlabs.io/docs/eleven-agents/customization/tools/webhook-tools.md): Connect your assistant to external data & systems.
 - [Model Context Protocol](https://elevenlabs.io/docs/eleven-agents/customization/tools/mcp.md): Connect your ElevenLabs conversational agents to external tools and data sources using the Model Context Protocol.
 - [MCP integration security](https://elevenlabs.io/docs/eleven-agents/customization/tools/mcp/security.md): Tips for securely integrating third-party Model Context Protocol servers with your ElevenLabs conversational agents.
 - [System tools](https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools.md): Update the internal state of conversations without external requests.
@@ -321,6 +322,7 @@
 - API Reference > Agents [Calculate expected LLM usage](https://elevenlabs.io/docs/eleven-agents/api-reference/agents/calculate.md)
 - API Reference > Agents [Get agent summaries](https://elevenlabs.io/docs/eleven-agents/api-reference/agents/get-summaries.md)
 - API Reference > Conversations > Analysis [Run conversation analysis](https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/analysis/run-analysis.md)
+- API Reference > Conversations > Analysis [Run conversation evaluation](https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/analysis/run-evaluation.md)
 - API Reference > Conversations > Messages [Text search](https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/messages/text-search.md)
 - API Reference > Conversations > Messages [Smart search](https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/messages/search.md)
 - API Reference > Conversations > Topics [Get agent conversation topics](https://elevenlabs.io/docs/eleven-agents/api-reference/conversations/topics/get.md)
@@ -464,6 +466,7 @@
 - API reference > ElevenAgents > Agents [Calculate expected LLM usage](https://elevenlabs.io/docs/api-reference/agents/calculate.md)
 - API reference > ElevenAgents > Agents [Get agent summaries](https://elevenlabs.io/docs/api-reference/agents/get-summaries.md)
 - API reference > ElevenAgents > Conversations > Analysis [Run conversation analysis](https://elevenlabs.io/docs/api-reference/conversations/analysis/run-analysis.md)
+- API reference > ElevenAgents > Conversations > Analysis [Run conversation evaluation](https://elevenlabs.io/docs/api-reference/conversations/analysis/run-evaluation.md)
 - API reference > ElevenAgents > Conversations > Messages [Text search](https://elevenlabs.io/docs/api-reference/conversations/messages/text-search.md)
 - API reference > ElevenAgents > Conversations > Messages [Smart search](https://elevenlabs.io/docs/api-reference/conversations/messages/search.md)
 - API reference > ElevenAgents > Conversations > Topics [Get agent conversation topics](https://elevenlabs.io/docs/api-reference/conversations/topics/get.md)

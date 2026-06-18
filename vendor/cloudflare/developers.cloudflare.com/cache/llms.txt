@@ -74,6 +74,7 @@ Make websites faster by caching content across our global server network
 - [Create a rule in the dashboard](https://developers.cloudflare.com/cache/how-to/cache-rules/create-dashboard/index.md): Create cache rules in the Cloudflare dashboard.
 - [Browser Cache TTL](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/browser-cache-ttl/index.md): Browser Cache TTL
 - [Bypass Cache on Cookie](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/bypass-cache-on-cookie/index.md): Bypass Cache on Cookie
+- [Cache everything for hostnames in a list](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-by-hostname-list/index.md): Cache everything for hostnames in a list
 - [Cache Deception Armor](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-deception-armor/index.md): Cache Deception Armor
 - [Cache by Device Type](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-device-type/index.md): Cache by Device Type
 - [Cache Level (Cache Everything)](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-everything/index.md): Cache Level (Cache Everything)

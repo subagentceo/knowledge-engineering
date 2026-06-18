@@ -11,6 +11,7 @@ Validate Credential
 - `credentialID: string`
 
 - `params: CredentialMCPOAuthValidateParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -18,9 +19,11 @@ Validate Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -73,13 +76,16 @@ Validate Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -91,9 +97,11 @@ Validate Credential
   - `mcp_probe: BetaManagedAgentsMCPProbe | null`
 
     The failing step of an MCP validation probe.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
+
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -117,6 +125,7 @@ Validate Credential
   - `refresh: BetaManagedAgentsRefreshObject | null`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
@@ -124,6 +133,7 @@ Validate Credential
     - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `"succeeded"`
 
       - `"failed"`
@@ -135,6 +145,7 @@ Validate Credential
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
     Overall verdict of a credential validation probe.
+
     - `"valid"`
 
     - `"invalid"`
@@ -142,6 +153,7 @@ Validate Credential
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
+
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -155,17 +167,16 @@ Validate Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsCredentialValidation =
-  await client.beta.vaults.credentials.mcpOAuthValidate(
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" },
-  );
+const betaManagedAgentsCredentialValidation = await client.beta.vaults.credentials.mcpOAuthValidate(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
 
 console.log(betaManagedAgentsCredentialValidation.credential_id);
 ```

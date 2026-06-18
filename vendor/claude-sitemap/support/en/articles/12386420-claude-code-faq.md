@@ -14,7 +14,7 @@ Dynamic workflows (available for Claude Enterprise plans) let Claude run large e
 
 You have three ways to control access:
 
-1. **At the role level (Enterprise plans with custom roles):** Grant or restrict the Claude Code dynamic workflows capability per group. This only affects members whose role is set to "Custom roles." See **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
+1. **At the role level (Enterprise plans with custom roles):** Grant or restrict the Claude Code dynamic workflows capability per group. This only affects members whose role is set to "Custom." See **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
 
 2. **Disable org-wide via `managed-settings.json`:** Add `"disableWorkflows": true` to your managed settings. This holds before and after June 8.
 

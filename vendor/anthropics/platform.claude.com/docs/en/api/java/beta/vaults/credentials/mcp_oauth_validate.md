@@ -9,6 +9,7 @@ Validate Credential
 ### Parameters
 
 - `CredentialMcpOAuthValidateParams params`
+
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -16,6 +17,7 @@ Validate Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,13 +70,16 @@ Validate Credential
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaManagedAgentsCredentialValidation:`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `String credentialId`
 
     Unique identifier of the credential that was validated.
@@ -86,9 +91,11 @@ Validate Credential
   - `Optional<BetaManagedAgentsMcpProbe> mcpProbe`
 
     The failing step of an MCP validation probe.
+
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
+
       - `String body`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -112,6 +119,7 @@ Validate Credential
   - `Optional<BetaManagedAgentsRefreshObject> refresh`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
@@ -119,6 +127,7 @@ Validate Credential
     - `Status status`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `SUCCEEDED("succeeded")`
 
       - `FAILED("failed")`
@@ -130,6 +139,7 @@ Validate Credential
   - `BetaManagedAgentsCredentialValidationStatus status`
 
     Overall verdict of a credential validation probe.
+
     - `VALID("valid")`
 
     - `INVALID("invalid")`
@@ -137,6 +147,7 @@ Validate Credential
     - `UNKNOWN("unknown")`
 
   - `Type type`
+
     - `VAULT_CREDENTIAL_VALIDATION("vault_credential_validation")`
 
   - `LocalDateTime validatedAt`

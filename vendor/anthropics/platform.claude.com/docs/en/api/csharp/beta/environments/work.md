@@ -13,6 +13,7 @@ Retrieve detailed information about a specific work item.
 ### Parameters
 
 - `WorkRetrieveParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -24,6 +25,7 @@ Retrieve detailed information about a specific work item.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -76,7 +78,9 @@ Retrieve detailed information about a specific work item.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -87,9 +91,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -102,9 +107,10 @@ Retrieve detailed information about a specific work item.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -129,6 +135,7 @@ Retrieve detailed information about a specific work item.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -202,6 +209,7 @@ Long poll for work items in the queue.
 ### Parameters
 
 - `WorkPollParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -217,6 +225,7 @@ Long poll for work items in the queue.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -269,7 +278,9 @@ Long poll for work items in the queue.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
   - `string anthropicWorkerID`
 
@@ -284,9 +295,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -299,9 +311,10 @@ Long poll for work items in the queue.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -326,6 +339,7 @@ Long poll for work items in the queue.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -398,6 +412,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Parameters
 
 - `WorkAckParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -409,6 +424,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -461,7 +477,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -472,9 +490,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -487,9 +506,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -514,6 +534,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -587,6 +608,7 @@ Record a heartbeat for a work item to maintain the lease.
 ### Parameters
 
 - `WorkHeartbeatParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -606,6 +628,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -658,13 +681,16 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -676,6 +702,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `required State State`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -733,6 +760,7 @@ Stop a work item, initiating graceful or forced shutdown.
 ### Parameters
 
 - `WorkStopParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -748,6 +776,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -800,7 +829,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -811,9 +842,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -826,9 +858,10 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -853,6 +886,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -926,6 +960,7 @@ List work items in an environment.
 ### Parameters
 
 - `WorkListParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -941,6 +976,7 @@ List work items in an environment.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -993,19 +1029,23 @@ List work items in an environment.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `required IReadOnlyList<BetaSelfHostedWork> Data`
 
     List of work items
+
     - `required string ID`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `required string? AcknowledgedAt`
 
@@ -1018,9 +1058,10 @@ List work items in an environment.
     - `required BetaSessionWorkData Data`
 
       The actual work to be performed
+
       - `required string ID`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonElement Type "session"constant`
 
@@ -1045,6 +1086,7 @@ List work items in an environment.
     - `required State State`
 
       Current state of the work item
+
       - `"queued"Queued`
 
       - `"starting"Starting`
@@ -1128,6 +1170,7 @@ Update work item metadata with merge semantics.
 ### Parameters
 
 - `WorkUpdateParams parameters`
+
   - `required string environmentID`
 
     Path param
@@ -1143,6 +1186,7 @@ Update work item metadata with merge semantics.
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1195,7 +1239,9 @@ Update work item metadata with merge semantics.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -1206,9 +1252,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -1221,9 +1268,10 @@ Update work item metadata with merge semantics.
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -1248,6 +1296,7 @@ Update work item metadata with merge semantics.
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -1320,11 +1369,13 @@ Get statistics about the work queue for an environment.
 ### Parameters
 
 - `WorkStatsParams parameters`
+
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1377,7 +1428,9 @@ Get statistics about the work queue for an environment.
 
     - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
 
-    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+
+    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
 
 ### Returns
 
@@ -1386,6 +1439,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `required Long Depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1442,9 +1496,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `required string ID`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `required string? AcknowledgedAt`
 
@@ -1457,9 +1512,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required BetaSessionWorkData Data`
 
     The actual work to be performed
+
     - `required string ID`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type "session"constant`
 
@@ -1484,6 +1540,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required State State`
 
     Current state of the work item
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -1511,6 +1568,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
   Response after recording a heartbeat for a work item.
+
   - `required string LastHeartbeat`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1522,6 +1580,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   - `required State State`
 
     Current state of the work item (active/stopping/stopped)
+
     - `"queued"Queued`
 
     - `"starting"Starting`
@@ -1545,12 +1604,14 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkListResponse:`
 
   Response when listing work items with cursor-based pagination.
+
   - `required IReadOnlyList<BetaSelfHostedWork> Data`
 
     List of work items
+
     - `required string ID`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `required string? AcknowledgedAt`
 
@@ -1563,9 +1624,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
     - `required BetaSessionWorkData Data`
 
       The actual work to be performed
+
       - `required string ID`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `JsonElement Type "session"constant`
 
@@ -1590,6 +1652,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
     - `required State State`
 
       Current state of the work item
+
       - `"queued"Queued`
 
       - `"starting"Starting`
@@ -1623,6 +1686,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `required Long Depth`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1648,6 +1712,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkStopRequest:`
 
   Request to stop a work item.
+
   - `Boolean Force`
 
     If true, immediately stop work without graceful shutdown
@@ -1657,6 +1722,7 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 - `class BetaSelfHostedWorkUpdateRequest:`
 
   Request to update work item metadata.
+
   - `required IReadOnlyDictionary<string, string> Metadata`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1669,9 +1735,10 @@ Console.WriteLine(betaSelfHostedWorkQueueStats);
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `required string ID`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `JsonElement Type "session"constant`
 

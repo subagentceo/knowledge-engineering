@@ -729,7 +729,3 @@ RealtimeKit, SFU and TURN
 - [Replacing existing TURN servers](https://developers.cloudflare.com/realtime/turn/replacing-existing/index.md): Migrate from self-hosted or third-party TURN servers to Cloudflare Realtime TURN.
 - [TURN Feature Matrix](https://developers.cloudflare.com/realtime/turn/rfc-matrix/index.md): Supported TURN protocols, RFCs, and STUN features on Cloudflare Realtime TURN.
 - [What is TURN?](https://developers.cloudflare.com/realtime/turn/what-is-turn/index.md): TURN relays traffic through NATs and firewalls to enable peer-to-peer WebRTC communication.
-
-## agents
-
-- [Getting started](https://developers.cloudflare.com/realtime/agents/getting-started/index.md): Deploy your first Realtime Agent using the CLI.

@@ -47,5 +47,6 @@ In this configuration:
 As you gain confidence, increase the rollout percentage until you reach 100%.
 
 ```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/flagship/targeting/percentage-rollouts/#page","headline":"Percentage rollouts · Cloudflare Flagship docs","description":"Gradually release features to a fraction of users with Flagship percentage rollouts and consistent hashing for sticky bucketing.","url":"https://developers.cloudflare.com/flagship/targeting/percentage-rollouts/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/flagship/","name":"Flagship"}},{"@type":"ListItem","position":3,"item":{"@id":"/flagship/targeting/","name":"Targeting rules"}},{"@type":"ListItem","position":4,"item":{"@id":"/flagship/targeting/percentage-rollouts/","name":"Percentage rollouts"}}]}
 ```

@@ -1,6 +1,6 @@
 # Morningstar Credit Analytics
 
-Connect to a range of Morningstar Credit datasets across structured finance, financial institutions, and corporate entities. In its current release, the connector gives credit analysts and portfolio managers structured access to trusted CMBS and CRE data — including loan-level delinquency status, watchlist flags, special servicing activity, and deal-level performance metrics. Use cases include screening the CMBS universe by property type and monitoring credit signals across remittance cycles to surface portfolio intelligence.
+Integrate Morningstar's comprehensive investment data and independent research directly into your AI workflows. Through our MCP-powered connector, clients can explore cross-asset coverage—including funds, equities, and beyond, enhanced by forward-looking insights from our global analyst teams. Access trusted, unbiased intelligence to support investment decisions, due diligence, and portfolio strategy in one seamless experience.
 
 You can use Morningstar Credit Analytics to:
 

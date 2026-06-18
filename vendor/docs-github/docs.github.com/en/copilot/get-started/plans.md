@@ -2,11 +2,7 @@
 
 Learn about the available plans for Copilot.
 
-> \[!IMPORTANT]
->
-> * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-> * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
-> * **Beginning June 1, 2026**, the new Copilot Max plan is only available for upgrade to users with existing Copilot plans.
+> \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 GitHub offers several plans for GitHub Copilot, depending on your needs and whether you're using Copilot as an individual or as part of an organization or enterprise.
 
@@ -190,11 +186,7 @@ For more information, see [GitHub Copilot features](/en/copilot/about-github-cop
 
 Start using Copilot by signing up for the plan that best fits your needs.
 
-> \[!IMPORTANT]
->
-> * **Starting April 20, 2026**, new sign-ups for Copilot Pro, Copilot Pro+, Copilot Max, and student plans are temporarily paused. However, existing plans can be upgraded.
-> * **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
-> * **Beginning June 1, 2026**, the new Copilot Max plan is only available for upgrade to users with existing Copilot plans.
+> \[!IMPORTANT] **Starting April 22, 2026**, new self-serve sign-ups for Copilot Business for organizations on GitHub Free and GitHub Team plans are temporarily paused.
 
 * **Copilot Free** — Try Copilot with limited features and usage. [Start using Copilot Free](https://github.com/copilot?ref_product=copilot\&ref_type=engagement\&ref_style=text\&ref_plan=free).
 
@@ -202,7 +194,7 @@ Start using Copilot by signing up for the plan that best fits your needs.
 
 * **Copilot Pro** — Get unlimited completions and access to select models. [Subscribe to Copilot Pro](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=pro).
 
-* **Copilot Pro+** — Unlock premium AI models and extra capabilities. [Subscribe to Copilot Pro+](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=pro).
+* **Copilot Pro+** — Unlock premium AI models and extra capabilities. [Subscribe to Copilot Pro+](https://github.com/github-copilot/signup?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=pro-plus).
 
 * **Copilot Max** — Unlock priority access to new AI models and our highest individual monthly allowance of AI credits. [Upgrade to Copilot Max](https://github.com/settings/billing/licensing?ref_product=copilot\&ref_type=purchase\&ref_style=text\&ref_plan=max).
 

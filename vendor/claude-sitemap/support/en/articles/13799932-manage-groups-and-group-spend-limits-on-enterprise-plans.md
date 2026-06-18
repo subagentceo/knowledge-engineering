@@ -54,17 +54,17 @@ To manually trigger a sync, click “SCIM Sync."
 
 ## Control member access with custom roles
 
-You can control individual members' feature access entirely through groups and custom roles. When a member's role is set to **Custom roles**, they have no default capabilities or permissions—their access is determined entirely by the custom roles assigned to their groups. This is different from the User, Admin, or Owner roles, which include built-in permissions.
+You can control individual members' feature access entirely through groups and custom roles. When a member's role is set to **Custom**, they have no default capabilities or permissions—their access is determined entirely by the custom roles assigned to their groups. This is different from the User, Admin, or Owner roles, which include built-in permissions.
 
-### Set a member's role to Custom roles
+### Set a member's role to Custom
 
 1. Navigate to[**Organization settings > Organization**](https://claude.ai/admin-settings/organization).
 
 2. Find the member and click their role dropdown.
 
-3. Select "Custom roles."
+3. Select "Custom."
 
-Only Owners and Primary Owners can change member roles. You can also assign “Custom roles” at scale by mapping an IdP group using[**group mappings**](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning).
+Only Owners and Primary Owners can change member roles. You can also assign “Custom” roles at scale by mapping an IdP group using[**group mappings**](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning).
 
 ### Recommended setup
 
@@ -76,19 +76,19 @@ Only Owners and Primary Owners can change member roles. You can also assign “C
 
 4. Add members to the appropriate groups.
 
-  1. **Note:** If a member set to Custom roles isn't in any groups, or their groups have no custom roles assigned, they have no permissions and can't access any products. They'll land on their settings page when they sign in.
+  1. **Note:** If a member set to a Custom role isn't in any groups, or their groups have no custom roles assigned, they have no permissions and can't access any products. They'll land on their settings page when they sign in.
 
-5. Set each member's organization role to **Custom roles**.
+5. Set each member's organization role to **Custom**.
 
 6. Enable any features at the organization level that you want to control per-group.
 
 The member's effective permissions are now determined by their group memberships and the custom roles assigned to those groups.
 
-**Important:** Always complete steps 1–5 before enabling features at the organization level (step 6). If you enable a feature before changing members' roles to Custom roles and assigning appropriate custom roles, there's a brief window where some members could access the feature through their previous role. For a detailed walkthrough, see **[Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-entitlements-on-enterprise-plans)**.
+**Important:** Always complete steps 1–5 before enabling features at the organization level (step 6). If you enable a feature before changing members' roles to Custom and assigning appropriate custom roles, there's a brief window where some members could access the feature through their previous role. For a detailed walkthrough, see **[Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-entitlements-on-enterprise-plans)**.
 
 ### Inviting new members
 
-When inviting a new member, Owners and Primary Owners can select "Custom roles" as the role. The new member's access is determined by their group memberships after they join.
+When inviting a new member, Owners and Primary Owners can select "Custom" as the role. The new member's access is determined by their group memberships after they join.
 
 ---
 

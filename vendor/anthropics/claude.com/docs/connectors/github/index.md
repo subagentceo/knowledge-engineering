@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -32,8 +31,8 @@ Connect GitHub repositories directly to Claude to provide comprehensive context 
 
 **Keeping content current:**
 
-- Use the "Sync" icon to ensure you're working with the latest codebase
-- Use the "Configure files" icon to modify which files Claude analyzes
+* Use the "Sync" icon to ensure you're working with the latest codebase
+* Use the "Configure files" icon to modify which files Claude analyzes
 
 <Note>
   If you're not authenticated with GitHub, you'll be redirected to authenticate before using the integration.
@@ -45,8 +44,8 @@ If you see a warning after entering a valid URL, you're likely attempting to con
 
 Follow the link to the GitHub App where you can:
 
-- **Grant access yourself**: Choose between allowing Claude access to all repos or specific ones
-- **Request access**: GitHub organization administrators receive an email notification. Once approved, you can sync and access the repository
+* **Grant access yourself**: Choose between allowing Claude access to all repos or specific ones
+* **Request access**: GitHub organization administrators receive an email notification. Once approved, you can sync and access the repository
 
 ## Best practices
 

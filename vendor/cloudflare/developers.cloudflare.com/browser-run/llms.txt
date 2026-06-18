@@ -84,6 +84,7 @@ Control and interact with headless browser instances programmatically
 - [Deploy a Browser Run Worker](https://developers.cloudflare.com/browser-run/how-to/deploy-worker/index.md): Create and deploy a Cloudflare Worker that uses Browser Run to take screenshots from web pages.
 - [Generate OG images for Astro sites](https://developers.cloudflare.com/browser-run/how-to/og-images-astro/index.md): Use Browser Run to automatically generate Open Graph social preview images for your Astro site pages.
 - [Generate PDFs Using HTML and CSS](https://developers.cloudflare.com/browser-run/how-to/pdf-generation/index.md): Generate PDF documents from web pages or custom HTML and CSS using Browser Run with Puppeteer or Quick Actions.
+- [Pre-render pages for crawlers](https://developers.cloudflare.com/browser-run/how-to/pre-render-pages/index.md): Use Browser Run to render JavaScript-heavy pages and return crawler-ready HTML from a Worker.
 - [Build a web crawler with Queues and Browser Run](https://developers.cloudflare.com/queues/tutorials/web-crawler-with-browser-run/index.md): Build a scalable web crawler that uses Cloudflare Queues and Browser Run to process URLs asynchronously.
 
 ## reference

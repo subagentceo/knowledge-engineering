@@ -1,7 +1,7 @@
 ---
 vendor: arkose-labs
 llms_txt: https://developer.arkoselabs.com/llms.txt
-count: 50
+count: 49
 transform: verbatim
 ---
 
@@ -58,4 +58,3 @@ transform: verbatim
 | https://developer.arkoselabs.com/docs/verify-api-v4.md | `vendor/arkose-labs/developer.arkoselabs.com/docs/verify-api-v4.md` |
 | https://developer.arkoselabs.com/docs/verify-end-of-life-communication.md | `vendor/arkose-labs/developer.arkoselabs.com/docs/verify-end-of-life-communication.md` |
 | https://developer.arkoselabs.com/docs/verify-request-and-response-schemas.md | `vendor/arkose-labs/developer.arkoselabs.com/docs/verify-request-and-response-schemas.md` |
-| https://developer.arkoselabs.com/docs/welcome-to-arkose-labs.md | `vendor/arkose-labs/developer.arkoselabs.com/docs/welcome-to-arkose-labs.md` |

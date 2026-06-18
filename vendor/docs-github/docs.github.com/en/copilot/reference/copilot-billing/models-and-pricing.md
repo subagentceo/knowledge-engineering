@@ -49,6 +49,8 @@ All prices are **per 1 million tokens**.
 
 Anthropic models include a cache write cost in addition to cached input.
 
+> \[!NOTE] Claude Fable 5 is currently unavailable. For more information, see [Anthropic's announcement](https://www.anthropic.com/news/fable-mythos-access).
+
 | Model             | Release status | Category  |  Input | Cached input | Cache write | Output |
 | ----------------- | -------------- | --------- | -----: | -----------: | ----------: | -----: |
 |                   |                |           |        |              |             |        |

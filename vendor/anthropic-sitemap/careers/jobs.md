@@ -892,15 +892,9 @@ Apply
 
 ## Finance
 
-30 Open Roles
+29 Open Roles
 
-30 Open Roles
-
-Analytics, Finance & Strategy
-
-San Francisco, CA
-
-Apply
+29 Open Roles
 
 Director, Compute Infrastructure Procurement Operations
 
@@ -1570,9 +1564,9 @@ Apply
 
 ## Sales
 
-63 Open Roles
+64 Open Roles
 
-63 Open Roles
+64 Open Roles
 
 Account Executive - ASEAN
 
@@ -1907,6 +1901,12 @@ Apply
 Sales Manager, Nonprofit & Education, EMEA
 
 London, UK
+
+Apply
+
+Sales Strategy & Operational Excellence Lead
+
+San Francisco, CA | New York City, NY
 
 Apply
 
