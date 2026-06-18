@@ -2,15 +2,14 @@
 # SessionStart hook target. Wired in .claude/settings.json. Installs Node deps
 # unconditionally (local + cloud), then wires the data plane for cloud sessions.
 #
-# Runtime-context model (2026-06-17, OWSL1):
-#   * Cloud session: consumes DATABASE_URL + REDIS_URL set in the cloud env UI
-#     pointing at the WSL persistent backend via Cloudflare Tunnel. No local
-#     Postgres or Redis is started. If the vars are absent the session degrades
-#     gracefully — DB-dependent features warn and skip; npm verify still works.
-#   * WSL machine (wsl-ubuntu2604-jadecli, 100.112.152.5): runs AlloyDB Omni
-#     (ghcr.io/microsoft/pg_durable:pg18-compatible + AlloyDB Omni) + Redis 7
-#     persistently in Docker. cloudflared exposes port 5432 + 6379 as private
-#     Cloudflare Tunnel endpoints; Mac connects via Tailscale directly.
+# Runtime-context model (2026-06-17, OWSL1 with bridge fallback):
+#   * Preferred path: DATABASE_URL + REDIS_URL set in the cloud env UI pointing
+#     at wsl-ubuntu2604-jadecli (100.112.152.5) via Cloudflare Tunnel. When set,
+#     no local Postgres or Redis is started.
+#   * Bridge fallback (used until WSL + Cloudflare Tunnel are ready): if
+#     DATABASE_URL is absent, start local PG16 + Redis 7 exactly as before.
+#     Zero-downtime migration: set DATABASE_URL/REDIS_URL in the cloud env UI,
+#     and on the next session start the local fallback is automatically bypassed.
 #   * Local Mac session: CLAUDE_CODE_REMOTE is unset — data-plane block skipped.
 #
 # Source-of-truth runbooks:
@@ -49,33 +48,96 @@ if [ "${CLAUDE_CODE_REMOTE:-false}" != "true" ]; then
   exit 0
 fi
 
+PGDB="ke"
+REDIS_CONF="${PROJECT_DIR}/infra/redis/redis.conf"
 warn() { echo "start_services: WARN $*" >&2; }
 
-# ── Data-plane connectivity (external WSL backend) ────────────────────────────
-# DATABASE_URL and REDIS_URL must be set in the cloud env UI pointing at the
-# WSL persistent backend (AlloyDB Omni + Redis on wsl-ubuntu2604-jadecli) via
-# Cloudflare Tunnel. No local Postgres or Redis is started here.
-#
-# If the vars are absent, DB-dependent features warn and degrade gracefully.
-# The npm verify chain (type-check + unit tests) does NOT require a DB — it
-# still succeeds. Only the A2A server is skipped.
-#
-# OWSL1: ADR docs/decisions/2026-06-17-wsl-tailscale-persistent-backend.md
+# ── Database (external WSL backend preferred; local PG16 fallback) ────────────
+# OWSL1: when DATABASE_URL is set in the cloud env UI (Cloudflare Tunnel URL),
+# skip local PG16 entirely. When absent, start local PG16 as before (OKWP2
+# bridge until WSL backend + Cloudflare Tunnel are confirmed ready).
 
 if [ -n "${DATABASE_URL:-}" ]; then
-  log "database: using ${DATABASE_URL%%@*}@..."
+  log "database: using external ${DATABASE_URL%%@*}@..."
 else
-  warn "DATABASE_URL not set — A2A server skipped. Set in cloud env UI (Cloudflare Tunnel URL to WSL AlloyDB Omni)."
+  # Bridge fallback: local PostgreSQL 16 (pre-installed system cluster)
+  if ! pg_isready -q 2>/dev/null; then
+    service postgresql start || pg_ctlcluster 16 main start || true
+    for _ in $(seq 1 30); do pg_isready -q 2>/dev/null && break; sleep 1; done
+  fi
+
+  if pg_isready -q 2>/dev/null; then
+    log "postgres up (local fallback)"
+
+    # Portable postgres impersonation — cloud containers run as root (no sudo
+    # needed) or as a user with NOPASSWD sudoers. Probe sudo -n first so the
+    # hook never hangs waiting for a password that never comes (B-SUDO1).
+    if [ "$(id -u)" = "0" ]; then
+      _pg() { su - postgres -c "$(printf '%q ' "$@")" 2>/dev/null; }
+    elif sudo -n -u postgres true >/dev/null 2>&1; then
+      _pg() { sudo -u postgres "$@"; }
+    else
+      warn "Cannot impersonate postgres without password (sudo -n failed); skipping schema load."
+      _pg() { warn "skipped: $*"; return 0; }
+    fi
+
+    if ! _pg psql -tAc "SELECT 1 FROM pg_database WHERE datname='${PGDB}'" | grep -q 1; then
+      _pg createdb "${PGDB}"
+    fi
+
+    # Load the Kimball dw schema once. DDL is all IF NOT EXISTS; the sentinel
+    # skips the reload on resume. B5: check one sentinel per DDL file.
+    _psql_has() { [ "$(_pg psql -d "${PGDB}" -tAc "SELECT to_regclass('$1')" 2>/dev/null)" = "$1" ]; }
+    if ! _psql_has dw.dim_date \
+       || ! _psql_has dw.events_cache_access \
+       || ! _psql_has dw.dim_research_doc \
+       || ! _psql_has dw.dim_memory \
+       || ! _psql_has dw.dim_vendor \
+       || ! _psql_has dw.events_cache_promotion \
+       || ! _psql_has dw.dim_ecosystem_artifact; then
+      for sql in "${PROJECT_DIR}/infra/postgres/init/"*.sql \
+                 "${PROJECT_DIR}/data/models/alloydb_cache_ddl.sql" \
+                 "${PROJECT_DIR}/data/models/alloydb_citations_ddl.sql" \
+                 "${PROJECT_DIR}/data/models/alloydb_memory_ddl.sql" \
+                 "${PROJECT_DIR}/data/models/alloydb_vendor_ddl.sql" \
+                 "${PROJECT_DIR}/data/models/alloydb_events_ddl.sql" \
+                 "${PROJECT_DIR}/data/models/alloydb_ecosystem_ddl.sql"; do
+        _pg psql -d "${PGDB}" -v ON_ERROR_STOP=1 -f "${sql}" >/dev/null || log "schema load warn: ${sql}"
+      done
+      log "dw schema loaded (local fallback)"
+    fi
+    _pg psql -d "${PGDB}" -c "ALTER ROLE postgres WITH PASSWORD 'postgres'" >/dev/null 2>&1 || true
+    DATABASE_URL="postgres://postgres:postgres@localhost:5432/${PGDB}"
+  else
+    log "postgres NOT up — skipping schema load"
+  fi
 fi
 
+# ── Redis (external WSL backend preferred; local Redis 7 fallback) ───────────
 if [ -n "${REDIS_URL:-}" ]; then
-  log "redis: using ${REDIS_URL}"
+  log "redis: using external ${REDIS_URL}"
 else
-  warn "REDIS_URL not set — Redis-dependent features degraded. Set in cloud env UI (Cloudflare Tunnel URL to WSL Redis)."
+  # Bridge fallback: local Redis 7 (allkeys-lru + 7-day TTL from redis.conf)
+  if ! redis-cli ping >/dev/null 2>&1; then
+    if [ -f "${REDIS_CONF}" ]; then
+      mkdir -p /var/log/redis
+      redis-server "${REDIS_CONF}" --daemonize yes --logfile /var/log/redis/redis-server.log \
+        || service redis-server start || true
+    else
+      service redis-server start || true
+    fi
+  fi
+  if redis-cli ping >/dev/null 2>&1; then
+    log "redis up (local fallback)"
+    REDIS_URL="redis://localhost:6379"
+  else
+    log "redis NOT up"
+  fi
 fi
 
-# Publish to CLAUDE_ENV_FILE so sub-processes pick up the values. A value
-# already in the file (e.g. from a prior hook invocation) is never overwritten.
+# ── Publish connection env for the rest of the session ───────────────────────
+# A value already in CLAUDE_ENV_FILE (e.g. from a prior hook invocation) is
+# never overwritten.
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
   if [ -n "${DATABASE_URL:-}" ]; then
     grep -q '^export DATABASE_URL=' "${CLAUDE_ENV_FILE}" 2>/dev/null \
@@ -88,7 +150,6 @@ if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
 fi
 
 # ── A2A server (background, port 41241) ──────────────────────────────────────
-# Requires DATABASE_URL — skip if not set.
 A2A_PID_FILE="/var/run/ke-a2a.pid"
 if [ -n "${DATABASE_URL:-}" ] \
    && [ -f "${PROJECT_DIR}/src/a2a/server.ts" ] \
