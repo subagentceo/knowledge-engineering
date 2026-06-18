@@ -67,3 +67,82 @@ CREATE TABLE IF NOT EXISTS dw.bar (
     `expected 'missing type:' in detail, got: ${typeFindings[0].detail}`,
   );
 });
+
+// ── invalid measure type ──────────────────────────────────────────────────────
+test("@cube.measure with unknown type: value fails", () => {
+  const sql = `
+-- @cube name=DimBaz version=2026.06.17 type=dim-scd1
+-- @cube.measure      row_count  COUNT(*)  type:median
+CREATE TABLE IF NOT EXISTS dw.baz (
+    id BIGINT PRIMARY KEY
+);
+`.trim();
+  const findings = checkSql(sql, "test.sql");
+  const typeFindings = findings.filter((f) => f.reason === "invalid-measure-type");
+  assert.ok(typeFindings.length > 0, "expected invalid-measure-type for unknown type");
+  assert.ok(typeFindings[0].detail.includes("median"), "detail should name the bad type");
+});
+
+test("@cube.measure with valid type:sum passes", () => {
+  const sql = `
+-- @cube name=FactQux version=2026.06.17 type=fact
+-- @cube.measure      total  SUM(amount)  type:sum
+CREATE TABLE IF NOT EXISTS dw.qux (
+    amount BIGINT
+);
+`.trim();
+  const findings = checkSql(sql, "test.sql");
+  assert.equal(findings.length, 0, `unexpected findings: ${JSON.stringify(findings)}`);
+});
+
+// ── version checks ────────────────────────────────────────────────────────────
+test("@cube name= missing version= fails", () => {
+  const sql = `
+-- @cube name=DimNoVer type=dim-scd1
+CREATE TABLE IF NOT EXISTS dw.no_ver (
+    id BIGINT PRIMARY KEY
+);
+`.trim();
+  const findings = checkSql(sql, "test.sql");
+  const vf = findings.filter((f) => f.reason === "missing-version");
+  assert.ok(vf.length > 0, "expected missing-version finding");
+  assert.ok(vf[0].detail.includes("missing version="), `detail: ${vf[0].detail}`);
+});
+
+test("@cube name= malformed version= fails", () => {
+  const sql = `
+-- @cube name=DimBadVer version=26.6.17 type=dim-scd1
+CREATE TABLE IF NOT EXISTS dw.bad_ver (
+    id BIGINT PRIMARY KEY
+);
+`.trim();
+  const findings = checkSql(sql, "test.sql");
+  const vf = findings.filter((f) => f.reason === "missing-version");
+  assert.ok(vf.length > 0, "expected missing-version for malformed version");
+  assert.ok(vf[0].detail.includes("malformed"), `detail: ${vf[0].detail}`);
+});
+
+test("@cube name= valid YYYY.MM.DD version passes", () => {
+  const sql = `
+-- @cube name=DimGoodVer version=2026.12.31 type=dim-scd1
+CREATE TABLE IF NOT EXISTS dw.good_ver (
+    id BIGINT PRIMARY KEY
+);
+`.trim();
+  const findings = checkSql(sql, "test.sql");
+  const vf = findings.filter((f) => f.reason === "missing-version");
+  assert.equal(vf.length, 0, "expected no version findings");
+});
+
+// ── runCubeGuard ──────────────────────────────────────────────────────────────
+import { runCubeGuard } from "./cube-guard.js";
+
+test("runCubeGuard: returns ok=true on actual SQL init dir", () => {
+  const result = runCubeGuard();
+  assert.ok(result.checked > 0, "should have found SQL files");
+  if (!result.ok) {
+    assert.fail(
+      `cube-guard found ${result.findings.length} issue(s): ${result.findings.map((f) => `${f.file}:${f.line} ${f.reason}`).join("; ")}`,
+    );
+  }
+});
