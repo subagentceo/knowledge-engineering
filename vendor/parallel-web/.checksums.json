@@ -1,43 +1,43 @@
 {
   "https://docs.parallel.ai/api-reference/chat-api-beta/chat-completions.md": {
-    "sha256": "f5a019a8f23b23d33586cfbc01465020bae161e843bffb069f3bfef8772a69c2",
+    "sha256": "c6868cfc66eaf3a294a921c4a398945a3562a83be26c20b5b23798a41a6a48ae",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:19 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/extract/extract.md": {
     "sha256": "3e9e332abedd6fc719bd65df687982ffb2ec9d52b354b34cbdf4e94803f7be4c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:19 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/add-enrichment-to-findall-run.md": {
     "sha256": "b6fa903f6043d89ec6e47453e8ac27acfc8befa2e078d0f9204fd875e3fb72c9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:19 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/cancel-findall-run.md": {
     "sha256": "d87cdd45e7de9b2cc5754aecd529136438b78ac160adf23c36340c24877d25db",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/create-findall-run.md": {
-    "sha256": "2589b0d7a754e239e89e45377004e2d86260a36e5a6b12f08ee4bcc1cfef0861",
+    "sha256": "8a820b5ac69b19d7afcc95a5ae49e0ca3626a4ec66cb1af4a7c2c00c737b8503",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/extend-findall-run.md": {
     "sha256": "339f3785a737c563d94af2e48e99548b6b276ddc984c414f2703b13114e0dd0b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/fast-entity-search.md": {
     "sha256": "49015aa364a337f321b2aa9d1d8a5d6323f74d6ed8112bc0acd6593c48172e1c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/findall-run-result.md": {
     "sha256": "5abfdd98ec1101e9ddbe9aac1a13ffed8910d8f3b74d53d076e6667ccf363597",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:39 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/generate-findall-candidates.md": {
     "sha256": "063b4c9aa8ef2758db936a8e81e49007b35d0dea898b8eca23c6fb4da051b61b",
@@ -47,266 +47,649 @@
   "https://docs.parallel.ai/api-reference/findall/get-findall-run-schema.md": {
     "sha256": "aed566f0e0df2380e8969316c6c95381dfeb4ccfdddebacb51945633ce06e138",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/ingest-findall-run.md": {
     "sha256": "f8f712f4ff6c05745e7f8589fb1fc788879c866d387e3f15a495d6d6a0025ace",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/retrieve-findall-run-status.md": {
     "sha256": "a6582ee096338c5ab7b12ed6aa55e27b2ca6c83059785ad4f403a66724c9f713",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/findall/stream-findall-events.md": {
     "sha256": "9f39744c32d4c4fd12f735f266bf231e9513e9a3999c6492c39cb3bd318acf39",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/cancel-monitor.md": {
     "sha256": "faf2151e69b79c6a07320067bf57f318c843f923e139ea5446ff32d59fad19b2",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/create-monitor.md": {
     "sha256": "e57ff78c51e53697fabce285784d3911b32b8daf34d8d5471bcfb519a18a708e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/list-monitor-events.md": {
     "sha256": "8d8d14b8cca35f931e15f52d1de7aa3e86011029503925102eeb981e43bff2be",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/list-monitors.md": {
     "sha256": "8da980091afc53855de05fcb28ae1b2327cbea06f92d1af444c1ae2234687223",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/retrieve-monitor.md": {
     "sha256": "31f043b3e9818a7f3da33b0ed5fe478fe8c217c3872ad06e85660789a9d61ed6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/trigger-monitor-run.md": {
     "sha256": "7bf6a85df1169102a62d3db1543635fd5cd5bd241254647d124dc31dcba1a020",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/monitor/update-monitor.md": {
     "sha256": "84c14c85106dba02f6803bb14022ad737dce5b8e9db7c821839dd97d64ca7a71",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/search/search.md": {
     "sha256": "c057194e80f5a87c13e35dbc383637e74814be0ab55838d6bd912167ab4f6358",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/add-runs-to-task-group.md": {
     "sha256": "f7e0583b2fe1eb37e86b0eb4a342451a3a1a31b3b607eb20e0f3e368500b4f7c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/create-task-group.md": {
     "sha256": "e4b5de8c90518433ea217d8ae4bf6f25ab8eec2656f3ff35e22eac7cbe4e1ce7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/create-task-run.md": {
     "sha256": "afc9d61ceaa3049b26e48f4c109c6968323042ae5972ecede6da7ef7128c511b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:20 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/fetch-task-group-runs.md": {
     "sha256": "2466498589e07f2c129d95fa24b2808eef9e2e662285cad1f2aabaee040bc5ec",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-group-run.md": {
     "sha256": "68c213c379b5c8ee1eec90af8d585814d90e7d996aed768ee27ecd75b126973a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-group.md": {
     "sha256": "09526f673f235e639ed8ea15ca69a324869cacfb8622a77b38e0505f3d3483ec",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run-input.md": {
     "sha256": "88236884090439ad4900889701b64394f0c7aa70c94043f0735f28768ae82539",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run-result.md": {
     "sha256": "98d71292d34d404a70e3fb34c6454bc835c582f856791a10403614ab275481d6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run.md": {
     "sha256": "05b945e598a0fc3c960e620756522b8997db97fd4ce6cd5dd49473c03f931005",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-group-events.md": {
     "sha256": "8b74474142e50346b8eeba6c7b497747b8aeff489b095a248ca79ef382262ae3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-run-events-1.md": {
     "sha256": "10017d90143a5bc6b2745bbc3bb822a940c67babd67db8dcdf657943067c8309",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-run-events.md": {
     "sha256": "dae751c048bf8bdb907322b7c6f1771acdc69807409500a6658d0ffea7f96a3b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/chat-api/chat-quickstart.md": {
     "sha256": "1b8a6536fe552bd8cb1f54b82be212c03c9e9e62872aaa20dc6d172b2f52c48e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:40 GMT"
   },
   "https://docs.parallel.ai/data-integrations/bigquery.md": {
     "sha256": "39537a7cb513a79fadc91d7159b0a1dc57958e30f4b057e02ae177148248b747",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/duckdb.md": {
     "sha256": "0dde3b454f4234d327fcb9ba31ed47f3f440783daba4c0d6a8c586e9e1d871a7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/overview.md": {
     "sha256": "96cb144c7f1c5f05f6b481255b11e32819240abbf2ea4edf42b54fbdc542a39e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/polars.md": {
     "sha256": "baa51f27a87ba6a03fbf1bedbf524326c4049ca41bf58a34d4cf1ea5abfbf2e6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/snowflake.md": {
     "sha256": "faf861877dd5971f3e7ba94080aaff910b529e14f735b2f3e55c28a8fb642bc5",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/spark.md": {
     "sha256": "8d4fd065e915f50a22e5c8ec96f872e058b1cd39b23e442532f192735d7029f3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/data-integrations/supabase.md": {
     "sha256": "2316366bf049d5db0d436dbdd79b1fb11882a3bfff1927afa873efac0dfb1057",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
+  },
+  "https://docs.parallel.ai/docs-latest-openapi.json": {
+    "sha256": "adf444db258619f1bed63854e3861452c346ed57130377a10db273170df5cd85",
+    "lastStatus": 200,
+    "etag": "\"6b2c4aa0884024d1fae9ab2359c2ccec\"",
+    "lastModified": "Tue, 16 Jun 2026 22:12:27 GMT"
+  },
+  "https://docs.parallel.ai/docs-legacy-openapi.json": {
+    "sha256": "c146ebf20331bf9389de4a272c7172718490e4745fded01e7e42d0ab5170fbc1",
+    "lastStatus": 200,
+    "etag": "\"7ced46d7604f892bd8dffb7f9dc671e5\"",
+    "lastModified": "Tue, 16 Jun 2026 22:12:27 GMT"
   },
   "https://docs.parallel.ai/extract/advanced-extract-settings.md": {
     "sha256": "824167205eae02af73f45dfe0df7b86980e0310acb2f598db0851e8b6dbfd81e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/extract/best-practices.md": {
     "sha256": "f7eac06573d04cd033e7ba628e876886eaf66b7b9979ef49a07e5aa966956f76",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:21 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/extract/extract-migration-guide.md": {
     "sha256": "5a260769932a378fba92b85492f66c788a193f9b388f683bd1dc43bd759b8d9a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/extract/extract-quickstart.md": {
     "sha256": "f68ee1451431e70058b1db5d1510c948e1d8fb572f1b7a98534500e8897e4e11",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-candidates.md": {
     "sha256": "26e38e2227d9dbcfc3fd1fddcc976901ca3c0f3ef46f5e6ead2fce6f06d47f35",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md": {
     "sha256": "78e7334897d4325f931c14384c3e256a6de5b48389c91b28f86e6a3ebff22731",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md": {
     "sha256": "10d707c0c471f61e8d209d0121de22b3fd42c45e9e087bb42520fe999de49040",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/entity-search.md": {
-    "sha256": "5c1023093bfe117f3b68a90e1b1a7e7ce839347be5129631e836da4add3cb76f",
+    "sha256": "e4dc84ee64cff4bb269dcb0175ac01c0f013a47d5d6c3d1c9a10247228394a46",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-cancel.md": {
     "sha256": "7138ccd7ab50b68ed1a9a9bd61b58958166c84556a0cd7293424834b475112d6",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-enrich.md": {
     "sha256": "cd511df9f076d6cf8556ffb0c893fb8ea27a6c7d9f302e0c6dec1f4f06e33cce",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-extend.md": {
     "sha256": "81dec67656f270451192168b851fe2b28020a043378a08905fe88e1b06cff155",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-preview.md": {
     "sha256": "b539dfa24b8647691a89456bf733a6663955cdeb39699a599b93a5a11690481d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-refresh.md": {
     "sha256": "46b2838e4b332e3aaff47cec8112ecb8e296eaae4b1719d0af1e42049920bc9e",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-sse.md": {
     "sha256": "6e2f54e24200c307dc30f806ea4a9cb2758a76cb04ca25bc918c00269f183b15",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:22 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:41 GMT"
   },
   "https://docs.parallel.ai/findall-api/features/findall-webhook.md": {
     "sha256": "1a5478c0d6e2b7607276f9c916bb00a022217ba379cd4cf2ff8c2b2470728935",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/findall-api/findall-migration-guide.md": {
     "sha256": "628c6bdbe7ec728d0f30e9e64abe117cc0033faf6d7bf05bed44c18a81955de8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/findall-api/findall-quickstart.md": {
-    "sha256": "c07f519e1d156a5c2d327391563a08d282335936c9dae363e89bd6a25522b4cc",
+    "sha256": "b7a7dfde6d5890d74167ccc834a2a226ae8a0ca83b7c6aa39d9bd384adae0a5c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/getting-started/glossary.md": {
-    "sha256": "58e78b1f8096e2e2fead93151fe1d63456499b2fc95abaecce6a2f6bec2bf466",
+    "sha256": "bdf0534956a7f0c35fa96e9f5eafbad147e8a993fabd75f30dbcc427a857e0a4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/getting-started/overview.md": {
-    "sha256": "98f49b684b4145c47ad5e0b04091033a1ff6daf7f0a92ee166526f121004c31f",
+    "sha256": "cb00bacd9ac28f376a5b083e8b91d3f6369ed655ea98df4fb6e093264e37d3ac",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/getting-started/pricing.md": {
-    "sha256": "e9604aaa2b617b315d000eeb66aab58646f53d89c652d5858ccbcf9397119c78",
+    "sha256": "45e3a28fbedc781e4b34a6fcfd1c16be95a38be5e18a5d4adfe92e5291c0b035",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:13:23 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
   },
   "https://docs.parallel.ai/getting-started/rate-limits.md": {
-    "sha256": "b82abf9c58f9c9495e9563ada5303b1cba05c86d17812532f29e87a34bb37bd5",
+    "sha256": "aa3cb12999888ea48a3734f5a69e4bbac9e2b763d94f4d99151ff0577af4a16c",
     "lastStatus": 200,
-    "lastModified": "Sat, 16 May 2026 05:48:42 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/account-api.md": {
+    "sha256": "d12fcbbac845dbdfbc738470527dc51c716ed8ba3bf78d97e467960f2b5b6318",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/agent-skills.md": {
+    "sha256": "2d18208015f5dd21c2bebdeb2b2e09f4d02646a499f0f5432a20f1cad2a52437",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/agentic-payments.md": {
+    "sha256": "1e184430966639bb90cf0351192b7106357acea227d1ea833997185da095da3b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/anthropic-tool-calling.md": {
+    "sha256": "6ebcc1763a54e8840fff4c71cea48e8388a9731ba51405bf4d2c3a17c86f155d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/aws-marketplace.md": {
+    "sha256": "fb11b96a76e9491b0f6b6a8a529615a5ee9fc94f4fa689bf353e540274fd6922",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/browseruse.md": {
+    "sha256": "2cbc0d3e36777e614c033c1e3399e9c57095738df345ba5edb7f1d98d2c197a1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/claude-code-marketplace.md": {
+    "sha256": "801dd76e579f740c7c8e3b41d63fbcddaab02e7e536662e2dcc20639cd52be52",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/clawhub.md": {
+    "sha256": "68653eb7f2da3cd9858b56e2a9397bf0ede4d9eca3bf544e2957f9dfa56e5354",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/cli.md": {
+    "sha256": "08db3b2c64c0cb3e8e39bcbaaab07f0b0b981aaad05bad9014186318aa580aa4",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/cursor-marketplace.md": {
+    "sha256": "8508fceede316b03e6add499d8fd13cfe5f43c678ca8aab348bb991b0b87bead",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/developer-quickstart.md": {
+    "sha256": "662890eac7a68c2f9259f5cc64f430c3ac30c99c47fde7a80c5f669c1286dffd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/google-cloud-marketplace.md": {
+    "sha256": "5a558d83c0f460d09a062d05329ff15af7d74f128e4550cb9e851439fc53490c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/google-gemini-enterprise.md": {
+    "sha256": "5a558d83c0f460d09a062d05329ff15af7d74f128e4550cb9e851439fc53490c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/gsuite.md": {
+    "sha256": "7cc1b9158719bb4a2dfa4151b86853b8f368025d3220385f12617d2248bf7b76",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/langchain.md": {
+    "sha256": "5a14bfbfad2cbd041f62f12e205ceb9a6c5ce7a5e74c358f0c49ea7d3c81addd",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/mcp/programmatic-use.md": {
+    "sha256": "007411ea5d4bc4e17b046e20fbe8a0a0998fd09340d76a8e5515279a68ce4607",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/mcp/quickstart.md": {
+    "sha256": "f3fab35b6dfb66cb435c15ac664c097bc731d393a5ad22f7794bae255a10591d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/mcp/search-mcp.md": {
+    "sha256": "9bf79cc7c3b7e99fdd8c227e00f7b7a92e75063278ebdd6906e2cd29eb4736cc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/mcp/task-mcp.md": {
+    "sha256": "37aedcab3ee6bac66d369ce675cd9a0b974eb1fb6de546579f5e6a4b2435d423",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:42 GMT"
+  },
+  "https://docs.parallel.ai/integrations/n8n.md": {
+    "sha256": "57510bb77c766f1e81079b7619e247aca15792402ec346a2dffc4337a537bd2e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/oauth-provider.md": {
+    "sha256": "3a69a04420415a96d86696ce4683241257b286b7d72b42d3ac88c100c483a90c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/ollama-tool-calling.md": {
+    "sha256": "e8fa4d2679a7b569431951d6ec100eb1ed1d5f6210ff661e897133dff1cd61b7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/openai-tool-calling.md": {
+    "sha256": "34077c72a3a98b1625517d0283d6942e99e32ab9848b0562892c8d04ccc98bd2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/opencode-plugin.md": {
+    "sha256": "64e652b38f853f2fa37e1ed0bb7bf2b3a81bf43683b19f11d582276555b363d3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/openrouter.md": {
+    "sha256": "ea0856a83b8c596d7475b28768fa2cedba7a6f8ec7d6953b4b3571621311c3f1",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/pi-extension.md": {
+    "sha256": "00cc893999b9482a98d43dcde86823493ce7ea7b74812cf88456321eca109161",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/superhuman.md": {
+    "sha256": "4f3749e3652e4d5ed0cef37e75fcd347bc7a41de890d880122ab2f11dcda5e01",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/vercel.md": {
+    "sha256": "625c32c0efd32b7793297847386609d20f7d0772dedf91afc6632293ae611918",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/integrations/zapier.md": {
+    "sha256": "68b202778f94eae374a7f0337224e2df1f3cc66212d020fe1a8f8a0f4d5e891a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-events.md": {
+    "sha256": "649c9d6941f14c72f169193d45b879c9ac1cc696f792e8b195b2a6c3838d36d6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-migration-guide.md": {
+    "sha256": "bed59d419c1d4567b270b53ef07f52d81d5ed6b527be2ac4d60f3247c08ff4b2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-quickstart.md": {
+    "sha256": "e58af14322a24572304ac96e5ff03e7f72f559db5e511c111c4f0c60a77ae3dc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-slack.md": {
+    "sha256": "34dfaf8b82d85de1cb78d31830055f45808f6d3b0d221bd9921ef8fbb3681584",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-task.md": {
+    "sha256": "b29ba2d36c50e476a1c91a3834d85de0aa865a25fa6b411aa38282de89aaec44",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/monitor-webhooks.md": {
+    "sha256": "7cd5001ba8ea22a7f71ec84dcab6544332ee467c148211d1f310035705fadd15",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/monitor-api/quickstart-snapshot.md": {
+    "sha256": "5b2d49ce1bbc10bfc85d34eaa5e009c9998ed3ffcfddee4214628677b755817a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/public-openapi.json": {
+    "sha256": "adf444db258619f1bed63854e3861452c346ed57130377a10db273170df5cd85",
+    "lastStatus": 200,
+    "etag": "\"6b2c4aa0884024d1fae9ab2359c2ccec\"",
+    "lastModified": "Tue, 16 Jun 2026 22:12:28 GMT"
+  },
+  "https://docs.parallel.ai/resources/changelog.md": {
+    "sha256": "c57543c7cf00fb9c4109e22c8994dbd9d9e66c8754a2677314576ddcf4496f34",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/resources/crawler.md": {
+    "sha256": "9f1348a8c26957acd72ea39f2ddca161bd09c38799efbbfa26d08dca58a3cb62",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/resources/faqs.md": {
+    "sha256": "facd2e3628f049be4fa5ed29ada30f9706ce316797622f07128e2c49db55112d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/resources/source-policy.md": {
+    "sha256": "e9d687b2b203eed8ba6825d5277ff6eb44599465fc59f93b1012d02505862b0f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/resources/warnings-and-errors.md": {
+    "sha256": "96e56b52beb0469a48315b2c0cee5c38297e90b1c35c4a73dc1486489be5f122",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/resources/webhook-setup.md": {
+    "sha256": "b3e77d7d8c1daea6f34ee4eec54cbc0b787dde5ed0fa3bc09081e9cbaec9618f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/search/advanced-search-settings.md": {
+    "sha256": "dc0c8bb889bb2e3e2c120752f64b7b96c406db9fc261ee3c64570bf57f021ed0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/search/best-practices.md": {
+    "sha256": "b10191877692e1b2575ba2d0e153f2342b30cc6733cafa099a993497840b8b6c",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/search/modes.md": {
+    "sha256": "c8db33de02e503629c5a2adc730f4c12ae1e60dea21fa0dac5a96f5d52868a28",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:43 GMT"
+  },
+  "https://docs.parallel.ai/search/search-mcp.md": {
+    "sha256": "9bf79cc7c3b7e99fdd8c227e00f7b7a92e75063278ebdd6906e2cd29eb4736cc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/search/search-migration-guide.md": {
+    "sha256": "11ffeff8e7be7d35b2e5e90279101c8f7eabd0be03f235ddf25b16b5ea51cb6d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/search/search-quickstart.md": {
+    "sha256": "f0d31c24cfa375f3dc43bdeac2e04f3fe315e7ecadd477d1d7baeaf70b554fdf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/search/source-policy.md": {
+    "sha256": "e9d687b2b203eed8ba6825d5277ff6eb44599465fc59f93b1012d02505862b0f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/apps/create-app.md": {
+    "sha256": "d742ee7410cb765850e0a9cffa1b23b4bcdbca22af8680fdf959265786f2f1bf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/apps/delete-app.md": {
+    "sha256": "d4ecd41582214159a3a476e6cd6c4fb6aa5aabd1ee930a073f572cad2a27edf9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/apps/list-apps.md": {
+    "sha256": "63ee10bdb14ba8b30da4973f6b9712fd6f88bd6be5125ac63c3a5be14bd8be19",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/balance/add-to-balance.md": {
+    "sha256": "3c0a8417d1480f4efa3a0aec2c9a2eabdf66f5c2a387da418a8a068c3ed69aa0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/balance/get-balance.md": {
+    "sha256": "825bae07f8115e3ed82846f43e0708ad32b0d7d8df0ff35ab9fc1d82e97ad89b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/keys/create-key.md": {
+    "sha256": "e27ea6ad7d40d4cb2fce054cf07bb292409c37b0763978fbe0f5106b6e06c3e6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/service-api/keys/delete-key.md": {
+    "sha256": "3139b21e26ccea8e80efec2c8db022722a64cc250da178925b16d169e7a81f60",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/best-practices.md": {
+    "sha256": "3a7129eaa1905bd90b5c13d103945df8418aea8c1bed7536c5fc1e6bbec290ef",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/examples/interactive-research.md": {
+    "sha256": "84395b3b124e31574d08fa60f9016f5bbc4f2cd7bb7442f30e6d5f7902371f2d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/examples/task-deep-research.md": {
+    "sha256": "f89133e874910ac93e666b8356cce9a05bf6d21d9bf35f06731f9b08cc2c5973",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/examples/task-enrichment.md": {
+    "sha256": "2c7a67ab84d2e736a244f03aa749e362afd726b964d2d71277bbac6323f7e6fb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/group-api.md": {
+    "sha256": "c3a6700bcebc282d9ebff882302ace40263e7319190f4f93a83f8d793caf9a22",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/guides/access-research-basis.md": {
+    "sha256": "328ebe456665c359bf7b22f3277094a4c353a113f4e16192cadd1b1cdb74dc9a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/guides/choose-a-processor.md": {
+    "sha256": "ae52ef4f3042f646408fd556672e6d4235669029281b6934ea3dcb2277395c5d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/guides/execute-task-run.md": {
+    "sha256": "ce921c8e40785f0e77e86d638b005a6f71aa34a3aeca39eb96c88d9d669bb28e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/guides/interactions.md": {
+    "sha256": "7c19e81f7a178738d9a48cc76e69b73a7146875858027b71bb0e886b6a893481",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/guides/specify-a-task.md": {
+    "sha256": "1615b540b52b38544199956e90179acf2d0cfda35453e7f2d9e9dcb1fdf632a0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/ingest-api.md": {
+    "sha256": "16fc62094049771cdabe11073dc704a9d01efb01bc51d38bc380ec277f5bfc78",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/mcp-tool-call.md": {
+    "sha256": "0918085c99e9230047c325f8ee7b3fbf5186003d1ef3216d4ab7e3b9cfdbd53f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:44 GMT"
+  },
+  "https://docs.parallel.ai/task-api/source-policy.md": {
+    "sha256": "e9d687b2b203eed8ba6825d5277ff6eb44599465fc59f93b1012d02505862b0f",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:45 GMT"
+  },
+  "https://docs.parallel.ai/task-api/task-mcp.md": {
+    "sha256": "37aedcab3ee6bac66d369ce675cd9a0b974eb1fb6de546579f5e6a4b2435d423",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:45 GMT"
+  },
+  "https://docs.parallel.ai/task-api/task-quickstart.md": {
+    "sha256": "0a3919ca6f40456eb6a6a09fffbebfb37838829baf52b5e2145fda9ff619b869",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:45 GMT"
+  },
+  "https://docs.parallel.ai/task-api/task-sse.md": {
+    "sha256": "14ba1c9ec8f4e2f1796d811b92ebf8f0973845c5c6304d93112beadcc908eb65",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:45 GMT"
+  },
+  "https://docs.parallel.ai/task-api/webhooks.md": {
+    "sha256": "b7bbb6e33d7673a0defe6a47bf386ed655e8b87c16a3c9341f05dececbad261b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:45 GMT"
   }
 }

@@ -1,4 +1,752 @@
 {
+  "https://elevenlabs.io/docs/api-reference/authentication.md": {
+    "sha256": "355c44c86a457513ea1c5824374e81778f31fc3fadf305f558d798615455542e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/api-reference/introduction.md": {
+    "sha256": "d0c549cd87949743a8660f284f2f408d830aa381c016c34116e25a3fb53f466e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/api-reference/streaming.md": {
+    "sha256": "862e57acfc4b39070c9c99385528456518b42c4fd9e25b5b09d4ff00c74c32cc",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/api-reference/studio-api-information.md": {
+    "sha256": "dbbceb9b53f42db9b617e4fd6e58c2dc107d6c1c6ac678958df3c25e1e476e29",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/best-practices/guardrails.md": {
+    "sha256": "ee41c3e8767349f9e61cd8c2aec4f77a9d8241157fdccbfda800a8dd915fe5cf",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/best-practices/prompting-guide.md": {
+    "sha256": "144d849890116b649ecc0f9b5f3320ec2e4fa5f8cadc5c9ea65fa978514d7da8",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/build/overview.md": {
+    "sha256": "4255a4b49309bfdd8f42160b65e8aa56b4e6b2082cf02815d1551a3e549a7f71",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-analysis.md": {
+    "sha256": "37f749bd4825fd499933fcda81826f746c8ef10b75efb3deffd03808f7b163be",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-analysis/coaching.md": {
+    "sha256": "3ad493c450814e7302cd76dae2c32424e4c374d4fdc748bb877bbed46cab1a46",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-analysis/data-collection.md": {
+    "sha256": "f833c8f223cf5de7a25a73d4541b48cbaeced9764d70e501959d98dd23113fdc",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-analysis/smart-search.md": {
+    "sha256": "af4e229435299f11a1f0bdb4a6c4ec87c0c1ee7e3d52e78c3045498ea08251b3",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-analysis/success-evaluation.md": {
+    "sha256": "d349d8c03bffd9597abec0c3348f7fdc6b3f957cf319bf7f5285b1d8d0dabc8d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-testing.md": {
+    "sha256": "dd0a00b39f3dd7a3df2eb97648368637aca67c59a54989143de6aa8b80d75f19",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/agent-workflows.md": {
+    "sha256": "c5583107154d9173e011c4c0be05209478c37bd4f2a33d0db28a27b3066a5103",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/authentication.md": {
+    "sha256": "e496b19d9e3bc56020cfa20f7b71398d75beeb61e2b59a37f335332010c42308",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/conversation-flow.md": {
+    "sha256": "1c456c7893fd55241ddac8c8e35075284dcf40b5da4666d602c191b87c73a6be",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/events.md": {
+    "sha256": "95ea90f0ef22a2f433cd18d398e182994df6b90082ccd2c0f05140d912e8b54f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/events/client-events.md": {
+    "sha256": "16d855d2a872ac2a58c84f49b27ae0133e8e09cb065cc8f487a81a8b0c7652ac",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/events/client-to-server-events.md": {
+    "sha256": "2d6e217688b66fb28018a759d04fa6852d00a7453d5fd98fda2d2a6684e6ea78",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/calcom.md": {
+    "sha256": "df85ef40b64c1c2c7c8d68bd1e589f703a1260947bc6ece64ea0a9ef6f8c08ae",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/calendly.md": {
+    "sha256": "29652f2b20052e7a6c84efb1e103b34755a7aa1301b1e4a1e2945ef80b03ef67",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/cursor.md": {
+    "sha256": "337b53ab4266b2de6c4a518597a1fb94378471563953f63e3251fbe0595efc55",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/exa.md": {
+    "sha256": "71dc0dca1e71f10dea8abf59eda275c4340c1b700fb80e751ce1ebeeb400f26c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/genesys.md": {
+    "sha256": "c9c489997348a58103c2dbe8daa3d36644097040362b5aba371d5bb462496bba",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/google_calendar.md": {
+    "sha256": "124008b4e1467149d63ef4409f5f15c2cde198957d45b4d64ebbcd80b31034a0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/hubspot.md": {
+    "sha256": "ef45fb521f7574c143e13ba688b053d1d790eaa47e43b995236ed1a0229f9df6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/jira.md": {
+    "sha256": "7368544b5d6bf8fd80dd928231ff7553e8159b19214b43ed339139717046b354",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/parallel.md": {
+    "sha256": "aaf702b03470bebe24b80dbe403051f6f05deab20184c80c8909b50258978855",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/salesforce.md": {
+    "sha256": "6349d3e76b47e6bf1ecd3ad67eddc99e2406a5dbed50609d9baac2bcd9f4a6de",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/servicenow.md": {
+    "sha256": "af8688886225b9084f802d826ef2a7012d54e41841adffec601f09111f587f76",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/slack.md": {
+    "sha256": "3390b6ff7ce49e76cb9b9654830086edadcef8702989a7b38d74c8cdc3faa2e6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/tavily.md": {
+    "sha256": "8e0c607588d819d7efe88bd7ec8add429a8a65a45137958ad8929249fbb91116",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/twilio.md": {
+    "sha256": "2cbf729aa4e935122c5693ba0965a1f87585cadb114e7548f03a37ba55181899",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/integrations/zendesk.md": {
+    "sha256": "546660787f28df75bd7cda7e9e102fe60c93f13c63b3375c7b880a756e9ff5cb",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base.md": {
+    "sha256": "25084ac53b79b203c37f849739b20a47b34b302abb578f4651c4d270494be631",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base/dashboard.md": {
+    "sha256": "e2c81c6ba701c91c0a52b7ac08297f79a07d1ee505dc051f77de04c3f31f3003",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base/rag.md": {
+    "sha256": "04e128420040394abdd63df56585f1aca53e49bdb62f59d55456f8659dc4c509",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm.md": {
+    "sha256": "a948bc6703b06ddb1098126f9db90056ceeda49a5532bc594fcaf82d5ae4917b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/custom-llm.md": {
+    "sha256": "7bdb3150cfbd269527c237a738db4a743464b8f2ac59b0bb87c9d8d3c0af4023",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/custom-llm/cloudflare.md": {
+    "sha256": "6c92326cf2b82f49a65d3fe8678e016b93709df76d7c1ed025989775b314f5f0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/custom-llm/groq-cloud.md": {
+    "sha256": "d8ca41ea0b8be1d1c4e89ca1f058a10f93854ee105629179120f2d1fa2749b21",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/custom-llm/samba-nova-cloud.md": {
+    "sha256": "0491ee824220177e338faff793d298f53bad318aad551eea15aeb7d268a0bd1e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/custom-llm/together-ai.md": {
+    "sha256": "e09e2c0e6334308a9664482a856413319e5ca631f59818b22e2f9a41798765d9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/llm-cascading.md": {
+    "sha256": "054e529724e52ac2ae8cc743459f96cca0f2312c0de18062cecd584bdc1aca48",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/llm/optimizing-costs.md": {
+    "sha256": "5fa697c526d27a6e5286bdcc22ad902d30f98ee10d88c3ddc51f3445f41771e5",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/opentelemetry-traces.md": {
+    "sha256": "56d7a30bdf49d47b8615eff42b9be0772bb7f493f5b810bb35516ea271aa6a40",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/personalization.md": {
+    "sha256": "0d65d98b646fc6772b2ea275e3d61ed85875056752081858520c0257054a1da7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/personalization/dynamic-variables.md": {
+    "sha256": "181990c60c3867a0879ce2d6216a8fe31fa38c506659a38af602becd6ae95273",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/personalization/overrides.md": {
+    "sha256": "0baafb9e35367ca5eb03b360233b435c3cddb87de585b6de52ce702786ff8130",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/personalization/twilio-personalization.md": {
+    "sha256": "5f1f2aa3bebb35e841399efd8edf7567b789f73936c02f3f3b0c09b52eea8e62",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/privacy.md": {
+    "sha256": "19119c5c3997081b56344e1673506ad87a0df088f7c858f858976c24bc82d557",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/privacy/audio-saving.md": {
+    "sha256": "aaeb092b56726d8b5546eebe115afecf5401f9e35b0a806351205b4342b377d0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/privacy/conversation-history-redaction.md": {
+    "sha256": "03a9f2e7408d90692359d79b95dbadd71ca5389b440dfcc4f49d2cdc5efaf970",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/privacy/retention.md": {
+    "sha256": "59be9a4900e1fbb5879d912f6b579a09c6c92bb19877823b628312c4d8c4ad13",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/privacy/zrm.md": {
+    "sha256": "ec18b40afdc1c92774b859729de4a291793f262c22a1627ed4bd8349ac29e39f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/procedures.md": {
+    "sha256": "57d8684316ab37cdf427f55f7454c3b475db0f0754d5151238d3008b6436730b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/procedures/free-form-procedures.md": {
+    "sha256": "974de50f8ec91b7441331c88b77dd38901a1294e3ac9f4177b7242fec4d12201",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/procedures/structured-procedures.md": {
+    "sha256": "0b28e975997223a9964cfa9416b1f6ac78c94b7e59b689b25d1a8b22d0ea24eb",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools.md": {
+    "sha256": "6ee1de39963801a7e980b216c834fd607c895ff83823c659bbcfa6b2f0f0ad3f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/agent-tools-deprecation.md": {
+    "sha256": "6d6d6ddba8aa0f37deceeb65b011d25c84cb5b8346049ceda4c5b3c227b83862",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/client-tools.md": {
+    "sha256": "166589d0cbfa82dcfaf4c1fdbf2e3de115bbc4e453745fb44425582b18800cbc",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/mcp.md": {
+    "sha256": "f89daaac16f400b0f53a888fe779217d7dac59b542b9e66e7c31695f22c3a772",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/mcp/security.md": {
+    "sha256": "880cbc10d9b4ce9eb7dced5215e3952e261473612f255ed5ff6c702362a739c6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools.md": {
+    "sha256": "8a24edcfbda8fe0c5c730ab3d91fabab75b7a7744ef2d8d211884da0cfe6adc6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/agent-transfer.md": {
+    "sha256": "67364909c3674c9fe4e4439b330c46cec41ccc93df3f001404fd077d535b0606",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/end-call.md": {
+    "sha256": "202b7654f4aa68ee4d2d770ffa9af463fd523bb3537daf603674e60ed4dbbce7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/language-detection.md": {
+    "sha256": "8e4a64d1db0713fc5b91c636be89b4d4c1b88cb6fcfa0fe7adac8bfb5d8592b4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/play-keypad-touch-tone.md": {
+    "sha256": "3222badf81d211905548d26ae0c1b56466b8b7df9aebe74d80151a33ad80058c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/skip-turn.md": {
+    "sha256": "d93eb472f2606cfa4711d189aeae6aeac173fc52a5a3555efd61bd0b3b6d0d75",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/transfer-to-number.md": {
+    "sha256": "a967d5f98a32619e6f6d4243e0c2029f4337a458abaf82717be4af9df64141b4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/system-tools/voicemail-detection.md": {
+    "sha256": "798752fd4a284cef587002ac9c43772a44575d288a2ce9b16b9b3793acfbee1d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/tool-configuration/tool-call-sounds.md": {
+    "sha256": "873e65f5ab3412d9454b7b5154b240c826a98ab6fd40e379186504c3a54d3cd2",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/tools/webhook-tools.md": {
+    "sha256": "a475f18f3105212ad168fd1c5e8a89fb56d6609e13e09f7dad60c1004eb01e4b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice.md": {
+    "sha256": "281c7f6ef069a56a4aa27b7ae2d575ef487ad369d10a73ef850e4b5cc6437ba2",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/best-practices/conversational-voice-design.md": {
+    "sha256": "e9f70f199bb91eb32d24e054324db171a40e015faf2557f9572f3b6363dc0a9b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/customization/language.md": {
+    "sha256": "f6be335f27a63d9e3888fbfd043cad11d42d5ed5acb3524fc944c3a654c14298",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/expressive-mode.md": {
+    "sha256": "c982ff101c445bce781fb7536ffedc2f6614f0353aeab16a959b1d2047de4cb7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/multi-voice-support.md": {
+    "sha256": "752a35ce42175d0f61487afa66115eefd84b16ba5678f8a4568ed7a921b5f8d4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/pronunciation-dictionary.md": {
+    "sha256": "a08a1da31080c97c194f1d6f3ab41d3dee5db5b8757b1a579576e57bb2d04f85",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/voice/speed-control.md": {
+    "sha256": "5337e091d6318eb13494af0ec57205c2a7b451ac0367b2f1dce587863fbe16f4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/customization/widget.md": {
+    "sha256": "c546a94c541067745f83ef72ea323e89471094c32dcfd0d8ae36b951aa587039",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/dashboard.md": {
+    "sha256": "8d09425f7932bd7d879d93a41fd1d047ad2a11bb6ac5fa3b429b0371ffd304d5",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/burst-pricing.md": {
+    "sha256": "54c2a044e87447205028802e1a0d5b5539cf8159164c6054d8cb870adcf3a159",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/chat-mode.md": {
+    "sha256": "9035d7937ede969b029b2d0707f19ec3b74c2c3e083adc915f99c12062c25027",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/elevenlabs-docs-agent.md": {
+    "sha256": "a69ea587c4744f6d19434b4d56130a1d1adb663281b324526a570223d403ffdb",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/integrations/expo-react-native.md": {
+    "sha256": "fb637bcd117e7fcaae7e498663f232a77b5ea87f73661553b494dc69f4e0f8cc",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/integrations/live-avatar.md": {
+    "sha256": "c55327e24f5f52cdd35f5aeef6d2a6f1e675f9c47cf21d545c4dc04e06b2c2c6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/integrations/raspberry-pi-voice-assistant.md": {
+    "sha256": "b08ec62c42963bb8145b7e06aae77bdd20bcd427f7997fd5126ce127fa8c477a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/integrations/upstash-redis.md": {
+    "sha256": "e2e35a51eceecc421bd515ea4f2091b44b0d2fbc479ad12ec34ab15320a246cb",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/framer.md": {
+    "sha256": "e014b84de8a8054f896b06c9afd2ffc76d5770e51b0ceeef2e46f224cdd0aa04",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/ghost.md": {
+    "sha256": "6f96182e685863fde3f0eba3f78f663174522839003634f8d53e6325025578f4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/squarespace.md": {
+    "sha256": "aff62ed4c82b8232988f0e0fe7986fc1dc5cbd5479e6ea81afa985837a50e43a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/webflow.md": {
+    "sha256": "91a4301e82af5e51a730ba55250a6408f77bd655bfe7a275f450b28e9f653e27",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/wix.md": {
+    "sha256": "ff87ead494f0903f065be6615a056cef4b4ca6b488ea85570e5f2825e6b59577",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/no-code/word-press.md": {
+    "sha256": "38c83037ec212cbd7b5e2bdd105dea981349292327c17cad32b7ca885bbae9ac",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/quickstarts/java-script.md": {
+    "sha256": "3087239d73afab669bff8e5896d110ae734993bb4d9f12c724a96cf8997e6341",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/quickstarts/next-js.md": {
+    "sha256": "b7a270b37fefcb042c817bfdac01aa37b2ee9be540c232a169e0990ca2698cd0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/realtime-monitoring.md": {
+    "sha256": "829f04f925178196941615dc3424afe722874db8f05e389cace420ba02fd367e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/simulate-conversation.md": {
+    "sha256": "16ead1c3d89f2d57f5fe4952783cf779946420fb3bc99505a9be5eb3a5a04e26",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/guides/user-interviews-agent.md": {
+    "sha256": "7b18cb9721d9a7eeccad1d0baa09c879407b503129f21f594d7a506bc401d06f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/integrate/environment-variables.md": {
+    "sha256": "c78578b5bd81022e569184d995376cb0157ad8b9fa48684e9c257f94cea8aa46",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/integrate/overview.md": {
+    "sha256": "64c426d8f4cea58ce3958b3a9d25b0958f74ee1e443db35237eb7c7f5a02a5fa",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/legal/disclosure-requirement.md": {
+    "sha256": "d6d285f1914dd6978408ed96a24450880a711d0efd42986eb89b5e97412cea9e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/legal/hipaa.md": {
+    "sha256": "3311026075c5faa4f950c83279d08f30cb875e4d03b1d5e64291e64bc2e4b28c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/legal/tcpa.md": {
+    "sha256": "13b971b62974fc0c6dd2a8b04e77af4255d1aae49fa367bcff1169824ed393ff",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/java-script.md": {
+    "sha256": "a1506df78ee02d7e4ba3e630524a7c9028a6bcf2a39fa7e09f704d27da3f15d1",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/kotlin.md": {
+    "sha256": "997b68aa5666dbb9a72f5b62c79839679609df94cd91b312c8975fcb4063d885",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/python.md": {
+    "sha256": "62b3a5491242ed0094aa17720b22e8bb49ff21a32bf4699b8d44e6d81c9f060b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/react-native.md": {
+    "sha256": "e1c7e6f0ef383fcc42a5e1b83ff5a016b0614c9b76d9c8651bf0794b160d7bd5",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/react.md": {
+    "sha256": "7a888923891846486a05280e656e46e65eb17455096c8dbf1e7a7adb4c7d862a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/swift.md": {
+    "sha256": "4e05395b22c11867ad475279a5474cf564a95d9fce56dabf735e47916acd55ce",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/libraries/web-sockets.md": {
+    "sha256": "6e3680b4988185194045874d70746803efd15b6a3d1c5323409aaa17fa596c63",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/operate/cli.md": {
+    "sha256": "ef4544ebe733eb6203564acfd511f6fd055a917ff38560003c8a4778e981ea27",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/operate/experiments.md": {
+    "sha256": "b2c113430d6a8bf4e8866bda803ee12ae633c0c28f0fc0d8dc66e2f4f3de724f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/operate/overview.md": {
+    "sha256": "7a646b978bba8eada51de2e8a4432f2d33f14818173e54c2e7032bc7ed0326ef",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/operate/users.md": {
+    "sha256": "9109c41748061365099975ffef894f9445cd2c662a586ccd0c6957812a52069f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/operate/versioning.md": {
+    "sha256": "a1a8db9e5fb4ebb6ccc023fbebce89a33f300465b4858200cead6efb2c347416",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/overview.md": {
+    "sha256": "a0cb90bfd3027b8a4d188469bf9529a3ebed932e600dc53e4caade41addb3787",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/batch-calls.md": {
+    "sha256": "160c42d3e9d452f75daeb31b29ce1dc5ab6b73320fa11b49ed63a359f8825f4d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/c-caa-s-integrations/genesys.md": {
+    "sha256": "632979b45f06f7894c142e0669eff150e5cf7fde5d7cd24b562b4f61da2198a5",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/sip-reference.md": {
+    "sha256": "9ae1bffe487d870fe051ad34adf343c7d181ed8cf3b7bf0ea3c2ff80c9d8eef4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/sip-trunking.md": {
+    "sha256": "a23f237227ac049eaa044baf30bed800e4db828d4a0e0b2e079ee3492d950db8",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/telephony/exotel.md": {
+    "sha256": "fe38ac472d8d99a7d6001cd53c0c259c013d8de6c4febfb2f31dd1bb30910e47",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/telephony/plivo.md": {
+    "sha256": "340eb925d268cdb500c4ac24d5affaf995f9c072b53d54b2aa44230d2e4f8faf",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/telephony/telnyx.md": {
+    "sha256": "15a6f8fbacecf91491e794436a46759e894891a14640e53516f7ef20abf88472",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/telephony/vonage.md": {
+    "sha256": "dfc8ef1bd063d90995287f7615a0f8a34fd2ae8671ab7346c1c1d920daae9575",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/native-integration.md": {
+    "sha256": "e6136417a06aff8d0bb76d4155123587df015edeaecdbfdf9b72614a48a41ea4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/regional-routing.md": {
+    "sha256": "98641b0743c00de92b5cfe5d8c5216897c2b0c1eb26ba2800c587e266da204a9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/register-call.md": {
+    "sha256": "d4b85188dfc06f308e7b5d098352f063f2ce0c513ea1a32b9d81cf57a22c4d17",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/sms-conversations.md": {
+    "sha256": "759c41ed31e65fcea234908d13f7da0adf2c479a33af67ed309814538fd3dfc4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/phone-numbers/twilio-integration/sms-otp-verification.md": {
+    "sha256": "ebd77f83f41d7eca788a1c168e5776a2dc68e7158c5deff717518517059340f1",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/quickstart.md": {
+    "sha256": "e58d2658d3dd0998cd06fa89d89e0b94851130a3466de77c259b66503a20c984",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/whatsapp.md": {
+    "sha256": "9a56380f974c54e4d9fe4857374afc96b5b74df7921c9645e3f221ebb10f0d13",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/whatsapp/tools.md": {
+    "sha256": "413e81bb675ae647e35bec96a31148682e135cbce7536805cfd4d935935df8bd",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-agents/workflows/post-call-webhooks.md": {
+    "sha256": "d5fb2d718edd26e97c5f0d3c67d300704d3957a6fcf0d9d88f14611399c6257e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/choosing-the-right-model.md": {
+    "sha256": "90856a9c03327ceb76bd7840a9f49337813882b3c2d6526b2283631171de0d52",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/concepts/audio-streaming.md": {
+    "sha256": "0c41b870482a43854e4b2ba27c7ccf98f36c2e3ff093405cbac42c074e867544",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/concepts/latency.md": {
+    "sha256": "8829e5feaac64c7f0da8be48dc8b7a5040e60fe5c16e54b6adf1985b77ffc5b4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/concepts/voice-cloning.md": {
+    "sha256": "12e09bd0599f4dc9e43f73b99491affce092cfc57c4970a8ba87b771dcf7ed3d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/dubbing.md": {
+    "sha256": "731b579e44749edb389debe9bc56a55ed51bd00d3a4b1307ae2f5c000ba4ca5c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/forced-alignment.md": {
+    "sha256": "74fa13dc542fc25a0445f0ea1eba29a60051f2a4e8906f5d48673116372977c8",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/music.md": {
+    "sha256": "893e21052556fd62256c6f7c247ad266110e1515804bc2dbbba1a5e04e0f4d2c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/sound-effects.md": {
+    "sha256": "4e3c149c52ae38536128d189a49903d8937a2f6fdc6f0ae9b823368e08cdf167",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/speech-engine.md": {
+    "sha256": "d0e12fd638961d2f493890502aea8873353a9771be4dc56c966575a36a08348f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/speech-to-text.md": {
+    "sha256": "3806c4ab009d9b9f3fc5c4ac1501f207f023775d4d7db2bffbec244e2c0ec152",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/text-to-dialogue.md": {
+    "sha256": "b5216f537fd61f1f17726eff4572e88ee43eda9ea89b16586c623d11ab1af653",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/voice-changer.md": {
+    "sha256": "7e6cc30ac2b20c6a9711e85cb35b5bd18dc53bbe43062b68b5b35deaa7a3a146",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/cookbooks/voice-isolator.md": {
+    "sha256": "88b58c574fd701623d6d93d170a0aaf118af98973d7beca01fd70eba4fb8171a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/best-practices/latency-optimization.md": {
+    "sha256": "fdcfb87b009033ccd3349af9bda4a78b0ef2c648831a47204c37cdffb86d7e9e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/best-practices/security.md": {
+    "sha256": "f58ec9b3e36590cc5449e29eddd77493ea7185c8419698f0f689cfe013df203b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/music/composition-plans.md": {
+    "sha256": "c97bad52bcab1cfd241e3db7efa0256d0474087f26ecc5e505cf76f612321a65",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/music/inpainting.md": {
+    "sha256": "069a912e4fbc723eccf88535a8e5f72a54b17d7c034a5d18dff07fb96668c77c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/music/streaming.md": {
+    "sha256": "b8df4e81a6873b33c9c68535dd57668d17297036cbcb2cb8442e7df8a0b96445",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-engine/javascript-sdk-reference.md": {
+    "sha256": "9a67f0c46c24757cb21357fa2961c1204d4b37ae2e3d88a8f30005151d095794",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-engine/python-sdk-reference.md": {
+    "sha256": "77376ae7ca03dca2d935c7c71e6a5601553aaf66e9d81dc83143bb046e74a3e7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/entity-detection.md": {
+    "sha256": "4c71011fa4bc4902c5febbf70be2cc1fb2b7d7ff6e43e39edbfb205d9916b624",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/keyterm-prompting.md": {
+    "sha256": "e4a83e3c69f5fd851a46d13e4fb0e3c849863b363ce3c7aa4ffd3d96f576d2c3",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/multichannel-transcription.md": {
+    "sha256": "c775958ef9cd2f2ba0d50cc42232cafc99c55aeb7ebe7559a333b5321b8b0103",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/telegram-bot.md": {
+    "sha256": "0fb59a1bb8b6bab748fed5fbf00cd21b68950c419071ca8b2ca126f5b281966e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/vercel-ai-sdk.md": {
+    "sha256": "ccb85deeb9c548614a8a8ef672194c6cb363c9c34c693f1dd25a8cf9a24e174f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/batch/webhooks.md": {
+    "sha256": "f4bb9bed82320901a2b09dc93e2bb368e2dfd79149a8097e3df314da31b2049b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/realtime/client-side-streaming.md": {
+    "sha256": "1d7a5d09b15a539547c27bdd49babcc2696536432d247fbf9165b4ce306f6b0a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/realtime/event-reference.md": {
+    "sha256": "dc52e1255e811e9cec89665b61fcbab2cd70d7ab54fefcbe55dbbd8abf305a9a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/realtime/server-side-streaming.md": {
+    "sha256": "b3302a0f1147d2e7c1290689fa16d7737170bae04da03f5199462b6fda432345",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/speech-to-text/realtime/transcripts-and-commit-strategies.md": {
+    "sha256": "44937ab3857f477bbe673d5d5464ff78fdd0e05f01cf122d02d2d142e7e03a8b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/pronunciation-dictionaries.md": {
+    "sha256": "12a38c91310c0b8d99eab0921a86dbe4afec33491a454b1a48a63c3579560ce9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/request-stitching.md": {
+    "sha256": "81d7053746a845b34dc692a63fbdf0ee2fa007b5bbcfdbcb8c0798f6bab76f34",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/streaming-and-caching-with-supabase.md": {
+    "sha256": "ad63763523233d4127fd3234099c48fc6ed79e2789a436bb415259b66cd20a47",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/streaming.md": {
+    "sha256": "19b5834848eead40f8908856aee55cb6752106f7b96af1942a514dabcaa930a9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/twilio.md": {
+    "sha256": "d2af24638fafb49f9d5d5b56147baa8af6c0815480b60910c1d629e58cf3dca4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/voices/instant-voice-cloning.md": {
+    "sha256": "3670e687029c583356c967d76202031db612f9cb7e80638759e26badd50201f7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/voices/professional-voice-cloning.md": {
+    "sha256": "526bb5723de49cf7b86f1834bf2c1cd44637f9cdcaccf5417dadc0f877cd9f41",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/voices/remix-a-voice.md": {
+    "sha256": "b369314e8714e017686ea3f73212bf6b5fa2762368982255fe2a035d64a37aac",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/voices/voice-design.md": {
+    "sha256": "2280aa4a4abb7523ddbf3bdb91688a2732704241e85cc2e6ac6b026af71bfcd6",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/websockets/multi-context-web-socket.md": {
+    "sha256": "93cddda7732829b111e4eb02df218d027352dc6b897b3d1004105c75a8d657e1",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/guides/how-to/websockets/realtime-tts.md": {
+    "sha256": "5009beefc429dbac1ab2747fb772891ff8890cbcc8c2b1f127d6df0f2a3acee8",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/private-deployment/overview.md": {
+    "sha256": "1f0772721e4448f6edfdb1fbb752ed796072d31b8902c29aa6c8ef5ffde86041",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/quickstart.md": {
+    "sha256": "f8ea68811a28249560c4c0f3b8fe5f26157f88904aff727b386f19b3ccf52c9d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/agent-tooling.md": {
+    "sha256": "ff82e5ee79d129e75fac554b780f340fdbdd4e5175e4dd4c3f2763096cea0c2e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/breaking-changes-policy.md": {
+    "sha256": "c201d5747cc9bdff515425a5e4775bb067ffa514ca1e2332163cbec95f985601",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/errors.md": {
+    "sha256": "0f15726eeb921a4713708a73cce7da208ceb24584fd79c208496d9845463c827",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/libraries.md": {
+    "sha256": "cf7a7ee4e372ff4ec2c6e0ce606f52ae7b20fb070a13b374adcd78ccac0269a9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/libraries/javascript-scribe.md": {
+    "sha256": "db38825df1f7c4f19bbdff60da08e4d99c6ae786a128c3cec217ab2ffb1c05e0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/libraries/react-scribe.md": {
+    "sha256": "de6d62c5776dfd77aeb87e98a82c21a5b482df77435d71c2cd22963ce92f296c",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/webhooks.md": {
+    "sha256": "ebd730fc8b1cced9f5773890fa689761fb400677f2776a2ddd67e355ad02153f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-api/resources/zero-retention-mode.md": {
+    "sha256": "078b9e5f8e7c3356dcabf00eee1b37eeda918b3c24f99f085769e530b99bb9db",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/ai-speech-classifier.md": {
+    "sha256": "9b1ddb7022bdbfc4bb5273e14127661034c6e404083cedf7569bacf3a062cfe2",
+    "lastStatus": 200
+  },
   "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native.md": {
     "sha256": "66b7cef0b5dde6ffd6caffc8b8ef51cbeca78a6f35892ed818db007791a3ffe4",
     "lastStatus": 200
@@ -7,16 +755,52 @@
     "sha256": "66b7cef0b5dde6ffd6caffc8b8ef51cbeca78a6f35892ed818db007791a3ffe4",
     "lastStatus": 200
   },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/framer.md": {
+    "sha256": "af1f0aad827afe704ede9969f8bf9b170c3d8634cf0e92ed3fa047175529db07",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/ghost.md": {
+    "sha256": "09d40d30bd59103741a1100e0268fc72988ee2431fd1733c44d9990213eeff84",
+    "lastStatus": 200
+  },
   "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/ghost.mdx": {
     "sha256": "09d40d30bd59103741a1100e0268fc72988ee2431fd1733c44d9990213eeff84",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/react.md": {
+    "sha256": "f536509ef632bd1864793b77d4fb2e6b8b0be4705ff8266a3ce0a17ea811ed65",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/react.mdx": {
     "sha256": "f536509ef632bd1864793b77d4fb2e6b8b0be4705ff8266a3ce0a17ea811ed65",
     "lastStatus": 200
   },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/squarespace.md": {
+    "sha256": "303e8651401adf8dab7fcc3af770b071b1d84849739bffb17933c7f26cb50be0",
+    "lastStatus": 200
+  },
   "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/squarespace.mdx": {
     "sha256": "303e8651401adf8dab7fcc3af770b071b1d84849739bffb17933c7f26cb50be0",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/webflow.md": {
+    "sha256": "fd77d7bce3eaa73e8523a1d8e5f1c457f3d8c5566cf3beed1896bcc0e1ce14a4",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/wix.md": {
+    "sha256": "b5e6d2d0b5b2232192ff2683fec467d166c879359399dfef886636459390e58d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/word-press.md": {
+    "sha256": "2ea644884faa7662bda73e95c310811098e8f9be77a1b3324a7ca3844d7e7760",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/voice-isolator.md": {
+    "sha256": "621804602f047ca18cc490deda59c7f2970e507b8f59a8e5a033fb436858864f",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/voiceover-studio.md": {
+    "sha256": "c83acbe6888386e27bdce3900aed3555a42d3c09b83d9d5f3bfcf7a25d4bed29",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/overview.md": {
@@ -68,7 +852,7 @@
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/products/audiobooks.md": {
-    "sha256": "8b841379c64e43c238383fd7e5ca68844c92a2ed2f55b9b8eac06974bc860401",
+    "sha256": "5c702f3ab71a060c39422de7250bcbf18ecfdfad885f90979681d3a599e19018",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/products/audiobooks.mdx": {
@@ -100,7 +884,7 @@
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/products/music.md": {
-    "sha256": "f6976da3864fa3e7267a9ad598350191c58379f189c62f161a1541cc2f9d0c6b",
+    "sha256": "faca7f0e6d6d9159d9734d4094a13995cb029526f7b3dd4decf2d9c9132e99b4",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/products/music.mdx": {
@@ -153,6 +937,26 @@
   },
   "https://elevenlabs.io/docs/eleven-creative/quickstart.mdx": {
     "sha256": "c8b061401ec2a68c59d831ff5d50971985f6d68b3320724baac3351a8b257862",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/services/productions/dubbing.md": {
+    "sha256": "f1accb161e1c04e740ecde57646afab0176facebf8f0f3647563190221d44614",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/services/productions/overview.md": {
+    "sha256": "78d4a67d0f00449ca4591d6acc5b9c2ed96918f224870da14860aa13c8046ea7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/services/productions/subtitles.md": {
+    "sha256": "3455a69ea6e8693c5ce2a1f25bbb734fef1ce37d56dfbed7564a0067e54e1bab",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/services/productions/transcripts.md": {
+    "sha256": "e66186f5eb01ba556eb0a325e946abfe012e27cfa862794d5203290d35426a19",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/troubleshooting.md": {
+    "sha256": "ba0b4b211c963b307fdf7a121efd488e64e6ec897c4d08dee130b3cee578c898",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/eleven-creative/voices/payouts.md": {
@@ -472,11 +1276,115 @@
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/overview/models.md": {
-    "sha256": "7bf3241316838eb0f06546a79c1d18871d8abde0d069f74983b26834db33cf24",
+    "sha256": "a74eeb829716ef3b8cbb9796b05480c732fbb70d2072a3e3bd5c41e9ae2b048e",
     "lastStatus": 200
   },
   "https://elevenlabs.io/docs/overview/models.mdx": {
     "sha256": "483a2f20f91337c3d0e6c215ba87c5f5d5a4a83af7820465c9a2a254f7490db7",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/billing/plans-and-pricing.md": {
+    "sha256": "025a627794814e1fa417a9f127ebd4e71eea27f07c4aed752879c8f5aef5a369",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/billing/usage-and-limits.md": {
+    "sha256": "4271084999abc110cc048f8f633d949c21668b1fa9b3b66a16f146f4d01df39d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/features/analytics.md": {
+    "sha256": "7f9c2c57ee887043aa7ca35a15edfe79f7e857caee9ba57cf632b399044aa4fd",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/features/assistant.md": {
+    "sha256": "c4a24d95e73735ed9bffeaf42da6cf64377c3eed427b8394424c00c7cecbec9b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/features/booking-page.md": {
+    "sha256": "b4bd710f685ccc6e714d22562b1cf0d99ebec3761394de2e626fd64029ca37ba",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/features/inbox.md": {
+    "sha256": "0c0995238bdab09fe11874d77cd8346d91a9f0b36c4e698a584bc0ff6c7fe1e2",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/features/phone-numbers.md": {
+    "sha256": "f48fefa41cd5b206f45d09a893d9c3183b0e236d89153dfe960c9d52dec2d135",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/integrations/google-calendar.md": {
+    "sha256": "2b6e595e43cf67aaab2c7209666db66275bdf8ab8ccf4aacd0d292d139e0b46d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/integrations/mcp-server.md": {
+    "sha256": "365a0909b637e32326b4873e36351cfc8138acb2722e4a21897c19bb1c08317a",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/integrations/overview.md": {
+    "sha256": "00bd0058042f6dcfea3cd6d97ebdd54136d9ab55fbbec3edbedd455ac786d7c9",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/integrations/webhooks.md": {
+    "sha256": "09ad4d7ae2f64bde29e09be461e5e7ac614890fc0856fbd63855aff9a6173361",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/integrations/zapier.md": {
+    "sha256": "c35530adf6919f0705c950e856079b005f6b477d73587c5466b7c1b4d9d98881",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/knowledge-base/file-uploads.md": {
+    "sha256": "9be8c8606363109351c8a8adec9e4e054152d432c6f5c613083b70e91e56a62e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/knowledge-base/overview.md": {
+    "sha256": "7ede5c427e2a105edf7ac512dc1d10e72dc97c96ba77d8412d32f3b695383a9e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/knowledge-base/website-scraping.md": {
+    "sha256": "71f8d334be68b0e94aafef630150659438b57a4db4841ac559fb8308accccb4b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/overview.md": {
+    "sha256": "3ac676aa423800506d287c24f7d141ce11ba521484e159f698d401981e687f28",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/quickstart.md": {
+    "sha256": "9e69931e3679ee1cee41d50816dfd6092b1587ffd81b989bccd264d81d2c7135",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/receptionist/call-settings.md": {
+    "sha256": "aa2326c7ae72dc741ec1a38f047fd537824245f520dbdbe8dda5c22f5c18eb5d",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/receptionist/overview.md": {
+    "sha256": "948ed533503994b5659f86f31056e128cd1fc8dbff2dbb70825a41985e5c223b",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/receptionist/rules.md": {
+    "sha256": "ffd80decefa021848468fa617965d51fa4e76f20482f92b7a373fd154e368436",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/receptionist/testing.md": {
+    "sha256": "2a97fd0d5eef75a45878786f94ff55230d204a25cc3e5c023be2bb45f9e0fd4e",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/receptionist/voice-and-language.md": {
+    "sha256": "2cdefb790d7b4f9fade9d9c13ed9e5872805dcbcf8f54ac4306bfc0e25000824",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/scheduling/business-hours.md": {
+    "sha256": "ab93c03dadb4feca510095b33237869188e192e52a5c21445a5002eb090f3eca",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/scheduling/overview.md": {
+    "sha256": "cc9de562f961c535fc49e0930343971945c7992b228fd8a1496e64488c792589",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/scheduling/services.md": {
+    "sha256": "e7aba4327dd99d445939827623c72ca90c616d420ce160c7d4dbf2bd29d59b45",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/reception-ai/scheduling/staff.md": {
+    "sha256": "fb7373f8022b8303e8821a79ce45319d5c2c7b248c16a7a29a9dddc8ce0e66c9",
     "lastStatus": 200
   }
 }

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -13,7 +12,7 @@ equity research, investment banking, private equity, and wealth
 management. The plugins also work in Claude Code.
 
 The plugins live in a
-[public GitHub repository](https://github.com/anthropics/financial-services-plugins)
+[public GitHub repository](https://github.com/anthropics/financial-services)
 that you can add as a marketplace in Cowork.
 
 ## What's included
@@ -48,7 +47,7 @@ Cowork.
   <Step title="Add the marketplace">
     Select "Personal", click the "+" button, then select "Add
     marketplace from GitHub". Enter the repository URL:
-    `https://github.com/anthropics/financial-services-plugins`
+    `https://github.com/anthropics/financial-services`
   </Step>
 </Steps>
 
@@ -115,11 +114,11 @@ These plugins are starting points. Plugins are file-based Markdown and
 JSON, so no code or infrastructure is required to customize them. Edit
 the plugin files directly to match your firm's workflows.
 
-- Add your firm's terminology, processes, and formatting standards to
+* Add your firm's terminology, processes, and formatting standards to
   skill files.
-- Swap or add MCP connectors to point at your specific data providers.
-- Adjust workflow instructions to reflect how your team does analysis.
-- Use `/ppt-template` to teach Claude your firm's branded PowerPoint
+* Swap or add MCP connectors to point at your specific data providers.
+* Adjust workflow instructions to reflect how your team does analysis.
+* Use `/ppt-template` to teach Claude your firm's branded PowerPoint
   layouts.
 
 ## Learn more

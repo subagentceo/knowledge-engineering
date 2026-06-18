@@ -1,0 +1,713 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Data Collection and Analysis with Agents Platform in Next.js
+
+**Tutorial** · Assumes you have completed the [ElevenAgents
+quickstart](/docs/eleven-agents/quickstart) and have a Next.js project set up.
+
+## Introduction
+
+In this tutorial you will learn how to build a voice agent that collects information from the user through conversation, then analyses and extracts the data in a structured way and sends it to your application via the post-call webhook.
+
+## Requirements
+
+* An ElevenLabs account with an [API key](https://elevenlabs.io/app/settings/api-keys).
+* Node.js v18 or higher installed on your machine.
+
+## Setup
+
+### Create a new Next.js project
+
+We recommend using our [v0.dev Agents Platform template](https://v0.dev/community/nextjs-5TN93pl3bRS) as the starting point for your application. This template is a production-ready Next.js application with the ElevenLabs agent already integrated.
+
+### Set up Agents Platform
+
+Follow our [Next.js guide](/docs/eleven-agents/guides/quickstarts/next-js) for installation and configuration steps. Then come back here to build in the advanced features.
+
+## Agent configuration
+
+Go to [elevenlabs.io](https://elevenlabs.io/app/sign-up) and sign in to your account.
+
+Navigate to [Agents Platform > Agents](https://elevenlabs.io/app/agents/agents) and
+create a new agent from the blank template.
+
+Set the first message and specify the dynamic variable for the platform.
+
+```txt
+Hi {{user_name}}, I'm Jess from the ElevenLabs team. I'm here to help you design your very own ElevenLabs agent! To kick things off, let me know what kind of agent you're looking to create. For example, do you want a support agent, to help your users answer questions, or a sales agent to sell your products, or just a friend to chat with?
+```
+
+Set the system prompt. You can also include dynamic variables here.
+
+```txt
+You are Jess, a helpful agent helping {{user_name}} to design their very own ElevenLabs agent. The design process involves the following steps:
+
+"initial": In the first step, collect the information about the kind of agent the user is looking to create. Summarize the user's needs back to them and ask if they are ready to continue to the next step. Only once they confirm proceed to the next step.
+"training": Tell the user to create the agent's knowledge base by uploading documents, or submitting URLs to public websites with information that should be available to the agent. Wait patiently without talking to the user. Only when the user confirms that they've provided everything then proceed to the next step.
+"voice": Tell the user to describe the voice they want their agent to have. For example: "A professional, strong spoken female voice with a slight British accent." Repeat the description of their voice back to them and ask if they are ready to continue to the next step. Only once they confirm proceed to the next step.
+"email": Tell the user that we've collected all necessary information to create their ElevenLabs agent and ask them to provide their email address to get notified when the agent is ready.
+
+Always call the `set_ui_state` tool when moving between steps!
+```
+
+Set up the following client tool to navigate between the steps:
+
+* Name: `set_ui_state`
+  * Description: Use this client-side tool to navigate between the different UI states.
+  * Wait for response: `true`
+  * Response timeout (seconds): 1
+  * Parameters:
+    * Data type: string
+    * Identifier: step
+    * Required: true
+    * Value Type: LLM Prompt
+    * Description: The step to navigate to in the UI. Only use the steps that are defined in the system prompt!
+
+Navigate to the `Voice` tab and set the voice for your agent. You can find a list of recommended voices for Agents Platform in the [Conversational Voice Design docs](/docs/eleven-agents/customization/voice/best-practices/conversational-voice-design#voices).
+
+Navigate to the `Analysis` tab and add a new evaluation criteria.
+
+* Name: `all_data_provided`
+  * Prompt: Evaluate whether the user provided a description of the agent they are looking to generate as well as a description of the voice the agent should have.
+
+You can use the post call analysis to extract data from the conversation. In the `Analysis` tab, under `Data Collection`, add the following items:
+
+* Identifier: `voice_description`
+  * `data-type`: `String`
+  * Description: Based on the description of the voice the user wants the agent to have, generate a concise description of the voice including the age, accent, tone, and character if available.
+* Identifier: `agent_description`
+  * `data-type`: `String`
+  * Description: Based on the description about the agent the user is looking to design, generate a prompt that can be used to train a model to act as the agent.
+
+[Post-call webhooks](https://elevenlabs.io/docs/eleven-agents/workflows/post-call-webhooks) are used to notify you when a call ends and the analysis and data extraction steps have been completed.
+
+In this example the, the post-call webhook does a couple of steps, namely:
+
+1. Create a custom voice design based on the `voice_description`.
+2. Create a ElevenLabs agent for the users based on the `agent_description` they provided.
+3. Retrieve the knowledge base documents from the conversation state stored in Redis and attach the knowledge base to the agent.
+4. Send an email to the user to notify them that their custom ElevenLabs agent is ready to chat.
+
+When running locally, you will need a tool like [ngrok](https://ngrok.com/) to expose your local server to the internet.
+
+```bash
+ngrok http 3000
+```
+
+Navigate to the [Agents Platform settings](https://elevenlabs.io/app/agents/settings) and under `Post-Call Webhook` create a new webhook and paste in your ngrok URL: `https://<your-url>.ngrok-free.app/api/convai-webhook`.
+
+After saving the webhook, you will receive a webhooks secret. Make sure to store this secret securely as you will need to set it in your `.env` file later.
+
+## Integrate the advanced features
+
+### Set up a Redis database for storing the conversation state
+
+In this example we're using Redis to store the conversation state. This allows us to retrieve the knowledge base documents from the conversation state after the call ends.
+
+If you're deploying to Vercel, you can configure the [Upstash for Redis](https://vercel.com/marketplace/upstash) integration, or alternatively you can sign up for a free [Upstash account](https://upstash.com/) and create a new database.
+
+### Set up Resend for sending post-call emails
+
+In this example we're using Resend to send the post-call email to the user. To do so you will need to create a free [Resend account](https://resend.com/) and set up a new API key.
+
+### Set the environment variables
+
+In the root of your project, create a `.env` file and add the following variables:
+
+```bash
+ELEVENLABS_CONVAI_WEBHOOK_SECRET=
+ELEVENLABS_API_KEY=
+ELEVENLABS_AGENT_ID=
+
+# Resend
+RESEND_API_KEY=
+RESEND_FROM_EMAIL=
+
+# Upstash Redis
+KV_URL=
+KV_REST_API_READ_ONLY_TOKEN=
+REDIS_URL=
+KV_REST_API_TOKEN=
+KV_REST_API_URL=
+```
+
+### Configure security and authentication
+
+To secure your ElevenLabs agent, you need to enable authentication in the `Security` tab of the agent configuration.
+
+Once authentication is enabled, you will need to create a signed URL in a secure server-side environment to initiate a conversation with the agent. In Next.js, you can do this by setting up a new API route.
+
+```tsx ./app/api/signed-url/route.ts
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const agentId = process.env.ELEVENLABS_AGENT_ID;
+  if (!agentId) {
+    throw Error("ELEVENLABS_AGENT_ID is not set");
+  }
+  try {
+    const elevenlabs = new ElevenLabsClient();
+    const response = await elevenlabs.conversationalAi.conversations.getSignedUrl({
+      agentId,
+    });
+    return NextResponse.json({ signedUrl: response.signedUrl });
+  } catch (error) {
+    console.error("Error:", error);
+    return NextResponse.json({ error: "Failed to get signed URL" }, { status: 500 });
+  }
+}
+```
+
+### Start the conversation session
+
+To start the conversation, first, call your API route to get the signed URL, then use the `useConversation` hook to set up the conversation session.
+
+```tsx ./page.tsx {1,4,20-25,31-46}
+import { useConversation } from "@elevenlabs/react";
+
+async function getSignedUrl(): Promise<string> {
+  const response = await fetch("/api/signed-url");
+  if (!response.ok) {
+    throw Error("Failed to get signed url");
+  }
+  const data = await response.json();
+  return data.signedUrl;
+}
+
+export default function Home() {
+  // ...
+  const [currentStep, setCurrentStep] = useState<
+    "initial" | "training" | "voice" | "email" | "ready"
+  >("initial");
+  const [conversationId, setConversationId] = useState("");
+  const [userName, setUserName] = useState("");
+
+  const conversation = useConversation({
+    onConnect: () => console.log("Connected"),
+    onDisconnect: () => console.log("Disconnected"),
+    onMessage: (message: string) => console.log("Message:", message),
+    onError: (error: Error) => console.error("Error:", error),
+  });
+
+  const startConversation = useCallback(async () => {
+    try {
+      // Request microphone permission
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+      // Start the conversation with your agent
+      const signedUrl = await getSignedUrl();
+      const convId = await conversation.startSession({
+        signedUrl,
+        dynamicVariables: {
+          user_name: userName,
+        },
+        clientTools: {
+          set_ui_state: ({ step }: { step: string }): string => {
+            // Allow agent to navigate the UI.
+            setCurrentStep(step as "initial" | "training" | "voice" | "email" | "ready");
+            return `Navigated to ${step}`;
+          },
+        },
+      });
+      setConversationId(convId);
+      console.log("Conversation ID:", convId);
+    } catch (error) {
+      console.error("Failed to start conversation:", error);
+    }
+  }, [conversation, userName]);
+  const stopConversation = useCallback(async () => {
+    await conversation.endSession();
+  }, [conversation]);
+  // ...
+}
+```
+
+### Client tool and dynamic variables
+
+In the agent configuration earlier, you registered the `set_ui_state` client tool to allow the agent to navigate between the different UI states. To put it all together, you need to pass the client tool implementation to the `conversation.startSession` options.
+
+This is also where you can pass in the dynamic variables to the conversation.
+
+```tsx ./page.tsx {3-5,7-11}
+const convId = await conversation.startSession({
+  signedUrl,
+  dynamicVariables: {
+    user_name: userName,
+  },
+  clientTools: {
+    set_ui_state: ({ step }: { step: string }): string => {
+      // Allow agent to navigate the UI.
+      setCurrentStep(step as "initial" | "training" | "voice" | "email" | "ready");
+      return `Navigated to ${step}`;
+    },
+  },
+});
+```
+
+### Uploading documents to the knowledge base
+
+In the `Training` step, the agent will ask the user to upload documents or submit URLs to public websites with information that should be available to their agent. Here you can utilise the new `after` function of [Next.js 15](https://nextjs.org/docs/app/api-reference/functions/after) to allow uploading of documents in the background.
+
+Create a new `upload` server action to handle the knowledge base creation upon form submission. Once all knowledge base documents have been created, store the conversation ID and the knowledge base IDs in the Redis database.
+
+```tsx ./app/actions/upload.ts {26,32,44,56-60}
+"use server";
+
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { Redis } from "@upstash/redis";
+import { redirect } from "next/navigation";
+import { after } from "next/server";
+
+// Initialize Redis
+const redis = Redis.fromEnv();
+
+const elevenlabs = new ElevenLabsClient({
+  apiKey: process.env.ELEVENLABS_API_KEY,
+});
+
+export async function uploadFormData(formData: FormData) {
+  const knowledgeBase: Array<{
+    id: string;
+    type: "file" | "url";
+    name: string;
+  }> = [];
+  const files = formData.getAll("file-upload") as File[];
+  const email = formData.get("email-input");
+  const urls = formData.getAll("url-input");
+  const conversationId = formData.get("conversation-id");
+
+  after(async () => {
+    // Upload files as background job
+    // Create knowledge base entries
+    // Loop through files and create knowledge base entries
+    for (const file of files) {
+      if (file.size > 0) {
+        const response = await elevenlabs.conversationalAi.knowledgeBase.documents.createFromFile({
+          file,
+        });
+        if (response.id) {
+          knowledgeBase.push({
+            id: response.id,
+            type: "file",
+            name: file.name,
+          });
+        }
+      }
+    }
+    // Append all urls
+    for (const url of urls) {
+      const response = await elevenlabs.conversationalAi.knowledgeBase.documents.createFromUrl({
+        url: url as string,
+      });
+      if (response.id) {
+        knowledgeBase.push({
+          id: response.id,
+          type: "url",
+          name: `url for ${conversationId}`,
+        });
+      }
+    }
+
+    // Store knowledge base IDs and conversation ID in database.
+    const redisRes = await redis.set(
+      conversationId as string,
+      JSON.stringify({ email, knowledgeBase })
+    );
+    console.log({ redisRes });
+  });
+
+  redirect("/success");
+}
+```
+
+## Handling the post-call webhook
+
+The [post-call webhook](/docs/eleven-agents/workflows/post-call-webhooks) is triggered when a call ends and the analysis and data extraction steps have been completed.
+
+There's a few steps that are happening here, namely:
+
+1. Verify the webhook secret and construct the webhook payload.
+2. Create a custom voice design based on the `voice_description`.
+3. Create a ElevenLabs agent for the users based on the `agent_description` they provided.
+4. Retrieve the knowledge base documents from the conversation state stored in Redis and attach the knowledge base to the agent.
+5. Send an email to the user to notify them that their custom ElevenLabs agent is ready to chat.
+
+```ts ./app/api/convai-webhook/route.ts
+import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
+import { Redis } from "@upstash/redis";
+import crypto from "crypto";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { Resend } from "resend";
+
+import { EmailTemplate } from "../../../../../components/email/post-call-webhook-email";
+
+// Initialize Redis
+const redis = Redis.fromEnv();
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const elevenlabs = new ElevenLabsClient({
+  apiKey: process.env.ELEVENLABS_API_KEY,
+});
+
+export async function GET() {
+  return NextResponse.json({ status: "webhook listening" }, { status: 200 });
+}
+
+export async function POST(req: NextRequest) {
+  const secret = process.env.ELEVENLABS_CONVAI_WEBHOOK_SECRET; // Add this to your env variables
+  const { event, error } = await constructWebhookEvent(req, secret);
+  if (error) {
+    return NextResponse.json({ error: error }, { status: 401 });
+  }
+
+  if (event.type === "post_call_transcription") {
+    const { conversation_id, analysis, agent_id } = event.data;
+
+    if (
+      agent_id === process.env.ELEVENLABS_AGENT_ID &&
+      analysis.evaluation_criteria_results.all_data_provided?.result === "success" &&
+      analysis.data_collection_results.voice_description?.value
+    ) {
+      try {
+        // Design the voice
+        const voicePreview = await elevenlabs.textToVoice.createPreviews({
+          voiceDescription: analysis.data_collection_results.voice_description.value,
+          text: "The night air carried whispers of betrayal, thick as London fog. I adjusted my cufflinks - after all, even spies must maintain appearances, especially when the game is afoot.",
+        });
+        const voice = await elevenlabs.textToVoice.createVoiceFromPreview({
+          voiceName: `voice-${conversation_id}`,
+          voiceDescription: `Voice for ${conversation_id}`,
+          generatedVoiceId: voicePreview.previews[0].generatedVoiceId,
+        });
+
+        // Get the knowledge base from redis
+        const redisRes = await getRedisDataWithRetry(conversation_id);
+        if (!redisRes) throw new Error("Conversation data not found!");
+        // Handle agent creation
+        const agent = await elevenlabs.conversationalAi.agents.create({
+          name: `Agent for ${conversation_id}`,
+          conversationConfig: {
+            tts: { voiceId: voice.voiceId },
+            agent: {
+              prompt: {
+                prompt:
+                  analysis.data_collection_results.agent_description?.value ??
+                  "You are a helpful assistant.",
+                knowledgeBase: redisRes.knowledgeBase,
+              },
+              firstMessage: "Hello, how can I help you today?",
+            },
+          },
+        });
+        console.log("Agent created", { agent: agent.agentId });
+        // Send email to user
+        console.log("Sending email to", redisRes.email);
+        await resend.emails.send({
+          from: process.env.RESEND_FROM_EMAIL!,
+          to: redisRes.email,
+          subject: "Your ElevenLabs agent is ready to chat!",
+          react: EmailTemplate({ agentId: agent.agentId }),
+        });
+      } catch (error) {
+        console.error(error);
+        return NextResponse.json({ error }, { status: 500 });
+      }
+    }
+  }
+
+  return NextResponse.json({ received: true }, { status: 200 });
+}
+
+const constructWebhookEvent = async (req: NextRequest, secret?: string) => {
+  const body = await req.text();
+  const signatureHeader = req.headers.get("ElevenLabs-Signature");
+
+  return await elevenlabs.webhooks.constructEvent(body, signatureHeader, secret);
+};
+
+async function getRedisDataWithRetry(
+  conversationId: string,
+  maxRetries = 5
+): Promise<{
+  email: string;
+  knowledgeBase: Array<{
+    id: string;
+    type: "file" | "url";
+    name: string;
+  }>;
+} | null> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const data = await redis.get(conversationId);
+      return data as any;
+    } catch (error) {
+      if (attempt === maxRetries) throw error;
+      console.log(`Redis get attempt ${attempt} failed, retrying...`);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+  return null;
+}
+```
+
+Let's go through each step in detail.
+
+### Verify the webhook secret and consrtuct the webhook payload
+
+When the webhook request is received, we first verify the webhook secret and construct the webhook payload.
+
+```ts ./app/api/convai-webhook/route.ts
+// ...
+
+export async function POST(req: NextRequest) {
+  const secret = process.env.ELEVENLABS_CONVAI_WEBHOOK_SECRET;
+  const { event, error } = await constructWebhookEvent(req, secret);
+  // ...
+}
+
+// ...
+const constructWebhookEvent = async (req: NextRequest, secret?: string) => {
+  const body = await req.text();
+  const signatureHeader = req.headers.get("ElevenLabs-Signature");
+
+  return await elevenlabs.webhooks.constructEvent(body, signatureHeader, secret);
+};
+
+async function getRedisDataWithRetry(
+  conversationId: string,
+  maxRetries = 5
+): Promise<{
+  email: string;
+  knowledgeBase: Array<{
+    id: string;
+    type: "file" | "url";
+    name: string;
+  }>;
+} | null> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const data = await redis.get(conversationId);
+      return data as any;
+    } catch (error) {
+      if (attempt === maxRetries) throw error;
+      console.log(`Redis get attempt ${attempt} failed, retrying...`);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+  return null;
+}
+```
+
+### Create a custom voice design based on the `voice_description`
+
+Using the `voice_description` from the webhook payload, we create a custom voice design.
+
+```ts ./app/api/convai-webhook/route.ts {5}
+// ...
+
+// Design the voice
+const voicePreview = await elevenlabs.textToVoice.createPreviews({
+  voiceDescription: analysis.data_collection_results.voice_description.value,
+  text: "The night air carried whispers of betrayal, thick as London fog. I adjusted my cufflinks - after all, even spies must maintain appearances, especially when the game is afoot.",
+});
+const voice = await elevenlabs.textToVoice.createVoiceFromPreview({
+  voiceName: `voice-${conversation_id}`,
+  voiceDescription: `Voice for ${conversation_id}`,
+  generatedVoiceId: voicePreview.previews[0].generatedVoiceId,
+});
+
+// ...
+```
+
+### Retrieve the knowledge base documents from the conversation state stored in Redis
+
+The uploading of the documents might take longer than the webhook data analysis, so we'll need to poll the conversation state in Redis until the documents have been uploaded.
+
+```ts ./app/api/convai-webhook/route.ts
+// ...
+
+// Get the knowledge base from redis
+const redisRes = await getRedisDataWithRetry(conversation_id);
+if (!redisRes) throw new Error("Conversation data not found!");
+// ...
+
+async function getRedisDataWithRetry(
+  conversationId: string,
+  maxRetries = 5
+): Promise<{
+  email: string;
+  knowledgeBase: Array<{
+    id: string;
+    type: "file" | "url";
+    name: string;
+  }>;
+} | null> {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const data = await redis.get(conversationId);
+      return data as any;
+    } catch (error) {
+      if (attempt === maxRetries) throw error;
+      console.log(`Redis get attempt ${attempt} failed, retrying...`);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+  }
+  return null;
+}
+```
+
+### Create a ElevenLabs agent for the users based on the `agent_description` they provided
+
+Create the ElevenLabs agent for the user based on the `agent_description` they provided and attach the newly created voice design and knowledge base to the agent.
+
+```ts ./app/api/convai-webhook/route.ts {7,11}
+// ...
+
+// Handle agent creation
+const agent = await elevenlabs.conversationalAi.agents.create({
+  name: `Agent for ${conversationId}`,
+  conversationConfig: {
+    tts: { voiceId: voice.voiceId },
+    agent: {
+      prompt: {
+        prompt:
+          analysis.data_collection_results.agent_description?.value ??
+          "You are a helpful assistant.",
+        knowledgeBase: redisRes.knowledgeBase,
+      },
+      firstMessage: "Hello, how can I help you today?",
+    },
+  },
+});
+console.log("Agent created", { agent: agent.agentId });
+
+// ...
+```
+
+### Send an email to the user to notify them that their custom ElevenLabs agent is ready to chat
+
+Once the agent is created, you can send an email to the user to notify them that their custom ElevenLabs agent is ready to chat.
+
+```ts ./app/api/convai-webhook/route.ts
+import { Resend } from "resend";
+
+import { EmailTemplate } from "../../../../../components/email/post-call-webhook-email";
+
+// ...
+
+// Send email to user
+console.log("Sending email to", redisRes.email);
+await resend.emails.send({
+  from: process.env.RESEND_FROM_EMAIL!,
+  to: redisRes.email,
+  subject: "Your ElevenLabs agent is ready to chat!",
+  react: EmailTemplate({ agentId: agent.agentId }),
+});
+
+// ...
+```
+
+You can use [new.email](https://new.email/), a handy tool from the Resend team, to vibe design your email templates. Once you're happy with the template, create a new component and add in the agent ID as a prop.
+
+```tsx ./components/email/post-call-webhook-email.tsx {14}
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  Html,
+  Section,
+  Text,
+  Tailwind,
+} from "@react-email/components";
+import * as React from "react";
+
+const EmailTemplate = (props: any) => {
+  const { agentId } = props;
+  return (
+    <Html>
+      <Head />
+      <Tailwind>
+        <Body className="bg-[#151516] font-sans">
+          <Container className="mx-auto my-[40px] max-w-[600px] rounded-[8px] bg-[#0a1929] p-[20px]">
+            {/* Top Section */}
+            <Section className="mb-[32px] mt-[32px] text-center">
+              <Text className="m-0 text-[28px] font-bold text-[#9c27b0]">
+                Your ElevenLabs agent is ready to chat!
+              </Text>
+            </Section>
+
+            {/* Content Area with Icon */}
+            <Section className="mb-[32px] text-center">
+              {/* Circle Icon with Checkmark */}
+              <div className="mx-auto mb-[24px] flex h-[80px] w-[80px] items-center justify-center rounded-full bg-gradient-to-r from-[#9c27b0] to-[#3f51b5]">
+                <div className="text-[40px] text-white">✓</div>
+              </div>
+
+              {/* Descriptive Text */}
+              <Text className="mb-[24px] text-[18px] text-white">
+                Your ElevenLabs agent is ready to chat!
+              </Text>
+            </Section>
+
+            {/* Call to Action Button */}
+            <Section className="mb-[32px] text-center">
+              <Button
+                href={`https://elevenlabs.io/app/talk-to?agent_id=${agentId}`}
+                className="box-border rounded-[8px] bg-[#9c27b0] px-[40px] py-[20px] text-[24px] font-bold text-white no-underline"
+              >
+                Chat now!
+              </Button>
+            </Section>
+
+            {/* Footer */}
+            <Section className="mt-[40px] border-t border-[#2d3748] pt-[20px] text-center">
+              <Text className="m-0 text-[14px] text-white">
+                Powered by{" "}
+                <a
+                  href="https://elevenlabs.io/conversational-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline transition-colors hover:text-gray-400"
+                >
+                  ElevenLabs Agents
+                </a>
+              </Text>
+            </Section>
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>
+  );
+};
+
+export { EmailTemplate };
+```
+
+## Run the app
+
+To run the app locally end-to-end, you will need to first run the Next.js development server, and then in a separate terminal run the ngrok tunnel to expose the webhook handler to the internet.
+
+* Terminal 1:
+  * Run `pnpm dev` to start the Next.js development server.
+
+```bash
+pnpm dev
+```
+
+* Terminal 2:
+  * Run `ngrok http 3000` to expose the webhook handler to the internet.
+
+```bash
+ngrok http 3000
+```
+
+Now open [http://localhost:3000](http://localhost:3000) and start designing your custom ElevenLabs agent, with your voice!
+
+## Next steps
+
+Explore the full ElevenAgents platform for building and deploying voice agents.
+
+Review conversation data, success evaluation, and agent performance metrics.

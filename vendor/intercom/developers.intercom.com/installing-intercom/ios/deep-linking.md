@@ -17,7 +17,6 @@ When a user taps on a Universal Link within Intercom, the domain of this link is
 The code sample below shows how you would handle the UTL `https://www.mywebsite.com/profile`
 If your app cannot handle a Universal Link, please ensure you return NO/false from this method. This will allow Intercom to open the URL as a regular link in Safari.
 
-
 ```objectivec
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:userActivity.webpageURL resolvingAgainstBaseURL:YES];
@@ -30,7 +29,6 @@ If your app cannot handle a Universal Link, please ensure you return NO/false fr
     return YES;
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
@@ -52,7 +50,6 @@ You will need to set up a deep link in your apps `Info.plist`. iOS supports sche
 
 You will then need to implement, `application:openURL:sourceApplication:annotation:` in your app delegate. This is where you can respond to specific schemes. In this case we will push the `SettingsViewController` for the scheme `app://settings`
 
-
 ```objectivec
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     if([[url scheme] isEqualToString:@"app"]){
@@ -63,7 +60,6 @@ You will then need to implement, `application:openURL:sourceApplication:annotati
     }
 }
 ```
-
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

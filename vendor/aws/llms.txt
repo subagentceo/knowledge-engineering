@@ -263,6 +263,8 @@
 
 - [AWS Auto Scaling Scaling Plans User Guide](https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-a-scaling-plan.md): Learn about using scaling plans with AWS Auto Scaling. [llms.txt](https://docs.aws.amazon.com/autoscaling/plans/userguide/llms.txt)
 
+- [AWS Backup API Reference](https://docs.aws.amazon.com/aws-backup/latest/APIReference/Welcome.md) [llms.txt](https://docs.aws.amazon.com/aws-backup/latest/APIReference/llms.txt)
+
 - [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.md): Use AWS Backup to centralize and automate the backup of data across AWS services in the cloud and on premises. [llms.txt](https://docs.aws.amazon.com/aws-backup/latest/devguide/llms.txt)
 
 - [AWS Certified Advanced Networking - Specialty Exam Guide (ANS-C01)](https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.md): Information about the AWS Certified Advanced Networking - Specialty exam [llms.txt](https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/llms.txt)
@@ -348,6 +350,8 @@
 - [AWS Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.md): An overview of AWS Billing Conductor and how to navigate the console. [llms.txt](https://docs.aws.amazon.com/billingconductor/latest/userguide/llms.txt)
 
 - [AWS Blockchain Templates Developer Guide](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/what-are-blockchain-templates.md): Learn to use AWS Blockchain Templates, which allows you to quickly create blockchain networks using AWS technology and open-source frameworks such as Ethereum and Hyperledger Fabric. [llms.txt](https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/llms.txt)
+
+- [AWS Blocks Developer Guide](https://docs.aws.amazon.com/blocks/latest/devguide/what-is-blocks.md): Learn about AWS Blocks, a backend toolkit for building full-stack applications on AWS. [llms.txt](https://docs.aws.amazon.com/blocks/latest/devguide/llms.txt)
 
 - [Amazon Braket API Reference](https://docs.aws.amazon.com/braket/latest/APIReference/Welcome.md): The Amazon Braket API Reference provides information about the operations and structures supported by Amazon Braket. [llms.txt](https://docs.aws.amazon.com/braket/latest/APIReference/llms.txt)
 
@@ -625,7 +629,7 @@
 
 - [AWS DevOps Agent API Reference](https://docs.aws.amazon.com/devopsagent/latest/APIReference/Welcome.md): AWS DevOps Agent is your always-available operations teammate. [llms.txt](https://docs.aws.amazon.com/devopsagent/latest/APIReference/llms.txt)
 
-- [AWS DevOps Agent User Guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.md): AWS DevOps Agent is a frontier agent that resolves and proactively prevents incidents, continuously improving reliability and performance. [llms.txt](https://docs.aws.amazon.com/devopsagent/latest/userguide/llms.txt)
+- [AWS DevOps Agent User Guide](https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.md): AWS DevOps Agent is an AI-powered, always-available agent that spans release management and production operations, from reviewing release readiness and release testing to investigating and preventing operational issues across AWS, multicloud, and on-premises environments. [llms.txt](https://docs.aws.amazon.com/devopsagent/latest/userguide/llms.txt)
 
 - [AWS Diagnostic Tools AWS Diagnostic Tools API Reference](https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/Welcome.md): AWS Diagnostic Tools provides an HTTP endpoint to self diagnose common troubleshooting issues with AWS Services. [llms.txt](https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/llms.txt)
 
@@ -1253,6 +1257,8 @@
 
 - [AWS Marketplace Buyer Guide](https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.md): Learn how to use and control access to AWS Marketplace, an online store where you can sell or buy software that runs on AWS. [llms.txt](https://docs.aws.amazon.com/marketplace/latest/buyerguide/llms.txt)
 
+- [AWS Marketplace Storefront User Guide](https://docs.aws.amazon.com/marketplace/latest/storefrontguide/what-is-marketplace-storefront.md): AWS Marketplace Storefront lets a Partner launch a branded procurement experience connected to AWS Marketplace, where the Partner curates a catalog of products, uses built-in capabilities to automate deal workflows, and routes transactions through an existing AWS Marketplace seller account. [llms.txt](https://docs.aws.amazon.com/marketplace/latest/storefrontguide/llms.txt)
+
 - [AWS Marketplace Seller Guide](https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.md): Learn how to use and control access to AWS Marketplace, an online store where you can sell or buy software that runs on AWS. [llms.txt](https://docs.aws.amazon.com/marketplace/latest/userguide/llms.txt)
 
 - [AWS for SAP MCP Server User Guide](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/introduction.md): With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore ("AgentCore"), you can give your AI agents structured, protocol-driven access to SAP S/4HANA and SAP ECC OData (Open Data Protocol) V2 services through the Model Context Protocol (MCP). [llms.txt](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/llms.txt)
@@ -1429,7 +1435,7 @@
 
 - [AWS Partner Central Getting Started Guide](https://docs.aws.amazon.com/partner-central/latest/getting-started/what-is-partner-central.md): Learn about the features and benefits of AWS Partner Central and how it can help you as an AWS Partner. [llms.txt](https://docs.aws.amazon.com/partner-central/latest/getting-started/llms.txt)
 
-- [AWS Partner Central Sales Guide](https://docs.aws.amazon.com/partner-central/latest/sales-guide/getting-started.md): Learn about the AWS Partner Customer Engagements Program and prerequisites for using ACE Opportunities and Leads features in AWS Partner Central. [llms.txt](https://docs.aws.amazon.com/partner-central/latest/sales-guide/llms.txt)
+- [AWS Partner Central Sales Guide](https://docs.aws.amazon.com/partner-central/latest/sales-guide/getting-started.md): Learn about the AWS Partner Customer Engagements Program and prerequisites for using Opportunities and Leads features in AWS Partner Central. [llms.txt](https://docs.aws.amazon.com/partner-central/latest/sales-guide/llms.txt)
 
 - [AWS Payment Cryptography Control Plane API Reference](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.md): AWS Payment Cryptography Control Plane APIs manage encryption keys for use during payment-related cryptographic operations. [llms.txt](https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/llms.txt)
 

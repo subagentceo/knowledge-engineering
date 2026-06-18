@@ -38,7 +38,6 @@ To enable your users to receive push notifications from Intercom via Intercom fo
 
 Use this method when you need to handle both successful registration and errors:
 
-
 ```objectivec
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [Intercom setDeviceToken:deviceToken 
@@ -52,7 +51,6 @@ Use this method when you need to handle both successful registration and errors:
                      }];
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -70,7 +68,6 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 
 Use this method when you only need to handle errors:
 
-
 ```objectivec
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [Intercom setDeviceToken:deviceToken failure:^(NSError * _Nullable error) {
@@ -78,7 +75,6 @@ Use this method when you only need to handle errors:
     }];
 }
 ```
-
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -113,7 +109,6 @@ In certain circumstances you may want more control of your push notifications. Y
 1. Handle Intercom push notifications manually in `didReceiveNotificationResponse` in your `UNUserNotificationCenterDelegate`:
 
 
-
 ```objectivec
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     //Add any custom push handling for your own app here
@@ -124,7 +119,6 @@ In certain circumstances you may want more control of your push notifications. Y
     completionHandler(UIBackgroundFetchResultNoData);
 }
 ```
-
 
 ```swift
 func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

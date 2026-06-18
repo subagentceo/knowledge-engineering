@@ -2,7 +2,7 @@
 
 ## Introduction
 
-With a [WorkOS Service Provider (SP) initiated login flow](https://workos.com/docs/sso), there are a series of exchanges that take place between a Service Provider (your application), WorkOS, and the IdP that’s being used to authenticate the user as shown in the diagram below. The [Redirect URI](https://workos.com/docs/glossary/redirect-uri) is the location to which the user gets returned to after successfully completing the authentication with their [Identity Provider (IdP)](https://workos.com/docs/glossary/idp).
+With a [WorkOS Service Provider (SP) initiated login flow](https://workos.com/docs/sso), there are a series of exchanges that take place between a Service Provider (your application), WorkOS, and the IdP that's being used to authenticate the user as shown in the diagram below. The [Redirect URI](https://workos.com/docs/glossary/redirect-uri) is the location to which the user gets returned to after successfully completing the authentication with their [Identity Provider (IdP)](https://workos.com/docs/glossary/idp).
 
 With an Identity Provider (IdP) initiated login flow, the approach is similar but the user will begin the login flow by clicking on the tile within their IdP platform instead of from your application.
 
@@ -10,7 +10,7 @@ With an Identity Provider (IdP) initiated login flow, the approach is similar bu
 
 In WorkOS Production Environments, the Redirect URI to your application cannot use HTTP or localhost, however, Redirect URIs that use HTTP and localhost are allowed in Sandbox Environments.
 
-There should be at least one redirect URI configured and selected as a default for your application. In the [Applications](https://dashboard.workos.com/environment/applications) section of the WorkOS Dashboard, open your application and go to the **Redirects** tab to configure redirect URIs. If you try to route the authorization flow to a Redirect URI that is not yet defined for the application, it will result in an error and users will be unable to sign in, so it’s important to define them in the dashboard first.
+There should be at least one redirect URI configured and selected as a default for your application. In the [Applications](https://dashboard.workos.com/environment/applications) section of the WorkOS Dashboard, open your application and go to the **Redirects** tab to configure redirect URIs. If you try to route the authorization flow to a Redirect URI that is not yet defined for the application, it will result in an error and users will be unable to sign in, so it's important to define them in the dashboard first.
 
 ![Dashboard Redirect URIs](https://images.workoscdn.com/images/6da31d23-c823-4557-8403-b38b2700e4d2.png?auto=format\&fit=clip\&q=50)
 

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -17,12 +16,12 @@ Bedrock supports several ways to authenticate, and the right one depends on whet
 | ------------------------------------------ | ------------------------------------------------------------------ | --------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Proof of concept, single team              | [Bearer token](#bearer-token) (`inferenceBedrockBearerToken`)      | None                                    | No (shared key)              | A long-lived secret distributed in the managed profile. Simplest to start; not recommended for broad rollout.       |
 | Broad rollout to users without AWS tooling | [In-app AWS sign-in](#in-app-aws-sign-in) (`inferenceBedrockSso*`) | None                                    | Yes                          | Users sign in through IAM Identity Center inside the app. No AWS CLI required. Requires app version 1.6.0 or later. |
-| Developers who already use the AWS CLI     | [Named profile](#named-profile) (`inferenceBedrockProfile`)        | AWS CLI v2 and a pushed `~/.aws/config` | Yes                          | IT can distribute the AWS config file directly; users run `aws sso login` to refresh.                               |
+| Developers who already use the AWS CLI     | [Named profile](#named-profile) (`inferenceBedrockProfile`)        | AWS CLI v2 and a pushed `~/.aws/config` | Yes                          | IT can distribute the AWS config file directly; the app runs `aws sso login` for the user when the session expires. |
 | You already operate an LLM proxy           | [Gateway provider](/cowork/3p/gateway) instead of Bedrock          | None                                    | At your gateway              | The proxy holds the AWS credentials; the app authenticates only to the proxy.                                       |
 
 If a static credential in the managed profile is acceptable but a Bedrock API key is not, you can also set [`inferenceCredentialHelper`](/cowork/3p/configuration#credential-helper) to an executable that prints a Bedrock bearer token to stdout at runtime.
 
-When more than one credential is configured, the app uses the first one present in this order: bearer token, named profile, in-app AWS sign-in, credential helper.
+When more than one credential is configured, the app uses the first one present in this order: in-app AWS sign-in, named profile, credential helper, bearer token. To remove ambiguity, set `inferenceCredentialKind` explicitly (see the [Configuration reference](/cowork/3p/configuration#connection)).
 
 ## Set up AWS
 
@@ -53,7 +52,6 @@ These steps are performed once per AWS organization, regardless of which authent
     ```
 
     Set the permission set's **Session duration** to between 8 and 12 hours. This value controls how long a user can run Cowork before needing to sign in to AWS again.
-
   </Step>
 
   <Step title="Federate Identity Center to your IdP (optional)">
@@ -71,7 +69,6 @@ These steps are performed once per AWS organization, regardless of which authent
     * **Identity Center region**: the region where Identity Center is enabled, which may differ from your Bedrock region
     * **AWS account ID**: the 12-digit ID of the account where you enabled Bedrock
     * **Permission set name**: the name you gave the permission set above
-
   </Step>
 </Steps>
 
@@ -106,7 +103,9 @@ sso_region = us-east-1
 sso_registration_scopes = sso:account:access
 ```
 
-The recurring action for users is `aws sso login --profile claude-cowork`, which opens a browser for IAM Identity Center sign-in and caches a token under `~/.aws/sso/cache/`. To remove that manual step, some organizations deploy a launcher that runs `aws sts get-caller-identity` as a probe, falls back to `aws sso login` if it fails, and then opens Claude.
+When the cached IAM Identity Center token is missing or expired, the app prompts the user to sign in and runs `aws sso login --profile claude-cowork` itself, which opens the browser for IAM Identity Center sign-in and caches a token under `~/.aws/sso/cache/`. Users can also run the command in a terminal; the app and the CLI share the same token cache. When the token can be refreshed silently, the app does so without prompting.
+
+To run the login command, the app locates the AWS CLI by searching the launch environment's `PATH`, the user's login-shell `PATH`, and standard install locations such as `/usr/local/bin` and `/opt/homebrew/bin` on macOS. If your fleet installs the AWS CLI somewhere else, or you want every device to use one specific binary, set `inferenceBedrockAwsCliPath` to the absolute path of the executable.
 
 If your AWS configuration files are not at the default location, set `inferenceBedrockAwsDir` to the directory that contains them.
 
@@ -117,17 +116,18 @@ With AWS set up and devices prepared, open the in-app configuration window (**De
 | Field                | Bearer token         | In-app AWS sign-in                       | Named profile          |
 | -------------------- | -------------------- | ---------------------------------------- | ---------------------- |
 | AWS region           | e.g. `us-west-2`     | e.g. `us-west-2`                         | e.g. `us-west-2`       |
-| AWS bearer token     | your Bedrock API key | _leave empty_                            | _leave empty_          |
-| Bedrock base URL     | _optional_           | _optional_                               | _optional_             |
-| AWS profile name     | _leave empty_        | _leave empty_                            | `claude-cowork`        |
-| AWS config directory | _leave empty_        | _leave empty_                            | _only if not `~/.aws`_ |
-| AWS SSO start URL    | _leave empty_        | `https://d-xxxxxxxxxx.awsapps.com/start` | _leave empty_          |
-| AWS SSO region       | _leave empty_        | e.g. `us-east-1`                         | _leave empty_          |
-| AWS SSO account ID   | _leave empty_        | `123456789012`                           | _leave empty_          |
-| AWS SSO role name    | _leave empty_        | `BedrockInference`                       | _leave empty_          |
-| Bedrock service tier | _optional_           | _optional_                               | _optional_             |
+| AWS bearer token     | your Bedrock API key | *leave empty*                            | *leave empty*          |
+| Bedrock base URL     | *optional*           | *optional*                               | *optional*             |
+| AWS profile name     | *leave empty*        | *leave empty*                            | `claude-cowork`        |
+| AWS config directory | *leave empty*        | *leave empty*                            | *only if not `~/.aws`* |
+| AWS CLI path         | *leave empty*        | *leave empty*                            | *optional*             |
+| AWS SSO start URL    | *leave empty*        | `https://d-xxxxxxxxxx.awsapps.com/start` | *leave empty*          |
+| AWS SSO region       | *leave empty*        | e.g. `us-east-1`                         | *leave empty*          |
+| AWS SSO account ID   | *leave empty*        | `123456789012`                           | *leave empty*          |
+| AWS SSO role name    | *leave empty*        | `BedrockInference`                       | *leave empty*          |
+| Bedrock service tier | *optional*           | *optional*                               | *optional*             |
 
-Under **Identity & models**, add at least one **Model list** entry using the Bedrock inference-profile ID, for example `us.anthropic.claude-sonnet-4-20250514-v1:0`.
+Under **Models**, add a **Model list** entry using the Bedrock inference-profile ID (required for profile or SSO auth; optional for bearer-token or credential-helper auth, which auto-discover), for example `us.anthropic.claude-sonnet-4-20250514-v1:0`.
 
 Then click **Export** to produce a `.mobileconfig` (macOS) or `.reg` (Windows) file for your MDM. See [Installation and setup](/cowork/3p/installation) for the export and deployment workflow.
 
@@ -140,27 +140,28 @@ The full set of Bedrock keys is below. Set `inferenceProvider` to `bedrock`, sup
 | AWS region<br />`inferenceBedrockRegion`                | Yes                   | AWS region for the Bedrock runtime endpoint, for example `us-west-2` or `us-gov-west-1`.                                                                                                                                                                                         |
 | AWS bearer token<br />`inferenceBedrockBearerToken`     | One credential source | Bedrock API key generated from the Amazon Bedrock console.                                                                                                                                                                                                                       |
 | AWS profile name<br />`inferenceBedrockProfile`         | One credential source | AWS named profile from the device's AWS config and credentials files.                                                                                                                                                                                                            |
-| AWS SSO start URL<br />`inferenceBedrockSsoStartUrl`    | One credential source | AWS access portal URL. Enables in-app [AWS sign-in](/cowork/3p/bedrock-aws-sign-in) (no AWS CLI needed). Set with the three SSO fields below. Ignored when a bearer token or profile is set.                                                                                     |
+| AWS SSO start URL<br />`inferenceBedrockSsoStartUrl`    | One credential source | AWS access portal URL. Enables in-app [AWS sign-in](/cowork/3p/bedrock-aws-sign-in) (no AWS CLI needed). Set with the three SSO fields below. Takes precedence over a bearer token or named profile when all four SSO keys are set.                                              |
 | AWS SSO region<br />`inferenceBedrockSsoRegion`         | One credential source | IAM Identity Center home region.                                                                                                                                                                                                                                                 |
 | AWS SSO account ID<br />`inferenceBedrockSsoAccountId`  | One credential source | 12-digit AWS account ID assigned to users in IAM Identity Center.                                                                                                                                                                                                                |
 | AWS SSO role name<br />`inferenceBedrockSsoRoleName`    | One credential source | IAM Identity Center permission-set name granting `bedrock:InvokeModel*` on the account above.                                                                                                                                                                                    |
 | AWS config directory<br />`inferenceBedrockAwsDir`      | No                    | Absolute path to the directory containing the AWS `config` and `credentials` files, if not the default `~/.aws`.                                                                                                                                                                 |
-| Bedrock base URL<br />`inferenceBedrockBaseUrl`         | No                    | Override the public regional endpoint, for example with a PrivateLink VPC interface endpoint. Must be `https://`.                                                                                                                                                                |
+| AWS CLI path<br />`inferenceBedrockAwsCliPath`          | No                    | Absolute path to the AWS CLI executable the app runs for `aws sso login`. When unset, the app searches the launch environment's `PATH`, the user's login-shell `PATH`, and standard install locations. Applies to named-profile authentication only.                             |
+| Bedrock base URL<br />`inferenceBedrockBaseUrl`         | No                    | Override the public regional endpoint, for example with a PrivateLink VPC interface endpoint. A bare hostname is coerced to `https://`; `http://` is accepted with a warning.                                                                                                    |
 | Bedrock service tier<br />`inferenceBedrockServiceTier` | No                    | One of `flex` or `priority`. Sent as the `X-Amzn-Bedrock-Service-Tier` header on every inference request. Leave unset for the default on-demand tier. Tier availability varies by model and region; reserved capacity uses a provisioned-throughput ARN as the model ID instead. |
 
-You must also set `inferenceModels` to a list of Bedrock inference-profile IDs, for example `us.anthropic.claude-sonnet-4-20250514-v1:0`. See the [Configuration reference](/cowork/3p/configuration#models).
+Set `inferenceModels` to a list of Bedrock inference-profile IDs, for example `us.anthropic.claude-sonnet-4-20250514-v1:0`. When using a bearer token or credential helper, Cowork auto-discovers available Claude models from your account if this is unset; for profile or SSO authentication, the list is required. Application-inference-profile ARNs and provisioned-throughput ARNs are also accepted; pair them with a [`labelOverride`](/cowork/3p/configuration#setting-a-display-label) so the picker shows a readable name instead of the raw ARN. See the [Configuration reference](/cowork/3p/configuration#models).
 
 ## What users experience
 
 The first-launch and re-authentication behavior depends on the authentication approach.
 
-| Approach           | First launch                                                                                                                              | Re-authentication                                                                                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Bearer token       | Cowork opens directly; no user action.                                                                                                    | Never, until you rotate the key in the managed profile.                                                                                                   |
-| In-app AWS sign-in | Cowork shows a **Sign in with AWS** page; the user approves in the browser.                                                               | When the IAM Identity Center access portal session expires (defaults to 8 hours; configurable up to 90 days). The app prompts in-app; no terminal needed. |
-| Named profile      | Cowork opens directly if the AWS SSO cache is fresh. If not, the first request fails and the user must run `aws sso login` in a terminal. | When the IAM Identity Center session expires (the permission set's session duration).                                                                     |
+| Approach           | First launch                                                                                                                                | Re-authentication                                                                                                                                         |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bearer token       | Cowork opens directly; no user action.                                                                                                      | Never, until you rotate the key in the managed profile.                                                                                                   |
+| In-app AWS sign-in | Cowork shows a **Sign in with AWS** page; the user approves in the browser.                                                                 | When the IAM Identity Center access portal session expires (defaults to 8 hours; configurable up to 90 days). The app prompts in-app; no terminal needed. |
+| Named profile      | Cowork opens directly if the AWS SSO cache is fresh; otherwise it prompts in-app and runs `aws sso login` for you, which opens the browser. | When the IAM Identity Center session expires, the app prompts in-app and re-runs `aws sso login`.                                                         |
 
-When a named-profile session has expired, requests fail with `ExpiredTokenException` from AWS, and the user runs `aws sso login` again.
+If the app cannot locate the AWS CLI, it cannot drive the login itself; it instructs the user to install AWS CLI v2 and run `aws sso login --profile <name>` manually.
 
 ## Troubleshoot
 

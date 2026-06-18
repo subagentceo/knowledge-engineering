@@ -14,8 +14,8 @@ image: https://developers.cloudflare.com/dev-products-preview.png
 
 Workers access Flagship through a binding that you add to your Wrangler configuration file. The `binding` field sets the variable name you use in your Worker code.
 
-* [  wrangler.jsonc ](#tab-panel-8358)
-* [  wrangler.toml ](#tab-panel-8359)
+* [  wrangler.jsonc ](#tab-panel-8533)
+* [  wrangler.toml ](#tab-panel-8534)
 
 JSONC
 
@@ -57,8 +57,8 @@ Replace `<APP_ID>` with the app ID from your Flagship app. If you have not creat
 
 The binding provides type-safe methods for evaluating feature flags. If an evaluation fails or a flag is not found, the method returns the default value you provide.
 
-* [  JavaScript ](#tab-panel-8360)
-* [  TypeScript ](#tab-panel-8361)
+* [  JavaScript ](#tab-panel-8535)
+* [  TypeScript ](#tab-panel-8536)
 
 JavaScript
 
@@ -112,5 +112,6 @@ The binding has the type `Flagship` from the `@cloudflare/workers-types` package
 * [ Methods ](https://developers.cloudflare.com/flagship/binding/methods/)
 
 ```json
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://developers.cloudflare.com/flagship/binding/#page","headline":"Binding API · Cloudflare Flagship docs","description":"Evaluate Flagship feature flags directly in Cloudflare Workers using the native binding with type-safe methods and automatic fallback.","url":"https://developers.cloudflare.com/flagship/binding/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-30","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/flagship/","name":"Flagship"}},{"@type":"ListItem","position":3,"item":{"@id":"/flagship/binding/","name":"Binding API"}}]}
 ```

@@ -8,7 +8,7 @@
     "https://iterable.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 0,
   "html_extract": {
     "selector": "main"
   },

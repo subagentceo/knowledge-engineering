@@ -8,6 +8,10 @@
 >
 > Flex Conversations currently does not support displaying the customer's WhatsApp Profile Name.
 
+> \[!WARNING]
+>
+> WhatsApp is introducing usernames, which let users message you without sharing a phone number. Flex can't receive WhatsApp messages from users who have a WhatsApp username. If you communicate with a user who might have a WhatsApp username, ask them to reach you through another channel. For more information about how WhatsApp usernames affect Flex, see [Flex and Conversations (classic)](/docs/whatsapp/key-concepts#flex-and-conversations-classic).
+
 With Flex, your customers can reach you via messaging channels, such as SMS, WhatsApp. The [Flex Messaging page](https://console.twilio.com/us1/develop/flex/channels/messaging/conversations) in the Console allows you to register Conversations addresses for your channels, so you can process inbound messages using Flex Conversations.
 
 Please refer to the [Conversations Webhooks page](/docs/conversations-classic/conversations-webhooks) for more information on event payloads. In the event payload, you can retrieve the `ConversationSid`.

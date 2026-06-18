@@ -1,7 +1,7 @@
 ---
 vendor: anthropic-sitemap
 llms_txt: 
-count: 427
+count: 429
 transform: html-extract
 ---
 
@@ -174,6 +174,7 @@ transform: html-extract
 | https://www.anthropic.com/news/economic-futures-uk-europe | `vendor/anthropic-sitemap/news/economic-futures-uk-europe.md` |
 | https://www.anthropic.com/news/election-safeguards-update | `vendor/anthropic-sitemap/news/election-safeguards-update.md` |
 | https://www.anthropic.com/news/elections-ai-2024 | `vendor/anthropic-sitemap/news/elections-ai-2024.md` |
+| https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously | `vendor/anthropic-sitemap/news/enabling-claude-code-to-work-more-autonomously.md` |
 | https://www.anthropic.com/news/enterprise-ai-services-company | `vendor/anthropic-sitemap/news/enterprise-ai-services-company.md` |
 | https://www.anthropic.com/news/eu-code-practice | `vendor/anthropic-sitemap/news/eu-code-practice.md` |
 | https://www.anthropic.com/news/expanded-legal-protections-api-improvements | `vendor/anthropic-sitemap/news/expanded-legal-protections-api-improvements.md` |
@@ -276,6 +277,7 @@ transform: html-extract
 | https://www.anthropic.com/news/thoughts-on-america-s-ai-action-plan | `vendor/anthropic-sitemap/news/thoughts-on-america-s-ai-action-plan.md` |
 | https://www.anthropic.com/news/uk-ai-safety-summit | `vendor/anthropic-sitemap/news/uk-ai-safety-summit.md` |
 | https://www.anthropic.com/news/updates-to-our-consumer-terms | `vendor/anthropic-sitemap/news/updates-to-our-consumer-terms.md` |
+| https://www.anthropic.com/news/updating-our-usage-policy | `vendor/anthropic-sitemap/news/updating-our-usage-policy.md` |
 | https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions | `vendor/anthropic-sitemap/news/updating-restrictions-of-sales-to-unsupported-regions.md` |
 | https://www.anthropic.com/news/us-elections-readiness | `vendor/anthropic-sitemap/news/us-elections-readiness.md` |
 | https://www.anthropic.com/news/usage-policy-update | `vendor/anthropic-sitemap/news/usage-policy-update.md` |

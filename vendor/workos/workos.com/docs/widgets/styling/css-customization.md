@@ -6,13 +6,6 @@ While optional, we recommend starting with the `layout.css` stylesheet from Radi
 
 #### CSS imports
 
-```css
-/* Provides basic layout styles for Radix Themes components */
-@import '@radix-ui/themes/layout.css';
-/* Provides additional basic styles specific to WorkOS Widgets */
-@import '@workos-inc/widgets/base.css';
-```
-
 ## Universal selectors
 
 Elements in Widgets are accessible via CSS class selectors prefixed with `woswidgets-`.

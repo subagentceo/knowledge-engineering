@@ -64,7 +64,6 @@ Copy the snippet below into your terminal, making sure to swap `YOUR_ACCESS_TOKE
 details
 summary
 Try Creating a Contact
-
 ```bash
 curl -i -X POST \
   https://api.intercom.io/contacts \
@@ -77,7 +76,6 @@ curl -i -X POST \
 ```
 
 If successful, you should see a response that looks like the below:
-
 
 ```
 {

@@ -16,7 +16,6 @@ First you’ll need to ensure that both the [Android](https://app.intercom.com/a
 
 To install the plugin in your Cordova app, run the following:
 
-
 ```
 cordova plugin add cordova-plugin-intercom
 ```
@@ -28,7 +27,6 @@ First, you'll need to get your **Intercom app ID** and iOS/Android **API key**. 
 ![](/assets/4f6626b-mobile_api_keys.685a7c7800c43d91fc1ba4f608f10c901999450551acbee9f5e0f688b0d07b92.71a4f21c.png)
 
 Then initialize Intercom by importing Intercom and adding the following to your `config.xml`:
-
 
 ```xml
 <preference name="intercom-app-id" value="your_app_id"/>

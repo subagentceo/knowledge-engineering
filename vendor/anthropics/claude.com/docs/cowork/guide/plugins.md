@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -80,6 +79,8 @@ The following are the default limits for plugin packages and marketplaces.
 | Plugins per marketplace            | 500    |
 | Marketplaces you can add           | 25     |
 
+The in-app skill viewer previews individual files up to 1 MB. Larger files appear in the file list as "too large to preview" but are still available to Claude at runtime.
+
 ## Plugins managed by your organization
 
 On Team and Enterprise plans, administrators can require certain plugins for everyone in the organization. Required plugins install automatically and show **This plugin is required by your organization**; you can't remove them.
@@ -94,6 +95,6 @@ To remove a plugin you installed, open it under **Customize → Plugins** and cl
 
 ## Related
 
-- [Plugins overview](/plugins/overview) for how plugins work across Claude products
-- [Submit a plugin](/plugins/submit) to publish your own to the marketplace
-- [MCP, plugins, skills, and hooks](/cowork/3p/extensions) for administrator provisioning
+* [Plugins overview](/plugins/overview) for how plugins work across Claude products
+* [Submit a plugin](/plugins/submit) to publish your own to the marketplace
+* [MCP, plugins, skills, and hooks](/cowork/3p/extensions) for administrator provisioning

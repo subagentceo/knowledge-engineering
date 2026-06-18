@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -36,9 +35,9 @@ All surfaces support the same Claude capabilities you've enabled, including web 
 
 **For multi-workspace deployment:**
 
-- Access your Slack management workspace
-- Navigate to **Integrations → Installed apps → Add to more workspaces**
-- Toggle through relevant workspaces
+* Access your Slack management workspace
+* Navigate to **Integrations → Installed apps → Add to more workspaces**
+* Toggle through relevant workspaces
 
 ### For individual users
 
@@ -84,11 +83,11 @@ Available for Team and Enterprise plans, the Slack connector allows Claude to se
 
 ## Privacy & data
 
-- Slack conversations remain separate from your Claude web history
-- Conversations initiated in Slack don't appear in your Claude chat history
-- Each platform maintains separate conversation histories
-- Conversations auto-delete within 30 days if you disconnect
-- Slack retention policies apply to your workspace messages
+* Slack conversations remain separate from your Claude web history
+* Conversations initiated in Slack don't appear in your Claude chat history
+* Each platform maintains separate conversation histories
+* Conversations auto-delete within 30 days if you disconnect
+* Slack retention policies apply to your workspace messages
 
 ## Troubleshooting
 

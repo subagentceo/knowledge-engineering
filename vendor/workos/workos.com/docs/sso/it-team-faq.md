@@ -4,7 +4,7 @@
 
 WorkOS is a software company that provides a suite of products to make an app enterprise-ready. These products include Single Sign-On, Directory Sync, and AuthKit (user management), among others.
 
-Developers integrate WorkOS services into their apps in order to provide a secure authentication and user provisioning experience. It’s trusted by companies like Webflow, Plaid, Vercel, and many others.
+Developers integrate WorkOS services into their apps in order to provide a secure authentication and user provisioning experience. It's trusted by companies like Webflow, Plaid, Vercel, and many others.
 
 ## What data does WorkOS store?
 

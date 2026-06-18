@@ -11,6 +11,7 @@ List Agent Versions
 ### Parameters
 
 - `VersionListParams params`
+
   - `Optional<String> agentId`
 
   - `Optional<Long> limit`
@@ -24,6 +25,7 @@ List Agent Versions
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -76,13 +78,16 @@ List Agent Versions
 
     - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
 
 ### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
+
   - `String id`
 
   - `Optional<LocalDateTime> archivedAt`
@@ -96,9 +101,11 @@ List Agent Versions
   - `Optional<String> description`
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
+
     - `String name`
 
     - `Type type`
+
       - `URL("url")`
 
     - `String url`
@@ -108,11 +115,21 @@ List Agent Versions
   - `BetaManagedAgentsModelConfig model`
 
     Model identifier and configuration.
+
     - `BetaManagedAgentsModel id`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `CLAUDE_FABLE_5("claude-fable-5")`
+
+        Next generation of intelligence for the hardest knowledge work and coding problems
+
+      - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+        Frontier intelligence for long-running agents and coding
+
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
         Frontier intelligence for long-running agents and coding
@@ -152,6 +169,7 @@ List Agent Versions
     - `Optional<Speed> speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
       - `STANDARD("standard")`
 
       - `FAST("fast")`
@@ -159,28 +177,35 @@ List Agent Versions
   - `Optional<BetaManagedAgentsMultiagent> multiagent`
 
     Resolved coordinator topology with a concrete agent roster.
+
     - `List<BetaManagedAgentsAgentReference> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
+
       - `String id`
 
       - `Type type`
+
         - `AGENT("agent")`
 
       - `long version`
 
     - `Type type`
+
       - `COORDINATOR("coordinator")`
 
   - `String name`
 
   - `List<Skill> skills`
+
     - `class BetaManagedAgentsAnthropicSkill:`
 
       A resolved Anthropic-managed skill.
+
       - `String skillId`
 
       - `Type type`
+
         - `ANTHROPIC("anthropic")`
 
       - `String version`
@@ -188,9 +213,11 @@ List Agent Versions
     - `class BetaManagedAgentsCustomSkill:`
 
       A resolved user-created custom skill.
+
       - `String skillId`
 
       - `Type type`
+
         - `CUSTOM("custom")`
 
       - `String version`
@@ -198,13 +225,17 @@ List Agent Versions
   - `Optional<String> system`
 
   - `List<Tool> tools`
+
     - `class BetaManagedAgentsAgentToolset20260401:`
+
       - `List<BetaManagedAgentsAgentToolConfig> configs`
+
         - `boolean enabled`
 
         - `Name name`
 
           Built-in agent tool identifier.
+
           - `BASH("bash")`
 
           - `EDIT("edit")`
@@ -224,26 +255,33 @@ List Agent Versions
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
+
             - `Type type`
+
               - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
+
             - `Type type`
+
               - `ALWAYS_ASK("always_ask")`
 
       - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for agent tools.
+
         - `boolean enabled`
 
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
@@ -253,10 +291,13 @@ List Agent Versions
             Tool calls require user confirmation before execution.
 
       - `Type type`
+
         - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
     - `class BetaManagedAgentsMcpToolset:`
+
       - `List<BetaManagedAgentsMcpToolConfig> configs`
+
         - `boolean enabled`
 
         - `String name`
@@ -264,6 +305,7 @@ List Agent Versions
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
@@ -275,11 +317,13 @@ List Agent Versions
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
+
         - `boolean enabled`
 
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
+
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
@@ -291,35 +335,35 @@ List Agent Versions
       - `String mcpServerName`
 
       - `Type type`
+
         - `MCP_TOOLSET("mcp_toolset")`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
+
       - `String description`
 
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
         JSON Schema for custom tool input parameters.
+
+        - `JsonValue; type "object"constant`
+
+          - `OBJECT("object")`
+
         - `Optional<Properties> properties`
 
-          JSON Schema properties defining the tool's input parameters.
-
         - `Optional<List<String>> required`
-
-          List of required property names.
-
-        - `Optional<Type> type`
-
-          Must be 'object' for tool input schemas.
-          - `OBJECT("object")`
 
       - `String name`
 
       - `Type type`
+
         - `CUSTOM("custom")`
 
   - `Type type`
+
     - `AGENT("agent")`
 
   - `LocalDateTime updatedAt`

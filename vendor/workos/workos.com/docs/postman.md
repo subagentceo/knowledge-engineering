@@ -4,7 +4,7 @@
 
 Postman is a popular API development tool that allows users to easily test API endpoints. The [WorkOS API collection](https://www.postman.com/workos/workspace/workos-public/collection/25188762-79ce1172-4741-4f1d-a486-64380f9a599f?ctx=documentation) is a set of pre-configured requests specific to the WorkOS API, meant to help developers to quickly get started testing the WorkOS API endpoints.
 
-The [environment template](https://www.postman.com/workos/workspace/workos-public/environment/25188762-b99e7518-d907-4aa0-82d2-a199157a53c7) supports this collection, and allows variables to be abstracted away from the individual requests. The environment template makes it easier to manage and re-use common variables across the collection’s requests.
+The [environment template](https://www.postman.com/workos/workspace/workos-public/environment/25188762-b99e7518-d907-4aa0-82d2-a199157a53c7) supports this collection, and allows variables to be abstracted away from the individual requests. The environment template makes it easier to manage and re-use common variables across the collection's requests.
 
 ## Configuring Postman
 
@@ -22,7 +22,7 @@ Select your fork label and workspace, then click the "Fork collection" button.
 
 ![A screenshot showing the fork collection details page in Postman.](https://images.workoscdn.com/images/c9074bd3-8ab8-4864-9b68-56c6a858a17e.png?auto=format\&fit=clip\&q=50)
 
-You will now see the WorkOS API collection appear in your workspace’s collection tab.
+You will now see the WorkOS API collection appear in your workspace's collection tab.
 
 To fork the WorkOS environment template, the same process is used. Navigate to the environments tab of the WorkOS Public workspace. Hover over the WorkOS environment template, click the three dots, and then click "Create a fork". Select your fork label and workspace, then click the "Fork environment" button.
 
@@ -34,7 +34,7 @@ To export the collection, navigate to the collection tab in the WorkOS workspace
 
 ![A screenshot showing the export option in Postman.](https://images.workoscdn.com/images/54aed639-6c8f-467e-baa6-53099c36fe35.png?auto=format\&fit=clip\&q=50)
 
-Navigate to your workspace’s collections tab and click on the import button.
+Navigate to your workspace's collections tab and click on the import button.
 
 ![A screenshot showing where to find the import button in Postman.](https://images.workoscdn.com/images/802d9d45-c258-4548-9f88-7d04f2d260c2.png?auto=format\&fit=clip\&q=50)
 

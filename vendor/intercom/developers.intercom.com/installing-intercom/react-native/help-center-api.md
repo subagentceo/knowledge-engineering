@@ -6,7 +6,6 @@ Check [here](https://www.intercom.com/help/en/articles/56660-resources-to-help-w
 
 To display the Help Center, call the following method:
 
-
 ```javascript
 Intercom.presentSpace(Space.helpCenter);
 ```
@@ -19,7 +18,6 @@ If you don't have Help Center enabled in your Intercom settings the method `pres
 
 To present an Article, pass in an articleID from your Intercom workspace to the following method:
 
-
 ```javascript
 Intercom.presentContent(
       IntercomContent.articleWithArticleId('123456')
@@ -29,7 +27,6 @@ Intercom.presentContent(
 ## Present a filtered Help Center
 
 You can now pass in 1 or more collection IDs to filter the Help Center. This will display the same view as calling displayHelpCenter but the collections list will only show the IDs passed in.
-
 
 ```javascript
 Intercom.presentContent(
@@ -44,7 +41,6 @@ You can now fetch the data directly and build your own UI. This is useful when y
 ## Fetch Collections
 
 To fetch a list of all Collections call:
-
 
 ```javascript
 try {
@@ -64,7 +60,6 @@ A successful response will return an `HelpCenterCollectionItem[]`. An `HelpCente
 ## Fetch the contents of a collection
 
 To get a list of sections/articles for a collections call:
-
 
 ```javascript
 try {
@@ -101,7 +96,6 @@ The `HelpCenterArticle` model can be found both inside of sections, or at the to
 ## Search the Help Center
 
 To get a list of articles in the Help Center, filtered by a search term call:
-
 
 ```javascript
 try {

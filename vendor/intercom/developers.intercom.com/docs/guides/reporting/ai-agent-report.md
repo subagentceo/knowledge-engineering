@@ -26,7 +26,6 @@ Open up [Replit](https://replit.com/@IntercomDevs/Create-an-AI-Agent-Report?v=1)
 
 This is the full sample code:
 
-
 ```javascript
 import express from "express";
 import fetch from "node-fetch";
@@ -201,7 +200,6 @@ You will see that the fields defined in your conversation object have been provi
 
 Click on Extensions > Apps Script. You should see the following code:
 
-
 ```javascript
 function myFunction() {
   // Fetch the data from your Node app
@@ -309,7 +307,6 @@ Follow the same process. In the formula box add:
 
 In the formula box add:
 
-
 ```
 COUNT(CASE WHEN resolution_state = "confirmed_resolution" or resolution_state = "assumed_resolution" THEN 1 ELSE NULL END) / COUNT(CASE WHEN last_answer_type = "ai_answer" THEN 1 ELSE NULL END)
 ```
@@ -317,7 +314,6 @@ COUNT(CASE WHEN resolution_state = "confirmed_resolution" or resolution_state = 
 #### Routed to team rate
 
 In the formula box add:
-
 
 ```
 COUNT(CASE WHEN resolution_state = "routed_to_team" THEN 1 ELSE NULL END) / COUNT(CASE WHEN last_answer_type = "ai_answer" THEN 1 ELSE NULL END)

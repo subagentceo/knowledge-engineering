@@ -33,21 +33,26 @@ Databricks is great at orchestrating the data you already own. But the world you
   </Card>
 
   <Card title="Data Enrichment" icon="https://mintcdn.com/nimble-f5a8283f/11o25xfLHwYX_BgD/images/icons/data-enrichment.svg?fit=max&auto=format&n=11o25xfLHwYX_BgD&q=85&s=90ace12188af8758c7f439576d0d6a66" href="/integrations/partnerships/databricks/data-enrichment" width="448" height="512" data-path="images/icons/data-enrichment.svg">
-    Call Nimble as SQL-native table functions in Unity Catalog. `nimble_search`, `nimble_extract`, and `nimble_agent_run` run live web data inside a `SELECT` and land results in governed Delta tables — dbt-native, Workflow-native, Genie-native.
+    Call Nimble as SQL-native table functions in Unity Catalog. `nimble_search`, `nimble_extract`, and `nimble_agent_run` run live web search inside a `SELECT` and land results in governed Delta tables — dbt-native, Workflow-native, Genie-native.
+  </Card>
+
+  <Card title="Genie Code" icon="https://mintcdn.com/nimble-f5a8283f/GjqhNI1q7l8VWf0A/images/icons/genie-code.svg?fit=max&auto=format&n=GjqhNI1q7l8VWf0A&q=85&s=44327569cf0bd8fc7827b18bf80b7cfd" href="/integrations/partnerships/databricks/genie-code" width="640" height="512" data-path="images/icons/genie-code.svg">
+    Turn a plain-English brief into a full data product inside Genie Code, Databricks' agentic coding agent. Install the Nimble custom skill and it discovers the right agents, ingests live web data into Delta, and builds a dashboard or app — end to end. The "never leave Databricks" build surface.
   </Card>
 </CardGroup>
 
 ## When to use which surface
 
-The Databricks integration spans three surfaces over one Nimble connection. Pick by question:
+The Databricks integration spans four surfaces over one Nimble connection. Pick by question:
 
-| You want to…                                                                                           | Use                                                                                 | Page                                                                       |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Give an agent, AI Playground, or Databricks Assistant live web tools through a governed MCP connection | **Marketplace & MCP** install                                                       | [Marketplace & MCP](/integrations/partnerships/databricks/marketplace-mcp) |
-| Let a business user ask live-web questions in plain English and get cited answers                      | **Genie One** + the Nimble MCP connection                                           | [Genie One](/integrations/partnerships/databricks/genie)                   |
-| Enrich N warehouse rows with structured web fields, or land web data in Delta tables — in pure SQL     | **`nimble_search`** / **`nimble_extract`** / **`nimble_agent_run`** table functions | [Data Enrichment](/integrations/partnerships/databricks/data-enrichment)   |
+| You want to…                                                                                                      | Use                                                                                 | Page                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Give an agent, AI Playground, or Databricks Assistant live web tools through a governed MCP connection            | **Marketplace & MCP** install                                                       | [Marketplace & MCP](/integrations/partnerships/databricks/marketplace-mcp) |
+| Let a business user ask live-web questions in plain English and get cited answers                                 | **Genie One** + the Nimble MCP connection                                           | [Genie One](/integrations/partnerships/databricks/genie)                   |
+| Enrich N warehouse rows with structured web fields, or land web data in Delta tables — in pure SQL                | **`nimble_search`** / **`nimble_extract`** / **`nimble_agent_run`** table functions | [Data Enrichment](/integrations/partnerships/databricks/data-enrichment)   |
+| Turn a plain-English brief into a full data product — table, dashboard, and app — inside the agentic coding agent | **Genie Code** + the Nimble custom skill                                            | [Genie Code](/integrations/partnerships/databricks/genie-code)             |
 
-All three share the same Nimble platform underneath — the difference is who drives the calls: an LLM agent (MCP), a business user in natural language (Genie), or your SQL pipeline (table functions).
+All four share the same Nimble platform underneath — the difference is who drives the calls: an LLM agent (MCP), a business user in natural language (Genie One), your SQL pipeline (table functions), or an agentic coding agent that builds the whole product (Genie Code).
 
 ## Resources
 

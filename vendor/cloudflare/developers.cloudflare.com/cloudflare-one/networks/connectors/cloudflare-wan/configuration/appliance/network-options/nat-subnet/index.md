@@ -1,0 +1,77 @@
+---
+title: Enable NAT for a subnet
+description: Enable static NAT for subnets in Connector to  re-use address spaces locally.
+image: https://developers.cloudflare.com/zt-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/cloudflare-one/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Enable NAT for a subnet
+
+## Overview
+
+Every subnet in the Cloudflare WAN (formerly Magic WAN) overlay must have a unique address space — otherwise, Cloudflare cannot determine which site should receive traffic for a given IP address. In practice, many organizations reuse the same private address ranges (for example, `192.168.1.0/24`) at multiple sites. Rather than renumbering those subnets, you can enable static network address translation (NAT) for a subnet on a Cloudflare One Appliance (formerly Magic WAN Connector). NAT assigns each site a unique overlay-facing prefix while preserving the existing local addressing.
+
+With subnet NAT, the Appliance performs a static, 1:1 translation between:
+
+* The **local prefix** used inside the site.
+* A **NAT prefix** that is advertised into the Cloudflare WAN overlay.
+
+Because the mapping is static, the Appliance supports both outbound connections from the site and inbound connections from Cloudflare WAN to the site. Connections do not have to be initiated by hosts behind the Cloudflare One Appliance.
+
+## How subnet NAT works in Cloudflare WAN
+
+NAT is static and 1:1 between equal-sized prefixes. When you enable NAT for a subnet on an Appliance:
+
+* The **local prefix** is the subnet on the LAN side of the Appliance.
+* The **NAT prefix** is a WAN-facing prefix of the same size.
+* The Appliance translates addresses 1:1 between the two prefixes:  
+   * For traffic leaving the site towards Cloudflare WAN, it replaces local addresses with the corresponding NAT addresses.  
+   * For traffic arriving at the site from Cloudflare WAN, it replaces NAT addresses with the corresponding local addresses.
+
+## Addressing rules
+
+To avoid overlapping addresses in the overlay, Cloudflare WAN enforces the following rules:
+
+* **Uniqueness within a LAN**  
+   * The local prefix for each subnet must be unique within that LAN on the Appliance.  
+   * You can reuse the same local prefix on a different LAN or on a different site.
+* **Uniqueness in the Cloudflare WAN overlay**  
+   * Every **overlay-facing prefix** must be unique across all sites in your Cloudflare WAN deployment.  
+   * For a subnet **with NAT enabled**, the overlay-facing prefix is the **NAT prefix**.  
+   * For a subnet **without NAT**, the overlay-facing prefix is the **local prefix**.
+
+These rules allow you to reuse local space at multiple sites, as long as each subnet in the Cloudflare WAN overlay has a unique overlay-facing prefix.
+
+## Example
+
+Consider a subnet that uses the following prefixes:
+
+* **Local prefix**: `192.168.100.0/24`
+* **NAT prefix**: `10.10.100.0/24`
+
+In this case:
+
+* When a host inside the site with address `192.168.100.13` sends traffic into the Cloudflare WAN overlay, the Appliance translates the address to `10.10.100.13`.
+* When traffic from another site, or from the Internet via Cloudflare WAN, targets `10.10.100.13`, the Appliance translates the address back to `192.168.100.13`.
+
+## Configure NAT for subnets
+
+You configure subnet NAT when you create or edit a LAN on a Cloudflare One Appliance. In the Appliance configuration:
+
+* You define the **local prefix** for the subnet on the LAN side.
+* You optionally define a **static NAT prefix** of the same size. When present, this prefix becomes the overlay-facing prefix for that subnet.
+
+For step-by-step instructions to configure a LAN and supply a static NAT prefix, refer to:
+
+* [Configure hardware Appliance](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/configure-hardware-appliance/#create-a-lan)
+* [Configure Virtual Appliance](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/configure-virtual-appliance/#create-a-lan)
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/nat-subnet/#page","headline":"Enable NAT for a subnet · Cloudflare One docs","description":"Enable static NAT for subnets in Connector to  re-use address spaces locally.","url":"https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/nat-subnet/","inLanguage":"en","image":"https://developers.cloudflare.com/zt-preview.png","dateModified":"2026-04-17","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/cloudflare-one/","name":"Cloudflare One"}},{"@type":"ListItem","position":3,"item":{"@id":"/cloudflare-one/networks/","name":"Networks"}},{"@type":"ListItem","position":4,"item":{"@id":"/cloudflare-one/networks/connectors/","name":"Connectors"}},{"@type":"ListItem","position":5,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/","name":"Cloudflare WAN"}},{"@type":"ListItem","position":6,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/configuration/","name":"Configuration"}},{"@type":"ListItem","position":7,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/","name":"Configure with Connector"}},{"@type":"ListItem","position":8,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/","name":"Network options"}},{"@type":"ListItem","position":9,"item":{"@id":"/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/nat-subnet/","name":"Enable NAT for a subnet"}}]}
+```

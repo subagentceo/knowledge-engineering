@@ -15,6 +15,7 @@ Retrieve detailed information about a specific work item.
 - `workID string`
 
 - `params BetaEnvironmentWorkGetParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -22,9 +23,11 @@ Retrieve detailed information about a specific work item.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -77,7 +80,9 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -88,9 +93,10 @@ Retrieve detailed information about a specific work item.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -103,13 +109,15 @@ Retrieve detailed information about a specific work item.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -131,6 +139,7 @@ Retrieve detailed information about a specific work item.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -152,6 +161,7 @@ Retrieve detailed information about a specific work item.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -224,6 +234,7 @@ Long poll for work items in the queue.
 - `environmentID string`
 
 - `params BetaEnvironmentWorkPollParams`
+
   - `BlockMs param.Field[int64]`
 
     Query param: How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
@@ -235,9 +246,11 @@ Long poll for work items in the queue.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -290,7 +303,9 @@ Long poll for work items in the queue.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
   - `AnthropicWorkerID param.Field[string]`
 
@@ -305,9 +320,10 @@ Long poll for work items in the queue.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -320,13 +336,15 @@ Long poll for work items in the queue.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -348,6 +366,7 @@ Long poll for work items in the queue.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -369,6 +388,7 @@ Long poll for work items in the queue.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -441,6 +461,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 - `workID string`
 
 - `params BetaEnvironmentWorkAckParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -448,9 +469,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -503,7 +526,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -514,9 +539,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -529,13 +555,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -557,6 +585,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -578,6 +607,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -650,6 +680,7 @@ Record a heartbeat for a work item to maintain the lease.
 - `workID string`
 
 - `params BetaEnvironmentWorkHeartbeatParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -665,9 +696,11 @@ Record a heartbeat for a work item to maintain the lease.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -720,13 +753,16 @@ Record a heartbeat for a work item to maintain the lease.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `type BetaSelfHostedWorkHeartbeatResponse struct{…}`
 
   Response after recording a heartbeat for a work item.
+
   - `LastHeartbeat string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -738,6 +774,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `State BetaSelfHostedWorkHeartbeatResponseState`
 
     Current state of the work item (active/stopping/stopped)
+
     - `const BetaSelfHostedWorkHeartbeatResponseStateQueued BetaSelfHostedWorkHeartbeatResponseState = "queued"`
 
     - `const BetaSelfHostedWorkHeartbeatResponseStateStarting BetaSelfHostedWorkHeartbeatResponseState = "starting"`
@@ -755,6 +792,7 @@ Record a heartbeat for a work item to maintain the lease.
   - `Type WorkHeartbeat`
 
     The type of response
+
     - `const WorkHeartbeatWorkHeartbeat WorkHeartbeat = "work_heartbeat"`
 
 ### Example
@@ -815,6 +853,7 @@ Stop a work item, initiating graceful or forced shutdown.
 - `workID string`
 
 - `params BetaEnvironmentWorkStopParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -826,9 +865,11 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -881,7 +922,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -892,9 +935,10 @@ Stop a work item, initiating graceful or forced shutdown.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -907,13 +951,15 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -935,6 +981,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -956,6 +1003,7 @@ Stop a work item, initiating graceful or forced shutdown.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -1031,6 +1079,7 @@ List work items in an environment.
 - `environmentID string`
 
 - `params BetaEnvironmentWorkListParams`
+
   - `Limit param.Field[int64]`
 
     Query param: Maximum number of work items to return
@@ -1042,9 +1091,11 @@ List work items in an environment.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1097,7 +1148,9 @@ List work items in an environment.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1108,9 +1161,10 @@ List work items in an environment.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -1123,13 +1177,15 @@ List work items in an environment.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -1151,6 +1207,7 @@ List work items in an environment.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -1172,6 +1229,7 @@ List work items in an environment.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -1249,6 +1307,7 @@ Update work item metadata with merge semantics.
 - `workID string`
 
 - `params BetaEnvironmentWorkUpdateParams`
+
   - `EnvironmentID param.Field[string]`
 
     Path param
@@ -1260,9 +1319,11 @@ Update work item metadata with merge semantics.
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1315,7 +1376,9 @@ Update work item metadata with merge semantics.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1326,9 +1389,10 @@ Update work item metadata with merge semantics.
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -1341,13 +1405,15 @@ Update work item metadata with merge semantics.
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -1369,6 +1435,7 @@ Update work item metadata with merge semantics.
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -1390,6 +1457,7 @@ Update work item metadata with merge semantics.
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Example
@@ -1465,12 +1533,15 @@ Get statistics about the work queue for an environment.
 - `environmentID string`
 
 - `query BetaEnvironmentWorkStatsParams`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `string`
 
     - `type AnthropicBeta string`
+
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -1523,7 +1594,9 @@ Get statistics about the work queue for an environment.
 
       - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
 
-      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+      - `const AnthropicBetaServerSideFallback2026_06_01 AnthropicBeta = "server-side-fallback-2026-06-01"`
+
+      - `const AnthropicBetaFallbackCredit2026_06_01 AnthropicBeta = "fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -1532,6 +1605,7 @@ Get statistics about the work queue for an environment.
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `Depth int64`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1547,6 +1621,7 @@ Get statistics about the work queue for an environment.
   - `Type WorkQueueStats`
 
     The type of object
+
     - `const WorkQueueStatsWorkQueueStats WorkQueueStats = "work_queue_stats"`
 
   - `WorkersPolling int64`
@@ -1607,9 +1682,10 @@ func main() {
   Work items are queued when sessions are created or when long-dormant sessions
   receive new messages. The environment worker polls for work to execute in a
   self-hosted sandbox.
+
   - `ID string`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `AcknowledgedAt string`
 
@@ -1622,13 +1698,15 @@ func main() {
   - `Data BetaSessionWorkData`
 
     The actual work to be performed
+
     - `ID string`
 
-      Session identifier (e.g., 'session\_...')
+      Session identifier (e.g., 'session_...')
 
     - `Type Session`
 
       Type of work data
+
       - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
@@ -1650,6 +1728,7 @@ func main() {
   - `State BetaSelfHostedWorkState`
 
     Current state of the work item
+
     - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
     - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -1671,6 +1750,7 @@ func main() {
   - `Type Work`
 
     The type of object (always 'work')
+
     - `const WorkWork Work = "work"`
 
 ### Beta Self Hosted Work Heartbeat Response
@@ -1678,6 +1758,7 @@ func main() {
 - `type BetaSelfHostedWorkHeartbeatResponse struct{…}`
 
   Response after recording a heartbeat for a work item.
+
   - `LastHeartbeat string`
 
     RFC 3339 timestamp of the actual heartbeat from DB
@@ -1689,6 +1770,7 @@ func main() {
   - `State BetaSelfHostedWorkHeartbeatResponseState`
 
     Current state of the work item (active/stopping/stopped)
+
     - `const BetaSelfHostedWorkHeartbeatResponseStateQueued BetaSelfHostedWorkHeartbeatResponseState = "queued"`
 
     - `const BetaSelfHostedWorkHeartbeatResponseStateStarting BetaSelfHostedWorkHeartbeatResponseState = "starting"`
@@ -1706,6 +1788,7 @@ func main() {
   - `Type WorkHeartbeat`
 
     The type of response
+
     - `const WorkHeartbeatWorkHeartbeat WorkHeartbeat = "work_heartbeat"`
 
 ### Beta Self Hosted Work List Response
@@ -1713,12 +1796,14 @@ func main() {
 - `type BetaSelfHostedWorkListResponse struct{…}`
 
   Response when listing work items with cursor-based pagination.
+
   - `Data []BetaSelfHostedWork`
 
     List of work items
+
     - `ID string`
 
-      Work identifier (e.g., 'work\_...')
+      Work identifier (e.g., 'work_...')
 
     - `AcknowledgedAt string`
 
@@ -1731,13 +1816,15 @@ func main() {
     - `Data BetaSessionWorkData`
 
       The actual work to be performed
+
       - `ID string`
 
-        Session identifier (e.g., 'session\_...')
+        Session identifier (e.g., 'session_...')
 
       - `Type Session`
 
         Type of work data
+
         - `const SessionSession Session = "session"`
 
     - `EnvironmentID string`
@@ -1759,6 +1846,7 @@ func main() {
     - `State BetaSelfHostedWorkState`
 
       Current state of the work item
+
       - `const BetaSelfHostedWorkStateQueued BetaSelfHostedWorkState = "queued"`
 
       - `const BetaSelfHostedWorkStateStarting BetaSelfHostedWorkState = "starting"`
@@ -1780,6 +1868,7 @@ func main() {
     - `Type Work`
 
       The type of object (always 'work')
+
       - `const WorkWork Work = "work"`
 
   - `NextPage string`
@@ -1793,6 +1882,7 @@ func main() {
   Statistics about the work queue for an environment.
 
   Uses Redis Stream consumer group metrics for O(1) queries.
+
   - `Depth int64`
 
     Number of work items waiting to be picked up (lag from consumer group)
@@ -1808,6 +1898,7 @@ func main() {
   - `Type WorkQueueStats`
 
     The type of object
+
     - `const WorkQueueStatsWorkQueueStats WorkQueueStats = "work_queue_stats"`
 
   - `WorkersPolling int64`
@@ -1819,6 +1910,7 @@ func main() {
 - `type BetaSelfHostedWorkStopRequest struct{…}`
 
   Request to stop a work item.
+
   - `Force bool`
 
     If true, immediately stop work without graceful shutdown
@@ -1828,6 +1920,7 @@ func main() {
 - `type BetaSelfHostedWorkUpdateRequest struct{…}`
 
   Request to update work item metadata.
+
   - `Metadata map[string, string]`
 
     Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
@@ -1840,11 +1933,13 @@ func main() {
 
   This resource type is used when work represents a session that needs to be executed
   in a self-hosted environment.
+
   - `ID string`
 
-    Session identifier (e.g., 'session\_...')
+    Session identifier (e.g., 'session_...')
 
   - `Type Session`
 
     Type of work data
+
     - `const SessionSession Session = "session"`

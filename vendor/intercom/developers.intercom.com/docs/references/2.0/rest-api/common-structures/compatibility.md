@@ -1,0 +1,22 @@
+# Compatibility
+
+## Unknown Field
+
+```json
+{\n  \"type\": \"user\",\n  \"external_id\" : \"456456\",\n  \"email\" : \"j@example.org\",\n  \"such_key\": \"so_value\"\n}
+```
+
+## Must Ignore Interpretation
+
+```json
+{\n  \"type\": \"contact\",\n  \"external_id\" : \"456456\",\n  \"email\" : \"j@example.org\"\n}
+```
+
+JSON objects in the API follow a **must ignore** processing model, where clients are expected to ignore data fields they don't understand.
+
+For example if the client saw the JSON as shown in the example on the right ('Unknown Field')
+and did not understand the `such_key` field, it must pretend the field wasn't there and will process the object as if it looked liked the object shown in 'Must Ignore'.
+
+When fetching content, fields that are optional for API objects are indicated in the documentation - clients must not assume they will always be present. When submitting content, fields that are required to be sent by client are also indicated in the documentation - if these are not sent the API may reject the request.
+
+In general the API may reject JSON where data is not valid or incomplete with a `422 Unprocessable Entity` response and an error message explaining the issue. For example, an email message type may be rejected if it is not sent with a `subject` field.

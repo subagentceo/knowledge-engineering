@@ -32,7 +32,6 @@ Click the button "Download google-services.json" to download the config file. Yo
 
 Click "next" and then in `android/build.gradle` you'll need to add the following lines to your dependencies:
 
-
 ```groovy
 buildscript {
     // ...
@@ -46,7 +45,6 @@ buildscript {
 Next in `android/app/build.gradle`, in the `dependencies` block add `firebase-messaging` and at the bottom of the `build.gradle` add: `apply plugin: 'com.google.gms.google-services'`
 
 It is important that this is at the very end of the file.
-
 
 ```groovy
 // ...
@@ -68,7 +66,6 @@ apply from: file("../../node_modules/@react-native-community/cli-platform-androi
 
 By default, the Intercom React Native library uses Firebase Messaging version `24.1.+`. If you need to use a specific version for compatibility reasons, you can override it in your project's `android/build.gradle`:
 
-
 ```groovy
 buildscript {
     ext {
@@ -81,7 +78,6 @@ buildscript {
 **Note:** We don't recommend overriding the Firebase Messaging version unless necessary for your specific use case.
 
 You'll need to create a new class `MainNotificationService.java` inside your app directory(`/app/src/main/java/<package-name>`) with the following code:
-
 
 ```Kotlin
 package com.example; // <-- Replace with your package
@@ -106,7 +102,6 @@ import com.intercom.reactnative.IntercomModule;
 	}
 }
 ```
-
 
 ```java
 package com.example; // <-- Replace with your package
@@ -133,7 +128,6 @@ public class MainNotificationService extends FirebaseMessagingService {
 ```
 
 Then edit the `AndroidManifest.xml` with the following snippet:
-
 
 ```xml
 <!-- Add xmlns:tools to manifest. See example below-->
@@ -222,7 +216,6 @@ To enable your users to receive push notifications from Intercom, you must [requ
 
 Using [react-native-notifications](https://wix.github.io/react-native-notifications):
 
-
 ```javascript
 // Request notification permissions
 Notifications.registerRemoteNotifications();
@@ -239,13 +232,11 @@ Notifications.events().registerRemoteNotificationsRegistered(
 
 In your AppDelegate.m at the top add the following import:
 
-
 ```objectivec
 #import <UserNotifications/UserNotifications.h>
 ```
 
 Request notification permissions when app launches by adding the following to `didFinishLaunchingWithOptions`:
-
 
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -265,7 +256,6 @@ Request notification permissions when app launches by adding the following to `d
 ```
 
 In same file, above `@end` add the following snippet to send the device token to Intercom when permission is granted:
-
 
 ```objectivec
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -291,7 +281,6 @@ You still need to:
 
 1. Set up your push credentials in Intercom ([Android](#step-3-enabling-push-in-intercom-android-settings) | [iOS](#step-2-enable-in-intercom))
 2. For Android, place your `google-services.json` and link it in your Expo config:
-
 
 
 ```json

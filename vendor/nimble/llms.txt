@@ -46,13 +46,16 @@
 - [Anthropic SDK](https://docs.nimbleway.com/integrations/connectors/anthropic/sdk.md): Use the Nimble SDK as a tool inside Claude's tool-use API.
 - [Google ADK](https://docs.nimbleway.com/integrations/connectors/google-adk.md): Connect Google ADK agents to the Nimble web data platform via the MCP server.
 - [LangChain](https://docs.nimbleway.com/integrations/connectors/langchain.md): LangChain tools and retrievers for web search, content extraction, crawling, mapping, and structured data agents.
+- [Omnigent](https://docs.nimbleway.com/integrations/connectors/omnigent.md): Nimble is a built-in web_search provider in Omnigent: grounded, live web search for any model, including Databricks-hosted Claude and Llama.
 - [OpenAI](https://docs.nimbleway.com/integrations/connectors/openai.md): Use the Nimble SDK as a tool inside OpenAI function calling and the Agents SDK.
 - [Smithery](https://docs.nimbleway.com/integrations/connectors/smithery.md): Connect any AI agent to Nimble web tools via the Smithery MCP registry
+- [Vercel AI SDK](https://docs.nimbleway.com/integrations/connectors/vercel-ai-sdk.md): Integrate Nimble with the Vercel AI SDK to enhance your AI agents with powerful real-time web search.
 - [Nimble MCP Docs ](https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md): Connect your AI tools to the Nimble documentation knowledge base via MCP
 - [Nimble MCP Server](https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md): Connect AI agents to Nimble's web data platform via the Model Context Protocol
 - [Databricks](https://docs.nimbleway.com/integrations/partnerships/databricks.md): Bring Nimble's live web tools into the Databricks Lakehouse. Search, extract, map, crawl, and Web Search Agents run next to your Delta tables, agents, and Genie spaces.
 - [Data Enrichment](https://docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md): Call Nimble as SQL table functions in Databricks — live web search, page extraction, and Web Search Agents that land in governed Delta tables.
 - [Genie One](https://docs.nimbleway.com/integrations/partnerships/databricks/genie.md): Ask the live web in plain English from Databricks Genie One. Connect the Nimble MCP server and Genie answers with search, extraction, and Web Search Agents — with cited sources.
+- [Genie Code](https://docs.nimbleway.com/integrations/partnerships/databricks/genie-code.md): Build Databricks data products from live web search in Genie Code. Install the Nimble custom Agent Skill and describe the goal in plain English — discover the right Web Search Agents, ingest into Delta, and build a dashboard or app, end to end.
 - [Marketplace & MCP](https://docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md): Install Nimble MCP Server from the Databricks Marketplace, govern it with Unity AI Gateway, and test it in AI Playground and Databricks Assistant.
 - [Azure MCP Center](https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md): Install Nimble MCP from Azure MCP Center and use it in VS Code with GitHub Copilot Agent Mode
 - [Copilot Studio](https://docs.nimbleway.com/integrations/partnerships/microsoft/copilot-studio.md): Manually configure the Nimble MCP server as a tool in a Microsoft Copilot Studio agent

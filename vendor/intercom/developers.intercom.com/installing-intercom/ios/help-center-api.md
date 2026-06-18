@@ -8,11 +8,9 @@ Check [here](https://www.intercom.com/help/en/articles/56660-resources-to-help-w
 
 To display a ViewController with your Help Center content, call the following method:
 
-
 ```objectivec
 [Intercom presentIntercom:helpCenter];
 ```
-
 
 ```swift
 Intercom.present(.helpCenter)
@@ -26,11 +24,9 @@ If you don't have Help Center enabled in your Intercom settings the method `pres
 
 From version 8.1.0 of the iOS SDK you can programmatically present an Article. To present an Article, pass in an articleID from your Intercom workspace to the following method:
 
-
 ```objectivec
 [Intercom presentContent:[IntercomContent articleWithId:@"123456"]];
 ```
-
 
 ```swift
 Intercom.presentContent(.article(id: "12345"))
@@ -44,11 +40,9 @@ An article must be ‘live’ to be used in this way. If it is in a draft or pau
 
 From version 10.0.0 of the iOS SDK you can now pass in 1 or more collection IDs to filter the Help Center. This will display the same ViewController as calling presentHelpCenter but the collections list will only show the IDs passed in.
 
-
 ```objectivec
 [Intercom presentContent:[IntercomContent helpCenterCollectionsWithIds:@[@"COLLECTION_1_ID", @"COLLECTION_2_ID"]]];
 ```
-
 
 ```swift
 Intercom.presentContent(.helpCenterCollections(ids: ["COLLECTION_1_ID", "COLLECTION_2_ID"]))
@@ -66,11 +60,9 @@ From version 10.0.0 you can now fetch the data directly and build your own UI. T
 
 To fetch a list of all Collections call:
 
-
 ```objectivec
 [Intercom fetchHelpCenterCollectionsWithCompletion: completionBlock];
 ```
-
 
 ```swift
 Intercom.fetchHelpCenterCollections(completion: completionBlock)
@@ -87,11 +79,9 @@ A successful response will return an Array of `ICMHelpCenterCollection` objects.
 
 To get a list of sections/articles for a collections call:
 
-
 ```objectivec
 [Intercom fetchHelpCenterCollection:@"COLLECTION_ID" withCompletion: completionBlock];
 ```
-
 
 ```swift
 Intercom.fetchHelpCenterCollection("COLLECTION_ID", completion: completionBlock)
@@ -124,11 +114,9 @@ The `ICMHelpCenterArticle` model can be found both inside of sections, or at the
 
 To get a list of articles in the Help Center, filtered by a search term call:
 
-
 ```objectivec
 [Intercom searchHelpCenter:@"SEARCH_TERM" withCompletion: completionBlock];
 ```
-
 
 ```swift
 Intercom.searchHelpCenter("SEARCH_TERM", completion: completionBlock)

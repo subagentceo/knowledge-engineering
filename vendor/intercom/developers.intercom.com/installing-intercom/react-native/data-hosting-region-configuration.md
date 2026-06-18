@@ -10,7 +10,6 @@ See our iOS Installation guidelines [here](/installing-intercom/ios/data-hosting
 
 For customers using **Expo** you can modify your `info.plist` by adding the following as a to the `info.plist` secion of your `app.json` file.
 
-
 ```json
 "infoPlist": {
   "IntercomEURegion": "true"

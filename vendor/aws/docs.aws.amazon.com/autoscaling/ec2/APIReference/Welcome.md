@@ -27,4 +27,4 @@ The [DescribeAutoScalingGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIR
 + For information about the permissions that are required for Amazon EC2 Auto Scaling, see [ IAM permissions for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/security-iam.html).
 + For information about how to provide network connectivity for instances in an Auto Scaling group, see [Provide network connectivity for your Auto Scaling instances using Amazon VPC](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html) in the *Amazon EC2 Auto Scaling User Guide*.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

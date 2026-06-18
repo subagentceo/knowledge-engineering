@@ -22,7 +22,6 @@ Your app server authentication code needs to be modified so that is uses the Int
 
 The HMAC is computed as a SHA-256 digest as follows:
 
-
 ```ruby
 OpenSSL::HMAC.hexdigest('sha256', api_key.secret, user_id_or_email)
 ```
@@ -34,7 +33,6 @@ If you wish to generate a HMAC in a different programming language we have a com
 ## Set the User Hash
 
 When your React Native app initializes Intercom if the user is identified (i.e., you have a user id or email address), pass in a String of the HMAC returned from your server's authentication call. **This should be done before making any user Registration calls.**
-
 
 ```javascript
 Intercom.setUserHash("your_hmac_of_user_id_or_email");

@@ -1,5 +1,8 @@
 # API Keys Widget
 
+import * as apiKeys from "./api-keys.props";
+import { PropsTableHydrator } from "../../../components/props-table-hydrator";
+
 ![API Keys widget screenshot](https://images.workoscdn.com/images/13e0893f-eb84-43f1-9467-2598567538f3.png?auto=format\&fit=clip\&q=50)
 
 The `<ApiKeys />` widget allows users to create, view, and revoke API keys, all within the widget. It supports two scopes via the `scope` prop:
@@ -15,44 +18,7 @@ In order to use the widget with `scope="organization"`, a user must have a role 
 
 #### Widget Token
 
-```js
-import { ApiKeys, WorkOsWidgets } from '@workos-inc/widgets';
-
-/**
- * @param {string} authToken - A widget token that was fetched in your backend. See the
- * "Tokens" section of this guide for details on how to generate the token
- */
-export function ApiKeysPage({ authToken }) {
-  return (
-    <WorkOsWidgets>
-      <ApiKeys authToken={authToken} />
-    </WorkOsWidgets>
-  );
-}
-```
-
 #### Access Token
-
-```js
-import { useAuth } from '@workos-inc/authkit-react';
-import { ApiKeys, WorkOsWidgets } from '@workos-inc/widgets';
-
-export function ApiKeysPage() {
-  const { isLoading, user, getAccessToken } = useAuth();
-  if (isLoading) {
-    return '...';
-  }
-  if (!user) {
-    return 'Logged in user is required';
-  }
-
-  return (
-    <WorkOsWidgets>
-      <ApiKeys authToken={getAccessToken} />
-    </WorkOsWidgets>
-  );
-}
-```
 
 ## User API keys
 
@@ -63,45 +29,6 @@ Setting `scope="user"` puts the widget into user API key management. In order to
 
 #### Widget Token
 
-```js
-import { ApiKeys, WorkOsWidgets } from '@workos-inc/widgets';
-
-/**
- * @param {string} authToken - A widget token that was fetched in your backend
- * with one of `widgets:user-api-keys:manage-self` or
- * `widgets:user-api-keys:manage-all`. See the "Tokens" section of this guide
- * for details on how to generate the token.
- */
-export function UserApiKeysPage({ authToken }) {
-  return (
-    <WorkOsWidgets>
-      <ApiKeys authToken={authToken} scope="user" />
-    </WorkOsWidgets>
-  );
-}
-```
-
 #### Access Token
-
-```js
-import { useAuth } from '@workos-inc/authkit-react';
-import { ApiKeys, WorkOsWidgets } from '@workos-inc/widgets';
-
-export function UserApiKeysPage() {
-  const { isLoading, user, getAccessToken } = useAuth();
-  if (isLoading) {
-    return '...';
-  }
-  if (!user) {
-    return 'Logged in user is required';
-  }
-
-  return (
-    <WorkOsWidgets>
-      <ApiKeys authToken={getAccessToken} scope="user" />
-    </WorkOsWidgets>
-  );
-}
-```
 
 ## API Reference

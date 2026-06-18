@@ -28,14 +28,12 @@ Click the button "Download google-services.json" to download the config file. Yo
 
 Click "next" and then in your apps `build.gradle` you will need to add the following lines to your dependencies:
 
-
 ```groovy
 dependencies {
     implementation 'io.intercom.android:intercom-sdk:latest.release'
     implementation 'com.google.firebase:firebase-messaging:23.1.+'
 }
 ```
-
 
 ```Kotlin
 dependencies {
@@ -90,7 +88,6 @@ You will need to update the Bundle ID for the existing push configuration if you
 
 If you want to add a custom icon for your notifications, just add an image named `intercom_push_icon.png` to each of your supported densities. Please note that vector drawables cannot be used here. For example:
 
-
 ```xml
 /res/drawable-xxhdpi/intercom_push_icon.png
 /res/drawable-xhdpi/intercom_push_icon.png
@@ -106,11 +103,9 @@ We recommend following these **[material design guidelines](https://material.goo
 
 To stop users from receiving push messages when they have logged out of the app make sure to call:
 
-
 ```Kotlin
 Intercom.client().logout()
 ```
-
 
 ```Java
 Intercom.client().logout();
@@ -123,7 +118,6 @@ The Intercom android sdk already comes with a default implementation of Firebase
 If your application uses FCM for your own content, or if you use a third-party service for FCM. You’ll need to update your `FirebaseInstanceIdService` and `FirebaseMessagingService`.
 
 You should have a class that extends `FirebaseMessagingService` or the now deprecated `FirebaseInstanceIdService`. That service is where you get the device token to send to your backend to register for push. To register for Intercom push set it up like this:
-
 
 ```Kotlin
 private val intercomPushClient = IntercomPushClient()
@@ -142,7 +136,6 @@ override fun onMessageReceived(remoteMessage: RemoteMessage) {
     }
 }
 ```
-
 
 ```Java
 private final IntercomPushClient intercomPushClient = new IntercomPushClient();

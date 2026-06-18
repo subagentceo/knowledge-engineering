@@ -11,7 +11,6 @@ What you'll need:
 
 Once you have that, adding a locale support takes one API call:
 
-
 ```curl
 curl --request PUT \
      --url https://api.intercom.io/articles/<article_id> \
@@ -39,7 +38,6 @@ You should now see the German article in your Help Center:
 ![Translated Help Center Article](/assets/translated-article.04bfd1d0b5b89822058f6dde01d146d4a5ab082628fa2645c5ec923d6dc653c8.71a4f21c.png)
 
 In case you decide to hide this translation from your Help Center at a later stage, update the state of the German locale from `published` to `draft`:
-
 
 ```curl
 curl --request PUT \

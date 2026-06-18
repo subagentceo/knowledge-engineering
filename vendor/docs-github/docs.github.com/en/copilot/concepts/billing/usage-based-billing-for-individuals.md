@@ -74,12 +74,11 @@ More complex interactions consume more of your usage allowance. The main factors
 
 When your AI credits are exhausted, you can:
 
-* Set a budget for additional usage and pay extra to continue working
-* Wait until the next monthly cycle when your included usage resets
+* **Upgrade your plan.** As you approach your usage limits, Copilot prompts you to upgrade to the next tier. The upgrade cost is only the price difference between your current plan and the new plan, *not* the full price of the new plan. Your usage from earlier in the billing cycle is counted within the new plan's larger allowance, so the additional credits are available to you immediately. You won't be charged for both plans for the same period.
+* **Stay on your existing plan and pay for more usage.**  If your included credits are exhausted, you can continue working by setting a budget for **additional usage**. Note that additional usage **may be capped**, so to keep working, you'll need to pay off any additional usage you've already consumed in order to continue.
+* Alternatively, wait until the next monthly cycle when your included usage resets.
 
 Your additional usage budget is set in US dollars, and your usage is shown in GitHub AI Credits. GitHub AI Credits draw down your budget at a fixed rate: 1 AI credits = $0.01 USD, so a $10 budget covers 1,000 AI credits.
-
-> \[!NOTE] Additional usage may be capped. If you use all AI credits available on your plan, we recommend upgrading to a higher plan.
 
 To set up a budget for GitHub AI Credits, see [Setting up budgets to control spending on metered products](/en/billing/how-tos/set-up-budgets#managing-budgets-for-your-personal-account).
 

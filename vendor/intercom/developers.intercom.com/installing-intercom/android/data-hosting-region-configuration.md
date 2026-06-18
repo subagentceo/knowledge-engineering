@@ -5,7 +5,6 @@ For customers who are part of Data Hosting in Europe or Australia, you will need
 In your `AndroidManifest.xml` of the base Android project add the following right before `</application>`:
 
 EU
-
 ```xml
 <meta-data
         android:name="io.intercom.android.sdk.server.region"
@@ -13,7 +12,6 @@ EU
 ```
 
 AUS
-
 ```xml
 <meta-data
         android:name="io.intercom.android.sdk.server.region"
@@ -21,7 +19,6 @@ AUS
 ```
 
 US
-
 ```xml
 <meta-data
         android:name="io.intercom.android.sdk.server.region"

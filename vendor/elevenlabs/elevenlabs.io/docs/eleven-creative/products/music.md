@@ -226,8 +226,6 @@ Music v2 is the default model in the UI, with improved prompt adherence, composi
 * Improved inpainting
 * Sound effects embedded inside tracks
 
-Music v2 is not yet available via API but it's coming soon.
-
 ## Availability & API Access
 
 Eleven Music is available today for all users on the ElevenLabs website. The intuitive interface makes it easy to create professional-quality music without technical expertise.

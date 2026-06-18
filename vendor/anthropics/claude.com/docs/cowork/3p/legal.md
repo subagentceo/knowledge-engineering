@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -15,7 +14,7 @@ Your use of the Claude Desktop application, including in Cowork on third-party (
 
 ### Commercial agreements
 
-Cowork on 3P routes model inference through the provider you configure (Google Cloud's Vertex AI, Amazon Bedrock, Microsoft Foundry, or a compatible gateway). Inference usage is billed by, and subject to your agreement with, that provider. Your existing commercial agreement with Anthropic continues to apply to your use of the Claude Desktop application, unless we've mutually agreed otherwise.
+Cowork on 3P routes model inference through the provider you configure (Google Cloud's Vertex AI, Amazon Bedrock, Microsoft Foundry, a compatible gateway, or the Anthropic API directly). Inference usage is billed by, and subject to your agreement with, that provider. When you configure the Anthropic API as your provider, inference billing and data terms fall under your Anthropic agreement. Your existing commercial agreement with Anthropic continues to apply to your use of the Claude Desktop application, unless we've mutually agreed otherwise.
 
 ## Compliance
 
@@ -43,6 +42,6 @@ Security architecture, threat-model, and data-flow documentation for Cowork and 
 
 Anthropic manages our security program through HackerOne. [Use this form to report vulnerabilities](https://hackerone.com/4f1f16ba-10d3-4d09-9ecc-c721aad90f24/embedded_submissions/new).
 
----
+***
 
 © Anthropic PBC. All rights reserved. Use is subject to applicable Anthropic Terms of Service.

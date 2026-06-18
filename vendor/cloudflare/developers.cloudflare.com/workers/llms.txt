@@ -329,6 +329,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 - [Query Builder](https://developers.cloudflare.com/workers/observability/query-builder/index.md): Write structured queries to investigate and visualize your telemetry data.
 - [Source maps and stack traces](https://developers.cloudflare.com/workers/observability/source-maps/index.md): Adding source maps and generating stack traces for Workers.
 - [Traces](https://developers.cloudflare.com/workers/observability/traces/index.md): Gain end-to-end visibility into request flows across your Workers application with automatic tracing instrumentation.
+- [Custom spans](https://developers.cloudflare.com/workers/observability/traces/custom-spans/index.md): Create custom spans to trace your own application logic alongside Cloudflare's automatic instrumentation.
 - [Known limitations](https://developers.cloudflare.com/workers/observability/traces/known-limitations/index.md)
 - [Spans and attributes](https://developers.cloudflare.com/workers/observability/traces/spans-and-attributes/index.md): Review the spans and attributes automatically captured by Workers tracing, including fetch calls, bindings, and handler invocations.
 

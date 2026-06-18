@@ -7,10 +7,10 @@ Stripe logs the account activity of team members during the past 180 days. To re
 To invite new team members:
 
 1. Go to the [Team](https://dashboard.stripe.com/settings/team) tab in the Dashboard.
-1. Click **Add member**.
-1. Add one or more email addresses, separated by a space or comma. Adding users together allows you to assign them all the same roles and access simultaneously.
-1. Select which roles to assign. Users can hold multiple roles within the same account. Review the [list of actions](https://docs.stripe.com/get-started/account/teams/roles.md) that each role can and can’t perform before assigning the role to a team member. Grant the lowest permission required by the user to perform their job.
-1. After completing the role assignment for all the accounts, review the configuration, and click **Send invites** to email the specified users with the steps to accept the invitation.
+2. Click **Add member**.
+3. Add one or more email addresses, separated by a space or comma. Adding users together allows you to assign them all the same roles and access simultaneously.
+4. Select which roles to assign. Users can hold multiple roles within the same account. Review the [list of actions](https://docs.stripe.com/get-started/account/teams/roles.md) that each role can and can’t perform before assigning the role to a team member. Grant the lowest permission required by the user to perform their job.
+5. After completing the role assignment for all the accounts, review the configuration, and click **Send invites** to email the specified users with the steps to accept the invitation.
 
 Invites to your Stripe account expire after 10 days.
 

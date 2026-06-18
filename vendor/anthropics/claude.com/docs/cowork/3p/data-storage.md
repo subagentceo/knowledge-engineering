@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -30,23 +29,25 @@ Cowork on 3P stores everything under a dedicated directory, separate from standa
 
 Within the application-data directory:
 
-| Path                                                    | Contents                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ant-did`                                               | The random device identifier described above.                                                                                                                                                                                                                                       |
-| `configLibrary/`                                        | Locally authored configuration (from the in-app configuration window). `_meta.json` records which saved configuration is applied; each is a `<id>.json` file alongside it. Ignored when a managed profile is present.                                                               |
-| `cowork_account_settings.json`                          | User-level preferences set in the app (display name, locale, memory toggle).                                                                                                                                                                                                        |
-| `local-agent-mode-sessions/`                            | Cowork conversation history. One `local_<uuid>.json` file plus a working directory per session, scoped by account and organization ID.                                                                                                                                              |
-| `local-agent-mode-sessions/.../memory/`                 | Cowork memory: a `CLAUDE.md` instructions file plus a `memory/` subdirectory of Markdown notes Claude writes about the user's preferences, projects, and feedback. See [Memory](#memory).                                                                                           |
-| `local-agent-mode-sessions/.../<sessionId>/audit.jsonl` | Append-only log of session events (tool invocations, permission decisions, file operations). Each entry is HMAC-chained to the previous one so edits or deletions are detectable; the companion `.audit-key` file holds the per-session signing key, encrypted via the OS keychain. |
-| `claude-code-sessions/`                                 | Code tab conversation history, in the same per-session layout.                                                                                                                                                                                                                      |
-| `claude-code/`, `claude-code-vm/`                       | Claude Code binary and VM workspace data for the Code tab.                                                                                                                                                                                                                          |
-| `vm_bundles/`                                           | Cached copy of the Cowork sandbox VM bundle.                                                                                                                                                                                                                                        |
-| `cowork_plugins/`                                       | User-installed and [org-provisioned](/cowork/3p/extensions#organization-plugins-admin) plugins. Created on first plugin install.                                                                                                                                                    |
-| `IndexedDB/`, `Local Storage/`, `Session Storage/`      | Renderer-side UI state (window layout, recent folders, preferences).                                                                                                                                                                                                                |
+| Path                                                         | Contents                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ant-did`                                                    | The random device identifier described above.                                                                                                                                                                                                                                       |
+| `configLibrary/`                                             | Locally authored configuration (from the in-app configuration window). `_meta.json` records which saved configuration is applied; each is a `<id>.json` file alongside it. Ignored when a managed profile is present.                                                               |
+| `local-agent-mode-sessions/.../cowork_account_settings.json` | User-level preferences set in the app (display name, locale, memory toggle).                                                                                                                                                                                                        |
+| `local-agent-mode-sessions/`                                 | Cowork conversation history. One `local_<uuid>.json` file plus a working directory per session, scoped by account and organization ID.                                                                                                                                              |
+| `local-agent-mode-sessions/.../memory/`                      | Cowork memory: a `CLAUDE.md` instructions file plus a `memory/` subdirectory of Markdown notes Claude writes about the user's preferences, projects, and feedback. See [Memory](#memory).                                                                                           |
+| `local-agent-mode-sessions/.../<sessionId>/audit.jsonl`      | Append-only log of session events (tool invocations, permission decisions, file operations). Each entry is HMAC-chained to the previous one so edits or deletions are detectable; the companion `.audit-key` file holds the per-session signing key, encrypted via the OS keychain. |
+| `claude-code-sessions/`                                      | Code tab conversation history, in the same per-session layout.                                                                                                                                                                                                                      |
+| `claude-code/`, `claude-code-vm/`                            | Claude Code binary and VM workspace data for the Code tab.                                                                                                                                                                                                                          |
+| `vm_bundles/`                                                | Cached copy of the Cowork sandbox VM bundle.                                                                                                                                                                                                                                        |
+| `cowork_plugins/`                                            | User-installed and [org-provisioned](/cowork/3p/extensions#organization-plugins-admin) plugins. Created on first plugin install.                                                                                                                                                    |
+| `IndexedDB/`, `Local Storage/`, `Session Storage/`           | Renderer-side UI state (window layout, recent folders, preferences).                                                                                                                                                                                                                |
 
 Files in this directory are written with owner-only permissions so other OS accounts on the same machine cannot read them.
 
-The logs directory contains `main.log` (application and configuration-validation events), `cowork_vm_node.log` (sandbox VM activity), and `claude.ai-web.log` (renderer events).
+The logs directory contains `main.log` (application and configuration-validation events), `cowork_vm_node.log` (sandbox VM activity), `claude.ai-web.log` (renderer events), and `mcp.log` / `mcp-server-<name>.log` (MCP connection events).
+
+Separately from the application-data directory, Cowork writes user-visible outputs (Artifacts and scheduled-task results) to `~/Claude/` in your home directory, or `~/Documents/Claude/` on legacy installs. This folder is intended for you to browse directly and is not removed when you delete the application-data directory.
 
 ## Memory
 
@@ -58,12 +59,12 @@ Users can review and delete individual entries, or pause memory entirely (existi
 
 Inference credentials are handled according to how they're delivered:
 
-- **Managed configuration** (e.g. `inferenceGatewayApiKey`, `inferenceBedrockBearerToken`) — read from the OS preference store / registry at launch and held in memory; never written to the application-data directory.
-- **OAuth tokens** (Vertex OAuth, MCP servers with `oauth: true`) — stored in the OS keychain (macOS Keychain / Windows Credential Manager), encrypted at rest by the operating system.
-- **Credential-helper output** — held in memory for `inferenceCredentialHelperTtlSec` seconds, then discarded and re-fetched.
+* **Managed configuration** (e.g. `inferenceGatewayApiKey`, `inferenceBedrockBearerToken`) — read from the OS preference store / registry at launch and held in memory; never written to the application-data directory.
+* **OAuth tokens** (Vertex OAuth, MCP servers with `oauth: true`) — stored in the application-data directory, encrypted with the operating system's secure storage (Keychain on macOS, DPAPI on Windows).
+* **Credential-helper output** — held in memory for `inferenceCredentialHelperTtlSec` seconds, then discarded and re-fetched.
 
 ## Removing data
 
-To fully reset a device's Cowork on 3P state, delete the application-data directory above. To return to standard Claude Desktop without removing data, choose the Anthropic sign-in option on the sign-in screen; to also remove the locally authored 3P configuration, delete the `configLibrary/` directory.
+To fully reset a device's Cowork on 3P state, delete the application-data directory above and the `~/Claude/` user-files folder. To return to standard Claude Desktop without removing data, choose the Anthropic sign-in option on the sign-in screen; to also remove the locally authored 3P configuration, delete the `configLibrary/` directory.
 
 Conversation history exists only in this directory, so deleting it is unrecoverable.

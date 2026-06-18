@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -13,7 +12,7 @@ everything, convert bullets into diagrams and native charts, and iterate
 on feedback while preserving template compliance.
 
 <Note>
-  Claude for PowerPoint is currently in beta and available to Pro, Max,
+  Claude for PowerPoint is generally available to Pro, Max,
   Team, and Enterprise plans.
 </Note>
 
@@ -21,13 +20,13 @@ on feedback while preserving template compliance.
 
 With Claude for PowerPoint, you can:
 
-- Build new slides using your existing client or corporate templates.
-- Make pinpoint edits to specific slides without regenerating entire
+* Build new slides using your existing client or corporate templates.
+* Make pinpoint edits to specific slides without regenerating entire
   decks.
-- Generate full deck structures from natural language descriptions.
-- Convert bullets into diagrams and native PowerPoint charts.
-- Pull external context through connectors.
-- Iterate on feedback while preserving formatting and template
+* Generate full deck structures from natural language descriptions.
+* Convert bullets into diagrams and native PowerPoint charts.
+* Pull external context through connectors.
+* Iterate on feedback while preserving formatting and template
   compliance.
 
 ## Get started with Claude for PowerPoint
@@ -36,9 +35,9 @@ With Claude for PowerPoint, you can:
 
 Claude for PowerPoint runs on the following PowerPoint builds.
 
-- PowerPoint on the web
-- PowerPoint on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
-- PowerPoint on Mac, version 16.46 or later
+* PowerPoint on the web
+* PowerPoint on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
+* PowerPoint on Mac, version 16.46 or later
 
 ### Install for yourself
 
@@ -147,9 +146,9 @@ respects its formatting rules.
 
 Example prompts:
 
-- "Create a market sizing section, 3 slides covering TAM, SAM, SOM with
+* "Create a market sizing section, 3 slides covering TAM, SAM, SOM with
   supporting visuals."
-- "Add an executive summary slide using the one-column content layout."
+* "Add an executive summary slide using the one-column content layout."
 
 ### Edit existing slides
 
@@ -158,9 +157,9 @@ preserving formatting and surrounding context.
 
 Example prompts:
 
-- "Simplify the text on this slide."
-- "Add a chart showing the quarterly trend."
-- "Restructure the storyline across slides 4 to 7."
+* "Simplify the text on this slide."
+* "Add a chart showing the quarterly trend."
+* "Restructure the storyline across slides 4 to 7."
 
 ### Generate full decks
 
@@ -169,8 +168,8 @@ logical structure and professional defaults, which you can refine.
 
 Example prompts:
 
-- "Create a 10-slide deck walking through our market entry hypotheses."
-- "Build an internal project update presentation with timeline and next
+* "Create a 10-slide deck walking through our market entry hypotheses."
+* "Build an internal project update presentation with timeline and next
   steps."
 
 ### Create native charts and diagrams
@@ -181,8 +180,8 @@ can edit directly, not static images.
 
 Example prompts:
 
-- "Turn these bullets into a process flow diagram."
-- "Create a bar chart comparing Q1 to Q4 performance."
+* "Turn these bullets into a process flow diagram."
+* "Create a bar chart comparing Q1 to Q4 performance."
 
 ### Template awareness
 
@@ -221,7 +220,7 @@ document, and inbox. See
 The add-in handles long sessions for you so a single conversation can
 span an entire workflow.
 
-- **Auto-compaction**: longer conversations are automatically compacted
+* **Auto-compaction**: longer conversations are automatically compacted
   into new conversations to avoid running out of context. See
   [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
 
@@ -251,21 +250,21 @@ audit logs or the Compliance API.
 
 ## Current limitations
 
-As a beta feature, Claude for PowerPoint is not recommended for:
+Claude for PowerPoint is not recommended for:
 
-- Final client deliverables without human review.
-- Presentations containing highly sensitive or regulated data without
+* Final client deliverables without human review.
+* Presentations containing highly sensitive or regulated data without
   proper controls.
-- Replacing your judgment on design and narrative flow.
+* Replacing your judgment on design and narrative flow.
 
 ### Unsupported versions
 
 The add-in does not run on these PowerPoint versions.
 
-- PowerPoint 2016 and 2019 perpetual or volume license.
-- PowerPoint on iPad.
-- PowerPoint on Android.
-- Older builds of Microsoft 365 PowerPoint below the SharedRuntime
+* PowerPoint 2016 and 2019 perpetual or volume license.
+* PowerPoint on iPad.
+* PowerPoint on Android.
+* Older builds of Microsoft 365 PowerPoint below the SharedRuntime
   threshold.
 
 ## Prompt injection risk
@@ -292,12 +291,12 @@ external sources.
 Follow these guidelines to use Claude for PowerPoint safely and
 effectively.
 
-- Always review changes before finalizing your work.
-- Start with your template already applied before asking Claude to
+* Always review changes before finalizing your work.
+* Start with your template already applied before asking Claude to
   generate content.
-- Be specific about what you want changed. Claude can target individual
+* Be specific about what you want changed. Claude can target individual
   slides or elements.
-- Verify that outputs match your organization's brand guidelines.
+* Verify that outputs match your organization's brand guidelines.
 
 ## Example use cases
 
@@ -305,30 +304,30 @@ effectively.
 
 Prompts that produce client-ready sections and summaries.
 
-- "Build a market sizing section with TAM, SAM, SOM slides."
-- "Create a competitive landscape slide comparing 4 players."
-- "Summarize these survey results."
+* "Build a market sizing section with TAM, SAM, SOM slides."
+* "Create a competitive landscape slide comparing 4 players."
+* "Summarize these survey results."
 
 ### Iterative refinement
 
 Prompts that tighten or restructure an existing deck.
 
-- "Simplify the text on slide 3, it's too dense."
-- "Combine slides 5 and 6 into a single summary."
-- "Make the recommendations section more visual."
+* "Simplify the text on slide 3, it's too dense."
+* "Combine slides 5 and 6 into a single summary."
+* "Make the recommendations section more visual."
 
 ### Data visualization
 
 Prompts that turn raw data into native charts and diagrams.
 
-- "Convert these bullet points into a process flow."
-- "Create a bar chart from this data table."
-- "Add a pie chart showing market share breakdown."
+* "Convert these bullet points into a process flow."
+* "Create a bar chart from this data table."
+* "Add a pie chart showing market share breakdown."
 
 ### Deck restructuring
 
 Prompts that reorder or re-sequence slides.
 
-- "Reorder slides to lead with recommendations first."
-- "Add transition slides between each major section."
-- "Create an agenda slide that reflects the current structure."
+* "Reorder slides to lead with recommendations first."
+* "Add transition slides between each major section."
+* "Create an agenda slide that reflects the current structure."

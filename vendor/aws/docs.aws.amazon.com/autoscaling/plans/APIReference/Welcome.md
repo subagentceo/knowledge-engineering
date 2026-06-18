@@ -19,4 +19,4 @@ You can use this API to accomplish the following tasks:
 
 The documentation for each action shows the request syntax, the request parameters, and the response elements and provides links to language-specific SDK reference topics. You can call the API directly in your application code, or you can use one of the AWS SDKs. For more information, see [AWS SDKs](http://aws.amazon.com/tools/#SDKs). 
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

@@ -1,0 +1,3 @@
+# Data Attributes
+
+Data Attributes are a type of metadata used to describe your customer and company models. These include standard and custom attributes. In other words data attributes are properties that help to describe your customers and companies in more detail. By using the data attributes endpoint, you can get the global list of attributes for your app as well as the metadata (i.e. datatype and format) associated with each attribute.

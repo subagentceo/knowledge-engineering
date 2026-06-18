@@ -51,7 +51,7 @@
 - [Candidates](https://docs.parallel.ai/findall-api/core-concepts/findall-candidates.md): Understanding FindAll candidates, their structure, states, and how to exclude specific entities
 - [Generators](https://docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md): Choose the right FindAll generator (preview, base, core, pro) based on query complexity and expected match volume
 - [Run Lifecycle](https://docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md): Understand FindAll run statuses, termination reasons, and how to cancel runs
-- [Entity Search](https://docs.parallel.ai/findall-api/entity-search.md): Fast, synchronous people and company search within FindAll — describe what you need in natural language and get a structured set of matching results in seconds
+- [Entity Search](https://docs.parallel.ai/findall-api/entity-search.md): Fast, synchronous people and company search, the real-time counterpart to FindAll — describe what you need in natural language and receive a set of matching results in seconds
 - [Cancel](https://docs.parallel.ai/findall-api/features/findall-cancel.md): Stop FindAll runs early to control costs
 - [Enrichments](https://docs.parallel.ai/findall-api/features/findall-enrich.md): Add non-boolean enrichment data to FindAll candidates without affecting match conditions
 - [Extend](https://docs.parallel.ai/findall-api/features/findall-extend.md): Increase the match limit of existing FindAll runs to get more results without changing query criteria
@@ -144,8 +144,8 @@
 
 - [openapi](https://api.parallel.ai/account/service/openapi.json)
 - [public-openapi](https://docs.parallel.ai/public-openapi.json)
-- [docs-latest-openapi](https://docs.parallel.ai/docs-latest-openapi.json)
 - [docs-legacy-openapi](https://docs.parallel.ai/docs-legacy-openapi.json)
+- [docs-latest-openapi](https://docs.parallel.ai/docs-latest-openapi.json)
 
 ## Optional
 

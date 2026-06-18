@@ -1,0 +1,761 @@
+# Destination Insert Functions
+
+Use Destination Insert Functions to enrich, transform, or filter your data before it reaches downstream destinations.
+
+With Destination Insert Functions you can:
+
+* **Implement advanced data computation**: Write custom computation, operations, and business logic on streaming data that you send to downstream destinations.
+* **Enrich your data**: Use destination insert functions with Segment's Profile API or third party sources to add additional context to your data and create personalized customer experiences.
+* **Support data compliance**: Use destination insert functions to support data masking, encryption, decryption, improved PII data handling, and tokenization.
+* **Customize filtration for your destinations**: Create custom logic with nested if-else statements, regex, custom business rules, and more to filter event data.
+
+> \[!NOTE]
+>
+> For more information, see the [IP Allowlisting](/docs/segment/connections/destinations/#ip-allowlisting) documentation.
+
+## Create destination insert functions
+
+There are two ways you can access destination insert functions from your Segment space:
+
+* From the Connections [catalog](#using-the-catalog).
+* From the [Destinations](#using-the-destinations-tab) tab.
+
+### Using the catalog
+
+To create an insert function from Segment's catalog:
+
+1. Navigate to **Connections > Catalog > Functions** and click **New Function**.
+2. From the Select Type screen, select **Insert** and click **Next: Build Function**.
+3. Write and test your function code. Manually enter a sample event and click **Run** to test.
+4. Click **Next: Configure & Create** to add a function name, description, and logo.
+5. Click **Create Function** to create your insert function. You'll see the insert function displayed in the Functions tab.
+
+For data to flow to your downstream destinations, you'll need to connect your insert function to a destination:
+
+1. Select the insert function you'd like to connect. From the side pane, you can edit, delete, and connect the insert function.
+2. Click **Connect a destination**.
+3. Select the destination you'd like to connect to and click **Connect to destination**.
+
+> \[!WARNING]
+>
+> You cannot connect an Insert Function to a storage destination at this time.
+
+### Using the Destinations tab
+
+To access insert functions through the Destinations tab:
+
+1. Navigate to **Connections > Destinations**.
+2. Select your destination.
+3. Select **Functions** and then select your insert function.
+
+Use this page to edit and manage insert functions in your workspace.
+
+You can also use this page to [enable destination insert functions](#enable-the-destination-insert-function) in your workspace.
+
+## Code the destination insert function
+
+> \[!NOTE]
+>
+> To prevent "Unsupported Event Type" errors, ensure your insert function handles all event types (page, track, identify, alias, group) that are expected to be sent to the destination. It is highly recommended to [test the function](/docs/segment/connections/functions/insert-functions/#test-the-destination-insert-function) with each event type to confirm they are being handled as expected.
+
+Segment invokes a separate part of the function (called a "handler") for each event type that you send to your destination insert function.
+
+> \[!NOTE]
+>
+> If you've configured a [destination filter](/docs/segment/connections/destinations/destination-filters/) and the event doesn't pass the filter, then your function isn't invoked for that event as Segment applies destination filters before insert functions. The same is true for the [integrations object](/docs/segment/guides/filtering-data/#filtering-with-the-integrations-object)). If an event is configured with the integrations object not to go to a particular destination, then the insert function connected to that destination won't be invoked.
+
+The default source code template includes handlers for all event types. You don't need to implement all of them - just use the ones you need, and skip the ones you don't. For event types that you want to send through the destination, return the event in the respective event handlers.
+
+> \[!NOTE]
+>
+> Removing the handler for a specific event type results in blocking the events of that type from arriving at their destination. To keep an event type as is but still send it downstream, add a `return event` inside the event type handler statement.
+
+Insert functions can define handlers for each message type in the [Segment spec](/docs/segment/connections/spec/):
+
+* `onIdentify`
+* `onTrack`
+* `onPage`
+* `onScreen`
+* `onGroup`
+* `onAlias`
+* `onDelete`
+* `onBatch`
+
+Each of the functions above accepts two arguments:
+
+* **event** - Segment event object, where fields and values depend on the event type. For example, in Identify events, Segment formats the object to match the [Identify spec](/docs/segment/connections/spec/identify/).
+* **settings** - Set of [settings](#create-settings-and-secrets) for this function.
+
+The example below shows a function that listens for "Track" events, and sends some details about them to an external service.
+
+```js
+async function onTrack(event) {
+  await fetch('https://example-service.com/api', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      event_name: event.event,
+      event_properties: event.properties,
+      timestamp: event.timestamp
+    })
+  })
+
+  return event;
+  
+}
+```
+
+To change which event type the handler listens to, you can rename it to the name of the message type. For example, if you rename this function `onIdentify`, it listens for Identify events instead.
+
+To ensure the destination processes an event payload modified by the function, return the `event` object at the handler's end.
+
+> \[!NOTE]
+>
+> Functions' runtime includes a `fetch()` polyfill using a `node-fetch` package. Check out the [node-fetch documentation](https://www.npmjs.com/package/node-fetch) for usage examples.
+
+### Variable scoping
+
+When declaring settings variables, make sure to declare them in the function handler rather than globally in your function. This prevents you from leaking the settings values across other function instances.
+
+The handler for insert functions is event-specific. For example, `onTrack()`, `onIdentify()`, and so on.
+
+### Errors and error handling
+
+Segment considers a function's execution successful if it finishes without error. You can `throw` an error to create a failure on purpose. Use these errors to validate event data before processing it to ensure the function works as expected.
+
+You can `throw` the following pre-defined error types to indicate that the function ran as expected, but the data was not deliverable:
+
+* `EventNotSupported`
+* `InvalidEventPayload`
+* `ValidationError`
+* `RetryError`
+* `DropEvent`
+
+The following examples show basic uses of these error types.
+
+```js
+async function onGroup(event) {
+  if (!event.traits.company) {
+    throw new InvalidEventPayload('Company name is required')
+  }
+}
+
+async function onPage(event) {
+  if (!event.properties.pageName) {
+    throw new ValidationError('Page name is required')
+  }
+}
+
+async function onAlias(event) {
+  throw new EventNotSupported('Alias event is not supported')
+}
+
+async function onTrack(event) {
+  let res
+  try {
+    res = await fetch('http://example-service.com/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ event })
+    })
+
+    return event;
+    
+  } catch (err) {
+    // Retry on connection error
+    throw new RetryError(err.message)
+  }
+  if (res.status >= 500 || res.status === 429) {
+    // Retry on 5xx and 429s (ratelimits)
+    throw new RetryError(`HTTP Status ${res.status}`)
+  }
+}
+
+async function onIdentify(event) {
+  if (event.traits.companyName) {
+    // Drop Event | Do NOT forward event to destination
+    throw new DropEvent('Company name is required')
+  }
+  return event;
+}
+
+```
+
+If you don't supply a function for an event type, Segment throws an `EventNotSupported` error by default.
+
+See [errors and error handling](#errors-and-error-handling) for more information on supported error types and how to troubleshoot them.
+
+## Runtime and dependencies
+
+Segment Functions run on the Node.js LTS runtime (currently v20). This keeps the runtime current with industry standards and security updates.
+
+Based on the [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) and [Node.js](https://nodejs.org/en/about/previous-releases) support schedule, production applications should only use Node.js releases that are in Active LTS or Maintenance LTS.
+
+When Segment upgrades the Functions runtime to a new LTS version, existing functions automatically use the new runtime after their next deployment. Segment recommends checking your function after deployment to ensure everything works as expected, since dependency or syntax changes between Node.js versions might affect your function's behavior.
+
+Functions don't support importing dependencies, but you can [contact Segment Support](https://segment.com/help/contact/) to request that one be added.
+
+The following dependencies are installed in the function environment by default:
+
+* [`atob v2.1.2`](https://www.npmjs.com/package/atob) exposed as `atob`
+* [`aws-sdk v2.488.0`](https://www.npmjs.com/package/aws-sdk) exposed as `AWS`
+* [`btoa v1.2.1`](https://www.npmjs.com/package/btoa) exposed as `btoa`
+* [`fetch-retry`](https://www.npmjs.com/package/fetch-retry) exposed as `fetchretrylib.fetchretry`
+* [`form-data v2.4.0`](https://www.npmjs.com/package/form-data) exposed as `FormData`
+* [`@google-cloud/automl v2.2.0`](https://www.npmjs.com/package/@google-cloud/automl) exposed as `google.cloud.automl`
+* [`@google-cloud/bigquery v5.3.0`](https://www.npmjs.com/package/@google-cloud/bigquery) exposed as `google.cloud.bigquery`
+* [`@google-cloud/datastore v6.2.0`](https://www.npmjs.com/package/@google-cloud/datastore) exposed as `google.cloud.datastore`
+* [`@google-cloud/firestore v4.4.0`](https://www.npmjs.com/package/@google-cloud/firestore) exposed as `google.cloud.firestore`
+* [`@google-cloud/functions v1.1.0`](https://www.npmjs.com/package/@google-cloud/functions) exposed as `google.cloud.functions`
+* [`@google-cloud/pubsub v2.6.0`](https://www.npmjs.com/package/@google-cloud/pubsub) exposed as `google.cloud.pubsub`
+* [`@google-cloud/storage v5.3.0`](https://www.npmjs.com/package/@google-cloud/storage) exposed as `google.cloud.storage`
+* [`@google-cloud/tasks v2.6.0`](https://www.npmjs.com/package/@google-cloud/tasks) exposed as `google.cloud.tasks`
+* [`hubspot-api-nodejs`](https://www.npmjs.com/package/@hubspot/api-client) exposed as `hubspotlib.hubspot`
+* [`jsforce v1.11.0`](https://www.npmjs.com/package/jsforce) exposed as `jsforce`
+* [`jsonwebtoken v8.5.1`](https://www.npmjs.com/package/jsonwebtoken) exposed as `jsonwebtoken`
+* [`libphonenumber-js`](https://www.npmjs.com/package/libphonenumber-js) exposed as `libphonenumberjslib.libphonenumberjs`
+* [`lodash v4.17.19`](https://www.npmjs.com/package/lodash) exposed as `_`
+* [`mailchimp marketing`](https://www.npmjs.com/package/@mailchimp/mailchimp_marketing) exposed as `mailchimplib.mailchimp`
+* [`mailjet`](https://www.npmjs.com/package/node-mailjet) exposed as `const mailJet = nodemailjet.nodemailjet;`
+* [`moment-timezone v0.5.31`](https://www.npmjs.com/package/moment-timezone/v/0.5.31) exposed as `moment`
+* [`node-fetch v2.6.0`](https://www.npmjs.com/package/node-fetch) exposed as `fetch`
+* [`oauth v0.9.15`](https://www.npmjs.com/package/oauth) exposed as `OAuth`
+* [`@sendgrid/client v7.4.7`](https://www.npmjs.com/package/@sendgrid/client) exposed as `sendgrid.client`
+* [`@sendgrid/mail v7.4.7`](https://www.npmjs.com/package/@sendgrid/mail) exposed as `sendgrid.mail`
+* [`skyflow`](https://www.npmjs.com/package/skyflow-node) exposed as `skyflowlib.skyflow`
+* [`stripe v8.115.0`](https://www.npmjs.com/package/stripe) exposed as `stripe`
+* [`twilio v3.68.0`](https://www.npmjs.com/package/twilio) exposed as `twilio`
+* [`uuidv5 v1.0.0`](https://www.npmjs.com/package/uuidv5) exposed as `uuidv5.uuidv5`
+* [`winston v2.4.6`](https://www.npmjs.com/package/winston) exposed as `const winston = winstonlib.winston`
+* [`xml v1.0.1`](https://www.npmjs.com/package/xml) exposed as `xml`
+* [`xml2js v0.4.23`](https://www.npmjs.com/package/xml2js) exposed as `xml2js`
+* [`zlib v1.0.5`](https://www.npmjs.com/package/zlib) exposed as `zlib.zlib`
+
+  <br /> `uuidv5` is exposed as an object. Use `uuidv5.uuidv5` to access its functions. For example:
+
+  ```js
+  async function onRequest(request, settings) {
+       uuidv5 = uuidv5.uuidv5;
+       console.log(typeof uuidv5);
+
+        //Generate a UUID in the default URL namespace
+        var urlUUID = uuidv5('url', 'http://google/com/page');
+        console.log(urlUUID);
+
+        //Default DNS namespace
+        var dnsUUID = uuidv5('dns', 'google.com');
+        console.log(dnsUUID);
+    }
+  ```
+
+  `zlib`'s asynchronous methods `inflate` and `deflate` must be used with `async` or `await`. For example:
+
+  ```js
+  zlib = zlib.zlib;  // Required to access zlib objects and associated functions
+  async function onRequest(request, settings) {
+  const body = request.json();
+
+  const input = 'something';
+
+  // Calling inflateSync method
+  var deflated = zlib.deflateSync(input);
+
+  console.log(deflated.toString('base64'));
+
+  // Calling inflateSync method
+  var inflated = zlib.inflateSync(new Buffer.from(deflated)).toString();
+
+  console.log(inflated);
+
+  console.log('Done');
+  }
+  ```
+
+The following Node.js modules are available:
+
+* [`crypto` Node.js module](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html) exposed as `crypto`.
+* [`https` Node.js module](https://nodejs.org/api/https.html) exposed as `https`.
+
+[Other built-in Node.js modules](https://nodejs.org/api/modules.html) aren't available.
+
+For more information on using the `aws-sdk` module, see how to [set up functions for calling AWS APIs](/docs/segment/connections/functions/aws-apis/).
+
+### Caching
+
+Basic cache storage is available through the `cache` object, which has the following methods defined:
+
+* `cache.load(key: string, ttl: number, fn: async () => any): Promise<any>`
+  * Obtains a cached value for the provided `key`, invoking the callback if the value is missing or has expired. The `ttl` is the maximum duration in milliseconds the value can be cached. If omitted or set to `-1`, the value will have no expiry.
+* `cache.delete(key: string): void`
+  * Immediately remove the value associated with the `key`.
+
+Some important notes about the cache:
+
+* When testing functions in the code editor, the cache will be empty because each test temporarily deploys a new instance of the function.
+* Values in the cache are not shared between concurrently-running function instances; they are process-local which means that high-volume functions will have many separate caches.
+* Values may be expunged at any time, even before the configured TTL is reached. This can happen due to memory pressure or normal scaling activity. Minimizing the size of cached values can improve your hit/miss ratio.
+* Functions that receive a low volume of traffic may be temporarily suspended, during which their caches will be emptied. In general, caches are best used for high-volume functions and with long TTLs.
+  The following example gets a JSON value through the cache, only invoking the callback as needed:
+
+```js
+const ttl = 5 * 60 * 1000 // 5 minutes
+const val = await cache.load("mycachekey", ttl, async () => {
+    const res = await fetch("http://echo.jsontest.com/key/value/one/two")
+    const data = await res.json()
+    return data
+})
+```
+
+## Insert functions and Actions destinations
+
+A payload must come into the pipeline with the attributes that allow it to match your mapping triggers. You can't use an insert function to change the event to match your mapping triggers. If an event comes into an actions destination and already matches a mapping trigger, that mapping subscription will fire. If a payload doesn't come to the actions destination matching a mapping trigger, even if an insert function is meant to alter the event to allow it to match a trigger, it won't fire that mapping subscription. Segment sees the mapping trigger first in the pipeline, so a payload won't make it to the insert function at all if it doesn't come into the pipeline matching a mapping trigger.
+
+Unlike Source functions and Destination functions, which return multiple events, an insert function only returns one event. When the insert function receives an event, it sends the event to be handled by its configured mappings.
+
+If you would like [multiple mappings triggered by the same event](/docs/segment/connections/destinations/actions/):
+
+1. Create different types of mappings (Identify, Track, Page, etc) or multiple mappings of the same type.
+2. Configure the mapping's [trigger conditions](/docs/segment/connections/destinations/actions/#conditions) to look for that event name/type or other available field within the payload.
+3. Configure the mapped fields to send different data.
+
+You can also configure the insert function to add additional data to the event's payload before it's handled by the mappings and configure the mapping's available fields to reference the payload's available fields.
+
+You may want to consider the [context object's](/docs/segment/connections/spec/common/#context) available fields when adding new data to the event's payload.
+
+## Create settings and secrets
+
+Settings allow you to pass configurable variables to your function, which is the best way to pass sensitive information such as security tokens. For example, you might use `settings` as placeholders to use information such as an API endpoint and API key. This way, you can use the same code with different settings for different purposes. When you deploy a function in your workspace, you are prompted to fill out these settings to configure the function.
+
+To use settings:
+
+1. Add a setting in the **Settings** tab in the code editor:
+
+![A screenshot of the functions settings tab.](https://docs-resources.prod.twilio.com/1c4c64e35da90a4a5b58ca20bc35bc617499ffc8a2964ae58ef713ae6b342d02.png)
+
+2. Click **Add Setting** to add your new setting.
+3. Configure the details about this setting, which change how it's displayed to anyone using your function:
+
+* **Label** - Name of the setting, which users see when configuring the function.
+* **Name** - Auto-generated name of the setting to use in function's source code.
+* **Type** - Type of the setting's value.
+* **Description** - Optional description, which appears below the setting name.
+* **Required** - Enable this to ensure that the setting cannot be saved without a value.
+* **Secret** - Enable this to ensure that sensitive data, like API key values or passwords, are not displayed in the Segment UI.
+
+As you change the values, a preview to the right updates to show how your setting will look and work.
+
+4. Click **Add Setting** to save the new setting.
+
+Once you save a setting, it appears in the **Settings** tab for the function. You can edit or delete settings from this tab.
+
+5. Fill out this setting's value in the **Test** tab, so you can run the function and verify that the correct setting value is passed. (This value is only for testing your function.)
+6. Add code to read its value and run the function, as in the example below:
+
+```js
+async function onTrack(request, settings) {
+  const apiKey = settings.apiKey
+  //=> "super_secret_string"
+}
+```
+
+When you deploy your destination insert function in your workspace, you fill out the settings on the destination configuration page, similar to how you would configure a normal destination.
+
+## Test the destination insert function
+
+You can manually test your code from the functions editor:
+
+1. From the **Test** tab, click **customize the event yourself** and manually input your own JSON payload.
+2. If your test fails, you can check the error details and logs in the Output section.
+
+* Error messages display errors surfaced from your function.
+* Logs display any messages to console.log() from the function.
+
+> \[!TIP]
+>
+> Segment supports Insert Functions in both the Event Tester and Mapping Tester.
+
+## Save and deploy the destination insert function
+
+Once you finish building your insert function, click **Next: Configure & Create** to name it, then click **Create Function** to save it.
+
+Once you do that, you'll see the insert function from the Functions page in your catalog.
+
+If you're editing an existing function, you can save changes without updating the instances of the function that are already deployed and running.
+
+You can also choose to **Save & Deploy** to save the changes, then choose which already-deployed functions to update with your changes.
+
+> \[!NOTE]
+>
+> You may need additional permissions to update existing functions.
+
+## Enable the destination insert function
+
+You need to enable your insert function for it to process your data.
+
+To enable your insert function:
+
+1. Navigate to **Connections > Destinations**.
+2. Select your destination, then select the **Functions** tab.
+3. Select the **Enable Function** toggle, and click **Enable** on the pop-out window.
+
+To prevent your insert function from processing data, toggle Enable Function off.
+
+## Batching the destination insert function
+
+Batch handlers are an extension of insert functions. When you define an `onBatch` handler alongside the handler functions for single events (for example, `onTrack` or `onIdentity`), you're telling Segment that the insert function can accept and handle batches of events.
+
+> \[!NOTE]
+>
+> Batching is available for destination and destination insert functions only.
+
+### When to use batching
+
+Consider creating a batch handler if:
+
+* **You have a high-throughput function and want to reduce cost.** When you define a batch handler, Segment invokes the function once per *batch*, rather than once per event. As long as the function's execution time isn't adversely affected, the reduction in invocations should lead to a reduction in cost.
+* **Your destination supports batching**. When your downstream destination supports sending data downstream in batches you can define a batch handler to avoid throttling. Batching for functions is independent of batch size supported by the destination. Segment automatically handles batch formation for destinations.
+
+> \[!NOTE]
+>
+> If a batched function receives too low a volume of events (under one event per second) to be worth batching, Segment may not invoke the batch handler.
+
+### Define the batch handler
+
+Segment collects the events over a short period of time and combines them into a batch. The system flushes them when the batch reaches a certain number of events, or when the batch has been waiting for a specified wait time.
+
+To create a batch handler, define an `onBatch` function within your destination insert function. You can also use the "Default Batch" template found in the Functions editor to get started quickly.
+
+You must preserve the original order in the `onBatch` implementation, as Segment's function invoker service relies on positional consistency in the `onBatch` handler between the input and output arrays. When a function returns a transformed batch, Segment pairs each output event with its corresponding input using array index positions, not event IDs or timestamps.
+
+```js
+async function onBatch(events, settings){
+  // handle the batch of events
+  return events
+}
+```
+
+> \[!NOTE]
+>
+> The `onBatch` handler is an optional extension. Destination insert functions must still contain single event handlers as a fallback, in cases where Segment doesn't receive enough events to execute the batch.
+
+The handler function receives an array of events. The events can be of any supported type and a single batch may contain more than one event type. Handler functions can also receive function settings. Here is an example of what a batch can look like:
+
+```json
+[
+    {
+      "type": "identify",
+      "userId": "019mr8mf4r",
+      "messageId": "ajs-next-1757955997356-c029ce21-9034-45a6-ac62-b8b23b655df5",
+      "traits": {
+        "email": "jake@yahoo.com",
+        "name": "Jake Peterson",
+        "age": 26
+      }
+    },
+    {
+      "type": "track",
+      "userId": "019mr8mf4r",
+      "messageId": "ajs-next-1757955997356-bde2ad8e-2af9-45f5-837b-993671f6b1b0",
+      "event": "Song Played",
+      "properties": {
+        "name": "Fallin for You",
+        "artist": "Dierks Bentley"
+      }
+    },
+    {
+      "type": "track",
+      "userId": "971mj8mk7p",
+      "messageId": "ajs-next-1757955997356-9e2ba07c-0085-4a5b-8928-e4450a417f74",
+      "event": "Song Played",
+      "properties": {
+        "name": "Get Right",
+        "artist": "Jennifer Lopez"
+      }
+    }
+]
+```
+
+### Configure the event types within a batch
+
+Segment batches together any event *of any type* that it sees over a short period of time to increase batching efficiency and give you the flexibility to decide how batches are created. If you want to split batches by event type, you can implement this in your functions code by writing a handler.
+
+```js
+async function onBatch(events, settings) {
+  // store original order
+  const originalOrder = events.map(event => event.messageId);
+
+  // group events by type
+  const eventsByType = {}
+  for (const event of events) {
+    if (!(event.type in eventsByType)) {
+      eventsByType[event.type] = []
+    }
+    eventsByType[event.type].push(event)
+  }
+
+  // concurrently process sub-batches of a specific event type
+  const promises = Object.entries(eventsByType).map(([type, events]) => {
+    switch (type) {
+    case 'track':
+      return onTrackBatch(events, settings)
+    case 'identify':
+      return onIdentifyBatch(events, settings)
+    // ...handle other event types here...
+    }
+  })
+  try {
+    const results = await Promise.all(promises);
+    const batchResult = [].concat(...results); // Combine arrays into a single array
+    
+    // restore original order
+    const resultMap = new Map(batchResult.map(e => [e.messageId, e]));
+    return originalOrder.map(id => resultMap.get(id));
+  } catch (error) {
+    throw new RetryError(error.message);
+  }
+}
+
+async function onTrackBatch(events, settings) {
+  // handle a batch of track events
+  return events
+}
+
+async function onIdentifyBatch(events, settings) {
+  // handle a batch of identify events
+  return events
+}
+```
+
+### Configure your batch parameters
+
+By default, Functions waits up to 10 seconds to form a batch of 20 events. You can increase the number of events included in each batch (up to 400 events per batch) by contacting [Segment support](https://segment.com/help/contact/). Segment recommends users who wish to include fewer than 20 events per batch use destination insert functions without the `onBatch` handler.
+
+### Test the batch handler
+
+The [Functions editing environment](/docs/segment/connections/functions/environment/) supports testing batch handlers.
+
+To test the batch handler:
+
+1. In the right panel of the Functions editor, click **customize the event yourself** to enter Manual Mode.
+2. Add events as a JSON array, with one event per element.
+3. Click **Run** to preview the batch handler with the specified events.
+
+> \[!NOTE]
+>
+> The Sample Event option tests single events only. You must use Manual Mode to add more than one event so you can test batch handlers.
+
+The editor displays logs and request traces from the batch handler.
+
+The [Public API](/docs/segment/api/public-api) Functions/Preview endpoint also supports testing batch handlers. The payload must be a batch of events as a JSON array.
+
+### Handling filtering in a batch
+
+Events in a batch can be filtered out using custom logic. The filtered events will be surfaced in the [Event Delivery](/docs/segment/connections/event-delivery/) page with reason as `Filtered at insert function`
+
+```js
+async function onBatch(events, settings) {
+  let response = [];
+  try {
+    for (const event of events) {
+      // some business logic to filter event. Here filtering out all the events with name `drop`
+      if (event.properties.name === 'drop') {
+        continue;
+      }
+
+      // some enrichments if needed
+      event.properties.message = "Enriched from insert function";
+
+      // Enriched events are pushed to response
+      response.push(event);
+    }
+  } catch (error) {
+    console.log(error)
+    throw new RetryError('Failed function', error);
+  }
+
+  // return a subset of transformed event
+  return response;
+}
+```
+
+### Handling batching errors
+
+Standard [function error types](/docs/segment/connections/functions/destination-functions/#destination-functions-error-types) apply to batch handlers. Segment attempts to retry the batch in the case of Timeout or Retry errors. For all other error types, Segment discards the batch.
+
+### Destination insert functions error types
+
+* **Bad Request** - Any error thrown by the function code that is not covered by the other errors.
+* **Invalid Settings** - A configuration error prevented Segment from executing your code. If this error persists for more than an hour, [contact Segment Support](https://segment.com/help/contact/).
+* **Message Rejected** - Your code threw `InvalidEventPayload` or `ValidationError` due to invalid input.
+* **Unsupported Event Type** - Your code doesn't implement a specific event type (for example, `onTrack()`) or threw an `EventNotSupported` error.
+* **Retry** - Your code threw `RetryError` indicating that the function should be retried.
+
+Segment only attempts to send the event to your destination insert function again if a **Retry** error occurs.
+
+You can view Segment's list of [Integration Error Codes](/docs/segment/connections/integration_error_codes/) for more information about what might cause an error.
+
+### Destination insert functions logs
+
+If your function throws an error, execution halts immediately. Segment captures the event, any outgoing requests/responses, any logs the function might have printed, as well as the error itself.
+
+Segment then displays the captured error information in the [Event Delivery](/docs/segment/connections/event-delivery/) page for your destination. You can use this information to find and fix unexpected errors.
+
+You can throw [an error or a custom error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) and you can also add helpful context in logs using the [`console` API](https://developer.mozilla.org/en-US/docs/Web/API/console). For example:
+
+```js
+async function onTrack(event, settings) {
+  const userId = event.userId
+
+  console.log('User ID is', userId)
+
+  if (typeof userId !== 'string' || userId.length < 8) {
+    throw new ValidationError('User ID is invalid')
+  }
+
+  console.log('User ID is valid')
+}
+```
+
+> \[!WARNING]
+>
+> Don't log sensitive data, such as personally-identifying information (PII), authentication tokens, or other secrets. Avoid logging entire request/response payloads. The **Function Logs** tab may be visible to other workspace members if they have the necessary permissions.
+
+## Caching in destination insert functions
+
+Functions execute only in response to incoming data, but the environments that functions run in are generally long-running. Because of this, you can use global variables to cache small amounts of information between invocations. For example, you can reduce the number of access tokens you generate by caching a token, and regenerating it only after it expires. Segment cannot make any guarantees about the longevity of environments, but by using this strategy, you can improve the performance and reliability of your Functions by reducing the need for redundant API requests.
+
+This example code fetches an access token from an external API and refreshes it every hour:
+
+```js
+const TOKEN_EXPIRE_MS = 60 * 60 * 1000 // 1 hour
+let token = null
+async function getAccessToken () {
+  const now = new Date().getTime()
+  if (!token || now - token.ts > TOKEN_EXPIRE_MS) {
+    const resp = await fetch('https://example.com/tokens', {
+      method: 'POST'
+    }).then(resp => resp.json())
+    token = {
+      ts: now,
+      value: resp.token
+    }
+  }
+  return token.value
+}
+```
+
+## Managing destination insert functions
+
+### Functions permissions
+
+Functions have specific roles which can be used for [access management](/docs/segment/segment-app/iam/) in your Segment workspace.
+
+Access to functions is controlled by two permissions [roles](/docs/segment/segment-app/iam/roles/):
+
+* **Functions Admin:** Create, edit, and delete all functions, or a subset of specified functions.
+* **Functions Read-only:** View all functions, or a subset of specified functions.
+
+You also need additional **Source Admin** permissions to enable source functions, connect destination functions to a source, or to deploy changes to existing functions.
+
+### Editing and deleting functions
+
+If you are a **Workspace Owner** or **Functions Admin**, you can manage your function from the [Functions](https://app.segment.com/goto-my-workspace/functions/catalog) page.
+
+## Destination insert functions FAQs
+
+##### Can I see who made changes to a function?
+
+Yes, Functions access is logged in the [Audit Trail](/docs/segment/segment-app/iam/audit-trail/), so user activity related to functions appears in the logs.
+
+##### Does Segment retry failed function invocations?
+
+Yes, Segment retries invocations that throw RetryError or Timeout errors (temporary errors only). Segment's internal system retries failed functions API calls for four hours with a randomized exponential backoff after each attempt. This substantially improves delivery rates.
+
+[Retries](/docs/segment/connections/destinations/#retries-between-segment-and-destinations) work the same for both functions and cloud-mode destinations in Segment.
+
+##### Are events guaranteed to send data in order?
+
+No, Segment can't guarantee the order in which the events are delivered to an endpoint.
+
+##### Do I need to specify an endpoint for my Insert function?
+
+No, specifying an endpoint is not always required for insert functions. If your function is designed to transform or filter data internally—such as adding new properties to events or filtering based on existing properties—you won't need to specify an external endpoint.
+
+However, if your function aims to enrich event data by fetching additional information from an external service, then you must specify the endpoint. This would be the URL of the external service's API where the enriched or captured data is sent.
+
+##### Can I use Insert Functions with Device-mode destinations?
+
+No, Destination Insert Functions are currently available for use with Cloud Mode (server-side) destinations only. Segment is in the early phases of exploration and discovery for supporting customer web plugins for custom Device Mode destinations and other use cases, but this is unsupported today.
+
+##### Can I use Insert Functions with Storage destinations?
+
+Insert Functions are only supported by Cloud Mode (server-side) destinations and aren't compatible with Storage destinations.
+
+##### Can I connect an insert function to multiple destinations?
+
+Yes, you can connect an insert function to multiple destinations.
+
+##### Can I connect multiple insert functions to one destination?
+
+No, you can only connect one insert function to a destination.
+
+##### Can I have destination filters and a destination insert function in the same connection?
+
+Yes, you can have both destination filters and destination insert functions in the same connection.
+
+##### Are insert functions invoked before or after Destination Filters are applied?
+
+Segment's data pipeline applies Destination Filters before invoking Insert Functions.
+
+##### Why am I receiving a `500 Internal Error` when saving the same of the destination insert function?
+
+There is an 120-Character limit for the insert function display name.
+
+##### Why does the Event Delivery tab show "Unsupported Event Type" errors for events supported by the destination after I enabled an insert function?
+
+This error occurs because your insert function code might not be handling all event types (Page, Track, Identify, Alias, Group) that your destination supports. When these unlisted events pass through the function, they are rejected with the "Unsupported Event Type" error.
+
+To resolve this, verify your insert function includes handlers for all expected event types and returns the event object for each. Here's an example of how you can structure your insert function to handle all event types:
+
+```text
+async function onTrack(event, settings) {
+    //Return event to handle page event OR Your existing code for track event
+    return event;
+}
+
+async function onPage(event, settings) {
+    //Return event to handle page event OR Your existing code for track event
+    return event;
+}
+
+async function onIdentify(event, settings) {
+    //Return event to handle page event OR Your existing code for track event
+    return event;
+}
+
+async function onAlias(event, settings) {
+    //Return event to handle page event OR Your existing code for track event
+    return event;
+}
+
+async function onGroup(event, settings) {
+  //Return event to handle page event OR Your existing code for track event
+    return event;
+}
+
+// Ensure that all expected event types are included in your function
+```
+
+By including handlers for all the major event types, you ensure that all supported events are processed correctly, preventing the "Unsupported Event Type" error. Always test your updated code before implementing it in production.
+
+##### What destination types support Insert functions?
+
+Only cloud-mode [event destinations](/docs/segment/engage/using-engage-data/#engage-destination-types-event-vs-list) support destination Insert Functions. [List destinations](/docs/segment/engage/using-engage-data/#list-destinations) aren't compatible.
+
+##### What is the maximum data size that can be displayed in `console.logs()` when testing a function?
+
+The test function interface has a 4KB console logging limit. Outputs surpassing this limit won't be visible in the user interface.

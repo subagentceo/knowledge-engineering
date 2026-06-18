@@ -9,4 +9,4 @@ Region switch provides a structured approach to multi-Region failover, helping y
 
 For more information, see [Region switch in ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/region-switch.html) in the *Amazon Application Recovery Controller User Guide*.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

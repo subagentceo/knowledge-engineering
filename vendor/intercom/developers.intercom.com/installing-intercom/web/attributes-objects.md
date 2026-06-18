@@ -3,7 +3,6 @@
 This page details the possible attributes that can be used when [Installing the Messenger](/installing-intercom/web/installation)
 
 Visitors / Leads
-
 ```javascript
 window.intercomSettings = { 
   app_id: YOUR_WORKSPACE_ID
@@ -12,7 +11,6 @@ window.intercomSettings = {
 ```
 
 Logged In users
-
 ```javascript
 window.intercomSettings = { 
   app_id: YOUR_WORKSPACE_ID,
@@ -86,7 +84,6 @@ These attributes are used to update user/lead information.
 
 Similar to the [API avatar object](https://developers.intercom.com/intercom-api-reference/reference#section-avatar-object)
 
-
 ```javascript
 window.intercomSettings =  {
   app_id: YOUR_WORKSPACE_ID, 
@@ -112,7 +109,6 @@ Attributes not listed below will be considered as a custom company attribute.
 **Note:** Company ID and company name are the minimum requirements to pass a company into Intercom.
 
 Single company
-
 ```javascript
 window.intercomSettings = {
   app_id: YOUR_WORKSPACE_ID, 
@@ -131,7 +127,6 @@ window.intercomSettings = {
 ```
 
 Multiple companies
-
 ```javascript
 window.intercomSettings = {
   app_id: YOUR_WORKSPACE_ID,

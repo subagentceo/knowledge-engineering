@@ -5,4 +5,4 @@
 
 Welcome to the Amazon Bedrock AgentCore Control plane API reference. Control plane actions configure, create, modify, and monitor AWS resources.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

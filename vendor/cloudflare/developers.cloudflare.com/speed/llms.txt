@@ -19,6 +19,10 @@ Improve the performance of your website or web application
 - [Run test](https://developers.cloudflare.com/speed/observatory/run-speed-test/index.md): Learn how to use Cloudflare's Observatory to assess the performance of your website.
 - [Understand test results](https://developers.cloudflare.com/speed/observatory/test-results/index.md): Interpret Lighthouse scores and Core Web Vitals from Observatory tests.
 
+## Origin Analytics
+
+- [Origin Analytics](https://developers.cloudflare.com/speed/origin-analytics/index.md): See how your origin server responds to Cloudflare. Identify slow endpoints, monitor response times, and diagnose errors.
+
 ## Smart Shield
 
 - [Smart Shield](https://developers.cloudflare.com/smart-shield/index.md): Protect your origin and improve performance with Smart Shield.

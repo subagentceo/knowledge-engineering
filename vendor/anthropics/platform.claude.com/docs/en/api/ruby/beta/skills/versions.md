@@ -25,9 +25,11 @@ Create Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -80,11 +82,14 @@ Create Skill Version
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionCreateResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -185,9 +190,11 @@ List Skill Versions
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -240,11 +247,14 @@ List Skill Versions
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionListResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -347,9 +357,11 @@ Download a skill version's content as a zip archive.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -402,7 +414,9 @@ Download a skill version's content as a zip archive.
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
@@ -445,9 +459,11 @@ Get Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -500,11 +516,14 @@ Get Skill Version
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionRetrieveResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -601,9 +620,11 @@ Delete Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 25 more`
+
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -656,11 +677,14 @@ Delete Skill Version
 
     - `:"thinking-token-count-2026-05-13"`
 
-    - `:"mid-conversation-system-2026-04-07"`
+    - `:"server-side-fallback-2026-06-01"`
+
+    - `:"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `class VersionDeleteResponse`
+
   - `id: String`
 
     Version identifier for the skill.
@@ -699,6 +723,7 @@ puts(version)
 ### Version Create Response
 
 - `class VersionCreateResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -746,6 +771,7 @@ puts(version)
 ### Version List Response
 
 - `class VersionListResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -793,6 +819,7 @@ puts(version)
 ### Version Retrieve Response
 
 - `class VersionRetrieveResponse`
+
   - `id: String`
 
     Unique identifier for the skill version.
@@ -840,6 +867,7 @@ puts(version)
 ### Version Delete Response
 
 - `class VersionDeleteResponse`
+
   - `id: String`
 
     Version identifier for the skill.

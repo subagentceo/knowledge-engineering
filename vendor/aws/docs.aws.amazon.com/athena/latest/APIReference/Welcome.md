@@ -7,4 +7,4 @@ Amazon Athena is an interactive query service that lets you use standard SQL to 
 
 If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see [Accessing Amazon Athena with JDBC](https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html).
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

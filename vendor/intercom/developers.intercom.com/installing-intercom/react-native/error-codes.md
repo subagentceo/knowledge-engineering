@@ -6,7 +6,6 @@ The Intercom React Native wrapper surfaces errors from the underlying native iOS
 
 All Intercom methods return a `Promise`. When a call fails, the Promise is rejected with an error object containing a `code` (string) and `message`.
 
-
 ```javascript
 try {
   await Intercom.loginUserWithUserAttributes({ email: 'bob@example.com' });
@@ -17,7 +16,6 @@ try {
 ```
 
 Or using Promise chains:
-
 
 ```javascript
 Intercom.loginUserWithUserAttributes({ email: 'bob@example.com' })

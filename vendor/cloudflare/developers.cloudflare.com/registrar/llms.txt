@@ -48,6 +48,7 @@ Buy and renew your domain at cost, add another layer of security to your DNS rec
 
 - [Registrant contact updates](https://developers.cloudflare.com/registrar/account-options/domain-contact-updates/index.md): Update domain registrant contact information.
 - [Domain management](https://developers.cloudflare.com/registrar/account-options/domain-management/index.md): Manage your registered domains in the dashboard.
+- [Domain ownership certificate](https://developers.cloudflare.com/registrar/account-options/domain-ownership-certificate/index.md): Generate a domain ownership certificate (WHOIS ownership letter) for a domain registered with Cloudflare Registrar.
 - [iCloud Custom Email Domains](https://developers.cloudflare.com/registrar/account-options/icloud-domains/index.md): Set up iCloud custom email domains via Cloudflare.
 - [Move a Cloudflare Registrar domain registration between accounts](https://developers.cloudflare.com/registrar/account-options/inter-account-transfer/index.md): Transfer domain registration between Cloudflare accounts.
 - [Renew domains](https://developers.cloudflare.com/registrar/account-options/renew-domains/index.md): Manage automatic and manual domain renewals.

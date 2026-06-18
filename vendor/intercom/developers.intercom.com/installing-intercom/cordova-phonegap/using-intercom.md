@@ -21,7 +21,6 @@ The option you choose should be informed by the design of your app, namely wheth
 
 If you have an app with no login option (like Angry Birds or a flashlight app), you should only login unidentified users.
 
-
 ```javascript
 loginUnidentifiedUser: function(options, success, error)
 ```
@@ -45,7 +44,6 @@ We recommend this is called from within the application delegate's `onDeviceRead
 
 Just login as an unidentified user like so:
 
-
 ```javascript
 onDeviceReady: function() {
     var onSuccess = function() {
@@ -63,7 +61,6 @@ If a request to login a user fails, it will be retried before calling the failur
 ## Login only identified (logged in) users
 
 If people must log in to access your app (as in with Facebook, Instagram or Slack) you should follow these instructions to login identified users to Intercom only.
-
 
 ```javascript
 loginUserWithUserAttributes: function(options, success, error)
@@ -93,7 +90,6 @@ As well as the `email` and `userId` fields, you can populate the other user attr
 1. First, you'll need to log your user into Intercom when your app launches, like this:
 
 
-
 ```javascript
 onDeviceReady: function() {
     var onSuccess = function() {
@@ -109,7 +105,6 @@ onDeviceReady: function() {
 If you don't have a unique userId to use here, you can create an object and just set the `email` property. Similarly, if you have both a userId and an email, you can set both the `userId` and `email` attributes of the object.
 
 1. You'll also need to log your users into Intercom anywhere they login to your app:
-
 
 
 ```javascript
@@ -138,7 +133,6 @@ If you have an app with both unidentified and identified users (like Google Maps
 1. First, you'll need to log your users into Intercom when your app launches, like this:
 
 
-
 ```javascript
 onDeviceReady: function() {
      var onSuccess = function() {
@@ -160,7 +154,6 @@ If you don't have a unique userId to use here, you can create an object and just
 1. You'll also need to log your users into Intercom anywhere they login to your app:
 
 
-
 ```javascript
 successfulLogin: function() {
     var onSuccess = function() {
@@ -180,7 +173,6 @@ You should only log out an identified user. Logging out an unidentified user wil
 
 When users want to log out of your app simply call:
 
-
 ```javascript
 logout: function() {
     intercom.logout();
@@ -188,7 +180,6 @@ logout: function() {
 ```
 
 ## Update a user
-
 
 ```javascript
 updateUser: function(attributes, success, error)
@@ -209,7 +200,6 @@ You can send any data you like to Intercom. Typically our customers see a lot of
 
 You can send any data you like to Intercom from standard user attributes that are common to all Intercom users to custom user attributes that are unique to your app.
 
-
 ```javascript
     var onSuccess = function() {
         console.log('Successfully updated user!');
@@ -222,7 +212,6 @@ You can send any data you like to Intercom from standard user attributes that ar
 ```
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by setting the `customAttributes` on the attributes object.
-
 
 ```javascript
     var onSuccess = function() {
@@ -244,7 +233,6 @@ Typically our customers see a lot of value in sending custom data that relates t
 Custom attributes must be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas) before they can be updated.
 
 You can also set company data by setting an array of company objects on the user attributes object, like:
-
 
 ```javascript
 {
@@ -275,7 +263,6 @@ ID required for Company objects
 
 ## Submit an event
 
-
 ```javascript
 logEvent: function(eventName, metaData, success, error)
 ```
@@ -292,7 +279,6 @@ logEvent: function(eventName, metaData, success, error)
 
 You can [log events in Intercom](https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Data-Events/data_event/) that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
 
-
 ```javascript
 var eventMetaData = {
    "order_date":1392036272,
@@ -306,7 +292,6 @@ intercom.logEvent("order-item", eventMetaData), {}, {});
 ```
 
 ## Present Intercom Spaces
-
 
 ```javascript
 present: function(success, error)
@@ -326,13 +311,11 @@ Spaces are different areas of the messenger that you can open directly. Intercom
 
 These spaces can be presented using:
 
-
 ```javascript
  presentSpace: function(space, success, error)
 ```
 
 ### Usage
-
 
 ```javascript
 //Present Help Center
@@ -358,7 +341,6 @@ There are various `IntercomContent` that you can present. The available types ar
 
 Content can be presented using:
 
-
 ```javascript
  presentContent: function(content, success, error)
 ```
@@ -366,7 +348,6 @@ Content can be presented using:
 ### Usage
 
 You create and present an Intercom Content object by passing the content's Id to the respective function.
-
 
 ```javascript
 //Present a carousel
@@ -406,13 +387,11 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 If you'd like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```javascript
 intercom.setLauncherVisibility('VISIBLE');
 ```
 
 If you want to set the bottom padding for the Messenger, which dictates how far from the bottom of the screen the default launcher and in-app messages will appear, you can call:
-
 
 ```javascript
 intercom.setBottomPadding(20);
@@ -426,13 +405,11 @@ However, if you'd like the Messenger to open from another location in your mobil
 
 If you have a custom launcher, you can call:
 
-
 ```javascript
 intercom.present()
 ```
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
-
 
 ```javascript
 intercom.presentMessageComposer("Message")
@@ -446,7 +423,6 @@ Now you can show how many unread conversations your user has on your custom laun
 
 Just grab the current count with this method:
 
-
 ```
 var numberOfUnreadConversations = intercom.unreadConversationCount()
 ```
@@ -454,7 +430,6 @@ var numberOfUnreadConversations = intercom.unreadConversationCount()
 ## Temporarily hide notifications
 
 You can prevent in app messages from popping up in certain parts of your app, by calling:
-
 
 ```javascript
 intercom.setInAppMessageVisibility('GONE');
@@ -464,7 +439,6 @@ Mobile Carousels and Surveys Visibility
 The method `setInAppMessageVisibility` does not apply to Mobile Carousels or Surveys. They will always be displayed.
 
 You can hide any Intercom screen in your app, by calling:
-
 
 ```javascript
 intercom.hideIntercom();

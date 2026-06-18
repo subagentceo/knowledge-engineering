@@ -10,6 +10,6 @@
     "https://workos.com/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 0,
   "llms_txt": "https://workos.com/docs/llms.txt"
 }

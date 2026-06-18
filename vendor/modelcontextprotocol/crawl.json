@@ -10,7 +10,9 @@
     "https://modelcontextprotocol.io/"
   ],
   "deny_prefixes": [],
-  "page_cap": 120,
-  "sitemap_xml_sources": ["https://modelcontextprotocol.io/sitemap.xml"],
+  "page_cap": 0,
+  "sitemap_xml_sources": [
+    "https://modelcontextprotocol.io/sitemap.xml"
+  ],
   "llms_txt": "https://modelcontextprotocol.io/llms.txt"
 }

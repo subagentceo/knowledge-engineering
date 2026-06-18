@@ -19,8 +19,8 @@ WorkOS makes use of Cloudflare to ensure security and reliability of all operati
 - \[ ] [Test the end-to-end SSO](https://workos.com/docs/sso/test-sso) experience in your Staging environment.
 - \[ ] Unlock your Production environment by adding your billing information
   > Only enterprise connections in your Production environment will be charged. OAuth connections in Production will be free.
-- \[ ] Set your Production Client’s ID and API Key as environment variables
-- \[ ] Secure your Production Project’s API key
+- \[ ] Set your Production Client's ID and API Key as environment variables
+- \[ ] Secure your Production Project's API key
 - \[ ] Configure production redirect URI(s) for your application. Verify the default redirect URI is correct
 - \[ ] Ensure that your application can receive redirects from WorkOS.
   Depending on your network architecture, you may need to allowlist incoming redirect traffic from `api.workos.com`.
@@ -30,13 +30,13 @@ WorkOS makes use of Cloudflare to ensure security and reliability of all operati
 
 ### How should an application handle the first time a user authenticates using WorkOS?
 
-If a user is authenticating to your application for the first time via SSO and doesn’t have an account, you can implement just-in-time provisioning to create a user when authentication is complete.
+If a user is authenticating to your application for the first time via SSO and doesn't have an account, you can implement just-in-time provisioning to create a user when authentication is complete.
 
 You can also leverage [Directory Sync](https://workos.com/docs/directory-sync) to pre-provision users with API endpoints or webhooks. In this case, the user will already be created in your application when they authenticate for the first time.
 
 ### Can we add SSO authentication for a current user in an application?
 
-If a user is authenticating to your application via SSO, but already has an account (with username/password for example), you can “upgrade” them to SSO. Usually the emails are the same for both methods of authentication, so you can match on email address. Once SSO via WorkOS is enabled, you can restrict users to sign in with only SSO.
+If a user is authenticating to your application via SSO, but already has an account (with username/password for example), you can "upgrade" them to SSO. Usually the emails are the same for both methods of authentication, so you can match on email address. Once SSO via WorkOS is enabled, you can restrict users to sign in with only SSO.
 
 ### How does WorkOS manage user attributes from an identity provider?
 
@@ -44,9 +44,9 @@ WorkOS normalizes user attributes so you can expect known values such as `id`, `
 
 ### Is the user attribute mapping configurable in WorkOS?
 
-Yes. For example, let’s say the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` attribute contains the user email rather than the `surname` as the attribute name suggests. In these edge cases, WorkOS will identify any attributes that are misconfigured and recommend correct mapping in the “Attribute Mapper“ section of the “Connection info” page.
+Yes. For example, let's say the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` attribute contains the user email rather than the `surname` as the attribute name suggests. In these edge cases, WorkOS will identify any attributes that are misconfigured and recommend correct mapping in the "Attribute Mapper" section of the "Connection info" page.
 
-### What does the “Allow Profiles Outside Organization” option do?
+### What does the "Allow Profiles Outside Organization" option do?
 
 By default, WorkOS restricts user profiles for SAML Connections to profiles that have email domains that are in the set of [User Email Domains](https://workos.com/docs/reference/domain-verification) on the Organization.
 
@@ -54,7 +54,7 @@ Enabling this option removes this restriction and allows user profiles with any 
 
 If this option is enabled, your code can not exclusively trust the returned `email` attribute on user profiles to be a verified email address. Instead, you must use the `organization_id` or `connection_id` in order to verify that the profile belongs to whom it claims.
 
-### What does “There are 0 profiles awaiting reconciliation” refer to?
+### What does "There are 0 profiles awaiting reconciliation" refer to?
 
 This refers to the number of user profiles that have inconsistent attribute mappings, and that need to be updated in order to successfully authenticate.
 

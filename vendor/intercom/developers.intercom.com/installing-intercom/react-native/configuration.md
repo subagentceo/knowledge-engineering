@@ -8,7 +8,6 @@ You can send any data you like to Intercom from standard user attributes that ar
 
 Standard user attributes can be updated by calling:
 
-
 ```javascript
 Intercom.updateUser({
   email: 'bob@example.com',
@@ -23,7 +22,6 @@ Intercom.updateUser({
 
 Typically our customers see a lot of value in sending custom data that relates to customer development, such as price plan, value of purchases, etc. Custom user attributes must first be created in Intercom using one of the methods described [here](https://www.intercom.com/help/en/articles/179-create-and-track-custom-data-attributes-cdas). They can then be modified by passing in customAttributes object to `updateUser`:
 
-
 ```javascript
 Intercom.updateUser({
   customAttributes: {
@@ -35,7 +33,6 @@ Intercom.updateUser({
 ```
 
 You can also set company data on your user with the Company object, like:
-
 
 ```javascript
 Intercom.updateUser({
@@ -63,7 +60,6 @@ First, create your authentication keys in your [Intercom workspace settings](htt
 
 Then, call `setAuthTokens()` after user login with your tokens:
 
-
 ```javascript
 Intercom.setAuthTokens({
   security_token: "your_token_here"
@@ -71,7 +67,6 @@ Intercom.setAuthTokens({
 ```
 
 You can provide multiple tokens at once:
-
 
 ```javascript
 Intercom.setAuthTokens({
@@ -83,7 +78,6 @@ Intercom.setAuthTokens({
 ## Submit an event
 
 You can log [events in Intercom](https://developers.intercom.com/intercom-api-reference/reference/event-model) that record what users do in your app and when they do it. For example, you could record the item a user ordered from your mobile app, and when they ordered it.
-
 
 ```javascript
 Intercom.logEvent('order-item', {itemId:'item-1', orderDate:"1392036272"})
@@ -101,13 +95,11 @@ We definitely recommend that you customize the Intercom Messenger so that it fee
 
 If you’d like the standard launcher to appear on the bottom right-hand side of your screen, just call:
 
-
 ```javascript
 Intercom.setLauncherVisibility(Visibility.VISIBLE)
 ```
 
 If you want to set the bottom padding for the Messenger, which dictates how far from the bottom of the screen the default launcher and in-app messages will appear, you can call:
-
 
 ```javascript
 Intercom.setBottomPadding(120)
@@ -121,13 +113,11 @@ However, if you’d like the Messenger to open from another location in your mob
 
 If you have a custom launcher, you can call `Intercom.present();`
 
-
 ```javascript
 <Button title="Open Intercom Messenger" onPress={()=>{Intercom.present();}}/>
 ```
 
 If you want to open the Messenger to the composer screen with message field pre-populated you can call:
-
 
 ```javascript
 Intercom.presentMessageComposer("Message")
@@ -137,13 +127,11 @@ Intercom.presentMessageComposer("Message")
 
 Grab the current count with this method:
 
-
 ```javascript
 Intercom.getUnreadConversationCount()
 ```
 
 Then, start listening for updates using:
-
 
 ```javascript
 import { NativeEventEmitter, NativeModules } from 'react-native';
@@ -172,7 +160,6 @@ useEffect(() => {
 
 You can prevent in app messages from popping up in certain parts of your app, by calling:
 
-
 ```javascript
 Intercom.setInAppMessageVisibility(Visibility.GONE)
 ```
@@ -183,7 +170,6 @@ The method *setInAppMessageVisibility* does not apply to Mobile Carousels. They 
 
 You can hide any Intercom screen in your app, by calling:
 
-
 ```javascript
 Intercom.hideIntercom();
 ```
@@ -191,7 +177,6 @@ Intercom.hideIntercom();
 ## Present a Carousel Programmatically
 
 To present a Carousel, pass in a carouselId from your Intercom workspace to the following method:
-
 
 ```javascript
 let carouselContent = IntercomContent.carouselWithCarouselId(carouselId)
@@ -205,7 +190,6 @@ A carousel must be ‘live’ to be used in this feature. If it is in a draft or
 ## Present a Survey Programmatically
 
 To present a Survey, pass in a surveyId from your Intercom workspace to the following method:
-
 
 ```javascript
 let surveyContent = IntercomContent.surveyWithSurveyId(surveyId)

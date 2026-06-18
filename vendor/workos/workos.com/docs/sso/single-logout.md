@@ -9,7 +9,7 @@ With an Relying-Party-initiated (RP-initiated) logout, a user is logged out of y
 logged into via the identity provider. This is achieved by redirecting the user to the [Logout Redirect](https://workos.com/docs/reference/sso/logout/redirect) endpoint.
 
 Before redirecting the user, you need to generate a logout token by calling the
-[Logout Authorize](https://workos.com/docs/reference/sso/logout/authorize) endpoint with the user’s profile ID which can be obtained
+[Logout Authorize](https://workos.com/docs/reference/sso/logout/authorize) endpoint with the user's profile ID which can be obtained
 from the [User Profile](https://workos.com/docs/reference/sso/profile/get-profile-and-token) endpoint.
 
 Next, pass the logout token as a query parameter to the [Logout Redirect](https://workos.com/docs/reference/sso/logout/redirect) endpoint.

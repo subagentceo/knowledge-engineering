@@ -1,0 +1,137 @@
+# Spec: Group
+
+The Group API call is how you associate an individual user with a group, such as a company, organization, account, project, or team.
+
+The Group call enables you to identify what account or organization your users are part of. There are two IDs that are relevant in a Group call: the `userId`, which belongs and refers to the user, and the `groupId`, which belongs and refers to the specific group. A user can be in more than one group which would mean different `groupId`s, but the user will only have one `userId` that is associated to each of the different groups. Keep in mind that not all platforms support multiple groups for a single user.
+
+[Segment University: The Segment Methods](https://university.segment.com/introduction-to-segment/324252?reg=1\&referrer=docs)
+
+Check out our high-level overview of these APIs in Segment University. (Must be logged in to access.)
+
+In addition to the `groupId`, which is how you'd identify the specific group or company, the group method receives traits that are specific to the group, for example the industry or number of employees, that belong to that specific account. Like the traits of an Identify call, you can update these when you call the same trait with a different value.
+
+When using the Group call, it's helpful if you have accounts with multiple users.
+
+> \[!NOTE]
+>
+> If you're using a device-mode destination that has a method for removing users from a group, you can invoke it directly on the client side [using Segment's ready() method](/docs/segment/connections/sources/catalog/libraries/website/javascript/#ready).
+>
+> For cloud-mode destinations, you can [create a Destination Function](/docs/segment/connections/functions/destination-functions/) to remove users from a group.
+
+Here's the payload of a typical Group call, with most [common fields](/docs/segment/connections/spec/common/) removed:
+
+```json
+{
+  "type": "group",
+  "groupId": "0e8c78ea9d97a7b8185e8632",
+  "traits": {
+    "name": "Initech",
+    "industry": "Technology",
+    "employees": 329,
+    "plan": "enterprise",
+    "total billed": 830
+  }
+}
+```
+
+And here's the corresponding JavaScript event that would generate the above payload:
+
+```js
+analytics.group("0e8c78ea9d97a7b8185e8632", {
+  name: "Initech",
+  industry: "Technology",
+  employees: 329,
+  plan: "enterprise",
+  "total billed": 830
+});
+```
+
+> \[!NOTE]
+>
+> Based on the library you use, the syntax in the examples might be different. You can find library-specific documentation on the [Sources Overview](/docs/segment/connections/sources/) page.
+
+Beyond the common fields, the Group call takes the following fields:
+
+| Field         |                                                      | Type   | Description                                                                                                                                                                                                                                                             |
+| ------------- | ---------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `groupId`     | *required*                                           | String | A unique identifier for the group in your database.<br /><br />  See the [Group ID field docs](/docs/segment/connections/spec/group#group-id) for more detail.<br />                                                                                                    |
+| `traits`      | *optional*                                           | Object | Free-form dictionary of traits of the group, like `email` or `name`<br /><br />  See the [Traits field docs](/docs/segment/connections/spec/group#traits) for a list of reserved trait names.<br />                                                                     |
+| `userId`      | *required; optional if `anonymousID` is set instead* | String | Unique identifier for the user in your database.<br /><br />  A `userId` or an `anonymousId` is required.<br /><br />  See the [Identities docs](/docs/segment/connections/spec/identify#identities) for more details.<br />                                            |
+| `anonymousId` | *required; optional if `userID` is set instead*      | String | A pseudo-unique substitute for a User ID, for cases when you don't have an absolutely unique identifier. A `userId` or an `anonymousId` is required.<br /><br />  See the [Identities docs](/docs/segment/connections/spec/identify#identities) for more details.<br /> |
+
+## Example
+
+Here's a complete example of a Group call:
+
+```js
+{
+  "anonymousId": "507f191e810c19729de860ea",
+  "channel": "browser",
+  "context": {
+    "ip": "8.8.8.8",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36"
+  },
+  "integrations": {
+    "All": true,
+    "Mixpanel": false,
+    "Salesforce": false
+  },
+  "messageId": "022bb90c-bbac-11e4-8dfc-aa07a5b093db",
+  "receivedAt": "2015-02-23T22:28:55.387Z",
+  "sentAt": "2015-02-23T22:28:55.111Z",
+  "timestamp": "2015-02-23T22:28:55.111Z",
+  "traits": {
+    "name": "Initech",
+    "industry": "Technology",
+    "employees": 329,
+    "plan": "enterprise",
+    "total billed": 830
+  },
+  "type": "group",
+  "userId": "97980cfea0067",
+  "groupId": "0e8c78ea9d97a7b8185e8632",
+  "version": "1.1"
+}
+```
+
+## Identities
+
+The User ID is a unique identifier for the user performing the actions. Check out the [User ID docs](/docs/segment/connections/spec/identify#user-id) for more detail.
+
+The Anonymous ID can be any pseudo-unique identifier, for cases where you don't know who the user is, but you still want to tie them to an event. Check out the [Anonymous ID docs](/docs/segment/connections/spec/identify#anonymous-id) for more detail.
+
+**Note: In our browser and mobile libraries a User ID is automatically added** from the state stored by a previous [`identify`](/docs/segment/connections/spec/identify/) call, so you do not need to add it yourself. They will also automatically handle Anonymous IDs under the covers.
+
+## Group ID
+
+A Group ID is the unique identifier which you recognize a group by in your own database. For example, if you're using MongoDB, your Group ID might look something like `507f191e810c19729de860ea`.
+
+## Traits
+
+Traits are pieces of information you know about a group that are passed along with the Group call, like `employees` or `website`.
+
+Segment has reserved some traits that have semantic meanings for groups, and handles them in special ways. You should **only use reserved traits for their intended meaning**.
+
+The following are the reserved traits Segment has standardized:
+
+| **Trait**     | **Type** | **Description**                                                                                                                   |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `address`     | Object   | Street address of a group. This should be a dictionary containing optional `city`, `country`, `postalCode`, `state`, or `street`. |
+| `avatar`      | String   | URL to an avatar image for the group.                                                                                             |
+| `createdAt`   | Date     | Date the group's account was first created. Segment recommends [ISO-8601](http://en.wikipedia.org/wiki/ISO_8601) date strings.    |
+| `description` | String   | Description of the group, like their personal bio.                                                                                |
+| `email`       | String   | Email address of group.                                                                                                           |
+| `employees`   | String   | Number of employees of a group, typically used for companies.                                                                     |
+| `id`          | String   | Unique ID in your database for a group.                                                                                           |
+| `industry`    | String   | Industry a user works in, or a group is part of.                                                                                  |
+| `name`        | String   | Name of a group.                                                                                                                  |
+| `phone`       | String   | Phone number of a group.                                                                                                          |
+| `website`     | String   | Website of a group.                                                                                                               |
+| `plan`        | String   | Plan that a group is in.                                                                                                          |
+
+**Note:** You might be used to some destinations recognizing special properties differently. For example, Mixpanel has a special `track_charges` method for accepting revenue. **Segment handles all of the destination-specific conversions for you automatically.**
+
+If you pass a reserved trait, `on null` will throw a `NullPointerException`.
+You may continue to set values inside the trait. If you do so, this would work the same as the rules do with NoSQL data. If you had set a value previously for a user and on the next request you sent the same value of that property as `on null`, it will be replaced by `null`, but if you do not send that property, the original value is persisted.
+
+**Traits are case-insensitive**. In JavaScript you can match the rest of your camel-case code by sending `createdAt`, and in Ruby you can match your snake-case code by sending `created_at`. That way, the API never seems alien to your code base.

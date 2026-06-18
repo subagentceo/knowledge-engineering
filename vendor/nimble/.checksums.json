@@ -2,341 +2,616 @@
   "https://docs.nimbleway.com/api-reference/agents/agent-async.md": {
     "sha256": "23355fca015d8d68d81c400f0d3c02dee4811c76f3d2e587050af34bf0c203d1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/agent-batch.md": {
     "sha256": "17a314ff2bb6fccb55c4e183286798ed009aed8533df468bbf3ec4547fd67494",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/agent-run.md": {
     "sha256": "40d1d035ee74ffd09975f4c0f6384df2a2ca0c82787b81bfb537f1ef8aacb2be",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/generate-agent.md": {
     "sha256": "2fcdf2f8d059aff40daf38afa4c75b670f6daa9c31f7a4c31719959bbacbfcea",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/get-agent-details.md": {
     "sha256": "f4e67760752e3100c751e4ff7de6bad85d5579e923a0ba25270caa3512a3fe6a",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/get-generation.md": {
     "sha256": "ab5515d92d6627e4b51e44d69da442e5d63eca69f6630fe6d1d95ae8d232f63d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/agents/list-agents.md": {
     "sha256": "9ae5dee97fdc7436f6ef472083ca5aaf3fde61b43d271f6ac8d846d4d35f8ae0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/crawl/cancel-crawl.md": {
     "sha256": "c83b3adb5e66219ebdc435139fb02b272f4e9c53ce53f56a6a9e9e25a9e335ef",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/crawl/crawl-by-id.md": {
     "sha256": "58622e8606e352c14fe433a53a1fd144ea1bed00fb5935e06b52d1804ad177da",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/crawl/create-crawl.md": {
     "sha256": "15a26292b9854ed342b9c46d12a2f0141cd97bb0557965d2b7436b4f628f7286",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/crawl/list-crawls.md": {
     "sha256": "609c94f8eb83123593a37c90da5ed354c5a009f2a47cb4187839da48726e5b8d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/domain-knowledge/get-driver.md": {
     "sha256": "3528dd73ff29676175b6280268dc437e73a87f59d54ad6a064b5b990e875f055",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/extract/extract-async.md": {
     "sha256": "6d0e6cf5fde7cbb6dd3d6698052b757bf114355b9e9cd43b0ddfda3194f7951d",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/extract/extract-batch.md": {
     "sha256": "44cd33a49a8ce20205ef93c1199742f623f1f262a1272ad172140c5d2a7dec76",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:54 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/extract/extract.md": {
     "sha256": "b2165de86489caf45c259339a4b3060def65170e8aa577cb30976075c9443396",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/introduction.md": {
     "sha256": "8adfbeef5c4bc1ea5c75b944ee5cd3c0abaa664fd709a1911597729339645472",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/map/map.md": {
     "sha256": "2c967ab419a96b436a57e9ed294dcceca5f4d98636382b85c49d534bdb7cead8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:25 GMT"
   },
   "https://docs.nimbleway.com/api-reference/media/media-download-async.md": {
     "sha256": "4358b919fa40a8319420a9999013e1344e8a27fe8eacd252a82fd9fe24d5e3f3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/media/media-download.md": {
     "sha256": "9c1de307bee3bfed0cf6c0eb7e8217cf3ed825fbc868bae9db76e864c8f5986b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
+  },
+  "https://docs.nimbleway.com/api-reference/openapi.json": {
+    "sha256": "c2e0b6fadd002f73225dee5fb92ed819e9d198c3c0d3f81ceb8fe06bb709a639",
+    "lastStatus": 200,
+    "etag": "\"ab36843dbec628f415662ef399c240b0\"",
+    "lastModified": "Wed, 17 Jun 2026 18:00:03 GMT"
   },
   "https://docs.nimbleway.com/api-reference/search/search.md": {
     "sha256": "7283b6b740e02980d6a9603c7df732c18a4131f1abac72628536317b2c796471",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/serp/serp-async.md": {
     "sha256": "02c53c471f7017da87fbd9ca90a08fe4e91b57c4db036773c895b5d6d815e823",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/serp/serp-batch.md": {
     "sha256": "d0ff2cd2d5617839fc1895c570529ae40adb74c763cc53c66bea2a28825b60b3",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/serp/serp.md": {
     "sha256": "24e066db4ec7a77e5a2c6c0e06c7a13656c188c7d39e3497c5aab0f099b99fb8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/get-batch-details.md": {
     "sha256": "9c4bb30c545d126242acc101383864801ae7899a006bdbfd29401c0f2d128b4b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/get-batch-progress.md": {
     "sha256": "9f8252791539838f0731b6573c70abfb4d06f55871f66a7c53cac23906bcf491",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/list-batches.md": {
     "sha256": "c2f89b059ca8c0c5a60a437b7b431851de1701d3b68ff07e3ec6b08c9975a30b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/list-tasks.md": {
     "sha256": "39c617486e45cfab74296ae883dfebca06cb9e367ffe1a649a8876606043cffc",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/task-result.md": {
     "sha256": "ebf38f4cdb9de33170a3572e0a67cf7042a48f8579491a7aa1c46639872fe159",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/api-reference/tasks/task-status.md": {
     "sha256": "8bab8c21f22c5c1e93d52439b9e87c46b2bd5bb0f16fac689a79b52d9d91a026",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/changelog/release-notes.md": {
     "sha256": "e46f7ebc4016ceeb47d200e3d8547a6df70d7c1984e60d5378f03da56443ef80",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/guides/build-first-agent-tutorial.md": {
     "sha256": "1d1a9e2898c0fddf09aa94736c2a3e44062ff5965b319ea1d87f37aa2e0e92cb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/home.md": {
     "sha256": "05b32707bff7ac0d50b5512354c68e7c3f3c6fe64b0c88ae5628047d4ffc95ba",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/plugin-installation.md": {
     "sha256": "19666dfb17c01ee53dd1f4c1c11f1e008fcd3371a218d2128f52c68c7f96d0ed",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/business-research.md": {
     "sha256": "c451523ad751147e2b0ff54421a52b9b761e0f55bd44979650437472bdce63d8",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/marketing.md": {
     "sha256": "ab8bee14d6b62a1d568fb38c96d8f6e823e27e5bc9e5d16d9a502c4986e5fe75",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:26 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/overview.md": {
     "sha256": "bb60288eacfda2271ba0ec0628024550605c378fe5ec381e17f74cb542c3d466",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/productivity.md": {
     "sha256": "91990f9b4dba34c195f53b429c6816474a419761eae7a7a7c08511b30e932e84",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/seo.md": {
     "sha256": "b6e3c38ab1eabe78f93fa2782073f49d78529ad13b88310dc543fb9a2ad4362c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-agent-builder.md": {
     "sha256": "3f3e2fc2b922a389349cf88e7851a9fb9f99a955048060e6f0e884f52f066b38",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:55 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-web-expert.md": {
     "sha256": "4f1fe58d2804060a851e64bdc83dbbfe3fc26781d9baab947b6e15007bdbeaa7",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/anthropic/claude-connectors.md": {
     "sha256": "f27bb2f529e80f5cd7c254de5b5708cc4c687dda555d6d5eb91d0c9b2b90d9fb",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/anthropic/sdk.md": {
     "sha256": "a9340d572789226d0f23626b81c1c39bbd2730adf5d1b0286a19457d353b2ae1",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/google-adk.md": {
     "sha256": "b39ae138070b1cce9495ffe92a5a4375ca77ef76592c7ae22aac681ad4ed81b4",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/langchain.md": {
     "sha256": "83801e5f491c21c3aaee804449f94a9472c7d1b8a8ea96ca4251622d001d4ac9",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/connectors/omnigent.md": {
+    "sha256": "6dbbcfcb95f8ba52fc3d7dc7b98c28d70ec99ed7f53edff2697f3e910a230064",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/openai.md": {
     "sha256": "d6dc03fe486bb335e65a6a81d1e51acb902de8d8d8e26b97c8c49ef3e6d6f82c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/connectors/smithery.md": {
     "sha256": "b048de1b39036810baa2cd86d395136a651fc504abadc01c16f1a8d914353f81",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/connectors/vercel-ai-sdk.md": {
+    "sha256": "da99adf481cc693fe1c76760b96e4c869fb0d32c3147a755a2cd0614e8727249",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md": {
     "sha256": "46097934140cd43136f29ce58363773cae634ac25c1efb7b2cd0c0d91fc8a167",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md": {
     "sha256": "3a8eb879f93a813f30250f346af69af3406829d3059ae434d0d2102029cf7908",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/databricks.md": {
-    "sha256": "4b01a8b9b1d5ca30c4c630f64e750c5da324832da5c2f91d2b013b7cec619700",
+    "sha256": "9b3766d663b4ed1c088d549825a5df50919848fc6ce49ecc0d9a2c760734c85b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/databricks/data-enrichment.md": {
-    "sha256": "ed62c784552d857f697453ad136e0f88ab9acce3140436276eedb1ac68986c44",
+    "sha256": "362e9796972c57ccdd66f97ff444c13a1e152b4373acf9a3b715f2076e89fa02",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/partnerships/databricks/genie-code.md": {
+    "sha256": "dc6647ff80bd971ca29132a7685499090002ae21b1336de5597da789c36d9cf9",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/databricks/genie.md": {
     "sha256": "11a032c795dca70405d4215b13eec93fe13beaeac88028b34aa41b3ca29f0b55",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/databricks/marketplace-mcp.md": {
     "sha256": "54bf418525598a0b175c1f5b54fedd4d8070a5f161af3bcc2da4f3d329e5783b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md": {
     "sha256": "1a725fd711195ec3070a1d684ff9f066d9169008eee331b9c0bda6899959c8c0",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/microsoft/copilot-studio.md": {
     "sha256": "9326ff15c4b4f28939fb197c63acc3f316fe6941b1c41b5d84851f79f3bbe643",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:27 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/snowflake.md": {
     "sha256": "b2b7db03b2596cae6677e9ddcb7493c163ca93048d54bc9908be58c4d543fa80",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-agents.md": {
     "sha256": "00a925e5761d6c81513f1cda3525a0e8638aa871a5d95445c10e8b45e5bb5129",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/snowflake/cortex-code.md": {
     "sha256": "b0b87c366947be76d16a73881e3cca1ccdc1a9063ad1ca850d1b28dc633fb58c",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/partnerships/snowflake/data-enrichment.md": {
     "sha256": "37d452ea935badba6283ed0678f7c63d35631f484e931a0323f79eedffa77d81",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md": {
     "sha256": "10dba55dcc181a93f8d45c2df4a3c7415a519120a5d3d8e1c91eae2c720bc22b",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md": {
     "sha256": "1676dc0f208ee6af4f7d62710920801b1bbbab6cb2a37f34c874ab57a1331e12",
     "lastStatus": 200,
-    "lastModified": "Fri, 12 Jun 2026 17:12:56 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md": {
     "sha256": "3541a2e74443646c3fc6a81682a66243c21b2824358d4e16d7a5bfc9b9b098da",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md": {
     "sha256": "1beaac50cfb8f0963163137b8b90196324dbc55e15f38bd5f820ad4aabd10b76",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/ios.md": {
     "sha256": "4043d0be6d98298a774ebe6d3cf7492cbf6da210d61c8b0df9a06668c373b90a",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md": {
     "sha256": "50c343a7609620df70de421511e11f5f3545e7c9c67fae78f9cb0ec5bc43df9d",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:08 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/macos.md": {
     "sha256": "509c98239b8bcb86895c01a263e5c77c2a388614495d1583110d3d014e408b2c",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:08 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md": {
     "sha256": "6fbfc691d575cbc0bc9c4a0e3eeebe8535bd70a6f921f40d5a0a14a27f3fbfd2",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:07 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md": {
     "sha256": "543a191a18cc1536bb1bec4887bd4ff19c82a38b6ea9902a08c2adfd93664da3",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:08 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
   },
   "https://docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md": {
     "sha256": "0d7b8387ed40534121ae6ec112a2a500aa53e2d9f50f9917e71c25cf6eaf5c78",
     "lastStatus": 200,
-    "lastModified": "Fri, 15 May 2026 04:15:08 GMT"
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/puppeteer.md": {
+    "sha256": "9dc7a7231cb5000abb1b0eed079f5e304e716b06a44f230fa4687ffb97a37e66",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/scrapy.md": {
+    "sha256": "30bc92a6f13b749fa93f9ea1dad2de03fa2ad6859ebc98a59598db03e68e0698",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/selenium.md": {
+    "sha256": "7e4f52edb9637e7b3f72c649ff7e233dbf8904ea9c6af630388044d2bab2da9e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/switchyomega.md": {
+    "sha256": "6464344a3b4b5bf0a7d457151929481c31345b548f4807f772ba189ee590b8e3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/vm-login.md": {
+    "sha256": "5a97bb7e0616eae5730622347f509c57e285f0693355b60aa6f0ade5444134eb",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/windows.md": {
+    "sha256": "fbb13d1b896e2e79d33e3fca5ee49eefb15efd9358f607800b1b4c01c79af4d7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/integrations/proxy/overview.md": {
+    "sha256": "8cb069b406a795612ef76cdc91f697c2921cf59ee24b911f57dd44ade0135aff",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/admin/account-management.md": {
+    "sha256": "f8f1dbadb487bdc1ec977a1e5e5ae2e7f1d6924647e2bb8ae7fffc7b95ca39b2",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:28 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/admin/callbacks-and-delivery.md": {
+    "sha256": "0791e05e95159252365e1d866b06e13269419221321ea003972420929a4892d0",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/admin/legacy-docs.md": {
+    "sha256": "958fe29eb7ac1343049306ceae57dbafd483641c3cedb61b6161ef3c65ed875a",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/nimble-sdk/admin/pricing.md": {
+    "sha256": "7b8fd8171dda1394e87c1a263eb320297c44077a6aa31f31d61db06d4e494b66",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/admin/rate-limits.md": {
+    "sha256": "b00cee1e44e13c4fd8f347aa171a5c1e1881ef30b9fdf5027e32c4fe8960c39b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/agentic/agent-creation.md": {
+    "sha256": "0c8afd97bdae7d52cec2cb1c7814029c8a621e06cda7ea43b0e2e42467bfcc77",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/agentic/agent-gallery.md": {
+    "sha256": "77864eab66b6aed2a4dafa335d0ff10faac2b2664dacecf05ebe24af6affc577",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/agentic/agents.md": {
+    "sha256": "fb289e1aa8e39a46dee61164298dd5f472dfcd21cf69cb6534866746b9b4f424",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/agentic/jobs.md": {
+    "sha256": "ea1668727c54db4251e0879ca2af1b2225f258f2e19c5c2aa662d1fd4a1e5b5b",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/agentic/studio.md": {
+    "sha256": "b9ed0da141686abe05c9ac41fd49a5c9ab740f1d405457e27bd6c2c9811083f8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/getting-started/installation.md": {
+    "sha256": "755462fb1c62116a09ad7eb9b966e632cd895cedfc60baa2ae13b4a532407594",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/getting-started/overview.md": {
+    "sha256": "c6037e13be61b01ee7365d5e1ab385d010f1d5e9ba0935ef946c17ef92c5504a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/getting-started/quickstart.md": {
+    "sha256": "43e0a1093424ce3b85d8687db446e8eab90110800d37920b89b284a26c1dd2e5",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/getting-started/sdk-examples.md": {
+    "sha256": "7091f0046a014bc4d1682d2c304800035064df54bf38a3c7814e700e2dfd3e91",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/sdks/cli.md": {
+    "sha256": "228c56b634bb372ee8bacbd675d7f81c15640929863d3e69f71fee262a37dec6",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/sdks/go.md": {
+    "sha256": "1a9993791d4fba3e667ad5106130bc03f1c10d0697331ac1792977144ed8cd74",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/sdks/node.md": {
+    "sha256": "b9077b47c6378092086554750001b361ae29fe635a649ca6a1f302a80dbda838",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:29 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/sdks/python.md": {
+    "sha256": "dff6f166840bb08ebac8118709575b237b3c0d2f0840093e17a574e6a61df967",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/sdks/skills.md": {
+    "sha256": "4fd6d149ec46a78d6b63125ed0190e0bafc76e8bbfddc1ac546395d7a7457def",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/crawl.md": {
+    "sha256": "537e77804445e365d7bc0f8e3dc96cb323379e54d8ea63c84f99c637578704bc",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/domain-knowledge.md": {
+    "sha256": "596a64ad0a5bea6a9cea3ed78bed1ede7d2683641ebcbade77ab60f2e3c814b8",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/advanced-options.md": {
+    "sha256": "4a6e0a7884c43d057390ab7887f1f4802ed437a959ed34908f1d3081f7ccbf60",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/async.md": {
+    "sha256": "aa3d3648e75e7858dea50c08f3ca165c8cb08fd7bfe2a3e6882eb39d9bebc08e",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/browser-actions.md": {
+    "sha256": "82e7395d3807d74400283d4ca009a8e87edb4f26e96e66bde76903862cd5e109",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/formats.md": {
+    "sha256": "81b2a7a27a8064736daa2d42f39c64b2b90da6019e8fb4a127b5971fbb4a22bf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/geo-targeting.md": {
+    "sha256": "74bbf6f1c97bf6e5b74083120dfb2d74b2ccf639fbf7919dbff5fa4a0f731103",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/headers-and-cookies.md": {
+    "sha256": "80579bf6f824cb21faf068b0afc54dc78d2b28f06f2dae58816814f66bd8ff7a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/js-rendering.md": {
+    "sha256": "ee345380d7b5c11d4e76775f02740b12b2420d9a1ff1735902ebe3b9882fabc3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/network-capture.md": {
+    "sha256": "d7e66a8f3e865fd695a97fb58ff29a2d3be5bcfa2a1b005c4d3893184a75b723",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/parsing-schema.md": {
+    "sha256": "51c554317bbe993ec9ea91df52a44c58a4f5019df946470f6044e92212811498",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/stealth-mode.md": {
+    "sha256": "225634c4cedce3345c239debae2ac225c5fc62ce7e112e005e2b5e4c342e8814",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/extract/quickstart.md": {
+    "sha256": "85868a5a5ce6cc223ccd507d8242669b11b8fe0d2234dbdf4adea707fbbe0a92",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/fast-serp.md": {
+    "sha256": "dd2710c5fc80d36223cd232c295d93016134f216b40bdf2c2be24ed84ebb4ed3",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/map.md": {
+    "sha256": "c7cfe964f59dbbff06d62db64a19e3d6582b38cecf7087551a7818a324670caf",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/media.md": {
+    "sha256": "b9c8abc6ee7875f5558ece8fadcccbd1d3ddb7535fab3a6c7cdc77a852ac4b78",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/authentication.md": {
+    "sha256": "37fd3f255fee53709c8636061fcce91860debbda2fca531dff0e3ec2e7205b88",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/geotargeting.md": {
+    "sha256": "c5f3205a825e31c40a08f84163329f32861639dadf7dbb1d77ee6d469b17f091",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/quickstart.md": {
+    "sha256": "52244782397cdbc570b44f50e60f5a015ea747573f1e8eac7bd0f676be921707",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/response-codes.md": {
+    "sha256": "6c94067cae00d5dd5fc5d5fc2f595c69dc7debc67bde074a7b72267d6d3e526d",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/session-control.md": {
+    "sha256": "6625d0525f45208b56a96bb6d61ff167abc4772918fd5e5e530f56cdbcb7e087",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:30 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/unlocker-proxy.md": {
+    "sha256": "e72ae411851c15ae93d955daa0d26e724a8f84c6e1be5781f4a6c4bdb440d5f7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:31 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/search-depth.md": {
+    "sha256": "4cef0d634c7e34673d200a9574cab7b3b03ed7cf62e87d0debeb7d3571d13946",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:31 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/search.md": {
+    "sha256": "c3ff1f5cc04793350df5459e9fbb8d8693f76cf439c3240f12a7208726a6d9e7",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:31 GMT"
+  },
+  "https://docs.nimbleway.com/nimble-sdk/web-tools/serp.md": {
+    "sha256": "9392c341fbd608c897ccbe5995ec13a01968cd13e00b1620f0f0718ffe53bb0a",
+    "lastStatus": 200,
+    "lastModified": "Thu, 18 Jun 2026 01:50:31 GMT"
   }
 }

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,12 +17,12 @@ the composer in real time.
   system's built-in dictation or your Office application's dictation
   feature instead.
 
-Dictation is also available only for organizations using direct Claude
-authentication. It is not supported when Claude for M365 connects through
-a third-party platform such as Amazon Bedrock, Google Cloud Vertex AI,
-Azure AI Foundry, or an LLM gateway. See
-[Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
-for platform support details.
+  Dictation is also available only for organizations using direct Claude
+  authentication. It is not supported when Claude for M365 connects through
+  a third-party platform such as Amazon Bedrock, Google Cloud Vertex AI,
+  Azure AI Foundry, or an LLM gateway. See
+  [Use Claude for M365 with third-party platforms](/office-agents/third-party-platforms)
+  for platform support details.
 </Note>
 
 ## Use dictation

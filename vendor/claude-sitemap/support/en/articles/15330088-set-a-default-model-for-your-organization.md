@@ -42,7 +42,7 @@ The organization default applies to every member. To set it:
 
 4. Click “Save changes.”
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2451362891/589a6514b79728f85a7d6315fd61/79ac3bb9-baa9-4d9e-bf78-7d6dee929a29?expires=1781729100&amp;signature=83fe6e1bcc4c8dbc84d96347c1afbdf9718a47668f5c1a04b444b1da751c4b43&amp;req=diQiF8p4n4lWWPMW1HO4zRmMOavlJHlWjH07H14UT8FuMFrR%2FydEDFkCnMhw%0A5%2B2mfu5pduSoDJN0SD8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2451362891/589a6514b79728f85a7d6315fd61/79ac3bb9-baa9-4d9e-bf78-7d6dee929a29?expires=1781870400&amp;signature=0b66bc5083b760362e2d1beec53c47dfb448a077e05436fc912663de58f6415e&amp;req=diQiF8p4n4lWWPMW3nq%2BgQPUWr%2FqZG9Myyo23yRHS1iKC%2Fe%2Bm%2B%2FnJeDR%2B1aX%0AuGR2PBSfRrP9v%2BBD%2BDCEAA9i0k4%3D%0A)
 
 ---
 
@@ -56,12 +56,12 @@ Custom role defaults let you set different starting models for different teams. 
 
 3. Under **Default model**, select a model. Roles are set to “None selected” unless you choose a specific model.
 
-4. Click “Edit role” to save your changes.
+4. Click “Save role” to save your changes.
 
 A role’s default model takes precedence over the organization default for members assigned to that role.
 
 If a member belongs to multiple groups whose custom roles set different default models, the most capable model will be the default. Capability is determined first by model family (Haiku, Sonnet, Opus), then release date, so more capable model families take precedence, and newer models within the same family take precedence.
 
-**Note:** Custom roles only affect members whose role is set to “Custom roles.” Members with the User, Admin, or Owner roles get the default model from the organization setting, not from custom roles.
+**Note:** Custom roles only affect members whose role is set to “Custom.” Members with the User, Admin, or Owner roles get the default model from the organization setting, not from custom roles.
 
 For details on creating roles and assigning them to groups, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.

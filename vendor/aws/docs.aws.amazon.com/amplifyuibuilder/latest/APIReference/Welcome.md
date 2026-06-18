@@ -11,4 +11,4 @@ You can also use the Amplify Studio visual designer to create UI components and 
 
 The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and documentation for client app development. For more information, see the [Amplify Framework](https://docs.amplify.aws/). For more information about deploying an Amplify application to AWS, see the [Amplify User Guide](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

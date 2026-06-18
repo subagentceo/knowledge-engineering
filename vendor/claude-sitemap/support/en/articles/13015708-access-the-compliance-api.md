@@ -6,7 +6,7 @@ Enterprise plan Primary Owners can enable the Compliance API by navigating to **
 
 Once the Compliance API is enabled, create new compliance access keys by clicking "+ Create key":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1781729100&amp;signature=4b379e435950ec286b032bf52b9d81723ccd778de1c2da672912d86400caaa43&amp;req=dSghEc5%2BnIJfWfMW1HO4zdjcO0k728QSLb9AVN3cSSGxyZCctNrGdiOo8WXm%0AGFxa8tuemxs2js4VIr4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1781748900&amp;signature=b50e299e8d999f3fd443861610a771e524c57280c5f1f1fc53b35a7d3c627f27&amp;req=dSghEc5%2BnIJfWfMW1HO4zdjcO0k73cUaLb9AVN3cSSGJoZGvnuYF8I7ZKRbt%0ASvKB73kK6xCxBZsgrGY%3D%0A)
 
 Creating a compliance access key will allow you to start pulling activity feed events, chat data, and file content programmatically.
 

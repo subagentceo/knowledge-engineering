@@ -19,7 +19,6 @@ In Xcode, go to File -> New -> Target, and choose “Notification Service Extens
 Cocoapods
 In your podfile, add a new target for your Notification Service Extension and add the Intercom pod to that target. Run `pod install` to install the pod to the extension.
 
-
 ```ruby
 target :YourNotificationServiceExtensionTargetName do
   pod 'Intercom'
@@ -69,7 +68,6 @@ In certain circumstances you may want more control of your push notifications. Y
 2. Handle Intercom push notifications manually in `didReceiveNotificationResponse` in your `UNNotificationServiceExtension`:
 
 
-
 ```objectivec
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
     self.contentHandler = contentHandler;
@@ -88,7 +86,6 @@ In certain circumstances you may want more control of your push notifications. Y
     }
 }
 ```
-
 
 ```swift
 override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {

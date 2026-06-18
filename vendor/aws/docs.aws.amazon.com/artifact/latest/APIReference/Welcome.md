@@ -5,4 +5,4 @@
 
 This reference provides descriptions of the low-level AWS Artifact Service API.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

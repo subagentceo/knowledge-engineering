@@ -62,8 +62,15 @@ const EXCEPTIONS: Record<string, VendorException> = {
   },
   cloudflare: {
     skipPopulated: true,
+    skipHeadline: true,
+    allowedSubstrings: ["<script", "<style"],
     reason:
-      "Mirrors developers.cloudflare.com via cloudflare-index-md — most files land as .llms.txt sidecars, not .md. The walk below only counts .md/.mdx so this looks empty; it isn't.",
+      "Mirrors developers.cloudflare.com. Agent-setup pages (claude-code, codex) open with a breadcrumb link before the H1 — vendor-canonical. Turnstile/spin and similar reference pages embed raw HTML code examples inline that survive turndown (intentional upstream content, not extraction noise).",
+  },
+  opentelemetry: {
+    allowedSubstrings: ["<style"],
+    reason:
+      "opentelemetry.io homepage embeds inline <style> blocks for hero background-image responsive variants. Upstream CMS content, not a turndown extraction leak.",
   },
   intercom: {
     skipHeadline: true,

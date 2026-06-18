@@ -12,4 +12,4 @@ To learn more about WorkSpaces Applications, see the following resources:
 +  [Amazon WorkSpaces Applications product page](http://aws.amazon.com/appstream2) 
 +  [Amazon WorkSpaces Applications documentation](http://aws.amazon.com/documentation/appstream2) 
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

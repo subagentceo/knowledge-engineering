@@ -2,14 +2,12 @@
 
 Learn about the supported AI models in GitHub Copilot.
 
-GitHub Copilot supports multiple models, each with different strengths. Some models prioritize speed and cost-efficiency, while others are optimized for accuracy, reasoning, or working with multimodal inputs (like images and code together).
+GitHub Copilot supports multiple AI models, each with different strengths. Some prioritize speed and cost-efficiency, while others are optimized for accuracy, reasoning, or multimodal inputs. The right model depends on your task. For a side-by-side comparison to help you choose, see [AI model comparison](/en/copilot/reference/ai-models/model-comparison).
 
-Depending on your Copilot plan and where you're using it—such as GitHub.com or an IDE—you may have access to different models.
+The models available to you depend on your Copilot plan and where you're using Copilot, such as GitHub.com or an IDE.
 
 > \[!NOTE]
->
-> * Model availability is subject to change. Some models may be replaced or updated over time.
-> * In Visual Studio Code you can add more models than those that are available by default with your Copilot subscription. See [Changing the AI model for GitHub Copilot Chat](/en/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+> Model availability is subject to change. Some models may be replaced or updated over time.
 
 For all of the default AI models, input prompts and output completions run through GitHub Copilot's content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
 
@@ -237,6 +235,9 @@ The following table shows which models are available in each client.
 
 </div>
 
+> \[!NOTE]
+> In Visual Studio Code you can add more models than those that are available by default with your Copilot subscription. See [Changing the AI model for GitHub Copilot Chat](/en/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
+
 ## Minimum IDE versions for recent models
 
 Some Copilot models require minimum versions of supported IDEs or Copilot extensions or plugins. The table below lists the minimum versions known from changelog entries or provided release guidance. This information is tentative and subject to change as model support rolls out. For best results, keep your IDE and Copilot extension or plugin updated to the latest available version.
@@ -325,6 +326,9 @@ The following table shows which AI models are available in each Copilot plan. Fo
 
 [^gpt54nano]: GPT-5.4 nano is currently only available in the Codex Visual Studio Code extension (Copilot Pro+ only) and is not available in Copilot Chat.
 
+> \[!NOTE]
+> If you're an organization or enterprise owner, you can enable or restrict access to specific models for your members. See [Configuring access to AI models in GitHub Copilot](/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models#setup-for-organization-and-enterprise-use).
+
 ## Fallback and long-term support (LTS) models
 
 For more information about fallback and LTS models, see [Base and long-term support (LTS) models](/en/copilot/concepts/fallback-and-lts-models).
@@ -338,7 +342,7 @@ GitHub Copilot offers access to evaluation models.
 > * Testing revealed evaluation models may perform worse than other models on security-related, or other categories of prompts.
 > * Users should always carefully review and validate code, including code security, using a range of models and with a thorough human review before incorporating suggestions into production.
 
-Evaluation models may appear in product with codenames rather than official model or provider names. These models come from, or are fine-tuned by, one or more of the following providers: Microsoft, OpenAI, Anthropic, Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.
+Evaluation models may appear in the product with codenames rather than official model or provider names. These models come from or are fine-tuned by one or more of the following providers: Microsoft, OpenAI, Anthropic, and Google. Data handling for each provider is limited to GitHub's existing agreement with that provider, and evaluation models undergo GitHub and Microsoft testing and verification before release.
 
 Evaluation models may be added, updated, or removed without notice. Availability and rate limits may differ from generally available models.
 
@@ -363,8 +367,6 @@ The following models are currently used as utility models:
 
 ## Next steps
 
-* For task-based guidance on selecting a model, see [AI model comparison](/en/copilot/reference/ai-models/model-comparison).
-* To configure which models are available to you, see [Configuring access to AI models in GitHub Copilot](/en/copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot).
-* To learn how to change your current model, see [Changing the AI model for GitHub Copilot Chat](/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [Changing the AI model for GitHub Copilot inline suggestions](/en/copilot/how-tos/use-ai-models/change-the-completion-model).
+* To get up and running with Copilot, see [Quickstart for GitHub Copilot](/en/copilot/get-started/quickstart).
+* To configure which models are available to you, see [Configuring access to AI models in GitHub Copilot](/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-access-to-ai-models).
 * To learn more about Responsible Use and Responsible AI, see [Copilot Trust Center](https://copilot.github.trust.page/) and [Responsible use of GitHub Copilot features](/en/copilot/responsible-use-of-github-copilot-features).
-* To learn how Copilot Chat serves different AI models, see [Hosting of models for GitHub Copilot](/en/copilot/reference/ai-models/model-hosting).

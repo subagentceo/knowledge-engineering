@@ -19,6 +19,7 @@ The following table shows the default rate limits for each Parallel API product:
 | Tasks/TaskGroups | 2,000 per min | Each POST to `/v1/tasks/runs` or `/v1/tasks/groups/{taskgroup_id}/runs` (creating tasks) |
 | Chat             | 300 per min   | Each POST to `/v1beta/chat/completions`                                                  |
 | FindAll          | 300 per hour  | Each POST to `/v1beta/findall/runs` (creating a generator)                               |
+| Entity Search    | 600 per min   | Each POST to `/v1beta/findall/entity-search`                                             |
 | Monitor          | 300 per min   | Each POST to `/v1alpha/monitors`                                                         |
 
 <Note>

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -46,9 +45,9 @@ To use this flow, email `mcp-review@anthropic.com` with your `client_id` and sec
 
 If your authorization server does **not** expose a `registration_endpoint` (i.e., does not support DCR), you have several options:
 
-- Expose a `registration_endpoint`
-- Support CIMD instead. Claude selects CIMD only when your authorization server metadata advertises **both** `"client_id_metadata_document_supported": true` **and** `"none"` in `token_endpoint_auth_methods_supported` — the second is required because Claude's CIMD client authenticates as a public client at your token endpoint. If either is missing, Claude falls back to DCR. See [lazy authentication](/connectors/building/lazy-authentication#identify-the-client-with-cimd) for a worked CIMD example.
-- Switch to `oauth_anthropic_creds`
+* Expose a `registration_endpoint`
+* Support CIMD instead. Claude selects CIMD only when your authorization server metadata advertises **both** `"client_id_metadata_document_supported": true` **and** `"none"` in `token_endpoint_auth_methods_supported` — the second is required because Claude's CIMD client authenticates as a public client at your token endpoint. If either is missing, Claude falls back to DCR. See [lazy authentication](/connectors/building/lazy-authentication#identify-the-client-with-cimd) for a worked CIMD example.
+* Switch to `oauth_anthropic_creds`
 
 For servers expecting high traffic from the directory, prefer **CIMD or `oauth_anthropic_creds` over DCR**. DCR causes Claude to register a new client on every fresh connection, which can result in very large numbers of registered clients on your authorization server. CIMD and Anthropic-held credentials avoid the registration call entirely.
 
@@ -73,9 +72,9 @@ If your `401` doesn't include a `resource_metadata` pointer, Claude can still in
 
 Whichever way Claude finds the document:
 
-- The protected resource metadata document's `resource` field must match your MCP server URL exactly as the user enters it in Claude, including any path component.
-- The metadata's `authorization_servers` field must list your authorization server's issuer URL. If you list more than one, Claude uses the first entry and does not fall back to later entries — list your primary issuer first.
-- Your authorization server must serve its own discovery metadata — [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414) authorization server metadata or [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) — at its `/.well-known/` paths, and that host must also be reachable from Anthropic's [published egress range](https://platform.claude.com/docs/en/api/ip-addresses). Discovery requests to the authorization server come from the same IP range as requests to your MCP server, so a WAF in front of your identity provider can break the flow even when your MCP server is reachable.
+* The protected resource metadata document's `resource` field must match your MCP server URL exactly as the user enters it in Claude, including any path component.
+* The metadata's `authorization_servers` field must list your authorization server's issuer URL. If you list more than one, Claude uses the first entry and does not fall back to later entries — list your primary issuer first.
+* Your authorization server must serve its own discovery metadata — [RFC 8414](https://www.rfc-editor.org/rfc/rfc8414) authorization server metadata or [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html) — at its `/.well-known/` paths, and that host must also be reachable from Anthropic's [published egress range](https://platform.claude.com/docs/en/api/ip-addresses). Discovery requests to the authorization server come from the same IP range as requests to your MCP server, so a WAF in front of your identity provider can break the flow even when your MCP server is reachable.
 
 If you control both hosts, an alternative is to serve the MCP endpoint and the authorization server behind a single custom domain that can route both `/.well-known/*` and your MCP path.
 
@@ -105,8 +104,8 @@ A Client ID Metadata Document can't prevent loopback impersonation on its own �
 
 Claude refreshes tokens **reactively on a 401 response**, with a proactive refresh up to five minutes before the stored expiry. To avoid refresh failures:
 
-- Return RFC 6749-compliant error codes (`invalid_grant`, not `invalid_request` or a custom code) when a refresh token is no longer valid
-- Rotate refresh tokens for public-client connections. DCR and CIMD register Claude as a public client, and the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#token-theft) adopts OAuth 2.1's requirement to rotate or sender-constrain refresh tokens for public clients. If you rotate, return the new refresh token in the same response that invalidates the old one.
+* Return RFC 6749-compliant error codes (`invalid_grant`, not `invalid_request` or a custom code) when a refresh token is no longer valid
+* Rotate refresh tokens for public-client connections. DCR and CIMD register Claude as a public client, and the [MCP authorization spec](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#token-theft) adopts OAuth 2.1's requirement to rotate or sender-constrain refresh tokens for public clients. If you rotate, return the new refresh token in the same response that invalidates the old one.
 
 Your `/token` endpoint must accept `Content-Type: application/x-www-form-urlencoded` per [RFC 6749 section 4.1.3](https://www.rfc-editor.org/rfc/rfc6749#section-4.1.3). Claude sends both the initial token exchange and refresh requests with this content type. Some web frameworks default to JSON-only body parsing—if your endpoint returns `415 Unsupported Media Type`, register a form-urlencoded body parser. Dynamic client registration (`/register`) uses `application/json` per [RFC 7591 section 3.1](https://www.rfc-editor.org/rfc/rfc7591#section-3.1), so don't assume the same parser works for both.
 
@@ -117,6 +116,12 @@ Directory connectors use a **single shared OAuth application per connector**. Th
 ## Custom connectors
 
 When a user adds a custom connector by URL, the OAuth Client Secret field is **optional**. Supply it only if your authorization server requires confidential-client authentication.
+
+## Endpoint latency
+
+Claude waits up to **10 seconds** for a response from your OAuth discovery, registration, and token endpoints, and up to **30 seconds** for refresh token requests. If no response arrives within that window the flow is treated as a failure, even if your server eventually completes the request. Aim well under these limits; a token endpoint that takes several seconds to respond will produce intermittent connection failures for users.
+
+If your token endpoint depends on slow downstream calls, return the HTTP response headers and body without buffering behind upstream work, and check that any reverse proxy, API gateway, or WAF in front of the endpoint isn't holding the response.
 
 ## Network reference
 

@@ -171,7 +171,7 @@ The following table details the additional data available in the complete [event
 | Data                | ❌ Unsupported      | ✓ Supported |
 
 1. **Retrieve the latest state of the related object**: Use the `fetchRelatedObject()` method to retrieve the latest version of the object associated with the event. For example, if you receive a `v1.billing.meter.error_report_triggered event`, `fetchRelatedObject()` retrieves the meter object that triggered an error report.
-1. **Process the notification immediately**: If the event type and resource ID in the notification are sufficient for your use case, you can process it without making an additional API call.
+2. **Process the notification immediately**: If the event type and resource ID in the notification are sufficient for your use case, you can process it without making an additional API call.
 
 The following example demonstrates how to retrieve the related object definition and additional event payload fields associated when processing a thin event notification:
 

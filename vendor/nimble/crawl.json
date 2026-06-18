@@ -9,6 +9,6 @@
     "https://docs.nimbleway.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 0,
   "llms_txt": "https://docs.nimbleway.com/llms.txt"
 }

@@ -56,7 +56,6 @@ For Messenger capabilities, go to your app in the Developer Hub, navigate to **C
 
 The request payload will have all the data needed for you to understand who is using your app, where they are using it, and how you should respond. There are different request payloads for Messenger capabilities and Inbox capabilities.
 
-
 ```json
 {
   "workspace_id": "abcd123",
@@ -65,7 +64,6 @@ The request payload will have all the data needed for you to understand who is u
   "contact": { /* Object: See link in table for the full model */}
 }
 ```
-
 
 ```json
 {
@@ -94,7 +92,6 @@ When a group conversation is loaded in the inbox, we'll send initialization requ
 
 We expect a [canvas object](/docs/references/preview/canvas-kit/responseobjects/canvas) in response to the request. This is where you'll specify the UI for the first screen of the app using [components](/docs/references/preview/canvas-kit/presentationcomponents/data-table).
 
-
 ```json
 {
   "canvas": {
@@ -118,7 +115,6 @@ The Submit request is triggered when:
 - A component with a [submit action](/docs/references/preview/canvas-kit/actioncomponents/submit-action) is interacted with  Messenger  Inbox
 
 
-
 ```json
 {
   "action": {
@@ -137,7 +133,6 @@ For Messenger capabilities, go to your app in the Developer Hub, navigate to **C
 
 The format of the request we send is similar to the Initialize request but contains the `current_canvas`, `input_values` and the `component_id`. This allows you to understand what component the request came from, see what the value of any input was, action anything in your codebase, and then respond knowing what canvas was previously shown beforehand.
 
-
 ```json
 {
   "workspace_id": "abcd123",
@@ -149,7 +144,6 @@ The format of the request we send is similar to the Initialize request but conta
   "component_id": "id-assigned-by-you"
 }
 ```
-
 
 ```json
 {
@@ -189,7 +183,6 @@ Apps in conversation details can also optionally **insert an app into the conver
 3. You respond with a [canvas object](https://developers.intercom.com/canvas-kit-reference/reference/canvas) with the [components](/docs/references/preview/canvas-kit/responseobjects/content) you want to insert into the conversation reply.
 
 
-
 ```json
 {
   "canvas": { /* A canvas object with content and components */ },
@@ -197,7 +190,6 @@ Apps in conversation details can also optionally **insert an app into the conver
   "event": { "type": "completed" } // Optional. Recorded by Intercom.
 }
 ```
-
 
 ```json
 {
@@ -228,7 +220,6 @@ The first request we send will allow you to know the workspace where this is hap
 
 For subsequent requests whereby an admin has interacted with a component with a submit action, the request payload will contain the same details with `current_canvas`, `input_values` and the `component_id` also present. This allows you to understand what component the request came from, see what the value of any input was, action anything in your codebase, and then respond knowing what canvas was previously shown beforehand.
 
-
 ```json
 {
   "workspace_id": "abcd123",
@@ -236,7 +227,6 @@ For subsequent requests whereby an admin has interacted with a component with a 
   "context": { /* Object: See link in table for the full model */ }
 }
 ```
-
 
 ```json
 {
@@ -267,13 +257,11 @@ We either expect:
 - A [results object](/docs/references/preview/canvas-kit/responseobjects/results) which will end the configuration and trigger the initialize request to be sent. There will be a [card_creation_options object](https://developers.intercom.com/canvas-kit-reference/reference/card-creation-options) in the payload showing your key-value pairs from the results object.
 
 
-
 ```json
 {
   "canvas": { /* A canvas object with content and components */ }
 }
 ```
-
 
 ```json
 {
@@ -287,7 +275,6 @@ Canvases are static by default and require a new request to come through in orde
 
 This works for every Messenger request that you can respond with a [canvas object](https://developers.intercom.com/canvas-kit-reference/reference/canvas) to. Instead of returning the [content object](https://developers.intercom.com/canvas-kit-reference/reference/content) within the canvas object, you should provide a `content_url`  attribute instead with the value being the URL you want us to send a POST request to when someone views the app.
 
-
 ```json
 {
   "canvas": {
@@ -300,7 +287,6 @@ This works for every Messenger request that you can respond with a [canvas objec
 ### Live Canvas Request
 
 We send a POST request to the given `content_url` every time someone views the app.
-
 
 ```json
 {
@@ -323,7 +309,6 @@ We send a POST request to the given `content_url` every time someone views the a
 ### Live Canvas Response
 
 We expect a [content object](https://developers.intercom.com/canvas-kit-reference/reference/content) back in response that contains the components you want to show.
-
 
 ```json
 {
@@ -362,7 +347,6 @@ There are two different types of requests we send for Sheets to work:
 
 When a user interacts with a component which has a [sheet action](/docs/references/preview/canvas-kit/actioncomponents/sheets-action) associated to it, a POST request will be made to the URL within the action.
 
-
 ```json
 {
   "workspace_id": "abcd123",
@@ -373,7 +357,6 @@ When a user interacts with a component which has a [sheet action](/docs/referenc
   "user": { /* Encrypted Object: See link in table for the full model */ }
 }
 ```
-
 
 ```ruby
 # The user object that we send as part of the payload will be encrypted using AES256-CGM and then Base64 encoded.
@@ -397,7 +380,6 @@ ciphertext = decoded_user[GCM_IV_LENGTH, (decoded_user.length - GCM_AUTH_TAG_LEN
 decipher.update(ciphertext) + decipher.final
 => "{\"test\":\"test\"}"
 ```
-
 
 ```php
 /* The user object that we send as part of the payload will be encrypted using AES256-CGM and then Base64 encoded. */
@@ -423,7 +405,6 @@ $decryptedUser = openssl_decrypt($cipherText, 'aes-256-gcm', $key, OPENSSL_RAW_D
 ?>
 ```
 
-
 ```java
 /* The user object that we send as part of the payload will be encrypted using AES256-CGM and then Base64 encoded. */
 
@@ -447,7 +428,6 @@ cipher.init(Cipher.DECRYPT_MODE, key, spec);
 byte[] res = cipher.doFinal(cipherText);
 String decryptedUser = new String(res);
 ```
-
 
 ```javascript
 /* The user object that we send as part of the payload will be encrypted using AES256-CGM and then Base64 encoded. */
@@ -480,7 +460,6 @@ decrypted += decipher.final('utf8');
 
 console.log(decrypted);
 ```
-
 
 ```python
 # The user object that we send as part of the payload will be encrypted using AES256-CGM and then Base64 encoded.
@@ -556,7 +535,6 @@ CSP Configuration Steps
 
 
 
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -579,20 +557,17 @@ CSP Configuration Steps
 </html>
 ```
 
-
 ```javascript
 /* Sets the `title` of the sheet in the Messenger. The Messenger will call this method automatically when the script loads. This will default to `document.title` if not provided. */
 
 INTERCOM_MESSENGER_SHEET_LIBRARY.setTitle(<Insert Title Here>)
 ```
 
-
 ```javascript
 /* Closes the sheet and triggers a POST request to be sent to the Submit Sheet URL so you are aware of the actions end users have taken in the sheet and can update the canvas where the sheet was opened from. See more about the request payload and expected responses in the Submit Sheet sections below. */
 
 INTERCOM_MESSENGER_SHEET_LIBRARY.submitSheet({<Insert Key-Value Pairs Here>})
 ```
-
 
 ```javascript
 /* Closes the sheet immediately. The Messenger will not be aware of any actions the end user may have taken in the sheet and you will not be able to update the canvas where the sheet was opened from. */
@@ -608,7 +583,6 @@ We send you a POST request which will contain contextual data alongside an objec
 
 Where do I enter the URL which will handle the Submit Sheet requests?
 Go to your app in the Developer Hub, navigate to **Configure > Canvas Kit**, and open up the **For users, leads and visitors** dropdown. Select where the app can be added within and scroll down to see the **Sheets flow webhook URL** input field.
-
 
 ```json
 {
@@ -636,7 +610,6 @@ We expect a [canvas object](https://developers.intercom.com/canvas-kit-reference
 
 You can optionally provide an [event object](https://developers.intercom.com/canvas-kit-reference/reference/event) with the attribute `type` given as `completed` to tell us if the app has completed its purpose. For example, an email collector app would be complete when the end-user submits their email address.
 
-
 ```json
 {
   "canvas": { /* A canvas object with content and components */ },
@@ -651,7 +624,6 @@ Each Canvas Kit request is signed by Intercom via an `X-Body-Signature` header. 
 The value is computed by creating a signature using the body of the JSON request and your app's OAuth `client_secret` value, which you can find on the Basic Info page of your app.
 
 It is a hexadecimal (64-byte) value that is computed using the HMAC-SHA256 algorithm as defined in RFC2104.
-
 
 ```bash
 -H X-Body-Signature: 21ff2e149e0fdcac6f947740f6177f6434bda921

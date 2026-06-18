@@ -12,6 +12,6 @@
   "deny_prefixes": [
     "https://docs.stripe.com/api-reference/changelog"
   ],
-  "page_cap": 60,
+  "page_cap": 0,
   "llms_txt": "https://docs.stripe.com/llms.txt"
 }

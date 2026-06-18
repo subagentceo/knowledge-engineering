@@ -15,4 +15,4 @@ Beyond findings, IAM Access Analyzer provides basic and custom policy checks to 
 
 This guide describes the IAM Access Analyzer operations that you can call programmatically. For general information about IAM Access Analyzer, see [Using AWS Identity and Access Management Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) in the **IAM User Guide**.
 
-This document was last published on June 12, 2026. 
+This document was last published on June 17, 2026. 

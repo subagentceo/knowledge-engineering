@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -27,7 +26,7 @@ Crash reports, error stack traces, and performance timings. Contains diagnostic 
 
 ### Non-essential telemetry
 
-Product-usage analytics: feature adoption, session counts, UI interactions. Used to understand how Cowork is used in aggregate. Contains no prompt or response content.
+Product-usage analytics: feature adoption, session counts, UI interactions. Used to understand how Cowork is used in aggregate. Contains no prompt or response content. Also gates the **Send** button in Help → Generate Diagnostic Report; with this disabled, diagnostic bundles can only be saved locally.
 
 | Setting                        | Default | Effect when `true`                     |
 | ------------------------------ | ------- | -------------------------------------- |
@@ -35,7 +34,7 @@ Product-usage analytics: feature adoption, session counts, UI interactions. Used
 
 ### Non-essential services
 
-Cosmetic third-party fetches: favicons for connectors shown in the UI, and the sandboxed iframe that renders interactive artifact previews. Disabling these degrades the UI slightly (generic icons, static artifact previews) but doesn't affect functionality.
+Cosmetic third-party fetches: favicons for connectors shown in the UI, the MCP connector directory lookup, and the sandboxed iframe that renders interactive artifact previews. Disabling these degrades the UI slightly (generic icons, no directory suggestions, static artifact previews) but doesn't affect functionality.
 
 | Setting                       | Default | Effect when `true`                                |
 | ----------------------------- | ------- | ------------------------------------------------- |
@@ -60,7 +59,7 @@ See [Monitoring](/cowork/monitoring) for the event schema and the [`otlp*` keys]
 Cowork on 3P has **two** independent network boundaries:
 
 1. **Perimeter firewall** — your corporate network controls what the device can reach. The hostnames below are what you allowlist here.
-2. **Agent egress allowlist** — the [`coworkEgressAllowedHosts`](/cowork/3p/configuration#sandbox-%26-workspace) key controls what the agent's web-fetch and shell tools can reach. This is independent of, and stricter than, the perimeter.
+2. **Agent egress allowlist** — the [`coworkEgressAllowedHosts`](/cowork/3p/configuration#workspace-restrictions) key controls what the agent's web-fetch and shell tools can reach. This is independent of, and stricter than, the perimeter.
 
 <Note>
   The **Egress Requirements** section of the in-app configuration window is the authoritative source for your deployment. It computes the exact allowlist from your current settings, updates as you change them, and can export the list as a text file for your firewall team. Use the tables below as a static reference; defer to the configuration window for the precise set your build requires.
@@ -93,21 +92,20 @@ The host(s) for your configured provider. These carry conversation content.
     | Host                                                               | Purpose                                                                    |
     | ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
     | `bedrock-runtime.<region>.amazonaws.com`                           | Model inference. Replaced by the host of `inferenceBedrockBaseUrl` if set. |
-    | `bedrock.<region>.amazonaws.com`                                   | Control plane (profile auth only)                                          |
+    | `bedrock.<region>.amazonaws.com`                                   | Control plane (model discovery)                                            |
     | `sts.amazonaws.com`, `sts.<region>.amazonaws.com`                  | STS token exchange (profile auth only)                                     |
     | `portal.sso.<region>.amazonaws.com`, `oidc.<region>.amazonaws.com` | AWS SSO (profile auth only)                                                |
 
-    With `inferenceBedrockBearerToken` set, only the runtime host is required.
-
+    With `inferenceBedrockBearerToken` set, the runtime and control-plane hosts are required.
   </Tab>
 
   <Tab title="Foundry">
-    | Host                               | Purpose         |
-    | ---------------------------------- | --------------- |
-    | `<resource>.services.ai.azure.com` | Model inference |
+    | Host                               | Purpose                                  |
+    | ---------------------------------- | ---------------------------------------- |
+    | `<resource>.services.ai.azure.com` | Model inference                          |
+    | `login.microsoftonline.com`        | Entra ID auth (interactive sign-in only) |
 
     During the Foundry preview, Claude models run on Anthropic's infrastructure. The client connects only to the Azure host above, but conversation content leaves the Azure boundary — see the [Overview](/cowork/3p/overview) for details.
-
   </Tab>
 
   <Tab title="Gateway">
@@ -121,6 +119,7 @@ The host(s) for your configured provider. These carry conversation content.
 
 | Host                  | Purpose                                  |
 | --------------------- | ---------------------------------------- |
+| `claude.ai`           | Update feed                              |
 | `api.anthropic.com`   | Update feed                              |
 | `downloads.claude.ai` | Update binaries (already required above) |
 
@@ -128,9 +127,10 @@ The host(s) for your configured provider. These carry conversation content.
 
 | Host                               | Purpose                                                                                         |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `sentry.io`                        | Crash and error reporting (apex; some firewalls don't match it under `*.sentry.io`)             |
 | `*.sentry.io`                      | Crash and error reporting                                                                       |
 | `*.ingest.us.sentry.io`            | Crash and error reporting (listed separately for firewalls that match wildcards one label deep) |
-| `browser-intake-us5-datadoghq.com` | Performance timing                                                                              |
+| `browser-intake-us5-datadoghq.com` | Performance timing. The configuration window lists additional regional Datadog intake hosts.    |
 
 ### Non-essential telemetry (`disableNonessentialTelemetry: false`)
 
@@ -144,19 +144,19 @@ The host(s) for your configured provider. These carry conversation content.
 
 | Host                                                               | Purpose                     |
 | ------------------------------------------------------------------ | --------------------------- |
-| `api.anthropic.com`                                                | Artifact preview            |
+| `api.anthropic.com`                                                | MCP connector directory     |
 | `www.claudeusercontent.com`                                        | Artifact preview iframe     |
 | `cdnjs.cloudflare.com`, `cdn.jsdelivr.net`, `fonts.googleapis.com` | Artifact preview asset CDNs |
 | `www.google.com`, `*.gstatic.com`                                  | Connector favicons          |
 
 ### Optional features
 
-| Host                                                                                | Required when                               |
-| ----------------------------------------------------------------------------------- | ------------------------------------------- |
-| Host of `otlpEndpoint`                                                              | OpenTelemetry export is configured          |
-| `github.com`, `objects.githubusercontent.com`, `pypi.org`, `files.pythonhosted.org` | Python-based desktop extensions are enabled |
-| Hosts of each entry in `managedMcpServers`                                          | Managed MCP servers are configured          |
-| Hosts in `coworkEgressAllowedHosts`                                                 | Sandbox web access is configured            |
+| Host                                                                                                                                    | Required when                               |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| Host of `otlpEndpoint`                                                                                                                  | OpenTelemetry export is configured          |
+| `github.com`, `objects.githubusercontent.com`, `pypi.org`, `files.pythonhosted.org`                                                     | Python-based desktop extensions are enabled |
+| Hosts of each entry in `managedMcpServers` (server URL, plus `oauth.authorizationServer` and `login.microsoftonline.com` if configured) | Managed MCP servers are configured          |
+| Hosts in `coworkEgressAllowedHosts`                                                                                                     | Sandbox web access is configured            |
 
 ## Disabling all Anthropic-bound connections
 

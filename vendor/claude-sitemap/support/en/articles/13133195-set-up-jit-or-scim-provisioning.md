@@ -32,16 +32,16 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1781729100&amp;signature=770a6fac8ce94bc723d4c9986bf10b8705dbe1014d165088cfc15cbe7f2874f6&amp;req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ6pTD1N3xFMG%2BIEvQSfCI1ncOggWLcolXBzQ%0A7OIRu0NUeqofu7qoJMU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1781870400&amp;signature=0942566679b87b22b5c5e653cddfc2be5e458ddaaeba59580e9210a62bab9e35&amp;req=diMmFM5%2Bm4FWUPMW3nq%2BgfvyY15K8AFCjbw49Ml26XSVwUQ9Yu9aQGB7vI22%0AYtvaMSOT1Q0hJbNQgi7gY5%2BtOD8%3D%0A)
 
 ### Available roles and seat tiers
 
 | **Product**                                       | **Roles**                                                            | **Seat types**           |
 | ------------------------------------------------- | -------------------------------------------------------------------- | ------------------------ |
 | Team plan                                         | Owner, Admin, User                                                   | Premium, Standard        |
-| Seat-based Enterprise plan                        | Owner, Admin, User, Custom roles                                     | Premium, Standard        |
-| Usage-based Enterprise plan (with two seat types) | Owner, Admin, User, Custom roles                                     | Chat, Chat + Claude Code |
-| Usage-based Enterprise plan (single seat type)    | Owner, Admin, User, Custom roles                                     | Enterprise               |
+| Seat-based Enterprise plan                        | Owner, Admin, User, Custom                                           | Premium, Standard        |
+| Usage-based Enterprise plan (with two seat types) | Owner, Admin, User, Custom                                           | Chat, Chat + Claude Code |
+| Usage-based Enterprise plan (single seat type)    | Owner, Admin, User, Custom                                           | Enterprise               |
 | Console                                           | Admin, Developer, Limited Developer, Billing, Claude Code User, User | —                        |
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
@@ -116,13 +116,13 @@ Once your IdP is connected, continue to Step 3.
 
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1781729100&amp;signature=77e00e784cf15ea1ed129195d6a503a586b48d146fe7f93fc884f778c205d1d7&amp;req=diMmFM5%2FmYdcXPMW1HO4zeBEbsTflfNJyb72rapuHpPtNHn6rKpblkPhQCjs%0AGbL2%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1781870400&amp;signature=fc0f072c34641ec4f8ad72c1e89b0661cd780e60303e99d4b63b1cbc4d6cfedc&amp;req=diMmFM5%2FmYdcXPMW3nq%2BgQ152WYnO0P1ZTsgm2WmwAKHIpiYm6I8f33jmuyy%0AnTm3sKjAkqZD%2FvzENlgG%2FE%2FQFCk%3D%0A)
 
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
   1. When using group mappings, you *must* assign all users to a role-based group in order to ensure they’re provisioned an account. Assigning users to seat-tier based groups is optional.
 
-  2. You can map an IdP group to the “Custom roles” role. Members assigned this role have no default permissions—their access is determined entirely by the custom roles assigned to their groups in Claude.
+  2. You can map an IdP group to the “Custom” role. Members assigned this role have no default permissions—their access is determined entirely by the custom roles assigned to their groups in Claude.
 
 6. **For all plans except single-seat Enterprise:** In the **Assign seat tiers to IdP groups** section (optional), click "Add" next to each seat type and select the corresponding group from your IdP. If a user isn't assigned to a seat type group, they will be assigned to the highest available type by default.
 
@@ -168,7 +168,7 @@ Verify you have enough seats purchased and available to add members to your org.
 
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1781729100&amp;signature=23b1504e6006de30b1d5333b9c3ed8965231276686991ecae2d4a7121ae1e7c8&amp;req=diMmFM5%2FmoVdWPMW1HO4zZ9La1yqG8PD5hujYvMis4dTu2cBzD%2FWYfUYTR8y%0AmBNq%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1781870400&amp;signature=ca143a081558714f889a3ee0c2dfdf99738b2481afd92cea1dab058fb2c59b6b&amp;req=diMmFM5%2FmoVdWPMW3nq%2BgREJfJk7rS0hKk67lv2I5oeI9PbVw7OQDr8JNqCc%0At1SRHCSe%2FjyVWuFJf0WUp8O%2FR5k%3D%0A)
 
 ### I lost Admin/Owner access after enabling group mappings
 

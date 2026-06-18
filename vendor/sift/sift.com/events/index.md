@@ -62,19 +62,6 @@ Clear Selection
 
 *   GLOBAL
 
-### Fraud Prevention: Using AI to Shift from Defense to Offense
-
-*   8-8:30 a.m. PST
-*   June 17, 2026
-
-Event Details
-
-![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
-
-*   Webinar
-
-*   GLOBAL
-
 ### How to Have a Seat at the Revenue Table
 
 *   Live: 9-9:30 a.m. PST & Simulive: 3-3:30 p.m. GMT

@@ -12,7 +12,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/careers/jobs": {
-    "sha256": "408cec1aa5675f6ce6e70ae13d1578844420ba31ac8ff05e846dde11bd185979",
+    "sha256": "095cecee689e04957f2fa4b6e2b197afc1364915e917ed465477914dedc15e20",
     "lastStatus": 200
   },
   "https://www.anthropic.com/claude/fable": {
@@ -664,7 +664,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously": {
-    "sha256": "6ac2a8c5ad6f3dbfa8f04c516d868333bddfb52ec3282c270fa35191b96aef81",
+    "sha256": "f7c647c8346bb485133939fc30cf97ff0540a578302c31e14cded9e44ac76a5c",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/enterprise-ai-services-company": {
@@ -708,9 +708,9 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/fine-tune-claude-3-haiku": {
-    "sha256": "7b4456242a3d18730485c808415ce5a82a38066d35900662245ddf4b73d7f39f",
-    "lastStatus": 200,
-    "lastModified": "Wed, 17 Jun 2026 19:38:38 GMT"
+    "sha256": "4d28a93420ac13041c0295a7621be5a9fe8acda956d27e49c32d61e8cde5c067",
+    "lastStatus": 304,
+    "lastModified": "Thu, 18 Jun 2026 01:05:25 GMT"
   },
   "https://www.anthropic.com/news/frontier-model-security": {
     "sha256": "26007031170f815631ed848d93ed9b9e253e9dc1c57f456ad5d1ceb57ef2c120",
@@ -1073,7 +1073,7 @@
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/updating-our-usage-policy": {
-    "sha256": "9422d72673b3d1280e66150e568facfbe7b0afa5acf60fded3458b850ea5a6de",
+    "sha256": "2f5dcc2f52253b9ae7cb810f47d5ebfe90c4ca4e50a39ab9e7df7fbdadd72f8b",
     "lastStatus": 200
   },
   "https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions": {

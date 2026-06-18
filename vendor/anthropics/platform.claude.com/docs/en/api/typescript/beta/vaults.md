@@ -11,6 +11,7 @@ Create Vault
 ### Parameters
 
 - `params: VaultCreateParams`
+
   - `display_name: string`
 
     Body param: Human-readable name for the vault. 1-255 characters.
@@ -22,9 +23,11 @@ Create Vault
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -77,13 +80,16 @@ Create Vault
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -105,6 +111,7 @@ Create Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -114,15 +121,13 @@ Create Vault
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.create({
-  display_name: "Example vault",
-});
+const betaManagedAgentsVault = await client.beta.vaults.create({ display_name: 'Example vault' });
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -154,6 +159,7 @@ List Vaults
 ### Parameters
 
 - `params: VaultListParams`
+
   - `include_archived?: boolean`
 
     Query param: Whether to include archived vaults in the results.
@@ -169,9 +175,11 @@ List Vaults
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -224,13 +232,16 @@ List Vaults
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -252,6 +263,7 @@ List Vaults
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -261,10 +273,10 @@ List Vaults
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -307,12 +319,15 @@ Get Vault
 - `vaultID: string`
 
 - `params: VaultRetrieveParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -365,13 +380,16 @@ Get Vault
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -393,6 +411,7 @@ Get Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -402,15 +421,13 @@ Get Vault
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.retrieve(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-);
+const betaManagedAgentsVault = await client.beta.vaults.retrieve('vlt_011CZkZDLs7fYzm1hXNPeRjv');
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -444,6 +461,7 @@ Update Vault
 - `vaultID: string`
 
 - `params: VaultUpdateParams`
+
   - `display_name?: string | null`
 
     Body param: Updated human-readable name for the vault. 1-255 characters.
@@ -455,9 +473,11 @@ Update Vault
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -510,13 +530,16 @@ Update Vault
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -538,6 +561,7 @@ Update Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -547,15 +571,13 @@ Update Vault
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.update(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-);
+const betaManagedAgentsVault = await client.beta.vaults.update('vlt_011CZkZDLs7fYzm1hXNPeRjv');
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -589,12 +611,15 @@ Delete Vault
 - `vaultID: string`
 
 - `params: VaultDeleteParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -647,31 +672,35 @@ Delete Vault
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeletedVault`
 
   Confirmation of a deleted vault.
+
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
+
     - `"vault_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeletedVault = await client.beta.vaults.delete(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
 );
 
 console.log(betaManagedAgentsDeletedVault.id);
@@ -699,12 +728,15 @@ Archive Vault
 - `vaultID: string`
 
 - `params: VaultArchiveParams`
+
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -757,13 +789,16 @@ Archive Vault
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -785,6 +820,7 @@ Archive Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -794,15 +830,13 @@ Archive Vault
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.archive(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-);
+const betaManagedAgentsVault = await client.beta.vaults.archive('vlt_011CZkZDLs7fYzm1hXNPeRjv');
 
 console.log(betaManagedAgentsVault.id);
 ```
@@ -830,11 +864,13 @@ console.log(betaManagedAgentsVault.id);
 - `BetaManagedAgentsDeletedVault`
 
   Confirmation of a deleted vault.
+
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
+
     - `"vault_deleted"`
 
 ### Beta Managed Agents Vault
@@ -842,6 +878,7 @@ console.log(betaManagedAgentsVault.id);
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
+
   - `id: string`
 
     Unique identifier for the vault.
@@ -863,6 +900,7 @@ console.log(betaManagedAgentsVault.id);
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
+
     - `"vault"`
 
   - `updated_at: string`
@@ -884,12 +922,15 @@ Create Credential
 - `vaultID: string`
 
 - `params: CredentialCreateParams`
-  - `auth: BetaManagedAgentsMCPOAuthCreateParams | BetaManagedAgentsStaticBearerCreateParams`
+
+  - `auth: BetaManagedAgentsMCPOAuthCreateParams | BetaManagedAgentsStaticBearerCreateParams | BetaManagedAgentsEnvironmentVariableCreateParams`
 
     Body param: Authentication details for creating a credential.
+
     - `BetaManagedAgentsMCPOAuthCreateParams`
 
       Parameters for creating an MCP OAuth credential.
+
       - `access_token: string`
 
         OAuth access token.
@@ -899,6 +940,7 @@ Create Credential
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -908,6 +950,7 @@ Create Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshParams | null`
 
         OAuth refresh token parameters for creating a credential with refresh support.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -923,30 +966,37 @@ Create Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneParam`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicParam`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `client_secret: string`
 
               OAuth client secret.
 
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostParam`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `client_secret: string`
 
               OAuth client secret.
 
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -960,6 +1010,7 @@ Create Credential
     - `BetaManagedAgentsStaticBearerCreateParams`
 
       Parameters for creating a static bearer token credential.
+
       - `token: string`
 
         Static bearer token value.
@@ -969,7 +1020,48 @@ Create Credential
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableCreateParams`
+
+      Parameters for creating an environment variable credential.
+
+      - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+          Substitute the secret only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable. Immutable after create.
+
+      - `secret_value: string`
+
+        Secret value. Write-only; never returned in responses.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `display_name?: string | null`
 
@@ -982,9 +1074,11 @@ Create Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1037,13 +1131,16 @@ Create Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -1052,17 +1149,20 @@ Create Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -1072,6 +1172,7 @@ Create Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -1083,22 +1184,29 @@ Create Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -1112,12 +1220,50 @@ Create Credential
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -1128,6 +1274,7 @@ Create Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -1145,19 +1292,19 @@ Create Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.create(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
   {
     auth: {
-      token: "bearer_exampletoken",
-      mcp_server_url: "https://example-server.modelcontextprotocol.io/sse",
-      type: "static_bearer",
+      token: 'bearer_exampletoken',
+      mcp_server_url: 'https://example-server.modelcontextprotocol.io/sse',
+      type: 'static_bearer',
     },
   },
 );
@@ -1199,6 +1346,7 @@ List Credentials
 - `vaultID: string`
 
 - `params: CredentialListParams`
+
   - `include_archived?: boolean`
 
     Query param: Whether to include archived credentials in the results.
@@ -1214,9 +1362,11 @@ List Credentials
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1269,13 +1419,16 @@ List Credentials
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -1284,17 +1437,20 @@ List Credentials
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -1304,6 +1460,7 @@ List Credentials
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -1315,22 +1472,29 @@ List Credentials
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -1344,12 +1508,50 @@ List Credentials
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -1360,6 +1562,7 @@ List Credentials
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -1377,15 +1580,15 @@ List Credentials
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsCredential of client.beta.vaults.credentials.list(
-  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
 )) {
   console.log(betaManagedAgentsCredential.id);
 }
@@ -1430,6 +1633,7 @@ Get Credential
 - `credentialID: string`
 
 - `params: CredentialRetrieveParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -1437,9 +1641,11 @@ Get Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1492,13 +1698,16 @@ Get Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -1507,17 +1716,20 @@ Get Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -1527,6 +1739,7 @@ Get Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -1538,22 +1751,29 @@ Get Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -1567,12 +1787,50 @@ Get Credential
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -1583,6 +1841,7 @@ Get Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -1600,17 +1859,16 @@ Get Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsCredential =
-  await client.beta.vaults.credentials.retrieve(
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" },
-  );
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.retrieve(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
 
 console.log(betaManagedAgentsCredential.id);
 ```
@@ -1649,17 +1907,21 @@ Update Credential
 - `credentialID: string`
 
 - `params: CredentialUpdateParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
 
-  - `auth?: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams`
+  - `auth?: BetaManagedAgentsMCPOAuthUpdateParams | BetaManagedAgentsStaticBearerUpdateParams | BetaManagedAgentsEnvironmentVariableUpdateParams`
 
     Body param: Updated authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthUpdateParams`
 
       Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `access_token?: string | null`
@@ -1673,6 +1935,7 @@ Update Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
 
         Parameters for updating OAuth refresh token configuration.
+
         - `refresh_token?: string | null`
 
           Updated OAuth refresh token.
@@ -1684,10 +1947,13 @@ Update Credential
         - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
           Updated HTTP Basic authentication parameters for the token endpoint.
+
           - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
             - `client_secret?: string | null`
@@ -1697,7 +1963,9 @@ Update Credential
           - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
             Updated POST body authentication parameters for the token endpoint.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
             - `client_secret?: string | null`
@@ -1707,12 +1975,50 @@ Update Credential
     - `BetaManagedAgentsStaticBearerUpdateParams`
 
       Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
       - `type: "static_bearer"`
+
         - `"static_bearer"`
 
       - `token?: string | null`
 
         Updated static bearer token value.
+
+    - `BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+      Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
+
+      - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
+
+        Updated networking scope. Full replacement.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+          Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+          Substitute the secret only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_value?: string | null`
+
+        Updated secret value.
 
   - `display_name?: string | null`
 
@@ -1725,9 +2031,11 @@ Update Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1780,13 +2088,16 @@ Update Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -1795,17 +2106,20 @@ Update Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -1815,6 +2129,7 @@ Update Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -1826,22 +2141,29 @@ Update Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -1855,12 +2177,50 @@ Update Credential
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -1871,6 +2231,7 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -1888,15 +2249,15 @@ Update Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
 const betaManagedAgentsCredential = await client.beta.vaults.credentials.update(
-  "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" },
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
 );
 
 console.log(betaManagedAgentsCredential.id);
@@ -1936,6 +2297,7 @@ Delete Credential
 - `credentialID: string`
 
 - `params: CredentialDeleteParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -1943,9 +2305,11 @@ Delete Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1998,33 +2362,37 @@ Delete Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
+
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
+
     - `"vault_credential_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeletedCredential =
-  await client.beta.vaults.credentials.delete("vcrd_011CZkZEMt8gZan2iYOQfSkw", {
-    vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  });
+const betaManagedAgentsDeletedCredential = await client.beta.vaults.credentials.delete(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
 
 console.log(betaManagedAgentsDeletedCredential.id);
 ```
@@ -2051,6 +2419,7 @@ Archive Credential
 - `credentialID: string`
 
 - `params: CredentialArchiveParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -2058,9 +2427,11 @@ Archive Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -2113,13 +2484,16 @@ Archive Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -2128,17 +2502,20 @@ Archive Credential
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -2148,6 +2525,7 @@ Archive Credential
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -2159,22 +2537,29 @@ Archive Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -2188,12 +2573,50 @@ Archive Credential
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -2204,6 +2627,7 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -2221,17 +2645,16 @@ Archive Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsCredential =
-  await client.beta.vaults.credentials.archive(
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" },
-  );
+const betaManagedAgentsCredential = await client.beta.vaults.credentials.archive(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
 
 console.log(betaManagedAgentsCredential.id);
 ```
@@ -2270,6 +2693,7 @@ Validate Credential
 - `credentialID: string`
 
 - `params: CredentialMCPOAuthValidateParams`
+
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -2277,9 +2701,11 @@ Validate Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
+
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 25 more`
+
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -2332,13 +2758,16 @@ Validate Credential
 
       - `"thinking-token-count-2026-05-13"`
 
-      - `"mid-conversation-system-2026-04-07"`
+      - `"server-side-fallback-2026-06-01"`
+
+      - `"fallback-credit-2026-06-01"`
 
 ### Returns
 
 - `BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -2350,9 +2779,11 @@ Validate Credential
   - `mcp_probe: BetaManagedAgentsMCPProbe | null`
 
     The failing step of an MCP validation probe.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
+
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -2376,6 +2807,7 @@ Validate Credential
   - `refresh: BetaManagedAgentsRefreshObject | null`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
@@ -2383,6 +2815,7 @@ Validate Credential
     - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `"succeeded"`
 
       - `"failed"`
@@ -2394,6 +2827,7 @@ Validate Credential
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
     Overall verdict of a credential validation probe.
+
     - `"valid"`
 
     - `"invalid"`
@@ -2401,6 +2835,7 @@ Validate Credential
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
+
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -2414,17 +2849,16 @@ Validate Credential
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const betaManagedAgentsCredentialValidation =
-  await client.beta.vaults.credentials.mcpOAuthValidate(
-    "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-    { vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv" },
-  );
+const betaManagedAgentsCredentialValidation = await client.beta.vaults.credentials.mcpOAuthValidate(
+  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
+  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
+);
 
 console.log(betaManagedAgentsCredentialValidation.credential_id);
 ```
@@ -2467,6 +2901,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsCredential`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
+
   - `id: string`
 
     Unique identifier for the credential.
@@ -2475,17 +2910,20 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 
     A timestamp in RFC 3339 format
 
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse`
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
+
     - `BetaManagedAgentsMCPOAuthAuthResponse`
 
       OAuth credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
+
         - `"mcp_oauth"`
 
       - `expires_at?: string | null`
@@ -2495,6 +2933,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
         OAuth refresh token configuration returned in credential responses.
+
         - `client_id: string`
 
           OAuth client ID.
@@ -2506,22 +2945,29 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
+
           - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
             Token endpoint requires no client authentication.
+
             - `type: "none"`
+
               - `"none"`
 
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
+
             - `type: "client_secret_basic"`
+
               - `"client_secret_basic"`
 
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
+
             - `type: "client_secret_post"`
+
               - `"client_secret_post"`
 
         - `resource?: string | null`
@@ -2535,12 +2981,50 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `BetaManagedAgentsStaticBearerAuthResponse`
 
       Static bearer token credential details for an MCP server.
+
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
+
         - `"static_bearer"`
+
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+            - `"unrestricted"`
+
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: Array<string>`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+            - `"limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+        - `"environment_variable"`
 
   - `created_at: string`
 
@@ -2551,6 +3035,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
+
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -2565,11 +3050,38 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 
     Human-readable name for the credential.
 
+### Beta Managed Agents Credential Networking Params
+
+- `BetaManagedAgentsCredentialNetworkingParams = BetaManagedAgentsUnrestrictedCredentialNetworkingParams | BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+  - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+    Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+    - `type: "unrestricted"`
+
+      - `"unrestricted"`
+
+  - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+    Substitute the secret only on requests to the listed hosts.
+
+    - `allowed_hosts: Array<string>`
+
+      Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+    - `type: "limited"`
+
+      - `"limited"`
+
 ### Beta Managed Agents Credential Validation
 
 - `BetaManagedAgentsCredentialValidation`
 
   Result of live-probing a credential against its configured MCP server.
+
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -2581,9 +3093,11 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `mcp_probe: BetaManagedAgentsMCPProbe | null`
 
     The failing step of an MCP validation probe.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
+
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -2607,6 +3121,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `refresh: BetaManagedAgentsRefreshObject | null`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
       An HTTP response captured during a credential validation probe.
@@ -2614,6 +3129,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
+
       - `"succeeded"`
 
       - `"failed"`
@@ -2625,6 +3141,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `status: BetaManagedAgentsCredentialValidationStatus`
 
     Overall verdict of a credential validation probe.
+
     - `"valid"`
 
     - `"invalid"`
@@ -2632,6 +3149,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
+
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -2647,6 +3165,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsCredentialValidationStatus = "valid" | "invalid" | "unknown"`
 
   Overall verdict of a credential validation probe.
+
   - `"valid"`
 
   - `"invalid"`
@@ -2658,23 +3177,173 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
+
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
+
     - `"vault_credential_deleted"`
+
+### Beta Managed Agents Environment Variable Auth Response
+
+- `BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+  Environment variable credential details. The secret value is never returned.
+
+  - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse | BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+    Outbound hosts the secret value is substituted on.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+      The secret is substituted on any host the session's Environment network policy permits egress to.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+      The secret is substituted only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_name: string`
+
+    Name of the environment variable.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+### Beta Managed Agents Environment Variable Create Params
+
+- `BetaManagedAgentsEnvironmentVariableCreateParams`
+
+  Parameters for creating an environment variable credential.
+
+  - `networking: BetaManagedAgentsCredentialNetworkingParams`
+
+    Outbound hosts the secret value is substituted on.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+      Substitute the secret only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_name: string`
+
+    Name of the environment variable. Immutable after create.
+
+  - `secret_value: string`
+
+    Secret value. Write-only; never returned in responses.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+### Beta Managed Agents Environment Variable Update Params
+
+- `BetaManagedAgentsEnvironmentVariableUpdateParams`
+
+  Parameters for updating an environment variable credential. `secret_name` is immutable.
+
+  - `type: "environment_variable"`
+
+    - `"environment_variable"`
+
+  - `networking?: BetaManagedAgentsCredentialNetworkingParams | null`
+
+    Updated networking scope. Full replacement.
+
+    - `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+      Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+      - `type: "unrestricted"`
+
+        - `"unrestricted"`
+
+    - `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+      Substitute the secret only on requests to the listed hosts.
+
+      - `allowed_hosts: Array<string>`
+
+        Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+      - `type: "limited"`
+
+        - `"limited"`
+
+  - `secret_value?: string | null`
+
+    Updated secret value.
+
+### Beta Managed Agents Limited Credential Networking Params
+
+- `BetaManagedAgentsLimitedCredentialNetworkingParams`
+
+  Substitute the secret only on requests to the listed hosts.
+
+  - `allowed_hosts: Array<string>`
+
+    Hostnames on which the secret will be substituted. Each entry is a bare hostname (`api.example.com`), an IPv4 address (`192.0.2.1`), or a `*.`-prefixed wildcard (`*.example.com`). URLs, ports, paths, and IPv6 addresses are not accepted. At most 16 entries.
+
+  - `type: "limited"`
+
+    - `"limited"`
+
+### Beta Managed Agents Limited Credential Networking Response
+
+- `BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+  The secret is substituted only on requests to the listed hosts.
+
+  - `allowed_hosts: Array<string>`
+
+    Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+  - `type: "limited"`
+
+    - `"limited"`
 
 ### Beta Managed Agents MCP OAuth Auth Response
 
 - `BetaManagedAgentsMCPOAuthAuthResponse`
 
   OAuth credential details for an MCP server.
+
   - `mcp_server_url: string`
 
     URL of the MCP server this credential authenticates against.
 
   - `type: "mcp_oauth"`
+
     - `"mcp_oauth"`
 
   - `expires_at?: string | null`
@@ -2684,6 +3353,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
     OAuth refresh token configuration returned in credential responses.
+
     - `client_id: string`
 
       OAuth client ID.
@@ -2695,22 +3365,29 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
       Token endpoint requires no client authentication.
+
       - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
         Token endpoint requires no client authentication.
+
         - `type: "none"`
+
           - `"none"`
 
       - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
+
         - `type: "client_secret_basic"`
+
           - `"client_secret_basic"`
 
       - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
         Token endpoint uses POST body authentication with client credentials.
+
         - `type: "client_secret_post"`
+
           - `"client_secret_post"`
 
     - `resource?: string | null`
@@ -2726,6 +3403,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPOAuthCreateParams`
 
   Parameters for creating an MCP OAuth credential.
+
   - `access_token: string`
 
     OAuth access token.
@@ -2735,6 +3413,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     URL of the MCP server this credential authenticates against.
 
   - `type: "mcp_oauth"`
+
     - `"mcp_oauth"`
 
   - `expires_at?: string | null`
@@ -2744,6 +3423,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `refresh?: BetaManagedAgentsMCPOAuthRefreshParams | null`
 
     OAuth refresh token parameters for creating a credential with refresh support.
+
     - `client_id: string`
 
       OAuth client ID.
@@ -2759,30 +3439,37 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
 
       Token endpoint requires no client authentication.
+
       - `BetaManagedAgentsTokenEndpointAuthNoneParam`
 
         Token endpoint requires no client authentication.
+
         - `type: "none"`
+
           - `"none"`
 
       - `BetaManagedAgentsTokenEndpointAuthBasicParam`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
+
         - `client_secret: string`
 
           OAuth client secret.
 
         - `type: "client_secret_basic"`
+
           - `"client_secret_basic"`
 
       - `BetaManagedAgentsTokenEndpointAuthPostParam`
 
         Token endpoint uses POST body authentication with client credentials.
+
         - `client_secret: string`
 
           OAuth client secret.
 
         - `type: "client_secret_post"`
+
           - `"client_secret_post"`
 
     - `resource?: string | null`
@@ -2798,6 +3485,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPOAuthRefreshParams`
 
   OAuth refresh token parameters for creating a credential with refresh support.
+
   - `client_id: string`
 
     OAuth client ID.
@@ -2813,30 +3501,37 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam | BetaManagedAgentsTokenEndpointAuthBasicParam | BetaManagedAgentsTokenEndpointAuthPostParam`
 
     Token endpoint requires no client authentication.
+
     - `BetaManagedAgentsTokenEndpointAuthNoneParam`
 
       Token endpoint requires no client authentication.
+
       - `type: "none"`
+
         - `"none"`
 
     - `BetaManagedAgentsTokenEndpointAuthBasicParam`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
+
       - `client_secret: string`
 
         OAuth client secret.
 
       - `type: "client_secret_basic"`
+
         - `"client_secret_basic"`
 
     - `BetaManagedAgentsTokenEndpointAuthPostParam`
 
       Token endpoint uses POST body authentication with client credentials.
+
       - `client_secret: string`
 
         OAuth client secret.
 
       - `type: "client_secret_post"`
+
         - `"client_secret_post"`
 
   - `resource?: string | null`
@@ -2852,6 +3547,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPOAuthRefreshResponse`
 
   OAuth refresh token configuration returned in credential responses.
+
   - `client_id: string`
 
     OAuth client ID.
@@ -2863,22 +3559,29 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse | BetaManagedAgentsTokenEndpointAuthBasicResponse | BetaManagedAgentsTokenEndpointAuthPostResponse`
 
     Token endpoint requires no client authentication.
+
     - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
       Token endpoint requires no client authentication.
+
       - `type: "none"`
+
         - `"none"`
 
     - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
+
       - `type: "client_secret_basic"`
+
         - `"client_secret_basic"`
 
     - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
       Token endpoint uses POST body authentication with client credentials.
+
       - `type: "client_secret_post"`
+
         - `"client_secret_post"`
 
   - `resource?: string | null`
@@ -2894,6 +3597,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPOAuthRefreshUpdateParams`
 
   Parameters for updating OAuth refresh token configuration.
+
   - `refresh_token?: string | null`
 
     Updated OAuth refresh token.
@@ -2905,10 +3609,13 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
     Updated HTTP Basic authentication parameters for the token endpoint.
+
     - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
+
       - `type: "client_secret_basic"`
+
         - `"client_secret_basic"`
 
       - `client_secret?: string | null`
@@ -2918,7 +3625,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
       Updated POST body authentication parameters for the token endpoint.
+
       - `type: "client_secret_post"`
+
         - `"client_secret_post"`
 
       - `client_secret?: string | null`
@@ -2930,7 +3639,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPOAuthUpdateParams`
 
   Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
+
   - `type: "mcp_oauth"`
+
     - `"mcp_oauth"`
 
   - `access_token?: string | null`
@@ -2944,6 +3655,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `refresh?: BetaManagedAgentsMCPOAuthRefreshUpdateParams | null`
 
     Parameters for updating OAuth refresh token configuration.
+
     - `refresh_token?: string | null`
 
       Updated OAuth refresh token.
@@ -2955,10 +3667,13 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     - `token_endpoint_auth?: BetaManagedAgentsTokenEndpointAuthBasicUpdateParam | BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
+
       - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
+
         - `type: "client_secret_basic"`
+
           - `"client_secret_basic"`
 
         - `client_secret?: string | null`
@@ -2968,7 +3683,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
       - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
         Updated POST body authentication parameters for the token endpoint.
+
         - `type: "client_secret_post"`
+
           - `"client_secret_post"`
 
         - `client_secret?: string | null`
@@ -2980,9 +3697,11 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsMCPProbe`
 
   The failing step of an MCP validation probe.
+
   - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
     An HTTP response captured during a credential validation probe.
+
     - `body: string`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -3008,6 +3727,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsRefreshHTTPResponse`
 
   An HTTP response captured during a credential validation probe.
+
   - `body: string`
 
     Response body. May be truncated and has sensitive values scrubbed.
@@ -3029,9 +3749,11 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsRefreshObject`
 
   Outcome of a refresh-token exchange attempted during credential validation.
+
   - `http_response: BetaManagedAgentsRefreshHTTPResponse | null`
 
     An HTTP response captured during a credential validation probe.
+
     - `body: string`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -3051,6 +3773,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
   - `status: "succeeded" | "failed" | "connect_error" | "no_refresh_token"`
 
     Outcome of a refresh-token exchange attempted during credential validation.
+
     - `"succeeded"`
 
     - `"failed"`
@@ -3064,11 +3787,13 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsStaticBearerAuthResponse`
 
   Static bearer token credential details for an MCP server.
+
   - `mcp_server_url: string`
 
     URL of the MCP server this credential authenticates against.
 
   - `type: "static_bearer"`
+
     - `"static_bearer"`
 
 ### Beta Managed Agents Static Bearer Create Params
@@ -3076,6 +3801,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsStaticBearerCreateParams`
 
   Parameters for creating a static bearer token credential.
+
   - `token: string`
 
     Static bearer token value.
@@ -3085,6 +3811,7 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
     URL of the MCP server this credential authenticates against.
 
   - `type: "static_bearer"`
+
     - `"static_bearer"`
 
 ### Beta Managed Agents Static Bearer Update Params
@@ -3092,7 +3819,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsStaticBearerUpdateParams`
 
   Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
+
   - `type: "static_bearer"`
+
     - `"static_bearer"`
 
   - `token?: string | null`
@@ -3104,11 +3833,13 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthBasicParam`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
+
   - `client_secret: string`
 
     OAuth client secret.
 
   - `type: "client_secret_basic"`
+
     - `"client_secret_basic"`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Response
@@ -3116,7 +3847,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
+
   - `type: "client_secret_basic"`
+
     - `"client_secret_basic"`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
@@ -3124,7 +3857,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam`
 
   Updated HTTP Basic authentication parameters for the token endpoint.
+
   - `type: "client_secret_basic"`
+
     - `"client_secret_basic"`
 
   - `client_secret?: string | null`
@@ -3136,7 +3871,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthNoneParam`
 
   Token endpoint requires no client authentication.
+
   - `type: "none"`
+
     - `"none"`
 
 ### Beta Managed Agents Token Endpoint Auth None Response
@@ -3144,7 +3881,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthNoneResponse`
 
   Token endpoint requires no client authentication.
+
   - `type: "none"`
+
     - `"none"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
@@ -3152,11 +3891,13 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthPostParam`
 
   Token endpoint uses POST body authentication with client credentials.
+
   - `client_secret: string`
 
     OAuth client secret.
 
   - `type: "client_secret_post"`
+
     - `"client_secret_post"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Response
@@ -3164,7 +3905,9 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
   Token endpoint uses POST body authentication with client credentials.
+
   - `type: "client_secret_post"`
+
     - `"client_secret_post"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
@@ -3172,9 +3915,31 @@ console.log(betaManagedAgentsCredentialValidation.credential_id);
 - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
   Updated POST body authentication parameters for the token endpoint.
+
   - `type: "client_secret_post"`
+
     - `"client_secret_post"`
 
   - `client_secret?: string | null`
 
     Updated OAuth client secret.
+
+### Beta Managed Agents Unrestricted Credential Networking Params
+
+- `BetaManagedAgentsUnrestrictedCredentialNetworkingParams`
+
+  Substitute the secret on any host the session's Environment network policy permits egress to. The Environment's network policy is the only boundary on where the secret can reach.
+
+  - `type: "unrestricted"`
+
+    - `"unrestricted"`
+
+### Beta Managed Agents Unrestricted Credential Networking Response
+
+- `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse`
+
+  The secret is substituted on any host the session's Environment network policy permits egress to.
+
+  - `type: "unrestricted"`
+
+    - `"unrestricted"`

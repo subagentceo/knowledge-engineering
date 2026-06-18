@@ -12,7 +12,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows": {
-    "sha256": "da4827f4df1189faea68df3933212ffc8eedb3382efe748a7ddcfc86ef584f36",
+    "sha256": "b00d87fd9020b9d6d6b62f52ced1e8191c965f0d70f5408d4cb2ee856b2a1238",
     "lastStatus": 200
   },
   "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands": {
@@ -32,7 +32,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot": {
-    "sha256": "668ae0594a4471c43374238f6b806fb76708d159a3475f8fb8772159f5434962",
+    "sha256": "5fd8e3ec36d47a6ee1a8d8903133e0ef02301096ff3c9977d36e30ce2a47c99d",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills": {
@@ -52,19 +52,19 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/concepts/billing/individual-plans": {
-    "sha256": "d6a418ea3ed554e56497fe25cab0a2a0a5097e10251e2dbf81f49c52ce1f4f06",
+    "sha256": "89c74ee45e5eb2c5225fd46148d090932715311426b7c59fc89da41a72932363",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals": {
-    "sha256": "1ab921720b0f5fdcb0e08c2839ed34fb6ff745149b8028203f6a014384aa6c88",
+    "sha256": "86689387a50e235e36bfcc8c31b7ab00e1b6ac94e00d37c3c3fc2d09018f67f4",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises": {
-    "sha256": "0495ab22fac329ea3825a95f584309408065aa060d802b81db424d5e984c9200",
+    "sha256": "3af44167985da2c321e6698c6db58bb56117677b524f4dce5fd0cc9a92e5fe00",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/concepts/usage-limits": {
-    "sha256": "e6140526cd3c525bb8f9f211a6eb1f080b45dd14c7c7978f0c1d6c9dd539b482",
+    "sha256": "a5d0c5298ed68bbbadd610de19c01b1691a2624fb6f6532c09280416f6ecda6c",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/get-started/features": {
@@ -72,15 +72,15 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/get-started/plans": {
-    "sha256": "4bc323aa84e8a2f6e69689b5584b40542529c4301a5b924eb8fb6558760bf075",
+    "sha256": "a8c7369a45c528fb137f4151a6e9f0ebd3b6cd51f69c62e7cdc4586bdea36227",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/get-started/quickstart": {
-    "sha256": "e3ffb453fca5c85bd8590238028eabed8a5a8af77cc75a5cd5a04a1cfc051c66",
+    "sha256": "cd0d8e88c73db5e401ee74159f2cdf19f5068983d34b6883100f48f5ef538ad0",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/get-started/what-is-github-copilot": {
-    "sha256": "43ea13f786bec538dfd48638758be2308b2fbe11cd452486cb3714994862a5ce",
+    "sha256": "f5c4485e9f8fd91d2b03d79ee365c79f8b2d54c2d666709f08a3f4a1a3a18566",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-ide": {
@@ -120,7 +120,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing": {
-    "sha256": "1ab921720b0f5fdcb0e08c2839ed34fb6ff745149b8028203f6a014384aa6c88",
+    "sha256": "86689387a50e235e36bfcc8c31b7ab00e1b6ac94e00d37c3c3fc2d09018f67f4",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies": {
@@ -144,7 +144,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues": {
-    "sha256": "fdb840ded8cab458ead421aad3db1bea6a264cd01340cc489433b3edf7b8651a",
+    "sha256": "70cf3da8edfaeeee944b608552841fe527c790f5907956f62179aa3794abb41f",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide": {
@@ -152,7 +152,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review": {
-    "sha256": "b1bc8e19225ab534f615054ebaffda32e9367dfd332c084fbedbf4b46fcd672d",
+    "sha256": "69555767c440b67b596ea12b82fc2a5eef1d8abae9cef3a5e1200a47523e886a",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/reference/ai-models/model-comparison": {
@@ -164,7 +164,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/reference/ai-models/supported-models": {
-    "sha256": "e92d055cb049634d75d6f5543c88bf24a59d13f9a460b2cf3059319aa0186e31",
+    "sha256": "7efa9fa580111a64ba31cf4593b8ead0b8c712395312aeab210e854669a272c2",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/reference/copilot-billing/model-multipliers-for-annual-plans": {
@@ -172,7 +172,7 @@
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing": {
-    "sha256": "825a2d4ecaf3d17bba4cacd65063b9c6f2b0bdcaaf07eb7324fbcce22db4e542",
+    "sha256": "7854a2d6dbea91851c979243e6ee5f2b5d190c20d60ea7666816e316b4eff9db",
     "lastStatus": 200
   },
   "https://docs.github.com/en/copilot/responsible-use/copilot-in-github-desktop": {

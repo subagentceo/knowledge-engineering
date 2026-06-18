@@ -1,0 +1,905 @@
+---
+title: Quickstart
+description: Set up RealtimeKit in your application with API tokens, SDK installation, and your first meeting.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/realtime/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Quickstart
+
+### Prerequisites
+
+To integrate RealtimeKit in your application, you must have a [Cloudflare account ↗](https://dash.cloudflare.com).
+
+1. Follow the [Create API token guide](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) to create a new token via the [Cloudflare dashboard ↗](https://dash.cloudflare.com/profile/api-tokens).
+2. When configuring permissions, ensure that **Realtime** / **Realtime Admin** permissions are selected.
+3. Configure any additional [access policies and restrictions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) as needed for your use case.
+
+_Optional:_ Alternatively, [create tokens programmatically via the API](https://developers.cloudflare.com/fundamentals/api/how-to/create-via-api/). Please ensure your access policy includes the **Realtime** permission.
+
+### Installation
+
+Select a framework based on the platform you are building for.
+
+WebMobile
+
+ReactWeb ComponentsAngular
+
+Please install the following dependencies into your project repository:
+
+Terminal window
+
+```
+
+npm i @cloudflare/realtimekit-react @cloudflare/realtimekit-react-ui
+
+
+```
+
+_Optional:_ You can also build on top of our ready-made template:
+
+Terminal window
+
+```
+
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
+
+cd realtimekit-web-examples/react-examples/examples/default-meeting-ui
+
+
+```
+
+Please install the following dependencies into your project repository:
+
+Terminal window
+
+```
+
+npm i @cloudflare/realtimekit-web @cloudflare/realtimekit-ui
+
+
+```
+
+_Optional:_ You can also build on top of our ready-made template:
+
+Terminal window
+
+```
+
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
+
+cd realtimekit-web-examples/html-examples/examples/default-meeting-ui
+
+
+```
+
+Please install the following dependencies into your project repository:
+
+Terminal window
+
+```
+
+npm i @cloudflare/realtimekit-angular @cloudflare/realtimekit-angular-ui
+
+
+```
+
+_Optional:_ You can also build on top of our ready-made template:
+
+Terminal window
+
+```
+
+git clone https://github.com/cloudflare/realtimekit-web-examples.git
+
+cd realtimekit-web-examples/angular-examples/examples/default-meeting-ui
+
+
+```
+
+Add the following dependency to your `build.gradle` file:
+
+```
+
+dependencies {
+
+  implementation 'com.cloudflare.realtimekit:ui-android:0.3.0'
+
+}
+
+
+```
+
+Install the RealtimeKit UI Kit using Swift Package Manager:
+
+1. In Xcode, go to **File > Add Package Dependencies**.
+2. Enter the package URL: `https://github.com/dyte-in/RealtimeKitUI`.
+3. Select the version and add the package to your project.
+
+Add the following entries to the `Info.plist` file. This gives your app permissions to access the camera and microphone, access photos, and install the required fonts and icons.
+
+```
+
+<key>NSBluetoothPeripheralUsageDescription</key>
+
+<string>Access Bluetooth to connect to headphones and audio devices during calls.</string>
+
+<key>NSBluetoothAlwaysUsageDescription</key>
+
+<string>Access Bluetooth to connect to headphones and audio devices during calls.</string>
+
+<key>NSCameraUsageDescription</key>
+
+<string>Access camera to enable video during meetings.</string>
+
+<key>NSMicrophoneUsageDescription</key>
+
+<string>Access microphone to enable audio during meetings.</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+
+<string>Access photos to share images during meetings.</string>
+
+<key>UIBackgroundModes</key>
+
+<array>
+
+  <string>audio</string>
+
+  <string>voip</string>
+
+  <string>fetch</string>
+
+  <string>remote-notification</string>
+
+</array>
+
+
+```
+
+The `UIBackgroundModes` key is used in the `Info.plist` file of an iOS app to declare the app's supported background execution modes. This key is an array of strings that specifies the types of background tasks that the app supports. By declaring the background modes, the app can continue to run in the background and perform specific tasks even when it is not in the foreground.
+
+Note
+
+The use of background modes should be justified and comply with Apple's App Store Review Guidelines. Apps that misuse background modes or unnecessarily run in the background may be rejected during the app review process.
+
+Source: [Apple Developer Documentation: Declaring Your App's Supported Background Tasks ↗](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+
+Install the RealtimeKit UI Kit by adding the dependency to your `pubspec.yaml` file:
+
+Terminal window
+
+```
+
+flutter pub add realtimekit_ui
+
+
+```
+
+Then import the package into your project:
+
+Dart
+
+```
+
+import 'package:realtimekit_ui/realtimekit_ui.dart';
+
+
+```
+
+* [ Android ](#tab-panel-9943)
+* [ iOS ](#tab-panel-9944)
+
+Set `compileSdkVersion 36` and `minSdkVersion 24` in your `build.gradle` file at `<project root>/android/app/build.gradle`:
+
+```
+
+defaultConfig {
+
+  ...
+
+  compileSdkVersion 36
+
+  minSdkVersion 24
+
+  ...
+
+}
+
+
+```
+
+Change the Kotlin version to `1.9.0`:
+
+```
+
+ext.kotlin_version = '1.9.0'
+
+
+```
+
+Set your platform to iOS 13.0 or above in your `Podfile`:
+
+```
+
+platform :ios, '13.0'
+
+
+```
+
+Add the following entries to the `Info.plist` file. This gives your app permissions to access the camera and microphone, access photos, and install the required fonts and icons.
+
+```
+
+<key>NSBluetoothPeripheralUsageDescription</key>
+
+<string>Access Bluetooth to connect to headphones and audio devices during calls.</string>
+
+<key>NSBluetoothAlwaysUsageDescription</key>
+
+<string>Access Bluetooth to connect to headphones and audio devices during calls.</string>
+
+<key>NSCameraUsageDescription</key>
+
+<string>Access camera to enable video during meetings.</string>
+
+<key>NSMicrophoneUsageDescription</key>
+
+<string>Access microphone to enable audio during meetings.</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+
+<string>Access photos to share images during meetings.</string>
+
+<key>UIBackgroundModes</key>
+
+<array>
+
+  <string>audio</string>
+
+  <string>voip</string>
+
+  <string>fetch</string>
+
+  <string>remote-notification</string>
+
+</array>
+
+
+```
+
+**Optional:** If you are allowing users to download attachments in chat, add the following permissions to your `Info.plist`:
+
+```
+
+<key>LSSupportsOpeningDocumentsInPlace</key>
+
+<true/>
+
+<key>UIFileSharingEnabled</key>
+
+<true/>
+
+
+```
+
+* [ React Native ](#tab-panel-9945)
+* [ Expo ](#tab-panel-9946)
+
+Install the dependencies:
+
+Terminal window
+
+```
+
+npm install @cloudflare/realtimekit-react-native @cloudflare/react-native-webrtc @cloudflare/realtimekit-react-native-ui @react-native-documents/picker react-native-file-viewer react-native-fs react-native-sound-player react-native-webview react-native-svg
+
+
+```
+
+Install `react-native-safe-area-context` based on your React Native version:
+
+* React Native 0.64 - 0.74: `npm install react-native-safe-area-context@^4.0.0`
+* React Native >= 0.74: `npm install react-native-safe-area-context@^5.0.0`
+
+Refer to the [react-native-svg installation guide ↗](https://github.com/software-mansion/react-native-svg) for setup.
+
+Install the dependencies:
+
+Terminal window
+
+```
+
+npx expo install @cloudflare/realtimekit-react-native-ui @cloudflare/realtimekit-react-native @cloudflare/react-native-webrtc @react-native-documents/picker react-native-file-viewer react-native-fs react-native-sound-player react-native-webview react-native-svg
+
+
+```
+
+Install `react-native-safe-area-context` based on your React Native version:
+
+* React Native 0.64 - 0.74: `npm install react-native-safe-area-context@^4.0.0`
+* React Native >= 0.74: `npm install react-native-safe-area-context@^5.0.0`
+
+Install Expo config plugins:
+
+Terminal window
+
+```
+
+npx expo install @expo/config-plugins
+
+
+```
+
+Add the plugins to your `app.json`:
+
+```
+
+{
+
+  "expo": {
+
+    "plugins": [
+
+      "@cloudflare/realtimekit-react-native",
+
+      "@cloudflare/react-native-webrtc"
+
+    ]
+
+  }
+
+}
+
+
+```
+
+Run `prebuild` to set up native modules:
+
+Terminal window
+
+```
+
+npx expo prebuild
+
+
+```
+
+* [ Android ](#tab-panel-9947)
+* [ iOS ](#tab-panel-9948)
+
+The following instructions are for release builds. Debug builds should work without additional steps.
+
+Edit your `android/gradle.properties` and add the following lines:
+
+```
+
+newArchEnabled=false
+
+android.useFullClasspathForDexingTransform=true
+
+
+```
+
+**Note:** Starting from version `>=0.2.0`, add a required `blob_provider_authority` string resource in the `strings.xml` file:
+
+```
+
+<resources>
+
+  ...
+
+  <string name="blob_provider_authority">YOUR_APP_RESOURCE_NAME</string>
+
+  ...
+
+</resources>
+
+
+```
+
+Create or append to the file `android/app/proguard-rules.pro`:
+
+```
+
+-keep class realtimekit.org.webrtc.** { *; }
+
+-dontwarn org.chromium.build.BuildHooksAndroid
+
+
+```
+
+In your `android/app/build.gradle`, edit the release configuration and add the following line importing the ProGuard configuration:
+
+```
+
+buildTypes {
+
+  release {
+
+    ...
+
+    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+  }
+
+}
+
+
+```
+
+**Note:** The minimum supported iOS version is **14.0**.
+
+Open your `Podfile` and set the platform to iOS 14:
+
+```
+
+platform :ios, '14.0'
+
+
+```
+
+Add the following permission entries to your `Info.plist` file:
+
+```
+
+<key>NSCameraUsageDescription</key>
+
+<string>Access camera to enable video during meetings.</string>
+
+<key>NSMicrophoneUsageDescription</key>
+
+<string>Access microphone to enable audio during meetings.</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+
+<string>Access photos to share images during meetings.</string>
+
+<key>UIViewControllerBasedStatusBarAppearance</key>
+
+<false/>
+
+
+```
+
+### Create a RealtimeKit App
+
+You can create an application from the [Cloudflare Dashboard ↗](https://dash.cloudflare.com/?to=/:account/realtime/kit), by clicking on Create App.
+
+_Optional:_ You can also use our [API reference](https://developers.cloudflare.com/api/resources/realtime%5Fkit/) for creating an application:
+
+Terminal window
+
+```
+
+curl --location 'https://api.cloudflare.com/client/v4/accounts/<account_id>/realtime/kit/apps' \
+
+--header 'Content-Type: application/json' \
+
+--header 'Authorization: Bearer <api_token>' \
+
+--data '{"name": "My First Cloudflare RealtimeKit app"}'
+
+
+```
+
+> **Note:** We recommend creating different apps for staging and production environments.
+
+### Create a Meeting
+
+Use our [Meetings API](https://developers.cloudflare.com/api/resources/realtime%5Fkit/subresources/meetings/methods/create/) to create a meeting. We will use the **ID from the response** in subsequent steps.
+
+Terminal window
+
+```
+
+curl --location 'https://api.cloudflare.com/client/v4/accounts/<account_id>/realtime/kit/<app_id>/meetings' \
+
+--header 'Content-Type: application/json' \
+
+--header 'Authorization: Bearer <api_token>' \
+
+--data '{"title": "My First Cloudflare RealtimeKit meeting"}'
+
+
+```
+
+### Add Participants
+
+#### Create a Preset
+
+Presets define what permissions a user should have. Learn more in the Concepts guide. You can create new presets using the [Presets API](https://developers.cloudflare.com/api/resources/realtime%5Fkit/subresources/presets/methods/create/) or via the [RealtimeKit dashboard ↗](https://dash.cloudflare.com/?to=/:account/realtime/kit).
+
+> **Note:** Skip this step if you created the app in the dashboard—default presets are already set up for you.
+
+> **Note:** Presets can be reused across multiple meetings. Define a role (for example, admin or viewer) once and apply it to participants in any number of meetings.
+
+#### Add a Participant
+
+A participant is added to a meeting using the `Meeting ID` created above and selecting a `Preset Name` from the available options.
+
+The response includes an `authToken` which the **Client SDK uses to add this participant to the meeting** room.
+
+Terminal window
+
+```
+
+curl --location 'https://api.cloudflare.com/client/v4/accounts/<account_id>/realtime/kit/<app_id>/meetings/<meeting_id>/participants' \
+
+--header 'Content-Type: application/json' \
+
+--header 'Authorization: Bearer <api_token>' \
+
+--data '{
+
+  "name": "Mary Sue",
+
+  "preset_name": "<preset_name>",
+
+  "custom_participant_id": "<uuid_of_the_user_in_your_system>"
+
+}'
+
+
+```
+
+Learn more about adding participants in the [API reference](https://developers.cloudflare.com/api/resources/realtime%5Fkit/subresources/meetings/methods/add%5Fparticipant/).
+
+### Frontend Integration
+
+You can now add the RealtimeKit Client SDK to your application.
+
+Inside your react application, add the following code:
+
+TypeScript
+
+```
+
+import { useEffect } from "react";
+
+import {
+
+  useRealtimeKitClient,
+
+  useRealtimeKitMeeting,
+
+  RealtimeKitProvider,
+
+} from "@cloudflare/realtimekit-react";
+
+import { RtkMeeting } from "@cloudflare/realtimekit-react-ui";
+
+
+export default function App() {
+
+  const [meeting, initMeeting] = useRealtimeKitClient();
+
+
+useEffect(() => {
+
+initMeeting({ authToken: '<auth-token>' });
+
+}, []);
+
+
+return (
+
+
+<RealtimeKitProvider value={meeting}>
+
+  <MyMeetingUI />
+
+</RealtimeKitProvider>
+
+); }
+
+
+export default function MyMeetingUI() {
+
+  const { meeting } = useRealtimeKitMeeting();
+
+  return (
+
+    <RtkMeeting mode="fill" meeting={meeting} showSetupScreen={true} />
+
+  );
+
+
+}
+
+
+```
+
+Replace `<auth-token>` with the authToken obtained from the previous step.
+
+Run the application and navigate to the meeting page to see the RealtimeKit Client SDK in action.
+
+Terminal window
+
+```
+
+npm run dev
+
+
+```
+
+_Optional:_ If you are using our ready-made template, run the following command to start the application:
+
+Terminal window
+
+```
+
+npm i -g vite && npm run dev
+
+
+```
+
+Open the app in your browser. To join the meeting, append your auth token to the preview URL:
+
+Terminal window
+
+```
+
+http://localhost:5173?authToken=<auth_token>
+
+
+```
+
+Inside your html application, add the following code:
+
+```
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Default Meeting UI | RealtimeKit</title>
+
+
+    <!-- Import helper to load UI Kit components -->
+
+    <script type="module">
+
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit-ui@latest/loader/index.es2017.js';
+
+      defineCustomElements();
+
+    </script>
+
+
+    <!-- Import RealtimeKit Core via CDN -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@cloudflare/realtimekit@latest/dist/browser.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <rtk-meeting id="my-meeting" show-setup-screen="true" />
+
+
+    <script>
+
+      const searchParams = new URL(window.location.href).searchParams;
+
+
+      const authToken = searchParams.get('authToken');
+
+
+      if (!authToken) {
+
+        alert(
+
+          "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting."
+
+        );
+
+      }
+
+
+      // Initialize a meeting
+
+      RealtimeKitClient.init({
+
+        authToken,
+
+      }).then((meeting) => {
+
+        document.getElementById('my-meeting').meeting = meeting;
+
+      });
+
+    </script>
+
+
+  </body>
+
+</html>
+
+
+```
+
+Replace `<auth-token>` with the authToken obtained from the previous step.
+
+Run the application and navigate to the meeting page to see the RealtimeKit Client SDK in action.
+
+Terminal window
+
+```
+
+npm run dev
+
+
+```
+
+_Optional:_ If you are using our ready-made template, run the following command to start the application:
+
+Terminal window
+
+```
+
+npm i -g vite && npm run dev
+
+
+```
+
+Open the app in your browser. To join the meeting, append your auth token to the preview URL:
+
+Terminal window
+
+```
+
+http://localhost:5173?authToken=<auth_token>
+
+
+```
+
+Load the RTKComponentsModule into your app module. This is typically the app.module.ts file. This allows you to use the UI components in your component HTML files.
+
+TypeScript
+
+```
+
+import { NgModule } from '@angular/core';
+
+import { BrowserModule } from '@angular/platform-browser';
+
+import { RTKComponentsModule } from '@cloudflare/realtimekit-angular';
+
+import { AppComponent } from './app.component';
+
+
+@NgModule({
+
+declarations: [AppComponent],
+
+imports: [BrowserModule, RTKComponentsModule],
+
+providers: [],
+
+bootstrap: [AppComponent],
+
+})
+
+export class AppModule {};
+
+
+```
+
+_Optional:_ If you are using TypeScript, set allowSyntheticDefaultImports as true in your tsconfig.json.
+
+TypeScript
+
+```
+
+{
+
+  "compilerOptions": {
+
+    "allowSyntheticDefaultImports": true
+
+  }
+
+}
+
+
+```
+
+Load the RtkMeeting component to your template file (component.html).
+
+```
+
+<rtk-meeting #myid></rtk-meeting>
+
+
+```
+
+Initialise the Meeting
+
+TypeScript
+
+```
+
+  class AppComponent {
+
+  title = 'MyProject';
+
+  @ViewChild('myid') meetingComponent: RtkMeeting;
+
+  rtkMeeting: RealtimeKitClient;
+
+
+  async ngAfterViewInit() {
+
+    const meeting = await RealtimeKitClient.init({
+
+    authToken: '<auth-token>',
+
+    });
+
+    meeting.join();
+
+    this.rtkMeeting = meeting;
+
+    if (this.meetingComponent) this.meetingComponent.meeting = meeting;
+
+  }
+
+  }
+
+
+```
+
+Replace `<auth-token>` with the authToken obtained from the previous step.
+
+Run the application and navigate to the meeting page to see the RealtimeKit Client SDK in action.
+
+Terminal window
+
+```
+
+npm run dev
+
+
+```
+
+_Optional:_ If you are using our ready-made template, run the following command to start the application:
+
+Terminal window
+
+```
+
+npm i -g vite && npm run dev
+
+
+```
+
+Open the app in your browser. To join the meeting, append your auth token to the preview URL:
+
+Terminal window
+
+```
+
+http://localhost:5173?authToken=<auth_token>
+
+
+```
+
+```json
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://developers.cloudflare.com/realtime/realtimekit/quickstart/#page","headline":"Quickstart · Cloudflare Realtime docs","description":"Set up RealtimeKit in your application with API tokens, SDK installation, and your first meeting.","url":"https://developers.cloudflare.com/realtime/realtimekit/quickstart/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-04-21","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/realtime/","name":"Realtime"}},{"@type":"ListItem","position":3,"item":{"@id":"/realtime/realtimekit/","name":"RealtimeKit"}},{"@type":"ListItem","position":4,"item":{"@id":"/realtime/realtimekit/quickstart/","name":"Quickstart"}}]}
+```

@@ -1,0 +1,68 @@
+---
+title: Limits, timeouts and quotas
+description: Realtime SFU rate limits, track timeouts, session constraints, and free tier quotas.
+image: https://developers.cloudflare.com/dev-products-preview.png
+---
+
+> Documentation Index  
+> Fetch the complete documentation index at: https://developers.cloudflare.com/realtime/llms.txt  
+> Use this file to discover all available pages before exploring further.
+
+[Skip to content](#%5Ftop) 
+
+# Limits, timeouts and quotas
+
+Understanding the limits and timeouts of Cloudflare Realtime is crucial for optimizing the performance and reliability of your applications. This section outlines the key constraints and behaviors you should be aware of when integrating Cloudflare Realtime into your app.
+
+## Free
+
+* Each account gets 1,000GB/month of data transfer from Cloudflare to your client for free.
+* Data transfer from your client to Cloudflare is always free of charge.
+
+## Limits
+
+* **API Realtime per Session**: You can make up to 50 API calls per second for each session. There is no ratelimit on a App basis, just sessions.
+* **Tracks per API Call**: Up to 64 tracks can be added with a single API call. If you need to add more tracks to a session, you should distribute them across multiple API calls.
+* **Tracks per Session**: There's no upper limit to the number of tracks a session can contain, the practical limit is governed by your connection's bandwidth to and from Cloudflare.
+
+## Inactivity Timeout
+
+* **Track Timeout**: Tracks will automatically timeout and be garbage collected after 30 seconds of inactivity, where inactivity is defined as no media packets being received by Cloudflare. This mechanism ensures efficient use of resources and session cleanliness across all Sessions that use a track.
+* **DataChannel acknowledgment timeout**: When `waitForAck` is enabled on a remote DataChannel, the subscriber must send its first message (the acknowledgment) within 15 seconds of creating the channel. If it does not, the SFU tears down the gated channel and forwards no messages. Create the remote DataChannel again to retry.
+
+## PeerConnection Requirements
+
+* **Session State**: For any operation on a session (e.g., pulling or pushing tracks), the PeerConnection state must be `connected`. Operations will block for up to 5 seconds awaiting this state before timing out. This ensures that only active and viable sessions are engaged in media transmission.
+
+## Handling Connectivity Issues
+
+* **Internet Connectivity Considerations**: The potential for internet connectivity loss between the client and Cloudflare is an operational reality that must be addressed. Implementing a detection and reconnection strategy is recommended to maintain session continuity. This could involve periodic 'heartbeat' signals to your backend server to monitor connectivity status. Upon detecting connectivity issues, automatically attempting to reconnect and establish a new session is advised. Sessions and tracks will remain available for reuse for 30 seconds before timing out, providing a brief window for reconnection attempts.
+
+Adhering to these limits and understanding the timeout behaviors will help ensure that your applications remain responsive and stable while providing a seamless user experience.
+
+## Supported Codecs
+
+Cloudflare Realtime supports the following codecs:
+
+### Supported video codecs
+
+* **H264**
+* **H265**
+* **VP8**
+* **VP9**
+* **AV1**
+
+### Supported audio codecs
+
+* **Opus**
+* **G.711 PCM (A-law)**
+* **G.711 PCM (µ-law)**
+
+Note
+
+For external 48kHz PCM support refer to the [WebSocket adapter](https://developers.cloudflare.com/realtime/sfu/media-transport-adapters/websocket-adapter/)
+
+```json
+{"@context":"https://schema.org","@type":"TechArticle","@id":"https://developers.cloudflare.com/realtime/sfu/limits/#page","headline":"Limits, timeouts and quotas · Cloudflare Realtime docs","description":"Realtime SFU rate limits, track timeouts, session constraints, and free tier quotas.","url":"https://developers.cloudflare.com/realtime/sfu/limits/","inLanguage":"en","image":"https://developers.cloudflare.com/dev-products-preview.png","dateModified":"2026-06-15","publisher":{"@type":"Organization","name":"Cloudflare","url":"https://www.cloudflare.com/"},"isPartOf":{"@type":"WebSite","@id":"https://developers.cloudflare.com/#website","name":"Cloudflare Docs","url":"https://developers.cloudflare.com/"}}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"/directory/","name":"Directory"}},{"@type":"ListItem","position":2,"item":{"@id":"/realtime/","name":"Realtime"}},{"@type":"ListItem","position":3,"item":{"@id":"/realtime/sfu/","name":"Realtime SFU"}},{"@type":"ListItem","position":4,"item":{"@id":"/realtime/sfu/limits/","name":"Limits, timeouts and quotas"}}]}
+```

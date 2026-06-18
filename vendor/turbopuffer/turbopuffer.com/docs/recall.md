@@ -32,7 +32,7 @@ We use this endpoint internally to measure recall. See this [blog
 post](/blog/continuous-recall) for more.
 
 This endpoint can run asynchronously.
-See [Asynchronous requests](/docs/overview#asynchronous-requests).
+See [Asynchronous requests](/docs/api-overview#asynchronous-requests).
 
 ## Request
 

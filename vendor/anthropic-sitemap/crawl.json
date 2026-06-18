@@ -46,7 +46,7 @@
     "https://www.anthropic.com/startup-program-official-terms",
     "https://www.anthropic.com/ai-for-science-program-rules"
   ],
-  "page_cap": 500,
+  "page_cap": 0,
   "html_extract": {
     "selector": "article, main"
   },

@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -21,7 +20,7 @@ Admins can disable the user layer entirely; see [Controlling user extensions](#c
 
 ## Managed MCP servers (admin)
 
-Use the `managedMcpServers` configuration key to deploy remote MCP servers to every device. These appear in the user's connector list automatically, can't be removed by the user, and support per-tool policy locks (`allow` / `ask` / `blocked`).
+Use the `managedMcpServers` configuration key to deploy MCP servers (remote HTTP/SSE or local stdio command) to every device. These appear in the user's connector list automatically, can't be removed by the user, and support per-tool policy locks (`allow` / `ask` / `blocked`).
 
 ```json theme={null}
 [
@@ -57,12 +56,12 @@ The grids below highlight commonly used servers from the directory. Most require
 #### Productivity suites
 
 <Columns cols={2}>
-  <Card title="Google Workspace" icon="google">
-    Google Workspace is not currently supported in Cowork on 3P, but will be available soon. We will update our docs when it becomes available.
+  <Card title="Google Workspace" icon="google" href="https://developers.google.com/workspace/guides/configure-mcp-servers">
+    Gmail, Calendar, Drive, Docs, and more via Google's own Workspace MCP servers. See [Google's setup guide](https://developers.google.com/workspace/guides/configure-mcp-servers) to get started.
   </Card>
 
-  <Card title="Microsoft 365" icon="microsoft">
-    The Anthropic M365 Connectors are not currently supported in Cowork on 3P, but will be available soon. We will update our docs when they become available.
+  <Card title="Microsoft 365" icon="microsoft" href="/cowork/3p/connectors-m365">
+    Outlook, OneDrive, SharePoint, and Teams. Requires registering an app in your Entra tenant and an Anthropic allowlist step — see the [setup guide](/cowork/3p/connectors-m365).
   </Card>
 </Columns>
 
@@ -88,7 +87,7 @@ Vendor-hosted remote MCP servers. Add them to `managedMcpServers` with `"oauth":
   </Card>
 
   <Card title="Box" href="https://developer.box.com/guides/box-mcp/">
-    Files and document management.
+    Files and document management. Requires a pre-registered Box Custom App; set `oauth` to an object with `clientId`, `clientSecret`, and `authorizationServer: ["https://api.box.com"]` rather than `true`.
   </Card>
 
   <Card title="GitHub" href="https://github.com/github/github-mcp-server">
@@ -197,15 +196,15 @@ org-plugins/
             └── SKILL.md
 ```
 
-| File                         | Purpose                                                                                                                                                                                                                                                                    |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `.claude-plugin/plugin.json` | **Required.** Plugin manifest (name, description, version). Directories without this file are ignored.                                                                                                                                                                     |
-| `version.json`               | `{"version": "1.2.3"}`. When this string changes, Cowork re-syncs the plugin on next launch. Any string change triggers re-sync (there's no semver ordering, so a downgrade is just another version string). If absent, the directory's modification time is used instead. |
-| `.mcp.json`                  | MCP servers bundled with this plugin, in the same object format as [`managedMcpServers`](/cowork/3p/configuration#managedmcpservers).                                                                                                                                      |
-| `agents/`                    | Sub-agent definitions.                                                                                                                                                                                                                                                     |
-| `commands/`                  | Slash-command definitions.                                                                                                                                                                                                                                                 |
-| `skills/`                    | [Skill](/skills/overview) directories.                                                                                                                                                                                                                                     |
-| `hooks/`                     | Hook definitions that run on agent lifecycle events.                                                                                                                                                                                                                       |
+| File                         | Purpose                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.claude-plugin/plugin.json` | **Required.** Plugin manifest (name, description, version). Directories without this file are ignored.                                                                                                                                                                                                                                                   |
+| `version.json`               | `{"version": "1.2.3"}`. When this string changes, Cowork re-syncs the plugin on next launch. Any string change triggers re-sync (there's no semver ordering, so a downgrade is just another version string). If absent, the directory's modification time is used instead.                                                                               |
+| `.mcp.json`                  | MCP servers bundled with this plugin. A JSON object keyed by server name: `{"mcpServers": {"<name>": {"type": "http", "url": "...", "oauth": true}}}`. Each entry uses `type` (`http` or `sse`), not `transport`, and supports `url`, `headers`, and `oauth` only; `toolPolicy`, `headersHelper`, and `headersHelperTtlSec` are not read from this file. |
+| `agents/`                    | Sub-agent definitions.                                                                                                                                                                                                                                                                                                                                   |
+| `commands/`                  | Slash-command definitions.                                                                                                                                                                                                                                                                                                                               |
+| `skills/`                    | [Skill](/skills/overview) directories.                                                                                                                                                                                                                                                                                                                   |
+| `hooks/`                     | Hook definitions that run on agent lifecycle events.                                                                                                                                                                                                                                                                                                     |
 
 See the [plugins reference](https://code.claude.com/docs/en/plugins) for the full file format of each component, including the hooks schema.
 
@@ -213,9 +212,9 @@ See the [plugins reference](https://code.claude.com/docs/en/plugins) for the ful
   Symlinks inside a plugin are followed as long as the target resolves to a path inside the plugin directory. Symlinks that point outside the plugin (for example, `skills/foo/SKILL.md → /etc/hosts`) are skipped. A symlinked top-level plugin directory (for example, `org-plugins/my-plugin → /opt/shared/my-plugin`) is also followed.
 </Note>
 
-<Warning>
-  MCP servers declared in a plugin's `.mcp.json` do **not** inherit the per-tool policy locks (`toolPolicy`) that `managedMcpServers` supports. If you need to lock specific tools to `allow` or `blocked`, deploy that server via `managedMcpServers` instead of bundling it in a plugin.
-</Warning>
+<Note>
+  MCP servers declared in a plugin's `.mcp.json` don't carry a `toolPolicy` field in the plugin file itself. To lock tools on a plugin-delivered server, set [`orgPluginSettings`](/cowork/3p/configuration#orgpluginsettings) in managed configuration, keyed on the server's `name`.
+</Note>
 
 ### Auto-installing organization plugins
 
@@ -250,9 +249,9 @@ To roll out a new version of a plugin:
 
 Unless restricted by an admin, end users can add their own extensions through the in-app UI:
 
-- **Plugins** — install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
-- **Connectors** — install local desktop extensions (`.mcpb`) from the Connectors settings page
-- **Local MCP servers** — add local MCP server processes from **Settings → Developer**, when enabled by the admin
+* **Plugins** — install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
+* **Connectors** — install local desktop extensions (`.mcpb`) from the Connectors settings page
+* **Local MCP servers** — add local MCP server processes from **Settings → Developer**, when enabled by the admin
 
 End users cannot add remote MCP servers; remote servers are available only via admin-provisioned `managedMcpServers` or organization plugins. User-added extensions are stored in the user's [local data directory](/cowork/3p/data-storage) and apply only to that device.
 
@@ -264,7 +263,6 @@ Admins can restrict or disable each user-extension surface independently via man
 | ------------------------------------- | --------------------------------------------------------------------------- |
 | `isLocalDevMcpEnabled`                | Users cannot add their own local MCP servers from **Settings → Developer**. |
 | `isDesktopExtensionEnabled`           | Users cannot install local `.mcpb` desktop extensions.                      |
-| `isDesktopExtensionDirectoryEnabled`  | The Anthropic extension directory is hidden from the Connectors UI.         |
 | `isDesktopExtensionSignatureRequired` | (When `true`) Unsigned `.mcpb` extensions are rejected.                     |
 
-Setting the first three to `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Users can still add their own skills and plugins regardless of these settings. See the [Locked down profile](/cowork/3p/configuration#recommended-security-profiles) for a complete example.
+Setting the first two to `false` restricts MCP servers and connectors to those delivered through `managedMcpServers` and `org-plugins/`. Users can still add their own skills and plugins regardless of these settings. See the [Locked down profile](/cowork/3p/configuration#recommended-security-profiles) for a complete example.

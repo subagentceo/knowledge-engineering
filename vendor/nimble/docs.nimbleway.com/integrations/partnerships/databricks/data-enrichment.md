@@ -6,7 +6,7 @@
 
 > Call Nimble as SQL table functions in Databricks — live web search, page extraction, and Web Search Agents that land in governed Delta tables.
 
-This integration is ideal for data engineers who need live web data inside their Databricks pipelines — without leaving SQL or building a custom API integration.
+This integration is ideal for data engineers who need live web search inside their Databricks pipelines — without leaving SQL or building a custom API integration.
 
 Nimble ships as a set of SQL-native **table functions** in Unity Catalog. `SELECT … FROM nimble_search(…)` and `SELECT … FROM nimble_extract(…)` run live web search and page extraction directly inside a query, and results compose with `CREATE TABLE … AS` to land in a **governed Delta table** — access-controlled, lineage-tracked, time-travelable. The same shape exposes every [Web Search Agent](/nimble-sdk/agentic/agents) for structured, per-row enrichment.
 
@@ -28,7 +28,7 @@ Every capability is a table function — call it in the `FROM` clause. No stored
 
 * **Search and extract as first-class SQL.** `nimble_search(query, …)` returns rows of `title, description, url, content`; `nimble_extract(url, …)` returns a row of `url, format, content` (markdown / html / links). Both hit the live web through Nimble at query time.
 * **Results land as governed Delta tables.** Wrap any call in `CREATE TABLE … AS` and the output is a managed Unity Catalog table — Delta time travel, column/table lineage, and `GRANT`-based access control come for free.
-* **Every [Web Search Agent](/nimble-sdk/agentic/agent-gallery), one function.** `nimble_agent_run(agent, params_json)` runs any agent (`google_maps_search`, `amazon_serp`, `linkedin_company_details`, …) and returns the parsed payload as a navigable `VARIANT`. `nimble_agent_list()` enumerates the catalog.
+* **Every [Web Search Agent](/nimble-sdk/agentic/agent-gallery), one function.** `nimble_agent_run(agent, params_json)` runs any agent (`google_maps_search`, `amazon_serp`, `linkedin_company_details`, …) and returns the parsed payload as a navigable `VARIANT`. `nimble_agent_list()` enumerates the catalog and `nimble_agent_describe(agent)` returns an agent's exact input parameters.
 * **Per-row error isolation.** Each tool yields **zero rows on failure** instead of raising, so a batch `CREATE TABLE … AS` over thousands of inputs is never aborted by one bad row.
 * **Genie-native.** Databricks Genie registers table functions as tools, so each function is directly registrable as a Genie agent tool — the function and column `COMMENT`s are the spec the LLM reads.
 * **Stays inside your Databricks account.** Only authorized outbound calls hit Nimble. The API key lives in a Databricks secret scope and is injected server-side — it never appears in a function signature or at a call site.
@@ -37,7 +37,7 @@ Every capability is a table function — call it in the `FROM` clause. No stored
 
 * A Databricks workspace with a **serverless SQL warehouse**.
 * Privilege to create a catalog/schema (or an existing schema you own) plus `CREATE FUNCTION` on it.
-* The **Databricks CLI v0.205+**, authenticated (`databricks auth login`).
+* The **Databricks CLI v0.205+**, authenticated (`databricks auth login`), and `jq` (used by the deploy snippet to resolve a warehouse id).
 * A Nimble API key ([sign up free](https://online.nimbleway.com/signup)).
 
 <Warning>
@@ -66,58 +66,48 @@ Every capability is a table function — call it in the `FROM` clause. No stored
     `READ` lets every workspace user *call* `secret('nimble','api_key')` from SQL — values come back **redacted** in any display or log, so the plaintext can't be extracted. Replace `users` with a group name to scope access more tightly.
   </Step>
 
-  <Step title="Create the catalog and schemas">
-    `nimble_search`, `nimble_extract`, and the agent functions all live in `nimble_integration.tools`. The DDL is re-runnable (`CREATE … IF NOT EXISTS`).
-
-    ```sql theme={"system"}
-    CREATE CATALOG IF NOT EXISTS nimble_integration
-      COMMENT 'Nimble web-data integration: UC table functions wrapping Nimble APIs and agents.';
-
-    CREATE SCHEMA IF NOT EXISTS nimble_integration.tools
-      COMMENT 'Table functions wrapping Nimble APIs / agents. Callable from Genie, agents, dashboards.';
-
-    CREATE SCHEMA IF NOT EXISTS nimble_integration.recipes
-      COMMENT 'Sample inputs and end-to-end recipe outputs (Delta tables) built on the tools schema.';
-    ```
-
-    <Note>
-      If your workspace uses Unity Catalog **Default Storage**, the plain `CREATE CATALOG` may return *"Metastore storage root URL does not exist."* Create the catalog from Catalog Explorer (**Create Catalog → Default Storage**), or use the explicit `CREATE CATALOG nimble_integration MANAGED LOCATION '<uri>'` form pointed at one of your UC external locations.
-    </Note>
-
-    <Card title="cookbook/databricks/01_setup.sql" icon="github" href="https://github.com/Nimbleway/cookbook/blob/main/databricks/01_setup.sql">
-      Catalog + schema scaffolding, with the Default Storage fallbacks documented inline
-    </Card>
-  </Step>
-
-  <Step title="Deploy the tools">
-    Each tool is a Python **UDTF** (`_nimble_xxx`) that makes the HTTP call, behind a thin SQL `RETURNS TABLE` wrapper (`nimble_xxx`) that supplies defaults and injects the API key. The cookbook ships `helpers/deploy_sql.py` to post each multi-statement file to the warehouse (it treats the `$$ … $$` UDTF bodies as opaque).
+  <Step title="Get the cookbook">
+    All the SQL and the deploy helper live in the Nimble cookbook. Clone it and work from the repo root — the deploy commands below use paths relative to it.
 
     ```bash theme={"system"}
-    WH=<your-serverless-warehouse-id>   # databricks warehouses list
+    git clone https://github.com/Nimbleway/cookbook.git
+    cd cookbook
+    ```
+  </Step>
 
-    python3 databricks/helpers/deploy_sql.py --file databricks/01_setup.sql --warehouse "$WH"
-    for f in databricks/tools/*.sql; do
+  <Step title="Deploy the catalog, schemas, and tools">
+    One loop deploys everything. `01_setup.sql` creates the `nimble_integration` catalog and the `tools` + `recipes` schemas; each file in `tools/` then installs one table function. `deploy_sql.py` posts each multi-statement file to your warehouse (it treats the `$$ … $$` UDTF bodies as opaque), and all DDL is re-runnable (`CREATE … IF NOT EXISTS`).
+
+    ```bash theme={"system"}
+    # Grab a warehouse id automatically (first one), or set WH explicitly. Needs jq.
+    WH=$(databricks warehouses list -o json | jq -r '.[0].id')
+
+    for f in databricks/01_setup.sql databricks/tools/*.sql; do
         python3 databricks/helpers/deploy_sql.py --file "$f" --warehouse "$WH"
     done
     ```
 
-    `nimble_search` defaults to `search_depth = lite` (`fast` / `deep` are premium and not enabled on every account). The wrapper is what you call and what Genie registers — there is no scalar twin.
+    Each tool is a Python **UDTF** (`_nimble_xxx`) that makes the HTTP call, behind a thin SQL `RETURNS TABLE` wrapper (`nimble_xxx`) that supplies defaults and injects the API key. The wrapper is what you call and what Genie registers — there is no scalar twin. `nimble_search` defaults to `search_depth = lite` (`fast` / `deep` are premium and not enabled on every account).
+
+    <Note>
+      If your workspace uses Unity Catalog **Default Storage**, the `01_setup.sql` deploy may fail with *"Metastore storage root URL does not exist."* Create the catalog once from Catalog Explorer (**Create Catalog → Default Storage**, name it `nimble_integration`) — or use the explicit `CREATE CATALOG nimble_integration MANAGED LOCATION '<uri>'` form pointed at one of your UC external locations — then re-run the loop.
+    </Note>
 
     <Card title="cookbook/databricks/tools/" icon="github" href="https://github.com/Nimbleway/cookbook/tree/main/databricks/tools">
-      `nimble_search.sql`, `nimble_extract.sql`, `nimble_agent_list.sql`, `nimble_agent_run.sql` — full UDTF + wrapper for each, with COMMENTs and smoke tests
+      `nimble_search.sql`, `nimble_extract.sql`, `nimble_agent_list.sql`, `nimble_agent_describe.sql`, `nimble_agent_run.sql` — full UDTF + wrapper for each, with COMMENTs and smoke tests
     </Card>
   </Step>
 
   <Step title="Verify with a smoke test">
-    Both should return a populated result within \~30 seconds.
+    Both should return real results within \~30 seconds.
 
     ```sql theme={"system"}
-    -- Web search → expect > 0 rows
-    SELECT count(*) AS n
-    FROM   nimble_integration.tools.nimble_search('AI agents news', 5);
+    -- Web search → expect ~10 rows of live results (title + url populated)
+    SELECT title, url
+    FROM   nimble_integration.tools.nimble_search('AI agent frameworks news', 10);
 
-    -- Page extraction → expect a large character count
-    SELECT length(content) AS md_len
+    -- Page extraction → expect a snippet of real extracted markdown
+    SELECT substr(content, 1, 300) AS preview
     FROM   nimble_integration.tools.nimble_extract('https://www.nimbleway.com');
     ```
 
@@ -127,12 +117,13 @@ Every capability is a table function — call it in the `FROM` clause. No stored
 
 ## The tools
 
-| Function                                                    | What it does                                                                       |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `nimble_search(query, max_results, focus, search_depth, …)` | Live web search → rows of `title, description, url, content`.                      |
-| `nimble_extract(url, render, format, …)`                    | Fetch + parse one URL → a row of `url, format, content` (markdown / html / links). |
-| `nimble_agent_list(privacy, managed_by, …)`                 | The Nimble agent catalog → one row per agent.                                      |
-| `nimble_agent_run(agent, params_json, localization)`        | Run any agent → one row: response envelope + `parsing` (VARIANT).                  |
+| Function                                                    | What it does                                                                                                                                                                                        |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `nimble_search(query, max_results, focus, search_depth, …)` | Live web search → rows of `title, description, url, content`.                                                                                                                                       |
+| `nimble_extract(url, render, format, …)`                    | Fetch + parse one URL → a row of `url, format, content` (markdown / html / links).                                                                                                                  |
+| `nimble_agent_list(privacy, managed_by, …)`                 | The Nimble agent catalog → one row per agent.                                                                                                                                                       |
+| `nimble_agent_describe(agent_name)`                         | A single agent's input parameters → one row per param (`param_name`, `required`, `type`, localization/pagination flags). Use it to build a valid `nimble_agent_run` `params_json` without guessing. |
+| `nimble_agent_run(agent, params_json, localization)`        | Run any agent → one row: response envelope + `parsing` (VARIANT).                                                                                                                                   |
 
 <Tip>
   **Two functions per tool.** Each capability is a Python UDTF (`_nimble_xxx`, does the HTTP call and yields rows) behind a thin SQL `RETURNS TABLE` wrapper (`nimble_xxx`). The wrapper does three things the UDTF can't: supply `DEFAULT` parameter values (UC Python UDTFs reject them), inject `secret('nimble','api_key')` once (a UDTF can't read `secret()` itself), and — for `nimble_agent_run` — `parse_json()` the payload into a navigable `VARIANT` (a Python UDF/UDTF can't *return* `VARIANT`). You only ever call the public wrapper.
@@ -234,7 +225,7 @@ WHERE  p.amazon_asin IS NOT NULL
   AND  a.status = 'success';
 ```
 
-One input row → one output row, no `variant_explode` needed. Field names inside `parsing` differ per agent (`product_title` vs. `product_name`, `web_price` vs. `price`) — discover the catalog with `SELECT * FROM nimble_agent_list()` and inspect a single response with `SELECT parsing FROM nimble_agent_run(<agent>, …)` before pinning a projection.
+One input row → one output row, no `variant_explode` needed. Param and field names differ per agent (`amazon_pdp` takes `asin`; `product_title` vs. `product_name`, `web_price` vs. `price`) — discover the catalog with `SELECT * FROM nimble_agent_list()`, read an agent's inputs with `SELECT * FROM nimble_agent_describe('<agent>')`, and inspect a single response with `SELECT parsing FROM nimble_agent_run(<agent>, …)` before pinning a projection.
 
 ### Schedule recurring enrichment
 
@@ -261,11 +252,11 @@ A fallback query then calls `http_request(conn => 'nimble_api', method => 'POST'
 * **Tune for your Nimble rate-limit tier.** Each tool call is one upstream request — one per input row. For high-cardinality inputs (thousands of rows), watch for 429s; because failures yield zero rows, a single retry pass over the rows that produced no output is the typical recovery. Nimble's [rate-limits page](/nimble-sdk/admin/rate-limits) lists per-tier ceilings.
 * **Right-size the warehouse.** A small serverless warehouse handles daily refreshes over a few hundred input rows. For larger enrichments (10K+ rows), step up the size only for the duration of the scheduled job.
 * **Surface failures separately.** Because tools yield zero rows on failure, an input row with no matching output row is a failed call — left-join the input table against the result to find the gaps and audit them, rather than grepping job logs.
-* **Don't ship guesses.** Field names inside `parsing` differ per agent. Inspect the shape once per agent (`SELECT parsing FROM nimble_agent_run(<agent>, …)`) before pinning a projection into a dbt model or production view.
+* **Don't ship guesses.** Input params and `parsing` field names differ per agent. Read the inputs with `nimble_agent_describe('<agent>')` and inspect the output shape once (`SELECT parsing FROM nimble_agent_run(<agent>, …)`) before pinning a projection into a dbt model or production view.
 
 ## Use it from Databricks Genie
 
-Genie registers **table functions** as tools, so each public function is directly registrable — point a Genie space at `nimble_integration.tools.nimble_search` (and the others). The function `COMMENT` and per-column `COMMENT`s are what the LLM reads to decide when and how to call each tool. The cookbook ships `helpers/create_genie_space.py` to create a space wired to all four functions programmatically.
+Genie registers **table functions** as tools, so each public function is directly registrable — point a Genie space at `nimble_integration.tools.nimble_search` (and the others). The function `COMMENT` and per-column `COMMENT`s are what the LLM reads to decide when and how to call each tool. The cookbook ships `helpers/create_genie_space.py` to create a space wired to all five functions programmatically.
 
 ## Resources
 
