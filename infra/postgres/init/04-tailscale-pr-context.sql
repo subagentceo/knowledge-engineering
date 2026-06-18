@@ -13,12 +13,12 @@ BEGIN;
 -- @cube name=DimTailscaleNode version=2026.06.17 type=dim-scd1
 -- @cube.sql_table    dw.dim_tailscale_node
 -- @cube.description  Current state per Tailscale node. SCD Type I — last-write wins.
---                    Nodes belong to tailnet ts.subagentceo.io; tags from tailnet-policy.hujson.
+--                    Nodes: taile5fcbd.ts.net (subagentceo.org.github). Tags from tailnet-policy.hujson.
 -- @cube.measure      count               COUNT(*)  type:count
 -- @cube.measure      count_active        COUNT(*) FILTER (WHERE status = 'active')  type:count
 -- @cube.measure      count_by_tag        COUNT(*) GROUP BY tag  type:count
--- @cube.dimension    hostname   TEXT pk   "MagicDNS short name (wsl2-dev, macbook-m5, ke-alloydb, ...)"
--- @cube.dimension    tailnet    TEXT       "ts.subagentceo.io"
+-- @cube.dimension    hostname   TEXT pk   "MagicDNS short name (alexs-macbook-pro, wsl-ubuntu2604-jadecli, desktop-ufngrm3)"
+-- @cube.dimension    tailnet    TEXT       "taile5fcbd.ts.net (subagentceo.org.github)"
 -- @cube.dimension    ts_ip      TEXT       "100.x.y.z Tailscale IP"
 -- @cube.dimension    tag        TEXT enum[tag:dev,tag:container,tag:server]
 -- @cube.dimension    os         TEXT       "ubuntu-24.04 | macos-arm64 | docker-alpine"
@@ -33,7 +33,7 @@ BEGIN;
 -- ─────────────────────────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS dw.dim_tailscale_node (
     hostname        TEXT        PRIMARY KEY,
-    tailnet         TEXT        NOT NULL DEFAULT 'ts.subagentceo.io',
+    tailnet         TEXT        NOT NULL DEFAULT 'taile5fcbd.ts.net',
     ts_ip           TEXT,
     tag             TEXT        NOT NULL
                         CHECK (tag IN ('tag:dev','tag:container','tag:server')),
@@ -99,22 +99,21 @@ CREATE INDEX IF NOT EXISTS idx_pr_merge_node     ON dw.events_pr_merge (initiati
 CREATE INDEX IF NOT EXISTS idx_pr_merge_type     ON dw.events_pr_merge (pr_type, semvar_date);
 
 -- ─────────────────────────────────────────────────────────────────────────────
--- Seed: Tailscale nodes (ts.subagentceo.io mesh)
--- Source: infra/tailscale/README.md + tailnet-policy.hujson
+-- Seed: Tailscale nodes (taile5fcbd.ts.net — subagentceo.org.github tailnet)
+-- Source: tailscale admin → admin/machines/100.112.152.5 (confirmed 2026-06-17)
+-- Devices: alexs-macbook-pro (100.71.204.112), desktop-ufngrm3 (100.64.140.40),
+--          wsl-ubuntu2604-jadecli (100.112.152.5)
 -- ─────────────────────────────────────────────────────────────────────────────
-INSERT INTO dw.dim_tailscale_node (hostname, tag, os, metadata) VALUES
-  ('wsl2-dev',    'tag:dev',       'ubuntu-24.04',
-   '{"claude_code_port_range":"5000-5100","ssh":true,"funnel":true,"mullvad":true}'),
-  ('macbook-m5',  'tag:dev',       'macos-arm64',
-   '{"claude_code_port_range":"5000-5100","ssh":true,"funnel":true,"mullvad":true}'),
-  ('ke-alloydb',  'tag:container', 'docker',
-   '{"image":"gcr.io/alloydb-omni/alloydbomni:18","port":5432,"funnel":true}'),
-  ('ke-redis',    'tag:container', 'docker',
-   '{"image":"redis:7.0","port":6379,"funnel":true}'),
-  ('ke-cloud-agent','tag:container','docker',
-   '{"image":"ke-cloud-agent","worker":"ke-cloud-agent","funnel":true}')
+INSERT INTO dw.dim_tailscale_node (hostname, tailnet, ts_ip, tag, os, metadata) VALUES
+  ('wsl-ubuntu2604-jadecli', 'taile5fcbd.ts.net', '100.112.152.5', 'tag:server', 'ubuntu-26.04',
+   '{"alloydb_port":5432,"redis_port":6379,"wsl":true,"windows_host":"desktop-ufngrm3"}'),
+  ('alexs-macbook-pro',      'taile5fcbd.ts.net', '100.71.204.112','tag:dev',    'macos-arm64',
+   '{"claude_code_ports":"5000-5100","cpu":"Apple M5","memory_gb":16}'),
+  ('desktop-ufngrm3',        'taile5fcbd.ts.net', '100.64.140.40', 'tag:dev',    'windows-11',
+   '{"wsl_distro":"Ubuntu-26.04","docker_desktop":true}')
 ON CONFLICT (hostname) DO UPDATE
-  SET updated_at = NOW(), metadata = EXCLUDED.metadata;
+  SET tailnet = EXCLUDED.tailnet, ts_ip = EXCLUDED.ts_ip,
+      updated_at = NOW(), metadata = EXCLUDED.metadata;
 
 -- ─────────────────────────────────────────────────────────────────────────────
 -- Seed: PRs merged 2026-06-16 PST (PDT=UTC-7 → window 2026-06-16T07:00Z..2026-06-17T07:00Z)
@@ -131,7 +130,7 @@ VALUES
    '2026.06.16',
    '2026-06-16T07:00:00Z', '2026-06-17T07:00:00Z',
    'feat', 'coding-plugins', 10,
-   'macbook-m5', 'tag:dev'),
+   'alexs-macbook-pro', 'tag:dev'),
   (498,
    'docs(container): setup.sh, doctor.sh, and web/mobile VM references (O1)',
    'claude/container-docs',
@@ -139,7 +138,7 @@ VALUES
    '2026.06.16',
    '2026-06-16T07:00:00Z', '2026-06-17T07:00:00Z',
    'docs', 'container', 4,
-   'macbook-m5', 'tag:dev'),
+   'alexs-macbook-pro', 'tag:dev'),
   (496,
    'feat(anduril): mirror developer.anduril.com Lattice SDK docs (O1)',
    'claude/session-20260617-0217',
@@ -147,7 +146,33 @@ VALUES
    '2026.06.16',
    '2026-06-16T07:00:00Z', '2026-06-17T07:00:00Z',
    'feat', 'anduril', 67,
-   'macbook-m5', 'tag:dev')
+   'alexs-macbook-pro', 'tag:dev')
+ON CONFLICT (pr_number, repo) DO NOTHING;
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- Seed: PRs merged 2026-06-17 PST (PDT=UTC-7 → window 2026-06-17T07:00Z..2026-06-18T07:00Z)
+-- OWSL1 (#515) initiated from wsl-ubuntu2604-jadecli (100.112.152.5)
+-- ─────────────────────────────────────────────────────────────────────────────
+INSERT INTO dw.events_pr_merge
+  (pr_number, title, branch, merged_at, semvar_date, utc_window_start, utc_window_end,
+   pr_type, scope, files_changed, initiating_node, initiating_tag)
+VALUES
+  (516,
+   'feat(vendor): vendor crawl results — 2983 files, +731k lines',
+   'claude/vendor-crawl-2026-06-17',
+   '2026-06-18T04:30:00Z',
+   '2026.06.17',
+   '2026-06-17T07:00:00Z', '2026-06-18T07:00:00Z',
+   'feat', 'vendor', 2983,
+   'alexs-macbook-pro', 'tag:dev'),
+  (515,
+   'feat(infra): WSL persistent backend for AlloyDB Omni + Redis (OWSL1)',
+   'claude/wsl-persistent-backend',
+   '2026-06-18T03:00:00Z',
+   '2026.06.17',
+   '2026-06-17T07:00:00Z', '2026-06-18T07:00:00Z',
+   'feat', 'infra', 12,
+   'wsl-ubuntu2604-jadecli', 'tag:server')
 ON CONFLICT (pr_number, repo) DO NOTHING;
 
 COMMIT;

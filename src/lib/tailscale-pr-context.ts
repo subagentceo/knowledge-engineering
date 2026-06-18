@@ -205,7 +205,7 @@ export async function getPrMergesByDate(
 }
 
 // ── Seed data: PRs merged 2026-06-16 PST ─────────────────────────────────────
-// Sourced from: gh pr list --state merged (confirmed 2026-06-17)
+// Sourced from: gh pr list --state merged (confirmed 2026-06-17/18)
 // UTC window: 2026-06-16T07:00:00Z → 2026-06-17T07:00:00Z  (PDT = UTC-7)
 
 export const MERGED_2026_06_16_PST: PrMergeEvent[] = [
@@ -218,7 +218,7 @@ export const MERGED_2026_06_16_PST: PrMergeEvent[] = [
     pr_type:         "feat",
     scope:           "coding-plugins",
     files_changed:   10,
-    initiating_node: "macbook-m5",
+    initiating_node: "alexs-macbook-pro",
     initiating_tag:  "tag:dev",
     repo:            "subagentceo/knowledge-engineering",
   },
@@ -231,7 +231,7 @@ export const MERGED_2026_06_16_PST: PrMergeEvent[] = [
     pr_type:         "docs",
     scope:           "container",
     files_changed:   4,
-    initiating_node: "macbook-m5",
+    initiating_node: "alexs-macbook-pro",
     initiating_tag:  "tag:dev",
     repo:            "subagentceo/knowledge-engineering",
   },
@@ -244,8 +244,40 @@ export const MERGED_2026_06_16_PST: PrMergeEvent[] = [
     pr_type:         "feat",
     scope:           "anduril",
     files_changed:   67,
-    initiating_node: "macbook-m5",
+    initiating_node: "alexs-macbook-pro",
     initiating_tag:  "tag:dev",
+    repo:            "subagentceo/knowledge-engineering",
+  },
+];
+
+// ── Seed data: PRs merged 2026-06-17 PST ─────────────────────────────────────
+// UTC window: 2026-06-17T07:00:00Z → 2026-06-18T07:00:00Z  (PDT = UTC-7)
+
+export const MERGED_2026_06_17_PST: PrMergeEvent[] = [
+  {
+    pr_number:       516,
+    title:           "feat(vendor): vendor crawl results — 2983 files, +731k lines",
+    branch:          "claude/vendor-crawl-2026-06-17",
+    merged_at:       "2026-06-18T04:30:00Z",
+    semvar_date:     "2026.06.17",
+    pr_type:         "feat",
+    scope:           "vendor",
+    files_changed:   2983,
+    initiating_node: "alexs-macbook-pro",
+    initiating_tag:  "tag:dev",
+    repo:            "subagentceo/knowledge-engineering",
+  },
+  {
+    pr_number:       515,
+    title:           "feat(infra): WSL persistent backend for AlloyDB Omni + Redis (OWSL1)",
+    branch:          "claude/wsl-persistent-backend",
+    merged_at:       "2026-06-18T03:00:00Z",
+    semvar_date:     "2026.06.17",
+    pr_type:         "feat",
+    scope:           "infra",
+    files_changed:   12,
+    initiating_node: "wsl-ubuntu2604-jadecli",
+    initiating_tag:  "tag:server",
     repo:            "subagentceo/knowledge-engineering",
   },
 ];
@@ -253,13 +285,14 @@ export const MERGED_2026_06_16_PST: PrMergeEvent[] = [
 // ── Seed runner (call from scripts/ or SessionStart hook) ─────────────────────
 
 export async function seedYesterday(opts: StoreOpts): Promise<void> {
+  // Actual Tailscale mesh: taile5fcbd.ts.net (subagentceo.org.github tailnet)
+  // Hostnames from: tailscale admin at 100.112.152.5 / 100.71.204.112 / 100.64.140.40
   const nodes: TailscaleNode[] = [
-    { hostname: "wsl2-dev",       tag: "tag:dev",       os: "ubuntu-24.04", tailnet: "ts.subagentceo.io", status: "active", metadata: { claude_code_ports: "5000-5100" } },
-    { hostname: "macbook-m5",     tag: "tag:dev",       os: "macos-arm64",  tailnet: "ts.subagentceo.io", status: "active", metadata: { claude_code_ports: "5000-5100" } },
-    { hostname: "ke-alloydb",     tag: "tag:container", os: "docker",       tailnet: "ts.subagentceo.io", status: "active", metadata: { port: 5432 } },
-    { hostname: "ke-redis",       tag: "tag:container", os: "docker",       tailnet: "ts.subagentceo.io", status: "active", metadata: { port: 6379 } },
-    { hostname: "ke-cloud-agent", tag: "tag:container", os: "docker",       tailnet: "ts.subagentceo.io", status: "active", metadata: {} },
+    { hostname: "wsl-ubuntu2604-jadecli", tag: "tag:server", os: "ubuntu-26.04", tailnet: "taile5fcbd.ts.net", status: "active", metadata: { ts_ip: "100.112.152.5", alloydb_port: 5432, redis_port: 6379 } },
+    { hostname: "alexs-macbook-pro",      tag: "tag:dev",    os: "macos-arm64",  tailnet: "taile5fcbd.ts.net", status: "active", metadata: { ts_ip: "100.71.204.112", claude_code_ports: "5000-5100" } },
+    { hostname: "desktop-ufngrm3",        tag: "tag:dev",    os: "windows-11",   tailnet: "taile5fcbd.ts.net", status: "active", metadata: { ts_ip: "100.64.140.40", wsl_distro: "Ubuntu-26.04" } },
   ];
   for (const node of nodes) await recordTailscaleNode(node, opts);
   for (const pr of MERGED_2026_06_16_PST) await recordPrMerge(pr, opts);
+  for (const pr of MERGED_2026_06_17_PST) await recordPrMerge(pr, opts);
 }
