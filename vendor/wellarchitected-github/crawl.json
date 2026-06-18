@@ -1,16 +1,15 @@
 {
   "name": "wellarchitected-github",
-  "homepage": "https://wellarchitected.github.com",
+  "_migration_note": "Domain wellarchitected.github.com redirected to learn.github.com/well-architected/ (JS SPA, React, no static sitemap). Existing 90 files in vendor/wellarchitected-github/ are preserved as last-known-good snapshot from previous crawl. Source repo is private; no llms.txt or accessible markdown API available. To refresh: check if public GitHub Pages repo is published.",
+  "homepage": "https://learn.github.com/well-architected/",
   "llms_txt_candidates": [],
-  "sitemap_xml_sources": [
-    "https://wellarchitected.github.com/sitemap.xml"
-  ],
+  "sitemap_xml_sources": [],
   "transform": "html-extract",
   "allow_prefixes": [
-    "https://wellarchitected.github.com/"
+    "https://learn.github.com/well-architected/"
   ],
   "deny_prefixes": [],
-  "page_cap": 100,
+  "page_cap": 0,
   "html_extract": {
     "selector": "article, main"
   }
