@@ -9,6 +9,6 @@
     "https://docs.parallel.ai/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 0,
   "llms_txt": "https://docs.parallel.ai/llms.txt"
 }

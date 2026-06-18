@@ -10,6 +10,6 @@
     "https://elevenlabs.io/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 0,
   "llms_txt": "https://elevenlabs.io/docs/llms.txt"
 }

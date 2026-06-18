@@ -20,7 +20,7 @@
   "deny_prefixes": [
     "https://platform.claude.com/docs/en/api/terraform/"
   ],
-  "page_cap": 1700,
+  "page_cap": 0,
   "llms_txt": "https://code.claude.com/llms.txt",
   "html_index_sources": [
     {

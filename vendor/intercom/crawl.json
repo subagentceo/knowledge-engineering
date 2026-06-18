@@ -9,6 +9,6 @@
     "https://developers.intercom.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 100,
+  "page_cap": 0,
   "llms_txt": "https://developers.intercom.com/llms.txt"
 }
